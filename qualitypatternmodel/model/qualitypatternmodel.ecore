@@ -1227,7 +1227,7 @@
       <eOperations name="setNeoDirection">
         <eParameters name="neoDirection" eType="#//adaptionNeo4J/NeoDirection"/>
       </eOperations>
-      <eOperations name="isLastRelation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="isLastSimpleEdge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="keyvalueparam" eType="#//parameters/KeyValueParam"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="neoDirection" unique="false"
           eType="#//adaptionNeo4J/NeoDirection" changeable="false"/>
@@ -1236,6 +1236,8 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoTargetNodeLabels"
           upperBound="-1" eType="#//parameters/TextLiteralParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoEdgeLabel" eType="#//parameters/TextLiteralParam"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isLastSimpleEdge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoPathPart" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getSimpleEdges" upperBound="-1" eType="#//adaptionNeo4J/NeoSimpleEdge"/>

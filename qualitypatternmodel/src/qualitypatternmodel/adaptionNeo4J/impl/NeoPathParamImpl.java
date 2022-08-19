@@ -198,9 +198,8 @@ public class NeoPathParamImpl extends ParameterImpl implements NeoPathParam {
 
 	@Override
 	public String generateCypher() throws InvalidityException {
-		StringBuilder cypher = new StringBuilder();
-		
-		return cypher.toString();
+		String cypher = neoPath.generateCypher();
+		return cypher;
 	}
 	
 	

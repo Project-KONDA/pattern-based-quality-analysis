@@ -15,7 +15,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#setNeoDirection(qualitypatternmodel.adaptionNeo4J.NeoDirection) <em>Set Neo Direction</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isLastRelation() <em>Is Last Relation</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isLastSimpleEdge() <em>Is Last Simple Edge</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#setTargetNodeLabel(qualitypatternmodel.parameters.TextLiteralParam) <em>Set Target Node Label</em>}</li>
  * </ul>
  * </p>
@@ -89,13 +89,13 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isLastRelation() <em>Is Last Relation</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isLastSimpleEdge() <em>Is Last Simple Edge</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isLastRelation()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isLastSimpleEdge()
 	 * @generated
 	 */
-	public void testIsLastRelation() {
+	public void testIsLastSimpleEdge() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

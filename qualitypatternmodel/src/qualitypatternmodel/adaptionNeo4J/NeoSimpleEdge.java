@@ -21,6 +21,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getEdgeNumber <em>Edge Number</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getNeoTargetNodeLabels <em>Neo Target Node Labels</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getNeoEdgeLabel <em>Neo Edge Label</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isIsLastSimpleEdge <em>Is Last Simple Edge</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoSimpleEdge()
@@ -71,6 +72,29 @@ public interface NeoSimpleEdge extends NeoPathPart, NeoAbstractEdge {
 	 * @generated
 	 */
 	void setNeoEdgeLabel(TextLiteralParam value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Last Simple Edge</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Last Simple Edge</em>' attribute.
+	 * @see #setIsLastSimpleEdge(boolean)
+	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoSimpleEdge_IsLastSimpleEdge()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isIsLastSimpleEdge();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isIsLastSimpleEdge <em>Is Last Simple Edge</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Last Simple Edge</em>' attribute.
+	 * @see #isIsLastSimpleEdge()
+	 * @generated
+	 */
+	void setIsLastSimpleEdge(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Neo Direction</b></em>' attribute.
@@ -160,6 +184,6 @@ public interface NeoSimpleEdge extends NeoPathPart, NeoAbstractEdge {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	boolean isLastRelation();
+	boolean isLastSimpleEdge();
 
 } // SimpleEdge

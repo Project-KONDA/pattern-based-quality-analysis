@@ -49,6 +49,7 @@ public class NeoSimpleEdgeItemProvider extends NeoPathPartItemProvider {
 			addEdgeNumberPropertyDescriptor(object);
 			addNeoTargetNodeLabelsPropertyDescriptor(object);
 			addNeoEdgeLabelPropertyDescriptor(object);
+			addIsLastSimpleEdgePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -93,6 +94,28 @@ public class NeoSimpleEdgeItemProvider extends NeoPathPartItemProvider {
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Is Last Simple Edge feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIsLastSimpleEdgePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NeoSimpleEdge_isLastSimpleEdge_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NeoSimpleEdge_isLastSimpleEdge_feature", "_UI_NeoSimpleEdge_type"),
+				 AdaptionNeo4JPackage.Literals.NEO_SIMPLE_EDGE__IS_LAST_SIMPLE_EDGE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -203,6 +226,7 @@ public class NeoSimpleEdgeItemProvider extends NeoPathPartItemProvider {
 		switch (notification.getFeatureID(NeoSimpleEdge.class)) {
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_DIRECTION:
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
+			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__IS_LAST_SIMPLE_EDGE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

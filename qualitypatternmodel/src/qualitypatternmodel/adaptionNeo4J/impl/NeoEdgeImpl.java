@@ -4,7 +4,7 @@ package qualitypatternmodel.adaptionNeo4J.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -12,9 +12,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
+import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
+import qualitypatternmodel.parameters.TextLiteralParam;
 
 /**
  * <!-- begin-user-doc -->
@@ -64,7 +67,67 @@ public class NeoEdgeImpl extends RelationImpl implements NeoEdge {
 	public String generateCypher() throws InvalidityException {
 		StringBuilder cypher = new StringBuilder("");
 		if(!translated) {
-			//TODO
+			EList<NeoSimpleEdge> neoSimpleEdges = getNeoPathParam().getNeoPath().getSimpleEdges();
+			if (neoSimpleEdges == null || neoSimpleEdges.size() == 0) throw new InvalidityException();
+			this.translated = true;
+			
+			if (neoSimpleEdges.size() > 1) {
+				NeoSimpleEdge last = null;
+				//Every ComplexEdge needs a last SimpleEdge
+				for (NeoSimpleEdge possibleLast : neoSimpleEdges) {
+					if(possibleLast.isLastSimpleEdge()) { 
+						last = possibleLast;
+					}
+				}
+				EList<TextLiteralParam> neoLastTargetLabels = null;
+				if (last != null) neoLastTargetLabels = last.getNeoTargetNodeLabels();
+				cypher.append(getNeoPathParam().generateCypher());
+				
+				//For handling a not suitable suffix like -() or -(:AnyLabels)
+				//Since -()() or -(:AnyLabels)() is a not valid syntax for Cypher
+				if (getTarget() != null && getTarget() instanceof NeoNode ) {
+					if (neoLastTargetLabels != null && neoLastTargetLabels.size() != 0) {
+						NeoNodeImpl nni = (NeoNodeImpl) getTarget();
+						EList<TextLiteralParam> nodeLabels = nni.getNeoNodeLabels();
+						boolean labelEqual = true;
+						boolean labelIncluded;
+						if (nodeLabels.size() == neoLastTargetLabels.size()) {
+							for (TextLiteralParam edgeTargetLabel : neoLastTargetLabels) {
+								labelIncluded = false;
+								for (TextLiteralParam nodeLabel : nodeLabels) {
+									if (nodeLabel.getValue().compareTo(edgeTargetLabel.getValue()) == 0) {
+										labelIncluded = true;
+									}
+								}
+								if (labelIncluded == false) {
+									labelEqual = false;
+									break;
+								}
+							}
+						} else {
+							labelEqual = false;
+						}
+						
+						String cypherEdge = getNeoPathParam().generateCypher();
+						if(labelEqual) {
+							int until = cypherEdge.indexOf("[" + last.getCypherVariable() + "]") + last.getCypherVariable().length() + 3; //The three is for the symbos []-
+							cypher.append(cypherEdge.substring(0, until));
+						} else if(!labelEqual) {
+							//For connecting the last node of the NeoEdge with the following Complex node
+							cypher.append(cypherEdge + "--");
+						} else if (last.generateCypher().subSequence(last.generateCypher().length() - 2, 
+								last.generateCypher().length() - 1) == "()") {
+							cypher.append(cypherEdge.substring(0, cypherEdge.length() - 3));
+						} else {
+							throw new InvalidityException();
+						}
+					}
+				} else {
+					cypher.append(getNeoPathParam().generateCypher());
+				}
+			} else if (neoSimpleEdges.size() == 1) {
+				cypher.append(neoSimpleEdges.get(0).generateCypher());
+			}
 		}
 		return cypher.toString();		
 	}

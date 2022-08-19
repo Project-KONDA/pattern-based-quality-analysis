@@ -1952,13 +1952,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_SIMPLE_EDGE__NEO_EDGE_LABEL = NEO_PATH_PART_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Is Last Simple Edge</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE__IS_LAST_SIMPLE_EDGE = NEO_PATH_PART_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Neo Simple Edge</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE_FEATURE_COUNT = NEO_PATH_PART_FEATURE_COUNT + 5;
+	int NEO_SIMPLE_EDGE_FEATURE_COUNT = NEO_PATH_PART_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2204,13 +2213,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_SIMPLE_EDGE___SET_NEO_DIRECTION__NEODIRECTION = NEO_PATH_PART_OPERATION_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Is Last Relation</em>' operation.
+	 * The operation id for the '<em>Is Last Simple Edge</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE___IS_LAST_RELATION = NEO_PATH_PART_OPERATION_COUNT + 2;
+	int NEO_SIMPLE_EDGE___IS_LAST_SIMPLE_EDGE = NEO_PATH_PART_OPERATION_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Neo Simple Edge</em>' class.
@@ -4532,6 +4541,17 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EReference getNeoSimpleEdge_NeoEdgeLabel();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isIsLastSimpleEdge <em>Is Last Simple Edge</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Last Simple Edge</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isIsLastSimpleEdge()
+	 * @see #getNeoSimpleEdge()
+	 * @generated
+	 */
+	EAttribute getNeoSimpleEdge_IsLastSimpleEdge();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#setNeoDirection(qualitypatternmodel.adaptionNeo4J.NeoDirection) <em>Set Neo Direction</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4542,14 +4562,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EOperation getNeoSimpleEdge__SetNeoDirection__NeoDirection();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isLastRelation() <em>Is Last Relation</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isLastSimpleEdge() <em>Is Last Simple Edge</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Last Relation</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isLastRelation()
+	 * @return the meta object for the '<em>Is Last Simple Edge</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isLastSimpleEdge()
 	 * @generated
 	 */
-	EOperation getNeoSimpleEdge__IsLastRelation();
+	EOperation getNeoSimpleEdge__IsLastSimpleEdge();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart <em>Neo Path Part</em>}'.
@@ -4909,6 +4929,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EReference NEO_SIMPLE_EDGE__NEO_EDGE_LABEL = eINSTANCE.getNeoSimpleEdge_NeoEdgeLabel();
 
 		/**
+		 * The meta object literal for the '<em><b>Is Last Simple Edge</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NEO_SIMPLE_EDGE__IS_LAST_SIMPLE_EDGE = eINSTANCE.getNeoSimpleEdge_IsLastSimpleEdge();
+
+		/**
 		 * The meta object literal for the '<em><b>Set Neo Direction</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4917,12 +4945,12 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EOperation NEO_SIMPLE_EDGE___SET_NEO_DIRECTION__NEODIRECTION = eINSTANCE.getNeoSimpleEdge__SetNeoDirection__NeoDirection();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Last Relation</b></em>' operation.
+		 * The meta object literal for the '<em><b>Is Last Simple Edge</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation NEO_SIMPLE_EDGE___IS_LAST_RELATION = eINSTANCE.getNeoSimpleEdge__IsLastRelation();
+		EOperation NEO_SIMPLE_EDGE___IS_LAST_SIMPLE_EDGE = eINSTANCE.getNeoSimpleEdge__IsLastSimpleEdge();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl <em>Neo Path Part</em>}' class.
