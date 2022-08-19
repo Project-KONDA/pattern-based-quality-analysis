@@ -28,7 +28,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * @model
  * @generated
  */
-public interface NeoSimpleEdge extends NeoPathPart, NeoAbstractEdge {
+public interface NeoSimpleEdge extends NeoPathPart {
 	/**
 	 * Returns the value of the '<em><b>Keyvalueparam</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -185,5 +185,13 @@ public interface NeoSimpleEdge extends NeoPathPart, NeoAbstractEdge {
 	 * @generated
 	 */
 	boolean isLastSimpleEdge();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void setTargetNodeLabel(TextLiteralParam targetNodeLabel);
 
 } // SimpleEdge

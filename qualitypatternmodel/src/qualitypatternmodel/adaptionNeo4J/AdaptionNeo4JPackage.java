@@ -1852,22 +1852,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_COMPLEX_EDGE___GET_CYPHER_VARIABLE = NEO_PATH_PART___GET_CYPHER_VARIABLE;
 
 	/**
-	 * The operation id for the '<em>Set Target Node Label</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_COMPLEX_EDGE___SET_TARGET_NODE_LABEL__TEXTLITERALPARAM = NEO_PATH_PART_OPERATION_COUNT + 0;
-
-	/**
 	 * The operation id for the '<em>Validate Complex Edge</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_COMPLEX_EDGE___VALIDATE_COMPLEX_EDGE = NEO_PATH_PART_OPERATION_COUNT + 1;
+	int NEO_COMPLEX_EDGE___VALIDATE_COMPLEX_EDGE = NEO_PATH_PART_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Neo Complex Edge</em>' class.
@@ -1876,7 +1867,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_COMPLEX_EDGE_OPERATION_COUNT = NEO_PATH_PART_OPERATION_COUNT + 2;
+	int NEO_COMPLEX_EDGE_OPERATION_COUNT = NEO_PATH_PART_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl <em>Neo Simple Edge</em>}' class.
@@ -2195,22 +2186,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_SIMPLE_EDGE___GET_CYPHER_VARIABLE = NEO_PATH_PART___GET_CYPHER_VARIABLE;
 
 	/**
-	 * The operation id for the '<em>Set Target Node Label</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_SIMPLE_EDGE___SET_TARGET_NODE_LABEL__TEXTLITERALPARAM = NEO_PATH_PART_OPERATION_COUNT + 0;
-
-	/**
 	 * The operation id for the '<em>Set Neo Direction</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE___SET_NEO_DIRECTION__NEODIRECTION = NEO_PATH_PART_OPERATION_COUNT + 1;
+	int NEO_SIMPLE_EDGE___SET_NEO_DIRECTION__NEODIRECTION = NEO_PATH_PART_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Is Last Simple Edge</em>' operation.
@@ -2219,7 +2201,16 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE___IS_LAST_SIMPLE_EDGE = NEO_PATH_PART_OPERATION_COUNT + 2;
+	int NEO_SIMPLE_EDGE___IS_LAST_SIMPLE_EDGE = NEO_PATH_PART_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Set Target Node Label</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE___SET_TARGET_NODE_LABEL__TEXTLITERALPARAM = NEO_PATH_PART_OPERATION_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Neo Simple Edge</em>' class.
@@ -4297,22 +4288,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_ABSTRACT_EDGE_FEATURE_COUNT = 0;
 
 	/**
-	 * The operation id for the '<em>Set Target Node Label</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ABSTRACT_EDGE___SET_TARGET_NODE_LABEL__TEXTLITERALPARAM = 0;
-
-	/**
 	 * The number of operations of the '<em>Neo Abstract Edge</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_EDGE_OPERATION_COUNT = 1;
+	int NEO_ABSTRACT_EDGE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam <em>Neo Abstract Path Param</em>}' class.
@@ -4572,6 +4554,16 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EOperation getNeoSimpleEdge__IsLastSimpleEdge();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#setTargetNodeLabel(qualitypatternmodel.parameters.TextLiteralParam) <em>Set Target Node Label</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Target Node Label</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#setTargetNodeLabel(qualitypatternmodel.parameters.TextLiteralParam)
+	 * @generated
+	 */
+	EOperation getNeoSimpleEdge__SetTargetNodeLabel__TextLiteralParam();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart <em>Neo Path Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4716,16 +4708,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getNeoAbstractEdge();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#setTargetNodeLabel(qualitypatternmodel.parameters.TextLiteralParam) <em>Set Target Node Label</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Set Target Node Label</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#setTargetNodeLabel(qualitypatternmodel.parameters.TextLiteralParam)
-	 * @generated
-	 */
-	EOperation getNeoAbstractEdge__SetTargetNodeLabel__TextLiteralParam();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam <em>Neo Abstract Path Param</em>}'.
@@ -4953,6 +4935,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EOperation NEO_SIMPLE_EDGE___IS_LAST_SIMPLE_EDGE = eINSTANCE.getNeoSimpleEdge__IsLastSimpleEdge();
 
 		/**
+		 * The meta object literal for the '<em><b>Set Target Node Label</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_SIMPLE_EDGE___SET_TARGET_NODE_LABEL__TEXTLITERALPARAM = eINSTANCE.getNeoSimpleEdge__SetTargetNodeLabel__TextLiteralParam();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl <em>Neo Path Part</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5075,14 +5065,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * @generated
 		 */
 		EClass NEO_ABSTRACT_EDGE = eINSTANCE.getNeoAbstractEdge();
-
-		/**
-		 * The meta object literal for the '<em><b>Set Target Node Label</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NEO_ABSTRACT_EDGE___SET_TARGET_NODE_LABEL__TEXTLITERALPARAM = eINSTANCE.getNeoAbstractEdge__SetTargetNodeLabel__TextLiteralParam();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam <em>Neo Abstract Path Param</em>}' class.

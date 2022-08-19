@@ -1214,20 +1214,23 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoNodeLabels" upperBound="-1"
           eType="#//parameters/TextLiteralParam"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoEdge" eSuperTypes="#//graphstructure/Relation">
+    <eClassifiers xsi:type="ecore:EClass" name="NeoEdge" eSuperTypes="#//graphstructure/Relation #//adaptionNeo4J/NeoAbstractEdge">
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoPathParam" eType="#//adaptionNeo4J/NeoPathParam"
           eOpposite="#//adaptionNeo4J/NeoPathParam/neoEdge"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoComplexEdge" eSuperTypes="#//adaptionNeo4J/NeoPathPart #//adaptionNeo4J/NeoAbstractEdge">
+    <eClassifiers xsi:type="ecore:EClass" name="NeoComplexEdge" eSuperTypes="#//adaptionNeo4J/NeoPathPart">
       <eOperations name="validateComplexEdge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoPath" lowerBound="2"
           upperBound="-1" eType="#//adaptionNeo4J/NeoPathPart" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoSimpleEdge" eSuperTypes="#//adaptionNeo4J/NeoPathPart #//adaptionNeo4J/NeoAbstractEdge">
+    <eClassifiers xsi:type="ecore:EClass" name="NeoSimpleEdge" eSuperTypes="#//adaptionNeo4J/NeoPathPart">
       <eOperations name="setNeoDirection">
         <eParameters name="neoDirection" eType="#//adaptionNeo4J/NeoDirection"/>
       </eOperations>
       <eOperations name="isLastSimpleEdge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="setTargetNodeLabel">
+        <eParameters name="targetNodeLabel" eType="#//parameters/TextLiteralParam"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="keyvalueparam" eType="#//parameters/KeyValueParam"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="neoDirection" unique="false"
           eType="#//adaptionNeo4J/NeoDirection" changeable="false"/>
@@ -1261,15 +1264,11 @@
           eOpposite="#//adaptionNeo4J/NeoPropertyEdge/neoPropertyPathParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoPropertyName" eType="#//parameters/TextLiteralParam"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoPropertyEdge" eSuperTypes="#//graphstructure/Relation">
+    <eClassifiers xsi:type="ecore:EClass" name="NeoPropertyEdge" eSuperTypes="#//graphstructure/Relation #//adaptionNeo4J/NeoAbstractEdge">
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoPropertyPathParam"
           eType="#//adaptionNeo4J/NeoPropertyPathParam" eOpposite="#//adaptionNeo4J/NeoPropertyPathParam/neoPropertyEdge"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoAbstractEdge" abstract="true">
-      <eOperations name="setTargetNodeLabel">
-        <eParameters name="targetNodeLabel" eType="#//parameters/TextLiteralParam"/>
-      </eOperations>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NeoAbstractEdge" abstract="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="NeoAbstractPathParam" abstract="true"
         interface="true">
       <eOperations name="getLastRelations" upperBound="-1" eType="#//adaptionNeo4J/NeoAbstractEdge"/>

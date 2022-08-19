@@ -4,8 +4,6 @@ package qualitypatternmodel.adaptionNeo4J;
 
 import org.eclipse.emf.ecore.EObject;
 
-import qualitypatternmodel.parameters.TextLiteralParam;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Neo Abstract Edge</b></em>'.
@@ -17,12 +15,5 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * @generated
  */
 public interface NeoAbstractEdge extends EObject {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void setTargetNodeLabel(TextLiteralParam targetNodeLabel);
 
 } // NeoAbstractEdge

@@ -15,13 +15,11 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 
@@ -181,29 +179,10 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	 * @generated
 	 */
 	@Override
-	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == NeoAbstractEdge.class) {
-			switch (baseOperationID) {
-				case AdaptionNeo4JPackage.NEO_ABSTRACT_EDGE___SET_TARGET_NODE_LABEL__TEXTLITERALPARAM: return AdaptionNeo4JPackage.NEO_COMPLEX_EDGE___SET_TARGET_NODE_LABEL__TEXTLITERALPARAM;
-				default: return -1;
-			}
-		}
-		return super.eDerivedOperationID(baseOperationID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE___VALIDATE_COMPLEX_EDGE:
 				return validateComplexEdge();
-			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE___SET_TARGET_NODE_LABEL__TEXTLITERALPARAM:
-				setTargetNodeLabel((TextLiteralParam)arguments.get(0));
-				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -242,10 +221,5 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		return false;
 	}
 
-	@Override
-	public void setTargetNodeLabel(TextLiteralParam targetNodeLabel) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException();
-	}
 
 } //SequenceEdgeImpl

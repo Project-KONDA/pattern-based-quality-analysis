@@ -98,6 +98,7 @@ public class AdaptionNeo4JSwitch<T> extends Switch<T> {
 				NeoEdge neoEdge = (NeoEdge)theEObject;
 				T result = caseNeoEdge(neoEdge);
 				if (result == null) result = caseRelation(neoEdge);
+				if (result == null) result = caseNeoAbstractEdge(neoEdge);
 				if (result == null) result = caseAdaptable(neoEdge);
 				if (result == null) result = casePatternElement(neoEdge);
 				if (result == null) result = defaultCase(theEObject);
@@ -107,7 +108,6 @@ public class AdaptionNeo4JSwitch<T> extends Switch<T> {
 				NeoComplexEdge neoComplexEdge = (NeoComplexEdge)theEObject;
 				T result = caseNeoComplexEdge(neoComplexEdge);
 				if (result == null) result = caseNeoPathPart(neoComplexEdge);
-				if (result == null) result = caseNeoAbstractEdge(neoComplexEdge);
 				if (result == null) result = casePatternElement(neoComplexEdge);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -116,7 +116,6 @@ public class AdaptionNeo4JSwitch<T> extends Switch<T> {
 				NeoSimpleEdge neoSimpleEdge = (NeoSimpleEdge)theEObject;
 				T result = caseNeoSimpleEdge(neoSimpleEdge);
 				if (result == null) result = caseNeoPathPart(neoSimpleEdge);
-				if (result == null) result = caseNeoAbstractEdge(neoSimpleEdge);
 				if (result == null) result = casePatternElement(neoSimpleEdge);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -164,6 +163,7 @@ public class AdaptionNeo4JSwitch<T> extends Switch<T> {
 				NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge)theEObject;
 				T result = caseNeoPropertyEdge(neoPropertyEdge);
 				if (result == null) result = caseRelation(neoPropertyEdge);
+				if (result == null) result = caseNeoAbstractEdge(neoPropertyEdge);
 				if (result == null) result = caseAdaptable(neoPropertyEdge);
 				if (result == null) result = casePatternElement(neoPropertyEdge);
 				if (result == null) result = defaultCase(theEObject);

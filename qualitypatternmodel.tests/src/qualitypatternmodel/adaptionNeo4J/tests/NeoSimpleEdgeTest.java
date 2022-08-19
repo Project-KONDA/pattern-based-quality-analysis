@@ -16,7 +16,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#setNeoDirection(qualitypatternmodel.adaptionNeo4J.NeoDirection) <em>Set Neo Direction</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isLastSimpleEdge() <em>Is Last Simple Edge</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#setTargetNodeLabel(qualitypatternmodel.parameters.TextLiteralParam) <em>Set Target Node Label</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#setTargetNodeLabel(qualitypatternmodel.parameters.TextLiteralParam) <em>Set Target Node Label</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -102,10 +102,10 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#setTargetNodeLabel(qualitypatternmodel.parameters.TextLiteralParam) <em>Set Target Node Label</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#setTargetNodeLabel(qualitypatternmodel.parameters.TextLiteralParam) <em>Set Target Node Label</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#setTargetNodeLabel(qualitypatternmodel.parameters.TextLiteralParam)
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#setTargetNodeLabel(qualitypatternmodel.parameters.TextLiteralParam)
 	 * @generated
 	 */
 	public void testSetTargetNodeLabel__TextLiteralParam() {

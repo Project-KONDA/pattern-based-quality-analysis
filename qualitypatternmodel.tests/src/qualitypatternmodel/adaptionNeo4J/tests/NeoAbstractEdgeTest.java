@@ -10,12 +10,6 @@ import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Neo Abstract Edge</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following operations are tested:
- * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#setTargetNodeLabel(qualitypatternmodel.parameters.TextLiteralParam) <em>Set Target Node Label</em>}</li>
- * </ul>
- * </p>
  * @generated
  */
 public abstract class NeoAbstractEdgeTest extends TestCase {
@@ -56,19 +50,6 @@ public abstract class NeoAbstractEdgeTest extends TestCase {
 	 */
 	protected NeoAbstractEdge getFixture() {
 		return fixture;
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#setTargetNodeLabel(qualitypatternmodel.parameters.TextLiteralParam) <em>Set Target Node Label</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#setTargetNodeLabel(qualitypatternmodel.parameters.TextLiteralParam)
-	 * @generated
-	 */
-	public void testSetTargetNodeLabel__TextLiteralParam() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
 	}
 
 } //NeoAbstractEdgeTest

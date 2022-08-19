@@ -20,7 +20,7 @@ import qualitypatternmodel.graphstructure.Relation;
  * @model
  * @generated
  */
-public interface NeoPropertyEdge extends Relation {
+public interface NeoPropertyEdge extends Relation, NeoAbstractEdge {
 	/**
 	 * Returns the value of the '<em><b>Neo Property Path Param</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPropertyEdge <em>Neo Property Edge</em>}'.
