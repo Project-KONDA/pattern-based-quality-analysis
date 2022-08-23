@@ -999,7 +999,6 @@
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="AdaptionNeo4J" disposableProviderFactory="true" ecorePackage="qualitypatternmodel.ecore#//adaptionNeo4J">
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//adaptionNeo4J/NeoQuantifier"/>
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//adaptionNeo4J/NeoDirection">
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionNeo4J/NeoDirection/Implicit"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionNeo4J/NeoDirection/RIGHT"/>
