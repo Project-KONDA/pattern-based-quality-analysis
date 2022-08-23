@@ -62,6 +62,7 @@ import qualitypatternmodel.patternstructure.RelationMapping;
 import qualitypatternmodel.patternstructure.impl.ElementMappingImpl;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.patternstructure.impl.RelationMappingImpl;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -194,19 +195,13 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			}
 			
 			boolean moreThenOneRelationBetweenNodes = false;
+			boolean isFirst = true;
 			for (NeoNode n : beginningNodesList) {
-				cypher.append(n.generateCypher());
-				for (Relation r : n.getOutgoing()) {
-					if(r instanceof NeoEdge) {
-						NeoEdge ne = (NeoEdge) r;
-						cypher.append(ne.generateCypher());
-					} else if (r instanceof NeoPropertyEdge) {
-						NeoPropertyEdge npe = (NeoPropertyEdge) r;
-						cypher.append(npe.generateCypher());
-					} else {
-						throw new InvalidityException("It is a not valid Edge/Relation included");
-					}
+				if (!isFirst) {
+					cypher.append("," + CypherSpecificConstants.THREE_WHITESPACES);
+					isFirst = false;
 				}
+				buildNeoGraphPatternRecursively(cypher, n);
 			}
 			//Maybe change this in the futhur to generate OPTIONAL MATCH
 			if (moreThenOneRelationBetweenNodes) 
@@ -214,6 +209,36 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			return cypher.toString();
 		}
 		throw new InvalidityException("No nodes are given");
+	}
+
+	private void buildNeoGraphPatternRecursively(StringBuilder cypher, NeoNode n) throws InvalidityException {
+		Relation currentRelation = null;
+		cypher.append(n.generateCypher());
+		//In this senario it has to be considert that of there are multiple edges between nodes the last one will be taken
+		//Since multiple edges between to nodes requieres a OPTIONAL MATCH the OPTIONAL MATCH can be implemented or a break added
+		for (Relation r : n.getOutgoing()) {
+			if(r instanceof NeoEdge && r.getTarget() != null) {
+				NeoEdge ne = (NeoEdge) r;
+				cypher.append(ne.generateCypher());
+				currentRelation = ne;
+			} else if (r instanceof NeoPropertyEdge && r.getTarget() != null) {
+				NeoPropertyEdge npe = (NeoPropertyEdge) r;
+				cypher.append(npe.generateCypher());
+				currentRelation = npe;
+			} else {
+				throw new InvalidityException("It is a not valid Edge/Relation included");
+			}
+		}
+		
+		try {
+			if (currentRelation != null && currentRelation.getTarget() != null) {
+				this.buildNeoGraphPatternRecursively(cypher, (NeoNode) currentRelation.getTarget());
+			} 
+		} catch (ClassCastException e) {
+			throw new InvalidityException("A non NeoEdge was in the Graph-Pattern"); 
+		} catch (Exception e) {
+			throw new InvalidityException();
+		}
 	}
 	
 	@Override

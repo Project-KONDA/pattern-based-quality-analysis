@@ -18,6 +18,7 @@ public class CypherSpecificConstants {
 	public static final String CLAUSE_WITH_INLUCE_W = "\n%sWITH";
 	public static final String CLAUSE_WHERE_INLUCE_W = "\n%sWHERE";
 	public static final String CLAUSE_RETURN_INLUCE_W = "\n%sRETURN";
+	public static final String THREE_WHITESPACES = "   ";
 	public static final String SIX_WHITESPACES = "      ";
 	public static final String TWELVE_WHITESPACES = "            ";
 	public static final String PREDICATE_FUNCTION_EXISTS = "EXISTS { %s }";
