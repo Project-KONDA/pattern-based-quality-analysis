@@ -47,6 +47,7 @@ import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathParamImpl#isPredefined <em>Predefined</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathParamImpl#getParameterReferences <em>Parameter References</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathParamImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathParamImpl#isReturnElement <em>Return Element</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathParamImpl#getNeoEdge <em>Neo Edge</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathParamImpl#getNeoPath <em>Neo Path</em>}</li>
  * </ul>
@@ -103,6 +104,26 @@ public class NeoPathParamImpl extends PatternElementImpl implements NeoPathParam
 	 * @ordered
 	 */
 	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isReturnElement() <em>Return Element</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReturnElement()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean RETURN_ELEMENT_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isReturnElement() <em>Return Element</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReturnElement()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean returnElement = RETURN_ELEMENT_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getNeoEdge() <em>Neo Edge</em>}' reference.
@@ -251,6 +272,29 @@ public class NeoPathParamImpl extends PatternElementImpl implements NeoPathParam
 	 * @generated
 	 */
 	@Override
+	public boolean isReturnElement() {
+		return returnElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setReturnElement(boolean newReturnElement) {
+		boolean oldReturnElement = returnElement;
+		returnElement = newReturnElement;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PATH_PARAM__RETURN_ELEMENT, oldReturnElement, returnElement));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NeoEdge getNeoEdge() {
 		if (neoEdge != null && neoEdge.eIsProxy()) {
 			InternalEObject oldNeoEdge = (InternalEObject)neoEdge;
@@ -355,6 +399,18 @@ public class NeoPathParamImpl extends PatternElementImpl implements NeoPathParam
 	 */
 	@Override
 	public EList<NeoAbstractEdge> getLastRelations() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setIsReturnElement(boolean returnElement) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -485,6 +541,8 @@ public class NeoPathParamImpl extends PatternElementImpl implements NeoPathParam
 				return getParameterReferences();
 			case AdaptionNeo4JPackage.NEO_PATH_PARAM__DESCRIPTION:
 				return getDescription();
+			case AdaptionNeo4JPackage.NEO_PATH_PARAM__RETURN_ELEMENT:
+				return isReturnElement();
 			case AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE:
 				if (resolve) return getNeoEdge();
 				return basicGetNeoEdge();
@@ -517,6 +575,9 @@ public class NeoPathParamImpl extends PatternElementImpl implements NeoPathParam
 			case AdaptionNeo4JPackage.NEO_PATH_PARAM__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
+			case AdaptionNeo4JPackage.NEO_PATH_PARAM__RETURN_ELEMENT:
+				setReturnElement((Boolean)newValue);
+				return;
 			case AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE:
 				setNeoEdge((NeoEdge)newValue);
 				return;
@@ -547,6 +608,9 @@ public class NeoPathParamImpl extends PatternElementImpl implements NeoPathParam
 			case AdaptionNeo4JPackage.NEO_PATH_PARAM__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
+			case AdaptionNeo4JPackage.NEO_PATH_PARAM__RETURN_ELEMENT:
+				setReturnElement(RETURN_ELEMENT_EDEFAULT);
+				return;
 			case AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE:
 				setNeoEdge((NeoEdge)null);
 				return;
@@ -573,6 +637,8 @@ public class NeoPathParamImpl extends PatternElementImpl implements NeoPathParam
 				return parameterReferences != null && !parameterReferences.isEmpty();
 			case AdaptionNeo4JPackage.NEO_PATH_PARAM__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case AdaptionNeo4JPackage.NEO_PATH_PARAM__RETURN_ELEMENT:
+				return returnElement != RETURN_ELEMENT_EDEFAULT;
 			case AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE:
 				return neoEdge != null;
 			case AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_PATH:
@@ -599,6 +665,7 @@ public class NeoPathParamImpl extends PatternElementImpl implements NeoPathParam
 		}
 		if (baseClass == NeoAbstractPathParam.class) {
 			switch (derivedFeatureID) {
+				case AdaptionNeo4JPackage.NEO_PATH_PARAM__RETURN_ELEMENT: return AdaptionNeo4JPackage.NEO_ABSTRACT_PATH_PARAM__RETURN_ELEMENT;
 				default: return -1;
 			}
 		}
@@ -623,6 +690,7 @@ public class NeoPathParamImpl extends PatternElementImpl implements NeoPathParam
 		}
 		if (baseClass == NeoAbstractPathParam.class) {
 			switch (baseFeatureID) {
+				case AdaptionNeo4JPackage.NEO_ABSTRACT_PATH_PARAM__RETURN_ELEMENT: return AdaptionNeo4JPackage.NEO_PATH_PARAM__RETURN_ELEMENT;
 				default: return -1;
 			}
 		}
@@ -654,6 +722,7 @@ public class NeoPathParamImpl extends PatternElementImpl implements NeoPathParam
 		if (baseClass == NeoAbstractPathParam.class) {
 			switch (baseOperationID) {
 				case AdaptionNeo4JPackage.NEO_ABSTRACT_PATH_PARAM___GET_LAST_RELATIONS: return AdaptionNeo4JPackage.NEO_PATH_PARAM___GET_LAST_RELATIONS;
+				case AdaptionNeo4JPackage.NEO_ABSTRACT_PATH_PARAM___SET_IS_RETURN_ELEMENT__BOOLEAN: return AdaptionNeo4JPackage.NEO_PATH_PARAM___SET_IS_RETURN_ELEMENT__BOOLEAN;
 				default: return -1;
 			}
 		}
@@ -670,6 +739,9 @@ public class NeoPathParamImpl extends PatternElementImpl implements NeoPathParam
 		switch (operationID) {
 			case AdaptionNeo4JPackage.NEO_PATH_PARAM___GET_LAST_RELATIONS:
 				return getLastRelations();
+			case AdaptionNeo4JPackage.NEO_PATH_PARAM___SET_IS_RETURN_ELEMENT__BOOLEAN:
+				setIsReturnElement((Boolean)arguments.get(0));
+				return null;
 			case AdaptionNeo4JPackage.NEO_PATH_PARAM___VALIDATE_AGAINST_SCHEMA:
 				return validateAgainstSchema();
 			case AdaptionNeo4JPackage.NEO_PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING:
@@ -730,6 +802,8 @@ public class NeoPathParamImpl extends PatternElementImpl implements NeoPathParam
 		result.append(predefined);
 		result.append(", description: ");
 		result.append(description);
+		result.append(", returnElement: ");
+		result.append(returnElement);
 		result.append(')');
 		return result.toString();
 	}

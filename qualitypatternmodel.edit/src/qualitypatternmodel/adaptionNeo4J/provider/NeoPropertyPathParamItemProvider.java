@@ -54,6 +54,7 @@ public class NeoPropertyPathParamItemProvider extends PatternElementItemProvider
 			addPredefinedPropertyDescriptor(object);
 			addParameterReferencesPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
+			addReturnElementPropertyDescriptor(object);
 			addNeoPathPropertyDescriptor(object);
 			addNeoPropertyEdgePropertyDescriptor(object);
 			addNeoPropertyNamePropertyDescriptor(object);
@@ -123,6 +124,28 @@ public class NeoPropertyPathParamItemProvider extends PatternElementItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Return Element feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReturnElementPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NeoAbstractPathParam_returnElement_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NeoAbstractPathParam_returnElement_feature", "_UI_NeoAbstractPathParam_type"),
+				 AdaptionNeo4JPackage.Literals.NEO_ABSTRACT_PATH_PARAM__RETURN_ELEMENT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -233,6 +256,7 @@ public class NeoPropertyPathParamItemProvider extends PatternElementItemProvider
 		switch (notification.getFeatureID(NeoPropertyPathParam.class)) {
 			case AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__PREDEFINED:
 			case AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__DESCRIPTION:
+			case AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__RETURN_ELEMENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -16,6 +16,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getLastRelations() <em>Get Last Relations</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#setIsReturnElement(boolean) <em>Set Is Return Element</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#validateAgainstSchema() <em>Validate Against Schema</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#validateExampleValue(java.lang.String) <em>Validate Example Value</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#inputIsValid() <em>Input Is Valid</em>}</li>
@@ -93,6 +94,19 @@ public class NeoPropertyPathParamTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testGetLastRelations() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#setIsReturnElement(boolean) <em>Set Is Return Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#setIsReturnElement(boolean)
+	 * @generated
+	 */
+	public void testSetIsReturnElement__boolean() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

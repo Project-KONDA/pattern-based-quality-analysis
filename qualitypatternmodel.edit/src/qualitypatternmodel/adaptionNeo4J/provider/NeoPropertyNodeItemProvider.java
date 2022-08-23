@@ -11,8 +11,12 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 
 import qualitypatternmodel.graphstructure.provider.PrimitiveNodeItemProvider;
@@ -47,8 +51,54 @@ public class NeoPropertyNodeItemProvider extends PrimitiveNodeItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addReturnElementPropertyDescriptor(object);
+			addNodePlacePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Return Element feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReturnElementPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NeoAbstractNode_returnElement_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NeoAbstractNode_returnElement_feature", "_UI_NeoAbstractNode_type"),
+				 AdaptionNeo4JPackage.Literals.NEO_ABSTRACT_NODE__RETURN_ELEMENT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Node Place feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNodePlacePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NeoAbstractNode_nodePlace_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NeoAbstractNode_nodePlace_feature", "_UI_NeoAbstractNode_type"),
+				 AdaptionNeo4JPackage.Literals.NEO_ABSTRACT_NODE__NODE_PLACE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -87,6 +137,13 @@ public class NeoPropertyNodeItemProvider extends PrimitiveNodeItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(NeoPropertyNode.class)) {
+			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__RETURN_ELEMENT:
+			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__NODE_PLACE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

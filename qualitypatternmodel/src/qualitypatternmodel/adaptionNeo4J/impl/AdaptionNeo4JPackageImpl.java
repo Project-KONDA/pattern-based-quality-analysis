@@ -23,6 +23,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
+import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoDirection;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
@@ -158,6 +159,13 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	private EEnum neoDirectionEEnum = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum neoPlaceEEnum = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -268,8 +276,48 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
+	public EAttribute getNeoAbstractNode_ReturnElement() {
+		return (EAttribute)neoAbstractNodeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNeoAbstractNode_NodePlace() {
+		return (EAttribute)neoAbstractNodeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getNeoAbstractNode__GetCypherVariable() {
 		return neoAbstractNodeEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNeoAbstractNode__SetIsReturnElement__boolean() {
+		return neoAbstractNodeEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNeoAbstractNode__SetIsStartNode__boolean() {
+		return neoAbstractNodeEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -608,6 +656,16 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
+	public EAttribute getNeoAbstractPathParam_ReturnElement() {
+		return (EAttribute)neoAbstractPathParamEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getNeoAbstractPathParam__GetLastRelations() {
 		return neoAbstractPathParamEClass.getEOperations().get(0);
 	}
@@ -618,8 +676,28 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
+	public EOperation getNeoAbstractPathParam__SetIsReturnElement__boolean() {
+		return neoAbstractPathParamEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getNeoDirection() {
 		return neoDirectionEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getNeoPlace() {
+		return neoPlaceEEnum;
 	}
 
 	/**
@@ -652,7 +730,11 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 
 		// Create classes and their features
 		neoAbstractNodeEClass = createEClass(NEO_ABSTRACT_NODE);
+		createEAttribute(neoAbstractNodeEClass, NEO_ABSTRACT_NODE__RETURN_ELEMENT);
+		createEAttribute(neoAbstractNodeEClass, NEO_ABSTRACT_NODE__NODE_PLACE);
 		createEOperation(neoAbstractNodeEClass, NEO_ABSTRACT_NODE___GET_CYPHER_VARIABLE);
+		createEOperation(neoAbstractNodeEClass, NEO_ABSTRACT_NODE___SET_IS_RETURN_ELEMENT__BOOLEAN);
+		createEOperation(neoAbstractNodeEClass, NEO_ABSTRACT_NODE___SET_IS_START_NODE__BOOLEAN);
 
 		neoNodeEClass = createEClass(NEO_NODE);
 		createEReference(neoNodeEClass, NEO_NODE__NEO_NODE_LABELS);
@@ -697,10 +779,13 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		neoAbstractEdgeEClass = createEClass(NEO_ABSTRACT_EDGE);
 
 		neoAbstractPathParamEClass = createEClass(NEO_ABSTRACT_PATH_PARAM);
+		createEAttribute(neoAbstractPathParamEClass, NEO_ABSTRACT_PATH_PARAM__RETURN_ELEMENT);
 		createEOperation(neoAbstractPathParamEClass, NEO_ABSTRACT_PATH_PARAM___GET_LAST_RELATIONS);
+		createEOperation(neoAbstractPathParamEClass, NEO_ABSTRACT_PATH_PARAM___SET_IS_RETURN_ELEMENT__BOOLEAN);
 
 		// Create enums
 		neoDirectionEEnum = createEEnum(NEO_DIRECTION);
+		neoPlaceEEnum = createEEnum(NEO_PLACE);
 	}
 
 	/**
@@ -754,13 +839,21 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(neoAbstractNodeEClass, NeoAbstractNode.class, "NeoAbstractNode", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNeoAbstractNode_ReturnElement(), ecorePackage.getEBoolean(), "returnElement", null, 0, 1, NeoAbstractNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNeoAbstractNode_NodePlace(), this.getNeoPlace(), "nodePlace", "FOLLOWING", 0, 1, NeoAbstractNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getNeoAbstractNode__GetCypherVariable(), ecorePackage.getEString(), "getCypherVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		EOperation op = initEOperation(getNeoAbstractNode__SetIsReturnElement__boolean(), null, "setIsReturnElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "returnElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getNeoAbstractNode__SetIsStartNode__boolean(), null, "setIsStartNode", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "startNode", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(neoNodeEClass, NeoNode.class, "NeoNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNeoNode_NeoNodeLabels(), theParametersPackage.getTextLiteralParam(), null, "neoNodeLabels", null, 0, -1, NeoNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getNeoNode__SetNeoNodeLabel__TextLiteralParam(), null, "setNeoNodeLabel", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNeoNode__SetNeoNodeLabel__TextLiteralParam(), null, "setNeoNodeLabel", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theParametersPackage.getTextLiteralParam(), "neoNodeLabel", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(neoEdgeEClass, NeoEdge.class, "NeoEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -810,14 +903,23 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		initEClass(neoAbstractEdgeEClass, NeoAbstractEdge.class, "NeoAbstractEdge", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(neoAbstractPathParamEClass, NeoAbstractPathParam.class, "NeoAbstractPathParam", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNeoAbstractPathParam_ReturnElement(), ecorePackage.getEBoolean(), "returnElement", null, 0, 1, NeoAbstractPathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getNeoAbstractPathParam__GetLastRelations(), this.getNeoAbstractEdge(), "getLastRelations", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getNeoAbstractPathParam__SetIsReturnElement__boolean(), null, "setIsReturnElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "returnElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(neoDirectionEEnum, NeoDirection.class, "NeoDirection");
 		addEEnumLiteral(neoDirectionEEnum, NeoDirection.IMPLICIT);
 		addEEnumLiteral(neoDirectionEEnum, NeoDirection.RIGHT);
 		addEEnumLiteral(neoDirectionEEnum, NeoDirection.LEFT);
+
+		initEEnum(neoPlaceEEnum, NeoPlace.class, "NeoPlace");
+		addEEnumLiteral(neoPlaceEEnum, NeoPlace.BEGINNING);
+		addEEnumLiteral(neoPlaceEEnum, NeoPlace.ENDING);
+		addEEnumLiteral(neoPlaceEEnum, NeoPlace.FOLLOWING);
 
 		// Create resource
 		createResource(eNS_URI);

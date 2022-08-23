@@ -17,6 +17,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
  * <!-- begin-user-doc -->
@@ -71,61 +72,86 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 			this.translated = true;
 			
 			if (neoSimpleEdges.size() > 1) {
-				NeoSimpleEdge last = null;
+				NeoSimpleEdge lastEdge = null;
 				//Every ComplexEdge needs a last SimpleEdge
 				for (NeoSimpleEdge possibleLast : neoSimpleEdges) {
 					if(possibleLast.isLastSimpleEdge()) { 
-						last = possibleLast;
+						lastEdge = possibleLast;
 					}
 				}
-				EList<TextLiteralParam> neoLastTargetLabels = null;
-				if (last != null) neoLastTargetLabels = last.getNeoTargetNodeLabels();
-				cypher.append(getNeoPathParam().generateCypher());
 				
-				//For handling a not suitable suffix like -() or -(:AnyLabels)
-				//Since -()() or -(:AnyLabels)() is a not valid syntax for Cypher
-				if (getTarget() != null && getTarget() instanceof NeoNode ) {
-					if (neoLastTargetLabels != null && neoLastTargetLabels.size() != 0) {
-						NeoNodeImpl nni = (NeoNodeImpl) getTarget();
-						EList<TextLiteralParam> nodeLabels = nni.getNeoNodeLabels();
-						boolean labelEqual = true;
-						boolean labelIncluded;
-						if (nodeLabels.size() == neoLastTargetLabels.size()) {
-							for (TextLiteralParam edgeTargetLabel : neoLastTargetLabels) {
-								labelIncluded = false;
-								for (TextLiteralParam nodeLabel : nodeLabels) {
-									if (nodeLabel.getValue().compareTo(edgeTargetLabel.getValue()) == 0) {
-										labelIncluded = true;
+				boolean doopleEdge = false;
+				for (TextLiteralParam label : neoSimpleEdges.get(0).getNeoTargetNodeLabels()) {
+					if (label.getValue() == CypherSpecificConstants.REPLACING_SEQUENCES_DOPPLE_CONNECTION) {
+						cypher.append(CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES);
+						doopleEdge = true;
+						break;
+					}
+				}
+				
+				if (doopleEdge) {
+					cypher.append(getNeoPathParam().generateCypher() + CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES);
+					int start = cypher.indexOf(":" + CypherSpecificConstants.REPLACING_SEQUENCES_DOPPLE_CONNECTION.length());
+					cypher.replace(start, CypherSpecificConstants.REPLACING_SEQUENCES_DOPPLE_CONNECTION.length(), "");	//replace(":" + CypherSpecificConstants.REPLACING_SEQUENCES_DOPPLE_CONNECTION, "");
+				} else {
+					EList<TextLiteralParam> neoLastTargetLabels = null;
+					if (lastEdge != null) neoLastTargetLabels = lastEdge.getNeoTargetNodeLabels();
+					
+					//For handling a not suitable suffix like -() or -(:AnyLabels)
+					//Since structures like -()() or -(:AnyLabels)() are a not valid syntax for Cypher
+					if (getTarget() != null && getTarget() instanceof NeoNode ) {
+						if (neoLastTargetLabels != null && neoLastTargetLabels.size() != 0) {
+							NeoNodeImpl nni = (NeoNodeImpl) getTarget();
+							EList<TextLiteralParam> nodeLabels = nni.getNeoNodeLabels();
+							boolean labelEqual = true;
+							boolean labelIncluded;
+							if (nodeLabels != null && nodeLabels.size() == neoLastTargetLabels.size()) {
+								for (TextLiteralParam edgeTargetLabel : neoLastTargetLabels) {
+									labelIncluded = false;
+									for (TextLiteralParam nodeLabel : nodeLabels) {
+										if (nodeLabel.getValue().compareTo(edgeTargetLabel.getValue()) == 0) {
+											labelIncluded = true;
+											break;
+										}
+									}
+									if (labelIncluded == false) {
+										labelEqual = false;
+										break;
 									}
 								}
-								if (labelIncluded == false) {
-									labelEqual = false;
-									break;
+							} else {
+								labelEqual = false;
+							}
+							
+							String cypherEdge = getNeoPathParam().generateCypher();
+							if (lastEdge.generateCypher().subSequence(lastEdge.generateCypher().length() - 2, 
+									lastEdge.generateCypher().length() - 1) == "()") {
+								cypher.append(CypherSpecificConstants.CONNECTION);
+							} else {						
+								if(labelEqual) {
+									int until = (cypherEdge.indexOf("[" + lastEdge.getCypherVariable() + "]") - 1) + (lastEdge.getCypherVariable().length() - 1); //The three is for the symbos []-
+									cypher.append(cypherEdge.substring(0, until));
+								} else {
+									//For connecting the last node of the NeoEdge with the following Complex node
+									cypher.append(cypherEdge + CypherSpecificConstants.CONNECTION);
 								}
 							}
-						} else {
-							labelEqual = false;
 						}
-						
-						String cypherEdge = getNeoPathParam().generateCypher();
-						if(labelEqual) {
-							int until = cypherEdge.indexOf("[" + last.getCypherVariable() + "]") + last.getCypherVariable().length() + 3; //The three is for the symbos []-
-							cypher.append(cypherEdge.substring(0, until));
-						} else if(!labelEqual) {
-							//For connecting the last node of the NeoEdge with the following Complex node
-							cypher.append(cypherEdge + "--");
-						} else if (last.generateCypher().subSequence(last.generateCypher().length() - 2, 
-								last.generateCypher().length() - 1) == "()") {
-							cypher.append(cypherEdge.substring(0, cypherEdge.length() - 3));
-						} else {
-							throw new InvalidityException();
-						}
+					} else {
+						throw new InvalidityException("No traget was specified");
 					}
-				} else {
-					cypher.append(getNeoPathParam().generateCypher());
 				}
 			} else if (neoSimpleEdges.size() == 1) {
 				cypher.append(neoSimpleEdges.get(0).generateCypher());
+				boolean doopleEdge = false;
+				for (TextLiteralParam label : neoSimpleEdges.get(0).getNeoTargetNodeLabels()) {
+					if (label.getValue() == CypherSpecificConstants.REPLACING_SEQUENCES_DOPPLE_CONNECTION) {
+						cypher.append(CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES);
+						doopleEdge = true;
+						break;
+					}
+				}
+				if (neoSimpleEdges.get(0).getNeoTargetNodeLabels().size() != 0 && !doopleEdge) cypher.append(CypherSpecificConstants.CONNECTION); 
 			}
 		}
 		return cypher.toString();		

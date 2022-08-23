@@ -4,6 +4,8 @@ package qualitypatternmodel.graphstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.LinkedList;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -18,6 +20,10 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import qualitypatternmodel.adaptionNeo4J.NeoEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoNode;
+import qualitypatternmodel.adaptionNeo4J.NeoPlace;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
@@ -169,11 +175,45 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 	
 	@Override
-	public String generateCypher() throws InvalidityException {
-		StringBuilder sb = new StringBuilder();
+	public String generateCypher() throws InvalidityException {	
+		EList<Node> allNodesList = getNodes();
 		
-		
-		return sb.toString();
+		if (allNodesList != null && allNodesList.size() > 0) { 
+			StringBuilder cypher = new StringBuilder();	
+			EList<NeoNode> beginningNodesList = new BasicEList<NeoNode>();
+			
+			//Finding ComplexNode which represent the beginning
+			//Since we have independend graphs we can have multiple beginnings
+			//How to integrate Maybe a OPTIONAL MATCH? - OPTIONAL
+			for (Node n : allNodesList) {
+				if (n instanceof NeoNode && ((NeoNode) n).getNodePlace() == NeoPlace.BEGINNING) {
+					beginningNodesList.add((NeoNode) n);
+				} else if(! (n instanceof NeoNode)) {
+					throw new InvalidityException("No instance of NeoNode");
+				}
+			}
+			
+			boolean moreThenOneRelationBetweenNodes = false;
+			for (NeoNode n : beginningNodesList) {
+				cypher.append(n.generateCypher());
+				for (Relation r : n.getOutgoing()) {
+					if(r instanceof NeoEdge) {
+						NeoEdge ne = (NeoEdge) r;
+						cypher.append(ne.generateCypher());
+					} else if (r instanceof NeoPropertyEdge) {
+						NeoPropertyEdge npe = (NeoPropertyEdge) r;
+						cypher.append(npe.generateCypher());
+					} else {
+						throw new InvalidityException("It is a not valid Edge/Relation included");
+					}
+				}
+			}
+			//Maybe change this in the futhur to generate OPTIONAL MATCH
+			if (moreThenOneRelationBetweenNodes) 
+				throw new InvalidityException("There is more then one Edge/Relation between two Nodes");
+			return cypher.toString();
+		}
+		throw new InvalidityException("No nodes are given");
 	}
 	
 	@Override

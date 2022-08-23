@@ -10,109 +10,109 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Neo Direction</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Neo Place</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoDirection()
+ * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPlace()
  * @model
  * @generated
  */
-public enum NeoDirection implements Enumerator {
+public enum NeoPlace implements Enumerator {
 	/**
-	 * The '<em><b>IMPLICIT</b></em>' literal object.
+	 * The '<em><b>BEGINNING</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #IMPLICIT_VALUE
+	 * @see #BEGINNING_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	IMPLICIT(0, "IMPLICIT", "IMPLICIT"),
+	BEGINNING(0, "BEGINNING", "BEGINNING"),
 
 	/**
-	 * The '<em><b>RIGHT</b></em>' literal object.
+	 * The '<em><b>ENDING</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #RIGHT_VALUE
+	 * @see #ENDING_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	RIGHT(1, "RIGHT", "RIGHT"),
+	ENDING(1, "ENDING", "ENDING"),
 
 	/**
-	 * The '<em><b>LEFT</b></em>' literal object.
+	 * The '<em><b>FOLLOWING</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #LEFT_VALUE
+	 * @see #FOLLOWING_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	LEFT(2, "LEFT", "LEFT");
+	FOLLOWING(2, "FOLLOWING", "FOLLOWING");
 
 	/**
-	 * The '<em><b>IMPLICIT</b></em>' literal value.
+	 * The '<em><b>BEGINNING</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #IMPLICIT
+	 * @see #BEGINNING
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int IMPLICIT_VALUE = 0;
+	public static final int BEGINNING_VALUE = 0;
 
 	/**
-	 * The '<em><b>RIGHT</b></em>' literal value.
+	 * The '<em><b>ENDING</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #RIGHT
+	 * @see #ENDING
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int RIGHT_VALUE = 1;
+	public static final int ENDING_VALUE = 1;
 
 	/**
-	 * The '<em><b>LEFT</b></em>' literal value.
+	 * The '<em><b>FOLLOWING</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #LEFT
+	 * @see #FOLLOWING
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int LEFT_VALUE = 2;
+	public static final int FOLLOWING_VALUE = 2;
 
 	/**
-	 * An array of all the '<em><b>Neo Direction</b></em>' enumerators.
+	 * An array of all the '<em><b>Neo Place</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final NeoDirection[] VALUES_ARRAY =
-		new NeoDirection[] {
-			IMPLICIT,
-			RIGHT,
-			LEFT,
+	private static final NeoPlace[] VALUES_ARRAY =
+		new NeoPlace[] {
+			BEGINNING,
+			ENDING,
+			FOLLOWING,
 		};
 
 	/**
-	 * A public read-only list of all the '<em><b>Neo Direction</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>Neo Place</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<NeoDirection> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<NeoPlace> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Neo Direction</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>Neo Place</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param literal the literal.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static NeoDirection get(String literal) {
+	public static NeoPlace get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			NeoDirection result = VALUES_ARRAY[i];
+			NeoPlace result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -121,16 +121,16 @@ public enum NeoDirection implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Neo Direction</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Neo Place</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param name the name.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static NeoDirection getByName(String name) {
+	public static NeoPlace getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			NeoDirection result = VALUES_ARRAY[i];
+			NeoPlace result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -139,18 +139,18 @@ public enum NeoDirection implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Neo Direction</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Neo Place</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the integer value.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static NeoDirection get(int value) {
+	public static NeoPlace get(int value) {
 		switch (value) {
-			case IMPLICIT_VALUE: return IMPLICIT;
-			case RIGHT_VALUE: return RIGHT;
-			case LEFT_VALUE: return LEFT;
+			case BEGINNING_VALUE: return BEGINNING;
+			case ENDING_VALUE: return ENDING;
+			case FOLLOWING_VALUE: return FOLLOWING;
 		}
 		return null;
 	}
@@ -182,7 +182,7 @@ public enum NeoDirection implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private NeoDirection(int value, String name, String literal) {
+	private NeoPlace(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
@@ -229,4 +229,4 @@ public enum NeoDirection implements Enumerator {
 		return literal;
 	}
 	
-} //NeoDirection
+} //NeoPlace

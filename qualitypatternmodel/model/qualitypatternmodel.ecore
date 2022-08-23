@@ -1206,6 +1206,15 @@
   <eSubpackages name="adaptionNeo4J" nsURI="adaptionNeo4J" nsPrefix="adaptionNeo4J">
     <eClassifiers xsi:type="ecore:EClass" name="NeoAbstractNode" abstract="true" interface="true">
       <eOperations name="getCypherVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="setIsReturnElement">
+        <eParameters name="returnElement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eOperations>
+      <eOperations name="setIsStartNode">
+        <eParameters name="startNode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnElement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodePlace" eType="#//adaptionNeo4J/NeoPlace"
+          defaultValueLiteral="FOLLOWING"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoNode" eSuperTypes="#//graphstructure/ComplexNode #//adaptionNeo4J/NeoAbstractNode">
       <eOperations name="setNeoNodeLabel">
@@ -1253,7 +1262,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoPath" eType="#//adaptionNeo4J/NeoPathPart"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="NeoDirection">
-      <eLiterals name="Implicit"/>
+      <eLiterals name="IMPLICIT"/>
       <eLiterals name="RIGHT" value="1"/>
       <eLiterals name="LEFT" value="2"/>
     </eClassifiers>
@@ -1271,6 +1280,15 @@
     <eClassifiers xsi:type="ecore:EClass" name="NeoAbstractPathParam" abstract="true"
         eSuperTypes="#//parameters/Parameter">
       <eOperations name="getLastRelations" upperBound="-1" eType="#//adaptionNeo4J/NeoAbstractEdge"/>
+      <eOperations name="setIsReturnElement">
+        <eParameters name="returnElement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnElement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="NeoPlace">
+      <eLiterals name="BEGINNING"/>
+      <eLiterals name="ENDING" value="1"/>
+      <eLiterals name="FOLLOWING" value="2"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

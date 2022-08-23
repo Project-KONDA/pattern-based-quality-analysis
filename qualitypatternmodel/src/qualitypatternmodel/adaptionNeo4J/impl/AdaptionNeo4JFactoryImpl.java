@@ -80,6 +80,8 @@ public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNe
 		switch (eDataType.getClassifierID()) {
 			case AdaptionNeo4JPackage.NEO_DIRECTION:
 				return createNeoDirectionFromString(eDataType, initialValue);
+			case AdaptionNeo4JPackage.NEO_PLACE:
+				return createNeoPlaceFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -95,6 +97,8 @@ public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNe
 		switch (eDataType.getClassifierID()) {
 			case AdaptionNeo4JPackage.NEO_DIRECTION:
 				return convertNeoDirectionToString(eDataType, instanceValue);
+			case AdaptionNeo4JPackage.NEO_PLACE:
+				return convertNeoPlaceToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -205,6 +209,26 @@ public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNe
 	 * @generated
 	 */
 	public String convertNeoDirectionToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NeoPlace createNeoPlaceFromString(EDataType eDataType, String initialValue) {
+		NeoPlace result = NeoPlace.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertNeoPlaceToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

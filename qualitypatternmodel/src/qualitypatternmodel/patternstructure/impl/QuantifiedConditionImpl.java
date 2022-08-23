@@ -178,11 +178,11 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			//In the count condition a new graph will be build thus there is no problem to set it straigt. 
 			//However it has to be considert that from the original graph variables have to be loaded (morphism can be used to handle that)
 
-			//INCLUDE the WHERE
-			if (!(getCondition() instanceof TrueElementImpl)) {
-				query.append(String.format(CypherSpecificConstants.CLAUSE_WHERE_INLUCE_W, CypherSpecificConstants.TWELVE_WHITESPACES));
-				//BUILD THE WHERE
-			}
+//			//INCLUDE the WHERE
+//			if (!(getCondition() instanceof TrueElementImpl)) {
+//				query.append(String.format(CypherSpecificConstants.CLAUSE_WHERE_INLUCE_W, CypherSpecificConstants.TWELVE_WHITESPACES));
+			    //BUILD THE WHERE
+//			}
 			
 			exists = String.format(exists, query.toString());
 		} else if (quantifier == Quantifier.FORALL) {
@@ -190,11 +190,11 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			//Thus the following construct is equivalent to a forall: 
 			exists = CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + exists;
 			
-			//INCLUDE THE WHERE	
-			if (!(getCondition() instanceof TrueElementImpl)) {
-				query.append(String.format(CypherSpecificConstants.CLAUSE_WHERE_INLUCE_W, CypherSpecificConstants.TWELVE_WHITESPACES));
-				//BUILD THE WHERE
-			}
+//			//INCLUDE THE WHERE	
+//			if (!(getCondition() instanceof TrueElementImpl)) {
+//				query.append(String.format(CypherSpecificConstants.CLAUSE_WHERE_INLUCE_W, CypherSpecificConstants.TWELVE_WHITESPACES));
+//				//BUILD THE WHERE
+//			}
 			exists = String.format(exists, query.toString());
 		} else {
 			throw new InvalidityException("invalid quantifier");

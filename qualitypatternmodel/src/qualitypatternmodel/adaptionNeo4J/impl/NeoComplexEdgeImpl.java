@@ -70,7 +70,10 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	public String getCypherVariable() {
 		StringBuilder variables = new StringBuilder();
 		EList<NeoPathPart> neoPath = this.getNeoPath();
-		for(NeoPathPart path : neoPath) variables.append(path.getCypherVariable());
+		for(NeoPathPart path : neoPath) {
+			if (variables.length() != 0) variables.append(","); 
+			variables.append(path.getCypherVariable());
+		}
 		return variables.toString();
 	}
 
