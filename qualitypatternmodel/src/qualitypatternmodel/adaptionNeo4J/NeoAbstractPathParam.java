@@ -3,8 +3,7 @@
 package qualitypatternmodel.adaptionNeo4J;
 
 import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EObject;
+import qualitypatternmodel.parameters.Parameter;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,10 +12,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  *
  * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoAbstractPathParam()
- * @model interface="true" abstract="true"
+ * @model abstract="true"
  * @generated
  */
-public interface NeoAbstractPathParam extends EObject {
+public interface NeoAbstractPathParam extends Parameter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

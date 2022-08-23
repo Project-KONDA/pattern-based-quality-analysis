@@ -2,9 +2,8 @@
  */
 package qualitypatternmodel.adaptionNeo4J.tests;
 
-import junit.framework.TestCase;
-
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
+import qualitypatternmodel.graphstructure.tests.RelationTest;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,15 +11,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class NeoAbstractEdgeTest extends TestCase {
-
-	/**
-	 * The fixture for this Neo Abstract Edge test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NeoAbstractEdge fixture = null;
+public abstract class NeoAbstractEdgeTest extends RelationTest {
 
 	/**
 	 * Constructs a new Neo Abstract Edge test case with the given name.
@@ -33,23 +24,14 @@ public abstract class NeoAbstractEdgeTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Neo Abstract Edge test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(NeoAbstractEdge fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Neo Abstract Edge test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected NeoAbstractEdge getFixture() {
-		return fixture;
+		return (NeoAbstractEdge)fixture;
 	}
 
 } //NeoAbstractEdgeTest

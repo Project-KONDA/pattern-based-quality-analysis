@@ -16,7 +16,6 @@ import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
-import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.parameters.TextLiteralParam;
 
 /**
@@ -32,7 +31,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  *
  * @generated
  */
-public class NeoEdgeImpl extends RelationImpl implements NeoEdge {
+public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 	/**
 	 * The cached value of the '{@link #getNeoPathParam() <em>Neo Path Param</em>}' reference.
 	 * <!-- begin-user-doc -->

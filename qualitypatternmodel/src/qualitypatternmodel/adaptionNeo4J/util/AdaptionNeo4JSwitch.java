@@ -97,8 +97,8 @@ public class AdaptionNeo4JSwitch<T> extends Switch<T> {
 			case AdaptionNeo4JPackage.NEO_EDGE: {
 				NeoEdge neoEdge = (NeoEdge)theEObject;
 				T result = caseNeoEdge(neoEdge);
-				if (result == null) result = caseRelation(neoEdge);
 				if (result == null) result = caseNeoAbstractEdge(neoEdge);
+				if (result == null) result = caseRelation(neoEdge);
 				if (result == null) result = caseAdaptable(neoEdge);
 				if (result == null) result = casePatternElement(neoEdge);
 				if (result == null) result = defaultCase(theEObject);
@@ -142,9 +142,9 @@ public class AdaptionNeo4JSwitch<T> extends Switch<T> {
 			case AdaptionNeo4JPackage.NEO_PATH_PARAM: {
 				NeoPathParam neoPathParam = (NeoPathParam)theEObject;
 				T result = caseNeoPathParam(neoPathParam);
-				if (result == null) result = caseParameter(neoPathParam);
 				if (result == null) result = caseAdaptable(neoPathParam);
 				if (result == null) result = caseNeoAbstractPathParam(neoPathParam);
+				if (result == null) result = caseParameter(neoPathParam);
 				if (result == null) result = casePatternElement(neoPathParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -152,9 +152,9 @@ public class AdaptionNeo4JSwitch<T> extends Switch<T> {
 			case AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM: {
 				NeoPropertyPathParam neoPropertyPathParam = (NeoPropertyPathParam)theEObject;
 				T result = caseNeoPropertyPathParam(neoPropertyPathParam);
-				if (result == null) result = caseParameter(neoPropertyPathParam);
 				if (result == null) result = caseAdaptable(neoPropertyPathParam);
 				if (result == null) result = caseNeoAbstractPathParam(neoPropertyPathParam);
+				if (result == null) result = caseParameter(neoPropertyPathParam);
 				if (result == null) result = casePatternElement(neoPropertyPathParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -162,8 +162,8 @@ public class AdaptionNeo4JSwitch<T> extends Switch<T> {
 			case AdaptionNeo4JPackage.NEO_PROPERTY_EDGE: {
 				NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge)theEObject;
 				T result = caseNeoPropertyEdge(neoPropertyEdge);
-				if (result == null) result = caseRelation(neoPropertyEdge);
 				if (result == null) result = caseNeoAbstractEdge(neoPropertyEdge);
+				if (result == null) result = caseRelation(neoPropertyEdge);
 				if (result == null) result = caseAdaptable(neoPropertyEdge);
 				if (result == null) result = casePatternElement(neoPropertyEdge);
 				if (result == null) result = defaultCase(theEObject);
@@ -172,12 +172,17 @@ public class AdaptionNeo4JSwitch<T> extends Switch<T> {
 			case AdaptionNeo4JPackage.NEO_ABSTRACT_EDGE: {
 				NeoAbstractEdge neoAbstractEdge = (NeoAbstractEdge)theEObject;
 				T result = caseNeoAbstractEdge(neoAbstractEdge);
+				if (result == null) result = caseRelation(neoAbstractEdge);
+				if (result == null) result = caseAdaptable(neoAbstractEdge);
+				if (result == null) result = casePatternElement(neoAbstractEdge);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case AdaptionNeo4JPackage.NEO_ABSTRACT_PATH_PARAM: {
 				NeoAbstractPathParam neoAbstractPathParam = (NeoAbstractPathParam)theEObject;
 				T result = caseNeoAbstractPathParam(neoAbstractPathParam);
+				if (result == null) result = caseParameter(neoAbstractPathParam);
+				if (result == null) result = casePatternElement(neoAbstractPathParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

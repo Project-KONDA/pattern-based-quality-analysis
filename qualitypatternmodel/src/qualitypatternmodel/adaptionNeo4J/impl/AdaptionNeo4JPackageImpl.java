@@ -23,7 +23,6 @@ import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
-import qualitypatternmodel.adaptionNeo4J.NeoQuantifier;
 import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoDirection;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
@@ -150,13 +149,6 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	private EClass neoAbstractPathParamEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum neoQuantifierEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -626,16 +618,6 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
-	public EEnum getNeoQuantifier() {
-		return neoQuantifierEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EEnum getNeoDirection() {
 		return neoDirectionEEnum;
 	}
@@ -718,7 +700,6 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		createEOperation(neoAbstractPathParamEClass, NEO_ABSTRACT_PATH_PARAM___GET_LAST_RELATIONS);
 
 		// Create enums
-		neoQuantifierEEnum = createEEnum(NEO_QUANTIFIER);
 		neoDirectionEEnum = createEEnum(NEO_DIRECTION);
 	}
 
@@ -757,21 +738,19 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		// Add supertypes to classes
 		neoNodeEClass.getESuperTypes().add(theGraphstructurePackage.getComplexNode());
 		neoNodeEClass.getESuperTypes().add(this.getNeoAbstractNode());
-		neoEdgeEClass.getESuperTypes().add(theGraphstructurePackage.getRelation());
 		neoEdgeEClass.getESuperTypes().add(this.getNeoAbstractEdge());
 		neoComplexEdgeEClass.getESuperTypes().add(this.getNeoPathPart());
 		neoSimpleEdgeEClass.getESuperTypes().add(this.getNeoPathPart());
 		neoPathPartEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 		neoPropertyNodeEClass.getESuperTypes().add(theGraphstructurePackage.getPrimitiveNode());
 		neoPropertyNodeEClass.getESuperTypes().add(this.getNeoAbstractNode());
-		neoPathParamEClass.getESuperTypes().add(theParametersPackage.getParameter());
 		neoPathParamEClass.getESuperTypes().add(theGraphstructurePackage.getAdaptable());
 		neoPathParamEClass.getESuperTypes().add(this.getNeoAbstractPathParam());
-		neoPropertyPathParamEClass.getESuperTypes().add(theParametersPackage.getParameter());
 		neoPropertyPathParamEClass.getESuperTypes().add(theGraphstructurePackage.getAdaptable());
 		neoPropertyPathParamEClass.getESuperTypes().add(this.getNeoAbstractPathParam());
-		neoPropertyEdgeEClass.getESuperTypes().add(theGraphstructurePackage.getRelation());
 		neoPropertyEdgeEClass.getESuperTypes().add(this.getNeoAbstractEdge());
+		neoAbstractEdgeEClass.getESuperTypes().add(theGraphstructurePackage.getRelation());
+		neoAbstractPathParamEClass.getESuperTypes().add(theParametersPackage.getParameter());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(neoAbstractNodeEClass, NeoAbstractNode.class, "NeoAbstractNode", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -830,13 +809,11 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 
 		initEClass(neoAbstractEdgeEClass, NeoAbstractEdge.class, "NeoAbstractEdge", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(neoAbstractPathParamEClass, NeoAbstractPathParam.class, "NeoAbstractPathParam", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(neoAbstractPathParamEClass, NeoAbstractPathParam.class, "NeoAbstractPathParam", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEOperation(getNeoAbstractPathParam__GetLastRelations(), this.getNeoAbstractEdge(), "getLastRelations", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
-		initEEnum(neoQuantifierEEnum, NeoQuantifier.class, "NeoQuantifier");
-
 		initEEnum(neoDirectionEEnum, NeoDirection.class, "NeoDirection");
 		addEEnumLiteral(neoDirectionEEnum, NeoDirection.IMPLICIT);
 		addEEnumLiteral(neoDirectionEEnum, NeoDirection.RIGHT);

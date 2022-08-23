@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.adaptionNeo4J;
 
-import org.eclipse.emf.ecore.EObject;
+import qualitypatternmodel.graphstructure.Relation;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,6 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface NeoAbstractEdge extends EObject {
+public interface NeoAbstractEdge extends Relation {
 
 } // NeoAbstractEdge

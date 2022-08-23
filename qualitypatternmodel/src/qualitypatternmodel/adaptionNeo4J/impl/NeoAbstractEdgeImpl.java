@@ -3,11 +3,9 @@
 package qualitypatternmodel.adaptionNeo4J.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
+import qualitypatternmodel.graphstructure.impl.RelationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,7 +14,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
  *
  * @generated
  */
-public abstract class NeoAbstractEdgeImpl extends MinimalEObjectImpl.Container implements NeoAbstractEdge {
+public abstract class NeoAbstractEdgeImpl extends RelationImpl implements NeoAbstractEdge {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

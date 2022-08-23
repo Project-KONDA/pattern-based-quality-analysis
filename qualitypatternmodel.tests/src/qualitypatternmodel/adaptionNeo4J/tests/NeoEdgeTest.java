@@ -7,15 +7,13 @@ import junit.textui.TestRunner;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 
-import qualitypatternmodel.graphstructure.tests.RelationTest;
-
 /**
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Neo Edge</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class NeoEdgeTest extends RelationTest {
+public class NeoEdgeTest extends NeoAbstractEdgeTest {
 
 	/**
 	 * <!-- begin-user-doc -->

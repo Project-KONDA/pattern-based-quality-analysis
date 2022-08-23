@@ -4,8 +4,6 @@ package qualitypatternmodel.adaptionNeo4J;
 
 import qualitypatternmodel.graphstructure.Adaptable;
 
-import qualitypatternmodel.parameters.Parameter;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Neo4 JPath Param</b></em>'.
@@ -23,7 +21,7 @@ import qualitypatternmodel.parameters.Parameter;
  * @model
  * @generated
  */
-public interface NeoPathParam extends Parameter, Adaptable, NeoAbstractPathParam {
+public interface NeoPathParam extends Adaptable, NeoAbstractPathParam {
 	/**
 	 * Returns the value of the '<em><b>Neo Edge</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionNeo4J.NeoEdge#getNeoPathParam <em>Neo Path Param</em>}'.

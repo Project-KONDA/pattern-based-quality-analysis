@@ -14,7 +14,6 @@ import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.graphstructure.impl.RelationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +28,7 @@ import qualitypatternmodel.graphstructure.impl.RelationImpl;
  *
  * @generated
  */
-public class NeoPropertyEdgeImpl extends RelationImpl implements NeoPropertyEdge {
+public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPropertyEdge {
 	/**
 	 * The cached value of the '{@link #getNeoPropertyPathParam() <em>Neo Property Path Param</em>}' reference.
 	 * <!-- begin-user-doc -->

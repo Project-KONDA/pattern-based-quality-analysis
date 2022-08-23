@@ -8,18 +8,11 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
-
-import qualitypatternmodel.graphstructure.provider.RelationItemProvider;
-
-import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoEdge} object.
@@ -27,7 +20,7 @@ import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NeoEdgeItemProvider extends RelationItemProvider {
+public class NeoEdgeItemProvider extends NeoAbstractEdgeItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -125,17 +118,6 @@ public class NeoEdgeItemProvider extends RelationItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return QualitypatternmodelEditPlugin.INSTANCE;
 	}
 
 }

@@ -2,9 +2,8 @@
  */
 package qualitypatternmodel.adaptionNeo4J.tests;
 
-import junit.framework.TestCase;
-
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
+import qualitypatternmodel.parameters.tests.ParameterTest;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,15 +17,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
  * </p>
  * @generated
  */
-public abstract class NeoAbstractPathParamTest extends TestCase {
-
-	/**
-	 * The fixture for this Neo Abstract Path Param test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NeoAbstractPathParam fixture = null;
+public abstract class NeoAbstractPathParamTest extends ParameterTest {
 
 	/**
 	 * Constructs a new Neo Abstract Path Param test case with the given name.
@@ -39,23 +30,14 @@ public abstract class NeoAbstractPathParamTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Neo Abstract Path Param test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(NeoAbstractPathParam fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Neo Abstract Path Param test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected NeoAbstractPathParam getFixture() {
-		return fixture;
+		return (NeoAbstractPathParam)fixture;
 	}
 
 	/**

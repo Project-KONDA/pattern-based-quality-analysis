@@ -3,8 +3,6 @@
 package qualitypatternmodel.adaptionNeo4J;
 
 import qualitypatternmodel.graphstructure.Adaptable;
-
-import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.TextLiteralParam;
 
 /**
@@ -25,7 +23,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * @model
  * @generated
  */
-public interface NeoPropertyPathParam extends Parameter, Adaptable, NeoAbstractPathParam {
+public interface NeoPropertyPathParam extends Adaptable, NeoAbstractPathParam {
 	/**
 	 * Returns the value of the '<em><b>Neo Path</b></em>' reference.
 	 * <!-- begin-user-doc -->

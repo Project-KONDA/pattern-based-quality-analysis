@@ -78,8 +78,6 @@ public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNe
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case AdaptionNeo4JPackage.NEO_QUANTIFIER:
-				return createNeoQuantifierFromString(eDataType, initialValue);
 			case AdaptionNeo4JPackage.NEO_DIRECTION:
 				return createNeoDirectionFromString(eDataType, initialValue);
 			default:
@@ -95,8 +93,6 @@ public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNe
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case AdaptionNeo4JPackage.NEO_QUANTIFIER:
-				return convertNeoQuantifierToString(eDataType, instanceValue);
 			case AdaptionNeo4JPackage.NEO_DIRECTION:
 				return convertNeoDirectionToString(eDataType, instanceValue);
 			default:
@@ -190,26 +186,6 @@ public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNe
 	public NeoPropertyEdge createNeoPropertyEdge() {
 		NeoPropertyEdgeImpl neoPropertyEdge = new NeoPropertyEdgeImpl();
 		return neoPropertyEdge;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NeoQuantifier createNeoQuantifierFromString(EDataType eDataType, String initialValue) {
-		NeoQuantifier result = NeoQuantifier.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertNeoQuantifierToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

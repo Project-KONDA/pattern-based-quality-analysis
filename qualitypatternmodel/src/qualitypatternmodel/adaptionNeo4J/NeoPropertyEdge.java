@@ -2,8 +2,6 @@
  */
 package qualitypatternmodel.adaptionNeo4J;
 
-import qualitypatternmodel.graphstructure.Relation;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Neo Attribute Edge</b></em>'.
@@ -20,7 +18,7 @@ import qualitypatternmodel.graphstructure.Relation;
  * @model
  * @generated
  */
-public interface NeoPropertyEdge extends Relation, NeoAbstractEdge {
+public interface NeoPropertyEdge extends NeoAbstractEdge {
 	/**
 	 * Returns the value of the '<em><b>Neo Property Path Param</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPropertyEdge <em>Neo Property Edge</em>}'.

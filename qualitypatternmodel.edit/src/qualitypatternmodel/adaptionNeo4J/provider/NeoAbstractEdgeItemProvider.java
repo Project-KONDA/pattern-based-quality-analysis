@@ -10,15 +10,9 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-
+import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
+import qualitypatternmodel.graphstructure.provider.RelationItemProvider;
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**
@@ -28,13 +22,7 @@ import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
  * @generated
  */
 public class NeoAbstractEdgeItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends RelationItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -68,7 +56,10 @@ public class NeoAbstractEdgeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_NeoAbstractEdge_type");
+		String label = ((NeoAbstractEdge)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_NeoAbstractEdge_type") :
+			getString("_UI_NeoAbstractEdge_type") + " " + label;
 	}
 
 
