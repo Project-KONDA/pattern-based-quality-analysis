@@ -59,8 +59,13 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 		cypher.append(CypherSpecificConstants.VARIABLE_NODE);
 		cypher.append(getOriginalID());
 		EList<TextLiteralParam> labels = this.getNeoNodeLabels();
-		for (int i = 0; i < labels.size(); i++) {
-			cypher.append(labels.get(i).getValue());
+		//prüft ob es eine original node
+		//Falls es original dann labels
+		//TODO Auch für Edge einfügen
+		if(getIncomingMapping() != null) { 
+			for (int i = 0; i < labels.size(); i++) {
+				cypher.append(labels.get(i).getValue());
+			}
 		}
 		cypher.append(")");
 		return cypher.toString();

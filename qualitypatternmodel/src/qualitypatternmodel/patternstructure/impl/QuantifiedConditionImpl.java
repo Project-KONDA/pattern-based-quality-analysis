@@ -165,9 +165,27 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	
 	@Override
 	public String generateCypher() throws InvalidityException {
-		String query = "";
-		// TODO -- Implement this function for Cypher -- 
-		return query; 		
+		StringBuilder query = new StringBuilder();
+		if (quantifier == Quantifier.EXISTS ) {
+			query.append("EXISTS { ");
+			//INCLUDE THE GRAPH-PATTERN
+			query.append("MATCH ");
+			query.append(graph.generateCypher()); //In the count condition a new graph will be build thus there is no problem to set it straigt. 
+			//However it has to be considert that from the original graph variables have to be loaded (morphism can be used to handle that)
+			//INCLUDE THE WHERE //How to include the WHERE if needed
+			if (!(getCondition() instanceof TrueElementImpl)) {
+				query.append("WHERE ");
+				query.append(getCondition().generateCypher());
+			}
+			query.append("}");			
+		} else if (quantifier == Quantifier.FORALL) {
+			//Include the MATCH 
+			//INCLUDE THE GRAPH-PATTERN
+			//INCLUDE THE WHERE			
+		} else {
+			throw new InvalidityException("invalid quantifier");
+		}
+		return query.toString(); 		
 	}
 	
 	@Override

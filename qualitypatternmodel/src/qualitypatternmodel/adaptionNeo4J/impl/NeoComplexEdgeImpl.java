@@ -60,7 +60,6 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	public String generateCypher() throws InvalidityException {
 		if (getNeoPath().size() < 2) 
 			return null;
-		
 		StringBuilder cypher = new StringBuilder();		
 		for(NeoPathPart part : getSimpleEdges()) cypher.append(part.generateCypher());
 		

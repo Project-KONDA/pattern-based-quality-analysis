@@ -1655,7 +1655,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 
 	private NeoPropertyNode adaptAsNeoAttributeRecursive() throws InvalidityException {
 		if (!(this instanceof NeoPropertyNode)) {
-			NeoPropertyNodeImpl neoAttribute = (NeoPropertyNodeImpl) AdaptionNeo4JFactoryImpl.init().createNeoAttributeNode();;	
+			NeoPropertyNodeImpl neoAttribute = (NeoPropertyNodeImpl) AdaptionNeo4JFactoryImpl.init().createNeoPropertyNode();;	
 			neoAttribute.typeModifiable = true;
 			neoAttribute.setGraphSimple(getGraph());			
 			
