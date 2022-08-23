@@ -5243,6 +5243,304 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_ABSTRACT_PATH_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoUnspecifiedEdgeImpl <em>Neo Unspecified Edge</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionNeo4J.impl.NeoUnspecifiedEdgeImpl
+	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoUnspecifiedEdge()
+	 * @generated
+	 */
+	int NEO_UNSPECIFIED_EDGE = 12;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE__ID = NEO_PATH_PART__ID;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE__INTERNAL_ID = NEO_PATH_PART__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Neo Target Node Labels</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE__NEO_TARGET_NODE_LABELS = NEO_PATH_PART_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Steps In Between</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE__STEPS_IN_BETWEEN = NEO_PATH_PART_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Neo Unspecified Edge</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE_FEATURE_COUNT = NEO_PATH_PART_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE___VALIDATE__DIAGNOSTICCHAIN_MAP = NEO_PATH_PART___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE___IS_VALID__ABSTRACTIONLEVEL = NEO_PATH_PART___IS_VALID__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE___IS_VALID_LOCAL__ABSTRACTIONLEVEL = NEO_PATH_PART___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE___MY_TO_STRING = NEO_PATH_PART___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE___GENERATE_CYPHER = NEO_PATH_PART___GENERATE_CYPHER;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE___GENERATE_XQUERY = NEO_PATH_PART___GENERATE_XQUERY;
+
+	/**
+	 * The operation id for the '<em>Generate Sparql</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE___GENERATE_SPARQL = NEO_PATH_PART___GENERATE_SPARQL;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE___GET_CONTAINER = NEO_PATH_PART___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE___GET_ANCESTOR__CLASS = NEO_PATH_PART___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE___INITIALIZE_TRANSLATION = NEO_PATH_PART___INITIALIZE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE___PREPARE_TRANSLATION = NEO_PATH_PART___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE___GET_OPERATOR_LIST = NEO_PATH_PART___GET_OPERATOR_LIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE___GET_PARAMETER_LIST = NEO_PATH_PART___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE___GET_ALL_PARAMETERS = NEO_PATH_PART___GET_ALL_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE___PREPARE_PARAMETER_UPDATES = NEO_PATH_PART___PREPARE_PARAMETER_UPDATES;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = NEO_PATH_PART___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE___UPDATE_PARAMETERS__PARAMETERLIST = NEO_PATH_PART___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = NEO_PATH_PART___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE___RECORD_VALUES__XMLDATADATABASE = NEO_PATH_PART___RECORD_VALUES__XMLDATADATABASE;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE___RELATIONS_XML_ADAPTED = NEO_PATH_PART___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE___CREATE_XML_ADAPTION = NEO_PATH_PART___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE___CREATE_RDF_ADAPTION = NEO_PATH_PART___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE___CREATE_NEO4J_ADAPTION = NEO_PATH_PART___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Get Simple Edges</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE___GET_SIMPLE_EDGES = NEO_PATH_PART___GET_SIMPLE_EDGES;
+
+	/**
+	 * The operation id for the '<em>Get Cypher Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE___GET_CYPHER_VARIABLE = NEO_PATH_PART___GET_CYPHER_VARIABLE;
+
+	/**
+	 * The operation id for the '<em>Set Steps</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE___SET_STEPS__STRING = NEO_PATH_PART_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Neo Unspecified Edge</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE_OPERATION_COUNT = NEO_PATH_PART_OPERATION_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.NeoDirection <em>Neo Direction</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5250,7 +5548,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoDirection()
 	 * @generated
 	 */
-	int NEO_DIRECTION = 12;
+	int NEO_DIRECTION = 13;
 
 
 	/**
@@ -5261,7 +5559,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoPlace()
 	 * @generated
 	 */
-	int NEO_PLACE = 13;
+	int NEO_PLACE = 14;
 
 
 	/**
@@ -5703,6 +6001,48 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EOperation getNeoAbstractPathParam__SetIsReturnElement__boolean();
 
 	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoUnspecifiedEdge <em>Neo Unspecified Edge</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Neo Unspecified Edge</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoUnspecifiedEdge
+	 * @generated
+	 */
+	EClass getNeoUnspecifiedEdge();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.NeoUnspecifiedEdge#getNeoTargetNodeLabels <em>Neo Target Node Labels</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Neo Target Node Labels</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoUnspecifiedEdge#getNeoTargetNodeLabels()
+	 * @see #getNeoUnspecifiedEdge()
+	 * @generated
+	 */
+	EReference getNeoUnspecifiedEdge_NeoTargetNodeLabels();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoUnspecifiedEdge#isStepsInBetween <em>Steps In Between</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Steps In Between</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoUnspecifiedEdge#isStepsInBetween()
+	 * @see #getNeoUnspecifiedEdge()
+	 * @generated
+	 */
+	EAttribute getNeoUnspecifiedEdge_StepsInBetween();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoUnspecifiedEdge#setSteps(java.lang.String) <em>Set Steps</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Steps</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoUnspecifiedEdge#setSteps(java.lang.String)
+	 * @generated
+	 */
+	EOperation getNeoUnspecifiedEdge__SetSteps__String();
+
+	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.adaptionNeo4J.NeoDirection <em>Neo Direction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6104,6 +6444,40 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NEO_ABSTRACT_PATH_PARAM___SET_IS_RETURN_ELEMENT__BOOLEAN = eINSTANCE.getNeoAbstractPathParam__SetIsReturnElement__boolean();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoUnspecifiedEdgeImpl <em>Neo Unspecified Edge</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.adaptionNeo4J.impl.NeoUnspecifiedEdgeImpl
+		 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoUnspecifiedEdge()
+		 * @generated
+		 */
+		EClass NEO_UNSPECIFIED_EDGE = eINSTANCE.getNeoUnspecifiedEdge();
+
+		/**
+		 * The meta object literal for the '<em><b>Neo Target Node Labels</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NEO_UNSPECIFIED_EDGE__NEO_TARGET_NODE_LABELS = eINSTANCE.getNeoUnspecifiedEdge_NeoTargetNodeLabels();
+
+		/**
+		 * The meta object literal for the '<em><b>Steps In Between</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NEO_UNSPECIFIED_EDGE__STEPS_IN_BETWEEN = eINSTANCE.getNeoUnspecifiedEdge_StepsInBetween();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Steps</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_UNSPECIFIED_EDGE___SET_STEPS__STRING = eINSTANCE.getNeoUnspecifiedEdge__SetSteps__String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.NeoDirection <em>Neo Direction</em>}' enum.

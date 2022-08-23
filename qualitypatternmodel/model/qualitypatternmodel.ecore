@@ -1290,5 +1290,13 @@
       <eLiterals name="ENDING" value="1"/>
       <eLiterals name="FOLLOWING" value="2"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NeoUnspecifiedEdge" eSuperTypes="#//adaptionNeo4J/NeoPathPart">
+      <eOperations name="setSteps">
+        <eParameters name="stepsInBetween" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="neoTargetNodeLabels"
+          eType="#//parameters/TextLiteralParam"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="stepsInBetween" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

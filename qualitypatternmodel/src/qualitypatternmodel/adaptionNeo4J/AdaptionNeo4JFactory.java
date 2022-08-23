@@ -94,6 +94,15 @@ public interface AdaptionNeo4JFactory extends EFactory {
 	NeoPropertyEdge createNeoPropertyEdge();
 
 	/**
+	 * Returns a new object of class '<em>Neo Unspecified Edge</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Neo Unspecified Edge</em>'.
+	 * @generated
+	 */
+	NeoUnspecifiedEdge createNeoUnspecifiedEdge();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
