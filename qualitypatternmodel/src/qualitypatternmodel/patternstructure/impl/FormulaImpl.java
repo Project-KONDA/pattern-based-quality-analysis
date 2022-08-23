@@ -14,6 +14,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import com.sun.org.apache.bcel.internal.Const;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -27,6 +29,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -84,6 +87,14 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	 * @ordered
 	 */
 	protected Condition condition2;
+	
+	//ADD to the .ecore-Model
+	protected boolean clamped = false;
+	
+	//ADD to the .ecore-Model
+	public void setClamped(boolean clamped) {
+		this.clamped = clamped;
+	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -184,7 +195,58 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		} else {
 			throw new InvalidityException("operator null");
 		}
-		
+	}
+	
+	@Override 
+	public String generateCypher() throws InvalidityException {
+		if (this.operator != null) {
+			StringBuilder cypher = new StringBuilder();
+			if (this.condition1 != null && this.condition2 != null) {
+				String condition1Query = condition1.generateCypher();
+				String condition2Query = condition2.generateCypher();
+				
+				//For cypher there are less Boolean Operators
+				switch (operator) {
+				case AND:
+					cypher.append(condition1Query + " ");
+					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
+					cypher.append(" " + condition2Query);
+					break;
+				case OR:
+					cypher.append(condition1Query + " ");
+					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_OR);
+					cypher.append(" " + condition2Query);
+					break;
+				case XOR:
+					cypher.append(condition1Query + " ");
+					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_XOR);
+					cypher.append(" " + condition2Query);
+					break;
+				case IMPLIES:
+					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " " + condition1Query + " ");
+					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
+					cypher.append(" " + condition2Query);
+					break;
+				case EQUAL:
+					cypher.append("(" + condition1Query + " " + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + " " + condition2Query + ")");
+					cypher.append(" " + CypherSpecificConstants.BOOLEAN_OPERATOR_XOR + " ");
+					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " ");
+					cypher.append("(" + condition1Query + " " + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + " " + condition2Query + ")");
+					cypher.append(")");
+					break;
+				default:
+					throw new InvalidityException("invalid arguments");
+				}
+			} else {
+				throw new InvalidityException("invalid arguments");
+			}
+			if (this.clamped) {
+				cypher.insert(0, "(");
+				cypher.append(")");
+			}
+			return cypher.toString();
+		}
+		throw new InvalidityException("operator null");
 	}
 
 	@Override

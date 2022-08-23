@@ -32,6 +32,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -166,26 +167,39 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	@Override
 	public String generateCypher() throws InvalidityException {
 		StringBuilder query = new StringBuilder();
+		String exists = CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS;
+		
+		//INCLUDE THE GRAPH-PATTERN - Is needed for both cases
+		query.append(String.format(CypherSpecificConstants.CLAUSE_MATCH_INLUCE_W, CypherSpecificConstants.TWELVE_WHITESPACES));
+		query.append(graph.generateCypher()); 
+		
+		//TODO
 		if (quantifier == Quantifier.EXISTS ) {
-			query.append("EXISTS { ");
-			//INCLUDE THE GRAPH-PATTERN
-			query.append("MATCH ");
-			query.append(graph.generateCypher()); //In the count condition a new graph will be build thus there is no problem to set it straigt. 
+			//In the count condition a new graph will be build thus there is no problem to set it straigt. 
 			//However it has to be considert that from the original graph variables have to be loaded (morphism can be used to handle that)
-			//INCLUDE THE WHERE //How to include the WHERE if needed
+
+			//INCLUDE the WHERE
 			if (!(getCondition() instanceof TrueElementImpl)) {
-				query.append("WHERE ");
-				query.append(getCondition().generateCypher());
+				query.append(String.format(CypherSpecificConstants.CLAUSE_WHERE_INLUCE_W, CypherSpecificConstants.TWELVE_WHITESPACES));
+				//BUILD THE WHERE
 			}
-			query.append("}");			
+			
+			exists = String.format(exists, query.toString());
 		} else if (quantifier == Quantifier.FORALL) {
-			//Include the MATCH 
-			//INCLUDE THE GRAPH-PATTERN
-			//INCLUDE THE WHERE			
+			//A statement "For all X Y is valid" is logically equivalent to "There is no X for which Y is not valid".
+			//Thus the following construct is equivalent to a forall: 
+			exists = CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + exists;
+			
+			//INCLUDE THE WHERE	
+			if (!(getCondition() instanceof TrueElementImpl)) {
+				query.append(String.format(CypherSpecificConstants.CLAUSE_WHERE_INLUCE_W, CypherSpecificConstants.TWELVE_WHITESPACES));
+				//BUILD THE WHERE
+			}
+			exists = String.format(exists, query.toString());
 		} else {
 			throw new InvalidityException("invalid quantifier");
 		}
-		return query.toString(); 		
+		return exists; 		
 	}
 	
 	@Override

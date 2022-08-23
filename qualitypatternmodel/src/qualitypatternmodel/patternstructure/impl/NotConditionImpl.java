@@ -25,6 +25,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -104,11 +105,15 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	
 	@Override
 	public String generateCypher() throws InvalidityException {
-		// TODO - However in every case there is no condition a exception will be thrown
 		if (condition != null) {
-			String result = "";
-			// TODO -- How to specifiy not for one or multiple properties in Neo4J
-			return result;			
+			String result = null;
+			if (condition instanceof NotCondition) {
+				return ((NotCondition) condition).getCondition().generateCypher();
+			}
+			
+			result = CypherSpecificConstants.BOOLEAN_OPERATOR_NOT;
+			result += " (" + condition.generateCypher() + ")";
+			return result;	
 		}
 		throw new InvalidityException("invalid condition");
 	}

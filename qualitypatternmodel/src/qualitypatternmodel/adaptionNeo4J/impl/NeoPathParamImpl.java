@@ -25,6 +25,8 @@ import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -815,5 +817,12 @@ public class NeoPathParamImpl extends PatternElementImpl implements NeoPathParam
 			result += " " + generateCypher();
 		} catch (InvalidityException e) {}
 		return result;
+	}
+
+	@Override
+	public void isValidLocal(AbstractionLevel abstractionLevel)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		// TODO Auto-generated method stub
+		
 	}
 } //Neo4JPathParamImpl
