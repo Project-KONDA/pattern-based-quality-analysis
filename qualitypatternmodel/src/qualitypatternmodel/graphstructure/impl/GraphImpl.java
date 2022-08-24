@@ -248,7 +248,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 	
 	//ADD to the .ecore-Model
-	public String generateCypherWHERE() throws InvalidityException {
+	@Override
+	public String generateCypherWhere() throws InvalidityException {
 		StringBuilder cypher = new StringBuilder();
 		OperatorList opList = this.getOperatorList();
 		//Add this to RegelWerk that the Operators are all in breakers
@@ -291,6 +292,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 //	}		
 	
 	//ADD to the .ecore-Model
+	@Override
 	public String generateCypherReturn() throws InvalidityException {
 		String cypher = "";
 		if (getNodes().size() != 0 ) {

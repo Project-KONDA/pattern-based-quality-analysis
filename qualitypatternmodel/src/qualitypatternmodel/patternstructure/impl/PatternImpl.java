@@ -196,16 +196,28 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		return query;
 	}
 	
+	//Refactor generateCypherWHERE to here
+	
 	@Override
 	public String generateCypher() throws InvalidityException {
 		if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
 			throw new InvalidityException("return elements missing");
 		}
+		String matchClause;
+		matchClause = graph.generateCypher();
 		
-		StringBuilder sb = new StringBuilder();
-		sb.append(graph.generateCypher());
-		sb.append(condition.generateCypher());
-		return sb.toString();
+		String withClause;
+		withClause = ""; //has to be implemented
+		
+		String whereClause;
+		whereClause = graph.generateCypherWhere();
+		whereClause += condition.generateCypher();
+		
+		String returnClause;
+		returnClause = graph.generateCypherReturn();
+		
+		String cypher = matchClause + withClause + whereClause + returnClause;
+		return cypher;
 	}
 	
 	@Override

@@ -1,34 +1,12 @@
 package qualitypatternmodel.cyphertranslationtests;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
-
-import org.eclipse.emf.common.util.EList;
-
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
-import qualitypatternmodel.adaptionNeo4J.impl.NeoEdgeImpl;
-import qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl;
-import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
-import qualitypatternmodel.adaptionrdf.IriParam;
-import qualitypatternmodel.adaptionrdf.RdfPredicate;
-import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
-import qualitypatternmodel.adaptionxml.XmlAxisKind;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.operators.Match;
-import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.ParametersFactory;
-import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.UntypedParameterValue;
-import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
-import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;

@@ -380,77 +380,82 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
 			throw new InvalidityException("return element(s) missing");
 		}
+		//Es wäre gut das Modell noch mit einem getReturnRelations zu erweitern! 
 		
-		// -- NEED ADAPTATION
-		EList<String> prefixes = new BasicEList<String>();		
-		for(Parameter p : getParameterList().getParameters()) {
-			if(p instanceof NeoPathPartImpl) {
-				NeoPathPart neoPathPart = (NeoPathPart) p;
-				
-				//This has to be adapted and can not just be copied
-			}
-		}
+		String completeCyString;
+		completeCyString = super.generateCypher();
 		
-		
-		EList<Node> nodes = graph.getReturnNodes();
-		EList<Relation> edges = graph.getRelations();
-		
-		StringBuilder cypherQuery = new StringBuilder();
-		StringBuilder graphPatternMatch = new StringBuilder();
-		StringBuilder graphPatternReturn = new StringBuilder();
-
-		//Building the MATCH -- NEED ADAPTATION
-		cypherQuery.append("\nMATCH ");
-		for (Node n : nodes) {
-			if (n instanceof ComplexNode && n instanceof NeoNodeImpl) {
-				graphPatternMatch.append(n.generateCypher());
-				//For getting the edges between the complexNodes
-//				if (edges.size() != 0 && edges.get(1) != null) {
-//					graphPatternMatch.append("-[" + edges.get(1).getTarget() + "]-");
-//				}
-			}
-		}
-		cypherQuery.append(graphPatternMatch);		
-		
-		//BUILDING THE WHERE -- NEED ADAPTATION
-		//This just shall be introduct if there is a condition
-		if (false) {
-			cypherQuery.append("\nWHERE ");
-			cypherQuery.append("Some Condition");
-			cypherQuery.append(super.generateCypher()); //.replace("\n", "\n  ")
-		}
-		
-		//BUILDING THE RETURN -- NEED ADAPTATION
-		NeoNode neoNode;
-		for (Node n : nodes) {
-			if (n instanceof ComplexNode && n instanceof NeoNodeImpl) {
-				if (graphPatternReturn.length() != 0) graphPatternReturn.append(",");
-				neoNode = (NeoNode) n;
-				graphPatternReturn.append(neoNode.getCypherVariable());
-			}
-		}
-		
-		//This has to be possible -- has to be modified
-		NeoPropertyNode neoAttributeNode;
-		for (Node n : nodes) {
-			if (n instanceof PrimitiveNode && n instanceof NeoPropertyNode) {
-				if (graphPatternReturn.length() != 0) graphPatternReturn.append(",");
-				neoAttributeNode = (NeoPropertyNode) n;
-				graphPatternReturn.append(neoAttributeNode.generateCypher());
-			}
-		}
-		cypherQuery.append("\nRETURN " + graphPatternReturn);
-		
-		//This should return the edges -- has to be modified
-//		for (Relation egde : edges) {
-//			if (graphPatternReturn.length() != 0) graphPatternReturn.append(",");
-//			graphPatternReturn.append(egde.generateCypher());
-//		}
-		
-		return cypherQuery.toString();
-		//BUILDING THE WITH ???
-		//BUILDING THE UNION ??? 
+		return completeCyString;
 	}
+	
+	
+//	// -- NEED ADAPTATION
+//	EList<String> prefixes = new BasicEList<String>();		
+//	for(Parameter p : getParameterList().getParameters()) {
+//		if(p instanceof NeoPathPartImpl) {
+//			NeoPathPart neoPathPart = (NeoPathPart) p;
+//			
+//			//This has to be adapted and can not just be copied
+//		}
+//	}
+//	
+//	
+//	EList<Node> nodes = graph.getReturnNodes();
+//	EList<Relation> edges = graph.getRelations();
+//	
+//	StringBuilder cypherQuery = new StringBuilder();
+//	StringBuilder graphPatternMatch = new StringBuilder();
+//	StringBuilder graphPatternReturn = new StringBuilder();
+//
+//	//Building the MATCH -- NEED ADAPTATION
+//	cypherQuery.append("\nMATCH ");
+//	for (Node n : nodes) {
+//		if (n instanceof ComplexNode && n instanceof NeoNodeImpl) {
+//			graphPatternMatch.append(n.generateCypher());
+//			//For getting the edges between the complexNodes
+////			if (edges.size() != 0 && edges.get(1) != null) {
+////				graphPatternMatch.append("-[" + edges.get(1).getTarget() + "]-");
+////			}
+//		}
+//	}
+//	cypherQuery.append(graphPatternMatch);		
+//	
+//	//BUILDING THE WHERE -- NEED ADAPTATION
+//	//This just shall be introduct if there is a condition
+//	if (false) {
+//		cypherQuery.append("\nWHERE ");
+//		cypherQuery.append("Some Condition");
+//		cypherQuery.append(super.generateCypher()); //.replace("\n", "\n  ")
+//	}
+//	
+//	//BUILDING THE RETURN -- NEED ADAPTATION
+//	NeoNode neoNode;
+//	for (Node n : nodes) {
+//		if (n instanceof ComplexNode && n instanceof NeoNodeImpl) {
+//			if (graphPatternReturn.length() != 0) graphPatternReturn.append(",");
+//			neoNode = (NeoNode) n;
+//			graphPatternReturn.append(neoNode.getCypherVariable());
+//		}
+//	}
+//	
+//	//This has to be possible -- has to be modified
+//	NeoPropertyNode neoAttributeNode;
+//	for (Node n : nodes) {
+//		if (n instanceof PrimitiveNode && n instanceof NeoPropertyNode) {
+//			if (graphPatternReturn.length() != 0) graphPatternReturn.append(",");
+//			neoAttributeNode = (NeoPropertyNode) n;
+//			graphPatternReturn.append(neoAttributeNode.generateCypher());
+//		}
+//	}
+//	cypherQuery.append("\nRETURN " + graphPatternReturn);
+//	
+//	//This should return the edges -- has to be modified
+////	for (Relation egde : edges) {
+////		if (graphPatternReturn.length() != 0) graphPatternReturn.append(",");
+////		graphPatternReturn.append(egde.generateCypher());
+////	}
+//	BUILDING THE WITH ???
+//	BUILDING THE UNION ??? 
 	
 	
 	

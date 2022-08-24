@@ -3,6 +3,8 @@
 package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
+
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
@@ -246,5 +248,10 @@ public interface Graph extends PatternElement {
 	 * @generated
 	 */
 	void copyGraph(Graph graph) throws MissingPatternContainerException;
+	
+	//ADD to the .ecore-Model
+	String generateCypherWhere() throws InvalidityException;
+	//ADD to the .ecore-Model
+	String generateCypherReturn() throws InvalidityException;
 
 } // Graph
