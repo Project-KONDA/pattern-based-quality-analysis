@@ -1220,8 +1220,7 @@
       <eOperations name="setNeoNodeLabel">
         <eParameters name="neoNodeLabel" eType="#//parameters/TextLiteralParam"/>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="neoNodeLabels" upperBound="-1"
-          eType="#//parameters/TextLiteralParam"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="neoNodeLabels" eType="#//parameters/TextListParam"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoEdge" eSuperTypes="#//adaptionNeo4J/NeoAbstractEdge">
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoPathParam" eType="#//adaptionNeo4J/NeoPathParam"
@@ -1295,7 +1294,7 @@
         <eParameters name="stepsInBetween" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoTargetNodeLabels"
-          eType="#//parameters/TextLiteralParam"/>
+          upperBound="-1" eType="#//parameters/TextLiteralParam"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="stepsInBetween" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
   </eSubpackages>
