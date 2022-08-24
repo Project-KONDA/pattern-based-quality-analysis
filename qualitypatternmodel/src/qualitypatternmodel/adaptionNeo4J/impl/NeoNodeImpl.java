@@ -17,6 +17,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.impl.ComplexNodeImpl;
@@ -105,10 +106,16 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 		//prüft ob es eine original node
 		//Falls es original dann labels
 		//TODO Auch für Edge einfügen
-		if((!translated) &&getIncomingMapping() != null) { 
+		if((!translated) && getIncomingMapping() != null) { 
 			for (String label : labels.getValues()) {
 				cypher.append(label);
 			}
+			
+			//Wie komme ich an die Operator List
+			Graph g; 
+			
+			
+			translated = true;
 		}
 		cypher.append(")");
 		return cypher.toString();

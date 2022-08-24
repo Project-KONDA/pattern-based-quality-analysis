@@ -30,6 +30,7 @@ import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
  * <!-- begin-user-doc -->
@@ -119,9 +120,11 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	public String generateCypher() throws InvalidityException {
 		if(option!=null && regularExpression != null && regularExpression.getValue() != null && primitiveNode != null) {
 			if (option.getValue()) {
-				return primitiveNode.generateCypher() + " =~ " + regularExpression.generateCypher();
+				return primitiveNode.generateCypher() + " " + CypherSpecificConstants.SPECIAL_CYPHER_REGEX_EXPRESSION 
+						+ regularExpression.generateCypher() + " ";
 			} 
-			return "NOT (" + primitiveNode.generateCypher() + " =~ " + regularExpression.generateCypher() + ")";
+			return CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " (" + primitiveNode.generateCypher() + " " +
+					CypherSpecificConstants.SPECIAL_CYPHER_REGEX_EXPRESSION + " " + regularExpression.generateCypher() + ")";
 		}
 		throw new InvalidityException("invalid option");
 	}

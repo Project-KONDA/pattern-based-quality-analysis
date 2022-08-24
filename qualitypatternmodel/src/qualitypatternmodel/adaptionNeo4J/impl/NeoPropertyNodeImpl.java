@@ -87,7 +87,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		
 		 
 		if (!(getIncoming().get(0) instanceof NeoPropertyEdge)) 
-			throw new InvalidityException("incoming relation is no NeoAttributeEdge");
+			throw new InvalidityException("Incoming relation is no NeoAttributeEdge");
 		NeoPropertyEdgeImpl nae = (NeoPropertyEdgeImpl) getIncoming().get(0);
 		String attributeName = nae.getNeoPropertyPathParam().getNeoPropertyName().getValue();
 		
@@ -98,10 +98,11 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 					NeoNodeImpl nni = (NeoNodeImpl) getOriginalNode();
 					cypher.append(nni.getCypherVariable());
 				} else {
-					//TODO
-					System.out.println("ToDo");
+					throw new InvalidityException("In NeoProperty went something wronge");
 				}
-		} catch (Exception e) {System.out.println(e);}
+		} catch (Exception e) {
+			throw new InvalidityException("In NeoProperty went something wronge");
+		}
 		cypher.append("." + attributeName);
 		return cypher.toString();
 	}

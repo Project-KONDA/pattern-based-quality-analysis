@@ -34,6 +34,7 @@ import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
  * <!-- begin-user-doc -->
@@ -135,9 +136,9 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 	public String generateCypher() throws InvalidityException {
 		if(option!=null && content != null && content.getValue() != null && primitiveNode != null) {
 			if (option.getValue()) {
-				return primitiveNode.generateCypher() + " CONTAINS(" +  content.getValue() + ")";
+				return primitiveNode.generateCypher() + CypherSpecificConstants.WHERE_OPERATOR_CONTAINS + " (" +  content.getValue() + ")";
 			} 
-			return "NOT(" + primitiveNode.generateCypher() + " CONTAINS(" +  content.getValue() + "))";		
+			return  CypherSpecificConstants.BOOLEAN_OPERATOR_NOT+ " (" + primitiveNode.generateCypher() + CypherSpecificConstants.WHERE_OPERATOR_CONTAINS + " (" +  content.getValue() + "))";		
 		}
 		throw new InvalidityException("invalid option");
 	}

@@ -1253,6 +1253,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="NeoPathPart" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getSimpleEdges" upperBound="-1" eType="#//adaptionNeo4J/NeoSimpleEdge"/>
       <eOperations name="getCypherVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="translated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoPropertyNode" eSuperTypes="#//graphstructure/PrimitiveNode #//adaptionNeo4J/NeoAbstractNode"/>
     <eClassifiers xsi:type="ecore:EClass" name="NeoPathParam" eSuperTypes="#//graphstructure/Adaptable #//adaptionNeo4J/NeoAbstractPathParam">

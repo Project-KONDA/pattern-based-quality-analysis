@@ -11,6 +11,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import qualitypatternmodel.adaptionNeo4J.NeoNode;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.adaptionxml.XmlProperty;
@@ -44,6 +48,7 @@ import qualitypatternmodel.parameters.impl.ParameterValueImpl;
 import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
  * <!-- begin-user-doc --> 
@@ -274,41 +279,86 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			throw new InvalidityException("invalid option");
 		}
 	}
-
 	
 	@Override 
 	public String generateCypher() throws InvalidityException {
-		//TODO
-		
-		String result = null;
-		String argument1Translation = getArgument1().generateCypher();
-		String argument2Translation = getArgument2().generateCypher(); 
-		
-		
-		switch(option.getValue()) {
-		case EQUAL:
-			result = "";
-			break;
-		case NOTEQUAL:
-			result = "";
-			break;
-		case GREATER:
-			result = "";
-			break;
-		case LESS:
-			result = "";
-			break;
-		case GREATEROREQUAL:
-			result = "";
-			break;
-		case LESSOREQUAL:
-			result = "";
-			break;
-		default:
-			throw new InvalidityException();
+		if (neoInWhereClause()) {
+			StringBuilder cypher = new StringBuilder();
+			String argument1Translation = getArgument1().generateCypher();
+			String argument2Translation = getArgument2().generateCypher(); 
+			
+			switch(option.getValue()) {
+			case EQUAL:
+				cypher.append(argument1Translation);
+				cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_EQUAL
+						+ CypherSpecificConstants.ONE_WHITESPACES);
+				cypher.append(argument2Translation);
+				break;
+			case NOTEQUAL:
+				cypher.append(argument1Translation);
+				cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_NOTEQUAL
+						+ CypherSpecificConstants.ONE_WHITESPACES);
+				cypher.append(argument2Translation);
+				break;
+			case GREATER:
+				cypher.append(argument1Translation);
+				cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_GREATER
+						+ CypherSpecificConstants.ONE_WHITESPACES);
+				cypher.append(argument2Translation);
+				break;
+			case LESS:
+				cypher.append(argument1Translation);
+				cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_LESS
+						+ CypherSpecificConstants.ONE_WHITESPACES);
+				cypher.append(argument2Translation);
+				break;
+			case GREATEROREQUAL:
+				cypher.append(argument1Translation);
+				cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_GREATER_EQUAL
+						+ CypherSpecificConstants.ONE_WHITESPACES);
+				cypher.append(argument2Translation);
+				break;
+			case LESSOREQUAL:
+				cypher.append(argument1Translation);
+				cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_LESS_EQUAL
+						+ CypherSpecificConstants.ONE_WHITESPACES);
+				cypher.append(argument2Translation);
+				break;
+			default:
+				throw new InvalidityException();
+			}
+			return cypher.toString(); 
+		}	
+		throw new RuntimeException();
+	}
+	
+	//ADD to the .ecore-Model
+	public String generateCypherInMatch() throws InvalidityException {
+		if (!neoInWhereClause()) {
+			String cypher;
+			if (getArgument1() instanceof NeoPropertyNode) {
+				cypher = ((NeoPropertyEdge)((NeoPropertyNode) getArgument1()).getIncoming().get(0))
+						.getNeoPropertyPathParam().getNeoPropertyName().getValue();
+				cypher += ": " + getArgument2().generateCypher();
+			} else {
+				cypher = ((NeoPropertyEdge)((NeoPropertyNode) getArgument2()).getIncoming().get(0))
+						.getNeoPropertyPathParam().getNeoPropertyName().getValue();
+				cypher += ": " + getArgument1().generateCypher();
+			}
+			return cypher;
 		}
-		
-		return result; 
+		throw new RuntimeException();
+	}
+	
+	//ADD to the .ecore-Model
+	public boolean neoInWhereClause() throws InvalidityException{
+		boolean result = true;
+		if (((getArgument1() instanceof NeoPropertyNode && getArgument2() instanceof Parameter) ||
+				(getArgument1() instanceof Parameter && getArgument2() instanceof NeoPropertyNode)) 
+				&& option.getValue() == ComparisonOperator.EQUAL) {
+			if(option.getValue() == ComparisonOperator.EQUAL) result = false;
+		} else if (getArgument1() instanceof NeoNode || getArgument2() instanceof NeoNode) throw new InvalidityException("Args 1 oder 2 can not be a NeoNode");
+		return result;
 	}
 	
 	/**

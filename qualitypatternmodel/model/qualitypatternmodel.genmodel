@@ -1054,6 +1054,7 @@
         </genOperations>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/translated"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/getSimpleEdges"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/getCypherVariable"/>
       </genClasses>

@@ -464,6 +464,16 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
+	public EAttribute getNeoPathPart_Translated() {
+		return (EAttribute)neoPathPartEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getNeoPathPart__GetSimpleEdges() {
 		return neoPathPartEClass.getEOperations().get(0);
 	}
@@ -817,6 +827,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		createEOperation(neoSimpleEdgeEClass, NEO_SIMPLE_EDGE___SET_TARGET_NODE_LABEL__TEXTLITERALPARAM);
 
 		neoPathPartEClass = createEClass(NEO_PATH_PART);
+		createEAttribute(neoPathPartEClass, NEO_PATH_PART__TRANSLATED);
 		createEOperation(neoPathPartEClass, NEO_PATH_PART___GET_SIMPLE_EDGES);
 		createEOperation(neoPathPartEClass, NEO_PATH_PART___GET_CYPHER_VARIABLE);
 
@@ -946,6 +957,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		addEParameter(op, theParametersPackage.getTextLiteralParam(), "targetNodeLabel", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(neoPathPartEClass, NeoPathPart.class, "NeoPathPart", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNeoPathPart_Translated(), ecorePackage.getEBoolean(), "translated", null, 0, 1, NeoPathPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getNeoPathPart__GetSimpleEdges(), this.getNeoSimpleEdge(), "getSimpleEdges", 0, -1, IS_UNIQUE, IS_ORDERED);
 

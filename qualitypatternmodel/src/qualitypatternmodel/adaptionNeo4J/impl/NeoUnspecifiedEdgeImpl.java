@@ -18,8 +18,11 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoUnspecifiedEdge;
-
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 
 /**
  * <!-- begin-user-doc -->
@@ -232,6 +235,19 @@ public class NeoUnspecifiedEdgeImpl extends NeoPathPartImpl implements NeoUnspec
 		result.append(stepsInBetween);
 		result.append(')');
 		return result.toString();
+	}
+
+	@Override
+	public void isValidLocal(AbstractionLevel abstractionLevel)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String myToString() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 } //NeoUnspecifiedEdgeImpl
