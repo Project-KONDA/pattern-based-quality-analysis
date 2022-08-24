@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.adaptionNeo4J;
 
+import org.eclipse.emf.common.util.EList;
+
 import qualitypatternmodel.parameters.TextLiteralParam;
 
 /**
@@ -23,26 +25,16 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  */
 public interface NeoUnspecifiedEdge extends NeoPathPart {
 	/**
-	 * Returns the value of the '<em><b>Neo Target Node Labels</b></em>' reference.
+	 * Returns the value of the '<em><b>Neo Target Node Labels</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.parameters.TextLiteralParam}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Neo Target Node Labels</em>' reference.
-	 * @see #setNeoTargetNodeLabels(TextLiteralParam)
+	 * @return the value of the '<em>Neo Target Node Labels</em>' reference list.
 	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoUnspecifiedEdge_NeoTargetNodeLabels()
 	 * @model
 	 * @generated
 	 */
-	TextLiteralParam getNeoTargetNodeLabels();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoUnspecifiedEdge#getNeoTargetNodeLabels <em>Neo Target Node Labels</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Neo Target Node Labels</em>' reference.
-	 * @see #getNeoTargetNodeLabels()
-	 * @generated
-	 */
-	void setNeoTargetNodeLabels(TextLiteralParam value);
+	EList<TextLiteralParam> getNeoTargetNodeLabels();
 
 	/**
 	 * Returns the value of the '<em><b>Steps In Between</b></em>' attribute.

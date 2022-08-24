@@ -1266,6 +1266,9 @@
       <eLiterals name="LEFT" value="2"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoPropertyPathParam" eSuperTypes="#//graphstructure/Adaptable #//adaptionNeo4J/NeoAbstractPathParam">
+      <eOperations name="setNeoPropertyName">
+        <eParameters name="neoPropertyName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoPath" eType="#//adaptionNeo4J/NeoPathPart"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoPropertyEdge" eType="#//adaptionNeo4J/NeoPropertyEdge"
           eOpposite="#//adaptionNeo4J/NeoPropertyEdge/neoPropertyPathParam"/>

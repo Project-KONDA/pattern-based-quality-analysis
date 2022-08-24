@@ -460,6 +460,18 @@ public class NeoPropertyPathParamImpl extends PatternElementImpl implements NeoP
 	 * @generated
 	 */
 	@Override
+	public void setNeoPropertyName(String neoPropertyName) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<NeoAbstractEdge> getLastRelations() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -804,6 +816,9 @@ public class NeoPropertyPathParamImpl extends PatternElementImpl implements NeoP
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM___SET_NEO_PROPERTY_NAME__STRING:
+				setNeoPropertyName((String)arguments.get(0));
+				return null;
 			case AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM___GET_LAST_RELATIONS:
 				return getLastRelations();
 			case AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM___SET_IS_RETURN_ELEMENT__BOOLEAN:

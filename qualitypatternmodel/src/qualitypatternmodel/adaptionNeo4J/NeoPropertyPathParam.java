@@ -92,4 +92,12 @@ public interface NeoPropertyPathParam extends Adaptable, NeoAbstractPathParam {
 	 */
 	void setNeoPropertyName(TextLiteralParam value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void setNeoPropertyName(String neoPropertyName);
+
 } // NeoAttributePathParam

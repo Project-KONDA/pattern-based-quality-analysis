@@ -17,6 +17,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
@@ -102,14 +103,20 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 					if (getTarget() != null && getTarget() instanceof NeoNode ) {
 						if (neoLastTargetLabels != null && neoLastTargetLabels.size() != 0) {
 							NeoNodeImpl nni = (NeoNodeImpl) getTarget();
-							EList<TextLiteralParam> nodeLabels = nni.getNeoNodeLabels();
+							TextListParamImpl nodeLabels = null;
+							try {
+								nodeLabels = (TextListParamImpl) nni.getNeoNodeLabels();
+							} catch (Exception e) {
+								throw new InvalidityException("");
+							}
+							
 							boolean labelEqual = true;
 							boolean labelIncluded;
-							if (nodeLabels != null && nodeLabels.size() == neoLastTargetLabels.size()) {
+							if (nodeLabels != null && nodeLabels.getValues().size() == neoLastTargetLabels.size()) {
 								for (TextLiteralParam edgeTargetLabel : neoLastTargetLabels) {
 									labelIncluded = false;
-									for (TextLiteralParam nodeLabel : nodeLabels) {
-										if (nodeLabel.getValue().compareTo(edgeTargetLabel.getValue()) == 0) {
+									for (String nodeLabel : nodeLabels.getValues()) {
+										if (nodeLabel.compareTo(edgeTargetLabel.getValue()) == 0) {
 											labelIncluded = true;
 											break;
 										}

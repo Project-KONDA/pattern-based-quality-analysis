@@ -4,14 +4,17 @@ package qualitypatternmodel.adaptionNeo4J.impl;
 
 import java.lang.reflect.InvocationTargetException;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoUnspecifiedEdge;
@@ -34,14 +37,14 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  */
 public class NeoUnspecifiedEdgeImpl extends NeoPathPartImpl implements NeoUnspecifiedEdge {
 	/**
-	 * The cached value of the '{@link #getNeoTargetNodeLabels() <em>Neo Target Node Labels</em>}' reference.
+	 * The cached value of the '{@link #getNeoTargetNodeLabels() <em>Neo Target Node Labels</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getNeoTargetNodeLabels()
 	 * @generated
 	 * @ordered
 	 */
-	protected TextLiteralParam neoTargetNodeLabels;
+	protected EList<TextLiteralParam> neoTargetNodeLabels;
 
 	/**
 	 * The default value of the '{@link #isStepsInBetween() <em>Steps In Between</em>}' attribute.
@@ -88,38 +91,11 @@ public class NeoUnspecifiedEdgeImpl extends NeoPathPartImpl implements NeoUnspec
 	 * @generated
 	 */
 	@Override
-	public TextLiteralParam getNeoTargetNodeLabels() {
-		if (neoTargetNodeLabels != null && neoTargetNodeLabels.eIsProxy()) {
-			InternalEObject oldNeoTargetNodeLabels = (InternalEObject)neoTargetNodeLabels;
-			neoTargetNodeLabels = (TextLiteralParam)eResolveProxy(oldNeoTargetNodeLabels);
-			if (neoTargetNodeLabels != oldNeoTargetNodeLabels) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionNeo4JPackage.NEO_UNSPECIFIED_EDGE__NEO_TARGET_NODE_LABELS, oldNeoTargetNodeLabels, neoTargetNodeLabels));
-			}
+	public EList<TextLiteralParam> getNeoTargetNodeLabels() {
+		if (neoTargetNodeLabels == null) {
+			neoTargetNodeLabels = new EObjectResolvingEList<TextLiteralParam>(TextLiteralParam.class, this, AdaptionNeo4JPackage.NEO_UNSPECIFIED_EDGE__NEO_TARGET_NODE_LABELS);
 		}
 		return neoTargetNodeLabels;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TextLiteralParam basicGetNeoTargetNodeLabels() {
-		return neoTargetNodeLabels;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setNeoTargetNodeLabels(TextLiteralParam newNeoTargetNodeLabels) {
-		TextLiteralParam oldNeoTargetNodeLabels = neoTargetNodeLabels;
-		neoTargetNodeLabels = newNeoTargetNodeLabels;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_UNSPECIFIED_EDGE__NEO_TARGET_NODE_LABELS, oldNeoTargetNodeLabels, neoTargetNodeLabels));
 	}
 
 	/**
@@ -166,8 +142,7 @@ public class NeoUnspecifiedEdgeImpl extends NeoPathPartImpl implements NeoUnspec
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case AdaptionNeo4JPackage.NEO_UNSPECIFIED_EDGE__NEO_TARGET_NODE_LABELS:
-				if (resolve) return getNeoTargetNodeLabels();
-				return basicGetNeoTargetNodeLabels();
+				return getNeoTargetNodeLabels();
 			case AdaptionNeo4JPackage.NEO_UNSPECIFIED_EDGE__STEPS_IN_BETWEEN:
 				return isStepsInBetween();
 		}
@@ -179,11 +154,13 @@ public class NeoUnspecifiedEdgeImpl extends NeoPathPartImpl implements NeoUnspec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case AdaptionNeo4JPackage.NEO_UNSPECIFIED_EDGE__NEO_TARGET_NODE_LABELS:
-				setNeoTargetNodeLabels((TextLiteralParam)newValue);
+				getNeoTargetNodeLabels().clear();
+				getNeoTargetNodeLabels().addAll((Collection<? extends TextLiteralParam>)newValue);
 				return;
 			case AdaptionNeo4JPackage.NEO_UNSPECIFIED_EDGE__STEPS_IN_BETWEEN:
 				setStepsInBetween((Boolean)newValue);
@@ -201,7 +178,7 @@ public class NeoUnspecifiedEdgeImpl extends NeoPathPartImpl implements NeoUnspec
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case AdaptionNeo4JPackage.NEO_UNSPECIFIED_EDGE__NEO_TARGET_NODE_LABELS:
-				setNeoTargetNodeLabels((TextLiteralParam)null);
+				getNeoTargetNodeLabels().clear();
 				return;
 			case AdaptionNeo4JPackage.NEO_UNSPECIFIED_EDGE__STEPS_IN_BETWEEN:
 				setStepsInBetween(STEPS_IN_BETWEEN_EDEFAULT);
@@ -219,7 +196,7 @@ public class NeoUnspecifiedEdgeImpl extends NeoPathPartImpl implements NeoUnspec
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case AdaptionNeo4JPackage.NEO_UNSPECIFIED_EDGE__NEO_TARGET_NODE_LABELS:
-				return neoTargetNodeLabels != null;
+				return neoTargetNodeLabels != null && !neoTargetNodeLabels.isEmpty();
 			case AdaptionNeo4JPackage.NEO_UNSPECIFIED_EDGE__STEPS_IN_BETWEEN:
 				return stepsInBetween != STEPS_IN_BETWEEN_EDEFAULT;
 		}

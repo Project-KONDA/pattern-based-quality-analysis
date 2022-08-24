@@ -3,12 +3,13 @@
 package qualitypatternmodel.adaptionNeo4J.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.impl.EStringToStringMapEntryImpl;
+
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
@@ -19,6 +20,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.impl.ComplexNodeImpl;
+import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.utility.CypherSpecificConstants;
@@ -76,14 +78,14 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	 */
 	protected NeoPlace nodePlace = NODE_PLACE_EDEFAULT;
 	/**
-	 * The cached value of the '{@link #getNeoNodeLabels() <em>Neo Node Labels</em>}' reference list.
+	 * The cached value of the '{@link #getNeoNodeLabels() <em>Neo Node Labels</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getNeoNodeLabels()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<TextLiteralParam> neoNodeLabels;
+	protected TextListParam neoNodeLabels;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -99,13 +101,13 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 		cypher.append("(");
 		cypher.append(CypherSpecificConstants.VARIABLE_NODE);
 		cypher.append(getOriginalID());
-		EList<TextLiteralParam> labels = this.getNeoNodeLabels();
+		TextListParam labels = this.getNeoNodeLabels();
 		//prüft ob es eine original node
 		//Falls es original dann labels
 		//TODO Auch für Edge einfügen
-		if(getIncomingMapping() != null) { 
-			for (int i = 0; i < labels.size(); i++) {
-				cypher.append(labels.get(i).getValue());
+		if((!translated) &&getIncomingMapping() != null) { 
+			for (String label : labels.getValues()) {
+				cypher.append(label);
 			}
 		}
 		cypher.append(")");
@@ -246,11 +248,38 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	 * @generated
 	 */
 	@Override
-	public EList<TextLiteralParam> getNeoNodeLabels() {
-		if (neoNodeLabels == null) {
-			neoNodeLabels = new EObjectResolvingEList<TextLiteralParam>(TextLiteralParam.class, this, AdaptionNeo4JPackage.NEO_NODE__NEO_NODE_LABELS);
+	public TextListParam getNeoNodeLabels() {
+		if (neoNodeLabels != null && neoNodeLabels.eIsProxy()) {
+			InternalEObject oldNeoNodeLabels = (InternalEObject)neoNodeLabels;
+			neoNodeLabels = (TextListParam)eResolveProxy(oldNeoNodeLabels);
+			if (neoNodeLabels != oldNeoNodeLabels) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionNeo4JPackage.NEO_NODE__NEO_NODE_LABELS, oldNeoNodeLabels, neoNodeLabels));
+			}
 		}
 		return neoNodeLabels;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TextListParam basicGetNeoNodeLabels() {
+		return neoNodeLabels;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setNeoNodeLabels(TextListParam newNeoNodeLabels) {
+		TextListParam oldNeoNodeLabels = neoNodeLabels;
+		neoNodeLabels = newNeoNodeLabels;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_NODE__NEO_NODE_LABELS, oldNeoNodeLabels, neoNodeLabels));
 	}
 
 	/**
@@ -278,7 +307,8 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 			case AdaptionNeo4JPackage.NEO_NODE__NODE_PLACE:
 				return getNodePlace();
 			case AdaptionNeo4JPackage.NEO_NODE__NEO_NODE_LABELS:
-				return getNeoNodeLabels();
+				if (resolve) return getNeoNodeLabels();
+				return basicGetNeoNodeLabels();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -299,8 +329,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 				setNodePlace((NeoPlace)newValue);
 				return;
 			case AdaptionNeo4JPackage.NEO_NODE__NEO_NODE_LABELS:
-				getNeoNodeLabels().clear();
-				getNeoNodeLabels().addAll((Collection<? extends TextLiteralParam>)newValue);
+				setNeoNodeLabels((TextListParam)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -321,7 +350,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 				setNodePlace(NODE_PLACE_EDEFAULT);
 				return;
 			case AdaptionNeo4JPackage.NEO_NODE__NEO_NODE_LABELS:
-				getNeoNodeLabels().clear();
+				setNeoNodeLabels((TextListParam)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -340,7 +369,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 			case AdaptionNeo4JPackage.NEO_NODE__NODE_PLACE:
 				return nodePlace != NODE_PLACE_EDEFAULT;
 			case AdaptionNeo4JPackage.NEO_NODE__NEO_NODE_LABELS:
-				return neoNodeLabels != null && !neoNodeLabels.isEmpty();
+				return neoNodeLabels != null;
 		}
 		return super.eIsSet(featureID);
 	}

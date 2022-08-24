@@ -301,7 +301,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_NODE__NODE_PLACE = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Neo Node Labels</b></em>' reference list.
+	 * The feature id for the '<em><b>Neo Node Labels</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -4405,13 +4405,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PROPERTY_PATH_PARAM___SET_IS_RETURN_ELEMENT__BOOLEAN = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 11;
 
 	/**
+	 * The operation id for the '<em>Set Neo Property Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_PATH_PARAM___SET_NEO_PROPERTY_NAME__STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 12;
+
+	/**
 	 * The number of operations of the '<em>Neo Property Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM_OPERATION_COUNT = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 12;
+	int NEO_PROPERTY_PATH_PARAM_OPERATION_COUNT = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -5271,7 +5280,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_UNSPECIFIED_EDGE__INTERNAL_ID = NEO_PATH_PART__INTERNAL_ID;
 
 	/**
-	 * The feature id for the '<em><b>Neo Target Node Labels</b></em>' reference.
+	 * The feature id for the '<em><b>Neo Target Node Labels</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -5635,10 +5644,10 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EClass getNeoNode();
 
 	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.adaptionNeo4J.NeoNode#getNeoNodeLabels <em>Neo Node Labels</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.NeoNode#getNeoNodeLabels <em>Neo Node Labels</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Neo Node Labels</em>'.
+	 * @return the meta object for the reference '<em>Neo Node Labels</em>'.
 	 * @see qualitypatternmodel.adaptionNeo4J.NeoNode#getNeoNodeLabels()
 	 * @see #getNeoNode()
 	 * @generated
@@ -5929,6 +5938,16 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EReference getNeoPropertyPathParam_NeoPropertyName();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#setNeoPropertyName(java.lang.String) <em>Set Neo Property Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Neo Property Name</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#setNeoPropertyName(java.lang.String)
+	 * @generated
+	 */
+	EOperation getNeoPropertyPathParam__SetNeoPropertyName__String();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge <em>Neo Property Edge</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6011,10 +6030,10 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EClass getNeoUnspecifiedEdge();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.NeoUnspecifiedEdge#getNeoTargetNodeLabels <em>Neo Target Node Labels</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.adaptionNeo4J.NeoUnspecifiedEdge#getNeoTargetNodeLabels <em>Neo Target Node Labels</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Neo Target Node Labels</em>'.
+	 * @return the meta object for the reference list '<em>Neo Target Node Labels</em>'.
 	 * @see qualitypatternmodel.adaptionNeo4J.NeoUnspecifiedEdge#getNeoTargetNodeLabels()
 	 * @see #getNeoUnspecifiedEdge()
 	 * @generated
@@ -6146,7 +6165,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EClass NEO_NODE = eINSTANCE.getNeoNode();
 
 		/**
-		 * The meta object literal for the '<em><b>Neo Node Labels</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Neo Node Labels</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -6384,6 +6403,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EReference NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_NAME = eINSTANCE.getNeoPropertyPathParam_NeoPropertyName();
 
 		/**
+		 * The meta object literal for the '<em><b>Set Neo Property Name</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_PROPERTY_PATH_PARAM___SET_NEO_PROPERTY_NAME__STRING = eINSTANCE.getNeoPropertyPathParam__SetNeoPropertyName__String();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyEdgeImpl <em>Neo Property Edge</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6456,7 +6483,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EClass NEO_UNSPECIFIED_EDGE = eINSTANCE.getNeoUnspecifiedEdge();
 
 		/**
-		 * The meta object literal for the '<em><b>Neo Target Node Labels</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Neo Target Node Labels</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

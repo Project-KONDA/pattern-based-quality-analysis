@@ -5,11 +5,13 @@ package qualitypatternmodel.adaptionNeo4J.impl;
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
@@ -39,6 +41,7 @@ public abstract class NeoAbstractPathParamImpl extends ParameterImpl implements 
 	 * @ordered
 	 */
 	protected static final boolean RETURN_ELEMENT_EDEFAULT = false;
+
 	/**
 	 * The cached value of the '{@link #isReturnElement() <em>Return Element</em>}' attribute.
 	 * <!-- begin-user-doc -->
