@@ -3052,6 +3052,21 @@
           <element xsi:nil="true"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_akhVxSOYEe2nMZSaXKaBNQ" x="58" y="2423"/>
         </children>
+        <children xmi:type="notation:Shape" xmi:id="_8H6z8COYEe2nMZSaXKaBNQ" type="Note" fontName="Segoe UI" description="Das NeoPlace automatisch setzen können?" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8H6z8SOYEe2nMZSaXKaBNQ" source="specificStyles">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8H6z8iOYEe2nMZSaXKaBNQ" key="verticalAlignment" value="8"/>
+          </eAnnotations>
+          <children xmi:type="notation:BasicDecorationNode" xmi:id="_8H6z9iOYEe2nMZSaXKaBNQ" type="DiagramName">
+            <element xsi:nil="true"/>
+          </children>
+          <children xmi:type="notation:BasicDecorationNode" xmi:id="_8H6z9yOYEe2nMZSaXKaBNQ" type="Description">
+            <element xsi:nil="true"/>
+          </children>
+          <styles xmi:type="notation:TextStyle" xmi:id="_8H6z8yOYEe2nMZSaXKaBNQ" textAlignment="Center"/>
+          <styles xmi:type="notation:LineTypeStyle" xmi:id="_8H6z9COYEe2nMZSaXKaBNQ"/>
+          <element xsi:nil="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8H6z9SOYEe2nMZSaXKaBNQ" x="75" y="2495" width="170"/>
+        </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_Cl9Coh2REeqrGqxc7qjo8A"/>
         <edges xmi:type="notation:Edge" xmi:id="__06lsCMzEeq7GbtfgEc6MA" type="4001" element="_tC6igB2REeqrGqxc7qjo8A" source="__03iYCMzEeq7GbtfgEc6MA" target="__03iZyMzEeq7GbtfgEc6MA">
           <children xmi:type="notation:Node" xmi:id="__06ltCMzEeq7GbtfgEc6MA" type="6001">
