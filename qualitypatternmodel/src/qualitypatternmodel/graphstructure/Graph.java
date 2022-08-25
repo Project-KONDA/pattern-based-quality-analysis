@@ -251,7 +251,6 @@ public interface Graph extends PatternElement {
 	
 	//ADD to the .ecore-Model
 	String generateCypherWhere() throws InvalidityException;
-	//ADD to the .ecore-Model
-	String generateCypherReturn() throws InvalidityException;
+
 
 } // Graph

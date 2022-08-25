@@ -18,7 +18,7 @@ import qualitypatternmodel.qualitypatternmodel.adaptionNeo4J.NeoNode;
  * <ul>
  *   <li>{@link qualitypatternmodel.qualitypatternmodel.adaptionNeo4J.NeoNode#setNeoNodeLabel(qualitypatternmodel.parameters.TextLiteralParam) <em>Set Neo Node Label</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getCypherVariable() <em>Get Cypher Variable</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#setIsStartNode(boolean) <em>Set Is Start Node</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#setNeoPlaceOfNode(boolean) <em>Set Is Start Node</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -104,10 +104,10 @@ public class NeoNodeTest extends ComplexNodeTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#setIsStartNode(boolean) <em>Set Is Start Node</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#setNeoPlaceOfNode(boolean) <em>Set Is Start Node</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#setIsStartNode(boolean)
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#setNeoPlaceOfNode(boolean)
 	 * @generated
 	 */
 	public void testSetIsStartNode__boolean() {

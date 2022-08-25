@@ -123,10 +123,8 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	 * @generated
 	 */
 	@Override
-	public void setIsStartNode(boolean startNode) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public void setNeoPlaceOfNode(NeoPlace PlaceOfNode) {
+		this.nodePlace = PlaceOfNode;
 	}
 
 	@Override
@@ -382,7 +380,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 			case AdaptionNeo4JPackage.NEO_NODE___GET_CYPHER_VARIABLE:
 				return getCypherVariable();
 			case AdaptionNeo4JPackage.NEO_NODE___SET_IS_START_NODE__BOOLEAN:
-				setIsStartNode((Boolean)arguments.get(0));
+				setNeoPlaceOfNode((Boolean)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

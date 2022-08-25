@@ -14,6 +14,15 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
+import qualitypatternmodel.adaptionNeo4J.NeoEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoNode;
+import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfPathPart;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
@@ -23,9 +32,11 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.operators.impl.OperatorImpl;
@@ -41,6 +52,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -371,80 +383,93 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
 			throw new InvalidityException("return element(s) missing");
 		}
-		//Es wäre gut das Modell noch mit einem getReturnRelations zu erweitern! 
 		
 		String completeCyString;
 		completeCyString = super.generateCypher();
 		
+		//Es wäre gut das Modell noch mit einem getReturnRelations zu erweitern! 
+		String returnClause = this.generateCypherReturn();
+		if(returnClause.length() != 0) returnClause = CypherSpecificConstants.CLAUSE_RETURN + " "  + returnClause;
+		else throw new InvalidityException("A cypher query need a Return-Clause");
+		completeCyString += returnClause;
+		
 		return completeCyString;
 	}
 	
-	
-//	// -- NEED ADAPTATION
-//	EList<String> prefixes = new BasicEList<String>();		
-//	for(Parameter p : getParameterList().getParameters()) {
-//		if(p instanceof NeoPathPartImpl) {
-//			NeoPathPart neoPathPart = (NeoPathPart) p;
-//			
-//			//This has to be adapted and can not just be copied
-//		}
-//	}
-//	
-//	
-//	EList<Node> nodes = graph.getReturnNodes();
-//	EList<Relation> edges = graph.getRelations();
-//	
-//	StringBuilder cypherQuery = new StringBuilder();
-//	StringBuilder graphPatternMatch = new StringBuilder();
-//	StringBuilder graphPatternReturn = new StringBuilder();
-//
-//	//Building the MATCH -- NEED ADAPTATION
-//	cypherQuery.append("\nMATCH ");
-//	for (Node n : nodes) {
-//		if (n instanceof ComplexNode && n instanceof NeoNodeImpl) {
-//			graphPatternMatch.append(n.generateCypher());
-//			//For getting the edges between the complexNodes
-////			if (edges.size() != 0 && edges.get(1) != null) {
-////				graphPatternMatch.append("-[" + edges.get(1).getTarget() + "]-");
-////			}
-//		}
-//	}
-//	cypherQuery.append(graphPatternMatch);		
-//	
-//	//BUILDING THE WHERE -- NEED ADAPTATION
-//	//This just shall be introduct if there is a condition
-//	if (false) {
-//		cypherQuery.append("\nWHERE ");
-//		cypherQuery.append("Some Condition");
-//		cypherQuery.append(super.generateCypher()); //.replace("\n", "\n  ")
-//	}
-//	
-//	//BUILDING THE RETURN -- NEED ADAPTATION
-//	NeoNode neoNode;
-//	for (Node n : nodes) {
-//		if (n instanceof ComplexNode && n instanceof NeoNodeImpl) {
-//			if (graphPatternReturn.length() != 0) graphPatternReturn.append(",");
-//			neoNode = (NeoNode) n;
-//			graphPatternReturn.append(neoNode.getCypherVariable());
-//		}
-//	}
-//	
-//	//This has to be possible -- has to be modified
-//	NeoPropertyNode neoAttributeNode;
-//	for (Node n : nodes) {
-//		if (n instanceof PrimitiveNode && n instanceof NeoPropertyNode) {
-//			if (graphPatternReturn.length() != 0) graphPatternReturn.append(",");
-//			neoAttributeNode = (NeoPropertyNode) n;
-//			graphPatternReturn.append(neoAttributeNode.generateCypher());
-//		}
-//	}
-//	cypherQuery.append("\nRETURN " + graphPatternReturn);
-//	
-//	//This should return the edges -- has to be modified
-////	for (Relation egde : edges) {
-////		if (graphPatternReturn.length() != 0) graphPatternReturn.append(",");
-////		graphPatternReturn.append(egde.generateCypher());
-////	}
+	//ADD to the .ecore-Model
+	//@Override
+	public String generateCypherReturn() throws InvalidityException {
+		String cypher = "";
+		if (graph.getNodes().size() != 0 ) {
+			StringBuilder cypherNeoNode = new StringBuilder();
+			StringBuilder cypherNeoPropertyNode = new StringBuilder();
+			StringBuilder cypherNeoPropertyProperty = new StringBuilder();
+			NeoPropertyNode npn;
+			NeoPropertyPathParam nppp;
+			String propertyName;
+			String matchingNodename;
+			
+			for (Node n : graph.getNodes()) {
+				if (n instanceof NeoNode && n.isReturnNode()) {
+					
+					if (cypherNeoNode.length() != 0) cypherNeoNode.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
+					cypherNeoNode.append(((NeoAbstractNode) n).getCypherVariable());
+					
+				} else if (n instanceof NeoPropertyNode && n.isReturnNode()) {
+					//Decision if the Property is in a new Node or in the same
+					npn = (NeoPropertyNode) n;
+					if ((NeoPathPart)(((NeoPropertyEdge) npn.getIncoming().get(0)).getNeoPropertyPathParam()).getNeoPropertyName() != null) {
+						nppp =  ((NeoPropertyEdge) npn.getIncoming().get(0)).getNeoPropertyPathParam();
+						if (nppp.getNeoPath() == null) {
+							propertyName = nppp.getNeoPropertyName().getValue();
+							matchingNodename =  ((NeoAbstractNode)((NeoPropertyEdge) npn.getIncoming().get(0)).getSource()).getCypherVariable();
+							cypherNeoPropertyProperty.append(matchingNodename + "." + propertyName);
+						} else {
+							//If the Property is in a sperated Node the way to access the property is diffrently
+							if (cypherNeoPropertyNode.length() != 0) cypherNeoPropertyNode.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
+							
+							propertyName = nppp.getNeoPropertyName().getValue();
+							cypherNeoPropertyProperty.append(((NeoAbstractNode) n).getCypherVariable() + "." + propertyName);
+						}
+					} 	
+				} 
+			}
+			
+			if (cypherNeoNode.length() != 0) cypher += cypherNeoNode;
+			if (cypherNeoPropertyNode.length() != 0) cypher += "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherNeoPropertyNode.toString();
+			if (cypherNeoPropertyProperty.length() != 0) cypher += "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherNeoPropertyProperty.toString();
+		}
+
+		//All regarding the relations will be added here 
+		if (graph.getRelations().size() != 0) {
+			StringBuilder cypherEdge = new StringBuilder();
+			StringBuilder cypherProperties = new StringBuilder();
+			NeoEdge ne;
+			NeoPropertyEdge npe;
+			
+			//Gets just the Varibles of the Relation since properties are not represented in this model --> maybe in future
+			for (Relation r : graph.getRelations()) {
+				if (cypherEdge.length() != 0) cypherEdge.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
+				if (r instanceof NeoAbstractEdge && ((NeoAbstractEdge) r).isReturnElement()) {
+					if(r instanceof NeoPropertyEdge) {
+						npe = (NeoPropertyEdge) r;
+						if (npe.getNeoPropertyPathParam() != null && npe.getNeoPropertyPathParam().getNeoPath() != null) {
+							cypherEdge.append(npe.getNeoPropertyPathParam().getNeoPath().getCypherVariable());
+						}
+					} else if(r instanceof NeoEdge) {
+						ne = (NeoEdge) r;
+						if (ne.getNeoPathParam() != null && ne.getNeoPathParam().getNeoPath() != null) {
+							cypherProperties.append(ne.getNeoPathParam().getNeoPath().getCypherVariable());
+						}
+					}
+				}
+			}
+			if (cypherEdge.length() != 0) cypher += "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherEdge.toString();
+			if (cypherProperties.length() != 0) cypher += "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherEdge.toString();
+		}
+		
+		return cypher;
+	}
 //	BUILDING THE WITH ???
 //	BUILDING THE UNION ??? 
 	

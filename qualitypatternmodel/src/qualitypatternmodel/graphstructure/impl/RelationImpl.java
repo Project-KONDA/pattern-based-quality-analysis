@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.adaptionrdf.impl.RdfPredicateImpl;
@@ -871,7 +872,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		//TODO check if it is needed to return a diffrent PatternElement for the structure 
-		if (getTarget() instanceof NeoPropertyEdge) {
+		if (getTarget() instanceof NeoPropertyNode) {
 			return adaptAsPropertyEdge();
 		} 
 		return adaptAsNeoEdge();

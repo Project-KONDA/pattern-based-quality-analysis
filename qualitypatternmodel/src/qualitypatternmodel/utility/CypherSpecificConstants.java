@@ -14,7 +14,7 @@ public class CypherSpecificConstants {
 	public static final String CLAUSE_MATCH = "\nMATCH";
 	public static final String CLAUSE_WITH = "\nWITH";
 	public static final String CLAUSE_WHERE = "\nWHERE";
-	public static final String CLAUSE_RETURN_INLUCE = "\nRETURN";
+	public static final String CLAUSE_RETURN = "\nRETURN";
 	public static final String CLAUSE_MATCH_INLUCE_W = "\n%sMATCH"; //Include_W is for the includsion of whitspaces
 	public static final String CLAUSE_WITH_INLUCE_W = "\n%sWITH";
 	public static final String CLAUSE_WHERE_INLUCE_W = "\n%sWHERE";

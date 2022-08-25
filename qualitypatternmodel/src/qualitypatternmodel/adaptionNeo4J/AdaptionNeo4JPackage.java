@@ -5585,11 +5585,11 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EOperation getNeoAbstractNode__GetCypherVariable();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#setIsStartNode(boolean) <em>Set Is Start Node</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#setNeoPlaceOfNode(boolean) <em>Set Is Start Node</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Set Is Start Node</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#setIsStartNode(boolean)
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#setNeoPlaceOfNode(boolean)
 	 * @generated
 	 */
 	EOperation getNeoAbstractNode__SetIsStartNode__boolean();

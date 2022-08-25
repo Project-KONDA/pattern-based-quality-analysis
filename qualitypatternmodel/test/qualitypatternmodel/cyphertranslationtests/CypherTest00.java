@@ -51,12 +51,12 @@ public class CypherTest00 {
 		CompletePattern completePattern = getBasePattern(); //PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.createNeo4jAdaption(); //Erstezung --> der generischen zum konkreten
 		EList<Node> ns = completePattern.getGraph().getNodes();
-//		for (Node n : ns) {
-//			if(n instanceof ComplexNode) {
-//				NeoNode neo = (NeoNode) n; 
-//				neo.setIsStartNode(true);
-//			}
-//		}
+		for (Node n : ns) {
+			if(n instanceof ComplexNode) {
+				NeoNode neo = (NeoNode) n; 
+				neo.setNeoPlaceOfNode(true);
+			}
+		}
 		return completePattern;
 	}
 	

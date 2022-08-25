@@ -62,5 +62,5 @@ public interface NeoAbstractNode extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void setIsStartNode(boolean startNode);
+	void setNeoPlaceOfNode(NeoPlace startNode);
 } // AbstractNeoNode

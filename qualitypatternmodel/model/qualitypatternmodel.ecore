@@ -1206,8 +1206,8 @@
   <eSubpackages name="adaptionNeo4J" nsURI="adaptionNeo4J" nsPrefix="adaptionNeo4J">
     <eClassifiers xsi:type="ecore:EClass" name="NeoAbstractNode" abstract="true" interface="true">
       <eOperations name="getCypherVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eOperations name="setIsStartNode">
-        <eParameters name="startNode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="setNeoPlaceOfNode">
+        <eParameters name="startNode" eType="#//adaptionNeo4J/NeoPlace"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodePlace" eType="#//adaptionNeo4J/NeoPlace"
           defaultValueLiteral="FOLLOWING"/>

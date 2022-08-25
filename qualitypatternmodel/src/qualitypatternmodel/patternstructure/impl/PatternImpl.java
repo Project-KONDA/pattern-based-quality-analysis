@@ -218,12 +218,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		whereClause += condition.generateCypher();
 		if(whereClause.length() !=2 ) whereClause = CypherSpecificConstants.CLAUSE_WHERE + " " + whereClause;
 		
-		String returnClause;
-		returnClause = graph.generateCypherReturn();
-		if(returnClause.length() !=0 ) returnClause = CypherSpecificConstants.CLAUSE_RETURN_INLUCE + " "  + returnClause;
-		else throw new InvalidityException("A cypher query need a Return-Clause");
-		
-		String cypher = matchClause + withClause + whereClause + returnClause;
+		String cypher = matchClause + withClause + whereClause;
 		return cypher;
 	}
 	

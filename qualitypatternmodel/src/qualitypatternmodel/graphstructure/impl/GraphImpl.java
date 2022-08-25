@@ -22,6 +22,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
+import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
@@ -189,7 +190,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			//How to integrate Maybe a OPTIONAL MATCH? - OPTIONAL - How to consider (r:A)--(B:B), (r)--(C:C)?
 			//TODO: Consider that it also can start with a PrimitiveNode which has a more defined strucutre
 			for (Node n : allNodesList) {
-				if (n instanceof NeoNode) { //&& ((NeoAbstractNode) n).getNodePlace() == NeoPlace.BEGINNING
+				if (n instanceof NeoNode && ((NeoAbstractNode) n).getNodePlace() == NeoPlace.BEGINNING) {
 					beginningNodesList.add((NeoAbstractNode) n);
 				} else if(! (n instanceof NeoAbstractNode)) {
 					throw new InvalidityException("No instance of NeoNode");
@@ -274,56 +275,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		}
 		cypher.append(")");		
 		return cypher.toString();
-	}
-	
-	//ADD to the .ecore-Model
-	@Override
-	public String generateCypherReturn() throws InvalidityException {
-		String cypher = "";
-		if (getNodes().size() != 0 ) {
-			StringBuilder cypherNeoNode = new StringBuilder();
-			StringBuilder cypherNeoPropertyNode = new StringBuilder();
-			for (Node n : getNodes()) {
-				if (n instanceof NeoNode && n.isReturnNode()) {
-					if (cypherNeoNode.length() != 0) cypherNeoNode.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
-					cypherNeoNode.append(((NeoAbstractNode) n).getCypherVariable());
-				} else if (n instanceof NeoPropertyNode && n.isReturnNode()) {
-					if (cypherNeoPropertyNode.length() != 0) cypherNeoPropertyNode.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
-					cypherNeoPropertyNode.append(((NeoAbstractNode) n).getCypherVariable());
-				}
-			}
-			
-			if (cypherNeoNode.length() != 0) cypher += cypherNeoNode;
-			if (cypherNeoNode.length() != 0) cypher += "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherNeoPropertyNode.toString();
-		}
-
-		if (getRelations().size() != 0) {
-			StringBuilder cypherEdge = new StringBuilder();
-			StringBuilder cypherProperties = new StringBuilder();
-			NeoPropertyEdge npe;
-			//Gets just the Varibles of the Relation since properties are not represented in this model --> maybe in future
-			for (Relation r : getRelations()) {
-				if (cypherEdge.length() != 0) cypherEdge.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
-				//TODO consider if as ReturnType marked
-				if(r instanceof NeoAbstractEdge && ((NeoAbstractEdge) r).isReturnElement()) {
-					if(r instanceof NeoPropertyEdge) {
-						npe = (NeoPropertyEdge) r;
-						if (npe.getNeoPropertyPathParam() != null && npe.getNeoPropertyPathParam().getNeoPath() != null) {
-							cypherEdge.append(npe.getNeoPropertyPathParam().getNeoPath().getCypherVariable());
-						} else {
-							//TODO
-						}
-					} else {
-						cypherEdge.append(((NeoEdge) r));
-					}
-				} else {
-					throw new InvalidityException("Not an instance of NeoAbstractEdge");
-				}
-			}
-			if (cypherEdge.length() != 0) cypher += "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherEdge.toString();
-		}
-		
-		return cypher;
 	}
 	
 	@Override
