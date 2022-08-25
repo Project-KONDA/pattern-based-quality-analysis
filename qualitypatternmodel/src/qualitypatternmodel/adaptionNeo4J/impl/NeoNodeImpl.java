@@ -123,8 +123,10 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	 * @generated
 	 */
 	@Override
-	public void setNeoPlaceOfNode(NeoPlace PlaceOfNode) {
-		this.nodePlace = PlaceOfNode;
+	public void setNeoPlaceOfNode(NeoPlace startNode) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
@@ -359,7 +361,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 		if (baseClass == NeoAbstractNode.class) {
 			switch (baseOperationID) {
 				case AdaptionNeo4JPackage.NEO_ABSTRACT_NODE___GET_CYPHER_VARIABLE: return AdaptionNeo4JPackage.NEO_NODE___GET_CYPHER_VARIABLE;
-				case AdaptionNeo4JPackage.NEO_ABSTRACT_NODE___SET_IS_START_NODE__BOOLEAN: return AdaptionNeo4JPackage.NEO_NODE___SET_IS_START_NODE__BOOLEAN;
+				case AdaptionNeo4JPackage.NEO_ABSTRACT_NODE___SET_NEO_PLACE_OF_NODE__NEOPLACE: return AdaptionNeo4JPackage.NEO_NODE___SET_NEO_PLACE_OF_NODE__NEOPLACE;
 				default: return -1;
 			}
 		}
@@ -379,8 +381,8 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 				return null;
 			case AdaptionNeo4JPackage.NEO_NODE___GET_CYPHER_VARIABLE:
 				return getCypherVariable();
-			case AdaptionNeo4JPackage.NEO_NODE___SET_IS_START_NODE__BOOLEAN:
-				setNeoPlaceOfNode((Boolean)arguments.get(0));
+			case AdaptionNeo4JPackage.NEO_NODE___SET_NEO_PLACE_OF_NODE__NEOPLACE:
+				setNeoPlaceOfNode((NeoPlace)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

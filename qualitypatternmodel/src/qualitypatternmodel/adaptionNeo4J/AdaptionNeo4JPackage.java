@@ -102,13 +102,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_ABSTRACT_NODE___GET_CYPHER_VARIABLE = 0;
 
 	/**
-	 * The operation id for the '<em>Set Is Start Node</em>' operation.
+	 * The operation id for the '<em>Set Neo Place Of Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_NODE___SET_IS_START_NODE__BOOLEAN = 1;
+	int NEO_ABSTRACT_NODE___SET_NEO_PLACE_OF_NODE__NEOPLACE = 1;
 
 	/**
 	 * The number of operations of the '<em>Neo Abstract Node</em>' class.
@@ -877,13 +877,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_NODE___GET_CYPHER_VARIABLE = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Set Is Start Node</em>' operation.
+	 * The operation id for the '<em>Set Neo Place Of Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE___SET_IS_START_NODE__BOOLEAN = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 1;
+	int NEO_NODE___SET_NEO_PLACE_OF_NODE__NEOPLACE = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Set Neo Node Label</em>' operation.
@@ -3550,13 +3550,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PROPERTY_NODE___GET_CYPHER_VARIABLE = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Set Is Start Node</em>' operation.
+	 * The operation id for the '<em>Set Neo Place Of Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE___SET_IS_START_NODE__BOOLEAN = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 1;
+	int NEO_PROPERTY_NODE___SET_NEO_PLACE_OF_NODE__NEOPLACE = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Neo Property Node</em>' class.
@@ -5585,14 +5585,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EOperation getNeoAbstractNode__GetCypherVariable();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#setNeoPlaceOfNode(boolean) <em>Set Is Start Node</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#setNeoPlaceOfNode(qualitypatternmodel.adaptionNeo4J.NeoPlace) <em>Set Neo Place Of Node</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Set Is Start Node</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#setNeoPlaceOfNode(boolean)
+	 * @return the meta object for the '<em>Set Neo Place Of Node</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#setNeoPlaceOfNode(qualitypatternmodel.adaptionNeo4J.NeoPlace)
 	 * @generated
 	 */
-	EOperation getNeoAbstractNode__SetIsStartNode__boolean();
+	EOperation getNeoAbstractNode__SetNeoPlaceOfNode__NeoPlace();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoNode <em>Neo Node</em>}'.
@@ -6103,12 +6103,12 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EOperation NEO_ABSTRACT_NODE___GET_CYPHER_VARIABLE = eINSTANCE.getNeoAbstractNode__GetCypherVariable();
 
 		/**
-		 * The meta object literal for the '<em><b>Set Is Start Node</b></em>' operation.
+		 * The meta object literal for the '<em><b>Set Neo Place Of Node</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation NEO_ABSTRACT_NODE___SET_IS_START_NODE__BOOLEAN = eINSTANCE.getNeoAbstractNode__SetIsStartNode__boolean();
+		EOperation NEO_ABSTRACT_NODE___SET_NEO_PLACE_OF_NODE__NEOPLACE = eINSTANCE.getNeoAbstractNode__SetNeoPlaceOfNode__NeoPlace();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl <em>Neo Node</em>}' class.
