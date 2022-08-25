@@ -67,7 +67,7 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 	@Override
 	public String generateCypher() throws InvalidityException {
 		StringBuilder cypher = new StringBuilder("");
-		if(!translated) {
+		if(!translated && getNeoPathParam() != null) {
 			EList<NeoSimpleEdge> neoSimpleEdges = getNeoPathParam().getNeoPath().getSimpleEdges();
 			if (neoSimpleEdges == null || neoSimpleEdges.size() == 0) throw new InvalidityException();
 			this.translated = true;
@@ -159,7 +159,9 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 					}
 				}
 				if (neoSimpleEdges.get(0).getNeoTargetNodeLabels().size() != 0 && !doopleEdge) cypher.append(CypherSpecificConstants.CONNECTION); 
-			}
+			} 
+		} else if( getNeoPathParam() == null) {
+			return "--";
 		}
 		return cypher.toString();		
 	}

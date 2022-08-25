@@ -25,6 +25,7 @@ import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.utility.CypherSpecificConstants;
+import sun.security.action.GetLongAction;
 
 /**
  * <!-- begin-user-doc -->
@@ -106,13 +107,17 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 		//prüft ob es eine original node
 		//Falls es original dann labels
 		//TODO Auch für Edge einfügen
-		if((!translated) && getIncomingMapping() != null) { 
-			for (String label : labels.getValues()) {
-				cypher.append(label);
+		if((!translated) && getIncomingMapping() == null) { 
+			if (getNeoNodeLabels() != null) {
+				for (String label : labels.getValues()) {
+					cypher.append(label);
+				}
 			}
+				
 			
 			//Wie komme ich an die Operator List
 			Graph g; 
+			
 			
 			
 			translated = true;
@@ -153,9 +158,10 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	 */
 	@Override
 	public void setIsStartNode(boolean startNode) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if(startNode) {
+			this.nodePlace = NeoPlace.BEGINNING;
+		}
+		this.nodePlace = NeoPlace.FOLLOWING;
 	}
 
 	@Override

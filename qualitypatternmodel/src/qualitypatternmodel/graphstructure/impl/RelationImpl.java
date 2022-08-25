@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoNode;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.adaptionrdf.impl.RdfPredicateImpl;
@@ -852,7 +854,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	
 	@Override
 	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		if (getTarget() instanceof XmlProperty) {
+		if (getTarget() instanceof NeoNode) {
 			return adaptAsXmlPropertyNavigation();
 		} else {
 			return adaptAsXmlElementNavigation();
@@ -869,6 +871,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		//TODO check if it is needed to return a diffrent PatternElement for the structure 
+		if (getTarget() instanceof NeoPropertyEdge) {
+			return adaptAsPropertyEdge();
+		} 
 		return adaptAsNeoEdge();
 	}
 	
@@ -1127,6 +1132,74 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 	
 	
+	//ADD to the .ecore-Model
+	public NeoPropertyEdge adaptAsPropertyEdge() throws InvalidityException {
+		Graph graph = getGraph();
+		NeoPropertyEdge navOriginal = ((RelationImpl) getOriginalRelation()).adaptAsNeoPropertyEdgeRecursive();
+		
+		for(Relation r: graph.getRelations()) {
+			if(r instanceof NeoPropertyEdge) {
+				NeoPropertyEdge nav = (NeoPropertyEdge) r;
+				Relation next = r;
+				while(next != null) {
+					if(!next.equals(navOriginal)) {
+						if(next.getIncomingMapping() == null) {
+							next = null;
+						} else {
+							next = next.getIncomingMapping().getSource();
+						}
+					} else {
+						return nav;
+					}
+				}
+			}
+		}
+		throw new InvalidityException("correspondent relation not found");
+	}
+	
+	private NeoPropertyEdge adaptAsNeoPropertyEdgeRecursive() throws InvalidityException {
+		if (!(this instanceof NeoPropertyEdge)) {
+			NeoPropertyEdge edge = (NeoPropertyEdge) AdaptionNeo4JFactoryImpl.init().createNeoPropertyEdge();
+
+			edge.setName(getName());
+			edge.setGraphSimple(getGraph());
+			
+			if (getIncomingMapping() == null) {
+				edge.createParameters();
+			} 
+			
+			edge.setSource(getSource());
+			edge.setTarget(getTarget());
+		
+			edge.getOutgoingMappings().addAll(getOutgoingMappings());
+			edge.setIncomingMapping(getIncomingMapping());
+			
+			getOutgoingMappings().clear();
+			setSource(null);
+			setTarget(null);			
+			setIncomingMapping(null);
+			setGraph(null);
+			
+			for (RelationMapping mapping : edge.getOutgoingMappings()) {
+				((RelationImpl) mapping.getTarget()).adaptAsNeoPropertyEdgeRecursive();
+			}
+			
+			if(edge.getTarget() instanceof ComplexNode) {
+				edge.getTarget().adaptAsNeoNode();
+			} else if(edge.getTarget() instanceof PrimitiveNode) {
+				edge.getTarget().adaptAsNeoPropertyNode();
+			} else if(edge.getTarget() instanceof Node) {
+				edge.getTarget().adaptAsNeoNode();
+			}
+			
+			return edge;
+		}
+		for (RelationMapping mapping : getOutgoingMappings()) {
+			((RelationImpl) mapping.getTarget()).adaptAsNeoPropertyEdgeRecursive();
+		}
+		return (NeoPropertyEdge) this;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1181,13 +1254,13 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			setGraph(null);
 			
 			for (RelationMapping mapping : edge.getOutgoingMappings()) {
-				((RelationImpl) mapping.getTarget()).adaptAsRdfPredicateRecursive();
+				((RelationImpl) mapping.getTarget()).adaptAsNeoEdgeRecursive();
 			}
 			
 			if(edge.getTarget() instanceof ComplexNode) {
 				edge.getTarget().adaptAsNeoNode();
 			} else if(edge.getTarget() instanceof PrimitiveNode) {
-				edge.getTarget().adaptAsNeoAttributeNode();
+				edge.getTarget().adaptAsNeoPropertyNode();
 			} else if(edge.getTarget() instanceof Node) {
 				edge.getTarget().adaptAsNeoNode();
 			}
@@ -1195,7 +1268,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			return edge;
 		}
 		for (RelationMapping mapping : getOutgoingMappings()) {
-			((RelationImpl) mapping.getTarget()).adaptAsRdfPredicateRecursive();
+			((RelationImpl) mapping.getTarget()).adaptAsNeoEdgeRecursive();
 		}
 		return (NeoEdge) this;
 	}

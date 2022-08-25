@@ -116,7 +116,7 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 	
 	@Override 
 	public PatternElement createNeo4jAdaption() throws InvalidityException {
-		return adaptAsNeoAttributeNode();
+		return adaptAsNeoPropertyNode();
 	}
 	
 	@Override

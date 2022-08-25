@@ -323,7 +323,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return adaptAsNeoNode();
+		if (this instanceof ComplexNode) {
+			return adaptAsNeoNode();
+		}
+		return adaptAsNeoPropertyNode();
 	}
 	
 	@Override
@@ -1629,9 +1632,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	@Override
-	public NeoPropertyNode adaptAsNeoAttributeNode() throws InvalidityException {
+	//Umbennen und auch im .ecore berücksichtigen
+	public NeoPropertyNode adaptAsNeoPropertyNode() throws InvalidityException {
 		Graph graph = getGraph();
-		NeoPropertyNode elementOriginal = ((NodeImpl) getOriginalNode()).adaptAsNeoAttributeRecursive();
+		NeoPropertyNode elementOriginal = ((NodeImpl) getOriginalNode()).adaptAsNeoPropertyRecursive();
 		
 		for(Node n: graph.getNodes()) {
 			if(n instanceof NeoPropertyNode) {
@@ -1653,7 +1657,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		throw new InvalidityException("corresponding node not found");
 	}
 
-	private NeoPropertyNode adaptAsNeoAttributeRecursive() throws InvalidityException {
+	//Umbennen zu Property
+	private NeoPropertyNode adaptAsNeoPropertyRecursive() throws InvalidityException {
 		if (!(this instanceof NeoPropertyNode)) {
 			NeoPropertyNodeImpl neoAttribute = (NeoPropertyNodeImpl) AdaptionNeo4JFactoryImpl.init().createNeoPropertyNode();;	
 			neoAttribute.typeModifiable = true;
@@ -1693,7 +1698,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			setGraph(null);
 			
 			for (ElementMapping map: neoAttribute.getOutgoingMappings()) {
-				((NodeImpl) map.getTarget()).adaptAsNeoAttributeRecursive();
+				((NodeImpl) map.getTarget()).adaptAsNeoPropertyRecursive();
 			}
 
 			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
@@ -1705,7 +1710,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			return neoAttribute;
 		} else {
 			for (ElementMapping map: getOutgoingMappings()) {
-				((NodeImpl) map.getTarget()).adaptAsNeoAttributeNode();
+				((NodeImpl) map.getTarget()).adaptAsNeoPropertyNode();
 			}
 			return (NeoPropertyNode) this;
 		}
@@ -2268,7 +2273,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				}
 			case GraphstructurePackage.NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE:
 				try {
-					return adaptAsNeoAttributeNode();
+					return adaptAsNeoPropertyNode();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

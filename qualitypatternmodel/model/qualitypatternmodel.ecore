@@ -393,7 +393,7 @@
       <eOperations name="adaptAsRdfLiteralNode" eType="#//adaptionrdf/RdfLiteralNode"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="adaptAsNeoNode" eType="#//adaptionNeo4J/NeoNode" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="adaptAsNeoAttributeNode" eType="#//adaptionNeo4J/NeoPropertyNode"
+      <eOperations name="adaptAsNeoPropertyNode" eType="#//adaptionNeo4J/NeoPropertyNode"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMappings" upperBound="-1"
           eType="#//patternstructure/ElementMapping" eOpposite="#//patternstructure/ElementMapping/source"/>
@@ -1279,14 +1279,15 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoPropertyPathParam"
           eType="#//adaptionNeo4J/NeoPropertyPathParam" eOpposite="#//adaptionNeo4J/NeoPropertyPathParam/neoPropertyEdge"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoAbstractEdge" abstract="true" eSuperTypes="#//graphstructure/Relation"/>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoAbstractPathParam" abstract="true"
-        eSuperTypes="#//parameters/Parameter">
-      <eOperations name="getLastRelations" upperBound="-1" eType="#//adaptionNeo4J/NeoAbstractEdge"/>
+    <eClassifiers xsi:type="ecore:EClass" name="NeoAbstractEdge" abstract="true" eSuperTypes="#//graphstructure/Relation">
       <eOperations name="setIsReturnElement">
         <eParameters name="returnElement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnElement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NeoAbstractPathParam" abstract="true"
+        eSuperTypes="#//parameters/Parameter">
+      <eOperations name="getLastRelations" upperBound="-1" eType="#//adaptionNeo4J/NeoAbstractEdge"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="NeoPlace">
       <eLiterals name="BEGINNING"/>

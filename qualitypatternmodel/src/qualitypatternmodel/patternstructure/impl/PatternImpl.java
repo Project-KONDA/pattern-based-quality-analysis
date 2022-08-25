@@ -31,6 +31,7 @@ import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.TrueElement;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
  * <!-- begin-user-doc -->
@@ -205,16 +206,22 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		}
 		String matchClause;
 		matchClause = graph.generateCypher();
+		if(matchClause.length() !=0 ) matchClause = CypherSpecificConstants.CLAUSE_MATCH + " "  + matchClause;
+		else throw new InvalidityException("A cypher query need a Match-Clause");
 		
 		String withClause;
 		withClause = ""; //has to be implemented
+		if(withClause.length() !=0 ) withClause = CypherSpecificConstants.CLAUSE_WITH + " "  + withClause;
 		
 		String whereClause;
 		whereClause = graph.generateCypherWhere();
 		whereClause += condition.generateCypher();
+		if(whereClause.length() !=2 ) whereClause = CypherSpecificConstants.CLAUSE_WHERE + " " + whereClause;
 		
 		String returnClause;
 		returnClause = graph.generateCypherReturn();
+		if(returnClause.length() !=0 ) returnClause = CypherSpecificConstants.CLAUSE_RETURN_INLUCE + " "  + returnClause;
+		else throw new InvalidityException("A cypher query need a Return-Clause");
 		
 		String cypher = matchClause + withClause + whereClause + returnClause;
 		return cypher;

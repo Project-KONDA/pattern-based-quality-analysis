@@ -4377,11 +4377,11 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getNode__AdaptAsNeoNode();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#adaptAsNeoAttributeNode() <em>Adapt As Neo Attribute Node</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#adaptAsNeoPropertyNode() <em>Adapt As Neo Attribute Node</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Adapt As Neo Attribute Node</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Node#adaptAsNeoAttributeNode()
+	 * @see qualitypatternmodel.graphstructure.Node#adaptAsNeoPropertyNode()
 	 * @generated
 	 */
 	EOperation getNode__AdaptAsNeoAttributeNode();

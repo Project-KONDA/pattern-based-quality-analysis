@@ -85,26 +85,29 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		//Umsetzung schauen 
 		//The thing with the params
 		
-		 
-		if (!(getIncoming().get(0) instanceof NeoPropertyEdge)) 
-			throw new InvalidityException("Incoming relation is no NeoAttributeEdge");
-		NeoPropertyEdgeImpl nae = (NeoPropertyEdgeImpl) getIncoming().get(0);
-		String attributeName = nae.getNeoPropertyPathParam().getNeoPropertyName().getValue();
 		
-		StringBuilder cypher = new StringBuilder();
-		try {
-				//In the case there is no NeoPath for further specification
-				if (nae.basicGetNeoPropertyPathParam().getNeoPath() == null) {
-					NeoNodeImpl nni = (NeoNodeImpl) getOriginalNode();
-					cypher.append(nni.getCypherVariable());
-				} else {
-					throw new InvalidityException("In NeoProperty went something wronge");
-				}
-		} catch (Exception e) {
-			throw new InvalidityException("In NeoProperty went something wronge");
-		}
-		cypher.append("." + attributeName);
-		return cypher.toString();
+		return "";
+		
+		//has to be modified 
+//		if (!(getIncoming().get(0) instanceof NeoPropertyEdge)) 
+//			throw new InvalidityException("Incoming relation is no NeoEdge");
+//		NeoPropertyEdge nae = (NeoPropertyEdge) getIncoming().get(0);
+//		String propertyName = nae.getNeoPropertyPathParam().getNeoPropertyName().getValue();
+//		
+//		StringBuilder cypher = new StringBuilder();
+//		try {
+//				//In the case there is no NeoPath for further specification
+//				if (nae.basicGetNeoPropertyPathParam().getNeoPath() == null) {
+//					NeoNodeImpl nni = (NeoNodeImpl) getOriginalNode();
+//					cypher.append(nni.getCypherVariable());
+//				} else {
+//					throw new InvalidityException("In NeoProperty went something wronge");
+//				}
+//		} catch (Exception e) {
+//			throw new InvalidityException("In NeoProperty went something wronge");
+//		}
+//		cypher.append("." + propertyName);
+//		return cypher.toString();
 	}
 	
 	/**

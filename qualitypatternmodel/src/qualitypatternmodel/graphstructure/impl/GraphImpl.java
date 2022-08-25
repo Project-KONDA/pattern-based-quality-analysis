@@ -191,10 +191,11 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			//Finding ComplexNode which represent the beginning
 			//Since we have independent graphs we can have multiple beginnings
 			//How to integrate Maybe a OPTIONAL MATCH? - OPTIONAL - How to consider (r:A)--(B:B), (r)--(C:C)?
+			//TODO: Consider that it also can start with a PrimitiveNode which has a more defined strucutre
 			for (Node n : allNodesList) {
-				if (n instanceof NeoAbstractNode && ((NeoAbstractNode) n).getNodePlace() == NeoPlace.BEGINNING) {
+				if (n instanceof NeoNode) { //&& ((NeoAbstractNode) n).getNodePlace() == NeoPlace.BEGINNING
 					beginningNodesList.add((NeoAbstractNode) n);
-				} else if(! (n instanceof NeoNode)) {
+				} else if(! (n instanceof NeoAbstractNode)) {
 					throw new InvalidityException("No instance of NeoNode");
 				}
 			}
@@ -219,27 +220,40 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	private void buildNeoGraphPatternRecursively(StringBuilder cypher, NeoAbstractNode n) throws InvalidityException {
 		Relation currentRelation = null;
 		cypher.append(((Node) n).generateCypher());
+		
 		//In this senario it has to be considert that of there are multiple edges between nodes the last one will be taken
 		//Since multiple edges between to nodes requieres a OPTIONAL MATCH the OPTIONAL MATCH can be implemented or a break added
-		for (Relation r : ((ComplexNode) n).getOutgoing()) {
-			if(r instanceof NeoEdge && r.getTarget() != null) {
-				NeoEdge ne = (NeoEdge) r;
-				cypher.append(ne.generateCypher());
-				currentRelation = ne;
-			} else if (r instanceof NeoPropertyEdge && r.getTarget() != null) {
-				throw new InvalidityException("The design does not support a PrimitiveNode as a Starting Point");
-//				NeoPropertyEdge npe = (NeoPropertyEdge) r;
-//				cypher.append(npe.generateCypher());
-//				currentRelation = npe;
-			} else {
-				throw new InvalidityException("It is a not valid Edge/Relation included");
+		if (n instanceof ComplexNode) {
+			for (Relation r : ((ComplexNode) n).getOutgoing()) {
+				if(r.getTarget() != null && r instanceof NeoEdge) {
+					currentRelation = r;
+				} else if (r.getTarget() != null && r instanceof NeoPropertyEdge) {
+					NeoPropertyEdge npe = (NeoPropertyEdge) r;
+					if (npe.getNeoPropertyPathParam() != null && npe.getNeoPropertyPathParam().getNeoPath() != null) {
+						currentRelation = npe;
+					}
+				} else {
+					throw new InvalidityException("It is a not valid Edge/Relation included");
+				}
 			}
+			
+			if(currentRelation != null) {
+				if(currentRelation instanceof NeoEdge) {
+					NeoEdge ne = (NeoEdge) currentRelation;
+					cypher.append(ne.generateCypher());
+				} else {
+					NeoPropertyEdge npe = (NeoPropertyEdge) currentRelation;
+					cypher.append(npe.generateCypher());
+				}
+			}
+		} else {
+			return;
 		}
-		
+
 		try {
-			if (currentRelation != null && currentRelation.getTarget() != null) {
+			if (currentRelation != null && currentRelation instanceof NeoNode && currentRelation.getTarget() != null) {
 				this.buildNeoGraphPatternRecursively(cypher, (NeoNode) currentRelation.getTarget());
-			} 
+			}
 		} catch (ClassCastException e) {
 			throw new InvalidityException("A non NeoEdge was in the Graph-Pattern"); 
 		} catch (Exception e) {
@@ -257,39 +271,14 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		String oldString = "";
 		for (Operator operator : opList.getOperators()) {
 			oldString = cypher.toString();
-			try {
-				if (cypher.length() != 0) cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.SIX_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
-				cypher.append(CypherSpecificConstants.ONE_WHITESPACES + operator.generateCypher());
-			} catch (RuntimeException e) {
-				cypher.setLength(0);
-				cypher.append(oldString.toString());
-			}		
+			if (cypher.length() != 0) cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.SIX_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
+			if (operator.generateCypher() != null) {
+				cypher.append(CypherSpecificConstants.ONE_WHITESPACES + operator.generateCypher());	
+			}
 		}
 		cypher.append(")");		
 		return cypher.toString();
 	}
-	
-	
-//	EList<NeoPropertyNode> properties;
-//	if (getNodes() != null && getNodes().size() != 0) {
-//		EList<Node> nodes = getNodes();
-//		properties = new BasicEList<NeoPropertyNode>();
-//		for (Node property : nodes)	if (property instanceof NeoPropertyNode) properties.add((NeoPropertyNode) property);
-//	} else throw new InvalidityException("No Nodes at all");
-//	
-//	StringBuilder cypher = new StringBuilder("");
-//	if (properties.size() == 0) return cypher.toString();
-//	StringBuilder currentCypherPart = new StringBuilder();
-//	NeoPropertyEdge npe;
-//	NeoNode nn;
-//	
-//	for (NeoPropertyNode property : properties) {
-//		if (cypher.length() > 1) cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
-//		npe = (NeoPropertyEdge) property.getIncoming().get(0); //Because a NeoPropertyNode has just one incomeing Relation (Neo4J)
-//		nn = (NeoNode) npe.getSource();
-//		currentCypherPart.append(nn.getCypherVariable() + ".");
-//		currentCypherPart.append(npe.getNeoPropertyPathParam().getNeoPropertyName().getValue());
-//	}		
 	
 	//ADD to the .ecore-Model
 	@Override
@@ -299,42 +288,43 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			StringBuilder cypherNeoNode = new StringBuilder();
 			StringBuilder cypherNeoPropertyNode = new StringBuilder();
 			for (Node n : getNodes()) {
-				if (n instanceof NeoNode && ((NeoAbstractNode) n).isReturnElement()) {
+				if (n instanceof NeoNode && n.isReturnNode()) {
 					if (cypherNeoNode.length() != 0) cypherNeoNode.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
 					cypherNeoNode.append(((NeoAbstractNode) n).getCypherVariable());
 				} else if (n instanceof NeoPropertyNode && ((NeoAbstractNode) n).isReturnElement()) {
 					if (cypherNeoPropertyNode.length() != 0) cypherNeoPropertyNode.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
 					cypherNeoPropertyNode.append(((NeoAbstractNode) n).getCypherVariable());
-				} else {
-					throw new InvalidityException("Not an instance of an NeoEdge");
 				}
 			}
-			cypher += cypherNeoNode;
-			cypher += "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherNeoPropertyNode.toString();
+			
+			if (cypherNeoNode.length() != 0) cypher += cypherNeoNode;
+			if (cypherNeoNode.length() != 0) cypher += "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherNeoPropertyNode.toString();
 		}
 
 		if (getRelations().size() != 0) {
 			StringBuilder cypherEdge = new StringBuilder();
+			StringBuilder cypherProperties = new StringBuilder();
 			NeoPropertyEdge npe;
 			//Gets just the Varibles of the Relation since properties are not represented in this model --> maybe in future
 			for (Relation r : getRelations()) {
 				if (cypherEdge.length() != 0) cypherEdge.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
-				if(r instanceof NeoAbstractEdge) {
+				//TODO consider if as ReturnType marked
+				if(r instanceof NeoAbstractEdge && ((NeoAbstractEdge) r).isReturnElement()) {
 					if(r instanceof NeoPropertyEdge) {
 						npe = (NeoPropertyEdge) r;
 						if (npe.getNeoPropertyPathParam() != null && npe.getNeoPropertyPathParam().getNeoPath() != null) {
-							cypherEdge.append(npe.getNeoPropertyPathParam().getNeoPath().generateCypher());
+							cypherEdge.append(npe.getNeoPropertyPathParam().getNeoPath().getCypherVariable());
 						} else {
-							//Do nothing
+							//TODO
 						}
 					} else {
-						cypherEdge.append(((NeoEdge) r).generateCypher());
+						cypherEdge.append(((NeoEdge) r));
 					}
 				} else {
 					throw new InvalidityException("Not an instance of NeoAbstractEdge");
 				}
 			}
-			cypher += "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherEdge.toString();
+			if (cypherEdge.length() != 0) cypher += "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherEdge.toString();
 		}
 		
 		return cypher;

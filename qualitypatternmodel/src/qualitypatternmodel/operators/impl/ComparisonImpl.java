@@ -329,7 +329,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			}
 			return cypher.toString(); 
 		}	
-		throw new RuntimeException();
+		return null;
 	}
 	
 	//ADD to the .ecore-Model
@@ -347,14 +347,14 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			}
 			return cypher;
 		}
-		throw new RuntimeException();
+		return null;
 	}
 	
 	//ADD to the .ecore-Model
 	public boolean neoInWhereClause() throws InvalidityException{
 		boolean result = true;
-		if (((getArgument1() instanceof NeoPropertyNode && getArgument2() instanceof Parameter) ||
-				(getArgument1() instanceof Parameter && getArgument2() instanceof NeoPropertyNode)) 
+		if (((getArgument1() instanceof NeoPropertyNode && getArgument2() instanceof ParameterValue) ||
+				(getArgument1() instanceof ParameterValue && getArgument2() instanceof NeoPropertyNode)) 
 				&& option.getValue() == ComparisonOperator.EQUAL) {
 			if(option.getValue() == ComparisonOperator.EQUAL) result = false;
 		} else if (getArgument1() instanceof NeoNode || getArgument2() instanceof NeoNode) throw new InvalidityException("Args 1 oder 2 can not be a NeoNode");

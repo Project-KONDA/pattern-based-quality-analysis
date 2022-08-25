@@ -1,7 +1,11 @@
 package qualitypatternmodel.cyphertranslationtests;
 
 import java.util.ArrayList;
+
+import org.eclipse.emf.common.util.EList;
+
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -23,6 +27,7 @@ public class CypherTest00 {
 				System.out.print("\n___TRANSLATION___");
 				System.out.println(completePattern.generateCypher());
 			} catch (Exception e) {
+				System.out.println();
 				e.printStackTrace();
 				try {
 				  System.out.println(completePattern.myToString());
@@ -36,7 +41,7 @@ public class CypherTest00 {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getBasePatternFinal());
-		completePatterns.add(getBasePatternCondConcrete("2022-12-31")); //--> adapte
+		//completePatterns.add(getBasePatternCondConcrete("2022-12-31")); //--> adapte
 		//completePatterns.add(getBasePatternMatchConcrete("^2022")); //--> adapte
 		//completePatterns.add(getBasePatternMatchNotConcrete("^2022")); //--> adapte
 		CypherTest00.test(completePatterns);
@@ -44,7 +49,14 @@ public class CypherTest00 {
 	
 	public static CompletePattern getBasePatternFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePattern(); //PatternstructureFactory.eINSTANCE.createCompletePattern();
-		completePattern.createNeo4jAdaption();
+		completePattern.createNeo4jAdaption(); //Erstezung --> der generischen zum konkreten
+		EList<Node> ns = completePattern.getGraph().getNodes();
+//		for (Node n : ns) {
+//			if(n instanceof ComplexNode) {
+//				NeoNode neo = (NeoNode) n; 
+//				neo.setIsStartNode(true);
+//			}
+//		}
 		return completePattern;
 	}
 	
@@ -56,7 +68,9 @@ public class CypherTest00 {
 		completePattern.setName("MyPattern");
 		
 		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
+		//complexNode1.setReturnNode(true);
 		Node node2 = completePattern.getGraph().addNode();
+		//node2.setReturnNode(true);
 		completePattern.getGraph().addRelation(complexNode1, node2);
 	
 		return completePattern;
