@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Node;
@@ -26,31 +25,12 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyNodeImpl#isReturnElement <em>Return Element</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyNodeImpl#getNodePlace <em>Node Place</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropertyNode {
-	/**
-	 * The default value of the '{@link #isReturnElement() <em>Return Element</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isReturnElement()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean RETURN_ELEMENT_EDEFAULT = false;
-	/**
-	 * The cached value of the '{@link #isReturnElement() <em>Return Element</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isReturnElement()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean returnElement = RETURN_ELEMENT_EDEFAULT;
 	/**
 	 * The default value of the '{@link #getNodePlace() <em>Node Place</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -132,18 +112,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 * @generated
 	 */
 	@Override
-	public void setIsReturnElement(boolean returnElement) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public void setIsStartNode(boolean startNode) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -158,8 +126,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__RETURN_ELEMENT:
-				return isReturnElement();
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__NODE_PLACE:
 				return getNodePlace();
 		}
@@ -174,9 +140,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__RETURN_ELEMENT:
-				setReturnElement((Boolean)newValue);
-				return;
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__NODE_PLACE:
 				setNodePlace((NeoPlace)newValue);
 				return;
@@ -192,9 +155,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__RETURN_ELEMENT:
-				setReturnElement(RETURN_ELEMENT_EDEFAULT);
-				return;
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__NODE_PLACE:
 				setNodePlace(NODE_PLACE_EDEFAULT);
 				return;
@@ -210,8 +170,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__RETURN_ELEMENT:
-				return returnElement != RETURN_ELEMENT_EDEFAULT;
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__NODE_PLACE:
 				return nodePlace != NODE_PLACE_EDEFAULT;
 		}
@@ -227,7 +185,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == NeoAbstractNode.class) {
 			switch (derivedFeatureID) {
-				case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__RETURN_ELEMENT: return AdaptionNeo4JPackage.NEO_ABSTRACT_NODE__RETURN_ELEMENT;
 				case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__NODE_PLACE: return AdaptionNeo4JPackage.NEO_ABSTRACT_NODE__NODE_PLACE;
 				default: return -1;
 			}
@@ -244,7 +201,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == NeoAbstractNode.class) {
 			switch (baseFeatureID) {
-				case AdaptionNeo4JPackage.NEO_ABSTRACT_NODE__RETURN_ELEMENT: return AdaptionNeo4JPackage.NEO_PROPERTY_NODE__RETURN_ELEMENT;
 				case AdaptionNeo4JPackage.NEO_ABSTRACT_NODE__NODE_PLACE: return AdaptionNeo4JPackage.NEO_PROPERTY_NODE__NODE_PLACE;
 				default: return -1;
 			}
@@ -306,29 +262,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 * @generated
 	 */
 	@Override
-	public boolean isReturnElement() {
-		return returnElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setReturnElement(boolean newReturnElement) {
-		boolean oldReturnElement = returnElement;
-		returnElement = newReturnElement;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PROPERTY_NODE__RETURN_ELEMENT, oldReturnElement, returnElement));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NeoPlace getNodePlace() {
 		return nodePlace;
 	}
@@ -356,7 +289,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		if (baseClass == NeoAbstractNode.class) {
 			switch (baseOperationID) {
 				case AdaptionNeo4JPackage.NEO_ABSTRACT_NODE___GET_CYPHER_VARIABLE: return AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GET_CYPHER_VARIABLE;
-				case AdaptionNeo4JPackage.NEO_ABSTRACT_NODE___SET_IS_RETURN_ELEMENT__BOOLEAN: return AdaptionNeo4JPackage.NEO_PROPERTY_NODE___SET_IS_RETURN_ELEMENT__BOOLEAN;
 				case AdaptionNeo4JPackage.NEO_ABSTRACT_NODE___SET_IS_START_NODE__BOOLEAN: return AdaptionNeo4JPackage.NEO_PROPERTY_NODE___SET_IS_START_NODE__BOOLEAN;
 				default: return -1;
 			}
@@ -374,9 +306,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		switch (operationID) {
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GET_CYPHER_VARIABLE:
 				return getCypherVariable();
-			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE___SET_IS_RETURN_ELEMENT__BOOLEAN:
-				setIsReturnElement((Boolean)arguments.get(0));
-				return null;
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE___SET_IS_START_NODE__BOOLEAN:
 				setIsStartNode((Boolean)arguments.get(0));
 				return null;
@@ -394,9 +323,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (returnElement: ");
-		result.append(returnElement);
-		result.append(", nodePlace: ");
+		result.append(" (nodePlace: ");
 		result.append(nodePlace);
 		result.append(')');
 		return result.toString();

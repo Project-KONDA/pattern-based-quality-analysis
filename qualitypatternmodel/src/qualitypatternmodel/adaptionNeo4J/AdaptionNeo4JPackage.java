@@ -75,22 +75,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_ABSTRACT_NODE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Return Element</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ABSTRACT_NODE__RETURN_ELEMENT = 0;
-
-	/**
 	 * The feature id for the '<em><b>Node Place</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_NODE__NODE_PLACE = 1;
+	int NEO_ABSTRACT_NODE__NODE_PLACE = 0;
 
 	/**
 	 * The number of structural features of the '<em>Neo Abstract Node</em>' class.
@@ -99,7 +90,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_NODE_FEATURE_COUNT = 2;
+	int NEO_ABSTRACT_NODE_FEATURE_COUNT = 1;
 
 	/**
 	 * The operation id for the '<em>Get Cypher Variable</em>' operation.
@@ -111,22 +102,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_ABSTRACT_NODE___GET_CYPHER_VARIABLE = 0;
 
 	/**
-	 * The operation id for the '<em>Set Is Return Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ABSTRACT_NODE___SET_IS_RETURN_ELEMENT__BOOLEAN = 1;
-
-	/**
 	 * The operation id for the '<em>Set Is Start Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_NODE___SET_IS_START_NODE__BOOLEAN = 2;
+	int NEO_ABSTRACT_NODE___SET_IS_START_NODE__BOOLEAN = 1;
 
 	/**
 	 * The number of operations of the '<em>Neo Abstract Node</em>' class.
@@ -135,7 +117,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_NODE_OPERATION_COUNT = 3;
+	int NEO_ABSTRACT_NODE_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl <em>Neo Node</em>}' class.
@@ -283,22 +265,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_NODE__OUTGOING = GraphstructurePackage.COMPLEX_NODE__OUTGOING;
 
 	/**
-	 * The feature id for the '<em><b>Return Element</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_NODE__RETURN_ELEMENT = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Node Place</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE__NODE_PLACE = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 1;
+	int NEO_NODE__NODE_PLACE = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Neo Node Labels</b></em>' reference.
@@ -307,7 +280,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE__NEO_NODE_LABELS = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 2;
+	int NEO_NODE__NEO_NODE_LABELS = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Neo Node</em>' class.
@@ -316,7 +289,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE_FEATURE_COUNT = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 3;
+	int NEO_NODE_FEATURE_COUNT = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -886,13 +859,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_NODE___ADAPT_AS_NEO_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_NEO_NODE;
 
 	/**
-	 * The operation id for the '<em>Adapt As Neo Attribute Node</em>' operation.
+	 * The operation id for the '<em>Adapt As Neo Property Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE;
+	int NEO_NODE___ADAPT_AS_NEO_PROPERTY_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_NEO_PROPERTY_NODE;
 
 	/**
 	 * The operation id for the '<em>Get Cypher Variable</em>' operation.
@@ -904,22 +877,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_NODE___GET_CYPHER_VARIABLE = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Set Is Return Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_NODE___SET_IS_RETURN_ELEMENT__BOOLEAN = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 1;
-
-	/**
 	 * The operation id for the '<em>Set Is Start Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE___SET_IS_START_NODE__BOOLEAN = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 2;
+	int NEO_NODE___SET_IS_START_NODE__BOOLEAN = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Set Neo Node Label</em>' operation.
@@ -928,7 +892,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE___SET_NEO_NODE_LABEL__TEXTLITERALPARAM = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 3;
+	int NEO_NODE___SET_NEO_NODE_LABEL__TEXTLITERALPARAM = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Neo Node</em>' class.
@@ -937,7 +901,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE_OPERATION_COUNT = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 4;
+	int NEO_NODE_OPERATION_COUNT = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoEdgeImpl <em>Neo Edge</em>}' class.
@@ -1120,13 +1084,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_ABSTRACT_EDGE__PREDICATES_ARE_BEING_TRANSLATED = GraphstructurePackage.RELATION__PREDICATES_ARE_BEING_TRANSLATED;
 
 	/**
+	 * The feature id for the '<em><b>Return Element</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ABSTRACT_EDGE__RETURN_ELEMENT = GraphstructurePackage.RELATION_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Neo Abstract Edge</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_EDGE_FEATURE_COUNT = GraphstructurePackage.RELATION_FEATURE_COUNT + 0;
+	int NEO_ABSTRACT_EDGE_FEATURE_COUNT = GraphstructurePackage.RELATION_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1444,13 +1417,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_ABSTRACT_EDGE___ADAPT_AS_NEO_EDGE = GraphstructurePackage.RELATION___ADAPT_AS_NEO_EDGE;
 
 	/**
+	 * The operation id for the '<em>Set Is Return Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ABSTRACT_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN = GraphstructurePackage.RELATION_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Neo Abstract Edge</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_EDGE_OPERATION_COUNT = GraphstructurePackage.RELATION_OPERATION_COUNT + 0;
+	int NEO_ABSTRACT_EDGE_OPERATION_COUNT = GraphstructurePackage.RELATION_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1541,6 +1523,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_EDGE__PREDICATES_ARE_BEING_TRANSLATED = NEO_ABSTRACT_EDGE__PREDICATES_ARE_BEING_TRANSLATED;
+
+	/**
+	 * The feature id for the '<em><b>Return Element</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE__RETURN_ELEMENT = NEO_ABSTRACT_EDGE__RETURN_ELEMENT;
 
 	/**
 	 * The feature id for the '<em><b>Neo Path Param</b></em>' reference.
@@ -1874,6 +1865,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_EDGE___ADAPT_AS_NEO_EDGE = NEO_ABSTRACT_EDGE___ADAPT_AS_NEO_EDGE;
+
+	/**
+	 * The operation id for the '<em>Set Is Return Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN = NEO_ABSTRACT_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN;
 
 	/**
 	 * The number of operations of the '<em>Neo Edge</em>' class.
@@ -2938,22 +2938,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PROPERTY_NODE__CONTAINS = GraphstructurePackage.PRIMITIVE_NODE__CONTAINS;
 
 	/**
-	 * The feature id for the '<em><b>Return Element</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NODE__RETURN_ELEMENT = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Node Place</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE__NODE_PLACE = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 1;
+	int NEO_PROPERTY_NODE__NODE_PLACE = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Neo Property Node</em>' class.
@@ -2962,7 +2953,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE_FEATURE_COUNT = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 2;
+	int NEO_PROPERTY_NODE_FEATURE_COUNT = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -3532,13 +3523,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PROPERTY_NODE___ADAPT_AS_NEO_NODE = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_NEO_NODE;
 
 	/**
-	 * The operation id for the '<em>Adapt As Neo Attribute Node</em>' operation.
+	 * The operation id for the '<em>Adapt As Neo Property Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE;
+	int NEO_PROPERTY_NODE___ADAPT_AS_NEO_PROPERTY_NODE = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_NEO_PROPERTY_NODE;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -3559,22 +3550,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PROPERTY_NODE___GET_CYPHER_VARIABLE = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Set Is Return Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NODE___SET_IS_RETURN_ELEMENT__BOOLEAN = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 1;
-
-	/**
 	 * The operation id for the '<em>Set Is Start Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE___SET_IS_START_NODE__BOOLEAN = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 2;
+	int NEO_PROPERTY_NODE___SET_IS_START_NODE__BOOLEAN = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Neo Property Node</em>' class.
@@ -3583,7 +3565,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE_OPERATION_COUNT = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 3;
+	int NEO_PROPERTY_NODE_OPERATION_COUNT = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3640,22 +3622,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PATH_PARAM__DESCRIPTION = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Return Element</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PATH_PARAM__RETURN_ELEMENT = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 4;
-
-	/**
 	 * The feature id for the '<em><b>Neo Edge</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PARAM__NEO_EDGE = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 5;
+	int NEO_PATH_PARAM__NEO_EDGE = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Neo Path</b></em>' reference.
@@ -3664,7 +3637,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PARAM__NEO_PATH = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 6;
+	int NEO_PATH_PARAM__NEO_PATH = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Neo Path Param</em>' class.
@@ -3673,7 +3646,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PARAM_FEATURE_COUNT = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 7;
+	int NEO_PATH_PARAM_FEATURE_COUNT = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -3991,22 +3964,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PATH_PARAM___GET_LAST_RELATIONS = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 10;
 
 	/**
-	 * The operation id for the '<em>Set Is Return Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PATH_PARAM___SET_IS_RETURN_ELEMENT__BOOLEAN = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 11;
-
-	/**
 	 * The number of operations of the '<em>Neo Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PARAM_OPERATION_COUNT = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 12;
+	int NEO_PATH_PARAM_OPERATION_COUNT = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4063,22 +4027,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PROPERTY_PATH_PARAM__DESCRIPTION = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Return Element</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_PATH_PARAM__RETURN_ELEMENT = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 4;
-
-	/**
 	 * The feature id for the '<em><b>Neo Path</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM__NEO_PATH = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 5;
+	int NEO_PROPERTY_PATH_PARAM__NEO_PATH = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Neo Property Edge</b></em>' reference.
@@ -4087,7 +4042,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_EDGE = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 6;
+	int NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_EDGE = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Neo Property Name</b></em>' reference.
@@ -4096,7 +4051,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_NAME = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 7;
+	int NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_NAME = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Neo Property Path Param</em>' class.
@@ -4105,7 +4060,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM_FEATURE_COUNT = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 8;
+	int NEO_PROPERTY_PATH_PARAM_FEATURE_COUNT = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -4423,22 +4378,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PROPERTY_PATH_PARAM___GET_LAST_RELATIONS = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 10;
 
 	/**
-	 * The operation id for the '<em>Set Is Return Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_PATH_PARAM___SET_IS_RETURN_ELEMENT__BOOLEAN = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 11;
-
-	/**
 	 * The operation id for the '<em>Set Neo Property Name</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___SET_NEO_PROPERTY_NAME__STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 12;
+	int NEO_PROPERTY_PATH_PARAM___SET_NEO_PROPERTY_NAME__STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 11;
 
 	/**
 	 * The number of operations of the '<em>Neo Property Path Param</em>' class.
@@ -4447,7 +4393,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM_OPERATION_COUNT = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 13;
+	int NEO_PROPERTY_PATH_PARAM_OPERATION_COUNT = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4538,6 +4484,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_EDGE__PREDICATES_ARE_BEING_TRANSLATED = NEO_ABSTRACT_EDGE__PREDICATES_ARE_BEING_TRANSLATED;
+
+	/**
+	 * The feature id for the '<em><b>Return Element</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_EDGE__RETURN_ELEMENT = NEO_ABSTRACT_EDGE__RETURN_ELEMENT;
 
 	/**
 	 * The feature id for the '<em><b>Neo Property Path Param</b></em>' reference.
@@ -4873,6 +4828,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PROPERTY_EDGE___ADAPT_AS_NEO_EDGE = NEO_ABSTRACT_EDGE___ADAPT_AS_NEO_EDGE;
 
 	/**
+	 * The operation id for the '<em>Set Is Return Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN = NEO_ABSTRACT_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN;
+
+	/**
 	 * The number of operations of the '<em>Neo Property Edge</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4946,22 +4910,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_ABSTRACT_PATH_PARAM__DESCRIPTION = ParametersPackage.PARAMETER__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Return Element</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ABSTRACT_PATH_PARAM__RETURN_ELEMENT = ParametersPackage.PARAMETER_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Neo Abstract Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM_FEATURE_COUNT = ParametersPackage.PARAMETER_FEATURE_COUNT + 1;
+	int NEO_ABSTRACT_PATH_PARAM_FEATURE_COUNT = ParametersPackage.PARAMETER_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -5261,22 +5216,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_ABSTRACT_PATH_PARAM___GET_LAST_RELATIONS = ParametersPackage.PARAMETER_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Set Is Return Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ABSTRACT_PATH_PARAM___SET_IS_RETURN_ELEMENT__BOOLEAN = ParametersPackage.PARAMETER_OPERATION_COUNT + 1;
-
-	/**
 	 * The number of operations of the '<em>Neo Abstract Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 2;
+	int NEO_ABSTRACT_PATH_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoUnspecifiedEdgeImpl <em>Neo Unspecified Edge</em>}' class.
@@ -5618,17 +5564,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EClass getNeoAbstractNode();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#isReturnElement <em>Return Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Return Element</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#isReturnElement()
-	 * @see #getNeoAbstractNode()
-	 * @generated
-	 */
-	EAttribute getNeoAbstractNode_ReturnElement();
-
-	/**
 	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getNodePlace <em>Node Place</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5648,16 +5583,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getNeoAbstractNode__GetCypherVariable();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#setIsReturnElement(boolean) <em>Set Is Return Element</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Set Is Return Element</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#setIsReturnElement(boolean)
-	 * @generated
-	 */
-	EOperation getNeoAbstractNode__SetIsReturnElement__boolean();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#setIsStartNode(boolean) <em>Set Is Start Node</em>}' operation.
@@ -6026,6 +5951,27 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EClass getNeoAbstractEdge();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#isReturnElement <em>Return Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Return Element</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#isReturnElement()
+	 * @see #getNeoAbstractEdge()
+	 * @generated
+	 */
+	EAttribute getNeoAbstractEdge_ReturnElement();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#setIsReturnElement(boolean) <em>Set Is Return Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Is Return Element</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#setIsReturnElement(boolean)
+	 * @generated
+	 */
+	EOperation getNeoAbstractEdge__SetIsReturnElement__boolean();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam <em>Neo Abstract Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6036,17 +5982,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EClass getNeoAbstractPathParam();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#isReturnElement <em>Return Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Return Element</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#isReturnElement()
-	 * @see #getNeoAbstractPathParam()
-	 * @generated
-	 */
-	EAttribute getNeoAbstractPathParam_ReturnElement();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getLastRelations() <em>Get Last Relations</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6055,16 +5990,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getNeoAbstractPathParam__GetLastRelations();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#setIsReturnElement(boolean) <em>Set Is Return Element</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Set Is Return Element</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#setIsReturnElement(boolean)
-	 * @generated
-	 */
-	EOperation getNeoAbstractPathParam__SetIsReturnElement__boolean();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoUnspecifiedEdge <em>Neo Unspecified Edge</em>}'.
@@ -6162,14 +6087,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EClass NEO_ABSTRACT_NODE = eINSTANCE.getNeoAbstractNode();
 
 		/**
-		 * The meta object literal for the '<em><b>Return Element</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NEO_ABSTRACT_NODE__RETURN_ELEMENT = eINSTANCE.getNeoAbstractNode_ReturnElement();
-
-		/**
 		 * The meta object literal for the '<em><b>Node Place</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6184,14 +6101,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NEO_ABSTRACT_NODE___GET_CYPHER_VARIABLE = eINSTANCE.getNeoAbstractNode__GetCypherVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Set Is Return Element</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NEO_ABSTRACT_NODE___SET_IS_RETURN_ELEMENT__BOOLEAN = eINSTANCE.getNeoAbstractNode__SetIsReturnElement__boolean();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Is Start Node</b></em>' operation.
@@ -6494,6 +6403,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EClass NEO_ABSTRACT_EDGE = eINSTANCE.getNeoAbstractEdge();
 
 		/**
+		 * The meta object literal for the '<em><b>Return Element</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NEO_ABSTRACT_EDGE__RETURN_ELEMENT = eINSTANCE.getNeoAbstractEdge_ReturnElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Is Return Element</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_ABSTRACT_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN = eINSTANCE.getNeoAbstractEdge__SetIsReturnElement__boolean();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoAbstractPathParamImpl <em>Neo Abstract Path Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6504,28 +6429,12 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EClass NEO_ABSTRACT_PATH_PARAM = eINSTANCE.getNeoAbstractPathParam();
 
 		/**
-		 * The meta object literal for the '<em><b>Return Element</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NEO_ABSTRACT_PATH_PARAM__RETURN_ELEMENT = eINSTANCE.getNeoAbstractPathParam_ReturnElement();
-
-		/**
 		 * The meta object literal for the '<em><b>Get Last Relations</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation NEO_ABSTRACT_PATH_PARAM___GET_LAST_RELATIONS = eINSTANCE.getNeoAbstractPathParam__GetLastRelations();
-
-		/**
-		 * The meta object literal for the '<em><b>Set Is Return Element</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NEO_ABSTRACT_PATH_PARAM___SET_IS_RETURN_ELEMENT__BOOLEAN = eINSTANCE.getNeoAbstractPathParam__SetIsReturnElement__boolean();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoUnspecifiedEdgeImpl <em>Neo Unspecified Edge</em>}' class.

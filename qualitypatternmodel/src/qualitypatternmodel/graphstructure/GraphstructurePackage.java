@@ -1512,13 +1512,13 @@ public interface GraphstructurePackage extends EPackage {
 	int NODE___ADAPT_AS_NEO_NODE = COMPARABLE_OPERATION_COUNT + 35;
 
 	/**
-	 * The operation id for the '<em>Adapt As Neo Attribute Node</em>' operation.
+	 * The operation id for the '<em>Adapt As Neo Property Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE = COMPARABLE_OPERATION_COUNT + 36;
+	int NODE___ADAPT_AS_NEO_PROPERTY_NODE = COMPARABLE_OPERATION_COUNT + 36;
 
 	/**
 	 * The number of operations of the '<em>Node</em>' class.
@@ -2260,15 +2260,14 @@ public interface GraphstructurePackage extends EPackage {
 	int PRIMITIVE_NODE___ADAPT_AS_NEO_NODE = NODE___ADAPT_AS_NEO_NODE;
 
 	/**
-	 * The operation id for the '<em>Adapt As Neo Attribute Node</em>' operation.
+	 * The operation id for the '<em>Adapt As Neo Property Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE = NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE;
+	int PRIMITIVE_NODE___ADAPT_AS_NEO_PROPERTY_NODE = NODE___ADAPT_AS_NEO_PROPERTY_NODE;
 
-	
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
 	 * <!-- begin-user-doc -->
@@ -3668,13 +3667,13 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPLEX_NODE___ADAPT_AS_NEO_NODE = NODE___ADAPT_AS_NEO_NODE;
 
 	/**
-	 * The operation id for the '<em>Adapt As Neo Attribute Node</em>' operation.
+	 * The operation id for the '<em>Adapt As Neo Property Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLEX_NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE = NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE;
+	int COMPLEX_NODE___ADAPT_AS_NEO_PROPERTY_NODE = NODE___ADAPT_AS_NEO_PROPERTY_NODE;
 
 	/**
 	 * The number of operations of the '<em>Complex Node</em>' class.
@@ -4377,14 +4376,14 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getNode__AdaptAsNeoNode();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#adaptAsNeoPropertyNode() <em>Adapt As Neo Attribute Node</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#adaptAsNeoPropertyNode() <em>Adapt As Neo Property Node</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Adapt As Neo Attribute Node</em>' operation.
+	 * @return the meta object for the '<em>Adapt As Neo Property Node</em>' operation.
 	 * @see qualitypatternmodel.graphstructure.Node#adaptAsNeoPropertyNode()
 	 * @generated
 	 */
-	EOperation getNode__AdaptAsNeoAttributeNode();
+	EOperation getNode__AdaptAsNeoPropertyNode();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#checkComparisonConsistency() <em>Check Comparison Consistency</em>}' operation.
@@ -5274,12 +5273,12 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation NODE___ADAPT_AS_NEO_NODE = eINSTANCE.getNode__AdaptAsNeoNode();
 
 		/**
-		 * The meta object literal for the '<em><b>Adapt As Neo Attribute Node</b></em>' operation.
+		 * The meta object literal for the '<em><b>Adapt As Neo Property Node</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE = eINSTANCE.getNode__AdaptAsNeoAttributeNode();
+		EOperation NODE___ADAPT_AS_NEO_PROPERTY_NODE = eINSTANCE.getNode__AdaptAsNeoPropertyNode();
 
 		/**
 		 * The meta object literal for the '<em><b>Check Comparison Consistency</b></em>' operation.

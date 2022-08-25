@@ -8,8 +8,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EStringToStringMapEntryImpl;
-
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
@@ -25,7 +23,6 @@ import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.utility.CypherSpecificConstants;
-import sun.security.action.GetLongAction;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,7 +32,6 @@ import sun.security.action.GetLongAction;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl#isReturnElement <em>Return Element</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl#getNodePlace <em>Node Place</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl#getNeoNodeLabels <em>Neo Node Labels</em>}</li>
  * </ul>
@@ -43,24 +39,6 @@ import sun.security.action.GetLongAction;
  * @generated
  */
 public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
-	/**
-	 * The default value of the '{@link #isReturnElement() <em>Return Element</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isReturnElement()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean RETURN_ELEMENT_EDEFAULT = false;
-	/**
-	 * The cached value of the '{@link #isReturnElement() <em>Return Element</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isReturnElement()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean returnElement = RETURN_ELEMENT_EDEFAULT;
 	/**
 	 * The default value of the '{@link #getNodePlace() <em>Node Place</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -145,23 +123,10 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	 * @generated
 	 */
 	@Override
-	public void setIsReturnElement(boolean returnElement) {
+	public void setIsStartNode(boolean startNode) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setIsStartNode(boolean startNode) {
-		if(startNode) {
-			this.nodePlace = NeoPlace.BEGINNING;
-		}
-		this.nodePlace = NeoPlace.FOLLOWING;
 	}
 
 	@Override
@@ -207,29 +172,6 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	@Override
 	protected EClass eStaticClass() {
 		return AdaptionNeo4JPackage.Literals.NEO_NODE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isReturnElement() {
-		return returnElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setReturnElement(boolean newReturnElement) {
-		boolean oldReturnElement = returnElement;
-		returnElement = newReturnElement;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_NODE__RETURN_ELEMENT, oldReturnElement, returnElement));
 	}
 
 	/**
@@ -315,8 +257,6 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_NODE__RETURN_ELEMENT:
-				return isReturnElement();
 			case AdaptionNeo4JPackage.NEO_NODE__NODE_PLACE:
 				return getNodePlace();
 			case AdaptionNeo4JPackage.NEO_NODE__NEO_NODE_LABELS:
@@ -335,9 +275,6 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_NODE__RETURN_ELEMENT:
-				setReturnElement((Boolean)newValue);
-				return;
 			case AdaptionNeo4JPackage.NEO_NODE__NODE_PLACE:
 				setNodePlace((NeoPlace)newValue);
 				return;
@@ -356,9 +293,6 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_NODE__RETURN_ELEMENT:
-				setReturnElement(RETURN_ELEMENT_EDEFAULT);
-				return;
 			case AdaptionNeo4JPackage.NEO_NODE__NODE_PLACE:
 				setNodePlace(NODE_PLACE_EDEFAULT);
 				return;
@@ -377,8 +311,6 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_NODE__RETURN_ELEMENT:
-				return returnElement != RETURN_ELEMENT_EDEFAULT;
 			case AdaptionNeo4JPackage.NEO_NODE__NODE_PLACE:
 				return nodePlace != NODE_PLACE_EDEFAULT;
 			case AdaptionNeo4JPackage.NEO_NODE__NEO_NODE_LABELS:
@@ -396,7 +328,6 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == NeoAbstractNode.class) {
 			switch (derivedFeatureID) {
-				case AdaptionNeo4JPackage.NEO_NODE__RETURN_ELEMENT: return AdaptionNeo4JPackage.NEO_ABSTRACT_NODE__RETURN_ELEMENT;
 				case AdaptionNeo4JPackage.NEO_NODE__NODE_PLACE: return AdaptionNeo4JPackage.NEO_ABSTRACT_NODE__NODE_PLACE;
 				default: return -1;
 			}
@@ -413,7 +344,6 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == NeoAbstractNode.class) {
 			switch (baseFeatureID) {
-				case AdaptionNeo4JPackage.NEO_ABSTRACT_NODE__RETURN_ELEMENT: return AdaptionNeo4JPackage.NEO_NODE__RETURN_ELEMENT;
 				case AdaptionNeo4JPackage.NEO_ABSTRACT_NODE__NODE_PLACE: return AdaptionNeo4JPackage.NEO_NODE__NODE_PLACE;
 				default: return -1;
 			}
@@ -431,7 +361,6 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 		if (baseClass == NeoAbstractNode.class) {
 			switch (baseOperationID) {
 				case AdaptionNeo4JPackage.NEO_ABSTRACT_NODE___GET_CYPHER_VARIABLE: return AdaptionNeo4JPackage.NEO_NODE___GET_CYPHER_VARIABLE;
-				case AdaptionNeo4JPackage.NEO_ABSTRACT_NODE___SET_IS_RETURN_ELEMENT__BOOLEAN: return AdaptionNeo4JPackage.NEO_NODE___SET_IS_RETURN_ELEMENT__BOOLEAN;
 				case AdaptionNeo4JPackage.NEO_ABSTRACT_NODE___SET_IS_START_NODE__BOOLEAN: return AdaptionNeo4JPackage.NEO_NODE___SET_IS_START_NODE__BOOLEAN;
 				default: return -1;
 			}
@@ -452,9 +381,6 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 				return null;
 			case AdaptionNeo4JPackage.NEO_NODE___GET_CYPHER_VARIABLE:
 				return getCypherVariable();
-			case AdaptionNeo4JPackage.NEO_NODE___SET_IS_RETURN_ELEMENT__BOOLEAN:
-				setIsReturnElement((Boolean)arguments.get(0));
-				return null;
 			case AdaptionNeo4JPackage.NEO_NODE___SET_IS_START_NODE__BOOLEAN:
 				setIsStartNode((Boolean)arguments.get(0));
 				return null;
@@ -472,9 +398,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (returnElement: ");
-		result.append(returnElement);
-		result.append(", nodePlace: ");
+		result.append(" (nodePlace: ");
 		result.append(nodePlace);
 		result.append(')');
 		return result.toString();

@@ -1227,13 +1227,13 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_IRI_NODE___ADAPT_AS_NEO_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_NEO_NODE;
 
 	/**
-	 * The operation id for the '<em>Adapt As Neo Attribute Node</em>' operation.
+	 * The operation id for the '<em>Adapt As Neo Property Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRI_NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE;
+	int RDF_IRI_NODE___ADAPT_AS_NEO_PROPERTY_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_NEO_PROPERTY_NODE;
 
 	/**
 	 * The number of operations of the '<em>Rdf Iri Node</em>' class.
@@ -2582,13 +2582,13 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_LITERAL_NODE___ADAPT_AS_NEO_NODE = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_NEO_NODE;
 
 	/**
-	 * The operation id for the '<em>Adapt As Neo Attribute Node</em>' operation.
+	 * The operation id for the '<em>Adapt As Neo Property Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_LITERAL_NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE;
+	int RDF_LITERAL_NODE___ADAPT_AS_NEO_PROPERTY_NODE = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_NEO_PROPERTY_NODE;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.

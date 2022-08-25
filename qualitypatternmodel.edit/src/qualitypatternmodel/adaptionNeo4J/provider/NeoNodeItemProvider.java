@@ -48,33 +48,10 @@ public class NeoNodeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addReturnElementPropertyDescriptor(object);
 			addNodePlacePropertyDescriptor(object);
 			addNeoNodeLabelsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Return Element feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addReturnElementPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_NeoAbstractNode_returnElement_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NeoAbstractNode_returnElement_feature", "_UI_NeoAbstractNode_type"),
-				 AdaptionNeo4JPackage.Literals.NEO_ABSTRACT_NODE__RETURN_ELEMENT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -159,7 +136,6 @@ public class NeoNodeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(NeoNode.class)) {
-			case AdaptionNeo4JPackage.NEO_NODE__RETURN_ELEMENT:
 			case AdaptionNeo4JPackage.NEO_NODE__NODE_PLACE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
