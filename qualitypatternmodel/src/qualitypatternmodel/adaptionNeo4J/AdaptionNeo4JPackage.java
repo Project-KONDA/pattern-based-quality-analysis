@@ -102,22 +102,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_ABSTRACT_NODE___GET_CYPHER_VARIABLE = 0;
 
 	/**
-	 * The operation id for the '<em>Set Neo Place Of Node</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ABSTRACT_NODE___SET_NEO_PLACE_OF_NODE__NEOPLACE = 1;
-
-	/**
 	 * The number of operations of the '<em>Neo Abstract Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_NODE_OPERATION_COUNT = 2;
+	int NEO_ABSTRACT_NODE_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl <em>Neo Node</em>}' class.
@@ -877,22 +868,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_NODE___GET_CYPHER_VARIABLE = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Set Neo Place Of Node</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_NODE___SET_NEO_PLACE_OF_NODE__NEOPLACE = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 1;
-
-	/**
 	 * The operation id for the '<em>Set Neo Node Label</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE___SET_NEO_NODE_LABEL__TEXTLITERALPARAM = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 2;
+	int NEO_NODE___SET_NEO_NODE_LABEL__TEXTLITERALPARAM = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Neo Node</em>' class.
@@ -901,7 +883,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE_OPERATION_COUNT = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 3;
+	int NEO_NODE_OPERATION_COUNT = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoEdgeImpl <em>Neo Edge</em>}' class.
@@ -3550,22 +3532,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PROPERTY_NODE___GET_CYPHER_VARIABLE = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Set Neo Place Of Node</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NODE___SET_NEO_PLACE_OF_NODE__NEOPLACE = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 1;
-
-	/**
 	 * The number of operations of the '<em>Neo Property Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE_OPERATION_COUNT = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 2;
+	int NEO_PROPERTY_NODE_OPERATION_COUNT = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -5585,16 +5558,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EOperation getNeoAbstractNode__GetCypherVariable();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#setNeoPlaceOfNode(qualitypatternmodel.adaptionNeo4J.NeoPlace) <em>Set Neo Place Of Node</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Set Neo Place Of Node</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#setNeoPlaceOfNode(qualitypatternmodel.adaptionNeo4J.NeoPlace)
-	 * @generated
-	 */
-	EOperation getNeoAbstractNode__SetNeoPlaceOfNode__NeoPlace();
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoNode <em>Neo Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6101,14 +6064,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NEO_ABSTRACT_NODE___GET_CYPHER_VARIABLE = eINSTANCE.getNeoAbstractNode__GetCypherVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Set Neo Place Of Node</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NEO_ABSTRACT_NODE___SET_NEO_PLACE_OF_NODE__NEOPLACE = eINSTANCE.getNeoAbstractNode__SetNeoPlaceOfNode__NeoPlace();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl <em>Neo Node</em>}' class.

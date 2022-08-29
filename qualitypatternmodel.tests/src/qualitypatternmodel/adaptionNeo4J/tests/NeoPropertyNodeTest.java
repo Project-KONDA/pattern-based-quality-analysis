@@ -17,7 +17,6 @@ import qualitypatternmodel.graphstructure.tests.PrimitiveNodeTest;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getCypherVariable() <em>Get Cypher Variable</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#setNeoPlaceOfNode(qualitypatternmodel.adaptionNeo4J.NeoPlace) <em>Set Neo Place Of Node</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -84,19 +83,6 @@ public class NeoPropertyNodeTest extends PrimitiveNodeTest {
 	 * @generated
 	 */
 	public void testGetCypherVariable() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#setNeoPlaceOfNode(qualitypatternmodel.adaptionNeo4J.NeoPlace) <em>Set Neo Place Of Node</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#setNeoPlaceOfNode(qualitypatternmodel.adaptionNeo4J.NeoPlace)
-	 * @generated
-	 */
-	public void testSetNeoPlaceOfNode__NeoPlace() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

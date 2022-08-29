@@ -265,15 +265,13 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		OperatorList opList = this.getOperatorList();
 		//Add this to RegelWerk that the Operators are all in breakers
 		cypher.append("(");
-		String oldString = "";
 		for (Operator operator : opList.getOperators()) {
-			oldString = cypher.toString();
-			if (cypher.length() != 0) cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.SIX_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
 			if (operator.generateCypher() != null) {
+				if (cypher.length() != 0) cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.SIX_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
 				cypher.append(CypherSpecificConstants.ONE_WHITESPACES + operator.generateCypher());	
 			}
 		}
-		cypher.append(")");		
+		if (cypher.length() == 1) return "";
 		return cypher.toString();
 	}
 	

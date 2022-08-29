@@ -213,10 +213,13 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		withClause = ""; //has to be implemented
 		if(withClause.length() !=0 ) withClause = CypherSpecificConstants.CLAUSE_WITH + " "  + withClause;
 		
-		String whereClause;
-		whereClause = graph.generateCypherWhere();
+		String whereClause = "";
+		whereClause += graph.generateCypherWhere();
 		whereClause += condition.generateCypher();
-		if(whereClause.length() !=2 ) whereClause = CypherSpecificConstants.CLAUSE_WHERE + " " + whereClause;
+		if (whereClause.length() != 0) whereClause = CypherSpecificConstants.CLAUSE_WHERE + " " + whereClause;
+		if (whereClause.length() == 0) whereClause = "";
+		System.out.println(whereClause.length());
+		
 		
 		String cypher = matchClause + withClause + whereClause;
 		return cypher;

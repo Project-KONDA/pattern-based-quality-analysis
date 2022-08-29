@@ -1206,9 +1206,6 @@
   <eSubpackages name="adaptionNeo4J" nsURI="adaptionNeo4J" nsPrefix="adaptionNeo4J">
     <eClassifiers xsi:type="ecore:EClass" name="NeoAbstractNode" abstract="true" interface="true">
       <eOperations name="getCypherVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eOperations name="setNeoPlaceOfNode">
-        <eParameters name="startNode" eType="#//adaptionNeo4J/NeoPlace"/>
-      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodePlace" eType="#//adaptionNeo4J/NeoPlace"
           defaultValueLiteral="FOLLOWING"/>
     </eClassifiers>
@@ -1252,7 +1249,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="translated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoPropertyNode" eSuperTypes="#//graphstructure/PrimitiveNode #//adaptionNeo4J/NeoAbstractNode"/>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoPathParam" eSuperTypes="#//graphstructure/Adaptable #//adaptionNeo4J/NeoAbstractPathParam">
+    <eClassifiers xsi:type="ecore:EClass" name="NeoPathParam" eSuperTypes="#//parameters/Parameter #//graphstructure/Adaptable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoEdge" eType="#//adaptionNeo4J/NeoEdge"
           eOpposite="#//adaptionNeo4J/NeoEdge/neoPathParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoPath" eType="#//adaptionNeo4J/NeoPathPart"/>
@@ -1262,7 +1259,7 @@
       <eLiterals name="RIGHT" value="1"/>
       <eLiterals name="LEFT" value="2"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoPropertyPathParam" eSuperTypes="#//graphstructure/Adaptable #//adaptionNeo4J/NeoAbstractPathParam">
+    <eClassifiers xsi:type="ecore:EClass" name="NeoPropertyPathParam" eSuperTypes="#//parameters/Parameter #//graphstructure/Adaptable">
       <eOperations name="setNeoPropertyName">
         <eParameters name="neoPropertyName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>

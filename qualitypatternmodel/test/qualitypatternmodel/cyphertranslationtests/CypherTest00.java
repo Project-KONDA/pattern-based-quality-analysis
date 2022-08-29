@@ -4,19 +4,36 @@ import java.util.ArrayList;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
+import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
+import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
+import qualitypatternmodel.adaptionNeo4J.NeoPlace;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
+import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoPathParamImpl;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl;
+import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
+import qualitypatternmodel.adaptionrdf.IriParam;
+import qualitypatternmodel.adaptionrdf.RdfPredicate;
+import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.parameters.impl.DateParamImpl;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import static qualitypatternmodel.xmltranslationtests.Test00.*;
 
 public class CypherTest00 {
+	public static final AdaptionNeo4JFactory factory = new AdaptionNeo4JFactoryImpl();
+	
 	public static void test(ArrayList<CompletePattern> completePatterns) {
 		for (CompletePattern completePattern : completePatterns) {
 			replace(completePattern);
@@ -41,7 +58,8 @@ public class CypherTest00 {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getBasePatternFinal());
-		//completePatterns.add(getBasePatternCondConcrete("2022-12-31")); //--> adapte
+		completePatterns.add(getBasePatternComplexFinal());
+		//completePatterns.add(getBasePatternCondConcrete("1440-02-02"));
 		//completePatterns.add(getBasePatternMatchConcrete("^2022")); //--> adapte
 		//completePatterns.add(getBasePatternMatchNotConcrete("^2022")); //--> adapte
 		CypherTest00.test(completePatterns);
@@ -54,13 +72,13 @@ public class CypherTest00 {
 		for (Node n : ns) {
 			if(n instanceof ComplexNode) {
 				NeoNode neo = (NeoNode) n; 
-				neo.setNeoPlaceOfNode(true);
+				neo.setNodePlace(NeoPlace.BEGINNING);
 			}
 		}
 		return completePattern;
 	}
 	
-	public static CompletePattern getBasePattern() throws InvalidityException {
+	public static CompletePattern getBasePattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
@@ -68,39 +86,68 @@ public class CypherTest00 {
 		completePattern.setName("MyPattern");
 		
 		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
-		//complexNode1.setReturnNode(true);
 		Node node2 = completePattern.getGraph().addNode();
-		//node2.setReturnNode(true);
 		completePattern.getGraph().addRelation(complexNode1, node2);
 	
+		return completePattern;	
+	}
+	
+	public static CompletePattern getBasePatternComplexFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getBasePatternComplex();
+		
+		NeoNode ns = (NeoNode) completePattern.getGraph().getNodes().get(0);
+		ns.setNodePlace(NeoPlace.BEGINNING);
+		
 		return completePattern;
-		
-//		LinkedList<TextLiteralParamImpl> labelList = new LinkedList<TextLiteralParamImpl>();
-//		TextLiteralParamImpl t = new TextLiteralParamImpl();
-//		t.setValue("Regesta");
-//		labelList.add(t);
-//		((NeoNodeImpl) complexNode1).setLabel(labelList);
-		
-	}	
+	}
 	
 	
-	//More adaption needed
+	public static CompletePattern getBasePatternComplex() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		
+		CompletePattern completePattern = factory.createCompletePattern();
+		completePattern.setName("MyPattern");
+		
+		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
+		ComplexNode complexNode2 = completePattern.getGraph().addNode().makeComplex();
+		completePattern.getGraph().addRelation(complexNode1, complexNode2);
+		
+		makeConcreteSimpleEdge(completePattern);
+		
+		return completePattern;		
+	}
+
+	private static void makeConcreteSimpleEdge(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		completePattern.createNeo4jAdaption();
+		
+		NeoEdge ne = (NeoEdge) completePattern.getGraph().getRelations().get(0);
+		NeoPathParam npp = CypherTest00.factory.createNeoPathParam();
+		npp.setNeoPath(CypherTest00.factory.createNeoSimpleEdge());
+		ne.setNeoPathParam(npp);
+	}
+	
 	public static CompletePattern getBasePatternCondConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternCond(comp);
-		NeoEdge relation = (NeoEdge) completePattern.getGraph().getRelations().get(0);
-//		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
-//		((RdfSinglePredicate) relation.getRdfPathParam().getRdfPathPart()).setIriParam(iriParam);
-//		iriParam.setPrefix("wdt");
-//		iriParam.setSuffix("P569");
-		return completePattern;	
+		NeoNode neo = (NeoNode) completePattern.getGraph().getNodes().get(0); 
+		neo.setNodePlace(NeoPlace.BEGINNING);
+
+		NeoPropertyEdge relation = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
+		NeoPropertyPathParam nppp = factory.createNeoPropertyPathParam();
+		nppp.setNeoPropertyName("isoStartDate");
+		nppp.setNeoPath((NeoPathPart) factory.createNeoSimpleEdge());
+		relation.setNeoPropertyPathParam(nppp);
+			
+		return completePattern;		
 	}
 	
 	public static CompletePattern getBasePatternCond(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePattern();
 		Node se = completePattern.getGraph().getNodes().get(1);
-		se.addPrimitiveComparison(comp);
+		DateParamImpl dp = new DateParamImpl();
+		dp.setValue(comp);
+		se.addPrimitiveComparison(dp);
 		completePattern.createNeo4jAdaption();
 		return completePattern;
 	}
-	
 }

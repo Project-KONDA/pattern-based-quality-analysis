@@ -112,18 +112,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 * @generated
 	 */
 	@Override
-	public void setNeoPlaceOfNode(NeoPlace startNode) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__NODE_PLACE:
@@ -289,7 +277,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		if (baseClass == NeoAbstractNode.class) {
 			switch (baseOperationID) {
 				case AdaptionNeo4JPackage.NEO_ABSTRACT_NODE___GET_CYPHER_VARIABLE: return AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GET_CYPHER_VARIABLE;
-				case AdaptionNeo4JPackage.NEO_ABSTRACT_NODE___SET_NEO_PLACE_OF_NODE__NEOPLACE: return AdaptionNeo4JPackage.NEO_PROPERTY_NODE___SET_NEO_PLACE_OF_NODE__NEOPLACE;
 				default: return -1;
 			}
 		}
@@ -306,9 +293,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		switch (operationID) {
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GET_CYPHER_VARIABLE:
 				return getCypherVariable();
-			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE___SET_NEO_PLACE_OF_NODE__NEOPLACE:
-				setNeoPlaceOfNode((NeoPlace)arguments.get(0));
-				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

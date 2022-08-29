@@ -1012,9 +1012,6 @@
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractNode">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractNode/nodePlace"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractNode/getCypherVariable"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractNode/setNeoPlaceOfNode">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractNode/setNeoPlaceOfNode/startNode"/>
-        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoNode">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

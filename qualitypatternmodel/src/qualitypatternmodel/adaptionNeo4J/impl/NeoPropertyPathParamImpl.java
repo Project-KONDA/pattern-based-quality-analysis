@@ -30,6 +30,7 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.textrepresentation.ParameterReference;
@@ -413,13 +414,14 @@ public class NeoPropertyPathParamImpl extends PatternElementImpl implements NeoP
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void setNeoPropertyName(String neoPropertyName) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if (neoPropertyName != null  && neoPropertyName.length() != 0) {
+			TextLiteralParam literalNeoPropertyName = new TextLiteralParamImpl(neoPropertyName);
+			this.neoPropertyName = literalNeoPropertyName;
+		}
 	}
 
 	/**

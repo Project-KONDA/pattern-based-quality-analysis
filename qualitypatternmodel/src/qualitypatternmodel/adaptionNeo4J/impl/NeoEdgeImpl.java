@@ -14,10 +14,15 @@ import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
+import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
@@ -52,17 +57,13 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 	protected NeoEdgeImpl() {
 		super();
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return AdaptionNeo4JPackage.Literals.NEO_EDGE;
-	}
-
+	
+	 @Override
+	 public PatternElement createNeo4jAdaption() throws InvalidityException {
+		 return this;
+	 }
+	
+	
 	//Translates just the Edge
 	@Override
 	public String generateCypher() throws InvalidityException {
@@ -166,6 +167,42 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 		return cypher.toString();		
 	}
 	
+	@Override 
+	public void createParameters() {
+		if (getIncomingMapping() == null) {
+			ParameterList pList = getParameterList();
+			if (pList != null) {
+				NeoPathParam npp = getNeoPathParam();
+				if (npp == null) {
+					npp = new NeoPathPartImpl();
+					setNeoPathParam(npp);
+					pList.add(npp);	
+				}
+				if (!pList.equals(npp.getParameterList())) {
+					pList.add(npp);
+				}
+			}
+		}
+	}	
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NeoPathParam basicGetNeoPathParam() {
+		return neoPathParam;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return AdaptionNeo4JPackage.Literals.NEO_EDGE;
+	}
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -190,10 +227,21 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NeoPathParam basicGetNeoPathParam() {
-		return neoPathParam;
+	@Override
+	public void setNeoPathParam(NeoPathParam newNeoPathParam) {
+		if (newNeoPathParam != neoPathParam) {
+			NotificationChain msgs = null;
+			if (neoPathParam != null)
+				msgs = ((InternalEObject)neoPathParam).eInverseRemove(this, AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE, NeoPathParam.class, msgs);
+			if (newNeoPathParam != null)
+				msgs = ((InternalEObject)newNeoPathParam).eInverseAdd(this, AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE, NeoPathParam.class, msgs);
+			msgs = basicSetNeoPathParam(newNeoPathParam, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_EDGE__NEO_PATH_PARAM, newNeoPathParam, newNeoPathParam));
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -209,25 +257,6 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 		return msgs;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setNeoPathParam(NeoPathParam newNeoPathParam) {
-		if (newNeoPathParam != neoPathParam) {
-			NotificationChain msgs = null;
-			if (neoPathParam != null)
-				msgs = ((InternalEObject)neoPathParam).eInverseRemove(this, AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE, NeoPathParam.class, msgs);
-			if (newNeoPathParam != null)
-				msgs = ((InternalEObject)newNeoPathParam).eInverseAdd(this, AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE, NeoPathParam.class, msgs);
-			msgs = basicSetNeoPathParam(newNeoPathParam, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_EDGE__NEO_PATH_PARAM, newNeoPathParam, newNeoPathParam));
-	}
 
 	/**
 	 * <!-- begin-user-doc -->

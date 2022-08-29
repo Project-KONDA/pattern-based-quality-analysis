@@ -304,16 +304,6 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
-	public EOperation getNeoAbstractNode__SetNeoPlaceOfNode__NeoPlace() {
-		return neoAbstractNodeEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getNeoNode() {
 		return neoNodeEClass;
 	}
@@ -780,7 +770,6 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		neoAbstractNodeEClass = createEClass(NEO_ABSTRACT_NODE);
 		createEAttribute(neoAbstractNodeEClass, NEO_ABSTRACT_NODE__NODE_PLACE);
 		createEOperation(neoAbstractNodeEClass, NEO_ABSTRACT_NODE___GET_CYPHER_VARIABLE);
-		createEOperation(neoAbstractNodeEClass, NEO_ABSTRACT_NODE___SET_NEO_PLACE_OF_NODE__NEOPLACE);
 
 		neoNodeEClass = createEClass(NEO_NODE);
 		createEReference(neoNodeEClass, NEO_NODE__NEO_NODE_LABELS);
@@ -897,13 +886,10 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 
 		initEOperation(getNeoAbstractNode__GetCypherVariable(), ecorePackage.getEString(), "getCypherVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		EOperation op = initEOperation(getNeoAbstractNode__SetNeoPlaceOfNode__NeoPlace(), null, "setNeoPlaceOfNode", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getNeoPlace(), "startNode", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(neoNodeEClass, NeoNode.class, "NeoNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNeoNode_NeoNodeLabels(), theParametersPackage.getTextListParam(), null, "neoNodeLabels", null, 0, 1, NeoNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getNeoNode__SetNeoNodeLabel__TextLiteralParam(), null, "setNeoNodeLabel", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getNeoNode__SetNeoNodeLabel__TextLiteralParam(), null, "setNeoNodeLabel", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theParametersPackage.getTextLiteralParam(), "neoNodeLabel", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(neoEdgeEClass, NeoEdge.class, "NeoEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

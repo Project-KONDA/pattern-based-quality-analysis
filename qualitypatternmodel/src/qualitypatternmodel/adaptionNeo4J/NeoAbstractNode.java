@@ -55,12 +55,4 @@ public interface NeoAbstractNode extends EObject {
 	 * @generated
 	 */
 	String getCypherVariable();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void setNeoPlaceOfNode(NeoPlace startNode);
 } // AbstractNeoNode
