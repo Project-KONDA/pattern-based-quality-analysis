@@ -871,13 +871,12 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		neoPathPartEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 		neoPropertyNodeEClass.getESuperTypes().add(theGraphstructurePackage.getPrimitiveNode());
 		neoPropertyNodeEClass.getESuperTypes().add(this.getNeoAbstractNode());
-		neoPathParamEClass.getESuperTypes().add(theGraphstructurePackage.getAdaptable());
 		neoPathParamEClass.getESuperTypes().add(this.getNeoAbstractPathParam());
-		neoPropertyPathParamEClass.getESuperTypes().add(theGraphstructurePackage.getAdaptable());
 		neoPropertyPathParamEClass.getESuperTypes().add(this.getNeoAbstractPathParam());
 		neoPropertyEdgeEClass.getESuperTypes().add(this.getNeoAbstractEdge());
 		neoAbstractEdgeEClass.getESuperTypes().add(theGraphstructurePackage.getRelation());
 		neoAbstractPathParamEClass.getESuperTypes().add(theParametersPackage.getParameter());
+		neoAbstractPathParamEClass.getESuperTypes().add(theGraphstructurePackage.getAdaptable());
 		neoUnspecifiedEdgeEClass.getESuperTypes().add(this.getNeoPathPart());
 
 		// Initialize classes, features, and operations; add parameters
