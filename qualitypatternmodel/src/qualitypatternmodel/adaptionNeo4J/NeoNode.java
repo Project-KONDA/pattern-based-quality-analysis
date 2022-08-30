@@ -46,11 +46,4 @@ public interface NeoNode extends ComplexNode, NeoAbstractNode {
 	 */
 	void setNeoNodeLabels(TextListParam value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void setNeoNodeLabel(TextLiteralParam neoNodeLabel);
 } // NeoNode

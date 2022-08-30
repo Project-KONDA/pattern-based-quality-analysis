@@ -1,31 +1,23 @@
 package qualitypatternmodel.cyphertranslationtests;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
-import qualitypatternmodel.adaptionNeo4J.NeoEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoNode;
-import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
-import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
-import qualitypatternmodel.adaptionNeo4J.NeoPlace;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
-import qualitypatternmodel.adaptionNeo4J.impl.NeoPathParamImpl;
-import qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl;
-import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
-import qualitypatternmodel.adaptionrdf.IriParam;
-import qualitypatternmodel.adaptionrdf.RdfPredicate;
-import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
+import qualitypatternmodel.adaptionNeo4J.*;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.operators.Match;
+import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.impl.DateParamImpl;
-import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -61,8 +53,8 @@ public class CypherTest00 {
 		completePatterns.add(getBasePatternComplexFinal());
 		completePatterns.add(getBasePatternCondDateConcrete("1440-02-02"));
 		completePatterns.add(getBasePatternCondConcrete("1439-12-20"));
-		//completePatterns.add(getBasePatternMatchConcrete("^2022")); //--> adapte
-		//completePatterns.add(getBasePatternMatchNotConcrete("^2022")); //--> adapte
+		completePatterns.add(getBasePatternMatchConcrete("1439.*"));
+		completePatterns.add(getBasePatternMatchNotConcrete("1439.*"));
 		CypherTest00.test(completePatterns);
 	}
 	
@@ -128,6 +120,14 @@ public class CypherTest00 {
 		NeoPropertyPathParam nppp = factory.createNeoPropertyPathParam();
 		nppp.setNeoPropertyName("isoStartDate");
 		relation.setNeoPropertyPathParam(nppp);
+		
+		NeoNode node = (NeoNode) completePattern.getGraph().getNodes().get(0);
+		TextListParam labels = new TextListParamImpl();
+		EList<String> textLabels = new BasicEList<String>();
+		textLabels.add("Regesta");
+		labels.setValueIfValid(textLabels);
+//		labels.setValueFromString("Regesta"); --> Darf ich diese Methode überschreiben?
+		node.setNeoNodeLabels(labels);
 			
 		return completePattern;		
 	}
@@ -152,6 +152,14 @@ public class CypherTest00 {
 		NeoPropertyPathParam nppp = factory.createNeoPropertyPathParam();
 		nppp.setNeoPropertyName("endDate");
 		relation.setNeoPropertyPathParam(nppp);
+		
+		NeoNode node = (NeoNode) completePattern.getGraph().getNodes().get(0);
+		TextListParam labels = new TextListParamImpl();
+		EList<String> textLabels = new BasicEList<String>();
+		textLabels.add("Regesta");
+		labels.setValueIfValid(textLabels);
+//		labels.setValueFromString("Regesta"); --> Darf ich diese Methode überschreiben?
+		node.setNeoNodeLabels(labels);
 			
 		return completePattern;		
 	}
@@ -164,13 +172,65 @@ public class CypherTest00 {
 		return completePattern;
 	}
 	
+	public static CompletePattern getBasePatternMatchConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getBasePatternMatch(comp);
+		NeoNode neo = (NeoNode) completePattern.getGraph().getNodes().get(0); 
+		neo.setNodePlace(NeoPlace.BEGINNING);
+		
+		NeoPropertyEdge relation = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
+		NeoPropertyPathParam neoPropertyPathParam = factory.createNeoPropertyPathParam();
+		neoPropertyPathParam.setNeoPropertyName("endDate");
+		relation.setNeoPropertyPathParam(neoPropertyPathParam);
+		
+		NeoNode node = (NeoNode) completePattern.getGraph().getNodes().get(0);
+		TextListParam labels = new TextListParamImpl();
+		EList<String> textLabels = new BasicEList<String>();
+		textLabels.add("Regesta");
+		labels.setValueIfValid(textLabels);
+//		labels.setValueFromString("Regesta"); --> Darf ich diese Methode überschreiben?
+		node.setNeoNodeLabels(labels);
+		
+		return completePattern;		
+	}
 	
+	public static CompletePattern getBasePatternMatch(String regex) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getBasePattern();
+		Node se = completePattern.getGraph().getNodes().get(1);
+		se.addPrimitiveMatch(regex);
+		completePattern.createNeo4jAdaption();
+		return completePattern;
+	}
 	
-//	Build something with the setting because here is some error
-//	private static void makeConcreteSimpleEdge(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-////		NeoEdge ne = (NeoEdge) completePattern.getGraph().getRelations().get(0);
-////		NeoPathParam npp = CypherTest00.factory.createNeoPathParam();
-////		npp.setNeoPath(CypherTest00.factory.createNeoSimpleEdge());
-////		ne.setNeoPathParam(npp);
-//	}
+	public static CompletePattern getBasePatternMatchNotConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getBasePatternMatch(comp);
+		NeoNode neo = (NeoNode) completePattern.getGraph().getNodes().get(0); 
+		neo.setNodePlace(NeoPlace.BEGINNING);
+		
+		((Match) completePattern.getGraph().getOperatorList().getOperators().get(0)).getOption().setValue(false);
+		NeoPropertyEdge relation = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
+		NeoPropertyPathParam neoPropertyPathParam = factory.createNeoPropertyPathParam();
+		neoPropertyPathParam.setNeoPropertyName("endDate");
+		relation.setNeoPropertyPathParam(neoPropertyPathParam);
+		
+		NeoNode node = (NeoNode) completePattern.getGraph().getNodes().get(0);
+		TextListParam labels = new TextListParamImpl();
+		EList<String> textLabels = new BasicEList<String>();
+		textLabels.add("Regesta");
+		labels.setValueIfValid(textLabels);
+//		labels.setValueFromString("Regesta"); --> Darf ich diese Methode überschreiben?
+		node.setNeoNodeLabels(labels);
+		
+		return completePattern;		
+	}
 }
+
+
+
+
+//Build something with the setting because here is some error
+//private static void makeConcreteSimpleEdge(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+////	NeoEdge ne = (NeoEdge) completePattern.getGraph().getRelations().get(0);
+////	NeoPathParam npp = CypherTest00.factory.createNeoPathParam();
+////	npp.setNeoPath(CypherTest00.factory.createNeoSimpleEdge());
+////	ne.setNeoPathParam(npp);
+//}

@@ -20,7 +20,6 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.impl.ComplexNodeImpl;
 import qualitypatternmodel.parameters.TextListParam;
-import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
@@ -90,6 +89,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 		if((!translated) && getIncomingMapping() == null) { 
 			if (getNeoNodeLabels() != null) {
 				for (String label : labels.getValues()) {
+					cypher.append(":");
 					cypher.append(label);
 				}
 			}
@@ -233,18 +233,6 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	 * @generated
 	 */
 	@Override
-	public void setNeoNodeLabel(TextLiteralParam neoNodeLabel) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case AdaptionNeo4JPackage.NEO_NODE__NODE_PLACE:
@@ -365,9 +353,6 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AdaptionNeo4JPackage.NEO_NODE___SET_NEO_NODE_LABEL__TEXTLITERALPARAM:
-				setNeoNodeLabel((TextLiteralParam)arguments.get(0));
-				return null;
 			case AdaptionNeo4JPackage.NEO_NODE___GET_CYPHER_VARIABLE:
 				return getCypherVariable();
 		}

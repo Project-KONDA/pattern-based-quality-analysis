@@ -24,7 +24,6 @@ import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
@@ -197,7 +196,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				}
 			}
 			
-			boolean moreThenOneRelationBetweenNodes = false;
 			boolean isFirst = true;
 			for (NeoAbstractNode n : beginningNodesList) {
 				if (!isFirst) {
@@ -207,8 +205,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				buildNeoGraphPatternRecursively(cypher, n);
 			}
 			//Maybe change this in the future to generate OPTIONAL MATCH
-			if (moreThenOneRelationBetweenNodes) 
-				throw new InvalidityException("There is more then one Edge/Relation between two Nodes");
+		
 			return cypher.toString();
 		}
 		throw new InvalidityException("No nodes are given");

@@ -1210,8 +1210,8 @@
           defaultValueLiteral="FOLLOWING"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoNode" eSuperTypes="#//graphstructure/ComplexNode #//adaptionNeo4J/NeoAbstractNode">
-      <eOperations name="setNeoNodeLabel">
-        <eParameters name="neoNodeLabel" eType="#//parameters/TextLiteralParam"/>
+      <eOperations name="setNeoNodeLabels">
+        <eParameters name="neoNodeLabel" eType="#//parameters/TextListParam"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoNodeLabels" eType="#//parameters/TextListParam"/>
     </eClassifiers>

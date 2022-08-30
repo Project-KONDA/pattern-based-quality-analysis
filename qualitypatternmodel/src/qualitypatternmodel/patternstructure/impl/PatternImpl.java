@@ -3,7 +3,6 @@
 package qualitypatternmodel.patternstructure.impl;
 
 import static qualitypatternmodel.utility.Constants.RETURN;
-import static qualitypatternmodel.utility.Constants.VARIABLE;
 import static qualitypatternmodel.utility.Constants.WHERE;
 
 import java.lang.reflect.InvocationTargetException;
