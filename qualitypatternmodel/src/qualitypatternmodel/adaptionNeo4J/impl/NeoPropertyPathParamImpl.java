@@ -17,11 +17,8 @@ import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.exceptions.MissingPatternContainerException;
-import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
-import qualitypatternmodel.patternstructure.AbstractionLevel;
 
 /**
  * <!-- begin-user-doc -->
@@ -205,10 +202,10 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT 
 	 */
 	@Override
-	public TextLiteralParam getNeoPropertyName() {
+	public String getNeoPropertyName() {
 		if (neoPropertyName != null && neoPropertyName.eIsProxy()) {
 			InternalEObject oldNeoPropertyName = (InternalEObject)neoPropertyName;
 			neoPropertyName = (TextLiteralParam)eResolveProxy(oldNeoPropertyName);
@@ -217,7 +214,7 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_NAME, oldNeoPropertyName, neoPropertyName));
 			}
 		}
-		return neoPropertyName;
+		return neoPropertyName.getValue();
 	}
 
 	/**

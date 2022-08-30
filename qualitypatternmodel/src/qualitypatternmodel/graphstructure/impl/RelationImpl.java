@@ -871,8 +871,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		//TODO check if it is needed to return a diffrent PatternElement for the structure 
-		if (getTarget() instanceof NeoPropertyNode) {
+		if (getTarget() instanceof NeoPropertyNode || getSource() instanceof NeoPropertyNode) {
 			return adaptAsPropertyEdge();
 		} 
 		return adaptAsNeoEdge();

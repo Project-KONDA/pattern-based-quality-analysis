@@ -77,9 +77,9 @@ public interface NeoPropertyPathParam extends NeoAbstractPathParam {
 	 * @see #setNeoPropertyName(TextLiteralParam)
 	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPropertyPathParam_NeoPropertyName()
 	 * @model
-	 * @generated
+	 * @generated NOT
 	 */
-	TextLiteralParam getNeoPropertyName();
+	String getNeoPropertyName();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPropertyName <em>Neo Property Name</em>}' reference.

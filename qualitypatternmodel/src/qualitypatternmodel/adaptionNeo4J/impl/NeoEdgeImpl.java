@@ -171,7 +171,7 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 			if (pList != null) {
 				NeoPathParam npp = getNeoPathParam();
 				if (npp == null) {
-					npp = new NeoPathPartImpl();
+					npp = new NeoPathParamImpl();
 					setNeoPathParam(npp);
 					pList.add(npp);	
 				}

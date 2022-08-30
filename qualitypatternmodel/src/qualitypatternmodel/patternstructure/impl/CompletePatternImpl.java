@@ -19,7 +19,6 @@ import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
-import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
@@ -32,7 +31,6 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.XmlDataDatabase;
-import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
@@ -418,17 +416,17 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				} else if (n instanceof NeoPropertyNode && n.isReturnNode()) {
 					//Decision if the Property is in a new Node or in the same
 					npn = (NeoPropertyNode) n;
-					if ((NeoPathPart)(((NeoPropertyEdge) npn.getIncoming().get(0)).getNeoPropertyPathParam()).getNeoPropertyName() != null) {
+					if (((NeoPropertyEdge) npn.getIncoming().get(0)).getNeoPropertyPathParam().getNeoPropertyName() != null) {
 						nppp =  ((NeoPropertyEdge) npn.getIncoming().get(0)).getNeoPropertyPathParam();
 						if (nppp.getNeoPath() == null) {
-							propertyName = nppp.getNeoPropertyName().getValue();
+							propertyName = nppp.getNeoPropertyName();
 							matchingNodename =  ((NeoAbstractNode)((NeoPropertyEdge) npn.getIncoming().get(0)).getSource()).getCypherVariable();
 							cypherNeoPropertyProperty.append(matchingNodename + "." + propertyName);
 						} else {
 							//If the Property is in a sperated Node the way to access the property is diffrently
 							if (cypherNeoPropertyNode.length() != 0) cypherNeoPropertyNode.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
 							
-							propertyName = nppp.getNeoPropertyName().getValue();
+							propertyName = nppp.getNeoPropertyName();
 							cypherNeoPropertyProperty.append(((NeoAbstractNode) n).getCypherVariable() + "." + propertyName);
 						}
 					} 	

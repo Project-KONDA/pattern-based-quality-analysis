@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNode;
@@ -282,10 +281,27 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	
 	@Override 
 	public String generateCypher() throws InvalidityException {
-		if (neoInWhereClause()) {
+//		if (neoInWhereClause()) {
 			StringBuilder cypher = new StringBuilder();
-			String argument1Translation = getArgument1().generateCypher();
-			String argument2Translation = getArgument2().generateCypher(); 
+			String argument1Translation = "";
+			String argument2Translation = ""; 
+			if (getArgument1() instanceof NeoPropertyNode && getArgument2() instanceof NeoPropertyNode) {
+				argument1Translation = ((NeoPropertyNode) getArgument1()).generateCypherPropertyAddressing(); 
+				argument2Translation = ((NeoPropertyNode) getArgument2()).generateCypherPropertyAddressing();
+			}
+			
+			if (getArgument1() instanceof NeoPropertyNode && !(getArgument2() instanceof NeoPropertyNode)) {
+				argument1Translation = ((NeoPropertyNode) getArgument1()).generateCypherPropertyAddressing();
+				argument2Translation = getArgument2().generateCypher(); 
+			}
+			
+			if (getArgument2() instanceof NeoPropertyNode && !(getArgument1() instanceof NeoPropertyNode)) {
+				argument1Translation = getArgument1().generateCypher();
+				argument2Translation = ((NeoPropertyNode) getArgument2()).generateCypherPropertyAddressing();
+			}
+			if (!(getArgument1() instanceof NeoPropertyNode || getArgument2() instanceof NeoPropertyNode)) {
+				throw new InvalidityException("One of both Comparison Arguments has to be an NeoPropertyNode");
+			}
 			
 			switch(option.getValue()) {
 			case EQUAL:
@@ -328,25 +344,26 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				throw new InvalidityException();
 			}
 			return cypher.toString(); 
-		}	
-		return null;
+//		}	
+//		return "Test";
 	}
 	
 	//ADD to the .ecore-Model
 	public String generateCypherInMatch() throws InvalidityException {
-		if (!neoInWhereClause()) {
-			String cypher;
-			if (getArgument1() instanceof NeoPropertyNode) {
-				cypher = ((NeoPropertyEdge)((NeoPropertyNode) getArgument1()).getIncoming().get(0))
-						.getNeoPropertyPathParam().getNeoPropertyName().getValue();
-				cypher += ": " + getArgument2().generateCypher();
-			} else {
-				cypher = ((NeoPropertyEdge)((NeoPropertyNode) getArgument2()).getIncoming().get(0))
-						.getNeoPropertyPathParam().getNeoPropertyName().getValue();
-				cypher += ": " + getArgument1().generateCypher();
-			}
-			return cypher;
-		}
+//		if (!neoInWhereClause()) {
+//			String cypher;
+//			if (getArgument1() instanceof NeoPropertyNode) {
+//				//((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing()
+//				cypher = (NeoPropertyNode) getArgument1()).getIncoming().get(0))
+//						.getNeoPropertyPathParam().getNeoPropertyName().getValue();
+//				cypher += ": " + getArgument2().generateCypher();
+//			} else {
+//				cypher = ((NeoPropertyEdge)((NeoPropertyNode) getArgument2()).getIncoming().get(0))
+//						.getNeoPropertyPathParam().getNeoPropertyName().getValue();
+//				cypher += ": " + getArgument1().generateCypher();
+//			}
+//			return cypher;
+//		}
 		return null;
 	}
 	

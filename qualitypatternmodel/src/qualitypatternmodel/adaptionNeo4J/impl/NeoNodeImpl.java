@@ -77,6 +77,8 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 
 	@Override
 	public String generateCypher() throws InvalidityException {
+		//TODO --> Optimization
+		
 		StringBuilder cypher = new StringBuilder();
 		cypher.append("(");
 		cypher.append(CypherSpecificConstants.VARIABLE_NODE);

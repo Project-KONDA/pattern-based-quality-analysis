@@ -218,7 +218,6 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		whereClause += condition.generateCypher();
 		if (whereClause.length() != 0) whereClause = CypherSpecificConstants.CLAUSE_WHERE + " " + whereClause;
 		if (whereClause.length() == 0) whereClause = "";
-		System.out.println(whereClause.length());
 		
 		
 		String cypher = matchClause + withClause + whereClause;

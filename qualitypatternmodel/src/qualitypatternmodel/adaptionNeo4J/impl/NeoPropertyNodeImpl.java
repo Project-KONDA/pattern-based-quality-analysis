@@ -8,14 +8,18 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
+import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl;
 import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
  * <!-- begin-user-doc -->
@@ -61,33 +65,30 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	
 	@Override 
 	public String generateCypher() throws InvalidityException {
-		//Im Match von Cypher ein genauen Wert zuordnen) 
-		//Umsetzung schauen 
-		//The thing with the params
-		
-		
-		return "";
-		
-		//has to be modified 
-//		if (!(getIncoming().get(0) instanceof NeoPropertyEdge)) 
-//			throw new InvalidityException("Incoming relation is no NeoEdge");
-//		NeoPropertyEdge nae = (NeoPropertyEdge) getIncoming().get(0);
-//		String propertyName = nae.getNeoPropertyPathParam().getNeoPropertyName().getValue();
-//		
-//		StringBuilder cypher = new StringBuilder();
-//		try {
-//				//In the case there is no NeoPath for further specification
-//				if (nae.basicGetNeoPropertyPathParam().getNeoPath() == null) {
-//					NeoNodeImpl nni = (NeoNodeImpl) getOriginalNode();
-//					cypher.append(nni.getCypherVariable());
-//				} else {
-//					throw new InvalidityException("In NeoProperty went something wronge");
-//				}
-//		} catch (Exception e) {
-//			throw new InvalidityException("In NeoProperty went something wronge");
-//		}
-//		cypher.append("." + propertyName);
-//		return cypher.toString();
+		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) getIncoming().get(0);
+		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
+		if (neoPropertyPathParam != null) {
+			NeoPathPart neoPathPart = neoPropertyPathParam.getNeoPath();
+			if (neoPathPart != null) {
+				StringBuilder cypher = new StringBuilder();
+				cypher.append("(");
+				cypher.append(CypherSpecificConstants.VARIABLE_NODE);
+				cypher.append(getOriginalID());
+				//MAYBE TODO --> Include labels
+				return cypher.toString();
+			}
+		}
+		return null;
+	}
+	
+	//ADD to the .ecore-Model
+	@Override
+	public String generateCypherPropertyAddressing() throws InvalidityException {
+		String cypher;
+		NeoPropertyEdge edge = (NeoPropertyEdge) getIncoming().get(0);
+		cypher = edge.generateCypherPropertyAddressing();
+		if (cypher == null) return null;
+		return cypher;
 	}
 	
 	/**

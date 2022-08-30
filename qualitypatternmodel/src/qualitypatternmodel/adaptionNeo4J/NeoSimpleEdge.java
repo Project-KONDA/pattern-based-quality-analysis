@@ -3,6 +3,8 @@
 package qualitypatternmodel.adaptionNeo4J;
 
 import org.eclipse.emf.common.util.EList;
+
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.KeyValueParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 
@@ -193,5 +195,8 @@ public interface NeoSimpleEdge extends NeoPathPart {
 	 * @generated
 	 */
 	void setTargetNodeLabel(TextLiteralParam targetNodeLabel);
+	
+//	//ADD to the .ecore-Model
+//	public String getCypherInnerEdgeVariable() throws InvalidityException;
 
 } // SimpleEdge

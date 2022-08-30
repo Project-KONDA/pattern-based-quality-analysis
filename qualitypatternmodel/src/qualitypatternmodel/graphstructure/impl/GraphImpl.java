@@ -248,11 +248,11 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		}
 
 		try {
-			if (currentRelation != null && currentRelation instanceof NeoNode && currentRelation.getTarget() != null) {
-				this.buildNeoGraphPatternRecursively(cypher, (NeoNode) currentRelation.getTarget());
+			if (currentRelation instanceof NeoAbstractEdge && currentRelation != null && currentRelation.getTarget() != null) {
+				this.buildNeoGraphPatternRecursively(cypher, (NeoAbstractNode) currentRelation.getTarget());
 			}
 		} catch (ClassCastException e) {
-			throw new InvalidityException("A non NeoEdge was in the Graph-Pattern"); 
+			throw new InvalidityException("No instance of NeoAbstractEdge was in the Graph-Pattern"); 
 		} catch (Exception e) {
 			throw new InvalidityException();
 		}
@@ -267,11 +267,15 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		cypher.append("(");
 		for (Operator operator : opList.getOperators()) {
 			if (operator.generateCypher() != null) {
-				if (cypher.length() != 0) cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.SIX_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
-				cypher.append(CypherSpecificConstants.ONE_WHITESPACES + operator.generateCypher());	
+				if (cypher.length() != 1) {
+					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.SIX_WHITESPACES 
+							+ CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACES);
+				}
+				cypher.append(operator.generateCypher());	
 			}
 		}
 		if (cypher.length() == 1) return "";
+		cypher.append(")");
 		return cypher.toString();
 	}
 	

@@ -11,6 +11,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -120,7 +122,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	public String generateCypher() throws InvalidityException {
 		if(option!=null && regularExpression != null && regularExpression.getValue() != null && primitiveNode != null) {
 			if (option.getValue()) {
-				return primitiveNode.generateCypher() + " " + CypherSpecificConstants.SPECIAL_CYPHER_REGEX_EXPRESSION 
+				return ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing() + " " + CypherSpecificConstants.SPECIAL_CYPHER_REGEX_EXPRESSION 
 						+ regularExpression.generateCypher() + " ";
 			} 
 			return CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " (" + primitiveNode.generateCypher() + " " +

@@ -57,6 +57,7 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 	 */
 	protected NeoPathParamImpl() {
 		super();
+		setNeoPath(new NeoSimpleEdgeImpl());
 	}
 
 	/**
@@ -69,6 +70,12 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 		return AdaptionNeo4JPackage.Literals.NEO_PATH_PARAM;
 	}
 
+	@Override
+	public String generateCypher() throws InvalidityException {
+		String cypher = neoPath.generateCypher();
+		return cypher;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -171,12 +178,6 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_PATH, oldNeoPath, neoPath));
 	}
-
-	@Override
-	public String generateCypher() throws InvalidityException {
-		String cypher = neoPath.generateCypher();
-		return cypher;
-	}
 	
 	
 	/**
@@ -190,6 +191,18 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 		setNeoPath(nse);
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void removeParametersFromParameterList() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

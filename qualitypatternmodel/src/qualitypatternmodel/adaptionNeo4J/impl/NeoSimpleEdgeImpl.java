@@ -171,6 +171,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		//TODO - change that the label is just printed once -- Look if needed
 		if (getNeoTargetNodeLabels().size() != 0) {
 			cypher.append("(");
+//			cypher.append(CypherSpecificConstants.INTERNAL_EDGE_NODE + getEdgeNumber());
 			EList<TextLiteralParam> labels = getNeoTargetNodeLabels();
 			for (TextLiteralParam label : labels) {
 				if (label.getValue() != "") {
@@ -200,6 +201,12 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	public String getCypherVariable() {
 		return super.getCypherVariable() + edgeNumber;
 	}
+	
+//	//ADD to the .ecore-Model
+//	@Override
+//	public String getCypherInnerEdgeVariable() throws InvalidityException {
+//		return CypherSpecificConstants.INTERNAL_EDGE_NODE + getEdgeNumber();
+//	}
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -11,9 +11,13 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
+import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,6 +51,75 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 		super();
 	}
 
+	@Override
+	public PatternElement createNeo4jAdaption() throws InvalidityException {
+		return this;
+	}
+	
+	//Translation of the neoPropertyEdge
+	@Override
+	public String generateCypher() throws InvalidityException {
+		NeoPropertyPathParam nppp = getNeoPropertyPathParam();
+		String cypher;
+		
+		if (nppp.getNeoPath() != null) {
+			cypher = nppp.generateCypher();
+		} else {
+			cypher = null;
+		}
+		
+		return cypher;
+	}
+	
+	//ADD to the .ecore-Model
+	@Override
+	public String generateCypherPropertyAddressing() throws InvalidityException {
+		NeoPropertyPathParam neoPropertyPathParam = getNeoPropertyPathParam();
+		if (neoPropertyPathParam != null) {
+			String cypher;
+			String variable; 
+			if (neoPropertyPathParam.getNeoPath() == null) {
+				NeoNode neoNode = (NeoNode) getSource();
+				variable = neoNode.getCypherVariable();
+			} else {
+				NeoPropertyNode neoPropertyNode = (NeoPropertyNode) getTarget();
+				variable = neoPropertyNode.getCypherVariable();
+			}
+			
+			cypher = variable + "." + getNeoPropertyPathParam().getNeoPropertyName();
+			return cypher;
+		}
+		
+		return null;
+	}
+	
+	@Override 
+	public void createParameters() {
+		if (getIncomingMapping() == null) {
+			ParameterList pList = getParameterList();
+			if (pList != null) {
+				NeoPropertyPathParam nppp = getNeoPropertyPathParam();
+				if (nppp == null) {
+					nppp = new NeoPropertyPathParamImpl();
+					setNeoPropertyPathParam(nppp);
+					pList.add(nppp);	
+				}
+				if (!pList.equals(nppp.getParameterList())) {
+					pList.add(nppp);
+				}
+			}
+		}
+	}	
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NeoPropertyPathParam basicGetNeoPropertyPathParam() {
+		return neoPropertyPathParam;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -72,15 +145,6 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionNeo4JPackage.NEO_PROPERTY_EDGE__NEO_PROPERTY_PATH_PARAM, oldNeoPropertyPathParam, neoPropertyPathParam));
 			}
 		}
-		return neoPropertyPathParam;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NeoPropertyPathParam basicGetNeoPropertyPathParam() {
 		return neoPropertyPathParam;
 	}
 
@@ -117,13 +181,6 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PROPERTY_EDGE__NEO_PROPERTY_PATH_PARAM, newNeoPropertyPathParam, newNeoPropertyPathParam));
-	}
-
-	@Override
-	public String generateCypher() throws InvalidityException {
-		String cypher = "";
-		cypher += getNeoPropertyPathParam().generateCypher();
-		return cypher;
 	}
 	
 	/**

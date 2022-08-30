@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -136,9 +137,9 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 	public String generateCypher() throws InvalidityException {
 		if(option!=null && content != null && content.getValue() != null && primitiveNode != null) {
 			if (option.getValue()) {
-				return primitiveNode.generateCypher() + CypherSpecificConstants.WHERE_OPERATOR_CONTAINS + " (" +  content.getValue() + ")";
+				return ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing() + CypherSpecificConstants.WHERE_OPERATOR_CONTAINS + " (" +  content.getValue() + ")";
 			} 
-			return  CypherSpecificConstants.BOOLEAN_OPERATOR_NOT+ " (" + primitiveNode.generateCypher() + CypherSpecificConstants.WHERE_OPERATOR_CONTAINS + " (" +  content.getValue() + "))";		
+			return  CypherSpecificConstants.BOOLEAN_OPERATOR_NOT+ " (" + ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing() + CypherSpecificConstants.WHERE_OPERATOR_CONTAINS + " (" +  content.getValue() + "))";		
 		}
 		throw new InvalidityException("invalid option");
 	}

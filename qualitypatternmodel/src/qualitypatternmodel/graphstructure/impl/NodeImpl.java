@@ -1584,7 +1584,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			setIncomingMapping(null);
 			
 			neoNode.setName(getName());
-			setReturnNode(false);
+			setReturnNode(this.isReturnNode());
 			
 			EList<Relation> outgoingCopy = new BasicEList<Relation>();
 			if (this instanceof ComplexNode)
@@ -1614,7 +1614,13 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
 			incomingCopy2.addAll(neoNode.getIncoming());
 			for(Relation relation : incomingCopy2) {
-				relation.adaptAsNeoEdge();
+				//Here we need to check if the incoming Relations Source is a Primitive (NeoPropertyEdge) or a Complex (NeoEdge) is
+				//Depending we need here a diffrent Edge adaption
+				if (relation.getSource() instanceof ComplexNode) {
+					relation.adaptAsNeoEdge();
+				} else {
+					relation.adaptAsPropertyEdge();
+				}
 			}
 			
 			return neoNode;			
@@ -1660,7 +1666,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	//Umbennen zu Property
 	private NeoPropertyNode adaptAsNeoPropertyRecursive() throws InvalidityException {
 		if (!(this instanceof NeoPropertyNode)) {
-			NeoPropertyNodeImpl neoAttribute = (NeoPropertyNodeImpl) AdaptionNeo4JFactoryImpl.init().createNeoPropertyNode();;	
+			NeoPropertyNodeImpl neoAttribute = (NeoPropertyNodeImpl) AdaptionNeo4JFactoryImpl.init().createNeoPropertyNode();	
 			neoAttribute.typeModifiable = true;
 			neoAttribute.setGraphSimple(getGraph());			
 			
@@ -1677,7 +1683,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			neoAttribute.setName(getName());			
 			neoAttribute.createParameters();
 			
-			setReturnNode(false);
+			setReturnNode(this.isReturnNode());
 			
 			if(this instanceof PrimitiveNode) {
 				neoAttribute.getMatch().addAll(((PrimitiveNode) this).getMatch());
@@ -1698,13 +1704,19 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			setGraph(null);
 			
 			for (ElementMapping map: neoAttribute.getOutgoingMappings()) {
-				((NodeImpl) map.getTarget()).adaptAsNeoPropertyRecursive();
+				if (map instanceof NeoNode) {
+					((NodeImpl) map.getTarget()).adaptAsNeoNodeRecursive();
+				} else {
+					((NodeImpl) map.getTarget()).adaptAsNeoPropertyRecursive();
+				}
 			}
 
 			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
 			incomingCopy2.addAll(neoAttribute.getIncoming());
 			for(Relation relation : incomingCopy2) {
-				relation.adaptAsNeoEdge();
+				//All relations from a NeoEdge or a NeoPropertyEdge incoming here is a NeoProperty-Edge
+				//Hence there is no requirment for adapting it as a NeoEdge
+				relation.adaptAsPropertyEdge();
 			}
 			
 			return neoAttribute;
