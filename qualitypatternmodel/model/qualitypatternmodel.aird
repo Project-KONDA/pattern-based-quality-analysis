@@ -3027,6 +3027,21 @@
               <element xsi:nil="true"/>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="__WR-1SPDEe2je5Z2xT0PxQ" x="667" y="304" width="122"/>
             </children>
+            <children xmi:type="notation:Shape" xmi:id="_Mi86oCiJEe2ERP63PHELIg" type="Note" fontName="Segoe UI" description="Maybe add Labels also here" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Mi86oSiJEe2ERP63PHELIg" source="specificStyles">
+                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Mi86oiiJEe2ERP63PHELIg" key="verticalAlignment" value="8"/>
+              </eAnnotations>
+              <children xmi:type="notation:BasicDecorationNode" xmi:id="_Mi86piiJEe2ERP63PHELIg" type="DiagramName">
+                <element xsi:nil="true"/>
+              </children>
+              <children xmi:type="notation:BasicDecorationNode" xmi:id="_Mi86pyiJEe2ERP63PHELIg" type="Description">
+                <element xsi:nil="true"/>
+              </children>
+              <styles xmi:type="notation:TextStyle" xmi:id="_Mi86oyiJEe2ERP63PHELIg" textAlignment="Center"/>
+              <styles xmi:type="notation:LineTypeStyle" xmi:id="_Mi86pCiJEe2ERP63PHELIg"/>
+              <element xsi:nil="true"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Mi86pSiJEe2ERP63PHELIg" x="881" y="194" width="80"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_TKib4gLoEe2GF_6PqNgKEg"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_TKib4wLoEe2GF_6PqNgKEg"/>
           </children>
