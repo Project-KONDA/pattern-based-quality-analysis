@@ -46,12 +46,14 @@ public interface NeoPathParam extends NeoAbstractPathParam {
 
 	/**
 	 * Returns the value of the '<em><b>Neo Path Part</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathParam <em>Neo Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Neo Path Part</em>' containment reference.
 	 * @see #setNeoPathPart(NeoPathPart)
 	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPathParam_NeoPathPart()
-	 * @model containment="true"
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathParam
+	 * @model opposite="neoPathParam" containment="true"
 	 * @generated
 	 */
 	NeoPathPart getNeoPathPart();

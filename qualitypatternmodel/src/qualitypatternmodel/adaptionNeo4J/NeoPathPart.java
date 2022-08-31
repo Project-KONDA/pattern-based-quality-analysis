@@ -15,6 +15,8 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#isTranslated <em>Translated</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathParam <em>Neo Path Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPropertyPathParam <em>Neo Property Path Param</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPathPart()
@@ -43,6 +45,54 @@ public interface NeoPathPart extends PatternElement {
 	 * @generated
 	 */
 	void setTranslated(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Neo Path Param</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionNeo4J.NeoPathParam#getNeoPathPart <em>Neo Path Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Neo Path Param</em>' container reference.
+	 * @see #setNeoPathParam(NeoPathParam)
+	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPathPart_NeoPathParam()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathParam#getNeoPathPart
+	 * @model opposite="neoPathPart" transient="false"
+	 * @generated
+	 */
+	NeoPathParam getNeoPathParam();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathParam <em>Neo Path Param</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Neo Path Param</em>' container reference.
+	 * @see #getNeoPathParam()
+	 * @generated
+	 */
+	void setNeoPathParam(NeoPathParam value);
+
+	/**
+	 * Returns the value of the '<em><b>Neo Property Path Param</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPathPart <em>Neo Path Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Neo Property Path Param</em>' container reference.
+	 * @see #setNeoPropertyPathParam(NeoPropertyPathParam)
+	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPathPart_NeoPropertyPathParam()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPathPart
+	 * @model opposite="neoPathPart" transient="false"
+	 * @generated
+	 */
+	NeoPropertyPathParam getNeoPropertyPathParam();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPropertyPathParam <em>Neo Property Path Param</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Neo Property Path Param</em>' container reference.
+	 * @see #getNeoPropertyPathParam()
+	 * @generated
+	 */
+	void setNeoPropertyPathParam(NeoPropertyPathParam value);
 
 	/**
 	 * <!-- begin-user-doc -->

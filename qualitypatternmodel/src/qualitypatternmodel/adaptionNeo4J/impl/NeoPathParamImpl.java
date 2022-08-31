@@ -174,9 +174,9 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 		if (newNeoPathPart != neoPathPart) {
 			NotificationChain msgs = null;
 			if (neoPathPart != null)
-				msgs = ((InternalEObject)neoPathPart).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_PATH_PART, null, msgs);
+				msgs = ((InternalEObject)neoPathPart).eInverseRemove(this, AdaptionNeo4JPackage.NEO_PATH_PART__NEO_PATH_PARAM, NeoPathPart.class, msgs);
 			if (newNeoPathPart != null)
-				msgs = ((InternalEObject)newNeoPathPart).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_PATH_PART, null, msgs);
+				msgs = ((InternalEObject)newNeoPathPart).eInverseAdd(this, AdaptionNeo4JPackage.NEO_PATH_PART__NEO_PATH_PARAM, NeoPathPart.class, msgs);
 			msgs = basicSetNeoPathPart(newNeoPathPart, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -208,6 +208,10 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 				if (neoEdge != null)
 					msgs = ((InternalEObject)neoEdge).eInverseRemove(this, AdaptionNeo4JPackage.NEO_EDGE__NEO_PATH_PARAM, NeoEdge.class, msgs);
 				return basicSetNeoEdge((NeoEdge)otherEnd, msgs);
+			case AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_PATH_PART:
+				if (neoPathPart != null)
+					msgs = ((InternalEObject)neoPathPart).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_PATH_PART, null, msgs);
+				return basicSetNeoPathPart((NeoPathPart)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}

@@ -13,9 +13,9 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPathPart <em>Neo Path Part</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPropertyEdge <em>Neo Property Edge</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPropertyName <em>Neo Property Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPathPart <em>Neo Path Part</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPropertyPathParam()
@@ -25,12 +25,14 @@ import qualitypatternmodel.parameters.TextLiteralParam;
 public interface NeoPropertyPathParam extends NeoAbstractPathParam {
 	/**
 	 * Returns the value of the '<em><b>Neo Path Part</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPropertyPathParam <em>Neo Property Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Neo Path Part</em>' containment reference.
 	 * @see #setNeoPathPart(NeoPathPart)
 	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPropertyPathParam_NeoPathPart()
-	 * @model containment="true"
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPropertyPathParam
+	 * @model opposite="neoPropertyPathParam" containment="true"
 	 * @generated
 	 */
 	NeoPathPart getNeoPathPart();
