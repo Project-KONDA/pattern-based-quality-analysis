@@ -24,6 +24,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#addNode() <em>Add Node</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#addComplexNode() <em>Add Complex Node</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#addPrimitiveNode() <em>Add Primitive Node</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#generateCypherWhere() <em>Generate Cypher Where</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -155,6 +156,19 @@ public class GraphTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testAddPrimitiveNode() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Graph#generateCypherWhere() <em>Generate Cypher Where</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Graph#generateCypherWhere()
+	 * @generated
+	 */
+	public void testGenerateCypherWhere() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

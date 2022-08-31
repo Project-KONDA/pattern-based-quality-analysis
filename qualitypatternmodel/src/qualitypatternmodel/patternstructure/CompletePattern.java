@@ -337,7 +337,12 @@ public interface CompletePattern extends Pattern {
 	 * @generated
 	 */
 	void resetQuery();
-	
-	//ADD to the .ecore-Model
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
 	String generateCypherReturn() throws InvalidityException;
 } // Pattern

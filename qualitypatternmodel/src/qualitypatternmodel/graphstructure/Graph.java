@@ -3,7 +3,6 @@
 package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.operators.Operator;
@@ -169,6 +168,14 @@ public interface Graph extends PatternElement {
 	PrimitiveNode addPrimitiveNode();
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String generateCypherWhere() throws InvalidityException;
+
+	/**
 	 * Returns the value of the '<em><b>Quantified Condition</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getGraph <em>Graph</em>}'.
 	 * <!-- begin-user-doc -->
@@ -248,9 +255,4 @@ public interface Graph extends PatternElement {
 	 * @generated
 	 */
 	void copyGraph(Graph graph) throws MissingPatternContainerException;
-	
-	//ADD to the .ecore-Model
-	String generateCypherWhere() throws InvalidityException;
-
-
 } // Graph

@@ -484,13 +484,22 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___ADAPT_AS_NEO_EDGE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 11;
 
 	/**
+	 * The operation id for the '<em>Adapt As Property Edge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION___ADAPT_AS_PROPERTY_EDGE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 12;
+
+	/**
 	 * The number of operations of the '<em>Relation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 12;
+	int RELATION_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 13;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.Comparable <em>Comparable</em>}' class.
@@ -2666,13 +2675,22 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH___ADD_PRIMITIVE_NODE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 7;
 
 	/**
+	 * The operation id for the '<em>Generate Cypher Where</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH___GENERATE_CYPHER_WHERE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 8;
+
+	/**
 	 * The number of operations of the '<em>Graph</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 8;
+	int GRAPH_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.Adaptable <em>Adaptable</em>}' class.
@@ -3864,6 +3882,16 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getRelation__AdaptAsNeoEdge();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsPropertyEdge() <em>Adapt As Property Edge</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Adapt As Property Edge</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Relation#adaptAsPropertyEdge()
+	 * @generated
+	 */
+	EOperation getRelation__AdaptAsPropertyEdge();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#setGraphSimple(qualitypatternmodel.graphstructure.Graph) <em>Set Graph Simple</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4563,6 +4591,16 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getGraph__AddPrimitiveNode();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Graph#generateCypherWhere() <em>Generate Cypher Where</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Cypher Where</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Graph#generateCypherWhere()
+	 * @generated
+	 */
+	EOperation getGraph__GenerateCypherWhere();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Graph#getReturnNodes() <em>Get Return Nodes</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4859,6 +4897,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation RELATION___ADAPT_AS_NEO_EDGE = eINSTANCE.getRelation__AdaptAsNeoEdge();
+
+		/**
+		 * The meta object literal for the '<em><b>Adapt As Property Edge</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RELATION___ADAPT_AS_PROPERTY_EDGE = eINSTANCE.getRelation__AdaptAsPropertyEdge();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Graph Simple</b></em>' operation.
@@ -5417,6 +5463,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation GRAPH___ADD_PRIMITIVE_NODE = eINSTANCE.getGraph__AddPrimitiveNode();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Cypher Where</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRAPH___GENERATE_CYPHER_WHERE = eINSTANCE.getGraph__GenerateCypherWhere();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Return Nodes</b></em>' operation.

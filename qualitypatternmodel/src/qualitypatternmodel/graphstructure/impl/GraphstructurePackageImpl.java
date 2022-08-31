@@ -374,6 +374,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
+	public EOperation getRelation__AdaptAsPropertyEdge() {
+		return relationEClass.getEOperations().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getRelation__SetGraphSimple__Graph() {
 		return relationEClass.getEOperations().get(2);
 	}
@@ -1054,6 +1064,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
+	public EOperation getGraph__GenerateCypherWhere() {
+		return graphEClass.getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getGraph__GetReturnNodes() {
 		return graphEClass.getEOperations().get(1);
 	}
@@ -1246,6 +1266,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(relationEClass, RELATION___ADAPT_AS_XML_REFERENCE);
 		createEOperation(relationEClass, RELATION___ADAPT_AS_RDF_PREDICATE);
 		createEOperation(relationEClass, RELATION___ADAPT_AS_NEO_EDGE);
+		createEOperation(relationEClass, RELATION___ADAPT_AS_PROPERTY_EDGE);
 
 		primitiveNodeEClass = createEClass(PRIMITIVE_NODE);
 		createEReference(primitiveNodeEClass, PRIMITIVE_NODE__MATCH);
@@ -1315,6 +1336,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(graphEClass, GRAPH___ADD_NODE);
 		createEOperation(graphEClass, GRAPH___ADD_COMPLEX_NODE);
 		createEOperation(graphEClass, GRAPH___ADD_PRIMITIVE_NODE);
+		createEOperation(graphEClass, GRAPH___GENERATE_CYPHER_WHERE);
 
 		comparableEClass = createEClass(COMPARABLE);
 		createEReference(comparableEClass, COMPARABLE__COMPARISON1);
@@ -1418,6 +1440,9 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getRelation__AdaptAsNeoEdge(), theAdaptionNeo4JPackage.getNeoEdge(), "adaptAsNeoEdge", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getRelation__AdaptAsPropertyEdge(), theAdaptionNeo4JPackage.getNeoPropertyEdge(), "adaptAsPropertyEdge", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(primitiveNodeEClass, PrimitiveNode.class, "PrimitiveNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1575,6 +1600,9 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		initEOperation(getGraph__AddComplexNode(), this.getComplexNode(), "addComplexNode", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getGraph__AddPrimitiveNode(), this.getPrimitiveNode(), "addPrimitiveNode", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getGraph__GenerateCypherWhere(), ecorePackage.getEString(), "generateCypherWhere", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(comparableEClass, qualitypatternmodel.graphstructure.Comparable.class, "Comparable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComparable_Comparison1(), theOperatorsPackage.getComparison(), theOperatorsPackage.getComparison_Argument1(), "comparison1", null, 0, -1, qualitypatternmodel.graphstructure.Comparable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

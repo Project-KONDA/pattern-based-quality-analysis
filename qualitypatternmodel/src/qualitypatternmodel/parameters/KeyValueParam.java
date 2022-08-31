@@ -20,7 +20,7 @@ import java.util.Map;
  * @model
  * @generated
  */
-public interface KeyValueParam extends ParameterValue {
+public interface KeyValueParam extends Parameter {
 	/**
 	 * Returns the value of the '<em><b>Key Value Pair</b></em>' attribute.
 	 * <!-- begin-user-doc -->

@@ -188,9 +188,7 @@ public class ParametersSwitch<T> extends Switch<T> {
 			case ParametersPackage.KEY_VALUE_PARAM: {
 				KeyValueParam keyValueParam = (KeyValueParam)theEObject;
 				T result = caseKeyValueParam(keyValueParam);
-				if (result == null) result = caseParameterValue(keyValueParam);
 				if (result == null) result = caseParameter(keyValueParam);
-				if (result == null) result = caseComparable(keyValueParam);
 				if (result == null) result = casePatternElement(keyValueParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;

@@ -30,7 +30,7 @@ import qualitypatternmodel.parameters.ParametersPackage;
  *
  * @generated
  */
-public class KeyValueParamImpl extends ParameterValueImpl implements KeyValueParam {
+public class KeyValueParamImpl extends ParameterImpl implements KeyValueParam {
 	/**
 	 * The cached value of the '{@link #getKeyValuePair() <em>Key Value Pair</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -216,6 +216,12 @@ public class KeyValueParamImpl extends ParameterValueImpl implements KeyValuePar
 	public String myToString() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public boolean inputIsValid() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 } //KeyValueParamImpl

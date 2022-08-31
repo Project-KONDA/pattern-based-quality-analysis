@@ -15,6 +15,7 @@ package qualitypatternmodel.patternstructure;
  *   <li>{@link qualitypatternmodel.patternstructure.Formula#getOperator <em>Operator</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Formula#getCondition1 <em>Condition1</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Formula#getCondition2 <em>Condition2</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Formula#isClamped <em>Clamped</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getFormula()
@@ -94,5 +95,27 @@ public interface Formula extends Condition {
 	 * @generated
 	 */
 	void setCondition2(Condition value);
+
+	/**
+	 * Returns the value of the '<em><b>Clamped</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Clamped</em>' attribute.
+	 * @see #setClamped(boolean)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getFormula_Clamped()
+	 * @model
+	 * @generated
+	 */
+	boolean isClamped();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Formula#isClamped <em>Clamped</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Clamped</em>' attribute.
+	 * @see #isClamped()
+	 * @generated
+	 */
+	void setClamped(boolean value);
 
 } // Formula

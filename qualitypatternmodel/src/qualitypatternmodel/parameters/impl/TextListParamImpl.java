@@ -166,6 +166,18 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void addStringValue(String value) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -272,6 +284,9 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 				return getListVar();
 			case ParametersPackage.TEXT_LIST_PARAM___GET_LIST_DECLARATION:
 				return getListDeclaration();
+			case ParametersPackage.TEXT_LIST_PARAM___ADD_STRING_VALUE__STRING:
+				addStringValue((String)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

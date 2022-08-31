@@ -50,6 +50,14 @@ public interface TextListParam extends ParameterValue {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addStringValue(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * Returns the XQuery variable representing the list <code>values</code>.
 	 * 
 	 * @return the XQuery variable representing the list <code>values</code>

@@ -705,6 +705,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EAttribute getFormula_Clamped() {
+		return (EAttribute)formulaEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getTrueElement() {
 		return trueElementEClass;
 	}
@@ -877,6 +887,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	@Override
 	public EOperation getCompletePattern__ResetQuery() {
 		return completePatternEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getCompletePattern__GenerateCypherReturn() {
+		return completePatternEClass.getEOperations().get(5);
 	}
 
 	/**
@@ -1531,6 +1551,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEAttribute(formulaEClass, FORMULA__OPERATOR);
 		createEReference(formulaEClass, FORMULA__CONDITION1);
 		createEReference(formulaEClass, FORMULA__CONDITION2);
+		createEAttribute(formulaEClass, FORMULA__CLAMPED);
 
 		trueElementEClass = createEClass(TRUE_ELEMENT);
 
@@ -1551,6 +1572,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___GET_NEW_REF_NO__CLASS);
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___RECORD_VALUES);
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___RESET_QUERY);
+		createEOperation(completePatternEClass, COMPLETE_PATTERN___GENERATE_CYPHER_RETURN);
 
 		patternElementEClass = createEClass(PATTERN_ELEMENT);
 		createEAttribute(patternElementEClass, PATTERN_ELEMENT__ID);
@@ -1742,6 +1764,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEAttribute(getFormula_Operator(), this.getLogicalOperator(), "operator", null, 1, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFormula_Condition1(), this.getCondition(), this.getCondition_Formula1(), "condition1", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFormula_Condition2(), this.getCondition(), this.getCondition_Formula2(), "condition2", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFormula_Clamped(), ecorePackage.getEBoolean(), "clamped", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(trueElementEClass, TrueElement.class, "TrueElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1772,6 +1795,9 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		addEException(op, this.getMissingPatternContainerException());
 
 		initEOperation(getCompletePattern__ResetQuery(), null, "resetQuery", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getCompletePattern__GenerateCypherReturn(), ecorePackage.getEString(), "generateCypherReturn", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getInvalidityExceptionWrapper());
 
 		initEClass(patternElementEClass, PatternElement.class, "PatternElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPatternElement_Id(), ecorePackage.getEString(), "id", null, 1, 1, PatternElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

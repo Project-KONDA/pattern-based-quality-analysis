@@ -23,7 +23,7 @@ import qualitypatternmodel.parameters.ParametersPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class KeyValueParamItemProvider extends ParameterValueItemProvider {
+public class KeyValueParamItemProvider extends ParameterItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

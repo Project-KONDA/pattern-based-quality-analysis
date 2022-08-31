@@ -304,6 +304,8 @@
       <eOperations name="adaptAsRdfPredicate" eType="#//adaptionrdf/RdfPredicate"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="adaptAsNeoEdge" eType="#//adaptionNeo4J/NeoEdge" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="adaptAsPropertyEdge" eType="#//adaptionNeo4J/NeoPropertyEdge"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMapping" eType="#//patternstructure/RelationMapping"
           eOpposite="#//patternstructure/RelationMapping/target"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMappings" upperBound="-1"
@@ -431,6 +433,8 @@
       <eOperations name="addNode" eType="#//graphstructure/Node"/>
       <eOperations name="addComplexNode" eType="#//graphstructure/ComplexNode"/>
       <eOperations name="addPrimitiveNode" eType="#//graphstructure/PrimitiveNode"/>
+      <eOperations name="generateCypherWhere" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" lowerBound="1"
           upperBound="-1" eType="#//graphstructure/Node" containment="true" eOpposite="#//graphstructure/Node/graph"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="operatorList" lowerBound="1"
@@ -556,6 +560,7 @@
           containment="true" eOpposite="#//patternstructure/Condition/formula1"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="condition2" eType="#//patternstructure/Condition"
           containment="true" eOpposite="#//patternstructure/Condition/formula2"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="clamped" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TrueElement" eSuperTypes="#//patternstructure/Condition"/>
     <eClassifiers xsi:type="ecore:EEnum" name="LogicalOperator">
@@ -578,6 +583,8 @@
       </eOperations>
       <eOperations name="recordValues" eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException"/>
       <eOperations name="resetQuery"/>
+      <eOperations name="generateCypherReturn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameterList" lowerBound="1"
           eType="#//parameters/ParameterList" containment="true" eOpposite="#//parameters/ParameterList/pattern"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

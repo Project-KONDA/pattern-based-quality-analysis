@@ -1132,7 +1132,12 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 	
 	
-	//ADD to the .ecore-Model
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
 	public NeoPropertyEdge adaptAsPropertyEdge() throws InvalidityException {
 		Graph graph = getGraph();
 		NeoPropertyEdge navOriginal = ((RelationImpl) getOriginalRelation()).adaptAsNeoPropertyEdgeRecursive();
@@ -1156,6 +1161,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		}
 		throw new InvalidityException("correspondent relation not found");
 	}
+	
 	
 	private NeoPropertyEdge adaptAsNeoPropertyEdgeRecursive() throws InvalidityException {
 		if (!(this instanceof NeoPropertyEdge)) {
@@ -1229,7 +1235,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		}
 		throw new InvalidityException("correspondent relation not found");
 	}
-	
+
 	private NeoEdge adaptAsNeoEdgeRecursive() throws InvalidityException {
 		if (!(this instanceof NeoEdge)) {
 			NeoEdge edge = (NeoEdge) AdaptionNeo4JFactoryImpl.init().createNeoEdge();
@@ -1560,6 +1566,13 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			case GraphstructurePackage.RELATION___ADAPT_AS_NEO_EDGE:
 				try {
 					return adaptAsNeoEdge();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.RELATION___ADAPT_AS_PROPERTY_EDGE:
+				try {
+					return adaptAsPropertyEdge();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

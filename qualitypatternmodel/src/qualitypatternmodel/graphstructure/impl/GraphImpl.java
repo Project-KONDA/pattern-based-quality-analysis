@@ -255,7 +255,11 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		}
 	}
 	
-	//ADD to the .ecore-Model
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
 	@Override
 	public String generateCypherWhere() throws InvalidityException {
 		StringBuilder cypher = new StringBuilder();
@@ -1168,6 +1172,13 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return addComplexNode();
 			case GraphstructurePackage.GRAPH___ADD_PRIMITIVE_NODE:
 				return addPrimitiveNode();
+			case GraphstructurePackage.GRAPH___GENERATE_CYPHER_WHERE:
+				try {
+					return generateCypherWhere();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

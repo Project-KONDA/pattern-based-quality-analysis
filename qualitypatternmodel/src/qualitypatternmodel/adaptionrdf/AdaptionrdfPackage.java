@@ -497,6 +497,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PREDICATE___ADAPT_AS_NEO_EDGE = GraphstructurePackage.RELATION___ADAPT_AS_NEO_EDGE;
 
 	/**
+	 * The operation id for the '<em>Adapt As Property Edge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PREDICATE___ADAPT_AS_PROPERTY_EDGE = GraphstructurePackage.RELATION___ADAPT_AS_PROPERTY_EDGE;
+
+	/**
 	 * The number of operations of the '<em>Rdf Predicate</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

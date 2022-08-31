@@ -38,6 +38,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  *   <li>{@link qualitypatternmodel.patternstructure.impl.FormulaImpl#getOperator <em>Operator</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.FormulaImpl#getCondition1 <em>Condition1</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.FormulaImpl#getCondition2 <em>Condition2</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.FormulaImpl#isClamped <em>Clamped</em>}</li>
  * </ul>
  *
  * @generated
@@ -85,13 +86,25 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	 */
 	protected Condition condition2;
 	
-	//ADD to the .ecore-Model
-	protected boolean clamped = false;
-	
-	//ADD to the .ecore-Model
-	public void setClamped(boolean clamped) {
-		this.clamped = clamped;
-	}
+/**
+	 * The default value of the '{@link #isClamped() <em>Clamped</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isClamped()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CLAMPED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isClamped() <em>Clamped</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isClamped()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean clamped = CLAMPED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -485,6 +498,29 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isClamped() {
+		return clamped;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setClamped(boolean newClamped) {
+		boolean oldClamped = clamped;
+		clamped = newClamped;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.FORMULA__CLAMPED, oldClamped, clamped));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -512,6 +548,8 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 				return getCondition1();
 			case PatternstructurePackage.FORMULA__CONDITION2:
 				return getCondition2();
+			case PatternstructurePackage.FORMULA__CLAMPED:
+				return isClamped();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -531,6 +569,9 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 				return;
 			case PatternstructurePackage.FORMULA__CONDITION2:
 				setCondition2((Condition)newValue);
+				return;
+			case PatternstructurePackage.FORMULA__CLAMPED:
+				setClamped((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -552,6 +593,9 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 			case PatternstructurePackage.FORMULA__CONDITION2:
 				setCondition2((Condition)null);
 				return;
+			case PatternstructurePackage.FORMULA__CLAMPED:
+				setClamped(CLAMPED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -569,6 +613,8 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 				return condition1 != null;
 			case PatternstructurePackage.FORMULA__CONDITION2:
 				return condition2 != null;
+			case PatternstructurePackage.FORMULA__CLAMPED:
+				return clamped != CLAMPED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -584,6 +630,8 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (operator: ");
 		result.append(operator);
+		result.append(", clamped: ");
+		result.append(clamped);
 		result.append(')');
 		return result.toString();
 	}

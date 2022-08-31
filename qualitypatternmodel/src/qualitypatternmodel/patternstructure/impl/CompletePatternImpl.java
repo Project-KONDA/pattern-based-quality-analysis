@@ -394,8 +394,12 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		return completeCyString;
 	}
 	
-	//ADD to the .ecore-Model
-	//@Override
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
 	public String generateCypherReturn() throws InvalidityException {
 		String cypher = "";
 		if (graph.getNodes().size() != 0 ) {
@@ -583,6 +587,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		setXmlQuery(null);
 		setPartialXmlQuery(null);
 	}
+
+
+
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1178,6 +1185,13 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN___RESET_QUERY:
 				resetQuery();
 				return null;
+			case PatternstructurePackage.COMPLETE_PATTERN___GENERATE_CYPHER_RETURN:
+				try {
+					return generateCypherReturn();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

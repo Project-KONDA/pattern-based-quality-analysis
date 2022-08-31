@@ -1378,6 +1378,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION___ADAPT_AS_NEO_EDGE = GraphstructurePackage.RELATION___ADAPT_AS_NEO_EDGE;
 
 	/**
+	 * The operation id for the '<em>Adapt As Property Edge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___ADAPT_AS_PROPERTY_EDGE = GraphstructurePackage.RELATION___ADAPT_AS_PROPERTY_EDGE;
+
+	/**
 	 * The number of operations of the '<em>Xml Navigation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1828,6 +1837,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT_NAVIGATION___ADAPT_AS_NEO_EDGE = XML_NAVIGATION___ADAPT_AS_NEO_EDGE;
 
 	/**
+	 * The operation id for the '<em>Adapt As Property Edge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT_NAVIGATION___ADAPT_AS_PROPERTY_EDGE = XML_NAVIGATION___ADAPT_AS_PROPERTY_EDGE;
+
+	/**
 	 * The number of operations of the '<em>Xml Element Navigation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2267,6 +2285,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_REFERENCE___ADAPT_AS_NEO_EDGE = GraphstructurePackage.RELATION___ADAPT_AS_NEO_EDGE;
+
+	/**
+	 * The operation id for the '<em>Adapt As Property Edge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_REFERENCE___ADAPT_AS_PROPERTY_EDGE = GraphstructurePackage.RELATION___ADAPT_AS_PROPERTY_EDGE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -4265,6 +4292,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PROPERTY_NAVIGATION___ADAPT_AS_NEO_EDGE = XML_NAVIGATION___ADAPT_AS_NEO_EDGE;
+
+	/**
+	 * The operation id for the '<em>Adapt As Property Edge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY_NAVIGATION___ADAPT_AS_PROPERTY_EDGE = XML_NAVIGATION___ADAPT_AS_PROPERTY_EDGE;
 
 	/**
 	 * The number of operations of the '<em>Xml Property Navigation</em>' class.

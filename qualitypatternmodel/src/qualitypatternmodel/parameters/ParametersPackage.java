@@ -2803,13 +2803,22 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LIST_PARAM___GET_LIST_DECLARATION = PARAMETER_VALUE_OPERATION_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Add String Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___ADD_STRING_VALUE__STRING = PARAMETER_VALUE_OPERATION_COUNT + 3;
+
+	/**
 	 * The number of operations of the '<em>Text List Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 3;
+	int TEXT_LIST_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl <em>Text Literal Param</em>}' class.
@@ -6561,7 +6570,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM__ID = PARAMETER_VALUE__ID;
+	int KEY_VALUE_PARAM__ID = PARAMETER__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -6570,7 +6579,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM__INTERNAL_ID = PARAMETER_VALUE__INTERNAL_ID;
+	int KEY_VALUE_PARAM__INTERNAL_ID = PARAMETER__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
@@ -6579,7 +6588,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM__PARAMETER_LIST = PARAMETER_VALUE__PARAMETER_LIST;
+	int KEY_VALUE_PARAM__PARAMETER_LIST = PARAMETER__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
@@ -6588,7 +6597,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM__PREDEFINED = PARAMETER_VALUE__PREDEFINED;
+	int KEY_VALUE_PARAM__PREDEFINED = PARAMETER__PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
@@ -6597,7 +6606,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM__PARAMETER_REFERENCES = PARAMETER_VALUE__PARAMETER_REFERENCES;
+	int KEY_VALUE_PARAM__PARAMETER_REFERENCES = PARAMETER__PARAMETER_REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -6606,34 +6615,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM__DESCRIPTION = PARAMETER_VALUE__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KEY_VALUE_PARAM__COMPARISON1 = PARAMETER_VALUE__COMPARISON1;
-
-	/**
-	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KEY_VALUE_PARAM__COMPARISON2 = PARAMETER_VALUE__COMPARISON2;
-
-	/**
-	 * The feature id for the '<em><b>Type Modifiable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KEY_VALUE_PARAM__TYPE_MODIFIABLE = PARAMETER_VALUE__TYPE_MODIFIABLE;
+	int KEY_VALUE_PARAM__DESCRIPTION = PARAMETER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Key Value Pair</b></em>' attribute.
@@ -6642,7 +6624,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM__KEY_VALUE_PAIR = PARAMETER_VALUE_FEATURE_COUNT + 0;
+	int KEY_VALUE_PARAM__KEY_VALUE_PAIR = PARAMETER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Key Value Param</em>' class.
@@ -6651,7 +6633,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 1;
+	int KEY_VALUE_PARAM_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -6660,7 +6642,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___IS_VALID__ABSTRACTIONLEVEL = PARAMETER_VALUE___IS_VALID__ABSTRACTIONLEVEL;
+	int KEY_VALUE_PARAM___IS_VALID__ABSTRACTIONLEVEL = PARAMETER___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -6669,7 +6651,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PARAMETER_VALUE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+	int KEY_VALUE_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PARAMETER___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -6678,7 +6660,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
+	int KEY_VALUE_PARAM___MY_TO_STRING = PARAMETER___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Generate Cypher</em>' operation.
@@ -6687,7 +6669,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___GENERATE_CYPHER = PARAMETER_VALUE___GENERATE_CYPHER;
+	int KEY_VALUE_PARAM___GENERATE_CYPHER = PARAMETER___GENERATE_CYPHER;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -6696,7 +6678,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___GENERATE_XQUERY = PARAMETER_VALUE___GENERATE_XQUERY;
+	int KEY_VALUE_PARAM___GENERATE_XQUERY = PARAMETER___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Generate Sparql</em>' operation.
@@ -6705,7 +6687,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___GENERATE_SPARQL = PARAMETER_VALUE___GENERATE_SPARQL;
+	int KEY_VALUE_PARAM___GENERATE_SPARQL = PARAMETER___GENERATE_SPARQL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -6714,7 +6696,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___GET_CONTAINER = PARAMETER_VALUE___GET_CONTAINER;
+	int KEY_VALUE_PARAM___GET_CONTAINER = PARAMETER___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -6723,7 +6705,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___GET_ANCESTOR__CLASS = PARAMETER_VALUE___GET_ANCESTOR__CLASS;
+	int KEY_VALUE_PARAM___GET_ANCESTOR__CLASS = PARAMETER___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Initialize Translation</em>' operation.
@@ -6732,7 +6714,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___INITIALIZE_TRANSLATION = PARAMETER_VALUE___INITIALIZE_TRANSLATION;
+	int KEY_VALUE_PARAM___INITIALIZE_TRANSLATION = PARAMETER___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -6741,7 +6723,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___PREPARE_TRANSLATION = PARAMETER_VALUE___PREPARE_TRANSLATION;
+	int KEY_VALUE_PARAM___PREPARE_TRANSLATION = PARAMETER___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -6750,7 +6732,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___GET_OPERATOR_LIST = PARAMETER_VALUE___GET_OPERATOR_LIST;
+	int KEY_VALUE_PARAM___GET_OPERATOR_LIST = PARAMETER___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -6759,7 +6741,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___GET_PARAMETER_LIST = PARAMETER_VALUE___GET_PARAMETER_LIST;
+	int KEY_VALUE_PARAM___GET_PARAMETER_LIST = PARAMETER___GET_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -6768,7 +6750,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___GET_ALL_PARAMETERS = PARAMETER_VALUE___GET_ALL_PARAMETERS;
+	int KEY_VALUE_PARAM___GET_ALL_PARAMETERS = PARAMETER___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -6777,7 +6759,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___PREPARE_PARAMETER_UPDATES = PARAMETER_VALUE___PREPARE_PARAMETER_UPDATES;
+	int KEY_VALUE_PARAM___PREPARE_PARAMETER_UPDATES = PARAMETER___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -6786,7 +6768,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+	int KEY_VALUE_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
 
 	/**
 	 * The operation id for the '<em>Update Parameters</em>' operation.
@@ -6795,7 +6777,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
+	int KEY_VALUE_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -6804,7 +6786,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+	int KEY_VALUE_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -6813,7 +6795,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___RECORD_VALUES__XMLDATADATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATADATABASE;
+	int KEY_VALUE_PARAM___RECORD_VALUES__XMLDATADATABASE = PARAMETER___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -6822,7 +6804,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___RELATIONS_XML_ADAPTED = PARAMETER_VALUE___RELATIONS_XML_ADAPTED;
+	int KEY_VALUE_PARAM___RELATIONS_XML_ADAPTED = PARAMETER___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
@@ -6831,7 +6813,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___CREATE_XML_ADAPTION = PARAMETER_VALUE___CREATE_XML_ADAPTION;
+	int KEY_VALUE_PARAM___CREATE_XML_ADAPTION = PARAMETER___CREATE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
@@ -6840,7 +6822,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___CREATE_RDF_ADAPTION = PARAMETER_VALUE___CREATE_RDF_ADAPTION;
+	int KEY_VALUE_PARAM___CREATE_RDF_ADAPTION = PARAMETER___CREATE_RDF_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
@@ -6849,88 +6831,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___CREATE_NEO4J_ADAPTION = PARAMETER_VALUE___CREATE_NEO4J_ADAPTION;
-
-	/**
-	 * The operation id for the '<em>Validate Against Schema</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KEY_VALUE_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
-
-	/**
-	 * The operation id for the '<em>Validate Example Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KEY_VALUE_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = PARAMETER_VALUE___VALIDATE_EXAMPLE_VALUE__STRING;
-
-	/**
-	 * The operation id for the '<em>Input Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KEY_VALUE_PARAM___INPUT_IS_VALID = PARAMETER_VALUE___INPUT_IS_VALID;
-
-	/**
-	 * The operation id for the '<em>Is Used</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KEY_VALUE_PARAM___IS_USED = PARAMETER_VALUE___IS_USED;
-
-	/**
-	 * The operation id for the '<em>Set Value From String</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KEY_VALUE_PARAM___SET_VALUE_FROM_STRING__STRING = PARAMETER_VALUE___SET_VALUE_FROM_STRING__STRING;
-
-	/**
-	 * The operation id for the '<em>Get Value As String</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KEY_VALUE_PARAM___GET_VALUE_AS_STRING = PARAMETER_VALUE___GET_VALUE_AS_STRING;
-
-	/**
-	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KEY_VALUE_PARAM___CHECK_COMPARISON_CONSISTENCY = PARAMETER_VALUE___CHECK_COMPARISON_CONSISTENCY;
-
-	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KEY_VALUE_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
-
-	/**
-	 * The operation id for the '<em>Generate Description</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KEY_VALUE_PARAM___GENERATE_DESCRIPTION = PARAMETER_VALUE___GENERATE_DESCRIPTION;
+	int KEY_VALUE_PARAM___CREATE_NEO4J_ADAPTION = PARAMETER___CREATE_NEO4J_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -6939,142 +6840,88 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int KEY_VALUE_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Get Return Type</em>' operation.
+	 * The operation id for the '<em>Validate Against Schema</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___GET_RETURN_TYPE = PARAMETER_VALUE___GET_RETURN_TYPE;
+	int KEY_VALUE_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER___VALIDATE_AGAINST_SCHEMA;
 
 	/**
-	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * The operation id for the '<em>Validate Example Value</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___IS_TRANSLATABLE = PARAMETER_VALUE___IS_TRANSLATABLE;
+	int KEY_VALUE_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = PARAMETER___VALIDATE_EXAMPLE_VALUE__STRING;
 
 	/**
-	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
+	int KEY_VALUE_PARAM___INPUT_IS_VALID = PARAMETER___INPUT_IS_VALID;
 
 	/**
-	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * The operation id for the '<em>Is Used</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___IS_OPERATOR_ARGUMENT = PARAMETER_VALUE___IS_OPERATOR_ARGUMENT;
+	int KEY_VALUE_PARAM___IS_USED = PARAMETER___IS_USED;
 
 	/**
-	 * The operation id for the '<em>Replace</em>' operation.
+	 * The operation id for the '<em>Set Value From String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___REPLACE__PARAMETERVALUE = PARAMETER_VALUE___REPLACE__PARAMETERVALUE;
+	int KEY_VALUE_PARAM___SET_VALUE_FROM_STRING__STRING = PARAMETER___SET_VALUE_FROM_STRING__STRING;
 
 	/**
-	 * The operation id for the '<em>Replace Via Value</em>' operation.
+	 * The operation id for the '<em>Get Value As String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
+	int KEY_VALUE_PARAM___GET_VALUE_AS_STRING = PARAMETER___GET_VALUE_AS_STRING;
 
 	/**
-	 * The operation id for the '<em>Get Element Tags</em>' operation.
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___GET_ELEMENT_TAGS = PARAMETER_VALUE___GET_ELEMENT_TAGS;
+	int KEY_VALUE_PARAM___CHECK_COMPARISON_CONSISTENCY = PARAMETER___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
-	 * The operation id for the '<em>Get Data Values</em>' operation.
+	 * The operation id for the '<em>Get Options As String List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___GET_DATA_VALUES = PARAMETER_VALUE___GET_DATA_VALUES;
+	int KEY_VALUE_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER___GET_OPTIONS_AS_STRING_LIST;
 
 	/**
-	 * The operation id for the '<em>Is In Data Comparison</em>' operation.
+	 * The operation id for the '<em>Generate Description</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___IS_IN_DATA_COMPARISON = PARAMETER_VALUE___IS_IN_DATA_COMPARISON;
-
-	/**
-	 * The operation id for the '<em>Is In Tag Comparison</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KEY_VALUE_PARAM___IS_IN_TAG_COMPARISON = PARAMETER_VALUE___IS_IN_TAG_COMPARISON;
-
-	/**
-	 * The operation id for the '<em>Get Attribute Names</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KEY_VALUE_PARAM___GET_ATTRIBUTE_NAMES = PARAMETER_VALUE___GET_ATTRIBUTE_NAMES;
-
-	/**
-	 * The operation id for the '<em>Get Attribute Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KEY_VALUE_PARAM___GET_ATTRIBUTE_VALUES = PARAMETER_VALUE___GET_ATTRIBUTE_VALUES;
-
-	/**
-	 * The operation id for the '<em>Is In Attribute Comparison</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KEY_VALUE_PARAM___IS_IN_ATTRIBUTE_COMPARISON = PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON;
-
-	/**
-	 * The operation id for the '<em>Get Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KEY_VALUE_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
-
-	/**
-	 * The operation id for the '<em>Infer Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KEY_VALUE_PARAM___INFER_SUGGESTIONS = PARAMETER_VALUE___INFER_SUGGESTIONS;
+	int KEY_VALUE_PARAM___GENERATE_DESCRIPTION = PARAMETER___GENERATE_DESCRIPTION;
 
 	/**
 	 * The operation id for the '<em>Add Value</em>' operation.
@@ -7083,7 +6930,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___ADD_VALUE__STRING_STRING = PARAMETER_VALUE_OPERATION_COUNT + 0;
+	int KEY_VALUE_PARAM___ADD_VALUE__STRING_STRING = PARAMETER_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Set New Map</em>' operation.
@@ -7092,7 +6939,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___SET_NEW_MAP__MAP = PARAMETER_VALUE_OPERATION_COUNT + 1;
+	int KEY_VALUE_PARAM___SET_NEW_MAP__MAP = PARAMETER_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Key Value Param</em>' class.
@@ -7101,7 +6948,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 2;
+	int KEY_VALUE_PARAM_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '<em>String To Int EMap</em>' data type.
@@ -7485,6 +7332,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getTextListParam__GetListDeclaration();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.TextListParam#addStringValue(java.lang.String) <em>Add String Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add String Value</em>' operation.
+	 * @see qualitypatternmodel.parameters.TextListParam#addStringValue(java.lang.String)
+	 * @generated
+	 */
+	EOperation getTextListParam__AddStringValue__String();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.TextListParam#getListVar() <em>Get List Var</em>}' operation.
@@ -8284,6 +8141,14 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation TEXT_LIST_PARAM___GET_LIST_DECLARATION = eINSTANCE.getTextListParam__GetListDeclaration();
+
+		/**
+		 * The meta object literal for the '<em><b>Add String Value</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TEXT_LIST_PARAM___ADD_STRING_VALUE__STRING = eINSTANCE.getTextListParam__AddStringValue__String();
 
 		/**
 		 * The meta object literal for the '<em><b>Get List Var</b></em>' operation.

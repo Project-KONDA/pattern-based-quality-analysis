@@ -629,6 +629,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EOperation getTextListParam__AddStringValue__String() {
+		return textListParamEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getTextListParam__GetListVar() {
 		return textListParamEClass.getEOperations().get(1);
 	}
@@ -1163,6 +1173,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEOperation(textListParamEClass, TEXT_LIST_PARAM___SET_VALUE_IF_VALID__ELIST);
 		createEOperation(textListParamEClass, TEXT_LIST_PARAM___GET_LIST_VAR);
 		createEOperation(textListParamEClass, TEXT_LIST_PARAM___GET_LIST_DECLARATION);
+		createEOperation(textListParamEClass, TEXT_LIST_PARAM___ADD_STRING_VALUE__STRING);
 
 		textLiteralParamEClass = createEClass(TEXT_LITERAL_PARAM);
 		createEAttribute(textLiteralParamEClass, TEXT_LITERAL_PARAM__VALUE);
@@ -1272,7 +1283,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		untypedParameterValueEClass.getESuperTypes().add(this.getParameterValue());
 		dateTimeParamEClass.getESuperTypes().add(this.getParameterValue());
 		typeOptionParamEClass.getESuperTypes().add(this.getParameter());
-		keyValueParamEClass.getESuperTypes().add(this.getParameterValue());
+		keyValueParamEClass.getESuperTypes().add(this.getParameter());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(parameterEClass, Parameter.class, "Parameter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1354,6 +1365,9 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEOperation(getTextListParam__GetListVar(), ecorePackage.getEString(), "getListVar", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getTextListParam__GetListDeclaration(), ecorePackage.getEString(), "getListDeclaration", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getTextListParam__AddStringValue__String(), null, "addStringValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(textLiteralParamEClass, TextLiteralParam.class, "TextLiteralParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTextLiteralParam_Value(), ecorePackage.getEString(), "value", "", 0, 1, TextLiteralParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

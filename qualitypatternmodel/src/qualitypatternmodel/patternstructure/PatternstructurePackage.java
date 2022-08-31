@@ -2282,13 +2282,22 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA__CONDITION2 = CONDITION_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Clamped</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA__CLAMPED = CONDITION_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Formula</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 3;
+	int FORMULA_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3572,13 +3581,22 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___RESET_QUERY = PATTERN_OPERATION_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Generate Cypher Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___GENERATE_CYPHER_RETURN = PATTERN_OPERATION_COUNT + 5;
+
+	/**
 	 * The number of operations of the '<em>Complete Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 5;
+	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.NotConditionImpl <em>Not Condition</em>}' class.
@@ -5891,6 +5909,17 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getFormula_Condition2();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.Formula#isClamped <em>Clamped</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Clamped</em>'.
+	 * @see qualitypatternmodel.patternstructure.Formula#isClamped()
+	 * @see #getFormula()
+	 * @generated
+	 */
+	EAttribute getFormula_Clamped();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.TrueElement <em>True Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6080,6 +6109,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getCompletePattern__ResetQuery();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#generateCypherReturn() <em>Generate Cypher Return</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Cypher Return</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#generateCypherReturn()
+	 * @generated
+	 */
+	EOperation getCompletePattern__GenerateCypherReturn();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.PatternElement <em>Pattern Element</em>}'.
@@ -7012,6 +7051,14 @@ public interface PatternstructurePackage extends EPackage {
 		EReference FORMULA__CONDITION2 = eINSTANCE.getFormula_Condition2();
 
 		/**
+		 * The meta object literal for the '<em><b>Clamped</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FORMULA__CLAMPED = eINSTANCE.getFormula_Clamped();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.TrueElementImpl <em>True Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7158,6 +7205,14 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation COMPLETE_PATTERN___RESET_QUERY = eINSTANCE.getCompletePattern__ResetQuery();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Cypher Return</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPLETE_PATTERN___GENERATE_CYPHER_RETURN = eINSTANCE.getCompletePattern__GenerateCypherReturn();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.PatternElementImpl <em>Pattern Element</em>}' class.

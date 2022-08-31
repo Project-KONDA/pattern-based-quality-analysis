@@ -1399,6 +1399,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_ABSTRACT_EDGE___ADAPT_AS_NEO_EDGE = GraphstructurePackage.RELATION___ADAPT_AS_NEO_EDGE;
 
 	/**
+	 * The operation id for the '<em>Adapt As Property Edge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ABSTRACT_EDGE___ADAPT_AS_PROPERTY_EDGE = GraphstructurePackage.RELATION___ADAPT_AS_PROPERTY_EDGE;
+
+	/**
 	 * The operation id for the '<em>Set Is Return Element</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1847,6 +1856,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_EDGE___ADAPT_AS_NEO_EDGE = NEO_ABSTRACT_EDGE___ADAPT_AS_NEO_EDGE;
+
+	/**
+	 * The operation id for the '<em>Adapt As Property Edge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE___ADAPT_AS_PROPERTY_EDGE = NEO_ABSTRACT_EDGE___ADAPT_AS_PROPERTY_EDGE;
 
 	/**
 	 * The operation id for the '<em>Set Is Return Element</em>' operation.
@@ -5214,6 +5232,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_EDGE___ADAPT_AS_NEO_EDGE = NEO_ABSTRACT_EDGE___ADAPT_AS_NEO_EDGE;
+
+	/**
+	 * The operation id for the '<em>Adapt As Property Edge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_EDGE___ADAPT_AS_PROPERTY_EDGE = NEO_ABSTRACT_EDGE___ADAPT_AS_PROPERTY_EDGE;
 
 	/**
 	 * The operation id for the '<em>Set Is Return Element</em>' operation.

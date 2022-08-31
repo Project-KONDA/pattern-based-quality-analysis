@@ -47,6 +47,7 @@ public class FormulaItemProvider extends ConditionItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addOperatorPropertyDescriptor(object);
+			addClampedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -69,6 +70,28 @@ public class FormulaItemProvider extends ConditionItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Clamped feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addClampedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Formula_clamped_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Formula_clamped_feature", "_UI_Formula_type"),
+				 PatternstructurePackage.Literals.FORMULA__CLAMPED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -141,6 +164,7 @@ public class FormulaItemProvider extends ConditionItemProvider {
 
 		switch (notification.getFeatureID(Formula.class)) {
 			case PatternstructurePackage.FORMULA__OPERATOR:
+			case PatternstructurePackage.FORMULA__CLAMPED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case PatternstructurePackage.FORMULA__CONDITION1:
