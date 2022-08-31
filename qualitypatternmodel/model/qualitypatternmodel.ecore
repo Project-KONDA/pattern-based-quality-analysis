@@ -80,6 +80,9 @@
       </eOperations>
       <eOperations name="getListVar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="getListDeclaration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="addStringValue">
+        <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" upperBound="-1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
@@ -1232,13 +1235,13 @@
       <eOperations name="setTargetNodeLabel">
         <eParameters name="targetNodeLabel" eType="#//parameters/TextLiteralParam"/>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="keyvalueparam" eType="#//parameters/KeyValueParam"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="keyValueParam" eType="#//parameters/KeyValueParam"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="neoDirection" unique="false"
           eType="#//adaptionNeo4J/NeoDirection" changeable="false"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="edgeNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
           unsettable="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoTargetNodeLabels"
-          upperBound="-1" eType="#//parameters/TextLiteralParam"/>
+          eType="#//parameters/TextListParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoEdgeLabel" eType="#//parameters/TextLiteralParam"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isLastSimpleEdge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           defaultValueLiteral="false"/>
@@ -1249,21 +1252,23 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="translated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoPropertyNode" eSuperTypes="#//graphstructure/PrimitiveNode #//adaptionNeo4J/NeoAbstractNode"/>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoPathParam" eSuperTypes="#//parameters/Parameter #//graphstructure/Adaptable">
+    <eClassifiers xsi:type="ecore:EClass" name="NeoPathParam" eSuperTypes="#//adaptionNeo4J/NeoAbstractPathParam">
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoEdge" eType="#//adaptionNeo4J/NeoEdge"
           eOpposite="#//adaptionNeo4J/NeoEdge/neoPathParam"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="neoPath" eType="#//adaptionNeo4J/NeoPathPart"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="neoPathPart" eType="#//adaptionNeo4J/NeoPathPart"
+          containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="NeoDirection">
       <eLiterals name="IMPLICIT"/>
       <eLiterals name="RIGHT" value="1"/>
       <eLiterals name="LEFT" value="2"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoPropertyPathParam" eSuperTypes="#//parameters/Parameter #//graphstructure/Adaptable">
+    <eClassifiers xsi:type="ecore:EClass" name="NeoPropertyPathParam" eSuperTypes="#//adaptionNeo4J/NeoAbstractPathParam">
       <eOperations name="setNeoPropertyName">
         <eParameters name="neoPropertyName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="neoPath" eType="#//adaptionNeo4J/NeoPathPart"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="neoPathPart" eType="#//adaptionNeo4J/NeoPathPart"
+          containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoPropertyEdge" eType="#//adaptionNeo4J/NeoPropertyEdge"
           eOpposite="#//adaptionNeo4J/NeoPropertyEdge/neoPropertyPathParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoPropertyName" eType="#//parameters/TextLiteralParam"/>
@@ -1279,7 +1284,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnElement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoAbstractPathParam" abstract="true"
-        eSuperTypes="#//parameters/Parameter">
+        eSuperTypes="#//parameters/Parameter #//graphstructure/Adaptable">
       <eOperations name="getLastRelations" upperBound="-1" eType="#//adaptionNeo4J/NeoAbstractEdge"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="NeoPlace">

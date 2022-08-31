@@ -1,7 +1,6 @@
 package qualitypatternmodel.cyphertranslationtests;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
