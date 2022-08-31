@@ -418,7 +418,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 					npn = (NeoPropertyNode) n;
 					if (((NeoPropertyEdge) npn.getIncoming().get(0)).getNeoPropertyPathParam().getNeoPropertyName() != null) {
 						nppp =  ((NeoPropertyEdge) npn.getIncoming().get(0)).getNeoPropertyPathParam();
-						if (nppp.getNeoPath() == null) {
+						if (nppp.getNeoPathPart() == null) {
 							propertyName = nppp.getNeoPropertyName();
 							matchingNodename =  ((NeoAbstractNode)((NeoPropertyEdge) npn.getIncoming().get(0)).getSource()).getCypherVariable();
 							cypherNeoPropertyProperty.append(matchingNodename + "." + propertyName);
@@ -451,13 +451,13 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				if (r instanceof NeoAbstractEdge && ((NeoAbstractEdge) r).isReturnElement()) {
 					if(r instanceof NeoPropertyEdge) {
 						npe = (NeoPropertyEdge) r;
-						if (npe.getNeoPropertyPathParam() != null && npe.getNeoPropertyPathParam().getNeoPath() != null) {
-							cypherEdge.append(npe.getNeoPropertyPathParam().getNeoPath().getCypherVariable());
+						if (npe.getNeoPropertyPathParam() != null && npe.getNeoPropertyPathParam().getNeoPathPart() != null) {
+							cypherEdge.append(npe.getNeoPropertyPathParam().getNeoPathPart().getCypherVariable());
 						}
 					} else if(r instanceof NeoEdge) {
 						ne = (NeoEdge) r;
-						if (ne.getNeoPathParam() != null && ne.getNeoPathParam().getNeoPath() != null) {
-							cypherProperties.append(ne.getNeoPathParam().getNeoPath().getCypherVariable());
+						if (ne.getNeoPathParam() != null && ne.getNeoPathParam().getNeoPathPart() != null) {
+							cypherProperties.append(ne.getNeoPathParam().getNeoPathPart().getCypherVariable());
 						}
 					}
 				}

@@ -12,7 +12,7 @@ package qualitypatternmodel.adaptionNeo4J;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathParam#getNeoEdge <em>Neo Edge</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathParam#getNeoPath <em>Neo Path</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathParam#getNeoPathPart <em>Neo Path Part</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPathParam()
@@ -45,25 +45,25 @@ public interface NeoPathParam extends NeoAbstractPathParam {
 	void setNeoEdge(NeoEdge value);
 
 	/**
-	 * Returns the value of the '<em><b>Neo Path</b></em>' reference.
+	 * Returns the value of the '<em><b>Neo Path Part</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Neo Path</em>' reference.
-	 * @see #setNeoPath(NeoPathPart)
-	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPathParam_NeoPath()
-	 * @model
+	 * @return the value of the '<em>Neo Path Part</em>' containment reference.
+	 * @see #setNeoPathPart(NeoPathPart)
+	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPathParam_NeoPathPart()
+	 * @model containment="true"
 	 * @generated
 	 */
-	NeoPathPart getNeoPath();
+	NeoPathPart getNeoPathPart();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathParam#getNeoPath <em>Neo Path</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathParam#getNeoPathPart <em>Neo Path Part</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Neo Path</em>' reference.
-	 * @see #getNeoPath()
+	 * @param value the new value of the '<em>Neo Path Part</em>' containment reference.
+	 * @see #getNeoPathPart()
 	 * @generated
 	 */
-	void setNeoPath(NeoPathPart value);
+	void setNeoPathPart(NeoPathPart value);
 
 } // Neo4JPathParam

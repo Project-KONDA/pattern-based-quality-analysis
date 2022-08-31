@@ -2,10 +2,9 @@
  */
 package qualitypatternmodel.adaptionNeo4J;
 
-import org.eclipse.emf.common.util.EList;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.KeyValueParam;
+import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 
 
@@ -18,7 +17,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getKeyvalueparam <em>Keyvalueparam</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getKeyValueParam <em>Key Value Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getNeoDirection <em>Neo Direction</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getEdgeNumber <em>Edge Number</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getNeoTargetNodeLabels <em>Neo Target Node Labels</em>}</li>
@@ -32,26 +31,26 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  */
 public interface NeoSimpleEdge extends NeoPathPart {
 	/**
-	 * Returns the value of the '<em><b>Keyvalueparam</b></em>' reference.
+	 * Returns the value of the '<em><b>Key Value Param</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Keyvalueparam</em>' reference.
-	 * @see #setKeyvalueparam(KeyValueParam)
-	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoSimpleEdge_Keyvalueparam()
+	 * @return the value of the '<em>Key Value Param</em>' reference.
+	 * @see #setKeyValueParam(KeyValueParam)
+	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoSimpleEdge_KeyValueParam()
 	 * @model
 	 * @generated
 	 */
-	KeyValueParam getKeyvalueparam();
+	KeyValueParam getKeyValueParam();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getKeyvalueparam <em>Keyvalueparam</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getKeyValueParam <em>Key Value Param</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Keyvalueparam</em>' reference.
-	 * @see #getKeyvalueparam()
+	 * @param value the new value of the '<em>Key Value Param</em>' reference.
+	 * @see #getKeyValueParam()
 	 * @generated
 	 */
-	void setKeyvalueparam(KeyValueParam value);
+	void setKeyValueParam(KeyValueParam value);
 
 	/**
 	 * Returns the value of the '<em><b>Neo Edge Label</b></em>' reference.
@@ -161,16 +160,26 @@ public interface NeoSimpleEdge extends NeoPathPart {
 	boolean isSetEdgeNumber();
 
 	/**
-	 * Returns the value of the '<em><b>Neo Target Node Labels</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.parameters.TextLiteralParam}.
+	 * Returns the value of the '<em><b>Neo Target Node Labels</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Neo Target Node Labels</em>' reference list.
+	 * @return the value of the '<em>Neo Target Node Labels</em>' reference.
+	 * @see #setNeoTargetNodeLabels(TextListParam)
 	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoSimpleEdge_NeoTargetNodeLabels()
 	 * @model
 	 * @generated
 	 */
-	EList<TextLiteralParam> getNeoTargetNodeLabels();
+	TextListParam getNeoTargetNodeLabels();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getNeoTargetNodeLabels <em>Neo Target Node Labels</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Neo Target Node Labels</em>' reference.
+	 * @see #getNeoTargetNodeLabels()
+	 * @generated
+	 */
+	void setNeoTargetNodeLabels(TextListParam value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -194,7 +203,15 @@ public interface NeoSimpleEdge extends NeoPathPart {
 	 * @model
 	 * @generated
 	 */
-	void setTargetNodeLabel(TextLiteralParam targetNodeLabel);
+	void addStrubgTargetNodeLabel(String label);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String getCypherInnerEdgeVariable() throws InvalidityException;
 	
 //	//ADD to the .ecore-Model
 //	public String getCypherInnerEdgeVariable() throws InvalidityException;

@@ -2,8 +2,6 @@
  */
 package qualitypatternmodel.adaptionNeo4J;
 
-import qualitypatternmodel.exceptions.InvalidityException;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Neo Attribute Edge</b></em>'.
@@ -44,8 +42,14 @@ public interface NeoPropertyEdge extends NeoAbstractEdge {
 	 * @generated
 	 */
 	void setNeoPropertyPathParam(NeoPropertyPathParam value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	String generateCypherPropertyAddressing();
 	
-	//ADD to the .ecore-Model
-	String generateCypherPropertyAddressing() throws InvalidityException; 
 
 } // NeoAttributeEdge

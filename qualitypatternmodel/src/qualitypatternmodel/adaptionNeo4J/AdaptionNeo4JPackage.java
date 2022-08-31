@@ -868,13 +868,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_NODE___GET_CYPHER_VARIABLE = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Set Neo Node Label</em>' operation.
+	 * The operation id for the '<em>Add String Label</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE___SET_NEO_NODE_LABEL__TEXTLITERALPARAM = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 1;
+	int NEO_NODE___ADD_STRING_LABEL__STRING = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Neo Node</em>' class.
@@ -2452,13 +2452,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_SIMPLE_EDGE__TRANSLATED = NEO_PATH_PART__TRANSLATED;
 
 	/**
-	 * The feature id for the '<em><b>Keyvalueparam</b></em>' reference.
+	 * The feature id for the '<em><b>Key Value Param</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE__KEYVALUEPARAM = NEO_PATH_PART_FEATURE_COUNT + 0;
+	int NEO_SIMPLE_EDGE__KEY_VALUE_PARAM = NEO_PATH_PART_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Neo Direction</b></em>' attribute.
@@ -2479,7 +2479,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_SIMPLE_EDGE__EDGE_NUMBER = NEO_PATH_PART_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Neo Target Node Labels</b></em>' reference list.
+	 * The feature id for the '<em><b>Neo Target Node Labels</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2758,13 +2758,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_SIMPLE_EDGE___IS_LAST_SIMPLE_EDGE = NEO_PATH_PART_OPERATION_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Set Target Node Label</em>' operation.
+	 * The operation id for the '<em>Add Strubg Target Node Label</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE___SET_TARGET_NODE_LABEL__TEXTLITERALPARAM = NEO_PATH_PART_OPERATION_COUNT + 2;
+	int NEO_SIMPLE_EDGE___ADD_STRUBG_TARGET_NODE_LABEL__STRING = NEO_PATH_PART_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Cypher Inner Edge Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE___GET_CYPHER_INNER_EDGE_VARIABLE = NEO_PATH_PART_OPERATION_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Neo Simple Edge</em>' class.
@@ -2773,7 +2782,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE_OPERATION_COUNT = NEO_PATH_PART_OPERATION_COUNT + 3;
+	int NEO_SIMPLE_EDGE_OPERATION_COUNT = NEO_PATH_PART_OPERATION_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3532,13 +3541,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PROPERTY_NODE___GET_CYPHER_VARIABLE = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Generate Cypher Property Addressing</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___GENERATE_CYPHER_PROPERTY_ADDRESSING = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Neo Property Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE_OPERATION_COUNT = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 1;
+	int NEO_PROPERTY_NODE_OPERATION_COUNT = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoAbstractPathParamImpl <em>Neo Abstract Path Param</em>}' class.
@@ -4001,13 +4019,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PATH_PARAM__NEO_EDGE = NEO_ABSTRACT_PATH_PARAM_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Neo Path</b></em>' reference.
+	 * The feature id for the '<em><b>Neo Path Part</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PARAM__NEO_PATH = NEO_ABSTRACT_PATH_PARAM_FEATURE_COUNT + 1;
+	int NEO_PATH_PARAM__NEO_PATH_PART = NEO_ABSTRACT_PATH_PARAM_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Neo Path Param</em>' class.
@@ -4397,13 +4415,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PROPERTY_PATH_PARAM__DESCRIPTION = NEO_ABSTRACT_PATH_PARAM__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Neo Path</b></em>' reference.
+	 * The feature id for the '<em><b>Neo Path Part</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM__NEO_PATH = NEO_ABSTRACT_PATH_PARAM_FEATURE_COUNT + 0;
+	int NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART = NEO_ABSTRACT_PATH_PARAM_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Neo Property Edge</b></em>' reference.
@@ -5207,13 +5225,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PROPERTY_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN = NEO_ABSTRACT_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN;
 
 	/**
+	 * The operation id for the '<em>Generate Cypher Property Addressing</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_EDGE___GENERATE_CYPHER_PROPERTY_ADDRESSING = NEO_ABSTRACT_EDGE_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Neo Property Edge</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_EDGE_OPERATION_COUNT = NEO_ABSTRACT_EDGE_OPERATION_COUNT + 0;
+	int NEO_PROPERTY_EDGE_OPERATION_COUNT = NEO_ABSTRACT_EDGE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoUnspecifiedEdgeImpl <em>Neo Unspecified Edge</em>}' class.
@@ -5597,14 +5624,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EReference getNeoNode_NeoNodeLabels();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoNode#setNeoNodeLabel(qualitypatternmodel.parameters.TextLiteralParam) <em>Set Neo Node Label</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoNode#addStringLabel(java.lang.String) <em>Add String Label</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Set Neo Node Label</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoNode#setNeoNodeLabel(qualitypatternmodel.parameters.TextLiteralParam)
+	 * @return the meta object for the '<em>Add String Label</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoNode#addStringLabel(java.lang.String)
 	 * @generated
 	 */
-	EOperation getNeoNode__SetNeoNodeLabel__TextLiteralParam();
+	EOperation getNeoNode__AddStringLabel__String();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoEdge <em>Neo Edge</em>}'.
@@ -5669,15 +5696,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EClass getNeoSimpleEdge();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getKeyvalueparam <em>Keyvalueparam</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getKeyValueParam <em>Key Value Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Keyvalueparam</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getKeyvalueparam()
+	 * @return the meta object for the reference '<em>Key Value Param</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getKeyValueParam()
 	 * @see #getNeoSimpleEdge()
 	 * @generated
 	 */
-	EReference getNeoSimpleEdge_Keyvalueparam();
+	EReference getNeoSimpleEdge_KeyValueParam();
 
 	/**
 	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getNeoDirection <em>Neo Direction</em>}'.
@@ -5702,10 +5729,10 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EAttribute getNeoSimpleEdge_EdgeNumber();
 
 	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getNeoTargetNodeLabels <em>Neo Target Node Labels</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getNeoTargetNodeLabels <em>Neo Target Node Labels</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Neo Target Node Labels</em>'.
+	 * @return the meta object for the reference '<em>Neo Target Node Labels</em>'.
 	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getNeoTargetNodeLabels()
 	 * @see #getNeoSimpleEdge()
 	 * @generated
@@ -5755,14 +5782,24 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EOperation getNeoSimpleEdge__IsLastSimpleEdge();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#setTargetNodeLabel(qualitypatternmodel.parameters.TextLiteralParam) <em>Set Target Node Label</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addStrubgTargetNodeLabel(java.lang.String) <em>Add Strubg Target Node Label</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Set Target Node Label</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#setTargetNodeLabel(qualitypatternmodel.parameters.TextLiteralParam)
+	 * @return the meta object for the '<em>Add Strubg Target Node Label</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addStrubgTargetNodeLabel(java.lang.String)
 	 * @generated
 	 */
-	EOperation getNeoSimpleEdge__SetTargetNodeLabel__TextLiteralParam();
+	EOperation getNeoSimpleEdge__AddStrubgTargetNodeLabel__String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getCypherInnerEdgeVariable() <em>Get Cypher Inner Edge Variable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Cypher Inner Edge Variable</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getCypherInnerEdgeVariable()
+	 * @generated
+	 */
+	EOperation getNeoSimpleEdge__GetCypherInnerEdgeVariable();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart <em>Neo Path Part</em>}'.
@@ -5816,6 +5853,16 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EClass getNeoPropertyNode();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#generateCypherPropertyAddressing() <em>Generate Cypher Property Addressing</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Cypher Property Addressing</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#generateCypherPropertyAddressing()
+	 * @generated
+	 */
+	EOperation getNeoPropertyNode__GenerateCypherPropertyAddressing();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoPathParam <em>Neo Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5837,15 +5884,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EReference getNeoPathParam_NeoEdge();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.NeoPathParam#getNeoPath <em>Neo Path</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionNeo4J.NeoPathParam#getNeoPathPart <em>Neo Path Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Neo Path</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathParam#getNeoPath()
+	 * @return the meta object for the containment reference '<em>Neo Path Part</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathParam#getNeoPathPart()
 	 * @see #getNeoPathParam()
 	 * @generated
 	 */
-	EReference getNeoPathParam_NeoPath();
+	EReference getNeoPathParam_NeoPathPart();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam <em>Neo Property Path Param</em>}'.
@@ -5858,15 +5905,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EClass getNeoPropertyPathParam();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPath <em>Neo Path</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPathPart <em>Neo Path Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Neo Path</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPath()
+	 * @return the meta object for the containment reference '<em>Neo Path Part</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPathPart()
 	 * @see #getNeoPropertyPathParam()
 	 * @generated
 	 */
-	EReference getNeoPropertyPathParam_NeoPath();
+	EReference getNeoPropertyPathParam_NeoPathPart();
 
 	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPropertyEdge <em>Neo Property Edge</em>}'.
@@ -5920,6 +5967,16 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getNeoPropertyEdge_NeoPropertyPathParam();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge#generateCypherPropertyAddressing() <em>Generate Cypher Property Addressing</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Cypher Property Addressing</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge#generateCypherPropertyAddressing()
+	 * @generated
+	 */
+	EOperation getNeoPropertyEdge__GenerateCypherPropertyAddressing();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge <em>Neo Abstract Edge</em>}'.
@@ -6102,12 +6159,12 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EReference NEO_NODE__NEO_NODE_LABELS = eINSTANCE.getNeoNode_NeoNodeLabels();
 
 		/**
-		 * The meta object literal for the '<em><b>Set Neo Node Label</b></em>' operation.
+		 * The meta object literal for the '<em><b>Add String Label</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation NEO_NODE___SET_NEO_NODE_LABEL__TEXTLITERALPARAM = eINSTANCE.getNeoNode__SetNeoNodeLabel__TextLiteralParam();
+		EOperation NEO_NODE___ADD_STRING_LABEL__STRING = eINSTANCE.getNeoNode__AddStringLabel__String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoEdgeImpl <em>Neo Edge</em>}' class.
@@ -6164,12 +6221,12 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EClass NEO_SIMPLE_EDGE = eINSTANCE.getNeoSimpleEdge();
 
 		/**
-		 * The meta object literal for the '<em><b>Keyvalueparam</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Key Value Param</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NEO_SIMPLE_EDGE__KEYVALUEPARAM = eINSTANCE.getNeoSimpleEdge_Keyvalueparam();
+		EReference NEO_SIMPLE_EDGE__KEY_VALUE_PARAM = eINSTANCE.getNeoSimpleEdge_KeyValueParam();
 
 		/**
 		 * The meta object literal for the '<em><b>Neo Direction</b></em>' attribute feature.
@@ -6188,7 +6245,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EAttribute NEO_SIMPLE_EDGE__EDGE_NUMBER = eINSTANCE.getNeoSimpleEdge_EdgeNumber();
 
 		/**
-		 * The meta object literal for the '<em><b>Neo Target Node Labels</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Neo Target Node Labels</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -6228,12 +6285,20 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EOperation NEO_SIMPLE_EDGE___IS_LAST_SIMPLE_EDGE = eINSTANCE.getNeoSimpleEdge__IsLastSimpleEdge();
 
 		/**
-		 * The meta object literal for the '<em><b>Set Target Node Label</b></em>' operation.
+		 * The meta object literal for the '<em><b>Add Strubg Target Node Label</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation NEO_SIMPLE_EDGE___SET_TARGET_NODE_LABEL__TEXTLITERALPARAM = eINSTANCE.getNeoSimpleEdge__SetTargetNodeLabel__TextLiteralParam();
+		EOperation NEO_SIMPLE_EDGE___ADD_STRUBG_TARGET_NODE_LABEL__STRING = eINSTANCE.getNeoSimpleEdge__AddStrubgTargetNodeLabel__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Cypher Inner Edge Variable</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_SIMPLE_EDGE___GET_CYPHER_INNER_EDGE_VARIABLE = eINSTANCE.getNeoSimpleEdge__GetCypherInnerEdgeVariable();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl <em>Neo Path Part</em>}' class.
@@ -6280,6 +6345,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EClass NEO_PROPERTY_NODE = eINSTANCE.getNeoPropertyNode();
 
 		/**
+		 * The meta object literal for the '<em><b>Generate Cypher Property Addressing</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_PROPERTY_NODE___GENERATE_CYPHER_PROPERTY_ADDRESSING = eINSTANCE.getNeoPropertyNode__GenerateCypherPropertyAddressing();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathParamImpl <em>Neo Path Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6298,12 +6371,12 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EReference NEO_PATH_PARAM__NEO_EDGE = eINSTANCE.getNeoPathParam_NeoEdge();
 
 		/**
-		 * The meta object literal for the '<em><b>Neo Path</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Neo Path Part</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NEO_PATH_PARAM__NEO_PATH = eINSTANCE.getNeoPathParam_NeoPath();
+		EReference NEO_PATH_PARAM__NEO_PATH_PART = eINSTANCE.getNeoPathParam_NeoPathPart();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyPathParamImpl <em>Neo Property Path Param</em>}' class.
@@ -6316,12 +6389,12 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EClass NEO_PROPERTY_PATH_PARAM = eINSTANCE.getNeoPropertyPathParam();
 
 		/**
-		 * The meta object literal for the '<em><b>Neo Path</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Neo Path Part</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NEO_PROPERTY_PATH_PARAM__NEO_PATH = eINSTANCE.getNeoPropertyPathParam_NeoPath();
+		EReference NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART = eINSTANCE.getNeoPropertyPathParam_NeoPathPart();
 
 		/**
 		 * The meta object literal for the '<em><b>Neo Property Edge</b></em>' reference feature.
@@ -6364,6 +6437,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * @generated
 		 */
 		EReference NEO_PROPERTY_EDGE__NEO_PROPERTY_PATH_PARAM = eINSTANCE.getNeoPropertyEdge_NeoPropertyPathParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Cypher Property Addressing</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_PROPERTY_EDGE___GENERATE_CYPHER_PROPERTY_ADDRESSING = eINSTANCE.getNeoPropertyEdge__GenerateCypherPropertyAddressing();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoAbstractEdgeImpl <em>Neo Abstract Edge</em>}' class.

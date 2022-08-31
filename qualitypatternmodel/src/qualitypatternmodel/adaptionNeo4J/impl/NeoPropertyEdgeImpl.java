@@ -2,9 +2,11 @@
  */
 package qualitypatternmodel.adaptionNeo4J.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -62,7 +64,7 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 		NeoPropertyPathParam nppp = getNeoPropertyPathParam();
 		String cypher;
 		
-		if (nppp.getNeoPath() != null) {
+		if (nppp.getNeoPathPart() != null) {
 			cypher = nppp.generateCypher();
 		} else {
 			cypher = null;
@@ -71,14 +73,18 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 		return cypher;
 	}
 	
-	//ADD to the .ecore-Model
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
 	@Override
-	public String generateCypherPropertyAddressing() throws InvalidityException {
+	public String generateCypherPropertyAddressing() {
 		NeoPropertyPathParam neoPropertyPathParam = getNeoPropertyPathParam();
 		if (neoPropertyPathParam != null) {
 			String cypher;
 			String variable; 
-			if (neoPropertyPathParam.getNeoPath() == null) {
+			if (neoPropertyPathParam.getNeoPathPart() == null) {
 				NeoNode neoNode = (NeoNode) getSource();
 				variable = neoNode.getCypherVariable();
 			} else {
@@ -182,7 +188,7 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PROPERTY_EDGE__NEO_PROPERTY_PATH_PARAM, newNeoPropertyPathParam, newNeoPropertyPathParam));
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -270,6 +276,20 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 				return neoPropertyPathParam != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case AdaptionNeo4JPackage.NEO_PROPERTY_EDGE___GENERATE_CYPHER_PROPERTY_ADDRESSING:
+				return generateCypherPropertyAddressing();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //NeoAttributeEdgeImpl

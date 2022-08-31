@@ -15,7 +15,7 @@ import qualitypatternmodel.graphstructure.tests.ComplexNodeTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoNode#setNeoNodeLabel(qualitypatternmodel.parameters.TextLiteralParam) <em>Set Neo Node Label</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoNode#addStringLabel(java.lang.String) <em>Add String Label</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getCypherVariable() <em>Get Cypher Variable</em>}</li>
  * </ul>
  * </p>
@@ -76,13 +76,13 @@ public class NeoNodeTest extends ComplexNodeTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoNode#setNeoNodeLabel(qualitypatternmodel.parameters.TextLiteralParam) <em>Set Neo Node Label</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoNode#addStringLabel(java.lang.String) <em>Add String Label</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoNode#setNeoNodeLabel(qualitypatternmodel.parameters.TextLiteralParam)
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoNode#addStringLabel(java.lang.String)
 	 * @generated
 	 */
-	public void testSetNeoNodeLabel__TextLiteralParam() {
+	public void testAddStringLabel__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

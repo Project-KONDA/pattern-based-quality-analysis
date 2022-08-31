@@ -223,7 +223,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 					currentRelation = r;
 				} else if (r.getTarget() != null && r instanceof NeoPropertyEdge) {
 					NeoPropertyEdge npe = (NeoPropertyEdge) r;
-					if (npe.getNeoPropertyPathParam() != null && npe.getNeoPropertyPathParam().getNeoPath() != null) {
+					if (npe.getNeoPropertyPathParam() != null && npe.getNeoPropertyPathParam().getNeoPathPart() != null) {
 						currentRelation = npe;
 					}
 				} else {

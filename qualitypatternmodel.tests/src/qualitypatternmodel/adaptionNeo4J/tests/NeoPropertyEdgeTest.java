@@ -11,6 +11,12 @@ import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Neo Property Edge</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge#generateCypherPropertyAddressing() <em>Generate Cypher Property Addressing</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class NeoPropertyEdgeTest extends NeoAbstractEdgeTest {
@@ -65,6 +71,19 @@ public class NeoPropertyEdgeTest extends NeoAbstractEdgeTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge#generateCypherPropertyAddressing() <em>Generate Cypher Property Addressing</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge#generateCypherPropertyAddressing()
+	 * @generated
+	 */
+	public void testGenerateCypherPropertyAddressing() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //NeoPropertyEdgeTest

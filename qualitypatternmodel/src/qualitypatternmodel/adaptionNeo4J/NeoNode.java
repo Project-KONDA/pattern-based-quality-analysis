@@ -4,7 +4,6 @@ package qualitypatternmodel.adaptionNeo4J;
 
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.parameters.TextListParam;
-import qualitypatternmodel.parameters.TextLiteralParam;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,5 +44,13 @@ public interface NeoNode extends ComplexNode, NeoAbstractNode {
 	 * @generated
 	 */
 	void setNeoNodeLabels(TextListParam value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addStringLabel(String label);
 
 } // NeoNode

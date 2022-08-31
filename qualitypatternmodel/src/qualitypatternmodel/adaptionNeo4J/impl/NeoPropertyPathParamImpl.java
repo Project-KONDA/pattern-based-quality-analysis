@@ -28,7 +28,7 @@ import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyPathParamImpl#getNeoPath <em>Neo Path</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyPathParamImpl#getNeoPathPart <em>Neo Path Part</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyPathParamImpl#getNeoPropertyEdge <em>Neo Property Edge</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyPathParamImpl#getNeoPropertyName <em>Neo Property Name</em>}</li>
  * </ul>
@@ -37,14 +37,14 @@ import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
  */
 public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implements NeoPropertyPathParam {
 	/**
-	 * The cached value of the '{@link #getNeoPath() <em>Neo Path</em>}' reference.
+	 * The cached value of the '{@link #getNeoPathPart() <em>Neo Path Part</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNeoPath()
+	 * @see #getNeoPathPart()
 	 * @generated
 	 * @ordered
 	 */
-	protected NeoPathPart neoPath;
+	protected NeoPathPart neoPathPart;
 
 	/**
 	 * The cached value of the '{@link #getNeoPropertyEdge() <em>Neo Property Edge</em>}' reference.
@@ -85,58 +85,63 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 		return AdaptionNeo4JPackage.Literals.NEO_PROPERTY_PATH_PARAM;
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NeoPathPart getNeoPathPart() {
+		return neoPathPart;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetNeoPathPart(NeoPathPart newNeoPathPart, NotificationChain msgs) {
+		NeoPathPart oldNeoPathPart = neoPathPart;
+		neoPathPart = newNeoPathPart;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART, oldNeoPathPart, newNeoPathPart);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setNeoPathPart(NeoPathPart newNeoPathPart) {
+		if (newNeoPathPart != neoPathPart) {
+			NotificationChain msgs = null;
+			if (neoPathPart != null)
+				msgs = ((InternalEObject)neoPathPart).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART, null, msgs);
+			if (newNeoPathPart != null)
+				msgs = ((InternalEObject)newNeoPathPart).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART, null, msgs);
+			msgs = basicSetNeoPathPart(newNeoPathPart, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART, newNeoPathPart, newNeoPathPart));
+	}
+
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		String cypher = "";
 		//If there is no NeoPath the NeoProperty is inside of the NeoNode
 		//Else diffrent constellations are possible how to build the relation between the origin node and the node for the property
-		if (getNeoPath() != null) {
-			NeoPathPartImpl np = (NeoPathPartImpl) getNeoPath();
+		if (getNeoPathPart() != null) {
+			NeoPathPartImpl np = (NeoPathPartImpl) getNeoPathPart();
 			cypher += np.generateCypher();
 		}
 		return cypher;
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NeoPathPart getNeoPath() {
-		if (neoPath != null && neoPath.eIsProxy()) {
-			InternalEObject oldNeoPath = (InternalEObject)neoPath;
-			neoPath = (NeoPathPart)eResolveProxy(oldNeoPath);
-			if (neoPath != oldNeoPath) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_PATH, oldNeoPath, neoPath));
-			}
-		}
-		return neoPath;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NeoPathPart basicGetNeoPath() {
-		return neoPath;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setNeoPath(NeoPathPart newNeoPath) {
-		NeoPathPart oldNeoPath = neoPath;
-		neoPath = newNeoPath;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_PATH, oldNeoPath, neoPath));
-	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -277,6 +282,8 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART:
+				return basicSetNeoPathPart(null, msgs);
 			case AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_EDGE:
 				return basicSetNeoPropertyEdge(null, msgs);
 		}
@@ -291,9 +298,8 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_PATH:
-				if (resolve) return getNeoPath();
-				return basicGetNeoPath();
+			case AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART:
+				return getNeoPathPart();
 			case AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_EDGE:
 				if (resolve) return getNeoPropertyEdge();
 				return basicGetNeoPropertyEdge();
@@ -313,8 +319,8 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_PATH:
-				setNeoPath((NeoPathPart)newValue);
+			case AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART:
+				setNeoPathPart((NeoPathPart)newValue);
 				return;
 			case AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_EDGE:
 				setNeoPropertyEdge((NeoPropertyEdge)newValue);
@@ -334,8 +340,8 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_PATH:
-				setNeoPath((NeoPathPart)null);
+			case AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART:
+				setNeoPathPart((NeoPathPart)null);
 				return;
 			case AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_EDGE:
 				setNeoPropertyEdge((NeoPropertyEdge)null);
@@ -355,8 +361,8 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_PATH:
-				return neoPath != null;
+			case AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART:
+				return neoPathPart != null;
 			case AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_EDGE:
 				return neoPropertyEdge != null;
 			case AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_NAME:

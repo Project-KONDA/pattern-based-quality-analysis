@@ -89,13 +89,11 @@ public abstract class NeoAbstractEdgeImpl extends RelationImpl implements NeoAbs
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void setIsReturnElement(boolean returnElement) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		this.returnElement = returnElement;
 	}
 
 	/**

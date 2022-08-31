@@ -13,7 +13,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPath <em>Neo Path</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPathPart <em>Neo Path Part</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPropertyEdge <em>Neo Property Edge</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPropertyName <em>Neo Property Name</em>}</li>
  * </ul>
@@ -24,26 +24,26 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  */
 public interface NeoPropertyPathParam extends NeoAbstractPathParam {
 	/**
-	 * Returns the value of the '<em><b>Neo Path</b></em>' reference.
+	 * Returns the value of the '<em><b>Neo Path Part</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Neo Path</em>' reference.
-	 * @see #setNeoPath(NeoPathPart)
-	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPropertyPathParam_NeoPath()
-	 * @model
+	 * @return the value of the '<em>Neo Path Part</em>' containment reference.
+	 * @see #setNeoPathPart(NeoPathPart)
+	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPropertyPathParam_NeoPathPart()
+	 * @model containment="true"
 	 * @generated
 	 */
-	NeoPathPart getNeoPath();
+	NeoPathPart getNeoPathPart();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPath <em>Neo Path</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPathPart <em>Neo Path Part</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Neo Path</em>' reference.
-	 * @see #getNeoPath()
+	 * @param value the new value of the '<em>Neo Path Part</em>' containment reference.
+	 * @see #getNeoPathPart()
 	 * @generated
 	 */
-	void setNeoPath(NeoPathPart value);
+	void setNeoPathPart(NeoPathPart value);
 
 	/**
 	 * Returns the value of the '<em><b>Neo Property Edge</b></em>' reference.

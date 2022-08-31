@@ -44,7 +44,7 @@ public class NeoSimpleEdgeItemProvider extends NeoPathPartItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addKeyvalueparamPropertyDescriptor(object);
+			addKeyValueParamPropertyDescriptor(object);
 			addNeoDirectionPropertyDescriptor(object);
 			addEdgeNumberPropertyDescriptor(object);
 			addNeoTargetNodeLabelsPropertyDescriptor(object);
@@ -55,19 +55,19 @@ public class NeoSimpleEdgeItemProvider extends NeoPathPartItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Keyvalueparam feature.
+	 * This adds a property descriptor for the Key Value Param feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addKeyvalueparamPropertyDescriptor(Object object) {
+	protected void addKeyValueParamPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NeoSimpleEdge_keyvalueparam_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NeoSimpleEdge_keyvalueparam_feature", "_UI_NeoSimpleEdge_type"),
-				 AdaptionNeo4JPackage.Literals.NEO_SIMPLE_EDGE__KEYVALUEPARAM,
+				 getString("_UI_NeoSimpleEdge_keyValueParam_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NeoSimpleEdge_keyValueParam_feature", "_UI_NeoSimpleEdge_type"),
+				 AdaptionNeo4JPackage.Literals.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM,
 				 true,
 				 false,
 				 true,

@@ -68,7 +68,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) getIncoming().get(0);
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
 		if (neoPropertyPathParam != null) {
-			NeoPathPart neoPathPart = neoPropertyPathParam.getNeoPath();
+			NeoPathPart neoPathPart = neoPropertyPathParam.getNeoPathPart();
 			if (neoPathPart != null) {
 				StringBuilder cypher = new StringBuilder();
 				cypher.append("(");
@@ -81,9 +81,13 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		return null;
 	}
 	
-	//ADD to the .ecore-Model
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
 	@Override
-	public String generateCypherPropertyAddressing() throws InvalidityException {
+	public String generateCypherPropertyAddressing() {
 		String cypher;
 		NeoPropertyEdge edge = (NeoPropertyEdge) getIncoming().get(0);
 		cypher = edge.generateCypherPropertyAddressing();
@@ -292,6 +296,8 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GENERATE_CYPHER_PROPERTY_ADDRESSING:
+				return generateCypherPropertyAddressing();
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GET_CYPHER_VARIABLE:
 				return getCypherVariable();
 		}
