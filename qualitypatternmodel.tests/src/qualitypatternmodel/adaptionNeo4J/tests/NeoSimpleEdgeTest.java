@@ -16,7 +16,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#setNeoDirection(qualitypatternmodel.adaptionNeo4J.NeoDirection) <em>Set Neo Direction</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isLastSimpleEdge() <em>Is Last Simple Edge</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addStrubgTargetNodeLabel(java.lang.String) <em>Add Strubg Target Node Label</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addStringTargetNodeLabel(java.lang.String) <em>Add String Target Node Label</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getCypherInnerEdgeVariable() <em>Get Cypher Inner Edge Variable</em>}</li>
  * </ul>
  * </p>
@@ -103,13 +103,13 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addStrubgTargetNodeLabel(java.lang.String) <em>Add Strubg Target Node Label</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addStringTargetNodeLabel(java.lang.String) <em>Add String Target Node Label</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addStrubgTargetNodeLabel(java.lang.String)
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addStringTargetNodeLabel(java.lang.String)
 	 * @generated
 	 */
-	public void testAddStrubgTargetNodeLabel__String() {
+	public void testAddStringTargetNodeLabel__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

@@ -2164,13 +2164,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PATH_PART___GET_CYPHER_VARIABLE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Generate Cypher Without Labels</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PART___GENERATE_CYPHER_WITHOUT_LABELS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Neo Path Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PART_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
+	int NEO_PATH_PART_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2459,6 +2468,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_COMPLEX_EDGE___GET_CYPHER_VARIABLE = NEO_PATH_PART___GET_CYPHER_VARIABLE;
+
+	/**
+	 * The operation id for the '<em>Generate Cypher Without Labels</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_COMPLEX_EDGE___GENERATE_CYPHER_WITHOUT_LABELS = NEO_PATH_PART___GENERATE_CYPHER_WITHOUT_LABELS;
 
 	/**
 	 * The operation id for the '<em>Validate Complex Edge</em>' operation.
@@ -2812,6 +2830,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_SIMPLE_EDGE___GET_CYPHER_VARIABLE = NEO_PATH_PART___GET_CYPHER_VARIABLE;
 
 	/**
+	 * The operation id for the '<em>Generate Cypher Without Labels</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE___GENERATE_CYPHER_WITHOUT_LABELS = NEO_PATH_PART___GENERATE_CYPHER_WITHOUT_LABELS;
+
+	/**
 	 * The operation id for the '<em>Set Neo Direction</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2830,13 +2857,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_SIMPLE_EDGE___IS_LAST_SIMPLE_EDGE = NEO_PATH_PART_OPERATION_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Add Strubg Target Node Label</em>' operation.
+	 * The operation id for the '<em>Add String Target Node Label</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE___ADD_STRUBG_TARGET_NODE_LABEL__STRING = NEO_PATH_PART_OPERATION_COUNT + 2;
+	int NEO_SIMPLE_EDGE___ADD_STRING_TARGET_NODE_LABEL__STRING = NEO_PATH_PART_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Cypher Inner Edge Variable</em>' operation.
@@ -5631,6 +5658,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_UNSPECIFIED_EDGE___GET_CYPHER_VARIABLE = NEO_PATH_PART___GET_CYPHER_VARIABLE;
 
 	/**
+	 * The operation id for the '<em>Generate Cypher Without Labels</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNSPECIFIED_EDGE___GENERATE_CYPHER_WITHOUT_LABELS = NEO_PATH_PART___GENERATE_CYPHER_WITHOUT_LABELS;
+
+	/**
 	 * The operation id for the '<em>Set Steps</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5881,14 +5917,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EOperation getNeoSimpleEdge__IsLastSimpleEdge();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addStrubgTargetNodeLabel(java.lang.String) <em>Add Strubg Target Node Label</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addStringTargetNodeLabel(java.lang.String) <em>Add String Target Node Label</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Strubg Target Node Label</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addStrubgTargetNodeLabel(java.lang.String)
+	 * @return the meta object for the '<em>Add String Target Node Label</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addStringTargetNodeLabel(java.lang.String)
 	 * @generated
 	 */
-	EOperation getNeoSimpleEdge__AddStrubgTargetNodeLabel__String();
+	EOperation getNeoSimpleEdge__AddStringTargetNodeLabel__String();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getCypherInnerEdgeVariable() <em>Get Cypher Inner Edge Variable</em>}' operation.
@@ -5962,6 +5998,16 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getNeoPathPart__GetCypherVariable();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#generateCypherWithoutLabels() <em>Generate Cypher Without Labels</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Cypher Without Labels</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#generateCypherWithoutLabels()
+	 * @generated
+	 */
+	EOperation getNeoPathPart__GenerateCypherWithoutLabels();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode <em>Neo Property Node</em>}'.
@@ -6406,12 +6452,12 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EOperation NEO_SIMPLE_EDGE___IS_LAST_SIMPLE_EDGE = eINSTANCE.getNeoSimpleEdge__IsLastSimpleEdge();
 
 		/**
-		 * The meta object literal for the '<em><b>Add Strubg Target Node Label</b></em>' operation.
+		 * The meta object literal for the '<em><b>Add String Target Node Label</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation NEO_SIMPLE_EDGE___ADD_STRUBG_TARGET_NODE_LABEL__STRING = eINSTANCE.getNeoSimpleEdge__AddStrubgTargetNodeLabel__String();
+		EOperation NEO_SIMPLE_EDGE___ADD_STRING_TARGET_NODE_LABEL__STRING = eINSTANCE.getNeoSimpleEdge__AddStringTargetNodeLabel__String();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Cypher Inner Edge Variable</b></em>' operation.
@@ -6470,6 +6516,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NEO_PATH_PART___GET_CYPHER_VARIABLE = eINSTANCE.getNeoPathPart__GetCypherVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Cypher Without Labels</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_PATH_PART___GENERATE_CYPHER_WITHOUT_LABELS = eINSTANCE.getNeoPathPart__GenerateCypherWithoutLabels();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyNodeImpl <em>Neo Property Node</em>}' class.

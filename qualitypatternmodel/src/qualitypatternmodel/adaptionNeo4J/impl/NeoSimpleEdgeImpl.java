@@ -19,6 +19,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.KeyValueParam;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
@@ -441,25 +442,24 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public boolean isLastSimpleEdge() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return this.isLastSimpleEdge;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
-	public void addStrubgTargetNodeLabel(String label) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public void addStringTargetNodeLabel(String label) {
+		if (this.neoTargetNodeLabels == null) {
+			this.neoTargetNodeLabels = new TextListParamImpl();
+		}
+		this.neoTargetNodeLabels.addStringValue(label);
 	}
 
 	//Inserted Method
@@ -589,8 +589,8 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 				return null;
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___IS_LAST_SIMPLE_EDGE:
 				return isLastSimpleEdge();
-			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___ADD_STRUBG_TARGET_NODE_LABEL__STRING:
-				addStrubgTargetNodeLabel((String)arguments.get(0));
+			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___ADD_STRING_TARGET_NODE_LABEL__STRING:
+				addStringTargetNodeLabel((String)arguments.get(0));
 				return null;
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___GET_CYPHER_INNER_EDGE_VARIABLE:
 				try {

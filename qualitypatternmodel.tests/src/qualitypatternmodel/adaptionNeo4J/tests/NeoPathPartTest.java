@@ -15,6 +15,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getSimpleEdges() <em>Get Simple Edges</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherVariable() <em>Get Cypher Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#generateCypherWithoutLabels() <em>Generate Cypher Without Labels</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -63,6 +64,19 @@ public abstract class NeoPathPartTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testGetCypherVariable() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#generateCypherWithoutLabels() <em>Generate Cypher Without Labels</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#generateCypherWithoutLabels()
+	 * @generated
+	 */
+	public void testGenerateCypherWithoutLabels() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

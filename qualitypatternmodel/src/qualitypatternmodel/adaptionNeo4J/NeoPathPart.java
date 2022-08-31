@@ -3,6 +3,7 @@
 package qualitypatternmodel.adaptionNeo4J;
 
 import org.eclipse.emf.common.util.EList;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -109,4 +110,12 @@ public interface NeoPathPart extends PatternElement {
 	 * @generated
 	 */
 	String getCypherVariable();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String generateCypherWithoutLabels() throws InvalidityException;
 } // NeoPathPart

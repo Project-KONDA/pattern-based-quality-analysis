@@ -1239,7 +1239,7 @@
         <eParameters name="neoDirection" eType="#//adaptionNeo4J/NeoDirection"/>
       </eOperations>
       <eOperations name="isLastSimpleEdge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eOperations name="addStrubgTargetNodeLabel">
+      <eOperations name="addStringTargetNodeLabel">
         <eParameters name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eOperations name="getCypherInnerEdgeVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -1258,6 +1258,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="NeoPathPart" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getSimpleEdges" upperBound="-1" eType="#//adaptionNeo4J/NeoSimpleEdge"/>
       <eOperations name="getCypherVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="generateCypherWithoutLabels" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="translated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoPathParam" eType="#//adaptionNeo4J/NeoPathParam"
           eOpposite="#//adaptionNeo4J/NeoPathParam/neoPathPart"/>
