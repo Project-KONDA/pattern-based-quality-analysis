@@ -61,13 +61,18 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 	//Translation of the neoPropertyEdge
 	@Override
 	public String generateCypher() throws InvalidityException {
-		NeoPropertyPathParam nppp = getNeoPropertyPathParam();
+		NeoPropertyPathParam neoPropertyPathParam = getNeoPropertyPathParam();
 		String cypher;
 		
-		if (nppp.getNeoPathPart() != null) {
-			cypher = nppp.generateCypher();
+		if (getIncomingMapping() == null) {
+			if (neoPropertyPathParam.getNeoPathPart() != null) {
+				cypher = neoPropertyPathParam.generateCypher();
+			} else {
+				cypher = null;
+			}
 		} else {
-			cypher = null;
+			cypher = "";
+			//TODO -- How to handle the case if this is just reduplicated mapped one?
 		}
 		
 		return cypher;

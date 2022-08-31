@@ -170,7 +170,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		//TODO - change that the label is just printed once -- Look if needed --> Do by Variable
 		if (getNeoTargetNodeLabels() != null && getNeoTargetNodeLabels().getValues().size() != 0) {
 			cypher.append("(");
-//			cypher.append(CypherSpecificConstants.INTERNAL_EDGE_NODE + getEdgeNumber());
+			cypher.append(getCypherInnerEdgeVariable());
 			EList<String> labels = getNeoTargetNodeLabels().getValues();
 			for (String label : labels) {
 				if (label != "") {
@@ -181,6 +181,8 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		}
 		return cypher.toString();
 	}
+	
+
 	
 	//Considering the SOLID-Principle: If this methods need change then extend from NeoSimpleEdge and Override it, 
 	//e.g., in future versions multi-labels in a Edge are Possible or the properties as labels should be considered
