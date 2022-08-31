@@ -172,7 +172,7 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	 */
 	@Override
 	public void addStringValue(String value) {
-		if (this.values != null) {
+		if (this.values == null) {
 			this.values = new BasicEList<String>();
 		}
 		if (!this.values.contains(value)) {

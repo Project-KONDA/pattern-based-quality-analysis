@@ -9,6 +9,8 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
+//Integrate the tests for the NeoNode and NeoPropertyNode in this tests
+//Test if it works if the targetNode before is from the NeoPathPart and then the NeoPropertyNode has to address this node
 public class CypherTest01NeoPropertyEdge {
 	public static final AdaptionNeo4JFactory factory = new AdaptionNeo4JFactoryImpl();
 	
@@ -26,7 +28,7 @@ public class CypherTest01NeoPropertyEdge {
 		return null;
 	}
 	
-	public static CompletePattern getNoPropertyEdge() {
+	public static CompletePattern getNeoPropertyEdge() {
 		
 		return null;
 	}

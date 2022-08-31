@@ -2488,13 +2488,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_COMPLEX_EDGE___VALIDATE_COMPLEX_EDGE = NEO_PATH_PART_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Add Neo Path Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_COMPLEX_EDGE___ADD_NEO_PATH_PART__NEOPATHPART = NEO_PATH_PART_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Neo Complex Edge</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_COMPLEX_EDGE_OPERATION_COUNT = NEO_PATH_PART_OPERATION_COUNT + 1;
+	int NEO_COMPLEX_EDGE_OPERATION_COUNT = NEO_PATH_PART_OPERATION_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2875,13 +2884,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_SIMPLE_EDGE___GET_CYPHER_INNER_EDGE_VARIABLE = NEO_PATH_PART_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Add Neo Edge Label</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE___ADD_NEO_EDGE_LABEL__STRING = NEO_PATH_PART_OPERATION_COUNT + 4;
+
+	/**
 	 * The number of operations of the '<em>Neo Simple Edge</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE_OPERATION_COUNT = NEO_PATH_PART_OPERATION_COUNT + 4;
+	int NEO_SIMPLE_EDGE_OPERATION_COUNT = NEO_PATH_PART_OPERATION_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -5821,6 +5839,16 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EOperation getNeoComplexEdge__ValidateComplexEdge();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#addNeoPathPart(qualitypatternmodel.adaptionNeo4J.NeoPathPart) <em>Add Neo Path Part</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Neo Path Part</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#addNeoPathPart(qualitypatternmodel.adaptionNeo4J.NeoPathPart)
+	 * @generated
+	 */
+	EOperation getNeoComplexEdge__AddNeoPathPart__NeoPathPart();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge <em>Neo Simple Edge</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5935,6 +5963,16 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getNeoSimpleEdge__GetCypherInnerEdgeVariable();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addNeoEdgeLabel(java.lang.String) <em>Add Neo Edge Label</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Neo Edge Label</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addNeoEdgeLabel(java.lang.String)
+	 * @generated
+	 */
+	EOperation getNeoSimpleEdge__AddNeoEdgeLabel__String();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart <em>Neo Path Part</em>}'.
@@ -6378,6 +6416,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EOperation NEO_COMPLEX_EDGE___VALIDATE_COMPLEX_EDGE = eINSTANCE.getNeoComplexEdge__ValidateComplexEdge();
 
 		/**
+		 * The meta object literal for the '<em><b>Add Neo Path Part</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_COMPLEX_EDGE___ADD_NEO_PATH_PART__NEOPATHPART = eINSTANCE.getNeoComplexEdge__AddNeoPathPart__NeoPathPart();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl <em>Neo Simple Edge</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6466,6 +6512,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NEO_SIMPLE_EDGE___GET_CYPHER_INNER_EDGE_VARIABLE = eINSTANCE.getNeoSimpleEdge__GetCypherInnerEdgeVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Neo Edge Label</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_SIMPLE_EDGE___ADD_NEO_EDGE_LABEL__STRING = eINSTANCE.getNeoSimpleEdge__AddNeoEdgeLabel__String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl <em>Neo Path Part</em>}' class.

@@ -20,6 +20,7 @@ import qualitypatternmodel.parameters.KeyValueParam;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
+import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
@@ -204,9 +205,9 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		cypher.append(CypherSpecificConstants.VARIABLE_EGDE);
 		cypher.append(getEdgeNumber());
 		if (withLabels) {
-			if (!translated && getNeoEdgeLabel() != null) {
+			if (getNeoEdgeLabel() != null) { //!translated &&
 				cypher.append(":" + getNeoEdgeLabel().getValue());
-				translated = true;
+				//translated = true;
 				
 			}
 		}
@@ -226,6 +227,21 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	@Override
 	public String getCypherInnerEdgeVariable() throws InvalidityException {
 		return CypherSpecificConstants.INTERNAL_EDGE_NODE + getEdgeNumber();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void addNeoEdgeLabel(String label) {
+		if (this.neoEdgeLabel == null) {
+			this.neoEdgeLabel = new TextLiteralParamImpl();
+		}
+		if (this.neoEdgeLabel.getValue() == null || this.neoEdgeLabel.getValue().compareTo(label) != 0) {
+			this.neoEdgeLabel.setValue(label);
+		}
 	}
 
 	/**
@@ -613,6 +629,9 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___ADD_NEO_EDGE_LABEL__STRING:
+				addNeoEdgeLabel((String)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

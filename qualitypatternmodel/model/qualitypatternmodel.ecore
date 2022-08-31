@@ -1230,7 +1230,11 @@
           eOpposite="#//adaptionNeo4J/NeoPathParam/neoEdge"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoComplexEdge" eSuperTypes="#//adaptionNeo4J/NeoPathPart">
-      <eOperations name="validateComplexEdge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="validateComplexEdge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="addNeoPathPart">
+        <eParameters name="neoPathPart" eType="#//adaptionNeo4J/NeoPathPart"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoPath" lowerBound="2"
           upperBound="-1" eType="#//adaptionNeo4J/NeoPathPart" containment="true"/>
     </eClassifiers>
@@ -1244,6 +1248,9 @@
       </eOperations>
       <eOperations name="getCypherInnerEdgeVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="addNeoEdgeLabel">
+        <eParameters name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="keyValueParam" eType="#//parameters/KeyValueParam"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="neoDirection" unique="false"
           eType="#//adaptionNeo4J/NeoDirection" changeable="false"/>

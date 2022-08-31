@@ -58,14 +58,20 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	
 	@Override 
 	public String generateCypher() throws InvalidityException {
-		String cypher = generateInternalCypher(true);			
-		return cypher;
+		if (this.validateComplexEdge()) {
+			String cypher = generateInternalCypher(true);			
+			return cypher;
+		}
+		throw new InvalidityException("The ComplexEdge is not correct");
 	}
 	
 	@Override
 	public String generateCypherWithoutLabels() throws InvalidityException {
-		String cypher = generateInternalCypher(true);			
-		return cypher;
+		if (this.validateComplexEdge()) {
+			String cypher = generateInternalCypher(true);			
+			return cypher;
+		}
+		throw new InvalidityException("The ComplexEdge is not correct");
 	}
 	
 	private String generateInternalCypher(boolean withLabels) throws InvalidityException {
@@ -82,13 +88,18 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	
 	@Override
 	public String getCypherVariable() {
-		StringBuilder variables = new StringBuilder();
-		EList<NeoPathPart> neoPath = this.getNeoPath();
-		for(NeoPathPart path : neoPath) {
-			if (variables.length() != 0) variables.append(","); 
-			variables.append(path.getCypherVariable());
+		try {
+			this.validateComplexEdge();
+			StringBuilder variables = new StringBuilder();
+			EList<NeoPathPart> neoPath = this.getNeoPath();
+			for(NeoPathPart path : neoPath) {
+				if (variables.length() != 0) variables.append(","); 
+				variables.append(path.getCypherVariable());
+			}
+			return variables.toString();
+		} catch (Exception e) {
+			return null;
 		}
-		return variables.toString();
 	}
 
 	/**
@@ -198,15 +209,25 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE___VALIDATE_COMPLEX_EDGE:
-				return validateComplexEdge();
+				try {
+					return validateComplexEdge();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE___ADD_NEO_PATH_PART__NEOPATHPART:
+				addNeoPathPart((NeoPathPart)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
 
+	//Talk about with Arno
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		// TODO Auto-generated method stub
+		if (getNeoPath() == null || getNeoPath().size() < 2)
+			throw new InvalidityException("NeoComplexPath " + getId() + " contains not enough NeoPathParts");
 		
 	}
 
@@ -232,9 +253,28 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	}
 
 	@Override
-	public boolean validateComplexEdge() {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean validateComplexEdge() throws InvalidityException {
+		for (NeoPathPart part : getNeoPath()) {
+			if (part instanceof NeoSimpleEdge && !(((NeoSimpleEdge) part).isIsLastSimpleEdge())) {
+				if (((NeoSimpleEdge) part).getNeoTargetNodeLabels() == null) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void addNeoPathPart(NeoPathPart neoPathPart) {
+		if (this.neoPath == null) {
+			this.neoPath = new BasicEList<NeoPathPart>();
+		}
+		this.neoPath.add(neoPathPart);
 	}
 
 

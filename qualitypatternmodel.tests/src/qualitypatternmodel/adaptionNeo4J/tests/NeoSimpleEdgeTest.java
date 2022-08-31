@@ -18,6 +18,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isLastSimpleEdge() <em>Is Last Simple Edge</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addStringTargetNodeLabel(java.lang.String) <em>Add String Target Node Label</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getCypherInnerEdgeVariable() <em>Get Cypher Inner Edge Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addNeoEdgeLabel(java.lang.String) <em>Add Neo Edge Label</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -123,6 +124,19 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 	 * @generated
 	 */
 	public void testGetCypherInnerEdgeVariable() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addNeoEdgeLabel(java.lang.String) <em>Add Neo Edge Label</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addNeoEdgeLabel(java.lang.String)
+	 * @generated
+	 */
+	public void testAddNeoEdgeLabel__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

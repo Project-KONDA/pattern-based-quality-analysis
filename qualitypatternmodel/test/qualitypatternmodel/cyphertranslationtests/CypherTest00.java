@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
 import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
 import qualitypatternmodel.adaptionNeo4J.*;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -60,13 +59,9 @@ public class CypherTest00 {
 	public static CompletePattern getBasePatternFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePattern();
 		completePattern.createNeo4jAdaption();
-		EList<Node> ns = completePattern.getGraph().getNodes();
-		for (Node n : ns) {
-			if(n instanceof ComplexNode) {
-				NeoNode neo = (NeoNode) n; 
-				neo.setNodePlace(NeoPlace.BEGINNING);
-			}
-		}
+		NeoNode ns = (NeoNode) completePattern.getGraph().getNodes().get(0);
+		ns.setNodePlace(NeoPlace.BEGINNING);
+		
 		return completePattern;
 	}
 	

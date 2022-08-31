@@ -63,6 +63,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		super();
 	}
 	
+	//Do I need this??? --> Need testing
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) getIncoming().get(0);
@@ -74,7 +75,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 				cypher.append("(");
 				cypher.append(CypherSpecificConstants.VARIABLE_NODE);
 				cypher.append(getOriginalID());
-				//MAYBE TODO --> Include labels
 				return cypher.toString();
 			}
 		}

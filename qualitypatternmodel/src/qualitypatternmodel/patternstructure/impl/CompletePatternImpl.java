@@ -407,7 +407,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			StringBuilder cypherNeoPropertyNode = new StringBuilder();
 			StringBuilder cypherNeoPropertyProperty = new StringBuilder();
 			NeoPropertyNode npn;
-			NeoPropertyPathParam nppp;
+			NeoPropertyPathParam neoPropertyPathParam;
 			String propertyName;
 			String matchingNodename;
 			
@@ -421,16 +421,16 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 					//Decision if the Property is in a new Node or in the same
 					npn = (NeoPropertyNode) n;
 					if (((NeoPropertyEdge) npn.getIncoming().get(0)).getNeoPropertyPathParam().getNeoPropertyName() != null) {
-						nppp =  ((NeoPropertyEdge) npn.getIncoming().get(0)).getNeoPropertyPathParam();
-						if (nppp.getNeoPathPart() == null) {
-							propertyName = nppp.getNeoPropertyName();
+						neoPropertyPathParam =  ((NeoPropertyEdge) npn.getIncoming().get(0)).getNeoPropertyPathParam();
+						if (neoPropertyPathParam.getNeoPathPart() == null) {
+							propertyName = neoPropertyPathParam.getNeoPropertyName();
 							matchingNodename =  ((NeoAbstractNode)((NeoPropertyEdge) npn.getIncoming().get(0)).getSource()).getCypherVariable();
 							cypherNeoPropertyProperty.append(matchingNodename + "." + propertyName);
 						} else {
 							//If the Property is in a sperated Node the way to access the property is diffrently
 							if (cypherNeoPropertyNode.length() != 0) cypherNeoPropertyNode.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
 							
-							propertyName = nppp.getNeoPropertyName();
+							propertyName = neoPropertyPathParam.getNeoPropertyName();
 							cypherNeoPropertyProperty.append(((NeoAbstractNode) n).getCypherVariable() + "." + propertyName);
 						}
 					} 	
@@ -456,18 +456,18 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 					if(r instanceof NeoPropertyEdge) {
 						npe = (NeoPropertyEdge) r;
 						if (npe.getNeoPropertyPathParam() != null && npe.getNeoPropertyPathParam().getNeoPathPart() != null) {
-							cypherEdge.append(npe.getNeoPropertyPathParam().getNeoPathPart().getCypherVariable());
+							cypherProperties.append(npe.getNeoPropertyPathParam().getNeoPathPart().getCypherVariable());
 						}
 					} else if(r instanceof NeoEdge) {
 						ne = (NeoEdge) r;
 						if (ne.getNeoPathParam() != null && ne.getNeoPathParam().getNeoPathPart() != null) {
-							cypherProperties.append(ne.getNeoPathParam().getNeoPathPart().getCypherVariable());
+							cypherEdge.append(ne.getNeoPathParam().getNeoPathPart().getCypherVariable());
 						}
 					}
 				}
 			}
-			if (cypherEdge.length() != 0) cypher += "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherEdge.toString();
-			if (cypherProperties.length() != 0) cypher += "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherEdge.toString();
+			if (cypherEdge.length() != 0) cypher += ", " + "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherEdge.toString();
+			if (cypherProperties.length() != 0) cypher += ", " + "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherProperties.toString();
 		}
 		
 		return cypher;

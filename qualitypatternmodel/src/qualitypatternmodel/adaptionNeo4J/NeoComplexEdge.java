@@ -3,6 +3,7 @@
 package qualitypatternmodel.adaptionNeo4J;
 
 import org.eclipse.emf.common.util.EList;
+import qualitypatternmodel.exceptions.InvalidityException;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,9 +37,17 @@ public interface NeoComplexEdge extends NeoPathPart {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	boolean validateComplexEdge() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
-	boolean validateComplexEdge();
+	void addNeoPathPart(NeoPathPart neoPathPart);
 
 } // SequenceEdge

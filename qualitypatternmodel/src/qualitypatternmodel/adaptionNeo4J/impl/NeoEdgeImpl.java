@@ -66,12 +66,18 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 	public String generateCypher() throws InvalidityException {
 		StringBuilder cypher = new StringBuilder("");
 		if (getIncomingMapping() == null) {
-			if(!translated && getNeoPathParam() != null) {
+			if(!translated && getNeoPathParam() != null 
+					&& ((NeoPathParam) getNeoPathParam()).getNeoPathPart() != null) {
+				
+				//TODO make it more generic if the NeoUnspecifiedEdge is comeing
 				EList<NeoSimpleEdge> neoSimpleEdges = getNeoPathParam().getNeoPathPart().getSimpleEdges();
 				if (neoSimpleEdges == null || neoSimpleEdges.size() == 0) throw new InvalidityException();
 				this.translated = true;
 				
 				if (neoSimpleEdges.size() > 1) {
+					NeoPathPart neoPathPart = ((NeoPathParam) getNeoPathParam()).getNeoPathPart();
+					cypher.append(neoPathPart.generateCypher());
+					
 					NeoSimpleEdge lastEdge = null;
 					//Every ComplexEdge needs a last SimpleEdge
 					for (NeoSimpleEdge possibleLast : neoSimpleEdges) {
@@ -80,87 +86,17 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 						}
 					}
 					
-					boolean doopleEdge = false;
-					for (String label : neoSimpleEdges.get(0).getNeoTargetNodeLabels().getValues()) {
-						if (label == CypherSpecificConstants.REPLACING_SEQUENCES_DOPPLE_CONNECTION) {
+					if (lastEdge != null) {
+						if (lastEdge.getNeoTargetNodeLabels() != null) {
 							cypher.append(CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES);
-							doopleEdge = true;
-							break;
 						}
-					}
-					
-					if (doopleEdge) {
-						cypher.append(getNeoPathParam().generateCypher() + CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES);
-						int start = cypher.indexOf(":" + CypherSpecificConstants.REPLACING_SEQUENCES_DOPPLE_CONNECTION.length());
-						cypher.replace(start, CypherSpecificConstants.REPLACING_SEQUENCES_DOPPLE_CONNECTION.length(), "");	//replace(":" + CypherSpecificConstants.REPLACING_SEQUENCES_DOPPLE_CONNECTION, "");
 					} else {
-						EList<String> neoLastTargetLabels = null;
-						if (lastEdge != null) neoLastTargetLabels = lastEdge.getNeoTargetNodeLabels().getValues();
-						
-						//For handling a not suitable suffix like -() or -(:AnyLabels)
-						//Since structures like -()() or -(:AnyLabels)() are a not valid syntax for Cypher
-						if (getTarget() != null && getTarget() instanceof NeoNode ) {
-							if (neoLastTargetLabels != null && neoLastTargetLabels.size() != 0) {
-								NeoNodeImpl nni = (NeoNodeImpl) getTarget();
-								TextListParamImpl nodeLabels = null;
-								try {
-									nodeLabels = (TextListParamImpl) nni.getNeoNodeLabels();
-								} catch (Exception e) {
-									throw new InvalidityException("");
-								}
-								
-								boolean labelEqual = true;
-								boolean labelIncluded;
-								if (nodeLabels != null && nodeLabels.getValues().size() == neoLastTargetLabels.size()) {
-									for (String edgeTargetLabel : neoLastTargetLabels) {
-										labelIncluded = false;
-										for (String nodeLabel : nodeLabels.getValues()) {
-											if (nodeLabel.compareTo(edgeTargetLabel) == 0) {
-												labelIncluded = true;
-												break;
-											}
-										}
-										if (labelIncluded == false) {
-											labelEqual = false;
-											break;
-										}
-									}
-								} else {
-									labelEqual = false;
-								}
-								
-								String cypherEdge = getNeoPathParam().generateCypher();
-								if (lastEdge.generateCypher().subSequence(lastEdge.generateCypher().length() - 2, 
-										lastEdge.generateCypher().length() - 1) == "()") {
-									cypher.append(CypherSpecificConstants.CONNECTION);
-								} else {						
-									if(labelEqual) {
-										int until = (cypherEdge.indexOf("[" + lastEdge.getCypherVariable() + "]") - 1) + (lastEdge.getCypherVariable().length() - 1); //The three is for the symbos []-
-										cypher.append(cypherEdge.substring(0, until));
-									} else {
-										//For connecting the last node of the NeoEdge with the following Complex node
-										cypher.append(cypherEdge + CypherSpecificConstants.CONNECTION);
-									}
-								}
-							}
-						} else {
-							throw new InvalidityException("No traget was specified");
-						}
+						throw new InvalidityException("The last NeoPathPart has to be specified as lastEdge");
 					}
 				} else if (neoSimpleEdges.size() == 1) {
 					cypher.append(neoSimpleEdges.get(0).generateCypher());
-					boolean doopleEdge = false;
-					if (neoSimpleEdges.get(0).getNeoTargetNodeLabels() != null) {
-						for (String label : neoSimpleEdges.get(0).getNeoTargetNodeLabels().getValues()) {
-							if (label == CypherSpecificConstants.REPLACING_SEQUENCES_DOPPLE_CONNECTION) {
-								cypher.append(CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES);
-								doopleEdge = true;
-								break;
-							}
-						}
-					}
 					if (neoSimpleEdges.get(0).getNeoTargetNodeLabels() != null &&
-							neoSimpleEdges.get(0).getNeoTargetNodeLabels().getValues().size() != 0 && !doopleEdge) cypher.append(CypherSpecificConstants.CONNECTION); 
+							neoSimpleEdges.get(0).getNeoTargetNodeLabels().getValues().size() != 0) cypher.append(CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES); 
 				} 
 			} else if( getNeoPathParam() == null) {
 				return "--";

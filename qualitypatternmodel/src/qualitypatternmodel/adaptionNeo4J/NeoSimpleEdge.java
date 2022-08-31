@@ -212,4 +212,12 @@ public interface NeoSimpleEdge extends NeoPathPart {
 	 * @generated
 	 */
 	String getCypherInnerEdgeVariable() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addNeoEdgeLabel(String label);
 } // SimpleEdge

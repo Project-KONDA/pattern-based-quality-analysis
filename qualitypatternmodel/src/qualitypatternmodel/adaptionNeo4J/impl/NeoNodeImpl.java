@@ -4,6 +4,7 @@ package qualitypatternmodel.adaptionNeo4J.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -20,6 +21,7 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.impl.ComplexNodeImpl;
 import qualitypatternmodel.parameters.TextListParam;
+import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
@@ -93,7 +95,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 			}
 			
 			//Wie komme ich an die Operator List
-			Graph g; 
+//			Graph g; 
 			
 			translated = true;
 		}
@@ -225,13 +227,16 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT 
 	 */
 	@Override
 	public void addStringLabel(String label) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if (this.neoNodeLabels == null) {
+			this.neoNodeLabels = new TextListParamImpl();
+		}
+		if (!this.neoNodeLabels.getValues().contains(label)) {
+			this.neoNodeLabels.addStringValue(label);
+		}
 	}
 
 	/**

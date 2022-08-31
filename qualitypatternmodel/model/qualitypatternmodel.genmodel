@@ -1034,6 +1034,9 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoComplexEdge">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoComplexEdge/neoPath"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoComplexEdge/validateComplexEdge"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoComplexEdge/addNeoPathPart">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionNeo4J/NeoComplexEdge/addNeoPathPart/neoPathPart"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -1053,6 +1056,9 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/addStringTargetNodeLabel/label"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/getCypherInnerEdgeVariable"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/addNeoEdgeLabel">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/addNeoEdgeLabel/label"/>
+        </genOperations>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/translated"/>
