@@ -148,14 +148,17 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 			} else if (neoSimpleEdges.size() == 1) {
 				cypher.append(neoSimpleEdges.get(0).generateCypher());
 				boolean doopleEdge = false;
-				for (String label : neoSimpleEdges.get(0).getNeoTargetNodeLabels().getValues()) {
-					if (label == CypherSpecificConstants.REPLACING_SEQUENCES_DOPPLE_CONNECTION) {
-						cypher.append(CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES);
-						doopleEdge = true;
-						break;
+				if (neoSimpleEdges.get(0).getNeoTargetNodeLabels() != null) {
+					for (String label : neoSimpleEdges.get(0).getNeoTargetNodeLabels().getValues()) {
+						if (label == CypherSpecificConstants.REPLACING_SEQUENCES_DOPPLE_CONNECTION) {
+							cypher.append(CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES);
+							doopleEdge = true;
+							break;
+						}
 					}
 				}
-				if (neoSimpleEdges.get(0).getNeoTargetNodeLabels().getValues().size() != 0 && !doopleEdge) cypher.append(CypherSpecificConstants.CONNECTION); 
+				if (neoSimpleEdges.get(0).getNeoTargetNodeLabels() != null &&
+						neoSimpleEdges.get(0).getNeoTargetNodeLabels().getValues().size() != 0 && !doopleEdge) cypher.append(CypherSpecificConstants.CONNECTION); 
 			} 
 		} else if( getNeoPathParam() == null) {
 			return "--";

@@ -168,7 +168,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			throw new InvalidityException("Something went wronge in the SimpleNeoEdge - direction has not been set correctly");
 		}
 		//TODO - change that the label is just printed once -- Look if needed --> Do by Variable
-		if (getNeoTargetNodeLabels().getValues().size() != 0) {
+		if (getNeoTargetNodeLabels() != null && getNeoTargetNodeLabels().getValues().size() != 0) {
 			cypher.append("(");
 //			cypher.append(CypherSpecificConstants.INTERNAL_EDGE_NODE + getEdgeNumber());
 			EList<String> labels = getNeoTargetNodeLabels().getValues();
