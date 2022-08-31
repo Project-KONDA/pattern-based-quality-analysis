@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
+import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
@@ -165,7 +166,13 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 				return "--";
 			}
 		} else {
-			//TODO -- How to handle the case if this is just reduplicated mapped one?
+			NeoEdge neoEdge = (NeoEdge) getIncomingMapping();
+			while (neoEdge.getIncomingMapping() != null) {
+				neoEdge = (NeoEdge) getIncomingMapping();
+			}
+			NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
+			NeoPathPart neoPathPart = neoPathParam.getNeoPathPart();
+			cypher.append(neoPathPart.generateCypherWithoutLabels());
 		}
 		
 		return cypher.toString();		

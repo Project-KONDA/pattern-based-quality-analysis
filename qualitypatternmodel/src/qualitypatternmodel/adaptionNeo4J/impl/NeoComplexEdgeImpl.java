@@ -58,11 +58,25 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	
 	@Override 
 	public String generateCypher() throws InvalidityException {
+		String cypher = generateInternalCypher(true);			
+		return cypher;
+	}
+	
+	@Override
+	public String generateCypherWithoutLabels() throws InvalidityException {
+		String cypher = generateInternalCypher(true);			
+		return cypher;
+	}
+	
+	private String generateInternalCypher(boolean withLabels) throws InvalidityException {
 		if (getNeoPath().size() < 2) 
 			return null;
-		StringBuilder cypher = new StringBuilder();		
-		for(NeoPathPart part : getSimpleEdges()) cypher.append(part.generateCypher());
-		
+		StringBuilder cypher = new StringBuilder();
+		if (withLabels) {
+			for(NeoPathPart part : getSimpleEdges()) cypher.append(part.generateCypher());
+		} else {
+			for(NeoPathPart part : getSimpleEdges()) cypher.append(part.generateCypherWithoutLabels());
+		}
 		return cypher.toString();
 	}
 	

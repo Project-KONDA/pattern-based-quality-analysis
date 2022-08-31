@@ -13,7 +13,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
+import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
+import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
+import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
@@ -71,8 +74,13 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 				cypher = null;
 			}
 		} else {
-			cypher = "";
-			//TODO -- How to handle the case if this is just reduplicated mapped one?
+			NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) getIncomingMapping();
+			while (neoPropertyEdge.getIncomingMapping() != null) {
+				neoPropertyEdge = (NeoPropertyEdge) getIncomingMapping();
+			}
+			NeoPropertyPathParam neoPathParam = neoPropertyEdge.getNeoPropertyPathParam();
+			NeoPathPart neoPathPart = neoPathParam.getNeoPathPart();
+			cypher = neoPathPart.generateCypherWithoutLabels();
 		}
 		
 		return cypher;

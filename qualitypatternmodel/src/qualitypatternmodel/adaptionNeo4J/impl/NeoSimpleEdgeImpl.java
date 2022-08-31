@@ -149,52 +149,66 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	@Override
 	public String generateCypher() throws InvalidityException {
 		StringBuilder cypher = new StringBuilder();		
+		generateInternalCypher(cypher, true);
+		return cypher.toString();
+	}
+	
+	@Override
+	public String generateCypherWithoutLabels() throws InvalidityException {
+		StringBuilder cypher = new StringBuilder();
+		generateInternalCypher(cypher, false);
+		return cypher.toString();
+	}
+
+	
+	private void generateInternalCypher(StringBuilder cypher, Boolean withLabels) throws InvalidityException {
 		switch (this.neoDirection) {
 		case IMPLICIT:
 			cypher.append("-");
-			this.generateCypher(cypher);
+			this.generateInternalCypherLabelGenerator(cypher, withLabels);
 			cypher.append("-");
 			break;
 		case LEFT:
 			cypher.append("<-");
-			this.generateCypher(cypher);
+			this.generateInternalCypherLabelGenerator(cypher, withLabels);
 			cypher.append("-");
 			break;
 		case RIGHT:
 			cypher.append("-");
-			this.generateCypher(cypher);
+			this.generateInternalCypherLabelGenerator(cypher, withLabels);
 			cypher.append("->");
 			break;
 		default:
 			throw new InvalidityException("Something went wronge in the SimpleNeoEdge - direction has not been set correctly");
 		}
-		//TODO - change that the label is just printed once -- Look if needed --> Do by Variable
+		
 		if (getNeoTargetNodeLabels() != null && getNeoTargetNodeLabels().getValues().size() != 0) {
 			cypher.append("(");
 			cypher.append(getCypherInnerEdgeVariable());
-			EList<String> labels = getNeoTargetNodeLabels().getValues();
-			for (String label : labels) {
-				if (label != "") {
-					cypher.append(":" + label);
+			if (withLabels) {
+				EList<String> labels = getNeoTargetNodeLabels().getValues();
+				for (String label : labels) {
+					if (label != "") {
+						cypher.append(":" + label);
+					}
 				}
 			}
 			cypher.append(")");
 		}
-		return cypher.toString();
 	}
-	
-
 	
 	//Considering the SOLID-Principle: If this methods need change then extend from NeoSimpleEdge and Override it, 
 	//e.g., in future versions multi-labels in a Edge are Possible or the properties as labels should be considered
-	private void generateCypher(StringBuilder cypher) throws InvalidityException {
+	private void generateInternalCypherLabelGenerator(StringBuilder cypher, Boolean withLabels) throws InvalidityException {
 		cypher.append("[");
 		cypher.append(CypherSpecificConstants.VARIABLE_EGDE);
 		cypher.append(getEdgeNumber());
-		if (!translated && getNeoEdgeLabel() != null) {
-			cypher.append(":" + getNeoEdgeLabel().getValue());
-			translated = true;
-			
+		if (withLabels) {
+			if (!translated && getNeoEdgeLabel() != null) {
+				cypher.append(":" + getNeoEdgeLabel().getValue());
+				translated = true;
+				
+			}
 		}
 		cypher.append("]");
 	}
