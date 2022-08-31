@@ -6,6 +6,8 @@ import static qualitypatternmodel.utility.Constants.*;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
@@ -166,13 +168,16 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void addStringValue(String value) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if (this.values != null) {
+			this.values = new BasicEList<String>();
+		}
+		if (!this.values.contains(value)) {
+			this.values.add(value);
+		}
 	}
 
 	/**

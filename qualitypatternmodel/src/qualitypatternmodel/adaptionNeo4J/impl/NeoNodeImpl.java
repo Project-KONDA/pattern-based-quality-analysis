@@ -93,12 +93,8 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 					cypher.append(label);
 				}
 			}
-				
-			
 			//Wie komme ich an die Operator List
 			Graph g; 
-			
-			
 			
 			translated = true;
 		}
