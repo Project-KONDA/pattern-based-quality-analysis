@@ -13,9 +13,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
-import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
@@ -79,8 +77,13 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 				neoPropertyEdge = (NeoPropertyEdge) getIncomingMapping();
 			}
 			NeoPropertyPathParam neoPathParam = neoPropertyEdge.getNeoPropertyPathParam();
-			NeoPathPart neoPathPart = neoPathParam.getNeoPathPart();
-			cypher = neoPathPart.generateCypherWithoutLabels();
+			if (neoPathParam != null && neoPathParam.getNeoPathPart() != null) {
+				NeoPathPart neoPathPart = neoPathParam.getNeoPathPart();
+				cypher = neoPathPart.generateCypherWithoutLabels();
+			} else {
+				cypher = null;
+			}
+			
 		}
 		
 		return cypher;
@@ -117,14 +120,14 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 		if (getIncomingMapping() == null) {
 			ParameterList pList = getParameterList();
 			if (pList != null) {
-				NeoPropertyPathParam nppp = getNeoPropertyPathParam();
-				if (nppp == null) {
-					nppp = new NeoPropertyPathParamImpl();
-					setNeoPropertyPathParam(nppp);
-					pList.add(nppp);	
+				NeoPropertyPathParam neoPropertyPathParam = getNeoPropertyPathParam();
+				if (neoPropertyPathParam == null) {
+					neoPropertyPathParam = new NeoPropertyPathParamImpl();
+					setNeoPropertyPathParam(neoPropertyPathParam);
+					pList.add(neoPropertyPathParam);	
 				}
-				if (!pList.equals(nppp.getParameterList())) {
-					pList.add(nppp);
+				if (!pList.equals(neoPropertyPathParam.getParameterList())) {
+					pList.add(neoPropertyPathParam);
 				}
 			}
 		}

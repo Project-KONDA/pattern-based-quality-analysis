@@ -83,9 +83,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 		cypher.append(CypherSpecificConstants.VARIABLE_NODE);
 		cypher.append(getOriginalID());
 		TextListParam labels = this.getNeoNodeLabels();
-		//prüft ob es eine original node
-		//Falls es original dann labels
-		//TODO Auch für Edge einfügen
+		//prüft ob es eine original node -- Falls es original dann labels
 		if((!translated) && getIncomingMapping() == null) { 
 			if (getNeoNodeLabels() != null) {
 				for (String label : labels.getValues()) {
@@ -93,6 +91,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 					cypher.append(label);
 				}
 			}
+			
 			//Wie komme ich an die Operator List
 			Graph g; 
 			
