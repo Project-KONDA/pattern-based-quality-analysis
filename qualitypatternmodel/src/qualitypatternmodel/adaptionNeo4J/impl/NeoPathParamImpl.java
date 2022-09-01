@@ -14,6 +14,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
  * <!-- begin-user-doc -->
@@ -72,8 +73,11 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 
 	@Override
 	public String generateCypher() throws InvalidityException {
-		String cypher = neoPathPart.generateCypher();
-		return cypher;
+		if (neoPathPart != null) {
+			String cypher = neoPathPart.generateCypher();
+			return cypher;
+		}
+		return CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES;	
 	}
 	
 	/**

@@ -32,7 +32,7 @@ public class CypherSpecificConstants {
 	public static final String WHERE_OPERATOR_CONTAINS = "CONTAINS";
 	public static final String SPECIAL_CYPHER_MULTIPLE_EDGES_NODES = "--";
 	public static final String SPECIAL_CYPHER_REGEX_EXPRESSION = "=~";
-	public static final String REPLACING_SEQUENCES_DOPPLE_CONNECTION = "ReplaceWithDoppleConnection";
+	//public static final String REPLACING_SEQUENCES_DOPPLE_CONNECTION = "ReplaceWithDoppleConnection";
 	
 	public static final String CYPHER_COMPARISON_OPERATOR_EQUAL = "=";
 	public static final String CYPHER_COMPARISON_OPERATOR_EQUAL_IN_GRAPH_MATCHING = ":";

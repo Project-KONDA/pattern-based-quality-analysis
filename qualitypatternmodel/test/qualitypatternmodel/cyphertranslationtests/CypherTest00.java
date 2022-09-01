@@ -45,6 +45,29 @@ public class CypherTest00 {
 		}
 	}
 	
+	public static void exceptionHandler(ArrayList<CompletePattern> completePatterns) {
+		System.out.println("From here on Exceptions should be printed");
+		for (CompletePattern completePattern : completePatterns) {
+			try {
+				replace(completePattern);
+				System.out.println("\n\n___PATTERN_(VALID)___");
+				System.out.println(completePattern.myToString());
+				System.out.print("\n___TRANSLATION___");
+				System.out.println(completePattern.generateCypher());
+				System.out.println("No Exception has been triggered");
+			} catch (Exception e) {
+				System.out.println("-- Beginning of the Exceptions --");
+				e.printStackTrace();
+				try {
+				  System.out.println(completePattern.myToString());
+				} catch (Exception e2) {
+					e2.printStackTrace();
+				}
+				System.out.println("Test successful");
+			}
+		}
+	}
+	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getBasePatternFinal());

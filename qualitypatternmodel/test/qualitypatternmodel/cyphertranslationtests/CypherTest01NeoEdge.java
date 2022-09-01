@@ -24,6 +24,7 @@ public class CypherTest01NeoEdge {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		//Tests
+		completePatterns.add(getUnspecifiedEdge());
 		completePatterns.add(getSimpleEdge());
 		completePatterns.add(getSimpleEdgeWithLabels());
 		completePatterns.add(getSimpleEdgeWithLabelsRight());
@@ -33,9 +34,30 @@ public class CypherTest01NeoEdge {
 		completePatterns.add(getComplexEdgeWithDoppleEnding());
 		completePatterns.add(getComplexEdgeWithTargeAtEndAndLabels());
 		completePatterns.add(getComplexEdgeWithLabelsDiffrentDirectionsAndLabels());
-		
 		//Call tester from CypherTest00
 		CypherTest00.test(completePatterns);
+		
+		//Exception tests
+		ArrayList<CompletePattern> completePatternsExceptions = new ArrayList<CompletePattern>();
+		completePatternsExceptions.add(tryToCreateNeoDirectionErrorShallNotWork());
+		completePatternsExceptions.add(validateComplexEdgeNoLastEdgeIsSet());
+		completePatternsExceptions.add(NeoNeoPathPartIsSetWithEmptyComplexEdge());
+		//Call Exception Handler
+		CypherTest00.exceptionHandler(completePatternsExceptions);
+		
+		//Exception during Build-Pattern
+		System.out.println("");
+		System.out.println("BEGIN - Build-Pattern-Exceptions");
+		try {
+			System.out.println("Exception: Set NeoPathPart");
+			NeoNeoNeedsAPathParam();
+			System.out.println("");
+		} catch (Exception e) {
+			System.out.println(e);
+			System.out.println("");
+		}
+		System.out.println("END - Build-Pattern-Exceptions");
+		System.out.println("");
 	}
 	
 	public static CompletePattern getBasePatternNeoEdge() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -44,6 +66,14 @@ public class CypherTest01NeoEdge {
 		NeoNode ns = (NeoNode) completePattern.getGraph().getNodes().get(0);
 		ns.setNodePlace(NeoPlace.BEGINNING);
 		
+		return completePattern;
+	}
+	
+	public static CompletePattern getUnspecifiedEdge() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getBasePatternNeoEdge();
+		NeoEdge	neoEdge	= (NeoEdge) completePattern.getGraph().getRelations().get(0);
+		NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
+		neoPathParam.setNeoPathPart(null);
 		return completePattern;
 	}
 		
@@ -302,8 +332,71 @@ public class CypherTest01NeoEdge {
 		return completePattern;
 	}
 	
-	public static CompletePattern getUnspecifiedEdge() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return null;
+	
+	////NeoSimpleEdge
+	//Something went wrong in the SimpleNeoEdge - direction has not been set correctly
+	//The setter catches null inputs and thus it leads not to an Exception.
+	public static CompletePattern tryToCreateNeoDirectionErrorShallNotWork() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getBasePatternNeoEdge();
+		NeoEdge	neoEdge	= (NeoEdge) completePattern.getGraph().getRelations().get(0);
+		NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
+		NeoSimpleEdge neoSimpleEdge = (NeoSimpleEdge) neoPathParam.getNeoPathPart();
+		neoSimpleEdge.setNeoDirection(null);
+		
+		return completePattern;
+	}
+	
+	
+	//Exception In the ComplexEdge
+	//The ComplexEdge is not correct -- Because "No LastEdge"
+	public static CompletePattern validateComplexEdgeNoLastEdgeIsSet() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getBasePatternNeoEdge();
+		NeoEdge neoEdge = (NeoEdge) completePattern.getGraph().getRelations().get(0);
+		NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
+		NeoComplexEdge neoComplexEdge = factory.createNeoComplexEdge();
+		NeoSimpleEdge neoSimpleEdge1 = factory.createNeoSimpleEdge();
+		neoSimpleEdge1.addStringTargetNodeLabel("Place");
+		neoSimpleEdge1.addNeoEdgeLabel("PLACE_OF_ISSUE");
+		neoSimpleEdge1.setNeoDirection(NeoDirection.RIGHT);
+		NeoSimpleEdge neoSimpleEdge2 = factory.createNeoSimpleEdge();
+		neoSimpleEdge2.addNeoEdgeLabel("PLACE_OF_ISSUE");
+		neoSimpleEdge2.setNeoDirection(NeoDirection.LEFT);
+		neoSimpleEdge2.addStringTargetNodeLabel("Regesta");
+		NeoSimpleEdge neoSimpleEdge3 = factory.createNeoSimpleEdge();
+		neoSimpleEdge3.addNeoEdgeLabel("APPEARS_IN");
+		neoSimpleEdge3.setNeoDirection(NeoDirection.LEFT);
+		neoSimpleEdge3.setIsLastSimpleEdge(false);
+		
+		neoComplexEdge.addNeoPathPart(neoSimpleEdge1);
+		neoComplexEdge.addNeoPathPart(neoSimpleEdge2);
+		neoComplexEdge.addNeoPathPart(neoSimpleEdge3);
+		neoPathParam.setNeoPathPart(neoComplexEdge);
+		
+		return completePattern;
+	}
+	
+	//Exception In the NeoNode
+	//ComplexNode can not be empty
+	public static CompletePattern NeoNeoPathPartIsSetWithEmptyComplexEdge() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getBasePatternNeoEdge();
+		NeoEdge neoEdge = (NeoEdge) completePattern.getGraph().getRelations().get(0);
+		NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
+		NeoComplexEdge neoComplexEdge = factory.createNeoComplexEdge();
+		neoPathParam.setNeoPathPart(neoComplexEdge);
+		
+		return completePattern;
+	}
+	
+	
+	//Exeption in NeoEdge 
+	//NeoEdge needs a NeoPathParam
+	//Doesent work since the Framework does not allow to remove the NeoPathParam / to set a new One after once set
+	public static CompletePattern NeoNeoNeedsAPathParam() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getBasePatternNeoEdge();
+		NeoEdge neoEdge = (NeoEdge) completePattern.getGraph().getRelations().get(0);
+		neoEdge.setNeoPathParam(null);
+		
+		return completePattern;
 	}
 }
 

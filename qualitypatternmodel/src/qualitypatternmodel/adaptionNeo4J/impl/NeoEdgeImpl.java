@@ -67,9 +67,9 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 			if(!translated && getNeoPathParam() != null 
 					&& ((NeoPathParam) getNeoPathParam()).getNeoPathPart() != null) {
 				
-				//TODO make it more generic if the NeoUnspecifiedEdge is comeing
+				//TODO make it more generic if the NeoUnspecifiedEdge is coming
 				EList<NeoSimpleEdge> neoSimpleEdges = getNeoPathParam().getNeoPathPart().getSimpleEdges();
-				if (neoSimpleEdges == null || neoSimpleEdges.size() == 0) throw new InvalidityException();
+				if (neoSimpleEdges == null || neoSimpleEdges.size() == 0) throw new InvalidityException("ComplexNode can not be empty");
 				this.translated = true;
 				
 				if (neoSimpleEdges.size() > 1) {
@@ -96,8 +96,10 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 					if (neoSimpleEdges.get(0).getNeoTargetNodeLabels() != null &&
 							neoSimpleEdges.get(0).getNeoTargetNodeLabels().getValues().size() != 0) cypher.append(CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES); 
 				} 
-			} else if( getNeoPathParam() == null) {
-				return "--";
+			} else if(getNeoPathParam() == null) {
+				throw new InvalidityException("NeoEdge needs a NeoPathParam");
+			} else if ( ((NeoPathParam) getNeoPathParam()).getNeoPathPart() == null ) {
+				return CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES;
 			}
 		} else {
 			NeoEdge neoEdge = (NeoEdge) getIncomingMapping();
@@ -296,7 +298,7 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 	public String myToString() {
 		String result = super.myToString();
 		if (getNeoPathParam() != null) 
-			result += " " + getNeoPathParam().myToString() ; 
+			result += " " + getNeoPathParam().myToString(); 
 		return result;
 	}
 } //NeoEdgeImpl
