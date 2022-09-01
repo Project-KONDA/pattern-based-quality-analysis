@@ -1013,7 +1013,6 @@
       </genEnums>
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPlace">
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPlace/BEGINNING"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPlace/ENDING"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPlace/FOLLOWING"/>
       </genEnums>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractNode">
@@ -1099,14 +1098,6 @@
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractPathParam">
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractPathParam/getLastRelations"/>
-      </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoUnspecifiedEdge">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoUnspecifiedEdge/neoTargetNodeLabels"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionNeo4J/NeoUnspecifiedEdge/stepsInBetween"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoUnspecifiedEdge/setSteps">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionNeo4J/NeoUnspecifiedEdge/setSteps/stepsInBetween"/>
-        </genOperations>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

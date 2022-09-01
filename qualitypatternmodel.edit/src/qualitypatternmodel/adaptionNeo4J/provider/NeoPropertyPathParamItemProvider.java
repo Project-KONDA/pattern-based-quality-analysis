@@ -189,11 +189,6 @@ public class NeoPropertyPathParamItemProvider extends NeoAbstractPathParamItemPr
 			(createChildParameter
 				(AdaptionNeo4JPackage.Literals.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART,
 				 AdaptionNeo4JFactory.eINSTANCE.createNeoSimpleEdge()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AdaptionNeo4JPackage.Literals.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART,
-				 AdaptionNeo4JFactory.eINSTANCE.createNeoUnspecifiedEdge()));
 	}
 
 }

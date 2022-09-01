@@ -1314,16 +1314,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="NeoPlace">
       <eLiterals name="BEGINNING"/>
-      <eLiterals name="ENDING" value="1"/>
-      <eLiterals name="FOLLOWING" value="2"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoUnspecifiedEdge" eSuperTypes="#//adaptionNeo4J/NeoPathPart">
-      <eOperations name="setSteps">
-        <eParameters name="stepsInBetween" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="neoTargetNodeLabels"
-          upperBound="-1" eType="#//parameters/TextLiteralParam"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="stepsInBetween" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eLiterals name="FOLLOWING" value="1"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

@@ -29,16 +29,6 @@ public enum NeoPlace implements Enumerator {
 	BEGINNING(0, "BEGINNING", "BEGINNING"),
 
 	/**
-	 * The '<em><b>ENDING</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ENDING_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	ENDING(1, "ENDING", "ENDING"),
-
-	/**
 	 * The '<em><b>FOLLOWING</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -46,7 +36,7 @@ public enum NeoPlace implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FOLLOWING(2, "FOLLOWING", "FOLLOWING");
+	FOLLOWING(1, "FOLLOWING", "FOLLOWING");
 
 	/**
 	 * The '<em><b>BEGINNING</b></em>' literal value.
@@ -60,17 +50,6 @@ public enum NeoPlace implements Enumerator {
 	public static final int BEGINNING_VALUE = 0;
 
 	/**
-	 * The '<em><b>ENDING</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ENDING
-	 * @model
-	 * @generated
-	 * @ordered
-	 */
-	public static final int ENDING_VALUE = 1;
-
-	/**
 	 * The '<em><b>FOLLOWING</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -79,7 +58,7 @@ public enum NeoPlace implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int FOLLOWING_VALUE = 2;
+	public static final int FOLLOWING_VALUE = 1;
 
 	/**
 	 * An array of all the '<em><b>Neo Place</b></em>' enumerators.
@@ -90,7 +69,6 @@ public enum NeoPlace implements Enumerator {
 	private static final NeoPlace[] VALUES_ARRAY =
 		new NeoPlace[] {
 			BEGINNING,
-			ENDING,
 			FOLLOWING,
 		};
 
@@ -149,7 +127,6 @@ public enum NeoPlace implements Enumerator {
 	public static NeoPlace get(int value) {
 		switch (value) {
 			case BEGINNING_VALUE: return BEGINNING;
-			case ENDING_VALUE: return ENDING;
 			case FOLLOWING_VALUE: return FOLLOWING;
 		}
 		return null;

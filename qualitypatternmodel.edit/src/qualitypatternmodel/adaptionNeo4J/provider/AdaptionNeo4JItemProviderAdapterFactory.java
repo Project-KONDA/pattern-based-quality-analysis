@@ -256,29 +256,6 @@ public class AdaptionNeo4JItemProviderAdapterFactory extends AdaptionNeo4JAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionNeo4J.NeoUnspecifiedEdge} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NeoUnspecifiedEdgeItemProvider neoUnspecifiedEdgeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoUnspecifiedEdge}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createNeoUnspecifiedEdgeAdapter() {
-		if (neoUnspecifiedEdgeItemProvider == null) {
-			neoUnspecifiedEdgeItemProvider = new NeoUnspecifiedEdgeItemProvider(this);
-		}
-
-		return neoUnspecifiedEdgeItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -391,7 +368,6 @@ public class AdaptionNeo4JItemProviderAdapterFactory extends AdaptionNeo4JAdapte
 		if (neoPathParamItemProvider != null) neoPathParamItemProvider.dispose();
 		if (neoPropertyPathParamItemProvider != null) neoPropertyPathParamItemProvider.dispose();
 		if (neoPropertyEdgeItemProvider != null) neoPropertyEdgeItemProvider.dispose();
-		if (neoUnspecifiedEdgeItemProvider != null) neoUnspecifiedEdgeItemProvider.dispose();
 	}
 
 }

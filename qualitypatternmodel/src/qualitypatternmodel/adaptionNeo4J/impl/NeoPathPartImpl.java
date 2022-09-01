@@ -20,7 +20,6 @@ import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
-import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
  * <!-- begin-user-doc -->
@@ -210,7 +209,9 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	 */
 	@Override
 	public String getCypherVariable() {
-		return CypherSpecificConstants.VARIABLE_EGDE;
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**

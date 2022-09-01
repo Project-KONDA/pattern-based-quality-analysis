@@ -27,8 +27,6 @@ import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoDirection;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
-
-import qualitypatternmodel.adaptionNeo4J.NeoUnspecifiedEdge;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 
 import qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl;
@@ -151,13 +149,6 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	private EClass neoAbstractPathParamEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass neoUnspecifiedEdgeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -764,46 +755,6 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
-	public EClass getNeoUnspecifiedEdge() {
-		return neoUnspecifiedEdgeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getNeoUnspecifiedEdge_NeoTargetNodeLabels() {
-		return (EReference)neoUnspecifiedEdgeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getNeoUnspecifiedEdge_StepsInBetween() {
-		return (EAttribute)neoUnspecifiedEdgeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getNeoUnspecifiedEdge__SetSteps__String() {
-		return neoUnspecifiedEdgeEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EEnum getNeoDirection() {
 		return neoDirectionEEnum;
 	}
@@ -908,11 +859,6 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		neoAbstractPathParamEClass = createEClass(NEO_ABSTRACT_PATH_PARAM);
 		createEOperation(neoAbstractPathParamEClass, NEO_ABSTRACT_PATH_PARAM___GET_LAST_RELATIONS);
 
-		neoUnspecifiedEdgeEClass = createEClass(NEO_UNSPECIFIED_EDGE);
-		createEReference(neoUnspecifiedEdgeEClass, NEO_UNSPECIFIED_EDGE__NEO_TARGET_NODE_LABELS);
-		createEAttribute(neoUnspecifiedEdgeEClass, NEO_UNSPECIFIED_EDGE__STEPS_IN_BETWEEN);
-		createEOperation(neoUnspecifiedEdgeEClass, NEO_UNSPECIFIED_EDGE___SET_STEPS__STRING);
-
 		// Create enums
 		neoDirectionEEnum = createEEnum(NEO_DIRECTION);
 		neoPlaceEEnum = createEEnum(NEO_PLACE);
@@ -965,7 +911,6 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		neoAbstractEdgeEClass.getESuperTypes().add(theGraphstructurePackage.getRelation());
 		neoAbstractPathParamEClass.getESuperTypes().add(theParametersPackage.getParameter());
 		neoAbstractPathParamEClass.getESuperTypes().add(theGraphstructurePackage.getAdaptable());
-		neoUnspecifiedEdgeEClass.getESuperTypes().add(this.getNeoPathPart());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(neoAbstractNodeEClass, NeoAbstractNode.class, "NeoAbstractNode", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1056,13 +1001,6 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 
 		initEOperation(getNeoAbstractPathParam__GetLastRelations(), this.getNeoAbstractEdge(), "getLastRelations", 0, -1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(neoUnspecifiedEdgeEClass, NeoUnspecifiedEdge.class, "NeoUnspecifiedEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNeoUnspecifiedEdge_NeoTargetNodeLabels(), theParametersPackage.getTextLiteralParam(), null, "neoTargetNodeLabels", null, 0, -1, NeoUnspecifiedEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNeoUnspecifiedEdge_StepsInBetween(), ecorePackage.getEBoolean(), "stepsInBetween", null, 0, 1, NeoUnspecifiedEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getNeoUnspecifiedEdge__SetSteps__String(), null, "setSteps", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "stepsInBetween", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		// Initialize enums and add enum literals
 		initEEnum(neoDirectionEEnum, NeoDirection.class, "NeoDirection");
 		addEEnumLiteral(neoDirectionEEnum, NeoDirection.IMPLICIT);
@@ -1071,7 +1009,6 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 
 		initEEnum(neoPlaceEEnum, NeoPlace.class, "NeoPlace");
 		addEEnumLiteral(neoPlaceEEnum, NeoPlace.BEGINNING);
-		addEEnumLiteral(neoPlaceEEnum, NeoPlace.ENDING);
 		addEEnumLiteral(neoPlaceEEnum, NeoPlace.FOLLOWING);
 
 		// Create resource

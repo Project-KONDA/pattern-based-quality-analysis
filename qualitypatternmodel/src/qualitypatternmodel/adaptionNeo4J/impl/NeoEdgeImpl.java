@@ -16,9 +16,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.parameters.ParameterList;
-import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 

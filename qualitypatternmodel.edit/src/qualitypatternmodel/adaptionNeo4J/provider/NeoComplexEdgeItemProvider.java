@@ -144,11 +144,6 @@ public class NeoComplexEdgeItemProvider extends NeoPathPartItemProvider {
 			(createChildParameter
 				(AdaptionNeo4JPackage.Literals.NEO_COMPLEX_EDGE__NEO_PATH,
 				 AdaptionNeo4JFactory.eINSTANCE.createNeoSimpleEdge()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AdaptionNeo4JPackage.Literals.NEO_COMPLEX_EDGE__NEO_PATH,
-				 AdaptionNeo4JFactory.eINSTANCE.createNeoUnspecifiedEdge()));
 	}
 
 }
