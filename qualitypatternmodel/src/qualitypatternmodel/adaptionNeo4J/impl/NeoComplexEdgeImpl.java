@@ -21,6 +21,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 
 /**
@@ -93,13 +94,37 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 			StringBuilder variables = new StringBuilder();
 			EList<NeoPathPart> neoPath = this.getNeoPath();
 			for(NeoPathPart path : neoPath) {
-				if (variables.length() != 0) variables.append(","); 
+				if (variables.length() != 0) variables.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES); 
 				variables.append(path.getCypherVariable());
 			}
 			return variables.toString();
 		} catch (Exception e) {
 			return null;
 		}
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String getCypherInnerEdgeVariable() throws InvalidityException {
+		if (validateComplexEdge()) {
+			StringBuilder cypher = new StringBuilder();
+			for (NeoPathPart part : neoPath) {
+				if (part.getCypherInnerEdgeVariable() == null) {
+					return null;
+					//If the last Node would be added there would be redundancy in the CYPHER-RETURN
+				} else if (!part.getCypherInnerEdgeVariable().contains(CypherSpecificConstants.VARIABLE_PROPERTY_NODE)) {
+					if (cypher.length() != 0) cypher.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
+					cypher.append(part.getCypherInnerEdgeVariable());
+				}
+
+			}
+			return cypher.toString();
+		}
+		throw new InvalidityException("ComplexEdge is not valid");
 	}
 
 	/**

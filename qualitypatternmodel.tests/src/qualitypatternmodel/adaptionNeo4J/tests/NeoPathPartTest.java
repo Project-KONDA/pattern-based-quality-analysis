@@ -17,6 +17,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherVariable() <em>Get Cypher Variable</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#generateCypherWithoutLabels() <em>Generate Cypher Without Labels</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#isLastEdge() <em>Is Last Edge</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherInnerEdgeVariable() <em>Get Cypher Inner Edge Variable</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -91,6 +92,19 @@ public abstract class NeoPathPartTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testIsLastEdge() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherInnerEdgeVariable() <em>Get Cypher Inner Edge Variable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherInnerEdgeVariable()
+	 * @generated
+	 */
+	public void testGetCypherInnerEdgeVariable() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

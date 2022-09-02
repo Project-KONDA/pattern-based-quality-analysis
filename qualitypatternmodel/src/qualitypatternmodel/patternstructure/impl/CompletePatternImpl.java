@@ -465,23 +465,38 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		if (graph.getRelations().size() != 0) {
 			StringBuilder cypherEdge = new StringBuilder();
 			StringBuilder cypherInnerEdges = new StringBuilder();
-			NeoEdge neoNode;
+			NeoEdge neoEdge;
 			NeoPropertyEdge neoPropertyEdge;
+			NeoPathPart neoPathPart;
 			
 			//Gets just the Varibles of the Relation since properties are not represented in this model --> maybe in future
+			//TODO Rework --> Look if this is printed and the NeoPropertyNode if there are any redunancies
 			for (Relation r : graph.getRelations()) {
-				if (cypherEdge.length() != 0) cypherEdge.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
 				if (r instanceof NeoAbstractEdge && ((NeoAbstractEdge) r).isReturnElement()) {
 					if(r instanceof NeoPropertyEdge) {
-						//TODO Rework --> Look if this is printed and the NeoPropertyNode if there are any redunancies
 						neoPropertyEdge = (NeoPropertyEdge) r;
 						if (neoPropertyEdge.getNeoPropertyPathParam() != null && neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart() != null) {
-							cypherInnerEdges.append(((NeoSimpleEdge) neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart()).getCypherInnerEdgeVariable());
+							neoPathPart = neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart();
+							if (cypherEdge.length() != 0) cypherEdge.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
+							cypherEdge.append(neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart().getCypherVariable());
+							
+							if (neoPathPart.getCypherInnerEdgeVariable() != null) {
+								if (cypherInnerEdges.length() != 0) cypherInnerEdges.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
+								cypherInnerEdges.append(neoPathPart.getCypherInnerEdgeVariable());
+							}
 						}
 					} else if(r instanceof NeoEdge) {
-						neoNode = (NeoEdge) r;
-						if (neoNode.getNeoPathParam() != null && neoNode.getNeoPathParam().getNeoPathPart() != null) {
-							cypherEdge.append(neoNode.getNeoPathParam().getNeoPathPart().getCypherVariable());
+						neoEdge = (NeoEdge) r;
+						if (neoEdge.getNeoPathParam() != null && neoEdge.getNeoPathParam().getNeoPathPart() != null) {
+							neoPathPart = neoEdge.getNeoPathParam().getNeoPathPart();
+							if (cypherEdge.length() != 0) cypherEdge.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
+							cypherEdge.append(neoEdge.getNeoPathParam().getNeoPathPart().getCypherVariable());
+							
+							//TODO how to handle if there are no innerEdges
+							if (neoPathPart.getCypherInnerEdgeVariable() != null) {
+								if (cypherInnerEdges.length() != 0) cypherInnerEdges.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
+								cypherInnerEdges.append(neoPathPart.getCypherInnerEdgeVariable());
+							}
 						}
 					}
 				}

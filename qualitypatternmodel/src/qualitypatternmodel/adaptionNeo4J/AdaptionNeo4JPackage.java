@@ -2191,13 +2191,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PATH_PART___IS_LAST_EDGE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Get Cypher Inner Edge Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PART___GET_CYPHER_INNER_EDGE_VARIABLE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+
+	/**
 	 * The number of operations of the '<em>Neo Path Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PART_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+	int NEO_PATH_PART_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2513,6 +2522,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_COMPLEX_EDGE___IS_LAST_EDGE = NEO_PATH_PART___IS_LAST_EDGE;
+
+	/**
+	 * The operation id for the '<em>Get Cypher Inner Edge Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_COMPLEX_EDGE___GET_CYPHER_INNER_EDGE_VARIABLE = NEO_PATH_PART___GET_CYPHER_INNER_EDGE_VARIABLE;
 
 	/**
 	 * The operation id for the '<em>Validate Complex Edge</em>' operation.
@@ -2893,6 +2911,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_SIMPLE_EDGE___IS_LAST_EDGE = NEO_PATH_PART___IS_LAST_EDGE;
 
 	/**
+	 * The operation id for the '<em>Get Cypher Inner Edge Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE___GET_CYPHER_INNER_EDGE_VARIABLE = NEO_PATH_PART___GET_CYPHER_INNER_EDGE_VARIABLE;
+
+	/**
 	 * The operation id for the '<em>Set Neo Direction</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2911,22 +2938,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_SIMPLE_EDGE___ADD_STRING_TARGET_NODE_LABEL__STRING = NEO_PATH_PART_OPERATION_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Get Cypher Inner Edge Variable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_SIMPLE_EDGE___GET_CYPHER_INNER_EDGE_VARIABLE = NEO_PATH_PART_OPERATION_COUNT + 2;
-
-	/**
 	 * The operation id for the '<em>Add Neo Edge Label</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE___ADD_NEO_EDGE_LABEL__STRING = NEO_PATH_PART_OPERATION_COUNT + 3;
+	int NEO_SIMPLE_EDGE___ADD_NEO_EDGE_LABEL__STRING = NEO_PATH_PART_OPERATION_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Neo Simple Edge</em>' class.
@@ -2935,7 +2953,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE_OPERATION_COUNT = NEO_PATH_PART_OPERATION_COUNT + 4;
+	int NEO_SIMPLE_EDGE_OPERATION_COUNT = NEO_PATH_PART_OPERATION_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -5672,16 +5690,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EOperation getNeoSimpleEdge__AddStringTargetNodeLabel__String();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getCypherInnerEdgeVariable() <em>Get Cypher Inner Edge Variable</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Cypher Inner Edge Variable</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getCypherInnerEdgeVariable()
-	 * @generated
-	 */
-	EOperation getNeoSimpleEdge__GetCypherInnerEdgeVariable();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addNeoEdgeLabel(java.lang.String) <em>Add Neo Edge Label</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5784,6 +5792,16 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getNeoPathPart__IsLastEdge();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherInnerEdgeVariable() <em>Get Cypher Inner Edge Variable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Cypher Inner Edge Variable</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherInnerEdgeVariable()
+	 * @generated
+	 */
+	EOperation getNeoPathPart__GetCypherInnerEdgeVariable();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode <em>Neo Property Node</em>}'.
@@ -6227,14 +6245,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EOperation NEO_SIMPLE_EDGE___ADD_STRING_TARGET_NODE_LABEL__STRING = eINSTANCE.getNeoSimpleEdge__AddStringTargetNodeLabel__String();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Cypher Inner Edge Variable</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NEO_SIMPLE_EDGE___GET_CYPHER_INNER_EDGE_VARIABLE = eINSTANCE.getNeoSimpleEdge__GetCypherInnerEdgeVariable();
-
-		/**
 		 * The meta object literal for the '<em><b>Add Neo Edge Label</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6315,6 +6325,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NEO_PATH_PART___IS_LAST_EDGE = eINSTANCE.getNeoPathPart__IsLastEdge();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Cypher Inner Edge Variable</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_PATH_PART___GET_CYPHER_INNER_EDGE_VARIABLE = eINSTANCE.getNeoPathPart__GetCypherInnerEdgeVariable();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyNodeImpl <em>Neo Property Node</em>}' class.

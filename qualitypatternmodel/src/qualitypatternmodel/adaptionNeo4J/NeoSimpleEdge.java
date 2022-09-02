@@ -2,7 +2,6 @@
  */
 package qualitypatternmodel.adaptionNeo4J;
 
-import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.KeyValueParam;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
@@ -172,14 +171,6 @@ public interface NeoSimpleEdge extends NeoPathPart {
 	 * @generated
 	 */
 	void addStringTargetNodeLabel(String label);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	String getCypherInnerEdgeVariable() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

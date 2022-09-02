@@ -1,12 +1,10 @@
 package qualitypatternmodel.cyphertranslationtests;
 
 import java.util.ArrayList;
-
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
 import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoDirection;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
-import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
@@ -32,24 +30,29 @@ public class CypherTest01NeoPropertyEdge {
 		System.out.println("");
 		System.out.println("<<< BEGIN - Tests >>>");
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-//		completePatterns.add(getBlankSimpleEdge());
-//		completePatterns.add(getNeoPropertyEdge());
-//		completePatterns.add(getSimpleEdgeReturnOnlyProperty());
-//		completePatterns.add(getSimpleEdgeReturnOnlyMultiProperty());
-//		completePatterns.add(getSimpleEdgeWithLabels());
-//		completePatterns.add(getSimpleEdgeWithLabelsRight());
-//		completePatterns.add(getSimpleEdgeWithLabelsLeft());
-//		completePatterns.add(getSimpleEdgeWithTargetNodePropertyNProperty());
-//		completePatterns.add(getSimpleEdgeWithTargetNodePropertyNNeoPropertyEdgeNProperty());
-//		completePatterns.add(getComplexEdge());
-//		completePatterns.add(getComplexEdgeWithLabels());
-//		completePatterns.add(getComplexEdgeWithLabelsDiffrentDirections());
+		completePatterns.add(getBlankSimpleEdge());
+		completePatterns.add(getNeoPropertyEdge());
+		completePatterns.add(getSimpleEdgeReturnOnlyProperty());
+		completePatterns.add(getSimpleEdgeReturnOnlyMultiProperty());
+		completePatterns.add(getSimpleEdgeWithLabels());
+		completePatterns.add(getSimpleEdgeWithLabelsRight());
+		completePatterns.add(getSimpleEdgeWithLabelsLeft());
+		completePatterns.add(getSimpleEdgeWithTargetNodePropertyNProperty());
+		completePatterns.add(getSimpleEdgeWithTargetNodePropertyNNeoPropertyEdgeNProperty());
+		completePatterns.add(getComplexEdge());
+		completePatterns.add(getComplexEdgeWithLabels());
+		completePatterns.add(getComplexEdgeWithLabelsDiffrentDirections());
 		completePatterns.add(getComplexEdgeWithLabelsDiffrentDirectionsAndAllReturns());
 		
 		//Call tester from CypherTest00
 		CypherTest00.test(completePatterns);
 		System.out.println("<<< END - Tests >>>");
 		System.out.println("");
+		
+		
+		
+		//Exceptiontests
+		
 		
 		
 //		//Exception tests

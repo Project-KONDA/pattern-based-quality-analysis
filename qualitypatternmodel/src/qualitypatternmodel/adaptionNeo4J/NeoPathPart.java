@@ -150,4 +150,12 @@ public interface NeoPathPart extends PatternElement {
 	 * @generated
 	 */
 	boolean isLastEdge();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String getCypherInnerEdgeVariable() throws InvalidityException;
 } // NeoPathPart

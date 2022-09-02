@@ -206,7 +206,15 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 */
 	@Override
 	public String getCypherInnerEdgeVariable() throws InvalidityException {
-		return !isLastEdge ? CypherSpecificConstants.INTERNAL_EDGE_NODE + getEdgeNumber() : CypherSpecificConstants.VARIABLE_PROPERTY_NODE + getEdgeNumber();
+		if (getNeoTargetNodeLabels() == null || getNeoTargetNodeLabels().getValues().size() == 0) {
+			return null;
+		} else if (!isLastEdge) {
+			return CypherSpecificConstants.INTERNAL_EDGE_NODE + getEdgeNumber();
+		} else if (isLastEdge) {
+			return CypherSpecificConstants.VARIABLE_PROPERTY_NODE + getEdgeNumber();
+		}
+		
+		return null;
 	}
 
 	/**
@@ -567,13 +575,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___ADD_STRING_TARGET_NODE_LABEL__STRING:
 				addStringTargetNodeLabel((String)arguments.get(0));
 				return null;
-			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___GET_CYPHER_INNER_EDGE_VARIABLE:
-				try {
-					return getCypherInnerEdgeVariable();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___ADD_NEO_EDGE_LABEL__STRING:
 				addNeoEdgeLabel((String)arguments.get(0));
 				return null;
