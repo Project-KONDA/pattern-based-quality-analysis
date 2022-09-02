@@ -79,9 +79,9 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 			return null;
 		StringBuilder cypher = new StringBuilder();
 		if (withLabels) {
-			for(NeoPathPart part : getSimpleEdges()) cypher.append(part.generateCypher());
+			for(NeoPathPart part : getNeoPathPartEdges()) cypher.append(part.generateCypher());
 		} else {
-			for(NeoPathPart part : getSimpleEdges()) cypher.append(part.generateCypherWithoutLabels());
+			for(NeoPathPart part : getNeoPathPartEdges()) cypher.append(part.generateCypherWithoutLabels());
 		}
 		return cypher.toString();
 	}
@@ -232,10 +232,10 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	}
 
 	@Override
-	public EList<NeoSimpleEdge> getSimpleEdges() {
-		EList<NeoSimpleEdge> list = new BasicEList<NeoSimpleEdge>();
+	public EList<NeoPathPart> getNeoPathPartEdges() {
+		EList<NeoPathPart> list = new BasicEList<NeoPathPart>();
 		for(NeoPathPart neoPath : getNeoPath()) {
-			list.addAll(neoPath.getSimpleEdges());
+			list.addAll(neoPath.getNeoPathPartEdges());
 		}
 		return list;
 	}
@@ -255,7 +255,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	@Override
 	public boolean validateComplexEdge() throws InvalidityException {
 		for (NeoPathPart part : getNeoPath()) {
-			if (part instanceof NeoSimpleEdge && !(((NeoSimpleEdge) part).isIsLastSimpleEdge())) {
+			if (part instanceof NeoSimpleEdge && !(((NeoSimpleEdge) part).isIsLastEdge())) {
 				if (((NeoSimpleEdge) part).getNeoTargetNodeLabels() == null) {
 					return false;
 				}

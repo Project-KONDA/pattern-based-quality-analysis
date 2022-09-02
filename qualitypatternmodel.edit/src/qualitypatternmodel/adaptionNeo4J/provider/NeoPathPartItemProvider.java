@@ -50,6 +50,7 @@ public class NeoPathPartItemProvider extends PatternElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addTranslatedPropertyDescriptor(object);
+			addIsLastEdgePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -68,6 +69,28 @@ public class NeoPathPartItemProvider extends PatternElementItemProvider {
 				 getString("_UI_NeoPathPart_translated_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NeoPathPart_translated_feature", "_UI_NeoPathPart_type"),
 				 AdaptionNeo4JPackage.Literals.NEO_PATH_PART__TRANSLATED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Is Last Edge feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIsLastEdgePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NeoPathPart_isLastEdge_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NeoPathPart_isLastEdge_feature", "_UI_NeoPathPart_type"),
+				 AdaptionNeo4JPackage.Literals.NEO_PATH_PART__IS_LAST_EDGE,
 				 true,
 				 false,
 				 false,
@@ -104,6 +127,7 @@ public class NeoPathPartItemProvider extends PatternElementItemProvider {
 
 		switch (notification.getFeatureID(NeoPathPart.class)) {
 			case AdaptionNeo4JPackage.NEO_PATH_PART__TRANSLATED:
+			case AdaptionNeo4JPackage.NEO_PATH_PART__IS_LAST_EDGE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

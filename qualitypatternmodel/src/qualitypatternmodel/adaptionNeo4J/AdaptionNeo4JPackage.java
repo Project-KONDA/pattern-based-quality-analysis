@@ -1930,13 +1930,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PATH_PART__NEO_PROPERTY_PATH_PARAM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Is Last Edge</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PART__IS_LAST_EDGE = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Neo Path Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PART_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
+	int NEO_PATH_PART_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2146,13 +2155,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PATH_PART___CREATE_NEO4J_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Get Simple Edges</em>' operation.
+	 * The operation id for the '<em>Get Neo Path Part Edges</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PART___GET_SIMPLE_EDGES = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
+	int NEO_PATH_PART___GET_NEO_PATH_PART_EDGES = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Cypher Variable</em>' operation.
@@ -2173,13 +2182,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PATH_PART___GENERATE_CYPHER_WITHOUT_LABELS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Is Last Edge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PART___IS_LAST_EDGE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
+
+	/**
 	 * The number of operations of the '<em>Neo Path Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PART_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
+	int NEO_PATH_PART_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2225,6 +2243,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_COMPLEX_EDGE__NEO_PROPERTY_PATH_PARAM = NEO_PATH_PART__NEO_PROPERTY_PATH_PARAM;
+
+	/**
+	 * The feature id for the '<em><b>Is Last Edge</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_COMPLEX_EDGE__IS_LAST_EDGE = NEO_PATH_PART__IS_LAST_EDGE;
 
 	/**
 	 * The feature id for the '<em><b>Neo Path</b></em>' containment reference list.
@@ -2452,13 +2479,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_COMPLEX_EDGE___CREATE_NEO4J_ADAPTION = NEO_PATH_PART___CREATE_NEO4J_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Get Simple Edges</em>' operation.
+	 * The operation id for the '<em>Get Neo Path Part Edges</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_COMPLEX_EDGE___GET_SIMPLE_EDGES = NEO_PATH_PART___GET_SIMPLE_EDGES;
+	int NEO_COMPLEX_EDGE___GET_NEO_PATH_PART_EDGES = NEO_PATH_PART___GET_NEO_PATH_PART_EDGES;
 
 	/**
 	 * The operation id for the '<em>Get Cypher Variable</em>' operation.
@@ -2477,6 +2504,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_COMPLEX_EDGE___GENERATE_CYPHER_WITHOUT_LABELS = NEO_PATH_PART___GENERATE_CYPHER_WITHOUT_LABELS;
+
+	/**
+	 * The operation id for the '<em>Is Last Edge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_COMPLEX_EDGE___IS_LAST_EDGE = NEO_PATH_PART___IS_LAST_EDGE;
 
 	/**
 	 * The operation id for the '<em>Validate Complex Edge</em>' operation.
@@ -2551,6 +2587,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_SIMPLE_EDGE__NEO_PROPERTY_PATH_PARAM = NEO_PATH_PART__NEO_PROPERTY_PATH_PARAM;
 
 	/**
+	 * The feature id for the '<em><b>Is Last Edge</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE__IS_LAST_EDGE = NEO_PATH_PART__IS_LAST_EDGE;
+
+	/**
 	 * The feature id for the '<em><b>Key Value Param</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2596,22 +2641,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_SIMPLE_EDGE__NEO_EDGE_LABEL = NEO_PATH_PART_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Is Last Simple Edge</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_SIMPLE_EDGE__IS_LAST_SIMPLE_EDGE = NEO_PATH_PART_FEATURE_COUNT + 5;
-
-	/**
 	 * The number of structural features of the '<em>Neo Simple Edge</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE_FEATURE_COUNT = NEO_PATH_PART_FEATURE_COUNT + 6;
+	int NEO_SIMPLE_EDGE_FEATURE_COUNT = NEO_PATH_PART_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2821,13 +2857,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_SIMPLE_EDGE___CREATE_NEO4J_ADAPTION = NEO_PATH_PART___CREATE_NEO4J_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Get Simple Edges</em>' operation.
+	 * The operation id for the '<em>Get Neo Path Part Edges</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE___GET_SIMPLE_EDGES = NEO_PATH_PART___GET_SIMPLE_EDGES;
+	int NEO_SIMPLE_EDGE___GET_NEO_PATH_PART_EDGES = NEO_PATH_PART___GET_NEO_PATH_PART_EDGES;
 
 	/**
 	 * The operation id for the '<em>Get Cypher Variable</em>' operation.
@@ -2848,6 +2884,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_SIMPLE_EDGE___GENERATE_CYPHER_WITHOUT_LABELS = NEO_PATH_PART___GENERATE_CYPHER_WITHOUT_LABELS;
 
 	/**
+	 * The operation id for the '<em>Is Last Edge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE___IS_LAST_EDGE = NEO_PATH_PART___IS_LAST_EDGE;
+
+	/**
 	 * The operation id for the '<em>Set Neo Direction</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2857,22 +2902,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_SIMPLE_EDGE___SET_NEO_DIRECTION__NEODIRECTION = NEO_PATH_PART_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Is Last Simple Edge</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_SIMPLE_EDGE___IS_LAST_SIMPLE_EDGE = NEO_PATH_PART_OPERATION_COUNT + 1;
-
-	/**
 	 * The operation id for the '<em>Add String Target Node Label</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE___ADD_STRING_TARGET_NODE_LABEL__STRING = NEO_PATH_PART_OPERATION_COUNT + 2;
+	int NEO_SIMPLE_EDGE___ADD_STRING_TARGET_NODE_LABEL__STRING = NEO_PATH_PART_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Cypher Inner Edge Variable</em>' operation.
@@ -2881,7 +2917,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE___GET_CYPHER_INNER_EDGE_VARIABLE = NEO_PATH_PART_OPERATION_COUNT + 3;
+	int NEO_SIMPLE_EDGE___GET_CYPHER_INNER_EDGE_VARIABLE = NEO_PATH_PART_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Add Neo Edge Label</em>' operation.
@@ -2890,7 +2926,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE___ADD_NEO_EDGE_LABEL__STRING = NEO_PATH_PART_OPERATION_COUNT + 4;
+	int NEO_SIMPLE_EDGE___ADD_NEO_EDGE_LABEL__STRING = NEO_PATH_PART_OPERATION_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Neo Simple Edge</em>' class.
@@ -2899,7 +2935,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE_OPERATION_COUNT = NEO_PATH_PART_OPERATION_COUNT + 5;
+	int NEO_SIMPLE_EDGE_OPERATION_COUNT = NEO_PATH_PART_OPERATION_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -5598,17 +5634,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EReference getNeoSimpleEdge_NeoEdgeLabel();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isIsLastSimpleEdge <em>Is Last Simple Edge</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Last Simple Edge</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isIsLastSimpleEdge()
-	 * @see #getNeoSimpleEdge()
-	 * @generated
-	 */
-	EAttribute getNeoSimpleEdge_IsLastSimpleEdge();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#setNeoDirection(qualitypatternmodel.adaptionNeo4J.NeoDirection) <em>Set Neo Direction</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5617,16 +5642,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getNeoSimpleEdge__SetNeoDirection__NeoDirection();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isLastSimpleEdge() <em>Is Last Simple Edge</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Last Simple Edge</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isLastSimpleEdge()
-	 * @generated
-	 */
-	EOperation getNeoSimpleEdge__IsLastSimpleEdge();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addStringTargetNodeLabel(java.lang.String) <em>Add String Target Node Label</em>}' operation.
@@ -5702,14 +5717,25 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EReference getNeoPathPart_NeoPropertyPathParam();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getSimpleEdges() <em>Get Simple Edges</em>}' operation.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#isIsLastEdge <em>Is Last Edge</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Simple Edges</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getSimpleEdges()
+	 * @return the meta object for the attribute '<em>Is Last Edge</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#isIsLastEdge()
+	 * @see #getNeoPathPart()
 	 * @generated
 	 */
-	EOperation getNeoPathPart__GetSimpleEdges();
+	EAttribute getNeoPathPart_IsLastEdge();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathPartEdges() <em>Get Neo Path Part Edges</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Neo Path Part Edges</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathPartEdges()
+	 * @generated
+	 */
+	EOperation getNeoPathPart__GetNeoPathPartEdges();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherVariable() <em>Get Cypher Variable</em>}' operation.
@@ -5730,6 +5756,16 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getNeoPathPart__GenerateCypherWithoutLabels();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#isLastEdge() <em>Is Last Edge</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Last Edge</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#isLastEdge()
+	 * @generated
+	 */
+	EOperation getNeoPathPart__IsLastEdge();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode <em>Neo Property Node</em>}'.
@@ -6136,28 +6172,12 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EReference NEO_SIMPLE_EDGE__NEO_EDGE_LABEL = eINSTANCE.getNeoSimpleEdge_NeoEdgeLabel();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Last Simple Edge</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NEO_SIMPLE_EDGE__IS_LAST_SIMPLE_EDGE = eINSTANCE.getNeoSimpleEdge_IsLastSimpleEdge();
-
-		/**
 		 * The meta object literal for the '<em><b>Set Neo Direction</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation NEO_SIMPLE_EDGE___SET_NEO_DIRECTION__NEODIRECTION = eINSTANCE.getNeoSimpleEdge__SetNeoDirection__NeoDirection();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Last Simple Edge</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NEO_SIMPLE_EDGE___IS_LAST_SIMPLE_EDGE = eINSTANCE.getNeoSimpleEdge__IsLastSimpleEdge();
 
 		/**
 		 * The meta object literal for the '<em><b>Add String Target Node Label</b></em>' operation.
@@ -6218,12 +6238,20 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EReference NEO_PATH_PART__NEO_PROPERTY_PATH_PARAM = eINSTANCE.getNeoPathPart_NeoPropertyPathParam();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Simple Edges</b></em>' operation.
+		 * The meta object literal for the '<em><b>Is Last Edge</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation NEO_PATH_PART___GET_SIMPLE_EDGES = eINSTANCE.getNeoPathPart__GetSimpleEdges();
+		EAttribute NEO_PATH_PART__IS_LAST_EDGE = eINSTANCE.getNeoPathPart_IsLastEdge();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Neo Path Part Edges</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_PATH_PART___GET_NEO_PATH_PART_EDGES = eINSTANCE.getNeoPathPart__GetNeoPathPartEdges();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Cypher Variable</b></em>' operation.
@@ -6240,6 +6268,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NEO_PATH_PART___GENERATE_CYPHER_WITHOUT_LABELS = eINSTANCE.getNeoPathPart__GenerateCypherWithoutLabels();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Last Edge</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_PATH_PART___IS_LAST_EDGE = eINSTANCE.getNeoPathPart__IsLastEdge();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyNodeImpl <em>Neo Property Node</em>}' class.

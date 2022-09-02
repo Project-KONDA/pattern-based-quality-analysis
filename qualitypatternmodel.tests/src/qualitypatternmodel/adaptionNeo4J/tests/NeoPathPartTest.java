@@ -13,9 +13,10 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getSimpleEdges() <em>Get Simple Edges</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathPartEdges() <em>Get Neo Path Part Edges</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherVariable() <em>Get Cypher Variable</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#generateCypherWithoutLabels() <em>Generate Cypher Without Labels</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#isLastEdge() <em>Is Last Edge</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -44,13 +45,13 @@ public abstract class NeoPathPartTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getSimpleEdges() <em>Get Simple Edges</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathPartEdges() <em>Get Neo Path Part Edges</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getSimpleEdges()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathPartEdges()
 	 * @generated
 	 */
-	public void testGetSimpleEdges() {
+	public void testGetNeoPathPartEdges() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -77,6 +78,19 @@ public abstract class NeoPathPartTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testGenerateCypherWithoutLabels() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#isLastEdge() <em>Is Last Edge</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#isLastEdge()
+	 * @generated
+	 */
+	public void testIsLastEdge() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

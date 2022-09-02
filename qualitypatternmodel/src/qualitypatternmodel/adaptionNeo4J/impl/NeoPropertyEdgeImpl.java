@@ -79,8 +79,8 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 					}
 				} else if (neoPathPart instanceof NeoComplexEdge) {
 					NeoSimpleEdge neoSimpleEdge = null;
-					for (NeoPathPart part : neoPathPart.getSimpleEdges()) {
-						if (((NeoSimpleEdge)part).isIsLastSimpleEdge()) {
+					for (NeoPathPart part : neoPathPart.getNeoPathPartEdges()) {
+						if (((NeoSimpleEdge)part).isIsLastEdge()) {
 							neoSimpleEdge = (NeoSimpleEdge) part;
 						}
 					}
@@ -163,8 +163,8 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 				NeoSimpleEdge neoSimpleEdge = null;
 				if (neoPropertyPathParam.getNeoPathPart() instanceof NeoComplexEdge) {
 					NeoComplexEdge neoComplexEdge = (NeoComplexEdge) neoPropertyPathParam.getNeoPathPart();
-					for (NeoPathPart part : neoComplexEdge.getSimpleEdges()) {
-						if (((NeoSimpleEdge) part).isIsLastSimpleEdge()) {
+					for (NeoPathPart part : neoComplexEdge.getNeoPathPartEdges()) {
+						if (((NeoSimpleEdge) part).isIsLastEdge()) {
 							neoSimpleEdge = (NeoSimpleEdge) part;
 						}
 					}

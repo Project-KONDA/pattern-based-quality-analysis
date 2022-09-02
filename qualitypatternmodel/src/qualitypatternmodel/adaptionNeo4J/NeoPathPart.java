@@ -18,6 +18,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#isTranslated <em>Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathParam <em>Neo Path Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPropertyPathParam <em>Neo Property Path Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#isIsLastEdge <em>Is Last Edge</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPathPart()
@@ -96,12 +97,35 @@ public interface NeoPathPart extends PatternElement {
 	void setNeoPropertyPathParam(NeoPropertyPathParam value);
 
 	/**
+	 * Returns the value of the '<em><b>Is Last Edge</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Last Edge</em>' attribute.
+	 * @see #setIsLastEdge(boolean)
+	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPathPart_IsLastEdge()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isIsLastEdge();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#isIsLastEdge <em>Is Last Edge</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Last Edge</em>' attribute.
+	 * @see #isIsLastEdge()
+	 * @generated
+	 */
+	void setIsLastEdge(boolean value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
 	 */
-	EList<NeoSimpleEdge> getSimpleEdges();
+	EList<NeoPathPart> getNeoPathPartEdges();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -118,4 +142,12 @@ public interface NeoPathPart extends PatternElement {
 	 * @generated
 	 */
 	String generateCypherWithoutLabels() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isLastEdge();
 } // NeoPathPart

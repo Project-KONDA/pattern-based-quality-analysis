@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoDirection;
+import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -37,7 +38,6 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl#getEdgeNumber <em>Edge Number</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl#getNeoTargetNodeLabels <em>Neo Target Node Labels</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl#getNeoEdgeLabel <em>Neo Edge Label</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl#isIsLastSimpleEdge <em>Is Last Simple Edge</em>}</li>
  * </ul>
  *
  * @generated
@@ -116,25 +116,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 * @ordered
 	 */
 	protected TextLiteralParam neoEdgeLabel;
-	/**
-	 * The default value of the '{@link #isIsLastSimpleEdge() <em>Is Last Simple Edge</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isIsLastSimpleEdge()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean IS_LAST_SIMPLE_EDGE_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isIsLastSimpleEdge() <em>Is Last Simple Edge</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isIsLastSimpleEdge()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean isLastSimpleEdge = IS_LAST_SIMPLE_EDGE_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -225,7 +206,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 */
 	@Override
 	public String getCypherInnerEdgeVariable() throws InvalidityException {
-		return !isLastSimpleEdge ? CypherSpecificConstants.INTERNAL_EDGE_NODE + getEdgeNumber() : CypherSpecificConstants.VARIABLE_PROPERTY_NODE + getEdgeNumber();
+		return !isLastEdge ? CypherSpecificConstants.INTERNAL_EDGE_NODE + getEdgeNumber() : CypherSpecificConstants.VARIABLE_PROPERTY_NODE + getEdgeNumber();
 	}
 
 	/**
@@ -331,29 +312,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		neoEdgeLabel = newNeoEdgeLabel;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL, oldNeoEdgeLabel, neoEdgeLabel));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isIsLastSimpleEdge() {
-		return isLastSimpleEdge;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setIsLastSimpleEdge(boolean newIsLastSimpleEdge) {
-		boolean oldIsLastSimpleEdge = isLastSimpleEdge;
-		isLastSimpleEdge = newIsLastSimpleEdge;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__IS_LAST_SIMPLE_EDGE, oldIsLastSimpleEdge, isLastSimpleEdge));
 	}
 
 	/**
@@ -474,8 +432,8 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 * @generated NOT
 	 */
 	@Override
-	public boolean isLastSimpleEdge() {
-		return this.isLastSimpleEdge;
+	public boolean isLastEdge() {
+		return isLastEdge;
 	}
 
 	/**
@@ -493,8 +451,8 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 
 	//Inserted Method
 	@Override 
-	public EList<NeoSimpleEdge> getSimpleEdges() {
-		EList<NeoSimpleEdge> l = new BasicEList<NeoSimpleEdge>();
+	public EList<NeoPathPart> getNeoPathPartEdges() {
+		EList<NeoPathPart> l = new BasicEList<NeoPathPart>();
 		l.add(this);
 		return  l;
 	}
@@ -520,8 +478,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL:
 				if (resolve) return getNeoEdgeLabel();
 				return basicGetNeoEdgeLabel();
-			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__IS_LAST_SIMPLE_EDGE:
-				return isIsLastSimpleEdge();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -547,9 +503,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL:
 				setNeoEdgeLabel((TextLiteralParam)newValue);
 				return;
-			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__IS_LAST_SIMPLE_EDGE:
-				setIsLastSimpleEdge((Boolean)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -574,9 +527,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL:
 				setNeoEdgeLabel((TextLiteralParam)null);
 				return;
-			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__IS_LAST_SIMPLE_EDGE:
-				setIsLastSimpleEdge(IS_LAST_SIMPLE_EDGE_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -599,8 +549,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 				return neoTargetNodeLabels != null;
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL:
 				return neoEdgeLabel != null;
-			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__IS_LAST_SIMPLE_EDGE:
-				return isLastSimpleEdge != IS_LAST_SIMPLE_EDGE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -616,8 +564,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___SET_NEO_DIRECTION__NEODIRECTION:
 				setNeoDirection((NeoDirection)arguments.get(0));
 				return null;
-			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___IS_LAST_SIMPLE_EDGE:
-				return isLastSimpleEdge();
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___ADD_STRING_TARGET_NODE_LABEL__STRING:
 				addStringTargetNodeLabel((String)arguments.get(0));
 				return null;
@@ -649,8 +595,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		result.append(neoDirection);
 		result.append(", edgeNumber: ");
 		if (edgeNumberESet) result.append(edgeNumber); else result.append("<unset>");
-		result.append(", isLastSimpleEdge: ");
-		result.append(isLastSimpleEdge);
 		result.append(')');
 		return result.toString();
 	}

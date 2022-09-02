@@ -16,8 +16,6 @@ import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
-import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
@@ -33,6 +31,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl#isTranslated <em>Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl#getNeoPathParam <em>Neo Path Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl#getNeoPropertyPathParam <em>Neo Property Path Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl#isIsLastEdge <em>Is Last Edge</em>}</li>
  * </ul>
  *
  * @generated
@@ -57,6 +56,24 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	 * @ordered
 	 */
 	protected boolean translated = TRANSLATED_EDEFAULT;
+	/**
+	 * The default value of the '{@link #isIsLastEdge() <em>Is Last Edge</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsLastEdge()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IS_LAST_EDGE_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isIsLastEdge() <em>Is Last Edge</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsLastEdge()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean isLastEdge = IS_LAST_EDGE_EDEFAULT;
 	//BEGIN -- For Counting the Edges for the nameing in Neo4J
 	protected static final int COUNTER_EDEFAULT = 0;
 	protected static int COUNTER = NeoPathPartImpl.COUNTER_EDEFAULT;
@@ -197,7 +214,30 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	 * @generated
 	 */
 	@Override
-	public EList<NeoSimpleEdge> getSimpleEdges() {
+	public boolean isIsLastEdge() {
+		return isLastEdge;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setIsLastEdge(boolean newIsLastEdge) {
+		boolean oldIsLastEdge = isLastEdge;
+		isLastEdge = newIsLastEdge;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PATH_PART__IS_LAST_EDGE, oldIsLastEdge, isLastEdge));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<NeoPathPart> getNeoPathPartEdges() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -220,6 +260,18 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	 */
 	@Override
 	public String generateCypherWithoutLabels() throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isLastEdge() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -291,6 +343,8 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 				return getNeoPathParam();
 			case AdaptionNeo4JPackage.NEO_PATH_PART__NEO_PROPERTY_PATH_PARAM:
 				return getNeoPropertyPathParam();
+			case AdaptionNeo4JPackage.NEO_PATH_PART__IS_LAST_EDGE:
+				return isIsLastEdge();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -311,6 +365,9 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 				return;
 			case AdaptionNeo4JPackage.NEO_PATH_PART__NEO_PROPERTY_PATH_PARAM:
 				setNeoPropertyPathParam((NeoPropertyPathParam)newValue);
+				return;
+			case AdaptionNeo4JPackage.NEO_PATH_PART__IS_LAST_EDGE:
+				setIsLastEdge((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -333,6 +390,9 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 			case AdaptionNeo4JPackage.NEO_PATH_PART__NEO_PROPERTY_PATH_PARAM:
 				setNeoPropertyPathParam((NeoPropertyPathParam)null);
 				return;
+			case AdaptionNeo4JPackage.NEO_PATH_PART__IS_LAST_EDGE:
+				setIsLastEdge(IS_LAST_EDGE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -351,6 +411,8 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 				return getNeoPathParam() != null;
 			case AdaptionNeo4JPackage.NEO_PATH_PART__NEO_PROPERTY_PATH_PARAM:
 				return getNeoPropertyPathParam() != null;
+			case AdaptionNeo4JPackage.NEO_PATH_PART__IS_LAST_EDGE:
+				return isLastEdge != IS_LAST_EDGE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -363,8 +425,8 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AdaptionNeo4JPackage.NEO_PATH_PART___GET_SIMPLE_EDGES:
-				return getSimpleEdges();
+			case AdaptionNeo4JPackage.NEO_PATH_PART___GET_NEO_PATH_PART_EDGES:
+				return getNeoPathPartEdges();
 			case AdaptionNeo4JPackage.NEO_PATH_PART___GET_CYPHER_VARIABLE:
 				return getCypherVariable();
 			case AdaptionNeo4JPackage.NEO_PATH_PART___GENERATE_CYPHER_WITHOUT_LABELS:
@@ -374,6 +436,8 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case AdaptionNeo4JPackage.NEO_PATH_PART___IS_LAST_EDGE:
+				return isLastEdge();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -392,6 +456,8 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (translated: ");
 		result.append(translated);
+		result.append(", isLastEdge: ");
+		result.append(isLastEdge);
 		result.append(')');
 		return result.toString();
 	}

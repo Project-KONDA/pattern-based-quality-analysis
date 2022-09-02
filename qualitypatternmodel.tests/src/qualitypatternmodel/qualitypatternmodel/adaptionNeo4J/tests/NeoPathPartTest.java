@@ -13,7 +13,7 @@ import qualitypatternmodel.qualitypatternmodel.adaptionNeo4J.NeoPathPart;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.qualitypatternmodel.adaptionNeo4J.NeoPathPart#getSimpleEdges() <em>Get Simple Edges</em>}</li>
+ *   <li>{@link qualitypatternmodel.qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathPartEdges() <em>Get Simple Edges</em>}</li>
  *   <li>{@link qualitypatternmodel.qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherVariable() <em>Get Cypher Variable</em>}</li>
  * </ul>
  * </p>
@@ -43,10 +43,10 @@ public abstract class NeoPathPartTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.qualitypatternmodel.adaptionNeo4J.NeoPathPart#getSimpleEdges() <em>Get Simple Edges</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathPartEdges() <em>Get Simple Edges</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.qualitypatternmodel.adaptionNeo4J.NeoPathPart#getSimpleEdges()
+	 * @see qualitypatternmodel.qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathPartEdges()
 	 * @generated
 	 */
 	public void testGetSimpleEdges() {

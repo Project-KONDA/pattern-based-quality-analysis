@@ -1046,11 +1046,9 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/neoTargetNodeLabels"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/neoEdgeLabel"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/isLastSimpleEdge.1"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/setNeoDirection">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/setNeoDirection/neoDirection"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/isLastSimpleEdge"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/addStringTargetNodeLabel">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/addStringTargetNodeLabel/label"/>
         </genOperations>
@@ -1063,9 +1061,11 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/translated"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/neoPathParam"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/neoPropertyPathParam"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/getSimpleEdges"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/isLastEdge.1"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/getNeoPathPartEdges"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/getCypherVariable"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/generateCypherWithoutLabels"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/isLastEdge"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyNode">
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyNode/generateCypherPropertyAddressing"/>

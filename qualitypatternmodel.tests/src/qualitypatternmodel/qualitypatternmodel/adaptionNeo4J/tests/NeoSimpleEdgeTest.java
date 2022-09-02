@@ -17,7 +17,7 @@ import qualitypatternmodel.qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#setNeoDirection(qualitypatternmodel.adaptionNeo4J.NeoDirection) <em>Set Neo Direction</em>}</li>
- *   <li>{@link qualitypatternmodel.qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isLastSimpleEdge() <em>Is Last Simple Edge</em>}</li>
+ *   <li>{@link qualitypatternmodel.qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isLastEdge() <em>Is Last Simple Edge</em>}</li>
  *   <li>{@link qualitypatternmodel.qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#setTargetNodeLabel(qualitypatternmodel.parameters.TextLiteralParam) <em>Set Target Node Label</em>}</li>
  * </ul>
  * </p>
@@ -91,10 +91,10 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isLastSimpleEdge() <em>Is Last Simple Edge</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isLastEdge() <em>Is Last Simple Edge</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isLastSimpleEdge()
+	 * @see qualitypatternmodel.qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isLastEdge()
 	 * @generated
 	 */
 	public void testIsLastSimpleEdge() {

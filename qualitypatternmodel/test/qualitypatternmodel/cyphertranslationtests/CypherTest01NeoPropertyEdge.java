@@ -81,7 +81,7 @@ public class CypherTest01NeoPropertyEdge {
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
 		NeoSimpleEdge neoSimpleEdge = factory.createNeoSimpleEdge();
-		neoSimpleEdge.setIsLastSimpleEdge(true);
+		neoSimpleEdge.setIsLastEdge(true);
 		neoSimpleEdge.addStringTargetNodeLabel("");
 		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
 		
@@ -100,7 +100,7 @@ public class CypherTest01NeoPropertyEdge {
 		NeoSimpleEdge neoSimpleEdge = factory.createNeoSimpleEdge();
 		neoSimpleEdge.addNeoEdgeLabel("PLACE_OF_ISSUE");
 		neoSimpleEdge.addStringTargetNodeLabel("Place");
-		neoSimpleEdge.setIsLastSimpleEdge(true);
+		neoSimpleEdge.setIsLastEdge(true);
 		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
 		
 		NeoPropertyNode neoPropertyNode = (NeoPropertyNode) completePattern.getGraph().getNodes().get(1);
@@ -157,7 +157,7 @@ public class CypherTest01NeoPropertyEdge {
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
 		NeoSimpleEdge neoSimpleEdge = factory.createNeoSimpleEdge();
-		neoSimpleEdge.setIsLastSimpleEdge(true);
+		neoSimpleEdge.setIsLastEdge(true);
 		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
 		
 		return completePattern;
