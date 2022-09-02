@@ -13,11 +13,13 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
+import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
+import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -63,11 +65,36 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 	@Override
 	public String generateCypher() throws InvalidityException {
 		NeoPropertyPathParam neoPropertyPathParam = getNeoPropertyPathParam();
-		String cypher;
+		String cypher = null;
 		
 		if (getIncomingMapping() == null) {
 			if (neoPropertyPathParam.getNeoPathPart() != null) {
-				cypher = neoPropertyPathParam.generateCypher();
+				NeoPathPart neoPathPart = neoPropertyPathParam.getNeoPathPart();
+				if (neoPathPart instanceof NeoSimpleEdge) {
+					NeoSimpleEdge neoSimpleEdge = (NeoSimpleEdge) neoPathPart;
+					if (neoSimpleEdge.getNeoTargetNodeLabels() != null) {
+						cypher = neoPropertyPathParam.generateCypher();
+					} else {
+						targetNodesCanNotBeNull();
+					}
+				} else if (neoPathPart instanceof NeoComplexEdge) {
+					NeoSimpleEdge neoSimpleEdge = null;
+					for (NeoPathPart part : neoPathPart.getSimpleEdges()) {
+						if (((NeoSimpleEdge)part).isIsLastSimpleEdge()) {
+							neoSimpleEdge = (NeoSimpleEdge) part;
+						}
+					}
+					if (neoSimpleEdge != null) {
+						if (neoSimpleEdge.getNeoTargetNodeLabels() != null) {
+							cypher = neoPropertyPathParam.generateCypher();
+						} else {
+							targetNodesCanNotBeNull();
+						}
+					} else {
+						new InvalidityException("Last Edge has to be set");
+					}
+				}
+				
 			} else {
 				cypher = null;
 			}
@@ -85,8 +112,11 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 			}
 			
 		}
-		
 		return cypher;
+	}
+
+	private void targetNodesCanNotBeNull() throws InvalidityException {
+		throw new InvalidityException("TargetNodes can not be null");
 	}
 	
 	/**
@@ -115,6 +145,43 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 		return null;
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String generateCypherMatchNodeVariable() throws InvalidityException {
+		//TODO what to do if MAPPING plays a part? 
+		NeoPropertyPathParam neoPropertyPathParam = getNeoPropertyPathParam();
+		if (neoPropertyPathParam != null) {
+			String cypher;
+			if (neoPropertyPathParam.getNeoPathPart() == null) {
+				NeoNode neoNode = (NeoNode) getSource();
+				cypher = neoNode.getCypherVariable();
+			} else {
+				NeoSimpleEdge neoSimpleEdge = null;
+				if (neoPropertyPathParam.getNeoPathPart() instanceof NeoComplexEdge) {
+					NeoComplexEdge neoComplexEdge = (NeoComplexEdge) neoPropertyPathParam.getNeoPathPart();
+					for (NeoPathPart part : neoComplexEdge.getSimpleEdges()) {
+						if (((NeoSimpleEdge) part).isIsLastSimpleEdge()) {
+							neoSimpleEdge = (NeoSimpleEdge) part;
+						}
+					}
+				} else if (neoPropertyPathParam.getNeoPathPart() instanceof NeoSimpleEdge) {
+					neoSimpleEdge = (NeoSimpleEdge) neoPropertyPathParam.getNeoPathPart();
+				} else {
+					throw new InvalidityException("The is no NeoSimpleEdge for the target type");
+				}
+				cypher = neoSimpleEdge.getCypherInnerEdgeVariable();
+			}
+			
+			return cypher;
+		}
+		
+		return null;
+	}
+
 	@Override 
 	public void createParameters() {
 		if (getIncomingMapping() == null) {
@@ -304,6 +371,13 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 		switch (operationID) {
 			case AdaptionNeo4JPackage.NEO_PROPERTY_EDGE___GENERATE_CYPHER_PROPERTY_ADDRESSING:
 				return generateCypherPropertyAddressing();
+			case AdaptionNeo4JPackage.NEO_PROPERTY_EDGE___GENERATE_CYPHER_MATCH_NODE_VARIABLE:
+				try {
+					return generateCypherMatchNodeVariable();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -208,7 +208,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			if (getNeoEdgeLabel() != null) { //!translated &&
 				cypher.append(":" + getNeoEdgeLabel().getValue());
 				//translated = true;
-				
 			}
 		}
 		cypher.append("]");
@@ -226,7 +225,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 */
 	@Override
 	public String getCypherInnerEdgeVariable() throws InvalidityException {
-		return CypherSpecificConstants.INTERNAL_EDGE_NODE + getEdgeNumber();
+		return !isLastSimpleEdge ? CypherSpecificConstants.INTERNAL_EDGE_NODE + getEdgeNumber() : CypherSpecificConstants.VARIABLE_PROPERTY_NODE + getEdgeNumber();
 	}
 
 	/**

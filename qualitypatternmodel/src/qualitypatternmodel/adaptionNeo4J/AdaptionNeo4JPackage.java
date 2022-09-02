@@ -3667,13 +3667,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PROPERTY_NODE___GENERATE_CYPHER_PROPERTY_ADDRESSING = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Generate Cypher Match Node Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___GENERATE_CYPHER_MATCH_NODE_VARIABLE = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Neo Property Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE_OPERATION_COUNT = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 2;
+	int NEO_PROPERTY_NODE_OPERATION_COUNT = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoAbstractPathParamImpl <em>Neo Abstract Path Param</em>}' class.
@@ -5360,13 +5369,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PROPERTY_EDGE___GENERATE_CYPHER_PROPERTY_ADDRESSING = NEO_ABSTRACT_EDGE_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Generate Cypher Match Node Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_EDGE___GENERATE_CYPHER_MATCH_NODE_VARIABLE = NEO_ABSTRACT_EDGE_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Neo Property Edge</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_EDGE_OPERATION_COUNT = NEO_ABSTRACT_EDGE_OPERATION_COUNT + 1;
+	int NEO_PROPERTY_EDGE_OPERATION_COUNT = NEO_ABSTRACT_EDGE_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.NeoDirection <em>Neo Direction</em>}' enum.
@@ -5734,6 +5752,16 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EOperation getNeoPropertyNode__GenerateCypherPropertyAddressing();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#generateCypherMatchNodeVariable() <em>Generate Cypher Match Node Variable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Cypher Match Node Variable</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#generateCypherMatchNodeVariable()
+	 * @generated
+	 */
+	EOperation getNeoPropertyNode__GenerateCypherMatchNodeVariable();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoPathParam <em>Neo Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5848,6 +5876,16 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getNeoPropertyEdge__GenerateCypherPropertyAddressing();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge#generateCypherMatchNodeVariable() <em>Generate Cypher Match Node Variable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Cypher Match Node Variable</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge#generateCypherMatchNodeVariable()
+	 * @generated
+	 */
+	EOperation getNeoPropertyEdge__GenerateCypherMatchNodeVariable();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge <em>Neo Abstract Edge</em>}'.
@@ -6222,6 +6260,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EOperation NEO_PROPERTY_NODE___GENERATE_CYPHER_PROPERTY_ADDRESSING = eINSTANCE.getNeoPropertyNode__GenerateCypherPropertyAddressing();
 
 		/**
+		 * The meta object literal for the '<em><b>Generate Cypher Match Node Variable</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_PROPERTY_NODE___GENERATE_CYPHER_MATCH_NODE_VARIABLE = eINSTANCE.getNeoPropertyNode__GenerateCypherMatchNodeVariable();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathParamImpl <em>Neo Path Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6314,6 +6360,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NEO_PROPERTY_EDGE___GENERATE_CYPHER_PROPERTY_ADDRESSING = eINSTANCE.getNeoPropertyEdge__GenerateCypherPropertyAddressing();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Cypher Match Node Variable</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_PROPERTY_EDGE___GENERATE_CYPHER_MATCH_NODE_VARIABLE = eINSTANCE.getNeoPropertyEdge__GenerateCypherMatchNodeVariable();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoAbstractEdgeImpl <em>Neo Abstract Edge</em>}' class.

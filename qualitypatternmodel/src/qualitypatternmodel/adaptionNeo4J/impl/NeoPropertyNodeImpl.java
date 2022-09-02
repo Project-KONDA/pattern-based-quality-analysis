@@ -8,12 +8,14 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
+import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
+import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
@@ -64,22 +66,16 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	}
 	
 	//Do I need this??? --> Need testing
+	//Needing for the return variable
 	@Override 
-	public String generateCypher() throws InvalidityException {
-		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) getIncoming().get(0);
-		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
-		if (neoPropertyPathParam != null) {
-			NeoPathPart neoPathPart = neoPropertyPathParam.getNeoPathPart();
-			if (neoPathPart != null) {
-				StringBuilder cypher = new StringBuilder();
-				cypher.append("(");
-				cypher.append(CypherSpecificConstants.VARIABLE_NODE);
-				cypher.append(getOriginalID());
-				return cypher.toString();
-			}
-		}
-		return null;
-	}
+	public String generateCypher() throws InvalidityException, UnsupportedOperationException {
+		//TODO Mapping
+		String cypher = null;
+		if (getIncoming() == null) {
+			cypher = CypherSpecificConstants.VARIABLE_PROPERTY_NODE + getOriginalID();
+		} 
+		return cypher;
+	}	
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -88,13 +84,30 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 */
 	@Override
 	public String generateCypherPropertyAddressing() {
-		String cypher;
-		NeoPropertyEdge edge = (NeoPropertyEdge) getIncoming().get(0);
-		cypher = edge.generateCypherPropertyAddressing();
+		String cypher = null;
+		if (getIncoming() != null) {
+			NeoPropertyEdge edge = (NeoPropertyEdge) getIncoming().get(0);
+			cypher = edge.generateCypherPropertyAddressing();
+		}
+		//TODO --> Implement if the NeoPropertyEdge is the First one
 		if (cypher == null) return null;
 		return cypher;
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String generateCypherMatchNodeVariable() throws InvalidityException {
+		if (getIncoming().get(0) == null || !(getIncoming().get(0) instanceof NeoPropertyEdge))
+			throw new InvalidityException("No incoming NeoPropertyEdge specified");
+		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) getIncoming().get(0);
+		String cypher = neoPropertyEdge.generateCypherMatchNodeVariable();
+		return cypher;
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -298,6 +311,13 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		switch (operationID) {
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GENERATE_CYPHER_PROPERTY_ADDRESSING:
 				return generateCypherPropertyAddressing();
+			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GENERATE_CYPHER_MATCH_NODE_VARIABLE:
+				try {
+					return generateCypherMatchNodeVariable();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GET_CYPHER_VARIABLE:
 				return getCypherVariable();
 		}

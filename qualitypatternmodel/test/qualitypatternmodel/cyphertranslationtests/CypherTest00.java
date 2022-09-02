@@ -46,7 +46,6 @@ public class CypherTest00 {
 	}
 	
 	public static void exceptionHandler(ArrayList<CompletePattern> completePatterns) {
-		System.out.println("From here on Exceptions should be printed");
 		for (CompletePattern completePattern : completePatterns) {
 			try {
 				replace(completePattern);
@@ -57,11 +56,13 @@ public class CypherTest00 {
 				System.out.println("No Exception has been triggered");
 			} catch (Exception e) {
 				System.out.println("-- Beginning of the Exceptions --");
-				e.printStackTrace();
+				System.out.println(e.toString());
+				//e.printStackTrace();
 				try {
 				  System.out.println(completePattern.myToString());
 				} catch (Exception e2) {
-					e2.printStackTrace();
+					System.out.println(e2.toString());
+					//e2.printStackTrace();
 				}
 				System.out.println("Test successful");
 			}

@@ -17,11 +17,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
+import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
+import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
+import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfPathPart;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
@@ -405,11 +408,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		if (graph.getNodes().size() != 0 ) {
 			StringBuilder cypherNeoNode = new StringBuilder();
 			StringBuilder cypherNeoPropertyNode = new StringBuilder();
-			StringBuilder cypherNeoPropertyProperty = new StringBuilder();
-			NeoPropertyNode npn;
+			NeoPropertyNode neoPropertyNode;
 			NeoPropertyPathParam neoPropertyPathParam;
-			String propertyName;
-			String matchingNodename;
+			NeoPropertyEdge neoPropertyEdge;
 			
 			for (Node n : graph.getNodes()) {
 				if (n instanceof NeoNode && n.isReturnNode()) {
@@ -419,27 +420,20 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 					
 				} else if (n instanceof NeoPropertyNode && n.isReturnNode()) {
 					//Decision if the Property is in a new Node or in the same
-					npn = (NeoPropertyNode) n;
-					if (((NeoPropertyEdge) npn.getIncoming().get(0)).getNeoPropertyPathParam().getNeoPropertyName() != null) {
-						neoPropertyPathParam =  ((NeoPropertyEdge) npn.getIncoming().get(0)).getNeoPropertyPathParam();
-						if (neoPropertyPathParam.getNeoPathPart() == null) {
-							propertyName = neoPropertyPathParam.getNeoPropertyName();
-							matchingNodename =  ((NeoAbstractNode)((NeoPropertyEdge) npn.getIncoming().get(0)).getSource()).getCypherVariable();
-							cypherNeoPropertyProperty.append(matchingNodename + "." + propertyName);
-						} else {
-							//If the Property is in a sperated Node the way to access the property is diffrently
-							if (cypherNeoPropertyNode.length() != 0) cypherNeoPropertyNode.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
-							
-							propertyName = neoPropertyPathParam.getNeoPropertyName();
-							cypherNeoPropertyProperty.append(((NeoAbstractNode) n).getCypherVariable() + "." + propertyName);
-						}
-					} 	
+					if (cypherNeoPropertyNode.length() != 0) cypherNeoPropertyNode.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
+					neoPropertyNode = (NeoPropertyNode) n;
+					neoPropertyEdge = (NeoPropertyEdge) neoPropertyNode.getIncoming().get(0);
+					neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
+					if (neoPropertyPathParam == null)
+						throw new InvalidityException("CompletePattern: Their is no NeoPropertyNode");
+					if (!(neoPropertyNode.generateCypher() == null)) {
+						cypherNeoPropertyNode.append(neoPropertyNode.generateCypherMatchNodeVariable());
+					}
 				} 
 			}
 			
 			if (cypherNeoNode.length() != 0) cypher += cypherNeoNode;
-			if (cypherNeoPropertyNode.length() != 0) cypher += "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherNeoPropertyNode.toString();
-			if (cypherNeoPropertyProperty.length() != 0) cypher += "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherNeoPropertyProperty.toString();
+			if (cypherNeoPropertyNode.length() != 0) cypher += ", " + "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherNeoPropertyNode.toString();
 		}
 
 		//All regarding the relations will be added here 

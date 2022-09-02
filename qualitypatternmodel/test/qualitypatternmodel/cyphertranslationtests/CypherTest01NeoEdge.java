@@ -13,6 +13,7 @@ import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -22,8 +23,10 @@ public class CypherTest01NeoEdge {
 	public static final AdaptionNeo4JFactory factory = new AdaptionNeo4JFactoryImpl();
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		//Tests
+		System.out.println("");
+		System.out.println("<<< BEGIN - Tests >>>");
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getUnspecifiedEdge());
 		completePatterns.add(getSimpleEdge());
 		completePatterns.add(getSimpleEdgeWithLabels());
@@ -34,29 +37,40 @@ public class CypherTest01NeoEdge {
 		completePatterns.add(getComplexEdgeWithDoppleEnding());
 		completePatterns.add(getComplexEdgeWithTargeAtEndAndLabels());
 		completePatterns.add(getComplexEdgeWithLabelsDiffrentDirectionsAndLabels());
+		completePatterns.add(getMultipleGraphPatterns());
 		//Call tester from CypherTest00
 		CypherTest00.test(completePatterns);
+		System.out.println("<<< END - Tests >>>");
+		System.out.println("");
+		
 		
 		//Exception tests
+		System.out.println("");
+		System.out.println("<<< BEGIN - Exception Tests >>>");
 		ArrayList<CompletePattern> completePatternsExceptions = new ArrayList<CompletePattern>();
+		completePatternsExceptions.add(tryNoNeoAdaption());
+		completePatternsExceptions.add(tryNoBeginning());
 		completePatternsExceptions.add(tryToCreateNeoDirectionErrorShallNotWork());
-		completePatternsExceptions.add(validateComplexEdgeNoLastEdgeIsSet());
-		completePatternsExceptions.add(NeoNeoPathPartIsSetWithEmptyComplexEdge());
+		completePatternsExceptions.add(tryValidateComplexEdgeNoLastEdgeIsSet());
+		completePatternsExceptions.add(tryNeoNeoPathPartIsSetWithEmptyComplexEdge());
 		//Call Exception Handler
 		CypherTest00.exceptionHandler(completePatternsExceptions);
+		System.out.println("<<< END - Exception Tests >>>");
+		System.out.println("");
+		
 		
 		//Exception during Build-Pattern
 		System.out.println("");
-		System.out.println("BEGIN - Build-Pattern-Exceptions");
+		System.out.println("<<< BEGIN - Build-Pattern-Exceptions >>>");
 		try {
 			System.out.println("Exception: Set NeoPathPart");
-			NeoNeoNeedsAPathParam();
+			tryBuildNeoNeoNeedsAPathParam();
 			System.out.println("");
 		} catch (Exception e) {
 			System.out.println(e);
 			System.out.println("");
 		}
-		System.out.println("END - Build-Pattern-Exceptions");
+		System.out.println("<<< END - Build-Pattern-Exceptions >>>");
 		System.out.println("");
 	}
 	
@@ -332,6 +346,39 @@ public class CypherTest01NeoEdge {
 		return completePattern;
 	}
 	
+	//Multiple Graph-Patterns
+	public static CompletePattern getMultipleGraphPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = CypherTest00.getBasePatternComplex();
+		completePattern.getGraph().addNode();
+		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(2).makeComplex();
+		completePattern.getGraph().addNode();
+		ComplexNode complexNode2 = completePattern.getGraph().getNodes().get(3).makeComplex();
+		completePattern.getGraph().addRelation(complexNode1, complexNode2);
+		completePattern.createNeo4jAdaption();
+		
+		NeoNode ns = (NeoNode) completePattern.getGraph().getNodes().get(0);
+		ns.setNodePlace(NeoPlace.BEGINNING);
+		
+		ns = (NeoNode) completePattern.getGraph().getNodes().get(2);
+		ns.setNodePlace(NeoPlace.BEGINNING);
+		
+		return completePattern;
+	}
+	
+	//No adaption of the Graphstructure is done, thus an exception has to be thrown
+	//Error occures in Graph
+	public static CompletePattern tryNoNeoAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = CypherTest00.getBasePatternComplex();
+		return completePattern;
+	}
+	
+	//No starting Point has been set
+	//Error occurs in PatternElement
+	public static CompletePattern tryNoBeginning() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = CypherTest00.getBasePatternComplex();
+		completePattern.createNeo4jAdaption();
+		return completePattern;
+	}
 	
 	////NeoSimpleEdge
 	//Something went wrong in the SimpleNeoEdge - direction has not been set correctly
@@ -349,7 +396,7 @@ public class CypherTest01NeoEdge {
 	
 	//Exception In the ComplexEdge
 	//The ComplexEdge is not correct -- Because "No LastEdge"
-	public static CompletePattern validateComplexEdgeNoLastEdgeIsSet() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern tryValidateComplexEdgeNoLastEdgeIsSet() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternNeoEdge();
 		NeoEdge neoEdge = (NeoEdge) completePattern.getGraph().getRelations().get(0);
 		NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
@@ -377,7 +424,7 @@ public class CypherTest01NeoEdge {
 	
 	//Exception In the NeoNode
 	//ComplexNode can not be empty
-	public static CompletePattern NeoNeoPathPartIsSetWithEmptyComplexEdge() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern tryNeoNeoPathPartIsSetWithEmptyComplexEdge() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternNeoEdge();
 		NeoEdge neoEdge = (NeoEdge) completePattern.getGraph().getRelations().get(0);
 		NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
@@ -391,7 +438,7 @@ public class CypherTest01NeoEdge {
 	//Exeption in NeoEdge 
 	//NeoEdge needs a NeoPathParam
 	//Doesent work since the Framework does not allow to remove the NeoPathParam / to set a new One after once set
-	public static CompletePattern NeoNeoNeedsAPathParam() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern tryBuildNeoNeoNeedsAPathParam() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternNeoEdge();
 		NeoEdge neoEdge = (NeoEdge) completePattern.getGraph().getRelations().get(0);
 		neoEdge.setNeoPathParam(null);

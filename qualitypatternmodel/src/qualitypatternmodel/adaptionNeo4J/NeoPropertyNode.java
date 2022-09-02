@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.adaptionNeo4J;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 
 /**
@@ -23,5 +24,13 @@ public interface NeoPropertyNode extends PrimitiveNode, NeoAbstractNode {
 	 * @generated
 	 */
 	String generateCypherPropertyAddressing();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String generateCypherMatchNodeVariable() throws InvalidityException;
 
 } // NeoAttributeNode

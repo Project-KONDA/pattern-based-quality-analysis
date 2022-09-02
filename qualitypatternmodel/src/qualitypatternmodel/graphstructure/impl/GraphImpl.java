@@ -200,6 +200,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			for (NeoAbstractNode n : beginningNodesList) {
 				if (!isFirst) {
 					cypher.append("," + CypherSpecificConstants.THREE_WHITESPACES);
+				} else {
 					isFirst = false;
 				}
 				buildNeoGraphPatternRecursively(cypher, n);
@@ -213,7 +214,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	private void buildNeoGraphPatternRecursively(StringBuilder cypher, NeoAbstractNode n) throws InvalidityException {
 		Relation currentRelation = null;
-		cypher.append(((Node) n).generateCypher());
+		if (n instanceof NeoNode) {
+			cypher.append(((Node) n).generateCypher());
+		}
 		
 		//In this senario it has to be considert that of there are multiple edges between nodes the last one will be taken
 		//Since multiple edges between to nodes requieres a OPTIONAL MATCH the OPTIONAL MATCH can be implemented or a break added
@@ -221,11 +224,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			for (Relation r : ((ComplexNode) n).getOutgoing()) {
 				if(r.getTarget() != null && r instanceof NeoEdge) {
 					currentRelation = r;
-				} else if (r.getTarget() != null && r instanceof NeoPropertyEdge) {
-					NeoPropertyEdge npe = (NeoPropertyEdge) r;
-					if (npe.getNeoPropertyPathParam() != null && npe.getNeoPropertyPathParam().getNeoPathPart() != null) {
-						currentRelation = npe;
-					}
+				} else if (r.getTarget() != null && r instanceof NeoPropertyEdge){
+					currentRelation = r;
 				} else {
 					throw new InvalidityException("It is a not valid Edge/Relation included");
 				}
@@ -237,7 +237,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 					cypher.append(ne.generateCypher());
 				} else {
 					NeoPropertyEdge npe = (NeoPropertyEdge) currentRelation;
-					cypher.append(npe.generateCypher());
+					if (npe.generateCypher() != null) {
+						cypher.append(npe.generateCypher());
+					}
 				}
 			}
 		} else {
