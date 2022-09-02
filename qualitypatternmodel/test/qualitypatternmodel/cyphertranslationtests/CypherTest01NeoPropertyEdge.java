@@ -25,27 +25,27 @@ public class CypherTest01NeoPropertyEdge {
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		//Tests
-//		System.out.println("");
-//		System.out.println("<<< BEGIN - Tests >>>");
-//		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-//		completePatterns.add(getBlankSimpleEdge());
-//		completePatterns.add(getNeoPropertyEdge());
-//		completePatterns.add(getSimpleEdgeReturnOnlyProperty());
-//		completePatterns.add(getSimpleEdgeReturnOnlyMultiProperty());
-//		completePatterns.add(getSimpleEdgeWithLabels());
-//		completePatterns.add(getSimpleEdgeWithLabelsRight());
-//		completePatterns.add(getSimpleEdgeWithLabelsLeft());
-//		completePatterns.add(getSimpleEdgeWithTargetNodePropertyNProperty());
-//		completePatterns.add(getSimpleEdgeWithTargetNodePropertyNNeoPropertyEdgeNProperty());
-//		completePatterns.add(getComplexEdge());
-//		completePatterns.add(getComplexEdgeWithLabels());
-//		completePatterns.add(getComplexEdgeWithLabelsDiffrentDirections());
-//		completePatterns.add(getComplexEdgeWithLabelsDiffrentDirectionsAndAllReturns());
-//		
-//		//Call tester from CypherTest00
-//		CypherTest00.test(completePatterns);
-//		System.out.println("<<< END - Tests >>>");
-//		System.out.println("");		
+		System.out.println("");
+		System.out.println("<<< BEGIN - Tests >>>");
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getBlankSimpleEdge());
+		completePatterns.add(getNeoPropertyEdge());
+		completePatterns.add(getSimpleEdgeReturnOnlyProperty());
+		completePatterns.add(getSimpleEdgeReturnOnlyMultiProperty());
+		completePatterns.add(getSimpleEdgeWithLabels());
+		completePatterns.add(getSimpleEdgeWithLabelsRight());
+		completePatterns.add(getSimpleEdgeWithLabelsLeft());
+		completePatterns.add(getSimpleEdgeWithTargetNodePropertyNProperty());
+		completePatterns.add(getSimpleEdgeWithTargetNodePropertyNNeoPropertyEdgeNProperty());
+		completePatterns.add(getComplexEdge());
+		completePatterns.add(getComplexEdgeWithLabels());
+		completePatterns.add(getComplexEdgeWithLabelsDiffrentDirections());
+		completePatterns.add(getComplexEdgeWithLabelsDiffrentDirectionsAndAllReturns());
+		
+		//Call tester from CypherTest00
+		CypherTest00.test(completePatterns);
+		System.out.println("<<< END - Tests >>>");
+		System.out.println("");		
 		
 		
 		//Exception tests
