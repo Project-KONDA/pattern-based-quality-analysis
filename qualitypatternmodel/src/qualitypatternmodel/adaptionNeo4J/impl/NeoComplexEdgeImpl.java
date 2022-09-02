@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -23,6 +24,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 
 /**
  * <!-- begin-user-doc -->
@@ -280,9 +282,12 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	@Override
 	public boolean validateComplexEdge() throws InvalidityException {
 		for (NeoPathPart part : getNeoPath()) {
-			if (part instanceof NeoSimpleEdge && !(((NeoSimpleEdge) part).isIsLastEdge())) {
-				if (((NeoSimpleEdge) part).getNeoTargetNodeLabels() == null) {
-					return false;
+			NeoPropertyPathParam neoPropertyPathParam = getNeoPropertyPathParam();
+			if (neoPropertyPathParam != null) {
+				if (part instanceof NeoSimpleEdge && !(((NeoSimpleEdge) part).isIsLastEdge())) {
+					if (((NeoSimpleEdge) part).getNeoTargetNodeLabels() == null) {
+						return false;
+					}
 				}
 			}
 		}

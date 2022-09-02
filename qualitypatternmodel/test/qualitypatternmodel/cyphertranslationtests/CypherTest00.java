@@ -123,7 +123,6 @@ public class CypherTest00 {
 		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
 		completePattern.getGraph().addNode();
 		ComplexNode complexNode2 = completePattern.getGraph().getNodes().get(1).makeComplex();
-//		complexNode2.setReturnNode(true);
 		completePattern.getGraph().addRelation(complexNode1, complexNode2);
 		
 		return completePattern;		
