@@ -2789,10 +2789,6 @@
                   <styles xmi:type="notation:FontStyle" xmi:id="_r6gpkSkcEe2tHKzGTjieeg" fontName="Segoe UI" fontHeight="8"/>
                   <layoutConstraint xmi:type="notation:Location" xmi:id="_r6gpkikcEe2tHKzGTjieeg"/>
                 </children>
-                <children xmi:type="notation:Node" xmi:id="_F06goCkeEe2tHKzGTjieeg" type="3010" element="_F0GoUCkeEe2tHKzGTjieeg">
-                  <styles xmi:type="notation:FontStyle" xmi:id="_F06goSkeEe2tHKzGTjieeg" fontName="Segoe UI" fontHeight="8"/>
-                  <layoutConstraint xmi:type="notation:Location" xmi:id="_F06goikeEe2tHKzGTjieeg"/>
-                </children>
                 <children xmi:type="notation:Node" xmi:id="_w_vs8Ck7Ee29LYepBtVBoQ" type="3010" element="_w-dTgCk7Ee29LYepBtVBoQ">
                   <styles xmi:type="notation:FontStyle" xmi:id="_w_vs8Sk7Ee29LYepBtVBoQ" fontName="Segoe UI" fontHeight="8"/>
                   <layoutConstraint xmi:type="notation:Location" xmi:id="_w_vs8ik7Ee29LYepBtVBoQ"/>
@@ -2829,6 +2825,10 @@
                 <children xmi:type="notation:Node" xmi:id="_M-5jgCq9Ee2Nv72KyrRWJQ" type="3010" element="_OK8bQB8JEe20H_6KewSmww">
                   <styles xmi:type="notation:FontStyle" xmi:id="_M-5jgSq9Ee2Nv72KyrRWJQ" fontName="Segoe UI" fontHeight="8"/>
                   <layoutConstraint xmi:type="notation:Location" xmi:id="_M-5jgiq9Ee2Nv72KyrRWJQ"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_AhYeoCrYEe2A294R3WFYxg" type="3010" element="_F0GoUCkeEe2tHKzGTjieeg">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_AhYeoSrYEe2A294R3WFYxg" fontName="Segoe UI" fontHeight="8"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_AhYeoirYEe2A294R3WFYxg"/>
                 </children>
                 <children xmi:type="notation:Node" xmi:id="_NGpDQCO3Ee2je5Z2xT0PxQ" type="3010" element="_NFB5sCO3Ee2je5Z2xT0PxQ">
                   <styles xmi:type="notation:FontStyle" xmi:id="_NGpDQSO3Ee2je5Z2xT0PxQ" fontColor="2697711" fontName="Segoe UI" fontHeight="8"/>
@@ -2987,7 +2987,7 @@
                 <styles xmi:type="notation:FilteringStyle" xmi:id="_1OHIJR41Ee28StARcPnhGA"/>
               </children>
               <styles xmi:type="notation:ShapeStyle" xmi:id="_1OHIIB41Ee28StARcPnhGA" fontName="Segoe UI" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1OHIIR41Ee28StARcPnhGA" x="435" y="212" width="120" height="100"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1OHIIR41Ee28StARcPnhGA" x="435" y="212" width="132" height="100"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_vEZF4B77Ee20H_6KewSmww" type="3009" element="_vCN7oB77Ee20H_6KewSmww">
               <children xmi:type="notation:Node" xmi:id="_vEbiIB77Ee20H_6KewSmww" type="5004"/>
@@ -3080,6 +3080,21 @@
               <styles xmi:type="notation:LineTypeStyle" xmi:id="_Stj1FCoxEe2UQ42ic8PKoA"/>
               <element xsi:nil="true"/>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Stj1FSoxEe2UQ42ic8PKoA" x="160" y="598" width="97"/>
+            </children>
+            <children xmi:type="notation:Shape" xmi:id="_CVof8CrXEe2A294R3WFYxg" type="Note" fontName="Segoe UI" description="Ich unterschiede nicht zwischen den innerEdges und den Relations, wenn man NeoEdge oder NeoPropertyEdge im Return haben will bekommt man beids" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CVof8SrXEe2A294R3WFYxg" source="specificStyles">
+                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_CVof8irXEe2A294R3WFYxg" key="verticalAlignment" value="8"/>
+              </eAnnotations>
+              <children xmi:type="notation:BasicDecorationNode" xmi:id="_CVpHACrXEe2A294R3WFYxg" type="DiagramName">
+                <element xsi:nil="true"/>
+              </children>
+              <children xmi:type="notation:BasicDecorationNode" xmi:id="_CVpHASrXEe2A294R3WFYxg" type="Description">
+                <element xsi:nil="true"/>
+              </children>
+              <styles xmi:type="notation:TextStyle" xmi:id="_CVof8yrXEe2A294R3WFYxg" textAlignment="Center"/>
+              <styles xmi:type="notation:LineTypeStyle" xmi:id="_CVof9CrXEe2A294R3WFYxg"/>
+              <element xsi:nil="true"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CVof9SrXEe2A294R3WFYxg" x="420" y="59" width="192"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_TKib4gLoEe2GF_6PqNgKEg"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_TKib4wLoEe2GF_6PqNgKEg"/>
@@ -5852,7 +5867,7 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_ISCFAh42Ee28StARcPnhGA" fontName="Segoe UI" fontHeight="8"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ISCFAx42Ee28StARcPnhGA" points="[97, 1, 17, 173]$[116, 1, 36, 173]$[116, -123, 36, 49]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ISCsFB42Ee28StARcPnhGA" id="(0.3782051282051282,0.5)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ISCsFR42Ee28StARcPnhGA" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ISCsFR42Ee28StARcPnhGA" id="(0.4510703363914373,0.5)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_Mk9LUB79Ee20H_6KewSmww" type="4001" element="_MkG22x79Ee20H_6KewSmww" source="_hXJkwB41Ee28StARcPnhGA" target="_01CmEFbsEeqq28gUaBHbCA">
           <children xmi:type="notation:Node" xmi:id="_Mk9yYB79Ee20H_6KewSmww" type="6001">
@@ -5899,7 +5914,7 @@
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_VHQpsB-kEe2-_fv40TsrYQ" routing="Tree" lineColor="1345869"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_VHQpsR-kEe2-_fv40TsrYQ" fontName="Segoe UI" fontHeight="8"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_VHQpsh-kEe2-_fv40TsrYQ" points="[0, -33, 105, 81]$[0, -56, 105, 58]$[-162, -56, -57, 58]$[-162, -88, -57, 26]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_VHhvcB-kEe2-_fv40TsrYQ" id="(0.2288135593220339,0.336734693877551)"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_VHhvcB-kEe2-_fv40TsrYQ" id="(0.20642201834862384,0.336734693877551)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_VHhvcR-kEe2-_fv40TsrYQ" id="(0.7796610169491526,0.7346938775510204)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_cf_KwB-kEe2-_fv40TsrYQ" type="4001" element="_cfSnPx-kEe2-_fv40TsrYQ" source="_TKoihwLoEe2GF_6PqNgKEg" target="_vEZF4B77Ee20H_6KewSmww">
@@ -12956,14 +12971,6 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_F0GoUCkeEe2tHKzGTjieeg" name="getCypherInnerEdgeVariable() : EString" tooltipText="getCypherInnerEdgeVariable() : EString">
-          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/getCypherInnerEdgeVariable"/>
-          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/getCypherInnerEdgeVariable"/>
-          <ownedStyle xmi:type="diagram:BundledImage" uid="_F0GoUSkeEe2tHKzGTjieeg" labelAlignment="LEFT">
-            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
-          </ownedStyle>
-          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
-        </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" uid="_w-dTgCk7Ee29LYepBtVBoQ" name="addNeoEdgeLabel(label EString)" tooltipText="addNeoEdgeLabel(label)">
           <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/addNeoEdgeLabel"/>
           <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/addNeoEdgeLabel"/>
@@ -13029,6 +13036,14 @@
           <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/isLastEdge"/>
           <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/isLastEdge"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_OK8bQR8JEe20H_6KewSmww" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_F0GoUCkeEe2tHKzGTjieeg" name="getCypherInnerEdgeVariable() : EString" tooltipText="getCypherInnerEdgeVariable() : EString">
+          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/getCypherInnerEdgeVariable"/>
+          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/getCypherInnerEdgeVariable"/>
+          <ownedStyle xmi:type="diagram:BundledImage" uid="_F0GoUSkeEe2tHKzGTjieeg" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>

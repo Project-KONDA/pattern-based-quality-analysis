@@ -90,7 +90,7 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 							targetNodesCanNotBeNull();
 						}
 					} else {
-						new InvalidityException("Last Edge has to be set");
+						throw new InvalidityException("Last Edge has to be set");
 					}
 				}
 				

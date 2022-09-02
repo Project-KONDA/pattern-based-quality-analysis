@@ -465,8 +465,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		if (graph.getRelations().size() != 0) {
 			StringBuilder cypherEdge = new StringBuilder();
 			StringBuilder cypherInnerEdges = new StringBuilder();
-			NeoEdge ne;
-			NeoPropertyEdge npe;
+			NeoEdge neoNode;
+			NeoPropertyEdge neoPropertyEdge;
 			
 			//Gets just the Varibles of the Relation since properties are not represented in this model --> maybe in future
 			for (Relation r : graph.getRelations()) {
@@ -474,14 +474,14 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				if (r instanceof NeoAbstractEdge && ((NeoAbstractEdge) r).isReturnElement()) {
 					if(r instanceof NeoPropertyEdge) {
 						//TODO Rework --> Look if this is printed and the NeoPropertyNode if there are any redunancies
-						npe = (NeoPropertyEdge) r;
-						if (npe.getNeoPropertyPathParam() != null && npe.getNeoPropertyPathParam().getNeoPathPart() != null) {
-							cypherInnerEdges.append(npe.getNeoPropertyPathParam().getNeoPathPart().getCypherVariable());
+						neoPropertyEdge = (NeoPropertyEdge) r;
+						if (neoPropertyEdge.getNeoPropertyPathParam() != null && neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart() != null) {
+							cypherInnerEdges.append(((NeoSimpleEdge) neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart()).getCypherInnerEdgeVariable());
 						}
 					} else if(r instanceof NeoEdge) {
-						ne = (NeoEdge) r;
-						if (ne.getNeoPathParam() != null && ne.getNeoPathParam().getNeoPathPart() != null) {
-							cypherEdge.append(ne.getNeoPathParam().getNeoPathPart().getCypherVariable());
+						neoNode = (NeoEdge) r;
+						if (neoNode.getNeoPathParam() != null && neoNode.getNeoPathParam().getNeoPathPart() != null) {
+							cypherEdge.append(neoNode.getNeoPathParam().getNeoPathPart().getCypherVariable());
 						}
 					}
 				}
