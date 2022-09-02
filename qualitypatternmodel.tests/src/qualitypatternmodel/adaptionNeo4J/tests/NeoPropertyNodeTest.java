@@ -18,6 +18,7 @@ import qualitypatternmodel.graphstructure.tests.PrimitiveNodeTest;
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#generateCypherPropertyAddressing() <em>Generate Cypher Property Addressing</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#generateCypherMatchNodeVariable() <em>Generate Cypher Match Node Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#setIsReturnProperty(boolean) <em>Set Is Return Property</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getCypherVariable() <em>Get Cypher Variable</em>}</li>
  * </ul>
  * </p>
@@ -98,6 +99,19 @@ public class NeoPropertyNodeTest extends PrimitiveNodeTest {
 	 * @generated
 	 */
 	public void testGenerateCypherMatchNodeVariable() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#setIsReturnProperty(boolean) <em>Set Is Return Property</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#setIsReturnProperty(boolean)
+	 * @generated
+	 */
+	public void testSetIsReturnProperty__boolean() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

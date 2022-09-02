@@ -1068,8 +1068,12 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/isLastEdge"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyNode">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyNode/returnProperty"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyNode/generateCypherPropertyAddressing"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyNode/generateCypherMatchNodeVariable"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyNode/setIsReturnProperty">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyNode/setIsReturnProperty/returnProperty"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathParam">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

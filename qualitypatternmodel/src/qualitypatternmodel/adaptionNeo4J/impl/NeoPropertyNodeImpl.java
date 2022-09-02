@@ -28,6 +28,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyNodeImpl#getNodePlace <em>Node Place</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyNodeImpl#isReturnProperty <em>Return Property</em>}</li>
  * </ul>
  *
  * @generated
@@ -53,6 +54,25 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	protected NeoPlace nodePlace = NODE_PLACE_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #isReturnProperty() <em>Return Property</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReturnProperty()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean RETURN_PROPERTY_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isReturnProperty() <em>Return Property</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReturnProperty()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean returnProperty = RETURN_PROPERTY_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -66,6 +86,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override 
 	public String generateCypher() throws InvalidityException, UnsupportedOperationException {
 		//TODO Mapping
+		//FIXING
 		String cypher = null;
 		if (getIncoming() == null) {
 			cypher = CypherSpecificConstants.VARIABLE_PROPERTY_NODE + getOriginalID();
@@ -79,7 +100,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 * @generated NOT
 	 */
 	@Override
-	public String generateCypherPropertyAddressing() {
+	public String generateCypherPropertyAddressing() throws InvalidityException {
 		String cypher = null;
 		if (getIncoming() != null) {
 			NeoPropertyEdge edge = (NeoPropertyEdge) getIncoming().get(0);
@@ -102,6 +123,18 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) getIncoming().get(0);
 		String cypher = neoPropertyEdge.generateCypherMatchNodeVariable();
 		return cypher;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setIsReturnProperty(boolean returnProperty) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -130,6 +163,8 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		switch (featureID) {
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__NODE_PLACE:
 				return getNodePlace();
+			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__RETURN_PROPERTY:
+				return isReturnProperty();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -144,6 +179,9 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		switch (featureID) {
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__NODE_PLACE:
 				setNodePlace((NeoPlace)newValue);
+				return;
+			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__RETURN_PROPERTY:
+				setReturnProperty((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -160,6 +198,9 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__NODE_PLACE:
 				setNodePlace(NODE_PLACE_EDEFAULT);
 				return;
+			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__RETURN_PROPERTY:
+				setReturnProperty(RETURN_PROPERTY_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -174,6 +215,8 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		switch (featureID) {
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__NODE_PLACE:
 				return nodePlace != NODE_PLACE_EDEFAULT;
+			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__RETURN_PROPERTY:
+				return returnProperty != RETURN_PROPERTY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -287,6 +330,29 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 * @generated
 	 */
 	@Override
+	public boolean isReturnProperty() {
+		return returnProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setReturnProperty(boolean newReturnProperty) {
+		boolean oldReturnProperty = returnProperty;
+		returnProperty = newReturnProperty;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PROPERTY_NODE__RETURN_PROPERTY, oldReturnProperty, returnProperty));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == NeoAbstractNode.class) {
 			switch (baseOperationID) {
@@ -306,7 +372,12 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GENERATE_CYPHER_PROPERTY_ADDRESSING:
-				return generateCypherPropertyAddressing();
+				try {
+					return generateCypherPropertyAddressing();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GENERATE_CYPHER_MATCH_NODE_VARIABLE:
 				try {
 					return generateCypherMatchNodeVariable();
@@ -314,6 +385,9 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE___SET_IS_RETURN_PROPERTY__BOOLEAN:
+				setIsReturnProperty((Boolean)arguments.get(0));
+				return null;
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GET_CYPHER_VARIABLE:
 				return getCypherVariable();
 		}
@@ -332,6 +406,8 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (nodePlace: ");
 		result.append(nodePlace);
+		result.append(", returnProperty: ");
+		result.append(returnProperty);
 		result.append(')');
 		return result.toString();
 	}

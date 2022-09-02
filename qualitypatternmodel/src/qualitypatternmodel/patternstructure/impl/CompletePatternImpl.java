@@ -381,7 +381,19 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	@Override
 	public String generateCypher() throws InvalidityException {		
 		initializeTranslation();
-		if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
+		boolean returnProperties = false;
+		for (Node node : graph.getNodes()) {
+			if (node instanceof NeoPropertyNode) {
+				if (((NeoPropertyNode) node).isReturnProperty()) {
+					returnProperties = true;
+				}
+			}
+		}
+		
+		// I can not only return the complete Nodes... I also can Return the Properties
+		//NeoEdges are less significant from the meaning thus ignored but in future extentsions also possible to just return
+		//Return of * also future feature
+		if (returnProperties) {} else if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
 			throw new InvalidityException("return element(s) missing");
 		}
 		
@@ -408,6 +420,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		if (graph.getNodes().size() != 0 ) {
 			StringBuilder cypherNeoNode = new StringBuilder();
 			StringBuilder cypherNeoPropertyNode = new StringBuilder();
+			StringBuilder cypherNeoProperties = new StringBuilder();
 			NeoPropertyNode neoPropertyNode;
 			NeoPropertyPathParam neoPropertyPathParam;
 			NeoPropertyEdge neoPropertyEdge;
@@ -424,22 +437,34 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 					neoPropertyNode = (NeoPropertyNode) n;
 					neoPropertyEdge = (NeoPropertyEdge) neoPropertyNode.getIncoming().get(0);
 					neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
-					if (neoPropertyPathParam == null)
+					if (neoPropertyPathParam.getNeoPathPart() == null)
 						throw new InvalidityException("CompletePattern: Their is no NeoPropertyNode");
-					if (!(neoPropertyNode.generateCypher() == null)) {
+					if (!(neoPropertyNode.generateCypherMatchNodeVariable() == null)) {
 						cypherNeoPropertyNode.append(neoPropertyNode.generateCypherMatchNodeVariable());
 					}
 				} 
+				if (n instanceof NeoPropertyNode && ((NeoPropertyNode)n).isReturnProperty()) {
+					if (cypherNeoProperties.length() != 0) cypherNeoProperties.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
+					neoPropertyNode = (NeoPropertyNode) n;
+					cypherNeoProperties.append(neoPropertyNode.generateCypherPropertyAddressing());
+				}
 			}
 			
 			if (cypherNeoNode.length() != 0) cypher += cypherNeoNode;
-			if (cypherNeoPropertyNode.length() != 0) cypher += ", " + "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherNeoPropertyNode.toString();
+			if (cypherNeoPropertyNode.length() != 0) {
+				if (cypher.length() != 0) cypher += ", " + "\n";
+				cypher += CypherSpecificConstants.SIX_WHITESPACES + cypherNeoPropertyNode.toString();
+			}
+			if (cypherNeoProperties.length() != 0) {
+				if (cypher.length() != 0) cypher += ", " + "\n";
+				cypher += CypherSpecificConstants.SIX_WHITESPACES + cypherNeoProperties.toString();
+			}
 		}
 
 		//All regarding the relations will be added here 
 		if (graph.getRelations().size() != 0) {
 			StringBuilder cypherEdge = new StringBuilder();
-			StringBuilder cypherProperties = new StringBuilder();
+			StringBuilder cypherInnerEdges = new StringBuilder();
 			NeoEdge ne;
 			NeoPropertyEdge npe;
 			
@@ -448,9 +473,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				if (cypherEdge.length() != 0) cypherEdge.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
 				if (r instanceof NeoAbstractEdge && ((NeoAbstractEdge) r).isReturnElement()) {
 					if(r instanceof NeoPropertyEdge) {
+						//TODO Rework --> Look if this is printed and the NeoPropertyNode if there are any redunancies
 						npe = (NeoPropertyEdge) r;
 						if (npe.getNeoPropertyPathParam() != null && npe.getNeoPropertyPathParam().getNeoPathPart() != null) {
-							cypherProperties.append(npe.getNeoPropertyPathParam().getNeoPathPart().getCypherVariable());
+							cypherInnerEdges.append(npe.getNeoPropertyPathParam().getNeoPathPart().getCypherVariable());
 						}
 					} else if(r instanceof NeoEdge) {
 						ne = (NeoEdge) r;
@@ -460,8 +486,14 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 					}
 				}
 			}
-			if (cypherEdge.length() != 0) cypher += ", " + "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherEdge.toString();
-			if (cypherProperties.length() != 0) cypher += ", " + "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherProperties.toString();
+			if (cypherEdge.length() != 0) {
+				if (cypher.length() != 0) cypher += ", " + "\n";
+				cypher += CypherSpecificConstants.SIX_WHITESPACES + cypherEdge.toString();
+			}
+			if (cypherInnerEdges.length() != 0) {
+				if (cypher.length() != 0) cypher += ", " + "\n";
+				cypher += CypherSpecificConstants.SIX_WHITESPACES + cypherInnerEdges.toString();
+			}
 		}
 		
 		return cypher;

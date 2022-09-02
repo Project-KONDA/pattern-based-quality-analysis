@@ -48,10 +48,10 @@ public interface NeoPropertyEdge extends NeoAbstractEdge {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	String generateCypherPropertyAddressing();
+	String generateCypherPropertyAddressing() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

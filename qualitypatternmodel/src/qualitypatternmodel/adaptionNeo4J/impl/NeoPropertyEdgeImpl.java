@@ -17,7 +17,6 @@ import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -125,7 +124,7 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 	 * @generated NOT
 	 */
 	@Override
-	public String generateCypherPropertyAddressing() {
+	public String generateCypherPropertyAddressing() throws InvalidityException {
 		NeoPropertyPathParam neoPropertyPathParam = getNeoPropertyPathParam();
 		if (neoPropertyPathParam != null) {
 			String cypher;
@@ -134,8 +133,19 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 				NeoNode neoNode = (NeoNode) getSource();
 				variable = neoNode.getCypherVariable();
 			} else {
-				NeoPropertyNode neoPropertyNode = (NeoPropertyNode) getTarget();
-				variable = neoPropertyNode.getCypherVariable();
+				NeoPathPart neoPathPart = neoPropertyPathParam.getNeoPathPart();
+				if (neoPathPart instanceof NeoSimpleEdgeImpl) {
+					
+				} else if (neoPathPart instanceof NeoComplexEdgeImpl) {
+					for (NeoPathPart neoPathPart2 : neoPathPart.getNeoPathPartEdges()) {
+						if (neoPathPart2.isIsLastEdge()) {
+							neoPathPart = neoPathPart2;
+						}
+					}
+				} else {
+					return null;
+				}
+				variable = ((NeoSimpleEdge) neoPathPart).getCypherInnerEdgeVariable();
 			}
 			
 			cypher = variable + "." + getNeoPropertyPathParam().getNeoPropertyName();
@@ -370,7 +380,12 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case AdaptionNeo4JPackage.NEO_PROPERTY_EDGE___GENERATE_CYPHER_PROPERTY_ADDRESSING:
-				return generateCypherPropertyAddressing();
+				try {
+					return generateCypherPropertyAddressing();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case AdaptionNeo4JPackage.NEO_PROPERTY_EDGE___GENERATE_CYPHER_MATCH_NODE_VARIABLE:
 				try {
 					return generateCypherMatchNodeVariable();

@@ -200,9 +200,6 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	
 	@Override
 	public String generateCypher() throws InvalidityException {
-		if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
-			throw new InvalidityException("return elements missing");
-		}
 		String matchClause;
 		matchClause = graph.generateCypher();
 		if(matchClause.length() !=0 ) matchClause = CypherSpecificConstants.CLAUSE_MATCH + " "  + matchClause;

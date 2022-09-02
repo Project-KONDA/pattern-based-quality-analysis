@@ -3091,13 +3091,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PROPERTY_NODE__NODE_PLACE = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Return Property</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE__RETURN_PROPERTY = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Neo Property Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE_FEATURE_COUNT = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 1;
+	int NEO_PROPERTY_NODE_FEATURE_COUNT = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -3712,13 +3721,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PROPERTY_NODE___GENERATE_CYPHER_MATCH_NODE_VARIABLE = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Set Is Return Property</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___SET_IS_RETURN_PROPERTY__BOOLEAN = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 3;
+
+	/**
 	 * The number of operations of the '<em>Neo Property Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE_OPERATION_COUNT = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 3;
+	int NEO_PROPERTY_NODE_OPERATION_COUNT = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoAbstractPathParamImpl <em>Neo Abstract Path Param</em>}' class.
@@ -5778,6 +5796,17 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EClass getNeoPropertyNode();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#isReturnProperty <em>Return Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Return Property</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#isReturnProperty()
+	 * @see #getNeoPropertyNode()
+	 * @generated
+	 */
+	EAttribute getNeoPropertyNode_ReturnProperty();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#generateCypherPropertyAddressing() <em>Generate Cypher Property Addressing</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5796,6 +5825,16 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getNeoPropertyNode__GenerateCypherMatchNodeVariable();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#setIsReturnProperty(boolean) <em>Set Is Return Property</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Is Return Property</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#setIsReturnProperty(boolean)
+	 * @generated
+	 */
+	EOperation getNeoPropertyNode__SetIsReturnProperty__boolean();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoPathParam <em>Neo Path Param</em>}'.
@@ -6288,6 +6327,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EClass NEO_PROPERTY_NODE = eINSTANCE.getNeoPropertyNode();
 
 		/**
+		 * The meta object literal for the '<em><b>Return Property</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NEO_PROPERTY_NODE__RETURN_PROPERTY = eINSTANCE.getNeoPropertyNode_ReturnProperty();
+
+		/**
 		 * The meta object literal for the '<em><b>Generate Cypher Property Addressing</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6302,6 +6349,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NEO_PROPERTY_NODE___GENERATE_CYPHER_MATCH_NODE_VARIABLE = eINSTANCE.getNeoPropertyNode__GenerateCypherMatchNodeVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Is Return Property</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_PROPERTY_NODE___SET_IS_RETURN_PROPERTY__BOOLEAN = eINSTANCE.getNeoPropertyNode__SetIsReturnProperty__boolean();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathParamImpl <em>Neo Path Param</em>}' class.
