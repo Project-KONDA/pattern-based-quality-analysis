@@ -87,8 +87,10 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 		if((!translated) && getIncomingMapping() == null) { 
 			if (getNeoNodeLabels() != null) {
 				for (String label : labels.getValues()) {
-					cypher.append(":");
-					cypher.append(label);
+					if (label != "") {
+						cypher.append(":");
+						cypher.append(label);
+					}
 				}
 			}
 			

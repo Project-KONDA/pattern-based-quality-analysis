@@ -22,7 +22,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import static qualitypatternmodel.xmltranslationtests.Test00.*;
 
 public class CypherTest00 {
-	public static final AdaptionNeo4JFactory factory = new AdaptionNeo4JFactoryImpl();
+	public static final AdaptionNeo4JFactory FACTORY = new AdaptionNeo4JFactoryImpl();
 	
 	public static void test(ArrayList<CompletePattern> completePatterns) {
 		for (CompletePattern completePattern : completePatterns) {
@@ -134,7 +134,7 @@ public class CypherTest00 {
 		neo.setNodePlace(NeoPlace.BEGINNING);
 
 		NeoPropertyEdge relation = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
-		NeoPropertyPathParam nppp = factory.createNeoPropertyPathParam();
+		NeoPropertyPathParam nppp = FACTORY.createNeoPropertyPathParam();
 		nppp.setNeoPropertyName("isoStartDate");
 		relation.setNeoPropertyPathParam(nppp);
 		
@@ -166,7 +166,7 @@ public class CypherTest00 {
 		neo.setNodePlace(NeoPlace.BEGINNING);
 
 		NeoPropertyEdge relation = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
-		NeoPropertyPathParam nppp = factory.createNeoPropertyPathParam();
+		NeoPropertyPathParam nppp = FACTORY.createNeoPropertyPathParam();
 		nppp.setNeoPropertyName("endDate");
 		relation.setNeoPropertyPathParam(nppp);
 		
@@ -195,7 +195,7 @@ public class CypherTest00 {
 		neo.setNodePlace(NeoPlace.BEGINNING);
 		
 		NeoPropertyEdge relation = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
-		NeoPropertyPathParam neoPropertyPathParam = factory.createNeoPropertyPathParam();
+		NeoPropertyPathParam neoPropertyPathParam = FACTORY.createNeoPropertyPathParam();
 		neoPropertyPathParam.setNeoPropertyName("endDate");
 		relation.setNeoPropertyPathParam(neoPropertyPathParam);
 		
@@ -225,7 +225,7 @@ public class CypherTest00 {
 		
 		((Match) completePattern.getGraph().getOperatorList().getOperators().get(0)).getOption().setValue(false);
 		NeoPropertyEdge relation = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
-		NeoPropertyPathParam neoPropertyPathParam = factory.createNeoPropertyPathParam();
+		NeoPropertyPathParam neoPropertyPathParam = FACTORY.createNeoPropertyPathParam();
 		neoPropertyPathParam.setNeoPropertyName("endDate");
 		relation.setNeoPropertyPathParam(neoPropertyPathParam);
 		

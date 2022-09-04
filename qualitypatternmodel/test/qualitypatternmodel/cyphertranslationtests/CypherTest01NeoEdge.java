@@ -20,7 +20,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 
 //Integrate the tests for the NeoNode and NeoPropertyNode in this tests
 public class CypherTest01NeoEdge {
-	public static final AdaptionNeo4JFactory factory = new AdaptionNeo4JFactoryImpl();
+	public static final AdaptionNeo4JFactory FACTORY = new AdaptionNeo4JFactoryImpl();
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		//Tests
@@ -219,12 +219,12 @@ public class CypherTest01NeoEdge {
 		NeoEdge neoEdge = (NeoEdge) completePattern.getGraph().getRelations().get(0);
 		neoEdge.setReturnElement(true);
 		NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
-		NeoComplexEdge neoComplexEdge = factory.createNeoComplexEdge();
-		NeoSimpleEdge neoSimpleEdge1 = factory.createNeoSimpleEdge();
+		NeoComplexEdge neoComplexEdge = FACTORY.createNeoComplexEdge();
+		NeoSimpleEdge neoSimpleEdge1 = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge1.addStringTargetNodeLabel("Place");
 		neoSimpleEdge1.addNeoEdgeLabel("PLACE_OF_ISSUE");
 		neoSimpleEdge1.setNeoDirection(NeoDirection.RIGHT);
-		NeoSimpleEdge neoSimpleEdge2 = factory.createNeoSimpleEdge();
+		NeoSimpleEdge neoSimpleEdge2 = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge2.addNeoEdgeLabel("PLACE_OF_ISSUE");
 		neoSimpleEdge2.setNeoDirection(NeoDirection.LEFT);
 		neoSimpleEdge2.setIsLastEdge(true);
@@ -250,12 +250,12 @@ public class CypherTest01NeoEdge {
 		NeoEdge neoEdge = (NeoEdge) completePattern.getGraph().getRelations().get(0);
 		neoEdge.setReturnElement(true);
 		NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
-		NeoComplexEdge neoComplexEdge = factory.createNeoComplexEdge();
-		NeoSimpleEdge neoSimpleEdge1 = factory.createNeoSimpleEdge();
+		NeoComplexEdge neoComplexEdge = FACTORY.createNeoComplexEdge();
+		NeoSimpleEdge neoSimpleEdge1 = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge1.addStringTargetNodeLabel("Place");
 		neoSimpleEdge1.addNeoEdgeLabel("PLACE_OF_ISSUE");
 		neoSimpleEdge1.setNeoDirection(NeoDirection.RIGHT);
-		NeoSimpleEdge neoSimpleEdge2 = factory.createNeoSimpleEdge();
+		NeoSimpleEdge neoSimpleEdge2 = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge2.addNeoEdgeLabel("PLACE_OF_ISSUE");
 		neoSimpleEdge2.setNeoDirection(NeoDirection.LEFT);
 		neoSimpleEdge2.setIsLastEdge(true);
@@ -282,14 +282,14 @@ public class CypherTest01NeoEdge {
 		NeoEdge neoEdge = (NeoEdge) completePattern.getGraph().getRelations().get(0);
 		neoEdge.setReturnElement(true);
 		NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
-		NeoComplexEdge neoComplexEdge = factory.createNeoComplexEdge();
-		NeoSimpleEdge neoSimpleEdge1 = factory.createNeoSimpleEdge();
+		NeoComplexEdge neoComplexEdge = FACTORY.createNeoComplexEdge();
+		NeoSimpleEdge neoSimpleEdge1 = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge1.addStringTargetNodeLabel("Place");
 		neoSimpleEdge1.addNeoEdgeLabel("PLACE_OF_ISSUE");
-		NeoSimpleEdge neoSimpleEdge2 = factory.createNeoSimpleEdge();
+		NeoSimpleEdge neoSimpleEdge2 = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge2.addNeoEdgeLabel("PLACE_OF_ISSUE");
 		neoSimpleEdge2.addStringTargetNodeLabel("Regesta");
-		NeoSimpleEdge neoSimpleEdge3 = factory.createNeoSimpleEdge();
+		NeoSimpleEdge neoSimpleEdge3 = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge3.addNeoEdgeLabel("APPEARS_IN");
 		neoSimpleEdge3.setIsLastEdge(true);
 		
@@ -315,16 +315,16 @@ public class CypherTest01NeoEdge {
 		NeoEdge neoEdge = (NeoEdge) completePattern.getGraph().getRelations().get(0);
 		neoEdge.setReturnElement(true);
 		NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
-		NeoComplexEdge neoComplexEdge = factory.createNeoComplexEdge();
-		NeoSimpleEdge neoSimpleEdge1 = factory.createNeoSimpleEdge();
+		NeoComplexEdge neoComplexEdge = FACTORY.createNeoComplexEdge();
+		NeoSimpleEdge neoSimpleEdge1 = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge1.addStringTargetNodeLabel("Place");
 		neoSimpleEdge1.addNeoEdgeLabel("PLACE_OF_ISSUE");
 		neoSimpleEdge1.setNeoDirection(NeoDirection.RIGHT);
-		NeoSimpleEdge neoSimpleEdge2 = factory.createNeoSimpleEdge();
+		NeoSimpleEdge neoSimpleEdge2 = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge2.addNeoEdgeLabel("PLACE_OF_ISSUE");
 		neoSimpleEdge2.setNeoDirection(NeoDirection.LEFT);
 		neoSimpleEdge2.addStringTargetNodeLabel("Regesta");
-		NeoSimpleEdge neoSimpleEdge3 = factory.createNeoSimpleEdge();
+		NeoSimpleEdge neoSimpleEdge3 = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge3.addNeoEdgeLabel("APPEARS_IN");
 		neoSimpleEdge3.setNeoDirection(NeoDirection.LEFT);
 		neoSimpleEdge3.setIsLastEdge(true);
@@ -400,16 +400,16 @@ public class CypherTest01NeoEdge {
 		CompletePattern completePattern = getBasePatternNeoEdge();
 		NeoEdge neoEdge = (NeoEdge) completePattern.getGraph().getRelations().get(0);
 		NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
-		NeoComplexEdge neoComplexEdge = factory.createNeoComplexEdge();
-		NeoSimpleEdge neoSimpleEdge1 = factory.createNeoSimpleEdge();
+		NeoComplexEdge neoComplexEdge = FACTORY.createNeoComplexEdge();
+		NeoSimpleEdge neoSimpleEdge1 = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge1.addStringTargetNodeLabel("Place");
 		neoSimpleEdge1.addNeoEdgeLabel("PLACE_OF_ISSUE");
 		neoSimpleEdge1.setNeoDirection(NeoDirection.RIGHT);
-		NeoSimpleEdge neoSimpleEdge2 = factory.createNeoSimpleEdge();
+		NeoSimpleEdge neoSimpleEdge2 = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge2.addNeoEdgeLabel("PLACE_OF_ISSUE");
 		neoSimpleEdge2.setNeoDirection(NeoDirection.LEFT);
 		neoSimpleEdge2.addStringTargetNodeLabel("Regesta");
-		NeoSimpleEdge neoSimpleEdge3 = factory.createNeoSimpleEdge();
+		NeoSimpleEdge neoSimpleEdge3 = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge3.addNeoEdgeLabel("APPEARS_IN");
 		neoSimpleEdge3.setNeoDirection(NeoDirection.LEFT);
 		neoSimpleEdge3.setIsLastEdge(false);
@@ -428,7 +428,7 @@ public class CypherTest01NeoEdge {
 		CompletePattern completePattern = getBasePatternNeoEdge();
 		NeoEdge neoEdge = (NeoEdge) completePattern.getGraph().getRelations().get(0);
 		NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
-		NeoComplexEdge neoComplexEdge = factory.createNeoComplexEdge();
+		NeoComplexEdge neoComplexEdge = FACTORY.createNeoComplexEdge();
 		neoPathParam.setNeoPathPart(neoComplexEdge);
 		
 		return completePattern;

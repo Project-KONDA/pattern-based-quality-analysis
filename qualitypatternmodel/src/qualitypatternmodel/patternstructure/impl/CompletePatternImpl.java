@@ -438,7 +438,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 					neoPropertyEdge = (NeoPropertyEdge) neoPropertyNode.getIncoming().get(0);
 					neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
 					if (neoPropertyPathParam.getNeoPathPart() == null)
-						throw new InvalidityException("CompletePattern: Their is no NeoPropertyNode");
+						throw new InvalidityException("CompletePattern: There is no NeoPropertyNode");
 					if (!(neoPropertyNode.generateCypherMatchNodeVariable() == null)) {
 						cypherNeoPropertyNode.append(neoPropertyNode.generateCypherMatchNodeVariable());
 					}
@@ -469,8 +469,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			NeoPropertyEdge neoPropertyEdge;
 			NeoPathPart neoPathPart;
 			
-			//Gets just the Varibles of the Relation since properties are not represented in this model --> maybe in future
-			//TODO Rework --> Look if this is printed and the NeoPropertyNode if there are any redunancies
 			for (Relation r : graph.getRelations()) {
 				if (r instanceof NeoAbstractEdge && ((NeoAbstractEdge) r).isReturnElement()) {
 					if(r instanceof NeoPropertyEdge) {
@@ -492,7 +490,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 							if (cypherEdge.length() != 0) cypherEdge.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
 							cypherEdge.append(neoEdge.getNeoPathParam().getNeoPathPart().getCypherVariable());
 							
-							//TODO how to handle if there are no innerEdges
 							if (neoPathPart.getCypherInnerEdgeVariable() != null) {
 								if (cypherInnerEdges.length() != 0) cypherInnerEdges.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
 								cypherInnerEdges.append(neoPathPart.getCypherInnerEdgeVariable());
