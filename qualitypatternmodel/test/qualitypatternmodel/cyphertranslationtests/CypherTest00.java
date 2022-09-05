@@ -72,12 +72,12 @@ public class CypherTest00 {
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-//		completePatterns.add(getBasePatternFinal());
-//		completePatterns.add(getBasePatternComplexFinal());
+		completePatterns.add(getBasePatternFinal());
+		completePatterns.add(getBasePatternComplexFinal());
 		completePatterns.add(getBasePatternCondDateConcrete("1440-02-02"));
-//		completePatterns.add(getBasePatternCondConcrete("1439-12-20"));
-//		completePatterns.add(getBasePatternMatchConcrete("1439.*"));
-//		completePatterns.add(getBasePatternMatchNotConcrete("1439.*"));
+		completePatterns.add(getBasePatternCondConcrete("1439-12-20"));
+		completePatterns.add(getBasePatternMatchConcrete("1439.*"));
+		completePatterns.add(getBasePatternMatchNotConcrete("1439.*"));
 		CypherTest00.test(completePatterns);
 	}
 	

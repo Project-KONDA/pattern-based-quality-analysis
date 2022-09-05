@@ -86,9 +86,9 @@ public class CypherTest01NeoPropertyEdge {
 	public static CompletePattern getBasePatternMultiNeoPropertyEdge() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = CypherTest00.getBasePattern();
 		ComplexNode complexNode1 = (ComplexNode) completePattern.getGraph().getNodes().get(0);
-		Node node3 = completePattern.getGraph().addNode();
+		Node node3 = completePattern.getGraph().addPrimitiveNode();
 		completePattern.getGraph().addRelation(complexNode1, node3);
-		Node node4 = completePattern.getGraph().addNode();
+		Node node4 = completePattern.getGraph().addPrimitiveNode();
 		completePattern.getGraph().addRelation(complexNode1, node4);
 		completePattern.createNeo4jAdaption();
 		NeoNode ns = (NeoNode) completePattern.getGraph().getNodes().get(0);

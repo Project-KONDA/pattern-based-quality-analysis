@@ -59,7 +59,7 @@ public class CypherTest02Return {
 		completePattern.getGraph().addNode();
 		ComplexNode complexNode2 = completePattern.getGraph().getNodes().get(1).makeComplex();
 		completePattern.getGraph().addRelation(complexNode1, complexNode2);
-		Node node = completePattern.getGraph().addNode();
+		Node node = completePattern.getGraph().addPrimitiveNode();
 		completePattern.getGraph().addRelation(complexNode2, node);
 		
 		return completePattern;	
