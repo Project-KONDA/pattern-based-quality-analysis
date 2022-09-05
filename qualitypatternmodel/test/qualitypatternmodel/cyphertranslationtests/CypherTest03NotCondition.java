@@ -105,14 +105,14 @@ public class CypherTest03NotCondition {
             neoNode.addStringLabel("IndexPlace");
             
             //First Edge Specification
-            NeoEdge neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(1);
+            NeoEdge neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(0);
             NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
             NeoSimpleEdge neoSimpleEdge = FACTORY.createNeoSimpleEdge();
             neoSimpleEdge.addNeoEdgeLabel("APPEARS_IN");
             neoPathParam.setNeoPathPart(neoSimpleEdge);
             
             //Second Edge Specification
-            neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(2);
+            neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(1);
             neoPathParam = neoEdge.getNeoPathParam();
             neoSimpleEdge = FACTORY.createNeoSimpleEdge();
             neoSimpleEdge.addNeoEdgeLabel("ACTION");
