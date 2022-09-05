@@ -12,6 +12,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.impl.DateParamImpl;
@@ -71,12 +72,12 @@ public class CypherTest00 {
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getBasePatternFinal());
-		completePatterns.add(getBasePatternComplexFinal());
+//		completePatterns.add(getBasePatternFinal());
+//		completePatterns.add(getBasePatternComplexFinal());
 		completePatterns.add(getBasePatternCondDateConcrete("1440-02-02"));
-		completePatterns.add(getBasePatternCondConcrete("1439-12-20"));
-		completePatterns.add(getBasePatternMatchConcrete("1439.*"));
-		completePatterns.add(getBasePatternMatchNotConcrete("1439.*"));
+//		completePatterns.add(getBasePatternCondConcrete("1439-12-20"));
+//		completePatterns.add(getBasePatternMatchConcrete("1439.*"));
+//		completePatterns.add(getBasePatternMatchNotConcrete("1439.*"));
 		CypherTest00.test(completePatterns);
 	}
 	
@@ -97,8 +98,8 @@ public class CypherTest00 {
 		completePattern.setName("MyPattern");
 		
 		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
-		Node node2 = completePattern.getGraph().addNode();
-		completePattern.getGraph().addRelation(complexNode1, node2);
+		PrimitiveNode pn = completePattern.getGraph().addPrimitiveNode();
+		completePattern.getGraph().addRelation(complexNode1, pn);
 	
 		return completePattern;	
 	}
