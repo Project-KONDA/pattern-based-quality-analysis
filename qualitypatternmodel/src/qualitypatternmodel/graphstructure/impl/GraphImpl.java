@@ -187,7 +187,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			//Finding ComplexNode which represent the beginning
 			//Since we have independent graphs we can have multiple beginnings
 			//How to integrate Maybe a OPTIONAL MATCH? - OPTIONAL - How to consider (r:A)--(B:B), (r)--(C:C)?
-			//TODO: Consider that it also can start with a PrimitiveNode which has a more defined strucutre
+			//TODO: Consider that it also can start with a PrimitiveNode which has a more defined strucutre --> Not relevant any more since the model just starts with a complex edge
 			for (Node n : allNodesList) {
 				if (n instanceof NeoNode && ((NeoAbstractNode) n).getNodePlace() == NeoPlace.BEGINNING) {
 					beginningNodesList.add((NeoAbstractNode) n);
@@ -220,6 +220,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		
 		//In this senario it has to be considert that of there are multiple edges between nodes the last one will be taken
 		//Since multiple edges between to nodes requieres a OPTIONAL MATCH the OPTIONAL MATCH can be implemented or a break added
+		//MULTIPLE EDGES HAVE TO BE HANDELT DIFFRENTLY BUT ARE ALSO NOT SUPPORTED BY THE FRAMEWORK
+		//TODO BUILD THE NON-LINEAR PATH GENERATION
 		if (n instanceof ComplexNode) {
 			for (Relation r : ((ComplexNode) n).getOutgoing()) {
 				if(r.getTarget() != null && r instanceof NeoEdge) {
