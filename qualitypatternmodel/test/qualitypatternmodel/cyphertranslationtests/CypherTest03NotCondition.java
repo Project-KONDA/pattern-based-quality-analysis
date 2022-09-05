@@ -4,7 +4,12 @@ import java.util.ArrayList;
 import java.util.concurrent.locks.Condition;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
+import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
+import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
+import qualitypatternmodel.adaptionNeo4J.NeoPlace;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
+import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -19,6 +24,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
+import qualitypatternmodel.rdftranslationtests.RdfTest00;
 
 public class CypherTest03NotCondition {
 	public static final AdaptionNeo4JFactory factory = new AdaptionNeo4JFactoryImpl();
@@ -28,6 +34,7 @@ public class CypherTest03NotCondition {
 		System.out.println("");
 		System.out.println("<<< BEGIN - Tests >>>");
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		getNotQuantifierPattern(Quantifier.EXISTS);
 //		completePatterns.add(getNotQuantifierPattern(Quantifier.EXISTS));
 //		completePatterns.add(getNotQuantifierPattern(Quantifier.FORALL));
 //		completePatterns.add(getNotQuantifierPattern(Quantifier.EXISTS, Quantifier.EXISTS));
@@ -36,17 +43,65 @@ public class CypherTest03NotCondition {
 //		completePatterns.add(getNotNotNotPattern());
 //		completePatterns.add(getNotNotNotNotPattern());
 //		completePatterns.add(getNotNotNotNotNotPattern());
-		completePatterns.add(testPatternQuery1());
+//		completePatterns.add(testPatternQuery1());
 		//Call tester from CypherTest00
 		CypherTest00.test(completePatterns);
 		System.out.println("<<< END - Tests >>>");
 		System.out.println("");		
 	}
 
-	public static CompletePattern getNotQuantifierPattern(Quantifier q) {
-		CompletePattern completePattern = null;
+//	MATCH (n:Regesta)
+//	WHERE NOT EXISTS{ //The following need to be added to the graph generateCypher() //Dann die frage wie unterscheide ich es zu OPTIONAL MATCH
+				  //Da bisher nur linear durchgegangen wird
+//	    MATCH (n)-[:APPEARS_IN]-(:IndexPerson), (n)-[:ACTION]-(:Action), (n)-[:RECIPIENT_IN]-(:IndexPlace)
+		//How to consider if the original pattern is longer and just from n should be started
+		//How to handle dopple printing of the original pattern
+//	}
+//	RETURN n
+
+	
+	public static CompletePattern getNotQuantifierPattern(Quantifier q) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = CypherTest00.getBasePattern();
+		Node complexNode = (Node) completePattern.getGraph().getNodes().get(0);
+		NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
+		completePattern.setCondition(notCond);
 		
+		QuantifiedCondition quantifiedCond1 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		notCond.setCondition(quantifiedCond1); //Warum bekommt der Graph in der quantifiedCond1 hier Nodes? Woher?
+		quantifiedCond1.setQuantifier(q);
+		Node complexNode1 = (Node) quantifiedCond1.getGraph().getNodes().get(0);
+		Node complexNode2 = (Node) quantifiedCond1.getGraph().addComplexNode();
+		quantifiedCond1.getGraph().addRelation((ComplexNode) complexNode1, complexNode2);
+//		Morphism morphism = quantifiedCond1.getMorphism();
+//		morphism.addMapping(complexNode, complexNode2);
+//		morphism.checkElementMappings();
 		
+//		ComplexNode complexNode2 = quantifiedCond1.getGraph().getNodes().get(1).makeComplex();
+//		Node node3 = quantifiedCond1.getGraph().addNode();
+//		quantifiedCond1.getGraph().addRelation(complexNode2, node3);
+		
+//		if (q ==  Quantifier.FORALL) {
+//			//TODO
+//		}
+	
+//		//Create the Abstract Pattern
+		completePattern.createNeo4jAdaption();
+
+//		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
+//		neoNode.setNodePlace(NeoPlace.BEGINNING);
+//		neoNode.addStringLabel("Regesta");
+//		
+//		neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(3);
+//		neoNode.setNodePlace(NeoPlace.BEGINNING);
+////		neoNode.addStringLabel("Regesta"); --> Should be set via the mapping
+//		neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(4);
+//		neoNode.addStringLabel("IndexPerson");
+//		NeoEdge neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(1);
+//		NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
+//		NeoSimpleEdge neoSimpleEdge = factory.createNeoSimpleEdge();
+//		neoSimpleEdge.addNeoEdgeLabel("placeOfIssue");
+//		neoPathParam.setNeoPathPart(neoSimpleEdge);
+			
 		return completePattern;
 	}
 	

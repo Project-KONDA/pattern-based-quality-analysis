@@ -1626,7 +1626,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			return neoNode;			
 		} else {
 			for (ElementMapping map: getOutgoingMappings()) {
-				((NodeImpl) map.getTarget()).adaptAsRdfIriNodeRecursive();
+				((NodeImpl) map.getTarget()).adaptAsNeoNodeRecursive();
 			}
 			return (NeoNode) this;
 		}
@@ -1721,6 +1721,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			
 			return neoAttribute;
 		} else {
+			//TODO something is here wrong
 			for (ElementMapping map: getOutgoingMappings()) {
 				((NodeImpl) map.getTarget()).adaptAsNeoPropertyNode();
 			}

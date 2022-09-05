@@ -163,43 +163,74 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		}
 		return query;
 	}
-	
+	//In the count condition a new graph will be build thus there is no problem to set it straigt. 
+	//However it has to be considert that from the original graph variables have to be loaded (morphism can be used to handle that)
+	//Check the morphisems in the nodes and edges
 	@Override
 	public String generateCypher() throws InvalidityException {
-		StringBuilder query = new StringBuilder();
+		StringBuilder cypher = new StringBuilder();
+		StringBuilder cypherWhere = new StringBuilder();
 		String exists = CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS;
 		
 		//INCLUDE THE GRAPH-PATTERN - Is needed for both cases
-		query.append(String.format(CypherSpecificConstants.CLAUSE_MATCH_INLUCE_W, CypherSpecificConstants.TWELVE_WHITESPACES));
-		query.append(graph.generateCypher()); 
+		cypher.append(String.format(CypherSpecificConstants.CLAUSE_MATCH_INLUCE_W, CypherSpecificConstants.TWELVE_WHITESPACES));
+		cypher.append(" " + graph.generateCypher()); 
 		
 		//TODO
 		if (quantifier == Quantifier.EXISTS ) {
-			//In the count condition a new graph will be build thus there is no problem to set it straigt. 
-			//However it has to be considert that from the original graph variables have to be loaded (morphism can be used to handle that)
-
-//			//INCLUDE the WHERE
-//			if (!(getCondition() instanceof TrueElementImpl)) {
-//				query.append(String.format(CypherSpecificConstants.CLAUSE_WHERE_INLUCE_W, CypherSpecificConstants.TWELVE_WHITESPACES));
-			    //BUILD THE WHERE
-//			}
+			//INCLUDE the WHERE
+			if (!(getCondition() instanceof TrueElementImpl)) {
+				cypherWhere.append(condition.generateCypher());
+			}
+			appendCypherWhere(cypherWhere);
+			addCypherWherePrefix(cypherWhere);
 			
-			exists = String.format(exists, query.toString());
+			checkCypherWhere(cypher, cypherWhere);
+			exists = String.format(exists, cypher.toString());
 		} else if (quantifier == Quantifier.FORALL) {
+			//How to optimize this part?
+			
 			//A statement "For all X Y is valid" is logically equivalent to "There is no X for which Y is not valid".
 			//Thus the following construct is equivalent to a forall: 
-			exists = CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + exists;
+			//How to get the supgraph in with the NOT
+			exists = CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " " + exists;
+			cypher.append(CypherSpecificConstants.CLAUSE_MATCH + CypherSpecificConstants.ONE_WHITESPACES);
+			cypher.append(graph.generateCypher());
 			
-//			//INCLUDE THE WHERE	
-//			if (!(getCondition() instanceof TrueElementImpl)) {
-//				query.append(String.format(CypherSpecificConstants.CLAUSE_WHERE_INLUCE_W, CypherSpecificConstants.TWELVE_WHITESPACES));
-//				//BUILD THE WHERE
-//			}
-			exists = String.format(exists, query.toString());
+			//INCLUDE THE WHERE	
+			if (!(getCondition() instanceof TrueElementImpl)) {
+				cypherWhere.append(condition.generateCypher());
+			}
+			appendCypherWhere(cypherWhere);
+			addCypherWherePrefix(cypherWhere);
+		
+			checkCypherWhere(cypher, cypherWhere);
+			exists = String.format(exists, cypher.toString());
 		} else {
 			throw new InvalidityException("invalid quantifier");
 		}
+
 		return exists; 		
+	}
+
+	private void checkCypherWhere(StringBuilder cypher, StringBuilder cypherWhere) {
+		if (cypherWhere.length() != 0) 
+			cypher.append(cypherWhere.toString());
+	}
+
+	private void addCypherWherePrefix(StringBuilder cypherWhere) {
+		if (cypherWhere.length() != 0) {
+			String where = String.format(CypherSpecificConstants.CLAUSE_WHERE_INLUCE_W, CypherSpecificConstants.TWELVE_WHITESPACES);
+			where += " " + cypherWhere.toString();
+			cypherWhere.setLength(0);
+			cypherWhere.append(where);
+		}
+	}
+
+	private void appendCypherWhere(StringBuilder query) throws InvalidityException {
+		if (graph.generateCypherWhere() != "") {
+			query.append(graph.generateCypherWhere());
+		}
 	}
 	
 	@Override
