@@ -59,6 +59,11 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 	public PatternElement createNeo4jAdaption() throws InvalidityException {
 		return this;
 	}
+
+	@Override
+	public NeoPropertyEdge adaptAsPropertyEdge() throws InvalidityException {
+		return this;
+	}
 	
 	//Translation of the neoPropertyEdge
 	@Override

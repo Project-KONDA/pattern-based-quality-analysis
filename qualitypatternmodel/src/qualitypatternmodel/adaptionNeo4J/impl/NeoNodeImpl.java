@@ -120,6 +120,11 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return this;
 	}
+
+	@Override
+	public NeoNode adaptAsNeoNode() throws InvalidityException {
+		return this;
+	}
 	
 	@Override
 	public Node makeGeneric() throws InvalidityException{

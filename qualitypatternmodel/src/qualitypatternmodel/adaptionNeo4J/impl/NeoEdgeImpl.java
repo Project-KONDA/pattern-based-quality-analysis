@@ -58,6 +58,11 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 		 return this;
 	 }
 	
+	 @Override
+	 public NeoEdge adaptAsNeoEdge() throws InvalidityException {
+		 return this;
+	 }
+	
 	
 	//Translates just the Edge
 	@Override

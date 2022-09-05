@@ -21,6 +21,8 @@ import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoEdgeImpl;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyEdgeImpl;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.adaptionrdf.impl.RdfPredicateImpl;
 import qualitypatternmodel.adaptionxml.XmlElement;
@@ -871,7 +873,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		if (getTarget() instanceof NeoPropertyNode || getSource() instanceof NeoPropertyNode) {
+		if (getTarget() instanceof NeoPropertyNode) {
 			return adaptAsPropertyEdge();
 		} 
 		return adaptAsNeoEdge();

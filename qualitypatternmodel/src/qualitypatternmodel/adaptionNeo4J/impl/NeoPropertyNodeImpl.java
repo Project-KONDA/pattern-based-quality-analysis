@@ -255,6 +255,11 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	public PatternElement createNeo4jAdaption() throws InvalidityException {
 		return this;
 	}
+
+	@Override
+	public NeoPropertyNode adaptAsNeoPropertyNode() throws InvalidityException {
+		return this;
+	}
 	
 	@Override
 	public Node makeGeneric() throws InvalidityException{

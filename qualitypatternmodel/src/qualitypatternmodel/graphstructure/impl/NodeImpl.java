@@ -323,10 +323,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		if (this instanceof ComplexNode) {
-			return adaptAsNeoNode();
-		}
-		return adaptAsNeoPropertyNode();
+		return adaptAsNeoNode();
 	}
 	
 	@Override
@@ -1420,7 +1417,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	public RdfLiteralNode adaptAsRdfLiteralNode() throws InvalidityException {
 		Graph graph = getGraph();
 		RdfLiteralNode elementOriginal = ((NodeImpl) getOriginalNode()).adaptAsRdfLiteralNodeRecursive();
-				
 		
 		for(Node n: graph.getNodes()) {
 			if(n instanceof RdfLiteralNode) {
@@ -1555,7 +1551,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 						if(next.getIncomingMapping() == null) {
 							next = null;
 						} else {
-							next.getIncomingMapping().getSource();
+							next = next.getIncomingMapping().getSource();
 						}
 					} else {
 						return element;						
@@ -1607,21 +1603,24 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			
 			setGraph(null);
 			
-			for (ElementMapping map: neoNode.getOutgoingMappings()) {
+
+			EList<ElementMapping> maps = new BasicEList<ElementMapping>();
+			maps.addAll(neoNode.getOutgoingMappings());
+			for (ElementMapping map: maps) {
 				((NodeImpl) map.getTarget()).adaptAsNeoNodeRecursive();
 			}			
 			
-			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
-			incomingCopy2.addAll(neoNode.getIncoming());
-			for(Relation relation : incomingCopy2) {
+//			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
+//			incomingCopy2.addAll(neoNode.getIncoming());
+//			for(Relation relation : incomingCopy2) {
 				//Here we need to check if the incoming Relations Source is a Primitive (NeoPropertyEdge) or a Complex (NeoEdge) is
 				//Depending we need here a diffrent Edge adaption
-				if (relation.getSource() instanceof ComplexNode) {
-					relation.adaptAsNeoEdge();
-				} else {
-					relation.adaptAsPropertyEdge();
-				}
-			}
+//				if (relation.getSource() instanceof ComplexNode) {
+//					relation.adaptAsNeoEdge();
+//				} else {
+//					relation.adaptAsPropertyEdge();
+//				}
+//			}
 			
 			return neoNode;			
 		} else {
@@ -1713,17 +1712,17 @@ public class NodeImpl extends PatternElementImpl implements Node {
 
 			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
 			incomingCopy2.addAll(neoAttribute.getIncoming());
-			for(Relation relation : incomingCopy2) {
+//			for(Relation relation : incomingCopy2) {
 				//All relations from a NeoEdge or a NeoPropertyEdge incoming here is a NeoProperty-Edge
 				//Hence there is no requirment for adapting it as a NeoEdge
-				relation.adaptAsPropertyEdge();
-			}
+//				relation.adaptAsPropertyEdge();
+//			}
 			
 			return neoAttribute;
 		} else {
 			//TODO something is here wrong
 			for (ElementMapping map: getOutgoingMappings()) {
-				((NodeImpl) map.getTarget()).adaptAsNeoPropertyNode();
+				((NodeImpl) map.getTarget()).adaptAsNeoPropertyRecursive();
 			}
 			return (NeoPropertyNode) this;
 		}
