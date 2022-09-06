@@ -28,15 +28,15 @@ import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.rdftranslationtests.RdfTest00;
 
 public class CypherTest03NotCondition {
-        public static final AdaptionNeo4JFactory FACTORY = new AdaptionNeo4JFactoryImpl();
-        
-        public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-                //Tests
-                System.out.println("");
-                System.out.println("<<< BEGIN - Tests >>>");
-                ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+    public static final AdaptionNeo4JFactory FACTORY = new AdaptionNeo4JFactoryImpl();
+    
+    public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+            //Tests
+            System.out.println("");
+            System.out.println("<<< BEGIN - Tests >>>");
+            ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 //                getNotQuantifierPattern(Quantifier.EXISTS);
-                completePatterns.add(getTestPattern());
+            completePatterns.add(getTestPattern2());
 //                completePatterns.add(getNotQuantifierPattern(Quantifier.FORALL));
 //                completePatterns.add(getNotQuantifierPattern(Quantifier.EXISTS, Quantifier.EXISTS));
 //                completePatterns.add(getNotQuantifierPattern(Quantifier.FORALL, Quantifier.FORALL));
@@ -45,88 +45,111 @@ public class CypherTest03NotCondition {
 //                completePatterns.add(getNotNotNotNotPattern());
 //                completePatterns.add(getNotNotNotNotNotPattern());
 //                completePatterns.add(testPatternQuery1());
-                //Call tester from CypherTest00
-                CypherTest00.test(completePatterns);
-                System.out.println("<<< END - Tests >>>");
-                System.out.println("");                
-        }
+            //Call tester from CypherTest00
+            CypherTest00.test(completePatterns);
+            System.out.println("<<< END - Tests >>>");
+            System.out.println("");                
+    }
 
-//        MATCH (n:Regesta)
-//        WHERE NOT EXISTS{ //The following need to be added to the graph generateCypher() //Dann die frage wie unterscheide ich es zu OPTIONAL MATCH
-                                  //Da bisher nur linear durchgegangen wird
-//            MATCH (n)-[:APPEARS_IN]-(:IndexPerson), (n)-[:ACTION]-(:Action), (n)-[:RECIPIENT_IN]-(:IndexPlace)
-                //How to consider if the original pattern is longer and just from n should be started
-                //How to handle dopple printing of the original pattern
-//        }
-//        RETURN n
-
+	//        MATCH (n:Literature)
+	//        WHERE NOT 
+	//          NOT EXISTS {
+	//            MATCH (n)<--(m:Reference)
+	//            WHERE NOT 
+	//              EXISTS{
+	//                MATCH (m)-->(o:Regesta)
+	//              }
+	//          }
+	//        RETURN n
+	public static CompletePattern getTestPattern1() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		
+		return null;
+	}
+	
+	
+	//        MATCH (n:Regesta)
+	//        WHERE NOT EXISTS{ //The following need to be added to the graph generateCypher() //Dann die frage wie unterscheide ich es zu OPTIONAL MATCH
+	                          //Da bisher nur linear durchgegangen wird
+	//            MATCH (n)-[:APPEARS_IN]-(:IndexPerson), (n)-[:ACTION]-(:Action), (n)-[:RECIPIENT_IN]-(:IndexPlace)
+	        //How to consider if the original pattern is longer and just from n should be started
+	        //How to handle dopple printing of the original pattern
+	//        }
+	//        RETURN n
+	
+	
+	
+	public static CompletePattern getTestPattern2() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		
+		CompletePattern completePattern = factory.createCompletePattern();
+		completePattern.setName("MyPattern");
+		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
+	//    		Node node2 = completePattern.getGraph().addNode(); --> Problem der Redundanten Edges Lösen
+	//    		completePattern.getGraph().addRelation(complexNode1, node2); --> Nutzen des Counters aus der NeoPropertyNode
+		
+	     complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
+	    NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
+	    completePattern.setCondition(notCond);
+	    
+	    QuantifiedCondition quantifiedCond1 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+	    notCond.setCondition(quantifiedCond1);
+	    quantifiedCond1.setQuantifier(Quantifier.EXISTS);
+	    Node complexNode2 = (Node) quantifiedCond1.getGraph().getNodes().get(0);
+	    Node complexNode3 = (Node) quantifiedCond1.getGraph().addComplexNode();
+	    Node complexNode4 = (Node) quantifiedCond1.getGraph().addComplexNode();
+	    Node complexNode5 = (Node) quantifiedCond1.getGraph().addComplexNode();
+	    quantifiedCond1.getGraph().addRelation((ComplexNode) complexNode2, complexNode3);
+	    quantifiedCond1.getGraph().addRelation((ComplexNode) complexNode2, complexNode4);
+	    quantifiedCond1.getGraph().addRelation((ComplexNode) complexNode2, complexNode5);
+	    
+	    //ADAPT TO NEO4J
+	    completePattern.createNeo4jAdaption();
+	
+	    NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
+	    neoNode.setNodePlace(NeoPlace.BEGINNING);
+	    neoNode.addStringLabel("Regesta");
+	    
+	    //Node Specification
+	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(0);
+	    neoNode.setNodePlace(NeoPlace.BEGINNING);
+	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(1);
+	    neoNode.addStringLabel("IndexPerson");
+	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(2);
+	    neoNode.addStringLabel("Action");
+	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(3);
+	    neoNode.addStringLabel("IndexPlace");
+	    
+	    //First Edge Specification
+	    NeoEdge neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(0);
+	    NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
+	    NeoSimpleEdge neoSimpleEdge = FACTORY.createNeoSimpleEdge();
+	    neoSimpleEdge.addNeoEdgeLabel("APPEARS_IN");
+	    neoPathParam.setNeoPathPart(neoSimpleEdge);
+	    
+	    //Second Edge Specification
+	    neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(1);
+	    neoPathParam = neoEdge.getNeoPathParam();
+	    neoSimpleEdge = FACTORY.createNeoSimpleEdge();
+	    neoSimpleEdge.addNeoEdgeLabel("ACTION");
+	    neoPathParam.setNeoPathPart(neoSimpleEdge);
+	    
+	    //Third Edge Specification
+	    neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(2);
+	    neoPathParam = neoEdge.getNeoPathParam();
+	    neoSimpleEdge = FACTORY.createNeoSimpleEdge();
+	    neoSimpleEdge.addNeoEdgeLabel("RECIPIENT_IN");
+	    neoPathParam.setNeoPathPart(neoSimpleEdge);
+	            
+	    return completePattern;
+	}
         
-        
-        public static CompletePattern getTestPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-    		PatternstructurePackage.eINSTANCE.eClass();
-    		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-    		
-    		CompletePattern completePattern = factory.createCompletePattern();
-    		completePattern.setName("MyPattern");
-    		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
-//    		Node node2 = completePattern.getGraph().addNode(); --> Problem der Redundanten Edges Lösen
-//    		completePattern.getGraph().addRelation(complexNode1, node2); --> Nutzen des Counters aus der NeoPropertyNode
-    		
-             complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
-            NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
-            completePattern.setCondition(notCond);
-            
-            QuantifiedCondition quantifiedCond1 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
-            notCond.setCondition(quantifiedCond1);
-            quantifiedCond1.setQuantifier(Quantifier.EXISTS);
-            Node complexNode2 = (Node) quantifiedCond1.getGraph().getNodes().get(0);
-            Node complexNode3 = (Node) quantifiedCond1.getGraph().addComplexNode();
-            Node complexNode4 = (Node) quantifiedCond1.getGraph().addComplexNode();
-            Node complexNode5 = (Node) quantifiedCond1.getGraph().addComplexNode();
-            quantifiedCond1.getGraph().addRelation((ComplexNode) complexNode2, complexNode3);
-            quantifiedCond1.getGraph().addRelation((ComplexNode) complexNode2, complexNode4);
-            quantifiedCond1.getGraph().addRelation((ComplexNode) complexNode2, complexNode5);
-            
-            //ADAPT TO NEO4J
-            completePattern.createNeo4jAdaption();
-
-            NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-            neoNode.setNodePlace(NeoPlace.BEGINNING);
-            neoNode.addStringLabel("Regesta");
-            
-            //Node Specification
-	        neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(0);
-	        neoNode.setNodePlace(NeoPlace.BEGINNING);
-            neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(1);
-            neoNode.addStringLabel("IndexPerson");
-            neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(2);
-            neoNode.addStringLabel("Action");
-            neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(3);
-            neoNode.addStringLabel("IndexPlace");
-            
-            //First Edge Specification
-            NeoEdge neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(0);
-            NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
-            NeoSimpleEdge neoSimpleEdge = FACTORY.createNeoSimpleEdge();
-            neoSimpleEdge.addNeoEdgeLabel("APPEARS_IN");
-            neoPathParam.setNeoPathPart(neoSimpleEdge);
-            
-            //Second Edge Specification
-            neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(1);
-            neoPathParam = neoEdge.getNeoPathParam();
-            neoSimpleEdge = FACTORY.createNeoSimpleEdge();
-            neoSimpleEdge.addNeoEdgeLabel("ACTION");
-            neoPathParam.setNeoPathPart(neoSimpleEdge);
-            
-            //Third Edge Specification
-            neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(2);
-            neoPathParam = neoEdge.getNeoPathParam();
-            neoSimpleEdge = FACTORY.createNeoSimpleEdge();
-            neoSimpleEdge.addNeoEdgeLabel("RECIPIENT_IN");
-            neoPathParam.setNeoPathPart(neoSimpleEdge);
-                    
-            return completePattern;
-        }
+//      PATTERN 5  
+//    MATCH (n:Regesta)
+//    WHERE EXISTS {
+//      MATCH (n)<-[:APPEARS_IN]-(m:IndexPerson)-[:IS_SUB_OF]->(o:IndexPlace), (n)<-[:RECIPIENT_IN]-(o)
+//    }
+//    RETURN n
 	
 	public static CompletePattern getNotQuantifierPattern(Quantifier q, Quantifier q2) {
 		CompletePattern completePattern = null;

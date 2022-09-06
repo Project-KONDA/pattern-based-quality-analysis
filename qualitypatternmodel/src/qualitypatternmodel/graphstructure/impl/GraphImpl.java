@@ -4,6 +4,8 @@ package qualitypatternmodel.graphstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -224,17 +226,31 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		
 		List<StringBuilder> listCypher = new LinkedList<StringBuilder>();
 		listCypher = traverseOverPattern((ComplexNode) n, listCypher, 0);
-				
+		//For getting the shortest MATCHER at the beginning
+		Collections.sort(listCypher, new Comparator<StringBuilder>() {
+            public int compare(StringBuilder sb1, StringBuilder sb2) {
+                if (sb1.length() > sb2.length()) {
+                    return 1;
+                } else if  (sb1.length() == sb2.length()) {
+                	return 0;
+                } else {
+                	return -1;
+                }
+        	}
+		});
+		
+		
 		for (StringBuilder sb : listCypher) {
 			if (cypher.length() > 0) 
 				cypher.append(", ");
 			cypher.append(sb.toString());
 		}
-		
 	}
 	
+	
+	//TODO: Somewhere is a little mistake --> I assume it is fixed
 	private List<StringBuilder> traverseOverPattern(ComplexNode node, List<StringBuilder> cyphers, int counterString) throws InvalidityException {
-		int innerCounterString = counterString ; //+ 1
+		int innerCounterString = counterString ;
 		StringBuilder cypher;
 		StringBuilder cypherEdge;
 		StringBuilder preCypher;
@@ -255,14 +271,13 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		for (Relation innerEdges : node.getOutgoing()) {
 			cypherEdge = new StringBuilder();
 			cypherEdge.append(cypher.toString());
-//			cyphers.add(cypherEdge);
 			cypherText = innerEdges.generateCypher();
 			if (innerEdges instanceof NeoEdge && cypherText != null) {
 				cypherEdge.append(cypherText);
 				if (innerEdges.getTarget() instanceof ComplexNode && innerEdges.generateCypher() != null) {
 					cyphers.add(cypherEdge);
+					innerCounterString = cyphers.size() - 1;
 					result.addAll(traverseOverPattern((ComplexNode) innerEdges.getTarget(), cyphers, innerCounterString));	
-					innerCounterString++;
 					hasEdges = true;
 				} 
 				

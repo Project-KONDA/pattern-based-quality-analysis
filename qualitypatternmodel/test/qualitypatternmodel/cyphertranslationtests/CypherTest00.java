@@ -72,12 +72,13 @@ public class CypherTest00 {
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getBasePatternFinal());
-		completePatterns.add(getBasePatternComplexFinal());
-		completePatterns.add(getBasePatternCondDateConcrete("1440-02-02"));
-		completePatterns.add(getBasePatternCondConcrete("1439-12-20"));
-		completePatterns.add(getBasePatternMatchConcrete("1439.*"));
-		completePatterns.add(getBasePatternMatchNotConcrete("1439.*"));
+//		completePatterns.add(getBasePatternFinal());
+//		completePatterns.add(getBasePatternComplexFinal());
+		completePatterns.add(getComplexMatchStructure());
+//		completePatterns.add(getBasePatternCondDateConcrete("1440-02-02"));
+//		completePatterns.add(getBasePatternCondConcrete("1439-12-20"));
+//		completePatterns.add(getBasePatternMatchConcrete("1439.*"));
+//		completePatterns.add(getBasePatternMatchNotConcrete("1439.*"));
 		CypherTest00.test(completePatterns);
 	}
 	
@@ -89,6 +90,60 @@ public class CypherTest00 {
 		
 		return completePattern;
 	}
+	
+	//Test ist nicht correct
+	public static CompletePattern getComplexMatchStructure() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		
+		CompletePattern completePattern = factory.createCompletePattern();
+		completePattern.setName("MyPattern");
+		
+		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
+		ComplexNode pn1 = completePattern.getGraph().addComplexNode();
+		completePattern.getGraph().addRelation(complexNode1, pn1);
+		
+		ComplexNode pn2 = completePattern.getGraph().addComplexNode();
+		completePattern.getGraph().addRelation(complexNode1, pn2);
+		
+		ComplexNode pn3 = completePattern.getGraph().addComplexNode();
+		completePattern.getGraph().addRelation(complexNode1, pn3);
+		
+		ComplexNode pn4 = completePattern.getGraph().addComplexNode();
+		completePattern.getGraph().addRelation(pn1, pn4);
+		
+		ComplexNode pn5 = completePattern.getGraph().addComplexNode();
+		completePattern.getGraph().addRelation(pn1, pn5);
+		
+		ComplexNode pn6 = completePattern.getGraph().addComplexNode();
+		completePattern.getGraph().addRelation(pn1, pn6);
+	
+		
+		completePattern.createNeo4jAdaption();
+		
+		
+		NeoNode ns = (NeoNode) completePattern.getGraph().getNodes().get(0);
+		NeoEdge ne = (NeoEdge) completePattern.getGraph().getRelations().get(0);
+		ns.setNodePlace(NeoPlace.BEGINNING);
+		
+		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(1);
+		NeoEdge neoEdge = (NeoEdge) completePattern.getGraph().getRelations().get(1);
+		
+		neoNode = (NeoNode) completePattern.getGraph().getNodes().get(2);
+		neoEdge = (NeoEdge) completePattern.getGraph().getRelations().get(2);
+		
+		neoNode = (NeoNode) completePattern.getGraph().getNodes().get(3);
+		neoEdge = (NeoEdge) completePattern.getGraph().getRelations().get(3);
+		
+		neoNode = (NeoNode) completePattern.getGraph().getNodes().get(4);
+		neoEdge = (NeoEdge) completePattern.getGraph().getRelations().get(4);
+		
+		neoNode = (NeoNode) completePattern.getGraph().getNodes().get(5);
+		neoEdge = (NeoEdge) completePattern.getGraph().getRelations().get(5);
+		
+		return completePattern;
+	}
+	
 	
 	public static CompletePattern getBasePattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
