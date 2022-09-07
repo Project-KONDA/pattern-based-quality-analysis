@@ -19,6 +19,11 @@ import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 //Integrate the tests for the NeoNode and NeoPropertyNode in this tests
+//Codeabedeckung checken
+//PATH abdeckung --> Beschreiben
+//Am Modeldiagramm die entscheidungen getroffen
+//Erklären welche Tests für das Metamodell gemacht habe
+//Erfolgreich Test ja/nein --> Cypher querys beschreiben
 public class CypherTest01NeoEdge {
 	public static final AdaptionNeo4JFactory FACTORY = new AdaptionNeo4JFactoryImpl();
 	

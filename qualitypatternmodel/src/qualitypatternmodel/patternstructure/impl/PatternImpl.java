@@ -211,13 +211,41 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		
 		String whereClause = "";
 		whereClause += graph.generateCypherWhere();
-		whereClause += condition.generateCypher();
+		if (!whereClause.isEmpty()) 
+			whereClause +=  "\n" + CypherSpecificConstants.TWELVE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND 
+							+ CypherSpecificConstants.ONE_WHITESPACES;
+		
+		String cond = condition.generateCypher();
+		cond = addWhiteSpacesForConditions(cond, whereClause);
+		whereClause += cond;
 		if (whereClause.length() != 0) whereClause = CypherSpecificConstants.CLAUSE_WHERE + " " + whereClause;
 		if (whereClause.length() == 0) whereClause = "";
 		
 		
 		String cypher = matchClause + withClause + whereClause;
 		return cypher;
+	}
+
+	private String addWhiteSpacesForConditions(String cond, String whereClause) {
+		if (!whereClause.isEmpty()) {
+			if (!cond.isEmpty()) {
+				boolean lineBreak = true;
+				StringBuilder localCypher = new StringBuilder(cond);
+				int fromIndex = 0;
+				int currentIndex = 0;
+				while (lineBreak) {
+					currentIndex = localCypher.indexOf("\n", fromIndex);
+					if (currentIndex == -1) {
+						lineBreak = false;
+					} else {
+						localCypher.insert(currentIndex + 1, CypherSpecificConstants.TWELVE_WHITESPACES); 
+						fromIndex = currentIndex + 12;
+					}
+				}
+				cond = localCypher.toString();
+			}
+		}
+		return cond;
 	}
 	
 	@Override

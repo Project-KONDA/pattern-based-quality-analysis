@@ -103,17 +103,17 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 				cypher = null;
 			}
 		} else {
-			NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) getIncomingMapping();
-			while (neoPropertyEdge.getIncomingMapping() != null) {
-				neoPropertyEdge = (NeoPropertyEdge) getIncomingMapping();
-			}
-			NeoPropertyPathParam neoPathParam = neoPropertyEdge.getNeoPropertyPathParam();
-			if (neoPathParam != null && neoPathParam.getNeoPathPart() != null) {
-				NeoPathPart neoPathPart = neoPathParam.getNeoPathPart();
-				cypher = neoPathPart.generateCypherWithoutLabels();
-			} else {
-				cypher = null;
-			}
+//			NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) getIncomingMapping();
+//			while (neoPropertyEdge.getIncomingMapping() != null) {
+//				neoPropertyEdge = (NeoPropertyEdge) getIncomingMapping();
+//			}
+//			NeoPropertyPathParam neoPathParam = neoPropertyEdge.getNeoPropertyPathParam();
+//			if (neoPathParam != null && neoPathParam.getNeoPathPart() != null) {
+//				NeoPathPart neoPathPart = neoPathParam.getNeoPathPart();
+//				cypher = neoPathPart.generateCypherWithoutLabels();
+//			} else {
+//				cypher = null;
+//			}
 			
 		}
 		return cypher;

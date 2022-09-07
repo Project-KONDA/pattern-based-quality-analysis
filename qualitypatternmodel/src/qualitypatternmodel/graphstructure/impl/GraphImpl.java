@@ -226,18 +226,18 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		
 		List<StringBuilder> listCypher = new LinkedList<StringBuilder>();
 		listCypher = traverseOverPattern((ComplexNode) n, listCypher, 0);
-		//For getting the shortest MATCHER at the beginning
-		Collections.sort(listCypher, new Comparator<StringBuilder>() {
-            public int compare(StringBuilder sb1, StringBuilder sb2) {
-                if (sb1.length() > sb2.length()) {
-                    return 1;
-                } else if  (sb1.length() == sb2.length()) {
-                	return 0;
-                } else {
-                	return -1;
-                }
-        	}
-		});
+		//For getting the shortest MATCHER at the beginning - Ranking is not 100% correct
+//		Collections.sort(listCypher, new Comparator<StringBuilder>() {
+//            public int compare(StringBuilder sb1, StringBuilder sb2) {
+//                if (sb1.length() > sb2.length()) {
+//                    return 1;
+//                } else if  (sb1.length() == sb2.length()) {
+//                	return 0;
+//                } else {
+//                	return -1;
+//                }
+//        	}
+//		});
 		
 		
 		for (StringBuilder sb : listCypher) {
@@ -292,50 +292,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			result.add(cypher);
 		
 		return result;
-	}
-	
-	
-	
-	
-	
-	
-	
-//	if (n instanceof ComplexNode) {
-//		for (Relation r : ((ComplexNode) n).getOutgoing()) {
-//			if(r.getTarget() != null && r instanceof NeoEdge) {
-//				currentRelation = r;
-//			} else if (r.getTarget() != null && r instanceof NeoPropertyEdge){
-//				currentRelation = r;
-//			} else {
-//				throw new InvalidityException("It is a not valid Edge/Relation included");
-//			}
-//		}
-//		
-//		if(currentRelation != null) {
-//			if(currentRelation instanceof NeoEdge) {
-//				NeoEdge ne = (NeoEdge) currentRelation;
-//				cypher.append(ne.generateCypher());
-//			} else {
-//				NeoPropertyEdge npe = (NeoPropertyEdge) currentRelation;
-//				if (npe.generateCypher() != null) {
-//					cypher.append(npe.generateCypher());
-//				}
-//			}
-//		}
-//	} else {
-//		return;
-//	}
-//
-//	try {
-//		if (currentRelation instanceof NeoAbstractEdge && currentRelation != null && currentRelation.getTarget() != null) {
-//			this.buildNeoGraphPatternRecursively(cypher, (NeoAbstractNode) currentRelation.getTarget());
-//		}
-//	} catch (ClassCastException e) {
-//		throw new InvalidityException("No instance of NeoAbstractEdge was in the Graph-Pattern"); 
-//	} catch (Exception e) {
-//		throw new InvalidityException();
-//	}
-	
+	}	
 	
 	/**
 	 * <!-- begin-user-doc -->

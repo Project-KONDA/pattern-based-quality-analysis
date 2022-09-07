@@ -6,7 +6,7 @@ public class TestGround {
 	public static final String name = "%sHello";
 	public static void main(String[] args) {
 		String b = " ";
-		System.out.println(b.length());
+		System.out.println(name);
 		
 	}
 }

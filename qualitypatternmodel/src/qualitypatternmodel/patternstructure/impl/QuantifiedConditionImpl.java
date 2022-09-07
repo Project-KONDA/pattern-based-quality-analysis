@@ -22,6 +22,7 @@ import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
+import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.NotCondition;
@@ -163,6 +164,13 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		}
 		return query;
 	}
+	
+	//Logisch macht es kein sinn kein anderen logischen Operator zu haben
+	private static final String LOGICAL_OPERATOR_AND = LogicalOperator.AND.toString().toUpperCase();
+//	public void setLogicalOperator(LogicalOperator logicalOperatpor) {
+//		this.logicalOperator = logicalOperatpor;
+//	}
+	
 	//In the count condition a new graph will be build thus there is no problem to set it straigt. 
 	//However it has to be considert that from the original graph variables have to be loaded (morphism can be used to handle that)
 	//Check the morphisems in the nodes and edges
@@ -174,33 +182,44 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		
 		//INCLUDE THE GRAPH-PATTERN - Is needed for both cases
 		cypher.append(String.format(CypherSpecificConstants.CLAUSE_MATCH_INLUCE_W, CypherSpecificConstants.TWELVE_WHITESPACES));
-		cypher.append(" " + graph.generateCypher()); 
+		String cypherText = graph.generateCypher();
+		if (cypherText == null || cypherText == "" || cypherText.isEmpty())
+			throw new InvalidityException("QuantifiedCond: No Match is given");
+		cypher.append(" " + cypherText); 
 		
-		//TODO
 		if (quantifier == Quantifier.EXISTS ) {
 			//INCLUDE the WHERE
 			if (!(getCondition() instanceof TrueElementImpl)) {
-				cypherWhere.append(condition.generateCypher());
+				StringBuilder conditionWhere = new StringBuilder(condition.generateCypher());
+				addWhiteSpacesForPreviewsCondition(conditionWhere);
+				cypherWhere.append(conditionWhere.toString());
 			}
+			//How to connect both parts? AND/OR/XOR
 			appendCypherWhere(cypherWhere);
 			addCypherWherePrefix(cypherWhere);
 			
 			checkCypherWhere(cypher, cypherWhere);
 			exists = String.format(exists, cypher.toString());
 		} else if (quantifier == Quantifier.FORALL) {
-			//How to optimize this part?
-			
 			//A statement "For all X Y is valid" is logically equivalent to "There is no X for which Y is not valid".
 			//Thus the following construct is equivalent to a forall: 
 			//How to get the supgraph in with the NOT
-			exists = CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " " + exists;
-			cypher.append(CypherSpecificConstants.CLAUSE_MATCH + CypherSpecificConstants.ONE_WHITESPACES);
-			cypher.append(graph.generateCypher());
+			//USING INTERNALY THE EXISTS
+			StringBuilder localCypher = new StringBuilder();
+			localCypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_NOT);
+			localCypher.append(CypherSpecificConstants.ONE_WHITESPACES + "(");
 			
-			//INCLUDE THE WHERE	
+			//INCLUDE INNER EXPRESSION FOR FORALL	
 			if (!(getCondition() instanceof TrueElementImpl)) {
-				cypherWhere.append(condition.generateCypher());
+				localCypher.append(getCondition().generateCypher());
+				addWhiteSpacesForPreviewsCondition(localCypher);
+				localCypher.append(")");
+			} else {
+				throw new InvalidityException("QuantifiedCond - Needs innerCondition");
 			}
+			
+			//CHECKING WHAT HAPPENS IF THE GRAPH HAS ALSO CONDITIONS
+			cypherWhere.append(localCypher.toString());
 			appendCypherWhere(cypherWhere);
 			addCypherWherePrefix(cypherWhere);
 		
@@ -213,6 +232,21 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		return exists; 		
 	}
 
+	private void addWhiteSpacesForPreviewsCondition(StringBuilder localCypher) {
+		boolean lineBreak = true;
+		int fromIndex = 0;
+		int currentIndex = 0;
+		while (lineBreak) {
+			currentIndex = localCypher.indexOf("\n", fromIndex);
+			if (currentIndex == -1) {
+				lineBreak = false;
+			} else {
+				localCypher.insert(currentIndex + 1, CypherSpecificConstants.TWELVE_WHITESPACES); 
+				fromIndex = currentIndex + 12;
+			}
+		}
+	}
+
 	private void checkCypherWhere(StringBuilder cypher, StringBuilder cypherWhere) {
 		if (cypherWhere.length() != 0) 
 			cypher.append(cypherWhere.toString());
@@ -222,14 +256,20 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		if (cypherWhere.length() != 0) {
 			String where = String.format(CypherSpecificConstants.CLAUSE_WHERE_INLUCE_W, CypherSpecificConstants.TWELVE_WHITESPACES);
 			where += " " + cypherWhere.toString();
+			
 			cypherWhere.setLength(0);
 			cypherWhere.append(where);
 		}
 	}
 
 	private void appendCypherWhere(StringBuilder query) throws InvalidityException {
-		if (graph.generateCypherWhere() != "") {
+		if (graph.generateCypherWhere() != null && graph.generateCypherWhere() != "" && !graph.generateCypherWhere().isEmpty()) {
+			if (query.length() != 0) {
+				query.append("\n" + CypherSpecificConstants.TWELVE_WHITESPACES
+						+ LOGICAL_OPERATOR_AND + " ");
+			}
 			query.append(graph.generateCypherWhere());
+			
 		}
 	}
 	

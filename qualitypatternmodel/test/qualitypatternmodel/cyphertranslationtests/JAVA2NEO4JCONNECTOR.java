@@ -1,5 +1,5 @@
 package qualitypatternmodel.cyphertranslationtests;
 
-public class CypherTest09Template {
+public class JAVA2NEO4JCONNECTOR {
 
 }

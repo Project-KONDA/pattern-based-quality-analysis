@@ -207,7 +207,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		}
 	}
 	
-	//HOW TO INTEGRATE THE PRIMITIVE/COMPLEX COMPARISONS? FOR CONNECTING WITH AND/OR/XOR
+	//HOW TO INTEGRATE THE PRIMITIVE/COMPLEX COMPARISONS? FOR CONNECTING WITH AND/OR/XOR --> Not Needed this Operations have to be done in the Parameter-Package
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		if (this.operator != null) {
