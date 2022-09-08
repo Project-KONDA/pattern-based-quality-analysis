@@ -279,6 +279,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}
 	}
 	
+	//TODO: Wie könnte man die anderen Operatoren von Cypher berücksichtigen wie IS NULL etc
+	//Die Comparisons/Contains/MATCHES sind mit einem AND verknüpft
+	//Durch ein Operator Container könnten weitere Logik zur Verknüpfung ergänzt werden
 	@Override 
 	public String generateCypher() throws InvalidityException {
 //		if (neoInWhereClause()) {

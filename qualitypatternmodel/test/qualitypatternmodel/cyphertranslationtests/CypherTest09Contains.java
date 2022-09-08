@@ -1,5 +1,5 @@
 package qualitypatternmodel.cyphertranslationtests;
 
-public class CypherTest11Match {
+public class CypherTest09Contains {
 
 }

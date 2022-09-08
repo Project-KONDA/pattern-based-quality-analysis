@@ -54,7 +54,7 @@ public class CypherTest03NotCondition {
             System.out.println("<<< END - Tests >>>");
             System.out.println("");         
             
-            //INTRODUCE THE EXCEPTION TESTS
+            //INTRODUCE THE EXCEPTION TESTS ???
     }
 
 	public static CompletePattern getTestPattern1() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
