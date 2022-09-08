@@ -205,7 +205,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			boolean isFirst = true;
 			for (NeoAbstractNode n : beginningNodesList) {
 				if (!isFirst) {
-					cypher.append("," + CypherSpecificConstants.THREE_WHITESPACES);
+					cypher.append("," + CypherSpecificConstants.ONE_WHITESPACES);
 				} else {
 					isFirst = false;
 				}
@@ -239,10 +239,13 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 //        	}
 //		});
 		
-		
+		boolean localSeperationNeeded = false;
 		for (StringBuilder sb : listCypher) {
-			if (cypher.length() > 0) 
-				cypher.append(", ");
+			if (localSeperationNeeded) {
+				cypher.append("," + CypherSpecificConstants.ONE_WHITESPACES); //TODO check the StyleGuid how to do that the best
+			} else {
+				localSeperationNeeded = true;
+			}
 			cypher.append(sb.toString());
 		}
 	}

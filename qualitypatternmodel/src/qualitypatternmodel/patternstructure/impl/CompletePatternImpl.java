@@ -20,6 +20,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
+import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
@@ -801,10 +802,39 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		return super.createRdfAdaption();
 	}
 
+	//TODO --> set the first return node as the beginnings node
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValid(AbstractionLevel.GENERIC);
+		
+//		PatternElement patternElement = super.createNeo4jAdaption();
+//		findFirstNeo4JBeginning(patternElement);
+//		
+//		return patternElement;
 		return super.createNeo4jAdaption();
+	}
+
+
+	private void findFirstNeo4JBeginning(PatternElement patternElement) {
+		int next = 0;
+		CompletePattern completePattern = (CompletePattern) patternElement;
+		Node node;
+		NeoNode neoNode;
+		boolean breaker = false;
+		do {
+			node = completePattern.getGraph().getNodes().get(next);
+			if (node instanceof NeoNode) {
+				neoNode = (NeoNode) node;
+				if (neoNode.isReturnNode()) {
+					neoNode.setNodePlace(NeoPlace.BEGINNING);
+					breaker = true;
+				} else {
+					next++;
+				}
+			} else {
+				next++;
+			}
+		} while(!breaker);
 	}
 	
 	//TODO

@@ -3,6 +3,10 @@
 package qualitypatternmodel.operators.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -286,69 +290,59 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	public String generateCypher() throws InvalidityException {
 //		if (neoInWhereClause()) {
 			StringBuilder cypher = new StringBuilder();
-			String argument1Translation = "";
-			String argument2Translation = ""; 
-			if (getArgument1() instanceof NeoPropertyNode && getArgument2() instanceof NeoPropertyNode) {
-				argument1Translation = ((NeoPropertyNode) getArgument1()).generateCypherPropertyAddressing(); 
-				argument2Translation = ((NeoPropertyNode) getArgument2()).generateCypherPropertyAddressing();
-			}
-			
-			if (getArgument1() instanceof NeoPropertyNode && !(getArgument2() instanceof NeoPropertyNode)) {
-				argument1Translation = ((NeoPropertyNode) getArgument1()).generateCypherPropertyAddressing();
-				argument2Translation = getArgument2().generateCypher(); 
-			}
-			
-			if (getArgument2() instanceof NeoPropertyNode && !(getArgument1() instanceof NeoPropertyNode)) {
-				argument1Translation = getArgument1().generateCypher();
-				argument2Translation = ((NeoPropertyNode) getArgument2()).generateCypherPropertyAddressing();
-			}
-			if (!(getArgument1() instanceof NeoPropertyNode || getArgument2() instanceof NeoPropertyNode)) {
-				throw new InvalidityException("One of both Comparison Arguments has to be an NeoPropertyNode");
-			}
-			
-			switch(option.getValue()) {
-			case EQUAL:
-				cypher.append(argument1Translation);
-				cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_EQUAL
-						+ CypherSpecificConstants.ONE_WHITESPACES);
-				cypher.append(argument2Translation);
-				break;
-			case NOTEQUAL:
-				cypher.append(argument1Translation);
-				cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_NOTEQUAL
-						+ CypherSpecificConstants.ONE_WHITESPACES);
-				cypher.append(argument2Translation);
-				break;
-			case GREATER:
-				cypher.append(argument1Translation);
-				cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_GREATER
-						+ CypherSpecificConstants.ONE_WHITESPACES);
-				cypher.append(argument2Translation);
-				break;
-			case LESS:
-				cypher.append(argument1Translation);
-				cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_LESS
-						+ CypherSpecificConstants.ONE_WHITESPACES);
-				cypher.append(argument2Translation);
-				break;
-			case GREATEROREQUAL:
-				cypher.append(argument1Translation);
-				cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_GREATER_EQUAL
-						+ CypherSpecificConstants.ONE_WHITESPACES);
-				cypher.append(argument2Translation);
-				break;
-			case LESSOREQUAL:
-				cypher.append(argument1Translation);
-				cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_LESS_EQUAL
-						+ CypherSpecificConstants.ONE_WHITESPACES);
-				cypher.append(argument2Translation);
-				break;
-			default:
-				throw new InvalidityException();
-			}
+			final List<String> arguments = cypherArgumentCheckerAndConverter();
+			final String argument1Translation = arguments.get(0);
+			final String argument2Translation = arguments.get(1); 
+					
+			matchCypherOperators(cypher, argument1Translation, argument2Translation);
 			return cypher.toString(); 
 //		}	
 //		return "Test";
+	}
+
+	private void matchCypherOperators(StringBuilder cypher, final String argument1Translation,
+		final String argument2Translation) throws InvalidityException {
+		//Not all PATH are reachable since the option (ComparisonOptionParam) does not allow to set all boolean operators
+		switch(option.getValue()) {
+		case EQUAL:
+			cypher.append(argument1Translation);
+			cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_EQUAL
+					+ CypherSpecificConstants.ONE_WHITESPACES);
+			cypher.append(argument2Translation);
+			break;
+		case NOTEQUAL:
+			cypher.append(argument1Translation);
+			cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_NOTEQUAL
+					+ CypherSpecificConstants.ONE_WHITESPACES);
+			cypher.append(argument2Translation);
+			break;
+		case GREATER:
+			cypher.append(argument1Translation);
+			cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_GREATER
+					+ CypherSpecificConstants.ONE_WHITESPACES);
+			cypher.append(argument2Translation);
+			break;
+		case LESS:
+			cypher.append(argument1Translation);
+			cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_LESS
+					+ CypherSpecificConstants.ONE_WHITESPACES);
+			cypher.append(argument2Translation);
+			break;
+		case GREATEROREQUAL:
+			cypher.append(argument1Translation);
+			cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_GREATER_EQUAL
+					+ CypherSpecificConstants.ONE_WHITESPACES);
+			cypher.append(argument2Translation);
+			break;
+		case LESSOREQUAL:
+			cypher.append(argument1Translation);
+			cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_LESS_EQUAL
+					+ CypherSpecificConstants.ONE_WHITESPACES);
+			cypher.append(argument2Translation);
+			break;
+		default:
+			throw new InvalidityException();
+		}
 	}
 	
 	//ADD to the .ecore-Model
@@ -378,6 +372,36 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				&& option.getValue() == ComparisonOperator.EQUAL) {
 			if(option.getValue() == ComparisonOperator.EQUAL) result = false;
 		} else if (getArgument1() instanceof NeoNode || getArgument2() instanceof NeoNode) throw new InvalidityException("Args 1 oder 2 can not be a NeoNode");
+		return result;
+	}
+	
+	private final List<String> cypherArgumentCheckerAndConverter() throws InvalidityException {
+		String argument1Translation = null;
+		String argument2Translation = null; 
+		
+		if (getArgument1() instanceof NeoPropertyNode && getArgument2() instanceof NeoPropertyNode) {
+			argument1Translation = ((NeoPropertyNode) getArgument1()).generateCypherPropertyAddressing(); 
+			argument2Translation = ((NeoPropertyNode) getArgument2()).generateCypherPropertyAddressing();
+		} else if (getArgument1() instanceof NeoPropertyNode && !(getArgument2() instanceof NeoPropertyNode)) {
+			argument1Translation = ((NeoPropertyNode) getArgument1()).generateCypherPropertyAddressing();
+			argument2Translation = getArgument2().generateCypher(); 
+		} else if (!(getArgument1() instanceof NeoPropertyNode) && getArgument2() instanceof NeoPropertyNode) {
+			argument1Translation = getArgument1().generateCypher();
+			argument2Translation = ((NeoPropertyNode) getArgument2()).generateCypherPropertyAddressing();
+		} else if (getArgument1() instanceof NeoNode && getArgument2() instanceof NeoNode) {
+			argument1Translation = getArgument1().generateCypher(); 
+			argument2Translation = getArgument2().generateCypher(); 
+		}
+		
+		if (argument1Translation == null || argument2Translation == null || 
+				argument1Translation.isEmpty() || argument2Translation.isEmpty()) {
+			throw new InvalidityException("Comparison - At least one of two arguments is not valid");
+		}
+			
+		List<String> result = new ArrayList<String>();
+		result.add(argument1Translation);
+		result.add(argument2Translation);
+		result = Collections.unmodifiableList(result);
 		return result;
 	}
 	
