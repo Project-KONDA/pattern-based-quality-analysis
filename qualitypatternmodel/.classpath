@@ -24,5 +24,7 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="lib/neo4j-java-driver-4.4.9.jar"/>
+	<classpathentry kind="lib" path="lib/reactive-streams-1.0.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
