@@ -229,9 +229,14 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 					cypher.append(" " + condition2Query);
 					break;
 				case XOR:
-					cypher.append(condition1Query + " ");
-					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_XOR);
-					cypher.append(" " + condition2Query);
+					//XOR is between the EXISTS-FUNCTION NOT POSSIBLE
+					cypher.append("(" + condition1Query + " ");
+					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
+					cypher.append(" " + CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " " + condition2Query + ")");
+					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_OR + " ");
+					cypher.append("(" + CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " " + condition1Query + " ");
+					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
+					cypher.append(" " + condition2Query + ")");
 					break;
 				case IMPLIES:
 					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " " + condition1Query + " ");
@@ -239,11 +244,10 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 					cypher.append(" " + condition2Query);
 					break;
 				case EQUAL:
-					cypher.append("(" + condition1Query + " " + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + " " + condition2Query + ")");
-					cypher.append(" " + CypherSpecificConstants.BOOLEAN_OPERATOR_XOR + " ");
+					cypher.append("(" + condition1Query + " " + CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + " " + condition2Query + ")");
+					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_OR + " ");
 					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " ");
-					cypher.append("(" + condition1Query + " " + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + " " + condition2Query + ")");
-					cypher.append(")");
+					cypher.append("(" + condition1Query + CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + " " + condition2Query + ")");
 					break;
 				default:
 					throw new InvalidityException("invalid arguments");
