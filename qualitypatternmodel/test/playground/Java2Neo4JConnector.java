@@ -25,19 +25,20 @@ public class Java2Neo4JConnector implements AutoCloseable {
 		driver.close();		
 	}
 	
-    public void queryTester(final String query) {
+    public void queryTester(final String query, final String queryID) {
         try (Session session = driver.session()) {
-            String result = session.readTransaction(tx ->
-            		{
-            			Result result1 = tx.run(query);
-            			return result1.single().get(0).asString();
-            		});
-            System.out.println(result);
+            String data = session.writeTransaction(tx -> {
+                Result result = tx.run(query);
+                String resultString = result.consume().toString();
+                return resultString;
+            });
+            System.out.println("Query: " + queryID + " is valid!\n\t\t\t" + data);
         }
     }
 	
+    //TODO - Specify everything more concrete 
 	public static void main(String[] args) {
 		Java2Neo4JConnector connector = new Java2Neo4JConnector(URI, USER, PASSWORD);
-		connector.queryTester("MATCH (r:Regesta) RETRUN r LIMIT 1");
+		connector.queryTester("MATCH (r:Regesta) RETURN r", "testQuery");
 	}
 }
