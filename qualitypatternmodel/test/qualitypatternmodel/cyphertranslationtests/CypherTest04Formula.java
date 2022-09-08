@@ -31,8 +31,14 @@ public class CypherTest04Formula {
             ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
     		
             for (LogicalOperator lo: LogicalOperator.VALUES) {
-    			completePatterns.add(getFormulaPattern(lo));
+    			completePatterns.add(getFormulaPattern(lo, false));
     		}
+            
+            for (LogicalOperator lo: LogicalOperator.VALUES) {
+    			completePatterns.add(getFormulaPattern(lo, true));
+    		}
+            
+            completePatterns.add(getTestPattern3());
             
             CypherTest00.test(completePatterns);
             System.out.println("<<< END - Tests >>>");
@@ -41,13 +47,14 @@ public class CypherTest04Formula {
             //INTRODUCE THE EXCEPTION TESTS
     }
     
-	private static CompletePattern getFormulaPattern(LogicalOperator lo) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getFormulaPattern(LogicalOperator lo, boolean clamped) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		CompletePattern completePattern = CypherTest00.getBasePattern();
 		
 		Formula formula = PatternstructureFactory.eINSTANCE.createFormula();
 		completePattern.setCondition(formula);
 		formula.setOperator(lo);
+		formula.setClamped(clamped);
 		
 		QuantifiedCondition quantifiedCond1 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		formula.setCondition1(quantifiedCond1);
@@ -69,6 +76,7 @@ public class CypherTest04Formula {
 		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
 		neoNode.setNodePlace(NeoPlace.BEGINNING);
 		neoNode.addStringLabel("Regesta");
+		
 		NeoEdge neoEdge;
 		NeoPathParam neoPathParam;
 		NeoSimpleEdge neoSimpleEdge;
@@ -106,5 +114,64 @@ public class CypherTest04Formula {
 //	MATCH (r:IndexPlace)
 //	WHERE (Exists{MATCH(r)-[:IS_SUB_OF]-(:IndexPlace)} OR EXISTS{MATCH (r)-[:placeOfIssue]-(:Regesta)})
 //	RETURN r
+	private static CompletePattern getTestPattern3() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = CypherTest00.getBasePattern();
+		
+		Formula formula = PatternstructureFactory.eINSTANCE.createFormula();
+		completePattern.setCondition(formula);
+		formula.setOperator(LogicalOperator.OR);
+		formula.setClamped(true);
+		
+		QuantifiedCondition quantifiedCond1 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		formula.setCondition1(quantifiedCond1);
+		ComplexNode complexNode0;
+		
+		complexNode0 = (ComplexNode) quantifiedCond1.getGraph().getNodes().get(0);
+		ComplexNode complexNode1 = quantifiedCond1.getGraph().addComplexNode();
+		quantifiedCond1.getGraph().addRelation(complexNode0, complexNode1);	
+		
+		QuantifiedCondition quantifiedCond2 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		formula.setCondition2(quantifiedCond2);
+		
+		complexNode0 = (ComplexNode) quantifiedCond2.getGraph().getNodes().get(0);
+		ComplexNode complexNode2 = quantifiedCond2.getGraph().addComplexNode();
+		quantifiedCond2.getGraph().addRelation(complexNode0, complexNode2);	
+		
+		completePattern.createNeo4jAdaption();
+		
+		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
+		neoNode.setNodePlace(NeoPlace.BEGINNING);
+		neoNode.addStringLabel("IndexPlace");
+		
+		NeoEdge neoEdge;
+		NeoPathParam neoPathParam;
+		NeoSimpleEdge neoSimpleEdge;
+		
+		
+		neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(0);
+		neoNode.setNodePlace(NeoPlace.BEGINNING);
+		neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(2);
+		neoNode.addStringLabel("IndexPlace");
+		neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(1);
+		neoPathParam = neoEdge.getNeoPathParam();
+		neoSimpleEdge = FACTORY.createNeoSimpleEdge();
+		neoSimpleEdge.addNeoEdgeLabel("IS_SUB_OF");
+		neoPathParam.setNeoPathPart(neoSimpleEdge);
+		
+		
+		neoNode = (NeoNode) quantifiedCond2.getGraph().getNodes().get(0);
+		neoNode.setNodePlace(NeoPlace.BEGINNING);
+
+		neoNode = (NeoNode) quantifiedCond2.getGraph().getNodes().get(2);
+		neoNode.addStringLabel("Regesta");
+		neoEdge = (NeoEdge) quantifiedCond2.getGraph().getRelations().get(1);
+		neoPathParam = neoEdge.getNeoPathParam();
+		neoSimpleEdge = FACTORY.createNeoSimpleEdge();
+		neoSimpleEdge.addNeoEdgeLabel("placeOfIssue");
+		neoPathParam.setNeoPathPart(neoSimpleEdge);
+		
+		return completePattern;
+	}
+	
 }
 
