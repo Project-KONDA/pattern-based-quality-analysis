@@ -123,12 +123,12 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		if(option != null && regularExpression != null && regularExpression.getValue() != null && primitiveNode != null) {
 			if (option.getValue()) {
 				return ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing() + " " + CypherSpecificConstants.SPECIAL_CYPHER_REGEX_EXPRESSION 
-						+ regularExpression.generateCypher();
+						+ " " + regularExpression.generateCypher();
 			} 
 			return CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " (" + ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing()
 					+ " " +	CypherSpecificConstants.SPECIAL_CYPHER_REGEX_EXPRESSION + " " + regularExpression.generateCypher() + ")";
 		}
-		throw new InvalidityException("invalid option");
+		throw new InvalidityException("Match - invalid option");
 	}
 	
 	@Override

@@ -16,8 +16,12 @@ public class Java2Neo4JConnector implements AutoCloseable {
    private final static String PASSWORD = "Regesten";
    
 	
-   public Java2Neo4JConnector(String uri, String user, String password) {
+    public Java2Neo4JConnector(String uri, String user, String password) {
         driver = GraphDatabase.driver(uri, AuthTokens.basic(user, password));
+    }
+    
+    public Java2Neo4JConnector() {
+        this(URI, USER, PASSWORD);
     }
 
 	@Override

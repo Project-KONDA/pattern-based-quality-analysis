@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
+import playground.Java2Neo4JConnector;
 import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
 import qualitypatternmodel.adaptionNeo4J.*;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -30,6 +31,7 @@ public class CypherTest00 {
 //	} --> Add this to all the classes otherwise the main will be not called
 	
 	public static void test(ArrayList<CompletePattern> completePatterns) {
+		Java2Neo4JConnector connector = new Java2Neo4JConnector();
 		for (CompletePattern completePattern : completePatterns) {
 			replace(completePattern);
 			try {
@@ -37,7 +39,11 @@ public class CypherTest00 {
 				System.out.println("\n\n___PATTERN_(VALID)___");
 				System.out.println(completePattern.myToString());
 				System.out.print("\n___TRANSLATION___");
-				System.out.println(completePattern.generateCypher());
+				String query = completePattern.generateCypher();
+				//Depending on the test mode activated the db-connector
+//				String hashCode = query.hashCode() + "";
+//				connector.queryTester(query, hashCode);
+				System.out.println(query); 
 			} catch (Exception e) {
 				System.out.println();
 				e.printStackTrace();
