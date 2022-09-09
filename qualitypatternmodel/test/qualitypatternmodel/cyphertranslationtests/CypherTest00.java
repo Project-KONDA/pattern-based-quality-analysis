@@ -25,6 +25,10 @@ import static qualitypatternmodel.xmltranslationtests.Test00.*;
 public class CypherTest00 {
 	public static final AdaptionNeo4JFactory FACTORY = new AdaptionNeo4JFactoryImpl();
 	
+//	public CypherTest00() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CypherTest00.main(null);
+//	} --> Add this to all the classes otherwise the main will be not called
+	
 	public static void test(ArrayList<CompletePattern> completePatterns) {
 		for (CompletePattern completePattern : completePatterns) {
 			replace(completePattern);
