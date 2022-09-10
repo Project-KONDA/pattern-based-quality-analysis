@@ -17,7 +17,8 @@ public class CypherTest08Cycle {
         System.out.println("");
         System.out.println("<<< BEGIN - Tests >>>");
         ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-        completePatterns.add(getCyclePattern());
+        completePatterns.add(getCyclePattern(2));
+        completePatterns.add(getCyclePattern(3));
         //Call tester from CypherTest00
         CypherTest00.test(completePatterns);
         System.out.println("<<< END - Tests >>>");
@@ -26,18 +27,20 @@ public class CypherTest08Cycle {
         //INTRODUCE THE EXCEPTION TESTS ??? 
     }
     
-	private static CompletePattern getCyclePattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getCyclePattern(int nodesInCycle) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = CypherTest00.getBasePattern();
 		ComplexNode newNode0 = (ComplexNode) completePattern.getGraph().getNodes().get(0);
-		ComplexNode newNode1 = completePattern.getGraph().addComplexNode();
-		ComplexNode newNode2 = completePattern.getGraph().addComplexNode();
-		ComplexNode newNode3 = completePattern.getGraph().addComplexNode();
+		ComplexNode[] newNode = new ComplexNode[nodesInCycle];
+		for (int i = 0; i < nodesInCycle; i++) {
+			newNode[i] = completePattern.getGraph().addComplexNode();
+			if (i == 0) {
+				completePattern.getGraph().addRelation(newNode0, newNode[i]);
+			} else {
+				completePattern.getGraph().addRelation(newNode[i - 1], newNode[i]);
+			}
+		}
 		
-		completePattern.getGraph().addRelation(newNode0, newNode1);
-		completePattern.getGraph().addRelation(newNode1, newNode2);
-		completePattern.getGraph().addRelation(newNode2, newNode3);
-		
-		newNode0.addComparison(newNode3);
+		newNode0.addComparison(newNode[nodesInCycle - 1]);
 		
 		completePattern.createNeo4jAdaption();
 		NeoNode neoNode0 = (NeoNode) completePattern.getGraph().getNodes().get(0);
