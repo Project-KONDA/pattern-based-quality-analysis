@@ -33,8 +33,8 @@ public class CypherTest06Comparison {
             System.out.println("");
             System.out.println("<<< BEGIN - Tests >>>");
             ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-//            completePatterns.add(getComparisonTwoNeoNodes(ComparisonOperator.EQUAL));
-//            completePatterns.add(getComparisonTwoNeoNodes(ComparisonOperator.NOTEQUAL));
+            completePatterns.add(getComparisonTwoNeoNodes(ComparisonOperator.EQUAL));
+            completePatterns.add(getComparisonTwoNeoNodes(ComparisonOperator.NOTEQUAL));
 //            for (ComparisonOperator c : ComparisonOperator.values()) { // --> Could be done later one when all operators are implemented
 //            	if (!(c == ComparisonOperator.ISNULL || c == ComparisonOperator.ISNOTNULL)) {
 //            		completePatterns.add(getComparisonTwoNeoNodes(c));
