@@ -50,6 +50,7 @@ public class CypherTest09Contains {
 		
 		CompletePattern pattern = factory.createCompletePattern();
 		pattern.getGraph().getNodes().get(0).addOutgoing().getTarget().addPrimitiveContains(str);
+		PrimitiveNode pn = (PrimitiveNode) pattern.getGraph().getNodes().get(1);
 		Contains contains = ((Contains) pattern.getGraph().getOperatorList().getOperators().get(0));
 		contains.getOption().setValue(invert);
 		

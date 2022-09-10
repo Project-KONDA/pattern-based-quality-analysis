@@ -7,7 +7,12 @@ import org.eclipse.emf.common.util.EList;
 
 import playground.Java2Neo4JConnector;
 import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
-import qualitypatternmodel.adaptionNeo4J.*;
+import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
+import qualitypatternmodel.adaptionNeo4J.NeoEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoNode;
+import qualitypatternmodel.adaptionNeo4J.NeoPlace;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -41,9 +46,9 @@ public class CypherTest00 {
 				System.out.print("\n___TRANSLATION___");
 				String query = completePattern.generateCypher();
 				//Depending on the test mode activated the db-connector
-//				String hashCode = query.hashCode() + "";
-//				connector.queryTester(query, hashCode);
-				System.out.println(query); 
+				String hashCode = query.hashCode() + "";
+				connector.queryTester(query, hashCode);
+//				System.out.println(query); 
 			} catch (Exception e) {
 				System.out.println();
 				e.printStackTrace();
@@ -68,7 +73,7 @@ public class CypherTest00 {
 			} catch (Exception e) {
 				System.out.println("-- Beginning of the Exceptions --");
 				System.out.println(e.toString());
-				//e.printStackTrace();
+//				e.printStackTrace();
 				try {
 				  System.out.println(completePattern.myToString());
 				} catch (Exception e2) {

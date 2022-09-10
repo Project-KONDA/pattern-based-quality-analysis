@@ -38,21 +38,24 @@ public class CypherCovTester {
 		assertDoesNotThrow(() -> cypher.main(null));
 	}
 	
-//	@Test
-//	public void CypherTest04Formula() {
-//		
-//	}
-//	
-//	@Test
-//	public void CypherTest05ParameterValues() {
-//		
-//	}
-//	
-//	@Test
-//	public void CypherTest06Comparison() {
-//		
-//	}
-//	
+	@Test
+	public void CypherTest04Formula() {
+		CypherTest04Formula cypher = new CypherTest04Formula();
+		assertDoesNotThrow(() -> cypher.main(null));
+	}
+	
+	@Test
+	public void CypherTest05ParameterValues() {
+		CypherTest05ParameterValues cypher = new CypherTest05ParameterValues();
+		assertDoesNotThrow(() -> cypher.main(null));
+	}
+	
+	@Test
+	public void CypherTest06Comparison() {
+		CypherTest06Comparison cypher = new CypherTest06Comparison();
+		assertDoesNotThrow(() -> cypher.main(null));
+	}
+	
 //	@Test
 //	public void CypherTest07CountCondition() {
 //		
@@ -67,10 +70,11 @@ public class CypherCovTester {
 //	public void CypherTest09Contains() {
 //		
 //	}
-//	
-//	@Test
-//	public void CypherTest10Match() {
-//		
-//	}
+	
+	@Test
+	public void CypherTest10Match() {
+		CypherTest10Match cypher = new CypherTest10Match();
+		assertDoesNotThrow(() -> cypher.main(null));
+	}
 	
 }
