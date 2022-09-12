@@ -22,20 +22,20 @@ import qualitypatternmodel.parameters.*;
 import qualitypatternmodel.parameters.impl.*;
 
 public class Test08ParameterValues {
-
-	public static void main(String[] args)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-
+	
+	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-
 		for (XmlPropertyKind pl : XmlPropertyKind.VALUES) {
 				for (ParameterValue parameter : getTestParameters()) {					
 					CompletePattern completePattern = getConcreteComparisonPattern(pl, parameter);
 					completePatterns.add(completePattern);		
 			}
 		}
-
-		Test00.getQueries(completePatterns);
+		return completePatterns;
+	}
+	
+    public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		Test00.getQueries(getPatterns());
 	}
 	
 	public static CompletePattern getConcreteComparisonPattern(XmlPropertyKind xmlPropertyKind, ParameterValue parameterValue) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

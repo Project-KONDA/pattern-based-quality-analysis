@@ -17,19 +17,20 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 
 public class Test10Reference {
-
-	public static void main(String[] args)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-
+	
+	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getPatternReferenceSimple());
 		completePatterns.add(getPatternReferenceTwoReference());
 		completePatterns.add(getPatternReferenceParallelNavigation());
 		completePatterns.add(getPatternReferencePropertyLocationsParallel());
-//		completePatterns.add(getPatternReferenceSameProp()); // TODO: this case seems unrealistic in practice since one property represents the reference and the other a unique identifier		
-		Test00.test(completePatterns);
+//		completePatterns.add(getPatternReferenceSameProp()); // TODO: this case seems unrealistic in practice since one property represents the reference and the other a unique identifier
+		return completePatterns;
 	}
-
+	
+    public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		Test00.test(getPatterns());
+	}
 	
 	public static CompletePattern getPatternReferenceSimple() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		GraphstructurePackage.eINSTANCE.eClass();
