@@ -26,19 +26,20 @@ import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class RdfTest06ParameterValues {
-	public static void main(String[] args)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-
+	
+	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-
 		for (ParameterValue parameter : getTestParameters()) {					
 			CompletePattern completePattern = getConcreteComparisonPattern(parameter);
 			completePatterns.add(completePattern);		
-		}
-		
+		}		
 		completePatterns.add(getConcreteComparisonPatternIriParamList());
-
-		RdfTest00.test(completePatterns);
+		return completePatterns;
+	}
+	
+	public static void main(String[] args)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		RdfTest00.test(getPatterns());
 	}
 	
 	private static CompletePattern getConcreteComparisonPatternIriParamList() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

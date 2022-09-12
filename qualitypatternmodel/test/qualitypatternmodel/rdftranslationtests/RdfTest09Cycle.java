@@ -10,10 +10,15 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class RdfTest09Cycle {
-	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	
+	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getCyclePattern());
-		RdfTest00.test(completePatterns);
+		return completePatterns;
+	}
+	
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		RdfTest00.test(getPatterns());
 	}
 
 	private static CompletePattern getCyclePattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

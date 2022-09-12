@@ -16,14 +16,18 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
 
 public class RdfTest03Quantor {
-
-	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	
+	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getQuantifierQuantifierPattern(Quantifier.EXISTS, Quantifier.EXISTS));
 		completePatterns.add(getQuantifierQuantifierPattern(Quantifier.EXISTS, Quantifier.FORALL));
 		completePatterns.add(getQuantifierQuantifierPattern(Quantifier.FORALL, Quantifier.EXISTS));
 		completePatterns.add(getQuantifierQuantifierPattern(Quantifier.FORALL, Quantifier.FORALL));
-		RdfTest00.test(completePatterns);
+		return completePatterns;
+	}
+
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		RdfTest00.test(getPatterns());
 	}
 
 	private static CompletePattern getQuantifierQuantifierPattern(Quantifier q, Quantifier q2) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

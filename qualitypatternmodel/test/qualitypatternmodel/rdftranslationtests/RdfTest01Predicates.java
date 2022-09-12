@@ -13,13 +13,11 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
-import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.xmltranslationtests.Test00;
 
 public class RdfTest01Predicates {
-	
-	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+
+	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getSinglePredicateUriPattern());
 		completePatterns.add(getSinglePredicateQuantifierPattern(RdfQuantifier.ONE));
@@ -31,7 +29,11 @@ public class RdfTest01Predicates {
 		completePatterns.add(getSequenceQuantifierPattern(RdfQuantifier.ZERO_OR_ONE));
 		completePatterns.add(getXorPattern());
 		completePatterns.add(getTwoIncomingPredicatesPattern());
-		RdfTest00.test(completePatterns);
+		return completePatterns;
+	}
+	
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		RdfTest00.test(getPatterns());
 	}
 	
 	public static CompletePattern getBasePatternPredicates() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

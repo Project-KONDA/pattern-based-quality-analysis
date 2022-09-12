@@ -1,5 +1,7 @@
 package qualitypatternmodel.rdftranslationtests;
 
+import java.util.ArrayList;
+
 import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
 import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
@@ -20,6 +22,7 @@ import qualitypatternmodel.textrepresentation.TextFragment;
 import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
 
 public class RdfTest10Template {
+	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
 		// cf. example at https://en.wikibooks.org/wiki/SPARQL/Templates

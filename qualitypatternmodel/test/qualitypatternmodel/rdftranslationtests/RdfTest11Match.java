@@ -9,10 +9,8 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 
 public class RdfTest11Match {
-
-	public static void main(String[] args)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-
+	
+	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getPatternMatch(true, "know"));
 		completePatterns.add(getPatternMatch(false, "u"));
@@ -20,7 +18,12 @@ public class RdfTest11Match {
 		completePatterns.add(getPatternMatch(true, "own$"));
 		completePatterns.add(getPatternMatch(true, "^unknown$"));
 		completePatterns.add(getPatternMatch(false, "^unknown$"));
-		RdfTest00.test(completePatterns);
+		return completePatterns;
+	}
+
+	public static void main(String[] args)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		RdfTest00.test(getPatterns());
 	}
 
 	
