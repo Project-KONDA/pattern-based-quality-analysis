@@ -2,6 +2,8 @@ package covTester;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+//import qualitypatternmodel.adaptionNeo4J.tests.AdaptionNeo4JTests;
+
 
 import org.junit.Test;
 import qualitypatternmodel.cyphertranslationtests.*;
@@ -60,12 +62,13 @@ public class CypherCovTester {
 //	public void CypherTest07CountCondition() {
 //		
 //	}
-//	
-//	@Test
-//	public void CypherTest08Cycle() {
-//		
-//	}
-//	
+	
+	@Test
+	public void CypherTest08Cycle() {
+		CypherTest08Cycle cypher = new CypherTest08Cycle();
+		assertDoesNotThrow(() -> cypher.main(null));
+	}
+	
 //	@Test
 //	public void CypherTest09Contains() {
 //		
@@ -77,4 +80,8 @@ public class CypherCovTester {
 		assertDoesNotThrow(() -> cypher.main(null));
 	}
 	
+//	@Test 
+//	public void CypherPackageTester() {
+//		AdaptionNeo4JTests adaptionNeo4JTests = new AdaptionNeo4JTests(null);
+//	}
 }
