@@ -1,5 +1,5 @@
 package qualitypatternmodel.cyphertranslationtests;
 
-public class QuantifiedCondition {
+public class CypherTest11QuantifiedCondition {
 
 }
