@@ -235,7 +235,7 @@ public class CypherTest03NotCondition {
 	//    		Node node2 = completePattern.getGraph().addNode(); --> Problem der Redundanten Edges Lösen
 	//    		completePattern.getGraph().addRelation(complexNode1, node2); --> Nutzen des Counters aus der NeoPropertyNode
 		
-	     complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
+	    complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
 	    NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
 	    completePattern.setCondition(notCond);
 	    

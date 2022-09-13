@@ -21,8 +21,6 @@ import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TimeParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
-import qualitypatternmodel.parameters.impl.DateParamImpl;
-import qualitypatternmodel.parameters.impl.KeyValueParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class CypherTest05ParameterValues {
