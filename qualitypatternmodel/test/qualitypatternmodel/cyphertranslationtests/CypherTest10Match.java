@@ -23,7 +23,6 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 public class CypherTest10Match {
 //	https://neo4j.com/docs/cypher-manual/current/clauses/where/ --> Consider the diffrent regex expressions from here
 	
-	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
         //Tests
         System.out.println("");

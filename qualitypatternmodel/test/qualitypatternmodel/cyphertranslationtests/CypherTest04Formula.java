@@ -74,7 +74,6 @@ public class CypherTest04Formula {
 		completePattern.createNeo4jAdaption();
 		
 		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.setNodePlace(NeoPlace.BEGINNING);
 		neoNode.addStringLabel("Regesta");
 		
 		NeoEdge neoEdge;
@@ -140,7 +139,6 @@ public class CypherTest04Formula {
 		completePattern.createNeo4jAdaption();
 		
 		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.setNodePlace(NeoPlace.BEGINNING);
 		neoNode.addStringLabel("IndexPlace");
 		
 		NeoEdge neoEdge;

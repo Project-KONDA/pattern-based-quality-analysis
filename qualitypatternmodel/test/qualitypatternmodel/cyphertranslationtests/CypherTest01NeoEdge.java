@@ -81,10 +81,7 @@ public class CypherTest01NeoEdge {
 	
 	public static CompletePattern getBasePatternNeoEdge() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = CypherTest00.getBasePatternComplex();
-		completePattern.createNeo4jAdaption();
-		NeoNode ns = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		ns.setNodePlace(NeoPlace.BEGINNING);
-		
+		completePattern.createNeo4jAdaption();		
 		return completePattern;
 	}
 	
@@ -361,12 +358,6 @@ public class CypherTest01NeoEdge {
 		completePattern.getGraph().addRelation(complexNode1, complexNode2);
 		completePattern.createNeo4jAdaption();
 		
-		NeoNode ns = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		ns.setNodePlace(NeoPlace.BEGINNING);
-		
-		ns = (NeoNode) completePattern.getGraph().getNodes().get(2);
-		ns.setNodePlace(NeoPlace.BEGINNING);
-		
 		return completePattern;
 	}
 	
@@ -379,9 +370,13 @@ public class CypherTest01NeoEdge {
 	
 	//No starting Point has been set
 	//Error occurs in PatternElement
+	//Has to be reworked since with the automatical setting of beginnings the Beginning will be set
 	public static CompletePattern tryNoBeginning() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = CypherTest00.getBasePatternComplex();
 		completePattern.createNeo4jAdaption();
+		NeoNode neoNode  = (NeoNode) completePattern.getGraph().getNodes().get(0);
+		neoNode.setNodePlace(NeoPlace.FOLLOWING);
+		
 		return completePattern;
 	}
 	

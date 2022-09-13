@@ -46,9 +46,9 @@ public class CypherTest00 {
 				System.out.print("\n___TRANSLATION___");
 				String query = completePattern.generateCypher();
 				//Depending on the test mode activated the db-connector
+//				System.out.println(query); 
 				String hashCode = query.hashCode() + "";
 				connector.queryTester(query, hashCode);
-//				System.out.println(query); 
 			} catch (Exception e) {
 				System.out.println();
 				e.printStackTrace();
@@ -100,8 +100,6 @@ public class CypherTest00 {
 	public static CompletePattern getBasePatternFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePattern();
 		completePattern.createNeo4jAdaption();
-		NeoNode ns = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		ns.setNodePlace(NeoPlace.BEGINNING);
 		
 		return completePattern;
 	}
@@ -135,11 +133,6 @@ public class CypherTest00 {
 	
 		
 		completePattern.createNeo4jAdaption();
-		
-		
-		NeoNode ns = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		NeoEdge ne = (NeoEdge) completePattern.getGraph().getRelations().get(0);
-		ns.setNodePlace(NeoPlace.BEGINNING);
 		
 		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(1);
 		NeoEdge neoEdge = (NeoEdge) completePattern.getGraph().getRelations().get(1);
@@ -178,8 +171,6 @@ public class CypherTest00 {
 		CompletePattern completePattern = getBasePatternComplex();
 		
 		completePattern.createNeo4jAdaption();
-		NeoNode ns = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		ns.setNodePlace(NeoPlace.BEGINNING);
 		
 		return completePattern;
 	}
@@ -201,8 +192,6 @@ public class CypherTest00 {
 	
 	public static CompletePattern getBasePatternCondDateConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternCondDate(comp);
-		NeoNode neo = (NeoNode) completePattern.getGraph().getNodes().get(0); 
-		neo.setNodePlace(NeoPlace.BEGINNING);
 
 		NeoPropertyEdge relation = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
 		NeoPropertyPathParam nppp = FACTORY.createNeoPropertyPathParam();
@@ -232,8 +221,6 @@ public class CypherTest00 {
 	
 	public static CompletePattern getBasePatternCondConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternCond(comp);
-		NeoNode neo = (NeoNode) completePattern.getGraph().getNodes().get(0); 
-		neo.setNodePlace(NeoPlace.BEGINNING);
 
 		NeoPropertyEdge relation = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
 		NeoPropertyPathParam nppp = FACTORY.createNeoPropertyPathParam();
@@ -261,8 +248,6 @@ public class CypherTest00 {
 	
 	public static CompletePattern getBasePatternMatchConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternMatch(comp);
-		NeoNode neo = (NeoNode) completePattern.getGraph().getNodes().get(0); 
-		neo.setNodePlace(NeoPlace.BEGINNING);
 		
 		NeoPropertyEdge relation = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
 		NeoPropertyPathParam neoPropertyPathParam = FACTORY.createNeoPropertyPathParam();
@@ -290,8 +275,6 @@ public class CypherTest00 {
 	
 	public static CompletePattern getBasePatternMatchNotConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternMatch(comp);
-		NeoNode neo = (NeoNode) completePattern.getGraph().getNodes().get(0); 
-		neo.setNodePlace(NeoPlace.BEGINNING);
 		
 		((Match) completePattern.getGraph().getOperatorList().getOperators().get(0)).getOption().setValue(false);
 		NeoPropertyEdge relation = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
@@ -304,7 +287,6 @@ public class CypherTest00 {
 		EList<String> textLabels = new BasicEList<String>();
 		textLabels.add("Regesta");
 		labels.setValueIfValid(textLabels);
-//		labels.setValueFromString("Regesta"); --> Darf ich diese Methode überschreiben?
 		node.setNeoNodeLabels(labels);
 		
 		return completePattern;		

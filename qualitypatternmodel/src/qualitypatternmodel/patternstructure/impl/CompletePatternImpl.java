@@ -807,34 +807,24 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValid(AbstractionLevel.GENERIC);
 		
-//		PatternElement patternElement = super.createNeo4jAdaption();
-//		findFirstNeo4JBeginning(patternElement);
-//		
-//		return patternElement;
-		return super.createNeo4jAdaption();
+		PatternElement patternElement = super.createNeo4jAdaption();
+		findNeo4JBeginnings(patternElement);
+		
+		return patternElement;
 	}
 
 
-	private void findFirstNeo4JBeginning(PatternElement patternElement) {
-		int next = 0;
+	private void findNeo4JBeginnings(PatternElement patternElement) {
 		CompletePattern completePattern = (CompletePattern) patternElement;
-		Node node;
 		NeoNode neoNode;
-		boolean breaker = false;
-		do {
-			node = completePattern.getGraph().getNodes().get(next);
+		for (Node node : completePattern.getGraph().getNodes()) {
 			if (node instanceof NeoNode) {
 				neoNode = (NeoNode) node;
-				if (neoNode.isReturnNode()) {
+				if (neoNode.getIncoming().size() == 0 && neoNode.getIncomingMapping() == null) {
 					neoNode.setNodePlace(NeoPlace.BEGINNING);
-					breaker = true;
-				} else {
-					next++;
 				}
-			} else {
-				next++;
 			}
-		} while(!breaker);
+		}
 	}
 	
 	//TODO

@@ -89,7 +89,6 @@ public class CypherTest03NotCondition {
 	    completePattern.createNeo4jAdaption();
 	
 	    NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-	    neoNode.setNodePlace(NeoPlace.BEGINNING);
 	    neoNode.addStringLabel("Literature");
 	    
 	    //Node Specification - FORALL
@@ -97,7 +96,6 @@ public class CypherTest03NotCondition {
 	    neoNode.setNodePlace(NeoPlace.BEGINNING);
 	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(1);
 	    neoNode.addStringLabel("Regesta");
-	    
 	    
 	    //Edge Specification - FORALL
 	    NeoEdge neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(0);
@@ -177,7 +175,6 @@ public class CypherTest03NotCondition {
 	    completePattern.createNeo4jAdaption();
 	
 	    NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-	    neoNode.setNodePlace(NeoPlace.BEGINNING);
 	    neoNode.addStringLabel("Literature");
 	    
 	    NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
@@ -257,7 +254,6 @@ public class CypherTest03NotCondition {
 	    completePattern.createNeo4jAdaption();
 	
 	    NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-	    neoNode.setNodePlace(NeoPlace.BEGINNING);
 	    neoNode.addStringLabel("Regesta");
 	    
 	    //Node Specification
@@ -320,7 +316,6 @@ public class CypherTest03NotCondition {
 	    completePattern.createNeo4jAdaption();
 	
 	    NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-	    neoNode.setNodePlace(NeoPlace.BEGINNING);
 	    neoNode.addStringLabel("Regesta");
 	    
 	    //Node Specification
@@ -381,7 +376,6 @@ public class CypherTest03NotCondition {
 	    completePattern.createNeo4jAdaption();
 	    
 	    NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-	    neoNode.setNodePlace(NeoPlace.BEGINNING);
 	    neoNode.addStringLabel("Regesta");
 	    
 	    
@@ -446,7 +440,6 @@ public class CypherTest03NotCondition {
 	    //Adapt to Neo4J
 	    completePattern.createNeo4jAdaption();	    
 	    NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-	    neoNode.setNodePlace(NeoPlace.BEGINNING);
 	    Graph graph = quantifiedCond1.getGraph();
 	    neoNode = (NeoNode) graph.getNodes().get(0);
 	    neoNode.setNodePlace(NeoPlace.BEGINNING);
@@ -474,7 +467,6 @@ public class CypherTest03NotCondition {
 	    //Adapt to Neo4J
 	    completePattern.createNeo4jAdaption();	    
 	    NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-	    neoNode.setNodePlace(NeoPlace.BEGINNING);
 	    Graph graph = quantifiedCond1.getGraph();
 	    neoNode = (NeoNode) graph.getNodes().get(0);
 	    neoNode.setNodePlace(NeoPlace.BEGINNING);
@@ -505,7 +497,6 @@ public class CypherTest03NotCondition {
 	    //Adapt to Neo4J
 	    completePattern.createNeo4jAdaption();	    
 	    NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-	    neoNode.setNodePlace(NeoPlace.BEGINNING);
 	    Graph graph = quantifiedCond1.getGraph();
 	    neoNode = (NeoNode) graph.getNodes().get(0);
 	    neoNode.setNodePlace(NeoPlace.BEGINNING);
@@ -539,7 +530,6 @@ public class CypherTest03NotCondition {
 	    //Adapt to Neo4J
 	    completePattern.createNeo4jAdaption();	    
 	    NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-	    neoNode.setNodePlace(NeoPlace.BEGINNING);
 	    Graph graph = quantifiedCond1.getGraph();
 	    neoNode = (NeoNode) graph.getNodes().get(0);
 	    neoNode.setNodePlace(NeoPlace.BEGINNING);

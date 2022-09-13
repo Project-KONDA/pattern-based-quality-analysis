@@ -43,8 +43,6 @@ public class CypherTest08Cycle {
 		newNode0.addComparison(newNode[nodesInCycle - 1]);
 		
 		completePattern.createNeo4jAdaption();
-		NeoNode neoNode0 = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode0.setNodePlace(NeoPlace.BEGINNING);
 		
 		return completePattern;
 	}
