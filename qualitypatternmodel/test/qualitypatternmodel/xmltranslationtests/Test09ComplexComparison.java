@@ -18,17 +18,18 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.*;
 
 public class Test09ComplexComparison {
-
-	public static void main(String[] args)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-
+	
+	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getPatternSelfTwoProperties());
 		completePatterns.add(getPatternTwoProperties());
 		completePatterns.add(getPatternTwoElements());
 		completePatterns.add(getPatternTwoOperators());
-		
-		Test00.test(completePatterns);
+		return completePatterns;
+	}
+	
+    public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		Test00.test(getPatterns());
 	}
 	
 	public static CompletePattern getPatternSelfTwoProperties() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

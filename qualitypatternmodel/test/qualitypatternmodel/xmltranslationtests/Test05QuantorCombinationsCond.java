@@ -9,16 +9,18 @@ import qualitypatternmodel.operators.*;
 import qualitypatternmodel.exceptions.*;
 
 public class Test05QuantorCombinationsCond {
-
-	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-
+	
+	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getPatternExistsInExistsCond());
-		completePatterns.add(getPatternForallInExistsCond());
-		completePatterns.add(getPatternExistsInForallCond());
+//		completePatterns.add(getPatternExistsInExistsCond());
+//		completePatterns.add(getPatternForallInExistsCond());
+//		completePatterns.add(getPatternExistsInForallCond());
 		completePatterns.add(getPatternForallInForallCond());
-
-		Test00.test(completePatterns);
+		return completePatterns;
+	}
+	
+    public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		Test00.test(getPatterns());
 	}
 
 	public static CompletePattern getPatternExistsInExistsCond() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
@@ -50,9 +52,7 @@ public class Test05QuantorCombinationsCond {
 		se_p.addPrimitiveComparison("demo:country");
 				
 		((Comparison) graph1.getOperatorList().getOperators().get(1)).getOption().setValue(ComparisonOperator.NOTEQUAL);
-		
-		System.out.println(completePattern.myToString());
-		
+				
 		completePattern.createXmlAdaption();
 //		
 ////		XmlProperty property = (XmlProperty) graph0.getNodes().get(0).getProperties().get(0);

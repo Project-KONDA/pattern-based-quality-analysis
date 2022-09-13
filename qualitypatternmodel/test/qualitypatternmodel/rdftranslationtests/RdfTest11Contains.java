@@ -8,15 +8,18 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 
 public class RdfTest11Contains {
-
-	public static void main(String[] args)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-
+	
+	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getPatternContains(true, "?"));
 		completePatterns.add(getPatternContains(false, "e"));
 		completePatterns.add(getPatternContains(true, "Haus"));
-		RdfTest00.test(completePatterns);
+		return completePatterns;
+	}
+
+	public static void main(String[] args)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		RdfTest00.test(getPatterns());
 	}
 
 	

@@ -17,15 +17,16 @@ import qualitypatternmodel.xmltranslationtests.Test00;
 
 public class RdfTest05Formula {
 	
-	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-
+	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		
 		for (LogicalOperator lo: LogicalOperator.VALUES) {
 			completePatterns.add(getFormulaPattern(lo));
 		}
-
-		RdfTest00.test(completePatterns);
+		return completePatterns;
+	}
+	
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		RdfTest00.test(getPatterns());
 	}
 
 	private static CompletePattern getFormulaPattern(LogicalOperator lo) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

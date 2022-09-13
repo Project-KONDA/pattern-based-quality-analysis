@@ -30,9 +30,8 @@ import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test12Count {
-	public static void main(String[] args)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-
+	
+	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getPatternCountInPatternFinal());	
 		completePatterns.add(getPatternCountInExists());	
@@ -42,8 +41,11 @@ public class Test12Count {
 		completePatterns.add(getPatternCountInNot());
 		completePatterns.add(getPatternCountNextToExistsNested());
 		completePatterns.add(getPatternCountNextToForallNested());
-
-		Test00.test(completePatterns);
+		return completePatterns;
+	}
+	
+    public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		Test00.test(getPatterns());
 	}
 	
 	public static CompletePattern getPatternCountInPatternFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

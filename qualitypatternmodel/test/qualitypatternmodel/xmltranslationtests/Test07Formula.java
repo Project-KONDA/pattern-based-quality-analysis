@@ -17,16 +17,17 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 
 public class Test07Formula {
-
-	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-
+	
+	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		
 		for (LogicalOperator lo: LogicalOperator.VALUES) {
 			completePatterns.add(getFormulaPatternConcrete(lo));
 		}
-
-		Test00.test(completePatterns);
+		return completePatterns;
+	}
+	
+    public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		Test00.test(getPatterns());
 	}
 	
 	public static CompletePattern getFormulaPattern(LogicalOperator op) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

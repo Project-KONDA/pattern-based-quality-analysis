@@ -22,16 +22,18 @@ import qualitypatternmodel.adaptionxml.impl.XmlElementNavigationImpl;
 import qualitypatternmodel.exceptions.*;
 
 public class Test04QuantorCombinations {
-
-	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-
+	
+	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getPatternExistsInExistsFinal());
 		completePatterns.add(getPatternForallInExists());
 		completePatterns.add(getPatternExistsInForall());
 		completePatterns.add(getPatternForallInForall());
-
-		Test00.test(completePatterns);
+		return completePatterns;
+	}
+	
+    public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		Test00.test(getPatterns());
 	}
 	
 	public static CompletePattern getPatternExistsInExistsFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

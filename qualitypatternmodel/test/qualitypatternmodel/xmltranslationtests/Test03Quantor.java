@@ -12,9 +12,8 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.*;
 
 public class Test03Quantor {
-
-	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		
+	
+	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getPatternExistsWithRelationFinal());
 		completePatterns.add(getPatternExistsFinal());
@@ -22,8 +21,11 @@ public class Test03Quantor {
 		completePatterns.add(getPatternExistsCondFinal());
 		completePatterns.add(getPatternForall());
 		completePatterns.add(getPatternForallCond());
-
-		Test00.test(completePatterns);
+		return completePatterns;
+	}
+	
+    public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		Test00.test(getPatterns());
 	}
 	
 	public static CompletePattern getPatternExistsFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

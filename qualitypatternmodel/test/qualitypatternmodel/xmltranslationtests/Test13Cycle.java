@@ -1,7 +1,9 @@
 package qualitypatternmodel.xmltranslationtests;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -13,13 +15,17 @@ import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
+import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test13Cycle {
-    public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		
+	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getPatternCycle());
-		Test00.test(completePatterns);
+		return completePatterns;
+	}
+	
+    public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		Test00.test(getPatterns());
 	}
 
 	private static CompletePattern getPatternCycle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -46,5 +52,14 @@ public class Test13Cycle {
 		((XmlElement) graph2.getNodes().get(0)).setXQueryDeepEqual(false);
 		
 		return completePattern;
+	}
+
+	public static List<PatternTestPair> getTestPairs() {
+		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
+
+		for (XmlAxisKind ax : XmlAxisKind.VALUES) {
+//			testPairs.add(new PatternTestPair(<name>, <completePattern>, <query>));
+		}
+		return testPairs;
 	}
 }

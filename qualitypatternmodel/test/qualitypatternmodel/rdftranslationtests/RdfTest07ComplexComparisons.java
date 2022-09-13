@@ -13,14 +13,16 @@ import qualitypatternmodel.xmltranslationtests.Test00;
 
 public class RdfTest07ComplexComparisons {
 	
-	public static void main(String[] args)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-
+	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getPrimitiveNodesPattern());
 		completePatterns.add(getComplexNodesPattern());
-		
-		RdfTest00.test(completePatterns);
+		return completePatterns;
+	}
+	
+	public static void main(String[] args)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		RdfTest00.test(getPatterns());
 	}
 
 	private static CompletePattern getPrimitiveNodesPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

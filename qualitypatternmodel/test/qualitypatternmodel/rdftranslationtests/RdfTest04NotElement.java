@@ -14,18 +14,22 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
 
 public class RdfTest04NotElement {
-
-	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	
+	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getNotQuantifierPattern(Quantifier.EXISTS));
-//		completePatterns.add(getNotQuantifierPattern(Quantifier.FORALL));
-//		completePatterns.add(getQuantifierNotQuantifierPattern(Quantifier.EXISTS, Quantifier.EXISTS));
-//		completePatterns.add(getQuantifierNotQuantifierPattern(Quantifier.FORALL, Quantifier.FORALL));
-//		completePatterns.add(getNotNotPattern());
-//		completePatterns.add(getNotNotNotPattern());
-//		completePatterns.add(getNotNotNotNotPattern());
-//		completePatterns.add(getNotNotNotNotNotPattern());
-		RdfTest00.test(completePatterns);
+		completePatterns.add(getNotQuantifierPattern(Quantifier.FORALL));
+		completePatterns.add(getQuantifierNotQuantifierPattern(Quantifier.EXISTS, Quantifier.EXISTS));
+		completePatterns.add(getQuantifierNotQuantifierPattern(Quantifier.FORALL, Quantifier.FORALL));
+		completePatterns.add(getNotNotPattern());
+		completePatterns.add(getNotNotNotPattern());
+		completePatterns.add(getNotNotNotNotPattern());
+		completePatterns.add(getNotNotNotNotNotPattern());
+		return completePatterns;
+	}
+
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		RdfTest00.test(getPatterns());
 	}
 	
 	private static CompletePattern getNotQuantifierPattern(Quantifier q) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
