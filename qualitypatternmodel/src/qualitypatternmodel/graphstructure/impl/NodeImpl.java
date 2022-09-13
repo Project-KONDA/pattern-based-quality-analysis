@@ -1665,44 +1665,46 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	//Umbennen zu Property
 	private NeoPropertyNode adaptAsNeoPropertyRecursive() throws InvalidityException {
 		if (!(this instanceof NeoPropertyNode)) {
-			NeoPropertyNodeImpl neoAttribute = (NeoPropertyNodeImpl) AdaptionNeo4JFactoryImpl.init().createNeoPropertyNode();	
-			neoAttribute.typeModifiable = true;
-			neoAttribute.setGraphSimple(getGraph());			
+			NeoPropertyNodeImpl neoPropertyNode = (NeoPropertyNodeImpl) AdaptionNeo4JFactoryImpl.init().createNeoPropertyNode();	
+			neoPropertyNode.typeModifiable = true;
+			neoPropertyNode.setGraphSimple(getGraph());			
 			
-			neoAttribute.setReturnNode(isReturnNode());
+			neoPropertyNode.setReturnNode(isReturnNode());
 			
-			neoAttribute.getPredicates().addAll(getPredicates());
+			neoPropertyNode.getPredicates().addAll(getPredicates());
 			getPredicates().clear();
 			
-			neoAttribute.getOutgoingMappings().addAll(getOutgoingMappings());
+			neoPropertyNode.getOutgoingMappings().addAll(getOutgoingMappings());
 			getOutgoingMappings().clear();
-			neoAttribute.setIncomingMapping(getIncomingMapping());
+			neoPropertyNode.setIncomingMapping(getIncomingMapping());
 			setIncomingMapping(null);
 			
-			neoAttribute.setName(getName());			
-			neoAttribute.createParameters();
+			neoPropertyNode.setName(getName());			
+			neoPropertyNode.createParameters();
 			
 			setReturnNode(this.isReturnNode());
 			
 			if(this instanceof PrimitiveNode) {
-				neoAttribute.getMatch().addAll(((PrimitiveNode) this).getMatch());
-				((PrimitiveNode) this).getMatch().clear();		
+				neoPropertyNode.getMatch().addAll(((PrimitiveNode) this).getMatch());
+				((PrimitiveNode) this).getMatch().clear();
+				neoPropertyNode.getContains().addAll(((PrimitiveNode) this).getContains());
+				((PrimitiveNode) this).getContains().clear();
 			}
 			
 			EList<Relation> incomingCopy = new BasicEList<Relation>();
 			incomingCopy.addAll(getIncoming());
 			for(Relation relation : incomingCopy) {
-				relation.setTarget(neoAttribute);
+				relation.setTarget(neoPropertyNode);
 			}
 			
-			neoAttribute.getComparison1().addAll(getComparison1());
+			neoPropertyNode.getComparison1().addAll(getComparison1());
 			getComparison1().clear();
-			neoAttribute.getComparison2().addAll(getComparison2());
+			neoPropertyNode.getComparison2().addAll(getComparison2());
 			getComparison2().clear();
 	
 			setGraph(null);
 			
-			for (ElementMapping map: neoAttribute.getOutgoingMappings()) {
+			for (ElementMapping map: neoPropertyNode.getOutgoingMappings()) {
 				if (map instanceof NeoNode) {
 					((NodeImpl) map.getTarget()).adaptAsNeoNodeRecursive();
 				} else {
@@ -1711,14 +1713,14 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			}
 
 			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
-			incomingCopy2.addAll(neoAttribute.getIncoming());
+			incomingCopy2.addAll(neoPropertyNode.getIncoming());
 //			for(Relation relation : incomingCopy2) {
 				//All relations from a NeoEdge or a NeoPropertyEdge incoming here is a NeoProperty-Edge
 				//Hence there is no requirment for adapting it as a NeoEdge
 //				relation.adaptAsPropertyEdge();
 //			}
 			
-			return neoAttribute;
+			return neoPropertyNode;
 		} else {
 			//TODO something is here wrong
 			for (ElementMapping map: getOutgoingMappings()) {

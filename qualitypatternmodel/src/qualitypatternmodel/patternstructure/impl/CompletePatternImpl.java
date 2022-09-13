@@ -827,13 +827,13 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		}
 	}
 	
-	//TODO
-	public PatternElement createNeo4JAdaptionBeginningAutomation() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		PatternElement patternElement = this.createNeo4jAdaption();
-		//LOOK UP THE BEGINNINGS
-		//SET THE BEGINNINGS
-		return patternElement;		
-	}
+//	//TODO
+//	public PatternElement createNeo4JAdaptionBeginningAutomation() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		PatternElement patternElement = this.createNeo4jAdaption();
+//		//LOOK UP THE BEGINNINGS
+//		//SET THE BEGINNINGS
+//		return patternElement;		
+//	}
 
 	/**
 	 * <!-- begin-user-doc -->

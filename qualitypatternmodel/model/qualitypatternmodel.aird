@@ -3906,7 +3906,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="__84E5WzfEeqFoZB-JbQqGQ" x="64"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="__84E5mzfEeqFoZB-JbQqGQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__84E52zfEeqFoZB-JbQqGQ" x="159" y="-5"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__84E52zfEeqFoZB-JbQqGQ" x="14" y="-65"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="__84E6GzfEeqFoZB-JbQqGQ" type="6003">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="__84E6WzfEeqFoZB-JbQqGQ" x="144" y="-76"/>
