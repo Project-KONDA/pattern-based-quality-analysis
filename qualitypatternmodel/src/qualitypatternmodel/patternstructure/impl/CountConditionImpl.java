@@ -16,6 +16,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
@@ -28,6 +29,7 @@ import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountConditionArgument;
 import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.Formula;
+import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.Pattern;
@@ -140,42 +142,25 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	//has to be added in the .ecore model
 	//Maybe there is a way to get the return elements in a diffrent way ??? 
 	//How to make this method more generic for the case if I want to count more then 1 Pattern 
-	public String generateCypherWith(EList<String> returnElements) throws InvalidityException {
-		String withClause;
-		withClause = "WITH ";
-		if (returnElements != null && returnElements.size() != 0) {
-			StringBuilder sb = new StringBuilder();
-			for (String element : returnElements) {
-				if (sb.length() != 0) sb.append(", ");
-				sb.append(element);
-			}
-			withClause += sb.toString();
-		}
-		//How to select the countPattern and how to set the alsias --> make alias reproducable for the generateCypher
-		String countPattern = getCountPattern().generateCypher(); //How to get the variables from the orginal MATCH-PATTERN? 
-		String alias = "counter"; //Has to be refactored
-		//Check if the countPattern is a subpattern of the MATCH-PATTERN
-		//Oder einfach nur (*) angeben, damit man alles counted
-		if (countPattern.length() != 0) 
-			throw new InvalidityException("The count pattern has to be a subpart of the MATCH-Clause");
-		withClause += "COUNT(" + countPattern + ") AS " + alias; //or simple with (*)
-		return withClause.toString();
+	public String generateCypherWith() throws InvalidityException {		
+		String countPattern;
+		countPattern = getCountPattern().generateCypher();
+		
+		return countPattern;
 	}
 	
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		StringBuilder cypher = new StringBuilder();
-		String alias = "counter";
-		String argumentCountPattern = getCountPattern().generateCypher();
+		//Simple version mehrere counts müssen berücksichtigt werden --> sollten es zumindestens
+		String alias = "counter1";
 		String argumentCondition = getArgument2().generateCypher();
 		
-		//Does this generat all the funktions needed for the Count pattern since it has in the generateSparql also the Select part in it or is it just a 
-		//sub-construct which can be adapted in every other query construct?
 		if(getOption() != null && getOption().getValue() != null) {
 			String comp = getOption().getValue().getLiteral();
-			cypher.append("\n" + alias);
+			cypher.append(" " + alias);
 			cypher.append(" " + comp + " " + argumentCondition);
-			cypher.append("");
+			cypher.append(" ");
 		} else {
 			throw new InvalidityException("invalid option");
 		}

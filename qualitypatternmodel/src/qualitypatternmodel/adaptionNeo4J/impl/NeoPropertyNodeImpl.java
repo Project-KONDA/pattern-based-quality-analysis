@@ -86,12 +86,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override 
 	public String generateCypher() throws InvalidityException, UnsupportedOperationException {
 		//TODO Mapping
-		//FIXING
-		String cypher = null;
-		if (getIncoming() == null) {
-			cypher = CypherSpecificConstants.VARIABLE_PROPERTY_NODE + getOriginalID();
-		} 
-		return cypher;
+		return generateCypherMatchNodeVariable();
 	}	
 	
 	/**
@@ -142,13 +137,14 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 */
 	@Override
 	public String getCypherVariable() {
+		//TODO MORPHING
+		
 		try {
-			return this.generateCypher();
+			return this.generateCypher().replaceAll("(", "").replaceAll(")", "");
 		} catch (InvalidityException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "";
+		return null;
 	}
 	
 	/**

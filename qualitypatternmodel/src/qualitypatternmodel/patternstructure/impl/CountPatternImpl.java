@@ -3,6 +3,9 @@
 package qualitypatternmodel.patternstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.regex.Pattern;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -15,16 +18,22 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import com.sun.javafx.scene.NodeHelper.NodeAccessor;
+
+import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
+import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountConditionArgument;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.MorphismContainer;
@@ -73,6 +82,92 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	public String generateXQuery() throws InvalidityException {
 		return "\ncount (" + super.generateXQuery().replace("\n", "\n  ") + "\n)";
 	}
+	
+	/* Tamplate 
+	 * MATCH (r:Regesta)
+	 * MATCH (r)
+	 * WHERE r.origPlaceOfIssue = "Lanstein"
+	 * WITH r, COUNT (r) As c
+	 * WHERE r.origPlaceOfIssue = "Lanstein"
+	 * RETURN r
+	 */
+	
+//	MATCH (r:Regesta)-[rl]-()
+//	MATCH (r)-[rl]-()
+//	WHERE r.origPlaceOfIssue = "Lanstein"
+//	WITH r, COUNT (r) As c
+//	WHERE r.origPlaceOfIssue = "Lanstein"
+//	RETURN r
+	
+	@Override
+	public String generateCypher() throws InvalidityException {
+//		String cypher = super.generateCypher();
+//		String counter = "COUNT(*)";
+//		cypher += counter;
+//		return cypher;
+		String with;
+		StringBuilder cypher = new StringBuilder(super.generateCypher());
+//		if (cypher.toString().contains("WHERE")) {
+		with = this.generateCypherWITH(cypher);
+//		} else {
+//			with = this.generateCypherWITH(cypher);
+//		}
+		return with;
+	}
+	
+	private String generateCypherWITH(StringBuilder cypher) throws InvalidityException {
+		cypher.append(CypherSpecificConstants.CLAUSE_WITH + " ");
+		NeoAbstractNode neoAbstractNode;
+		int ixPlace;
+		String counter;
+		for (Node node :  getGraph().getNodes()) {
+			neoAbstractNode = (NeoAbstractNode) node;
+			cypher.append(neoAbstractNode.getCypherVariable());
+			cypher.append(",");
+			cypher.append(CypherSpecificConstants.ONE_WHITESPACES);
+		}
+		
+		//Maybe introduce the same for relations --> Has to be checked / considered
+		//How to count single properties
+		for (Node node :  getGraph().getNodes()) {
+			if (node instanceof NeoAbstractNode) {
+				neoAbstractNode = (NeoAbstractNode) node;
+				if (neoAbstractNode.getNodePlace() == NeoPlace.BEGINNING) {
+					if (true) { //Check if the node has relations if not then do
+						counter = "COUNT" + "(" + neoAbstractNode.getCypherVariable() + ") AS counter1";
+						cypher.append(counter);
+					} //else {
+	//					ixPlace = 0;
+	//					if (neoAbstractNode.getNodePlace() == NeoPlace.BEGINNING) {
+	//						ixPlace = cypher.indexOf("(" + neoAbstractNode.getCypherVariable(), ixPlace) - 1;
+	//						counter = "COUNT ("; 
+	//						if (cypher.indexOf(",", ixPlace) != -1) {
+	//							
+	//							counter += cypher.substring(ixPlace, cypher.indexOf(",", ixPlace) - 1); //.replaceAll("(", "").replaceAll(")", "")
+	//						} else {
+	//							counter += cypher.substring(ixPlace); //.replaceAll("(", "").replaceAll(")", "")
+	//						}
+	//						
+	//						counter += ")" + " AS " + "counter1"; //TODO identification
+	//						cypher.append(counter);
+	//						cypher.append(", ");
+	//						cypher.append(CypherSpecificConstants.ONE_WHITESPACES);
+	//					}
+	//				}
+				}
+			}
+		}
+		
+		char lastChar = cypher.charAt(cypher.length() - 1);
+		char ref = ',';
+		if (Character.compare(lastChar, ref) == 0) {
+			cypher.replace(cypher.length() - 1, cypher.length() - 1, "");
+		}
+		
+		return cypher.toString();
+	}
+	
+	//Implement a similar graph traversal as in graph but just with getCypherVariable
 	
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)

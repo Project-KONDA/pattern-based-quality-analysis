@@ -389,8 +389,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			argument1Translation = getArgument1().generateCypher();
 			argument2Translation = ((NeoPropertyNode) getArgument2()).generateCypherPropertyAddressing();
 		} else if (getArgument1() instanceof NeoNode && getArgument2() instanceof NeoNode) {
-			argument1Translation = getArgument1().generateCypher(); 
-			argument2Translation = getArgument2().generateCypher(); 
+			argument1Translation = ((NeoNode) getArgument1()).getCypherVariable(); 
+			argument2Translation = ((NeoNode) getArgument2()).getCypherVariable(); 
 		}
 		
 		if (argument1Translation == null || argument2Translation == null || 

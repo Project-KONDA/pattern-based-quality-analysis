@@ -94,7 +94,7 @@ public class CypherTest09Contains {
 		}		
     }
     
-    private static Map<String, String> createPropertyNameAndValueMap() {
+    private static final Map<String, String> createPropertyNameAndValueMap() {
     	Map<String, String> map = new HashMap<String, String>();
     	map.put("bandpk", "13000000");
     	map.put("exchangeIdentifier", "20_000001_000001_013_0");

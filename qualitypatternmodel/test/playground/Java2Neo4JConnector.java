@@ -42,6 +42,7 @@ public class Java2Neo4JConnector implements AutoCloseable {
 	
     //TODO - Specify everything more concrete 
 	public static void main(String[] args) {
+		@SuppressWarnings("resource")
 		Java2Neo4JConnector connector = new Java2Neo4JConnector(URI, USER, PASSWORD);
 		connector.queryTester("MATCH (r:Regesta) RETURN r", "testQuery");
 	}

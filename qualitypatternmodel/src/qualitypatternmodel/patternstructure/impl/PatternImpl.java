@@ -25,6 +25,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.Condition;
+import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -205,9 +206,13 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		if(matchClause.length() !=0 ) matchClause = CypherSpecificConstants.CLAUSE_MATCH + " "  + matchClause;
 		else throw new InvalidityException("A cypher query need a Match-Clause");
 		
-		String withClause;
-		withClause = ""; //has to be implemented
-		if(withClause.length() !=0 ) withClause = CypherSpecificConstants.CLAUSE_WITH + " "  + withClause;
+		String withClause = "";
+		if (condition instanceof CountCondition) {
+			CountConditionImpl countCond =  (CountConditionImpl) condition;
+			withClause = countCond.generateCypherWith(); //has to be implemented
+			if(withClause.length() ==0 ) throw new InvalidityException("PatternImpl: Exception with CountCond");
+		}
+		
 		
 		String whereClause = "";
 		whereClause += graph.generateCypherWhere();

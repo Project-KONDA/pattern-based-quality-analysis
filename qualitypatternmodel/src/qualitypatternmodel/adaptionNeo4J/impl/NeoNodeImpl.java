@@ -93,10 +93,8 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 					}
 				}
 			}
-			
 			//Wie komme ich an die Operator List
-//			Graph g; 
-			
+			//Graph g; 
 			translated = true;
 		}
 		cypher.append(")");
@@ -110,6 +108,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	 */
 	@Override 
 	public String getCypherVariable() {
+		//TODO MORPHISIM
 		String var;
 		var = CypherSpecificConstants.VARIABLE_NODE;
 		var += getOriginalID();
