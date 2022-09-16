@@ -39,28 +39,27 @@ public class CypherTest05ParameterValues {
 		CompletePattern completePattern = getConcreteComparisonPattern(values.get(0), "date");
 		completePatterns.add(completePattern);	
 		//TextListParam
-		completePattern = getConcreteComparisonPattern(values.get(1), "find");
+		completePattern = getConcreteComparisonPattern(values.get(1), "origPlaceOfIssue");
 		completePatterns.add(completePattern);	
 		
 		//NumberParam
-		completePattern = getConcreteComparisonPattern(values.get(2), "find");
+		completePattern = getConcreteComparisonPattern(values.get(2), "age");
 		completePatterns.add(completePattern);	
 		
 		//BooleanParam
-		completePattern = getConcreteComparisonPattern(values.get(3), "find");
+		completePattern = getConcreteComparisonPattern(values.get(3), "isVater");
 		completePatterns.add(completePattern);			
 		
 		//DateParam
 		completePattern = getConcreteComparisonPattern(values.get(4), "isoStartDate ");
 		completePatterns.add(completePattern);
-		
-		
+				
 		//TimeParam
-		completePattern = getConcreteComparisonPattern(values.get(5), "find");
+		completePattern = getConcreteComparisonPattern(values.get(5), "isoStartDate");
 		completePatterns.add(completePattern);	
 		
 		//DateTimeParam
-		completePattern = getConcreteComparisonPattern(values.get(6), "find");
+		completePattern = getConcreteComparisonPattern(values.get(6), "isoStartDate");
 		completePatterns.add(completePattern);	
 		
 		//Call tester from CypherTest00
@@ -101,6 +100,11 @@ public class CypherTest05ParameterValues {
 		TextListParam input2 = inputFactory.createTextListParam(); //--> Get fitting Values & Property
 		input2.getValues().add("unknown");
 		input2.getValues().add("USA");
+		input2.getValues().add("17");
+		input2.getValues().add("17.0");
+		input2.getValues().add("-17");
+		input2.getValues().add("-17.0");
+		input2.getValues().add("-17.0+");
 		NumberParam input3 = inputFactory.createNumberParam(); //--> Get fitting Values & Property
 		input3.setValue(1452.);
 		BooleanParam input4 = inputFactory.createBooleanParam(); //--> Get fitting Values & Property
@@ -115,7 +119,6 @@ public class CypherTest05ParameterValues {
 //		DateTimeParam inpu87 = inputFactory.createDateTimeParam(); //--> Get fitting Values & Property
 //		input8.setValue("2020-10-03T09:00:00");
 		
-
 		parameters.add(input1);
 		parameters.add(input2);
 		parameters.add(input3);

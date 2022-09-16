@@ -264,6 +264,7 @@
       <eLiterals name="NOTEQUAL" value="5" literal="!="/>
       <eLiterals name="ISNULL" value="6" literal="IS NULL"/>
       <eLiterals name="ISNOTNULL" value="7" literal="IS NOT NULL"/>
+      <eLiterals name="IN" value="8"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OperatorList" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="add">

@@ -622,6 +622,10 @@
                   <styles xmi:type="notation:FontStyle" xmi:id="_r2btwRf4Ee2oHen-jTtzOQ" fontName="Segoe UI" fontHeight="8"/>
                   <layoutConstraint xmi:type="notation:Location" xmi:id="_r2btwhf4Ee2oHen-jTtzOQ"/>
                 </children>
+                <children xmi:type="notation:Node" xmi:id="_SMBccDXxEe2OMISeiXAXPQ" type="3010" element="_SJbbcDXxEe2OMISeiXAXPQ">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_SMBccTXxEe2OMISeiXAXPQ" fontName="Segoe UI" fontHeight="8"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_SMBccjXxEe2OMISeiXAXPQ"/>
+                </children>
                 <styles xmi:type="notation:SortingStyle" xmi:id="_GsoHkiM4EeqSTPYFve8hCw"/>
                 <styles xmi:type="notation:FilteringStyle" xmi:id="_GsoHkyM4EeqSTPYFve8hCw"/>
               </children>
@@ -7265,6 +7269,14 @@
           <target xmi:type="ecore:EEnumLiteral" href="qualitypatternmodel.ecore#//operators/ComparisonOperator/ISNOTNULL"/>
           <semanticElements xmi:type="ecore:EEnumLiteral" href="qualitypatternmodel.ecore#//operators/ComparisonOperator/ISNOTNULL"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_r0sBURf4Ee2oHen-jTtzOQ" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_SJbbcDXxEe2OMISeiXAXPQ" name="IN" tooltipText="">
+          <target xmi:type="ecore:EEnumLiteral" href="qualitypatternmodel.ecore#//operators/ComparisonOperator/IN"/>
+          <semanticElements xmi:type="ecore:EEnumLiteral" href="qualitypatternmodel.ecore#//operators/ComparisonOperator/IN"/>
+          <ownedStyle xmi:type="diagram:BundledImage" uid="_SJg7ADXxEe2OMISeiXAXPQ" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>

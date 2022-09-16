@@ -6,6 +6,9 @@ import static qualitypatternmodel.utility.Constants.*;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -105,14 +108,53 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 		sbRegex.append("[");
 		for(String s : getValues()) {
 			if (i > 0) {
-				sbRegex.append(",");
+				sbRegex.append(", ");
 			}
-			sbRegex.append(s); 
+			if (areValuesInts(s)) {
+				sbRegex.append(s); 	
+			} else if (areValuesFloat(s)) {
+				sbRegex.append(s); 
+			} else {
+				sbRegex.append("\"" + s +"\""); 
+			}
 			i++;
 		}
+	
 		sbRegex.append("]");
 		return sbRegex.toString();
 	}
+	
+	private boolean areValuesInts(String value) {
+		boolean areValuesInts = true;
+		String regex = "[+-]?[0-9]+";
+		Pattern p = Pattern.compile(regex);
+		Matcher m = p.matcher(value);
+		if (!(m.find() && m.group().equals(value))) {
+			areValuesInts = false;
+		}
+		return areValuesInts;
+	}
+	
+//	private List<Integer> convertToInteger() {
+//		
+//		return null;
+//	}
+	
+	private boolean areValuesFloat(String value) {
+		boolean areValuesInts = true;
+		String regex = "[+-]?[0-9]+(\\.[0-9]+)?([Ee][+-]?[0-9]+)?";
+		Pattern p = Pattern.compile(regex);
+		Matcher m = p.matcher(value);
+		if (!(m.find() && m.group().equals(value))) {
+			areValuesInts = false;
+		}
+		return areValuesInts;
+	}
+	
+//	private List<Float> convertToFloat() {
+//		
+//		return null;
+//	}
 
 	@Override
 	public boolean inputIsValid() {
