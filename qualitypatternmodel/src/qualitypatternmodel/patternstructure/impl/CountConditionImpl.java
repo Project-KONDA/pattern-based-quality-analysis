@@ -3,6 +3,8 @@
 package qualitypatternmodel.patternstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -32,10 +34,12 @@ import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.NotCondition;
+import qualitypatternmodel.patternstructure.NumberElement;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
  * <!-- begin-user-doc -->
@@ -139,34 +143,48 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		
 	}
 	
+	//BEGIN - CYPHER
+	//Der folgende Abschnitt gehört zum Cypher COUNT
+	//Es representiert nur einen Ansatz wie man COUNT generieren kann
+	//Es ist jedoch kein vollständig funktionaler Code 
+	//Falls in einem neuem Patch/Update von Cypher das COUNT verschachteln lässt, würde sich viel Programmieraufwand erspart werden
+	
+	//FUTURE WORK
 	//has to be added in the .ecore model
 	//Maybe there is a way to get the return elements in a diffrent way ??? 
 	//How to make this method more generic for the case if I want to count more then 1 Pattern 
-	public String generateCypherWith() throws InvalidityException {		
-		String countPattern;
-		countPattern = getCountPattern().generateCypher();
-		
-		return countPattern;
+	public String generateCypherSetCounterProperties() throws InvalidityException {		
+		String countPatternSet;
+		countPatternSet = getCountPattern().generateCypher();
+		return countPatternSet;
 	}
 	
+	//FUTURE WORK 
+	public String removeCounters() {
+		String countPatternRemove;
+		countPatternRemove = ((CountPatternImpl) getCountPattern()).removeCounters();
+		return countPatternRemove;
+	}
+	
+	//TODO --> FUTURE WORK
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		StringBuilder cypher = new StringBuilder();
-		//Simple version mehrere counts müssen berücksichtigt werden --> sollten es zumindestens
-		String alias = "counter1";
-		String argumentCondition = getArgument2().generateCypher();
-		
-		if(getOption() != null && getOption().getValue() != null) {
-			String comp = getOption().getValue().getLiteral();
-			cypher.append(" " + alias);
-			cypher.append(" " + comp + " " + argumentCondition);
-			cypher.append(" ");
-		} else {
-			throw new InvalidityException("invalid option");
+		List<String> counters = ((CountPatternImpl) getCountPattern()).getMyCounters();
+		for (String counter : counters) {
+			cypher.append(counter);
+			if (getArgument2() instanceof NumberElement) {
+				cypher.append(CypherSpecificConstants.ONE_WHITESPACES);
+				cypher.append(this.option.getValue() + " ");
+				cypher.append(getArgument2().generateCypher()); 
+			} else {
+				throw new InvalidityException("Until now a other CountPattern as an Argument is not supported");
+			}
 		}
-		
 		return cypher.toString();
 	}
+	
+	//END - CYPHER
 	
 	@Override
 	public void initializeTranslation() {

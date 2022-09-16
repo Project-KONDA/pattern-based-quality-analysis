@@ -406,6 +406,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		completeCyString += returnClause;
 		
 		return completeCyString;
+		
+		//PROTOTYP: in Zukünftigen Versionen müsste man noch das SET/REMOVE für das COUNT-Pattern integrieren		
 	}
 	
 	/**

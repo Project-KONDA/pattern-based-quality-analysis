@@ -204,15 +204,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		String matchClause;
 		matchClause = graph.generateCypher();
 		if(matchClause.length() !=0 ) matchClause = CypherSpecificConstants.CLAUSE_MATCH + " "  + matchClause;
-		else throw new InvalidityException("A cypher query need a Match-Clause");
-		
-		String withClause = "";
-		if (condition instanceof CountCondition) {
-			CountConditionImpl countCond =  (CountConditionImpl) condition;
-			withClause = countCond.generateCypherWith(); //has to be implemented
-			if(withClause.length() ==0 ) throw new InvalidityException("PatternImpl: Exception with CountCond");
-		}
-		
+		else throw new InvalidityException("A cypher query need a Match-Clause");		
 		
 		String whereClause = "";
 		whereClause += graph.generateCypherWhere();
@@ -229,7 +221,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		if (whereClause.length() == 0) whereClause = "";
 		
 		
-		String cypher = matchClause + withClause + whereClause;
+		String cypher = matchClause + whereClause;
 		return cypher;
 	}
 
