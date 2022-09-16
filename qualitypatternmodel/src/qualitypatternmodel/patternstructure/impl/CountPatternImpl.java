@@ -21,12 +21,14 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import com.sun.javafx.scene.NodeHelper.NodeAccessor;
 
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
+import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -101,70 +103,83 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	
 	@Override
 	public String generateCypher() throws InvalidityException {
-//		String cypher = super.generateCypher();
-//		String counter = "COUNT(*)";
-//		cypher += counter;
-//		return cypher;
 		String with;
 		StringBuilder cypher = new StringBuilder(super.generateCypher());
-//		if (cypher.toString().contains("WHERE")) {
 		with = this.generateCypherWITH(cypher);
-//		} else {
-//			with = this.generateCypherWITH(cypher);
-//		}
 		return with;
 	}
 	
 	private String generateCypherWITH(StringBuilder cypher) throws InvalidityException {
+		String[] patternList = getSinglePatterns(cypher);
+		
 		cypher.append(CypherSpecificConstants.CLAUSE_WITH + " ");
-		NeoAbstractNode neoAbstractNode;
+		int originLength = cypher.length();
 		int ixPlace;
+		NeoAbstractNode neoAbstractNode;
 		String counter;
-		for (Node node :  getGraph().getNodes()) {
-			neoAbstractNode = (NeoAbstractNode) node;
-			cypher.append(neoAbstractNode.getCypherVariable());
-			cypher.append(",");
-			cypher.append(CypherSpecificConstants.ONE_WHITESPACES);
-		}
 		
 		//Maybe introduce the same for relations --> Has to be checked / considered
 		//How to count single properties
 		for (Node node :  getGraph().getNodes()) {
+			if (cypher.length() > originLength) {
+				cypher.append("," + CypherSpecificConstants.ONE_WHITESPACES);
+			}
+			neoAbstractNode = (NeoAbstractNode) node;
+			cypher.append(neoAbstractNode.getCypherVariable());
+		}
+
+		for (Node node :  getGraph().getNodes()) {
 			if (node instanceof NeoAbstractNode) {
 				neoAbstractNode = (NeoAbstractNode) node;
 				if (neoAbstractNode.getNodePlace() == NeoPlace.BEGINNING) {
-					if (true) { //Check if the node has relations if not then do
-						counter = "COUNT" + "(" + neoAbstractNode.getCypherVariable() + ") AS counter1";
+					if (node instanceof PrimitiveNode) {
+						cypher.append("," + CypherSpecificConstants.ONE_WHITESPACES);
+						counter = "COUNT (" + neoAbstractNode.getCypherVariable() + ") AS myCounter1"; 
 						cypher.append(counter);
-					} //else {
-	//					ixPlace = 0;
-	//					if (neoAbstractNode.getNodePlace() == NeoPlace.BEGINNING) {
-	//						ixPlace = cypher.indexOf("(" + neoAbstractNode.getCypherVariable(), ixPlace) - 1;
-	//						counter = "COUNT ("; 
-	//						if (cypher.indexOf(",", ixPlace) != -1) {
-	//							
-	//							counter += cypher.substring(ixPlace, cypher.indexOf(",", ixPlace) - 1); //.replaceAll("(", "").replaceAll(")", "")
-	//						} else {
-	//							counter += cypher.substring(ixPlace); //.replaceAll("(", "").replaceAll(")", "")
-	//						}
-	//						
-	//						counter += ")" + " AS " + "counter1"; //TODO identification
-	//						cypher.append(counter);
-	//						cypher.append(", ");
-	//						cypher.append(CypherSpecificConstants.ONE_WHITESPACES);
-	//					}
-	//				}
+					} else {
+						if (((NeoNode) node).getOutgoing() == null || ((NeoNode) node).getOutgoing().size() == 0) {
+							cypher.append("," + CypherSpecificConstants.ONE_WHITESPACES);
+							counter = "COUNT" + "(" + neoAbstractNode.getCypherVariable() + ") AS myCounter1";
+							cypher.append(counter);
+						} else {
+							cypher.append("," + CypherSpecificConstants.ONE_WHITESPACES);
+							counter = "COUNT (";
+							for (String s : patternList) {
+								if (s.contains(((NeoAbstractNode) node).getCypherVariable())) {
+									counter += s;
+								}
+							}
+							counter += ")" + " AS myCounter1";
+							cypher.append(counter);
+						}
+					}
 				}
 			}
 		}
 		
+		isLastCharACypherSeperator(cypher);
+		return cypher.toString();
+	}
+
+	private void isLastCharACypherSeperator(StringBuilder cypher) {
 		char lastChar = cypher.charAt(cypher.length() - 1);
 		char ref = ',';
 		if (Character.compare(lastChar, ref) == 0) {
 			cypher.replace(cypher.length() - 1, cypher.length() - 1, "");
 		}
-		
-		return cypher.toString();
+	}
+
+	private String[] getSinglePatterns(StringBuilder cypher) throws InvalidityException {
+		String[] patternList;
+		if (cypher.length() != 0) {
+			 String cypherString = cypher.toString();
+			 int startPlace = cypherString.indexOf(" ");
+			 cypherString = cypherString.substring(startPlace);
+			 cypherString = cypherString.trim();
+			 patternList = cypherString.split(",");
+			 return patternList;
+		}
+		throw new InvalidityException("CountPattern - No Cypher Patterns exists");
 	}
 	
 	//Implement a similar graph traversal as in graph but just with getCypherVariable
