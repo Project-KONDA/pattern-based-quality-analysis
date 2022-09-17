@@ -158,4 +158,7 @@ public interface NeoPathPart extends PatternElement {
 	 * @generated
 	 */
 	String getCypherInnerEdgeVariable() throws InvalidityException;
+	
+	//ADD TO ECORE
+	String getReturnCypherInnerEdgeVariable() throws InvalidityException;
 } // NeoPathPart

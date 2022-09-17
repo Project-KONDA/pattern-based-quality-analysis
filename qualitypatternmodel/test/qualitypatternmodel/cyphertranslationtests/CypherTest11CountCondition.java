@@ -20,7 +20,7 @@ import qualitypatternmodel.patternstructure.impl.CountConditionImpl;
 //PROTOTYP TEST VOM COUNT
 //Es gehört zu FUTURE WORK
 //Es müssen deutlich viel mehr implementiert werden.
-public class CypherTest07CountCondition {
+public class CypherTest11CountCondition {
 	static String SET; //Fields are just for tests
 	static String REMOVE;
 	
@@ -44,7 +44,7 @@ public class CypherTest07CountCondition {
 	}
 	
 	private static CompletePattern getCountInPatternPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest07CountCondition.getBasePattern();
+		CompletePattern completePattern = CypherTest11CountCondition.getBasePattern();
 		CountCondition countCond = PatternstructureFactory.eINSTANCE.createCountCondition();
 		countCond.setPattern(completePattern);
 		

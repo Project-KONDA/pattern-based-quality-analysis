@@ -481,7 +481,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 							
 							if (neoPathPart.getCypherInnerEdgeVariable() != null) {
 								if (cypherInnerEdges.length() != 0) cypherInnerEdges.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
-								cypherInnerEdges.append(neoPathPart.getCypherInnerEdgeVariable());
+								cypherInnerEdges.append(neoPathPart.getReturnCypherInnerEdgeVariable());
 							}
 						}
 					} else if(r instanceof NeoEdge) {
@@ -491,9 +491,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 							if (cypherEdge.length() != 0) cypherEdge.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
 							cypherEdge.append(neoEdge.getNeoPathParam().getNeoPathPart().getCypherVariable());
 							
-							if (neoPathPart.getCypherInnerEdgeVariable() != null) {
+							if (neoPathPart.getReturnCypherInnerEdgeVariable() != null) {
 								if (cypherInnerEdges.length() != 0) cypherInnerEdges.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
-								cypherInnerEdges.append(neoPathPart.getCypherInnerEdgeVariable());
+								cypherInnerEdges.append(neoPathPart.getReturnCypherInnerEdgeVariable());
 							}
 						}
 					}

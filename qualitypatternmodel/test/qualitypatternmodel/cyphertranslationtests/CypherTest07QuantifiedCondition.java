@@ -1,5 +1,5 @@
 package qualitypatternmodel.cyphertranslationtests;
 
-public class CypherTest11QuantifiedCondition {
+public class CypherTest07QuantifiedCondition {
 	//Add BooleanOperators Test here
 }

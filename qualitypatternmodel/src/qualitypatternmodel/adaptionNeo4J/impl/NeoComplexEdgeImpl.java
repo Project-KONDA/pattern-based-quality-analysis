@@ -128,6 +128,11 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		}
 		throw new InvalidityException("ComplexEdge is not valid");
 	}
+	
+	@Override
+	public String getReturnCypherInnerEdgeVariable() throws InvalidityException {
+		return this.getCypherInnerEdgeVariable();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

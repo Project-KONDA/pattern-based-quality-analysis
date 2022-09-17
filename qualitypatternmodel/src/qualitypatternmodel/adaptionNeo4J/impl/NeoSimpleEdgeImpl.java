@@ -216,6 +216,17 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		
 		return null;
 	}
+	
+	//ADD TO ECORE
+	@Override
+	public String getReturnCypherInnerEdgeVariable() throws InvalidityException {
+		if (getNeoTargetNodeLabels() == null || getNeoTargetNodeLabels().getValues().size() == 0) {
+			return null;
+		} else if (!isLastEdge) {
+			return CypherSpecificConstants.INTERNAL_EDGE_NODE + getEdgeNumber();
+		} 		
+		return null;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
