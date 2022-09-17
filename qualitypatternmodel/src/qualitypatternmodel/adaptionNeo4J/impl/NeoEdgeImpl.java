@@ -64,11 +64,10 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 	 }
 	
 	
-	//Translates just the Edge
 	@Override
 	public String generateCypher() throws InvalidityException {
-		StringBuilder cypher = new StringBuilder("");
 		if (getIncomingMapping() == null) {
+			StringBuilder cypher = new StringBuilder("");
 			if(!translated && getNeoPathParam() != null 
 					&& ((NeoPathParam) getNeoPathParam()).getNeoPathPart() != null) {
 				
@@ -108,17 +107,10 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 			} else if ( ((NeoPathParam) getNeoPathParam()).getNeoPathPart() == null ) {
 				return CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES;
 			}
-		} else {
-			NeoEdge neoEdge = (NeoEdge) getIncomingMapping();
-			while (neoEdge.getIncomingMapping() != null) {
-				neoEdge = (NeoEdge) getIncomingMapping();
-			}
-			NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
-			NeoPathPart neoPathPart = neoPathParam.getNeoPathPart();
-			cypher.append(neoPathPart.generateCypherWithoutLabels());
+			
+			return cypher.toString();
 		}
-		
-		return cypher.toString();		
+		return null;
 	}
 	
 	@Override 

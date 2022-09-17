@@ -270,24 +270,28 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 		String cypherText;
 		boolean hasEdges = false;
-		
 		for (Relation innerEdges : node.getOutgoing()) {
-			cypherEdge = new StringBuilder();
-			cypherEdge.append(cypher.toString());
 			cypherText = innerEdges.generateCypher();
-			if (innerEdges instanceof NeoEdge && cypherText != null) {
-				cypherEdge.append(cypherText);
-				if (innerEdges.getTarget() instanceof ComplexNode && innerEdges.generateCypher() != null) {
-					cyphers.add(cypherEdge);
-					innerCounterString = cyphers.size() - 1;
-					result.addAll(traverseOverPattern((ComplexNode) innerEdges.getTarget(), cyphers, innerCounterString));	
-					hasEdges = true;
-				} 
+			if (cypherText != null) {
+				cypherEdge = new StringBuilder();
+				cypherEdge.append(cypher.toString());
 				
-			} else if (innerEdges instanceof NeoPropertyEdge && cypherText != null) {
-				cypherEdge.append(cypherText);
-				result.add(cypherEdge);
-				hasEdges = true;
+				if (innerEdges instanceof NeoEdge) {
+					cypherEdge.append(cypherText);
+					if (innerEdges.getTarget() instanceof ComplexNode) {
+						cyphers.add(cypherEdge);
+						innerCounterString = cyphers.size() - 1;
+						result.addAll(traverseOverPattern((ComplexNode) innerEdges.getTarget(), cyphers, innerCounterString));	
+						hasEdges = true;
+					} 
+					
+				} else if (innerEdges instanceof NeoPropertyEdge) {
+					cypherEdge.append(cypherText);
+					result.add(cypherEdge);
+					hasEdges = true;
+				}
+			} else {
+				System.out.println("");
 			}
 		}
 

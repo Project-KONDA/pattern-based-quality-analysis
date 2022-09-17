@@ -68,10 +68,10 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 	//Translation of the neoPropertyEdge
 	@Override
 	public String generateCypher() throws InvalidityException {
-		NeoPropertyPathParam neoPropertyPathParam = getNeoPropertyPathParam();
-		String cypher = null;
-		
 		if (getIncomingMapping() == null) {
+			NeoPropertyPathParam neoPropertyPathParam = getNeoPropertyPathParam();
+			String cypher = null;
+			
 			if (neoPropertyPathParam.getNeoPathPart() != null) {
 				NeoPathPart neoPathPart = neoPropertyPathParam.getNeoPathPart();
 				if (neoPathPart instanceof NeoSimpleEdge) {
@@ -102,21 +102,9 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 			} else {
 				cypher = null;
 			}
-		} else {
-//			NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) getIncomingMapping();
-//			while (neoPropertyEdge.getIncomingMapping() != null) {
-//				neoPropertyEdge = (NeoPropertyEdge) getIncomingMapping();
-//			}
-//			NeoPropertyPathParam neoPathParam = neoPropertyEdge.getNeoPropertyPathParam();
-//			if (neoPathParam != null && neoPathParam.getNeoPathPart() != null) {
-//				NeoPathPart neoPathPart = neoPathParam.getNeoPathPart();
-//				cypher = neoPathPart.generateCypherWithoutLabels();
-//			} else {
-//				cypher = null;
-//			}
-			
-		}
-		return cypher;
+			return cypher;
+		} 
+		return null;
 	}
 
 	private void targetNodesCanNotBeNull() throws InvalidityException {
@@ -130,31 +118,36 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 	 */
 	@Override
 	public String generateCypherPropertyAddressing() throws InvalidityException {
-		NeoPropertyPathParam neoPropertyPathParam = getNeoPropertyPathParam();
-		if (neoPropertyPathParam != null) {
-			String cypher;
-			String variable; 
-			if (neoPropertyPathParam.getNeoPathPart() == null) {
-				NeoNode neoNode = (NeoNode) getSource();
-				variable = neoNode.getCypherVariable();
-			} else {
-				NeoPathPart neoPathPart = neoPropertyPathParam.getNeoPathPart();
-				if (neoPathPart instanceof NeoSimpleEdgeImpl) {
-					
-				} else if (neoPathPart instanceof NeoComplexEdgeImpl) {
-					for (NeoPathPart neoPathPart2 : neoPathPart.getNeoPathPartEdges()) {
-						if (neoPathPart2.isIsLastEdge()) {
-							neoPathPart = neoPathPart2;
-						}
-					}
+		if (getIncomingMapping() == null) {
+			NeoPropertyPathParam neoPropertyPathParam = getNeoPropertyPathParam();
+			if (neoPropertyPathParam != null) {
+				String cypher;
+				String variable; 
+				if (neoPropertyPathParam.getNeoPathPart() == null) {
+					NeoNode neoNode = (NeoNode) getSource();
+					variable = neoNode.getCypherVariable();
 				} else {
-					return null;
+					NeoPathPart neoPathPart = neoPropertyPathParam.getNeoPathPart();
+					if (neoPathPart instanceof NeoSimpleEdgeImpl) {
+						
+					} else if (neoPathPart instanceof NeoComplexEdgeImpl) {
+						for (NeoPathPart neoPathPart2 : neoPathPart.getNeoPathPartEdges()) {
+							if (neoPathPart2.isIsLastEdge()) {
+								neoPathPart = neoPathPart2;
+							}
+						}
+					} else {
+						return null;
+					}
+					variable = ((NeoSimpleEdge) neoPathPart).getCypherInnerEdgeVariable();
 				}
-				variable = ((NeoSimpleEdge) neoPathPart).getCypherInnerEdgeVariable();
+				
+				cypher = variable + "." + getNeoPropertyPathParam().getNeoPropertyName();
+				return cypher;
 			}
-			
-			cypher = variable + "." + getNeoPropertyPathParam().getNeoPropertyName();
-			return cypher;
+		} else {
+			NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) getOriginalRelation();
+			return neoPropertyEdge.generateCypherPropertyAddressing();
 		}
 		
 		return null;
@@ -167,33 +160,34 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 	 */
 	@Override
 	public String generateCypherMatchNodeVariable() throws InvalidityException {
-		//TODO what to do if MAPPING plays a part? 
-		NeoPropertyPathParam neoPropertyPathParam = getNeoPropertyPathParam();
-		if (neoPropertyPathParam != null) {
-			String cypher;
-			if (neoPropertyPathParam.getNeoPathPart() == null) {
-				NeoNode neoNode = (NeoNode) getSource();
-				cypher = neoNode.getCypherVariable();
-			} else {
-				NeoSimpleEdge neoSimpleEdge = null;
-				if (neoPropertyPathParam.getNeoPathPart() instanceof NeoComplexEdge) {
-					NeoComplexEdge neoComplexEdge = (NeoComplexEdge) neoPropertyPathParam.getNeoPathPart();
-					for (NeoPathPart part : neoComplexEdge.getNeoPathPartEdges()) {
-						if (((NeoSimpleEdge) part).isIsLastEdge()) {
-							neoSimpleEdge = (NeoSimpleEdge) part;
-						}
-					}
-				} else if (neoPropertyPathParam.getNeoPathPart() instanceof NeoSimpleEdge) {
-					neoSimpleEdge = (NeoSimpleEdge) neoPropertyPathParam.getNeoPathPart();
+		//Used in the CompletePattern to get the PrimitiveTargetNodes
+		if (getIncomingMapping() == null) {
+			NeoPropertyPathParam neoPropertyPathParam = getNeoPropertyPathParam();
+			if (neoPropertyPathParam != null) {
+				String cypher;
+				if (neoPropertyPathParam.getNeoPathPart() == null) {
+					NeoNode neoNode = (NeoNode) getSource();
+					cypher = neoNode.getCypherVariable();
 				} else {
-					throw new InvalidityException("The is no NeoSimpleEdge for the target type");
+					NeoSimpleEdge neoSimpleEdge = null;
+					if (neoPropertyPathParam.getNeoPathPart() instanceof NeoComplexEdge) {
+						NeoComplexEdge neoComplexEdge = (NeoComplexEdge) neoPropertyPathParam.getNeoPathPart();
+						for (NeoPathPart part : neoComplexEdge.getNeoPathPartEdges()) {
+							if (((NeoSimpleEdge) part).isIsLastEdge()) {
+								neoSimpleEdge = (NeoSimpleEdge) part;
+							}
+						}
+					} else if (neoPropertyPathParam.getNeoPathPart() instanceof NeoSimpleEdge) {
+						neoSimpleEdge = (NeoSimpleEdge) neoPropertyPathParam.getNeoPathPart();
+					} else {
+						throw new InvalidityException("The is no NeoSimpleEdge for the target type");
+					}
+					cypher = neoSimpleEdge.getCypherInnerEdgeVariable();
 				}
-				cypher = neoSimpleEdge.getCypherInnerEdgeVariable();
+				
+				return cypher;
 			}
-			
-			return cypher;
-		}
-		
+		}		
 		return null;
 	}
 
