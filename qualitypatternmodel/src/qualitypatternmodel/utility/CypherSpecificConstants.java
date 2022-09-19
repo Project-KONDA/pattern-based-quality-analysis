@@ -45,5 +45,6 @@ public class CypherSpecificConstants {
 	public static final String CYPHER_COMPARISON_OPERATOR_LESS_EQUAL = "<=";
 	public static final String CYPHER_COMPARISON_OPERATOR_IS_NULL = "IS NULL";
 	public static final String CYPHER_COMPARISON_OPERATOR_IS_NOT_NULL = "IS NOT NULL";
+	public static final String CYPHER_SPECIAL_FUNCTION_DISTINCT = "DISTINCT";
 	
 }
