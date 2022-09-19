@@ -954,9 +954,9 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		PatternstructurePackage thePatternstructurePackage = (PatternstructurePackage)EPackage.Registry.INSTANCE.getEPackage(PatternstructurePackage.eNS_URI);
 		GraphstructurePackage theGraphstructurePackage = (GraphstructurePackage)EPackage.Registry.INSTANCE.getEPackage(GraphstructurePackage.eNS_URI);
 		ParametersPackage theParametersPackage = (ParametersPackage)EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI);
-		PatternstructurePackage thePatternstructurePackage = (PatternstructurePackage)EPackage.Registry.INSTANCE.getEPackage(PatternstructurePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -985,12 +985,13 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 
 		initEOperation(getNeoAbstractNode__GetCypherVariable(), ecorePackage.getEString(), "getCypherVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getNeoAbstractNode__GetCypherReturnVariable(), ecorePackage.getEString(), "getCypherReturnVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getNeoAbstractNode__GetCypherReturnVariable(), ecorePackage.getEString(), "getCypherReturnVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(neoNodeEClass, NeoNode.class, "NeoNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNeoNode_NeoNodeLabels(), theParametersPackage.getTextListParam(), null, "neoNodeLabels", null, 0, 1, NeoNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getNeoNode__AddStringLabel__String(), null, "addStringLabel", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNeoNode__AddStringLabel__String(), null, "addStringLabel", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "label", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(neoEdgeEClass, NeoEdge.class, "NeoEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

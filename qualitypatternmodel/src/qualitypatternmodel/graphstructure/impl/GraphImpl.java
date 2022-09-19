@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
-import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
@@ -298,7 +297,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	private boolean checkIfVisibleFork(ComplexNode node) {
 		int i = 0;
 		for (Relation r : node.getOutgoing()) {
-			if (r instanceof NeoComplexEdge) {
+			if (r instanceof NeoEdge) {
 				i++;
 			}
 		}

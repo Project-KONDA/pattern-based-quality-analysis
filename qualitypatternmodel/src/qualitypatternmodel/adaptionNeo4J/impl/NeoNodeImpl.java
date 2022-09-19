@@ -146,11 +146,10 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	 * @generated
 	 */
 	@Override
-	public String getCypherReturnVariable() {
-		if (this.isVariableDistinctInUse) {
-			return getCypherVariable();
-		}
-		return CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_DISTINCT + " ("+ getCypherVariable() + ")";
+	public String getCypherReturnVariable() throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
@@ -449,7 +448,12 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 			case AdaptionNeo4JPackage.NEO_NODE___GET_CYPHER_VARIABLE:
 				return getCypherVariable();
 			case AdaptionNeo4JPackage.NEO_NODE___GET_CYPHER_RETURN_VARIABLE:
-				return getCypherReturnVariable();
+				try {
+					return getCypherReturnVariable();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

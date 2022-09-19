@@ -171,7 +171,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 * @generated
 	 */
 	@Override
-	public String getCypherReturnVariable() {
+	public String getCypherReturnVariable() throws InvalidityException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -456,7 +456,12 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GET_CYPHER_VARIABLE:
 				return getCypherVariable();
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GET_CYPHER_RETURN_VARIABLE:
-				return getCypherReturnVariable();
+				try {
+					return getCypherReturnVariable();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

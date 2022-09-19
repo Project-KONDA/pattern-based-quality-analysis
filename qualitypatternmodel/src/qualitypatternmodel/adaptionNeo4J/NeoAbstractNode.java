@@ -3,6 +3,7 @@
 package qualitypatternmodel.adaptionNeo4J;
 
 import org.eclipse.emf.ecore.EObject;
+import qualitypatternmodel.exceptions.InvalidityException;
 
 /**
  * <!-- begin-user-doc -->
@@ -83,8 +84,8 @@ public interface NeoAbstractNode extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	String getCypherReturnVariable();
+	String getCypherReturnVariable() throws InvalidityException;
 } // AbstractNeoNode

@@ -430,7 +430,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				if (n instanceof NeoNode && n.isReturnNode()) {
 					
 					if (cypherNeoNode.length() != 0) cypherNeoNode.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
-					cypherNeoNode.append(((NeoAbstractNode) n).getCypherVariable());
+					cypherNeoNode.append(((NeoAbstractNode) n).getCypherReturnVariable());
 					
 				} else if (n instanceof NeoPropertyNode && n.isReturnNode()) {
 					//Decision if the Property is in a new Node or in the same
