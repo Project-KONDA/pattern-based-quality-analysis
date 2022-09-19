@@ -168,13 +168,11 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getCypherReturnVariable() throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return generateCypherMatchNodeVariable();
 	}
 
 	/**

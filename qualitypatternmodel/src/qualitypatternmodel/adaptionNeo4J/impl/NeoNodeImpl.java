@@ -147,9 +147,10 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	 */
 	@Override
 	public String getCypherReturnVariable() throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if (isVariableDistinctInUse) {
+			return this.getCypherReturnVariable();
+		}
+		return CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_DISTINCT + " (" + this.getCypherReturnVariable() + ")";
 	}
 
 	@Override

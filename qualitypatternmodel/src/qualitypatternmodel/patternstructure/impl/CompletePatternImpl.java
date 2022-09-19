@@ -440,8 +440,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 					neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
 					if (neoPropertyPathParam.getNeoPathPart() == null)
 						throw new InvalidityException("CompletePattern: There is no NeoPropertyNode");
-					if (!(neoPropertyNode.generateCypherMatchNodeVariable() == null)) {
-						cypherNeoPropertyNode.append(neoPropertyNode.generateCypherMatchNodeVariable());
+					if (!(neoPropertyNode.getCypherReturnVariable() == null)) {
+						cypherNeoPropertyNode.append(neoPropertyNode.getCypherReturnVariable());
 					}
 				} 
 				if (n instanceof NeoPropertyNode && ((NeoPropertyNode)n).isReturnProperty()) {
