@@ -453,12 +453,20 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			
 			if (cypherNeoNode.length() != 0) cypher += cypherNeoNode;
 			if (cypherNeoPropertyNode.length() != 0) {
-				if (cypher.length() != 0) cypher += ", " + "\n";
-				cypher += CypherSpecificConstants.SIX_WHITESPACES + cypherNeoPropertyNode.toString();
+				if (cypher.length() != 0) {
+					cypher += ", " + "\n";
+					cypher += CypherSpecificConstants.SIX_WHITESPACES + cypherNeoPropertyNode.toString();
+				} else {
+					cypher += CypherSpecificConstants.ONE_WHITESPACES + cypherNeoPropertyNode.toString();
+				}
 			}
 			if (cypherNeoProperties.length() != 0) {
-				if (cypher.length() != 0) cypher += ", " + "\n";
-				cypher += CypherSpecificConstants.SIX_WHITESPACES + cypherNeoProperties.toString();
+				if (cypher.length() != 0) {
+					cypher += ", " + "\n";
+					cypher += CypherSpecificConstants.SIX_WHITESPACES + cypherNeoProperties.toString();
+				} else {
+					cypher += CypherSpecificConstants.ONE_WHITESPACES + cypherNeoProperties.toString();
+				}
 			}
 		}
 
@@ -480,8 +488,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 							cypherEdge.append(neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart().getCypherVariable());
 							
 							if (neoPathPart.getCypherInnerEdgeVariable() != null) {
-								if (cypherInnerEdges.length() != 0) cypherInnerEdges.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
-								cypherInnerEdges.append(neoPathPart.getReturnCypherInnerEdgeVariable());
+								if (neoPathPart.getReturnCypherInnerEdgeVariable() != null) {
+									if (cypherInnerEdges.length() != 0) cypherInnerEdges.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
+									cypherInnerEdges.append(neoPathPart.getReturnCypherInnerEdgeVariable());
+								}
 							}
 						}
 					} else if(r instanceof NeoEdge) {
@@ -493,19 +503,27 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 							
 							if (neoPathPart.getReturnCypherInnerEdgeVariable() != null) {
 								if (cypherInnerEdges.length() != 0) cypherInnerEdges.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
-								cypherInnerEdges.append(neoPathPart.getReturnCypherInnerEdgeVariable());
+								if(neoPathPart.getReturnCypherInnerEdgeVariable() != null) {
+									cypherInnerEdges.append(neoPathPart.getReturnCypherInnerEdgeVariable());
+								}
 							}
 						}
 					}
 				}
 			}
 			if (cypherEdge.length() != 0) {
-				if (cypher.length() != 0) cypher += ", " + "\n";
-				cypher += CypherSpecificConstants.SIX_WHITESPACES + cypherEdge.toString();
+				if (cypher.length() != 0) {
+					cypher += ", " + "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherEdge.toString();
+				} else {
+					cypher += CypherSpecificConstants.ONE_WHITESPACES + cypherEdge.toString();
+				}
 			}
 			if (cypherInnerEdges.length() != 0) {
-				if (cypher.length() != 0) cypher += ", " + "\n";
-				cypher += CypherSpecificConstants.SIX_WHITESPACES + cypherInnerEdges.toString();
+				if (cypher.length() != 0) {
+					cypher += ", " + "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherInnerEdges.toString();
+				} else {
+					cypher += CypherSpecificConstants.ONE_WHITESPACES + cypherInnerEdges.toString();
+				}
 			}
 		}
 		
@@ -829,7 +847,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		}
 	}
 	
-//	//TODO
 //	public PatternElement createNeo4JAdaptionBeginningAutomation() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 //		PatternElement patternElement = this.createNeo4jAdaption();
 //		//LOOK UP THE BEGINNINGS

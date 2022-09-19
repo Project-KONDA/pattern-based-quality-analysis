@@ -217,20 +217,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		//TODO BUILD THE NON-LINEAR PATH GENERATION
 		
 		List<StringBuilder> listCypher = new LinkedList<StringBuilder>();
-		listCypher = traverseOverPattern((ComplexNode) n, listCypher, 0);
-		//For getting the shortest MATCHER at the beginning - Ranking is not 100% correct
-//		Collections.sort(listCypher, new Comparator<StringBuilder>() {
-//            public int compare(StringBuilder sb1, StringBuilder sb2) {
-//                if (sb1.length() > sb2.length()) {
-//                    return 1;
-//                } else if  (sb1.length() == sb2.length()) {
-//                	return 0;
-//                } else {
-//                	return -1;
-//                }
-//        	}
-//		});
-		
+		listCypher = traverseOverPattern((ComplexNode) n, listCypher, 0);		
 		boolean localSeperationNeeded = false;
 		for (StringBuilder sb : listCypher) {
 			if (localSeperationNeeded) {

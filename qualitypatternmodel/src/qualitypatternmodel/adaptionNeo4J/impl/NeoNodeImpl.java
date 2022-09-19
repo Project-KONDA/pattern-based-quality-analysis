@@ -77,28 +77,30 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	@Override
 	public String generateCypher() throws InvalidityException {
 		//TODO --> Optimization
-		
-		StringBuilder cypher = new StringBuilder();
-		cypher.append("(");
-		cypher.append(CypherSpecificConstants.VARIABLE_NODE);
-		cypher.append(getOriginalID());
-		TextListParam labels = this.getNeoNodeLabels();
-		//prüft ob es eine original node -- Falls es original dann labels
-		if((!translated) && getIncomingMapping() == null) { 
-			if (getNeoNodeLabels() != null) {
-				for (String label : labels.getValues()) {
-					if (label != "") {
-						cypher.append(":");
-						cypher.append(label);
+		if (getIncomingMapping() == null) {
+			StringBuilder cypher = new StringBuilder();
+			cypher.append("(");
+			cypher.append(CypherSpecificConstants.VARIABLE_NODE);
+			cypher.append(getOriginalID());
+			TextListParam labels = this.getNeoNodeLabels();
+			//prüft ob es eine original node -- Falls es original dann labels
+			if((!translated)) { 
+				if (getNeoNodeLabels() != null) {
+					for (String label : labels.getValues()) {
+						if (label != "") {
+							cypher.append(":");
+							cypher.append(label);
+						}
 					}
 				}
+				//Wie komme ich an die Operator List
+				//Graph g; 
+				translated = true;
 			}
-			//Wie komme ich an die Operator List
-			//Graph g; 
-			translated = true;
+			cypher.append(")");
+			return cypher.toString();
 		}
-		cypher.append(")");
-		return cypher.toString();
+		return ((NeoNode) getOriginalNode()).generateCypher();
 	}
 	
 	/**
@@ -109,10 +111,13 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	@Override 
 	public String getCypherVariable() {
 		//TODO MORPHISIM
-		String var;
-		var = CypherSpecificConstants.VARIABLE_NODE;
-		var += getOriginalID();
-		return var;
+		if (getIncomingMapping() == null) {
+			String var;
+			var = CypherSpecificConstants.VARIABLE_NODE;
+			var += getOriginalID();
+			return var;
+		}
+		return ((NeoNode) getOriginalNode()).getCypherVariable();	
 	}
 
 	@Override
