@@ -117,7 +117,6 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 				translated = true;
 			}
 			cypher.append(")");
-			this.isVariableDistinctInUse = false;
 			return cypher.toString();
 		}
 		return ((NeoNode) getOriginalNode()).generateCypher();
@@ -148,9 +147,9 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	@Override
 	public String getCypherReturnVariable() throws InvalidityException {
 		if (isVariableDistinctInUse) {
-			return this.getCypherReturnVariable();
+			return this.getCypherVariable();
 		}
-		return CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_DISTINCT + " (" + this.getCypherReturnVariable() + ")";
+		return CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_DISTINCT + " (" + this.getCypherVariable() + ")";
 	}
 
 	@Override

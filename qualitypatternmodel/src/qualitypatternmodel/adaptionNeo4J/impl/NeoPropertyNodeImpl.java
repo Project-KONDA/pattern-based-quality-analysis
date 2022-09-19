@@ -17,6 +17,7 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl;
 import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
  * <!-- begin-user-doc -->
@@ -172,7 +173,10 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 */
 	@Override
 	public String getCypherReturnVariable() throws InvalidityException {
-		return generateCypherMatchNodeVariable();
+		if (isVariableDistinctInUse) {
+			return this.generateCypherMatchNodeVariable();
+		}
+		return CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_DISTINCT + " (" + this.generateCypherMatchNodeVariable() + ")";
 	}
 
 	/**
