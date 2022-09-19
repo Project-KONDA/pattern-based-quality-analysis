@@ -298,14 +298,22 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	private boolean checkIfVisibleFork(ComplexNode node) {
 		int i = 0;
 		int distinctNeoPropertyNode = 0; 
+		NeoPropertyEdge neoPropertyEdge;
 		for (Relation r : node.getOutgoing()) {
-			if (r instanceof NeoEdge) {
-				i++;
-				((NeoAbstractNode) node).setIsVariableDistinctInUse(false);
-			} else {
-				distinctNeoPropertyNode++;
-				if (distinctNeoPropertyNode + i >= 2) {
+			//--> Mapped Relations werden nicht bei Subqueries berücksichtigt 
+			if (r.getIncomingMapping() == null ) { 
+				if (r instanceof NeoEdge) {
+					i++;
 					((NeoAbstractNode) node).setIsVariableDistinctInUse(false);
+				} else {
+					neoPropertyEdge = (NeoPropertyEdge) r; 
+					if (neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart() != null) {
+						distinctNeoPropertyNode++;
+						if (distinctNeoPropertyNode + i >= 2) {
+							((NeoAbstractNode) node).setIsVariableDistinctInUse(false);
+						}
+						i++;
+					}
 				}
 			}
 		}
