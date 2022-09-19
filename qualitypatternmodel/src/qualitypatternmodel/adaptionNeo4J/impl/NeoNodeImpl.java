@@ -142,7 +142,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getCypherReturnVariable() throws InvalidityException {
