@@ -401,7 +401,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		
 		//Es wäre gut das Modell noch mit einem getReturnRelations zu erweitern! 
 		String returnClause = this.generateCypherReturn();
-		if(returnClause.length() != 0) returnClause = CypherSpecificConstants.CLAUSE_RETURN + " "  + returnClause;
+		if(returnClause.length() != 0) returnClause = CypherSpecificConstants.CLAUSE_RETURN + returnClause;
 		else throw new InvalidityException("A cypher query need a Return-Clause");
 		completeCyString += returnClause;
 		
@@ -451,13 +451,13 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				}
 			}
 			
-			if (cypherNeoNode.length() != 0) cypher += cypherNeoNode;
+			if (cypherNeoNode.length() != 0) cypher = CypherSpecificConstants.ONE_WHITESPACES + cypherNeoNode;
 			if (cypherNeoPropertyNode.length() != 0) {
 				if (cypher.length() != 0) {
 					cypher += ", " + "\n";
 					cypher += CypherSpecificConstants.SIX_WHITESPACES + cypherNeoPropertyNode.toString();
 				} else {
-					cypher += CypherSpecificConstants.ONE_WHITESPACES + cypherNeoPropertyNode.toString();
+					cypher = CypherSpecificConstants.ONE_WHITESPACES + cypherNeoPropertyNode.toString();
 				}
 			}
 			if (cypherNeoProperties.length() != 0) {
@@ -465,7 +465,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 					cypher += ", " + "\n";
 					cypher += CypherSpecificConstants.SIX_WHITESPACES + cypherNeoProperties.toString();
 				} else {
-					cypher += CypherSpecificConstants.ONE_WHITESPACES + cypherNeoProperties.toString();
+					cypher = CypherSpecificConstants.ONE_WHITESPACES + cypherNeoProperties.toString();
 				}
 			}
 		}
@@ -515,14 +515,14 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				if (cypher.length() != 0) {
 					cypher += ", " + "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherEdge.toString();
 				} else {
-					cypher += CypherSpecificConstants.ONE_WHITESPACES + cypherEdge.toString();
+					cypher = CypherSpecificConstants.ONE_WHITESPACES + cypherEdge.toString();
 				}
 			}
 			if (cypherInnerEdges.length() != 0) {
 				if (cypher.length() != 0) {
 					cypher += ", " + "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherInnerEdges.toString();
 				} else {
-					cypher += CypherSpecificConstants.ONE_WHITESPACES + cypherInnerEdges.toString();
+					cypher = CypherSpecificConstants.ONE_WHITESPACES + cypherInnerEdges.toString();
 				}
 			}
 		}

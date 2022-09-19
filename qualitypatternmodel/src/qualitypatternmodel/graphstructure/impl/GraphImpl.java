@@ -299,7 +299,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		NeoPropertyEdge neoPropertyEdge;
 		for (Relation r : node.getOutgoing()) {
 			//--> Mapped Relations werden nicht bei Subqueries berücksichtigt 
-			if (r.getIncomingMapping() == null ) { 
+			if (r.getOriginalRelation() == null) { //r.getIncomingMapping() == null &&
 				if (r instanceof NeoEdge) {
 					i++;
 				} else {
