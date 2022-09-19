@@ -93,7 +93,15 @@ public enum ComparisonOperator implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ISNOTNULL(7, "ISNOTNULL", "IS NOT NULL");
+	ISNOTNULL(7, "ISNOTNULL", "IS NOT NULL"), /**
+	 * The '<em><b>IN</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #IN_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	IN(8, "IN", "IN");
 
 	/**
 	 * The '<em><b>EQUAL</b></em>' literal value.
@@ -184,6 +192,17 @@ public enum ComparisonOperator implements Enumerator {
 	public static final int ISNOTNULL_VALUE = 7;
 
 	/**
+	 * The '<em><b>IN</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #IN
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int IN_VALUE = 8;
+
+	/**
 	 * An array of all the '<em><b>Comparison Operator</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -199,6 +218,7 @@ public enum ComparisonOperator implements Enumerator {
 			NOTEQUAL,
 			ISNULL,
 			ISNOTNULL,
+			IN,
 		};
 
 	/**
@@ -263,6 +283,7 @@ public enum ComparisonOperator implements Enumerator {
 			case NOTEQUAL_VALUE: return NOTEQUAL;
 			case ISNULL_VALUE: return ISNULL;
 			case ISNOTNULL_VALUE: return ISNOTNULL;
+			case IN_VALUE: return IN;
 		}
 		return null;
 	}

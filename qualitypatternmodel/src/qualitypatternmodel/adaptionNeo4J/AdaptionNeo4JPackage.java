@@ -84,13 +84,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_ABSTRACT_NODE__NODE_PLACE = 0;
 
 	/**
+	 * The feature id for the '<em><b>Is Variable Distinct In Use</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ABSTRACT_NODE__IS_VARIABLE_DISTINCT_IN_USE = 1;
+
+	/**
 	 * The number of structural features of the '<em>Neo Abstract Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_NODE_FEATURE_COUNT = 1;
+	int NEO_ABSTRACT_NODE_FEATURE_COUNT = 2;
 
 	/**
 	 * The operation id for the '<em>Get Cypher Variable</em>' operation.
@@ -102,13 +111,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_ABSTRACT_NODE___GET_CYPHER_VARIABLE = 0;
 
 	/**
+	 * The operation id for the '<em>Get Cypher Return Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ABSTRACT_NODE___GET_CYPHER_RETURN_VARIABLE = 1;
+
+	/**
 	 * The number of operations of the '<em>Neo Abstract Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_NODE_OPERATION_COUNT = 1;
+	int NEO_ABSTRACT_NODE_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl <em>Neo Node</em>}' class.
@@ -265,13 +283,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_NODE__NODE_PLACE = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Is Variable Distinct In Use</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE__IS_VARIABLE_DISTINCT_IN_USE = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Neo Node Labels</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE__NEO_NODE_LABELS = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 1;
+	int NEO_NODE__NEO_NODE_LABELS = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Neo Node</em>' class.
@@ -280,7 +307,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE_FEATURE_COUNT = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 2;
+	int NEO_NODE_FEATURE_COUNT = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -868,13 +895,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_NODE___GET_CYPHER_VARIABLE = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get Cypher Return Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE___GET_CYPHER_RETURN_VARIABLE = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 1;
+
+	/**
 	 * The operation id for the '<em>Add String Label</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE___ADD_STRING_LABEL__STRING = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 1;
+	int NEO_NODE___ADD_STRING_LABEL__STRING = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Neo Node</em>' class.
@@ -883,7 +919,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE_OPERATION_COUNT = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 2;
+	int NEO_NODE_OPERATION_COUNT = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoEdgeImpl <em>Neo Edge</em>}' class.
@@ -3109,13 +3145,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PROPERTY_NODE__NODE_PLACE = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Is Variable Distinct In Use</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Return Property</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE__RETURN_PROPERTY = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 1;
+	int NEO_PROPERTY_NODE__RETURN_PROPERTY = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Neo Property Node</em>' class.
@@ -3124,7 +3169,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE_FEATURE_COUNT = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 2;
+	int NEO_PROPERTY_NODE_FEATURE_COUNT = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -3721,13 +3766,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PROPERTY_NODE___GET_CYPHER_VARIABLE = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get Cypher Return Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___GET_CYPHER_RETURN_VARIABLE = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 1;
+
+	/**
 	 * The operation id for the '<em>Generate Cypher Property Addressing</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE___GENERATE_CYPHER_PROPERTY_ADDRESSING = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 1;
+	int NEO_PROPERTY_NODE___GENERATE_CYPHER_PROPERTY_ADDRESSING = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Generate Cypher Match Node Variable</em>' operation.
@@ -3736,7 +3790,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE___GENERATE_CYPHER_MATCH_NODE_VARIABLE = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 2;
+	int NEO_PROPERTY_NODE___GENERATE_CYPHER_MATCH_NODE_VARIABLE = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Set Is Return Property</em>' operation.
@@ -3745,7 +3799,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE___SET_IS_RETURN_PROPERTY__BOOLEAN = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 3;
+	int NEO_PROPERTY_NODE___SET_IS_RETURN_PROPERTY__BOOLEAN = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Neo Property Node</em>' class.
@@ -3754,7 +3808,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE_OPERATION_COUNT = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 4;
+	int NEO_PROPERTY_NODE_OPERATION_COUNT = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoAbstractPathParamImpl <em>Neo Abstract Path Param</em>}' class.
@@ -5502,6 +5556,17 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EAttribute getNeoAbstractNode_NodePlace();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#isIsVariableDistinctInUse <em>Is Variable Distinct In Use</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Variable Distinct In Use</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#isIsVariableDistinctInUse()
+	 * @see #getNeoAbstractNode()
+	 * @generated
+	 */
+	EAttribute getNeoAbstractNode_IsVariableDistinctInUse();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getCypherVariable() <em>Get Cypher Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5510,6 +5575,16 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getNeoAbstractNode__GetCypherVariable();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Cypher Return Variable</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getCypherReturnVariable()
+	 * @generated
+	 */
+	EOperation getNeoAbstractNode__GetCypherReturnVariable();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoNode <em>Neo Node</em>}'.
@@ -6093,12 +6168,28 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EAttribute NEO_ABSTRACT_NODE__NODE_PLACE = eINSTANCE.getNeoAbstractNode_NodePlace();
 
 		/**
+		 * The meta object literal for the '<em><b>Is Variable Distinct In Use</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NEO_ABSTRACT_NODE__IS_VARIABLE_DISTINCT_IN_USE = eINSTANCE.getNeoAbstractNode_IsVariableDistinctInUse();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Cypher Variable</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation NEO_ABSTRACT_NODE___GET_CYPHER_VARIABLE = eINSTANCE.getNeoAbstractNode__GetCypherVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Cypher Return Variable</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_ABSTRACT_NODE___GET_CYPHER_RETURN_VARIABLE = eINSTANCE.getNeoAbstractNode__GetCypherReturnVariable();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl <em>Neo Node</em>}' class.

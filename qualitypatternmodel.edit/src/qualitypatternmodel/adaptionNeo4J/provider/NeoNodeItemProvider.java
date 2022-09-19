@@ -49,6 +49,7 @@ public class NeoNodeItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNodePlacePropertyDescriptor(object);
+			addIsVariableDistinctInUsePropertyDescriptor(object);
 			addNeoNodeLabelsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -72,6 +73,28 @@ public class NeoNodeItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Is Variable Distinct In Use feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIsVariableDistinctInUsePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NeoAbstractNode_isVariableDistinctInUse_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NeoAbstractNode_isVariableDistinctInUse_feature", "_UI_NeoAbstractNode_type"),
+				 AdaptionNeo4JPackage.Literals.NEO_ABSTRACT_NODE__IS_VARIABLE_DISTINCT_IN_USE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -137,6 +160,7 @@ public class NeoNodeItemProvider
 
 		switch (notification.getFeatureID(NeoNode.class)) {
 			case AdaptionNeo4JPackage.NEO_NODE__NODE_PLACE:
+			case AdaptionNeo4JPackage.NEO_NODE__IS_VARIABLE_DISTINCT_IN_USE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

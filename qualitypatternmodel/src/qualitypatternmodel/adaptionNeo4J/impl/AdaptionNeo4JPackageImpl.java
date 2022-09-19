@@ -285,8 +285,28 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
+	public EAttribute getNeoAbstractNode_IsVariableDistinctInUse() {
+		return (EAttribute)neoAbstractNodeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getNeoAbstractNode__GetCypherVariable() {
 		return neoAbstractNodeEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNeoAbstractNode__GetCypherReturnVariable() {
+		return neoAbstractNodeEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -840,7 +860,9 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		// Create classes and their features
 		neoAbstractNodeEClass = createEClass(NEO_ABSTRACT_NODE);
 		createEAttribute(neoAbstractNodeEClass, NEO_ABSTRACT_NODE__NODE_PLACE);
+		createEAttribute(neoAbstractNodeEClass, NEO_ABSTRACT_NODE__IS_VARIABLE_DISTINCT_IN_USE);
 		createEOperation(neoAbstractNodeEClass, NEO_ABSTRACT_NODE___GET_CYPHER_VARIABLE);
+		createEOperation(neoAbstractNodeEClass, NEO_ABSTRACT_NODE___GET_CYPHER_RETURN_VARIABLE);
 
 		neoNodeEClass = createEClass(NEO_NODE);
 		createEReference(neoNodeEClass, NEO_NODE__NEO_NODE_LABELS);
@@ -959,8 +981,11 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		// Initialize classes, features, and operations; add parameters
 		initEClass(neoAbstractNodeEClass, NeoAbstractNode.class, "NeoAbstractNode", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNeoAbstractNode_NodePlace(), this.getNeoPlace(), "nodePlace", "FOLLOWING", 0, 1, NeoAbstractNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNeoAbstractNode_IsVariableDistinctInUse(), ecorePackage.getEBoolean(), "isVariableDistinctInUse", "true", 0, 1, NeoAbstractNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getNeoAbstractNode__GetCypherVariable(), ecorePackage.getEString(), "getCypherVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getNeoAbstractNode__GetCypherReturnVariable(), ecorePackage.getEString(), "getCypherReturnVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(neoNodeEClass, NeoNode.class, "NeoNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNeoNode_NeoNodeLabels(), theParametersPackage.getTextListParam(), null, "neoNodeLabels", null, 0, 1, NeoNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

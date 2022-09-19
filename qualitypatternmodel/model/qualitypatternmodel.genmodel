@@ -170,6 +170,7 @@
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//operators/ComparisonOperator/NOTEQUAL"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//operators/ComparisonOperator/ISNULL"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//operators/ComparisonOperator/ISNOTNULL"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//operators/ComparisonOperator/IN"/>
       </genEnums>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//operators/OperatorCycleExceptionWrapper"/>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//operators/BooleanOperator">
@@ -1017,7 +1018,9 @@
       </genEnums>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractNode">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractNode/nodePlace"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractNode/isVariableDistinctInUse"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractNode/getCypherVariable"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractNode/getCypherReturnVariable"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoNode">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

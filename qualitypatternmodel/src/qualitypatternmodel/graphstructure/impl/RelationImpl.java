@@ -21,8 +21,6 @@ import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
-import qualitypatternmodel.adaptionNeo4J.impl.NeoEdgeImpl;
-import qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyEdgeImpl;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.adaptionrdf.impl.RdfPredicateImpl;
 import qualitypatternmodel.adaptionxml.XmlElement;

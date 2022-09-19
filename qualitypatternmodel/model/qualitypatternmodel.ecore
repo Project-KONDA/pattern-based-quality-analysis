@@ -1217,8 +1217,12 @@
   <eSubpackages name="adaptionNeo4J" nsURI="adaptionNeo4J" nsPrefix="adaptionNeo4J">
     <eClassifiers xsi:type="ecore:EClass" name="NeoAbstractNode" abstract="true" interface="true">
       <eOperations name="getCypherVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="getCypherReturnVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodePlace" eType="#//adaptionNeo4J/NeoPlace"
           defaultValueLiteral="FOLLOWING"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isVariableDistinctInUse"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoNode" eSuperTypes="#//graphstructure/ComplexNode #//adaptionNeo4J/NeoAbstractNode">
       <eOperations name="addStringLabel">

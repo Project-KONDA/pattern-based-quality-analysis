@@ -24,7 +24,6 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 
 /**
  * <!-- begin-user-doc -->

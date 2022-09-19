@@ -14,6 +14,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getCypherVariable() <em>Get Cypher Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -66,6 +67,19 @@ public abstract class NeoAbstractNodeTest extends TestCase {
 	 * @generated
 	 */
 	public void testGetCypherVariable() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getCypherReturnVariable()
+	 * @generated
+	 */
+	public void testGetCypherReturnVariable() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
