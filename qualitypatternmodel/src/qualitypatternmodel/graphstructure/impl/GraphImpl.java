@@ -275,13 +275,11 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				
 				if (innerEdges instanceof NeoEdge) {
 					cypherEdge.append(cypherText);
-					if (innerEdges.getTarget() instanceof ComplexNode) {
-						cyphers.add(cypherEdge);
-						innerCounterString = cyphers.size() - 1;
-						result.addAll(traverseOverPattern((ComplexNode) innerEdges.getTarget(), cyphers, innerCounterString));	
-						hasEdges = true;
-					}
-				} else if (innerEdges instanceof NeoPropertyEdge) {
+					cyphers.add(cypherEdge);
+					innerCounterString = cyphers.size() - 1;
+					result.addAll(traverseOverPattern((ComplexNode) innerEdges.getTarget(), cyphers, innerCounterString));	
+					hasEdges = true;
+				} else {
 					cypherEdge.append(cypherText);
 					result.add(cypherEdge);
 					hasEdges = true;
@@ -304,20 +302,18 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			if (r.getIncomingMapping() == null ) { 
 				if (r instanceof NeoEdge) {
 					i++;
-					((NeoAbstractNode) node).setIsVariableDistinctInUse(false);
 				} else {
 					neoPropertyEdge = (NeoPropertyEdge) r; 
 					if (neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart() != null) {
 						distinctNeoPropertyNode++;
-						if (distinctNeoPropertyNode + i >= 2) {
-							((NeoAbstractNode) node).setIsVariableDistinctInUse(false);
-						}
-						i++;
 					}
 				}
 			}
 		}
-		return i >= 2;
+		if (i + distinctNeoPropertyNode >= 2) {
+			((NeoAbstractNode) node).setIsVariableDistinctInUse(false);
+		}
+		return i + distinctNeoPropertyNode >= 2;
 	}
 	
 	/**

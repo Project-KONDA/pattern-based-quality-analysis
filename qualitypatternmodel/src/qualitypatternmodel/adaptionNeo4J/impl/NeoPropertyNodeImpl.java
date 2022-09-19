@@ -173,10 +173,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 */
 	@Override
 	public String getCypherReturnVariable() throws InvalidityException {
-		if (isVariableDistinctInUse) {
-			return this.generateCypherMatchNodeVariable();
-		}
-		return CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_DISTINCT + " (" + this.generateCypherMatchNodeVariable() + ")";
+		return this.generateCypherMatchNodeVariable();
 	}
 
 	/**
