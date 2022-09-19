@@ -4,32 +4,24 @@ package qualitypatternmodel.graphstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
@@ -205,7 +197,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			boolean isFirst = true;
 			for (NeoAbstractNode n : beginningNodesList) {
 				if (!isFirst) {
-					cypher.append("," + CypherSpecificConstants.ONE_WHITESPACES);
+					cypher.append(CypherSpecificConstants.CLAUSE_MATCH + CypherSpecificConstants.ONE_WHITESPACES);
 				} else {
 					isFirst = false;
 				}
@@ -250,10 +242,77 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		}
 	}
 	
-	
-	//TODO: Somewhere is a little mistake --> I assume it is fixed
+	//--> StartPoint is seperated
+	//consider the distinct --> In the return
 	private List<StringBuilder> traverseOverPattern(ComplexNode node, List<StringBuilder> cyphers, int counterString) throws InvalidityException {
-		int innerCounterString = counterString ;
+		int innerCounterString = counterString;
+		StringBuilder cypher;
+		StringBuilder cypherEdge;
+		StringBuilder preCypher;
+		List<StringBuilder> result = new LinkedList<StringBuilder>();
+		if (cyphers.size() == 0) {
+			cypher = new StringBuilder();
+			cypher.append(node.generateCypher());
+			if (node.getOutgoing().size() >= 2) {
+				result.add(cypher);
+				cypher = new StringBuilder();
+				cypher.append(node.generateCypher());
+				innerCounterString++;
+			}
+		} else if (node.getOutgoing().size() >= 2) {
+			preCypher = cyphers.get(innerCounterString);
+			cypher = new StringBuilder();
+			cypher.append(preCypher.toString());
+			cypher.append(node.generateCypher());
+			result.add(cypher);
+			innerCounterString++;
+			cypher = new StringBuilder();
+			cypher.append(node.generateCypher());
+		} else {
+			preCypher = cyphers.get(innerCounterString);
+			cypher = new StringBuilder();
+			cypher.append(preCypher.toString());
+			cypher.append(node.generateCypher());
+		}
+
+		String cypherText;
+		
+		boolean hasEdges = false;
+		for (Relation innerEdges : node.getOutgoing()) {
+			cypherText = innerEdges.generateCypher();
+			//Checks for the morphisem. No Edge will be printed if it is from a previews graph
+			if (cypherText != null) { 
+				cypherEdge = new StringBuilder();
+				cypherEdge.append(cypher.toString());
+				
+				if (innerEdges instanceof NeoEdge) {
+					cypherEdge.append(cypherText);
+					if (innerEdges.getTarget() instanceof ComplexNode) {
+						cyphers.add(cypherEdge);
+						innerCounterString = cyphers.size() - 1;
+						result.addAll(traverseOverPattern((ComplexNode) innerEdges.getTarget(), cyphers, innerCounterString));	
+						hasEdges = true;
+					}
+				} else if (innerEdges instanceof NeoPropertyEdge) {
+					cypherEdge.append(cypherText);
+					result.add(cypherEdge);
+					hasEdges = true;
+				}
+			}
+		}
+
+		if (!hasEdges)
+			result.add(cypher);
+		
+		return result;
+	}
+	
+	//Everything has the same edge --> For the Conds maybe to solve with a Variable in the relations
+	//Ohne Variablen
+	//Man kann das halt Abbilden, jedoch ist die Frage dann... lohnt sich die Adaptierung für Cypher überhaupt? 
+	//Oder wenn die Sprache so doppeldeutig (ambiguous)... muss man wahrscheinlich doch direkt Cypher's erstellen können
+	private List<StringBuilder> traverseOverPatternV2(ComplexNode node, List<StringBuilder> cyphers, int counterString) throws InvalidityException {
+		int innerCounterString = counterString;
 		StringBuilder cypher;
 		StringBuilder cypherEdge;
 		StringBuilder preCypher;
@@ -272,7 +331,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		boolean hasEdges = false;
 		for (Relation innerEdges : node.getOutgoing()) {
 			cypherText = innerEdges.generateCypher();
-			if (cypherText != null) {
+			//Checks for the morphisem. No Edge will be printed if it is from a previews graph
+			if (cypherText != null) { 
 				cypherEdge = new StringBuilder();
 				cypherEdge.append(cypher.toString());
 				
@@ -283,15 +343,12 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 						innerCounterString = cyphers.size() - 1;
 						result.addAll(traverseOverPattern((ComplexNode) innerEdges.getTarget(), cyphers, innerCounterString));	
 						hasEdges = true;
-					} 
-					
+					}
 				} else if (innerEdges instanceof NeoPropertyEdge) {
 					cypherEdge.append(cypherText);
 					result.add(cypherEdge);
 					hasEdges = true;
 				}
-			} else {
-				System.out.println("");
 			}
 		}
 

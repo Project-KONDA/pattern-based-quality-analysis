@@ -8,7 +8,6 @@ import org.eclipse.emf.common.util.EList;
 import playground.Java2Neo4JConnector;
 import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
-import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
@@ -133,22 +132,22 @@ public class CypherTest00 {
 		
 		completePattern.createNeo4jAdaption();
 		
-		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(1);
-		NeoEdge neoEdge = (NeoEdge) completePattern.getGraph().getRelations().get(1);
+		NeoNode neoNode;
 		
-		neoNode = (NeoNode) completePattern.getGraph().getNodes().get(2);
-		neoEdge = (NeoEdge) completePattern.getGraph().getRelations().get(2);
+		neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
+		neoNode.addStringLabel("Place");
 		
-		neoNode = (NeoNode) completePattern.getGraph().getNodes().get(3);
-		neoEdge = (NeoEdge) completePattern.getGraph().getRelations().get(3);
+		neoNode = (NeoNode) completePattern.getGraph().getNodes().get(1);
+		neoNode.addStringLabel("Regesta");
 		
 		neoNode = (NeoNode) completePattern.getGraph().getNodes().get(4);
-		neoEdge = (NeoEdge) completePattern.getGraph().getRelations().get(4);
+		neoNode.addStringLabel("Place");
 		
 		neoNode = (NeoNode) completePattern.getGraph().getNodes().get(5);
-		neoEdge = (NeoEdge) completePattern.getGraph().getRelations().get(5);
+		neoNode.addStringLabel("IndexPerson");
 		
 		return completePattern;
+		
 	}
 	
 	
