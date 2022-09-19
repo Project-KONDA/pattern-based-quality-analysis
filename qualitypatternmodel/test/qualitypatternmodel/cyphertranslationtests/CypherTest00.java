@@ -69,6 +69,7 @@ public class CypherTest00 {
 				System.out.println(completePattern.generateCypher());
 				System.out.println("No Exception has been triggered");
 			} catch (Exception e) {
+				System.out.println("");
 				System.out.println("-- Beginning of the Exceptions --");
 				System.out.println(e.toString());
 //				e.printStackTrace();

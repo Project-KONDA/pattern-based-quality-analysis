@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
+import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
@@ -240,13 +241,13 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		if (cyphers.size() == 0) {
 			cypher = new StringBuilder();
 			cypher.append(node.generateCypher());
-			if (node.getOutgoing().size() >= 2) {
+			if (checkIfVisibleFork(node)) {
 				result.add(cypher);
 				cypher = new StringBuilder();
 				cypher.append(node.generateCypher());
 				innerCounterString++;
 			}
-		} else if (node.getOutgoing().size() >= 2) {
+		} else if (checkIfVisibleFork(node)) {
 			preCypher = cyphers.get(innerCounterString);
 			cypher = new StringBuilder();
 			cypher.append(preCypher.toString());
@@ -292,6 +293,16 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			result.add(cypher);
 		
 		return result;
+	}
+
+	private boolean checkIfVisibleFork(ComplexNode node) {
+		int i = 0;
+		for (Relation r : node.getOutgoing()) {
+			if (r instanceof NeoComplexEdge) {
+				i++;
+			}
+		}
+		return i >= 2;
 	}
 	
 	//Everything has the same edge --> For the Conds maybe to solve with a Variable in the relations
