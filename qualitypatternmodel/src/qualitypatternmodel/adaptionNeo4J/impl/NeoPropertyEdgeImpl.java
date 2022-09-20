@@ -187,8 +187,10 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 				
 				return cypher;
 			}
-		}		
-		return null;
+			return null;
+		}
+		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) getOriginalRelation();
+		return neoPropertyEdge.generateCypherMatchNodeVariable();
 	}
 
 	@Override 

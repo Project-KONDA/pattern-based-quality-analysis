@@ -324,7 +324,7 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 	
 	@Override
 	public String myToString() {
-		String result = "neopath [" + getInternalId() + "] ";
+		String result = "PeoPathParam [" + getInternalId() + "] ";
 		try {
 			result += " " + generateCypher();
 		} catch (InvalidityException e) {}
