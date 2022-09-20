@@ -44,9 +44,9 @@ public class CypherTest00 {
 				System.out.print("\n___TRANSLATION___");
 				String query = completePattern.generateCypher();
 				//Depending on the test mode activated the db-connector
-				System.out.println(query); 
-//				String hashCode = query.hashCode() + "";
-//				connector.queryTester(query, hashCode);
+//				System.out.println(query); 
+				String hashCode = query.hashCode() + "";
+				connector.queryTester(query, hashCode);
 			} catch (Exception e) {
 				System.out.println();
 				e.printStackTrace();
@@ -86,6 +86,12 @@ public class CypherTest00 {
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		buildPatterns(completePatterns);
+		CypherTest00.test(completePatterns);
+	}
+
+	public static void buildPatterns(ArrayList<CompletePattern> completePatterns)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(getBasePatternFinal());
 		completePatterns.add(getBasePatternComplexFinal());
 		completePatterns.add(getComplexMatchStructure());
@@ -93,7 +99,6 @@ public class CypherTest00 {
 		completePatterns.add(getBasePatternCondConcrete("1439-12-20"));
 		completePatterns.add(getBasePatternMatchConcrete("1439.*"));
 		completePatterns.add(getBasePatternMatchNotConcrete("1439.*"));
-		CypherTest00.test(completePatterns);
 	}
 	
 	public static CompletePattern getBasePatternFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

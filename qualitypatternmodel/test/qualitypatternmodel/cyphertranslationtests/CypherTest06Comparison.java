@@ -32,8 +32,19 @@ public class CypherTest06Comparison {
             System.out.println("");
             System.out.println("<<< BEGIN - Tests >>>");
             ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-            completePatterns.add(getComparisonTwoNeoNodes(ComparisonOperator.EQUAL));
-            completePatterns.add(getComparisonTwoNeoNodes(ComparisonOperator.NOTEQUAL));
+            buildPatterns(completePatterns);
+            //Call tester from CypherTest00
+            CypherTest00.test(completePatterns);
+            System.out.println("<<< END - Tests >>>");
+            System.out.println("");         
+            
+            //INTRODUCE THE EXCEPTION TESTS 
+    }
+
+	public static void buildPatterns(ArrayList<CompletePattern> completePatterns)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		completePatterns.add(getComparisonTwoNeoNodes(ComparisonOperator.EQUAL));
+		completePatterns.add(getComparisonTwoNeoNodes(ComparisonOperator.NOTEQUAL));
 //            for (ComparisonOperator c : ComparisonOperator.values()) { // --> Could be done later one when all operators are implemented
 //            	if (!(c == ComparisonOperator.ISNULL || c == ComparisonOperator.ISNOTNULL)) {
 //            		completePatterns.add(getComparisonTwoNeoNodes(c));
@@ -46,16 +57,10 @@ public class CypherTest06Comparison {
 //        			completePatterns.add(getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(c));
 //        		}
 //        	   }            
-            completePatterns.add(getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(ComparisonOperator.EQUAL));
-            completePatterns.add(getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(ComparisonOperator.EQUAL));
-            completePatterns.add(getMultipleComparisons());
-            //Call tester from CypherTest00
-            CypherTest00.test(completePatterns);
-            System.out.println("<<< END - Tests >>>");
-            System.out.println("");         
-            
-            //INTRODUCE THE EXCEPTION TESTS 
-    }
+		completePatterns.add(getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(ComparisonOperator.EQUAL));
+		completePatterns.add(getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(ComparisonOperator.EQUAL));
+		completePatterns.add(getMultipleComparisons());
+	}
 	
 	public static CompletePattern getBasePattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();

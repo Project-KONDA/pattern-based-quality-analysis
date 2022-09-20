@@ -23,12 +23,7 @@ public class CypherTest09Contains {
         System.out.println("");
         System.out.println("<<< BEGIN - Tests >>>");
         ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-        completePatterns.add(getPatternContains(true, CypherTest09Contains.LINK));
-        completePatterns.add(getPatternContains(false, CypherTest09Contains.LINK));
-        
-        final Map<String, String> propertyNamesAndValues = createPropertyNameAndValueMap();
-        completePatterns.add(getMultipleContains(true, propertyNamesAndValues));
-        completePatterns.add(getMultipleContains(false, propertyNamesAndValues));
+        buildPatterns(completePatterns);
         //Call tester from CypherTest00
         CypherTest00.test(completePatterns);
         System.out.println("<<< END - Tests >>>");
@@ -36,6 +31,16 @@ public class CypherTest09Contains {
         
         //INTRODUCE THE EXCEPTION TESTS 
     }
+
+	public static void buildPatterns(ArrayList<CompletePattern> completePatterns)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		completePatterns.add(getPatternContains(true, CypherTest09Contains.LINK));
+        completePatterns.add(getPatternContains(false, CypherTest09Contains.LINK));
+        
+        final Map<String, String> propertyNamesAndValues = createPropertyNameAndValueMap();
+        completePatterns.add(getMultipleContains(true, propertyNamesAndValues));
+        completePatterns.add(getMultipleContains(false, propertyNamesAndValues));
+	}
     
     private static void makeConcrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
     	completePattern.createNeo4jAdaption();

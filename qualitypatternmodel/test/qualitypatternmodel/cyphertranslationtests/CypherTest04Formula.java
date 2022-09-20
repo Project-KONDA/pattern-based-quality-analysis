@@ -27,23 +27,26 @@ public class CypherTest04Formula {
             System.out.println("");
             System.out.println("<<< BEGIN - Tests >>>");
             ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-    		
-            for (LogicalOperator lo: LogicalOperator.VALUES) {
-    			completePatterns.add(getFormulaPattern(lo, false));
-    		}
-            
-            for (LogicalOperator lo: LogicalOperator.VALUES) {
-    			completePatterns.add(getFormulaPattern(lo, true));
-    		}
-            
-            completePatterns.add(getTestPattern3());
-            
+            buildPatterns(completePatterns);
             CypherTest00.test(completePatterns);
             System.out.println("<<< END - Tests >>>");
             System.out.println("");         
             
             //INTRODUCE THE EXCEPTION TESTS
     }
+
+	public static void buildPatterns(ArrayList<CompletePattern> completePatterns)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		for (LogicalOperator lo: LogicalOperator.VALUES) {
+			completePatterns.add(getFormulaPattern(lo, false));
+		}
+		
+		for (LogicalOperator lo: LogicalOperator.VALUES) {
+			completePatterns.add(getFormulaPattern(lo, true));
+		}
+		
+		completePatterns.add(getTestPattern3());
+	}
     
 	private static CompletePattern getFormulaPattern(LogicalOperator lo, boolean clamped) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 

@@ -15,8 +15,7 @@ public class CypherTest08Cycle {
         System.out.println("");
         System.out.println("<<< BEGIN - Tests >>>");
         ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-        completePatterns.add(getCyclePattern(2));
-        completePatterns.add(getCyclePattern(3));
+        buildPatterns(completePatterns);
         //Call tester from CypherTest00
         CypherTest00.test(completePatterns);
         System.out.println("<<< END - Tests >>>");
@@ -24,6 +23,12 @@ public class CypherTest08Cycle {
         
         //INTRODUCE THE EXCEPTION TESTS ??? 
     }
+
+	public static void buildPatterns(ArrayList<CompletePattern> completePatterns)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		completePatterns.add(getCyclePattern(2));
+        completePatterns.add(getCyclePattern(3));
+	}
     
 	private static CompletePattern getCyclePattern(int nodesInCycle) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = CypherTest00.getBasePattern();

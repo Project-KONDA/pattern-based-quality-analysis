@@ -8,6 +8,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
+import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
@@ -104,8 +105,10 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	//Needing for the return variable
 	@Override 
 	public String generateCypher() throws InvalidityException, UnsupportedOperationException {
-		//TODO Mapping
-		return generateCypherMatchNodeVariable();
+		if (getIncomingMapping() == null) {
+			return generateCypherMatchNodeVariable();
+		}
+		return ((NeoPropertyNode) getOriginalNode()).generateCypher();
 	}	
 	
 	/**
@@ -115,14 +118,17 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 */
 	@Override
 	public String generateCypherPropertyAddressing() throws InvalidityException {
-		String cypher = null;
-		if (getIncoming() != null) {
-			NeoPropertyEdge edge = (NeoPropertyEdge) getIncoming().get(0);
-			cypher = edge.generateCypherPropertyAddressing();
+		//TODO --> Implement if the NeoPropertyEdge is the First one --> Not nessary since the framework does not allow this modelbuild
+		if (getIncomingMapping() == null) {
+			String cypher = null;
+			if (getIncoming() != null) {
+				NeoPropertyEdge edge = (NeoPropertyEdge) getIncoming().get(0);
+				cypher = edge.generateCypherPropertyAddressing();
+			}
+			if (cypher == null) return null;
+			return cypher;
 		}
-		//TODO --> Implement if the NeoPropertyEdge is the First one
-		if (cypher == null) return null;
-		return cypher;
+		return ((NeoPropertyNode) getOriginalNode()).generateCypherPropertyAddressing();
 	}
 	
 	/**
@@ -132,11 +138,14 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 */
 	@Override
 	public String generateCypherMatchNodeVariable() throws InvalidityException {
-		if (getIncoming().get(0) == null || !(getIncoming().get(0) instanceof NeoPropertyEdge))
-			throw new InvalidityException("No incoming NeoPropertyEdge specified");
-		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) getIncoming().get(0);
-		String cypher = neoPropertyEdge.generateCypherMatchNodeVariable();
-		return cypher;
+		if (getIncomingMapping() == null) {
+			if (getIncoming().get(0) == null || !(getIncoming().get(0) instanceof NeoPropertyEdge))
+				throw new InvalidityException("No incoming NeoPropertyEdge specified");
+			NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) getIncoming().get(0);
+			String cypher = neoPropertyEdge.generateCypherMatchNodeVariable();
+			return cypher;
+		}
+		return ((NeoPropertyNode) getOriginalNode()).generateCypherMatchNodeVariable();
 	}
 
 	/**
@@ -156,14 +165,15 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 */
 	@Override
 	public String getCypherVariable() {
-		//TODO MORPHING
-		
-		try {
-			return this.generateCypher().replaceAll("(", "").replaceAll(")", "");
-		} catch (InvalidityException e) {
-			e.printStackTrace();
+		if (getIncomingMapping() == null) {	
+			try {
+				return generateCypher().replaceAll("(", "").replaceAll(")", "");
+			} catch (InvalidityException e) {
+				e.printStackTrace();
+			}
+			return null;
 		}
-		return null;
+		return ((NeoPropertyNode) getOriginalNode()).getCypherVariable(); 
 	}
 	
 	/**
@@ -173,7 +183,10 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 */
 	@Override
 	public String getCypherReturnVariable() throws InvalidityException {
-		return this.generateCypherMatchNodeVariable();
+		if (getIncomingMapping() == null) {	
+			return generateCypherMatchNodeVariable();
+		}
+		return ((NeoPropertyNode) getOriginalNode()).generateCypherMatchNodeVariable();
 	}
 
 	/**
@@ -338,8 +351,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	protected EClass eStaticClass() {
 		return AdaptionNeo4JPackage.Literals.NEO_PROPERTY_NODE;
 	}
-
-
 
 	/**
 	 * <!-- begin-user-doc -->

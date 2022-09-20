@@ -40,15 +40,7 @@ public class CypherTest03NotCondition {
             System.out.println("");
             System.out.println("<<< BEGIN - Tests >>>");
             ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-            completePatterns.add(getTestPattern1());
-            completePatterns.add(getTestPattern1WithConditions());
-            completePatterns.add(getTestPattern2());
-            completePatterns.add(getTestPattern5());
-            completePatterns.add(getNotExistsExists());
-            completePatterns.add(getNotNotPattern());
-            completePatterns.add(getNotNotNotPattern());
-            completePatterns.add(getNotNotNotNotPattern());
-            completePatterns.add(getNotNotNotNotNotPattern());
+            buildPatterns(completePatterns);
             //Call tester from CypherTest00
             CypherTest00.test(completePatterns);
             System.out.println("<<< END - Tests >>>");
@@ -56,6 +48,19 @@ public class CypherTest03NotCondition {
             
             //INTRODUCE THE EXCEPTION TESTS ???
     }
+
+	public static void buildPatterns(ArrayList<CompletePattern> completePatterns)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		completePatterns.add(getTestPattern1());
+		completePatterns.add(getTestPattern1WithConditions());
+		completePatterns.add(getTestPattern2());
+		completePatterns.add(getTestPattern5());
+		completePatterns.add(getNotExistsExists());
+		completePatterns.add(getNotNotPattern());
+		completePatterns.add(getNotNotNotPattern());
+		completePatterns.add(getNotNotNotNotPattern());
+		completePatterns.add(getNotNotNotNotNotPattern());
+	}
 
 	public static CompletePattern getTestPattern1() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();

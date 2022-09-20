@@ -129,7 +129,6 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	 */
 	@Override 
 	public String getCypherVariable() {
-		//TODO MORPHISIM
 		if (getIncomingMapping() == null) {
 			String var;
 			var = CypherSpecificConstants.VARIABLE_NODE;
@@ -146,10 +145,13 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	 */
 	@Override
 	public String getCypherReturnVariable() throws InvalidityException {
-		if (isVariableDistinctInUse) {
-			return this.getCypherVariable();
-		}
+		if (getIncomingMapping() == null) {
+			if (isVariableDistinctInUse) {
+				return this.getCypherVariable();
+			}
 		return CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_DISTINCT + " (" + this.getCypherVariable() + ")";
+		}
+		return ((NeoNode) getOriginalNode()).getCypherReturnVariable();
 	}
 
 	@Override

@@ -29,7 +29,7 @@ public class CypherTest02Return {
 		System.out.println("");
 		System.out.println("<<< BEGIN - Tests >>>");
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getAllPossibleReturnTypes());
+		buildPatterns(completePatterns);
 		//Call tester from CypherTest00
 		CypherTest00.test(completePatterns);
 		System.out.println("<<< END - Tests >>>");
@@ -40,12 +40,22 @@ public class CypherTest02Return {
 		System.out.println("");
 		System.out.println("<<< BEGIN - Exception Tests >>>");
 		ArrayList<CompletePattern> completePatternsExceptions = new ArrayList<CompletePattern>();
-		completePatternsExceptions.add(tryNoReturnClause());
-		completePatternsExceptions.add(tryThereIsNoNeoPropertyNode());
+		buildExceptionPatterns(completePatternsExceptions);
 		//Call Exception Handler
 		CypherTest00.exceptionHandler(completePatternsExceptions);
 		System.out.println("<<< END - Exception Tests >>>");
 		System.out.println("");
+	}
+
+	public static void buildExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		completePatternsExceptions.add(tryNoReturnClause());
+		completePatternsExceptions.add(tryThereIsNoNeoPropertyNode());
+	}
+
+	public static void buildPatterns(ArrayList<CompletePattern> completePatterns)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		completePatterns.add(getAllPossibleReturnTypes());
 	}
 	
 	public static CompletePattern getBase() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

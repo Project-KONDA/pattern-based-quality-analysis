@@ -211,9 +211,11 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		} else if (!isLastEdge) {
 			return CypherSpecificConstants.INTERNAL_EDGE_NODE + getEdgeNumber();
 		} else if (isLastEdge) {
+			if (getNeoPropertyPathParam() != null) {
+				return CypherSpecificConstants.VARIABLE_PROPERTY_NODE + (getNeoPropertyPathParam().getNeoPropertyEdge().getTarget().getOriginalID());
+			}
 			return CypherSpecificConstants.VARIABLE_PROPERTY_NODE + getEdgeNumber();
 		}
-		
 		return null;
 	}
 	

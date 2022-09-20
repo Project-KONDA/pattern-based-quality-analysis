@@ -32,32 +32,17 @@ public class CypherTest01NeoEdge {
 		System.out.println("");
 		System.out.println("<<< BEGIN - Tests >>>");
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getUnspecifiedEdge());
-		completePatterns.add(getSimpleEdge());
-		completePatterns.add(getSimpleEdgeWithLabels());
-		completePatterns.add(getSimpleEdgeWithLabelsRight());
-		completePatterns.add(getSimpleEdgeWithLabelsLeft());
-		completePatterns.add(getSimpleEdgeWithTargetNode());
-		completePatterns.add(getComplexEdge());
-		completePatterns.add(getComplexEdgeWithDoppleEnding());
-		completePatterns.add(getComplexEdgeWithTargeAtEndAndLabels());
-		completePatterns.add(getComplexEdgeWithLabelsDiffrentDirectionsAndLabels());
-		completePatterns.add(getMultipleGraphPatterns());
+		buildPatterns(completePatterns);
 		//Call tester from CypherTest00
 		CypherTest00.test(completePatterns);
 		System.out.println("<<< END - Tests >>>");
 		System.out.println("");
 		
-		
 		//Exception tests
 		System.out.println("");
 		System.out.println("<<< BEGIN - Exception Tests >>>");
 		ArrayList<CompletePattern> completePatternsExceptions = new ArrayList<CompletePattern>();
-		completePatternsExceptions.add(tryNoNeoAdaption());
-		completePatternsExceptions.add(tryNoBeginning());
-		completePatternsExceptions.add(tryToCreateNeoDirectionErrorShallNotWork());
-		completePatternsExceptions.add(tryValidateComplexEdgeNoLastEdgeIsSet());
-		completePatternsExceptions.add(tryNeoNeoPathPartIsSetWithEmptyComplexEdge());
+		buildExceptionPatterns(completePatternsExceptions);
 		//Call Exception Handler
 		CypherTest00.exceptionHandler(completePatternsExceptions);
 		System.out.println("<<< END - Exception Tests >>>");
@@ -77,6 +62,30 @@ public class CypherTest01NeoEdge {
 		}
 		System.out.println("<<< END - Build-Pattern-Exceptions >>>");
 		System.out.println("");
+	}
+
+	public static void buildExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		completePatternsExceptions.add(tryNoNeoAdaption());
+		completePatternsExceptions.add(tryNoBeginning());
+		completePatternsExceptions.add(tryToCreateNeoDirectionErrorShallNotWork());
+		completePatternsExceptions.add(tryValidateComplexEdgeNoLastEdgeIsSet());
+		completePatternsExceptions.add(tryNeoNeoPathPartIsSetWithEmptyComplexEdge());
+	}
+
+	public static void buildPatterns(ArrayList<CompletePattern> completePatterns)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		completePatterns.add(getUnspecifiedEdge());
+		completePatterns.add(getSimpleEdge());
+		completePatterns.add(getSimpleEdgeWithLabels());
+		completePatterns.add(getSimpleEdgeWithLabelsRight());
+		completePatterns.add(getSimpleEdgeWithLabelsLeft());
+		completePatterns.add(getSimpleEdgeWithTargetNode());
+		completePatterns.add(getComplexEdge());
+		completePatterns.add(getComplexEdgeWithDoppleEnding());
+		completePatterns.add(getComplexEdgeWithTargeAtEndAndLabels());
+		completePatterns.add(getComplexEdgeWithLabelsDiffrentDirectionsAndLabels());
+		completePatterns.add(getMultipleGraphPatterns());
 	}
 	
 	public static CompletePattern getBasePatternNeoEdge() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

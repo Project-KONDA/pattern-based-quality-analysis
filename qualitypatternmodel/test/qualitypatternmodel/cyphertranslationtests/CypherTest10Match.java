@@ -27,16 +27,7 @@ public class CypherTest10Match {
         System.out.println("");
         System.out.println("<<< BEGIN - Tests >>>");
         ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getPatternMatch(true, "Churfürsten"));
-		completePatterns.add(getPatternMatch(false, "Churfürsten"));
-        completePatterns.add(getPatternMatch(true, ".*Churfürsten.*"));
-		completePatterns.add(getPatternMatch(false, ".*Churfürsten.*"));
-        completePatterns.add(getPatternMatch(true, ".*(?i)Churfürsten.*"));
-		completePatterns.add(getPatternMatch(false, ".*(?i)Churfürsten.*"));
-		completePatterns.add(getPatternMatch(true, ".*(?m)Churfürsten.*"));
-		completePatterns.add(getPatternMatch(false, ".*(?m)Churfürsten.*"));
-		completePatterns.add(getPatternMatch(true, ".*(?s)Churfürsten.*"));
-		completePatterns.add(getPatternMatch(false, ".*(?s)Churfürsten.*"));
+		buildPatterns(completePatterns);
         //Call tester from CypherTest00
         CypherTest00.test(completePatterns);
         System.out.println("<<< END - Tests >>>");
@@ -47,16 +38,35 @@ public class CypherTest10Match {
 		System.out.println("");
 		System.out.println("<<< BEGIN - Exception Tests >>>");
 		ArrayList<CompletePattern> completePatternsExceptions = new ArrayList<CompletePattern>();
-		completePatternsExceptions.add(tryMatchInvalidOption(true));
-		completePatternsExceptions.add(tryMatchInvalidOption(false));
-		completePatternsExceptions.add(tryMatchInvalidOptionDiffrent(true));
-		completePatternsExceptions.add(tryMatchInvalidOptionDiffrent3(true));
-		completePatternsExceptions.add(tryMatchInvalidOptionDiffrent4(false));
+		buildExceptionPatterns(completePatternsExceptions);
 		//Call Exception Handler
 		CypherTest10Match.exceptionHandler(completePatternsExceptions);
 		System.out.println("<<< END - Exception Tests >>>");
 		System.out.println("");
     }
+
+	public static void buildExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		completePatternsExceptions.add(tryMatchInvalidOption(true));
+		completePatternsExceptions.add(tryMatchInvalidOption(false));
+		completePatternsExceptions.add(tryMatchInvalidOptionDiffrent(true));
+		completePatternsExceptions.add(tryMatchInvalidOptionDiffrent3(true));
+		completePatternsExceptions.add(tryMatchInvalidOptionDiffrent4(false));
+	}
+
+	public static void buildPatterns(ArrayList<CompletePattern> completePatterns)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		completePatterns.add(getPatternMatch(true, "Churfürsten"));
+		completePatterns.add(getPatternMatch(false, "Churfürsten"));
+        completePatterns.add(getPatternMatch(true, ".*Churfürsten.*"));
+		completePatterns.add(getPatternMatch(false, ".*Churfürsten.*"));
+        completePatterns.add(getPatternMatch(true, ".*(?i)Churfürsten.*"));
+		completePatterns.add(getPatternMatch(false, ".*(?i)Churfürsten.*"));
+		completePatterns.add(getPatternMatch(true, ".*(?m)Churfürsten.*"));
+		completePatterns.add(getPatternMatch(false, ".*(?m)Churfürsten.*"));
+		completePatterns.add(getPatternMatch(true, ".*(?s)Churfürsten.*"));
+		completePatterns.add(getPatternMatch(false, ".*(?s)Churfürsten.*"));
+	}
     
 	public static CompletePattern getPatternMatch(Boolean invert, String str) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();

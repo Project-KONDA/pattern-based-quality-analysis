@@ -35,6 +35,16 @@ public class CypherTest05ParameterValues {
 		System.out.println("<<< BEGIN - Tests >>>");
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		ArrayList<ParameterValue> values = getTestParameters();				
+		buildPatterns(completePatterns, values);	
+		
+		//Call tester from CypherTest00
+		CypherTest00.test(completePatterns);
+		System.out.println("<<< END - Tests >>>");
+		System.out.println("");		
+	}
+
+	public static void buildPatterns(ArrayList<CompletePattern> completePatterns, ArrayList<ParameterValue> values)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		//TextLiteralParam
 		CompletePattern completePattern = getConcreteComparisonPattern(values.get(0), "date");
 		completePatterns.add(completePattern);	
@@ -60,12 +70,7 @@ public class CypherTest05ParameterValues {
 		
 		//DateTimeParam
 		completePattern = getConcreteComparisonPattern(values.get(6), "isoStartDate");
-		completePatterns.add(completePattern);	
-		
-		//Call tester from CypherTest00
-		CypherTest00.test(completePatterns);
-		System.out.println("<<< END - Tests >>>");
-		System.out.println("");		
+		completePatterns.add(completePattern);
 	}
 	
 	private static CompletePattern getConcreteBaseComparisonPattern(ParameterValue parameter) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
