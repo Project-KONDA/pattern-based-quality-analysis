@@ -43,6 +43,8 @@ public class CypherTest07QuantifiedCondition {
 		System.out.println("");
 	}
 
+	
+	//CHECKING WHAT HAPPENS IF THE GRAPH HAS ALSO CONDITIONS --> Build test with multiple properties!
 	public static void buildExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatternsExceptions.add(tryNodesWhereMultiplePropertyExistsChecks(true));

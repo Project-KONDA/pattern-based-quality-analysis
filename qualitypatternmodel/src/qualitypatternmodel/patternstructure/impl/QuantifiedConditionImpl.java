@@ -291,8 +291,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			} else {
 				throw new InvalidityException("QuantifiedCond - Needs innerCondition");
 			}
-			
-			//CHECKING WHAT HAPPENS IF THE GRAPH HAS ALSO CONDITIONS
+		
 			cypherWhere.append(localCypher.toString());
 			appendCypherWhere(cypherWhere);
 			addCypherWherePrefix(cypherWhere);
