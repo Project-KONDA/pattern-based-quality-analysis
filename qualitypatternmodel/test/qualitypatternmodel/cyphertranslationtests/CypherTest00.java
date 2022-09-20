@@ -108,7 +108,7 @@ public class CypherTest00 {
 		return completePattern;
 	}
 	
-	//Test ist nicht correct
+	//Test ist nicht correct --> Oder doch? Muss analysiert werden!
 	public static CompletePattern getComplexMatchStructure() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
@@ -153,7 +153,6 @@ public class CypherTest00 {
 		neoNode.addStringLabel("IndexPerson");
 		
 		return completePattern;
-		
 	}
 	
 	

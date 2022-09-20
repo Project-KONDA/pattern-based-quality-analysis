@@ -3,6 +3,9 @@
 package qualitypatternmodel.patternstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.LinkedList;
+import java.util.List;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -12,12 +15,16 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import qualitypatternmodel.adaptionNeo4J.NeoNode;
+import qualitypatternmodel.adaptionNeo4J.NeoPlace;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.Condition;
@@ -177,9 +184,76 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	@Override
 	public String generateCypher() throws InvalidityException {
 		StringBuilder cypher = new StringBuilder();
-		StringBuilder cypherWhere = new StringBuilder();
-		String exists = CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS;
+		String exists = "";
 		
+		if (getGraph().getNodes() != null && getGraph().getNodes().size() != 0) {
+			boolean onlyNeoPropertyNodes = areOnlyNeoPropertyNodesInExists();
+			if (onlyNeoPropertyNodes) {
+				exists = CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_PROPERTY;
+				exists = generateExistsProperty(cypher, exists);
+			} else {
+				StringBuilder cypherWhere = new StringBuilder();
+				exists = CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_MATCH;
+				exists = generateExistsMatch(cypher, cypherWhere, exists);
+			}
+		} else {
+			throw new InvalidityException("QuantifiedCond - Graph is Empty");
+		}
+		
+		return exists; 		
+	}
+
+	private boolean areOnlyNeoPropertyNodesInExists() {
+		boolean onlyNeoPropertyNodes = true;
+		NeoNode neoNode;
+		for (Node node : getGraph().getNodes()) {
+			if (node instanceof NeoNode) {
+				neoNode = (NeoNode) node;
+				if (neoNode.getNodePlace() == NeoPlace.BEGINNING) {
+					onlyNeoPropertyNodes = false;
+				}
+			}
+		}
+		return onlyNeoPropertyNodes;
+	}
+
+	private String generateExistsProperty(StringBuilder cypher, String exists) throws InvalidityException {
+		List<NeoPropertyNode> neoPropertyNodes = new LinkedList<NeoPropertyNode>();
+		NeoPropertyNode neoPropertyNode; 
+		for (Node node : getGraph().getNodes()) {
+			if (node instanceof NeoPropertyNode) {
+				neoPropertyNode = (NeoPropertyNode) node; 
+				if (neoPropertyNode.getNodePlace() == NeoPlace.BEGINNING) {
+					neoPropertyNodes.add(neoPropertyNode);
+				}
+			}
+		}
+		
+		if (neoPropertyNodes.size() != 0) {
+			if (getNotCondition() != null) {
+				if (neoPropertyNodes.size() == 1) {
+					cypher.append(neoPropertyNodes.get(0).generateCypherPropertyAddressing());
+				}
+				throw new InvalidityException("QuantifiedCond - Too many parameters for function \'exists\'");
+			} else  {
+				if (quantifier == Quantifier.EXISTS ) {
+					for (NeoPropertyNode node : neoPropertyNodes) {
+						if (cypher.length() != 0) {
+							cypher.append("," + CypherSpecificConstants.ONE_WHITESPACES);
+						}
+						cypher.append(node.generateCypherPropertyAddressing());
+					}
+				} else {
+					throw new InvalidityException("QuantifiedCond - Argument to EXISTS(...) is not a property or pattern");
+				}
+				return exists = String.format(exists, cypher.toString());
+			} 
+		}
+		throw new InvalidityException("QuantifiedCond - No Beginning is specified");
+	}
+	
+	private String generateExistsMatch(StringBuilder cypher, StringBuilder cypherWhere, String exists)
+			throws InvalidityException {
 		//INCLUDE THE GRAPH-PATTERN - Is needed for both cases
 		cypher.append(String.format(CypherSpecificConstants.CLAUSE_MATCH_INLUCE_W, CypherSpecificConstants.TWELVE_WHITESPACES));
 		String cypherText = graph.generateCypher();
@@ -228,9 +302,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		} else {
 			throw new InvalidityException("invalid quantifier");
 		}
-
-		return exists; 		
+		return exists;
 	}
+	
 
 	private void addWhiteSpacesForPreviewsCondition(StringBuilder localCypher) {
 		boolean lineBreak = true;

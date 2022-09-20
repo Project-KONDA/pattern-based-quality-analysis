@@ -58,10 +58,11 @@ public class CypherCovTester {
 		assertDoesNotThrow(() -> cypher.main(null));
 	}
 	
-//	@Test
-//	public void CypherTest07CountCondition() {
-//		
-//	}
+	@Test
+	public void CypherTest07QuantifiedCondition() {
+		CypherTest07QuantifiedCondition cypher = new CypherTest07QuantifiedCondition();
+		assertDoesNotThrow(() -> cypher.main(null));
+	}
 	
 	@Test
 	public void CypherTest08Cycle() {
@@ -69,19 +70,15 @@ public class CypherCovTester {
 		assertDoesNotThrow(() -> cypher.main(null));
 	}
 	
-//	@Test
-//	public void CypherTest09Contains() {
-//		
-//	}
+	@Test
+	public void CypherTest09Contains() {
+		CypherTest09Contains cypher = new CypherTest09Contains();
+		assertDoesNotThrow(() -> cypher.main(null));
+	}
 	
 	@Test
 	public void CypherTest10Match() {
 		CypherTest10Match cypher = new CypherTest10Match();
 		assertDoesNotThrow(() -> cypher.main(null));
 	}
-	
-//	@Test 
-//	public void CypherPackageTester() {
-//		AdaptionNeo4JTests adaptionNeo4JTests = new AdaptionNeo4JTests(null);
-//	}
 }
