@@ -173,6 +173,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		return result;
 	}
 	
+	//BEGIN - Neo4J	
 	//Returns the needed Graph-Pattern for Cypher
 	@Override
 	public String generateCypher() throws InvalidityException {	
@@ -340,6 +341,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		cypher.append(")");
 		return cypher.toString();
 	}
+	//END - Neo4J
 	
 	@Override
 	public void initializeTranslation() {

@@ -102,25 +102,25 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 		} 
 		// I do not use an else Statement since either the if is correct and the methods end or the methods goes on
 		//Do to this if or without the else the semantics stays the same --> Compare it to .generateSparql()
-		StringBuilder sbRegex = new StringBuilder();
+		StringBuilder cypher = new StringBuilder();
 		int i = 0;
-		sbRegex.append("[");
+		cypher.append("[");
 		for(String s : getValues()) {
 			if (i > 0) {
-				sbRegex.append(", ");
+				cypher.append(", ");
 			}
 			if (areValuesInts(s)) {
-				sbRegex.append(s); 	
+				cypher.append(s); 	
 			} else if (areValuesFloat(s)) {
-				sbRegex.append(s); 
+				cypher.append(s); 
 			} else {
-				sbRegex.append("\"" + s +"\""); 
+				cypher.append("\"" + s +"\""); 
 			}
 			i++;
 		}
 	
-		sbRegex.append("]");
-		return sbRegex.toString();
+		cypher.append("]");
+		return cypher.toString();
 	}
 	
 	private boolean areValuesInts(String value) {

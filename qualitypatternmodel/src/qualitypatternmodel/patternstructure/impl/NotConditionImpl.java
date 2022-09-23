@@ -115,7 +115,7 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 			result += " (" + condition.generateCypher() + ")";
 			return result;	
 		}
-		throw new InvalidityException("invalid condition");
+		throw new InvalidityException("Not Condition - invalid condition");
 	}
 	
 	@Override

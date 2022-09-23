@@ -1206,6 +1206,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		return (NeoPropertyEdge) this;
 	}
 	
+	//BEGIN - Neo4J
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

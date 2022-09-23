@@ -172,6 +172,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		return query;
 	}
 	
+	//BEGIN -- Neo4J
+	
+	//ADD TO ECORE
 	//Logisch macht es kein sinn kein anderen logischen Operator zu haben
 	private static final String LOGICAL_OPERATOR_AND = LogicalOperator.AND.toString().toUpperCase();
 //	public void setLogicalOperator(LogicalOperator logicalOperatpor) {
@@ -345,6 +348,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			
 		}
 	}
+	//END -- Neo4J
 	
 	@Override
 	public void initializeTranslation() {

@@ -418,58 +418,13 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	@Override
 	public String generateCypherReturn() throws InvalidityException {
 		String cypher = "";
-		if (graph.getNodes().size() != 0 ) {
-			StringBuilder cypherNeoNode = new StringBuilder();
-			StringBuilder cypherNeoPropertyNode = new StringBuilder();
-			StringBuilder cypherNeoProperties = new StringBuilder();
-			NeoPropertyNode neoPropertyNode;
-			NeoPropertyPathParam neoPropertyPathParam;
-			NeoPropertyEdge neoPropertyEdge;
-			
-			for (Node n : graph.getNodes()) {
-				if (n instanceof NeoNode && n.isReturnNode()) {
-					
-					if (cypherNeoNode.length() != 0) cypherNeoNode.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
-					cypherNeoNode.append(((NeoAbstractNode) n).getCypherReturnVariable());
-					
-				} else if (n instanceof NeoPropertyNode && n.isReturnNode()) {
-					//Decision if the Property is in a new Node or in the same
-					if (cypherNeoPropertyNode.length() != 0) cypherNeoPropertyNode.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
-					neoPropertyNode = (NeoPropertyNode) n;
-					neoPropertyEdge = (NeoPropertyEdge) neoPropertyNode.getIncoming().get(0);
-					neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
-					if (neoPropertyPathParam.getNeoPathPart() == null)
-						throw new InvalidityException("CompletePattern: There is no NeoPropertyNode");
-					if (!(neoPropertyNode.getCypherReturnVariable() == null)) {
-						cypherNeoPropertyNode.append(neoPropertyNode.getCypherReturnVariable());
-					}
-				} 
-				if (n instanceof NeoPropertyNode && ((NeoPropertyNode)n).isReturnProperty()) {
-					if (cypherNeoProperties.length() != 0) cypherNeoProperties.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
-					neoPropertyNode = (NeoPropertyNode) n;
-					cypherNeoProperties.append(neoPropertyNode.generateCypherPropertyAddressing());
-				}
-			}
-			
-			if (cypherNeoNode.length() != 0) cypher = CypherSpecificConstants.ONE_WHITESPACES + cypherNeoNode;
-			if (cypherNeoPropertyNode.length() != 0) {
-				if (cypher.length() != 0) {
-					cypher += ", " + "\n";
-					cypher += CypherSpecificConstants.SIX_WHITESPACES + cypherNeoPropertyNode.toString();
-				} else {
-					cypher = CypherSpecificConstants.ONE_WHITESPACES + cypherNeoPropertyNode.toString();
-				}
-			}
-			if (cypherNeoProperties.length() != 0) {
-				if (cypher.length() != 0) {
-					cypher += ", " + "\n";
-					cypher += CypherSpecificConstants.SIX_WHITESPACES + cypherNeoProperties.toString();
-				} else {
-					cypher = CypherSpecificConstants.ONE_WHITESPACES + cypherNeoProperties.toString();
-				}
-			}
-		}
+		cypher = generateCypherReturnNodes(cypher);
+		cypher = generateCypherReturnEdges(cypher);
+		return cypher;
+	}
 
+
+	private String generateCypherReturnEdges(String cypher) throws InvalidityException {
 		//All regarding the relations will be added here 
 		if (graph.getRelations().size() != 0) {
 			StringBuilder cypherEdge = new StringBuilder();
@@ -526,11 +481,65 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				}
 			}
 		}
-		
 		return cypher;
 	}
-//	BUILDING THE WITH ???
-//	BUILDING THE UNION ??? 
+
+
+
+	private String generateCypherReturnNodes(String cypher) throws InvalidityException {
+		if (graph.getNodes().size() != 0 ) {
+			StringBuilder cypherNeoNode = new StringBuilder();
+			StringBuilder cypherNeoPropertyNode = new StringBuilder();
+			StringBuilder cypherNeoProperties = new StringBuilder();
+			NeoPropertyNode neoPropertyNode;
+			NeoPropertyPathParam neoPropertyPathParam;
+			NeoPropertyEdge neoPropertyEdge;
+			
+			for (Node n : graph.getNodes()) {
+				if (n instanceof NeoNode && n.isReturnNode()) {
+					
+					if (cypherNeoNode.length() != 0) cypherNeoNode.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
+					cypherNeoNode.append(((NeoAbstractNode) n).getCypherReturnVariable());
+					
+				} else if (n instanceof NeoPropertyNode && n.isReturnNode()) {
+					//Decision if the Property is in a new Node or in the same
+					if (cypherNeoPropertyNode.length() != 0) cypherNeoPropertyNode.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
+					neoPropertyNode = (NeoPropertyNode) n;
+					neoPropertyEdge = (NeoPropertyEdge) neoPropertyNode.getIncoming().get(0);
+					neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
+					if (neoPropertyPathParam.getNeoPathPart() == null)
+						throw new InvalidityException("CompletePattern: There is no NeoPropertyNode");
+					if (!(neoPropertyNode.getCypherReturnVariable() == null)) {
+						cypherNeoPropertyNode.append(neoPropertyNode.getCypherReturnVariable());
+					}
+				} 
+				if (n instanceof NeoPropertyNode && ((NeoPropertyNode)n).isReturnProperty()) {
+					if (cypherNeoProperties.length() != 0) cypherNeoProperties.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
+					neoPropertyNode = (NeoPropertyNode) n;
+					cypherNeoProperties.append(neoPropertyNode.generateCypherPropertyAddressing());
+				}
+			}
+			
+			if (cypherNeoNode.length() != 0) cypher = CypherSpecificConstants.ONE_WHITESPACES + cypherNeoNode;
+			if (cypherNeoPropertyNode.length() != 0) {
+				if (cypher.length() != 0) {
+					cypher += ", " + "\n";
+					cypher += CypherSpecificConstants.SIX_WHITESPACES + cypherNeoPropertyNode.toString();
+				} else {
+					cypher = CypherSpecificConstants.ONE_WHITESPACES + cypherNeoPropertyNode.toString();
+				}
+			}
+			if (cypherNeoProperties.length() != 0) {
+				if (cypher.length() != 0) {
+					cypher += ", " + "\n";
+					cypher += CypherSpecificConstants.SIX_WHITESPACES + cypherNeoProperties.toString();
+				} else {
+					cypher = CypherSpecificConstants.ONE_WHITESPACES + cypherNeoProperties.toString();
+				}
+			}
+		}
+		return cypher;
+	}
 	
 	
 	
