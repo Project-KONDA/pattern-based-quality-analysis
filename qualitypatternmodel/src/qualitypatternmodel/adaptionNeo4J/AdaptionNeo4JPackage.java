@@ -1975,13 +1975,31 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PATH_PART__IS_LAST_EDGE = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Edge Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PART__EDGE_NUMBER = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Neo Complex Edge</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PART__NEO_COMPLEX_EDGE = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Neo Path Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PART_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 4;
+	int NEO_PATH_PART_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2297,6 +2315,24 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_COMPLEX_EDGE__IS_LAST_EDGE = NEO_PATH_PART__IS_LAST_EDGE;
+
+	/**
+	 * The feature id for the '<em><b>Edge Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_COMPLEX_EDGE__EDGE_NUMBER = NEO_PATH_PART__EDGE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>Neo Complex Edge</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_COMPLEX_EDGE__NEO_COMPLEX_EDGE = NEO_PATH_PART__NEO_COMPLEX_EDGE;
 
 	/**
 	 * The feature id for the '<em><b>Neo Path</b></em>' containment reference list.
@@ -2650,6 +2686,24 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_SIMPLE_EDGE__IS_LAST_EDGE = NEO_PATH_PART__IS_LAST_EDGE;
 
 	/**
+	 * The feature id for the '<em><b>Edge Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE__EDGE_NUMBER = NEO_PATH_PART__EDGE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>Neo Complex Edge</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE__NEO_COMPLEX_EDGE = NEO_PATH_PART__NEO_COMPLEX_EDGE;
+
+	/**
 	 * The feature id for the '<em><b>Key Value Param</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2668,22 +2722,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_SIMPLE_EDGE__NEO_DIRECTION = NEO_PATH_PART_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Edge Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_SIMPLE_EDGE__EDGE_NUMBER = NEO_PATH_PART_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Neo Target Node Labels</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS = NEO_PATH_PART_FEATURE_COUNT + 3;
+	int NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS = NEO_PATH_PART_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Neo Edge Label</b></em>' reference.
@@ -2692,7 +2737,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE__NEO_EDGE_LABEL = NEO_PATH_PART_FEATURE_COUNT + 4;
+	int NEO_SIMPLE_EDGE__NEO_EDGE_LABEL = NEO_PATH_PART_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Neo Simple Edge</em>' class.
@@ -2701,7 +2746,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE_FEATURE_COUNT = NEO_PATH_PART_FEATURE_COUNT + 5;
+	int NEO_SIMPLE_EDGE_FEATURE_COUNT = NEO_PATH_PART_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3875,22 +3920,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_ABSTRACT_PATH_PARAM__DESCRIPTION = ParametersPackage.PARAMETER__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Inner Edge Count</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ABSTRACT_PATH_PARAM__INNER_EDGE_COUNT = ParametersPackage.PARAMETER_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Neo Abstract Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM_FEATURE_COUNT = ParametersPackage.PARAMETER_FEATURE_COUNT + 1;
+	int NEO_ABSTRACT_PATH_PARAM_FEATURE_COUNT = ParametersPackage.PARAMETER_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -4208,22 +4244,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_ABSTRACT_PATH_PARAM___GET_LAST_RELATIONS = ParametersPackage.PARAMETER_OPERATION_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Increase Inner Edge Count</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ABSTRACT_PATH_PARAM___INCREASE_INNER_EDGE_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 3;
-
-	/**
 	 * The number of operations of the '<em>Neo Abstract Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 4;
+	int NEO_ABSTRACT_PATH_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4278,15 +4305,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PATH_PARAM__DESCRIPTION = NEO_ABSTRACT_PATH_PARAM__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Inner Edge Count</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PATH_PARAM__INNER_EDGE_COUNT = NEO_ABSTRACT_PATH_PARAM__INNER_EDGE_COUNT;
 
 	/**
 	 * The feature id for the '<em><b>Neo Edge</b></em>' reference.
@@ -4631,15 +4649,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PATH_PARAM___GET_LAST_RELATIONS = NEO_ABSTRACT_PATH_PARAM___GET_LAST_RELATIONS;
 
 	/**
-	 * The operation id for the '<em>Increase Inner Edge Count</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PATH_PARAM___INCREASE_INNER_EDGE_COUNT = NEO_ABSTRACT_PATH_PARAM___INCREASE_INNER_EDGE_COUNT;
-
-	/**
 	 * The number of operations of the '<em>Neo Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4701,15 +4710,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_PATH_PARAM__DESCRIPTION = NEO_ABSTRACT_PATH_PARAM__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Inner Edge Count</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_PATH_PARAM__INNER_EDGE_COUNT = NEO_ABSTRACT_PATH_PARAM__INNER_EDGE_COUNT;
 
 	/**
 	 * The feature id for the '<em><b>Neo Property Edge</b></em>' reference.
@@ -5061,15 +5061,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_PATH_PARAM___GET_LAST_RELATIONS = NEO_ABSTRACT_PATH_PARAM___GET_LAST_RELATIONS;
-
-	/**
-	 * The operation id for the '<em>Increase Inner Edge Count</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_PATH_PARAM___INCREASE_INNER_EDGE_COUNT = NEO_ABSTRACT_PATH_PARAM___INCREASE_INNER_EDGE_COUNT;
 
 	/**
 	 * The operation id for the '<em>Set Neo Property Name</em>' operation.
@@ -5766,17 +5757,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EAttribute getNeoSimpleEdge_NeoDirection();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getEdgeNumber <em>Edge Number</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Edge Number</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getEdgeNumber()
-	 * @see #getNeoSimpleEdge()
-	 * @generated
-	 */
-	EAttribute getNeoSimpleEdge_EdgeNumber();
-
-	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getNeoTargetNodeLabels <em>Neo Target Node Labels</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5881,6 +5861,28 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getNeoPathPart_IsLastEdge();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getEdgeNumber <em>Edge Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Edge Number</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getEdgeNumber()
+	 * @see #getNeoPathPart()
+	 * @generated
+	 */
+	EAttribute getNeoPathPart_EdgeNumber();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoComplexEdge <em>Neo Complex Edge</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Neo Complex Edge</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoComplexEdge()
+	 * @see #getNeoPathPart()
+	 * @generated
+	 */
+	EReference getNeoPathPart_NeoComplexEdge();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathPartEdges() <em>Get Neo Path Part Edges</em>}' operation.
@@ -6151,17 +6153,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EClass getNeoAbstractPathParam();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getInnerEdgeCount <em>Inner Edge Count</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Inner Edge Count</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getInnerEdgeCount()
-	 * @see #getNeoAbstractPathParam()
-	 * @generated
-	 */
-	EAttribute getNeoAbstractPathParam_InnerEdgeCount();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getLastRelations() <em>Get Last Relations</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6170,16 +6161,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getNeoAbstractPathParam__GetLastRelations();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#increaseInnerEdgeCount() <em>Increase Inner Edge Count</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Increase Inner Edge Count</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#increaseInnerEdgeCount()
-	 * @generated
-	 */
-	EOperation getNeoAbstractPathParam__IncreaseInnerEdgeCount();
 
 	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.adaptionNeo4J.NeoDirection <em>Neo Direction</em>}'.
@@ -6371,14 +6352,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EAttribute NEO_SIMPLE_EDGE__NEO_DIRECTION = eINSTANCE.getNeoSimpleEdge_NeoDirection();
 
 		/**
-		 * The meta object literal for the '<em><b>Edge Number</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NEO_SIMPLE_EDGE__EDGE_NUMBER = eINSTANCE.getNeoSimpleEdge_EdgeNumber();
-
-		/**
 		 * The meta object literal for the '<em><b>Neo Target Node Labels</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6459,6 +6432,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute NEO_PATH_PART__IS_LAST_EDGE = eINSTANCE.getNeoPathPart_IsLastEdge();
+
+		/**
+		 * The meta object literal for the '<em><b>Edge Number</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NEO_PATH_PART__EDGE_NUMBER = eINSTANCE.getNeoPathPart_EdgeNumber();
+
+		/**
+		 * The meta object literal for the '<em><b>Neo Complex Edge</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NEO_PATH_PART__NEO_COMPLEX_EDGE = eINSTANCE.getNeoPathPart_NeoComplexEdge();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Neo Path Part Edges</b></em>' operation.
@@ -6681,28 +6670,12 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EClass NEO_ABSTRACT_PATH_PARAM = eINSTANCE.getNeoAbstractPathParam();
 
 		/**
-		 * The meta object literal for the '<em><b>Inner Edge Count</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NEO_ABSTRACT_PATH_PARAM__INNER_EDGE_COUNT = eINSTANCE.getNeoAbstractPathParam_InnerEdgeCount();
-
-		/**
 		 * The meta object literal for the '<em><b>Get Last Relations</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation NEO_ABSTRACT_PATH_PARAM___GET_LAST_RELATIONS = eINSTANCE.getNeoAbstractPathParam__GetLastRelations();
-
-		/**
-		 * The meta object literal for the '<em><b>Increase Inner Edge Count</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NEO_ABSTRACT_PATH_PARAM___INCREASE_INNER_EDGE_COUNT = eINSTANCE.getNeoAbstractPathParam__IncreaseInnerEdgeCount();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.NeoDirection <em>Neo Direction</em>}' enum.

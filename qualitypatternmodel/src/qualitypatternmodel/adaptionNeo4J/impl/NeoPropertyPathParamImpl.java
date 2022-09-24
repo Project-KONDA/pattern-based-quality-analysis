@@ -411,4 +411,9 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 		} 
 		return result;
 	}
+
+	@Override
+	protected int getRelationNumber() {
+		return getNeoPropertyEdge().getOriginalID();
+	}
 } //NeoAttributePathParamImpl

@@ -18,7 +18,6 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getKeyValueParam <em>Key Value Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getNeoDirection <em>Neo Direction</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getEdgeNumber <em>Edge Number</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getNeoTargetNodeLabels <em>Neo Target Node Labels</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getNeoEdgeLabel <em>Neo Edge Label</em>}</li>
  * </ul>
@@ -84,55 +83,6 @@ public interface NeoSimpleEdge extends NeoPathPart {
 	 * @generated
 	 */
 	NeoDirection getNeoDirection();
-
-	/**
-	 * Returns the value of the '<em><b>Edge Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Edge Number</em>' attribute.
-	 * @see #isSetEdgeNumber()
-	 * @see #unsetEdgeNumber()
-	 * @see #setEdgeNumber(int)
-	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoSimpleEdge_EdgeNumber()
-	 * @model unsettable="true"
-	 * @generated
-	 */
-	int getEdgeNumber();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getEdgeNumber <em>Edge Number</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Edge Number</em>' attribute.
-	 * @see #isSetEdgeNumber()
-	 * @see #unsetEdgeNumber()
-	 * @see #getEdgeNumber()
-	 * @generated
-	 */
-	void setEdgeNumber(int value);
-
-	/**
-	 * Unsets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getEdgeNumber <em>Edge Number</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSetEdgeNumber()
-	 * @see #getEdgeNumber()
-	 * @see #setEdgeNumber(int)
-	 * @generated
-	 */
-	void unsetEdgeNumber();
-
-	/**
-	 * Returns whether the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getEdgeNumber <em>Edge Number</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return whether the value of the '<em>Edge Number</em>' attribute is set.
-	 * @see #unsetEdgeNumber()
-	 * @see #getEdgeNumber()
-	 * @see #setEdgeNumber(int)
-	 * @generated
-	 */
-	boolean isSetEdgeNumber();
 
 	/**
 	 * Returns the value of the '<em><b>Neo Target Node Labels</b></em>' reference.

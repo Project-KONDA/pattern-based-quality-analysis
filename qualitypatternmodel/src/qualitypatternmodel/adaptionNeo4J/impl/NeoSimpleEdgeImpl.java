@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
+import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoDirection;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
@@ -35,13 +36,14 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl#getKeyValueParam <em>Key Value Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl#getNeoDirection <em>Neo Direction</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl#getEdgeNumber <em>Edge Number</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl#getNeoTargetNodeLabels <em>Neo Target Node Labels</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl#getNeoEdgeLabel <em>Neo Edge Label</em>}</li>
  * </ul>
  *
  * @generated
  */
+
+//REDUNDANCY IS INSIDE OF THIS CLASS ... REFACTOR
 public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge {
 	/**
 	 * The cached value of the '{@link #getKeyValueParam() <em>Key Value Param</em>}' reference.
@@ -72,32 +74,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 */
 	protected NeoDirection neoDirection = NEO_DIRECTION_EDEFAULT;
 	/**
-	 * The default value of the '{@link #getEdgeNumber() <em>Edge Number</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEdgeNumber()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int EDGE_NUMBER_EDEFAULT = 0;
-	/**
-	 * The cached value of the '{@link #getEdgeNumber() <em>Edge Number</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEdgeNumber()
-	 * @generated
-	 * @ordered
-	 */
-	protected int edgeNumber = EDGE_NUMBER_EDEFAULT;
-	/**
-	 * This is true if the Edge Number attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean edgeNumberESet;
-	/**
 	 * The cached value of the '{@link #getNeoTargetNodeLabels() <em>Neo Target Node Labels</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -119,13 +95,24 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	protected NeoSimpleEdgeImpl() {
 		super();
-		this.setEdgeNumber(NeoPathPartImpl.COUNTER);
-		increaseClassCounter();
-		//NeoPathPartImpl.EDGES.add(this);
+	}
+
+	@Override
+	protected NeoAbstractPathParam getNeoAbstractPathParam() {
+		if (getNeoComplexEdge() != null) {
+			return ((NeoPathPartImpl) getNeoComplexEdge()).getNeoAbstractPathParam();
+		}
+		NeoAbstractPathParam neoAbstractPathParam = null;
+		if (getNeoPathParam() != null) {
+			neoAbstractPathParam = getNeoPathParam();
+		} else if (getNeoPropertyPathParam() != null) {
+			neoAbstractPathParam = getNeoPropertyPathParam();
+		}
+		return neoAbstractPathParam;
 	} 
 	
 	@Override
@@ -184,7 +171,15 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	private void generateInternalCypherLabelGenerator(StringBuilder cypher, Boolean withLabels) throws InvalidityException {
 		cypher.append("[");
 		cypher.append(CypherSpecificConstants.VARIABLE_EGDE);
-		cypher.append(getEdgeNumber());
+		
+		NeoAbstractPathParamImpl param = (NeoAbstractPathParamImpl) getNeoAbstractPathParam();
+		int relationID = param.getRelationNumber();
+		cypher.append(relationID);
+		
+		if (edgeNumber != 0) {
+			cypher.append("_" + getEdgeNumber());
+		}
+		
 		if (withLabels) {
 			if (getNeoEdgeLabel() != null) { //!translated &&
 				cypher.append(":" + getNeoEdgeLabel().getValue());
@@ -194,9 +189,15 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		cypher.append("]");
 	}
 	
+	//Add to model?
 	@Override
 	public String getCypherVariable() {
-		return super.getCypherVariable() + edgeNumber;
+		String cypher;
+		cypher = super.getCypherVariable() + ((NeoAbstractPathParamImpl) getNeoAbstractPathParam()).getRelationNumber();
+		if (edgeNumber != 0) {
+			cypher += "_" + edgeNumber;
+		}
+		return cypher;
 	}
 	
 	/**
@@ -209,12 +210,16 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		if (getNeoTargetNodeLabels() == null || getNeoTargetNodeLabels().getValues().size() == 0) {
 			return null;
 		} else if (!isLastEdge) {
-			return CypherSpecificConstants.INTERNAL_EDGE_NODE + getEdgeNumber();
+			if (edgeNumber != 0) {
+				return CypherSpecificConstants.INTERNAL_EDGE_NODE + ((NeoAbstractPathParamImpl) getNeoAbstractPathParam()).getRelationNumber() + "_" + getEdgeNumber();
+			} else {
+				return CypherSpecificConstants.INTERNAL_EDGE_NODE + ((NeoAbstractPathParamImpl) getNeoAbstractPathParam()).getRelationNumber();
+			}
 		} else if (isLastEdge) {
 			if (getNeoPropertyPathParam() != null) {
 				return CypherSpecificConstants.VARIABLE_PROPERTY_NODE + (getNeoPropertyPathParam().getNeoPropertyEdge().getTarget().getOriginalID());
 			}
-			return CypherSpecificConstants.VARIABLE_PROPERTY_NODE + getEdgeNumber();
+			return CypherSpecificConstants.VARIABLE_PROPERTY_NODE + ((NeoAbstractPathParamImpl) getNeoAbstractPathParam()).getRelationNumber() + "_" + getEdgeNumber();
 		}
 		return null;
 	}
@@ -225,7 +230,11 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		if (getNeoTargetNodeLabels() == null || getNeoTargetNodeLabels().getValues().size() == 0) {
 			return null;
 		} else if (!isLastEdge) {
-			return CypherSpecificConstants.INTERNAL_EDGE_NODE + getEdgeNumber();
+			if (edgeNumber != 0) {
+				return CypherSpecificConstants.INTERNAL_EDGE_NODE + ((NeoAbstractPathParamImpl) getNeoAbstractPathParam()).getRelationNumber() + "_" + getEdgeNumber();
+			} else {
+				return CypherSpecificConstants.INTERNAL_EDGE_NODE + ((NeoAbstractPathParamImpl) getNeoAbstractPathParam()).getRelationNumber();
+			}
 		} 		
 		return null;
 	}
@@ -351,56 +360,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 * @generated
 	 */
 	@Override
-	public int getEdgeNumber() {
-		return edgeNumber;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setEdgeNumber(int newEdgeNumber) {
-		int oldEdgeNumber = edgeNumber;
-		edgeNumber = newEdgeNumber;
-		boolean oldEdgeNumberESet = edgeNumberESet;
-		edgeNumberESet = true;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER, oldEdgeNumber, edgeNumber, !oldEdgeNumberESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void unsetEdgeNumber() {
-		int oldEdgeNumber = edgeNumber;
-		boolean oldEdgeNumberESet = edgeNumberESet;
-		edgeNumber = EDGE_NUMBER_EDEFAULT;
-		edgeNumberESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER, oldEdgeNumber, EDGE_NUMBER_EDEFAULT, oldEdgeNumberESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isSetEdgeNumber() {
-		return edgeNumberESet;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public TextListParam getNeoTargetNodeLabels() {
 		if (neoTargetNodeLabels != null && neoTargetNodeLabels.eIsProxy()) {
 			InternalEObject oldNeoTargetNodeLabels = (InternalEObject)neoTargetNodeLabels;
@@ -492,8 +451,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 				return basicGetKeyValueParam();
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_DIRECTION:
 				return getNeoDirection();
-			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
-				return getEdgeNumber();
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS:
 				if (resolve) return getNeoTargetNodeLabels();
 				return basicGetNeoTargetNodeLabels();
@@ -516,9 +473,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM:
 				setKeyValueParam((KeyValueParam)newValue);
 				return;
-			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
-				setEdgeNumber((Integer)newValue);
-				return;
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS:
 				setNeoTargetNodeLabels((TextListParam)newValue);
 				return;
@@ -539,9 +493,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		switch (featureID) {
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM:
 				setKeyValueParam((KeyValueParam)null);
-				return;
-			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
-				unsetEdgeNumber();
 				return;
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS:
 				setNeoTargetNodeLabels((TextListParam)null);
@@ -565,8 +516,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 				return keyValueParam != null;
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_DIRECTION:
 				return neoDirection != NEO_DIRECTION_EDEFAULT;
-			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
-				return isSetEdgeNumber();
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS:
 				return neoTargetNodeLabels != null;
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL:
@@ -608,8 +557,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (neoDirection: ");
 		result.append(neoDirection);
-		result.append(", edgeNumber: ");
-		if (edgeNumberESet) result.append(edgeNumber); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

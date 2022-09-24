@@ -324,11 +324,15 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 	
 	@Override
 	public String myToString() {
-		String result = "PeoPathParam [" + getInternalId() + "] ";
+		String result = "NeoPathParam [" + getInternalId() + "] ";
 		try {
 			result += " " + generateCypher();
 		} catch (InvalidityException e) {}
 		return result;
 	}
 
+	@Override
+	protected int getRelationNumber() {
+		return getNeoEdge().getOriginalID();
+	}
 } //Neo4JPathParamImpl

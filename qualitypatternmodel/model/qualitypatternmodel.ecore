@@ -1257,8 +1257,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="keyValueParam" eType="#//parameters/KeyValueParam"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="neoDirection" unique="false"
           eType="#//adaptionNeo4J/NeoDirection" changeable="false"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="edgeNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-          unsettable="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoTargetNodeLabels"
           eType="#//parameters/TextListParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoEdgeLabel" eType="#//parameters/TextLiteralParam"/>
@@ -1278,6 +1276,9 @@
           eType="#//adaptionNeo4J/NeoPropertyPathParam" eOpposite="#//adaptionNeo4J/NeoPropertyPathParam/neoPathPart"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isLastEdge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           defaultValueLiteral="false"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="edgeNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          unsettable="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="neoComplexEdge" eType="#//adaptionNeo4J/NeoComplexEdge"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoPropertyNode" eSuperTypes="#//graphstructure/PrimitiveNode #//adaptionNeo4J/NeoAbstractNode">
       <eOperations name="generateCypherPropertyAddressing" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -1327,9 +1328,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="NeoAbstractPathParam" abstract="true"
         eSuperTypes="#//parameters/Parameter #//graphstructure/Adaptable">
       <eOperations name="getLastRelations" upperBound="-1" eType="#//adaptionNeo4J/NeoAbstractEdge"/>
-      <eOperations name="increaseInnerEdgeCount"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="innerEdgeCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-          defaultValueLiteral="0"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="NeoPlace">
       <eLiterals name="BEGINNING"/>

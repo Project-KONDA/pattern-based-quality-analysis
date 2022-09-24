@@ -10,11 +10,11 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
+import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
@@ -189,7 +189,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
@@ -197,7 +197,12 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		switch (featureID) {
 			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH:
 				getNeoPath().clear();
+				edgeNumber = 0;
 				getNeoPath().addAll((Collection<? extends NeoPathPart>)newValue);
+				for (NeoPathPart part : getNeoPath()) {
+					part.setEdgeNumber(edgeNumber);
+					edgeNumber++;
+				}
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -206,12 +211,13 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH:
+				edgeNumber = 0;
 				getNeoPath().clear();
 				return;
 		}
@@ -311,7 +317,24 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 			this.neoPath = new BasicEList<NeoPathPart>();
 		}
 		this.neoPath.add(neoPathPart);
+		neoPathPart.setNeoComplexEdge(this);
+		neoPathPart.setEdgeNumber(this.edgeNumber);
+		edgeNumber++;
+	}
+
+	@Override
+	protected NeoAbstractPathParam getNeoAbstractPathParam() {
+		if (getNeoComplexEdge() != null) {
+			return ((NeoPathPartImpl) getNeoComplexEdge()).getNeoAbstractPathParam();
+		}
+		NeoAbstractPathParam neoAbstractPathParam = null;
+		if (getNeoPathParam() != null) {
+			neoAbstractPathParam = getNeoPathParam();
+		} else if (getNeoPropertyPathParam() != null) {
+			neoAbstractPathParam = getNeoPropertyPathParam();
+		}
+		return neoAbstractPathParam;	
 	}
 
 
-} //SequenceEdgeImpl
+} //NeoComplexEdgeImpl

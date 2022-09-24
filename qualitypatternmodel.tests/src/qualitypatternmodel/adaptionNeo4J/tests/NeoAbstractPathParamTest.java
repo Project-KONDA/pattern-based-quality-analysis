@@ -13,7 +13,6 @@ import qualitypatternmodel.parameters.tests.ParameterTest;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getLastRelations() <em>Get Last Relations</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#increaseInnerEdgeCount() <em>Increase Inner Edge Count</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
  * </ul>
@@ -51,19 +50,6 @@ public abstract class NeoAbstractPathParamTest extends ParameterTest {
 	 * @generated
 	 */
 	public void testGetLastRelations() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#increaseInnerEdgeCount() <em>Increase Inner Edge Count</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#increaseInnerEdgeCount()
-	 * @generated
-	 */
-	public void testIncreaseInnerEdgeCount() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

@@ -47,6 +47,7 @@ public class CypherTest07QuantifiedCondition {
 	//CHECKING WHAT HAPPENS IF THE GRAPH HAS ALSO CONDITIONS --> Build test with multiple properties!
 	public static void buildExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		completePatternsExceptions.add(getNodesWhereExits(true));
 		completePatternsExceptions.add(tryNodesWhereMultiplePropertyExistsChecks(true));
 		completePatternsExceptions.add(tryNodesWhereNoBeginnings(false));
 		completePatternsExceptions.add(tryNodesWhereNoBeginnings(true));
@@ -56,7 +57,6 @@ public class CypherTest07QuantifiedCondition {
 	public static void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(getNodesWhereExits(false));
-		completePatterns.add(getNodesWhereExits(true));
 		completePatterns.add(getNodesWhereMultiplePropertyExistsChecks(false));
 		completePatterns.add(getNodesWhereMultiplePropertyExistsChecks(true));
 	}
