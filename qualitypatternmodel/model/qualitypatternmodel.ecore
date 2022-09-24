@@ -1327,6 +1327,9 @@
     <eClassifiers xsi:type="ecore:EClass" name="NeoAbstractPathParam" abstract="true"
         eSuperTypes="#//parameters/Parameter #//graphstructure/Adaptable">
       <eOperations name="getLastRelations" upperBound="-1" eType="#//adaptionNeo4J/NeoAbstractEdge"/>
+      <eOperations name="increaseInnerEdgeCount"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="innerEdgeCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          defaultValueLiteral="0"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="NeoPlace">
       <eLiterals name="BEGINNING"/>
