@@ -404,7 +404,7 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 
 	@Override
 	public String myToString() {
-		String result = "neoPropertyPathParam [" + getInternalId() + "] ";
+		String result = "NeoPropertyPathParam [" + getInternalId() + "] ";
 		try {
 			result += " " + generateCypher();
 		} catch (InvalidityException e) {
