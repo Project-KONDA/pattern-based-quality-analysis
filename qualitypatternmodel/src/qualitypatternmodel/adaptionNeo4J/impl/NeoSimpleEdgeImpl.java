@@ -15,6 +15,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoDirection;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoComplexEdgeImpl.InternalCount;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -38,6 +39,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl#getNeoDirection <em>Neo Direction</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl#getNeoTargetNodeLabels <em>Neo Target Node Labels</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl#getNeoEdgeLabel <em>Neo Edge Label</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl#getEdgeNumber <em>Edge Number</em>}</li>
  * </ul>
  *
  * @generated
@@ -92,6 +94,34 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 * @ordered
 	 */
 	protected TextLiteralParam neoEdgeLabel;
+	/**
+	 * The default value of the '{@link #getEdgeNumber() <em>Edge Number</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEdgeNumber()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int EDGE_NUMBER_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getEdgeNumber() <em>Edge Number</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEdgeNumber()
+	 * @generated
+	 * @ordered
+	 */
+	protected int edgeNumber = EDGE_NUMBER_EDEFAULT;
+
+	/**
+	 * This is true if the Edge Number attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean edgeNumberESet;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -219,6 +249,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			if (getNeoPropertyPathParam() != null) {
 				return CypherSpecificConstants.VARIABLE_PROPERTY_NODE + (getNeoPropertyPathParam().getNeoPropertyEdge().getTarget().getOriginalID());
 			}
+			//This needs Maybe rework... see CypherTest02Return
 			return CypherSpecificConstants.VARIABLE_PROPERTY_NODE + ((NeoAbstractPathParamImpl) getNeoAbstractPathParam()).getRelationNumber() + "_" + getEdgeNumber();
 		}
 		return null;
@@ -350,6 +381,56 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 * @generated
 	 */
 	@Override
+	public int getEdgeNumber() {
+		return edgeNumber;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setEdgeNumber(int newEdgeNumber) {
+		int oldEdgeNumber = edgeNumber;
+		edgeNumber = newEdgeNumber;
+		boolean oldEdgeNumberESet = edgeNumberESet;
+		edgeNumberESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER, oldEdgeNumber, edgeNumber, !oldEdgeNumberESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void unsetEdgeNumber() {
+		int oldEdgeNumber = edgeNumber;
+		boolean oldEdgeNumberESet = edgeNumberESet;
+		edgeNumber = EDGE_NUMBER_EDEFAULT;
+		edgeNumberESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER, oldEdgeNumber, EDGE_NUMBER_EDEFAULT, oldEdgeNumberESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isSetEdgeNumber() {
+		return edgeNumberESet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NeoDirection getNeoDirection() {
 		return neoDirection;
 	}
@@ -457,6 +538,8 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL:
 				if (resolve) return getNeoEdgeLabel();
 				return basicGetNeoEdgeLabel();
+			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
+				return getEdgeNumber();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -479,6 +562,9 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL:
 				setNeoEdgeLabel((TextLiteralParam)newValue);
 				return;
+			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
+				setEdgeNumber((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -500,6 +586,9 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL:
 				setNeoEdgeLabel((TextLiteralParam)null);
 				return;
+			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
+				unsetEdgeNumber();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -520,6 +609,8 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 				return neoTargetNodeLabels != null;
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL:
 				return neoEdgeLabel != null;
+			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
+				return isSetEdgeNumber();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -557,6 +648,8 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (neoDirection: ");
 		result.append(neoDirection);
+		result.append(", edgeNumber: ");
+		if (edgeNumberESet) result.append(edgeNumber); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}
@@ -572,6 +665,12 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		//TODO
 	}
+	
+	@Override
+	protected void setCount(InternalCount count) {
+		setEdgeNumber(count.getCount());		
+	}
+
 	
 //	  It can not just be done like this, since the id's of the other edges also have to be changed
 //	  Maybe introduce something like an observer? 	

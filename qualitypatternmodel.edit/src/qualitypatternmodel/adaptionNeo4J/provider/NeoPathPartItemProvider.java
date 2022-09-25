@@ -51,7 +51,6 @@ public class NeoPathPartItemProvider extends PatternElementItemProvider {
 
 			addTranslatedPropertyDescriptor(object);
 			addIsLastEdgePropertyDescriptor(object);
-			addEdgeNumberPropertyDescriptor(object);
 			addNeoComplexEdgePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -97,28 +96,6 @@ public class NeoPathPartItemProvider extends PatternElementItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Edge Number feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addEdgeNumberPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_NeoPathPart_edgeNumber_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NeoPathPart_edgeNumber_feature", "_UI_NeoPathPart_type"),
-				 AdaptionNeo4JPackage.Literals.NEO_PATH_PART__EDGE_NUMBER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -174,7 +151,6 @@ public class NeoPathPartItemProvider extends PatternElementItemProvider {
 		switch (notification.getFeatureID(NeoPathPart.class)) {
 			case AdaptionNeo4JPackage.NEO_PATH_PART__TRANSLATED:
 			case AdaptionNeo4JPackage.NEO_PATH_PART__IS_LAST_EDGE:
-			case AdaptionNeo4JPackage.NEO_PATH_PART__EDGE_NUMBER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

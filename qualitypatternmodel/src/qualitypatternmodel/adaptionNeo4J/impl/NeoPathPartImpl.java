@@ -18,6 +18,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoComplexEdgeImpl.InternalCount;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
@@ -34,7 +35,6 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl#getNeoPathParam <em>Neo Path Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl#getNeoPropertyPathParam <em>Neo Property Path Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl#isIsLastEdge <em>Is Last Edge</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl#getEdgeNumber <em>Edge Number</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl#getNeoComplexEdge <em>Neo Complex Edge</em>}</li>
  * </ul>
  *
@@ -78,33 +78,6 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	 * @ordered
 	 */
 	protected boolean isLastEdge = IS_LAST_EDGE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getEdgeNumber() <em>Edge Number</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEdgeNumber()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int EDGE_NUMBER_EDEFAULT = 0;
-	/**
-	 * The cached value of the '{@link #getEdgeNumber() <em>Edge Number</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEdgeNumber()
-	 * @generated
-	 * @ordered
-	 */
-	protected int edgeNumber = EDGE_NUMBER_EDEFAULT;
-	/**
-	 * This is true if the Edge Number attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean edgeNumberESet;
 
 	/**
 	 * The cached value of the '{@link #getNeoComplexEdge() <em>Neo Complex Edge</em>}' reference.
@@ -273,56 +246,6 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	 * @generated
 	 */
 	@Override
-	public int getEdgeNumber() {
-		return edgeNumber;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setEdgeNumber(int newEdgeNumber) {
-		int oldEdgeNumber = edgeNumber;
-		edgeNumber = newEdgeNumber;
-		boolean oldEdgeNumberESet = edgeNumberESet;
-		edgeNumberESet = true;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PATH_PART__EDGE_NUMBER, oldEdgeNumber, edgeNumber, !oldEdgeNumberESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void unsetEdgeNumber() {
-		int oldEdgeNumber = edgeNumber;
-		boolean oldEdgeNumberESet = edgeNumberESet;
-		edgeNumber = EDGE_NUMBER_EDEFAULT;
-		edgeNumberESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, AdaptionNeo4JPackage.NEO_PATH_PART__EDGE_NUMBER, oldEdgeNumber, EDGE_NUMBER_EDEFAULT, oldEdgeNumberESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isSetEdgeNumber() {
-		return edgeNumberESet;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NeoComplexEdge getNeoComplexEdge() {
 		if (neoComplexEdge != null && neoComplexEdge.eIsProxy()) {
 			InternalEObject oldNeoComplexEdge = (InternalEObject)neoComplexEdge;
@@ -483,8 +406,6 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 				return getNeoPropertyPathParam();
 			case AdaptionNeo4JPackage.NEO_PATH_PART__IS_LAST_EDGE:
 				return isIsLastEdge();
-			case AdaptionNeo4JPackage.NEO_PATH_PART__EDGE_NUMBER:
-				return getEdgeNumber();
 			case AdaptionNeo4JPackage.NEO_PATH_PART__NEO_COMPLEX_EDGE:
 				if (resolve) return getNeoComplexEdge();
 				return basicGetNeoComplexEdge();
@@ -511,9 +432,6 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 				return;
 			case AdaptionNeo4JPackage.NEO_PATH_PART__IS_LAST_EDGE:
 				setIsLastEdge((Boolean)newValue);
-				return;
-			case AdaptionNeo4JPackage.NEO_PATH_PART__EDGE_NUMBER:
-				setEdgeNumber((Integer)newValue);
 				return;
 			case AdaptionNeo4JPackage.NEO_PATH_PART__NEO_COMPLEX_EDGE:
 				setNeoComplexEdge((NeoComplexEdge)newValue);
@@ -542,9 +460,6 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 			case AdaptionNeo4JPackage.NEO_PATH_PART__IS_LAST_EDGE:
 				setIsLastEdge(IS_LAST_EDGE_EDEFAULT);
 				return;
-			case AdaptionNeo4JPackage.NEO_PATH_PART__EDGE_NUMBER:
-				unsetEdgeNumber();
-				return;
 			case AdaptionNeo4JPackage.NEO_PATH_PART__NEO_COMPLEX_EDGE:
 				setNeoComplexEdge((NeoComplexEdge)null);
 				return;
@@ -568,8 +483,6 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 				return getNeoPropertyPathParam() != null;
 			case AdaptionNeo4JPackage.NEO_PATH_PART__IS_LAST_EDGE:
 				return isLastEdge != IS_LAST_EDGE_EDEFAULT;
-			case AdaptionNeo4JPackage.NEO_PATH_PART__EDGE_NUMBER:
-				return isSetEdgeNumber();
 			case AdaptionNeo4JPackage.NEO_PATH_PART__NEO_COMPLEX_EDGE:
 				return neoComplexEdge != null;
 		}
@@ -624,8 +537,6 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 		result.append(translated);
 		result.append(", isLastEdge: ");
 		result.append(isLastEdge);
-		result.append(", edgeNumber: ");
-		if (edgeNumberESet) result.append(edgeNumber); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}
@@ -633,6 +544,8 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	//Add to ecore?
 	protected abstract NeoAbstractPathParam getNeoAbstractPathParam();
 	
+	//for the counting
+	protected abstract void setCount(InternalCount count);
 //	protected void fillTheGapWithLastElement(NeoSimpleEdgeImpl edgeRemove) {
 //		int ix = NeoPathPartImpl.EDGES.indexOf(edgeRemove);
 //		int edgeCounterNumber = NeoPathPartImpl.EDGES.get(ix).getEdgeNumber();

@@ -1,18 +1,15 @@
 /**
  */
 package qualitypatternmodel.adaptionNeo4J.impl;
-
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
@@ -161,12 +158,15 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT 
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH:
+				int i = ((InternalEList<?>)getNeoPath()).basicIndexOf(otherEnd);
+				NeoPathPart neoPathPart = (NeoPathPart) ((InternalEList<?>)getNeoPath()).basicGet(i);
+				neoPathPart.setNeoComplexEdge((NeoComplexEdge) null);
 				return ((InternalEList<?>)getNeoPath()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -196,12 +196,12 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH:
+				for (NeoPathPart part : getNeoPath()) part.setNeoComplexEdge((NeoComplexEdge) null);
 				getNeoPath().clear();
-				edgeNumber = 0;
 				getNeoPath().addAll((Collection<? extends NeoPathPart>)newValue);
 				for (NeoPathPart part : getNeoPath()) {
-					part.setEdgeNumber(edgeNumber);
-					edgeNumber++;
+					part.setNeoComplexEdge((NeoComplexEdge) this);
+					((NeoPathPartImpl)part).setCount(getCount());
 				}
 				return;
 		}
@@ -217,7 +217,9 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH:
-				edgeNumber = 0;
+				this.unsetCount(); // Check if that is correct and just the local counter is reseted
+				for (NeoPathPart neoPart : getNeoPath()) neoPart.setNeoComplexEdge((NeoComplexEdge) null);
+				//Maybe do recounting... but talking before with Arno...
 				getNeoPath().clear();
 				return;
 		}
@@ -291,6 +293,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		return result;
 	}
 
+	//Maybe needs reword if a Container has an other Container
 	@Override
 	public boolean validateComplexEdge() throws InvalidityException {
 		for (NeoPathPart part : getNeoPath()) {
@@ -318,8 +321,12 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		}
 		this.neoPath.add(neoPathPart);
 		neoPathPart.setNeoComplexEdge(this);
-		neoPathPart.setEdgeNumber(this.edgeNumber);
-		edgeNumber++;
+		NeoPathPartImpl neoPathPartImpl = (NeoPathPartImpl) neoPathPart;
+		if (getNeoComplexEdge() != null) {
+			neoPathPartImpl.setCount(this.getHighestComplexEdge().getCount());
+		} else {
+			neoPathPartImpl.setCount(getCount());
+		}
 	}
 
 	@Override
@@ -335,6 +342,53 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		}
 		return neoAbstractPathParam;	
 	}
-
-
+	
+	//For Counting the inner Edges
+	private NeoComplexEdgeImpl getHighestComplexEdge() {
+		NeoComplexEdge neoComplexEdge = this;
+		while (neoComplexEdge.getNeoComplexEdge() != null) {
+			neoComplexEdge = neoComplexEdge.getNeoComplexEdge();
+		}
+		return (NeoComplexEdgeImpl) neoComplexEdge;
+	}
+	
+	//For resetting the counting if a ComplexEdge has been created at the same time as an other Complex Edge but is in his container
+	@Override
+	public void setNeoComplexEdge(NeoComplexEdge newNeoComplexEdge) {
+		super.setNeoComplexEdge(newNeoComplexEdge);
+		setCount(((NeoComplexEdgeImpl) newNeoComplexEdge).getCount());
+		for (NeoPathPart part : getNeoPath()) ((NeoPathPartImpl) part).setCount(getCount());
+	}
+	
+	protected InternalCount count = null;
+	protected InternalCount getCount() {
+		if (count == null) {
+			count = createInternalCounter();
+		}
+		return count;
+	}
+	
+	protected void setCount(InternalCount count) {
+		this.count = count;
+	}
+	
+	protected void unsetCount() {
+		count = null;
+	}
+	
+	private InternalCount createInternalCounter() {
+		return new InternalCount();
+	}
+	
+	protected final class InternalCount {
+		int counter = -1;
+		private InternalCount() {
+			super();
+		}
+		
+		protected int getCount() {
+			counter = counter + 1;
+			return counter;
+		}
+	}
 } //NeoComplexEdgeImpl

@@ -19,7 +19,6 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathParam <em>Neo Path Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPropertyPathParam <em>Neo Property Path Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#isIsLastEdge <em>Is Last Edge</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getEdgeNumber <em>Edge Number</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoComplexEdge <em>Neo Complex Edge</em>}</li>
  * </ul>
  *
@@ -120,55 +119,6 @@ public interface NeoPathPart extends PatternElement {
 	 * @generated
 	 */
 	void setIsLastEdge(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Edge Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Edge Number</em>' attribute.
-	 * @see #isSetEdgeNumber()
-	 * @see #unsetEdgeNumber()
-	 * @see #setEdgeNumber(int)
-	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPathPart_EdgeNumber()
-	 * @model unsettable="true"
-	 * @generated
-	 */
-	int getEdgeNumber();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getEdgeNumber <em>Edge Number</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Edge Number</em>' attribute.
-	 * @see #isSetEdgeNumber()
-	 * @see #unsetEdgeNumber()
-	 * @see #getEdgeNumber()
-	 * @generated
-	 */
-	void setEdgeNumber(int value);
-
-	/**
-	 * Unsets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getEdgeNumber <em>Edge Number</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSetEdgeNumber()
-	 * @see #getEdgeNumber()
-	 * @see #setEdgeNumber(int)
-	 * @generated
-	 */
-	void unsetEdgeNumber();
-
-	/**
-	 * Returns whether the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getEdgeNumber <em>Edge Number</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return whether the value of the '<em>Edge Number</em>' attribute is set.
-	 * @see #unsetEdgeNumber()
-	 * @see #getEdgeNumber()
-	 * @see #setEdgeNumber(int)
-	 * @generated
-	 */
-	boolean isSetEdgeNumber();
 
 	/**
 	 * Returns the value of the '<em><b>Neo Complex Edge</b></em>' reference.
