@@ -7,7 +7,6 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
 
 import qualitypatternmodel.graphstructure.Adaptable;
@@ -39,18 +38,6 @@ public abstract class NeoAbstractPathParamImpl extends ParameterImpl implements 
 	@Override
 	protected EClass eStaticClass() {
 		return AdaptionNeo4JPackage.Literals.NEO_ABSTRACT_PATH_PARAM;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<NeoAbstractEdge> getLastRelations() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -102,8 +89,6 @@ public abstract class NeoAbstractPathParamImpl extends ParameterImpl implements 
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AdaptionNeo4JPackage.NEO_ABSTRACT_PATH_PARAM___GET_LAST_RELATIONS:
-				return getLastRelations();
 			case AdaptionNeo4JPackage.NEO_ABSTRACT_PATH_PARAM___CREATE_PARAMETERS:
 				createParameters();
 				return null;

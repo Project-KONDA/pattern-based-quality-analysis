@@ -1326,9 +1326,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnElement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoAbstractPathParam" abstract="true"
-        eSuperTypes="#//parameters/Parameter #//graphstructure/Adaptable">
-      <eOperations name="getLastRelations" upperBound="-1" eType="#//adaptionNeo4J/NeoAbstractEdge"/>
-    </eClassifiers>
+        eSuperTypes="#//parameters/Parameter #//graphstructure/Adaptable"/>
     <eClassifiers xsi:type="ecore:EEnum" name="NeoPlace">
       <eLiterals name="BEGINNING"/>
       <eLiterals name="FOLLOWING" value="1"/>

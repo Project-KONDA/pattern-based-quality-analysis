@@ -2,7 +2,6 @@
  */
 package qualitypatternmodel.adaptionNeo4J;
 
-import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.parameters.Parameter;
 
@@ -17,11 +16,4 @@ import qualitypatternmodel.parameters.Parameter;
  * @generated
  */
 public interface NeoAbstractPathParam extends Parameter, Adaptable {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	EList<NeoAbstractEdge> getLastRelations();
 } // NeoAbstractPathParam

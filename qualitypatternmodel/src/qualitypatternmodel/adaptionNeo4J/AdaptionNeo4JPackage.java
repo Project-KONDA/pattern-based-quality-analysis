@@ -4217,22 +4217,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_ABSTRACT_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = ParametersPackage.PARAMETER_OPERATION_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Get Last Relations</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ABSTRACT_PATH_PARAM___GET_LAST_RELATIONS = ParametersPackage.PARAMETER_OPERATION_COUNT + 2;
-
-	/**
 	 * The number of operations of the '<em>Neo Abstract Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 3;
+	int NEO_ABSTRACT_PATH_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4620,15 +4611,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = NEO_ABSTRACT_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get Last Relations</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PATH_PARAM___GET_LAST_RELATIONS = NEO_ABSTRACT_PATH_PARAM___GET_LAST_RELATIONS;
 
 	/**
 	 * The number of operations of the '<em>Neo Path Param</em>' class.
@@ -5034,15 +5016,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = NEO_ABSTRACT_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get Last Relations</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_PATH_PARAM___GET_LAST_RELATIONS = NEO_ABSTRACT_PATH_PARAM___GET_LAST_RELATIONS;
 
 	/**
 	 * The operation id for the '<em>Set Neo Property Name</em>' operation.
@@ -6135,16 +6108,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EClass getNeoAbstractPathParam();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getLastRelations() <em>Get Last Relations</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Last Relations</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getLastRelations()
-	 * @generated
-	 */
-	EOperation getNeoAbstractPathParam__GetLastRelations();
-
-	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.adaptionNeo4J.NeoDirection <em>Neo Direction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6650,14 +6613,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * @generated
 		 */
 		EClass NEO_ABSTRACT_PATH_PARAM = eINSTANCE.getNeoAbstractPathParam();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Last Relations</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NEO_ABSTRACT_PATH_PARAM___GET_LAST_RELATIONS = eINSTANCE.getNeoAbstractPathParam__GetLastRelations();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.NeoDirection <em>Neo Direction</em>}' enum.

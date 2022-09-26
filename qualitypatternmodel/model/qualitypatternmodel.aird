@@ -3006,10 +3006,6 @@
             <children xmi:type="notation:Node" xmi:id="_bdRpcB8IEe20H_6KewSmww" type="3009" element="_bcdxIB8IEe20H_6KewSmww">
               <children xmi:type="notation:Node" xmi:id="_bdRpcx8IEe20H_6KewSmww" type="5004"/>
               <children xmi:type="notation:Node" xmi:id="_bdRpdB8IEe20H_6KewSmww" type="7003">
-                <children xmi:type="notation:Node" xmi:id="_tSbtIB8IEe20H_6KewSmww" type="3010" element="_tRrfMB8IEe20H_6KewSmww">
-                  <styles xmi:type="notation:FontStyle" xmi:id="_tSbtIR8IEe20H_6KewSmww" fontName="Segoe UI" fontHeight="8"/>
-                  <layoutConstraint xmi:type="notation:Location" xmi:id="_tSbtIh8IEe20H_6KewSmww"/>
-                </children>
                 <styles xmi:type="notation:SortingStyle" xmi:id="_bdRpdR8IEe20H_6KewSmww"/>
                 <styles xmi:type="notation:FilteringStyle" xmi:id="_bdRpdh8IEe20H_6KewSmww"/>
               </children>
@@ -3092,6 +3088,21 @@
               <styles xmi:type="notation:LineTypeStyle" xmi:id="_2yd9tDy8Ee2ir-Bc3NPl-g"/>
               <element xsi:nil="true"/>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2yd9tTy8Ee2ir-Bc3NPl-g" x="402" y="509" width="196"/>
+            </children>
+            <children xmi:type="notation:Shape" xmi:id="_qFvHID2SEe2Qp-ybJSPxgQ" type="Note" fontName="Segoe UI" description="Implementation: a NeoComplexEdge can hold another edge. Consider this aspect and do a test for it " fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qFvHIT2SEe2Qp-ybJSPxgQ" source="specificStyles">
+                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qFvHIj2SEe2Qp-ybJSPxgQ" key="verticalAlignment" value="8"/>
+              </eAnnotations>
+              <children xmi:type="notation:BasicDecorationNode" xmi:id="_qFw8UD2SEe2Qp-ybJSPxgQ" type="DiagramName">
+                <element xsi:nil="true"/>
+              </children>
+              <children xmi:type="notation:BasicDecorationNode" xmi:id="_qFw8UT2SEe2Qp-ybJSPxgQ" type="Description">
+                <element xsi:nil="true"/>
+              </children>
+              <styles xmi:type="notation:TextStyle" xmi:id="_qFvHIz2SEe2Qp-ybJSPxgQ" textAlignment="Center"/>
+              <styles xmi:type="notation:LineTypeStyle" xmi:id="_qFvHJD2SEe2Qp-ybJSPxgQ"/>
+              <element xsi:nil="true"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qFvHJT2SEe2Qp-ybJSPxgQ" x="555" y="717" width="176"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_TKib4gLoEe2GF_6PqNgKEg"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_TKib4wLoEe2GF_6PqNgKEg"/>
@@ -13249,14 +13260,6 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@conditionnalStyles.1/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_tRrfMB8IEe20H_6KewSmww" name="getLastRelations() : NeoAbstractEdge" tooltipText="getLastRelations() : NeoAbstractEdge">
-          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractPathParam/getLastRelations"/>
-          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractPathParam/getLastRelations"/>
-          <ownedStyle xmi:type="diagram:BundledImage" uid="_tRrfMR8IEe20H_6KewSmww" labelAlignment="LEFT">
-            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
-          </ownedStyle>
-          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
-        </ownedElements>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_1xEUICMrEe23B9jt7anp1g" name="NeoPlace" tooltipText="" width="12" height="10">
         <target xmi:type="ecore:EEnum" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPlace"/>
