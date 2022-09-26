@@ -95,7 +95,7 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 							targetNodesCanNotBeNull();
 						}
 					} else {
-						throw new InvalidityException("Last Edge has to be set");
+						throw new InvalidityException("NeoPropertyEdge - Last Edge has to be set");
 					}
 				}
 				
@@ -108,7 +108,7 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 	}
 
 	private void targetNodesCanNotBeNull() throws InvalidityException {
-		throw new InvalidityException("TargetNodes can not be null");
+		throw new InvalidityException("NeoPropertyEdge - TargetNodes can not be null");
 	}
 	
 	/**

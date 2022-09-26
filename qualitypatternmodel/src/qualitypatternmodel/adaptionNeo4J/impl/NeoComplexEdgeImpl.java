@@ -360,6 +360,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		for (NeoPathPart part : getNeoPath()) ((NeoPathPartImpl) part).setCount(getCount());
 	}
 	
+	//BEGIN - For counting the inner Edges
 	protected InternalCount count = null;
 	protected InternalCount getCount() {
 		if (count == null) {
@@ -391,4 +392,5 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 			return counter;
 		}
 	}
+	//END - For counting the inner Edges
 } //NeoComplexEdgeImpl

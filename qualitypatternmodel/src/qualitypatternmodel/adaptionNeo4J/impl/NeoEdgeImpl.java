@@ -73,7 +73,7 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 				
 				//TODO make it more generic if the NeoUnspecifiedEdge is coming
 				EList<NeoPathPart> neoPathParts = getNeoPathParam().getNeoPathPart().getNeoPathPartEdges();
-				if (neoPathParts == null || neoPathParts.size() == 0) throw new InvalidityException("ComplexNode can not be empty");
+				if (neoPathParts == null || neoPathParts.size() == 0) throw new InvalidityException("NeoEdge - NeoParts can not be empty");
 				this.translated = true;
 				
 				if (neoPathParts.size() > 1) {
@@ -94,7 +94,7 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 							cypher.append(CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES);
 						}
 					} else {
-						throw new InvalidityException("The last NeoPathPart has to be specified as lastEdge");
+						throw new InvalidityException("NeoEdge - The last NeoPathPart has to be specified as lastEdge");
 					}
 				} else if (neoPathParts.size() == 1) {
 					cypher.append(neoPathParts.get(0).generateCypher());
