@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.operators;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
@@ -1715,13 +1716,22 @@ public interface OperatorsPackage extends EPackage {
 	int COMPARISON__TYPE_OPTION = BOOLEAN_OPERATOR_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Is Internal Id Check</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON__IS_INTERNAL_ID_CHECK = BOOLEAN_OPERATOR_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Comparison</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_FEATURE_COUNT = BOOLEAN_OPERATOR_FEATURE_COUNT + 4;
+	int COMPARISON_FEATURE_COUNT = BOOLEAN_OPERATOR_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -3058,6 +3068,17 @@ public interface OperatorsPackage extends EPackage {
 	EReference getComparison_TypeOption();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.operators.Comparison#isIsInternalIdCheck <em>Is Internal Id Check</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Internal Id Check</em>'.
+	 * @see qualitypatternmodel.operators.Comparison#isIsInternalIdCheck()
+	 * @see #getComparison()
+	 * @generated
+	 */
+	EAttribute getComparison_IsInternalIdCheck();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.operators.Comparison#isPrimitive() <em>Is Primitive</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3427,6 +3448,14 @@ public interface OperatorsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPARISON__TYPE_OPTION = eINSTANCE.getComparison_TypeOption();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Internal Id Check</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPARISON__IS_INTERNAL_ID_CHECK = eINSTANCE.getComparison_IsInternalIdCheck();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Primitive</b></em>' operation.

@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.operators.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
@@ -470,6 +471,16 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 	 * @generated
 	 */
 	@Override
+	public EAttribute getComparison_IsInternalIdCheck() {
+		return (EAttribute)comparisonEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getComparison__IsPrimitive() {
 		return comparisonEClass.getEOperations().get(0);
 	}
@@ -661,6 +672,7 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		createEReference(comparisonEClass, COMPARISON__ARGUMENT2);
 		createEReference(comparisonEClass, COMPARISON__OPTION);
 		createEReference(comparisonEClass, COMPARISON__TYPE_OPTION);
+		createEAttribute(comparisonEClass, COMPARISON__IS_INTERNAL_ID_CHECK);
 		createEOperation(comparisonEClass, COMPARISON___IS_PRIMITIVE);
 		createEOperation(comparisonEClass, COMPARISON___GET_ELEMENT);
 		createEOperation(comparisonEClass, COMPARISON___COPY);
@@ -776,6 +788,7 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		initEReference(getComparison_Argument2(), theGraphstructurePackage.getComparable(), theGraphstructurePackage.getComparable_Comparison2(), "argument2", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComparison_Option(), theParametersPackage.getComparisonOptionParam(), theParametersPackage.getComparisonOptionParam_Comparisons(), "option", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComparison_TypeOption(), theParametersPackage.getTypeOptionParam(), theParametersPackage.getTypeOptionParam_TypeComparisons(), "typeOption", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComparison_IsInternalIdCheck(), ecorePackage.getEBoolean(), "isInternalIdCheck", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getComparison__IsPrimitive(), ecorePackage.getEBoolean(), "isPrimitive", 0, 1, IS_UNIQUE, IS_ORDERED);
 

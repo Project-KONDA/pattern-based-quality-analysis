@@ -9,10 +9,12 @@ import java.util.Collection;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -30,6 +32,7 @@ import qualitypatternmodel.parameters.TextListParam;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.impl.TextListParamImpl#getValues <em>Values</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.TextListParamImpl#isIsListTranslatable <em>Is List Translatable</em>}</li>
  * </ul>
  *
  * @generated
@@ -45,6 +48,25 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	 * @ordered
 	 */
 	protected EList<String> values;
+
+	/**
+	 * The default value of the '{@link #isIsListTranslatable() <em>Is List Translatable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsListTranslatable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IS_LIST_TRANSLATABLE_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isIsListTranslatable() <em>Is List Translatable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsListTranslatable()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean isListTranslatable = IS_LIST_TRANSLATABLE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -194,6 +216,29 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isIsListTranslatable() {
+		return isListTranslatable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setIsListTranslatable(boolean newIsListTranslatable) {
+		boolean oldIsListTranslatable = isListTranslatable;
+		isListTranslatable = newIsListTranslatable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.TEXT_LIST_PARAM__IS_LIST_TRANSLATABLE, oldIsListTranslatable, isListTranslatable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -259,6 +304,8 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 		switch (featureID) {
 			case ParametersPackage.TEXT_LIST_PARAM__VALUES:
 				return getValues();
+			case ParametersPackage.TEXT_LIST_PARAM__IS_LIST_TRANSLATABLE:
+				return isIsListTranslatable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -276,6 +323,9 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 				getValues().clear();
 				getValues().addAll((Collection<? extends String>)newValue);
 				return;
+			case ParametersPackage.TEXT_LIST_PARAM__IS_LIST_TRANSLATABLE:
+				setIsListTranslatable((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -291,6 +341,9 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 			case ParametersPackage.TEXT_LIST_PARAM__VALUES:
 				getValues().clear();
 				return;
+			case ParametersPackage.TEXT_LIST_PARAM__IS_LIST_TRANSLATABLE:
+				setIsListTranslatable(IS_LIST_TRANSLATABLE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -305,6 +358,8 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 		switch (featureID) {
 			case ParametersPackage.TEXT_LIST_PARAM__VALUES:
 				return values != null && !values.isEmpty();
+			case ParametersPackage.TEXT_LIST_PARAM__IS_LIST_TRANSLATABLE:
+				return isListTranslatable != IS_LIST_TRANSLATABLE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -352,6 +407,8 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (values: ");
 		result.append(values);
+		result.append(", isListTranslatable: ");
+		result.append(isListTranslatable);
 		result.append(')');
 		return result.toString();
 	}

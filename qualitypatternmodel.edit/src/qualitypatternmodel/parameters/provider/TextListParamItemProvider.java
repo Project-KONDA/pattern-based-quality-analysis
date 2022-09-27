@@ -47,6 +47,7 @@ public class TextListParamItemProvider extends ParameterValueItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addValuesPropertyDescriptor(object);
+			addIsListTranslatablePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -69,6 +70,28 @@ public class TextListParamItemProvider extends ParameterValueItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Is List Translatable feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIsListTranslatablePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TextListParam_isListTranslatable_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TextListParam_isListTranslatable_feature", "_UI_TextListParam_type"),
+				 ParametersPackage.Literals.TEXT_LIST_PARAM__IS_LIST_TRANSLATABLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -116,6 +139,7 @@ public class TextListParamItemProvider extends ParameterValueItemProvider {
 
 		switch (notification.getFeatureID(TextListParam.class)) {
 			case ParametersPackage.TEXT_LIST_PARAM__VALUES:
+			case ParametersPackage.TEXT_LIST_PARAM__IS_LIST_TRANSLATABLE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

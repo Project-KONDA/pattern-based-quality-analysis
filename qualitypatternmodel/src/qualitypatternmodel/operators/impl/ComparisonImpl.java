@@ -66,6 +66,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  *   <li>{@link qualitypatternmodel.operators.impl.ComparisonImpl#getArgument2 <em>Argument2</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.impl.ComparisonImpl#getOption <em>Option</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.impl.ComparisonImpl#getTypeOption <em>Type Option</em>}</li>
+ *   <li>{@link qualitypatternmodel.operators.impl.ComparisonImpl#isIsInternalIdCheck <em>Is Internal Id Check</em>}</li>
  * </ul>
  *
  * @generated
@@ -114,6 +115,26 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * @ordered
 	 */
 	protected TypeOptionParam typeOption;
+
+	/**
+	 * The default value of the '{@link #isIsInternalIdCheck() <em>Is Internal Id Check</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsInternalIdCheck()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IS_INTERNAL_ID_CHECK_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isIsInternalIdCheck() <em>Is Internal Id Check</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsInternalIdCheck()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean isInternalIdCheck = IS_INTERNAL_ID_CHECK_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> 
@@ -961,6 +982,29 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isIsInternalIdCheck() {
+		return isInternalIdCheck;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setIsInternalIdCheck(boolean newIsInternalIdCheck) {
+		boolean oldIsInternalIdCheck = isInternalIdCheck;
+		isInternalIdCheck = newIsInternalIdCheck;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OperatorsPackage.COMPARISON__IS_INTERNAL_ID_CHECK, oldIsInternalIdCheck, isInternalIdCheck));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -1212,6 +1256,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			case OperatorsPackage.COMPARISON__TYPE_OPTION:
 				if (resolve) return getTypeOption();
 				return basicGetTypeOption();
+			case OperatorsPackage.COMPARISON__IS_INTERNAL_ID_CHECK:
+				return isIsInternalIdCheck();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1234,6 +1280,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				return;
 			case OperatorsPackage.COMPARISON__TYPE_OPTION:
 				setTypeOption((TypeOptionParam)newValue);
+				return;
+			case OperatorsPackage.COMPARISON__IS_INTERNAL_ID_CHECK:
+				setIsInternalIdCheck((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1258,6 +1307,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			case OperatorsPackage.COMPARISON__TYPE_OPTION:
 				setTypeOption((TypeOptionParam)null);
 				return;
+			case OperatorsPackage.COMPARISON__IS_INTERNAL_ID_CHECK:
+				setIsInternalIdCheck(IS_INTERNAL_ID_CHECK_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1277,6 +1329,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				return option != null;
 			case OperatorsPackage.COMPARISON__TYPE_OPTION:
 				return typeOption != null;
+			case OperatorsPackage.COMPARISON__IS_INTERNAL_ID_CHECK:
+				return isInternalIdCheck != IS_INTERNAL_ID_CHECK_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1297,6 +1351,22 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				return copy();
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (isInternalIdCheck: ");
+		result.append(isInternalIdCheck);
+		result.append(')');
+		return result.toString();
 	}
 
 	@Override

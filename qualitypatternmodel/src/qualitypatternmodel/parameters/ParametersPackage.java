@@ -2344,13 +2344,22 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LIST_PARAM__VALUES = PARAMETER_VALUE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Is List Translatable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM__IS_LIST_TRANSLATABLE = PARAMETER_VALUE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Text List Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 1;
+	int TEXT_LIST_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -7324,6 +7333,17 @@ public interface ParametersPackage extends EPackage {
 	EAttribute getTextListParam_Values();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.parameters.TextListParam#isIsListTranslatable <em>Is List Translatable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is List Translatable</em>'.
+	 * @see qualitypatternmodel.parameters.TextListParam#isIsListTranslatable()
+	 * @see #getTextListParam()
+	 * @generated
+	 */
+	EAttribute getTextListParam_IsListTranslatable();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.TextListParam#getListDeclaration() <em>Get List Declaration</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8133,6 +8153,14 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TEXT_LIST_PARAM__VALUES = eINSTANCE.getTextListParam_Values();
+
+		/**
+		 * The meta object literal for the '<em><b>Is List Translatable</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT_LIST_PARAM__IS_LIST_TRANSLATABLE = eINSTANCE.getTextListParam_IsListTranslatable();
 
 		/**
 		 * The meta object literal for the '<em><b>Get List Declaration</b></em>' operation.

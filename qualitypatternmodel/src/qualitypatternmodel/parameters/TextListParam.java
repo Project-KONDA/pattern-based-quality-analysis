@@ -17,6 +17,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.TextListParam#getValues <em>Values</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.TextListParam#isIsListTranslatable <em>Is List Translatable</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.parameters.ParametersPackage#getTextListParam()
@@ -36,6 +37,28 @@ public interface TextListParam extends ParameterValue {
 	 * @generated
 	 */
 	EList<String> getValues();
+
+	/**
+	 * Returns the value of the '<em><b>Is List Translatable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is List Translatable</em>' attribute.
+	 * @see #setIsListTranslatable(boolean)
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getTextListParam_IsListTranslatable()
+	 * @model
+	 * @generated
+	 */
+	boolean isIsListTranslatable();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.parameters.TextListParam#isIsListTranslatable <em>Is List Translatable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is List Translatable</em>' attribute.
+	 * @see #isIsListTranslatable()
+	 * @generated
+	 */
+	void setIsListTranslatable(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

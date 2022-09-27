@@ -619,6 +619,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EAttribute getTextListParam_IsListTranslatable() {
+		return (EAttribute)textListParamEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getTextListParam__GetListDeclaration() {
 		return textListParamEClass.getEOperations().get(2);
 	}
@@ -1170,6 +1180,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		textListParamEClass = createEClass(TEXT_LIST_PARAM);
 		createEAttribute(textListParamEClass, TEXT_LIST_PARAM__VALUES);
+		createEAttribute(textListParamEClass, TEXT_LIST_PARAM__IS_LIST_TRANSLATABLE);
 		createEOperation(textListParamEClass, TEXT_LIST_PARAM___SET_VALUE_IF_VALID__ELIST);
 		createEOperation(textListParamEClass, TEXT_LIST_PARAM___GET_LIST_VAR);
 		createEOperation(textListParamEClass, TEXT_LIST_PARAM___GET_LIST_DECLARATION);
@@ -1357,6 +1368,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		initEClass(textListParamEClass, TextListParam.class, "TextListParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTextListParam_Values(), ecorePackage.getEString(), "values", "", 0, -1, TextListParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTextListParam_IsListTranslatable(), ecorePackage.getEBoolean(), "isListTranslatable", null, 0, 1, TextListParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getTextListParam__SetValueIfValid__EList(), null, "setValueIfValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "newValue", 0, -1, IS_UNIQUE, IS_ORDERED);
