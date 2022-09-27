@@ -12,6 +12,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
@@ -20,6 +22,7 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.operators.EnumNullCheck;
 import qualitypatternmodel.operators.NullCheck;
 import qualitypatternmodel.operators.OperatorsPackage;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
@@ -110,6 +113,21 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 		throw new InvalidityException("Contains - invalid option");
 	}
 
+	@Override
+	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		super.isValid(abstractionLevel);
+//		option.isValid(abstractionLevel);		
+//		content.isValid(abstractionLevel);
+	}
+	
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException {
+		if (option == null)
+			throw new InvalidityException("options null");
+		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && primitiveNode == null)
+			throw new InvalidityException("property null");		
+		
+		super.isValidLocal(abstractionLevel);
+	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

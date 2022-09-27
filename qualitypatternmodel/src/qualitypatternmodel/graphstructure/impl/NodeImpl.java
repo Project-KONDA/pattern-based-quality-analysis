@@ -45,12 +45,16 @@ import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.Contains;
 import qualitypatternmodel.operators.EnumNullCheck;
 import qualitypatternmodel.operators.Match;
+import qualitypatternmodel.operators.NullCheck;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
+import qualitypatternmodel.operators.OperatorsFactory;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.operators.impl.ComparisonImpl;
 import qualitypatternmodel.operators.impl.ContainsImpl;
 import qualitypatternmodel.operators.impl.MatchImpl;
+import qualitypatternmodel.operators.impl.NullCheckImpl;
+import qualitypatternmodel.operators.impl.OperatorsFactoryImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParameterValue;
@@ -2467,9 +2471,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public void addPrimitiveNullCheck() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		addPrimitiveNullCheck(EnumNullCheck.ISNULL);
 	}
 
 	/**
@@ -2479,7 +2481,27 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public boolean addPrimitiveNullCheck(EnumNullCheck eEnumNullCheck) {
-		return false;
+		NullCheck nullCheck = new OperatorsFactoryImpl().createNullCheck();
+		try {			
+			Graph graph = (Graph) getAncestor(Graph.class);
+			OperatorList oplist = graph.getOperatorList();
+
+			oplist.add(nullCheck);	
+			nullCheck.createParameters();
+			PrimitiveNode p = null;
+			if(this instanceof PrimitiveNode) {
+				p = (PrimitiveNode) this;
+			} else {
+				p = makePrimitive();
+			}
+			nullCheck.setPrimitiveNode(p);
+			
+			return EnumNullCheck.ISNULL == eEnumNullCheck ? true : false;
+		} catch (Exception e) {
+			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
+			e.printStackTrace();
+			return (Boolean) null;
+		}
 	}
 	
 	/**
