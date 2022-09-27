@@ -907,7 +907,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK;
+	int XML_ELEMENT___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Translate Predicates</em>' operation.
@@ -3121,7 +3121,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK;
+	int XML_PROPERTY___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -3904,7 +3904,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ROOT___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK;
+	int XML_ROOT___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN;
 
 	/**
 	 * The number of operations of the '<em>Xml Root</em>' class.

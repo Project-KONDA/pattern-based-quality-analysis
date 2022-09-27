@@ -48,12 +48,10 @@ import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.NullCheck;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
-import qualitypatternmodel.operators.OperatorsFactory;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.operators.impl.ComparisonImpl;
 import qualitypatternmodel.operators.impl.ContainsImpl;
 import qualitypatternmodel.operators.impl.MatchImpl;
-import qualitypatternmodel.operators.impl.NullCheckImpl;
 import qualitypatternmodel.operators.impl.OperatorsFactoryImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
@@ -2296,11 +2294,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.NODE___ADD_PRIMITIVE_NULL_CHECK:
-				addPrimitiveNullCheck();
-				return null;
-			case GraphstructurePackage.NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK:
-				return addPrimitiveNullCheck((EnumNullCheck)arguments.get(0));
+			case GraphstructurePackage.NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN:
+				return addPrimitiveNullCheck((Boolean)arguments.get(0));
 			case GraphstructurePackage.NODE___CREATE_PARAMETERS:
 				createParameters();
 				return null;
@@ -2430,6 +2425,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		return parameter;
 	}
 
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2464,14 +2460,15 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		}
 	}
 
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
-	public void addPrimitiveNullCheck() {
-		addPrimitiveNullCheck(EnumNullCheck.ISNULL);
+	public boolean addPrimitiveNullCheck() {
+		return addPrimitiveNullCheck(true);
 	}
 
 	/**
@@ -2480,7 +2477,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	@Override
-	public boolean addPrimitiveNullCheck(EnumNullCheck eEnumNullCheck) {
+	public boolean addPrimitiveNullCheck(boolean isNull) {
 		NullCheck nullCheck = new OperatorsFactoryImpl().createNullCheck();
 		try {			
 			Graph graph = (Graph) getAncestor(Graph.class);
@@ -2496,7 +2493,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			}
 			nullCheck.setPrimitiveNode(p);
 			
-			return EnumNullCheck.ISNULL == eEnumNullCheck ? true : false;
+			return nullCheck.getOption().getValue();
 		} catch (Exception e) {
 			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
 			e.printStackTrace();

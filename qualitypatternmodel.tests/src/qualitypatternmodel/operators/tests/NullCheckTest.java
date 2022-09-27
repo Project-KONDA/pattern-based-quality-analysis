@@ -11,6 +11,12 @@ import qualitypatternmodel.operators.OperatorsFactory;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Null Check</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.operators.NullCheck#getElement() <em>Get Element Node</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class NullCheckTest extends BooleanOperatorTest {
@@ -65,6 +71,19 @@ public class NullCheckTest extends BooleanOperatorTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.operators.NullCheck#getElement() <em>Get Element Node</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.operators.NullCheck#getElement()
+	 * @generated
+	 */
+	public void testGetElementNode() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //NullCheckTest

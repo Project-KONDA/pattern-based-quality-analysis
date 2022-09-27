@@ -7,6 +7,7 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.operators.Contains;
 import qualitypatternmodel.operators.Match;
+import qualitypatternmodel.operators.NullCheck;
 
 
 /**
@@ -22,6 +23,7 @@ import qualitypatternmodel.operators.Match;
  *   <li>{@link qualitypatternmodel.parameters.BooleanParam#getValue <em>Value</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.BooleanParam#getMatches <em>Matches</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.BooleanParam#getContains <em>Contains</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.BooleanParam#getNullCheck <em>Null Check</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.parameters.ParametersPackage#getBooleanParam()
@@ -79,6 +81,30 @@ public interface BooleanParam extends ParameterValue {
 	 * @generated
 	 */
 	EList<Contains> getContains();
+
+	/**
+	 * Returns the value of the '<em><b>Null Check</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.NullCheck#getOption <em>Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Null Check</em>' reference.
+	 * @see #setNullCheck(NullCheck)
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getBooleanParam_NullCheck()
+	 * @see qualitypatternmodel.operators.NullCheck#getOption
+	 * @model opposite="option"
+	 * @generated
+	 */
+	NullCheck getNullCheck();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.parameters.BooleanParam#getNullCheck <em>Null Check</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Null Check</em>' reference.
+	 * @see #getNullCheck()
+	 * @generated
+	 */
+	void setNullCheck(NullCheck value);
 
 	/**
 	 * <!-- begin-user-doc -->

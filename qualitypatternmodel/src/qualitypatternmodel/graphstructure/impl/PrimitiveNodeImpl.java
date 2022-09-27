@@ -645,9 +645,9 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 		if (newNullCheck != nullCheck) {
 			NotificationChain msgs = null;
 			if (nullCheck != null)
-				msgs = ((InternalEObject)nullCheck).eInverseRemove(this, OperatorsPackage.NULL_CHECK__PRIMITIVE_NODE, NullCheck.class, msgs);
+				msgs = ((InternalEObject)nullCheck).eInverseRemove(this, OperatorsPackage.NULL_CHECK__PRIMITIVENODE, NullCheck.class, msgs);
 			if (newNullCheck != null)
-				msgs = ((InternalEObject)newNullCheck).eInverseAdd(this, OperatorsPackage.NULL_CHECK__PRIMITIVE_NODE, NullCheck.class, msgs);
+				msgs = ((InternalEObject)newNullCheck).eInverseAdd(this, OperatorsPackage.NULL_CHECK__PRIMITIVENODE, NullCheck.class, msgs);
 			msgs = basicSetNullCheck(newNullCheck, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -707,7 +707,7 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContains()).basicAdd(otherEnd, msgs);
 			case GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK:
 				if (nullCheck != null)
-					msgs = ((InternalEObject)nullCheck).eInverseRemove(this, OperatorsPackage.NULL_CHECK__PRIMITIVE_NODE, NullCheck.class, msgs);
+					msgs = ((InternalEObject)nullCheck).eInverseRemove(this, OperatorsPackage.NULL_CHECK__PRIMITIVENODE, NullCheck.class, msgs);
 				return basicSetNullCheck((NullCheck)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);

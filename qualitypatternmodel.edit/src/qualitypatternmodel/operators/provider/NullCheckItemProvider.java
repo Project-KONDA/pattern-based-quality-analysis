@@ -11,7 +11,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.operators.NullCheck;
@@ -45,32 +44,10 @@ public class NullCheckItemProvider extends BooleanOperatorItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addOptionPropertyDescriptor(object);
 			addPrimitiveNodePropertyDescriptor(object);
+			addOptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Option feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_NullCheck_option_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NullCheck_option_feature", "_UI_NullCheck_type"),
-				 OperatorsPackage.Literals.NULL_CHECK__OPTION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -90,6 +67,28 @@ public class NullCheckItemProvider extends BooleanOperatorItemProvider {
 				 true,
 				 false,
 				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Option feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NullCheck_option_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NullCheck_option_feature", "_UI_NullCheck_type"),
+				 OperatorsPackage.Literals.NULL_CHECK__OPTION,
+				 true,
+				 false,
+				 false,
 				 null,
 				 null,
 				 null));

@@ -13969,10 +13969,10 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_1lqzuD6OEe2uF8g73p0yhQ" sourceNode="_NiM3gD6KEe2uF8g73p0yhQ" targetNode="_c7kEcB2REeqrGqxc7qjo8A" beginLabel="[0..1] nullCheck" endLabel="[0..1] primitivenode">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//operators/NullCheck/primitivenode"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_1lqzuD6OEe2uF8g73p0yhQ" sourceNode="_NiM3gD6KEe2uF8g73p0yhQ" targetNode="_c7kEcB2REeqrGqxc7qjo8A" beginLabel="[0..1] nullCheck" endLabel="[0..1] primitiveNode">
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//operators/NullCheck/primitiveNode"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/nullCheck"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//operators/NullCheck/primitivenode"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//operators/NullCheck/primitiveNode"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_1lrasD6OEe2uF8g73p0yhQ" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_1lrasT6OEe2uF8g73p0yhQ" showIcon="false"/>

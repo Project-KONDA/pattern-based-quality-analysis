@@ -1260,7 +1260,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRI_NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK;
+	int RDF_IRI_NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN;
 
 	/**
 	 * The number of operations of the '<em>Rdf Iri Node</em>' class.
@@ -2642,7 +2642,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_LITERAL_NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK;
+	int RDF_LITERAL_NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.

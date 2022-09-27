@@ -2,7 +2,9 @@
  */
 package qualitypatternmodel.operators;
 
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
+import qualitypatternmodel.parameters.BooleanParam;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,8 +15,8 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.operators.NullCheck#getOption <em>Option</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.NullCheck#getPrimitiveNode <em>Primitive Node</em>}</li>
+ *   <li>{@link qualitypatternmodel.operators.NullCheck#getOption <em>Option</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.operators.OperatorsPackage#getNullCheck()
@@ -22,31 +24,6 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
  * @generated
  */
 public interface NullCheck extends BooleanOperator {
-	/**
-	 * Returns the value of the '<em><b>Option</b></em>' attribute.
-	 * The literals are from the enumeration {@link qualitypatternmodel.operators.EnumNullCheck}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Option</em>' attribute.
-	 * @see qualitypatternmodel.operators.EnumNullCheck
-	 * @see #setOption(EnumNullCheck)
-	 * @see qualitypatternmodel.operators.OperatorsPackage#getNullCheck_Option()
-	 * @model
-	 * @generated
-	 */
-	EnumNullCheck getOption();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.operators.NullCheck#getOption <em>Option</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Option</em>' attribute.
-	 * @see qualitypatternmodel.operators.EnumNullCheck
-	 * @see #getOption()
-	 * @generated
-	 */
-	void setOption(EnumNullCheck value);
-
 	/**
 	 * Returns the value of the '<em><b>Primitive Node</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.PrimitiveNode#getNullCheck <em>Null Check</em>}'.
@@ -70,5 +47,37 @@ public interface NullCheck extends BooleanOperator {
 	 * @generated
 	 */
 	void setPrimitiveNode(PrimitiveNode value);
+
+	/**
+	 * Returns the value of the '<em><b>Option</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.BooleanParam#getNullCheck <em>Null Check</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Option</em>' reference.
+	 * @see #setOption(BooleanParam)
+	 * @see qualitypatternmodel.operators.OperatorsPackage#getNullCheck_Option()
+	 * @see qualitypatternmodel.parameters.BooleanParam#getNullCheck
+	 * @model opposite="nullCheck"
+	 * @generated
+	 */
+	BooleanParam getOption();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.operators.NullCheck#getOption <em>Option</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Option</em>' reference.
+	 * @see #getOption()
+	 * @generated
+	 */
+	void setOption(BooleanParam value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	Node getElement();
 
 } // NullCheck

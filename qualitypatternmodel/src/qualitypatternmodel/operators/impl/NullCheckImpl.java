@@ -2,8 +2,10 @@
  */
 package qualitypatternmodel.operators.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -18,16 +20,14 @@ import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
-
-import qualitypatternmodel.operators.EnumNullCheck;
 import qualitypatternmodel.operators.NullCheck;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.ParameterList;
-import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
-import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
@@ -38,33 +38,13 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.operators.impl.NullCheckImpl#getOption <em>Option</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.impl.NullCheckImpl#getPrimitiveNode <em>Primitive Node</em>}</li>
+ *   <li>{@link qualitypatternmodel.operators.impl.NullCheckImpl#getOption <em>Option</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
-	/**
-	 * The default value of the '{@link #getOption() <em>Option</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOption()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final EnumNullCheck OPTION_EDEFAULT = EnumNullCheck.ISNULL;
-
-	/**
-	 * The cached value of the '{@link #getOption() <em>Option</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOption()
-	 * @generated
-	 * @ordered
-	 */
-	protected EnumNullCheck option = OPTION_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getPrimitiveNode() <em>Primitive Node</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -74,6 +54,16 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 	 * @ordered
 	 */
 	protected PrimitiveNode primitiveNode;
+
+	/**
+	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOption()
+	 * @generated
+	 * @ordered
+	 */
+	protected BooleanParam option;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -94,68 +84,6 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 		return OperatorsPackage.Literals.NULL_CHECK;
 	}
 	
-	@Override 
-	public String generateXQuery() {
-		throw new UnsupportedOperationException();
-	}
-	
-	@Override 
-	public String generateSparql() {
-		throw new UnsupportedOperationException();
-	}
-	
-	@Override 
-	public String generateCypher() throws InvalidityException {
-		if(option != null && primitiveNode != null) {
-			String cypher;
-			if (option == EnumNullCheck.ISNOTNULL) {
-				cypher = ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing() + CypherSpecificConstants.ONE_WHITESPACES + EnumNullCheck.ISNOTNULL;
-			} else {
-				cypher = ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing() + CypherSpecificConstants.ONE_WHITESPACES + EnumNullCheck.ISNULL;
-			}	
-			return cypher;
-		}
-		throw new InvalidityException("Contains - invalid option");
-	}
-
-	@Override
-	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		super.isValid(abstractionLevel);
-//		option.isValid(abstractionLevel);		
-//		content.isValid(abstractionLevel);
-	}
-	
-	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException {
-		if (option == null)
-			throw new InvalidityException("options null");
-		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && primitiveNode == null)
-			throw new InvalidityException("property null");		
-		
-		super.isValidLocal(abstractionLevel);
-	}
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EnumNullCheck getOption() {
-		return option;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setOption(EnumNullCheck newOption) {
-		EnumNullCheck oldOption = option;
-		option = newOption == null ? OPTION_EDEFAULT : newOption;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OperatorsPackage.NULL_CHECK__OPTION, oldOption, option));
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -218,6 +146,107 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 			eNotify(new ENotificationImpl(this, Notification.SET, OperatorsPackage.NULL_CHECK__PRIMITIVE_NODE, newPrimitiveNode, newPrimitiveNode));
 	}
 
+	@Override 
+	public String generateXQuery() {
+		throw new UnsupportedOperationException();
+	}
+	
+	@Override 
+	public String generateSparql() {
+		throw new UnsupportedOperationException();
+	}
+	
+	@Override 
+	public String generateCypher() throws InvalidityException {
+		if(option != null && primitiveNode != null) {
+			String cypher;
+			if (option.getValue()) {
+				cypher = ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing() + CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_IS_NULL;
+			} else {
+				cypher = ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing() + CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_IS_NOT_NULL;
+			}	
+			return cypher;
+		}
+		throw new InvalidityException("Contains - invalid option");
+	}
+
+	@Override
+	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		super.isValid(abstractionLevel);
+		option.isValid(abstractionLevel);		
+	}
+	
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException {
+		if (option == null)
+			throw new InvalidityException("options null");
+		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && primitiveNode == null)
+			throw new InvalidityException("property null");		
+		
+		super.isValidLocal(abstractionLevel);
+	}
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public BooleanParam getOption() {
+		if (option != null && option.eIsProxy()) {
+			InternalEObject oldOption = (InternalEObject)option;
+			option = (BooleanParam)eResolveProxy(oldOption);
+			if (option != oldOption) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, OperatorsPackage.NULL_CHECK__OPTION, oldOption, option));
+			}
+		}
+		return option;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BooleanParam basicGetOption() {
+		return option;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOption(BooleanParam newOption, NotificationChain msgs) {
+		BooleanParam oldOption = option;
+		option = newOption;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.NULL_CHECK__OPTION, oldOption, newOption);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setOption(BooleanParam newOption) {
+		if (newOption != option) {
+			NotificationChain msgs = null;
+			if (option != null)
+				msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.BOOLEAN_PARAM__NULL_CHECK, BooleanParam.class, msgs);
+			if (newOption != null)
+				msgs = ((InternalEObject)newOption).eInverseAdd(this, ParametersPackage.BOOLEAN_PARAM__NULL_CHECK, BooleanParam.class, msgs);
+			msgs = basicSetOption(newOption, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OperatorsPackage.NULL_CHECK__OPTION, newOption, newOption));
+	}
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -230,6 +259,10 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 				if (primitiveNode != null)
 					msgs = ((InternalEObject)primitiveNode).eInverseRemove(this, GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK, PrimitiveNode.class, msgs);
 				return basicSetPrimitiveNode((PrimitiveNode)otherEnd, msgs);
+			case OperatorsPackage.NULL_CHECK__OPTION:
+				if (option != null)
+					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.BOOLEAN_PARAM__NULL_CHECK, BooleanParam.class, msgs);
+				return basicSetOption((BooleanParam)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -244,6 +277,8 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 		switch (featureID) {
 			case OperatorsPackage.NULL_CHECK__PRIMITIVE_NODE:
 				return basicSetPrimitiveNode(null, msgs);
+			case OperatorsPackage.NULL_CHECK__OPTION:
+				return basicSetOption(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -256,11 +291,12 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case OperatorsPackage.NULL_CHECK__OPTION:
-				return getOption();
 			case OperatorsPackage.NULL_CHECK__PRIMITIVE_NODE:
 				if (resolve) return getPrimitiveNode();
 				return basicGetPrimitiveNode();
+			case OperatorsPackage.NULL_CHECK__OPTION:
+				if (resolve) return getOption();
+				return basicGetOption();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -273,11 +309,11 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case OperatorsPackage.NULL_CHECK__OPTION:
-				setOption((EnumNullCheck)newValue);
-				return;
 			case OperatorsPackage.NULL_CHECK__PRIMITIVE_NODE:
 				setPrimitiveNode((PrimitiveNode)newValue);
+				return;
+			case OperatorsPackage.NULL_CHECK__OPTION:
+				setOption((BooleanParam)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -291,11 +327,11 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case OperatorsPackage.NULL_CHECK__OPTION:
-				setOption(OPTION_EDEFAULT);
-				return;
 			case OperatorsPackage.NULL_CHECK__PRIMITIVE_NODE:
 				setPrimitiveNode((PrimitiveNode)null);
+				return;
+			case OperatorsPackage.NULL_CHECK__OPTION:
+				setOption((BooleanParam)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -309,10 +345,10 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case OperatorsPackage.NULL_CHECK__OPTION:
-				return option != OPTION_EDEFAULT;
 			case OperatorsPackage.NULL_CHECK__PRIMITIVE_NODE:
 				return primitiveNode != null;
+			case OperatorsPackage.NULL_CHECK__OPTION:
+				return option != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -323,14 +359,12 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 	 * @generated
 	 */
 	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (option: ");
-		result.append(option);
-		result.append(')');
-		return result.toString();
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case OperatorsPackage.NULL_CHECK___GET_ELEMENT_NODE:
+				return getElement();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	@Override
@@ -343,19 +377,15 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 			} else {
 				parameterList.add(getOption());
 			}
-			if(getContent() == null) {
-				TextLiteralParam textLiteral = new TextLiteralParamImpl();				
-				setContent(textLiteral);
-			} else {
-				parameterList.add(getContent());
-			}
 		}
 	}
 
 	@Override
 	public EList<Comparable> getArguments() {
-		// TODO Auto-generated method stub
-		return null;
+		EList<Comparable> list = new BasicEList<Comparable>();		
+		list.add(primitiveNode);
+		list.add(option);
+		return list;
 	}
 
 	@Override
@@ -363,16 +393,42 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 		return primitiveNode.isTranslatable();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
+	 * 
+	 */
 	@Override
 	public EList<Node> getAllArgumentElements() {
-		// TODO Auto-generated method stub
-		return null;
+		return primitiveNode.getAllArgumentElements();
 	}
 
 	@Override
 	public String myToString() {
-		// TODO Auto-generated method stub
-		return null;
+		String res = "IS NULL (" + getInternalId() + ") [";
+		if (!getOption().getValue()) res += "not ";
+		res += getOption().getInternalId() + "]";
+		res += "[" + getPrimitiveNode().getInternalId() + "]";
+		return res;
+	}
+	
+	@Override
+	public EList<PatternElement> prepareParameterUpdates() {
+		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
+		patternElements.add(getOption());
+		setOption(null);
+		return patternElements;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Node getElement() {
+		return getPrimitiveNode();
 	}
 
 } //NullCheckImpl

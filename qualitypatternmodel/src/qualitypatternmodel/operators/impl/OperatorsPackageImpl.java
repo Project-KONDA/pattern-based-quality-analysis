@@ -2,7 +2,6 @@
  */
 package qualitypatternmodel.operators.impl;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
@@ -617,8 +616,8 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNullCheck_Option() {
-		return (EAttribute)nullCheckEClass.getEStructuralFeatures().get(0);
+	public EReference getNullCheck_PrimitiveNode() {
+		return (EReference)nullCheckEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -627,8 +626,18 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getNullCheck_PrimitiveNode() {
+	public EReference getNullCheck_Option() {
 		return (EReference)nullCheckEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNullCheck__GetElementNode() {
+		return nullCheckEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -734,8 +743,9 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		createEOperation(containsEClass, CONTAINS___GET_ELEMENT);
 
 		nullCheckEClass = createEClass(NULL_CHECK);
-		createEAttribute(nullCheckEClass, NULL_CHECK__OPTION);
 		createEReference(nullCheckEClass, NULL_CHECK__PRIMITIVE_NODE);
+		createEReference(nullCheckEClass, NULL_CHECK__OPTION);
+		createEOperation(nullCheckEClass, NULL_CHECK___GET_ELEMENT_NODE);
 
 		// Create enums
 		comparisonOperatorEEnum = createEEnum(COMPARISON_OPERATOR);
@@ -861,8 +871,10 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		initEOperation(getContains__GetElement(), theGraphstructurePackage.getNode(), "getElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(nullCheckEClass, NullCheck.class, "NullCheck", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNullCheck_Option(), this.getEnumNullCheck(), "option", null, 0, 1, NullCheck.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNullCheck_PrimitiveNode(), theGraphstructurePackage.getPrimitiveNode(), theGraphstructurePackage.getPrimitiveNode_NullCheck(), "primitiveNode", null, 0, 1, NullCheck.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNullCheck_Option(), theParametersPackage.getBooleanParam(), theParametersPackage.getBooleanParam_NullCheck(), "option", null, 0, 1, NullCheck.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getNullCheck__GetElementNode(), theGraphstructurePackage.getNode(), "getElementNode", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(comparisonOperatorEEnum, ComparisonOperator.class, "ComparisonOperator");

@@ -901,7 +901,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK;
+	int NEO_NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Cypher Variable</em>' operation.
@@ -3817,7 +3817,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK;
+	int NEO_PROPERTY_NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.

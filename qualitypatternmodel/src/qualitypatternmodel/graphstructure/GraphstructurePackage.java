@@ -1545,7 +1545,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK = COMPARABLE_OPERATION_COUNT + 38;
+	int NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN = COMPARABLE_OPERATION_COUNT + 38;
 
 	/**
 	 * The number of operations of the '<em>Node</em>' class.
@@ -2320,7 +2320,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK = NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK;
+	int PRIMITIVE_NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN = NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -3754,7 +3754,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLEX_NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK = NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK;
+	int COMPLEX_NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN = NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN;
 
 	/**
 	 * The number of operations of the '<em>Complex Node</em>' class.
@@ -4498,14 +4498,14 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getNode__AddPrimitiveNullCheck();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#addPrimitiveNullCheck(qualitypatternmodel.operators.EnumNullCheck) <em>Add Primitive Null Check</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#addPrimitiveNullCheck(boolean) <em>Add Primitive Null Check</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add Primitive Null Check</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Node#addPrimitiveNullCheck(qualitypatternmodel.operators.EnumNullCheck)
+	 * @see qualitypatternmodel.graphstructure.Node#addPrimitiveNullCheck(boolean)
 	 * @generated
 	 */
-	EOperation getNode__AddPrimitiveNullCheck__EnumNullCheck();
+	EOperation getNode__AddPrimitiveNullCheck__boolean();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#checkComparisonConsistency() <em>Check Comparison Consistency</em>}' operation.
@@ -5442,7 +5442,7 @@ public interface GraphstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK = eINSTANCE.getNode__AddPrimitiveNullCheck__EnumNullCheck();
+		EOperation NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN = eINSTANCE.getNode__AddPrimitiveNullCheck__boolean();
 
 		/**
 		 * The meta object literal for the '<em><b>Check Comparison Consistency</b></em>' operation.

@@ -605,6 +605,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EReference getBooleanParam_NullCheck() {
+		return (EReference)booleanParamEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getBooleanParam__SetValueIfValid__Boolean() {
 		return booleanParamEClass.getEOperations().get(0);
 	}
@@ -1202,6 +1212,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEAttribute(booleanParamEClass, BOOLEAN_PARAM__VALUE);
 		createEReference(booleanParamEClass, BOOLEAN_PARAM__MATCHES);
 		createEReference(booleanParamEClass, BOOLEAN_PARAM__CONTAINS);
+		createEReference(booleanParamEClass, BOOLEAN_PARAM__NULL_CHECK);
 		createEOperation(booleanParamEClass, BOOLEAN_PARAM___SET_VALUE_IF_VALID__BOOLEAN);
 
 		textListParamEClass = createEClass(TEXT_LIST_PARAM);
@@ -1392,6 +1403,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEAttribute(getBooleanParam_Value(), ecorePackage.getEBooleanObject(), "value", "true", 1, 1, BooleanParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBooleanParam_Matches(), theOperatorsPackage.getMatch(), theOperatorsPackage.getMatch_Option(), "matches", null, 0, -1, BooleanParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBooleanParam_Contains(), theOperatorsPackage.getContains(), theOperatorsPackage.getContains_Option(), "contains", null, 0, -1, BooleanParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBooleanParam_NullCheck(), theOperatorsPackage.getNullCheck(), theOperatorsPackage.getNullCheck_Option(), "nullCheck", null, 0, 1, BooleanParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getBooleanParam__SetValueIfValid__Boolean(), null, "setValueIfValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBooleanObject(), "newValue", 0, 1, IS_UNIQUE, IS_ORDERED);

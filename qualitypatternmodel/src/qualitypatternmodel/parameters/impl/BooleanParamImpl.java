@@ -21,6 +21,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Contains;
 import qualitypatternmodel.operators.Match;
+import qualitypatternmodel.operators.NullCheck;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -38,6 +39,7 @@ import qualitypatternmodel.parameters.ParameterList;
  *   <li>{@link qualitypatternmodel.parameters.impl.BooleanParamImpl#getValue <em>Value</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.BooleanParamImpl#getMatches <em>Matches</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.BooleanParamImpl#getContains <em>Contains</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.BooleanParamImpl#getNullCheck <em>Null Check</em>}</li>
  * </ul>
  *
  * @generated
@@ -84,6 +86,16 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	 * @ordered
 	 */
 	protected EList<Contains> contains;
+
+	/**
+	 * The cached value of the '{@link #getNullCheck() <em>Null Check</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNullCheck()
+	 * @generated
+	 * @ordered
+	 */
+	protected NullCheck nullCheck;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -223,6 +235,68 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NullCheck getNullCheck() {
+		if (nullCheck != null && nullCheck.eIsProxy()) {
+			InternalEObject oldNullCheck = (InternalEObject)nullCheck;
+			nullCheck = (NullCheck)eResolveProxy(oldNullCheck);
+			if (nullCheck != oldNullCheck) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ParametersPackage.BOOLEAN_PARAM__NULL_CHECK, oldNullCheck, nullCheck));
+			}
+		}
+		return nullCheck;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NullCheck basicGetNullCheck() {
+		return nullCheck;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetNullCheck(NullCheck newNullCheck, NotificationChain msgs) {
+		NullCheck oldNullCheck = nullCheck;
+		nullCheck = newNullCheck;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParametersPackage.BOOLEAN_PARAM__NULL_CHECK, oldNullCheck, newNullCheck);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setNullCheck(NullCheck newNullCheck) {
+		if (newNullCheck != nullCheck) {
+			NotificationChain msgs = null;
+			if (nullCheck != null)
+				msgs = ((InternalEObject)nullCheck).eInverseRemove(this, OperatorsPackage.NULL_CHECK__OPTION, NullCheck.class, msgs);
+			if (newNullCheck != null)
+				msgs = ((InternalEObject)newNullCheck).eInverseAdd(this, OperatorsPackage.NULL_CHECK__OPTION, NullCheck.class, msgs);
+			msgs = basicSetNullCheck(newNullCheck, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.BOOLEAN_PARAM__NULL_CHECK, newNullCheck, newNullCheck));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -255,6 +329,10 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMatches()).basicAdd(otherEnd, msgs);
 			case ParametersPackage.BOOLEAN_PARAM__CONTAINS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContains()).basicAdd(otherEnd, msgs);
+			case ParametersPackage.BOOLEAN_PARAM__NULL_CHECK:
+				if (nullCheck != null)
+					msgs = ((InternalEObject)nullCheck).eInverseRemove(this, OperatorsPackage.NULL_CHECK__OPTION, NullCheck.class, msgs);
+				return basicSetNullCheck((NullCheck)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -271,6 +349,8 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 				return ((InternalEList<?>)getMatches()).basicRemove(otherEnd, msgs);
 			case ParametersPackage.BOOLEAN_PARAM__CONTAINS:
 				return ((InternalEList<?>)getContains()).basicRemove(otherEnd, msgs);
+			case ParametersPackage.BOOLEAN_PARAM__NULL_CHECK:
+				return basicSetNullCheck(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -289,6 +369,9 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 				return getMatches();
 			case ParametersPackage.BOOLEAN_PARAM__CONTAINS:
 				return getContains();
+			case ParametersPackage.BOOLEAN_PARAM__NULL_CHECK:
+				if (resolve) return getNullCheck();
+				return basicGetNullCheck();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -313,6 +396,9 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 				getContains().clear();
 				getContains().addAll((Collection<? extends Contains>)newValue);
 				return;
+			case ParametersPackage.BOOLEAN_PARAM__NULL_CHECK:
+				setNullCheck((NullCheck)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -334,6 +420,9 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 			case ParametersPackage.BOOLEAN_PARAM__CONTAINS:
 				getContains().clear();
 				return;
+			case ParametersPackage.BOOLEAN_PARAM__NULL_CHECK:
+				setNullCheck((NullCheck)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -352,6 +441,8 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 				return matches != null && !matches.isEmpty();
 			case ParametersPackage.BOOLEAN_PARAM__CONTAINS:
 				return contains != null && !contains.isEmpty();
+			case ParametersPackage.BOOLEAN_PARAM__NULL_CHECK:
+				return nullCheck != null;
 		}
 		return super.eIsSet(featureID);
 	}

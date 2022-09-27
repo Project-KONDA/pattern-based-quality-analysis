@@ -2,7 +2,6 @@
  */
 package qualitypatternmodel.operators;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
@@ -2853,22 +2852,22 @@ public interface OperatorsPackage extends EPackage {
 	int NULL_CHECK__NODES = BOOLEAN_OPERATOR__NODES;
 
 	/**
-	 * The feature id for the '<em><b>Option</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NULL_CHECK__OPTION = BOOLEAN_OPERATOR_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Primitive Node</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NULL_CHECK__PRIMITIVE_NODE = BOOLEAN_OPERATOR_FEATURE_COUNT + 1;
+	int NULL_CHECK__PRIMITIVE_NODE = BOOLEAN_OPERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Option</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NULL_CHECK__OPTION = BOOLEAN_OPERATOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Null Check</em>' class.
@@ -3195,13 +3194,22 @@ public interface OperatorsPackage extends EPackage {
 	int NULL_CHECK___REMOVE_ELEMENT__NODE = BOOLEAN_OPERATOR___REMOVE_ELEMENT__NODE;
 
 	/**
+	 * The operation id for the '<em>Get Element Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NULL_CHECK___GET_ELEMENT_NODE = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Null Check</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NULL_CHECK_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
+	int NULL_CHECK_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.operators.ComparisonOperator <em>Comparison Operator</em>}' enum.
@@ -3619,17 +3627,6 @@ public interface OperatorsPackage extends EPackage {
 	EClass getNullCheck();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.operators.NullCheck#getOption <em>Option</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Option</em>'.
-	 * @see qualitypatternmodel.operators.NullCheck#getOption()
-	 * @see #getNullCheck()
-	 * @generated
-	 */
-	EAttribute getNullCheck_Option();
-
-	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.operators.NullCheck#getPrimitiveNode <em>Primitive Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3639,6 +3636,27 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getNullCheck_PrimitiveNode();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.operators.NullCheck#getOption <em>Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Option</em>'.
+	 * @see qualitypatternmodel.operators.NullCheck#getOption()
+	 * @see #getNullCheck()
+	 * @generated
+	 */
+	EReference getNullCheck_Option();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.operators.NullCheck#getElement() <em>Get Element Node</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Element Node</em>' operation.
+	 * @see qualitypatternmodel.operators.NullCheck#getElement()
+	 * @generated
+	 */
+	EOperation getNullCheck__GetElementNode();
 
 	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.operators.ComparisonOperator <em>Comparison Operator</em>}'.
@@ -4007,20 +4025,28 @@ public interface OperatorsPackage extends EPackage {
 		EClass NULL_CHECK = eINSTANCE.getNullCheck();
 
 		/**
-		 * The meta object literal for the '<em><b>Option</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NULL_CHECK__OPTION = eINSTANCE.getNullCheck_Option();
-
-		/**
 		 * The meta object literal for the '<em><b>Primitive Node</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference NULL_CHECK__PRIMITIVE_NODE = eINSTANCE.getNullCheck_PrimitiveNode();
+
+		/**
+		 * The meta object literal for the '<em><b>Option</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NULL_CHECK__OPTION = eINSTANCE.getNullCheck_Option();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Element Node</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NULL_CHECK___GET_ELEMENT_NODE = eINSTANCE.getNullCheck__GetElementNode();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.operators.ComparisonOperator <em>Comparison Operator</em>}' enum.
