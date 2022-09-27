@@ -77,8 +77,6 @@ public class TextListParamImpl extends AbstractListParamImpl implements TextList
 		if(getValues().isEmpty()) {
 			return super.generateCypher();
 		} 
-		// I do not use an else Statement since either the if is correct and the methods end or the methods goes on
-		//Do to this if or without the else the semantics stays the same --> Compare it to .generateSparql()
 		StringBuilder cypher = new StringBuilder();
 		int i = 0;
 		cypher.append("[");
@@ -86,60 +84,15 @@ public class TextListParamImpl extends AbstractListParamImpl implements TextList
 			if (i > 0) {
 				cypher.append(", ");
 			}
-			if (areValuesInts(s)) {
-				cypher.append(s); 	
-			} else if (areValuesFloat(s)) {
-				cypher.append(s); 
-			} else {
-				cypher.append("\"" + s +"\""); 
-			}
+			cypher.append("\"" + s + "\"");
 			i++;
 		}
 	
 		cypher.append("]");
 		return cypher.toString();
 	}
-	
-	private boolean areValuesInts(String value) {
-		boolean areValuesInts = true;
-		String regex = "[+-]?[0-9]+";
-		Pattern p = Pattern.compile(regex);
-		Matcher m = p.matcher(value);
-		if (!(m.find() && m.group().equals(value))) {
-			areValuesInts = false;
-		}
-		return areValuesInts;
-	}
-	
-//	private List<Integer> convertToInteger() {
-//		
-//		return null;
-//	}
-	
-	private boolean areValuesFloat(String value) {
-		boolean areValuesInts = true;
-		String regex = "[+-]?[0-9]+(\\.[0-9]+)?([Ee][+-]?[0-9]+)?";
-		Pattern p = Pattern.compile(regex);
-		Matcher m = p.matcher(value);
-		if (!(m.find() && m.group().equals(value))) {
-			areValuesInts = false;
-		}
-		return areValuesInts;
-	}
-	
-//	private List<Float> convertToFloat() {
-//		
-//		return null;
-//	}
 
-	@Override
-	public boolean inputIsValid() {
-		if (getValues() == null || getValues().isEmpty())
-			return false;
 
-		return true;
-	}
-	
 	@Override
 	public ReturnType getReturnType() {
 		return ReturnType.STRING;
@@ -155,68 +108,9 @@ public class TextListParamImpl extends AbstractListParamImpl implements TextList
 		return ParametersPackage.Literals.TEXT_LIST_PARAM;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public String getListDeclaration() {
-		String res = LET + getListVar() + " := (";
-		for (int i = 0; i<getValues().size(); i++) {
-			if (i!=0) res += ", ";
-			res += "'" + getValues().get(i) + "'";
-		}
-		return res + ")";
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public void addStringValue(String value) {
-		if (this.values == null) {
-			this.values = new BasicEList<String>();
-		}
-		if (!this.values.contains(value)) {
-			this.values.add(value);
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public String getListVar() {
-		return LISTVARIABLE + getInternalId();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public void setValueIfValid(EList<String> newValue) throws InvalidityException {
-		EList<String> oldValue = getValues();
-		getValues().clear();
-		getValues().addAll(newValue);	
-		try {
-			checkComparisonConsistency();
-		} catch (Exception e) {
-			getValues().clear();
-			getValues().addAll(oldValue);
-			throw e;
-		}			
-	}
-
 	@Override 
 	public String myToString() {
-		String res = "list [" + getInternalId() + "] (";
+		String res = "TextListParam [" + getInternalId() + "] (";
 		for (int i = 0; i < getValues().size(); i++) {
 			if (i>0) res += ", ";
 			res += "'" + getValues().get(i) + "'";

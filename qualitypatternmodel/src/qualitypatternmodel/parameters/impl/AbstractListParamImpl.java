@@ -2,10 +2,14 @@
  */
 package qualitypatternmodel.parameters.impl;
 
+import static qualitypatternmodel.utility.Constants.LET;
+import static qualitypatternmodel.utility.Constants.LISTVARIABLE;
+
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -73,52 +77,71 @@ public abstract class AbstractListParamImpl extends ParameterValueImpl implement
 		return values;
 	}
 
+	@Override
+	public boolean inputIsValid() {
+		if (getValues() == null || getValues().isEmpty())
+			return false;
+
+		return true;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void setValueIfValid(EList<String> newValue) throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList<String> oldValue = getValues();
+		getValues().clear();
+		getValues().addAll(newValue);	
+		try {
+			checkComparisonConsistency();
+		} catch (Exception e) {
+			getValues().clear();
+			getValues().addAll(oldValue);
+			throw e;
+		}			
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getListVar() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return LISTVARIABLE + getInternalId();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getListDeclaration() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		String res = LET + getListVar() + " := (";
+		for (int i = 0; i<getValues().size(); i++) {
+			if (i!=0) res += ", ";
+			res += "'" + getValues().get(i) + "'";
+		}
+		return res + ")";
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void addStringValue(String value) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if (this.values == null) {
+			this.values = new BasicEList<String>();
+		}
+		if (!this.values.contains(value)) {
+			this.values.add(value);
+		}
 	}
 
 	/**

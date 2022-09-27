@@ -904,6 +904,26 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
+	public EOperation getNode__AddPrimitiveNullCheck() {
+		return nodeEClass.getEOperations().get(35);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNode__AddPrimitiveNullCheck__EnumNullCheck() {
+		return nodeEClass.getEOperations().get(36);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getNode__CheckComparisonConsistency() {
 		return nodeEClass.getEOperations().get(18);
 	}
@@ -1330,6 +1350,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(nodeEClass, NODE___ADAPT_AS_RDF_LITERAL_NODE);
 		createEOperation(nodeEClass, NODE___ADAPT_AS_NEO_NODE);
 		createEOperation(nodeEClass, NODE___ADAPT_AS_NEO_PROPERTY_NODE);
+		createEOperation(nodeEClass, NODE___ADD_PRIMITIVE_NULL_CHECK);
+		createEOperation(nodeEClass, NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK);
 
 		graphEClass = createEClass(GRAPH);
 		createEReference(graphEClass, GRAPH__NODES);
@@ -1583,6 +1605,11 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		op = initEOperation(getNode__AdaptAsNeoPropertyNode(), theAdaptionNeo4JPackage.getNeoPropertyNode(), "adaptAsNeoPropertyNode", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		initEOperation(getNode__AddPrimitiveNullCheck(), null, "addPrimitiveNullCheck", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getNode__AddPrimitiveNullCheck__EnumNullCheck(), ecorePackage.getEBoolean(), "addPrimitiveNullCheck", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theOperatorsPackage.getEnumNullCheck(), "eEnumNullCheck", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(graphEClass, Graph.class, "Graph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGraph_Nodes(), this.getNode(), this.getNode_Graph(), "nodes", null, 1, -1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

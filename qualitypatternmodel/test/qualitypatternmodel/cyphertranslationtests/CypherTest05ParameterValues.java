@@ -13,6 +13,7 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.DateParam;
 import qualitypatternmodel.parameters.DateTimeParam;
+import qualitypatternmodel.parameters.MultiListParam;
 import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersFactory;
@@ -21,6 +22,7 @@ import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TimeParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
+import qualitypatternmodel.parameters.impl.MultiListParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class CypherTest05ParameterValues {
@@ -71,6 +73,10 @@ public class CypherTest05ParameterValues {
 		//DateTimeParam
 		completePattern = getConcreteComparisonPattern(values.get(6), "isoStartDate");
 		completePatterns.add(completePattern);
+		
+		//MultiListParam
+		completePattern = getConcreteComparisonPattern(values.get(7), "origPlaceOfIssue");
+		completePatterns.add(completePattern);
 	}
 	
 	private static CompletePattern getConcreteBaseComparisonPattern(ParameterValue parameter) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -102,7 +108,7 @@ public class CypherTest05ParameterValues {
 		ParametersFactory inputFactory = ParametersFactory.eINSTANCE;
 		TextLiteralParam input1 = inputFactory.createTextLiteralParam();
 		input1.setValue("1439 Dezember 20");
-		TextListParam input2 = inputFactory.createTextListParam(); //--> Get fitting Values & Property
+		TextListParam input2 = inputFactory.createTextListParam();
 		input2.getValues().add("unknown");
 		input2.getValues().add("USA");
 		input2.getValues().add("17");
@@ -124,6 +130,15 @@ public class CypherTest05ParameterValues {
 //		DateTimeParam inpu87 = inputFactory.createDateTimeParam(); //--> Get fitting Values & Property
 //		input8.setValue("2020-10-03T09:00:00");
 		
+		MultiListParam input9 = inputFactory.createMultiListParam();
+		input9.getValues().add("unknown");
+		input9.getValues().add("USA");
+		input9.getValues().add("17");
+		input9.getValues().add("17.0");
+		input9.getValues().add("-17");
+		input9.getValues().add("-17.0");
+		input9.getValues().add("-17.0+");
+		
 		parameters.add(input1);
 		parameters.add(input2);
 		parameters.add(input3);
@@ -131,6 +146,7 @@ public class CypherTest05ParameterValues {
 		parameters.add(input5);
 		parameters.add(input6);
 		parameters.add(input7);
+		parameters.add(input9);
 		
 		return parameters;
 	}

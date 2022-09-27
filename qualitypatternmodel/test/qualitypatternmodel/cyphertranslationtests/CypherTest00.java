@@ -26,6 +26,8 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import static qualitypatternmodel.xmltranslationtests.Test00.*;
 
+
+//--> Systemtest und kein Kompnententest
 public class CypherTest00 {
 	public static final AdaptionNeo4JFactory FACTORY = new AdaptionNeo4JFactoryImpl();
 	

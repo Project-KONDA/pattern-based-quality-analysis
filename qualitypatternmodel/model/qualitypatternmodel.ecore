@@ -412,6 +412,10 @@
       <eOperations name="adaptAsNeoNode" eType="#//adaptionNeo4J/NeoNode" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="adaptAsNeoPropertyNode" eType="#//adaptionNeo4J/NeoPropertyNode"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="addPrimitiveNullCheck"/>
+      <eOperations name="addPrimitiveNullCheck" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eParameters name="eEnumNullCheck" eType="#//operators/EnumNullCheck"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMappings" upperBound="-1"
           eType="#//patternstructure/ElementMapping" eOpposite="#//patternstructure/ElementMapping/source"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMapping" eType="#//patternstructure/ElementMapping"

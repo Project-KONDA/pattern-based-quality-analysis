@@ -886,6 +886,24 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_NODE___ADAPT_AS_NEO_PROPERTY_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_NEO_PROPERTY_NODE;
 
 	/**
+	 * The operation id for the '<em>Add Primitive Null Check</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE___ADD_PRIMITIVE_NULL_CHECK = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_NULL_CHECK;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Null Check</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK;
+
+	/**
 	 * The operation id for the '<em>Get Cypher Variable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3782,6 +3800,24 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_NODE___ADAPT_AS_NEO_PROPERTY_NODE = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_NEO_PROPERTY_NODE;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Null Check</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___ADD_PRIMITIVE_NULL_CHECK = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_NULL_CHECK;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Null Check</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.

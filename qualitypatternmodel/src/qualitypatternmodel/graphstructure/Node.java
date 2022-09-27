@@ -14,6 +14,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.operators.EnumNullCheck;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.TextLiteralParam;
@@ -542,6 +543,22 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @generated
 	 */
 	NeoPropertyNode adaptAsNeoPropertyNode() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addPrimitiveNullCheck();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean addPrimitiveNullCheck(EnumNullCheck eEnumNullCheck);
 
 	/**
 	 * <!-- begin-user-doc -->

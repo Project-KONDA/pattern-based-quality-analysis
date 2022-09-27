@@ -43,6 +43,7 @@ import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.Contains;
+import qualitypatternmodel.operators.EnumNullCheck;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
@@ -1662,6 +1663,30 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		throw new InvalidityException("corresponding node not found");
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void addPrimitiveNullCheck() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean addPrimitiveNullCheck(EnumNullCheck eEnumNullCheck) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
 	//Umbennen zu Property
 	private NeoPropertyNode adaptAsNeoPropertyRecursive() throws InvalidityException {
 		if (!(this instanceof NeoPropertyNode)) {
@@ -2292,6 +2317,11 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case GraphstructurePackage.NODE___ADD_PRIMITIVE_NULL_CHECK:
+				addPrimitiveNullCheck();
+				return null;
+			case GraphstructurePackage.NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK:
+				return addPrimitiveNullCheck((EnumNullCheck)arguments.get(0));
 			case GraphstructurePackage.NODE___CREATE_PARAMETERS:
 				createParameters();
 				return null;

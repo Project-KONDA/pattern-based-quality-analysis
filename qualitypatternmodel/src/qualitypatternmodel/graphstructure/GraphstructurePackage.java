@@ -1530,13 +1530,31 @@ public interface GraphstructurePackage extends EPackage {
 	int NODE___ADAPT_AS_NEO_PROPERTY_NODE = COMPARABLE_OPERATION_COUNT + 36;
 
 	/**
+	 * The operation id for the '<em>Add Primitive Null Check</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___ADD_PRIMITIVE_NULL_CHECK = COMPARABLE_OPERATION_COUNT + 37;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Null Check</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK = COMPARABLE_OPERATION_COUNT + 38;
+
+	/**
 	 * The number of operations of the '<em>Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 37;
+	int NODE_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 39;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl <em>Primitive Node</em>}' class.
@@ -2285,6 +2303,24 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PRIMITIVE_NODE___ADAPT_AS_NEO_PROPERTY_NODE = NODE___ADAPT_AS_NEO_PROPERTY_NODE;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Null Check</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___ADD_PRIMITIVE_NULL_CHECK = NODE___ADD_PRIMITIVE_NULL_CHECK;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Null Check</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK = NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -3703,6 +3739,24 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPLEX_NODE___ADAPT_AS_NEO_PROPERTY_NODE = NODE___ADAPT_AS_NEO_PROPERTY_NODE;
 
 	/**
+	 * The operation id for the '<em>Add Primitive Null Check</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___ADD_PRIMITIVE_NULL_CHECK = NODE___ADD_PRIMITIVE_NULL_CHECK;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Null Check</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK = NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK;
+
+	/**
 	 * The number of operations of the '<em>Complex Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4432,6 +4486,26 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getNode__AdaptAsNeoPropertyNode();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#addPrimitiveNullCheck() <em>Add Primitive Null Check</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Primitive Null Check</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#addPrimitiveNullCheck()
+	 * @generated
+	 */
+	EOperation getNode__AddPrimitiveNullCheck();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#addPrimitiveNullCheck(qualitypatternmodel.operators.EnumNullCheck) <em>Add Primitive Null Check</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Primitive Null Check</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#addPrimitiveNullCheck(qualitypatternmodel.operators.EnumNullCheck)
+	 * @generated
+	 */
+	EOperation getNode__AddPrimitiveNullCheck__EnumNullCheck();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#checkComparisonConsistency() <em>Check Comparison Consistency</em>}' operation.
@@ -5353,6 +5427,22 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NODE___ADAPT_AS_NEO_PROPERTY_NODE = eINSTANCE.getNode__AdaptAsNeoPropertyNode();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Primitive Null Check</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NODE___ADD_PRIMITIVE_NULL_CHECK = eINSTANCE.getNode__AddPrimitiveNullCheck();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Primitive Null Check</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NODE___ADD_PRIMITIVE_NULL_CHECK__ENUMNULLCHECK = eINSTANCE.getNode__AddPrimitiveNullCheck__EnumNullCheck();
 
 		/**
 		 * The meta object literal for the '<em><b>Check Comparison Consistency</b></em>' operation.
