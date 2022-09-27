@@ -22,6 +22,11 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.operators.EnumNullCheck;
 import qualitypatternmodel.operators.NullCheck;
 import qualitypatternmodel.operators.OperatorsPackage;
+import qualitypatternmodel.parameters.BooleanParam;
+import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.impl.BooleanParamImpl;
+import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
@@ -330,8 +335,21 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 
 	@Override
 	public void createParameters() {
-		// TODO Auto-generated method stub
-		
+		ParameterList parameterList = getParameterList();
+		if(parameterList != null) {
+			if(getOption() == null) {
+				BooleanParam bool = new BooleanParamImpl();				
+				setOption(bool);
+			} else {
+				parameterList.add(getOption());
+			}
+			if(getContent() == null) {
+				TextLiteralParam textLiteral = new TextLiteralParamImpl();				
+				setContent(textLiteral);
+			} else {
+				parameterList.add(getContent());
+			}
+		}
 	}
 
 	@Override
@@ -342,8 +360,7 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 
 	@Override
 	public boolean isTranslatable() {
-		// TODO Auto-generated method stub
-		return false;
+		return primitiveNode.isTranslatable();
 	}
 
 	@Override
