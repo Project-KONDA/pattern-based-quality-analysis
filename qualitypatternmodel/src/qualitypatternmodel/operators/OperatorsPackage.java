@@ -3194,13 +3194,13 @@ public interface OperatorsPackage extends EPackage {
 	int NULL_CHECK___REMOVE_ELEMENT__NODE = BOOLEAN_OPERATOR___REMOVE_ELEMENT__NODE;
 
 	/**
-	 * The operation id for the '<em>Get Element Node</em>' operation.
+	 * The operation id for the '<em>Get Element</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NULL_CHECK___GET_ELEMENT_NODE = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
+	int NULL_CHECK___GET_ELEMENT = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Null Check</em>' class.
@@ -3649,14 +3649,14 @@ public interface OperatorsPackage extends EPackage {
 	EReference getNullCheck_Option();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.operators.NullCheck#getElement() <em>Get Element Node</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.operators.NullCheck#getElement() <em>Get Element</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Element Node</em>' operation.
+	 * @return the meta object for the '<em>Get Element</em>' operation.
 	 * @see qualitypatternmodel.operators.NullCheck#getElement()
 	 * @generated
 	 */
-	EOperation getNullCheck__GetElementNode();
+	EOperation getNullCheck__GetElement();
 
 	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.operators.ComparisonOperator <em>Comparison Operator</em>}'.
@@ -4041,12 +4041,12 @@ public interface OperatorsPackage extends EPackage {
 		EReference NULL_CHECK__OPTION = eINSTANCE.getNullCheck_Option();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Element Node</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation NULL_CHECK___GET_ELEMENT_NODE = eINSTANCE.getNullCheck__GetElementNode();
+		EOperation NULL_CHECK___GET_ELEMENT = eINSTANCE.getNullCheck__GetElement();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.operators.ComparisonOperator <em>Comparison Operator</em>}' enum.

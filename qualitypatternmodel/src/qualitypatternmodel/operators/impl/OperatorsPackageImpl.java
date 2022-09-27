@@ -636,7 +636,7 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getNullCheck__GetElementNode() {
+	public EOperation getNullCheck__GetElement() {
 		return nullCheckEClass.getEOperations().get(0);
 	}
 
@@ -745,7 +745,7 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		nullCheckEClass = createEClass(NULL_CHECK);
 		createEReference(nullCheckEClass, NULL_CHECK__PRIMITIVE_NODE);
 		createEReference(nullCheckEClass, NULL_CHECK__OPTION);
-		createEOperation(nullCheckEClass, NULL_CHECK___GET_ELEMENT_NODE);
+		createEOperation(nullCheckEClass, NULL_CHECK___GET_ELEMENT);
 
 		// Create enums
 		comparisonOperatorEEnum = createEEnum(COMPARISON_OPERATOR);
@@ -874,7 +874,7 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		initEReference(getNullCheck_PrimitiveNode(), theGraphstructurePackage.getPrimitiveNode(), theGraphstructurePackage.getPrimitiveNode_NullCheck(), "primitiveNode", null, 0, 1, NullCheck.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNullCheck_Option(), theParametersPackage.getBooleanParam(), theParametersPackage.getBooleanParam_NullCheck(), "option", null, 0, 1, NullCheck.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getNullCheck__GetElementNode(), theGraphstructurePackage.getNode(), "getElementNode", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getNullCheck__GetElement(), theGraphstructurePackage.getNode(), "getElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(comparisonOperatorEEnum, ComparisonOperator.class, "ComparisonOperator");

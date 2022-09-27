@@ -43,7 +43,6 @@ import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.Contains;
-import qualitypatternmodel.operators.EnumNullCheck;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.NullCheck;
 import qualitypatternmodel.operators.Operator;
@@ -2294,6 +2293,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case GraphstructurePackage.NODE___ADD_PRIMITIVE_NULL_CHECK:
+				return addPrimitiveNullCheck();
 			case GraphstructurePackage.NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN:
 				return addPrimitiveNullCheck((Boolean)arguments.get(0));
 			case GraphstructurePackage.NODE___CREATE_PARAMETERS:

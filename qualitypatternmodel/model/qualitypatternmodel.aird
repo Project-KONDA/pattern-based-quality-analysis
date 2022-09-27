@@ -7468,9 +7468,9 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_fey3kD6YEe2uF8g73p0yhQ" name="getElementNode() : Node" tooltipText="getElementNode() : Node">
-          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//operators/NullCheck/getElementNode"/>
-          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//operators/NullCheck/getElementNode"/>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_fey3kD6YEe2uF8g73p0yhQ" name="getElement() : Node" tooltipText="getElement() : Node">
+          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//operators/NullCheck/getElement"/>
+          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//operators/NullCheck/getElement"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_fezeoD6YEe2uF8g73p0yhQ" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
           </ownedStyle>

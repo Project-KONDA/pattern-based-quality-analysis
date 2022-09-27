@@ -289,7 +289,7 @@
           eType="#//parameters/TextLiteralParam" eOpposite="#//parameters/TextLiteralParam/contains"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NullCheck" eSuperTypes="#//operators/BooleanOperator">
-      <eOperations name="getElementNode" eType="#//graphstructure/Node"/>
+      <eOperations name="getElement" eType="#//graphstructure/Node"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="primitiveNode" eType="#//graphstructure/PrimitiveNode"
           eOpposite="#//graphstructure/PrimitiveNode/nullCheck"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//parameters/BooleanParam"

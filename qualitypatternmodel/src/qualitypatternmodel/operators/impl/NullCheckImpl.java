@@ -361,7 +361,7 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case OperatorsPackage.NULL_CHECK___GET_ELEMENT_NODE:
+			case OperatorsPackage.NULL_CHECK___GET_ELEMENT:
 				return getElement();
 		}
 		return super.eInvoke(operationID, arguments);

@@ -14,7 +14,7 @@ import qualitypatternmodel.operators.OperatorsFactory;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.operators.NullCheck#getElement() <em>Get Element Node</em>}</li>
+ *   <li>{@link qualitypatternmodel.operators.NullCheck#getElement() <em>Get Element</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -74,13 +74,13 @@ public class NullCheckTest extends BooleanOperatorTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.operators.NullCheck#getElement() <em>Get Element Node</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.operators.NullCheck#getElement() <em>Get Element</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see qualitypatternmodel.operators.NullCheck#getElement()
 	 * @generated
 	 */
-	public void testGetElementNode() {
+	public void testGetElement() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
