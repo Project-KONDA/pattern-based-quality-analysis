@@ -32,7 +32,9 @@ import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.Contains;
+import qualitypatternmodel.operators.EnumNullCheck;
 import qualitypatternmodel.operators.Match;
+import qualitypatternmodel.operators.NullCheck;
 import qualitypatternmodel.operators.NumberOperator;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
@@ -111,7 +113,21 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass nullCheckEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum comparisonOperatorEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum enumNullCheckEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -471,16 +487,6 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getComparison_IsInternalIdCheck() {
-		return (EAttribute)comparisonEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getComparison__IsPrimitive() {
 		return comparisonEClass.getEOperations().get(0);
 	}
@@ -601,8 +607,48 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 	 * @generated
 	 */
 	@Override
+	public EClass getNullCheck() {
+		return nullCheckEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNullCheck_Option() {
+		return (EAttribute)nullCheckEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getNullCheck_Primitivenode() {
+		return (EReference)nullCheckEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getComparisonOperator() {
 		return comparisonOperatorEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getEnumNullCheck() {
+		return enumNullCheckEEnum;
 	}
 
 	/**
@@ -672,7 +718,6 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		createEReference(comparisonEClass, COMPARISON__ARGUMENT2);
 		createEReference(comparisonEClass, COMPARISON__OPTION);
 		createEReference(comparisonEClass, COMPARISON__TYPE_OPTION);
-		createEAttribute(comparisonEClass, COMPARISON__IS_INTERNAL_ID_CHECK);
 		createEOperation(comparisonEClass, COMPARISON___IS_PRIMITIVE);
 		createEOperation(comparisonEClass, COMPARISON___GET_ELEMENT);
 		createEOperation(comparisonEClass, COMPARISON___COPY);
@@ -688,8 +733,13 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		createEReference(containsEClass, CONTAINS__CONTENT);
 		createEOperation(containsEClass, CONTAINS___GET_ELEMENT);
 
+		nullCheckEClass = createEClass(NULL_CHECK);
+		createEAttribute(nullCheckEClass, NULL_CHECK__OPTION);
+		createEReference(nullCheckEClass, NULL_CHECK__PRIMITIVENODE);
+
 		// Create enums
 		comparisonOperatorEEnum = createEEnum(COMPARISON_OPERATOR);
+		enumNullCheckEEnum = createEEnum(ENUM_NULL_CHECK);
 
 		// Create data types
 		operatorCycleExceptionWrapperEDataType = createEDataType(OPERATOR_CYCLE_EXCEPTION_WRAPPER);
@@ -736,6 +786,7 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		comparisonEClass.getESuperTypes().add(this.getBooleanOperator());
 		operatorListEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 		containsEClass.getESuperTypes().add(this.getBooleanOperator());
+		nullCheckEClass.getESuperTypes().add(this.getBooleanOperator());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(booleanOperatorEClass, BooleanOperator.class, "BooleanOperator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -788,7 +839,6 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		initEReference(getComparison_Argument2(), theGraphstructurePackage.getComparable(), theGraphstructurePackage.getComparable_Comparison2(), "argument2", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComparison_Option(), theParametersPackage.getComparisonOptionParam(), theParametersPackage.getComparisonOptionParam_Comparisons(), "option", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComparison_TypeOption(), theParametersPackage.getTypeOptionParam(), theParametersPackage.getTypeOptionParam_TypeComparisons(), "typeOption", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getComparison_IsInternalIdCheck(), ecorePackage.getEBoolean(), "isInternalIdCheck", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getComparison__IsPrimitive(), ecorePackage.getEBoolean(), "isPrimitive", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -810,6 +860,10 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 
 		initEOperation(getContains__GetElement(), theGraphstructurePackage.getNode(), "getElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEClass(nullCheckEClass, NullCheck.class, "NullCheck", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNullCheck_Option(), this.getEnumNullCheck(), "option", null, 0, 1, NullCheck.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNullCheck_Primitivenode(), theGraphstructurePackage.getPrimitiveNode(), theGraphstructurePackage.getPrimitiveNode_NullCheck(), "primitivenode", null, 0, 1, NullCheck.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(comparisonOperatorEEnum, ComparisonOperator.class, "ComparisonOperator");
 		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.EQUAL);
@@ -818,9 +872,10 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.GREATEROREQUAL);
 		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.LESSOREQUAL);
 		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.NOTEQUAL);
-		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.ISNULL);
-		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.ISNOTNULL);
-		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.IN);
+
+		initEEnum(enumNullCheckEEnum, EnumNullCheck.class, "EnumNullCheck");
+		addEEnumLiteral(enumNullCheckEEnum, EnumNullCheck.ISNULL);
+		addEEnumLiteral(enumNullCheckEEnum, EnumNullCheck.ISNOTNULL);
 
 		// Initialize data types
 		initEDataType(operatorCycleExceptionWrapperEDataType, OperatorCycleException.class, "OperatorCycleExceptionWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

@@ -20,7 +20,6 @@ import qualitypatternmodel.parameters.TypeOptionParam;
  *   <li>{@link qualitypatternmodel.operators.Comparison#getArgument2 <em>Argument2</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.Comparison#getOption <em>Option</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.Comparison#getTypeOption <em>Type Option</em>}</li>
- *   <li>{@link qualitypatternmodel.operators.Comparison#isIsInternalIdCheck <em>Is Internal Id Check</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.operators.OperatorsPackage#getComparison()
@@ -99,28 +98,6 @@ public interface Comparison extends BooleanOperator {
 	 * @generated
 	 */
 	void setTypeOption(TypeOptionParam value);
-
-	/**
-	 * Returns the value of the '<em><b>Is Internal Id Check</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Internal Id Check</em>' attribute.
-	 * @see #setIsInternalIdCheck(boolean)
-	 * @see qualitypatternmodel.operators.OperatorsPackage#getComparison_IsInternalIdCheck()
-	 * @model
-	 * @generated
-	 */
-	boolean isIsInternalIdCheck();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.operators.Comparison#isIsInternalIdCheck <em>Is Internal Id Check</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Internal Id Check</em>' attribute.
-	 * @see #isIsInternalIdCheck()
-	 * @generated
-	 */
-	void setIsInternalIdCheck(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

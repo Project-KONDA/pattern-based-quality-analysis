@@ -8,23 +8,25 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import qualitypatternmodel.parameters.TextListParam;
+
+import qualitypatternmodel.parameters.MultiListParam;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.parameters.TextListParam} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.parameters.MultiListParam} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class TextListParamItemProvider extends AbstractListParamItemProvider {
+public class MultiListParamItemProvider extends AbstractListParamItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TextListParamItemProvider(AdapterFactory adapterFactory) {
+	public MultiListParamItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -44,32 +46,28 @@ public class TextListParamItemProvider extends AbstractListParamItemProvider {
 	}
 
 	/**
-	 * This returns TextListParam.gif.
+	 * This returns MultiListParam.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TextListParam"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/MultiListParam"));
 	}
 
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		TextListParam textList = (TextListParam) object;
-		String text = getString("_UI_TextList_type") + " " + textList.getInternalId();		
-		if(textList.getValues() != null) {
-			for(String value : textList.getValues()) {
-				text += " " + value;
-			}
-		}		
-		return text;
+		String label = ((MultiListParam)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_MultiListParam_type") :
+			getString("_UI_MultiListParam_type") + " " + label;
 	}
 
 

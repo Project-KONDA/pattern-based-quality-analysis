@@ -77,31 +77,7 @@ public enum ComparisonOperator implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NOTEQUAL(5, "NOTEQUAL", "!="), /**
-	 * The '<em><b>ISNULL</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ISNULL_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	ISNULL(6, "ISNULL", "IS NULL"), /**
-	 * The '<em><b>ISNOTNULL</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ISNOTNULL_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	ISNOTNULL(7, "ISNOTNULL", "IS NOT NULL"), /**
-	 * The '<em><b>IN</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #IN_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	IN(8, "IN", "IN");
+	NOTEQUAL(5, "NOTEQUAL", "!=");
 
 	/**
 	 * The '<em><b>EQUAL</b></em>' literal value.
@@ -170,39 +146,6 @@ public enum ComparisonOperator implements Enumerator {
 	public static final int NOTEQUAL_VALUE = 5;
 
 	/**
-	 * The '<em><b>ISNULL</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ISNULL
-	 * @model literal="IS NULL"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int ISNULL_VALUE = 6;
-
-	/**
-	 * The '<em><b>ISNOTNULL</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ISNOTNULL
-	 * @model literal="IS NOT NULL"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int ISNOTNULL_VALUE = 7;
-
-	/**
-	 * The '<em><b>IN</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #IN
-	 * @model
-	 * @generated
-	 * @ordered
-	 */
-	public static final int IN_VALUE = 8;
-
-	/**
 	 * An array of all the '<em><b>Comparison Operator</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -216,9 +159,6 @@ public enum ComparisonOperator implements Enumerator {
 			GREATEROREQUAL,
 			LESSOREQUAL,
 			NOTEQUAL,
-			ISNULL,
-			ISNOTNULL,
-			IN,
 		};
 
 	/**
@@ -281,9 +221,6 @@ public enum ComparisonOperator implements Enumerator {
 			case GREATEROREQUAL_VALUE: return GREATEROREQUAL;
 			case LESSOREQUAL_VALUE: return LESSOREQUAL;
 			case NOTEQUAL_VALUE: return NOTEQUAL;
-			case ISNULL_VALUE: return ISNULL;
-			case ISNOTNULL_VALUE: return ISNOTNULL;
-			case IN_VALUE: return IN;
 		}
 		return null;
 	}

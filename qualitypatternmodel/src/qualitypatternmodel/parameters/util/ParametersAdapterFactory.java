@@ -124,6 +124,14 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 				return createKeyValueParamAdapter();
 			}
 			@Override
+			public Adapter caseAbstractListParam(AbstractListParam object) {
+				return createAbstractListParamAdapter();
+			}
+			@Override
+			public Adapter caseMultiListParam(MultiListParam object) {
+				return createMultiListParamAdapter();
+			}
+			@Override
 			public Adapter casePatternElement(PatternElement object) {
 				return createPatternElementAdapter();
 			}
@@ -344,6 +352,34 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createKeyValueParamAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.AbstractListParam <em>Abstract List Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.parameters.AbstractListParam
+	 * @generated
+	 */
+	public Adapter createAbstractListParamAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.MultiListParam <em>Multi List Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.parameters.MultiListParam
+	 * @generated
+	 */
+	public Adapter createMultiListParamAdapter() {
 		return null;
 	}
 

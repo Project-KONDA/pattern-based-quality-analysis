@@ -131,8 +131,12 @@ public class OperatorsValidator extends EObjectValidator {
 				return validateOperatorList((OperatorList)value, diagnostics, context);
 			case OperatorsPackage.CONTAINS:
 				return validateContains((Contains)value, diagnostics, context);
+			case OperatorsPackage.NULL_CHECK:
+				return validateNullCheck((NullCheck)value, diagnostics, context);
 			case OperatorsPackage.COMPARISON_OPERATOR:
 				return validateComparisonOperator((ComparisonOperator)value, diagnostics, context);
+			case OperatorsPackage.ENUM_NULL_CHECK:
+				return validateEnumNullCheck((EnumNullCheck)value, diagnostics, context);
 			case OperatorsPackage.OPERATOR_CYCLE_EXCEPTION_WRAPPER:
 				return validateOperatorCycleExceptionWrapper((OperatorCycleException)value, diagnostics, context);
 			default:
@@ -288,7 +292,35 @@ public class OperatorsValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateNullCheck(NullCheck nullCheck, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(nullCheck, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(nullCheck, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(nullCheck, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(nullCheck, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(nullCheck, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(nullCheck, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(nullCheck, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(nullCheck, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(nullCheck, diagnostics, context);
+		if (result || diagnostics != null) result &= validateOperator_validate(nullCheck, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateComparisonOperator(ComparisonOperator comparisonOperator, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateEnumNullCheck(EnumNullCheck enumNullCheck, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

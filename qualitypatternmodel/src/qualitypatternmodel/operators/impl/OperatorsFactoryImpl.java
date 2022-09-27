@@ -63,6 +63,7 @@ public class OperatorsFactoryImpl extends EFactoryImpl implements OperatorsFacto
 			case OperatorsPackage.COMPARISON: return createComparison();
 			case OperatorsPackage.OPERATOR_LIST: return createOperatorList();
 			case OperatorsPackage.CONTAINS: return createContains();
+			case OperatorsPackage.NULL_CHECK: return createNullCheck();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -78,6 +79,8 @@ public class OperatorsFactoryImpl extends EFactoryImpl implements OperatorsFacto
 		switch (eDataType.getClassifierID()) {
 			case OperatorsPackage.COMPARISON_OPERATOR:
 				return createComparisonOperatorFromString(eDataType, initialValue);
+			case OperatorsPackage.ENUM_NULL_CHECK:
+				return createEnumNullCheckFromString(eDataType, initialValue);
 			case OperatorsPackage.OPERATOR_CYCLE_EXCEPTION_WRAPPER:
 				return createOperatorCycleExceptionWrapperFromString(eDataType, initialValue);
 			default:
@@ -95,6 +98,8 @@ public class OperatorsFactoryImpl extends EFactoryImpl implements OperatorsFacto
 		switch (eDataType.getClassifierID()) {
 			case OperatorsPackage.COMPARISON_OPERATOR:
 				return convertComparisonOperatorToString(eDataType, instanceValue);
+			case OperatorsPackage.ENUM_NULL_CHECK:
+				return convertEnumNullCheckToString(eDataType, instanceValue);
 			case OperatorsPackage.OPERATOR_CYCLE_EXCEPTION_WRAPPER:
 				return convertOperatorCycleExceptionWrapperToString(eDataType, instanceValue);
 			default:
@@ -151,6 +156,17 @@ public class OperatorsFactoryImpl extends EFactoryImpl implements OperatorsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public NullCheck createNullCheck() {
+		NullCheckImpl nullCheck = new NullCheckImpl();
+		return nullCheck;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ComparisonOperator createComparisonOperatorFromString(EDataType eDataType, String initialValue) {
 		ComparisonOperator result = ComparisonOperator.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -163,6 +179,26 @@ public class OperatorsFactoryImpl extends EFactoryImpl implements OperatorsFacto
 	 * @generated
 	 */
 	public String convertComparisonOperatorToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EnumNullCheck createEnumNullCheckFromString(EDataType eDataType, String initialValue) {
+		EnumNullCheck result = EnumNullCheck.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEnumNullCheckToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

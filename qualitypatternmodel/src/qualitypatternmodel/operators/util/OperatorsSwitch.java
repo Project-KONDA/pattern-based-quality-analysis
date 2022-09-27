@@ -131,6 +131,16 @@ public class OperatorsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case OperatorsPackage.NULL_CHECK: {
+				NullCheck nullCheck = (NullCheck)theEObject;
+				T result = caseNullCheck(nullCheck);
+				if (result == null) result = caseBooleanOperator(nullCheck);
+				if (result == null) result = caseOperator(nullCheck);
+				if (result == null) result = caseComparable(nullCheck);
+				if (result == null) result = casePatternElement(nullCheck);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -237,6 +247,21 @@ public class OperatorsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseContains(Contains object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Null Check</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Null Check</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNullCheck(NullCheck object) {
 		return null;
 	}
 

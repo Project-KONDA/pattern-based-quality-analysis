@@ -58,6 +58,15 @@ public interface OperatorsFactory extends EFactory {
 	Contains createContains();
 
 	/**
+	 * Returns a new object of class '<em>Null Check</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Null Check</em>'.
+	 * @generated
+	 */
+	NullCheck createNullCheck();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

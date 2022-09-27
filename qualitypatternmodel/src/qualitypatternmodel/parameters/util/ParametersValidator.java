@@ -140,6 +140,10 @@ public class ParametersValidator extends EObjectValidator {
 				return validateTypeOptionParam((TypeOptionParam)value, diagnostics, context);
 			case ParametersPackage.KEY_VALUE_PARAM:
 				return validateKeyValueParam((KeyValueParam)value, diagnostics, context);
+			case ParametersPackage.ABSTRACT_LIST_PARAM:
+				return validateAbstractListParam((AbstractListParam)value, diagnostics, context);
+			case ParametersPackage.MULTI_LIST_PARAM:
+				return validateMultiListParam((MultiListParam)value, diagnostics, context);
 			case ParametersPackage.STRING_TO_INT_EMAP:
 				return validateStringToIntEMap((EMap<?, ?>)value, diagnostics, context);
 			case ParametersPackage.STRING_ARRAY:
@@ -422,6 +426,44 @@ public class ParametersValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(keyValueParam, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(keyValueParam, diagnostics, context);
 		if (result || diagnostics != null) result &= validateParameter_validate(keyValueParam, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAbstractListParam(AbstractListParam abstractListParam, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(abstractListParam, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(abstractListParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(abstractListParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(abstractListParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(abstractListParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(abstractListParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(abstractListParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(abstractListParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(abstractListParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validateParameter_validate(abstractListParam, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateMultiListParam(MultiListParam multiListParam, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(multiListParam, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(multiListParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(multiListParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(multiListParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(multiListParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(multiListParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(multiListParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(multiListParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(multiListParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validateParameter_validate(multiListParam, diagnostics, context);
 		return result;
 	}
 

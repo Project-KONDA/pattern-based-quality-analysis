@@ -2476,6 +2476,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY__CONTAINS = GraphstructurePackage.PRIMITIVE_NODE__CONTAINS;
 
 	/**
+	 * The feature id for the '<em><b>Null Check</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY__NULL_CHECK = GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK;
+
+	/**
 	 * The feature id for the '<em><b>Variables</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

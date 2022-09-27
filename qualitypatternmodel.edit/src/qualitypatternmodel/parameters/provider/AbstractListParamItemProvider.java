@@ -8,23 +8,29 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import qualitypatternmodel.parameters.TextListParam;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import qualitypatternmodel.parameters.AbstractListParam;
+import qualitypatternmodel.parameters.ParametersPackage;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.parameters.TextListParam} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.parameters.AbstractListParam} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class TextListParamItemProvider extends AbstractListParamItemProvider {
+public class AbstractListParamItemProvider extends ParameterValueItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TextListParamItemProvider(AdapterFactory adapterFactory) {
+	public AbstractListParamItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -39,37 +45,45 @@ public class TextListParamItemProvider extends AbstractListParamItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addValuesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This returns TextListParam.gif.
+	 * This adds a property descriptor for the Values feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TextListParam"));
+	protected void addValuesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AbstractListParam_values_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractListParam_values_feature", "_UI_AbstractListParam_type"),
+				 ParametersPackage.Literals.ABSTRACT_LIST_PARAM__VALUES,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		TextListParam textList = (TextListParam) object;
-		String text = getString("_UI_TextList_type") + " " + textList.getInternalId();		
-		if(textList.getValues() != null) {
-			for(String value : textList.getValues()) {
-				text += " " + value;
-			}
-		}		
-		return text;
+		String label = ((AbstractListParam)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_AbstractListParam_type") :
+			getString("_UI_AbstractListParam_type") + " " + label;
 	}
 
 
@@ -83,6 +97,12 @@ public class TextListParamItemProvider extends AbstractListParamItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(AbstractListParam.class)) {
+			case ParametersPackage.ABSTRACT_LIST_PARAM__VALUES:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

@@ -73,10 +73,8 @@
           eType="#//operators/Match" eOpposite="#//operators/Match/option"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="contains" upperBound="-1"
           eType="#//operators/Contains" eOpposite="#//operators/Contains/option"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="nullCheck" upperBound="-1"
-          eType="#//operators/NullCheck" eOpposite="#//operators/NullCheck/option"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TextListParam" eSuperTypes="#//parameters/ListParam"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TextListParam" eSuperTypes="#//parameters/AbstractListParam"/>
     <eClassifiers xsi:type="ecore:EClass" name="TextLiteralParam" eSuperTypes="#//parameters/ParameterValue">
       <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="newValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -189,7 +187,8 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyValuePair" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"
           transient="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ListParam" abstract="true" eSuperTypes="#//parameters/ParameterValue">
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractListParam" abstract="true"
+        eSuperTypes="#//parameters/ParameterValue">
       <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="newValue" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
@@ -202,7 +201,7 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="FlexibleListParam" eSuperTypes="#//parameters/ListParam"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MultiListParam" eSuperTypes="#//parameters/AbstractListParam"/>
   </eSubpackages>
   <eSubpackages name="operators" nsURI="operators" nsPrefix="operators">
     <eClassifiers xsi:type="ecore:EClass" name="BooleanOperator" abstract="true" eSuperTypes="#//operators/Operator">
@@ -288,13 +287,11 @@
           eType="#//parameters/TextLiteralParam" eOpposite="#//parameters/TextLiteralParam/contains"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NullCheck" eSuperTypes="#//operators/BooleanOperator">
-      <eOperations name="getElement" eType="#//graphstructure/Node"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="option" eType="#//operators/EnumNullCheck"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="primitivenode" eType="#//graphstructure/PrimitiveNode"
           eOpposite="#//graphstructure/PrimitiveNode/nullCheck"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//parameters/BooleanParam"
-          eOpposite="#//parameters/BooleanParam/nullCheck"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EEnum" name="NullCheck">
+    <eClassifiers xsi:type="ecore:EEnum" name="EnumNullCheck">
       <eLiterals name="ISNULL"/>
       <eLiterals name="ISNOTNULL" value="1"/>
     </eClassifiers>
@@ -343,8 +340,8 @@
           eType="#//operators/Match" eOpposite="#//operators/Match/primitiveNode"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="contains" upperBound="-1"
           eType="#//operators/Contains" eOpposite="#//operators/Contains/primitiveNode"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="nullCheck" upperBound="-1"
-          eType="#//operators/NullCheck" eOpposite="#//operators/NullCheck/primitivenode"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="nullCheck" eType="#//operators/NullCheck"
+          eOpposite="#//operators/NullCheck/primitivenode"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Node" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement #//graphstructure/Adaptable">
       <eOperations name="getOriginalID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -494,7 +491,7 @@
       <eLiterals name="TIME" value="6" literal="TIME"/>
       <eLiterals name="NUMBER" value="7" literal="NUMBER"/>
       <eLiterals name="DATETIME" value="8"/>
-      <eLiterals name="LIST" value="8"/>
+      <eLiterals name="IN" value="8"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Adaptable" abstract="true" interface="true"
         eSuperTypes="#//patternstructure/PatternElement">

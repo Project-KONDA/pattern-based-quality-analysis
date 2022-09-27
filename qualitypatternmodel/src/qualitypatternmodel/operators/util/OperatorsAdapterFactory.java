@@ -98,6 +98,10 @@ public class OperatorsAdapterFactory extends AdapterFactoryImpl {
 				return createContainsAdapter();
 			}
 			@Override
+			public Adapter caseNullCheck(NullCheck object) {
+				return createNullCheckAdapter();
+			}
+			@Override
 			public Adapter casePatternElement(PatternElement object) {
 				return createPatternElementAdapter();
 			}
@@ -220,6 +224,20 @@ public class OperatorsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createContainsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.operators.NullCheck <em>Null Check</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.operators.NullCheck
+	 * @generated
+	 */
+	public Adapter createNullCheckAdapter() {
 		return null;
 	}
 

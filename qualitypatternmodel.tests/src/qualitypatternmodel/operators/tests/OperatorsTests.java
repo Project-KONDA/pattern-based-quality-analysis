@@ -35,6 +35,7 @@ public class OperatorsTests extends TestSuite {
 		suite.addTestSuite(ComparisonTest.class);
 		suite.addTestSuite(OperatorListTest.class);
 		suite.addTestSuite(ContainsTest.class);
+		suite.addTestSuite(NullCheckTest.class);
 		return suite;
 	}
 

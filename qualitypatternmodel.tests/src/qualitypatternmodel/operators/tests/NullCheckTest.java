@@ -1,18 +1,19 @@
 /**
  */
-package qualitypatternmodel.parameters.tests;
+package qualitypatternmodel.operators.tests;
 
 import junit.textui.TestRunner;
-import qualitypatternmodel.parameters.ParametersFactory;
-import qualitypatternmodel.parameters.TextListParam;
+
+import qualitypatternmodel.operators.NullCheck;
+import qualitypatternmodel.operators.OperatorsFactory;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Text List</b></em>'.
+ * A test case for the model object '<em><b>Null Check</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class TextListParamTest extends AbstractListParamTest {
+public class NullCheckTest extends BooleanOperatorTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -20,28 +21,28 @@ public class TextListParamTest extends AbstractListParamTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(TextListParamTest.class);
+		TestRunner.run(NullCheckTest.class);
 	}
 
 	/**
-	 * Constructs a new Text List Param test case with the given name.
+	 * Constructs a new Null Check test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TextListParamTest(String name) {
+	public NullCheckTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Text List Param test case.
+	 * Returns the fixture for this Null Check test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected TextListParam getFixture() {
-		return (TextListParam)fixture;
+	protected NullCheck getFixture() {
+		return (NullCheck)fixture;
 	}
 
 	/**
@@ -52,7 +53,7 @@ public class TextListParamTest extends AbstractListParamTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(ParametersFactory.eINSTANCE.createTextListParam());
+		setFixture(OperatorsFactory.eINSTANCE.createNullCheck());
 	}
 
 	/**
@@ -66,4 +67,4 @@ public class TextListParamTest extends AbstractListParamTest {
 		setFixture(null);
 	}
 
-} //TextListTest
+} //NullCheckTest

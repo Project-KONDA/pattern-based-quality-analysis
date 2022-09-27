@@ -3163,6 +3163,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PROPERTY_NODE__CONTAINS = GraphstructurePackage.PRIMITIVE_NODE__CONTAINS;
 
 	/**
+	 * The feature id for the '<em><b>Null Check</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE__NULL_CHECK = GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK;
+
+	/**
 	 * The feature id for the '<em><b>Node Place</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

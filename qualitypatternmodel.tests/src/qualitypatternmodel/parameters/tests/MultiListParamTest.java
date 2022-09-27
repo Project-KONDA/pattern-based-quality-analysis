@@ -3,16 +3,17 @@
 package qualitypatternmodel.parameters.tests;
 
 import junit.textui.TestRunner;
+
+import qualitypatternmodel.parameters.MultiListParam;
 import qualitypatternmodel.parameters.ParametersFactory;
-import qualitypatternmodel.parameters.TextListParam;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Text List</b></em>'.
+ * A test case for the model object '<em><b>Multi List Param</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class TextListParamTest extends AbstractListParamTest {
+public class MultiListParamTest extends AbstractListParamTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -20,28 +21,28 @@ public class TextListParamTest extends AbstractListParamTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(TextListParamTest.class);
+		TestRunner.run(MultiListParamTest.class);
 	}
 
 	/**
-	 * Constructs a new Text List Param test case with the given name.
+	 * Constructs a new Multi List Param test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TextListParamTest(String name) {
+	public MultiListParamTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Text List Param test case.
+	 * Returns the fixture for this Multi List Param test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected TextListParam getFixture() {
-		return (TextListParam)fixture;
+	protected MultiListParam getFixture() {
+		return (MultiListParam)fixture;
 	}
 
 	/**
@@ -52,7 +53,7 @@ public class TextListParamTest extends AbstractListParamTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(ParametersFactory.eINSTANCE.createTextListParam());
+		setFixture(ParametersFactory.eINSTANCE.createMultiListParam());
 	}
 
 	/**
@@ -66,4 +67,4 @@ public class TextListParamTest extends AbstractListParamTest {
 		setFixture(null);
 	}
 
-} //TextListTest
+} //MultiListParamTest

@@ -1,6 +1,6 @@
 /**
  */
-package qualitypatternmodel.graphstructure.provider;
+package qualitypatternmodel.operators.provider;
 
 
 import java.util.Collection;
@@ -11,24 +11,26 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.PrimitiveNode;
+import qualitypatternmodel.operators.NullCheck;
+import qualitypatternmodel.operators.OperatorsPackage;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.graphstructure.PrimitiveNode} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.operators.NullCheck} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PrimitiveNodeItemProvider extends NodeItemProvider {
+public class NullCheckItemProvider extends BooleanOperatorItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PrimitiveNodeItemProvider(AdapterFactory adapterFactory) {
+	public NullCheckItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -43,27 +45,48 @@ public class PrimitiveNodeItemProvider extends NodeItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addMatchPropertyDescriptor(object);
-			addContainsPropertyDescriptor(object);
-			addNullCheckPropertyDescriptor(object);
+			addOptionPropertyDescriptor(object);
+			addPrimitivenodePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Match feature.
+	 * This adds a property descriptor for the Option feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addMatchPropertyDescriptor(Object object) {
+	protected void addOptionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PrimitiveNode_match_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveNode_match_feature", "_UI_PrimitiveNode_type"),
-				 GraphstructurePackage.Literals.PRIMITIVE_NODE__MATCH,
+				 getString("_UI_NullCheck_option_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NullCheck_option_feature", "_UI_NullCheck_type"),
+				 OperatorsPackage.Literals.NULL_CHECK__OPTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Primitivenode feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPrimitivenodePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NullCheck_primitivenode_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NullCheck_primitivenode_feature", "_UI_NullCheck_type"),
+				 OperatorsPackage.Literals.NULL_CHECK__PRIMITIVENODE,
 				 true,
 				 false,
 				 true,
@@ -73,58 +96,14 @@ public class PrimitiveNodeItemProvider extends NodeItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Contains feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addContainsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_PrimitiveNode_contains_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveNode_contains_feature", "_UI_PrimitiveNode_type"),
-				 GraphstructurePackage.Literals.PRIMITIVE_NODE__CONTAINS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Null Check feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNullCheckPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_PrimitiveNode_nullCheck_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveNode_nullCheck_feature", "_UI_PrimitiveNode_type"),
-				 GraphstructurePackage.Literals.PRIMITIVE_NODE__NULL_CHECK,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns PrimitiveNode.gif.
+	 * This returns NullCheck.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PrimitiveNode"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/NullCheck"));
 	}
 
 	/**
@@ -135,10 +114,10 @@ public class PrimitiveNodeItemProvider extends NodeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((PrimitiveNode)object).getName();
+		String label = ((NullCheck)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_PrimitiveNode_type") :
-			getString("_UI_PrimitiveNode_type") + " " + label;
+			getString("_UI_NullCheck_type") :
+			getString("_UI_NullCheck_type") + " " + label;
 	}
 
 
@@ -152,6 +131,12 @@ public class PrimitiveNodeItemProvider extends NodeItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(NullCheck.class)) {
+			case OperatorsPackage.NULL_CHECK__OPTION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

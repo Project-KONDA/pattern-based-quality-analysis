@@ -83,7 +83,15 @@ public enum ReturnType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DATETIME(8, "DATETIME", "DATETIME");
+	DATETIME(8, "DATETIME", "DATETIME"), /**
+	 * The '<em><b>IN</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #IN_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	IN(8, "IN", "IN");
 
 	private static final String CATCH_CASTING_ERROR = "} catch err:FORG0001 { false() }";
 
@@ -178,6 +186,17 @@ public enum ReturnType implements Enumerator {
 	public static final int DATETIME_VALUE = 8;
 
 	/**
+	 * The '<em><b>IN</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #IN
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int IN_VALUE = 8;
+
+	/**
 	 * An array of all the '<em><b>Return Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -193,6 +212,7 @@ public enum ReturnType implements Enumerator {
 			TIME,
 			NUMBER,
 			DATETIME,
+			IN,
 		};
 
 	/**

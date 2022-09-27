@@ -2015,6 +2015,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_LITERAL_NODE__CONTAINS = GraphstructurePackage.PRIMITIVE_NODE__CONTAINS;
 
 	/**
+	 * The feature id for the '<em><b>Null Check</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_LITERAL_NODE__NULL_CHECK = GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK;
+
+	/**
 	 * The number of structural features of the '<em>Rdf Literal Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

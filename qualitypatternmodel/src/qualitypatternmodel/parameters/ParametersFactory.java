@@ -130,6 +130,15 @@ public interface ParametersFactory extends EFactory {
 	KeyValueParam createKeyValueParam();
 
 	/**
+	 * Returns a new object of class '<em>Multi List Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Multi List Param</em>'.
+	 * @generated
+	 */
+	MultiListParam createMultiListParam();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

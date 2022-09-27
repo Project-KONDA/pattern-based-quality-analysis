@@ -347,6 +347,29 @@ public class ParametersItemProviderAdapterFactory extends ParametersAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.MultiListParam} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MultiListParamItemProvider multiListParamItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.parameters.MultiListParam}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMultiListParamAdapter() {
+		if (multiListParamItemProvider == null) {
+			multiListParamItemProvider = new MultiListParamItemProvider(this);
+		}
+
+		return multiListParamItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -463,6 +486,7 @@ public class ParametersItemProviderAdapterFactory extends ParametersAdapterFacto
 		if (dateTimeParamItemProvider != null) dateTimeParamItemProvider.dispose();
 		if (typeOptionParamItemProvider != null) typeOptionParamItemProvider.dispose();
 		if (keyValueParamItemProvider != null) keyValueParamItemProvider.dispose();
+		if (multiListParamItemProvider != null) multiListParamItemProvider.dispose();
 	}
 
 }

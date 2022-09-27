@@ -444,6 +444,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
+	public EReference getPrimitiveNode_NullCheck() {
+		return (EReference)primitiveNodeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getPrimitiveNode__CheckComparisonConsistency__ParameterValue() {
 		return primitiveNodeEClass.getEOperations().get(0);
 	}
@@ -1271,6 +1281,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		primitiveNodeEClass = createEClass(PRIMITIVE_NODE);
 		createEReference(primitiveNodeEClass, PRIMITIVE_NODE__MATCH);
 		createEReference(primitiveNodeEClass, PRIMITIVE_NODE__CONTAINS);
+		createEReference(primitiveNodeEClass, PRIMITIVE_NODE__NULL_CHECK);
 		createEOperation(primitiveNodeEClass, PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE);
 
 		nodeEClass = createEClass(NODE);
@@ -1448,6 +1459,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		initEClass(primitiveNodeEClass, PrimitiveNode.class, "PrimitiveNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPrimitiveNode_Match(), theOperatorsPackage.getMatch(), theOperatorsPackage.getMatch_PrimitiveNode(), "match", null, 0, -1, PrimitiveNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPrimitiveNode_Contains(), theOperatorsPackage.getContains(), theOperatorsPackage.getContains_PrimitiveNode(), "contains", null, 0, -1, PrimitiveNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPrimitiveNode_NullCheck(), theOperatorsPackage.getNullCheck(), theOperatorsPackage.getNullCheck_Primitivenode(), "nullCheck", null, 0, 1, PrimitiveNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getPrimitiveNode__CheckComparisonConsistency__ParameterValue(), null, "checkComparisonConsistency", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theParametersPackage.getParameterValue(), "parameterValue", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1644,6 +1656,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		addEEnumLiteral(returnTypeEEnum, ReturnType.TIME);
 		addEEnumLiteral(returnTypeEEnum, ReturnType.NUMBER);
 		addEEnumLiteral(returnTypeEEnum, ReturnType.DATETIME);
+		addEEnumLiteral(returnTypeEEnum, ReturnType.IN);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -7,6 +7,7 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.operators.Contains;
 import qualitypatternmodel.operators.Match;
+import qualitypatternmodel.operators.NullCheck;
 import qualitypatternmodel.parameters.ParameterValue;
 
 /**
@@ -21,6 +22,7 @@ import qualitypatternmodel.parameters.ParameterValue;
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.PrimitiveNode#getMatch <em>Match</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.PrimitiveNode#getContains <em>Contains</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.PrimitiveNode#getNullCheck <em>Null Check</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getPrimitiveNode()
@@ -64,5 +66,29 @@ public interface PrimitiveNode extends Node {
 	 * @generated
 	 */
 	EList<Contains> getContains();
+
+	/**
+	 * Returns the value of the '<em><b>Null Check</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.NullCheck#getPrimitivenode <em>Primitivenode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Null Check</em>' reference.
+	 * @see #setNullCheck(NullCheck)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getPrimitiveNode_NullCheck()
+	 * @see qualitypatternmodel.operators.NullCheck#getPrimitivenode
+	 * @model opposite="primitivenode"
+	 * @generated
+	 */
+	NullCheck getNullCheck();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.PrimitiveNode#getNullCheck <em>Null Check</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Null Check</em>' reference.
+	 * @see #getNullCheck()
+	 * @generated
+	 */
+	void setNullCheck(NullCheck value);
 
 } // Property

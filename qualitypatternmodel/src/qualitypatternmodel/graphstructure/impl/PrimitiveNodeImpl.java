@@ -36,6 +36,7 @@ import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.Contains;
 import qualitypatternmodel.operators.Match;
+import qualitypatternmodel.operators.NullCheck;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
@@ -59,6 +60,7 @@ import static qualitypatternmodel.operators.ComparisonOperator.*;
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl#getMatch <em>Match</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl#getContains <em>Contains</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl#getNullCheck <em>Null Check</em>}</li>
  * </ul>
  *
  * @generated
@@ -84,6 +86,16 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 	 * @ordered
 	 */
 	protected EList<Contains> contains;
+
+	/**
+	 * The cached value of the '{@link #getNullCheck() <em>Null Check</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNullCheck()
+	 * @generated
+	 * @ordered
+	 */
+	protected NullCheck nullCheck;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -581,6 +593,72 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NullCheck getNullCheck() {
+		if (nullCheck != null && nullCheck.eIsProxy()) {
+			InternalEObject oldNullCheck = (InternalEObject)nullCheck;
+			nullCheck = (NullCheck)eResolveProxy(oldNullCheck);
+			if (nullCheck != oldNullCheck) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK, oldNullCheck, nullCheck));
+			}
+		}
+		return nullCheck;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NullCheck basicGetNullCheck() {
+		return nullCheck;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetNullCheck(NullCheck newNullCheck, NotificationChain msgs) {
+		NullCheck oldNullCheck = nullCheck;
+		nullCheck = newNullCheck;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK, oldNullCheck, newNullCheck);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setNullCheck(NullCheck newNullCheck) {
+		if (newNullCheck != nullCheck) {
+			NotificationChain msgs = null;
+			if (nullCheck != null)
+				msgs = ((InternalEObject)nullCheck).eInverseRemove(this, OperatorsPackage.NULL_CHECK__PRIMITIVENODE, NullCheck.class, msgs);
+			if (newNullCheck != null)
+				msgs = ((InternalEObject)newNullCheck).eInverseAdd(this, OperatorsPackage.NULL_CHECK__PRIMITIVENODE, NullCheck.class, msgs);
+			msgs = basicSetNullCheck(newNullCheck, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK, newNullCheck, newNullCheck));
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -627,6 +705,10 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMatch()).basicAdd(otherEnd, msgs);
 			case GraphstructurePackage.PRIMITIVE_NODE__CONTAINS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContains()).basicAdd(otherEnd, msgs);
+			case GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK:
+				if (nullCheck != null)
+					msgs = ((InternalEObject)nullCheck).eInverseRemove(this, OperatorsPackage.NULL_CHECK__PRIMITIVENODE, NullCheck.class, msgs);
+				return basicSetNullCheck((NullCheck)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -643,6 +725,8 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 				return ((InternalEList<?>)getMatch()).basicRemove(otherEnd, msgs);
 			case GraphstructurePackage.PRIMITIVE_NODE__CONTAINS:
 				return ((InternalEList<?>)getContains()).basicRemove(otherEnd, msgs);
+			case GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK:
+				return basicSetNullCheck(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -658,6 +742,9 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 				return getMatch();
 			case GraphstructurePackage.PRIMITIVE_NODE__CONTAINS:
 				return getContains();
+			case GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK:
+				if (resolve) return getNullCheck();
+				return basicGetNullCheck();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -678,6 +765,9 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 				getContains().clear();
 				getContains().addAll((Collection<? extends Contains>)newValue);
 				return;
+			case GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK:
+				setNullCheck((NullCheck)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -695,6 +785,9 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 			case GraphstructurePackage.PRIMITIVE_NODE__CONTAINS:
 				getContains().clear();
 				return;
+			case GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK:
+				setNullCheck((NullCheck)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -710,6 +803,8 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 				return match != null && !match.isEmpty();
 			case GraphstructurePackage.PRIMITIVE_NODE__CONTAINS:
 				return contains != null && !contains.isEmpty();
+			case GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK:
+				return nullCheck != null;
 		}
 		return super.eIsSet(featureID);
 	}

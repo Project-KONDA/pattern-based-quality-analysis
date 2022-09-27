@@ -1693,13 +1693,22 @@ public interface GraphstructurePackage extends EPackage {
 	int PRIMITIVE_NODE__CONTAINS = NODE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Null Check</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE__NULL_CHECK = NODE_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Primitive Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 2;
+	int PRIMITIVE_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -3954,6 +3963,17 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getPrimitiveNode_Contains();
 
 	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.PrimitiveNode#getNullCheck <em>Null Check</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Null Check</em>'.
+	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#getNullCheck()
+	 * @see #getPrimitiveNode()
+	 * @generated
+	 */
+	EReference getPrimitiveNode_NullCheck();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.PrimitiveNode#checkComparisonConsistency(qualitypatternmodel.parameters.ParameterValue) <em>Check Comparison Consistency</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4963,6 +4983,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference PRIMITIVE_NODE__CONTAINS = eINSTANCE.getPrimitiveNode_Contains();
+
+		/**
+		 * The meta object literal for the '<em><b>Null Check</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PRIMITIVE_NODE__NULL_CHECK = eINSTANCE.getPrimitiveNode_NullCheck();
 
 		/**
 		 * The meta object literal for the '<em><b>Check Comparison Consistency</b></em>' operation.
