@@ -288,12 +288,12 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NullCheck" eSuperTypes="#//operators/BooleanOperator">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="option" eType="#//operators/EnumNullCheck"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="primitivenode" eType="#//graphstructure/PrimitiveNode"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="primitiveNode" eType="#//graphstructure/PrimitiveNode"
           eOpposite="#//graphstructure/PrimitiveNode/nullCheck"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="EnumNullCheck">
-      <eLiterals name="ISNULL"/>
-      <eLiterals name="ISNOTNULL" value="1"/>
+      <eLiterals name="ISNULL" literal="IS NULL"/>
+      <eLiterals name="ISNOTNULL" value="1" literal="IS NOT NULL"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="graphstructure" nsURI="graphstructure" nsPrefix="graphstructure">
@@ -341,7 +341,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="contains" upperBound="-1"
           eType="#//operators/Contains" eOpposite="#//operators/Contains/primitiveNode"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="nullCheck" eType="#//operators/NullCheck"
-          eOpposite="#//operators/NullCheck/primitivenode"/>
+          eOpposite="#//operators/NullCheck/primitiveNode"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Node" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement #//graphstructure/Adaptable">
       <eOperations name="getOriginalID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
