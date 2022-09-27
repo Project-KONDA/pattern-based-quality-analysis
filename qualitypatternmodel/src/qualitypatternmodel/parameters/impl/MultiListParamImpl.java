@@ -4,8 +4,6 @@ package qualitypatternmodel.parameters.impl;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.exceptions.InvalidityException;

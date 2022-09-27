@@ -4,10 +4,6 @@ package qualitypatternmodel.parameters.impl;
 
 import static qualitypatternmodel.utility.Constants.*;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import org.eclipse.emf.common.util.BasicEList;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;

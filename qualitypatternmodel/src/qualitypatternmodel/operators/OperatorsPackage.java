@@ -2862,13 +2862,13 @@ public interface OperatorsPackage extends EPackage {
 	int NULL_CHECK__OPTION = BOOLEAN_OPERATOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Primitivenode</b></em>' reference.
+	 * The feature id for the '<em><b>Primitive Node</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NULL_CHECK__PRIMITIVENODE = BOOLEAN_OPERATOR_FEATURE_COUNT + 1;
+	int NULL_CHECK__PRIMITIVE_NODE = BOOLEAN_OPERATOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Null Check</em>' class.
@@ -3630,15 +3630,15 @@ public interface OperatorsPackage extends EPackage {
 	EAttribute getNullCheck_Option();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.operators.NullCheck#getPrimitivenode <em>Primitivenode</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.operators.NullCheck#getPrimitiveNode <em>Primitive Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Primitivenode</em>'.
-	 * @see qualitypatternmodel.operators.NullCheck#getPrimitivenode()
+	 * @return the meta object for the reference '<em>Primitive Node</em>'.
+	 * @see qualitypatternmodel.operators.NullCheck#getPrimitiveNode()
 	 * @see #getNullCheck()
 	 * @generated
 	 */
-	EReference getNullCheck_Primitivenode();
+	EReference getNullCheck_PrimitiveNode();
 
 	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.operators.ComparisonOperator <em>Comparison Operator</em>}'.
@@ -4015,12 +4015,12 @@ public interface OperatorsPackage extends EPackage {
 		EAttribute NULL_CHECK__OPTION = eINSTANCE.getNullCheck_Option();
 
 		/**
-		 * The meta object literal for the '<em><b>Primitivenode</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Primitive Node</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NULL_CHECK__PRIMITIVENODE = eINSTANCE.getNullCheck_Primitivenode();
+		EReference NULL_CHECK__PRIMITIVE_NODE = eINSTANCE.getNullCheck_PrimitiveNode();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.operators.ComparisonOperator <em>Comparison Operator</em>}' enum.

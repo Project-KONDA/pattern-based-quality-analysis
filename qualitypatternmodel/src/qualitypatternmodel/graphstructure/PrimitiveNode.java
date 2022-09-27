@@ -69,14 +69,14 @@ public interface PrimitiveNode extends Node {
 
 	/**
 	 * Returns the value of the '<em><b>Null Check</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.NullCheck#getPrimitivenode <em>Primitivenode</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.NullCheck#getPrimitiveNode <em>Primitive Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Null Check</em>' reference.
 	 * @see #setNullCheck(NullCheck)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getPrimitiveNode_NullCheck()
-	 * @see qualitypatternmodel.operators.NullCheck#getPrimitivenode
-	 * @model opposite="primitivenode"
+	 * @see qualitypatternmodel.operators.NullCheck#getPrimitiveNode
+	 * @model opposite="primitiveNode"
 	 * @generated
 	 */
 	NullCheck getNullCheck();

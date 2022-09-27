@@ -31,7 +31,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.operators.impl.NullCheckImpl#getOption <em>Option</em>}</li>
- *   <li>{@link qualitypatternmodel.operators.impl.NullCheckImpl#getPrimitivenode <em>Primitivenode</em>}</li>
+ *   <li>{@link qualitypatternmodel.operators.impl.NullCheckImpl#getPrimitiveNode <em>Primitive Node</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,10 +58,10 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 	protected EnumNullCheck option = OPTION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getPrimitivenode() <em>Primitivenode</em>}' reference.
+	 * The cached value of the '{@link #getPrimitiveNode() <em>Primitive Node</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPrimitivenode()
+	 * @see #getPrimitiveNode()
 	 * @generated
 	 * @ordered
 	 */
@@ -139,13 +139,13 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 	 * @generated
 	 */
 	@Override
-	public PrimitiveNode getPrimitivenode() {
+	public PrimitiveNode getPrimitiveNode() {
 		if (primitiveNode != null && primitiveNode.eIsProxy()) {
-			InternalEObject oldPrimitivenode = (InternalEObject)primitiveNode;
-			primitiveNode = (PrimitiveNode)eResolveProxy(oldPrimitivenode);
-			if (primitiveNode != oldPrimitivenode) {
+			InternalEObject oldPrimitiveNode = (InternalEObject)primitiveNode;
+			primitiveNode = (PrimitiveNode)eResolveProxy(oldPrimitiveNode);
+			if (primitiveNode != oldPrimitiveNode) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, OperatorsPackage.NULL_CHECK__PRIMITIVENODE, oldPrimitivenode, primitiveNode));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, OperatorsPackage.NULL_CHECK__PRIMITIVE_NODE, oldPrimitiveNode, primitiveNode));
 			}
 		}
 		return primitiveNode;
@@ -156,7 +156,7 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PrimitiveNode basicGetPrimitivenode() {
+	public PrimitiveNode basicGetPrimitiveNode() {
 		return primitiveNode;
 	}
 
@@ -165,11 +165,11 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPrimitivenode(PrimitiveNode newPrimitivenode, NotificationChain msgs) {
-		PrimitiveNode oldPrimitivenode = primitiveNode;
-		primitiveNode = newPrimitivenode;
+	public NotificationChain basicSetPrimitiveNode(PrimitiveNode newPrimitiveNode, NotificationChain msgs) {
+		PrimitiveNode oldPrimitiveNode = primitiveNode;
+		primitiveNode = newPrimitiveNode;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.NULL_CHECK__PRIMITIVENODE, oldPrimitivenode, newPrimitivenode);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.NULL_CHECK__PRIMITIVE_NODE, oldPrimitiveNode, newPrimitiveNode);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -181,18 +181,18 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 	 * @generated
 	 */
 	@Override
-	public void setPrimitivenode(PrimitiveNode newPrimitivenode) {
-		if (newPrimitivenode != primitiveNode) {
+	public void setPrimitiveNode(PrimitiveNode newPrimitiveNode) {
+		if (newPrimitiveNode != primitiveNode) {
 			NotificationChain msgs = null;
 			if (primitiveNode != null)
 				msgs = ((InternalEObject)primitiveNode).eInverseRemove(this, GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK, PrimitiveNode.class, msgs);
-			if (newPrimitivenode != null)
-				msgs = ((InternalEObject)newPrimitivenode).eInverseAdd(this, GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK, PrimitiveNode.class, msgs);
-			msgs = basicSetPrimitivenode(newPrimitivenode, msgs);
+			if (newPrimitiveNode != null)
+				msgs = ((InternalEObject)newPrimitiveNode).eInverseAdd(this, GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK, PrimitiveNode.class, msgs);
+			msgs = basicSetPrimitiveNode(newPrimitiveNode, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OperatorsPackage.NULL_CHECK__PRIMITIVENODE, newPrimitivenode, newPrimitivenode));
+			eNotify(new ENotificationImpl(this, Notification.SET, OperatorsPackage.NULL_CHECK__PRIMITIVE_NODE, newPrimitiveNode, newPrimitiveNode));
 	}
 
 	/**
@@ -203,10 +203,10 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case OperatorsPackage.NULL_CHECK__PRIMITIVENODE:
+			case OperatorsPackage.NULL_CHECK__PRIMITIVE_NODE:
 				if (primitiveNode != null)
 					msgs = ((InternalEObject)primitiveNode).eInverseRemove(this, GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK, PrimitiveNode.class, msgs);
-				return basicSetPrimitivenode((PrimitiveNode)otherEnd, msgs);
+				return basicSetPrimitiveNode((PrimitiveNode)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -219,8 +219,8 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case OperatorsPackage.NULL_CHECK__PRIMITIVENODE:
-				return basicSetPrimitivenode(null, msgs);
+			case OperatorsPackage.NULL_CHECK__PRIMITIVE_NODE:
+				return basicSetPrimitiveNode(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -235,9 +235,9 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 		switch (featureID) {
 			case OperatorsPackage.NULL_CHECK__OPTION:
 				return getOption();
-			case OperatorsPackage.NULL_CHECK__PRIMITIVENODE:
-				if (resolve) return getPrimitivenode();
-				return basicGetPrimitivenode();
+			case OperatorsPackage.NULL_CHECK__PRIMITIVE_NODE:
+				if (resolve) return getPrimitiveNode();
+				return basicGetPrimitiveNode();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -253,8 +253,8 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 			case OperatorsPackage.NULL_CHECK__OPTION:
 				setOption((EnumNullCheck)newValue);
 				return;
-			case OperatorsPackage.NULL_CHECK__PRIMITIVENODE:
-				setPrimitivenode((PrimitiveNode)newValue);
+			case OperatorsPackage.NULL_CHECK__PRIMITIVE_NODE:
+				setPrimitiveNode((PrimitiveNode)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -271,8 +271,8 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 			case OperatorsPackage.NULL_CHECK__OPTION:
 				setOption(OPTION_EDEFAULT);
 				return;
-			case OperatorsPackage.NULL_CHECK__PRIMITIVENODE:
-				setPrimitivenode((PrimitiveNode)null);
+			case OperatorsPackage.NULL_CHECK__PRIMITIVE_NODE:
+				setPrimitiveNode((PrimitiveNode)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -288,7 +288,7 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 		switch (featureID) {
 			case OperatorsPackage.NULL_CHECK__OPTION:
 				return option != OPTION_EDEFAULT;
-			case OperatorsPackage.NULL_CHECK__PRIMITIVENODE:
+			case OperatorsPackage.NULL_CHECK__PRIMITIVE_NODE:
 				return primitiveNode != null;
 		}
 		return super.eIsSet(featureID);

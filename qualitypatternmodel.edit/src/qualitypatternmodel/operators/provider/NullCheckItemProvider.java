@@ -46,7 +46,7 @@ public class NullCheckItemProvider extends BooleanOperatorItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addOptionPropertyDescriptor(object);
-			addPrimitivenodePropertyDescriptor(object);
+			addPrimitiveNodePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -74,19 +74,19 @@ public class NullCheckItemProvider extends BooleanOperatorItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Primitivenode feature.
+	 * This adds a property descriptor for the Primitive Node feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addPrimitivenodePropertyDescriptor(Object object) {
+	protected void addPrimitiveNodePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NullCheck_primitivenode_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NullCheck_primitivenode_feature", "_UI_NullCheck_type"),
-				 OperatorsPackage.Literals.NULL_CHECK__PRIMITIVENODE,
+				 getString("_UI_NullCheck_primitiveNode_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NullCheck_primitiveNode_feature", "_UI_NullCheck_type"),
+				 OperatorsPackage.Literals.NULL_CHECK__PRIMITIVE_NODE,
 				 true,
 				 false,
 				 true,

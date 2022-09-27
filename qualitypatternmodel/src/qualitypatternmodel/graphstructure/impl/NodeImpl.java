@@ -1663,31 +1663,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		throw new InvalidityException("corresponding node not found");
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void addPrimitiveNullCheck() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean addPrimitiveNullCheck(EnumNullCheck eEnumNullCheck) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	//Umbennen zu Property
 	private NeoPropertyNode adaptAsNeoPropertyRecursive() throws InvalidityException {
 		if (!(this instanceof NeoPropertyNode)) {
 			NeoPropertyNodeImpl neoPropertyNode = (NeoPropertyNodeImpl) AdaptionNeo4JFactoryImpl.init().createNeoPropertyNode();	
@@ -2485,6 +2460,28 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		}
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void addPrimitiveNullCheck() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean addPrimitiveNullCheck(EnumNullCheck eEnumNullCheck) {
+		return false;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

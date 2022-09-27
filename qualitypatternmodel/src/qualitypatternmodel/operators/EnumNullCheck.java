@@ -26,7 +26,7 @@ public enum EnumNullCheck implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ISNULL(0, "ISNULL", "ISNULL"),
+	ISNULL(0, "ISNULL", "IS NULL"),
 
 	/**
 	 * The '<em><b>ISNOTNULL</b></em>' literal object.
@@ -36,14 +36,14 @@ public enum EnumNullCheck implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ISNOTNULL(1, "ISNOTNULL", "ISNOTNULL");
+	ISNOTNULL(1, "ISNOTNULL", "IS NOT NULL");
 
 	/**
 	 * The '<em><b>ISNULL</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #ISNULL
-	 * @model
+	 * @model literal="IS NULL"
 	 * @generated
 	 * @ordered
 	 */
@@ -54,7 +54,7 @@ public enum EnumNullCheck implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #ISNOTNULL
-	 * @model
+	 * @model literal="IS NOT NULL"
 	 * @generated
 	 * @ordered
 	 */

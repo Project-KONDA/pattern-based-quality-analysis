@@ -14,7 +14,7 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.operators.NullCheck#getOption <em>Option</em>}</li>
- *   <li>{@link qualitypatternmodel.operators.NullCheck#getPrimitivenode <em>Primitivenode</em>}</li>
+ *   <li>{@link qualitypatternmodel.operators.NullCheck#getPrimitiveNode <em>Primitive Node</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.operators.OperatorsPackage#getNullCheck()
@@ -48,27 +48,27 @@ public interface NullCheck extends BooleanOperator {
 	void setOption(EnumNullCheck value);
 
 	/**
-	 * Returns the value of the '<em><b>Primitivenode</b></em>' reference.
+	 * Returns the value of the '<em><b>Primitive Node</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.PrimitiveNode#getNullCheck <em>Null Check</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Primitivenode</em>' reference.
-	 * @see #setPrimitivenode(PrimitiveNode)
-	 * @see qualitypatternmodel.operators.OperatorsPackage#getNullCheck_Primitivenode()
+	 * @return the value of the '<em>Primitive Node</em>' reference.
+	 * @see #setPrimitiveNode(PrimitiveNode)
+	 * @see qualitypatternmodel.operators.OperatorsPackage#getNullCheck_PrimitiveNode()
 	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#getNullCheck
 	 * @model opposite="nullCheck"
 	 * @generated
 	 */
-	PrimitiveNode getPrimitivenode();
+	PrimitiveNode getPrimitiveNode();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.operators.NullCheck#getPrimitivenode <em>Primitivenode</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.operators.NullCheck#getPrimitiveNode <em>Primitive Node</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Primitivenode</em>' reference.
-	 * @see #getPrimitivenode()
+	 * @param value the new value of the '<em>Primitive Node</em>' reference.
+	 * @see #getPrimitiveNode()
 	 * @generated
 	 */
-	void setPrimitivenode(PrimitiveNode value);
+	void setPrimitiveNode(PrimitiveNode value);
 
 } // NullCheck
