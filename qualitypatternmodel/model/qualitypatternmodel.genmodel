@@ -246,7 +246,7 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//operators/NullCheck/primitiveNode"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//operators/NullCheck/option"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//operators/NullCheck/getElementNode"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//operators/NullCheck/getElement"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Graphstructure" basePackage="qualitypatternmodel" disposableProviderFactory="true"
