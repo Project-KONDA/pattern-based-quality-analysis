@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -208,7 +207,7 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 			}	
 			return cypher;
 		}
-		throw new InvalidityException("Contains - invalid option");
+		throw new InvalidityException("NullCheck - invalid option");
 	}
 
 	@Override

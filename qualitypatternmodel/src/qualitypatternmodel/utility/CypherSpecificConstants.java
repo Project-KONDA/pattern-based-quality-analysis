@@ -32,6 +32,7 @@ public class CypherSpecificConstants {
 	public static final String BOOLEAN_OPERATOR_NOT = "NOT";
 	public static final String BOOLEAN_OPERATOR_OR = "OR";
 	public static final String BOOLEAN_OPERATOR_AND = "AND";
+	public static final String BOOLEAN_OPERATOR_IN = "IN";
 	public static final String WHERE_OPERATOR_CONTAINS = "CONTAINS";
 	public static final String SPECIAL_CYPHER_MULTIPLE_EDGES_NODES = "--";
 	public static final String SPECIAL_CYPHER_REGEX_EXPRESSION = "=~";
@@ -47,6 +48,7 @@ public class CypherSpecificConstants {
 	public static final String CYPHER_COMPARISON_OPERATOR_IS_NULL = "IS NULL";
 	public static final String CYPHER_COMPARISON_OPERATOR_IS_NOT_NULL = "IS NOT NULL";
 	public static final String CYPHER_SPECIAL_FUNCTION_DISTINCT = "DISTINCT";
+	public static final String CYPHER_SPECIAL_FUNCTION_ID = "ID(%s)";
 	
 	public static final String CYPHER_AGGREGATION_FUNCTION_COUNT = "COUNT ( %s )";
 	public static final String CYPHER_AGGREGATION_FUNCTION_COUNT_NAMING = "myCounter";

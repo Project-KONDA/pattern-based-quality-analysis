@@ -9,7 +9,11 @@ import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
+import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.DateParam;
 import qualitypatternmodel.parameters.DateTimeParam;
@@ -21,8 +25,11 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TimeParam;
+import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
+import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.parameters.impl.MultiListParamImpl;
+import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class CypherTest05ParameterValues {
@@ -77,6 +84,10 @@ public class CypherTest05ParameterValues {
 		//MultiListParam
 		completePattern = getConcreteComparisonPattern(values.get(7), "origPlaceOfIssue");
 		completePatterns.add(completePattern);
+		
+		//MultiListParam + IN
+		completePattern = getConcreteComparisonPatternWithIn(values.get(7), "origPlaceOfIssue");
+		completePatterns.add(completePattern);
 	}
 	
 	private static CompletePattern getConcreteBaseComparisonPattern(ParameterValue parameter) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -93,6 +104,22 @@ public class CypherTest05ParameterValues {
 	
 	private static CompletePattern getConcreteComparisonPattern(ParameterValue parameter, String propertyName) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getConcreteBaseComparisonPattern(parameter);
+		
+		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
+		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
+		neoPropertyPathParam.setNeoPropertyName(propertyName);
+		
+		return completePattern;
+	}
+	
+	private static CompletePattern getConcreteComparisonPatternWithIn(ParameterValue parameter, String propertyName) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getConcreteBaseComparisonPattern(parameter);
+		
+		PrimitiveNode primitiveNode = (PrimitiveNode) completePattern.getGraph().getNodes().get(1);
+		Comparison comp = primitiveNode.getComparison1().get(0);
+		TypeOptionParam typeOptionParam = new TypeOptionParamImpl();
+		typeOptionParam.setValue(ReturnType.LIST);
+		comp.setTypeOption(typeOptionParam);
 		
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();

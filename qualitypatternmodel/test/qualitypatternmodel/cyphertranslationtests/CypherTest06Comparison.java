@@ -14,10 +14,15 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
+import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
+import qualitypatternmodel.parameters.TextListParam;
+import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
+import qualitypatternmodel.parameters.impl.TextListParamImpl;
+import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -60,9 +65,29 @@ public class CypherTest06Comparison {
 		completePatterns.add(getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(ComparisonOperator.EQUAL));
 		completePatterns.add(getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(ComparisonOperator.EQUAL));
 		completePatterns.add(getMultipleComparisons());
+		completePatterns.add(getCompareByElementId(ComparisonOperator.NOTEQUAL));
+		completePatterns.add(getCompareByElementId(ComparisonOperator.EQUAL));
 	}
 	
 	public static CompletePattern getBasePattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		
+		CompletePattern completePattern = factory.createCompletePattern();
+		completePattern.setName("MyPattern");
+		
+		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
+		PrimitiveNode primitiveNode1 = completePattern.getGraph().addPrimitiveNode();
+		completePattern.getGraph().addRelation(complexNode1, primitiveNode1);
+		
+		ComplexNode complexNode2 = completePattern.getGraph().addComplexNode();
+		PrimitiveNode primitiveNode2 = completePattern.getGraph().addPrimitiveNode();
+		completePattern.getGraph().addRelation(complexNode2, primitiveNode2);
+	
+		return completePattern;	
+	}
+	
+	public static CompletePattern getBasePatternList() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
@@ -112,6 +137,19 @@ public class CypherTest06Comparison {
 		comparisonOptionParam = new ComparisonOptionParamImpl();
 		comparisonOptionParam.setValue(comparisonOption);
 		comp.setOption(comparisonOptionParam);
+	}
+	
+	private static void prepaireGenericComparisonTwoNodesById(ComparisonOperator comparisonOption,
+			CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+			prepaireGenericComparisonTwoNodes(comparisonOption, completePattern);
+			
+			completePattern.createNeo4jAdaption();
+			
+			ComplexNode complexNode = (ComplexNode) completePattern.getGraph().getNodes().get(0);
+			Comparison comp = complexNode.getComparison1().get(0);
+			TypeOptionParam typeOptionParam = new TypeOptionParamImpl();
+			typeOptionParam.setValue(ReturnType.ELEMENTID);
+			comp.setTypeOption(typeOptionParam);
 	}
 	
 	private static CompletePattern getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(ComparisonOperator comparisonOption) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -188,6 +226,17 @@ public class CypherTest06Comparison {
 		prepaireGenericComparisonTwoNeoPropertiesWithNeoPathParm(ComparisonOperator.NOTEQUAL, completePattern); 
 		
 		completePattern.createNeo4jAdaption();
+		
+		adaptTheNeo4JConstructsForProp(completePattern);
+		
+		return completePattern;
+	}
+	
+	private static CompletePattern getCompareByElementId(ComparisonOperator comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getBasePattern();
+		prepaireGenericComparisonTwoNodesById(comp, completePattern);
+//		prepaireGenericComparisonTwoNeoPropertiesWithNeoPathParm(ComparisonOperator.EQUAL, completePattern);
+//		prepaireGenericComparisonTwoNeoPropertiesWithNeoPathParm(ComparisonOperator.NOTEQUAL, completePattern); 
 		
 		adaptTheNeo4JConstructsForProp(completePattern);
 		
@@ -312,7 +361,3 @@ public class CypherTest06Comparison {
 		return completePattern;
 	}
 }
-
-//MATCH (r:Regesta), (r2:Regesta)
-//WHERE r = r2
-//RETURN r LIMIT 1

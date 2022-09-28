@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNode;
@@ -38,6 +39,7 @@ import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.NumberOperator;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorsPackage;
+import qualitypatternmodel.parameters.AbstractListParam;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
@@ -305,44 +307,96 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		//Not all PATH are reachable since the option (ComparisonOptionParam) does not allow to set all boolean operators
 		switch(option.getValue()) {
 		case EQUAL:
-			cypher.append(argument1Translation);
-			cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_EQUAL
-					+ CypherSpecificConstants.ONE_WHITESPACES);
-			cypher.append(argument2Translation);
+			generateCypherWithOptionalList(cypher, argument1Translation, argument2Translation, CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_EQUAL, false);
 			break;
 		case NOTEQUAL:
-			cypher.append(argument1Translation);
-			cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_NOTEQUAL
-					+ CypherSpecificConstants.ONE_WHITESPACES);
-			cypher.append(argument2Translation);
+			generateCypherWithOptionalList(cypher, argument1Translation, argument2Translation, CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_NOTEQUAL, true);
 			break;
 		case GREATER:
-			cypher.append(argument1Translation);
-			cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_GREATER
-					+ CypherSpecificConstants.ONE_WHITESPACES);
-			cypher.append(argument2Translation);
+			generateGenericComp(cypher, argument1Translation, argument2Translation, CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_GREATER);
 			break;
 		case LESS:
-			cypher.append(argument1Translation);
-			cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_LESS
-					+ CypherSpecificConstants.ONE_WHITESPACES);
-			cypher.append(argument2Translation);
+			generateGenericComp(cypher, argument1Translation, argument2Translation, CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_LESS);
 			break;
 		case GREATEROREQUAL:
-			cypher.append(argument1Translation);
-			cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_GREATER_EQUAL
-					+ CypherSpecificConstants.ONE_WHITESPACES);
-			cypher.append(argument2Translation);
+			generateGenericComp(cypher, argument1Translation, argument2Translation, CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_GREATER_EQUAL);
 			break;
 		case LESSOREQUAL:
-			cypher.append(argument1Translation);
-			cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_LESS_EQUAL
-					+ CypherSpecificConstants.ONE_WHITESPACES);
-			cypher.append(argument2Translation);
+			generateGenericComp(cypher, argument1Translation, argument2Translation, CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_LESS_EQUAL);
 			break;
 		default:
 			throw new InvalidityException();
 		}
+	}
+
+	private void generateCypherWithOptionalList(StringBuilder cypher, final String argument1Translation,
+			final String argument2Translation, final String comp, final boolean negation) throws InvalidityException {
+		if (getTypeOption().getValue() == ReturnType.LIST) {
+			generateCypherListComparison(cypher, argument1Translation, argument2Translation, negation);					
+		} else if (getTypeOption().getValue() == ReturnType.ELEMENTID) {
+			generateCypherIDComparison(cypher, argument1Translation, argument2Translation, comp);
+		} else {
+			generateCypherStandardComp(cypher, argument1Translation, argument2Translation, comp);
+		}
+	}
+
+	private void generateGenericComp(StringBuilder cypher, final String argument1Translation,
+			final String argument2Translation, final String comp) {
+		if (getTypeOption().getValue() == ReturnType.ELEMENTID) {
+			generateCypherIDComparison(cypher, argument1Translation, argument2Translation, comp);
+		} else {
+			generateCypherStandardComp(cypher, argument1Translation, argument2Translation, comp);
+		}
+	}
+
+	private void generateCypherStandardComp(StringBuilder cypher, final String argument1Translation,
+			final String argument2Translation, final String comp) {
+		cypher.append(argument1Translation);
+		cypher.append(CypherSpecificConstants.ONE_WHITESPACES + comp
+				+ CypherSpecificConstants.ONE_WHITESPACES);
+		cypher.append(argument2Translation);
+	}
+
+	private void generateCypherIDComparison(final StringBuilder cypher, final String argument1Translation,
+			final String argument2Translation, String comp) {
+		boolean b = checkForValidCypherNode();
+		if (b) {
+			cypher.append(String.format(CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_ID, argument1Translation));
+			cypher.append(CypherSpecificConstants.ONE_WHITESPACES + comp
+					+ CypherSpecificConstants.ONE_WHITESPACES);
+			cypher.append(String.format(CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_ID, argument2Translation));
+		} else {
+			throw new UnsupportedOperationException();
+		}
+	}
+
+	private void generateCypherListComparison(final StringBuilder cypher, final String argument1Translation,
+			final String argument2Translation, final boolean negation) throws InvalidityException {
+		if (!(getArgument2() instanceof AbstractListParam)) {
+			throw new InvalidityException("Comparison - The second Argument has to be a List");	
+		}
+		if (!negation) {
+			cypher.append(argument1Translation);
+			cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_IN
+					+ CypherSpecificConstants.ONE_WHITESPACES);
+			cypher.append(argument2Translation);
+		} else {
+			cypher.append("( " + CypherSpecificConstants.BOOLEAN_OPERATOR_NOT);
+			cypher.append(argument1Translation);
+			cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_IN
+					+ CypherSpecificConstants.ONE_WHITESPACES);
+			cypher.append(argument2Translation);
+			cypher.append(" )");
+		}
+		
+	}
+
+	private boolean checkForValidCypherNode() {
+		return (getArgument1() instanceof NeoNode && getArgument2() instanceof NeoNode) || 
+				((getArgument1() instanceof NeoNode && getArgument2() instanceof NeoPropertyNode && ((NeoPropertyEdge)((NeoPropertyNode) getArgument2()).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() != null)) ||
+				((getArgument1() instanceof NeoPropertyEdge && ((NeoPropertyEdge)((NeoPropertyNode) getArgument2()).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() != null) && getArgument2() instanceof NeoNode) ||
+				((getArgument1() instanceof NeoPropertyEdge && ((NeoPropertyEdge)((NeoPropertyNode) getArgument2()).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() != null) && 
+				getArgument2() instanceof NeoPropertyNode && ((NeoPropertyEdge)((NeoPropertyNode) getArgument2()).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() != null);
 	}
 	
 	//ADD to the .ecore-Model
@@ -430,7 +484,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * Validation of internal values. 
 	 * <!-- end-user-doc -->
 	 */
-
+	
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException {
 		if(abstractionLevel != AbstractionLevel.SEMI_GENERIC) {
 			if (argument1 == null)
