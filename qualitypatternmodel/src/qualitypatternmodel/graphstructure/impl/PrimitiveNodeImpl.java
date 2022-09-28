@@ -170,7 +170,7 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 
 	@Override
 	public boolean isOperatorArgument() {
-		return !getComparison1().isEmpty() || !getComparison2().isEmpty() || !getMatch().isEmpty();
+		return !getComparison1().isEmpty() || !getComparison2().isEmpty() || !getMatch().isEmpty() || !(getNullCheck() != null);
 	}
 
 	/**

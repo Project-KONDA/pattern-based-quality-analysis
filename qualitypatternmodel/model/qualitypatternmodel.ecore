@@ -295,10 +295,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//parameters/BooleanParam"
           eOpposite="#//parameters/BooleanParam/nullCheck"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EEnum" name="EnumNullCheck">
-      <eLiterals name="ISNULL"/>
-      <eLiterals name="ISNOTNULL" value="1"/>
-    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="graphstructure" nsURI="graphstructure" nsPrefix="graphstructure">
     <eClassifiers xsi:type="ecore:EClass" name="Relation" eSuperTypes="#//patternstructure/PatternElement #//graphstructure/Adaptable">

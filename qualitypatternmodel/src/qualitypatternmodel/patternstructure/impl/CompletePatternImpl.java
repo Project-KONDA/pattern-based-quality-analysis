@@ -4,6 +4,7 @@ package qualitypatternmodel.patternstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -48,8 +49,13 @@ import qualitypatternmodel.parameters.impl.ParameterImpl;
 import qualitypatternmodel.parameters.impl.ParameterListImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.Condition;
+import qualitypatternmodel.patternstructure.CountCondition;
+import qualitypatternmodel.patternstructure.Formula;
+import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.utility.CypherSpecificConstants;
@@ -398,6 +404,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		
 		String completeCyString;
 		completeCyString = super.generateCypher();
+		completeCyString += addingTheCountCondition();
 		
 		//Es wäre gut das Modell noch mit einem getReturnRelations zu erweitern! 
 		String returnClause = this.generateCypherReturn();
@@ -406,9 +413,40 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		completeCyString += returnClause;
 		
 		return completeCyString;
-		
-		//PROTOTYP: in Zukünftigen Versionen müsste man noch das SET/REMOVE für das COUNT-Pattern integrieren		
 	}
+
+
+	private String addingTheCountCondition() throws InvalidityException {
+		String cypher = "";
+		//Adding the Counting
+		if (getCondition() instanceof CountCondition) {
+			//Consider duplicates 
+			String returnElements = this.generateCypherReturn();
+			cypher = CypherSpecificConstants.CLAUSE_WITH + returnElements + ", ";			
+			cypher += ((CountConditionImpl) getCondition()).generateCypherWith();
+			cypher += getCondition().generateCypher();
+		} else {
+			//Needs rework --> put this in the generateCypher of the Conditions
+			Condition preCondition = getCondition();
+			if (preCondition instanceof QuantifiedCondition) {
+				QuantifiedCondition quantifiedCondition = ((QuantifiedCondition) preCondition);
+				if (quantifiedCondition.getCondition() instanceof CountCondition) {
+					throw new UnsupportedOperationException("Quantified in combination with Count is not Supported");
+				} else {
+					//Hier substructur durchlaufen und checken
+				}
+			} else if (preCondition instanceof NotCondition) {
+				cypher = preCondition.generateCypher();
+			} else if (preCondition instanceof Formula) {
+				Formula formula = (Formula) preCondition;
+				if (preCondition instanceof CountCondition) {
+					
+				}
+			}
+		}
+		return cypher;
+	}
+	//PROTOTYP: in Zukünftigen Versionen müsste man noch das SET/REMOVE für das COUNT-Pattern integrieren
 	
 	/**
 	 * <!-- begin-user-doc -->

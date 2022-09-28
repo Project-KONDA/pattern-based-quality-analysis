@@ -2425,7 +2425,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		addPrimitiveComparison().replace(parameter);
 		return parameter;
 	}
-
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -2461,7 +2460,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		}
 	}
 
-	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2471,7 +2469,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	public boolean addPrimitiveNullCheck() {
 		return addPrimitiveNullCheck(true);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

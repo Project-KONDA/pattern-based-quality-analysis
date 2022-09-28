@@ -48,4 +48,8 @@ public class CypherSpecificConstants {
 	public static final String CYPHER_COMPARISON_OPERATOR_IS_NOT_NULL = "IS NOT NULL";
 	public static final String CYPHER_SPECIAL_FUNCTION_DISTINCT = "DISTINCT";
 	
+	public static final String CYPHER_AGGREGATION_FUNCTION_COUNT = "COUNT ( %s )";
+	public static final String CYPHER_AGGREGATION_FUNCTION_COUNT_NAMING = "myCounter";
+	
+	public static final String CYPHER_ALIAS_CALL = "AS";
 }

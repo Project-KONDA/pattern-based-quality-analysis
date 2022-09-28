@@ -3,7 +3,8 @@
 package qualitypatternmodel.patternstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.LinkedList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -15,7 +16,12 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
+
+import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
+import qualitypatternmodel.adaptionNeo4J.NeoPlace;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -85,99 +91,164 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	//Es ist jedoch kein vollständig funktionaler Code 
 	//Falls in einem neuem Patch/Update von Cypher das COUNT verschachteln lässt, würde sich viel Programmieraufwand erspart werden
 	
-	//PROTOTYPE - FUTURE WORK
-	private static int myCountersInt = 0;
-	private List<String> myCounters = new LinkedList<String>();
-	protected List<String> getMyCounters() {
-		return myCounters;
-	}
 	
-	//PROTOTYP - FUTURE WORK
-	@Override
+	
+	//Simple Cypher-Count
+	@Override 
 	public String generateCypher() throws InvalidityException {
-		String set;
-//		StringBuilder cypher = new StringBuilder(super.generateCypher());
 		StringBuilder cypher = new StringBuilder();
-		cypher.append("MATCH " + getGraph().getNodes().get(0).generateCypher());
-		StringBuilder patterns = new StringBuilder(super.generateCypher());
-		set = this.generateCypherSetCounterProperties(cypher, patterns);
-		return set;
-	}
-	
-	//PROTOTYP - FUTURE WORK
-	private String generateCypherSetCounterProperties(StringBuilder cypher, StringBuilder patterns) throws InvalidityException {
-		String[] patternList = getSinglePatterns(patterns);
-		StringBuilder setTheCounterProperties = new StringBuilder();
-		for (String pattern : patternList) {
-			//MATCH PART
-			//For the original set of
-//			setTheCounterProperties.append(CypherSpecificConstants.CLAUSE_MATCH + CypherSpecificConstants.ONE_WHITESPACES);
-//			setTheCounterProperties.append(pattern);
-			setTheCounterProperties.append(CypherSpecificConstants.CLAUSE_MATCH + CypherSpecificConstants.ONE_WHITESPACES);
-			setTheCounterProperties.append(pattern);
-			
-			//WHERE PART
-//			setTheCounterProperties.append(CypherSpecificConstants.CLAUSE_WHERE + CypherSpecificConstants.ONE_WHITESPACES);
-			String firstNode = pattern.substring(pattern.indexOf("(") + 1, pattern.indexOf(")"));
-			pattern = pattern.substring(pattern.indexOf(")") + 1);
-			String secondNode = pattern.substring(pattern.indexOf("(") + 1 , pattern.indexOf(")"));
-			NeoNode firstNeoNode = null;
-			NeoNode secondNeoNode = null;
-			NeoNode neoNode;
-			for (Node node : getGraph().getNodes()) {
-				if (node instanceof NeoNode) {
-					neoNode = (NeoNode) node;
-					if (neoNode.getCypherVariable().compareTo(firstNode) == 0) {
-						firstNeoNode = neoNode; 
-					} else if (neoNode.getCypherVariable().compareTo(secondNode) == 0) {
-						secondNeoNode = neoNode; 
+		
+		NeoAbstractNode neoAbstractNode;
+		boolean multiCount = false;
+		int countCounter = 0;
+		String cypherTemp;
+		for (Node n : getGraph().getNodes()) {
+			if (n.getIncomingMapping() != null) {
+				neoAbstractNode = (NeoAbstractNode) n;
+				if (neoAbstractNode.getNodePlace() == NeoPlace.BEGINNING) {
+					if (multiCount) {
+						cypher.append(", ");
+						
 					}
-					//ADD THE WHERE CONDITIONS
+					countCounter++;
+					if (neoAbstractNode instanceof NeoNode) {
+						cypherTemp = createMyCounterString(neoAbstractNode.getCypherVariable(), countCounter);
+						cypher.append(cypherTemp);
+					} else {
+						if (neoAbstractNode instanceof NeoPropertyNode && ((NeoPropertyEdge) neoAbstractNode).getNeoPropertyPathParam().getNeoPathPart() != null) {
+							cypherTemp = createMyCounterString(neoAbstractNode.getCypherVariable(), countCounter);
+							cypher.append(cypherTemp);
+						} else {
+							cypherTemp = createMyCounterString(((NeoPropertyEdge) neoAbstractNode).generateCypherPropertyAddressing(), countCounter);
+							cypher.append(cypherTemp);
+						}
+					}
+				
 				}
+				cypherTemp = null;
+			} else {
+				throw new UnsupportedOperationException("CountPattern - The current Version does not allow Subquerying. Due to restrictions of Neo4J/Cypher");
 			}
-			
-			//APPEND THE WITH Conditions
-			setTheCounterProperties.append(CypherSpecificConstants.CLAUSE_WITH + CypherSpecificConstants.ONE_WHITESPACES);
-			setTheCounterProperties.append(firstNeoNode.getCypherVariable() + ", ");
-			setTheCounterProperties.append("COUNT (" + secondNeoNode.getCypherVariable() + ")");
-			setTheCounterProperties.append(" AS" + " myCounter" + "1");
-			
-			//APPEND THE SET Part
-			setTheCounterProperties.append("\nSET " + firstNeoNode.getCypherVariable() + "." +"myCounter1");
-			setTheCounterProperties.append(" = " + "myCounter1");
-			setTheCounterProperties.append(";");
-			myCounters.add(firstNode + "." + "myCounter1");
-			cypher.append(setTheCounterProperties.toString());
 		}
 		
 		return cypher.toString();
 	}
 	
-	public String removeCounters() {
-		StringBuilder cypherRemovers = new StringBuilder();
-		for (String counter : myCounters) {
-			cypherRemovers.append(CypherSpecificConstants.CLAUSE_MATCH + CypherSpecificConstants.ONE_WHITESPACES); 
-			cypherRemovers.append("(" + counter.substring(0, counter.indexOf(".")) + ")");
-			cypherRemovers.append("\nREMOVE");
-			cypherRemovers.append(" " + counter);
-			cypherRemovers.append(";\n"); 
-		}
-		return cypherRemovers.toString();
+	private String createMyCounterString(String countElement, int countCounter) {
+		String cypher = CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT;
+		cypher = String.format(cypher, CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT_NAMING);
+		cypher += countCounter;
+		return cypher;
 	}
 	
-
-	private String[] getSinglePatterns(StringBuilder cypher) throws InvalidityException {
-		String[] patternList;
-		if (cypher.length() != 0) {
-			 String cypherString = cypher.toString();
-			 int startPlace = cypherString.indexOf(" ");
-			 cypherString = cypherString.substring(startPlace);
-			 cypherString = cypherString.trim();
-			 patternList = cypherString.split(",");
-			 return patternList;
+	protected final List<String> getCounters() throws InvalidityException {
+		String[] myCounterArray = generateCypher().split(",");
+		if (myCounterArray.length != 0) {
+			int i;
+			for (int x = 0; myCounterArray.length > x; x++) {
+				i = myCounterArray[x].indexOf(CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT_NAMING);
+				myCounterArray[x] = myCounterArray[x].substring(i).replace(", ", "");
+			}
+			List<String> myCounterList = Collections.unmodifiableList(Arrays.asList(myCounterArray));
+			return myCounterList;
 		}
 		throw new InvalidityException("CountPattern - No Cypher Patterns exists");
 	}
+	
+	//PROTOTYPE - FUTURE WORK
+//	private static int myCountersInt = 0;
+//	private List<String> myCounters = new LinkedList<String>();
+//	protected List<String> getMyCounters() {
+//		return myCounters;
+//	}
+//	
+//	//PROTOTYP - FUTURE WORK
+//	@Override
+//	public String generateCypher() throws InvalidityException {
+//		String set;
+////		StringBuilder cypher = new StringBuilder(super.generateCypher());
+//		StringBuilder cypher = new StringBuilder();
+//		cypher.append("MATCH " + getGraph().getNodes().get(0).generateCypher());
+//		StringBuilder patterns = new StringBuilder(super.generateCypher());
+//		set = this.generateCypherSetCounterProperties(cypher, patterns);
+//		return set;
+//	}
+//	
+//	//PROTOTYP - FUTURE WORK
+//	private String generateCypherSetCounterProperties(StringBuilder cypher, StringBuilder patterns) throws InvalidityException {
+//		String[] patternList = getSinglePatterns(patterns);
+//		StringBuilder setTheCounterProperties = new StringBuilder();
+//		for (String pattern : patternList) {
+//			//MATCH PART
+//			//For the original set of
+////			setTheCounterProperties.append(CypherSpecificConstants.CLAUSE_MATCH + CypherSpecificConstants.ONE_WHITESPACES);
+////			setTheCounterProperties.append(pattern);
+//			setTheCounterProperties.append(CypherSpecificConstants.CLAUSE_MATCH + CypherSpecificConstants.ONE_WHITESPACES);
+//			setTheCounterProperties.append(pattern);
+//			
+//			//WHERE PART
+////			setTheCounterProperties.append(CypherSpecificConstants.CLAUSE_WHERE + CypherSpecificConstants.ONE_WHITESPACES);
+//			String firstNode = pattern.substring(pattern.indexOf("(") + 1, pattern.indexOf(")"));
+//			pattern = pattern.substring(pattern.indexOf(")") + 1);
+//			String secondNode = pattern.substring(pattern.indexOf("(") + 1 , pattern.indexOf(")"));
+//			NeoNode firstNeoNode = null;
+//			NeoNode secondNeoNode = null;
+//			NeoNode neoNode;
+//			for (Node node : getGraph().getNodes()) {
+//				if (node instanceof NeoNode) {
+//					neoNode = (NeoNode) node;
+//					if (neoNode.getCypherVariable().compareTo(firstNode) == 0) {
+//						firstNeoNode = neoNode; 
+//					} else if (neoNode.getCypherVariable().compareTo(secondNode) == 0) {
+//						secondNeoNode = neoNode; 
+//					}
+//					//ADD THE WHERE CONDITIONS
+//				}
+//			}
+//			
+//			//APPEND THE WITH Conditions
+//			setTheCounterProperties.append(CypherSpecificConstants.CLAUSE_WITH + CypherSpecificConstants.ONE_WHITESPACES);
+//			setTheCounterProperties.append(firstNeoNode.getCypherVariable() + ", ");
+//			setTheCounterProperties.append("COUNT (" + secondNeoNode.getCypherVariable() + ")");
+//			setTheCounterProperties.append(" AS" + " myCounter" + "1");
+//			
+//			//APPEND THE SET Part
+//			setTheCounterProperties.append("\nSET " + firstNeoNode.getCypherVariable() + "." +"myCounter1");
+//			setTheCounterProperties.append(" = " + "myCounter1");
+//			setTheCounterProperties.append(";");
+//			myCounters.add(firstNode + "." + "myCounter1");
+//			cypher.append(setTheCounterProperties.toString());
+//		}
+//		
+//		return cypher.toString();
+//	}
+//	
+//	public String removeCounters() {
+//		StringBuilder cypherRemovers = new StringBuilder();
+//		for (String counter : myCounters) {
+//			cypherRemovers.append(CypherSpecificConstants.CLAUSE_MATCH + CypherSpecificConstants.ONE_WHITESPACES); 
+//			cypherRemovers.append("(" + counter.substring(0, counter.indexOf(".")) + ")");
+//			cypherRemovers.append("\nREMOVE");
+//			cypherRemovers.append(" " + counter);
+//			cypherRemovers.append(";\n"); 
+//		}
+//		return cypherRemovers.toString();
+//	}
+	//END - CYPHER
+	
+
+//	private String[] getSinglePatterns(StringBuilder cypher) throws InvalidityException {
+//		String[] patternList;
+//		if (cypher.length() != 0) {
+//			 String cypherString = cypher.toString();
+//			 int startPlace = cypherString.indexOf(" ");
+//			 cypherString = cypherString.substring(startPlace);
+//			 cypherString = cypherString.trim();
+//			 patternList = cypherString.split(",");
+//			 return patternList;
+//		}
+//		throw new InvalidityException("CountPattern - No Cypher Patterns exists");
+//	}
 	
 	//Implement a similar graph traversal as in graph but just with getCypherVariable
 	/* Tamplate 

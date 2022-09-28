@@ -208,17 +208,21 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		String whereClause = "";
 		whereClause += graph.generateCypherWhere();
 		
-		String cond = condition.generateCypher();
-		if (!cond.isEmpty()) {
-			cond = addWhiteSpacesForConditions(cond, whereClause);
-			if (!whereClause.isEmpty() && !cond.isEmpty()) 
-				whereClause +=  "\n" + CypherSpecificConstants.TWELVE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND 
-								+ CypherSpecificConstants.ONE_WHITESPACES;
-			whereClause += cond;
+		//Needs rework since the CountCondition has to be handelt seperatly
+		if (!(condition instanceof CountConditionImpl)) {
+			String cond = condition.generateCypher();
+			if (!cond.isEmpty()) {
+				cond = addWhiteSpacesForConditions(cond, whereClause);
+				if (!whereClause.isEmpty() && !cond.isEmpty()) 
+					whereClause +=  "\n" + CypherSpecificConstants.TWELVE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND 
+									+ CypherSpecificConstants.ONE_WHITESPACES;
+				whereClause += cond;
+			}
+		} else {
+			//search for counts in substructures
 		}
 		if (whereClause.length() != 0) whereClause = CypherSpecificConstants.CLAUSE_WHERE + " " + whereClause;
 		if (whereClause.length() == 0) whereClause = "";
-		
 		
 		String cypher = matchClause + whereClause;
 		return cypher;

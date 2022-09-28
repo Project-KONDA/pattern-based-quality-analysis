@@ -177,7 +177,6 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 		} catch (MissingPatternContainerException e) {
 			// do nothing
 //			e.printStackTrace();
-			
 		}	
 		return newParameterList;
 	}

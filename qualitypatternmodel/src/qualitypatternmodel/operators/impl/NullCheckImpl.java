@@ -9,9 +9,7 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -20,6 +18,7 @@ import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
+import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.NullCheck;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.BooleanParam;
@@ -114,13 +113,52 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT 
 	 */
 	public NotificationChain basicSetPrimitiveNode(PrimitiveNode newPrimitiveNode, NotificationChain msgs) {
 		PrimitiveNode oldPrimitiveNode = primitiveNode;
 		primitiveNode = newPrimitiveNode;
+		
+		if(oldPrimitiveNode instanceof PrimitiveNode && newPrimitiveNode == null) {
+			try {
+				((Node) oldPrimitiveNode).makeGeneric();
+			} catch (InvalidityException e) {
+				// there is another reason why this node needs to be PrimitiveNode
+			}
+		}
+		
+		if(oldPrimitiveNode != null) {
+			oldPrimitiveNode.getPredicates().remove(this);
+		}
+		newPrimitiveNode.getPredicates().add(this);
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.NULL_CHECK__PRIMITIVE_NODE, oldPrimitiveNode, newPrimitiveNode);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public NotificationChain basicSetProperty(PrimitiveNode newProperty, NotificationChain msgs) {
+		PrimitiveNode oldProperty = primitiveNode;
+		primitiveNode = newProperty;
+		if(newProperty != null || oldProperty != null) {
+			for(BooleanOperator boolOp : getRootBooleanOperators()) {
+				if(newProperty != null) {
+					boolOp.addElement(newProperty);
+				}
+				if(oldProperty != null) {
+					boolOp.removeElement(oldProperty);
+				}
+			}
+		}
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__PRIMITIVE_NODE, oldProperty, newProperty);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -210,15 +248,22 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 	public BooleanParam basicGetOption() {
 		return option;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetOption(BooleanParam newOption, NotificationChain msgs) {
 		BooleanParam oldOption = option;
 		option = newOption;
+		
+		ParameterList varlist = getParameterList();				
+		varlist.remove(oldOption);					
+		varlist.add(newOption);				
+		
+		option = newOption;
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.NULL_CHECK__OPTION, oldOption, newOption);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
@@ -379,6 +424,7 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 			}
 		}
 	}
+	
 
 	@Override
 	public EList<Comparable> getArguments() {
