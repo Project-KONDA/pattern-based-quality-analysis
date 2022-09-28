@@ -84,14 +84,22 @@ public enum ReturnType implements Enumerator {
 	 * @ordered
 	 */
 	DATETIME(8, "DATETIME", "DATETIME"), /**
-	 * The '<em><b>IN</b></em>' literal object.
+	 * The '<em><b>LIST</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #IN_VALUE
+	 * @see #LIST_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	IN(8, "IN", "IN");
+	LIST(8, "LIST", "LIST"), /**
+	 * The '<em><b>ELEMENTID</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ELEMENTID_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ELEMENTID(9, "ELEMENTID", "ELEMENTID");
 
 	private static final String CATCH_CASTING_ERROR = "} catch err:FORG0001 { false() }";
 
@@ -186,15 +194,26 @@ public enum ReturnType implements Enumerator {
 	public static final int DATETIME_VALUE = 8;
 
 	/**
-	 * The '<em><b>IN</b></em>' literal value.
+	 * The '<em><b>LIST</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #IN
+	 * @see #LIST
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int IN_VALUE = 8;
+	public static final int LIST_VALUE = 8;
+
+	/**
+	 * The '<em><b>ELEMENTID</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ELEMENTID
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ELEMENTID_VALUE = 9;
 
 	/**
 	 * An array of all the '<em><b>Return Type</b></em>' enumerators.
@@ -212,7 +231,8 @@ public enum ReturnType implements Enumerator {
 			TIME,
 			NUMBER,
 			DATETIME,
-			IN,
+			LIST,
+			ELEMENTID,
 		};
 
 	/**
@@ -277,6 +297,7 @@ public enum ReturnType implements Enumerator {
 			case TIME_VALUE: return TIME;
 			case NUMBER_VALUE: return NUMBER;
 			case DATETIME_VALUE: return DATETIME;
+			case ELEMENTID_VALUE: return ELEMENTID;
 		}
 		return null;
 	}

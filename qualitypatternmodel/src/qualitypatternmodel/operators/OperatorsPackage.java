@@ -3222,16 +3222,6 @@ public interface OperatorsPackage extends EPackage {
 	int COMPARISON_OPERATOR = 8;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.operators.EnumNullCheck <em>Enum Null Check</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.operators.EnumNullCheck
-	 * @see qualitypatternmodel.operators.impl.OperatorsPackageImpl#getEnumNullCheck()
-	 * @generated
-	 */
-	int ENUM_NULL_CHECK = 9;
-
-	/**
 	 * The meta object id for the '<em>Operator Cycle Exception Wrapper</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3239,7 +3229,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @see qualitypatternmodel.operators.impl.OperatorsPackageImpl#getOperatorCycleExceptionWrapper()
 	 * @generated
 	 */
-	int OPERATOR_CYCLE_EXCEPTION_WRAPPER = 10;
+	int OPERATOR_CYCLE_EXCEPTION_WRAPPER = 9;
 
 
 	/**
@@ -3669,16 +3659,6 @@ public interface OperatorsPackage extends EPackage {
 	EEnum getComparisonOperator();
 
 	/**
-	 * Returns the meta object for enum '{@link qualitypatternmodel.operators.EnumNullCheck <em>Enum Null Check</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Enum Null Check</em>'.
-	 * @see qualitypatternmodel.operators.EnumNullCheck
-	 * @generated
-	 */
-	EEnum getEnumNullCheck();
-
-	/**
 	 * Returns the meta object for data type '{@link qualitypatternmodel.exceptions.OperatorCycleException <em>Operator Cycle Exception Wrapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4057,16 +4037,6 @@ public interface OperatorsPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum COMPARISON_OPERATOR = eINSTANCE.getComparisonOperator();
-
-		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.operators.EnumNullCheck <em>Enum Null Check</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.operators.EnumNullCheck
-		 * @see qualitypatternmodel.operators.impl.OperatorsPackageImpl#getEnumNullCheck()
-		 * @generated
-		 */
-		EEnum ENUM_NULL_CHECK = eINSTANCE.getEnumNullCheck();
 
 		/**
 		 * The meta object literal for the '<em>Operator Cycle Exception Wrapper</em>' data type.

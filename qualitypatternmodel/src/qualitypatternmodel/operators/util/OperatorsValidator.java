@@ -135,8 +135,6 @@ public class OperatorsValidator extends EObjectValidator {
 				return validateNullCheck((NullCheck)value, diagnostics, context);
 			case OperatorsPackage.COMPARISON_OPERATOR:
 				return validateComparisonOperator((ComparisonOperator)value, diagnostics, context);
-			case OperatorsPackage.ENUM_NULL_CHECK:
-				return validateEnumNullCheck((EnumNullCheck)value, diagnostics, context);
 			case OperatorsPackage.OPERATOR_CYCLE_EXCEPTION_WRAPPER:
 				return validateOperatorCycleExceptionWrapper((OperatorCycleException)value, diagnostics, context);
 			default:
@@ -312,15 +310,6 @@ public class OperatorsValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateComparisonOperator(ComparisonOperator comparisonOperator, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateEnumNullCheck(EnumNullCheck enumNullCheck, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

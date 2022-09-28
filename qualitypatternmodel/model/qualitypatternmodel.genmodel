@@ -173,10 +173,6 @@
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//operators/ComparisonOperator/LESSOREQUAL"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//operators/ComparisonOperator/NOTEQUAL"/>
       </genEnums>
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//operators/EnumNullCheck">
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//operators/EnumNullCheck/ISNULL"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//operators/EnumNullCheck/ISNOTNULL"/>
-      </genEnums>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//operators/OperatorCycleExceptionWrapper"/>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//operators/BooleanOperator">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -260,7 +256,8 @@
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//graphstructure/ReturnType/TIME"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//graphstructure/ReturnType/NUMBER"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//graphstructure/ReturnType/DATETIME"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//graphstructure/ReturnType/IN"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//graphstructure/ReturnType/LIST"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//graphstructure/ReturnType/ELEMENTID"/>
       </genEnums>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Relation">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

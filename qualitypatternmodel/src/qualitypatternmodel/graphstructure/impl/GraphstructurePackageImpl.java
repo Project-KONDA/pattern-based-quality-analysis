@@ -1683,7 +1683,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		addEEnumLiteral(returnTypeEEnum, ReturnType.TIME);
 		addEEnumLiteral(returnTypeEEnum, ReturnType.NUMBER);
 		addEEnumLiteral(returnTypeEEnum, ReturnType.DATETIME);
-		addEEnumLiteral(returnTypeEEnum, ReturnType.IN);
+		addEEnumLiteral(returnTypeEEnum, ReturnType.LIST);
+		addEEnumLiteral(returnTypeEEnum, ReturnType.ELEMENTID);
 
 		// Create resource
 		createResource(eNS_URI);

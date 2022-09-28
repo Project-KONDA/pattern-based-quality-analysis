@@ -31,7 +31,6 @@ import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.Contains;
-import qualitypatternmodel.operators.EnumNullCheck;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.NullCheck;
 import qualitypatternmodel.operators.NumberOperator;
@@ -120,13 +119,6 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 	 * @generated
 	 */
 	private EEnum comparisonOperatorEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum enumNullCheckEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -656,16 +648,6 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 	 * @generated
 	 */
 	@Override
-	public EEnum getEnumNullCheck() {
-		return enumNullCheckEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EDataType getOperatorCycleExceptionWrapper() {
 		return operatorCycleExceptionWrapperEDataType;
 	}
@@ -749,7 +731,6 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 
 		// Create enums
 		comparisonOperatorEEnum = createEEnum(COMPARISON_OPERATOR);
-		enumNullCheckEEnum = createEEnum(ENUM_NULL_CHECK);
 
 		// Create data types
 		operatorCycleExceptionWrapperEDataType = createEDataType(OPERATOR_CYCLE_EXCEPTION_WRAPPER);
@@ -884,10 +865,6 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.GREATEROREQUAL);
 		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.LESSOREQUAL);
 		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.NOTEQUAL);
-
-		initEEnum(enumNullCheckEEnum, EnumNullCheck.class, "EnumNullCheck");
-		addEEnumLiteral(enumNullCheckEEnum, EnumNullCheck.ISNULL);
-		addEEnumLiteral(enumNullCheckEEnum, EnumNullCheck.ISNOTNULL);
 
 		// Initialize data types
 		initEDataType(operatorCycleExceptionWrapperEDataType, OperatorCycleException.class, "OperatorCycleExceptionWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
