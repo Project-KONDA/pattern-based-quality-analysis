@@ -52,11 +52,13 @@ import qualitypatternmodel.operators.impl.ComparisonImpl;
 import qualitypatternmodel.operators.impl.ContainsImpl;
 import qualitypatternmodel.operators.impl.MatchImpl;
 import qualitypatternmodel.operators.impl.OperatorsFactoryImpl;
+import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
+import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.parameters.impl.UntypedParameterValueImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -1690,6 +1692,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				((PrimitiveNode) this).getMatch().clear();
 				neoPropertyNode.getContains().addAll(((PrimitiveNode) this).getContains());
 				((PrimitiveNode) this).getContains().clear();
+				neoPropertyNode.setNullCheck(((PrimitiveNode) this).getNullCheck());
+				((PrimitiveNode) this).setNullCheck(null);
 			}
 			
 			EList<Relation> incomingCopy = new BasicEList<Relation>();
@@ -2485,6 +2489,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			oplist.add(nullCheck);	
 			nullCheck.createParameters();
 			PrimitiveNode p = null;
+			BooleanParam booleanParam = new BooleanParamImpl();
+			booleanParam.setValue(isNull);
+			nullCheck.setOption(booleanParam);
 			if(this instanceof PrimitiveNode) {
 				p = (PrimitiveNode) this;
 			} else {

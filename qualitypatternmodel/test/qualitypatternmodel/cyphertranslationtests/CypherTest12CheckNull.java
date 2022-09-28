@@ -47,6 +47,7 @@ public class CypherTest12CheckNull {
 	public static void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(tryIsNull(true, "isoStartDate"));
+		completePatterns.add(tryIsNull(false, "isoStartDate"));
 	}
 
 	public static CompletePattern tryIsNull(Boolean isNull, String str) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
