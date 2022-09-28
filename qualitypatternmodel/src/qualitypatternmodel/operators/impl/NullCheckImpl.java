@@ -22,6 +22,7 @@ import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.NullCheck;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.BooleanParam;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
@@ -425,6 +426,15 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 		}
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EList<Parameter> getAllParameters() throws InvalidityException {
+		EList<Parameter> res = new BasicEList<Parameter>();
+		res.add(option);
+		return res;
+	}
 
 	@Override
 	public EList<Comparable> getArguments() {

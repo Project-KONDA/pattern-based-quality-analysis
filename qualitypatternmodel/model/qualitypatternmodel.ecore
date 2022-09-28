@@ -495,7 +495,8 @@
       <eLiterals name="TIME" value="6" literal="TIME"/>
       <eLiterals name="NUMBER" value="7" literal="NUMBER"/>
       <eLiterals name="DATETIME" value="8"/>
-      <eLiterals name="IN" value="8"/>
+      <eLiterals name="LIST" value="8"/>
+      <eLiterals name="ELEMENTID" value="9"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Adaptable" abstract="true" interface="true"
         eSuperTypes="#//patternstructure/PatternElement">
@@ -1258,7 +1259,8 @@
         <eParameters name="neoPathPart" eType="#//adaptionNeo4J/NeoPathPart"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoPath" lowerBound="2"
-          upperBound="-1" eType="#//adaptionNeo4J/NeoPathPart" containment="true"/>
+          upperBound="-1" eType="#//adaptionNeo4J/NeoPathPart" containment="true"
+          eOpposite="#//adaptionNeo4J/NeoPathPart/neoComplexEdge"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoSimpleEdge" eSuperTypes="#//adaptionNeo4J/NeoPathPart">
       <eOperations name="setNeoDirection">
@@ -1294,7 +1296,8 @@
           eType="#//adaptionNeo4J/NeoPropertyPathParam" eOpposite="#//adaptionNeo4J/NeoPropertyPathParam/neoPathPart"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isLastEdge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           defaultValueLiteral="false"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="neoComplexEdge" eType="#//adaptionNeo4J/NeoComplexEdge"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="neoComplexEdge" eType="#//adaptionNeo4J/NeoComplexEdge"
+          eOpposite="#//adaptionNeo4J/NeoComplexEdge/neoPath"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoPropertyNode" eSuperTypes="#//graphstructure/PrimitiveNode #//adaptionNeo4J/NeoAbstractNode">
       <eOperations name="generateCypherPropertyAddressing" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

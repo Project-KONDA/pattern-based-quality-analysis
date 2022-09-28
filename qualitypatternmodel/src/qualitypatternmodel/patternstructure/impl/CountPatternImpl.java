@@ -94,6 +94,13 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	
 	
 	//Simple Cypher-Count
+//	MATCH (r:Regesta)--(n:IndexPlace)
+//	WHERE r <> ""
+//	MATCH (r)-[]-(p:Place)
+//	WITH n, r, COUNT (p) as myCounter1, COUNT (n) myCounter1
+//	WHERE (myCounter <> 1)
+//	RETURN myCounter  LIMIT 5
+	
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		StringBuilder cypher = new StringBuilder();

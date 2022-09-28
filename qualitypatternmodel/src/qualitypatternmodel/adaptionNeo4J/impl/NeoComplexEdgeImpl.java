@@ -382,7 +382,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	}
 	
 	protected final class InternalCount {
-		int counter = -1;
+		int counter = -1; 
 		private InternalCount() {
 			super();
 		}
