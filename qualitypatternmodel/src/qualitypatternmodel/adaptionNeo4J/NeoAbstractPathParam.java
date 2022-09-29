@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.adaptionNeo4J;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.parameters.Parameter;
 
@@ -20,10 +21,11 @@ public interface NeoAbstractPathParam extends Parameter, Adaptable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
 	 * @model kind="operation"
 	 * @generated
 	 */
-	String getReturnVariable();
+	String getReturnVariable() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
