@@ -28,6 +28,7 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.Condition;
+import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.MorphismContainer;
@@ -186,6 +187,11 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	//Check the morphisems in the nodes and edges
 	@Override
 	public String generateCypher() throws InvalidityException {
+		//Neasted Structures of the COUNT is in Neo4J/Cypher not possible v4.4 and lower
+		if (getCondition() instanceof CountCondition) {
+			throw new UnsupportedOperationException();
+		}
+		
 		StringBuilder cypher = new StringBuilder();
 		String exists = "";
 		
@@ -234,12 +240,14 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		
 		if (neoPropertyNodes.size() != 0) {
 			if (quantifier == Quantifier.EXISTS ) {
+				cypher.append("( ");
 				for (NeoPropertyNode node : neoPropertyNodes) {
-					if (cypher.length() != 0) {
-						cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_OR + CypherSpecificConstants.ONE_WHITESPACES);
+					if (cypher.length() > 2) {
+						cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_OR + CypherSpecificConstants.ONE_WHITESPACES);
 					}
 					cypher.append(String.format(CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_PROPERTY, node.generateCypherPropertyAddressing()));
 				}
+				cypher.append(" )");
 				return cypher.toString();
 			}
 			
@@ -256,7 +264,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				cypher.append(String.format(CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_PROPERTY, node.generateCypherPropertyAddressing()));
 			}
 			return cypher.toString();
-			
 		} 
 		throw new InvalidityException("QuantifiedCond - No Beginning is specified");
 	}

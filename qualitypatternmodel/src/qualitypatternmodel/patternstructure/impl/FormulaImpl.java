@@ -20,6 +20,7 @@ import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.Condition;
+import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -210,6 +211,11 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	//HOW TO INTEGRATE THE PRIMITIVE/COMPLEX COMPARISONS? FOR CONNECTING WITH AND/OR/XOR --> Not Needed this Operations have to be done in the Parameter-Package
 	@Override 
 	public String generateCypher() throws InvalidityException {
+		//Neasted Structures of the COUNT is in Neo4J/Cypher not possible v4.4 and lower
+		if (getCondition1() instanceof CountCondition || getCondition2() instanceof CountCondition) {
+			throw new UnsupportedOperationException();
+		}
+		
 		if (this.operator != null) {
 			StringBuilder cypher = new StringBuilder();
 			if (this.condition1 != null && this.condition2 != null) {

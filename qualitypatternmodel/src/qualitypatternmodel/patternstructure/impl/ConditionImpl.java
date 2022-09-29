@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.Condition;
+import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.MorphismContainer;
@@ -64,10 +65,12 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	 */
 	@Override
 	public Pattern getPattern() {
-		if (eContainerFeatureID() != PatternstructurePackage.CONDITION__PATTERN) return null;
+		if (eContainerFeatureID() != PatternstructurePackage.CONDITION__PATTERN) return null;		
 		return (Pattern)eInternalContainer();
 	}
 
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

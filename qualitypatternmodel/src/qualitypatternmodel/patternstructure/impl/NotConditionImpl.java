@@ -19,6 +19,7 @@ import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.Condition;
+import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -105,6 +106,11 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	
 	@Override
 	public String generateCypher() throws InvalidityException {
+		//Neasted Structures of the COUNT is in Neo4J/Cypher not possible v4.4 and lower
+		if (getCondition() instanceof CountCondition) {
+			throw new UnsupportedOperationException();
+		}
+		
 		if (condition != null) {
 			String result = null;
 			if (condition instanceof NotCondition) {
