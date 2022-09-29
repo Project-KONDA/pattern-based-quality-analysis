@@ -426,7 +426,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 
 
 	String generateCypherReturnEdges(String cypher) throws InvalidityException {
-		//All regarding the relations will be added here --> Need Refactoring
 		if (graph.getRelations().size() != 0) {
 			final StringBuilder cypherEdge = new StringBuilder();
 			final StringBuilder cypherInnerEdgeNodes = new StringBuilder();
@@ -473,15 +472,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		return cypher;
 	}
 
-
-	void appendInnerEdgeNodes(final StringBuilder cypherInnerEdgeNodes, NeoAbstractEdge neoAbstractEdge)
-			throws InvalidityException {
-		if (neoAbstractEdge.getReturnInnerEdgeNodes() != null) {
-			if (cypherInnerEdgeNodes.length() != 0) cypherInnerEdgeNodes.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
-			cypherInnerEdgeNodes.append(neoAbstractEdge.getReturnInnerEdgeNodes());
-		}
-	}
-
 	String generateCypherReturnNodes(String cypher) throws InvalidityException {
 		if (graph.getNodes().size() != 0 ) {
 			final StringBuilder cypherNeoNode = new StringBuilder();
@@ -490,7 +480,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			NeoAbstractNode neoAbstractNode;
 			NeoPropertyNode neoPropertyNode;
 			
-			//Need to be refactored
 			for (Node n : graph.getNodes()) {
 				neoAbstractNode = (NeoAbstractNode) n;
 				if (n instanceof NeoNode && n.isReturnNode()) {

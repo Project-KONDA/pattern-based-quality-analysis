@@ -14,6 +14,8 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
 import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -232,6 +234,24 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		}
 		
 		return cypher;
+	}
+	
+	//Add to Ecore?
+	String generateCypherReturnNodes(String cypher) throws InvalidityException {
+		throw new UnsupportedOperationException();
+	}
+	
+	//Add to Ecore?
+	String generateCypherReturnEdges(String cypher) throws InvalidityException {
+		throw new UnsupportedOperationException();
+	}
+	
+	void appendInnerEdgeNodes(final StringBuilder cypherInnerEdgeNodes, NeoAbstractEdge neoAbstractEdge)
+			throws InvalidityException {
+		if (neoAbstractEdge.getReturnInnerEdgeNodes() != null) {
+			if (cypherInnerEdgeNodes.length() != 0) cypherInnerEdgeNodes.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
+			cypherInnerEdgeNodes.append(neoAbstractEdge.getReturnInnerEdgeNodes());
+		}
 	}
 
 	private String addWhiteSpacesForConditions(String cond, String whereClause) {
