@@ -92,19 +92,9 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	
 	//BEGIN - CYPHER
 	//Der folgende Abschnitt gehört zum Cypher COUNT
-	//Es representiert nur einen Ansatz wie man COUNT generieren kann
-	//Es ist jedoch kein vollständig funktionaler Code 
-	//Falls in einem neuem Patch/Update von Cypher das COUNT verschachteln lässt, würde sich viel Programmieraufwand erspart werden
+	//Es ein Simples Count
+	//Count ist für die anderen CONDITIONS als Unsuported makiert, da Cypher v4.4 und niedriger keine Verschachtelungen zulässt
 	
-	
-	
-	//Simple Cypher-Count
-//	MATCH (r:Regesta)--(n:IndexPlace)
-//	WHERE r <> ""
-//	MATCH (r)-[]-(p:Place)
-//	WITH n, r, COUNT (p) as myCounter1, COUNT (n) myCounter1
-//	WHERE (myCounter <> 1)
-//	RETURN myCounter  LIMIT 5
 	protected Set<NeoAbstractNode> countElements;
 	public void setCountElements(Set<NeoAbstractNode> countElements) {
 		Set<NeoAbstractNode> cloned_list = new HashSet<NeoAbstractNode>(countElements); //Maybe replace by LinkedHashSet
