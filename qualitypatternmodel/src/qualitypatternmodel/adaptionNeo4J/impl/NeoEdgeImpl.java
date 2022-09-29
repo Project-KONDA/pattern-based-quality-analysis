@@ -113,6 +113,14 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 		return null;
 	}
 	
+	@Override
+	public String getReturnVariable() throws InvalidityException {
+		String cypher;
+		//NeoPathPart neoPathPart 
+		
+		return cypher;
+	}
+	
 	@Override 
 	public void createParameters() {
 		if (getIncomingMapping() == null) {

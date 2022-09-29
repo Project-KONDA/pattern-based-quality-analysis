@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.adaptionNeo4J;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Relation;
 
 /**
@@ -51,5 +52,21 @@ public interface NeoAbstractEdge extends Relation {
 	 * @generated
 	 */
 	void setIsReturnElement(boolean returnElement);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String getReturnVariable() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String getReturnInnerEdges() throws InvalidityException;
 
 } // NeoAbstractEdge

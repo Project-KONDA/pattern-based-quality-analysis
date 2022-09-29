@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 
 /**
@@ -102,6 +103,30 @@ public abstract class NeoAbstractEdgeImpl extends RelationImpl implements NeoAbs
 	 * @generated
 	 */
 	@Override
+	public String getReturnVariable() throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getReturnInnerEdges() throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case AdaptionNeo4JPackage.NEO_ABSTRACT_EDGE__RETURN_ELEMENT:
@@ -165,6 +190,20 @@ public abstract class NeoAbstractEdgeImpl extends RelationImpl implements NeoAbs
 			case AdaptionNeo4JPackage.NEO_ABSTRACT_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN:
 				setIsReturnElement((Boolean)arguments.get(0));
 				return null;
+			case AdaptionNeo4JPackage.NEO_ABSTRACT_EDGE___GET_RETURN_VARIABLE:
+				try {
+					return getReturnVariable();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case AdaptionNeo4JPackage.NEO_ABSTRACT_EDGE___GET_RETURN_INNER_EDGES:
+				try {
+					return getReturnInnerEdges();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

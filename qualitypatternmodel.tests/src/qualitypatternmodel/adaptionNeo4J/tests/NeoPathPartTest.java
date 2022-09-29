@@ -17,7 +17,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherVariable() <em>Get Cypher Variable</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#generateCypherWithoutLabels() <em>Generate Cypher Without Labels</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#isLastEdge() <em>Is Last Edge</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherInnerEdgeVariable() <em>Get Cypher Inner Edge Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherInnerEdgeNodeVariable() <em>Get Cypher Inner Edge Variable</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -98,10 +98,10 @@ public abstract class NeoPathPartTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherInnerEdgeVariable() <em>Get Cypher Inner Edge Variable</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherInnerEdgeNodeVariable() <em>Get Cypher Inner Edge Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherInnerEdgeVariable()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherInnerEdgeNodeVariable()
 	 * @generated
 	 */
 	public void testGetCypherInnerEdgeVariable() {

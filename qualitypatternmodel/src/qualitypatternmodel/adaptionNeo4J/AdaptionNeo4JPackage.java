@@ -1471,13 +1471,31 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_ABSTRACT_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN = GraphstructurePackage.RELATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get Return Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ABSTRACT_EDGE___GET_RETURN_VARIABLE = GraphstructurePackage.RELATION_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Return Inner Edges</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ABSTRACT_EDGE___GET_RETURN_INNER_EDGES = GraphstructurePackage.RELATION_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Neo Abstract Edge</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_EDGE_OPERATION_COUNT = GraphstructurePackage.RELATION_OPERATION_COUNT + 1;
+	int NEO_ABSTRACT_EDGE_OPERATION_COUNT = GraphstructurePackage.RELATION_OPERATION_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1930,6 +1948,24 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN = NEO_ABSTRACT_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN;
 
 	/**
+	 * The operation id for the '<em>Get Return Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE___GET_RETURN_VARIABLE = NEO_ABSTRACT_EDGE___GET_RETURN_VARIABLE;
+
+	/**
+	 * The operation id for the '<em>Get Return Inner Edges</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE___GET_RETURN_INNER_EDGES = NEO_ABSTRACT_EDGE___GET_RETURN_INNER_EDGES;
+
+	/**
 	 * The number of operations of the '<em>Neo Edge</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1993,7 +2029,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PATH_PART__IS_LAST_EDGE = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Neo Complex Edge</b></em>' reference.
+	 * The feature id for the '<em><b>Neo Complex Edge</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2326,7 +2362,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_COMPLEX_EDGE__IS_LAST_EDGE = NEO_PATH_PART__IS_LAST_EDGE;
 
 	/**
-	 * The feature id for the '<em><b>Neo Complex Edge</b></em>' reference.
+	 * The feature id for the '<em><b>Neo Complex Edge</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2686,7 +2722,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_SIMPLE_EDGE__IS_LAST_EDGE = NEO_PATH_PART__IS_LAST_EDGE;
 
 	/**
-	 * The feature id for the '<em><b>Neo Complex Edge</b></em>' reference.
+	 * The feature id for the '<em><b>Neo Complex Edge</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -5531,6 +5567,24 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PROPERTY_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN = NEO_ABSTRACT_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN;
 
 	/**
+	 * The operation id for the '<em>Get Return Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_EDGE___GET_RETURN_VARIABLE = NEO_ABSTRACT_EDGE___GET_RETURN_VARIABLE;
+
+	/**
+	 * The operation id for the '<em>Get Return Inner Edges</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_EDGE___GET_RETURN_INNER_EDGES = NEO_ABSTRACT_EDGE___GET_RETURN_INNER_EDGES;
+
+	/**
 	 * The operation id for the '<em>Generate Cypher Property Addressing</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5874,10 +5928,10 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EAttribute getNeoPathPart_IsLastEdge();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoComplexEdge <em>Neo Complex Edge</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoComplexEdge <em>Neo Complex Edge</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Neo Complex Edge</em>'.
+	 * @return the meta object for the container reference '<em>Neo Complex Edge</em>'.
 	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoComplexEdge()
 	 * @see #getNeoPathPart()
 	 * @generated
@@ -5925,11 +5979,11 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EOperation getNeoPathPart__IsLastEdge();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherInnerEdgeVariable() <em>Get Cypher Inner Edge Variable</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherInnerEdgeNodeVariable() <em>Get Cypher Inner Edge Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Cypher Inner Edge Variable</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherInnerEdgeVariable()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherInnerEdgeNodeVariable()
 	 * @generated
 	 */
 	EOperation getNeoPathPart__GetCypherInnerEdgeVariable();
@@ -6141,6 +6195,26 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getNeoAbstractEdge__SetIsReturnElement__boolean();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#getReturnVariable() <em>Get Return Variable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Return Variable</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#getReturnVariable()
+	 * @generated
+	 */
+	EOperation getNeoAbstractEdge__GetReturnVariable();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#getReturnInnerEdges() <em>Get Return Inner Edges</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Return Inner Edges</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#getReturnInnerEdges()
+	 * @generated
+	 */
+	EOperation getNeoAbstractEdge__GetReturnInnerEdges();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam <em>Neo Abstract Path Param</em>}'.
@@ -6432,7 +6506,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EAttribute NEO_PATH_PART__IS_LAST_EDGE = eINSTANCE.getNeoPathPart_IsLastEdge();
 
 		/**
-		 * The meta object literal for the '<em><b>Neo Complex Edge</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Neo Complex Edge</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -6648,6 +6722,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NEO_ABSTRACT_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN = eINSTANCE.getNeoAbstractEdge__SetIsReturnElement__boolean();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Return Variable</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_ABSTRACT_EDGE___GET_RETURN_VARIABLE = eINSTANCE.getNeoAbstractEdge__GetReturnVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Return Inner Edges</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_ABSTRACT_EDGE___GET_RETURN_INNER_EDGES = eINSTANCE.getNeoAbstractEdge__GetReturnInnerEdges();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoAbstractPathParamImpl <em>Neo Abstract Path Param</em>}' class.

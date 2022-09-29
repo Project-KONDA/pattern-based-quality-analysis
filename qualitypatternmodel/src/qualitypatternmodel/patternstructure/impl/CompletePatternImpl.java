@@ -443,7 +443,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 							if (cypherEdge.length() != 0) cypherEdge.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
 							cypherEdge.append(neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart().getCypherVariable());
 							
-							if (neoPathPart.getCypherInnerEdgeVariable() != null) {
+							if (neoPathPart.getCypherInnerEdgeNodeVariable() != null) {
 								if (neoPathPart.getReturnCypherInnerEdgeVariable() != null) {
 									if (cypherInnerEdges.length() != 0) cypherInnerEdges.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
 									cypherInnerEdges.append(neoPathPart.getReturnCypherInnerEdgeVariable());

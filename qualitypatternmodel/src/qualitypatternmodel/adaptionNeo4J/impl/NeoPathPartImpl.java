@@ -332,7 +332,7 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	 * @generated
 	 */
 	@Override
-	public String getCypherInnerEdgeVariable() throws InvalidityException {
+	public String getCypherInnerEdgeNodeVariable() throws InvalidityException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -512,7 +512,7 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 				return isLastEdge();
 			case AdaptionNeo4JPackage.NEO_PATH_PART___GET_CYPHER_INNER_EDGE_VARIABLE:
 				try {
-					return getCypherInnerEdgeVariable();
+					return getCypherInnerEdgeNodeVariable();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

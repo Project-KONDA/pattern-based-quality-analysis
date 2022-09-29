@@ -180,7 +180,7 @@ public interface NeoPathPart extends PatternElement {
 	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	String getCypherInnerEdgeVariable() throws InvalidityException;
+	String getCypherInnerEdgeNodeVariable() throws InvalidityException;
 	
 	//ADD TO ECORE
 	String getReturnCypherInnerEdgeVariable() throws InvalidityException;

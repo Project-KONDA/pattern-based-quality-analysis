@@ -106,6 +106,13 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 		} 
 		return null;
 	}
+	
+	@Override
+	public String getReturnVariable() throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
 
 	private void targetNodesCanNotBeNull() throws InvalidityException {
 		throw new InvalidityException("NeoPropertyEdge - TargetNodes can not be null");
@@ -139,7 +146,7 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 					} else {
 						return null;
 					}
-					variable = ((NeoSimpleEdge) neoPathPart).getCypherInnerEdgeVariable();
+					variable = ((NeoSimpleEdge) neoPathPart).getCypherInnerEdgeNodeVariable();
 				}
 				
 				cypher = variable + "." + getNeoPropertyPathParam().getNeoPropertyName();
@@ -182,7 +189,7 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 					} else {
 						throw new InvalidityException("The is no NeoSimpleEdge for the target type");
 					}
-					cypher = neoSimpleEdge.getCypherInnerEdgeVariable();
+					cypher = neoSimpleEdge.getCypherInnerEdgeNodeVariable();
 				}
 				
 				return cypher;
