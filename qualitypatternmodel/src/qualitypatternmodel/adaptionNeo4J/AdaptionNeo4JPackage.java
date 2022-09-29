@@ -2029,7 +2029,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PATH_PART__IS_LAST_EDGE = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Neo Complex Edge</b></em>' container reference.
+	 * The feature id for the '<em><b>Neo Complex Edge</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2371,7 +2371,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_COMPLEX_EDGE__IS_LAST_EDGE = NEO_PATH_PART__IS_LAST_EDGE;
 
 	/**
-	 * The feature id for the '<em><b>Neo Complex Edge</b></em>' container reference.
+	 * The feature id for the '<em><b>Neo Complex Edge</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2380,7 +2380,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_COMPLEX_EDGE__NEO_COMPLEX_EDGE = NEO_PATH_PART__NEO_COMPLEX_EDGE;
 
 	/**
-	 * The feature id for the '<em><b>Neo Path</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Neo Path</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2740,7 +2740,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_SIMPLE_EDGE__IS_LAST_EDGE = NEO_PATH_PART__IS_LAST_EDGE;
 
 	/**
-	 * The feature id for the '<em><b>Neo Complex Edge</b></em>' container reference.
+	 * The feature id for the '<em><b>Neo Complex Edge</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -5829,10 +5829,10 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EClass getNeoComplexEdge();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#getNeoPath <em>Neo Path</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#getNeoPath <em>Neo Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Neo Path</em>'.
+	 * @return the meta object for the reference list '<em>Neo Path</em>'.
 	 * @see qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#getNeoPath()
 	 * @see #getNeoComplexEdge()
 	 * @generated
@@ -6009,10 +6009,10 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EAttribute getNeoPathPart_IsLastEdge();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoComplexEdge <em>Neo Complex Edge</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoComplexEdge <em>Neo Complex Edge</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Neo Complex Edge</em>'.
+	 * @return the meta object for the reference '<em>Neo Complex Edge</em>'.
 	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoComplexEdge()
 	 * @see #getNeoPathPart()
 	 * @generated
@@ -6477,7 +6477,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EClass NEO_COMPLEX_EDGE = eINSTANCE.getNeoComplexEdge();
 
 		/**
-		 * The meta object literal for the '<em><b>Neo Path</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Neo Path</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -6617,7 +6617,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EAttribute NEO_PATH_PART__IS_LAST_EDGE = eINSTANCE.getNeoPathPart_IsLastEdge();
 
 		/**
-		 * The meta object literal for the '<em><b>Neo Complex Edge</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Neo Complex Edge</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

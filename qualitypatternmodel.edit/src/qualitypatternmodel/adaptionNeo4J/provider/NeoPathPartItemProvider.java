@@ -51,7 +51,6 @@ public class NeoPathPartItemProvider extends PatternElementItemProvider {
 
 			addTranslatedPropertyDescriptor(object);
 			addIsLastEdgePropertyDescriptor(object);
-			addNeoComplexEdgePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -96,28 +95,6 @@ public class NeoPathPartItemProvider extends PatternElementItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Neo Complex Edge feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNeoComplexEdgePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_NeoPathPart_neoComplexEdge_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NeoPathPart_neoComplexEdge_feature", "_UI_NeoPathPart_type"),
-				 AdaptionNeo4JPackage.Literals.NEO_PATH_PART__NEO_COMPLEX_EDGE,
-				 true,
-				 false,
-				 true,
-				 null,
 				 null,
 				 null));
 	}

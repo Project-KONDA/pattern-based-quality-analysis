@@ -80,6 +80,7 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 		return CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES;	
 	}
 	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

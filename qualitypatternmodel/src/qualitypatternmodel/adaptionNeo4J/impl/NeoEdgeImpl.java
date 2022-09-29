@@ -115,7 +115,20 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 	
 	@Override
 	public String getReturnVariable() throws InvalidityException {
+		if (getNeoPathParam() != null) {
+			if (getNeoPathParam().getNeoPathPart() == null) {
+				return null;
+			}
+		}
+		
 		String cypher = getNeoPathParam().getReturnVariable();	
+		return cypher;
+	}
+	
+	@Override
+	public String getReturnInnerEdgeNodes() throws InvalidityException {
+		String cypher;
+		cypher = getNeoPathParam().getReturnInnerEdgeNodes();
 		return cypher;
 	}
 	

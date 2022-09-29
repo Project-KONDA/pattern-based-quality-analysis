@@ -1259,8 +1259,7 @@
         <eParameters name="neoPathPart" eType="#//adaptionNeo4J/NeoPathPart"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoPath" lowerBound="2"
-          upperBound="-1" eType="#//adaptionNeo4J/NeoPathPart" containment="true"
-          eOpposite="#//adaptionNeo4J/NeoPathPart/neoComplexEdge"/>
+          upperBound="-1" eType="#//adaptionNeo4J/NeoPathPart"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoSimpleEdge" eSuperTypes="#//adaptionNeo4J/NeoPathPart">
       <eOperations name="setNeoDirection">
@@ -1298,8 +1297,7 @@
           eType="#//adaptionNeo4J/NeoPropertyPathParam" eOpposite="#//adaptionNeo4J/NeoPropertyPathParam/neoPathPart"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isLastEdge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           defaultValueLiteral="false"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="neoComplexEdge" eType="#//adaptionNeo4J/NeoComplexEdge"
-          eOpposite="#//adaptionNeo4J/NeoComplexEdge/neoPath"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="neoComplexEdge" eType="#//adaptionNeo4J/NeoComplexEdge"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoPropertyNode" eSuperTypes="#//graphstructure/PrimitiveNode #//adaptionNeo4J/NeoAbstractNode">
       <eOperations name="generateCypherPropertyAddressing" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

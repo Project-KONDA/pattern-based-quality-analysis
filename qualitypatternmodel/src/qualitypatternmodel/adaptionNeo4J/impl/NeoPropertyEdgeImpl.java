@@ -112,6 +112,13 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 		String cypher = getNeoPropertyPathParam().getReturnVariable();	
 		return cypher;
 	}
+	
+	@Override
+	public String getReturnInnerEdgeNodes() throws InvalidityException {
+		String cypher;
+		cypher = getNeoPropertyPathParam().getReturnInnerEdgeNodes();
+		return cypher;
+	}
 
 	private void targetNodesCanNotBeNull() throws InvalidityException {
 		throw new InvalidityException("NeoPropertyEdge - TargetNodes can not be null");

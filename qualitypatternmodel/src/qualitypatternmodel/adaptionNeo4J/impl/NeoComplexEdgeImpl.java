@@ -8,7 +8,7 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
@@ -37,7 +37,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
  */
 public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdge {
 	/**
-	 * The cached value of the '{@link #getNeoPath() <em>Neo Path</em>}' containment reference list.
+	 * The cached value of the '{@link #getNeoPath() <em>Neo Path</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getNeoPath()
@@ -151,7 +151,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	@Override
 	public EList<NeoPathPart> getNeoPath() {
 		if (neoPath == null) {
-			neoPath = new EObjectContainmentWithInverseEList<NeoPathPart>(NeoPathPart.class, this, AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH, AdaptionNeo4JPackage.NEO_PATH_PART__NEO_COMPLEX_EDGE);
+			neoPath = new EObjectResolvingEList<NeoPathPart>(NeoPathPart.class, this, AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH);
 		}
 		return neoPath;
 	}
@@ -328,21 +328,6 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		} else {
 			neoPathPartImpl.setCount(getCount());
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getNeoPath()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	@Override

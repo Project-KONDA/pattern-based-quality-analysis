@@ -121,24 +121,22 @@ public interface NeoPathPart extends PatternElement {
 	void setIsLastEdge(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Neo Complex Edge</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#getNeoPath <em>Neo Path</em>}'.
+	 * Returns the value of the '<em><b>Neo Complex Edge</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Neo Complex Edge</em>' container reference.
+	 * @return the value of the '<em>Neo Complex Edge</em>' reference.
 	 * @see #setNeoComplexEdge(NeoComplexEdge)
 	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPathPart_NeoComplexEdge()
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#getNeoPath
-	 * @model opposite="neoPath" transient="false"
+	 * @model
 	 * @generated
 	 */
 	NeoComplexEdge getNeoComplexEdge();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoComplexEdge <em>Neo Complex Edge</em>}' container reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoComplexEdge <em>Neo Complex Edge</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Neo Complex Edge</em>' container reference.
+	 * @param value the new value of the '<em>Neo Complex Edge</em>' reference.
 	 * @see #getNeoComplexEdge()
 	 * @generated
 	 */

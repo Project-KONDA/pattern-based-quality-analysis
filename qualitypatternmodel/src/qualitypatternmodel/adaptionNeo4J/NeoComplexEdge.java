@@ -23,15 +23,13 @@ import qualitypatternmodel.exceptions.InvalidityException;
  */
 public interface NeoComplexEdge extends NeoPathPart {
 	/**
-	 * Returns the value of the '<em><b>Neo Path</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Neo Path</b></em>' reference list.
 	 * The list contents are of type {@link qualitypatternmodel.adaptionNeo4J.NeoPathPart}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoComplexEdge <em>Neo Complex Edge</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Neo Path</em>' containment reference list.
+	 * @return the value of the '<em>Neo Path</em>' reference list.
 	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoComplexEdge_NeoPath()
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoComplexEdge
-	 * @model opposite="neoComplexEdge" containment="true" lower="2"
+	 * @model lower="2"
 	 * @generated
 	 */
 	EList<NeoPathPart> getNeoPath();

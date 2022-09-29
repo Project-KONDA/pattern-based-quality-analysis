@@ -8,6 +8,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
+import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -40,28 +41,32 @@ public abstract class NeoAbstractPathParamImpl extends ParameterImpl implements 
 		return AdaptionNeo4JPackage.Literals.NEO_ABSTRACT_PATH_PARAM;
 	}
 
+	public abstract NeoPathPart getNeoPathPart();
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT 
 	 */
 	@Override
 	public String getReturnVariable() throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		String cypher = getNeoPathPart().getCypherVariable();	
+		return cypher;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getReturnInnerEdgeNodes() throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		String cypher;
+		if (getNeoPathPart() == null) {
+			return null;
+		}
+		cypher = getNeoPathPart().getReturnCypherInnerEdgeNodes();
+		return cypher;
 	}
 
 	/**
