@@ -12,6 +12,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
@@ -99,12 +100,11 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		super();
 	}
 	
-	//Do I need this??? --> Need testing
-	//Needing for the return variable
 	@Override 
 	public String generateCypher() throws InvalidityException, UnsupportedOperationException {
 		if (getIncomingMapping() == null) {
-			return generateCypherMatchNodeVariable();
+			String cypher = generateCypherMatchNodeVariable();			
+			return cypher;
 		}
 		return ((NeoPropertyNode) getOriginalNode()).generateCypher();
 	}	
@@ -182,7 +182,18 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override
 	public String getCypherReturnVariable() throws InvalidityException {
 		if (getIncomingMapping() == null) {	
-			return generateCypherMatchNodeVariable();
+			String cypher = generateCypherMatchNodeVariable();
+			NeoPropertyPathParam neoPropertyPathParam;
+			NeoPropertyEdge neoPropertyEdge;
+			NeoPropertyNode neoPropertyNode;
+			
+			neoPropertyNode = this;
+			neoPropertyEdge = (NeoPropertyEdge) neoPropertyNode.getIncoming().get(0);
+			neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
+			if (neoPropertyPathParam.getNeoPathPart() == null)
+				throw new InvalidityException("NeoPropertyNode - This Node is not suited to be a Return Node");
+						
+			return cypher;
 		}
 		return ((NeoPropertyNode) getOriginalNode()).generateCypherMatchNodeVariable();
 	}

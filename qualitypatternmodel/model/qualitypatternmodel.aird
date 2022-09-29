@@ -3139,6 +3139,21 @@
               <element xsi:nil="true"/>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qFvHJT2SEe2Qp-ybJSPxgQ" x="555" y="717" width="176"/>
             </children>
+            <children xmi:type="notation:Shape" xmi:id="_dYXwwEAQEe20BLrY6Ta8OQ" type="Note" fontName="Segoe UI" description="Auch zum inteface machen?" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dYXwwUAQEe20BLrY6Ta8OQ" source="specificStyles">
+                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dYXwwkAQEe20BLrY6Ta8OQ" key="verticalAlignment" value="8"/>
+              </eAnnotations>
+              <children xmi:type="notation:BasicDecorationNode" xmi:id="_dZZEcEAQEe20BLrY6Ta8OQ" type="DiagramName">
+                <element xsi:nil="true"/>
+              </children>
+              <children xmi:type="notation:BasicDecorationNode" xmi:id="_dZZrgEAQEe20BLrY6Ta8OQ" type="Description">
+                <element xsi:nil="true"/>
+              </children>
+              <styles xmi:type="notation:TextStyle" xmi:id="_dYXww0AQEe20BLrY6Ta8OQ" textAlignment="Center"/>
+              <styles xmi:type="notation:LineTypeStyle" xmi:id="_dYXwxEAQEe20BLrY6Ta8OQ"/>
+              <element xsi:nil="true"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dYXwxUAQEe20BLrY6Ta8OQ" x="80" y="39"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_TKib4gLoEe2GF_6PqNgKEg"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_TKib4wLoEe2GF_6PqNgKEg"/>
           </children>

@@ -428,8 +428,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	private String generateCypherReturnEdges(String cypher) throws InvalidityException {
 		//All regarding the relations will be added here --> Need Refactoring
 		if (graph.getRelations().size() != 0) {
-			StringBuilder cypherEdge = new StringBuilder();
-			StringBuilder cypherInnerEdges = new StringBuilder();
+			final StringBuilder cypherEdge = new StringBuilder();
+			final StringBuilder cypherInnerEdges = new StringBuilder();
 			NeoEdge neoEdge;
 			NeoPropertyEdge neoPropertyEdge;
 			NeoPathPart neoPathPart;
@@ -489,31 +489,23 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 
 	private String generateCypherReturnNodes(String cypher) throws InvalidityException {
 		if (graph.getNodes().size() != 0 ) {
-			StringBuilder cypherNeoNode = new StringBuilder();
-			StringBuilder cypherNeoPropertyNode = new StringBuilder();
-			StringBuilder cypherNeoProperties = new StringBuilder();
+			final StringBuilder cypherNeoNode = new StringBuilder();
+			final StringBuilder cypherNeoPropertyNode = new StringBuilder();
+			final StringBuilder cypherNeoProperties = new StringBuilder();
+			String temp;
+			NeoAbstractNode neoAbstractNode;
 			NeoPropertyNode neoPropertyNode;
-			NeoPropertyPathParam neoPropertyPathParam;
-			NeoPropertyEdge neoPropertyEdge;
 			
 			//Need to be refactored
 			for (Node n : graph.getNodes()) {
+				neoAbstractNode = (NeoAbstractNode) n;
 				if (n instanceof NeoNode && n.isReturnNode()) {
-					
 					if (cypherNeoNode.length() != 0) cypherNeoNode.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
-					cypherNeoNode.append(((NeoAbstractNode) n).getCypherReturnVariable());
-					
+					cypherNeoNode.append(neoAbstractNode.getCypherReturnVariable());
 				} else if (n instanceof NeoPropertyNode && n.isReturnNode()) {
 					//Decision if the Property is in a new Node or in the same
 					if (cypherNeoPropertyNode.length() != 0) cypherNeoPropertyNode.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
-					neoPropertyNode = (NeoPropertyNode) n;
-					neoPropertyEdge = (NeoPropertyEdge) neoPropertyNode.getIncoming().get(0);
-					neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
-					if (neoPropertyPathParam.getNeoPathPart() == null)
-						throw new InvalidityException("CompletePattern: There is no NeoPropertyNode");
-					if (!(neoPropertyNode.getCypherReturnVariable() == null)) {
-						cypherNeoPropertyNode.append(neoPropertyNode.getCypherReturnVariable());
-					}
+					cypherNeoPropertyNode.append(neoAbstractNode.getCypherReturnVariable());
 				} 
 				if (n instanceof NeoPropertyNode && ((NeoPropertyNode)n).isReturnProperty()) {
 					if (cypherNeoProperties.length() != 0) cypherNeoProperties.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
