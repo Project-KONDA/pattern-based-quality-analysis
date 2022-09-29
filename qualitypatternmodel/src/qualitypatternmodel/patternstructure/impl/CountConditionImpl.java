@@ -3,18 +3,18 @@
 package qualitypatternmodel.patternstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Map.Entry;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -143,117 +143,122 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	}
 	
 	//BEGIN - CYPHER
-	//SIMPLE CYPHER COUNT
+	//SIMPLE CYPHER COUNT --> has many restrictuins like that it can not be a part of another Condition
 	@Override 
 	public String generateCypher() throws InvalidityException {
-		StringBuilder cypher = new StringBuilder();
-
 		if(getOption() != null && getOption().getValue() != null) {
-			final List<String> myCounters = ((CountPatternImpl) getCountPattern()).getCounters();
-			final String comp = getOption().getValue().getLiteral();
+			StringBuilder cypher = new StringBuilder();
+			cypher.append(getCountPattern().generateCypher());
 			
-			//Consider that it can be also an other CountPattern
-			if (getArgument2() instanceof NumberElement) {
-				final String cypher2 = getArgument2().generateCypher();
-				generateCypherWhere(cypher, myCounters, cypher2, comp);
-			} else {
-				final List<String> myCounters2 = ((CountPatternImpl) getCountPattern()).getCounters();
-				generateCypherWhere(cypher, myCounters, myCounters2, comp);
+			if (getArgument2() instanceof CountCondition) {
+				cypher.append(getArgument2().generateCypher());
 			}
 			
+			String tempWhere;
+			tempWhere = generateCypherWith();
+			cypher.append(tempWhere);
+			tempWhere = generateCypherCountWhere();
+			cypher.append(tempWhere);
+			
+			return cypher.toString();
 		}
-		return cypher.toString();
-	}
-
-	private void generateCypherWhere(StringBuilder cypher, final List<String> myCounters, final String cypher2,
-			final String comp) {
-		cypher.append("( ");
-		boolean multi = false;
-		for (String s : myCounters) {
-			if (multi) {
-				cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
-			}
-			cypher.append(s);
-			cypher.append(" " + comp + " ");
-			cypher.append(cypher2 + " ");
-			multi = true; 
-		}
-		cypher.append(" )");
+		throw new InvalidityException();
 	}
 	
-	private void generateCypherWhere(StringBuilder cypher, final List<String> myCounters1, final List<String> myCounters2,
-			final String comp) {
-		cypher.append("( ");
-		boolean multi = false;
-		for (String s1 : myCounters1) {
-			for (String s2 : myCounters2) {
-				if (s1.compareTo(s2) != 0) { //that not the same will be compared --> Need improvements
-					if (multi) {
-						cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
-					}
-					cypher.append(s1);
-					cypher.append(" " + comp + " ");
-					cypher.append(s2 + " ");
-					multi = true; 
-				}
-			}
-		}
-		cypher.append(" )");
-	}
+	//Die Patternsprache deckt keine COUNTS im Return ab
 	
 //	@Override 
-	protected String generateCypherWith() throws InvalidityException {
-		String cypher = null;
+	private String generateCypherWith() throws InvalidityException {
+		String cypher = CypherSpecificConstants.CLAUSE_WITH + CypherSpecificConstants.ONE_WHITESPACES;
 		if (!(getArgument2() instanceof CountPattern)) {
-			cypher = getCountPattern().generateCypher();		
+			boolean multi = false;
+			String tempWith;
+			tempWith = ((CountPatternImpl) getCountPattern()).generateCypherWith();
+			if (!tempWith.isEmpty()) {
+				cypher += tempWith;
+				multi = true;
+			}
+			EMap<NeoAbstractNode, String> myCounters = ((CountPatternImpl)getCountPattern()).generateCypherCounters();
+			
+			for (Entry<NeoAbstractNode, String> entry : myCounters.entrySet()) {
+				if (multi) {
+					cypher += ", ";
+				}
+				cypher += entry.getValue();				
+			}
 		} else {
-			cypher = getCountPattern().generateCypher();
-			cypher += ", " + ((CountPattern) getArgument2()).generateCypher();
-			cypher = Arrays.stream(cypher.split(", ")).distinct().collect(Collectors.joining(", "));
+			String tempWith;
+			tempWith = ((CountPatternImpl) getCountPattern()).generateCypherWith();			
+			EMap<NeoAbstractNode, String> myCounters = ((CountPatternImpl)getCountPattern()).generateCypherCounters();
+			EMap<NeoAbstractNode, String> myCounters2 = ((CountPatternImpl)getArgument2()).generateCypherCounters();
+			//Remove all duplicates
+			for (Entry<NeoAbstractNode, String> entry1 : myCounters.entrySet()) {
+				for (Entry<NeoAbstractNode, String> entry2 : myCounters2.entrySet()) {
+					if (entry1.getKey() == entry2.getKey()) {
+						myCounters2.remove(entry2);
+					}
+				}
+			}
+			
+			boolean multi = false;
+			if (!tempWith.isEmpty()) {
+				cypher += tempWith;
+				multi = true;
+			}
+			
+			for (Entry<NeoAbstractNode, String> entry : myCounters.entrySet()) {
+				if (multi) {
+					cypher += ", ";
+				}
+				cypher += entry.getValue();				
+			}
 		}
 		return cypher;
 	}
 	
-	//Der folgende Abschnitt gehört zum Cypher COUNT
-	//Es representiert nur einen Ansatz wie man COUNT generieren kann
-	//Es ist jedoch kein vollständig funktionaler Code 
-	//Falls in einem neuem Patch/Update von Cypher das COUNT verschachteln lässt, würde sich viel Programmieraufwand erspart werden
-	
-	//FUTURE WORK
-	//has to be added in the .ecore model
-	//Maybe there is a way to get the return elements in a diffrent way ??? 
-	//How to make this method more generic for the case if I want to count more then 1 Pattern 
-//	public String generateCypherSetCounterProperties() throws InvalidityException {		
-//		String countPatternSet;
-//		countPatternSet = getCountPattern().generateCypher();
-//		return countPatternSet;
-//	}
-//	
-//	//FUTURE WORK 
-//	public String removeCounters() {
-//		String countPatternRemove;
-//		countPatternRemove = ((CountPatternImpl) getCountPattern()).removeCounters();
-//		return countPatternRemove;
-//	}
-//	
-//	//TODO --> FUTURE WORK
 //	@Override 
-//	public String generateCypher() throws InvalidityException {
-//		StringBuilder cypher = new StringBuilder();
-//		List<String> counters = ((CountPatternImpl) getCountPattern()).getMyCounters();
-//		for (String counter : counters) {
-//			cypher.append(counter);
-//			if (getArgument2() instanceof NumberElement) {
-//				cypher.append(CypherSpecificConstants.ONE_WHITESPACES);
-//				cypher.append(this.option.getValue() + " ");
-//				cypher.append(getArgument2().generateCypher()); 
-//			} else {
-//				throw new InvalidityException("Until now a other CountPattern as an Argument is not supported");
-//			}
-//		}
-//		return cypher.toString();
-//	}
-	
+	private String generateCypherCountWhere() throws InvalidityException {
+		String cypher = "";
+		EMap<NeoAbstractNode, String> myCounters = ((CountPatternImpl)getCountPattern()).generateCypherCounters();
+		final String comp = getOption().getValue().getLiteral();
+		
+		if (getArgument2() instanceof CountPattern) {
+			StringBuilder tempCypher = new StringBuilder();
+			EMap<NeoAbstractNode, String> myCounters2 = ((CountPatternImpl)getArgument2()).generateCypherCounters();
+			//Remove all duplicates
+			for (Entry<NeoAbstractNode, String> entry1 : myCounters.entrySet()) {
+				for (Entry<NeoAbstractNode, String> entry2 : myCounters2.entrySet()) {
+					if (entry1.getKey() == entry2.getKey()) {
+						myCounters2.remove(entry2);
+					}
+				}
+			}
+			
+			for (Entry<NeoAbstractNode, String> entry1 : myCounters.entrySet()) {
+				for (Entry<NeoAbstractNode, String> entry2 : myCounters2.entrySet()) {
+					if (tempCypher.length() != 0) {
+						tempCypher.append(" " + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + " ");
+					}
+					tempCypher.append(entry1.getValue() + comp + entry2.getValue());
+				}
+			}			
+		} else {
+			StringBuilder tempCypher = new StringBuilder();
+			for (Entry<NeoAbstractNode, String> entry : myCounters.entrySet()) {
+			    if (tempCypher.length() != 0) {
+			    	tempCypher.append(" " + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + " ");
+			    }
+			    tempCypher.append(entry.getValue().substring(entry.getValue().indexOf(CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT_NAMING)));				
+				tempCypher.append(" " + comp + " ");
+				tempCypher.append(getArgument2().generateCypher());
+			}
+			if (tempCypher.length() != 0) {
+				cypher = CypherSpecificConstants.CLAUSE_WHERE + CypherSpecificConstants.ONE_WHITESPACES + tempCypher.toString();
+			}
+		}
+		
+		return cypher;
+	}
 	//END - CYPHER
 	
 	@Override
@@ -773,3 +778,103 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	}
 
 } //CountComparisonImpl
+
+
+////@Override ADD TO ECORE 
+//public String generateCypherWhere() throws InvalidityException {
+//	StringBuilder cypher = new StringBuilder();
+//
+//	if(getOption() != null && getOption().getValue() != null) {
+//		final List<String> myCounters = ((CountPatternImpl) getCountPattern()).getCounters();
+//		final String comp = getOption().getValue().getLiteral();
+//		
+//		//Consider that it can be also an other CountPattern
+//		if (getArgument2() instanceof NumberElement) {
+//			final String cypher2 = getArgument2().generateCypher();
+//			generateCypherWhere(cypher, myCounters, cypher2, comp);
+//		} else {
+//			final List<String> myCounters2 = ((CountPatternImpl) getCountPattern()).getCounters();
+//			generateCypherWhere(cypher, myCounters, myCounters2, comp);
+//		}
+//		
+//	}
+//	return cypher.toString();
+//}
+//
+//private void generateCypherWhere(StringBuilder cypher, final List<String> myCounters, final String cypher2,
+//		final String comp) {
+//	cypher.append("( ");
+//	boolean multi = false;
+//	for (String s : myCounters) {
+//		if (multi) {
+//			cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
+//		}
+//		cypher.append(s);
+//		cypher.append(" " + comp + " ");
+//		cypher.append(cypher2 + " ");
+//		multi = true; 
+//	}
+//	cypher.append(" )");
+//}
+//
+//private void generateCypherWhere(StringBuilder cypher, final List<String> myCounters1, final List<String> myCounters2,
+//		final String comp) {
+//	cypher.append("( ");
+//	boolean multi = false;
+//	for (String s1 : myCounters1) {
+//		for (String s2 : myCounters2) {
+//			if (s1.compareTo(s2) != 0) { //that not the same will be compared --> Need improvements
+//				if (multi) {
+//					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
+//				}
+//				cypher.append(s1);
+//				cypher.append(" " + comp + " ");
+//				cypher.append(s2 + " ");
+//				multi = true; 
+//			}
+//		}
+//	}
+//	cypher.append(" )");
+//}
+
+//Der folgende Abschnitt gehört zum Cypher COUNT
+//Es representiert nur einen Ansatz wie man COUNT generieren kann
+//Es ist jedoch kein vollständig funktionaler Code 
+//Falls in einem neuem Patch/Update von Cypher das COUNT verschachteln lässt, würde sich viel Programmieraufwand erspart werden
+
+//FUTURE WORK
+//has to be added in the .ecore model
+//Maybe there is a way to get the return elements in a diffrent way ??? 
+//How to make this method more generic for the case if I want to count more then 1 Pattern 
+//public String generateCypherSetCounterProperties() throws InvalidityException {		
+//	String countPatternSet;
+//	countPatternSet = getCountPattern().generateCypher();
+//	return countPatternSet;
+//}
+//
+////FUTURE WORK 
+//public String removeCounters() {
+//	String countPatternRemove;
+//	countPatternRemove = ((CountPatternImpl) getCountPattern()).removeCounters();
+//	return countPatternRemove;
+//}
+//
+////TODO --> FUTURE WORK
+//@Override 
+//public String generateCypher() throws InvalidityException {
+//	StringBuilder cypher = new StringBuilder();
+//	List<String> counters = ((CountPatternImpl) getCountPattern()).getMyCounters();
+//	for (String counter : counters) {
+//		cypher.append(counter);
+//		if (getArgument2() instanceof NumberElement) {
+//			cypher.append(CypherSpecificConstants.ONE_WHITESPACES);
+//			cypher.append(this.option.getValue() + " ");
+//			cypher.append(getArgument2().generateCypher()); 
+//		} else {
+//			throw new InvalidityException("Until now a other CountPattern as an Argument is not supported");
+//		}
+//	}
+//	return cypher.toString();
+//}
+
+//END - CYPHER

@@ -1,7 +1,10 @@
 package qualitypatternmodel.cyphertranslationtests;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
+import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -15,7 +18,7 @@ import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.NumberElement;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.patternstructure.impl.CountConditionImpl;
+import qualitypatternmodel.patternstructure.impl.CountPatternImpl;
 
 public class CypherTest11CountCondition {
 	
@@ -33,12 +36,12 @@ public class CypherTest11CountCondition {
 	private static CompletePattern getCountInPatternPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePattern();
 		
-		ComplexNode complexNode1 = completePattern.getGraph().addComplexNode();
-		complexNode1.setReturnNode(false);
-		completePattern.getGraph().addRelation((ComplexNode) completePattern.getGraph().getNodes().get(0), (Node) complexNode1);
-		
 		CountCondition countCond = PatternstructureFactory.eINSTANCE.createCountCondition();
 		countCond.setPattern(completePattern);
+		
+		ComplexNode complexNode1 = countCond.getCountPattern().getGraph().addComplexNode();
+		complexNode1.setReturnNode(false);
+		countCond.getCountPattern().getGraph().addRelation((ComplexNode) countCond.getCountPattern().getGraph().getNodes().get(0), (Node) complexNode1);
 		
 		NumberElement numberElement = PatternstructureFactory.eINSTANCE.createNumberElement();
 		countCond.setArgument2(numberElement);
@@ -46,8 +49,13 @@ public class CypherTest11CountCondition {
 		
 		completePattern.createNeo4jAdaption();
 		
+		CountPatternImpl countPatternImpl = (CountPatternImpl) countCond.getCountPattern();
+		Set<NeoAbstractNode> countElements = new HashSet<NeoAbstractNode>();
+		countElements.add((NeoAbstractNode) countPatternImpl.getGraph().getNodes().get(1));
+		countPatternImpl.setCountElements(countElements);
+		
 		Graph g = countCond.getCountPattern().getGraph();
-		NeoNode neoNode = (NeoNode) g.getNodes().get(1);
+		NeoNode neoNode = (NeoNode) g.getNodes().get(0);
 		neoNode.setNodePlace(NeoPlace.BEGINNING);
 		
 		return completePattern;

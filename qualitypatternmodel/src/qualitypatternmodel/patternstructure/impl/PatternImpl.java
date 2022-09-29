@@ -208,7 +208,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		String whereClause = "";
 		whereClause += graph.generateCypherWhere();
 		
-		//Needs rework since the CountCondition has to be handelt seperatly
+		//In the current version this feature is not supported. Hence Cypher does not allow AGGREGATION-FUNCTIONS to be neasted
 		if (!(condition instanceof CountConditionImpl)) {
 			String cond = condition.generateCypher();
 			if (!cond.isEmpty()) {
@@ -219,12 +219,18 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 				whereClause += cond;
 			}
 		} else {
-			//search for counts in substructures
+			//DO NOTHING
 		}
 		if (whereClause.length() != 0) whereClause = CypherSpecificConstants.CLAUSE_WHERE + " " + whereClause;
 		if (whereClause.length() == 0) whereClause = "";
 		
 		String cypher = matchClause + whereClause;
+		
+		if ((condition instanceof CountConditionImpl)) {
+			CountConditionImpl count = (CountConditionImpl) getCondition();
+			cypher += count.generateCypher();
+		}
+		
 		return cypher;
 	}
 
