@@ -8,7 +8,7 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
@@ -107,12 +107,12 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	 * @generated NOT
 	 */
 	@Override
-	public String getCypherInnerEdgeNodeVariable() throws InvalidityException {
+	public String getCypherInnerEdgeNodes() throws InvalidityException {
 		if (validateComplexEdge()) {
 			StringBuilder cypher = new StringBuilder();
 			String innerEdgeNode;
 			for (NeoPathPart part : neoPath) {
-				innerEdgeNode = part.getCypherInnerEdgeNodeVariable();
+				innerEdgeNode = part.getCypherInnerEdgeNodes();
 				if (innerEdgeNode != null) {
 					if (innerEdgeNode.contains(CypherSpecificConstants.INTERNAL_EDGE_NODE)) {
 						if (cypher.length() != 0) {
@@ -127,9 +127,10 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		throw new InvalidityException("ComplexEdge is not valid");
 	}
 	
+	//AddToEcore
 	@Override
-	public String getReturnCypherInnerEdgeVariable() throws InvalidityException {
-		return this.getCypherInnerEdgeNodeVariable();
+	public String getReturnCypherInnerEdgeNodes() throws InvalidityException {
+		return this.getCypherInnerEdgeNodes();
 	}
 
 	/**
@@ -150,7 +151,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	@Override
 	public EList<NeoPathPart> getNeoPath() {
 		if (neoPath == null) {
-			neoPath = new EObjectContainmentEList<NeoPathPart>(NeoPathPart.class, this, AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH);
+			neoPath = new EObjectContainmentWithInverseEList<NeoPathPart>(NeoPathPart.class, this, AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH, AdaptionNeo4JPackage.NEO_PATH_PART__NEO_COMPLEX_EDGE);
 		}
 		return neoPath;
 	}
@@ -327,6 +328,21 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		} else {
 			neoPathPartImpl.setCount(getCount());
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getNeoPath()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	@Override

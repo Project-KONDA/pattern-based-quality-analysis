@@ -80,16 +80,6 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	protected boolean isLastEdge = IS_LAST_EDGE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getNeoComplexEdge() <em>Neo Complex Edge</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNeoComplexEdge()
-	 * @generated
-	 * @ordered
-	 */
-	protected NeoComplexEdge neoComplexEdge;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -247,15 +237,8 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	 */
 	@Override
 	public NeoComplexEdge getNeoComplexEdge() {
-		if (neoComplexEdge != null && neoComplexEdge.eIsProxy()) {
-			InternalEObject oldNeoComplexEdge = (InternalEObject)neoComplexEdge;
-			neoComplexEdge = (NeoComplexEdge)eResolveProxy(oldNeoComplexEdge);
-			if (neoComplexEdge != oldNeoComplexEdge) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionNeo4JPackage.NEO_PATH_PART__NEO_COMPLEX_EDGE, oldNeoComplexEdge, neoComplexEdge));
-			}
-		}
-		return neoComplexEdge;
+		if (eContainerFeatureID() != AdaptionNeo4JPackage.NEO_PATH_PART__NEO_COMPLEX_EDGE) return null;
+		return (NeoComplexEdge)eInternalContainer();
 	}
 
 	/**
@@ -263,8 +246,9 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NeoComplexEdge basicGetNeoComplexEdge() {
-		return neoComplexEdge;
+	public NotificationChain basicSetNeoComplexEdge(NeoComplexEdge newNeoComplexEdge, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newNeoComplexEdge, AdaptionNeo4JPackage.NEO_PATH_PART__NEO_COMPLEX_EDGE, msgs);
+		return msgs;
 	}
 
 	/**
@@ -274,10 +258,19 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	 */
 	@Override
 	public void setNeoComplexEdge(NeoComplexEdge newNeoComplexEdge) {
-		NeoComplexEdge oldNeoComplexEdge = neoComplexEdge;
-		neoComplexEdge = newNeoComplexEdge;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PATH_PART__NEO_COMPLEX_EDGE, oldNeoComplexEdge, neoComplexEdge));
+		if (newNeoComplexEdge != eInternalContainer() || (eContainerFeatureID() != AdaptionNeo4JPackage.NEO_PATH_PART__NEO_COMPLEX_EDGE && newNeoComplexEdge != null)) {
+			if (EcoreUtil.isAncestor(this, newNeoComplexEdge))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newNeoComplexEdge != null)
+				msgs = ((InternalEObject)newNeoComplexEdge).eInverseAdd(this, AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH, NeoComplexEdge.class, msgs);
+			msgs = basicSetNeoComplexEdge(newNeoComplexEdge, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PATH_PART__NEO_COMPLEX_EDGE, newNeoComplexEdge, newNeoComplexEdge));
 	}
 
 	/**
@@ -332,7 +325,7 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	 * @generated
 	 */
 	@Override
-	public String getCypherInnerEdgeNodeVariable() throws InvalidityException {
+	public String getCypherInnerEdgeNodes() throws InvalidityException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -354,6 +347,10 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetNeoPropertyPathParam((NeoPropertyPathParam)otherEnd, msgs);
+			case AdaptionNeo4JPackage.NEO_PATH_PART__NEO_COMPLEX_EDGE:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetNeoComplexEdge((NeoComplexEdge)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -370,6 +367,8 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 				return basicSetNeoPathParam(null, msgs);
 			case AdaptionNeo4JPackage.NEO_PATH_PART__NEO_PROPERTY_PATH_PARAM:
 				return basicSetNeoPropertyPathParam(null, msgs);
+			case AdaptionNeo4JPackage.NEO_PATH_PART__NEO_COMPLEX_EDGE:
+				return basicSetNeoComplexEdge(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -386,6 +385,8 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 				return eInternalContainer().eInverseRemove(this, AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_PATH_PART, NeoPathParam.class, msgs);
 			case AdaptionNeo4JPackage.NEO_PATH_PART__NEO_PROPERTY_PATH_PARAM:
 				return eInternalContainer().eInverseRemove(this, AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART, NeoPropertyPathParam.class, msgs);
+			case AdaptionNeo4JPackage.NEO_PATH_PART__NEO_COMPLEX_EDGE:
+				return eInternalContainer().eInverseRemove(this, AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH, NeoComplexEdge.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -407,8 +408,7 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 			case AdaptionNeo4JPackage.NEO_PATH_PART__IS_LAST_EDGE:
 				return isIsLastEdge();
 			case AdaptionNeo4JPackage.NEO_PATH_PART__NEO_COMPLEX_EDGE:
-				if (resolve) return getNeoComplexEdge();
-				return basicGetNeoComplexEdge();
+				return getNeoComplexEdge();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -484,7 +484,7 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 			case AdaptionNeo4JPackage.NEO_PATH_PART__IS_LAST_EDGE:
 				return isLastEdge != IS_LAST_EDGE_EDEFAULT;
 			case AdaptionNeo4JPackage.NEO_PATH_PART__NEO_COMPLEX_EDGE:
-				return neoComplexEdge != null;
+				return getNeoComplexEdge() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -510,6 +510,13 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 				}
 			case AdaptionNeo4JPackage.NEO_PATH_PART___IS_LAST_EDGE:
 				return isLastEdge();
+			case AdaptionNeo4JPackage.NEO_PATH_PART___GET_CYPHER_INNER_EDGE_NODES:
+				try {
+					return getCypherInnerEdgeNodes();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

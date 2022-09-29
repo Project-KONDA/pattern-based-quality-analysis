@@ -121,22 +121,24 @@ public interface NeoPathPart extends PatternElement {
 	void setIsLastEdge(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Neo Complex Edge</b></em>' reference.
+	 * Returns the value of the '<em><b>Neo Complex Edge</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#getNeoPath <em>Neo Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Neo Complex Edge</em>' reference.
+	 * @return the value of the '<em>Neo Complex Edge</em>' container reference.
 	 * @see #setNeoComplexEdge(NeoComplexEdge)
 	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPathPart_NeoComplexEdge()
-	 * @model
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#getNeoPath
+	 * @model opposite="neoPath" transient="false"
 	 * @generated
 	 */
 	NeoComplexEdge getNeoComplexEdge();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoComplexEdge <em>Neo Complex Edge</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoComplexEdge <em>Neo Complex Edge</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Neo Complex Edge</em>' reference.
+	 * @param value the new value of the '<em>Neo Complex Edge</em>' container reference.
 	 * @see #getNeoComplexEdge()
 	 * @generated
 	 */
@@ -180,8 +182,8 @@ public interface NeoPathPart extends PatternElement {
 	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	String getCypherInnerEdgeNodeVariable() throws InvalidityException;
-	
+	String getCypherInnerEdgeNodes() throws InvalidityException;
+
 	//ADD TO ECORE
-	String getReturnCypherInnerEdgeVariable() throws InvalidityException;
+	String getReturnCypherInnerEdgeNodes() throws InvalidityException;
 } // NeoPathPart

@@ -145,7 +145,7 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 					} else {
 						return null;
 					}
-					variable = ((NeoSimpleEdge) neoPathPart).getCypherInnerEdgeNodeVariable();
+					variable = ((NeoSimpleEdge) neoPathPart).getCypherInnerEdgeNodes();
 				}
 				
 				cypher = variable + "." + getNeoPropertyPathParam().getNeoPropertyName();
@@ -188,7 +188,7 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 					} else {
 						throw new InvalidityException("The is no NeoSimpleEdge for the target type");
 					}
-					cypher = neoSimpleEdge.getCypherInnerEdgeNodeVariable();
+					cypher = neoSimpleEdge.getCypherInnerEdgeNodes();
 				}
 				
 				return cypher;
