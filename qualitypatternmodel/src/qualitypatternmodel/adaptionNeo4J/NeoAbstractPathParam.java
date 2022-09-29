@@ -21,8 +21,7 @@ public interface NeoAbstractPathParam extends Parameter, Adaptable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
-	 * @model kind="operation"
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
 	String getReturnVariable() throws InvalidityException;
@@ -30,8 +29,8 @@ public interface NeoAbstractPathParam extends Parameter, Adaptable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	String getReturnInnerEdgeNodes();
+	String getReturnInnerEdgeNodes() throws InvalidityException;
 } // NeoAbstractPathParam

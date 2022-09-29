@@ -43,7 +43,6 @@ public abstract class NeoAbstractPathParamImpl extends ParameterImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
 	 * @generated
 	 */
 	@Override
@@ -59,7 +58,7 @@ public abstract class NeoAbstractPathParamImpl extends ParameterImpl implements 
 	 * @generated
 	 */
 	@Override
-	public String getReturnInnerEdgeNodes() {
+	public String getReturnInnerEdgeNodes() throws InvalidityException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -115,9 +114,19 @@ public abstract class NeoAbstractPathParamImpl extends ParameterImpl implements 
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case AdaptionNeo4JPackage.NEO_ABSTRACT_PATH_PARAM___GET_RETURN_VARIABLE:
-				return getReturnVariable();
+				try {
+					return getReturnVariable();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case AdaptionNeo4JPackage.NEO_ABSTRACT_PATH_PARAM___GET_RETURN_INNER_EDGE_NODES:
-				return getReturnInnerEdgeNodes();
+				try {
+					return getReturnInnerEdgeNodes();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case AdaptionNeo4JPackage.NEO_ABSTRACT_PATH_PARAM___CREATE_PARAMETERS:
 				createParameters();
 				return null;
