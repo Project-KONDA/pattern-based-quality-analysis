@@ -109,9 +109,8 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 	
 	@Override
 	public String getReturnVariable() throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		String cypher = getNeoPropertyPathParam().getReturnVariable();	
+		return cypher;
 	}
 
 	private void targetNodesCanNotBeNull() throws InvalidityException {

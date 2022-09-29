@@ -510,13 +510,6 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 				}
 			case AdaptionNeo4JPackage.NEO_PATH_PART___IS_LAST_EDGE:
 				return isLastEdge();
-			case AdaptionNeo4JPackage.NEO_PATH_PART___GET_CYPHER_INNER_EDGE_VARIABLE:
-				try {
-					return getCypherInnerEdgeNodeVariable();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}
