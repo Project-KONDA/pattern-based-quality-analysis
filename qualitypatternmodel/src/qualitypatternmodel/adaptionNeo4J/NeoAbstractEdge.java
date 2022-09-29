@@ -67,6 +67,6 @@ public interface NeoAbstractEdge extends Relation {
 	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	String getReturnInnerEdges() throws InvalidityException;
+	String getReturnInnerEdgeNodes() throws InvalidityException;
 
 } // NeoAbstractEdge

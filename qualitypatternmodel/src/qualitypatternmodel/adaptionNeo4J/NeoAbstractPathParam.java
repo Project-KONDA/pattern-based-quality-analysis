@@ -16,4 +16,20 @@ import qualitypatternmodel.parameters.Parameter;
  * @generated
  */
 public interface NeoAbstractPathParam extends Parameter, Adaptable {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getReturnVariable();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getReturnInnerEdgeNodes();
 } // NeoAbstractPathParam

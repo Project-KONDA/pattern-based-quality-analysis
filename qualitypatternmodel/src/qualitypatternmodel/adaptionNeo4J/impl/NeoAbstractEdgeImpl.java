@@ -115,7 +115,7 @@ public abstract class NeoAbstractEdgeImpl extends RelationImpl implements NeoAbs
 	 * @generated
 	 */
 	@Override
-	public String getReturnInnerEdges() throws InvalidityException {
+	public String getReturnInnerEdgeNodes() throws InvalidityException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -197,9 +197,9 @@ public abstract class NeoAbstractEdgeImpl extends RelationImpl implements NeoAbs
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case AdaptionNeo4JPackage.NEO_ABSTRACT_EDGE___GET_RETURN_INNER_EDGES:
+			case AdaptionNeo4JPackage.NEO_ABSTRACT_EDGE___GET_RETURN_INNER_EDGE_NODES:
 				try {
-					return getReturnInnerEdges();
+					return getReturnInnerEdgeNodes();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

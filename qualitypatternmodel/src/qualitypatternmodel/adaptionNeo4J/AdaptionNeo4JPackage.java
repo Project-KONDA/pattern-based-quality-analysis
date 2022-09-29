@@ -1480,13 +1480,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_ABSTRACT_EDGE___GET_RETURN_VARIABLE = GraphstructurePackage.RELATION_OPERATION_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Get Return Inner Edges</em>' operation.
+	 * The operation id for the '<em>Get Return Inner Edge Nodes</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_EDGE___GET_RETURN_INNER_EDGES = GraphstructurePackage.RELATION_OPERATION_COUNT + 2;
+	int NEO_ABSTRACT_EDGE___GET_RETURN_INNER_EDGE_NODES = GraphstructurePackage.RELATION_OPERATION_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Neo Abstract Edge</em>' class.
@@ -1957,13 +1957,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_EDGE___GET_RETURN_VARIABLE = NEO_ABSTRACT_EDGE___GET_RETURN_VARIABLE;
 
 	/**
-	 * The operation id for the '<em>Get Return Inner Edges</em>' operation.
+	 * The operation id for the '<em>Get Return Inner Edge Nodes</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE___GET_RETURN_INNER_EDGES = NEO_ABSTRACT_EDGE___GET_RETURN_INNER_EDGES;
+	int NEO_EDGE___GET_RETURN_INNER_EDGE_NODES = NEO_ABSTRACT_EDGE___GET_RETURN_INNER_EDGE_NODES;
 
 	/**
 	 * The number of operations of the '<em>Neo Edge</em>' class.
@@ -2290,13 +2290,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PATH_PART___IS_LAST_EDGE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Get Cypher Inner Edge Variable</em>' operation.
+	 * The operation id for the '<em>Get Cypher Inner Edge Nodes</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PART___GET_CYPHER_INNER_EDGE_VARIABLE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+	int NEO_PATH_PART___GET_CYPHER_INNER_EDGE_NODES = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Neo Path Part</em>' class.
@@ -2632,13 +2632,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_COMPLEX_EDGE___IS_LAST_EDGE = NEO_PATH_PART___IS_LAST_EDGE;
 
 	/**
-	 * The operation id for the '<em>Get Cypher Inner Edge Variable</em>' operation.
+	 * The operation id for the '<em>Get Cypher Inner Edge Nodes</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_COMPLEX_EDGE___GET_CYPHER_INNER_EDGE_VARIABLE = NEO_PATH_PART___GET_CYPHER_INNER_EDGE_VARIABLE;
+	int NEO_COMPLEX_EDGE___GET_CYPHER_INNER_EDGE_NODES = NEO_PATH_PART___GET_CYPHER_INNER_EDGE_NODES;
 
 	/**
 	 * The operation id for the '<em>Validate Complex Edge</em>' operation.
@@ -3028,13 +3028,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_SIMPLE_EDGE___IS_LAST_EDGE = NEO_PATH_PART___IS_LAST_EDGE;
 
 	/**
-	 * The operation id for the '<em>Get Cypher Inner Edge Variable</em>' operation.
+	 * The operation id for the '<em>Get Cypher Inner Edge Nodes</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE___GET_CYPHER_INNER_EDGE_VARIABLE = NEO_PATH_PART___GET_CYPHER_INNER_EDGE_VARIABLE;
+	int NEO_SIMPLE_EDGE___GET_CYPHER_INNER_EDGE_NODES = NEO_PATH_PART___GET_CYPHER_INNER_EDGE_NODES;
 
 	/**
 	 * The operation id for the '<em>Set Neo Direction</em>' operation.
@@ -4298,13 +4298,31 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_ABSTRACT_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = ParametersPackage.PARAMETER_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Get Return Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ABSTRACT_PATH_PARAM___GET_RETURN_VARIABLE = ParametersPackage.PARAMETER_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Return Inner Edge Nodes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ABSTRACT_PATH_PARAM___GET_RETURN_INNER_EDGE_NODES = ParametersPackage.PARAMETER_OPERATION_COUNT + 3;
+
+	/**
 	 * The number of operations of the '<em>Neo Abstract Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 2;
+	int NEO_ABSTRACT_PATH_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4692,6 +4710,24 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = NEO_ABSTRACT_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Get Return Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PARAM___GET_RETURN_VARIABLE = NEO_ABSTRACT_PATH_PARAM___GET_RETURN_VARIABLE;
+
+	/**
+	 * The operation id for the '<em>Get Return Inner Edge Nodes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PARAM___GET_RETURN_INNER_EDGE_NODES = NEO_ABSTRACT_PATH_PARAM___GET_RETURN_INNER_EDGE_NODES;
 
 	/**
 	 * The number of operations of the '<em>Neo Path Param</em>' class.
@@ -5097,6 +5133,24 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = NEO_ABSTRACT_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Get Return Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_PATH_PARAM___GET_RETURN_VARIABLE = NEO_ABSTRACT_PATH_PARAM___GET_RETURN_VARIABLE;
+
+	/**
+	 * The operation id for the '<em>Get Return Inner Edge Nodes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_PATH_PARAM___GET_RETURN_INNER_EDGE_NODES = NEO_ABSTRACT_PATH_PARAM___GET_RETURN_INNER_EDGE_NODES;
 
 	/**
 	 * The operation id for the '<em>Set Neo Property Name</em>' operation.
@@ -5576,13 +5630,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PROPERTY_EDGE___GET_RETURN_VARIABLE = NEO_ABSTRACT_EDGE___GET_RETURN_VARIABLE;
 
 	/**
-	 * The operation id for the '<em>Get Return Inner Edges</em>' operation.
+	 * The operation id for the '<em>Get Return Inner Edge Nodes</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_EDGE___GET_RETURN_INNER_EDGES = NEO_ABSTRACT_EDGE___GET_RETURN_INNER_EDGES;
+	int NEO_PROPERTY_EDGE___GET_RETURN_INNER_EDGE_NODES = NEO_ABSTRACT_EDGE___GET_RETURN_INNER_EDGE_NODES;
 
 	/**
 	 * The operation id for the '<em>Generate Cypher Property Addressing</em>' operation.
@@ -5979,14 +6033,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EOperation getNeoPathPart__IsLastEdge();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherInnerEdgeNodeVariable() <em>Get Cypher Inner Edge Variable</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherInnerEdgeNodes() <em>Get Cypher Inner Edge Nodes</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Cypher Inner Edge Variable</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherInnerEdgeNodeVariable()
+	 * @return the meta object for the '<em>Get Cypher Inner Edge Nodes</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherInnerEdgeNodes()
 	 * @generated
 	 */
-	EOperation getNeoPathPart__GetCypherInnerEdgeVariable();
+	EOperation getNeoPathPart__GetCypherInnerEdgeNodes();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode <em>Neo Property Node</em>}'.
@@ -6207,14 +6261,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EOperation getNeoAbstractEdge__GetReturnVariable();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#getReturnInnerEdges() <em>Get Return Inner Edges</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Return Inner Edges</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#getReturnInnerEdges()
+	 * @return the meta object for the '<em>Get Return Inner Edge Nodes</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#getReturnInnerEdgeNodes()
 	 * @generated
 	 */
-	EOperation getNeoAbstractEdge__GetReturnInnerEdges();
+	EOperation getNeoAbstractEdge__GetReturnInnerEdgeNodes();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam <em>Neo Abstract Path Param</em>}'.
@@ -6225,6 +6279,26 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getNeoAbstractPathParam();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getReturnVariable() <em>Get Return Variable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Return Variable</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getReturnVariable()
+	 * @generated
+	 */
+	EOperation getNeoAbstractPathParam__GetReturnVariable();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Return Inner Edge Nodes</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getReturnInnerEdgeNodes()
+	 * @generated
+	 */
+	EOperation getNeoAbstractPathParam__GetReturnInnerEdgeNodes();
 
 	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.adaptionNeo4J.NeoDirection <em>Neo Direction</em>}'.
@@ -6546,12 +6620,12 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EOperation NEO_PATH_PART___IS_LAST_EDGE = eINSTANCE.getNeoPathPart__IsLastEdge();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Cypher Inner Edge Variable</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Cypher Inner Edge Nodes</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation NEO_PATH_PART___GET_CYPHER_INNER_EDGE_VARIABLE = eINSTANCE.getNeoPathPart__GetCypherInnerEdgeVariable();
+		EOperation NEO_PATH_PART___GET_CYPHER_INNER_EDGE_NODES = eINSTANCE.getNeoPathPart__GetCypherInnerEdgeNodes();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyNodeImpl <em>Neo Property Node</em>}' class.
@@ -6732,12 +6806,12 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EOperation NEO_ABSTRACT_EDGE___GET_RETURN_VARIABLE = eINSTANCE.getNeoAbstractEdge__GetReturnVariable();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Return Inner Edges</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Return Inner Edge Nodes</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation NEO_ABSTRACT_EDGE___GET_RETURN_INNER_EDGES = eINSTANCE.getNeoAbstractEdge__GetReturnInnerEdges();
+		EOperation NEO_ABSTRACT_EDGE___GET_RETURN_INNER_EDGE_NODES = eINSTANCE.getNeoAbstractEdge__GetReturnInnerEdgeNodes();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoAbstractPathParamImpl <em>Neo Abstract Path Param</em>}' class.
@@ -6748,6 +6822,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * @generated
 		 */
 		EClass NEO_ABSTRACT_PATH_PARAM = eINSTANCE.getNeoAbstractPathParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Return Variable</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_ABSTRACT_PATH_PARAM___GET_RETURN_VARIABLE = eINSTANCE.getNeoAbstractPathParam__GetReturnVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Return Inner Edge Nodes</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_ABSTRACT_PATH_PARAM___GET_RETURN_INNER_EDGE_NODES = eINSTANCE.getNeoAbstractPathParam__GetReturnInnerEdgeNodes();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.NeoDirection <em>Neo Direction</em>}' enum.

@@ -14,7 +14,7 @@ import qualitypatternmodel.graphstructure.tests.RelationTest;
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#setIsReturnElement(boolean) <em>Set Is Return Element</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#getReturnVariable() <em>Get Return Variable</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#getReturnInnerEdges() <em>Get Return Inner Edges</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -69,13 +69,13 @@ public abstract class NeoAbstractEdgeTest extends RelationTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#getReturnInnerEdges() <em>Get Return Inner Edges</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#getReturnInnerEdges()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#getReturnInnerEdgeNodes()
 	 * @generated
 	 */
-	public void testGetReturnInnerEdges() {
+	public void testGetReturnInnerEdgeNodes() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
