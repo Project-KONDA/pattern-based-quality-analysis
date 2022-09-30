@@ -375,7 +375,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
-	public EReference getNeoComplexEdge_NeoPath() {
+	public EReference getNeoComplexEdge_NeoPathPart() {
 		return (EReference)neoComplexEdgeEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -445,6 +445,16 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
+	public EAttribute getNeoSimpleEdge_IsLastEdge() {
+		return (EAttribute)neoSimpleEdgeEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getNeoPathPart() {
 		return neoPathPartEClass;
 	}
@@ -485,18 +495,8 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNeoPathPart_IsLastEdge() {
-		return (EAttribute)neoPathPartEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getNeoPathPart_NeoComplexEdge() {
-		return (EReference)neoPathPartEClass.getEStructuralFeatures().get(4);
+		return (EReference)neoPathPartEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -922,7 +922,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		createEReference(neoEdgeEClass, NEO_EDGE__NEO_PATH_PARAM);
 
 		neoComplexEdgeEClass = createEClass(NEO_COMPLEX_EDGE);
-		createEReference(neoComplexEdgeEClass, NEO_COMPLEX_EDGE__NEO_PATH);
+		createEReference(neoComplexEdgeEClass, NEO_COMPLEX_EDGE__NEO_PATH_PART);
 		createEOperation(neoComplexEdgeEClass, NEO_COMPLEX_EDGE___VALIDATE_COMPLEX_EDGE);
 		createEOperation(neoComplexEdgeEClass, NEO_COMPLEX_EDGE___ADD_NEO_PATH_PART__NEOPATHPART);
 
@@ -932,6 +932,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		createEReference(neoSimpleEdgeEClass, NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS);
 		createEReference(neoSimpleEdgeEClass, NEO_SIMPLE_EDGE__NEO_EDGE_LABEL);
 		createEAttribute(neoSimpleEdgeEClass, NEO_SIMPLE_EDGE__EDGE_NUMBER);
+		createEAttribute(neoSimpleEdgeEClass, NEO_SIMPLE_EDGE__IS_LAST_EDGE);
 		createEOperation(neoSimpleEdgeEClass, NEO_SIMPLE_EDGE___SET_NEO_DIRECTION__NEODIRECTION);
 		createEOperation(neoSimpleEdgeEClass, NEO_SIMPLE_EDGE___ADD_STRING_TARGET_NODE_LABEL__STRING);
 		createEOperation(neoSimpleEdgeEClass, NEO_SIMPLE_EDGE___ADD_NEO_EDGE_LABEL__STRING);
@@ -940,7 +941,6 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		createEAttribute(neoPathPartEClass, NEO_PATH_PART__TRANSLATED);
 		createEReference(neoPathPartEClass, NEO_PATH_PART__NEO_PATH_PARAM);
 		createEReference(neoPathPartEClass, NEO_PATH_PART__NEO_PROPERTY_PATH_PARAM);
-		createEAttribute(neoPathPartEClass, NEO_PATH_PART__IS_LAST_EDGE);
 		createEReference(neoPathPartEClass, NEO_PATH_PART__NEO_COMPLEX_EDGE);
 		createEOperation(neoPathPartEClass, NEO_PATH_PART___GET_NEO_PATH_PART_EDGES);
 		createEOperation(neoPathPartEClass, NEO_PATH_PART___GET_CYPHER_VARIABLE);
@@ -1053,7 +1053,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		initEReference(getNeoEdge_NeoPathParam(), this.getNeoPathParam(), this.getNeoPathParam_NeoEdge(), "neoPathParam", null, 0, 1, NeoEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(neoComplexEdgeEClass, NeoComplexEdge.class, "NeoComplexEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNeoComplexEdge_NeoPath(), this.getNeoPathPart(), null, "neoPath", null, 2, -1, NeoComplexEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNeoComplexEdge_NeoPathPart(), this.getNeoPathPart(), this.getNeoPathPart_NeoComplexEdge(), "neoPathPart", null, 2, -1, NeoComplexEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getNeoComplexEdge__ValidateComplexEdge(), ecorePackage.getEBoolean(), "validateComplexEdge", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
@@ -1067,6 +1067,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		initEReference(getNeoSimpleEdge_NeoTargetNodeLabels(), theParametersPackage.getTextListParam(), null, "neoTargetNodeLabels", null, 0, 1, NeoSimpleEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNeoSimpleEdge_NeoEdgeLabel(), theParametersPackage.getTextLiteralParam(), null, "neoEdgeLabel", null, 0, 1, NeoSimpleEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNeoSimpleEdge_EdgeNumber(), ecorePackage.getEInt(), "edgeNumber", null, 0, 1, NeoSimpleEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNeoSimpleEdge_IsLastEdge(), ecorePackage.getEBoolean(), "isLastEdge", "false", 0, 1, NeoSimpleEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getNeoSimpleEdge__SetNeoDirection__NeoDirection(), null, "setNeoDirection", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getNeoDirection(), "neoDirection", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1081,8 +1082,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		initEAttribute(getNeoPathPart_Translated(), ecorePackage.getEBoolean(), "translated", null, 0, 1, NeoPathPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNeoPathPart_NeoPathParam(), this.getNeoPathParam(), this.getNeoPathParam_NeoPathPart(), "neoPathParam", null, 0, 1, NeoPathPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNeoPathPart_NeoPropertyPathParam(), this.getNeoPropertyPathParam(), this.getNeoPropertyPathParam_NeoPathPart(), "neoPropertyPathParam", null, 0, 1, NeoPathPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNeoPathPart_IsLastEdge(), ecorePackage.getEBoolean(), "isLastEdge", "false", 0, 1, NeoPathPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNeoPathPart_NeoComplexEdge(), this.getNeoComplexEdge(), null, "neoComplexEdge", null, 0, 1, NeoPathPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNeoPathPart_NeoComplexEdge(), this.getNeoComplexEdge(), this.getNeoComplexEdge_NeoPathPart(), "neoComplexEdge", null, 0, 1, NeoPathPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getNeoPathPart__GetNeoPathPartEdges(), this.getNeoPathPart(), "getNeoPathPartEdges", 0, -1, IS_UNIQUE, IS_ORDERED);
 

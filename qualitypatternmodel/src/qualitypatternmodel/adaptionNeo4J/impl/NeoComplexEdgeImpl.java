@@ -8,7 +8,7 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
@@ -30,21 +30,21 @@ import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoComplexEdgeImpl#getNeoPath <em>Neo Path</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoComplexEdgeImpl#getNeoPathPart <em>Neo Path Part</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdge {
 	/**
-	 * The cached value of the '{@link #getNeoPath() <em>Neo Path</em>}' reference list.
+	 * The cached value of the '{@link #getNeoPathPart() <em>Neo Path Part</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNeoPath()
+	 * @see #getNeoPathPart()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<NeoPathPart> neoPath;
+	protected EList<NeoPathPart> neoPathPart;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -111,7 +111,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		if (validateComplexEdge()) {
 			StringBuilder cypher = new StringBuilder();
 			String innerEdgeNode;
-			for (NeoPathPart part : neoPath) {
+			for (NeoPathPart part : neoPathPart) {
 				innerEdgeNode = part.getCypherInnerEdgeNodes();
 				if (innerEdgeNode != null) {
 					if (innerEdgeNode.contains(CypherSpecificConstants.INTERNAL_EDGE_NODE)) {
@@ -149,26 +149,23 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	 * @generated
 	 */
 	@Override
-	public EList<NeoPathPart> getNeoPath() {
-		if (neoPath == null) {
-			neoPath = new EObjectResolvingEList<NeoPathPart>(NeoPathPart.class, this, AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH);
+	public EList<NeoPathPart> getNeoPathPart() {
+		if (neoPathPart == null) {
+			neoPathPart = new EObjectContainmentWithInverseEList<NeoPathPart>(NeoPathPart.class, this, AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH_PART, AdaptionNeo4JPackage.NEO_PATH_PART__NEO_COMPLEX_EDGE);
 		}
-		return neoPath;
+		return neoPathPart;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT 
+	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH:
-				int i = ((InternalEList<?>)getNeoPath()).basicIndexOf(otherEnd);
-				NeoPathPart neoPathPart = (NeoPathPart) ((InternalEList<?>)getNeoPath()).basicGet(i);
-				neoPathPart.setNeoComplexEdge((NeoComplexEdge) null);
-				return ((InternalEList<?>)getNeoPath()).basicRemove(otherEnd, msgs);
+			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH_PART:
+				return ((InternalEList<?>)getNeoPathPart()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -181,8 +178,8 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH:
-				return getNeoPath();
+			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH_PART:
+				return getNeoPathPart();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -190,20 +187,15 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH:
-				for (NeoPathPart part : getNeoPath()) part.setNeoComplexEdge((NeoComplexEdge) null);
-				getNeoPath().clear();
-				getNeoPath().addAll((Collection<? extends NeoPathPart>)newValue);
-				for (NeoPathPart part : getNeoPath()) {
-					part.setNeoComplexEdge((NeoComplexEdge) this);
-					((NeoPathPartImpl)part).setCount(getCount());
-				}
+			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH_PART:
+				getNeoPathPart().clear();
+				getNeoPathPart().addAll((Collection<? extends NeoPathPart>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -212,16 +204,13 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH:
-				this.unsetCount(); // Check if that is correct and just the local counter is reseted
-				for (NeoPathPart neoPart : getNeoPath()) neoPart.setNeoComplexEdge((NeoComplexEdge) null);
-				//Maybe do recounting... but talking before with Arno...
-				getNeoPath().clear();
+			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH_PART:
+				getNeoPathPart().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -235,8 +224,8 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH:
-				return neoPath != null && !neoPath.isEmpty();
+			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH_PART:
+				return neoPathPart != null && !neoPathPart.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -313,21 +302,28 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public void addNeoPathPart(NeoPathPart neoPathPart) {
-		if (this.neoPath == null) {
-			this.neoPath = new BasicEList<NeoPathPart>();
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH_PART:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getNeoPathPart()).basicAdd(otherEnd, msgs);
 		}
-		this.neoPath.add(neoPathPart);
-		neoPathPart.setNeoComplexEdge(this);
-		NeoPathPartImpl neoPathPartImpl = (NeoPathPartImpl) neoPathPart;
-		if (getNeoComplexEdge() != null) {
-			neoPathPartImpl.setCount(this.getHighestComplexEdge().getCount());
-		} else {
-			neoPathPartImpl.setCount(getCount());
-		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	@Override
