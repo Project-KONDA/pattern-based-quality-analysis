@@ -70,38 +70,7 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 	public String generateCypher() throws InvalidityException {
 		if (getIncomingMapping() == null) {
 			NeoPropertyPathParam neoPropertyPathParam = getNeoPropertyPathParam();
-			String cypher = null;
-			
-			if (neoPropertyPathParam.getNeoPathPart() != null) {
-				NeoPathPart neoPathPart = neoPropertyPathParam.getNeoPathPart();
-				if (neoPathPart instanceof NeoSimpleEdge) {
-					NeoSimpleEdge neoSimpleEdge = (NeoSimpleEdge) neoPathPart;
-					if (neoSimpleEdge.getNeoTargetNodeLabels() != null) {
-						cypher = neoPropertyPathParam.generateCypher();
-					} else {
-						targetNodesCanNotBeNull();
-					}
-				} else if (neoPathPart instanceof NeoComplexEdge) {
-					NeoSimpleEdge neoSimpleEdge = null;
-					for (NeoPathPart part : neoPathPart.getNeoPathPartEdges()) {
-						if (((NeoSimpleEdge)part).isIsLastEdge()) {
-							neoSimpleEdge = (NeoSimpleEdge) part;
-						}
-					}
-					if (neoSimpleEdge != null) {
-						if (neoSimpleEdge.getNeoTargetNodeLabels() != null) {
-							cypher = neoPropertyPathParam.generateCypher();
-						} else {
-							targetNodesCanNotBeNull();
-						}
-					} else {
-						throw new InvalidityException("NeoPropertyEdge - Last Edge has to be set");
-					}
-				}
-				
-			} else {
-				cypher = null;
-			}
+			String cypher = neoPropertyPathParam.generateCypher();
 			return cypher;
 		} 
 		return null;
@@ -118,10 +87,6 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 		String cypher;
 		cypher = getNeoPropertyPathParam().getReturnInnerEdgeNodes();
 		return cypher;
-	}
-
-	private void targetNodesCanNotBeNull() throws InvalidityException {
-		throw new InvalidityException("NeoPropertyEdge - TargetNodes can not be null");
 	}
 	
 	/**

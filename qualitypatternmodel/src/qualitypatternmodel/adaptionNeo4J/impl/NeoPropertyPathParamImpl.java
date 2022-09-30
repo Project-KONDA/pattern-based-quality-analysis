@@ -13,8 +13,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
+import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
+import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.TextLiteralParam;
@@ -130,16 +132,58 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART, newNeoPathPart, newNeoPathPart));
 	}
 
+	
+	//Is it okay that I do the check here or shall I do the check in the Parts?
+	//Checks the diffrent Componentes of the PARAM --> Composite
 	@Override 
 	public String generateCypher() throws InvalidityException {
-		String cypher = "";
-		//If there is no NeoPath the NeoProperty is inside of the NeoNode
-		//Else diffrent constellations are possible how to build the relation between the origin node and the node for the property
+		String cypher = null;
 		if (getNeoPathPart() != null) {
-			NeoPathPartImpl np = (NeoPathPartImpl) getNeoPathPart();
-			cypher += np.generateCypher();
+			final StringBuilder sb = new StringBuilder();
+			final NeoPathPart neoPathPart = getNeoPathPart();
+			NeoSimpleEdge neoSimpleEdge;
+			if (neoPathPart instanceof NeoSimpleEdge) {
+				neoSimpleEdge = (NeoSimpleEdge) neoPathPart;
+				generateEdgeStructure(sb, neoSimpleEdge);
+			} else { //(neoPathPart instanceof NeoComplexEdge)
+				neoSimpleEdge = null;
+				neoSimpleEdge = validateEdgeStructure(neoPathPart, neoSimpleEdge);
+				if (neoSimpleEdge != null) {
+					generateEdgeStructure(sb, neoSimpleEdge);
+				} else {
+					throw new InvalidityException("NeoPropertyEdge - Last Edge has to be set");
+				}
+			}
+			cypher = sb.toString();
 		}
 		return cypher;
+	}
+
+	private void generateEdgeStructure(final StringBuilder sb, final NeoSimpleEdge neoSimpleEdge) throws InvalidityException {
+		if (neoSimpleEdge.getNeoTargetNodeLabels() != null) {
+			sb.append(neoSimpleEdge.generateCypher());
+		} else {
+			targetNodesCanNotBeNull();
+		}
+	}
+	//If there is no NeoPath the NeoProperty is inside of the NeoNode
+	//Else diffrent constellations are possible how to build the relation between the origin node and the node for the property
+	private NeoSimpleEdge validateEdgeStructure(NeoPathPart neoPathPart, NeoSimpleEdge neoSimpleEdge) throws InvalidityException {
+		for (NeoPathPart part : neoPathPart.getNeoPathPartEdges()) {
+			if (part instanceof NeoSimpleEdge) {
+				if (((NeoSimpleEdge)part).isIsLastEdge()) {
+					if (neoSimpleEdge != null) throw new InvalidityException("NeoPropertyEdge - To many Last Edges");
+					neoSimpleEdge = (NeoSimpleEdge) part;
+				}
+			} else {
+				validateEdgeStructure(part, neoSimpleEdge);
+			}
+		}
+		return neoSimpleEdge;
+	}
+		
+	private void targetNodesCanNotBeNull() throws InvalidityException {
+		throw new InvalidityException("NeoPropertyEdge - TargetNodes can not be null");
 	}
 	
 	/**

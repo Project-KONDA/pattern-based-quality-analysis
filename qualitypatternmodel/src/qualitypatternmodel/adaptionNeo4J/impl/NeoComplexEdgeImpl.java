@@ -57,7 +57,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	
 	@Override 
 	public String generateCypher() throws InvalidityException {
-		if (this.validateComplexEdge()) {
+		if (validateComplexEdge() && validateCount()) {
 			String cypher = generateInternalCypher(true);			
 			return cypher;
 		}
@@ -74,8 +74,6 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	}
 	
 	private String generateInternalCypher(boolean withLabels) throws InvalidityException {
-		if (getNeoPathPart().size() < 2) 
-			return null;
 		StringBuilder cypher = new StringBuilder();
 		if (withLabels) {
 			for(NeoPathPart part : getNeoPathPartEdges()) cypher.append(part.generateCypher());
@@ -132,7 +130,94 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	public String getReturnCypherInnerEdgeNodes() throws InvalidityException {
 		return this.getCypherInnerEdgeNodes();
 	}
+	
+	//Talk about with Arno
+	@Override
+	public void isValidLocal(AbstractionLevel abstractionLevel)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		if (getNeoPathPart() == null || getNeoPathPart().size() < 2)
+			throw new InvalidityException("NeoComplexPath " + getId() + " contains not enough NeoPathParts");
+		
+	}
 
+	@Override
+	public EList<NeoPathPart> getNeoPathPartEdges() {
+		EList<NeoPathPart> list = new BasicEList<NeoPathPart>();
+		for(NeoPathPart neoPath : getNeoPathPart()) {
+			list.addAll(neoPath.getNeoPathPartEdges());
+		}
+		return list;
+	}
+
+	//Maybe needs reword if a Container has an other Container
+	@Override
+	public boolean validateComplexEdge() throws InvalidityException {
+		boolean valid = true;
+		NeoPropertyPathParam neoPropertyPathParam;
+		for (NeoPathPart part : getNeoPathPart()) {
+			neoPropertyPathParam = getNeoPropertyPathParam();
+			if (neoPropertyPathParam != null) {
+				if (part instanceof NeoSimpleEdge && !(((NeoSimpleEdge) part).isIsLastEdge())) {
+					if (((NeoSimpleEdge) part).getNeoTargetNodeLabels() == null) {
+						valid = false;
+					}
+				} else if (part instanceof NeoComplexEdge) {
+					((NeoComplexEdge) part).validateComplexEdge();
+				}
+			}
+		}		
+		return valid;
+	}
+	
+	//ADD TO ECORE ???
+	protected boolean validateCount() {
+		boolean valid = true;
+		if (!(countOfEdges() >= 2)) {
+			valid = false;
+		}
+		return valid;
+	}
+	
+	//PUT THIS TO THE ABSTRACT CLASS of COMPLEXEDGE
+	protected int countOfEdges() {
+		int count = 0;
+		for (NeoPathPart part : getNeoPathPart()) {
+			if (part instanceof NeoComplexEdge) {
+				count += ((NeoComplexEdgeImpl) part).countOfEdges();
+			} else {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void addNeoPathPart(NeoPathPart neoPathPart) {
+		getNeoPathPart().add(neoPathPart);
+		if (getNeoComplexEdge() != null) {
+			((NeoPathPartImpl) neoPathPart).setCount(this.getHighestComplexEdge().getCount());
+		} else {
+			((NeoPathPartImpl) neoPathPart).setCount(getCount());
+		}
+	}
+
+	@Override
+	public String myToString() {
+		String result = "NeoComplexEdge [" + getId() + "] (";
+		int i = 0;
+		for (NeoPathPart part : getNeoPathPart()) {
+			if (i > 0)
+				result += ",";
+			result += part.myToString();
+		}
+		return result;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -230,7 +315,6 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		return super.eIsSet(featureID);
 	}
 
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -251,72 +335,6 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
-	}
-
-	//Talk about with Arno
-	@Override
-	public void isValidLocal(AbstractionLevel abstractionLevel)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		if (getNeoPathPart() == null || getNeoPathPart().size() < 2)
-			throw new InvalidityException("NeoComplexPath " + getId() + " contains not enough NeoPathParts");
-		
-	}
-
-	@Override
-	public EList<NeoPathPart> getNeoPathPartEdges() {
-		EList<NeoPathPart> list = new BasicEList<NeoPathPart>();
-		for(NeoPathPart neoPath : getNeoPathPart()) {
-			list.addAll(neoPath.getNeoPathPartEdges());
-		}
-		return list;
-	}
-	
-	@Override
-	public String myToString() {
-		String result = "NeoComplexEdge [" + getId() + "] (";
-		int i = 0;
-		for (NeoPathPart part : getNeoPathPart()) {
-			if (i > 0)
-				result += ",";
-			result += part.myToString();
-		}
-		return result;
-	}
-
-	//Maybe needs reword if a Container has an other Container
-	@Override
-	public boolean validateComplexEdge() throws InvalidityException {
-		for (NeoPathPart part : getNeoPathPart()) {
-			NeoPropertyPathParam neoPropertyPathParam = getNeoPropertyPathParam();
-			if (neoPropertyPathParam != null) {
-				if (part instanceof NeoSimpleEdge && !(((NeoSimpleEdge) part).isIsLastEdge())) {
-					if (((NeoSimpleEdge) part).getNeoTargetNodeLabels() == null) {
-						return false;
-					}
-				}
-			}
-		}
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public void addNeoPathPart(NeoPathPart neoPathPart) {
-		if (this.neoPathPart == null) {
-			this.neoPathPart = new BasicEList<NeoPathPart>();
-		}
-		this.neoPathPart.add(neoPathPart);
-		NeoPathPartImpl neoPathPartImpl = (NeoPathPartImpl) neoPathPart;
-		neoPathPart.setNeoComplexEdge(this);
-		if (getNeoComplexEdge() != null) {
-			neoPathPartImpl.setCount(this.getHighestComplexEdge().getCount());
-		} else {
-			neoPathPartImpl.setCount(getCount());
-		}
 	}
 
 	/**
