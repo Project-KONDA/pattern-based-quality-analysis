@@ -139,23 +139,29 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 	public String generateCypher() throws InvalidityException {
 		String cypher = null;
 		if (getNeoPathPart() != null) {
-			final StringBuilder sb = new StringBuilder();
-			final NeoPathPart neoPathPart = getNeoPathPart();
-			NeoSimpleEdge neoSimpleEdge;
-			if (neoPathPart instanceof NeoSimpleEdge) {
-				neoSimpleEdge = (NeoSimpleEdge) neoPathPart;
-				generateEdgeStructure(sb, neoSimpleEdge);
-			} else { //(neoPathPart instanceof NeoComplexEdge)
-				neoSimpleEdge = null;
-				neoSimpleEdge = validateEdgeStructure(neoPathPart, neoSimpleEdge);
-				if (neoSimpleEdge != null) {
-					generateEdgeStructure(sb, neoSimpleEdge);
-				} else {
-					throw new InvalidityException("NeoPropertyEdge - Last Edge has to be set");
-				}
-			}
-			cypher = sb.toString();
+			cypher = validateNeoPropertyEdge();
 		}
+		return cypher;
+	}
+
+	private String validateNeoPropertyEdge() throws InvalidityException {
+		String cypher;
+		final StringBuilder sb = new StringBuilder();
+		final NeoPathPart neoPathPart = getNeoPathPart();
+		NeoSimpleEdge neoSimpleEdge;
+		if (neoPathPart instanceof NeoSimpleEdge) {
+			neoSimpleEdge = (NeoSimpleEdge) neoPathPart;
+			generateEdgeStructure(sb, neoSimpleEdge);
+		} else { //(neoPathPart instanceof NeoComplexEdge)
+			neoSimpleEdge = null;
+			neoSimpleEdge = validateEdgeStructure(neoPathPart, neoSimpleEdge);
+			if (neoSimpleEdge != null) {
+				generateEdgeStructure(sb, neoSimpleEdge);
+			} else {
+				throw new InvalidityException("NeoPropertyEdge - Last Edge has to be set");
+			}
+		}
+		cypher = sb.toString();
 		return cypher;
 	}
 

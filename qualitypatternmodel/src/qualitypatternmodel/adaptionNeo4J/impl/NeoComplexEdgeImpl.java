@@ -13,8 +13,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
-import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -57,7 +55,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	
 	@Override 
 	public String generateCypher() throws InvalidityException {
-		if (validateComplexEdge() && validateCount()) {
+		if (validateComplexEdge()) {
 			String cypher = generateInternalCypher(true);			
 			return cypher;
 		}
@@ -83,6 +81,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		return cypher.toString();
 	}
 	
+	//GETS ALL INNER EDGES ALIASES 
 	@Override
 	public String getCypherVariable() {
 		try {
@@ -126,6 +125,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	}
 	
 	//AddToEcore
+	//GETS ALL INNER EDGE NODES
 	@Override
 	public String getReturnCypherInnerEdgeNodes() throws InvalidityException {
 		return this.getCypherInnerEdgeNodes();
@@ -135,7 +135,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		if (getNeoPathPart() == null || getNeoPathPart().size() < 2)
+		if (getNeoPathPart() == null || !validateComplexEdge())
 			throw new InvalidityException("NeoComplexPath " + getId() + " contains not enough NeoPathParts");
 		
 	}
@@ -149,28 +149,9 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		return list;
 	}
 
-	//Maybe needs reword if a Container has an other Container
+	//The container just checks if enough elements are given to build a ComplexEdge
 	@Override
 	public boolean validateComplexEdge() throws InvalidityException {
-		boolean valid = true;
-		NeoPropertyPathParam neoPropertyPathParam;
-		for (NeoPathPart part : getNeoPathPart()) {
-			neoPropertyPathParam = getNeoPropertyPathParam();
-			if (neoPropertyPathParam != null) {
-				if (part instanceof NeoSimpleEdge && !(((NeoSimpleEdge) part).isIsLastEdge())) {
-					if (((NeoSimpleEdge) part).getNeoTargetNodeLabels() == null) {
-						valid = false;
-					}
-				} else if (part instanceof NeoComplexEdge) {
-					((NeoComplexEdge) part).validateComplexEdge();
-				}
-			}
-		}		
-		return valid;
-	}
-	
-	//ADD TO ECORE ???
-	protected boolean validateCount() {
 		boolean valid = true;
 		if (!(countOfEdges() >= 2)) {
 			valid = false;
@@ -178,8 +159,24 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		return valid;
 	}
 	
+//	boolean valid = true;
+//	NeoPropertyPathParam neoPropertyPathParam;
+//	for (NeoPathPart part : getNeoPathPart()) {
+//		neoPropertyPathParam = getNeoPropertyPathParam();
+//		if (neoPropertyPathParam != null) {
+//			if (part instanceof NeoSimpleEdge && !(((NeoSimpleEdge) part).isIsLastEdge())) {
+//				if (((NeoSimpleEdge) part).getNeoTargetNodeLabels() == null) {
+//					valid = false;
+//				}
+//			} else if (part instanceof NeoComplexEdge) {
+//				((NeoComplexEdge) part).validateComplexEdge();
+//			}
+//		}
+//	}		
+//	return valid;
+	
 	//PUT THIS TO THE ABSTRACT CLASS of COMPLEXEDGE
-	protected int countOfEdges() {
+	private int countOfEdges() {
 		int count = 0;
 		for (NeoPathPart part : getNeoPathPart()) {
 			if (part instanceof NeoComplexEdge) {
