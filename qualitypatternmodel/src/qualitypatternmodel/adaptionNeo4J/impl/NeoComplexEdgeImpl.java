@@ -302,13 +302,21 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void addNeoPathPart(NeoPathPart neoPathPart) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if (this.neoPathPart == null) {
+			this.neoPathPart = new BasicEList<NeoPathPart>();
+		}
+		this.neoPathPart.add(neoPathPart);
+		NeoPathPartImpl neoPathPartImpl = (NeoPathPartImpl) neoPathPart;
+		neoPathPart.setNeoComplexEdge(this);
+		if (getNeoComplexEdge() != null) {
+			neoPathPartImpl.setCount(this.getHighestComplexEdge().getCount());
+		} else {
+			neoPathPartImpl.setCount(getCount());
+		}
 	}
 
 	/**

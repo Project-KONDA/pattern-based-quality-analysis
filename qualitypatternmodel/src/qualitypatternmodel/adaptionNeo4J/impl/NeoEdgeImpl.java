@@ -83,7 +83,7 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 					NeoPathPart lastEdge = null;
 					//Every ComplexEdge needs a last SimpleEdge
 					for (NeoPathPart possibleLast : neoPathParts) {
-						if(possibleLast.isLastEdge()) { 
+						if (possibleLast.isLastEdge()) { 
 							lastEdge = possibleLast;
 						}
 					}
