@@ -40,7 +40,6 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl#getNeoTargetNodeLabels <em>Neo Target Node Labels</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl#getNeoEdgeLabel <em>Neo Edge Label</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl#getEdgeNumber <em>Edge Number</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl#isIsLastEdge <em>Is Last Edge</em>}</li>
  * </ul>
  *
  * @generated
@@ -123,25 +122,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 * @ordered
 	 */
 	protected boolean edgeNumberESet;
-	/**
-	 * The default value of the '{@link #isIsLastEdge() <em>Is Last Edge</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isIsLastEdge()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean IS_LAST_EDGE_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isIsLastEdge() <em>Is Last Edge</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isIsLastEdge()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean isLastEdge = IS_LAST_EDGE_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -452,29 +432,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 * @generated
 	 */
 	@Override
-	public boolean isIsLastEdge() {
-		return isLastEdge;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setIsLastEdge(boolean newIsLastEdge) {
-		boolean oldIsLastEdge = isLastEdge;
-		isLastEdge = newIsLastEdge;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__IS_LAST_EDGE, oldIsLastEdge, isLastEdge));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NeoDirection getNeoDirection() {
 		return neoDirection;
 	}
@@ -584,8 +541,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 				return basicGetNeoEdgeLabel();
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
 				return getEdgeNumber();
-			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__IS_LAST_EDGE:
-				return isIsLastEdge();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -611,9 +566,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
 				setEdgeNumber((Integer)newValue);
 				return;
-			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__IS_LAST_EDGE:
-				setIsLastEdge((Boolean)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -638,9 +590,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
 				unsetEdgeNumber();
 				return;
-			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__IS_LAST_EDGE:
-				setIsLastEdge(IS_LAST_EDGE_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -663,8 +612,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 				return neoEdgeLabel != null;
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
 				return isSetEdgeNumber();
-			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__IS_LAST_EDGE:
-				return isLastEdge != IS_LAST_EDGE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -704,8 +651,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		result.append(neoDirection);
 		result.append(", edgeNumber: ");
 		if (edgeNumberESet) result.append(edgeNumber); else result.append("<unset>");
-		result.append(", isLastEdge: ");
-		result.append(isLastEdge);
 		result.append(')');
 		return result.toString();
 	}
