@@ -228,7 +228,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	private String generateExistsProperty(StringBuilder cypher, String exists) throws InvalidityException {
 		EList<NeoPropertyNode> neoPropertyNodes = new BasicEList<NeoPropertyNode>();
-		NeoPropertyNode neoPropertyNode; 
+		NeoPropertyNode neoPropertyNode;
 		for (Node node : getGraph().getNodes()) {
 			if (node instanceof NeoPropertyNode) {
 				neoPropertyNode = (NeoPropertyNode) node; 
@@ -239,31 +239,24 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		}
 		
 		if (neoPropertyNodes.size() != 0) {
-			if (quantifier == Quantifier.EXISTS ) {
-				cypher.append("( ");
+			if (quantifier == Quantifier.EXISTS && getNotCondition() == null) {
 				for (NeoPropertyNode node : neoPropertyNodes) {
-					if (cypher.length() > 2) {
-						cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_OR + CypherSpecificConstants.ONE_WHITESPACES);
+					if (cypher.length() != 0) {
+						cypher.append("," + CypherSpecificConstants.ONE_WHITESPACES);
 					}
-					cypher.append(String.format(CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_PROPERTY, node.generateCypherPropertyAddressing()));
-				}
-				cypher.append(" )");
-				return cypher.toString();
-			}
-			
-			if (getNotCondition() == null) {
-				for (NeoPropertyNode node : neoPropertyNodes) {
-					if (cypher.length() != 0) cypher.append(", ");
 					cypher.append(node.generateCypherPropertyAddressing());
 				}
-				return exists = String.format(exists, cypher.toString());
+				return String.format(exists, cypher.toString());
+			} else if (quantifier == Quantifier.EXISTS && getNotCondition() != null) {
+				for (NeoPropertyNode node : neoPropertyNodes) {
+					if (cypher.length() != 0) cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACES);
+					cypher.append(String.format(CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_PROPERTY, node.generateCypherPropertyAddressing()));
+				}
+				String temp = "(" + cypher.toString() + ")";
+				return temp;				
+			} else if (quantifier == Quantifier.FORALL) {
+				throw new InvalidityException("QuantifiedCond - Model has to build a Pattern-Structure");
 			}
-			
-			for (NeoPropertyNode node : neoPropertyNodes) {
-				if (cypher.length() != 0) cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACES);
-				cypher.append(String.format(CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_PROPERTY, node.generateCypherPropertyAddressing()));
-			}
-			return cypher.toString();
 		} 
 		throw new InvalidityException("QuantifiedCond - No Beginning is specified");
 	}
