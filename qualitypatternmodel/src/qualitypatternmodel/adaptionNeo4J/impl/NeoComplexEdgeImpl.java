@@ -114,14 +114,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		}
 		throw new InvalidityException("ComplexEdge is not valid");
 	}
-	
-	//AddToEcore
-	//GETS ALL INNER EDGE NODES
-	@Override
-	public String getReturnCypherInnerEdgeNodes() throws InvalidityException {
-		return this.getCypherInnerEdgeNodes();
-	}
-	
+
 	//Talk about with Arno
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel)

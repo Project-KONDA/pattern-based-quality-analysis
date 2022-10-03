@@ -244,22 +244,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		}
 		return null;
 	}
-	
-	//ADD TO ECORE
-	//Rename
-	@Override
-	public String getReturnCypherInnerEdgeNodes() throws InvalidityException {
-		if (getNeoTargetNodeLabels() == null || getNeoTargetNodeLabels().getValues().size() == 0) {
-			return null;
-		} else if (!isLastEdge) {
-			if (edgeNumber != 0) {
-				return CypherSpecificConstants.INTERNAL_EDGE_NODE + ((NeoAbstractPathParamImpl) getNeoAbstractPathParam()).getRelationNumber() + "_" + getEdgeNumber();
-			} else {
-				return CypherSpecificConstants.INTERNAL_EDGE_NODE + ((NeoAbstractPathParamImpl) getNeoAbstractPathParam()).getRelationNumber();
-			}
-		} 		
-		return null;
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
