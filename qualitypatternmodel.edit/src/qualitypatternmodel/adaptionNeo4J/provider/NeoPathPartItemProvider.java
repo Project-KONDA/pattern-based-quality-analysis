@@ -49,32 +49,9 @@ public class NeoPathPartItemProvider extends PatternElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTranslatedPropertyDescriptor(object);
 			addIsLastEdgePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Translated feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTranslatedPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_NeoPathPart_translated_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NeoPathPart_translated_feature", "_UI_NeoPathPart_type"),
-				 AdaptionNeo4JPackage.Literals.NEO_PATH_PART__TRANSLATED,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -126,7 +103,6 @@ public class NeoPathPartItemProvider extends PatternElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(NeoPathPart.class)) {
-			case AdaptionNeo4JPackage.NEO_PATH_PART__TRANSLATED:
 			case AdaptionNeo4JPackage.NEO_PATH_PART__IS_LAST_EDGE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

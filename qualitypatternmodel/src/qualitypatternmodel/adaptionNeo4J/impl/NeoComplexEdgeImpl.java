@@ -10,8 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.junit.jupiter.engine.discovery.predicates.IsNestedTestClass;
-
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
@@ -58,27 +56,16 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		if (validateComplexEdge()) {
-			String cypher = generateInternalCypher(true);			
+			String cypher = generateInternalCypher();			
 			return cypher;
 		}
 		throw new InvalidityException("The ComplexEdge is not correct");
 	}
 	
-	@Override
-	public String generateCypherWithoutLabels() throws InvalidityException {
-		if (this.validateComplexEdge()) {
-			String cypher = generateInternalCypher(false);			
-			return cypher;
-		}		
-		throw new InvalidityException("The ComplexEdge is not correct");
-	}
-	
-	private String generateInternalCypher(boolean withLabels) throws InvalidityException {
+	private String generateInternalCypher() throws InvalidityException {
 		StringBuilder cypher = new StringBuilder();
-		if (withLabels) {
-			for(NeoPathPart part : getNeoPathPartEdges()) cypher.append(part.generateCypher());
-		} else {
-			for(NeoPathPart part : getNeoPathPartEdges()) cypher.append(part.generateCypherWithoutLabels());
+		for(NeoPathPart part : getNeoPathPartEdges()) {
+			cypher.append(part.generateCypher());
 		}
 		return cypher.toString();
 	}

@@ -15,7 +15,6 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#isTranslated <em>Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathParam <em>Neo Path Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPropertyPathParam <em>Neo Property Path Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoComplexEdge <em>Neo Complex Edge</em>}</li>
@@ -27,28 +26,6 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * @generated
  */
 public interface NeoPathPart extends PatternElement {
-	/**
-	 * Returns the value of the '<em><b>Translated</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Translated</em>' attribute.
-	 * @see #setTranslated(boolean)
-	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPathPart_Translated()
-	 * @model
-	 * @generated
-	 */
-	boolean isTranslated();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#isTranslated <em>Translated</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Translated</em>' attribute.
-	 * @see #isTranslated()
-	 * @generated
-	 */
-	void setTranslated(boolean value);
-
 	/**
 	 * Returns the value of the '<em><b>Neo Path Param</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionNeo4J.NeoPathParam#getNeoPathPart <em>Neo Path Part</em>}'.
@@ -122,6 +99,19 @@ public interface NeoPathPart extends PatternElement {
 	void setNeoComplexEdge(NeoComplexEdge value);
 
 	/**
+	 * Returns the value of the '<em><b>Is Last Edge</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Last Edge</em>' attribute.
+	 * @see #setIsLastEdge(boolean)
+	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPathPart_IsLastEdge()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isIsLastEdge();
+
+	/**
 	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#isIsLastEdge <em>Is Last Edge</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -146,14 +136,6 @@ public interface NeoPathPart extends PatternElement {
 	 * @generated
 	 */
 	String getCypherVariable();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	String generateCypherWithoutLabels() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

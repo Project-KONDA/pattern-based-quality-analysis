@@ -152,29 +152,21 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		return cypher.toString();
 	}
 	
-	@Override
-	public String generateCypherWithoutLabels() throws InvalidityException {
-		StringBuilder cypher = new StringBuilder();
-		generateInternalCypher(cypher, false);
-		return cypher.toString();
-	}
-
-	
 	private void generateInternalCypher(StringBuilder cypher, Boolean withLabels) throws InvalidityException {
 		switch (this.neoDirection) {
 		case IMPLICIT:
 			cypher.append("-");
-			this.generateInternalCypherLabelGenerator(cypher, withLabels);
+			this.generateInternalCypherLabelGenerator(cypher);
 			cypher.append("-");
 			break;
 		case LEFT:
 			cypher.append("<-");
-			this.generateInternalCypherLabelGenerator(cypher, withLabels);
+			this.generateInternalCypherLabelGenerator(cypher);
 			cypher.append("-");
 			break;
 		case RIGHT:
 			cypher.append("-");
-			this.generateInternalCypherLabelGenerator(cypher, withLabels);
+			this.generateInternalCypherLabelGenerator(cypher);
 			cypher.append("->");
 			break;
 		default:
@@ -198,7 +190,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	
 	//Considering the SOLID-Principle: If this methods need change then extend from NeoSimpleEdge and Override it, 
 	//e.g., in future versions multi-labels in a Edge are Possible or the properties as labels should be considered
-	private void generateInternalCypherLabelGenerator(StringBuilder cypher, Boolean withLabels) throws InvalidityException {
+	private void generateInternalCypherLabelGenerator(StringBuilder cypher) throws InvalidityException {
 		cypher.append("[");
 		cypher.append(CypherSpecificConstants.VARIABLE_EGDE);
 		
@@ -210,12 +202,10 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			cypher.append("_" + getEdgeNumber());
 		}
 		
-		if (withLabels) {
-			if (getNeoEdgeLabel() != null) { //!translated &&
-				cypher.append(":" + getNeoEdgeLabel().getValue());
-				//translated = true;
-			}
+		if (getNeoEdgeLabel() != null) {
+			cypher.append(":" + getNeoEdgeLabel().getValue());
 		}
+		
 		cypher.append("]");
 	}
 	

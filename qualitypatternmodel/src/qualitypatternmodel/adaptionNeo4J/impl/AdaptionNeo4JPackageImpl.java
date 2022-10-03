@@ -455,18 +455,8 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNeoPathPart_Translated() {
-		return (EAttribute)neoPathPartEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getNeoPathPart_NeoPathParam() {
-		return (EReference)neoPathPartEClass.getEStructuralFeatures().get(1);
+		return (EReference)neoPathPartEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -476,7 +466,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 */
 	@Override
 	public EReference getNeoPathPart_NeoPropertyPathParam() {
-		return (EReference)neoPathPartEClass.getEStructuralFeatures().get(2);
+		return (EReference)neoPathPartEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -486,7 +476,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 */
 	@Override
 	public EReference getNeoPathPart_NeoComplexEdge() {
-		return (EReference)neoPathPartEClass.getEStructuralFeatures().get(3);
+		return (EReference)neoPathPartEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -496,7 +486,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 */
 	@Override
 	public EAttribute getNeoPathPart_IsLastEdge() {
-		return (EAttribute)neoPathPartEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)neoPathPartEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -525,7 +515,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
-	public EOperation getNeoPathPart__GenerateCypherWithoutLabels() {
+	public EOperation getNeoPathPart__IsLastEdge() {
 		return neoPathPartEClass.getEOperations().get(2);
 	}
 
@@ -535,7 +525,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
-	public EOperation getNeoPathPart__IsLastEdge() {
+	public EOperation getNeoPathPart__GetCypherInnerEdgeNodes() {
 		return neoPathPartEClass.getEOperations().get(3);
 	}
 
@@ -545,18 +535,8 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
-	public EOperation getNeoPathPart__GetCypherInnerEdgeNodes() {
-		return neoPathPartEClass.getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getNeoPathPart__GetReturnCypherInnerEdgeNodes() {
-		return neoPathPartEClass.getEOperations().get(5);
+		return neoPathPartEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -937,14 +917,12 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		createEOperation(neoSimpleEdgeEClass, NEO_SIMPLE_EDGE___ADD_NEO_EDGE_LABEL__STRING);
 
 		neoPathPartEClass = createEClass(NEO_PATH_PART);
-		createEAttribute(neoPathPartEClass, NEO_PATH_PART__TRANSLATED);
 		createEReference(neoPathPartEClass, NEO_PATH_PART__NEO_PATH_PARAM);
 		createEReference(neoPathPartEClass, NEO_PATH_PART__NEO_PROPERTY_PATH_PARAM);
 		createEReference(neoPathPartEClass, NEO_PATH_PART__NEO_COMPLEX_EDGE);
 		createEAttribute(neoPathPartEClass, NEO_PATH_PART__IS_LAST_EDGE);
 		createEOperation(neoPathPartEClass, NEO_PATH_PART___GET_NEO_PATH_PART_EDGES);
 		createEOperation(neoPathPartEClass, NEO_PATH_PART___GET_CYPHER_VARIABLE);
-		createEOperation(neoPathPartEClass, NEO_PATH_PART___GENERATE_CYPHER_WITHOUT_LABELS);
 		createEOperation(neoPathPartEClass, NEO_PATH_PART___IS_LAST_EDGE);
 		createEOperation(neoPathPartEClass, NEO_PATH_PART___GET_CYPHER_INNER_EDGE_NODES);
 		createEOperation(neoPathPartEClass, NEO_PATH_PART___GET_RETURN_CYPHER_INNER_EDGE_NODES);
@@ -1078,7 +1056,6 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		addEParameter(op, ecorePackage.getEString(), "label", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(neoPathPartEClass, NeoPathPart.class, "NeoPathPart", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNeoPathPart_Translated(), ecorePackage.getEBoolean(), "translated", null, 0, 1, NeoPathPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNeoPathPart_NeoPathParam(), this.getNeoPathParam(), this.getNeoPathParam_NeoPathPart(), "neoPathParam", null, 0, 1, NeoPathPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNeoPathPart_NeoPropertyPathParam(), this.getNeoPropertyPathParam(), this.getNeoPropertyPathParam_NeoPathPart(), "neoPropertyPathParam", null, 0, 1, NeoPathPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNeoPathPart_NeoComplexEdge(), this.getNeoComplexEdge(), this.getNeoComplexEdge_NeoPathPart(), "neoComplexEdge", null, 0, 1, NeoPathPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1087,9 +1064,6 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		initEOperation(getNeoPathPart__GetNeoPathPartEdges(), this.getNeoPathPart(), "getNeoPathPartEdges", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getNeoPathPart__GetCypherVariable(), ecorePackage.getEString(), "getCypherVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getNeoPathPart__GenerateCypherWithoutLabels(), ecorePackage.getEString(), "generateCypherWithoutLabels", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEOperation(getNeoPathPart__IsLastEdge(), ecorePackage.getEBoolean(), "isLastEdge", 0, 1, IS_UNIQUE, IS_ORDERED);
 

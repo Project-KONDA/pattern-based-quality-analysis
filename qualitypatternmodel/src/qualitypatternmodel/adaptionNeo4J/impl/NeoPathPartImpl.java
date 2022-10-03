@@ -31,7 +31,6 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl#isTranslated <em>Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl#getNeoPathParam <em>Neo Path Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl#getNeoPropertyPathParam <em>Neo Property Path Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl#getNeoComplexEdge <em>Neo Complex Edge</em>}</li>
@@ -42,24 +41,6 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  */
 public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoPathPart {
 	
-	/**
-	 * The default value of the '{@link #isTranslated() <em>Translated</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isTranslated()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean TRANSLATED_EDEFAULT = false;
-	/**
-	 * The cached value of the '{@link #isTranslated() <em>Translated</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isTranslated()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean translated = TRANSLATED_EDEFAULT;
 	/**
 	 * The default value of the '{@link #isIsLastEdge() <em>Is Last Edge</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -95,29 +76,6 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	@Override
 	protected EClass eStaticClass() {
 		return AdaptionNeo4JPackage.Literals.NEO_PATH_PART;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isTranslated() {
-		return translated;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setTranslated(boolean newTranslated) {
-		boolean oldTranslated = translated;
-		translated = newTranslated;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PATH_PART__TRANSLATED, oldTranslated, translated));
 	}
 
 	/**
@@ -255,6 +213,16 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	 * @generated
 	 */
 	@Override
+	public boolean isIsLastEdge() {
+		return isLastEdge;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public void setIsLastEdge(boolean newIsLastEdge) {
 		boolean oldIsLastEdge = isLastEdge;
 		isLastEdge = newIsLastEdge;
@@ -282,18 +250,6 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	@Override
 	public String getCypherVariable() {
 		return CypherSpecificConstants.VARIABLE_EGDE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String generateCypherWithoutLabels() throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -400,8 +356,6 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_PATH_PART__TRANSLATED:
-				return isTranslated();
 			case AdaptionNeo4JPackage.NEO_PATH_PART__NEO_PATH_PARAM:
 				return getNeoPathParam();
 			case AdaptionNeo4JPackage.NEO_PATH_PART__NEO_PROPERTY_PATH_PARAM:
@@ -409,7 +363,7 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 			case AdaptionNeo4JPackage.NEO_PATH_PART__NEO_COMPLEX_EDGE:
 				return getNeoComplexEdge();
 			case AdaptionNeo4JPackage.NEO_PATH_PART__IS_LAST_EDGE:
-				return isLastEdge();
+				return isIsLastEdge();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -422,9 +376,6 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_PATH_PART__TRANSLATED:
-				setTranslated((Boolean)newValue);
-				return;
 			case AdaptionNeo4JPackage.NEO_PATH_PART__NEO_PATH_PARAM:
 				setNeoPathParam((NeoPathParam)newValue);
 				return;
@@ -449,9 +400,6 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_PATH_PART__TRANSLATED:
-				setTranslated(TRANSLATED_EDEFAULT);
-				return;
 			case AdaptionNeo4JPackage.NEO_PATH_PART__NEO_PATH_PARAM:
 				setNeoPathParam((NeoPathParam)null);
 				return;
@@ -476,8 +424,6 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_PATH_PART__TRANSLATED:
-				return translated != TRANSLATED_EDEFAULT;
 			case AdaptionNeo4JPackage.NEO_PATH_PART__NEO_PATH_PARAM:
 				return getNeoPathParam() != null;
 			case AdaptionNeo4JPackage.NEO_PATH_PART__NEO_PROPERTY_PATH_PARAM:
@@ -502,13 +448,6 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 				return getNeoPathPartEdges();
 			case AdaptionNeo4JPackage.NEO_PATH_PART___GET_CYPHER_VARIABLE:
 				return getCypherVariable();
-			case AdaptionNeo4JPackage.NEO_PATH_PART___GENERATE_CYPHER_WITHOUT_LABELS:
-				try {
-					return generateCypherWithoutLabels();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case AdaptionNeo4JPackage.NEO_PATH_PART___IS_LAST_EDGE:
 				return isLastEdge();
 			case AdaptionNeo4JPackage.NEO_PATH_PART___GET_CYPHER_INNER_EDGE_NODES:
@@ -541,9 +480,7 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (translated: ");
-		result.append(translated);
-		result.append(", isLastEdge: ");
+		result.append(" (isLastEdge: ");
 		result.append(isLastEdge);
 		result.append(')');
 		return result.toString();
