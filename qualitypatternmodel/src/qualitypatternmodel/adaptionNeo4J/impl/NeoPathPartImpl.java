@@ -255,16 +255,6 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	 * @generated
 	 */
 	@Override
-	public boolean isIsLastEdge() {
-		return isLastEdge;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public void setIsLastEdge(boolean newIsLastEdge) {
 		boolean oldIsLastEdge = isLastEdge;
 		isLastEdge = newIsLastEdge;
@@ -419,7 +409,7 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 			case AdaptionNeo4JPackage.NEO_PATH_PART__NEO_COMPLEX_EDGE:
 				return getNeoComplexEdge();
 			case AdaptionNeo4JPackage.NEO_PATH_PART__IS_LAST_EDGE:
-				return isIsLastEdge();
+				return isLastEdge();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

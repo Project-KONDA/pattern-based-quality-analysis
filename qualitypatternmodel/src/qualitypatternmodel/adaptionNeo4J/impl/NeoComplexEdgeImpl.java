@@ -10,6 +10,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.junit.jupiter.engine.discovery.predicates.IsNestedTestClass;
+
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
@@ -155,11 +157,70 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	@Override
 	public boolean validateComplexEdge() throws InvalidityException {
 		boolean valid = true;
-		if (!(countOfEdges() >= 2)) {
+
+		if (getNeoPathPart().size() != 0) {
+			if (!(countOfEdges() >= 2)) {
+				valid = false;
+			}
+			if (hasMultipleLastEdges()) {
+				valid = false;
+			}
+			if (!isLastEdgeAtTheEnd()) {
+				valid = false;
+			}
+		} else {
 			valid = false;
 		}
-		//Introduce check for multiple End Elements && check if the end really the end
 		return valid;
+	}
+	
+	private boolean isLastEdgeAtTheEnd() {
+		final EList<NeoPathPart> neoParts = getNeoPathPart();
+		boolean isLastEdgeCorrect = true;
+		NeoPathPart neoPart;
+		for (int i = (neoParts.size() - 1); i >= 0; i--) {
+			neoPart = neoParts.get(i);
+			if (neoParts instanceof NeoComplexEdge) {
+				((NeoComplexEdgeImpl) neoPart).isLastEdgeAtTheEnd();
+			} else {
+				if (neoPart.isLastEdge() && !(i == (neoParts.size() - 1))) {
+					isLastEdgeCorrect = false;
+				}
+			}
+		}
+		return isLastEdgeCorrect;
+	}
+	
+	//PUT THIS TO THE ABSTRACT CLASS of COMPLEXEDGE
+	private boolean hasMultipleLastEdges() {
+		final EList<NeoPathPart> neoParts = getNeoPathPart();
+		boolean multiLastEdges = false;
+		int lastEdges = 0;
+		for (NeoPathPart neoPart : neoParts) {
+			if (neoPart instanceof NeoComplexEdge) {
+				lastEdges += ((NeoComplexEdgeImpl) neoPart).countLastEdgesInSubStructure();
+			} else if (neoPart.isLastEdge()) {
+				lastEdges++;
+			}
+		}
+		if (lastEdges > 1) {
+			multiLastEdges = true;
+		}
+		return multiLastEdges;		
+	}
+	
+	//PUT THIS TO THE ABSTRACT CLASS of COMPLEXEDGE
+	private int countLastEdgesInSubStructure() {
+		final EList<NeoPathPart> neoParts = getNeoPathPart();
+		int lastEdges = 0;
+		for (NeoPathPart neoPart : neoParts) {
+			if (neoPart instanceof NeoComplexEdge) {
+				lastEdges += ((NeoComplexEdgeImpl) neoPart).countLastEdgesInSubStructure();
+			} else if (neoPart.isLastEdge()) {
+				lastEdges++;
+			}
+		}
+		return lastEdges;
 	}
 	
 	//PUT THIS TO THE ABSTRACT CLASS of COMPLEXEDGE

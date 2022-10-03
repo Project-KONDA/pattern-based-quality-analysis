@@ -66,22 +66,22 @@ public class CypherTest01NeoEdge {
 
 	public static void buildExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		completePatternsExceptions.add(tryNoNeoAdaption());
-		completePatternsExceptions.add(tryNoBeginning());
-		completePatternsExceptions.add(tryToCreateNeoDirectionErrorShallNotWork());
-		completePatternsExceptions.add(tryValidateComplexEdgeNoLastEdgeIsSet());
-		completePatternsExceptions.add(tryNeoNeoPathPartIsSetWithEmptyComplexEdge());
+//		completePatternsExceptions.add(tryNoNeoAdaption());
+//		completePatternsExceptions.add(tryNoBeginning());
+//		completePatternsExceptions.add(tryToCreateNeoDirectionErrorShallNotWork());
+//		completePatternsExceptions.add(tryValidateComplexEdgeNoLastEdgeIsSet());
+//		completePatternsExceptions.add(tryNeoNeoPathPartIsSetWithEmptyComplexEdge());
 	}
 
 	public static void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		completePatterns.add(getUnspecifiedEdge());
-		completePatterns.add(getSimpleEdge());
-		completePatterns.add(getSimpleEdgeWithLabels());
-		completePatterns.add(getSimpleEdgeWithLabelsRight());
-		completePatterns.add(getSimpleEdgeWithLabelsLeft());
-		completePatterns.add(getSimpleEdgeWithTargetNode());
-		completePatterns.add(getComplexEdge());
+//		completePatterns.add(getUnspecifiedEdge());
+//		completePatterns.add(getSimpleEdge());
+//		completePatterns.add(getSimpleEdgeWithLabels());
+//		completePatterns.add(getSimpleEdgeWithLabelsRight());
+//		completePatterns.add(getSimpleEdgeWithLabelsLeft());
+//		completePatterns.add(getSimpleEdgeWithTargetNode());
+//		completePatterns.add(getComplexEdge());
 		completePatterns.add(getComplexEdgeWithDoppleEnding());
 		completePatterns.add(getComplexEdgeWithTargeAtEndAndLabels());
 		completePatterns.add(getComplexEdgeWithLabelsDiffrentDirectionsAndLabels());

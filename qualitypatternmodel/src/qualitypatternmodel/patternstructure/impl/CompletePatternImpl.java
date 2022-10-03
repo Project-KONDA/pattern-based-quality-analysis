@@ -441,14 +441,12 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 						if (temp != null) {
 							if (cypherEdge.length() != 0) cypherEdge.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
 							cypherEdge.append(temp);
-							
 							appendInnerEdgeNodes(cypherInnerEdgeNodes, neoAbstractEdge);
 						}
 					} else if(r instanceof NeoEdge) {
 						if (temp != null) {
 							if (cypherEdge.length() != 0) cypherEdge.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
 							cypherEdge.append(neoAbstractEdge.getReturnVariable());
-							
 							appendInnerEdgeNodes(cypherInnerEdgeNodes, neoAbstractEdge);
 						}
 					}

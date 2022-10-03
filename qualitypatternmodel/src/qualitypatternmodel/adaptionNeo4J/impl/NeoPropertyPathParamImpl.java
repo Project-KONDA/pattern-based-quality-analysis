@@ -149,17 +149,17 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 		NeoSimpleEdge neoSimpleEdge;
 		if (neoPathPart instanceof NeoSimpleEdge) {
 			neoSimpleEdge = (NeoSimpleEdge) neoPathPart;
-			generateEdgeStructure(neoSimpleEdge);
+			validateEdgeStructure(neoSimpleEdge);
 		} else { //(neoPathPart instanceof NeoComplexEdge)
 			neoSimpleEdge = null;
 			neoSimpleEdge = validateEdgeStructure(neoPathPart);
-			if (!(neoSimpleEdge != null)) {
+			if (neoSimpleEdge == null) {
 				throw new InvalidityException("NeoPropertyEdge - Last Edge has to be set");
 			}
 		}
 	}
 
-	private void generateEdgeStructure(final NeoSimpleEdge neoSimpleEdge) throws InvalidityException {
+	private void validateEdgeStructure(final NeoSimpleEdge neoSimpleEdge) throws InvalidityException {
 		if (!(neoSimpleEdge.getNeoTargetNodeLabels() != null)) {
 			targetNodesCanNotBeNull();
 		}
@@ -167,13 +167,14 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 	
 	//If there is no NeoPath the NeoProperty is inside of the NeoNode
 	//Else diffrent constellations are possible how to build the relation between the origin node and the node for the property
+	//Checking if multiple last edges is done in the complex edge... as well as the check if the last edge is at the end
 	private NeoSimpleEdge validateEdgeStructure(NeoPathPart neoPathPart) throws InvalidityException {
 		NeoSimpleEdge neoSimpleEdge = null;
 		for (NeoPathPart part : neoPathPart.getNeoPathPartEdges()) {
 			if (part instanceof NeoSimpleEdge) {
-				if (((NeoSimpleEdge)part).isIsLastEdge()) {
-					if (neoSimpleEdge != null) throw new InvalidityException("NeoPropertyEdge - To many Last Edges");
+				if (((NeoSimpleEdge)part).isLastEdge()) {
 					neoSimpleEdge = (NeoSimpleEdge) part;
+					validateEdgeStructure(neoSimpleEdge);
 				}
 			} else {
 				validateEdgeStructure(part);
@@ -264,7 +265,7 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_NAME, oldNeoPropertyName, neoPropertyName));
 			}
 		}
-		return neoPropertyName.getValue();
+		return neoPropertyName != null ? neoPropertyName.getValue() : null;
 	}
 
 	/**
@@ -453,7 +454,7 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 		try {
 			String temp = generateCypher();
 			if (temp != null) {
-				result += " ";
+				result += " " + generateCypher();
 			} else if (neoPropertyName != null) {
 				result += getNeoPropertyEdge().generateCypherPropertyAddressing();
 			}
