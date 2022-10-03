@@ -54,4 +54,7 @@ public class CypherSpecificConstants {
 	public static final String CYPHER_AGGREGATION_FUNCTION_COUNT_NAMING = "myCounter";
 	
 	public static final String CYPHER_ALIAS_CALL = "AS";
+	
+	
+	//Cypher Specific Exception Messages
 }

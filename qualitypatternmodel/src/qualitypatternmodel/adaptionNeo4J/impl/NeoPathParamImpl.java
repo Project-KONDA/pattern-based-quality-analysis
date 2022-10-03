@@ -4,14 +4,17 @@ package qualitypatternmodel.adaptionNeo4J.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
+import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
+import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.utility.CypherSpecificConstants;
@@ -61,6 +64,127 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 		setNeoPathPart(new NeoSimpleEdgeImpl());
 	}
 
+	
+	
+	//TODO? make it more generic if the NeoUnspecifiedEdge is coming 
+	// --> Specific behaviour which can not be nessarcaly generalised
+	@Override
+	public String generateCypher() throws InvalidityException {
+		if (neoPathPart != null) {
+			final StringBuilder cypher = new StringBuilder();
+			EList<NeoPathPart> neoPathParts = getNeoPathPart().getNeoPathPartEdges();
+			
+			if (neoPathParts == null || neoPathParts.size() == 0) throw new InvalidityException("NeoEdge - NeoParts can not be empty");
+				if (neoPathParts.size() > 1) {
+						generateMultiEdgeCypher(cypher, neoPathParts);
+				} else {
+					generateSingeEdgeCypher(cypher, neoPathParts);
+				} 
+			return cypher.toString();
+		}
+		return CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES;	
+	}
+
+
+
+	private void generateSingeEdgeCypher(final StringBuilder cypher, final EList<NeoPathPart> neoPathParts)
+			throws InvalidityException {
+		cypher.append(neoPathParts.get(0).generateCypher());
+		NeoSimpleEdge neoSimpleEdge = (NeoSimpleEdge) neoPathParts.get(0);
+		if (neoSimpleEdge.getNeoTargetNodeLabels() != null &&
+				neoSimpleEdge.getNeoTargetNodeLabels().getValues().size() != 0) {
+			cypher.append(CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES); 
+		}
+	}
+
+	private void generateMultiEdgeCypher(final StringBuilder cypher, final EList<NeoPathPart> neoPathParts)
+			throws InvalidityException {
+		NeoPathPart neoPathPart = getNeoPathPart();
+		cypher.append(neoPathPart.generateCypher());
+
+		NeoPathPart lastEdge = null;
+		//Every ComplexEdge needs a last SimpleEdge --> Maybe can be checked in the Container
+		lastEdge = getLastEdge(neoPathParts);
+		if (lastEdge != null) {
+			NeoSimpleEdge neoSimpleEdge = (NeoSimpleEdge) lastEdge;
+			if (neoSimpleEdge.getNeoTargetNodeLabels() != null) {
+				cypher.append(CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES);
+			}
+		} else {
+			throw new InvalidityException("NeoEdge - The last NeoPathPart has to be specified as lastEdge");
+		}
+	}
+
+	private NeoPathPart getLastEdge(final EList<NeoPathPart> neoPathParts) {
+		NeoPathPart lastEdge = null; 
+		for (NeoPathPart possibleLast : neoPathParts) {
+			if (possibleLast instanceof NeoSimpleEdge && possibleLast.isLastEdge()) { 
+				lastEdge = possibleLast;
+			} else if (possibleLast instanceof NeoComplexEdge) {
+				lastEdge = getLastEdge(possibleLast.getNeoPathPartEdges());
+			}
+		}
+		return lastEdge;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void createParameters() {
+		NeoSimpleEdgeImpl nse = new NeoSimpleEdgeImpl();
+		setNeoPathPart(nse);
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT 
+	 */
+	public NotificationChain basicSetNeoEdge(NeoEdge newNeoEdge, NotificationChain msgs) {
+		triggerParameterUpdates(newNeoEdge);
+		NeoEdge oldNeoEdge = neoEdge;
+		neoEdge = newNeoEdge;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE, oldNeoEdge, newNeoEdge);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+	
+	@Override
+	public boolean inputIsValid() {
+		try {
+			getNeoPathPart().isValid(AbstractionLevel.CONCRETE);
+			return true; 
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	@Override 
+	public String generateDescription() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public String myToString() {
+		String result = "NeoPathParam [" + getInternalId() + "] ";
+		try {
+			result += " " + generateCypher();
+		} catch (InvalidityException e) {}
+		return result;
+	}
+
+	//ADD TO ECORE ?
+	@Override
+	protected int getRelationNumber() {
+		return getNeoEdge().getOriginalID();
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -70,16 +194,6 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 	protected EClass eStaticClass() {
 		return AdaptionNeo4JPackage.Literals.NEO_PATH_PARAM;
 	}
-
-	@Override
-	public String generateCypher() throws InvalidityException {
-		if (neoPathPart != null) {
-			String cypher = neoPathPart.generateCypher();
-			return cypher;
-		}
-		return CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES;	
-	}
-	
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -106,22 +220,6 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 	 */
 	public NeoEdge basicGetNeoEdge() {
 		return neoEdge;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT 
-	 */
-	public NotificationChain basicSetNeoEdge(NeoEdge newNeoEdge, NotificationChain msgs) {
-		triggerParameterUpdates(newNeoEdge);
-		NeoEdge oldNeoEdge = neoEdge;
-		neoEdge = newNeoEdge;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE, oldNeoEdge, newNeoEdge);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
 	}
 
 	/**
@@ -192,17 +290,6 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public void createParameters() {
-		NeoSimpleEdgeImpl nse = new NeoSimpleEdgeImpl();
-		setNeoPathPart(nse);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -236,7 +323,7 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -305,36 +392,5 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 				return neoPathPart != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	@Override
-	public boolean inputIsValid() {
-		try {
-			getNeoPathPart().isValid(AbstractionLevel.CONCRETE);
-			return true; 
-		} catch (Exception e) {
-			return false;
-		}
-	}
-
-	@Override 
-	public String generateDescription() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	@Override
-	public String myToString() {
-		String result = "NeoPathParam [" + getInternalId() + "] ";
-		try {
-			result += " " + generateCypher();
-		} catch (InvalidityException e) {}
-		return result;
-	}
-
-	//ADD TO ECORE ?
-	@Override
-	protected int getRelationNumber() {
-		return getNeoEdge().getOriginalID();
 	}
 } //Neo4JPathParamImpl

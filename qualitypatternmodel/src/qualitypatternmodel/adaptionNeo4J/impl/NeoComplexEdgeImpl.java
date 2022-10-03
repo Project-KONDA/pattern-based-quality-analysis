@@ -65,9 +65,9 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	@Override
 	public String generateCypherWithoutLabels() throws InvalidityException {
 		if (this.validateComplexEdge()) {
-			String cypher = generateInternalCypher(true);			
+			String cypher = generateInternalCypher(false);			
 			return cypher;
-		}
+		}		
 		throw new InvalidityException("The ComplexEdge is not correct");
 	}
 	
@@ -98,6 +98,8 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		}
 	}
 	
+	
+	//DO I NEED THE DIFFRENCE BETWEEN THIS TO METHODS?
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -156,24 +158,9 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		if (!(countOfEdges() >= 2)) {
 			valid = false;
 		}
+		//Introduce check for multiple End Elements && check if the end really the end
 		return valid;
 	}
-	
-//	boolean valid = true;
-//	NeoPropertyPathParam neoPropertyPathParam;
-//	for (NeoPathPart part : getNeoPathPart()) {
-//		neoPropertyPathParam = getNeoPropertyPathParam();
-//		if (neoPropertyPathParam != null) {
-//			if (part instanceof NeoSimpleEdge && !(((NeoSimpleEdge) part).isIsLastEdge())) {
-//				if (((NeoSimpleEdge) part).getNeoTargetNodeLabels() == null) {
-//					valid = false;
-//				}
-//			} else if (part instanceof NeoComplexEdge) {
-//				((NeoComplexEdge) part).validateComplexEdge();
-//			}
-//		}
-//	}		
-//	return valid;
 	
 	//PUT THIS TO THE ABSTRACT CLASS of COMPLEXEDGE
 	private int countOfEdges() {
@@ -408,6 +395,8 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		}
 		
 		protected int getCount() {
+			if (Integer.MAX_VALUE == counter)
+				throw new IndexOutOfBoundsException("ComplexEdge" + getId() + "is to long");
 			counter = counter + 1;
 			return counter;
 		}

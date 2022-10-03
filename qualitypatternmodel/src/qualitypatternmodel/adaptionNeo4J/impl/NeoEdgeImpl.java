@@ -66,51 +66,16 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 	
 	@Override
 	public String generateCypher() throws InvalidityException {
+		String cypher = null;
 		if (getIncomingMapping() == null) {
-			StringBuilder cypher = new StringBuilder("");
-			if(!translated && getNeoPathParam() != null 
-					&& ((NeoPathParam) getNeoPathParam()).getNeoPathPart() != null) {
-				
-				//TODO make it more generic if the NeoUnspecifiedEdge is coming
-				EList<NeoPathPart> neoPathParts = getNeoPathParam().getNeoPathPart().getNeoPathPartEdges();
-				if (neoPathParts == null || neoPathParts.size() == 0) throw new InvalidityException("NeoEdge - NeoParts can not be empty");
+			if(!translated && getNeoPathParam() != null) {
+				cypher = getNeoPathParam().generateCypher();
 				this.translated = true;
-				
-				if (neoPathParts.size() > 1) {
-					NeoPathPart neoPathPart = ((NeoPathParam) getNeoPathParam()).getNeoPathPart();
-					cypher.append(neoPathPart.generateCypher());
-					
-					NeoPathPart lastEdge = null;
-					//Every ComplexEdge needs a last SimpleEdge
-					for (NeoPathPart possibleLast : neoPathParts) {
-						if (possibleLast.isLastEdge()) { 
-							lastEdge = possibleLast;
-						}
-					}
-					
-					if (lastEdge != null) {
-						NeoSimpleEdge neoSimpleEdge = (NeoSimpleEdge) lastEdge;
-						if (neoSimpleEdge.getNeoTargetNodeLabels() != null) {
-							cypher.append(CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES);
-						}
-					} else {
-						throw new InvalidityException("NeoEdge - The last NeoPathPart has to be specified as lastEdge");
-					}
-				} else if (neoPathParts.size() == 1) {
-					cypher.append(neoPathParts.get(0).generateCypher());
-					NeoSimpleEdge neoSimpleEdge = (NeoSimpleEdge) neoPathParts.get(0);
-					if (neoSimpleEdge.getNeoTargetNodeLabels() != null &&
-							neoSimpleEdge.getNeoTargetNodeLabels().getValues().size() != 0) cypher.append(CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES); 
-				} 
 			} else if(getNeoPathParam() == null) {
 				throw new InvalidityException("NeoEdge needs a NeoPathParam");
-			} else if ( ((NeoPathParam) getNeoPathParam()).getNeoPathPart() == null ) {
-				return CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES;
 			}
-			
-			return cypher.toString();
 		}
-		return null;
+		return cypher;
 	}
 	
 	@Override
