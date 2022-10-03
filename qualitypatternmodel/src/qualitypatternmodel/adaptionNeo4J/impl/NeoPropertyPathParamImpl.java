@@ -450,7 +450,12 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 	public String myToString() {
 		String result = "NeoPropertyPathParam [" + getInternalId() + "] ";
 		try {
-			result += " " + generateCypher();
+			String temp = generateCypher();
+			if (temp != null) {
+				result += " ";
+			} else {
+				result += getNeoPropertyEdge().generateCypherPropertyAddressing();
+			}
 		} catch (InvalidityException e) {
 		} 
 		return result;

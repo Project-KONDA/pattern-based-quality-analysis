@@ -22,6 +22,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,12 +69,16 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 	//Translation of the neoPropertyEdge
 	@Override
 	public String generateCypher() throws InvalidityException {
+		String cypher = null;
 		if (getIncomingMapping() == null) {
-			NeoPropertyPathParam neoPropertyPathParam = getNeoPropertyPathParam();
-			String cypher = neoPropertyPathParam.generateCypher();
-			return cypher;
+			if(!translated && getNeoPropertyPathParam() != null) {
+				cypher = getNeoPropertyPathParam().generateCypher();
+				this.translated = true;
+			} else {
+				throw new InvalidityException("NeoEdge needs a NeoPathParam");
+			}
 		} 
-		return null;
+		return cypher;
 	}
 	
 	@Override
@@ -87,6 +92,14 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 		String cypher;
 		cypher = getNeoPropertyPathParam().getReturnInnerEdgeNodes();
 		return cypher;
+	}
+	
+	@Override
+	public String myToString() {
+		String result = super.myToString();
+		if (getNeoPropertyPathParam() != null) 
+			result += " " + getNeoPropertyPathParam().myToString(); 
+		return result;
 	}
 	
 	/**
