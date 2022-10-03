@@ -2916,36 +2916,6 @@
               <styles xmi:type="notation:ShapeStyle" xmi:id="_6kJ_MQLrEe2GF_6PqNgKEg" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6kJ_MgLrEe2GF_6PqNgKEg" x="820" y="229" width="133" height="113"/>
             </children>
-            <children xmi:type="notation:Shape" xmi:id="_-TGooANYEe206Z6-dx1KpQ" type="Note" fontName="Segoe UI" description="May be refactor StartNode and EndNode to Primitiv/ComplexNode" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
-              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-TGooQNYEe206Z6-dx1KpQ" source="specificStyles">
-                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-TGoogNYEe206Z6-dx1KpQ" key="verticalAlignment" value="8"/>
-              </eAnnotations>
-              <children xmi:type="notation:BasicDecorationNode" xmi:id="_-TGopgNYEe206Z6-dx1KpQ" type="DiagramName">
-                <element xsi:nil="true"/>
-              </children>
-              <children xmi:type="notation:BasicDecorationNode" xmi:id="_-TGopwNYEe206Z6-dx1KpQ" type="Description">
-                <element xsi:nil="true"/>
-              </children>
-              <styles xmi:type="notation:TextStyle" xmi:id="_-TGoowNYEe206Z6-dx1KpQ" textAlignment="Center"/>
-              <styles xmi:type="notation:LineTypeStyle" xmi:id="_-TGopANYEe206Z6-dx1KpQ"/>
-              <element xsi:nil="true"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-TGopQNYEe206Z6-dx1KpQ" x="800" y="654" width="176"/>
-            </children>
-            <children xmi:type="notation:Shape" xmi:id="_Lt-5YANZEe206Z6-dx1KpQ" type="Note" fontName="Segoe UI" description="Due to this ConnectingEdge would just have the Labelname" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
-              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Lt-5YQNZEe206Z6-dx1KpQ" source="specificStyles">
-                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Lt-5YgNZEe206Z6-dx1KpQ" key="verticalAlignment" value="8"/>
-              </eAnnotations>
-              <children xmi:type="notation:BasicDecorationNode" xmi:id="_Lt_gcANZEe206Z6-dx1KpQ" type="DiagramName">
-                <element xsi:nil="true"/>
-              </children>
-              <children xmi:type="notation:BasicDecorationNode" xmi:id="_LuAHgANZEe206Z6-dx1KpQ" type="Description">
-                <element xsi:nil="true"/>
-              </children>
-              <styles xmi:type="notation:TextStyle" xmi:id="_Lt-5YwNZEe206Z6-dx1KpQ" textAlignment="Center"/>
-              <styles xmi:type="notation:LineTypeStyle" xmi:id="_Lt-5ZANZEe206Z6-dx1KpQ"/>
-              <element xsi:nil="true"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Lt-5ZQNZEe206Z6-dx1KpQ" x="827" y="724" width="149"/>
-            </children>
             <children xmi:type="notation:Node" xmi:id="_yO9SkANeEe206Z6-dx1KpQ" type="3009" element="_yMLEUANeEe206Z6-dx1KpQ">
               <children xmi:type="notation:Node" xmi:id="_yO95oANeEe206Z6-dx1KpQ" type="5004"/>
               <children xmi:type="notation:Node" xmi:id="_yO95oQNeEe206Z6-dx1KpQ" type="7003">
@@ -2954,21 +2924,6 @@
               </children>
               <styles xmi:type="notation:ShapeStyle" xmi:id="_yO9SkQNeEe206Z6-dx1KpQ" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yO9SkgNeEe206Z6-dx1KpQ" x="160" y="384" width="148" height="100"/>
-            </children>
-            <children xmi:type="notation:Shape" xmi:id="_osAd0AzvEe2A86dUVPGyDg" type="Note" fontName="Segoe UI" description="Maybe change this class so that in it the properties and labels are stored" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
-              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_osBE4AzvEe2A86dUVPGyDg" source="specificStyles">
-                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_osBE4QzvEe2A86dUVPGyDg" key="verticalAlignment" value="8"/>
-              </eAnnotations>
-              <children xmi:type="notation:BasicDecorationNode" xmi:id="_osDhIAzvEe2A86dUVPGyDg" type="DiagramName">
-                <element xsi:nil="true"/>
-              </children>
-              <children xmi:type="notation:BasicDecorationNode" xmi:id="_osDhIQzvEe2A86dUVPGyDg" type="Description">
-                <element xsi:nil="true"/>
-              </children>
-              <styles xmi:type="notation:TextStyle" xmi:id="_osBE4gzvEe2A86dUVPGyDg" textAlignment="Center"/>
-              <styles xmi:type="notation:LineTypeStyle" xmi:id="_osBE4wzvEe2A86dUVPGyDg"/>
-              <element xsi:nil="true"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_osBE5AzvEe2A86dUVPGyDg" x="788" y="574" width="181"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_SwvYoBP7Ee2iRvdfpvWkRA" type="3009" element="_Sv98kBP7Ee2iRvdfpvWkRA">
               <children xmi:type="notation:Node" xmi:id="_SwvYoxP7Ee2iRvdfpvWkRA" type="5004"/>
@@ -3110,51 +3065,6 @@
               <element xsi:nil="true"/>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Stj1FSoxEe2UQ42ic8PKoA" x="160" y="598" width="97"/>
             </children>
-            <children xmi:type="notation:Shape" xmi:id="_CVof8CrXEe2A294R3WFYxg" type="Note" fontName="Segoe UI" description="Ich unterschiede nicht zwischen den innerEdges und den Relations, wenn man NeoEdge oder NeoPropertyEdge im Return haben will bekommt man beids" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
-              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CVof8SrXEe2A294R3WFYxg" source="specificStyles">
-                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_CVof8irXEe2A294R3WFYxg" key="verticalAlignment" value="8"/>
-              </eAnnotations>
-              <children xmi:type="notation:BasicDecorationNode" xmi:id="_CVpHACrXEe2A294R3WFYxg" type="DiagramName">
-                <element xsi:nil="true"/>
-              </children>
-              <children xmi:type="notation:BasicDecorationNode" xmi:id="_CVpHASrXEe2A294R3WFYxg" type="Description">
-                <element xsi:nil="true"/>
-              </children>
-              <styles xmi:type="notation:TextStyle" xmi:id="_CVof8yrXEe2A294R3WFYxg" textAlignment="Center"/>
-              <styles xmi:type="notation:LineTypeStyle" xmi:id="_CVof9CrXEe2A294R3WFYxg"/>
-              <element xsi:nil="true"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CVof9SrXEe2A294R3WFYxg" x="420" y="59" width="192"/>
-            </children>
-            <children xmi:type="notation:Shape" xmi:id="_2yd9sDy8Ee2ir-Bc3NPl-g" type="Note" fontName="Segoe UI" description="Brauche ich die Kompositation oder geht auch nur die Aggregation??" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
-              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2yd9sTy8Ee2ir-Bc3NPl-g" source="specificStyles">
-                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2yd9sjy8Ee2ir-Bc3NPl-g" key="verticalAlignment" value="8"/>
-              </eAnnotations>
-              <children xmi:type="notation:BasicDecorationNode" xmi:id="_2yfy4Dy8Ee2ir-Bc3NPl-g" type="DiagramName">
-                <element xsi:nil="true"/>
-              </children>
-              <children xmi:type="notation:BasicDecorationNode" xmi:id="_2yfy4Ty8Ee2ir-Bc3NPl-g" type="Description">
-                <element xsi:nil="true"/>
-              </children>
-              <styles xmi:type="notation:TextStyle" xmi:id="_2yd9szy8Ee2ir-Bc3NPl-g" textAlignment="Center"/>
-              <styles xmi:type="notation:LineTypeStyle" xmi:id="_2yd9tDy8Ee2ir-Bc3NPl-g"/>
-              <element xsi:nil="true"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2yd9tTy8Ee2ir-Bc3NPl-g" x="402" y="509" width="196"/>
-            </children>
-            <children xmi:type="notation:Shape" xmi:id="_qFvHID2SEe2Qp-ybJSPxgQ" type="Note" fontName="Segoe UI" description="Implementation: a NeoComplexEdge can hold another edge. Consider this aspect and do a test for it " fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
-              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qFvHIT2SEe2Qp-ybJSPxgQ" source="specificStyles">
-                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qFvHIj2SEe2Qp-ybJSPxgQ" key="verticalAlignment" value="8"/>
-              </eAnnotations>
-              <children xmi:type="notation:BasicDecorationNode" xmi:id="_qFw8UD2SEe2Qp-ybJSPxgQ" type="DiagramName">
-                <element xsi:nil="true"/>
-              </children>
-              <children xmi:type="notation:BasicDecorationNode" xmi:id="_qFw8UT2SEe2Qp-ybJSPxgQ" type="Description">
-                <element xsi:nil="true"/>
-              </children>
-              <styles xmi:type="notation:TextStyle" xmi:id="_qFvHIz2SEe2Qp-ybJSPxgQ" textAlignment="Center"/>
-              <styles xmi:type="notation:LineTypeStyle" xmi:id="_qFvHJD2SEe2Qp-ybJSPxgQ"/>
-              <element xsi:nil="true"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qFvHJT2SEe2Qp-ybJSPxgQ" x="555" y="717" width="176"/>
-            </children>
             <children xmi:type="notation:Shape" xmi:id="_dYXwwEAQEe20BLrY6Ta8OQ" type="Note" fontName="Segoe UI" description="Auch zum inteface machen?" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
               <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dYXwwUAQEe20BLrY6Ta8OQ" source="specificStyles">
                 <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dYXwwkAQEe20BLrY6Ta8OQ" key="verticalAlignment" value="8"/>
@@ -3183,7 +3093,7 @@
               <styles xmi:type="notation:TextStyle" xmi:id="_l7euI0MtEe2WX7pgGf7SHQ" textAlignment="Center"/>
               <styles xmi:type="notation:LineTypeStyle" xmi:id="_l7euJEMtEe2WX7pgGf7SHQ"/>
               <element xsi:nil="true"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_l7euJUMtEe2WX7pgGf7SHQ" x="325" y="675"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_l7euJUMtEe2WX7pgGf7SHQ" x="23" y="693" width="133"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_TKib4gLoEe2GF_6PqNgKEg"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_TKib4wLoEe2GF_6PqNgKEg"/>
@@ -5776,7 +5686,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pbA8cgN5Ee206Z6-dx1KpQ" x="-5" y="42"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_pbBjgAN5Ee206Z6-dx1KpQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pbBjgQN5Ee206Z6-dx1KpQ" x="-57" y="-14"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pbBjgQN5Ee206Z6-dx1KpQ" x="-74" y="-15"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_pbAVYQN5Ee206Z6-dx1KpQ" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_pbAVYgN5Ee206Z6-dx1KpQ" fontName="Segoe UI" fontHeight="8"/>
@@ -5885,10 +5795,10 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ISCFBR42Ee28StARcPnhGA" x="18" y="-10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_ISCsEB42Ee28StARcPnhGA" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ISCsER42Ee28StARcPnhGA" x="54" y="77"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ISCsER42Ee28StARcPnhGA" x="64" y="7" width="187" height="17"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_ISCsEh42Ee28StARcPnhGA" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ISCsEx42Ee28StARcPnhGA" x="-11" y="63"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ISCsEx42Ee28StARcPnhGA" x="-3" y="-7"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_ISCFAR42Ee28StARcPnhGA" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_ISCFAh42Ee28StARcPnhGA" fontName="Segoe UI" fontHeight="8"/>
