@@ -35,7 +35,6 @@ public class CypherTest02Return {
 		System.out.println("<<< END - Tests >>>");
 		System.out.println("");
 		
-		
 		//Exception tests
 		System.out.println("");
 		System.out.println("<<< BEGIN - Exception Tests >>>");

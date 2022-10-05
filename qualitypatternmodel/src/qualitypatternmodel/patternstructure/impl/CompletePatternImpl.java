@@ -4,11 +4,15 @@ package qualitypatternmodel.patternstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Map;
+import java.util.TreeMap;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -470,47 +474,85 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 
 	String generateCypherReturnNodes(String cypher) throws InvalidityException {
 		if (graph.getNodes().size() != 0 ) {
-			final StringBuilder cypherNeoNode = new StringBuilder();
-			final StringBuilder cypherNeoPropertyNode = new StringBuilder();
-			final StringBuilder cypherNeoProperties = new StringBuilder();
-			NeoAbstractNode neoAbstractNode;
-			NeoPropertyNode neoPropertyNode;
+			final Map<Integer, String> cypherReturn = buildCypherNodesSortedMap();
+			//Building the generic Nodes for Return
+			for (Map.Entry<Integer, String> mapElement : cypherReturn.entrySet()) {	  
+	            if (cypher.length() != 0) {
+	            	cypher += ", " + "\n";
+	            	cypher += CypherSpecificConstants.SIX_WHITESPACES;
+	            } else {
+	            	cypher = CypherSpecificConstants.ONE_WHITESPACES;
+	            }
+				cypher += mapElement.getValue();
+	        }
 			
-			for (Node n : graph.getNodes()) {
-				neoAbstractNode = (NeoAbstractNode) n;
-				if (n instanceof NeoNode && n.isReturnNode()) {
-					if (cypherNeoNode.length() != 0) cypherNeoNode.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
-					cypherNeoNode.append(neoAbstractNode.getCypherReturnVariable());
-				} else if (n instanceof NeoPropertyNode && n.isReturnNode()) {
-					if (cypherNeoPropertyNode.length() != 0) cypherNeoPropertyNode.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
-					cypherNeoPropertyNode.append(neoAbstractNode.getCypherReturnVariable());
-				} 
-				if (n instanceof NeoPropertyNode && ((NeoPropertyNode)n).isReturnProperty()) {
-					if (cypherNeoProperties.length() != 0) cypherNeoProperties.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
-					neoPropertyNode = (NeoPropertyNode) n;
-					cypherNeoProperties.append(neoPropertyNode.generateCypherPropertyAddressing());
-				}
-			}
-			
-			if (cypherNeoNode.length() != 0) cypher = CypherSpecificConstants.ONE_WHITESPACES + cypherNeoNode;
-			if (cypherNeoPropertyNode.length() != 0) {
-				if (cypher.length() != 0) {
-					cypher += ", " + "\n";
-					cypher += CypherSpecificConstants.SIX_WHITESPACES + cypherNeoPropertyNode.toString();
-				} else {
-					cypher = CypherSpecificConstants.ONE_WHITESPACES + cypherNeoPropertyNode.toString();
-				}
-			}
-			if (cypherNeoProperties.length() != 0) {
-				if (cypher.length() != 0) {
-					cypher += ", " + "\n";
-					cypher += CypherSpecificConstants.SIX_WHITESPACES + cypherNeoProperties.toString();
-				} else {
-					cypher = CypherSpecificConstants.ONE_WHITESPACES + cypherNeoProperties.toString();
-				}
+			//Adding the Addressing
+			cypher = buildCypherSpecialNodeString(cypher);
+		}
+		
+		return cypher;
+	}
+
+
+	private String buildCypherSpecialNodeString(String cypher) throws InvalidityException {
+		final StringBuilder cypherNeoProperties = new StringBuilder();
+		generatingCypherPropertyAddressingString(cypherNeoProperties);
+		if (cypherNeoProperties.length() != 0) {
+			if (cypher.length() != 0) {
+				cypher += ", " + "\n";
+				cypher += CypherSpecificConstants.SIX_WHITESPACES;
+		    	cypher += cypherNeoProperties.toString();
+			} else {
+				cypher = CypherSpecificConstants.ONE_WHITESPACES;
+				cypher += cypherNeoProperties.toString();
 			}
 		}
 		return cypher;
+	}
+
+	private final Map<Integer, String> buildCypherNodesSortedMap() throws InvalidityException {
+		final Map<Integer, StringBuilder> cypherReturn = new TreeMap<Integer, StringBuilder>();
+		NeoAbstractNode neoAbstractNode;
+		EMap<Integer, String> tempMap;
+		StringBuilder tempSb;
+		Integer i;
+		
+		for (Node n : graph.getNodes()) {
+			neoAbstractNode = (NeoAbstractNode) n;
+			tempMap = neoAbstractNode.getCypherReturnVariable();
+			if (tempMap.keySet().stream().count() != 1)
+				throw new InvalidityException("find a matching name");
+			for (Map.Entry<Integer, String> entry : tempMap.entrySet()) {
+			    i = entry.getKey();
+			    if (cypherReturn.get(i) == null) {
+			    	tempSb = new StringBuilder();
+			    	tempSb.append(entry.getValue());
+			    	cypherReturn.put(i, tempSb);
+			    } else {
+			    	tempSb = cypherReturn.get(i);
+			    	tempSb.append(", " + entry.getValue());
+			    }
+			}
+		}
+		
+		Map<Integer, String> cypherReturnFixed = new TreeMap<Integer, String>();
+		for (Map.Entry<Integer, StringBuilder> entry : cypherReturn.entrySet()) {
+			cypherReturnFixed.put(entry.getKey(), entry.getValue().toString());
+		}
+		return Collections.unmodifiableMap(cypherReturnFixed);
+	}
+
+
+	private void generatingCypherPropertyAddressingString(final StringBuilder cypherNeoProperties)
+			throws InvalidityException {
+		NeoPropertyNode neoPropertyNode;
+		for (Node n : graph.getNodes()) {
+			if (n instanceof NeoPropertyNode && ((NeoPropertyNode)n).isReturnProperty()) {
+				if (cypherNeoProperties.length() != 0) cypherNeoProperties.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
+				neoPropertyNode = (NeoPropertyNode) n;
+				cypherNeoProperties.append(neoPropertyNode.generateCypherPropertyAddressing());
+			}
+		}
 	}
 	
 	
