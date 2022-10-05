@@ -186,31 +186,32 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 				cypher += entry.getValue();				
 			}
 		} else {
-			String tempWith;
-			tempWith = ((CountPatternImpl) getCountPattern()).generateCypherWith();			
-			EMap<NeoAbstractNode, String> myCounters = ((CountPatternImpl)getCountPattern()).generateCypherCounters();
-			EMap<NeoAbstractNode, String> myCounters2 = ((CountPatternImpl)getArgument2()).generateCypherCounters();
-			//Remove all duplicates
-			for (Entry<NeoAbstractNode, String> entry1 : myCounters.entrySet()) {
-				for (Entry<NeoAbstractNode, String> entry2 : myCounters2.entrySet()) {
-					if (entry1.getKey() == entry2.getKey()) {
-						myCounters2.remove(entry2);
-					}
-				}
-			}
-			
-			boolean multi = false;
-			if (!tempWith.isEmpty()) {
-				cypher += tempWith;
-				multi = true;
-			}
-			
-			for (Entry<NeoAbstractNode, String> entry : myCounters.entrySet()) {
-				if (multi) {
-					cypher += ", ";
-				}
-				cypher += entry.getValue();				
-			}
+			throw new UnsupportedOperationException("Think about a potential Exception name");
+//			String tempWith;
+//			tempWith = ((CountPatternImpl) getCountPattern()).generateCypherWith();			
+//			EMap<NeoAbstractNode, String> myCounters = ((CountPatternImpl)getCountPattern()).generateCypherCounters();
+//			EMap<NeoAbstractNode, String> myCounters2 = ((CountPatternImpl)getArgument2()).generateCypherCounters();
+//			//Remove all duplicates
+//			for (Entry<NeoAbstractNode, String> entry1 : myCounters.entrySet()) {
+//				for (Entry<NeoAbstractNode, String> entry2 : myCounters2.entrySet()) {
+//					if (entry1.getKey() == entry2.getKey()) {
+//						myCounters2.remove(entry2);
+//					}
+//				}
+//			}
+//			
+//			boolean multi = false;
+//			if (!tempWith.isEmpty()) {
+//				cypher += tempWith;
+//				multi = true;
+//			}
+//			
+//			for (Entry<NeoAbstractNode, String> entry : myCounters.entrySet()) {
+//				if (multi) {
+//					cypher += ", ";
+//				}
+//				cypher += entry.getValue();				
+//			}
 		}
 		return cypher;
 	}

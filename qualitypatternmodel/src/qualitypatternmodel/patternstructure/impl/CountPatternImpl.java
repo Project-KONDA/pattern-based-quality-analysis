@@ -96,8 +96,8 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	//Count ist für die anderen CONDITIONS als Unsuported makiert, da Cypher v4.4 und niedriger keine Verschachtelungen zulässt
 	
 	protected Set<NeoAbstractNode> countElementNodes; //Nodes --> keine PATH/Edges/Properties implementiert
-//	protected Set<NeoAbstractEdge> countElementEdges; //Edges
-//	protected Set<NeoPropertyPathParamImpl> countProperties; //Properties
+//	protected Set<NeoAbstractEdge> countElementEdges; //Edges --> Das Framework bezieht sich primär auf Nodes und deren Datenprobleme, daher sind Edges nicht so relevant im Moment
+//	protected Set<NeoPropertyPathParamImpl> countProperties; //Properties --> Existense kann ich prüfen und in Cypher kann man keine Doppelten Variabelen haben, daher fällt das hier weg
 	
 	//Add to Ecore?
 	public void setCountElementNodes(Set<NeoAbstractNode> countElements) {
