@@ -4,7 +4,9 @@ package qualitypatternmodel.adaptionNeo4J.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEMap;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -39,6 +41,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
+	private static final int CYPHER_RETURN_ID = 0;
 	/**
 	 * The default value of the '{@link #getNodePlace() <em>Node Place</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -144,14 +147,20 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	 * @generated NOT
 	 */
 	@Override
-	public String getCypherReturnVariable() throws InvalidityException {
+	public EMap<Integer, String> getCypherReturnVariable() throws InvalidityException {
+		EMap<Integer, String> returnElement = new BasicEMap<Integer, String>();
+		String cypher;
 		if (getIncomingMapping() == null) {
 			if (isVariableDistinctInUse) {
-				return this.getCypherVariable();
+				cypher = this.getCypherVariable();
+			} else {
+				cypher = CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_DISTINCT + " (" + this.getCypherVariable() + ")";
 			}
-		return CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_DISTINCT + " (" + this.getCypherVariable() + ")";
+			returnElement.put(NeoNodeImpl.CYPHER_RETURN_ID, cypher);
+		} else {
+			returnElement = ((NeoNode) getOriginalNode()).getCypherReturnVariable();
 		}
-		return ((NeoNode) getOriginalNode()).getCypherReturnVariable();
+		return returnElement;
 	}
 
 	@Override

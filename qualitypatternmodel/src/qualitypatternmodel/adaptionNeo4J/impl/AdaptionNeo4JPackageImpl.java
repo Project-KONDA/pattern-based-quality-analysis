@@ -535,6 +535,16 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
+	public EOperation getNeoPathPart__GetNeoLastEdge() {
+		return neoPathPartEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getNeoPropertyNode() {
 		return neoPropertyNodeEClass;
 	}
@@ -565,7 +575,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
-	public EOperation getNeoPropertyNode__GenerateCypherMatchNodeVariable() {
+	public EOperation getNeoPropertyNode__GenerateCypherNodeVariable() {
 		return neoPropertyNodeEClass.getEOperations().get(1);
 	}
 
@@ -745,7 +755,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
-	public EOperation getNeoPropertyEdge__GenerateCypherMatchNodeVariable() {
+	public EOperation getNeoPropertyEdge__GenerateCypherNodeVariable() {
 		return neoPropertyEdgeEClass.getEOperations().get(1);
 	}
 
@@ -915,11 +925,12 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		createEOperation(neoPathPartEClass, NEO_PATH_PART___GET_CYPHER_VARIABLE);
 		createEOperation(neoPathPartEClass, NEO_PATH_PART___IS_LAST_EDGE);
 		createEOperation(neoPathPartEClass, NEO_PATH_PART___GET_CYPHER_INNER_EDGE_NODES__BOOLEAN);
+		createEOperation(neoPathPartEClass, NEO_PATH_PART___GET_NEO_LAST_EDGE);
 
 		neoPropertyNodeEClass = createEClass(NEO_PROPERTY_NODE);
 		createEAttribute(neoPropertyNodeEClass, NEO_PROPERTY_NODE__RETURN_PROPERTY);
 		createEOperation(neoPropertyNodeEClass, NEO_PROPERTY_NODE___GENERATE_CYPHER_PROPERTY_ADDRESSING);
-		createEOperation(neoPropertyNodeEClass, NEO_PROPERTY_NODE___GENERATE_CYPHER_MATCH_NODE_VARIABLE);
+		createEOperation(neoPropertyNodeEClass, NEO_PROPERTY_NODE___GENERATE_CYPHER_NODE_VARIABLE);
 		createEOperation(neoPropertyNodeEClass, NEO_PROPERTY_NODE___SET_IS_RETURN_PROPERTY__BOOLEAN);
 
 		neoPathParamEClass = createEClass(NEO_PATH_PARAM);
@@ -935,7 +946,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		neoPropertyEdgeEClass = createEClass(NEO_PROPERTY_EDGE);
 		createEReference(neoPropertyEdgeEClass, NEO_PROPERTY_EDGE__NEO_PROPERTY_PATH_PARAM);
 		createEOperation(neoPropertyEdgeEClass, NEO_PROPERTY_EDGE___GENERATE_CYPHER_PROPERTY_ADDRESSING);
-		createEOperation(neoPropertyEdgeEClass, NEO_PROPERTY_EDGE___GENERATE_CYPHER_MATCH_NODE_VARIABLE);
+		createEOperation(neoPropertyEdgeEClass, NEO_PROPERTY_EDGE___GENERATE_CYPHER_NODE_VARIABLE);
 
 		neoAbstractEdgeEClass = createEClass(NEO_ABSTRACT_EDGE);
 		createEAttribute(neoAbstractEdgeEClass, NEO_ABSTRACT_EDGE__RETURN_ELEMENT);
@@ -1007,7 +1018,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 
 		initEOperation(getNeoAbstractNode__GetCypherVariable(), ecorePackage.getEString(), "getCypherVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		EOperation op = initEOperation(getNeoAbstractNode__GetCypherReturnVariable(), ecorePackage.getEString(), "getCypherReturnVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getNeoAbstractNode__GetCypherReturnVariable(), ecorePackage.getEMap(), "getCypherReturnVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(neoNodeEClass, NeoNode.class, "NeoNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1060,13 +1071,15 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		addEParameter(op, ecorePackage.getEBoolean(), "isReturn", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
+		initEOperation(getNeoPathPart__GetNeoLastEdge(), this.getNeoPathPart(), "getNeoLastEdge", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(neoPropertyNodeEClass, NeoPropertyNode.class, "NeoPropertyNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNeoPropertyNode_ReturnProperty(), ecorePackage.getEBoolean(), "returnProperty", null, 0, 1, NeoPropertyNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getNeoPropertyNode__GenerateCypherPropertyAddressing(), ecorePackage.getEString(), "generateCypherPropertyAddressing", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getNeoPropertyNode__GenerateCypherMatchNodeVariable(), ecorePackage.getEString(), "generateCypherMatchNodeVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNeoPropertyNode__GenerateCypherNodeVariable(), ecorePackage.getEString(), "generateCypherNodeVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getNeoPropertyNode__SetIsReturnProperty__boolean(), null, "setIsReturnProperty", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1090,7 +1103,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		op = initEOperation(getNeoPropertyEdge__GenerateCypherPropertyAddressing(), ecorePackage.getEString(), "generateCypherPropertyAddressing", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getNeoPropertyEdge__GenerateCypherMatchNodeVariable(), ecorePackage.getEString(), "generateCypherMatchNodeVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNeoPropertyEdge__GenerateCypherNodeVariable(), ecorePackage.getEString(), "generateCypherNodeVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(neoAbstractEdgeEClass, NeoAbstractEdge.class, "NeoAbstractEdge", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

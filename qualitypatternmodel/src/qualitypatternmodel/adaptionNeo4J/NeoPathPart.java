@@ -152,4 +152,12 @@ public interface NeoPathPart extends PatternElement {
 	 * @generated
 	 */
 	String getCypherInnerEdgeNodes(boolean isReturn) throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	NeoPathPart getNeoLastEdge();
 } // NeoPathPart

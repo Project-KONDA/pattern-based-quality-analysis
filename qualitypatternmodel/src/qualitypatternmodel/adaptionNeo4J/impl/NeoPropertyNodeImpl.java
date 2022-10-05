@@ -3,8 +3,12 @@
 package qualitypatternmodel.adaptionNeo4J.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEMap;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
@@ -35,6 +39,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * @generated
  */
 public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropertyNode {
+	private static final int CYPHER_RETURN_ID = 1;
 	/**
 	 * The default value of the '{@link #getNodePlace() <em>Node Place</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -179,12 +184,18 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 * @generated NOT
 	 */
 	@Override
-	public String getCypherReturnVariable() throws InvalidityException {
+	public EMap<Integer, String> getCypherReturnVariable() throws InvalidityException {
+		EMap<Integer, String> returnElement = new BasicEMap<Integer, String>();
+		String cypher;
 		if (getIncomingMapping() == null) {	
-			String cypher = generateCypher();
-			return cypher;
+			cypher = generateCypher();
+			returnElement.put(NeoPropertyNodeImpl.CYPHER_RETURN_ID, cypher);
+			return returnElement;
+		} else {
+			cypher = ((NeoPropertyNode) getOriginalNode()).generateCypherNodeVariable();
+			returnElement.put(NeoPropertyNodeImpl.CYPHER_RETURN_ID, cypher);
 		}
-		return ((NeoPropertyNode) getOriginalNode()).generateCypherNodeVariable();
+		return returnElement;
 	}
 
 	private void isNodeReturnable() throws InvalidityException {
@@ -463,7 +474,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GENERATE_CYPHER_MATCH_NODE_VARIABLE:
+			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GENERATE_CYPHER_NODE_VARIABLE:
 				try {
 					return generateCypherNodeVariable();
 				}

@@ -282,6 +282,18 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	 * @generated
 	 */
 	@Override
+	public NeoPathPart getNeoLastEdge() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case AdaptionNeo4JPackage.NEO_PATH_PART__NEO_PATH_PARAM:
@@ -445,6 +457,8 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case AdaptionNeo4JPackage.NEO_PATH_PART___GET_NEO_LAST_EDGE:
+				return getNeoLastEdge();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
