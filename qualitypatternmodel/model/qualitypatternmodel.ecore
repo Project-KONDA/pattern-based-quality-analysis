@@ -1232,10 +1232,9 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="adaptionNeo4J" nsURI="adaptionNeo4J" nsPrefix="adaptionNeo4J">
-    <eClassifiers xsi:type="ecore:EClass" name="NeoAbstractNode" abstract="true" interface="true">
+    <eClassifiers xsi:type="ecore:EClass" name="NeoAbstractNode" abstract="true" interface="true"
+        eSuperTypes="#//adaptionNeo4J/NeoElement">
       <eOperations name="getCypherVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eOperations name="getCypherReturnVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodePlace" eType="#//adaptionNeo4J/NeoPlace"
           defaultValueLiteral="FOLLOWING"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isVariableDistinctInUse"
@@ -1338,12 +1337,10 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoPropertyPathParam"
           eType="#//adaptionNeo4J/NeoPropertyPathParam" eOpposite="#//adaptionNeo4J/NeoPropertyPathParam/neoPropertyEdge"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoAbstractEdge" abstract="true" eSuperTypes="#//graphstructure/Relation">
+    <eClassifiers xsi:type="ecore:EClass" name="NeoAbstractEdge" abstract="true" eSuperTypes="#//graphstructure/Relation #//adaptionNeo4J/NeoElement">
       <eOperations name="setIsReturnElement">
         <eParameters name="returnElement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eOperations>
-      <eOperations name="getReturnVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="getReturnInnerEdgeNodes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnElement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -1358,6 +1355,10 @@
     <eClassifiers xsi:type="ecore:EEnum" name="NeoPlace">
       <eLiterals name="BEGINNING"/>
       <eLiterals name="FOLLOWING" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NeoElement" abstract="true" interface="true">
+      <eOperations name="getCypherReturnVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

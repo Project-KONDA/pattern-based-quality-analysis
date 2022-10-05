@@ -76,13 +76,13 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 	}
 	
 	@Override
-	public EMap<Integer, String> getReturnVariable() throws InvalidityException {
+	public EMap<Integer, String> getCypherReturnVariable() throws InvalidityException {
 		EMap<Integer, String> returnElement;
 		if (getNeoPathParam() != null) {
 			if (getNeoPathParam().getNeoPathPart() == null) {
 				returnElement = null;
 			} else {
-				returnElement = super.getReturnVariable();
+				returnElement = super.getCypherReturnVariable();
 				String cypher = getNeoPathParam().getReturnVariable();
 				returnElement.put(NeoAbstractEdgeImpl.CYPHER_RETURN_ID, cypher);
 			}

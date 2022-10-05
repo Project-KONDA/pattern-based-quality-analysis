@@ -213,7 +213,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 			for (Relation r : graph.getRelations()) {
 				neoAbstractEdge = (NeoAbstractEdge) r;
 				if (r instanceof NeoAbstractEdge && ((NeoAbstractEdge) r).isReturnElement()) {
-					temp = neoAbstractEdge.getReturnVariable();
+					temp = neoAbstractEdge.getCypherReturnVariable();
 					if(r instanceof NeoPropertyEdge) {
 						if (temp != null) {
 							if (cypherEdge.length() != 0) cypherEdge.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
@@ -224,7 +224,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 					} else if(r instanceof NeoEdge) {
 						if (temp != null) {
 							if (cypherEdge.length() != 0) cypherEdge.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
-							cypherEdge.append(neoAbstractEdge.getReturnVariable());
+							cypherEdge.append(neoAbstractEdge.getCypherReturnVariable());
 							
 							appendInnerEdgeNodes(cypherInnerEdgeNodes, neoAbstractEdge);
 						}

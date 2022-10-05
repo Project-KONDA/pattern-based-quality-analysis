@@ -13,8 +13,8 @@ import qualitypatternmodel.graphstructure.tests.RelationTest;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#setIsReturnElement(boolean) <em>Set Is Return Element</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#getReturnVariable() <em>Get Return Variable</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -56,19 +56,6 @@ public abstract class NeoAbstractEdgeTest extends RelationTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#getReturnVariable() <em>Get Return Variable</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#getReturnVariable()
-	 * @generated
-	 */
-	public void testGetReturnVariable() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,6 +63,19 @@ public abstract class NeoAbstractEdgeTest extends RelationTest {
 	 * @generated
 	 */
 	public void testGetReturnInnerEdgeNodes() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoElement#getCypherReturnVariable()
+	 * @generated
+	 */
+	public void testGetCypherReturnVariable() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

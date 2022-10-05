@@ -4,72 +4,58 @@ package qualitypatternmodel.adaptionNeo4J.tests;
 
 import junit.framework.TestCase;
 
-import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
+import qualitypatternmodel.adaptionNeo4J.NeoElement;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Neo Abstract Node</b></em>'.
+ * A test case for the model object '<em><b>Neo Element</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getCypherVariable() <em>Get Cypher Variable</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}</li>
  * </ul>
  * </p>
  * @generated
  */
-public abstract class NeoAbstractNodeTest extends TestCase {
+public abstract class NeoElementTest extends TestCase {
 
 	/**
-	 * The fixture for this Neo Abstract Node test case.
+	 * The fixture for this Neo Element test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NeoAbstractNode fixture = null;
+	protected NeoElement fixture = null;
 
 	/**
-	 * Constructs a new Neo Abstract Node test case with the given name.
+	 * Constructs a new Neo Element test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NeoAbstractNodeTest(String name) {
+	public NeoElementTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Sets the fixture for this Neo Abstract Node test case.
+	 * Sets the fixture for this Neo Element test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(NeoAbstractNode fixture) {
+	protected void setFixture(NeoElement fixture) {
 		this.fixture = fixture;
 	}
 
 	/**
-	 * Returns the fixture for this Neo Abstract Node test case.
+	 * Returns the fixture for this Neo Element test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NeoAbstractNode getFixture() {
+	protected NeoElement getFixture() {
 		return fixture;
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getCypherVariable() <em>Get Cypher Variable</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getCypherVariable()
-	 * @generated
-	 */
-	public void testGetCypherVariable() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
 	}
 
 	/**
@@ -85,4 +71,4 @@ public abstract class NeoAbstractNodeTest extends TestCase {
 		fail();
 	}
 
-} //NeoAbstractNodeTest
+} //NeoElementTest

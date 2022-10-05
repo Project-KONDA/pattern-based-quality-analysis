@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
@@ -83,12 +82,12 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 	}
 	
 	@Override
-	public EMap<Integer, String> getReturnVariable() throws InvalidityException {
+	public EMap<Integer, String> getCypherReturnVariable() throws InvalidityException {
 		EMap<Integer, String> returnElement = null;
 		if (getNeoPropertyPathParam() != null) {
 			String cypher = getNeoPropertyPathParam().getReturnVariable();
 			if (cypher != null) {
-				returnElement = super.getReturnVariable();
+				returnElement = super.getCypherReturnVariable();
 				returnElement.put(NeoAbstractEdgeImpl.CYPHER_RETURN_ID, cypher);
 			}
 		} else {

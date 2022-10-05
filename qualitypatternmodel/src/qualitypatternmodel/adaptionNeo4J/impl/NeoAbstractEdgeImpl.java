@@ -3,7 +3,6 @@
 package qualitypatternmodel.adaptionNeo4J.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEMap;
 import org.eclipse.emf.common.util.EList;
@@ -12,6 +11,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoElement;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 
@@ -107,7 +107,7 @@ public abstract class NeoAbstractEdgeImpl extends RelationImpl implements NeoAbs
 	 * @generated NOT
 	 */
 	@Override
-	public EMap<Integer, String> getReturnVariable() throws InvalidityException {
+	public EMap<Integer, String> getCypherReturnVariable() throws InvalidityException {
 		return new BasicEMap<Integer, String>();
 	}
 
@@ -187,21 +187,37 @@ public abstract class NeoAbstractEdgeImpl extends RelationImpl implements NeoAbs
 	 * @generated
 	 */
 	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == NeoElement.class) {
+			switch (baseOperationID) {
+				case AdaptionNeo4JPackage.NEO_ELEMENT___GET_CYPHER_RETURN_VARIABLE: return AdaptionNeo4JPackage.NEO_ABSTRACT_EDGE___GET_CYPHER_RETURN_VARIABLE;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case AdaptionNeo4JPackage.NEO_ABSTRACT_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN:
 				setIsReturnElement((Boolean)arguments.get(0));
 				return null;
-			case AdaptionNeo4JPackage.NEO_ABSTRACT_EDGE___GET_RETURN_VARIABLE:
+			case AdaptionNeo4JPackage.NEO_ABSTRACT_EDGE___GET_RETURN_INNER_EDGE_NODES:
 				try {
-					return getReturnVariable();
+					return getReturnInnerEdgeNodes();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case AdaptionNeo4JPackage.NEO_ABSTRACT_EDGE___GET_RETURN_INNER_EDGE_NODES:
+			case AdaptionNeo4JPackage.NEO_ABSTRACT_EDGE___GET_CYPHER_RETURN_VARIABLE:
 				try {
-					return getReturnInnerEdgeNodes();
+					return getCypherReturnVariable();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

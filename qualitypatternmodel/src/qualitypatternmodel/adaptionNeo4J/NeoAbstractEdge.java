@@ -2,8 +2,6 @@
  */
 package qualitypatternmodel.adaptionNeo4J;
 
-import java.util.Map;
-
 import org.eclipse.emf.common.util.EMap;
 
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -25,7 +23,7 @@ import qualitypatternmodel.graphstructure.Relation;
  * @model abstract="true"
  * @generated
  */
-public interface NeoAbstractEdge extends Relation {
+public interface NeoAbstractEdge extends Relation, NeoElement {
 
 	/**
 	 * Returns the value of the '<em><b>Return Element</b></em>' attribute.
@@ -63,7 +61,7 @@ public interface NeoAbstractEdge extends Relation {
 	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated NOT
 	 */
-	EMap<Integer, String> getReturnVariable() throws InvalidityException;
+	EMap<Integer, String> getCypherReturnVariable() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -65,6 +65,43 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	AdaptionNeo4JPackage eINSTANCE = qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.NeoElement <em>Neo Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoElement
+	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoElement()
+	 * @generated
+	 */
+	int NEO_ELEMENT = 12;
+
+	/**
+	 * The number of structural features of the '<em>Neo Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Get Cypher Return Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT___GET_CYPHER_RETURN_VARIABLE = 0;
+
+	/**
+	 * The number of operations of the '<em>Neo Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_OPERATION_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode <em>Neo Abstract Node</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -81,7 +118,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_NODE__NODE_PLACE = 0;
+	int NEO_ABSTRACT_NODE__NODE_PLACE = NEO_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Is Variable Distinct In Use</b></em>' attribute.
@@ -90,7 +127,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_NODE__IS_VARIABLE_DISTINCT_IN_USE = 1;
+	int NEO_ABSTRACT_NODE__IS_VARIABLE_DISTINCT_IN_USE = NEO_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Neo Abstract Node</em>' class.
@@ -99,16 +136,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_NODE_FEATURE_COUNT = 2;
-
-	/**
-	 * The operation id for the '<em>Get Cypher Variable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ABSTRACT_NODE___GET_CYPHER_VARIABLE = 0;
+	int NEO_ABSTRACT_NODE_FEATURE_COUNT = NEO_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Cypher Return Variable</em>' operation.
@@ -117,7 +145,16 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_NODE___GET_CYPHER_RETURN_VARIABLE = 1;
+	int NEO_ABSTRACT_NODE___GET_CYPHER_RETURN_VARIABLE = NEO_ELEMENT___GET_CYPHER_RETURN_VARIABLE;
+
+	/**
+	 * The operation id for the '<em>Get Cypher Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ABSTRACT_NODE___GET_CYPHER_VARIABLE = NEO_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Neo Abstract Node</em>' class.
@@ -126,7 +163,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_NODE_OPERATION_COUNT = 2;
+	int NEO_ABSTRACT_NODE_OPERATION_COUNT = NEO_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl <em>Neo Node</em>}' class.
@@ -904,22 +941,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN;
 
 	/**
-	 * The operation id for the '<em>Get Cypher Variable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_NODE___GET_CYPHER_VARIABLE = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 0;
-
-	/**
 	 * The operation id for the '<em>Get Cypher Return Variable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE___GET_CYPHER_RETURN_VARIABLE = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 1;
+	int NEO_NODE___GET_CYPHER_RETURN_VARIABLE = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Cypher Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE___GET_CYPHER_VARIABLE = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Add String Label</em>' operation.
@@ -1462,22 +1499,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_ABSTRACT_EDGE___ADAPT_AS_PROPERTY_EDGE = GraphstructurePackage.RELATION___ADAPT_AS_PROPERTY_EDGE;
 
 	/**
+	 * The operation id for the '<em>Get Cypher Return Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ABSTRACT_EDGE___GET_CYPHER_RETURN_VARIABLE = GraphstructurePackage.RELATION_OPERATION_COUNT + 0;
+
+	/**
 	 * The operation id for the '<em>Set Is Return Element</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN = GraphstructurePackage.RELATION_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Get Return Variable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ABSTRACT_EDGE___GET_RETURN_VARIABLE = GraphstructurePackage.RELATION_OPERATION_COUNT + 1;
+	int NEO_ABSTRACT_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN = GraphstructurePackage.RELATION_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Return Inner Edge Nodes</em>' operation.
@@ -1939,6 +1976,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_EDGE___ADAPT_AS_PROPERTY_EDGE = NEO_ABSTRACT_EDGE___ADAPT_AS_PROPERTY_EDGE;
 
 	/**
+	 * The operation id for the '<em>Get Cypher Return Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE___GET_CYPHER_RETURN_VARIABLE = NEO_ABSTRACT_EDGE___GET_CYPHER_RETURN_VARIABLE;
+
+	/**
 	 * The operation id for the '<em>Set Is Return Element</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1946,15 +1992,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN = NEO_ABSTRACT_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Get Return Variable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_EDGE___GET_RETURN_VARIABLE = NEO_ABSTRACT_EDGE___GET_RETURN_VARIABLE;
 
 	/**
 	 * The operation id for the '<em>Get Return Inner Edge Nodes</em>' operation.
@@ -3838,22 +3875,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PROPERTY_NODE___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE = GraphstructurePackage.PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE;
 
 	/**
-	 * The operation id for the '<em>Get Cypher Variable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NODE___GET_CYPHER_VARIABLE = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 0;
-
-	/**
 	 * The operation id for the '<em>Get Cypher Return Variable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE___GET_CYPHER_RETURN_VARIABLE = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 1;
+	int NEO_PROPERTY_NODE___GET_CYPHER_RETURN_VARIABLE = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Cypher Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___GET_CYPHER_VARIABLE = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Generate Cypher Property Addressing</em>' operation.
@@ -5585,6 +5622,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PROPERTY_EDGE___ADAPT_AS_PROPERTY_EDGE = NEO_ABSTRACT_EDGE___ADAPT_AS_PROPERTY_EDGE;
 
 	/**
+	 * The operation id for the '<em>Get Cypher Return Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_EDGE___GET_CYPHER_RETURN_VARIABLE = NEO_ABSTRACT_EDGE___GET_CYPHER_RETURN_VARIABLE;
+
+	/**
 	 * The operation id for the '<em>Set Is Return Element</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5592,15 +5638,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN = NEO_ABSTRACT_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Get Return Variable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_EDGE___GET_RETURN_VARIABLE = NEO_ABSTRACT_EDGE___GET_RETURN_VARIABLE;
 
 	/**
 	 * The operation id for the '<em>Get Return Inner Edge Nodes</em>' operation.
@@ -5646,7 +5683,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoDirection()
 	 * @generated
 	 */
-	int NEO_DIRECTION = 12;
+	int NEO_DIRECTION = 13;
 
 
 	/**
@@ -5657,7 +5694,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoPlace()
 	 * @generated
 	 */
-	int NEO_PLACE = 13;
+	int NEO_PLACE = 14;
 
 
 	/**
@@ -5701,16 +5738,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getNeoAbstractNode__GetCypherVariable();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Cypher Return Variable</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getCypherReturnVariable()
-	 * @generated
-	 */
-	EOperation getNeoAbstractNode__GetCypherReturnVariable();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoNode <em>Neo Node</em>}'.
@@ -6213,16 +6240,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EOperation getNeoAbstractEdge__SetIsReturnElement__boolean();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#getReturnVariable() <em>Get Return Variable</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Return Variable</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#getReturnVariable()
-	 * @generated
-	 */
-	EOperation getNeoAbstractEdge__GetReturnVariable();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6261,6 +6278,26 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getNeoAbstractPathParam__GetReturnInnerEdgeNodes();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoElement <em>Neo Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Neo Element</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoElement
+	 * @generated
+	 */
+	EClass getNeoElement();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Cypher Return Variable</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoElement#getCypherReturnVariable()
+	 * @generated
+	 */
+	EOperation getNeoElement__GetCypherReturnVariable();
 
 	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.adaptionNeo4J.NeoDirection <em>Neo Direction</em>}'.
@@ -6338,14 +6375,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NEO_ABSTRACT_NODE___GET_CYPHER_VARIABLE = eINSTANCE.getNeoAbstractNode__GetCypherVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Cypher Return Variable</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NEO_ABSTRACT_NODE___GET_CYPHER_RETURN_VARIABLE = eINSTANCE.getNeoAbstractNode__GetCypherReturnVariable();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl <em>Neo Node</em>}' class.
@@ -6752,14 +6781,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EOperation NEO_ABSTRACT_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN = eINSTANCE.getNeoAbstractEdge__SetIsReturnElement__boolean();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Return Variable</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NEO_ABSTRACT_EDGE___GET_RETURN_VARIABLE = eINSTANCE.getNeoAbstractEdge__GetReturnVariable();
-
-		/**
 		 * The meta object literal for the '<em><b>Get Return Inner Edge Nodes</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6792,6 +6813,24 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NEO_ABSTRACT_PATH_PARAM___GET_RETURN_INNER_EDGE_NODES = eINSTANCE.getNeoAbstractPathParam__GetReturnInnerEdgeNodes();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.NeoElement <em>Neo Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.adaptionNeo4J.NeoElement
+		 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoElement()
+		 * @generated
+		 */
+		EClass NEO_ELEMENT = eINSTANCE.getNeoElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Cypher Return Variable</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_ELEMENT___GET_CYPHER_RETURN_VARIABLE = eINSTANCE.getNeoElement__GetCypherReturnVariable();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.NeoDirection <em>Neo Direction</em>}' enum.

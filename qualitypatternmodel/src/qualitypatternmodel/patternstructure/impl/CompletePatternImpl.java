@@ -478,7 +478,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		for (Relation n : graph.getRelations()) {
 			neoAbstractEdge = (NeoAbstractEdge) n;
 			if (neoAbstractEdge.isReturnElement()) {
-				tempMap = neoAbstractEdge.getReturnVariable();
+				tempMap = neoAbstractEdge.getCypherReturnVariable();
 				if (tempMap.keySet().stream().count() != 1)
 					throw new InvalidityException("find a matching name");
 				for (Map.Entry<Integer, String> entry : tempMap.entrySet()) {

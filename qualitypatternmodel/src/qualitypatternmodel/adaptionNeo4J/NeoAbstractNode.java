@@ -3,7 +3,6 @@
 package qualitypatternmodel.adaptionNeo4J;
 
 import org.eclipse.emf.common.util.EMap;
-import org.eclipse.emf.ecore.EObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 
 /**
@@ -23,7 +22,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface NeoAbstractNode extends EObject {
+public interface NeoAbstractNode extends NeoElement {
 
 	/**
 	 * Returns the value of the '<em><b>Node Place</b></em>' attribute.
