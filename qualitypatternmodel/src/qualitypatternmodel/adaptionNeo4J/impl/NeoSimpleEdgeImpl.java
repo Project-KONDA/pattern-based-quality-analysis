@@ -175,7 +175,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		
 		if (getNeoTargetNodeLabels() != null && getNeoTargetNodeLabels().getValues().size() != 0) {
 			cypher.append("(");
-			cypher.append(getCypherInnerEdgeNodes());
+			cypher.append(getCypherInnerEdgeNodes(false));
 			if (withLabels) {
 				EList<String> labels = getNeoTargetNodeLabels().getValues();
 				for (String label : labels) {
@@ -226,7 +226,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 * @generated NOT
 	 */
 	@Override
-	public String getCypherInnerEdgeNodes() throws InvalidityException {
+	public String getCypherInnerEdgeNodes(Boolean isReturn) throws InvalidityException {
 		if (getNeoTargetNodeLabels() == null || getNeoTargetNodeLabels().getValues().size() == 0) {
 			return null;
 		} else if (!isLastEdge) {

@@ -2278,7 +2278,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PART___GET_CYPHER_INNER_EDGE_NODES = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
+	int NEO_PATH_PART___GET_CYPHER_INNER_EDGE_NODES__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Neo Path Part</em>' class.
@@ -2602,7 +2602,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_COMPLEX_EDGE___GET_CYPHER_INNER_EDGE_NODES = NEO_PATH_PART___GET_CYPHER_INNER_EDGE_NODES;
+	int NEO_COMPLEX_EDGE___GET_CYPHER_INNER_EDGE_NODES__BOOLEAN = NEO_PATH_PART___GET_CYPHER_INNER_EDGE_NODES__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Validate Complex Edge</em>' operation.
@@ -2980,7 +2980,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE___GET_CYPHER_INNER_EDGE_NODES = NEO_PATH_PART___GET_CYPHER_INNER_EDGE_NODES;
+	int NEO_SIMPLE_EDGE___GET_CYPHER_INNER_EDGE_NODES__BOOLEAN = NEO_PATH_PART___GET_CYPHER_INNER_EDGE_NODES__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Set Neo Direction</em>' operation.
@@ -5958,14 +5958,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EOperation getNeoPathPart__IsLastEdge();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherInnerEdgeNodes() <em>Get Cypher Inner Edge Nodes</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherInnerEdgeNodes(boolean) <em>Get Cypher Inner Edge Nodes</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Cypher Inner Edge Nodes</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherInnerEdgeNodes()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherInnerEdgeNodes(boolean)
 	 * @generated
 	 */
-	EOperation getNeoPathPart__GetCypherInnerEdgeNodes();
+	EOperation getNeoPathPart__GetCypherInnerEdgeNodes__boolean();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode <em>Neo Property Node</em>}'.
@@ -6534,7 +6534,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation NEO_PATH_PART___GET_CYPHER_INNER_EDGE_NODES = eINSTANCE.getNeoPathPart__GetCypherInnerEdgeNodes();
+		EOperation NEO_PATH_PART___GET_CYPHER_INNER_EDGE_NODES__BOOLEAN = eINSTANCE.getNeoPathPart__GetCypherInnerEdgeNodes__boolean();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyNodeImpl <em>Neo Property Node</em>}' class.

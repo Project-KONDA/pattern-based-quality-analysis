@@ -148,8 +148,8 @@ public interface NeoPathPart extends PatternElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	String getCypherInnerEdgeNodes() throws InvalidityException;
+	String getCypherInnerEdgeNodes(boolean isReturn) throws InvalidityException;
 } // NeoPathPart
