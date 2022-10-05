@@ -25,6 +25,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyPathParamImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -94,11 +95,27 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	//Es ein Simples Count
 	//Count ist für die anderen CONDITIONS als Unsuported makiert, da Cypher v4.4 und niedriger keine Verschachtelungen zulässt
 	
-	protected Set<NeoAbstractNode> countElements;
-	public void setCountElements(Set<NeoAbstractNode> countElements) {
+	protected Set<NeoAbstractNode> countElementNodes; //Nodes --> keine PATH/Edges/Properties implementiert
+//	protected Set<NeoAbstractEdge> countElementEdges; //Edges
+//	protected Set<NeoPropertyPathParamImpl> countProperties; //Properties
+	
+	//Add to Ecore?
+	public void setCountElementNodes(Set<NeoAbstractNode> countElements) {
 		Set<NeoAbstractNode> cloned_list = new HashSet<NeoAbstractNode>(countElements); //Maybe replace by LinkedHashSet
-		this.countElements = cloned_list;
+		this.countElementNodes = cloned_list;
 	}
+	
+//	//Add to Ecore?
+//	public void setCountElementEdges(Set<NeoAbstractEdge> countElements) {
+//		Set<NeoAbstractEdge> cloned_list = new HashSet<NeoAbstractEdge>(countElements); //Maybe replace by LinkedHashSet
+//		this.countElementEdges = cloned_list;
+//	}
+//	
+//	//Add to Ecore?
+//	public void setCountProperties(Set<NeoPropertyPathParamImpl> countElements) {
+//		Set<NeoPropertyPathParamImpl> cloned_list = new HashSet<NeoPropertyPathParamImpl>(countProperties); //Maybe replace by LinkedHashSet
+//		this.countProperties = cloned_list;
+//	}
 	
 	@Override 
 	public String generateCypher() throws InvalidityException {
@@ -116,11 +133,11 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	
 	//Just focused on Nodes... relations and path have to follow later (FUTURE WORK)
 	protected final EMap<NeoAbstractNode, String> generateCypherCounters() throws InvalidityException {
-		if (countElements.size() > 0) {
+		if (countElementNodes.size() > 0) {
 			EMap<NeoAbstractNode, String> myCounters = new BasicEMap<NeoAbstractNode, String>();
 			String temp;
 			int i = 1;
-			for (NeoAbstractNode n : countElements) {
+			for (NeoAbstractNode n : countElementNodes) {
 				if (n instanceof NeoNode || (n instanceof NeoPropertyNode && ((NeoPropertyEdge)((Node) n).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() != null )) {
 					temp = createMyCounterString(n, i);
 					myCounters.put(n, temp);
@@ -136,8 +153,8 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		throw new InvalidityException("CountPattern - No Count Elements exists");
 	}
 	
+	//Node-Counter
 	private String createMyCounterString(NeoAbstractNode countElement, int countCounter) {
-		//Consider the Property counting
 		String temp;
 		temp = CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT;
 		temp = String.format(temp, countElement.getCypherVariable());
@@ -146,14 +163,22 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	}
 	
 	//Property-Counting
-	private String createMyCounterString(NeoPropertyNode countElement, int countCounter) throws InvalidityException {
-		String temp;
-		temp = CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT;
-		temp = String.format(temp, countElement.generateCypherPropertyAddressing());
-		temp += CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_ALIAS_CALL + CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT_NAMING + countCounter;
-		return temp;
-	}
+//	private String createMyCounterString(NeoPropertyPathParamImpl countElement, int countCounter) throws InvalidityException {
+//		String temp;
+//		temp = CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT;
+//		temp = String.format(temp, countElement.getNeoPropertyEdge().generateCypherPropertyAddressing());
+//		temp += CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_ALIAS_CALL + CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT_NAMING + countCounter;
+//		return temp;
+//	}
 	
+	//Edge-Counting
+//	private String createMyCounterString(NeoAbstractEdge countElement, int countCounter) throws InvalidityException {
+//		String temp;
+//		temp = CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT;
+//		temp = String.format(temp, countElement.generateC);
+//		temp += CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_ALIAS_CALL + CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT_NAMING + countCounter;
+//		return temp;
+//	}
 	
 	//Needs refactoring --> Get all return elements from the original Graph and puts it into the WITH except properties - This can be accessed as long as the Node is in the with
 	protected String generateCypherWith() throws InvalidityException {
@@ -165,7 +190,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		}
 		
 		if (g.getRelations().size() > 0) {
-			cypher.append(generateCypherReturnEdges(""));
+			cypher.append(generateCypherReturnEdges(cypher.toString()));
 		}
 		
 		return cypher.toString();
@@ -197,7 +222,9 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	private String joiningReturnValues(String cypher, final Map<Integer, String> cypherReturn,
 			final StringBuilder cypherSb) {
 		for (Map.Entry<Integer, String> mapElement : cypherReturn.entrySet()) {	  
-			cypherSb.append(", ");
+			if (cypherSb.length() != 0) {
+				cypherSb.append(", ");
+			}
 			cypherSb.append(mapElement.getValue()); //--> Check the case what would be if there is a null
 		}
 		if (cypherSb.length() != 0) {

@@ -226,9 +226,9 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 									+ CypherSpecificConstants.ONE_WHITESPACES;
 				whereClause += cond;
 			}
-		} else {
-			throw new UnsupportedOperationException("Find matching Exception Naming");
-		}
+		} //else {
+			//throw new UnsupportedOperationException("Find matching Exception Naming");
+		//}
 		if (whereClause.length() != 0) whereClause = CypherSpecificConstants.CLAUSE_WHERE + " " + whereClause;
 		if (whereClause.length() == 0) whereClause = "";
 		

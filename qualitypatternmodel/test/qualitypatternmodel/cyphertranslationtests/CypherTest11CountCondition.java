@@ -52,7 +52,7 @@ public class CypherTest11CountCondition {
 		CountPatternImpl countPatternImpl = (CountPatternImpl) countCond.getCountPattern();
 		Set<NeoAbstractNode> countElements = new HashSet<NeoAbstractNode>();
 		countElements.add((NeoAbstractNode) countPatternImpl.getGraph().getNodes().get(1));
-		countPatternImpl.setCountElements(countElements);
+		countPatternImpl.setCountElementNodes(countElements);
 		
 		Graph g = countCond.getCountPattern().getGraph();
 		NeoNode neoNode = (NeoNode) g.getNodes().get(0);
