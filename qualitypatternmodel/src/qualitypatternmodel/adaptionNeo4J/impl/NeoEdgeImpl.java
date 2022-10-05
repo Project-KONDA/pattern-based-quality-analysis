@@ -4,6 +4,7 @@ package qualitypatternmodel.adaptionNeo4J.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -75,15 +76,20 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 	}
 	
 	@Override
-	public String getReturnVariable() throws InvalidityException {
+	public EMap<Integer, String> getReturnVariable() throws InvalidityException {
+		EMap<Integer, String> returnElement;
 		if (getNeoPathParam() != null) {
 			if (getNeoPathParam().getNeoPathPart() == null) {
-				return null;
+				returnElement = null;
+			} else {
+				returnElement = super.getReturnVariable();
+				String cypher = getNeoPathParam().getReturnVariable();
+				returnElement.put(NeoAbstractEdgeImpl.CYPHER_RETURN_ID, cypher);
 			}
+		} else {
+			throw new InvalidityException("No NeoPathParam need to be set");
 		}
-		
-		String cypher = getNeoPathParam().getReturnVariable();	
-		return cypher;
+		return returnElement;
 	}
 	
 	@Override

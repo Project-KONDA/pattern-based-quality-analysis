@@ -2,6 +2,10 @@
  */
 package qualitypatternmodel.adaptionNeo4J;
 
+import java.util.Map;
+
+import org.eclipse.emf.common.util.EMap;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Relation;
 
@@ -57,9 +61,9 @@ public interface NeoAbstractEdge extends Relation {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
+	 * @generated NOT
 	 */
-	String getReturnVariable() throws InvalidityException;
+	EMap<Integer, String> getReturnVariable() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -1112,7 +1112,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		op = initEOperation(getNeoAbstractEdge__SetIsReturnElement__boolean(), null, "setIsReturnElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "returnElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getNeoAbstractEdge__GetReturnVariable(), ecorePackage.getEString(), "getReturnVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNeoAbstractEdge__GetReturnVariable(), ecorePackage.getEMap(), "getReturnVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getNeoAbstractEdge__GetReturnInnerEdgeNodes(), ecorePackage.getEString(), "getReturnInnerEdgeNodes", 0, 1, IS_UNIQUE, IS_ORDERED);

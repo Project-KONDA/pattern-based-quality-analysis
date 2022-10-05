@@ -3091,6 +3091,21 @@
               <element xsi:nil="true"/>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_l7euJUMtEe2WX7pgGf7SHQ" x="23" y="693" width="133"/>
             </children>
+            <children xmi:type="notation:Shape" xmi:id="_zKrsgESwEe2kztuV4T7hhA" type="Note" fontName="Segoe UI" description="Some Methods in NeoAbstractEdge &amp; -Node are  similar how to combine" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_zKrsgUSwEe2kztuV4T7hhA" source="specificStyles">
+                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_zKrsgkSwEe2kztuV4T7hhA" key="verticalAlignment" value="8"/>
+              </eAnnotations>
+              <children xmi:type="notation:BasicDecorationNode" xmi:id="_zKsTkESwEe2kztuV4T7hhA" type="DiagramName">
+                <element xsi:nil="true"/>
+              </children>
+              <children xmi:type="notation:BasicDecorationNode" xmi:id="_zKs6oESwEe2kztuV4T7hhA" type="Description">
+                <element xsi:nil="true"/>
+              </children>
+              <styles xmi:type="notation:TextStyle" xmi:id="_zKrsg0SwEe2kztuV4T7hhA" textAlignment="Center"/>
+              <styles xmi:type="notation:LineTypeStyle" xmi:id="_zKrshESwEe2kztuV4T7hhA"/>
+              <element xsi:nil="true"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zKrshUSwEe2kztuV4T7hhA" x="475" y="44" width="121"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_TKib4gLoEe2GF_6PqNgKEg"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_TKib4wLoEe2GF_6PqNgKEg"/>
           </children>
@@ -13299,7 +13314,7 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
         </ownedElements>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_vCN7oB77Ee20H_6KewSmww" name="NeoAbstractEdge" tooltipText="" outgoingEdges="_G6wTMCLPEe23B9jt7anp1g" incomingEdges="_VGa8QR-kEe2-_fv40TsrYQ _cfSnPx-kEe2-_fv40TsrYQ" width="12" height="10">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_vCN7oB77Ee20H_6KewSmww" name="NeoAbstractEdge" tooltipText="&#xA;WARNING : The generic type associated with the 'EMap' classifier should have 2 type argument(s) to match the number of type parameter(s) of the classifier " outgoingEdges="_G6wTMCLPEe23B9jt7anp1g" incomingEdges="_VGa8QR-kEe2-_fv40TsrYQ _cfSnPx-kEe2-_fv40TsrYQ" width="12" height="10">
         <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractEdge"/>
         <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractEdge"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -13327,7 +13342,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_OjkYUEATEe20BLrY6Ta8OQ" name="getReturnVariable() : EString" tooltipText="getReturnVariable() : EString">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_OjkYUEATEe20BLrY6Ta8OQ" name="getReturnVariable() : EMap" tooltipText="getReturnVariable() : EMap">
           <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractEdge/getReturnVariable"/>
           <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractEdge/getReturnVariable"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_Oj-A8EATEe20BLrY6Ta8OQ" labelAlignment="LEFT">

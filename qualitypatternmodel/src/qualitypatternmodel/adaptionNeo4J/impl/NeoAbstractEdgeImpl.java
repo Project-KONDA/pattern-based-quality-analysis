@@ -3,8 +3,11 @@
 package qualitypatternmodel.adaptionNeo4J.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEMap;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
@@ -26,6 +29,7 @@ import qualitypatternmodel.graphstructure.impl.RelationImpl;
  * @generated
  */
 public abstract class NeoAbstractEdgeImpl extends RelationImpl implements NeoAbstractEdge {
+	protected static final int CYPHER_RETURN_ID = 0;
 	/**
 	 * The default value of the '{@link #isReturnElement() <em>Return Element</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -100,13 +104,11 @@ public abstract class NeoAbstractEdgeImpl extends RelationImpl implements NeoAbs
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
-	public String getReturnVariable() throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public EMap<Integer, String> getReturnVariable() throws InvalidityException {
+		return new BasicEMap<Integer, String>();
 	}
 
 	/**

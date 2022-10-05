@@ -1342,7 +1342,7 @@
       <eOperations name="setIsReturnElement">
         <eParameters name="returnElement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eOperations>
-      <eOperations name="getReturnVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+      <eOperations name="getReturnVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="getReturnInnerEdgeNodes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>

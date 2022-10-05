@@ -7,12 +7,14 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
+import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
@@ -81,9 +83,19 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 	}
 	
 	@Override
-	public String getReturnVariable() throws InvalidityException {
-		String cypher = getNeoPropertyPathParam().getReturnVariable();	
-		return cypher;
+	public EMap<Integer, String> getReturnVariable() throws InvalidityException {
+		EMap<Integer, String> returnElement = null;
+		if (getNeoPropertyPathParam() != null) {
+			String cypher = getNeoPropertyPathParam().getReturnVariable();
+			if (cypher != null) {
+				returnElement = super.getReturnVariable();
+				returnElement.put(NeoAbstractEdgeImpl.CYPHER_RETURN_ID, cypher);
+			}
+		} else {
+			throw new InvalidityException("No NeoPropertyPathParam need to be set"); 
+		}
+		
+		return returnElement;
 	}
 	
 	@Override

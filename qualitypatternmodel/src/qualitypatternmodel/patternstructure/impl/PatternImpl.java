@@ -221,7 +221,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 				whereClause += cond;
 			}
 		} else {
-			//DO NOTHING
+			throw new UnsupportedOperationException("Find matching Exception Naming");
 		}
 		if (whereClause.length() != 0) whereClause = CypherSpecificConstants.CLAUSE_WHERE + " " + whereClause;
 		if (whereClause.length() == 0) whereClause = "";

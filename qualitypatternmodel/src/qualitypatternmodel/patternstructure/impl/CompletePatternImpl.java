@@ -425,113 +425,73 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		cypher = generateCypherReturnEdges(cypher);
 		return cypher;
 	}
-
-
-	String generateCypherReturnEdges(String cypher) throws InvalidityException {
-		if (graph.getRelations().size() != 0) {
-			final StringBuilder cypherEdge = new StringBuilder();
-			final StringBuilder cypherInnerEdgeNodes = new StringBuilder();
-			String temp;
-			NeoAbstractEdge neoAbstractEdge;
-			
-			
-			for (Relation r : graph.getRelations()) {
-				neoAbstractEdge = (NeoAbstractEdge) r;
-				if (r instanceof NeoAbstractEdge && ((NeoAbstractEdge) r).isReturnElement()) {
-					temp = neoAbstractEdge.getReturnVariable();
-					if(r instanceof NeoPropertyEdge) {
-						if (temp != null) {
-							if (cypherEdge.length() != 0) cypherEdge.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
-							cypherEdge.append(temp);
-							appendInnerEdgeNodes(cypherInnerEdgeNodes, neoAbstractEdge);
-						}
-					} else if(r instanceof NeoEdge) {
-						if (temp != null) {
-							if (cypherEdge.length() != 0) cypherEdge.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
-							cypherEdge.append(neoAbstractEdge.getReturnVariable());
-							appendInnerEdgeNodes(cypherInnerEdgeNodes, neoAbstractEdge);
-						}
-					}
-				}
-			}
-			if (cypherEdge.length() != 0) {
-				if (cypher.length() != 0) {
-					cypher += ", " + "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherEdge.toString();
-				} else {
-					cypher = CypherSpecificConstants.ONE_WHITESPACES + cypherEdge.toString();
-				}
-			}
-			if (cypherInnerEdgeNodes.length() != 0) {
-				if (cypher.length() != 0) {
-					cypher += ", " + "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherInnerEdgeNodes.toString();
-				} else {
-					cypher = CypherSpecificConstants.ONE_WHITESPACES + cypherInnerEdgeNodes.toString();
-				}
-			}
-		}
-		return cypher;
-	}
-
+	
 	String generateCypherReturnNodes(String cypher) throws InvalidityException {
-		if (graph.getNodes().size() != 0 ) {
-			final Map<Integer, String> cypherReturn = buildCypherNodesSortedMap();
+		if (graph.getNodes().size() != 0) {
 			//Building the generic Nodes for Return
-			for (Map.Entry<Integer, String> mapElement : cypherReturn.entrySet()) {	  
-	            if (cypher.length() != 0) {
-	            	cypher += ", " + "\n";
-	            	cypher += CypherSpecificConstants.SIX_WHITESPACES;
-	            } else {
-	            	cypher = CypherSpecificConstants.ONE_WHITESPACES;
-	            }
-				cypher += mapElement.getValue();
-	        }
+			final Map<Integer, String> cypherReturn = buildCypherNodesSortedMap();
+			cypher = buildCypherMainReturnTypes(cypher, cypherReturn);
 			
-			//Adding the Addressing
+			//Adding the Addressing NodeX.PropertyY
 			cypher = buildCypherSpecialNodeString(cypher);
 		}
 		
 		return cypher;
 	}
 
-
-	private String buildCypherSpecialNodeString(String cypher) throws InvalidityException {
-		final StringBuilder cypherNeoProperties = new StringBuilder();
-		generatingCypherPropertyAddressingString(cypherNeoProperties);
-		if (cypherNeoProperties.length() != 0) {
+	String generateCypherReturnEdges(String cypher) throws InvalidityException {
+		if (graph.getRelations().size() != 0) {
+			//Building the generic Relations for Return
+			final Map<Integer, String> cypherReturn = buildCypherEdgesSortedMap();
+			cypher = buildCypherMainReturnTypes(cypher, cypherReturn);
+			
+			//Adding the Inner Edges to the Return
+			cypher = generateCypherSpecificInnerEdges(cypher);
+		}
+		return cypher;
+	}
+	
+	private String generateCypherSpecificInnerEdges(String cypher) throws InvalidityException {
+		final StringBuilder cypherInnerEdgeNodes = new StringBuilder();
+		NeoAbstractEdge neoAbstractEdge;
+		for (Relation r : graph.getRelations()) {
+			neoAbstractEdge = (NeoAbstractEdge) r;
+			appendInnerEdgeNodes(cypherInnerEdgeNodes, neoAbstractEdge);
+		}
+		if (cypherInnerEdgeNodes.length() != 0) {
 			if (cypher.length() != 0) {
-				cypher += ", " + "\n";
-				cypher += CypherSpecificConstants.SIX_WHITESPACES;
-		    	cypher += cypherNeoProperties.toString();
+				cypher += ", " + "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherInnerEdgeNodes.toString();
 			} else {
-				cypher = CypherSpecificConstants.ONE_WHITESPACES;
-				cypher += cypherNeoProperties.toString();
+				cypher = CypherSpecificConstants.ONE_WHITESPACES + cypherInnerEdgeNodes.toString();
 			}
 		}
 		return cypher;
 	}
-
-	private final Map<Integer, String> buildCypherNodesSortedMap() throws InvalidityException {
+	
+	private final Map<Integer, String> buildCypherEdgesSortedMap() throws InvalidityException {
 		final Map<Integer, StringBuilder> cypherReturn = new TreeMap<Integer, StringBuilder>();
-		NeoAbstractNode neoAbstractNode;
+		NeoAbstractEdge neoAbstractEdge;
 		EMap<Integer, String> tempMap;
 		StringBuilder tempSb;
 		Integer i;
 		
-		for (Node n : graph.getNodes()) {
-			neoAbstractNode = (NeoAbstractNode) n;
-			tempMap = neoAbstractNode.getCypherReturnVariable();
-			if (tempMap.keySet().stream().count() != 1)
-				throw new InvalidityException("find a matching name");
-			for (Map.Entry<Integer, String> entry : tempMap.entrySet()) {
-			    i = entry.getKey();
-			    if (cypherReturn.get(i) == null) {
-			    	tempSb = new StringBuilder();
-			    	tempSb.append(entry.getValue());
-			    	cypherReturn.put(i, tempSb);
-			    } else {
-			    	tempSb = cypherReturn.get(i);
-			    	tempSb.append(", " + entry.getValue());
-			    }
+		for (Relation n : graph.getRelations()) {
+			neoAbstractEdge = (NeoAbstractEdge) n;
+			if (neoAbstractEdge.isReturnElement()) {
+				tempMap = neoAbstractEdge.getReturnVariable();
+				if (tempMap.keySet().stream().count() != 1)
+					throw new InvalidityException("find a matching name");
+				for (Map.Entry<Integer, String> entry : tempMap.entrySet()) {
+				    i = entry.getKey();
+				    if (cypherReturn.get(i) == null) {
+				    	tempSb = new StringBuilder();
+				    	tempSb.append(entry.getValue());
+				    	cypherReturn.put(i, tempSb);
+				    } else {
+				    	tempSb = cypherReturn.get(i);
+				    	tempSb.append(", " + entry.getValue());
+				    }
+				}
 			}
 		}
 		
@@ -542,7 +502,55 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		return Collections.unmodifiableMap(cypherReturnFixed);
 	}
 
+	private final Map<Integer, String> buildCypherNodesSortedMap() throws InvalidityException {
+		final Map<Integer, StringBuilder> cypherReturn = new TreeMap<Integer, StringBuilder>();
+		NeoAbstractNode neoAbstractNode;
+		EMap<Integer, String> tempMap;
+		StringBuilder tempSb;
+		Integer i;
+		
+		for (Node n : graph.getNodes()) {
+			if (n.isReturnNode()) {
+				neoAbstractNode = (NeoAbstractNode) n;
+				tempMap = neoAbstractNode.getCypherReturnVariable();
+				if (tempMap.keySet().stream().count() != 1)
+					throw new InvalidityException("find a matching name");
+				for (Map.Entry<Integer, String> entry : tempMap.entrySet()) {
+				    i = entry.getKey();
+				    if (cypherReturn.get(i) == null) {
+				    	tempSb = new StringBuilder();
+				    	tempSb.append(entry.getValue());
+				    	cypherReturn.put(i, tempSb);
+				    } else {
+				    	tempSb = cypherReturn.get(i);
+				    	tempSb.append(", " + entry.getValue());
+				    }
+				}
+			}
+		}
+		
+		Map<Integer, String> cypherReturnFixed = new TreeMap<Integer, String>();
+		for (Map.Entry<Integer, StringBuilder> entry : cypherReturn.entrySet()) {
+			cypherReturnFixed.put(entry.getKey(), entry.getValue().toString());
+		}
+		return Collections.unmodifiableMap(cypherReturnFixed);
+	}
 
+	private String buildCypherSpecialNodeString(String cypher) throws InvalidityException {
+		final StringBuilder cypherNeoProperties = new StringBuilder();
+		generatingCypherPropertyAddressingString(cypherNeoProperties);
+		if (cypherNeoProperties.length() != 0) {
+			if (cypher.length() != 0) {
+				cypher += ", " + "\n";
+				cypher += CypherSpecificConstants.SIX_WHITESPACES;
+			} else {
+				cypher = CypherSpecificConstants.ONE_WHITESPACES;
+			}
+			cypher += cypherNeoProperties.toString();
+		}
+		return cypher;
+	}
+	
 	private void generatingCypherPropertyAddressingString(final StringBuilder cypherNeoProperties)
 			throws InvalidityException {
 		NeoPropertyNode neoPropertyNode;
@@ -555,7 +563,18 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		}
 	}
 	
-	
+	private String buildCypherMainReturnTypes(String cypher, final Map<Integer, String> cypherReturn) {
+		for (Map.Entry<Integer, String> mapElement : cypherReturn.entrySet()) {	  
+		    if (cypher.length() != 0) {
+		    	cypher += ", " + "\n";
+		    	cypher += CypherSpecificConstants.SIX_WHITESPACES;
+		    } else {
+		    	cypher = CypherSpecificConstants.ONE_WHITESPACES;
+		    }
+			cypher += mapElement.getValue();
+		}
+		return cypher;
+	}
 	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
