@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoElement;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
@@ -380,6 +381,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		return query;
 	}
 	
+	//BEGIN - NEO4J/CYPHER
 	@Override
 	public String generateCypher() throws InvalidityException {		
 		initializeTranslation();
@@ -426,11 +428,11 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		return cypher;
 	}
 	
-	String generateCypherReturnNodes(String cypher) throws InvalidityException {
+	protected String generateCypherReturnNodes(String cypher) throws InvalidityException {
 		if (graph.getNodes().size() != 0) {
 			//Building the generic Nodes for Return
-			final Map<Integer, String> cypherReturn = buildCypherNodesSortedMap();
-			cypher = buildCypherMainReturnTypes(cypher, cypherReturn);
+			final Map<Integer, String> cypherReturn = buildCypherReturnSortedMap(true);
+			cypher = formattingCypherReturnTypes(cypher, cypherReturn);
 			
 			//Adding the Addressing NodeX.PropertyY
 			cypher = buildCypherSpecialNodeString(cypher);
@@ -439,25 +441,20 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		return cypher;
 	}
 
-	String generateCypherReturnEdges(String cypher) throws InvalidityException {
+	protected String generateCypherReturnEdges(String cypher) throws InvalidityException {
 		if (graph.getRelations().size() != 0) {
 			//Building the generic Relations for Return
-			final Map<Integer, String> cypherReturn = buildCypherEdgesSortedMap();
-			cypher = buildCypherMainReturnTypes(cypher, cypherReturn);
+			final Map<Integer, String> cypherReturn = buildCypherReturnSortedMap(false);
+			cypher = formattingCypherReturnTypes(cypher, cypherReturn);
 			
 			//Adding the Inner Edges to the Return
-			cypher = generateCypherSpecificInnerEdges(cypher);
+			cypher = generateCypherSpecialEdgeString(cypher);
 		}
 		return cypher;
 	}
 	
-	private String generateCypherSpecificInnerEdges(String cypher) throws InvalidityException {
-		final StringBuilder cypherInnerEdgeNodes = new StringBuilder();
-		NeoAbstractEdge neoAbstractEdge;
-		for (Relation r : graph.getRelations()) {
-			neoAbstractEdge = (NeoAbstractEdge) r;
-			appendInnerEdgeNodes(cypherInnerEdgeNodes, neoAbstractEdge);
-		}
+	protected String generateCypherSpecialEdgeString(String cypher) throws InvalidityException {
+		final StringBuilder cypherInnerEdgeNodes = new StringBuilder(super.generateCypherSpecialEdgeString(cypher));
 		if (cypherInnerEdgeNodes.length() != 0) {
 			if (cypher.length() != 0) {
 				cypher += ", " + "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherInnerEdgeNodes.toString();
@@ -467,78 +464,11 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		}
 		return cypher;
 	}
-	
-	private final Map<Integer, String> buildCypherEdgesSortedMap() throws InvalidityException {
-		final Map<Integer, StringBuilder> cypherReturn = new TreeMap<Integer, StringBuilder>();
-		NeoAbstractEdge neoAbstractEdge;
-		EMap<Integer, String> tempMap;
-		StringBuilder tempSb;
-		Integer i;
-		
-		for (Relation n : graph.getRelations()) {
-			neoAbstractEdge = (NeoAbstractEdge) n;
-			if (neoAbstractEdge.isReturnElement()) {
-				tempMap = neoAbstractEdge.getCypherReturnVariable();
-				if (tempMap.keySet().stream().count() != 1)
-					throw new InvalidityException("find a matching name");
-				for (Map.Entry<Integer, String> entry : tempMap.entrySet()) {
-				    i = entry.getKey();
-				    if (cypherReturn.get(i) == null) {
-				    	tempSb = new StringBuilder();
-				    	tempSb.append(entry.getValue());
-				    	cypherReturn.put(i, tempSb);
-				    } else {
-				    	tempSb = cypherReturn.get(i);
-				    	tempSb.append(", " + entry.getValue());
-				    }
-				}
-			}
-		}
-		
-		Map<Integer, String> cypherReturnFixed = new TreeMap<Integer, String>();
-		for (Map.Entry<Integer, StringBuilder> entry : cypherReturn.entrySet()) {
-			cypherReturnFixed.put(entry.getKey(), entry.getValue().toString());
-		}
-		return Collections.unmodifiableMap(cypherReturnFixed);
-	}
 
-	private final Map<Integer, String> buildCypherNodesSortedMap() throws InvalidityException {
-		final Map<Integer, StringBuilder> cypherReturn = new TreeMap<Integer, StringBuilder>();
-		NeoAbstractNode neoAbstractNode;
-		EMap<Integer, String> tempMap;
-		StringBuilder tempSb;
-		Integer i;
-		
-		for (Node n : graph.getNodes()) {
-			if (n.isReturnNode()) {
-				neoAbstractNode = (NeoAbstractNode) n;
-				tempMap = neoAbstractNode.getCypherReturnVariable();
-				if (tempMap.keySet().stream().count() != 1)
-					throw new InvalidityException("find a matching name");
-				for (Map.Entry<Integer, String> entry : tempMap.entrySet()) {
-				    i = entry.getKey();
-				    if (cypherReturn.get(i) == null) {
-				    	tempSb = new StringBuilder();
-				    	tempSb.append(entry.getValue());
-				    	cypherReturn.put(i, tempSb);
-				    } else {
-				    	tempSb = cypherReturn.get(i);
-				    	tempSb.append(", " + entry.getValue());
-				    }
-				}
-			}
-		}
-		
-		Map<Integer, String> cypherReturnFixed = new TreeMap<Integer, String>();
-		for (Map.Entry<Integer, StringBuilder> entry : cypherReturn.entrySet()) {
-			cypherReturnFixed.put(entry.getKey(), entry.getValue().toString());
-		}
-		return Collections.unmodifiableMap(cypherReturnFixed);
-	}
-
-	private String buildCypherSpecialNodeString(String cypher) throws InvalidityException {
+	//For PopertyAddressing mainly
+	protected String buildCypherSpecialNodeString(String cypher) throws InvalidityException {
 		final StringBuilder cypherNeoProperties = new StringBuilder();
-		generatingCypherPropertyAddressingString(cypherNeoProperties);
+		callCypherPropertyAddressingString(cypherNeoProperties);
 		if (cypherNeoProperties.length() != 0) {
 			if (cypher.length() != 0) {
 				cypher += ", " + "\n";
@@ -551,7 +481,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		return cypher;
 	}
 	
-	private void generatingCypherPropertyAddressingString(final StringBuilder cypherNeoProperties)
+	private void callCypherPropertyAddressingString(final StringBuilder cypherNeoProperties)
 			throws InvalidityException {
 		NeoPropertyNode neoPropertyNode;
 		for (Node n : graph.getNodes()) {
@@ -563,7 +493,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		}
 	}
 	
-	private String buildCypherMainReturnTypes(String cypher, final Map<Integer, String> cypherReturn) {
+	private String formattingCypherReturnTypes(String cypher, final Map<Integer, String> cypherReturn) {
 		for (Map.Entry<Integer, String> mapElement : cypherReturn.entrySet()) {	  
 		    if (cypher.length() != 0) {
 		    	cypher += ", " + "\n";
@@ -575,6 +505,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		}
 		return cypher;
 	}
+	//END - NEO4J/CYPHER
+	
 	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -888,13 +820,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			}
 		}
 	}
-	
-//	public PatternElement createNeo4JAdaptionBeginningAutomation() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		PatternElement patternElement = this.createNeo4jAdaption();
-//		//LOOK UP THE BEGINNINGS
-//		//SET THE BEGINNINGS
-//		return patternElement;		
-//	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -905,7 +830,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	public Integer getElementCounter() {
 		return elementCounter;
 	}
-
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -931,7 +855,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		return relationCounter;
 	}
 
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

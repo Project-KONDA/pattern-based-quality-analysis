@@ -6,22 +6,29 @@ import static qualitypatternmodel.utility.Constants.RETURN;
 import static qualitypatternmodel.utility.Constants.WHERE;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collections;
+import java.util.Map;
+import java.util.TreeMap;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoElement;
 import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.parameters.Parameter;
@@ -198,8 +205,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		return query;
 	}
 	
-	//Refactor generateCypherWHERE to here
-	
+	//BEGIN - NEO4J/CYPHER
 	@Override
 	public String generateCypher() throws InvalidityException {
 		String matchClause;
@@ -237,16 +243,77 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	}
 	
 	//Add to Ecore?
-	String generateCypherReturnNodes(String cypher) throws InvalidityException {
+	protected String generateCypherReturnNodes(String cypher) throws InvalidityException {
 		throw new UnsupportedOperationException();
 	}
 	
 	//Add to Ecore?
-	String generateCypherReturnEdges(String cypher) throws InvalidityException {
+	protected String generateCypherReturnEdges(String cypher) throws InvalidityException {
 		throw new UnsupportedOperationException();
 	}
 	
-	void appendInnerEdgeNodes(final StringBuilder cypherInnerEdgeNodes, NeoAbstractEdge neoAbstractEdge)
+	protected final Map<Integer, String> buildCypherReturnSortedMap(boolean forNode) throws InvalidityException {
+		Map<Integer, StringBuilder> cypherReturn = new TreeMap<Integer, StringBuilder>();
+		NeoElement neoElement;
+		
+		if (forNode) {
+			for (Node n : graph.getNodes()) {
+				neoElement = (NeoElement) n;
+				if (n.isReturnNode()) {
+					generateCypherGenericMap(cypherReturn, neoElement);
+				}
+			}
+		} else {
+			NeoAbstractEdge neoAbstractEdge;
+			for (Relation r : graph.getRelations()) {
+				neoAbstractEdge = (NeoAbstractEdge) r;
+				if (neoAbstractEdge.isReturnElement()) {
+					neoElement = (NeoElement) r;
+					generateCypherGenericMap(cypherReturn, neoElement);
+				}
+			}
+		}
+		
+		Map<Integer, String> cypherReturnFixed = new TreeMap<Integer, String>();
+		for (Map.Entry<Integer, StringBuilder> entry : cypherReturn.entrySet()) {
+			cypherReturnFixed.put(entry.getKey(), entry.getValue().toString());
+		}
+		return Collections.unmodifiableMap(cypherReturnFixed);
+	}
+	
+	protected void generateCypherGenericMap(Map<Integer, StringBuilder> cypherReturn, NeoElement neoElement)
+			throws InvalidityException {
+		EMap<Integer, String> tempMap;
+		StringBuilder tempSb;
+		Integer i;
+		tempMap = neoElement.getCypherReturnVariable();
+		
+		if (tempMap.keySet().stream().count() != 1)
+			throw new InvalidityException("find a matching name");
+		for (Map.Entry<Integer, String> entry : tempMap.entrySet()) {
+		    i = entry.getKey();
+		    if (cypherReturn.get(i) == null) {
+		    	tempSb = new StringBuilder();
+		    	tempSb.append(entry.getValue());
+		    	cypherReturn.put(i, tempSb);
+		    } else {
+		    	tempSb = cypherReturn.get(i);
+		    	tempSb.append(", " + entry.getValue());
+		    }
+		}
+	}
+	
+	protected String generateCypherSpecialEdgeString(String cypher) throws InvalidityException {
+		final StringBuilder cypherInnerEdgeNodes = new StringBuilder();
+		NeoAbstractEdge neoAbstractEdge;
+		for (Relation r : graph.getRelations()) {
+			neoAbstractEdge = (NeoAbstractEdge) r;
+			appendInnerEdgeNodes(cypherInnerEdgeNodes, neoAbstractEdge);
+		}
+		return cypher;
+	}
+	
+	protected void appendInnerEdgeNodes(final StringBuilder cypherInnerEdgeNodes, NeoAbstractEdge neoAbstractEdge)
 			throws InvalidityException {
 		if (neoAbstractEdge.getReturnInnerEdgeNodes() != null) {
 			if (cypherInnerEdgeNodes.length() != 0) cypherInnerEdgeNodes.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
@@ -275,6 +342,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		}
 		return cond;
 	}
+	//END - NEO4J/CYPHER	
 	
 	@Override
 	public boolean relationsXmlAdapted() {

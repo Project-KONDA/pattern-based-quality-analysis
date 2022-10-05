@@ -143,6 +143,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	
 	//BEGIN - CYPHER
 	//SIMPLE CYPHER COUNT --> has many restrictuins like that it can not be a part of another Condition
+	//The second argument can not be an other COUNT-PATTERN --> Implement that --> Would lead to diverse challenges
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		if(getOption() != null && getOption().getValue() != null) {
@@ -165,7 +166,6 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	}
 	
 	//Die Patternsprache deckt keine COUNTS im Return ab
-	
 //	@Override 
 	private String generateCypherWith() throws InvalidityException {
 		String cypher = CypherSpecificConstants.CLAUSE_WITH + CypherSpecificConstants.ONE_WHITESPACES;
@@ -222,25 +222,26 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		final String comp = getOption().getValue().getLiteral();
 		
 		if (getArgument2() instanceof CountPattern) {
-			StringBuilder tempCypher = new StringBuilder();
-			EMap<NeoAbstractNode, String> myCounters2 = ((CountPatternImpl)getArgument2()).generateCypherCounters();
-			//Remove all duplicates
-			for (Entry<NeoAbstractNode, String> entry1 : myCounters.entrySet()) {
-				for (Entry<NeoAbstractNode, String> entry2 : myCounters2.entrySet()) {
-					if (entry1.getKey() == entry2.getKey()) {
-						myCounters2.remove(entry2);
-					}
-				}
-			}
-			
-			for (Entry<NeoAbstractNode, String> entry1 : myCounters.entrySet()) {
-				for (Entry<NeoAbstractNode, String> entry2 : myCounters2.entrySet()) {
-					if (tempCypher.length() != 0) {
-						tempCypher.append(" " + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + " ");
-					}
-					tempCypher.append(entry1.getValue() + comp + entry2.getValue());
-				}
-			}			
+			throw new UnsupportedOperationException("In the current implementation the second CountCondition Argument can not be a CountPattern");
+//			StringBuilder tempCypher = new StringBuilder();
+//			EMap<NeoAbstractNode, String> myCounters2 = ((CountPatternImpl)getArgument2()).generateCypherCounters();
+//			//Remove all duplicates
+//			for (Entry<NeoAbstractNode, String> entry1 : myCounters.entrySet()) {
+//				for (Entry<NeoAbstractNode, String> entry2 : myCounters2.entrySet()) {
+//					if (entry1.getKey() == entry2.getKey()) {
+//						myCounters2.remove(entry2);
+//					}
+//				}
+//			}
+//			
+//			for (Entry<NeoAbstractNode, String> entry1 : myCounters.entrySet()) {
+//				for (Entry<NeoAbstractNode, String> entry2 : myCounters2.entrySet()) {
+//					if (tempCypher.length() != 0) {
+//						tempCypher.append(" " + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + " ");
+//					}
+//					tempCypher.append(entry1.getValue() + comp + entry2.getValue());
+//				}
+//			}			
 		} else {
 			StringBuilder tempCypher = new StringBuilder();
 			for (Entry<NeoAbstractNode, String> entry : myCounters.entrySet()) {
