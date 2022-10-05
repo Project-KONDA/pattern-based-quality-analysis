@@ -180,7 +180,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @generated
 	 * @ordered
 	 */
-		protected static final Integer COUNTER_EDEFAULT = new Integer(1);
+	protected static final Integer COUNTER_EDEFAULT = new Integer(1);
 
 	/**
 	 * The cached value of the '{@link #getCounter() <em>Counter</em>}' attribute.

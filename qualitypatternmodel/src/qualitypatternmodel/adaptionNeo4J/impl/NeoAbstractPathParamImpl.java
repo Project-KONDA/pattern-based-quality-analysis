@@ -65,7 +65,7 @@ public abstract class NeoAbstractPathParamImpl extends ParameterImpl implements 
 		if (getNeoPathPart() == null) {
 			return null;
 		}
-		cypher = getNeoPathPart().getReturnCypherInnerEdgeNodes();
+		cypher = getNeoPathPart().getCypherInnerEdgeNodes();
 		return cypher;
 	}
 

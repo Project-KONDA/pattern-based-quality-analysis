@@ -118,15 +118,13 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 					variable = neoNode.getCypherVariable();
 				} else {
 					NeoPathPart neoPathPart = neoPropertyPathParam.getNeoPathPart();
-					if (neoPathPart instanceof NeoSimpleEdgeImpl) {
-						
-					} else if (neoPathPart instanceof NeoComplexEdgeImpl) {
+					if (neoPathPart instanceof NeoComplexEdgeImpl) {
 						for (NeoPathPart neoPathPart2 : neoPathPart.getNeoPathPartEdges()) {
 							if (neoPathPart2.isLastEdge()) {
 								neoPathPart = neoPathPart2;
 							}
 						}
-					} else {
+					} else if (!(neoPathPart instanceof NeoSimpleEdgeImpl)) {
 						return null;
 					}
 					variable = ((NeoSimpleEdge) neoPathPart).getCypherInnerEdgeNodes();

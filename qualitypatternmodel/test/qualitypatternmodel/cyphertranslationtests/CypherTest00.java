@@ -47,6 +47,7 @@ public class CypherTest00 {
 				String query = completePattern.generateCypher();
 				//Depending on the test mode activated the db-connector
 				System.out.println(query); 
+				//Include the null check for the results
 				String hashCode = query.hashCode() + "";
 				connector.queryTester(query, hashCode);
 			} catch (Exception e) {
