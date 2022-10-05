@@ -226,7 +226,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 * @generated NOT
 	 */
 	@Override
-	public String getCypherInnerEdgeNodes(Boolean isReturn) throws InvalidityException {
+	public String getCypherInnerEdgeNodes(boolean isReturn) throws InvalidityException {
 		if (getNeoTargetNodeLabels() == null || getNeoTargetNodeLabels().getValues().size() == 0) {
 			return null;
 		} else if (!isLastEdge) {
@@ -235,7 +235,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			} else {
 				return CypherSpecificConstants.INTERNAL_EDGE_NODE + ((NeoAbstractPathParamImpl) getNeoAbstractPathParam()).getRelationNumber();
 			}
-		} else if (isLastEdge) {
+		} else if (isLastEdge && !isReturn) {
 			if (getNeoPropertyPathParam() != null) {
 				return CypherSpecificConstants.VARIABLE_PROPERTY_NODE + (getNeoPropertyPathParam().getNeoPropertyEdge().getTarget().getOriginalID());
 			}

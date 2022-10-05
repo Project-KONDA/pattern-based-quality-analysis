@@ -5999,11 +5999,11 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EOperation getNeoPropertyNode__GenerateCypherPropertyAddressing();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#generateCypherMatchNodeVariable() <em>Generate Cypher Match Node Variable</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#generateCypherNodeVariable() <em>Generate Cypher Match Node Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Generate Cypher Match Node Variable</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#generateCypherMatchNodeVariable()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#generateCypherNodeVariable()
 	 * @generated
 	 */
 	EOperation getNeoPropertyNode__GenerateCypherMatchNodeVariable();
@@ -6135,11 +6135,11 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EOperation getNeoPropertyEdge__GenerateCypherPropertyAddressing();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge#generateCypherMatchNodeVariable() <em>Generate Cypher Match Node Variable</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge#generateCypherNodeVariable() <em>Generate Cypher Match Node Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Generate Cypher Match Node Variable</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge#generateCypherMatchNodeVariable()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge#generateCypherNodeVariable()
 	 * @generated
 	 */
 	EOperation getNeoPropertyEdge__GenerateCypherMatchNodeVariable();

@@ -59,7 +59,7 @@ public interface NeoPropertyNode extends PrimitiveNode, NeoAbstractNode {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	String generateCypherMatchNodeVariable() throws InvalidityException;
+	String generateCypherNodeVariable() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

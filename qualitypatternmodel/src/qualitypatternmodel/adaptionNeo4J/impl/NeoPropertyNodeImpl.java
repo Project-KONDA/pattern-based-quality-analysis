@@ -102,8 +102,9 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	
 	@Override 
 	public String generateCypher() throws InvalidityException, UnsupportedOperationException {
+		isNodeReturnable();	
 		if (getIncomingMapping() == null) {
-			String cypher = generateCypherMatchNodeVariable();			
+			String cypher = generateCypherNodeVariable();			
 			return cypher;
 		}
 		return ((NeoPropertyNode) getOriginalNode()).generateCypher();
@@ -116,14 +117,12 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 */
 	@Override
 	public String generateCypherPropertyAddressing() throws InvalidityException {
-		//TODO --> Implement if the NeoPropertyEdge is the First one --> Not nessary since the framework does not allow this modelbuild
 		if (getIncomingMapping() == null) {
 			String cypher = null;
 			if (getIncoming() != null) {
 				NeoPropertyEdge edge = (NeoPropertyEdge) getIncoming().get(0);
 				cypher = edge.generateCypherPropertyAddressing();
 			}
-			if (cypher == null) return null;
 			return cypher;
 		}
 		return ((NeoPropertyNode) getOriginalNode()).generateCypherPropertyAddressing();
@@ -135,15 +134,15 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 * @generated NOT
 	 */
 	@Override
-	public String generateCypherMatchNodeVariable() throws InvalidityException {
+	public String generateCypherNodeVariable() throws InvalidityException {
 		if (getIncomingMapping() == null) {
 			if (getIncoming().get(0) == null || !(getIncoming().get(0) instanceof NeoPropertyEdge))
 				throw new InvalidityException("No incoming NeoPropertyEdge specified");
 			NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) getIncoming().get(0);
-			String cypher = neoPropertyEdge.generateCypherMatchNodeVariable();
+			String cypher = neoPropertyEdge.generateCypherNodeVariable();
 			return cypher;
 		}
-		return ((NeoPropertyNode) getOriginalNode()).generateCypherMatchNodeVariable();
+		return ((NeoPropertyNode) getOriginalNode()).generateCypherNodeVariable();
 	}
 
 	/**
@@ -182,20 +181,22 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override
 	public String getCypherReturnVariable() throws InvalidityException {
 		if (getIncomingMapping() == null) {	
-			String cypher = generateCypherMatchNodeVariable();
-			NeoPropertyPathParam neoPropertyPathParam;
-			NeoPropertyEdge neoPropertyEdge;
-			NeoPropertyNode neoPropertyNode;
-			
-			neoPropertyNode = this;
-			neoPropertyEdge = (NeoPropertyEdge) neoPropertyNode.getIncoming().get(0);
-			neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
-			if (neoPropertyPathParam.getNeoPathPart() == null)
-				throw new InvalidityException("NeoPropertyNode - This Node is not suited to be a Return Node");
-						
+			String cypher = generateCypher();
 			return cypher;
 		}
-		return ((NeoPropertyNode) getOriginalNode()).generateCypherMatchNodeVariable();
+		return ((NeoPropertyNode) getOriginalNode()).generateCypherNodeVariable();
+	}
+
+	private void isNodeReturnable() throws InvalidityException {
+		NeoPropertyPathParam neoPropertyPathParam;
+		NeoPropertyEdge neoPropertyEdge;
+		NeoPropertyNode neoPropertyNode;
+		
+		neoPropertyNode = this;
+		neoPropertyEdge = (NeoPropertyEdge) neoPropertyNode.getIncoming().get(0);
+		neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
+		if (neoPropertyPathParam.getNeoPathPart() == null)
+			throw new InvalidityException("NeoPropertyNode - This Node is not suited to be a Return Node");
 	}
 
 	/**
@@ -464,7 +465,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 				}
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GENERATE_CYPHER_MATCH_NODE_VARIABLE:
 				try {
-					return generateCypherMatchNodeVariable();
+					return generateCypherNodeVariable();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

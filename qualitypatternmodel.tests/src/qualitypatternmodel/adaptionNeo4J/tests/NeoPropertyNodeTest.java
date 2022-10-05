@@ -17,7 +17,7 @@ import qualitypatternmodel.graphstructure.tests.PrimitiveNodeTest;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#generateCypherPropertyAddressing() <em>Generate Cypher Property Addressing</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#generateCypherMatchNodeVariable() <em>Generate Cypher Match Node Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#generateCypherNodeVariable() <em>Generate Cypher Match Node Variable</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#setIsReturnProperty(boolean) <em>Set Is Return Property</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getCypherVariable() <em>Get Cypher Variable</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}</li>
@@ -93,10 +93,10 @@ public class NeoPropertyNodeTest extends PrimitiveNodeTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#generateCypherMatchNodeVariable() <em>Generate Cypher Match Node Variable</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#generateCypherNodeVariable() <em>Generate Cypher Match Node Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#generateCypherMatchNodeVariable()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#generateCypherNodeVariable()
 	 * @generated
 	 */
 	public void testGenerateCypherMatchNodeVariable() {

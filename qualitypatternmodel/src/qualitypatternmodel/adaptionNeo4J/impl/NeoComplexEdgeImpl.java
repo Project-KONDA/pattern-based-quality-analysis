@@ -95,12 +95,12 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	 * @generated NOT
 	 */
 	@Override
-	public String getCypherInnerEdgeNodes(Boolean isReturn) throws InvalidityException {
+	public String getCypherInnerEdgeNodes(boolean isReturn) throws InvalidityException {
 		if (validateComplexEdge()) {
 			StringBuilder cypher = new StringBuilder();
 			String innerEdgeNode;
 			for (NeoPathPart part : neoPathPart) {
-				innerEdgeNode = part.getCypherInnerEdgeNodes(false);
+				innerEdgeNode = part.getCypherInnerEdgeNodes(isReturn);
 				if (innerEdgeNode != null) {
 					if (innerEdgeNode.contains(CypherSpecificConstants.INTERNAL_EDGE_NODE)) {
 						if (cypher.length() != 0) {

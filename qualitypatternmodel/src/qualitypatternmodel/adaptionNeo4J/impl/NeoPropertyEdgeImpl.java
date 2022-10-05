@@ -148,7 +148,7 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 	 * @generated NOT
 	 */
 	@Override
-	public String generateCypherMatchNodeVariable() throws InvalidityException {
+	public String generateCypherNodeVariable() throws InvalidityException {
 		//Used in the CompletePattern to get the PrimitiveTargetNodes
 		if (getIncomingMapping() == null) {
 			NeoPropertyPathParam neoPropertyPathParam = getNeoPropertyPathParam();
@@ -179,7 +179,7 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 			return null;
 		}
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) getOriginalRelation();
-		return neoPropertyEdge.generateCypherMatchNodeVariable();
+		return neoPropertyEdge.generateCypherNodeVariable();
 	}
 
 	@Override 
@@ -378,7 +378,7 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 				}
 			case AdaptionNeo4JPackage.NEO_PROPERTY_EDGE___GENERATE_CYPHER_MATCH_NODE_VARIABLE:
 				try {
-					return generateCypherMatchNodeVariable();
+					return generateCypherNodeVariable();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
