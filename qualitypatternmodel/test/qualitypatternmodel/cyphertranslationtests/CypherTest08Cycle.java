@@ -24,7 +24,7 @@ public class CypherTest08Cycle {
         //INTRODUCE THE EXCEPTION TESTS ??? 
     }
 
-	public static void buildPatterns(ArrayList<CompletePattern> completePatterns)
+	protected static void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(getCyclePattern(2));
         completePatterns.add(getCyclePattern(3));

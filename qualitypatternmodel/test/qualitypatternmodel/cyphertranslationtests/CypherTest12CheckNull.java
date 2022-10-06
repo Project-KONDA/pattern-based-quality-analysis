@@ -39,18 +39,18 @@ public class CypherTest12CheckNull {
 //		System.out.println("");
     }
 
-	public static void buildExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
+	protected static void buildExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
 	}
 
-	public static void buildPatterns(ArrayList<CompletePattern> completePatterns)
+	protected static void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(tryIsNull(true, "isoStartDate"));
 		completePatterns.add(tryIsNull(false, "isoStartDate"));
 	}
 
-	public static CompletePattern tryIsNull(Boolean isNull, String str) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern tryIsNull(Boolean isNull, String str) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		

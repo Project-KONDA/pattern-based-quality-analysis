@@ -32,7 +32,7 @@ public class CypherTest09Contains {
         //INTRODUCE THE EXCEPTION TESTS 
     }
 
-	public static void buildPatterns(ArrayList<CompletePattern> completePatterns)
+	protected static void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(getPatternContains(true, CypherTest09Contains.LINK));
         completePatterns.add(getPatternContains(false, CypherTest09Contains.LINK));
@@ -50,7 +50,7 @@ public class CypherTest09Contains {
 		nppp.setNeoPropertyName("archivalHistory");
     }
     
-	public static CompletePattern getPatternContains(Boolean invert, String str) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+    private static CompletePattern getPatternContains(Boolean invert, String str) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
@@ -64,7 +64,7 @@ public class CypherTest09Contains {
 		return pattern;
 	}
 	
-	public static CompletePattern getMultipleContains(Boolean invert, final Map<String, String> propertyNameAndValue) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+    private static CompletePattern getMultipleContains(Boolean invert, final Map<String, String> propertyNameAndValue) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		CompletePattern pattern = factory.createCompletePattern();

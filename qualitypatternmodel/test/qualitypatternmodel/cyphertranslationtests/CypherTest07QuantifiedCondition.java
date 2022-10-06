@@ -45,7 +45,7 @@ public class CypherTest07QuantifiedCondition {
 
 	
 	//CHECKING WHAT HAPPENS IF THE GRAPH HAS ALSO CONDITIONS --> Build test with multiple properties!
-	public static void buildExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
+	protected static void buildExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatternsExceptions.add(getNodesWhereExits(true));
 		completePatternsExceptions.add(tryNodesWhereMultiplePropertyExistsChecks(true));
@@ -54,7 +54,7 @@ public class CypherTest07QuantifiedCondition {
 		completePatternsExceptions.add(tryWithForAllPropertyExistence());
 	}
 
-	public static void buildPatterns(ArrayList<CompletePattern> completePatterns)
+	protected static void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(getNodesWhereExits(false));
 		completePatterns.add(getNodesWhereMultiplePropertyExistsChecks(false));
@@ -152,7 +152,7 @@ public class CypherTest07QuantifiedCondition {
 		return completePattern;	
 	}
 	
-	public static CompletePattern tryWithForAllPropertyExistence() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern tryWithForAllPropertyExistence() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = tryNodesWhereMultiplePropertyExistsChecks(false);
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		quantifiedCondition.setQuantifier(Quantifier.FORALL);

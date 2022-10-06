@@ -20,7 +20,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class CypherTest04Formula {
-    public static final AdaptionNeo4JFactory FACTORY = new AdaptionNeo4JFactoryImpl();
+	private static final AdaptionNeo4JFactory FACTORY = new AdaptionNeo4JFactoryImpl();
     
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
             //Tests
@@ -35,7 +35,7 @@ public class CypherTest04Formula {
             //INTRODUCE THE EXCEPTION TESTS
     }
 
-	public static void buildPatterns(ArrayList<CompletePattern> completePatterns)
+	protected static void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		for (LogicalOperator lo: LogicalOperator.VALUES) {
 			completePatterns.add(getFormulaPattern(lo, false));

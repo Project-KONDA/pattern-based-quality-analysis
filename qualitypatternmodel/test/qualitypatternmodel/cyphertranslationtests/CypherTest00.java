@@ -31,11 +31,7 @@ import static qualitypatternmodel.xmltranslationtests.Test00.*;
 public class CypherTest00 {
 	public static final AdaptionNeo4JFactory FACTORY = new AdaptionNeo4JFactoryImpl();
 	
-//	public CypherTest00() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		CypherTest00.main(null);
-//	} --> Add this to all the classes otherwise the main will be not called
-	
-	public static void test(ArrayList<CompletePattern> completePatterns) {
+	protected static void test(ArrayList<CompletePattern> completePatterns) {
 		Java2Neo4JConnector connector = new Java2Neo4JConnector();
 		for (CompletePattern completePattern : completePatterns) {
 			replace(completePattern);
@@ -62,7 +58,7 @@ public class CypherTest00 {
 		}
 	}
 	
-	public static void exceptionHandler(ArrayList<CompletePattern> completePatterns) {
+	protected static void exceptionHandler(ArrayList<CompletePattern> completePatterns) {
 		for (CompletePattern completePattern : completePatterns) {
 			try {
 				replace(completePattern);
@@ -93,7 +89,7 @@ public class CypherTest00 {
 		CypherTest00.test(completePatterns);
 	}
 
-	public static void buildPatterns(ArrayList<CompletePattern> completePatterns)
+	protected static void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(getBasePatternFinal());
 		completePatterns.add(getBasePatternComplexFinal());
@@ -104,7 +100,7 @@ public class CypherTest00 {
 		completePatterns.add(getBasePatternMatchNotConcrete("1439.*"));
 	}
 	
-	public static CompletePattern getBasePatternFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	protected static CompletePattern getBasePatternFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePattern();
 		completePattern.createNeo4jAdaption();
 		
@@ -112,7 +108,7 @@ public class CypherTest00 {
 	}
 	
 	//Test ist nicht correct --> Oder doch? Muss analysiert werden!
-	public static CompletePattern getComplexMatchStructure() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getComplexMatchStructure() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
@@ -159,7 +155,7 @@ public class CypherTest00 {
 	}
 	
 	
-	public static CompletePattern getBasePattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	protected static CompletePattern getBasePattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
@@ -173,7 +169,7 @@ public class CypherTest00 {
 		return completePattern;	
 	}
 	
-	public static CompletePattern getBasePatternComplexFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getBasePatternComplexFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternComplex();
 		
 		completePattern.createNeo4jAdaption();
@@ -181,7 +177,7 @@ public class CypherTest00 {
 		return completePattern;
 	}
 	
-	public static CompletePattern getBasePatternComplex() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	protected static CompletePattern getBasePatternComplex() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
@@ -196,7 +192,7 @@ public class CypherTest00 {
 		return completePattern;		
 	}
 	
-	public static CompletePattern getBasePatternCondDateConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getBasePatternCondDateConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternCondDate(comp);
 
 		NeoPropertyEdge relation = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
@@ -214,7 +210,7 @@ public class CypherTest00 {
 		return completePattern;		
 	}
 	
-	public static CompletePattern getBasePatternCondDate(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getBasePatternCondDate(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePattern();
 		Node se = completePattern.getGraph().getNodes().get(1);
 		DateParamImpl dp = new DateParamImpl();
@@ -225,7 +221,7 @@ public class CypherTest00 {
 	}
 	
 	
-	public static CompletePattern getBasePatternCondConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getBasePatternCondConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternCond(comp);
 
 		NeoPropertyEdge relation = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
@@ -244,7 +240,7 @@ public class CypherTest00 {
 		return completePattern;		
 	}
 	
-	public static CompletePattern getBasePatternCond(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getBasePatternCond(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePattern();
 		Node se = completePattern.getGraph().getNodes().get(1);
 		se.addPrimitiveComparison(comp);
@@ -252,7 +248,7 @@ public class CypherTest00 {
 		return completePattern;
 	}
 	
-	public static CompletePattern getBasePatternMatchConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getBasePatternMatchConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternMatch(comp);
 		
 		NeoPropertyEdge relation = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
@@ -271,7 +267,7 @@ public class CypherTest00 {
 		return completePattern;		
 	}
 	
-	public static CompletePattern getBasePatternMatch(String regex) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getBasePatternMatch(String regex) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePattern();
 		Node se = completePattern.getGraph().getNodes().get(1);
 		se.addPrimitiveMatch(regex);
@@ -279,7 +275,7 @@ public class CypherTest00 {
 		return completePattern;
 	}
 	
-	public static CompletePattern getBasePatternMatchNotConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getBasePatternMatchNotConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternMatch(comp);
 		
 		((Match) completePattern.getGraph().getOperatorList().getOperators().get(0)).getOption().setValue(false);
@@ -298,9 +294,6 @@ public class CypherTest00 {
 		return completePattern;		
 	}
 }
-
-
-
 
 //Build something with the setting because here is some error
 //private static void makeConcreteSimpleEdge(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

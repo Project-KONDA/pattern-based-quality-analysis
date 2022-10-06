@@ -33,8 +33,6 @@ import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class CypherTest05ParameterValues {
-	
-
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		//Look in the NeoDoc to check the fitting syntax 
 		//The Dataset is not containing something else except date and string
@@ -52,7 +50,7 @@ public class CypherTest05ParameterValues {
 		System.out.println("");		
 	}
 
-	public static void buildPatterns(ArrayList<CompletePattern> completePatterns, ArrayList<ParameterValue> values)
+	protected static void buildPatterns(ArrayList<CompletePattern> completePatterns, ArrayList<ParameterValue> values)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		//TextLiteralParam
 		CompletePattern completePattern = getConcreteComparisonPattern(values.get(0), "date");

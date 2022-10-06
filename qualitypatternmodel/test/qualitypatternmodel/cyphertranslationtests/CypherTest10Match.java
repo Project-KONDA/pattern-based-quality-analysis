@@ -45,7 +45,7 @@ public class CypherTest10Match {
 		System.out.println("");
     }
 
-	public static void buildExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
+	protected static void buildExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatternsExceptions.add(tryMatchInvalidOption(true));
 		completePatternsExceptions.add(tryMatchInvalidOption(false));
@@ -54,7 +54,7 @@ public class CypherTest10Match {
 		completePatternsExceptions.add(tryMatchInvalidOptionDiffrent4(false));
 	}
 
-	public static void buildPatterns(ArrayList<CompletePattern> completePatterns)
+	protected static void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(getPatternMatch(true, "Churfürsten"));
 		completePatterns.add(getPatternMatch(false, "Churfürsten"));
@@ -68,7 +68,7 @@ public class CypherTest10Match {
 		completePatterns.add(getPatternMatch(false, ".*(?s)Churfürsten.*"));
 	}
     
-	public static CompletePattern getPatternMatch(Boolean invert, String str) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getPatternMatch(Boolean invert, String str) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
@@ -244,10 +244,7 @@ public class CypherTest10Match {
 	
 	
 	// --> If a ComplexNode NeoNode has a match
-	
-	
-	
-	public static void exceptionHandler(ArrayList<CompletePattern> completePatterns) {
+	private static void exceptionHandler(ArrayList<CompletePattern> completePatterns) {
 		for (CompletePattern completePattern : completePatterns) {
 			try {
 				replace(completePattern);

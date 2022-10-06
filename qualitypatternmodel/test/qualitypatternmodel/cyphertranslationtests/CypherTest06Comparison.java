@@ -28,7 +28,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 public class CypherTest06Comparison {
-    public static final AdaptionNeo4JFactory FACTORY = new AdaptionNeo4JFactoryImpl();
+	private static final AdaptionNeo4JFactory FACTORY = new AdaptionNeo4JFactoryImpl();
     //All in the CompletePattern beginning will be set automatical in the condtions it is diffrent. 
     //The morphings for the relation --> Do nothing if a morphed relation is reached (set at least a boolean for more flexiblity)
     //Relation variables can be only used once
@@ -46,7 +46,7 @@ public class CypherTest06Comparison {
             //INTRODUCE THE EXCEPTION TESTS 
     }
 
-	public static void buildPatterns(ArrayList<CompletePattern> completePatterns)
+	protected static void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(getComparisonTwoNeoNodes(ComparisonOperator.EQUAL));
 		completePatterns.add(getComparisonTwoNeoNodes(ComparisonOperator.NOTEQUAL));
@@ -69,7 +69,7 @@ public class CypherTest06Comparison {
 		completePatterns.add(getCompareByElementId(ComparisonOperator.EQUAL));
 	}
 	
-	public static CompletePattern getBasePattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	protected static CompletePattern getBasePattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
@@ -87,7 +87,7 @@ public class CypherTest06Comparison {
 		return completePattern;	
 	}
 	
-	public static CompletePattern getBasePatternList() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getBasePatternList() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
