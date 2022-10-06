@@ -103,7 +103,7 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 		cypher.append(neoPathPart.generateCypher());
 
 		NeoPathPart lastEdge = null;
-		//Every ComplexEdge needs a last SimpleEdge --> Maybe can be checked in the Container
+		//Every ComplexEdge needs a last SimpleEdge --> Maybe can be checked in the Container --> Specific check which can not be out outsourced
 		lastEdge = neoPathPart.getNeoLastEdge();
 		if (lastEdge != null) {
 			NeoSimpleEdge neoSimpleEdge = (NeoSimpleEdge) lastEdge;
