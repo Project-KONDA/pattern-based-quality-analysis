@@ -1,5 +1,5 @@
 package qualitypatternmodel.cypherclasstester;
 
-public class _NeoPropertyNode {
+public class Neo03PropertyEdgeTest {
 
 }

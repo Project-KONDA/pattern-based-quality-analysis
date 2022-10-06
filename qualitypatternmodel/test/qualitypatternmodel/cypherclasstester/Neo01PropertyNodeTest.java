@@ -1,5 +1,5 @@
 package qualitypatternmodel.cypherclasstester;
 
-public class NodeTest {
-	
+public class Neo01PropertyNodeTest {
+
 }

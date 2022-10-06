@@ -148,7 +148,6 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 		return null;
 	}
 	
-	//RENAME !!!
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -160,22 +160,6 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 			targetNodesCanNotBeNull();
 		}
 	}
-	
-	//Für was hatte ich das gebraucht??? 
-	//If there is no NeoPath the NeoProperty is inside of the NeoNode
-	//Else diffrent constellations are possible how to build the relation between the origin node and the node for the property
-	//Checking if multiple last edges is done in the complex edge... as well as the check if the last edge is at the end
-	private NeoPathPart validateEdgeStructure(NeoPathPart neoPathPart) throws InvalidityException {
-		final NeoPathPart neoLastEdge = neoPathPart.getNeoLastEdge();
-		if (neoPathPart instanceof NeoComplexEdge) {
-			if (neoLastEdge != null) {
-				validateNeoPathPartStructure((NeoSimpleEdge) neoLastEdge);
-			}
-		} else {
-			validateNeoPathPartStructure((NeoSimpleEdge) neoLastEdge);
-		}
-		return neoLastEdge;
-	}
 		
 	private void targetNodesCanNotBeNull() throws InvalidityException {
 		throw new InvalidityException("NeoPropertyEdge - TargetNodes can not be null");

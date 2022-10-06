@@ -3038,21 +3038,6 @@
               <element xsi:nil="true"/>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="__WR-1SPDEe2je5Z2xT0PxQ" x="667" y="344" width="122"/>
             </children>
-            <children xmi:type="notation:Shape" xmi:id="_Stj1ECoxEe2UQ42ic8PKoA" type="Note" fontName="Segoe UI" description="Renaming to make it more generic" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
-              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Stj1ESoxEe2UQ42ic8PKoA" source="specificStyles">
-                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Stj1EioxEe2UQ42ic8PKoA" key="verticalAlignment" value="8"/>
-              </eAnnotations>
-              <children xmi:type="notation:BasicDecorationNode" xmi:id="_StkcICoxEe2UQ42ic8PKoA" type="DiagramName">
-                <element xsi:nil="true"/>
-              </children>
-              <children xmi:type="notation:BasicDecorationNode" xmi:id="_StkcISoxEe2UQ42ic8PKoA" type="Description">
-                <element xsi:nil="true"/>
-              </children>
-              <styles xmi:type="notation:TextStyle" xmi:id="_Stj1EyoxEe2UQ42ic8PKoA" textAlignment="Center"/>
-              <styles xmi:type="notation:LineTypeStyle" xmi:id="_Stj1FCoxEe2UQ42ic8PKoA"/>
-              <element xsi:nil="true"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Stj1FSoxEe2UQ42ic8PKoA" x="104" y="659" width="97"/>
-            </children>
             <children xmi:type="notation:Shape" xmi:id="_dYXwwEAQEe20BLrY6Ta8OQ" type="Note" fontName="Segoe UI" description="Auch zum inteface machen?" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
               <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dYXwwUAQEe20BLrY6Ta8OQ" source="specificStyles">
                 <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dYXwwkAQEe20BLrY6Ta8OQ" key="verticalAlignment" value="8"/>
@@ -3068,36 +3053,6 @@
               <element xsi:nil="true"/>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dYXwxUAQEe20BLrY6Ta8OQ" x="17" y="79"/>
             </children>
-            <children xmi:type="notation:Shape" xmi:id="_l7euIEMtEe2WX7pgGf7SHQ" type="Note" fontName="Segoe UI" description="Look for unnessary methods" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
-              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_l7euIUMtEe2WX7pgGf7SHQ" source="specificStyles">
-                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_l7euIkMtEe2WX7pgGf7SHQ" key="verticalAlignment" value="8"/>
-              </eAnnotations>
-              <children xmi:type="notation:BasicDecorationNode" xmi:id="_l7hKYEMtEe2WX7pgGf7SHQ" type="DiagramName">
-                <element xsi:nil="true"/>
-              </children>
-              <children xmi:type="notation:BasicDecorationNode" xmi:id="_l7hxcEMtEe2WX7pgGf7SHQ" type="Description">
-                <element xsi:nil="true"/>
-              </children>
-              <styles xmi:type="notation:TextStyle" xmi:id="_l7euI0MtEe2WX7pgGf7SHQ" textAlignment="Center"/>
-              <styles xmi:type="notation:LineTypeStyle" xmi:id="_l7euJEMtEe2WX7pgGf7SHQ"/>
-              <element xsi:nil="true"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_l7euJUMtEe2WX7pgGf7SHQ" x="23" y="733" width="133"/>
-            </children>
-            <children xmi:type="notation:Shape" xmi:id="_zKrsgESwEe2kztuV4T7hhA" type="Note" fontName="Segoe UI" description="Some Methods in NeoAbstractEdge &amp; -Node are  similar how to combine" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
-              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_zKrsgUSwEe2kztuV4T7hhA" source="specificStyles">
-                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_zKrsgkSwEe2kztuV4T7hhA" key="verticalAlignment" value="8"/>
-              </eAnnotations>
-              <children xmi:type="notation:BasicDecorationNode" xmi:id="_zKsTkESwEe2kztuV4T7hhA" type="DiagramName">
-                <element xsi:nil="true"/>
-              </children>
-              <children xmi:type="notation:BasicDecorationNode" xmi:id="_zKs6oESwEe2kztuV4T7hhA" type="Description">
-                <element xsi:nil="true"/>
-              </children>
-              <styles xmi:type="notation:TextStyle" xmi:id="_zKrsg0SwEe2kztuV4T7hhA" textAlignment="Center"/>
-              <styles xmi:type="notation:LineTypeStyle" xmi:id="_zKrshESwEe2kztuV4T7hhA"/>
-              <element xsi:nil="true"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zKrshUSwEe2kztuV4T7hhA" x="521" y="134" width="121"/>
-            </children>
             <children xmi:type="notation:Node" xmi:id="_oOquEES0Ee2kztuV4T7hhA" type="3009" element="_oM1iEES0Ee2kztuV4T7hhA">
               <children xmi:type="notation:Node" xmi:id="_oOr8MES0Ee2kztuV4T7hhA" type="5004"/>
               <children xmi:type="notation:Node" xmi:id="_oOsjQES0Ee2kztuV4T7hhA" type="7003">
@@ -3110,21 +3065,6 @@
               </children>
               <styles xmi:type="notation:ShapeStyle" xmi:id="_oOquEUS0Ee2kztuV4T7hhA" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oOquEkS0Ee2kztuV4T7hhA" x="450" y="4" width="228" height="52"/>
-            </children>
-            <children xmi:type="notation:Shape" xmi:id="_X310IES1Ee2kztuV4T7hhA" type="Note" fontName="Segoe UI" description="put here a method to get the LastEdge" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
-              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_X32bMES1Ee2kztuV4T7hhA" source="specificStyles">
-                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_X32bMUS1Ee2kztuV4T7hhA" key="verticalAlignment" value="8"/>
-              </eAnnotations>
-              <children xmi:type="notation:BasicDecorationNode" xmi:id="_X32bNUS1Ee2kztuV4T7hhA" type="DiagramName">
-                <element xsi:nil="true"/>
-              </children>
-              <children xmi:type="notation:BasicDecorationNode" xmi:id="_X32bNkS1Ee2kztuV4T7hhA" type="Description">
-                <element xsi:nil="true"/>
-              </children>
-              <styles xmi:type="notation:TextStyle" xmi:id="_X32bMkS1Ee2kztuV4T7hhA" textAlignment="Center"/>
-              <styles xmi:type="notation:LineTypeStyle" xmi:id="_X32bM0S1Ee2kztuV4T7hhA"/>
-              <element xsi:nil="true"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X32bNES1Ee2kztuV4T7hhA" x="205" y="543" height="32"/>
             </children>
             <children xmi:type="notation:Shape" xmi:id="_RjoD0EVUEe2j-t4I-O1eMw" type="Note" fontName="Segoe UI" description="Naming does not fit - it should be NeoAbstractPathPart?" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
               <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Rjoq4EVUEe2j-t4I-O1eMw" source="specificStyles">
@@ -3139,7 +3079,7 @@
               <styles xmi:type="notation:TextStyle" xmi:id="_Rjoq4kVUEe2j-t4I-O1eMw" textAlignment="Center"/>
               <styles xmi:type="notation:LineTypeStyle" xmi:id="_Rjoq40VUEe2j-t4I-O1eMw"/>
               <element xsi:nil="true"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Rjoq5EVUEe2j-t4I-O1eMw" x="505" y="554" width="132"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Rjoq5EVUEe2j-t4I-O1eMw" x="580" y="554" width="132"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_TKib4gLoEe2GF_6PqNgKEg"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_TKib4wLoEe2GF_6PqNgKEg"/>
