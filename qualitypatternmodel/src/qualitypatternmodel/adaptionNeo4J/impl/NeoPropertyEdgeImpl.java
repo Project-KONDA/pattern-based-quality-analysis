@@ -120,7 +120,7 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 	@Override
 	public String generateCypherPropertyAddressing() throws InvalidityException {
 		if (getIncomingMapping() == null) {
-			NeoPropertyPathParam neoPropertyPathParam = getNeoPropertyPathParam();
+			final NeoPropertyPathParam neoPropertyPathParam = getNeoPropertyPathParam();
 			if (neoPropertyPathParam != null) {
 				String cypher;
 				String variable; 
@@ -129,13 +129,9 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 					variable = neoNode.getCypherVariable();
 				} else {
 					NeoPathPart neoPathPart = neoPropertyPathParam.getNeoPathPart();
-					if (neoPathPart instanceof NeoComplexEdgeImpl) {
-						for (NeoPathPart neoPathPart2 : neoPathPart.getNeoPathPartEdges()) {
-							if (neoPathPart2.isLastEdge()) {
-								neoPathPart = neoPathPart2;
-							}
-						}
-					} else if (!(neoPathPart instanceof NeoSimpleEdgeImpl)) {
+					if (neoPathPart instanceof NeoComplexEdge) {
+						neoPathPart = neoPathPart.getNeoLastEdge();
+					} else if (!(neoPathPart instanceof NeoSimpleEdge)) { //Makes no sense
 						return null;
 					}
 					variable = ((NeoSimpleEdge) neoPathPart).getCypherInnerEdgeNodes(false);
@@ -169,20 +165,15 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 					NeoNode neoNode = (NeoNode) getSource();
 					cypher = neoNode.getCypherVariable();
 				} else {
-					NeoSimpleEdge neoSimpleEdge = null;
+					NeoPathPart neoLastEdge = null;
 					if (neoPropertyPathParam.getNeoPathPart() instanceof NeoComplexEdge) {
-						NeoComplexEdge neoComplexEdge = (NeoComplexEdge) neoPropertyPathParam.getNeoPathPart();
-						for (NeoPathPart part : neoComplexEdge.getNeoPathPartEdges()) {
-							if (((NeoSimpleEdge) part).isLastEdge()) {
-								neoSimpleEdge = (NeoSimpleEdge) part;
-							}
-						}
+						neoLastEdge = neoPropertyPathParam.getNeoPathPart().getNeoLastEdge();
 					} else if (neoPropertyPathParam.getNeoPathPart() instanceof NeoSimpleEdge) {
-						neoSimpleEdge = (NeoSimpleEdge) neoPropertyPathParam.getNeoPathPart();
+						neoLastEdge = neoPropertyPathParam.getNeoPathPart();
 					} else {
 						throw new InvalidityException("The is no NeoSimpleEdge for the target type");
 					}
-					cypher = neoSimpleEdge.getCypherInnerEdgeNodes(false);
+					cypher = neoLastEdge.getCypherInnerEdgeNodes(false);
 				}
 				
 				return cypher;

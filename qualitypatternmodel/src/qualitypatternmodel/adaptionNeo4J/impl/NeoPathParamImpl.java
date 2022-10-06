@@ -99,12 +99,12 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 
 	private void generateMultiEdgeCypher(final StringBuilder cypher, final EList<NeoPathPart> neoPathParts)
 			throws InvalidityException {
-		NeoPathPart neoPathPart = getNeoPathPart();
+		final NeoPathPart neoPathPart = getNeoPathPart();
 		cypher.append(neoPathPart.generateCypher());
 
 		NeoPathPart lastEdge = null;
 		//Every ComplexEdge needs a last SimpleEdge --> Maybe can be checked in the Container
-		lastEdge = getLastEdge(neoPathParts);
+		lastEdge = neoPathPart.getNeoLastEdge();
 		if (lastEdge != null) {
 			NeoSimpleEdge neoSimpleEdge = (NeoSimpleEdge) lastEdge;
 			if (neoSimpleEdge.getNeoTargetNodeLabels() != null) {
@@ -113,18 +113,6 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 		} else {
 			throw new InvalidityException("NeoEdge - The last NeoPathPart has to be specified as lastEdge");
 		}
-	}
-
-	private NeoPathPart getLastEdge(final EList<NeoPathPart> neoPathParts) {
-		NeoPathPart lastEdge = null; 
-		for (NeoPathPart possibleLast : neoPathParts) {
-			if (possibleLast instanceof NeoSimpleEdge && possibleLast.isLastEdge()) { 
-				lastEdge = possibleLast;
-			} else if (possibleLast instanceof NeoComplexEdge) {
-				lastEdge = getLastEdge(possibleLast.getNeoPathPartEdges());
-			}
-		}
-		return lastEdge;
 	}
 	
 	/**
