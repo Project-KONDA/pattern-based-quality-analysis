@@ -310,7 +310,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			neoAbstractEdge = (NeoAbstractEdge) r;
 			appendInnerEdgeNodes(cypherInnerEdgeNodes, neoAbstractEdge);
 		}
-		return cypher;
+		return cypherInnerEdgeNodes.toString();
 	}
 	
 	protected void appendInnerEdgeNodes(final StringBuilder cypherInnerEdgeNodes, NeoAbstractEdge neoAbstractEdge)

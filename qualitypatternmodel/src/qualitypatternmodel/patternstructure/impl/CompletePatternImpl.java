@@ -454,7 +454,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	}
 	
 	protected String generateCypherSpecialEdgeString(String cypher) throws InvalidityException {
-		final StringBuilder cypherInnerEdgeNodes = new StringBuilder(super.generateCypherSpecialEdgeString(cypher));
+		final StringBuilder cypherInnerEdgeNodes = new StringBuilder(super.generateCypherSpecialEdgeString(""));
 		if (cypherInnerEdgeNodes.length() != 0) {
 			if (cypher.length() != 0) {
 				cypher += ", " + "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherInnerEdgeNodes.toString();
