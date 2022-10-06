@@ -1,4 +1,4 @@
-package qualitypatternmodel.cypherevaluation;
+package playground;
 
 import org.basex.query.value.item.Str;
 
