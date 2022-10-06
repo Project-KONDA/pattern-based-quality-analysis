@@ -128,7 +128,7 @@ public class CypherTest05ParameterValues {
 		return completePattern;
 	}
 	
-	private static ArrayList<ParameterValue> getTestParameters() {
+	protected static ArrayList<ParameterValue> getTestParameters() {
 		ArrayList<ParameterValue> parameters = new ArrayList<ParameterValue>();
 
 		ParametersPackage.eINSTANCE.eClass();

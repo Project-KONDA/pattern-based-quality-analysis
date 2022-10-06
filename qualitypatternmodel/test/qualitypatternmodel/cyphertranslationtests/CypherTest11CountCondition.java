@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
+
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
@@ -22,15 +24,15 @@ import qualitypatternmodel.patternstructure.impl.CountPatternImpl;
 
 public class CypherTest11CountCondition {
 	
-	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
-		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+	protected static ArrayList<CompletePattern> buildPatterns(ArrayList<CompletePattern> completePatterns) throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		completePatterns.add(getCountInPatternPattern());
 		return completePatterns;
 	}
 	
 	public static void main(String[] args)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CypherTest00.test(getPatterns());
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		CypherTest00.test(completePatterns);
 	}
 	
 	private static CompletePattern getCountInPatternPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
