@@ -230,6 +230,26 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 			((NeoPathPartImpl) neoPathPart).setCount(getCount());
 		}
 	}
+	
+	@Override
+	public NeoPathPart getNeoLastEdge() throws InvalidityException {
+		validateComplexEdge();
+		final EList<NeoPathPart> parts = getNeoPathPart();
+		NeoPathPart lastEdge = null;
+		
+		for (NeoPathPart part : parts) {
+			if (part instanceof NeoComplexEdge) {
+				lastEdge = part.getNeoLastEdge();
+			} else {
+				if (part.getNeoLastEdge() != null) {
+					lastEdge = part;
+				}
+			}
+		}
+		
+		return lastEdge;
+	}
+	
 
 	@Override
 	public String myToString() {

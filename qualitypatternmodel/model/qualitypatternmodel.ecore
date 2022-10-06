@@ -1279,6 +1279,8 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoEdgeLabel" eType="#//parameters/TextLiteralParam"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="edgeNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
           unsettable="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isLastEdge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoPathPart" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getNeoPathPartEdges" upperBound="-1" eType="#//adaptionNeo4J/NeoPathPart"/>
@@ -1288,15 +1290,13 @@
           eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="isReturn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eOperations>
-      <eOperations name="getNeoLastEdge" eType="#//adaptionNeo4J/NeoPathPart"/>
+      <eOperations name="getNeoLastEdge" eType="#//adaptionNeo4J/NeoPathPart" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoPathParam" eType="#//adaptionNeo4J/NeoPathParam"
           eOpposite="#//adaptionNeo4J/NeoPathParam/neoPathPart"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoPropertyPathParam"
           eType="#//adaptionNeo4J/NeoPropertyPathParam" eOpposite="#//adaptionNeo4J/NeoPropertyPathParam/neoPathPart"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoComplexEdge" eType="#//adaptionNeo4J/NeoComplexEdge"
           eOpposite="#//adaptionNeo4J/NeoComplexEdge/neoPathPart"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isLastEdge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-          defaultValueLiteral="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoPropertyNode" eSuperTypes="#//graphstructure/PrimitiveNode #//adaptionNeo4J/NeoAbstractNode">
       <eOperations name="generateCypherPropertyAddressing" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

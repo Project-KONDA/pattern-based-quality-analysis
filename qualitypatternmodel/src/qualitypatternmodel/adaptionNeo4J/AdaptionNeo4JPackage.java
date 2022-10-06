@@ -2057,22 +2057,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PATH_PART__NEO_COMPLEX_EDGE = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Is Last Edge</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PATH_PART__IS_LAST_EDGE = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
 	 * The number of structural features of the '<em>Neo Path Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PART_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 4;
+	int NEO_PATH_PART_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2379,15 +2370,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_COMPLEX_EDGE__NEO_COMPLEX_EDGE = NEO_PATH_PART__NEO_COMPLEX_EDGE;
-
-	/**
-	 * The feature id for the '<em><b>Is Last Edge</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_COMPLEX_EDGE__IS_LAST_EDGE = NEO_PATH_PART__IS_LAST_EDGE;
 
 	/**
 	 * The feature id for the '<em><b>Neo Path Part</b></em>' containment reference list.
@@ -2732,15 +2714,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_SIMPLE_EDGE__NEO_COMPLEX_EDGE = NEO_PATH_PART__NEO_COMPLEX_EDGE;
 
 	/**
-	 * The feature id for the '<em><b>Is Last Edge</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_SIMPLE_EDGE__IS_LAST_EDGE = NEO_PATH_PART__IS_LAST_EDGE;
-
-	/**
 	 * The feature id for the '<em><b>Key Value Param</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2786,13 +2759,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_SIMPLE_EDGE__EDGE_NUMBER = NEO_PATH_PART_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Is Last Edge</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE__IS_LAST_EDGE = NEO_PATH_PART_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Neo Simple Edge</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE_FEATURE_COUNT = NEO_PATH_PART_FEATURE_COUNT + 5;
+	int NEO_SIMPLE_EDGE_FEATURE_COUNT = NEO_PATH_PART_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -5898,6 +5880,17 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EAttribute getNeoSimpleEdge_EdgeNumber();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isIsLastEdge <em>Is Last Edge</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Last Edge</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isIsLastEdge()
+	 * @see #getNeoSimpleEdge()
+	 * @generated
+	 */
+	EAttribute getNeoSimpleEdge_IsLastEdge();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#setNeoDirection(qualitypatternmodel.adaptionNeo4J.NeoDirection) <em>Set Neo Direction</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5969,17 +5962,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getNeoPathPart_NeoComplexEdge();
-
-	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#isIsLastEdge <em>Is Last Edge</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Last Edge</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#isIsLastEdge()
-	 * @see #getNeoPathPart()
-	 * @generated
-	 */
-	EAttribute getNeoPathPart_IsLastEdge();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathPartEdges() <em>Get Neo Path Part Edges</em>}' operation.
@@ -6505,6 +6487,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EAttribute NEO_SIMPLE_EDGE__EDGE_NUMBER = eINSTANCE.getNeoSimpleEdge_EdgeNumber();
 
 		/**
+		 * The meta object literal for the '<em><b>Is Last Edge</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NEO_SIMPLE_EDGE__IS_LAST_EDGE = eINSTANCE.getNeoSimpleEdge_IsLastEdge();
+
+		/**
 		 * The meta object literal for the '<em><b>Set Neo Direction</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6561,14 +6551,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * @generated
 		 */
 		EReference NEO_PATH_PART__NEO_COMPLEX_EDGE = eINSTANCE.getNeoPathPart_NeoComplexEdge();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Last Edge</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NEO_PATH_PART__IS_LAST_EDGE = eINSTANCE.getNeoPathPart_IsLastEdge();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Neo Path Part Edges</b></em>' operation.
