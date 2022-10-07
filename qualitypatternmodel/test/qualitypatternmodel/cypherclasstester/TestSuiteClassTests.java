@@ -12,6 +12,6 @@ import qualitypatternmodel.cypherclasstester.concretetests.Neo01NodeTest;
 //@SuiteDisplayName("Neo4J/Cypher Component-TestSuite")
 @SelectClasses(Neo01NodeTest.class)
 //@SelectPackages({"qualitypatternmodel.cypherclasstester.concretetests"})
-public class TestSuiteClassTest {
+public class TestSuiteClassTests {
 	
 }
