@@ -12,8 +12,8 @@ import qualitypatternmodel.parameters.tests.ParameterTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getCypherReturnVariable() <em>Get Return Variable</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
  * </ul>
@@ -44,19 +44,6 @@ public abstract class NeoAbstractPathParamTest extends ParameterTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getCypherReturnVariable() <em>Get Return Variable</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getCypherReturnVariable()
-	 * @generated
-	 */
-	public void testGetReturnVariable() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,6 +51,19 @@ public abstract class NeoAbstractPathParamTest extends ParameterTest {
 	 * @generated
 	 */
 	public void testGetReturnInnerEdgeNodes() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getCypherReturnVariable()
+	 * @generated
+	 */
+	public void testGetCypherReturnVariable() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

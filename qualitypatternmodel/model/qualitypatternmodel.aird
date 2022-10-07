@@ -6160,22 +6160,6 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_S1vMOkS1Ee2kztuV4T7hhA" id="(0.5,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_S1vMO0S1Ee2kztuV4T7hhA" id="(0.5,0.5)"/>
         </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_ICnikEZPEe2uap6-1HCUsQ" type="4001" element="_IBhWlkZPEe2uap6-1HCUsQ" source="_bdRpcB8IEe20H_6KewSmww" target="_oOquEES0Ee2kztuV4T7hhA">
-          <children xmi:type="notation:Node" xmi:id="_IDEOgEZPEe2uap6-1HCUsQ" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IDEOgUZPEe2uap6-1HCUsQ" y="-10"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_IDEOgkZPEe2uap6-1HCUsQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IDEOg0ZPEe2uap6-1HCUsQ" y="10"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_IDEOhEZPEe2uap6-1HCUsQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IDEOhUZPEe2uap6-1HCUsQ" y="10"/>
-          </children>
-          <styles xmi:type="notation:ConnectorStyle" xmi:id="_ICnikUZPEe2uap6-1HCUsQ" routing="Tree"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_ICnikkZPEe2uap6-1HCUsQ" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ICnik0ZPEe2uap6-1HCUsQ" points="[0, -79, -239, 230]$[0, -267, -239, 42]$[240, -267, 1, 42]$[240, -284, 1, 25]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_IDba4EZPEe2uap6-1HCUsQ" id="(0.5,0.618380062305296)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_IDba4UZPEe2uap6-1HCUsQ" id="(0.5,0.5)"/>
-        </edges>
       </data>
     </ownedAnnotationEntries>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_qvj_0B2REeqrGqxc7qjo8A" sourceNode="_jdPBsB2REeqrGqxc7qjo8A" targetNode="_9LabIFbsEeqq28gUaBHbCA">
@@ -13366,7 +13350,7 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
         </ownedElements>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_bcdxIB8IEe20H_6KewSmww" name="NeoAbstractPathParam" tooltipText="" outgoingEdges="_G6xhUCLPEe23B9jt7anp1g _zkHnrCkOEe2tHKzGTjieeg _IBhWlkZPEe2uap6-1HCUsQ" incomingEdges="_hteWMCkOEe2tHKzGTjieeg _235slikOEe2tHKzGTjieeg" width="12" height="10">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_bcdxIB8IEe20H_6KewSmww" name="NeoAbstractPathParam" tooltipText="" outgoingEdges="_G6xhUCLPEe23B9jt7anp1g _zkHnrCkOEe2tHKzGTjieeg" incomingEdges="_hteWMCkOEe2tHKzGTjieeg _235slikOEe2tHKzGTjieeg" width="12" height="10">
         <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractPathParam"/>
         <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractPathParam"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -13421,7 +13405,7 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
         </ownedElements>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_oM1iEES0Ee2kztuV4T7hhA" name="NeoElement" tooltipText="&#xA;WARNING : The generic type associated with the 'EMap' classifier should have 2 type argument(s) to match the number of type parameter(s) of the classifier " incomingEdges="_QGEhCES1Ee2kztuV4T7hhA _S03Dz0S1Ee2kztuV4T7hhA _IBhWlkZPEe2uap6-1HCUsQ" width="12" height="10">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_oM1iEES0Ee2kztuV4T7hhA" name="NeoElement" tooltipText="&#xA;WARNING : The generic type associated with the 'EMap' classifier should have 2 type argument(s) to match the number of type parameter(s) of the classifier " incomingEdges="_QGEhCES1Ee2kztuV4T7hhA _S03Dz0S1Ee2kztuV4T7hhA" width="12" height="10">
         <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoElement"/>
         <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoElement"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -13977,21 +13961,6 @@
           <labelFormat>italic</labelFormat>
         </beginLabelStyle>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_S03D0kS1Ee2kztuV4T7hhA" showIcon="false"/>
-      </ownedStyle>
-      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
-    </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_IBhWlkZPEe2uap6-1HCUsQ" sourceNode="_bcdxIB8IEe20H_6KewSmww" targetNode="_oM1iEES0Ee2kztuV4T7hhA">
-      <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractPathParam"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractPathParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_IBhWnUZPEe2uap6-1HCUsQ">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_IBhWl0ZPEe2uap6-1HCUsQ" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
-        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_IBhWmEZPEe2uap6-1HCUsQ" showIcon="false">
-          <labelFormat>italic</labelFormat>
-        </beginLabelStyle>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_IBhWmUZPEe2uap6-1HCUsQ" showIcon="false"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>

@@ -15,7 +15,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#setNeoDirection(qualitypatternmodel.adaptionNeo4J.NeoDirection) <em>Set Neo Direction</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addTargetNodeLabel(java.lang.String) <em>Add String Target Node Label</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addTargetNodeLabel(java.lang.String) <em>Add Target Node Label</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addNeoEdgeLabel(java.lang.String) <em>Add Neo Edge Label</em>}</li>
  * </ul>
  * </p>
@@ -89,13 +89,13 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addTargetNodeLabel(java.lang.String) <em>Add String Target Node Label</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addTargetNodeLabel(java.lang.String) <em>Add Target Node Label</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addTargetNodeLabel(java.lang.String)
 	 * @generated
 	 */
-	public void testAddStringTargetNodeLabel__String() {
+	public void testAddTargetNodeLabel__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

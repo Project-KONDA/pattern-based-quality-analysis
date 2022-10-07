@@ -40,4 +40,10 @@ public class Neo02EdgeTest extends NeoAbstractEdgeTest{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void toStringTest() {
+		// TODO Auto-generated method stub
+		
+	}
 }

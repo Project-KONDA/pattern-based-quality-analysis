@@ -304,16 +304,15 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 */
 	@Override
 	public KeyValueParam getKeyValueParam() {
-		throw new UnsupportedOperationException();
-//		if (keyValueParam != null && keyValueParam.eIsProxy()) {
-//			InternalEObject oldKeyValueParam = (InternalEObject)keyValueParam;
-//			keyValueParam = (KeyValueParam)eResolveProxy(oldKeyValueParam);
-//			if (keyValueParam != oldKeyValueParam) {
-//				if (eNotificationRequired())
-//					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM, oldKeyValueParam, keyValueParam));
-//			}
-//		}
-//		return keyValueParam;
+		if (keyValueParam != null && keyValueParam.eIsProxy()) {
+			InternalEObject oldKeyValueParam = (InternalEObject)keyValueParam;
+			keyValueParam = (KeyValueParam)eResolveProxy(oldKeyValueParam);
+			if (keyValueParam != oldKeyValueParam) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM, oldKeyValueParam, keyValueParam));
+			}
+		}
+		return keyValueParam;
 	}
 
 	/**
@@ -427,6 +426,16 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	@Override
 	public boolean isSetEdgeNumber() {
 		return edgeNumberESet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isIsLastEdge() {
+		return isLastEdge;
 	}
 
 	/**
@@ -556,7 +565,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
 				return getEdgeNumber();
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__IS_LAST_EDGE:
-				return isLastEdge();
+				return isIsLastEdge();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -651,7 +660,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___SET_NEO_DIRECTION__NEODIRECTION:
 				setNeoDirection((NeoDirection)arguments.get(0));
 				return null;
-			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___ADD_STRING_TARGET_NODE_LABEL__STRING:
+			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___ADD_TARGET_NODE_LABEL__STRING:
 				addTargetNodeLabel((String)arguments.get(0));
 				return null;
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___ADD_NEO_EDGE_LABEL__STRING:

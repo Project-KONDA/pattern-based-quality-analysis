@@ -469,7 +469,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AdaptionNeo4JPackage.NEO_NODE___ADD_STRING_LABEL__STRING:
+			case AdaptionNeo4JPackage.NEO_NODE___ADD_LABEL__STRING:
 				addLabel((String)arguments.get(0));
 				return null;
 			case AdaptionNeo4JPackage.NEO_NODE___GET_CYPHER_VARIABLE:

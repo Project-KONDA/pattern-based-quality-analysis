@@ -118,16 +118,16 @@ public abstract class NeoAbstractPathParamImpl extends ParameterImpl implements 
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AdaptionNeo4JPackage.NEO_ABSTRACT_PATH_PARAM___GET_RETURN_VARIABLE:
+			case AdaptionNeo4JPackage.NEO_ABSTRACT_PATH_PARAM___GET_RETURN_INNER_EDGE_NODES:
 				try {
-					return getCypherReturnVariable();
+					return getReturnInnerEdgeNodes();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case AdaptionNeo4JPackage.NEO_ABSTRACT_PATH_PARAM___GET_RETURN_INNER_EDGE_NODES:
+			case AdaptionNeo4JPackage.NEO_ABSTRACT_PATH_PARAM___GET_CYPHER_RETURN_VARIABLE:
 				try {
-					return getReturnInnerEdgeNodes();
+					return getCypherReturnVariable();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

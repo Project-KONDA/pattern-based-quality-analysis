@@ -1346,7 +1346,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnElement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoAbstractPathParam" abstract="true"
-        eSuperTypes="#//parameters/Parameter #//graphstructure/Adaptable #//adaptionNeo4J/NeoElement">
+        eSuperTypes="#//parameters/Parameter #//graphstructure/Adaptable">
       <eOperations name="getReturnInnerEdgeNodes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="getCypherReturnVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
