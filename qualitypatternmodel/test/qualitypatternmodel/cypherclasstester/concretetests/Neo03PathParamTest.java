@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import qualitypatternmodel.cypherclasstester.NeoAbstractPathParamTest;
 
-public class Neo03PathParamTest extends NeoAbstractPathParamTest{
+public class Neo03PathParamTest extends NeoAbstractPathParamTest {
 
 	@Test
 	public void generateMultiEdgeCypher() {
@@ -49,6 +49,12 @@ public class Neo03PathParamTest extends NeoAbstractPathParamTest{
 
 	@Override
 	public void getRelationNumber() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void toStringTest() {
 		// TODO Auto-generated method stub
 		
 	}
