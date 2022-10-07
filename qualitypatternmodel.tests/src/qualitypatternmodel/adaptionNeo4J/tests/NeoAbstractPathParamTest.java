@@ -3,6 +3,7 @@
 package qualitypatternmodel.adaptionNeo4J.tests;
 
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
+
 import qualitypatternmodel.parameters.tests.ParameterTest;
 
 /**

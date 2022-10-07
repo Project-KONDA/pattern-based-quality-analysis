@@ -6,6 +6,7 @@ import junit.textui.TestRunner;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
+
 import qualitypatternmodel.graphstructure.tests.ComplexNodeTest;
 
 /**
