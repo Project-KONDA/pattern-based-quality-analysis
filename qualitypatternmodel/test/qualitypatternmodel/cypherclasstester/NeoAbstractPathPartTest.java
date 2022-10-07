@@ -1,5 +1,5 @@
 package qualitypatternmodel.cypherclasstester;
 
-public class NeoAbstractPathPartTest {
+public abstract class NeoAbstractPathPartTest implements InterfaceNeoPathPartTest {
 
 }

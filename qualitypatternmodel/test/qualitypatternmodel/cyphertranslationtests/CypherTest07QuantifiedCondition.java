@@ -91,7 +91,7 @@ public class CypherTest07QuantifiedCondition {
 		completePattern.createNeo4jAdaption();
 		
 		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.addStringLabel("Regesta");
+		neoNode.addLabel("Regesta");
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
 		neoPropertyEdge.getNeoPropertyPathParam().setNeoPropertyName("origPlaceOfIssue");
 		
@@ -130,7 +130,7 @@ public class CypherTest07QuantifiedCondition {
 		completePattern.createNeo4jAdaption();
 		
 		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.addStringLabel("Regesta");
+		neoNode.addLabel("Regesta");
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
 		neoPropertyEdge.getNeoPropertyPathParam().setNeoPropertyName("origPlaceOfIssue");
 		
@@ -181,7 +181,7 @@ public class CypherTest07QuantifiedCondition {
 		completePattern.createNeo4jAdaption();
 		
 		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.addStringLabel("Regesta");
+		neoNode.addLabel("Regesta");
 	
 		
 		return completePattern;	

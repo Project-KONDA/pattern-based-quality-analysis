@@ -416,9 +416,6 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 		return super.eInvoke(operationID, arguments);
 	}
 	
-	
-	
-	//Add to ecore?
 	protected abstract NeoAbstractPathParam getNeoAbstractPathParam();
 	
 	//for the counting

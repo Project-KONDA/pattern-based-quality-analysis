@@ -175,7 +175,7 @@ public class CypherTest06Comparison {
 		neoPropertyPathParam.setNeoPropertyName("normalizedGerman");
 		neoSimpleEdge = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge.addNeoEdgeLabel("PLACE_OF_ISSUE");
-		neoSimpleEdge.addStringTargetNodeLabel("Place");
+		neoSimpleEdge.addTargetNodeLabel("Place");
 		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
 		
 		neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(1);
@@ -183,7 +183,7 @@ public class CypherTest06Comparison {
 		neoPropertyPathParam.setNeoPropertyName("normalizedGerman");
 		neoSimpleEdge = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge.addNeoEdgeLabel("PLACE_OF_ISSUE");
-		neoSimpleEdge.addStringTargetNodeLabel("Place");
+		neoSimpleEdge.addTargetNodeLabel("Place");
 		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
 	}
 
@@ -315,13 +315,13 @@ public class CypherTest06Comparison {
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
 		NeoSimpleEdge neoSimpleEdge = FACTORY.createNeoSimpleEdge();
-		neoSimpleEdge.addStringTargetNodeLabel("");
+		neoSimpleEdge.addTargetNodeLabel("");
 		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
 		
 		neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(1);
 		neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
 		neoSimpleEdge = FACTORY.createNeoSimpleEdge();
-		neoSimpleEdge.addStringTargetNodeLabel("");
+		neoSimpleEdge.addTargetNodeLabel("");
 		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
 		
 		return completePattern;

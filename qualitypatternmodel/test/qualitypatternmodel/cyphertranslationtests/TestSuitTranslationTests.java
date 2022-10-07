@@ -1,6 +1,5 @@
 package qualitypatternmodel.cyphertranslationtests;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static qualitypatternmodel.xmltranslationtests.Test00.replace;

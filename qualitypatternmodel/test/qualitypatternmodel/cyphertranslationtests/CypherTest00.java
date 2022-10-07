@@ -140,16 +140,16 @@ public class CypherTest00 {
 		NeoNode neoNode;
 		
 		neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.addStringLabel("Place");
+		neoNode.addLabel("Place");
 		
 		neoNode = (NeoNode) completePattern.getGraph().getNodes().get(1);
-		neoNode.addStringLabel("Regesta");
+		neoNode.addLabel("Regesta");
 		
 		neoNode = (NeoNode) completePattern.getGraph().getNodes().get(4);
-		neoNode.addStringLabel("Place");
+		neoNode.addLabel("Place");
 		
 		neoNode = (NeoNode) completePattern.getGraph().getNodes().get(5);
-		neoNode.addStringLabel("IndexPerson");
+		neoNode.addLabel("IndexPerson");
 		
 		return completePattern;
 	}

@@ -146,11 +146,15 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 
 	private void validateNeoPropertyEdge() throws InvalidityException {
 		final NeoPathPart neoPathPart = getNeoPathPart();
-		final NeoPathPart neoLastEdge = neoPathPart.getNeoLastEdge();
-		validateNeoPathPartStructure((NeoSimpleEdge) neoLastEdge);
 		if (neoPathPart instanceof NeoComplexEdge) {
+			final NeoPathPart neoLastEdge = neoPathPart.getNeoLastEdge();
+			if (!innerEdgesHaveTargets(getNeoPathPart().getNeoPathPartEdges())) {
+				throw new InvalidityException("Every Inner Edge needs a Target Node");
+			}
 			if (neoLastEdge == null) {
 				throw new InvalidityException("NeoPropertyEdge - Last Edge has to be set");
+			} else {
+				validateNeoPathPartStructure((NeoSimpleEdge) neoLastEdge);
 			}
 		}
 	}
@@ -159,6 +163,22 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 		if (!(neoSimpleEdge.getNeoTargetNodeLabels() != null)) {
 			targetNodesCanNotBeNull();
 		}
+	}
+	
+	private boolean innerEdgesHaveTargets(final EList<NeoPathPart> parts)  {
+		boolean innerEdgesHaveTargets = true;
+		for (NeoPathPart part : parts) {
+			if (part instanceof NeoComplexEdge) {
+				this.innerEdgesHaveTargets(part.getNeoPathPartEdges());
+			} else {
+				if (part.isLastEdge()) {
+					if (!(((NeoSimpleEdge) part).getNeoTargetNodeLabels() != null)) {
+						innerEdgesHaveTargets = false;
+					}
+				}
+			}
+		}
+		return innerEdgesHaveTargets;
 	}
 		
 	private void targetNodesCanNotBeNull() throws InvalidityException {

@@ -306,7 +306,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	 * @generated NOT 
 	 */
 	@Override
-	public void addStringLabel(String label) {
+	public void addLabel(String label) {
 		if (this.neoNodeLabels == null) {
 			this.neoNodeLabels = new TextListParamImpl();
 		}
@@ -470,7 +470,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case AdaptionNeo4JPackage.NEO_NODE___ADD_STRING_LABEL__STRING:
-				addStringLabel((String)arguments.get(0));
+				addLabel((String)arguments.get(0));
 				return null;
 			case AdaptionNeo4JPackage.NEO_NODE___GET_CYPHER_VARIABLE:
 				return getCypherVariable();

@@ -181,7 +181,7 @@ public interface NeoSimpleEdge extends NeoPathPart {
 	 * @model
 	 * @generated
 	 */
-	void addStringTargetNodeLabel(String label);
+	void addTargetNodeLabel(String label);
 
 	/**
 	 * <!-- begin-user-doc -->

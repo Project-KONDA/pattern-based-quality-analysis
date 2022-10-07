@@ -46,7 +46,6 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 
-//REDUNDANCY IS INSIDE OF THIS CLASS ... REFACTOR
 public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge {
 	/**
 	 * The cached value of the '{@link #getKeyValueParam() <em>Key Value Param</em>}' reference.
@@ -229,7 +228,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		cypher.append("]");
 	}
 	
-	//Add to model?
 	@Override
 	public String getCypherVariable() {
 		String cypher;
@@ -306,15 +304,16 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 */
 	@Override
 	public KeyValueParam getKeyValueParam() {
-		if (keyValueParam != null && keyValueParam.eIsProxy()) {
-			InternalEObject oldKeyValueParam = (InternalEObject)keyValueParam;
-			keyValueParam = (KeyValueParam)eResolveProxy(oldKeyValueParam);
-			if (keyValueParam != oldKeyValueParam) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM, oldKeyValueParam, keyValueParam));
-			}
-		}
-		return keyValueParam;
+		throw new UnsupportedOperationException();
+//		if (keyValueParam != null && keyValueParam.eIsProxy()) {
+//			InternalEObject oldKeyValueParam = (InternalEObject)keyValueParam;
+//			keyValueParam = (KeyValueParam)eResolveProxy(oldKeyValueParam);
+//			if (keyValueParam != oldKeyValueParam) {
+//				if (eNotificationRequired())
+//					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM, oldKeyValueParam, keyValueParam));
+//			}
+//		}
+//		return keyValueParam;
 	}
 
 	/**
@@ -329,14 +328,15 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void setKeyValueParam(KeyValueParam newKeyValueParam) {
-		KeyValueParam oldKeyValueParam = keyValueParam;
-		keyValueParam = newKeyValueParam;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM, oldKeyValueParam, keyValueParam));
+		throw new UnsupportedOperationException();
+//		KeyValueParam oldKeyValueParam = keyValueParam;
+//		keyValueParam = newKeyValueParam;
+//		if (eNotificationRequired())
+//			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM, oldKeyValueParam, keyValueParam));
 	}
 
 	/**
@@ -520,15 +520,13 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 * @generated NOT
 	 */
 	@Override
-	public void addStringTargetNodeLabel(String label) {
+	public void addTargetNodeLabel(String label) {
 		if (this.neoTargetNodeLabels == null) {
 			this.neoTargetNodeLabels = new TextListParamImpl();
 		}
 		this.neoTargetNodeLabels.addStringValue(label);
 	}
 
-	//Inserted Method
-	//Add to Ecore
 	@Override 
 	public EList<NeoPathPart> getNeoPathPartEdges() {
 		EList<NeoPathPart> l = new BasicEList<NeoPathPart>();
@@ -654,7 +652,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 				setNeoDirection((NeoDirection)arguments.get(0));
 				return null;
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___ADD_STRING_TARGET_NODE_LABEL__STRING:
-				addStringTargetNodeLabel((String)arguments.get(0));
+				addTargetNodeLabel((String)arguments.get(0));
 				return null;
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___ADD_NEO_EDGE_LABEL__STRING:
 				addNeoEdgeLabel((String)arguments.get(0));
@@ -686,13 +684,13 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	@Override
 	public String myToString() {
 		// TODO Auto-generated method stub
-		return null;
+				return null;
 	}
 
 	@Override 
 	public void isValidLocal(AbstractionLevel abstractionLevel) 
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
-		//TODO
+		// TODO Auto-generated method stub
 	}
 	
 	@Override

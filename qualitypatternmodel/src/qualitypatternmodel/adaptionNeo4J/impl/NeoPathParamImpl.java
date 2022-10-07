@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
@@ -64,8 +63,6 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 		setNeoPathPart(new NeoSimpleEdgeImpl());
 	}
 
-	
-	
 	//TODO? make it more generic if the NeoUnspecifiedEdge is coming 
 	// --> Specific behaviour which can not be nessarcaly generalised
 	@Override

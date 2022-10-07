@@ -5743,11 +5743,11 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EReference getNeoNode_NeoNodeLabels();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoNode#addStringLabel(java.lang.String) <em>Add String Label</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoNode#addLabel(java.lang.String) <em>Add String Label</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add String Label</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoNode#addStringLabel(java.lang.String)
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoNode#addLabel(java.lang.String)
 	 * @generated
 	 */
 	EOperation getNeoNode__AddStringLabel__String();
@@ -5901,11 +5901,11 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EOperation getNeoSimpleEdge__SetNeoDirection__NeoDirection();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addStringTargetNodeLabel(java.lang.String) <em>Add String Target Node Label</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addTargetNodeLabel(java.lang.String) <em>Add String Target Node Label</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add String Target Node Label</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addStringTargetNodeLabel(java.lang.String)
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addTargetNodeLabel(java.lang.String)
 	 * @generated
 	 */
 	EOperation getNeoSimpleEdge__AddStringTargetNodeLabel__String();

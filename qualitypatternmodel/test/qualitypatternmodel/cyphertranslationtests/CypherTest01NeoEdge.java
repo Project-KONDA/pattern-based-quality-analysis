@@ -124,8 +124,8 @@ public class CypherTest01NeoEdge {
 		NeoNode neoNode1 = (NeoNode) completePattern.getGraph().getNodes().get(0);
 		NeoNode neoNode2 = (NeoNode) completePattern.getGraph().getNodes().get(1);
 		
-		neoNode1.addStringLabel("Regesta");
-		neoNode2.addStringLabel("Place");
+		neoNode1.addLabel("Regesta");
+		neoNode2.addLabel("Place");
 		neoNode2.setReturnNode(true);
 		
 		return completePattern;
@@ -143,8 +143,8 @@ public class CypherTest01NeoEdge {
 		NeoNode neoNode1 = (NeoNode) completePattern.getGraph().getNodes().get(0);
 		NeoNode neoNode2 = (NeoNode) completePattern.getGraph().getNodes().get(1);
 		
-		neoNode1.addStringLabel("Regesta");
-		neoNode2.addStringLabel("Place");
+		neoNode1.addLabel("Regesta");
+		neoNode2.addLabel("Place");
 		neoNode2.setReturnNode(true);
 		
 		return completePattern;
@@ -162,8 +162,8 @@ public class CypherTest01NeoEdge {
 		NeoNode neoNode1 = (NeoNode) completePattern.getGraph().getNodes().get(0);
 		NeoNode neoNode2 = (NeoNode) completePattern.getGraph().getNodes().get(1);
 		
-		neoNode1.addStringLabel("Place");
-		neoNode2.addStringLabel("Regesta");
+		neoNode1.addLabel("Place");
+		neoNode2.addLabel("Regesta");
 		neoNode2.setReturnNode(true);
 		
 		return completePattern;
@@ -187,8 +187,8 @@ public class CypherTest01NeoEdge {
 		NeoNode neoNode2 = (NeoNode) completePattern.getGraph().getNodes().get(1);
 		neoNode2.setReturnNode(true);
 		
-		neoNode1.addStringLabel("Regesta");
-		neoNode2.addStringLabel("Regesta");
+		neoNode1.addLabel("Regesta");
+		neoNode2.addLabel("Regesta");
 		
 		return completePattern;
 	}
@@ -210,8 +210,8 @@ public class CypherTest01NeoEdge {
 		NeoNode neoNode2 = (NeoNode) completePattern.getGraph().getNodes().get(1);
 		neoNode2.setReturnNode(true);
 		
-		neoNode1.addStringLabel("Regesta");
-		neoNode2.addStringLabel("Regesta");
+		neoNode1.addLabel("Regesta");
+		neoNode2.addLabel("Regesta");
 		
 		return completePattern;
 	}
@@ -232,7 +232,7 @@ public class CypherTest01NeoEdge {
 		NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
 		NeoComplexEdge neoComplexEdge = FACTORY.createNeoComplexEdge();
 		NeoSimpleEdge neoSimpleEdge1 = FACTORY.createNeoSimpleEdge();
-		neoSimpleEdge1.addStringTargetNodeLabel("Place");
+		neoSimpleEdge1.addTargetNodeLabel("Place");
 		neoSimpleEdge1.addNeoEdgeLabel("PLACE_OF_ISSUE");
 		neoSimpleEdge1.setNeoDirection(NeoDirection.RIGHT);
 		NeoSimpleEdge neoSimpleEdge2 = FACTORY.createNeoSimpleEdge();
@@ -250,8 +250,8 @@ public class CypherTest01NeoEdge {
 		NeoNode neoNode2 = (NeoNode) completePattern.getGraph().getNodes().get(1);
 		neoNode2.setReturnNode(true);
 		
-		neoNode1.addStringLabel("Regesta");
-		neoNode2.addStringLabel("Regesta");
+		neoNode1.addLabel("Regesta");
+		neoNode2.addLabel("Regesta");
 		
 		return completePattern;
 	}
@@ -263,14 +263,14 @@ public class CypherTest01NeoEdge {
 		NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
 		NeoComplexEdge neoComplexEdge = FACTORY.createNeoComplexEdge();
 		NeoSimpleEdge neoSimpleEdge1 = FACTORY.createNeoSimpleEdge();
-		neoSimpleEdge1.addStringTargetNodeLabel("Place");
+		neoSimpleEdge1.addTargetNodeLabel("Place");
 		neoSimpleEdge1.addNeoEdgeLabel("PLACE_OF_ISSUE");
 		neoSimpleEdge1.setNeoDirection(NeoDirection.RIGHT);
 		NeoSimpleEdge neoSimpleEdge2 = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge2.addNeoEdgeLabel("PLACE_OF_ISSUE");
 		neoSimpleEdge2.setNeoDirection(NeoDirection.LEFT);
 		neoSimpleEdge2.setIsLastEdge(true);
-		neoSimpleEdge2.addStringTargetNodeLabel("");
+		neoSimpleEdge2.addTargetNodeLabel("");
 		
 		
 		neoComplexEdge.addNeoPathPart(neoSimpleEdge1);
@@ -282,8 +282,8 @@ public class CypherTest01NeoEdge {
 		NeoNode neoNode2 = (NeoNode) completePattern.getGraph().getNodes().get(1);
 		neoNode2.setReturnNode(true);
 		
-		neoNode1.addStringLabel("Regesta");
-		neoNode2.addStringLabel("Regesta");
+		neoNode1.addLabel("Regesta");
+		neoNode2.addLabel("Regesta");
 		
 		return completePattern;
 	}
@@ -295,11 +295,11 @@ public class CypherTest01NeoEdge {
 		NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
 		NeoComplexEdge neoComplexEdge = FACTORY.createNeoComplexEdge();
 		NeoSimpleEdge neoSimpleEdge1 = FACTORY.createNeoSimpleEdge();
-		neoSimpleEdge1.addStringTargetNodeLabel("Place");
+		neoSimpleEdge1.addTargetNodeLabel("Place");
 		neoSimpleEdge1.addNeoEdgeLabel("PLACE_OF_ISSUE");
 		NeoSimpleEdge neoSimpleEdge2 = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge2.addNeoEdgeLabel("PLACE_OF_ISSUE");
-		neoSimpleEdge2.addStringTargetNodeLabel("Regesta");
+		neoSimpleEdge2.addTargetNodeLabel("Regesta");
 		NeoSimpleEdge neoSimpleEdge3 = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge3.addNeoEdgeLabel("APPEARS_IN");
 		neoSimpleEdge3.setIsLastEdge(true);
@@ -314,9 +314,9 @@ public class CypherTest01NeoEdge {
 		NeoNode neoNode2 = (NeoNode) completePattern.getGraph().getNodes().get(1);
 		neoNode2.setReturnNode(true);
 		
-		neoNode1.addStringLabel("Regesta");
-		neoNode2.addStringLabel("IndexEntry");
-		neoNode2.addStringLabel("IndexPerson");
+		neoNode1.addLabel("Regesta");
+		neoNode2.addLabel("IndexEntry");
+		neoNode2.addLabel("IndexPerson");
 		
 		return completePattern;
 	}
@@ -328,13 +328,13 @@ public class CypherTest01NeoEdge {
 		NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
 		NeoComplexEdge neoComplexEdge = FACTORY.createNeoComplexEdge();
 		NeoSimpleEdge neoSimpleEdge1 = FACTORY.createNeoSimpleEdge();
-		neoSimpleEdge1.addStringTargetNodeLabel("Place");
+		neoSimpleEdge1.addTargetNodeLabel("Place");
 		neoSimpleEdge1.addNeoEdgeLabel("PLACE_OF_ISSUE");
 		neoSimpleEdge1.setNeoDirection(NeoDirection.RIGHT);
 		NeoSimpleEdge neoSimpleEdge2 = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge2.addNeoEdgeLabel("PLACE_OF_ISSUE");
 		neoSimpleEdge2.setNeoDirection(NeoDirection.LEFT);
-		neoSimpleEdge2.addStringTargetNodeLabel("Regesta");
+		neoSimpleEdge2.addTargetNodeLabel("Regesta");
 		NeoSimpleEdge neoSimpleEdge3 = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge3.addNeoEdgeLabel("APPEARS_IN");
 		neoSimpleEdge3.setNeoDirection(NeoDirection.LEFT);
@@ -350,9 +350,9 @@ public class CypherTest01NeoEdge {
 		NeoNode neoNode2 = (NeoNode) completePattern.getGraph().getNodes().get(1);
 		neoNode2.setReturnNode(true);
 		
-		neoNode1.addStringLabel("Regesta");
-		neoNode2.addStringLabel("IndexEntry");
-		neoNode2.addStringLabel("IndexPerson");
+		neoNode1.addLabel("Regesta");
+		neoNode2.addLabel("IndexEntry");
+		neoNode2.addLabel("IndexPerson");
 		
 		return completePattern;
 	}
@@ -411,13 +411,13 @@ public class CypherTest01NeoEdge {
 		NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
 		NeoComplexEdge neoComplexEdge = FACTORY.createNeoComplexEdge();
 		NeoSimpleEdge neoSimpleEdge1 = FACTORY.createNeoSimpleEdge();
-		neoSimpleEdge1.addStringTargetNodeLabel("Place");
+		neoSimpleEdge1.addTargetNodeLabel("Place");
 		neoSimpleEdge1.addNeoEdgeLabel("PLACE_OF_ISSUE");
 		neoSimpleEdge1.setNeoDirection(NeoDirection.RIGHT);
 		NeoSimpleEdge neoSimpleEdge2 = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge2.addNeoEdgeLabel("PLACE_OF_ISSUE");
 		neoSimpleEdge2.setNeoDirection(NeoDirection.LEFT);
-		neoSimpleEdge2.addStringTargetNodeLabel("Regesta");
+		neoSimpleEdge2.addTargetNodeLabel("Regesta");
 		NeoSimpleEdge neoSimpleEdge3 = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge3.addNeoEdgeLabel("APPEARS_IN");
 		neoSimpleEdge3.setNeoDirection(NeoDirection.LEFT);

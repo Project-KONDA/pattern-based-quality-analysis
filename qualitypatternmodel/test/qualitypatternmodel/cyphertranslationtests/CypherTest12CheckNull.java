@@ -72,7 +72,7 @@ public class CypherTest12CheckNull {
 		pattern.createNeo4jAdaption();
 		NeoNode neoNode = (NeoNode) pattern.getGraph().getNodes().get(0);
 		neoNode.setNodePlace(NeoPlace.BEGINNING);
-		neoNode.addStringLabel("Regesta");
+		neoNode.addLabel("Regesta");
 		
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) pattern.getGraph().getRelations().get(0);
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();

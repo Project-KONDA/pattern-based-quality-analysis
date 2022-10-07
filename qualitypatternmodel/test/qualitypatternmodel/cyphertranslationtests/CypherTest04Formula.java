@@ -75,7 +75,7 @@ public class CypherTest04Formula {
 		completePattern.createNeo4jAdaption();
 		
 		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.addStringLabel("Regesta");
+		neoNode.addLabel("Regesta");
 		
 		NeoEdge neoEdge;
 		NeoPathParam neoPathParam;
@@ -86,7 +86,7 @@ public class CypherTest04Formula {
 		neoNode.setNodePlace(NeoPlace.BEGINNING);
 		
 		neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(2);
-		neoNode.addStringLabel("Place");
+		neoNode.addLabel("Place");
 		neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(1);
 		neoPathParam = neoEdge.getNeoPathParam();
 		neoSimpleEdge = FACTORY.createNeoSimpleEdge();
@@ -98,8 +98,8 @@ public class CypherTest04Formula {
 		neoNode.setNodePlace(NeoPlace.BEGINNING);
 		
 		neoNode = (NeoNode) quantifiedCond2.getGraph().getNodes().get(2);
-		neoNode.addStringLabel("IndexEntry");
-		neoNode.addStringLabel("IndexPlace");
+		neoNode.addLabel("IndexEntry");
+		neoNode.addLabel("IndexPlace");
 		neoEdge = (NeoEdge) quantifiedCond2.getGraph().getRelations().get(1);
 		neoPathParam = neoEdge.getNeoPathParam();
 		neoSimpleEdge = FACTORY.createNeoSimpleEdge();
@@ -140,7 +140,7 @@ public class CypherTest04Formula {
 		completePattern.createNeo4jAdaption();
 		
 		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.addStringLabel("IndexPlace");
+		neoNode.addLabel("IndexPlace");
 		
 		NeoEdge neoEdge;
 		NeoPathParam neoPathParam;
@@ -150,7 +150,7 @@ public class CypherTest04Formula {
 		neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(0);
 		neoNode.setNodePlace(NeoPlace.BEGINNING);
 		neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(2);
-		neoNode.addStringLabel("IndexPlace");
+		neoNode.addLabel("IndexPlace");
 		neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(1);
 		neoPathParam = neoEdge.getNeoPathParam();
 		neoSimpleEdge = FACTORY.createNeoSimpleEdge();
@@ -162,7 +162,7 @@ public class CypherTest04Formula {
 		neoNode.setNodePlace(NeoPlace.BEGINNING);
 
 		neoNode = (NeoNode) quantifiedCond2.getGraph().getNodes().get(2);
-		neoNode.addStringLabel("Regesta");
+		neoNode.addLabel("Regesta");
 		neoEdge = (NeoEdge) quantifiedCond2.getGraph().getRelations().get(1);
 		neoPathParam = neoEdge.getNeoPathParam();
 		neoSimpleEdge = FACTORY.createNeoSimpleEdge();

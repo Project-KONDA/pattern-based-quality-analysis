@@ -134,19 +134,20 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	}
 
 	//The container just checks if enough elements are given to build a ComplexEdge
+	//Maybe change here stuff that Concrete Exceptions are thrown
 	@Override
 	public boolean validateComplexEdge() throws InvalidityException {
 		boolean valid = true;
 
 		if (getNeoPathPart().size() != 0) {
 			if (!(countOfEdges() >= 2)) {
-				valid = false;
+				throw new InvalidityException("To less Primitive Edges - At least 2");
 			}
 			if (hasMultipleLastEdges()) {
-				valid = false;
+				throw new InvalidityException("Has to many Last Edges - Max. 1");
 			}
 			if (!isLastEdgeAtTheEnd()) {
-				valid = false;
+				throw new InvalidityException("The Last Edge is not at the End");
 			}
 		} else {
 			valid = false;

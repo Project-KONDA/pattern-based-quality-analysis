@@ -51,6 +51,6 @@ public interface NeoNode extends ComplexNode, NeoAbstractNode {
 	 * @model
 	 * @generated
 	 */
-	void addStringLabel(String label);
+	void addLabel(String label);
 
 } // NeoNode

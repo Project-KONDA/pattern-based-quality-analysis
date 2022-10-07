@@ -94,13 +94,13 @@ public class CypherTest03NotCondition {
 	    completePattern.createNeo4jAdaption();
 	
 	    NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-	    neoNode.addStringLabel("Literature");
+	    neoNode.addLabel("Literature");
 	    
 	    //Node Specification - FORALL
 	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(0);
 	    neoNode.setNodePlace(NeoPlace.BEGINNING);
 	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(1);
-	    neoNode.addStringLabel("Regesta");
+	    neoNode.addLabel("Regesta");
 	    
 	    //Edge Specification - FORALL
 	    NeoEdge neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(0);
@@ -114,7 +114,7 @@ public class CypherTest03NotCondition {
 	    neoNode = (NeoNode) quantifiedCond2.getGraph().getNodes().get(1);
 	    neoNode.setNodePlace(NeoPlace.BEGINNING);
 	    neoNode = (NeoNode) quantifiedCond2.getGraph().getNodes().get(2);
-	    neoNode.addStringLabel("Reference");
+	    neoNode.addLabel("Reference");
 	    
 	    
 	    //Edge Specification - INNER EXISTS
@@ -180,7 +180,7 @@ public class CypherTest03NotCondition {
 	    completePattern.createNeo4jAdaption();
 	
 	    NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-	    neoNode.addStringLabel("Literature");
+	    neoNode.addLabel("Literature");
 	    
 	    NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
 	    NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
@@ -193,7 +193,7 @@ public class CypherTest03NotCondition {
 	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(0);
 	    neoNode.setNodePlace(NeoPlace.BEGINNING);
 	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(3);
-	    neoNode.addStringLabel("Regesta");
+	    neoNode.addLabel("Regesta");
 	    
 	    
 	    //Edge Specification - FORALL
@@ -212,7 +212,7 @@ public class CypherTest03NotCondition {
 	    neoNode = (NeoNode) quantifiedCond2.getGraph().getNodes().get(3);
 	    neoNode.setNodePlace(NeoPlace.BEGINNING);
 	    neoNode = (NeoNode) quantifiedCond2.getGraph().getNodes().get(5);
-	    neoNode.addStringLabel("Reference");
+	    neoNode.addLabel("Reference");
 	    
 	    
 	    //Edge Specification - INNER EXISTS
@@ -259,17 +259,17 @@ public class CypherTest03NotCondition {
 	    completePattern.createNeo4jAdaption();
 	
 	    NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-	    neoNode.addStringLabel("Regesta");
+	    neoNode.addLabel("Regesta");
 	    
 	    //Node Specification
 	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(0);
 	    neoNode.setNodePlace(NeoPlace.BEGINNING);
 	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(1);
-	    neoNode.addStringLabel("IndexPerson");
+	    neoNode.addLabel("IndexPerson");
 	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(2);
-	    neoNode.addStringLabel("Action");
+	    neoNode.addLabel("Action");
 	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(3);
-	    neoNode.addStringLabel("IndexPlace");
+	    neoNode.addLabel("IndexPlace");
 	    
 	    //First Edge Specification
 	    NeoEdge neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(0);
@@ -321,15 +321,15 @@ public class CypherTest03NotCondition {
 	    completePattern.createNeo4jAdaption();
 	
 	    NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-	    neoNode.addStringLabel("Regesta");
+	    neoNode.addLabel("Regesta");
 	    
 	    //Node Specification
 	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(0);
 	    neoNode.setNodePlace(NeoPlace.BEGINNING);
 	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(1);
-	    neoNode.addStringLabel("IndexPerson");
+	    neoNode.addLabel("IndexPerson");
 	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(2);
-	    neoNode.addStringLabel("IndexPlace");
+	    neoNode.addLabel("IndexPlace");
 	    
 	    //First Edge Specification
 	    NeoEdge neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(0);
@@ -381,7 +381,7 @@ public class CypherTest03NotCondition {
 	    completePattern.createNeo4jAdaption();
 	    
 	    NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-	    neoNode.addStringLabel("Regesta");
+	    neoNode.addLabel("Regesta");
 	    
 	    
 	    //Das Beginning löst hier das Problem, dass vorherige Nodes oder Relations nichts angedruckt werden
@@ -392,12 +392,12 @@ public class CypherTest03NotCondition {
 	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(0);
 	    neoNode.setNodePlace(NeoPlace.BEGINNING);
 	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(2);
-	    neoNode.addStringLabel("IndexPerson");
+	    neoNode.addLabel("IndexPerson");
 	    
 	    neoNode = (NeoNode) quantifiedCond2.getGraph().getNodes().get(2);
 	    neoNode.setNodePlace(NeoPlace.BEGINNING);
 	    neoNode = (NeoNode) quantifiedCond2.getGraph().getNodes().get(3);
-	    neoNode.addStringLabel("Regesta");
+	    neoNode.addLabel("Regesta");
 	    
 	    
 	    //First Edge Specification
@@ -609,7 +609,7 @@ public class CypherTest03NotCondition {
 		
 		//Make Concrete
 		NeoNode neoNode1 = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode1.addStringLabel("Literature");
+		neoNode1.addLabel("Literature");
 		NotCondition notCond = (NotCondition) completePattern.getCondition();
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) notCond.getCondition();
 		Graph graph1 = quantifiedCondition.getGraph();
@@ -618,11 +618,11 @@ public class CypherTest03NotCondition {
 		
 		//Specified quantifiedCondition
 		NeoNode neoNode2 = (NeoNode) graph1.getNodes().get(1);
-		neoNode2.addStringLabel("Reference");
+		neoNode2.addLabel("Reference");
 		
 		//SpecifiedInnerquantifiedCond
 		NeoNode neoNode3 = (NeoNode) graph1.getNodes().get(1);
-		neoNode3.addStringLabel("Regesta");
+		neoNode3.addLabel("Regesta");
 		
 		return completePattern;		
 	}
