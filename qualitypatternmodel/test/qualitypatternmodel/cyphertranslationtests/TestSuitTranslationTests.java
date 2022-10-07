@@ -47,8 +47,7 @@ public class TestSuitTranslationTests {
 	@Test
 	public void CypherTest00() {		
 		assertDoesNotThrow(() -> {CypherTest00.buildPatterns(completePatterns); 
-			CypherTest00.exceptionHandler(completePatterns);});
-		assertTrue(false);
+			test(completePatterns);});
 	}
 	
 //	@Test
@@ -67,7 +66,7 @@ public class TestSuitTranslationTests {
 	@Test
 	public void CypherTest01NeoEdge() {		
 		assertDoesNotThrow(() -> {CypherTest01NeoEdge.buildPatterns(completePatterns); 
-			CypherTest00.exceptionHandler(completePatterns);});
+		test(completePatterns);});
 	}
 	
 	
@@ -88,7 +87,7 @@ public class TestSuitTranslationTests {
 	@Test
 	public void CypherTest01NeoPropertyEdge() {		
 		assertDoesNotThrow(() -> {CypherTest01NeoPropertyEdge.buildPatterns(completePatterns); 
-			CypherTest00.exceptionHandler(completePatterns);});
+		test(completePatterns);});
 	}
 	
 //	@Test
@@ -108,7 +107,7 @@ public class TestSuitTranslationTests {
 	@Test
 	public void CypherTest02Return() {		
 		assertDoesNotThrow(() -> {CypherTest02Return.buildPatterns(completePatterns); 
-			CypherTest00.exceptionHandler(completePatterns);});
+		test(completePatterns);});
 	}
 	
 //	@Test
@@ -128,7 +127,7 @@ public class TestSuitTranslationTests {
 	@Test
 	public void CypherTest03NotCondition() {		
 		assertDoesNotThrow(() -> {CypherTest03NotCondition.buildPatterns(completePatterns); 
-			CypherTest00.exceptionHandler(completePatterns);});
+		test(completePatterns);});
 	}
 	
 //	@Test
@@ -148,7 +147,7 @@ public class TestSuitTranslationTests {
 	@Test
 	public void CypherTest04Formula() {		
 		assertDoesNotThrow(() -> {CypherTest04Formula.buildPatterns(completePatterns); 
-			CypherTest00.exceptionHandler(completePatterns);});
+		test(completePatterns);});
 	}
 	
 //	@Test
@@ -168,7 +167,7 @@ public class TestSuitTranslationTests {
 	public void CypherTest05ParameterValues() {	
 		ArrayList<ParameterValue> values = CypherTest05ParameterValues.getTestParameters();	
 		assertDoesNotThrow(() -> {CypherTest05ParameterValues.buildPatterns(completePatterns, values); 
-			CypherTest00.exceptionHandler(completePatterns);});
+		test(completePatterns);});
 	}
 	
 //	@Test
@@ -188,7 +187,7 @@ public class TestSuitTranslationTests {
 	@Test
 	public void CypherTest06Comparison() {	
 		assertDoesNotThrow(() -> {CypherTest06Comparison.buildPatterns(completePatterns); 
-			CypherTest00.exceptionHandler(completePatterns);});
+		test(completePatterns);});
 	}
 	
 //	@Test
@@ -208,7 +207,7 @@ public class TestSuitTranslationTests {
 	@Test
 	public void CypherTest07QuantifiedCondition() {	
 		assertDoesNotThrow(() -> {CypherTest07QuantifiedCondition.buildPatterns(completePatterns); 
-			CypherTest00.exceptionHandler(completePatterns);});
+		test(completePatterns);});
 	}
 	
 //	@Test
@@ -227,7 +226,7 @@ public class TestSuitTranslationTests {
 	@Test
 	public void CypherTest08Cycle() {	
 		assertDoesNotThrow(() -> {CypherTest08Cycle.buildPatterns(completePatterns); 
-			CypherTest00.exceptionHandler(completePatterns);});
+		test(completePatterns);});
 	}
 	
 //	@Test
@@ -247,7 +246,7 @@ public class TestSuitTranslationTests {
 	@Test
 	public void CypherTest09Contains() {	
 		assertDoesNotThrow(() -> {CypherTest09Contains.buildPatterns(completePatterns); 
-			CypherTest00.exceptionHandler(completePatterns);});
+		test(completePatterns);});
 	}
 	
 //	@Test
@@ -266,7 +265,7 @@ public class TestSuitTranslationTests {
 	@Test
 	public void CypherTest10Match() {	
 		assertDoesNotThrow(() -> {CypherTest10Match.buildPatterns(completePatterns); 
-		CypherTest00.exceptionHandler(completePatterns);});
+		test(completePatterns);});
 	}
 	
 //	@Test
@@ -286,7 +285,7 @@ public class TestSuitTranslationTests {
 	@Test
 	public void CypherTest11CountCondition() {	
 		assertDoesNotThrow(() -> {CypherTest11CountCondition.buildPatterns(completePatterns); 
-		CypherTest00.exceptionHandler(completePatterns);});
+		test(completePatterns);});
 	}
 	
 //	@Test

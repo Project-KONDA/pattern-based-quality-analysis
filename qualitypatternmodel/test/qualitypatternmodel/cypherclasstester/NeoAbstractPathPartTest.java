@@ -1,5 +1,5 @@
 package qualitypatternmodel.cypherclasstester;
 
-public class TestSuiteClassTests {
+public class NeoAbstractPathPartTest {
 
 }

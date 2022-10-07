@@ -1,5 +1,5 @@
 package qualitypatternmodel.cypherclasstester;
 
-public class Neo03PathParamTest {
+public abstract class NeoAbstractEdgeTest {
 
 }
