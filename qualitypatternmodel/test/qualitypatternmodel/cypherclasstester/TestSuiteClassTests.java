@@ -1,5 +1,5 @@
 package qualitypatternmodel.cypherclasstester;
 
-public class _TestSuiteClassTests {
+public class TestSuiteClassTests {
 
 }

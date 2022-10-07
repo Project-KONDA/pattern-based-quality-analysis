@@ -1,7 +1,6 @@
 package qualitypatternmodel.cyphertranslationtests;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static qualitypatternmodel.xmltranslationtests.Test00.replace;
@@ -26,7 +25,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 @TestInstance(Lifecycle.PER_CLASS)
-public class _TestSuitTranslationTests {
+public class TestSuitTranslationTests {
 	private static final String EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION = "NOT ALL EXCPECTED EXCEPTIONS HAVE BEEN THROWN";
 	private ArrayList<CompletePattern> completePatterns;
 	
@@ -49,6 +48,7 @@ public class _TestSuitTranslationTests {
 	public void CypherTest00() {		
 		assertDoesNotThrow(() -> {CypherTest00.buildPatterns(completePatterns); 
 			CypherTest00.exceptionHandler(completePatterns);});
+		assertTrue(false);
 	}
 	
 //	@Test

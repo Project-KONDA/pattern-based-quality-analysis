@@ -1,21 +1,16 @@
 package junittests;
 
-import java.util.ArrayList;
+import org.junit.platform.suite.api.SuiteDisplayName;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import org.junit.runners.Suite.SuiteClasses;
 
-import org.junit.Test;
+import qualitypatternmodel.cypherclasstester.TestSuiteClassTests;
+import qualitypatternmodel.cyphertranslationtests.TestSuitTranslationTests;
 
-import qualitypatternmodel.patternstructure.CompletePattern;
-
+@RunWith(Suite.class)
+@SuiteDisplayName("Neo4J/Cypher TestSuite")
+@SuiteClasses( {TestSuitTranslationTests.class, TestSuiteClassTests.class} )
 public class Neo4jJUnitTests {
-	
-	@Test
-	public void test01() {
-		try {
-//			ArrayList<CompletePattern> testpairs = Test01Axis.getPatterns();
-		} catch (Exception e) {
-			assert(false);
-		}
-		assert(true);
-	}
-	
+		// --> Why is this TestSuite not running???
 }
