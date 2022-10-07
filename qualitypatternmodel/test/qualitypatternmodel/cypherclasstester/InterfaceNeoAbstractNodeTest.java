@@ -1,5 +1,10 @@
 package qualitypatternmodel.cypherclasstester;
 
-interface InterfaceNeoAbstractNodeTest {
+import org.junit.Test;
 
+interface InterfaceNeoAbstractNodeTest extends INeo4J, InterfaceNeoElementTest {
+	@Test
+	void getCypherVariable();
+	
+	
 }

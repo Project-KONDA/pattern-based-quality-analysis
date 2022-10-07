@@ -85,7 +85,7 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 	public EMap<Integer, String> getCypherReturnVariable() throws InvalidityException {
 		EMap<Integer, String> returnElement = null;
 		if (getNeoPropertyPathParam() != null) {
-			String cypher = getNeoPropertyPathParam().getReturnVariable();
+			String cypher = getNeoPropertyPathParam().getCypherReturnVariable();
 			if (cypher != null) {
 				returnElement = super.getCypherReturnVariable();
 				returnElement.put(NeoAbstractEdgeImpl.CYPHER_RETURN_ID, cypher);

@@ -15,4 +15,5 @@ public interface InterfaceNeoPathPartTest {
 	void getNeoAbstractPathParam();
 	void setNeoComplexEdge(NeoComplexEdge newNeoComplexEdge);
 	void myToString();
+	void setCount();
 }

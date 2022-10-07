@@ -96,7 +96,11 @@ public class Neo04ComplexEdgeTest extends NeoAbstractPathPartTest {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
+
+	@Override
+	public void setCount() {
+		// TODO Auto-generated method stub
+		
+	}
 	//Testing the inner Counter has to be introduced here
 }

@@ -83,7 +83,7 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 				returnElement = null;
 			} else {
 				returnElement = super.getCypherReturnVariable();
-				String cypher = getNeoPathParam().getReturnVariable();
+				String cypher = getNeoPathParam().getCypherReturnVariable();
 				returnElement.put(NeoAbstractEdgeImpl.CYPHER_RETURN_ID, cypher);
 			}
 		} else {

@@ -247,7 +247,6 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_EDGE, newNeoPropertyEdge, newNeoPropertyEdge));
 	}
 
-	//Has to be fixed
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

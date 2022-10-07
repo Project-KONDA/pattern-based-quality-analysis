@@ -164,7 +164,6 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 		return result;
 	}
 
-	//ADD TO ECORE ? --> Rather not
 	@Override
 	protected int getRelationNumber() {
 		return getNeoEdge().getOriginalID();

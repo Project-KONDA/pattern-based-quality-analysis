@@ -49,7 +49,7 @@ public abstract class NeoAbstractPathParamImpl extends ParameterImpl implements 
 	 * @generated NOT 
 	 */
 	@Override
-	public String getReturnVariable() throws InvalidityException {
+	public String getCypherReturnVariable() throws InvalidityException {
 		String cypher = getNeoPathPart().getCypherVariable();	
 		return cypher;
 	}
@@ -120,7 +120,7 @@ public abstract class NeoAbstractPathParamImpl extends ParameterImpl implements 
 		switch (operationID) {
 			case AdaptionNeo4JPackage.NEO_ABSTRACT_PATH_PARAM___GET_RETURN_VARIABLE:
 				try {
-					return getReturnVariable();
+					return getCypherReturnVariable();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

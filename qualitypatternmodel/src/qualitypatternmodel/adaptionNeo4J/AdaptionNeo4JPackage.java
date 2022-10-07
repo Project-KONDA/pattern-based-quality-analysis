@@ -6242,11 +6242,11 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EClass getNeoAbstractPathParam();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getReturnVariable() <em>Get Return Variable</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getCypherReturnVariable() <em>Get Return Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Return Variable</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getReturnVariable()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getCypherReturnVariable()
 	 * @generated
 	 */
 	EOperation getNeoAbstractPathParam__GetReturnVariable();

@@ -24,7 +24,7 @@ public interface NeoAbstractPathParam extends Parameter, Adaptable {
 	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	String getReturnVariable() throws InvalidityException;
+	String getCypherReturnVariable() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

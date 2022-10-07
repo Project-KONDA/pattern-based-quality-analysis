@@ -12,7 +12,7 @@ import qualitypatternmodel.parameters.tests.ParameterTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getReturnVariable() <em>Get Return Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getCypherReturnVariable() <em>Get Return Variable</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
@@ -44,10 +44,10 @@ public abstract class NeoAbstractPathParamTest extends ParameterTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getReturnVariable() <em>Get Return Variable</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getCypherReturnVariable() <em>Get Return Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getReturnVariable()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getCypherReturnVariable()
 	 * @generated
 	 */
 	public void testGetReturnVariable() {
