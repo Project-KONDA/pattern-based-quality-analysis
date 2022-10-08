@@ -1,6 +1,7 @@
 package qualitypatternmodel.cypherclasstester.concretetests;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 import qualitypatternmodel.cypherclasstester.NeoAbstractPathPartTest;

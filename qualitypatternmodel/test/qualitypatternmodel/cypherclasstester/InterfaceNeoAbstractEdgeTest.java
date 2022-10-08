@@ -1,6 +1,6 @@
-package qualitypatternmodel.cypherclasstester;
+ package qualitypatternmodel.cypherclasstester;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 interface InterfaceNeoAbstractEdgeTest extends INeo4J, InterfaceNeoElementTest {
 	@Test
@@ -11,6 +11,5 @@ interface InterfaceNeoAbstractEdgeTest extends INeo4J, InterfaceNeoElementTest {
 	
 	@Test
 	void createParameters();
-	
 	
 }

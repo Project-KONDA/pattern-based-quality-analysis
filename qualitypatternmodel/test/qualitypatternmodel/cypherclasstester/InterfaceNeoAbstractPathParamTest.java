@@ -1,6 +1,6 @@
 package qualitypatternmodel.cypherclasstester;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 interface InterfaceNeoAbstractPathParamTest extends INeo4J {
 	@Test
