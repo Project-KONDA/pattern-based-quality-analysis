@@ -1,19 +1,15 @@
 package qualitypatternmodel.cypherclasstester;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
 
 public abstract class NeoAbstractNodeTest implements InterfaceNeoAbstractNodeTest {
-	@BeforeAll
-	public void setUp() {
-		
+	protected NeoAbstractNode neoAbstractNode;
+	
+	public void setUp(NeoAbstractNode neoAbstractNode) {
+		this.neoAbstractNode = neoAbstractNode;
 	}
 	
-	@AfterAll
-	public void setDown() {
-		
+	public void tearDown() {
+		neoAbstractNode = null;
 	}
-	
-	
-	
 }

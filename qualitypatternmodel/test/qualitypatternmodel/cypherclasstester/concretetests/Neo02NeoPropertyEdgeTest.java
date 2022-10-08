@@ -1,5 +1,7 @@
 package qualitypatternmodel.cypherclasstester.concretetests;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.jupiter.api.Test;
 
 import qualitypatternmodel.cypherclasstester.NeoAbstractEdgeTest;
@@ -9,7 +11,7 @@ public class Neo02NeoPropertyEdgeTest extends NeoAbstractEdgeTest{
 	
 	@Test
 	public void generateCypherPropertyAddressing() {
-		
+		assertTrue(true);
 	}
 	
 	@Override
@@ -43,13 +45,13 @@ public class Neo02NeoPropertyEdgeTest extends NeoAbstractEdgeTest{
 	}
 
 	@Override
-	public void generateCypherNodeVariable() {
+	public void toStringTest() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void toStringTest() {
+	public void generateCypherReturnVariable(int number) {
 		// TODO Auto-generated method stub
 		
 	}

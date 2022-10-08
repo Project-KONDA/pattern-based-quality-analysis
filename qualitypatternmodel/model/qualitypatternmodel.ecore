@@ -1242,7 +1242,7 @@
           defaultValueLiteral="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoNode" eSuperTypes="#//graphstructure/ComplexNode #//adaptionNeo4J/NeoAbstractNode">
-      <eOperations name="addLabel">
+      <eOperations name="addLabel" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoNodeLabels" eType="#//parameters/TextListParam"/>

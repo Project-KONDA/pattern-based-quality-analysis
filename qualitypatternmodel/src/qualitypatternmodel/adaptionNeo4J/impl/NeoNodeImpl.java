@@ -62,19 +62,19 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	 */
 	protected NeoPlace nodePlace = NODE_PLACE_EDEFAULT;
 	/**
-	 * The default value of the '{@link #isIsVariableDistinctInUse() <em>Is Variable Distinct In Use</em>}' attribute.
+	 * The default value of the '{@link #isVariableDistinctInUse() <em>Is Variable Distinct In Use</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsVariableDistinctInUse()
+	 * @see #isVariableDistinctInUse()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final boolean IS_VARIABLE_DISTINCT_IN_USE_EDEFAULT = true;
 	/**
-	 * The cached value of the '{@link #isIsVariableDistinctInUse() <em>Is Variable Distinct In Use</em>}' attribute.
+	 * The cached value of the '{@link #isVariableDistinctInUse() <em>Is Variable Distinct In Use</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsVariableDistinctInUse()
+	 * @see #isVariableDistinctInUse()
 	 * @generated
 	 * @ordered
 	 */
@@ -110,9 +110,13 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 			if((!translated)) { 
 				if (getNeoNodeLabels() != null) {
 					for (String label : labels.getValues()) {
-						if (label != "") {
-							cypher.append(":");
-							cypher.append(label);
+						if (!label.isEmpty()) { 
+							if (!label.contains(" ")) { // --> Check if needed
+								cypher.append(":");
+								cypher.append(label);
+							} else {
+								throw new InvalidityException("Invalid Label - A Label can not contain a Whitespace");
+							}
 						}
 					}
 				}
@@ -243,7 +247,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	 * @generated
 	 */
 	@Override
-	public boolean isIsVariableDistinctInUse() {
+	public boolean isVariableDistinctInUse() {
 		return isVariableDistinctInUse;
 	}
 
@@ -290,29 +294,41 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setNeoNodeLabels(TextListParam newNeoNodeLabels) {
-		TextListParam oldNeoNodeLabels = neoNodeLabels;
-		neoNodeLabels = newNeoNodeLabels;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_NODE__NEO_NODE_LABELS, oldNeoNodeLabels, neoNodeLabels));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated NOT 
 	 */
 	@Override
-	public void addLabel(String label) {
+	public void addLabel(String label) throws InvalidityException {
 		if (this.neoNodeLabels == null) {
 			this.neoNodeLabels = new TextListParamImpl();
 		}
 		if (!this.neoNodeLabels.getValues().contains(label)) {
+			if (label.contains(" ")) {
+				throw new InvalidityException("Label can not contain Whitespace(s)");
+			}
 			this.neoNodeLabels.addStringValue(label);
 		}
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
+	 * @generated NOT
+	 */
+	@Override
+	public void setNeoNodeLabels(TextListParam newNeoNodeLabels) throws InvalidityException {
+		if (newNeoNodeLabels != null) {
+			for (String value : newNeoNodeLabels.getValues()) { //Same has to be done for the other classes
+				if (value.contains(" ")) { //--> The redunancy check is done in the TextListParam
+					//However that would not be a problem in Neo4J (r:Action:Action) [multi times the same label]
+					throw new InvalidityException("A Label can not contain Whitespace(s)");
+				}
+			}
+		}
+		TextListParam oldNeoNodeLabels = neoNodeLabels;
+		neoNodeLabels = newNeoNodeLabels;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_NODE__NEO_NODE_LABELS, oldNeoNodeLabels, neoNodeLabels));
 	}
 
 	/**
@@ -326,7 +342,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 			case AdaptionNeo4JPackage.NEO_NODE__NODE_PLACE:
 				return getNodePlace();
 			case AdaptionNeo4JPackage.NEO_NODE__IS_VARIABLE_DISTINCT_IN_USE:
-				return isIsVariableDistinctInUse();
+				return isVariableDistinctInUse();
 			case AdaptionNeo4JPackage.NEO_NODE__NEO_NODE_LABELS:
 				if (resolve) return getNeoNodeLabels();
 				return basicGetNeoNodeLabels();
@@ -337,7 +353,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
@@ -350,7 +366,12 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 				setIsVariableDistinctInUse((Boolean)newValue);
 				return;
 			case AdaptionNeo4JPackage.NEO_NODE__NEO_NODE_LABELS:
-				setNeoNodeLabels((TextListParam)newValue);
+				try {
+					setNeoNodeLabels((TextListParam)newValue);
+				} catch (InvalidityException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -359,7 +380,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void eUnset(int featureID) {
@@ -371,7 +392,12 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 				setIsVariableDistinctInUse(IS_VARIABLE_DISTINCT_IN_USE_EDEFAULT);
 				return;
 			case AdaptionNeo4JPackage.NEO_NODE__NEO_NODE_LABELS:
-				setNeoNodeLabels((TextListParam)null);
+				try {
+					setNeoNodeLabels((TextListParam)null);
+				} catch (InvalidityException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				return;
 		}
 		super.eUnset(featureID);
@@ -470,8 +496,13 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case AdaptionNeo4JPackage.NEO_NODE___ADD_LABEL__STRING:
-				addLabel((String)arguments.get(0));
-				return null;
+				try {
+					addLabel((String)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case AdaptionNeo4JPackage.NEO_NODE___GET_CYPHER_VARIABLE:
 				return getCypherVariable();
 			case AdaptionNeo4JPackage.NEO_NODE___GET_CYPHER_RETURN_VARIABLE:

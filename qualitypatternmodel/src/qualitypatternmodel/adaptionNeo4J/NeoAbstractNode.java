@@ -61,14 +61,14 @@ public interface NeoAbstractNode extends NeoElement {
 	 * @model default="true"
 	 * @generated
 	 */
-	boolean isIsVariableDistinctInUse();
+	boolean isVariableDistinctInUse();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#isIsVariableDistinctInUse <em>Is Variable Distinct In Use</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Is Variable Distinct In Use</em>' attribute.
-	 * @see #isIsVariableDistinctInUse()
+	 * @see #isVariableDistinctInUse()
 	 * @generated
 	 */
 	void setIsVariableDistinctInUse(boolean value);

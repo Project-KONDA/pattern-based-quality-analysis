@@ -59,19 +59,19 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	protected NeoPlace nodePlace = NODE_PLACE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isIsVariableDistinctInUse() <em>Is Variable Distinct In Use</em>}' attribute.
+	 * The default value of the '{@link #isVariableDistinctInUse() <em>Is Variable Distinct In Use</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsVariableDistinctInUse()
+	 * @see #isVariableDistinctInUse()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final boolean IS_VARIABLE_DISTINCT_IN_USE_EDEFAULT = true;
 	/**
-	 * The cached value of the '{@link #isIsVariableDistinctInUse() <em>Is Variable Distinct In Use</em>}' attribute.
+	 * The cached value of the '{@link #isVariableDistinctInUse() <em>Is Variable Distinct In Use</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsVariableDistinctInUse()
+	 * @see #isVariableDistinctInUse()
 	 * @generated
 	 * @ordered
 	 */
@@ -220,7 +220,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__NODE_PLACE:
 				return getNodePlace();
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE:
-				return isIsVariableDistinctInUse();
+				return isVariableDistinctInUse();
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__RETURN_PROPERTY:
 				return isReturnProperty();
 		}
@@ -411,7 +411,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 * @generated
 	 */
 	@Override
-	public boolean isIsVariableDistinctInUse() {
+	public boolean isVariableDistinctInUse() {
 		return isVariableDistinctInUse;
 	}
 

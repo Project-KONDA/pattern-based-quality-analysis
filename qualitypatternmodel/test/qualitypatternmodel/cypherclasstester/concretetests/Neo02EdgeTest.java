@@ -36,13 +36,13 @@ public class Neo02EdgeTest extends NeoAbstractEdgeTest{
 	}
 
 	@Override
-	public void generateCypherNodeVariable() {
+	public void toStringTest() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void toStringTest() {
+	public void generateCypherReturnVariable(int number) {
 		// TODO Auto-generated method stub
 		
 	}

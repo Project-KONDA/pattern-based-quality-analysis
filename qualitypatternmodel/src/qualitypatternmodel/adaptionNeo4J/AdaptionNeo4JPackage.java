@@ -5705,7 +5705,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Is Variable Distinct In Use</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#isIsVariableDistinctInUse()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#isVariableDistinctInUse()
 	 * @see #getNeoAbstractNode()
 	 * @generated
 	 */

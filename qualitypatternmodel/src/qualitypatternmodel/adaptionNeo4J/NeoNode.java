@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.adaptionNeo4J;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.parameters.TextListParam;
 
@@ -40,17 +41,18 @@ public interface NeoNode extends ComplexNode, NeoAbstractNode {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Neo Node Labels</em>' reference.
+	 * @throws InvalidityException 
 	 * @see #getNeoNodeLabels()
-	 * @generated
+	 * @generated NOT
 	 */
-	void setNeoNodeLabels(TextListParam value);
+	void setNeoNodeLabels(TextListParam value) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	void addLabel(String label);
+	void addLabel(String label) throws InvalidityException;
 
 } // NeoNode
