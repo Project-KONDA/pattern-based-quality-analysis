@@ -106,17 +106,12 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 			cypher.append(CypherSpecificConstants.VARIABLE_NODE);
 			cypher.append(getOriginalID());
 			TextListParam labels = this.getNeoNodeLabels();
-			//prüft ob es eine original node -- Falls es original dann labels
 			if((!translated)) { 
 				if (getNeoNodeLabels() != null) {
 					for (String label : labels.getValues()) {
 						if (!label.isEmpty()) { 
-							if (!label.contains(" ")) { // --> Check if needed
-								cypher.append(":");
-								cypher.append(label);
-							} else {
-								throw new InvalidityException("Invalid Label - A Label can not contain a Whitespace");
-							}
+							cypher.append(":");
+							cypher.append(label);
 						}
 					}
 				}

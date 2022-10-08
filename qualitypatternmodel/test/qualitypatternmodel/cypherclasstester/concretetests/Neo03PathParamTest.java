@@ -54,7 +54,7 @@ public class Neo03PathParamTest extends NeoAbstractPathParamTest {
 	}
 
 	@Override
-	public void toStringTest() {
+	public void toStringTest(int numbers) {
 		// TODO Auto-generated method stub
 		
 	}

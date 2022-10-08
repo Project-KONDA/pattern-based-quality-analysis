@@ -140,8 +140,10 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override
 	public String generateCypherNodeVariable() throws InvalidityException {
 		if (getIncomingMapping() == null) {
-			if (getIncoming().get(0) == null || !(getIncoming().get(0) instanceof NeoPropertyEdge))
+			if (getIncoming() == null || getIncoming().size() != 1)
 				throw new InvalidityException("No incoming NeoPropertyEdge specified");
+			else if(!(getIncoming().get(0) instanceof NeoPropertyEdge))
+				throw new InvalidityException("Wronge incoming NeoPropertyEdge specified");
 			NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) getIncoming().get(0);
 			String cypher = neoPropertyEdge.generateCypherNodeVariable();
 			return cypher;
@@ -198,15 +200,19 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	}
 
 	private void isNodeReturnable() throws InvalidityException {
-		NeoPropertyPathParam neoPropertyPathParam;
 		NeoPropertyEdge neoPropertyEdge;
+		NeoPropertyPathParam neoPropertyPathParam;
 		NeoPropertyNode neoPropertyNode;
 		
 		neoPropertyNode = this;
+		if (neoPropertyNode.getIncoming() == null || neoPropertyNode.getIncoming().size() != 1) {
+			throw new InvalidityException("No imcoming edge spezified");
+		}
 		neoPropertyEdge = (NeoPropertyEdge) neoPropertyNode.getIncoming().get(0);
 		neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
-		if (neoPropertyPathParam.getNeoPathPart() == null)
+		if (neoPropertyPathParam.getNeoPathPart() == null) {
 			throw new InvalidityException("NeoPropertyNode - This Node is not suited to be a Return Node");
+		}
 	}
 
 	/**
