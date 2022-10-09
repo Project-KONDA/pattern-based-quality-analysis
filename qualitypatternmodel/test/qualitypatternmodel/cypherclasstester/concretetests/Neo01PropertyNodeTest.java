@@ -30,6 +30,7 @@ import qualitypatternmodel.adaptionNeo4J.impl.NeoAbstractPathParamImpl;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyNodeImpl;
 import qualitypatternmodel.cypherclasstester.NeoAbstractNodeTest;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.NodeImpl;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
@@ -103,7 +104,7 @@ public class Neo01PropertyNodeTest extends NeoAbstractNodeTest {
 		neoSimpleEdge.setIsLastEdge(true);
 		neoPropertyEdge.setNeoPropertyPathParam(neoPropertyPathParam);
 		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
-		neoPropertyEdge.setTarget(neoPropertyNode);
+		neoPropertyEdge.setTarget((Node)neoPropertyNode);
 		return neoPropertyEdge;
 	}
 	
@@ -221,8 +222,9 @@ public class Neo01PropertyNodeTest extends NeoAbstractNodeTest {
 	public void getCypherVariable(int number) {
 		int id = number;
 		try {
-			NeoPropertyEdge neoPropertyEdge = prepaireValidPropertyEdgeStructure(GENERIC_NODE_ID);
-			initGetCypherVariableTest(neoPropertyNode, GENERIC_NODE_ID);
+			neoPropertyNode = FACTORY.createNeoPropertyNode();
+			NeoPropertyEdge neoPropertyEdge = prepaireValidPropertyEdgeStructure(id);
+			initGetCypherVariableTest(neoPropertyNode, id);
 			Field field = getIncomingField();
 			EList<Relation> rList = new BasicEList<Relation>();
 			rList.add(neoPropertyEdge);

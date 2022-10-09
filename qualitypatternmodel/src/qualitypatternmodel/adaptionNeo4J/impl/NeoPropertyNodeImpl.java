@@ -175,7 +175,10 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	public String getCypherVariable() {
 		if (getIncomingMapping() == null) {	
 			try {
-				return generateCypher().replaceAll("(", "").replaceAll(")", "");
+				String cypher = generateCypher();
+				cypher = cypher.replace("(", "");
+				cypher = cypher.replace(")", "");
+				return cypher;
 			} catch (InvalidityException e) {
 				e.printStackTrace();
 			}
