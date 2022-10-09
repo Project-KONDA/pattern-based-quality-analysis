@@ -13,7 +13,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoDirection;
+import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoComplexEdgeImpl.InternalCount;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -243,24 +245,29 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	@Override //--> Check for correctness
+	@Override
 	public String getCypherInnerEdgeNodes(boolean isReturn) throws InvalidityException {
+		final NeoAbstractPathParamImpl neoAbstractPathParam = ((NeoAbstractPathParamImpl) getNeoAbstractPathParam());
+		String cypher = null;
+		if (neoAbstractPathParam == null) {
+			throw new InvalidityException("A NeoPathPart needs a NeoAbstractPathParam");
+		}
 		if (getNeoTargetNodeLabels() == null || getNeoTargetNodeLabels().getValues().size() == 0) {
-			return null;
+			cypher =  null;
 		} else if (!isLastEdge) {
 			if (edgeNumber != 0) {
-				return CypherSpecificConstants.INTERNAL_EDGE_NODE + ((NeoAbstractPathParamImpl) getNeoAbstractPathParam()).getRelationNumber() + "_" + getEdgeNumber();
+				cypher = CypherSpecificConstants.INTERNAL_EDGE_NODE + neoAbstractPathParam.getRelationNumber() + "_" + getEdgeNumber();
 			} else {
-				return CypherSpecificConstants.INTERNAL_EDGE_NODE + ((NeoAbstractPathParamImpl) getNeoAbstractPathParam()).getRelationNumber();
+				cypher = CypherSpecificConstants.INTERNAL_EDGE_NODE + neoAbstractPathParam.getRelationNumber();
 			}
 		} else if (isLastEdge && !isReturn) {
-			if (getNeoPropertyPathParam() != null) {
-				return CypherSpecificConstants.VARIABLE_PROPERTY_NODE + (getNeoPropertyPathParam().getNeoPropertyEdge().getTarget().getOriginalID());
+			if (neoAbstractPathParam instanceof NeoPropertyPathParam) {
+				cypher = CypherSpecificConstants.VARIABLE_PROPERTY_NODE + ((NeoPropertyPathParam) neoAbstractPathParam).getNeoPropertyEdge().getTarget().getOriginalID();
+			} else {
+				cypher = CypherSpecificConstants.VARIABLE_PROPERTY_NODE + ((NeoPathParam) neoAbstractPathParam).getNeoEdge().getTarget().getOriginalID();
 			}
-			//This needs Maybe rework... see CypherTest02Return
-			return CypherSpecificConstants.VARIABLE_PROPERTY_NODE + ((NeoAbstractPathParamImpl) getNeoAbstractPathParam()).getRelationNumber() + "_" + getEdgeNumber();
 		}
-		return null;
+		return cypher;
 	}
 
 	/**
@@ -508,8 +515,10 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 */
 	@Override
 	public void setNeoDirection(NeoDirection neoDirection) {
-		if (neoDirection == null)
+		if (neoDirection == null) {
+			this.neoDirection = neoDirection; 
 			return;
+		}
 		this.neoDirection = neoDirection;
 	}
 

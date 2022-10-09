@@ -24,6 +24,8 @@ import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.utility.CypherSpecificConstants;
+
 import static qualitypatternmodel.xmltranslationtests.Test00.*;
 
 
@@ -46,6 +48,10 @@ public class CypherTest00 {
 				//Include the null check for the results
 				String hashCode = query.hashCode() + "";
 				connector.queryTester(query, hashCode);
+				String returnString = query.substring(query.indexOf(CypherSpecificConstants.CLAUSE_RETURN));
+				if (returnString.toLowerCase().contains("null")) {
+					throw new InvalidityException("The RETURN-CLAUSE contains null.");
+				}
 			} catch (Exception e) {
 				System.out.println();
 				e.printStackTrace();

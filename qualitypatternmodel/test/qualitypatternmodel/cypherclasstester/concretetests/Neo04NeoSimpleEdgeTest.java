@@ -1,18 +1,56 @@
 package qualitypatternmodel.cypherclasstester.concretetests;
 
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoDirection;
+import qualitypatternmodel.adaptionNeo4J.NeoNode;
+import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.cypherclasstester.NeoAbstractPathPartTest;
 import qualitypatternmodel.exceptions.InvalidityException;
 
 public class Neo04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
-
+	NeoSimpleEdge neoSimpleEdge;
+	
+	@BeforeAll
+    static void initAll() {
+		
+    }
+	
+	@BeforeEach
+	public void setUp() {
+		super.setUp(FACTORY.createNeoSimpleEdge());
+		neoSimpleEdge = (NeoSimpleEdge) super.neoPathPart;
+	}
+	
+	@AfterEach
+	public void tearDown() {
+		super.tearDown();
+		neoSimpleEdge = null;
+	}
+	
+	@AfterAll
+	static void tearDownAll() {
+		
+    }
 	
 	@Test
 	public void setNeoDirection() {
-		
+		neoSimpleEdge.setNeoDirection(NeoDirection.IMPLICIT);
+		assertEquals(NeoDirection.IMPLICIT,neoSimpleEdge.getNeoDirection());
+		neoSimpleEdge.setNeoDirection(NeoDirection.LEFT);
+		assertEquals(NeoDirection.LEFT,neoSimpleEdge.getNeoDirection());
+		neoSimpleEdge.setNeoDirection(NeoDirection.RIGHT);
+		assertEquals(NeoDirection.RIGHT, neoSimpleEdge.getNeoDirection());
+		neoSimpleEdge.setNeoDirection(null);
+		assertEquals(null, neoSimpleEdge.getNeoDirection());
 	}
 	
 	@Test

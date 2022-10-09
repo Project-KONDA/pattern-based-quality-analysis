@@ -230,14 +230,12 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		}
 	}
 	
-	//--> StartPoint is seperated
-	//consider the distinct --> In the return
-	private List<StringBuilder> traverseOverPattern(ComplexNode node, List<StringBuilder> cyphers, int counterString) throws InvalidityException {
+	private EList<StringBuilder> traverseOverPattern(ComplexNode node, List<StringBuilder> cyphers, int counterString) throws InvalidityException {
 		int innerCounterString = counterString;
 		StringBuilder cypher;
 		StringBuilder cypherEdge;
 		StringBuilder preCypher;
-		List<StringBuilder> result = new LinkedList<StringBuilder>();
+		EList<StringBuilder> result = new BasicEList<StringBuilder>();
 		if (cyphers.size() == 0) {
 			cypher = new StringBuilder();
 			cypher.append(node.generateCypher());

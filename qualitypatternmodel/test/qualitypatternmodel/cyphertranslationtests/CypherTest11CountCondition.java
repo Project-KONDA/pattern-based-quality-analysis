@@ -32,6 +32,7 @@ public class CypherTest11CountCondition {
 	public static void main(String[] args)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		buildPatterns(completePatterns);
 		CypherTest00.test(completePatterns);
 	}
 	
