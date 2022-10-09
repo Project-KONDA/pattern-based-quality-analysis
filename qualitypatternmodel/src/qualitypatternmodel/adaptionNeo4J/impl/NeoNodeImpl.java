@@ -131,7 +131,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	 * @generated NOT
 	 */
 	@Override 
-	public String getCypherVariable() {
+	public String getCypherVariable() throws InvalidityException {
 		if (getIncomingMapping() == null) {
 			String var;
 			var = CypherSpecificConstants.VARIABLE_NODE;
@@ -499,7 +499,12 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 					throw new InvocationTargetException(throwable);
 				}
 			case AdaptionNeo4JPackage.NEO_NODE___GET_CYPHER_VARIABLE:
-				return getCypherVariable();
+				try {
+					return getCypherVariable();
+				} 
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case AdaptionNeo4JPackage.NEO_NODE___GET_CYPHER_RETURN_VARIABLE:
 				try {
 					return getCypherReturnVariable();

@@ -123,7 +123,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	public String generateCypherPropertyAddressing() throws InvalidityException {
 		if (getIncomingMapping() == null) {
 			String cypher = null;
-			if (getIncoming() != null) {
+			if (checkForValidIncoming()) {
 				NeoPropertyEdge edge = (NeoPropertyEdge) getIncoming().get(0);
 				cypher = edge.generateCypherPropertyAddressing();
 			}
@@ -172,17 +172,13 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 * @generated NOT
 	 */
 	@Override
-	public String getCypherVariable() {
+	public String getCypherVariable() throws InvalidityException {
 		if (getIncomingMapping() == null) {	
-			try {
-				String cypher = generateCypher();
-				cypher = cypher.replace("(", "");
-				cypher = cypher.replace(")", "");
-				return cypher;
-			} catch (InvalidityException e) {
-				e.printStackTrace();
-			}
-			return null;
+			String cypher;
+			cypher = generateCypher();
+			cypher = cypher.replace("(", "");
+			cypher = cypher.replace(")", "");
+			return cypher;
 		}
 		return ((NeoPropertyNode) getOriginalNode()).getCypherVariable(); 
 	}
@@ -198,11 +194,11 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		String cypher;
 		if (getIncomingMapping() == null) {	
 			cypher = generateCypher();
-			returnElement.put(NeoPropertyNodeImpl.CYPHER_RETURN_ID, cypher);
+			returnElement.put(NeoPropertyNodeImpl.CYPHER_RETURN_ID, getCypherVariable());
 			return returnElement;
 		} else {
 			cypher = ((NeoPropertyNode) getOriginalNode()).generateCypherNodeVariable();
-			returnElement.put(NeoPropertyNodeImpl.CYPHER_RETURN_ID, cypher);
+			returnElement.put(NeoPropertyNodeImpl.CYPHER_RETURN_ID, getCypherVariable());
 		}
 		return returnElement;
 	}
@@ -210,7 +206,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	private void isNodeReturnable() throws InvalidityException {
 		NeoPropertyEdge neoPropertyEdge;
 		NeoPropertyPathParam neoPropertyPathParam;
-		NeoPropertyNode neoPropertyNode;
 		
 		if (!checkForValidIncoming()) {
 			throw new InvalidityException("No imcoming edge spezified");
@@ -512,7 +507,12 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 				setIsReturnProperty((Boolean)arguments.get(0));
 				return null;
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GET_CYPHER_VARIABLE:
-				return getCypherVariable();
+				try {
+					return getCypherVariable();
+				} 
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GET_CYPHER_RETURN_VARIABLE:
 				try {
 					return getCypherReturnVariable();

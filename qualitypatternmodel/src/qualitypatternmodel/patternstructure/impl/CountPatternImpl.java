@@ -149,7 +149,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	}
 	
 	//Node-Counter
-	private String createMyCounterString(NeoAbstractNode countElement, int countCounter) {
+	private String createMyCounterString(NeoAbstractNode countElement, int countCounter) throws InvalidityException {
 		String temp;
 		temp = CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT;
 		temp = String.format(temp, countElement.getCypherVariable());

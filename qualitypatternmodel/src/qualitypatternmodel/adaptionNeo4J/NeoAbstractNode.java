@@ -79,7 +79,7 @@ public interface NeoAbstractNode extends NeoElement {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	String getCypherVariable();
+	String getCypherVariable() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
