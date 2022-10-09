@@ -261,11 +261,6 @@ public class Neo04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 		Mockito.when(mockNeoPathParam.getRelationNumber()).thenReturn(1); 
 		neoSimpleEdge.setNeoPathParam(mockNeoPathParam);
 	}
-	
-	public void getCypherVariableWithNeoPropertyPathParam() {
-		neoSimpleEdge.setNeoPropertyPathParam(null);		
-		
-	}
 
 	@Override
 	public void getCypherInnerEdgeNodes(boolean isReturn) throws InvalidityException {
