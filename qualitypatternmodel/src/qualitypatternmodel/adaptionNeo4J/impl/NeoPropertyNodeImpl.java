@@ -59,19 +59,19 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	protected NeoPlace nodePlace = NODE_PLACE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isVariableDistinctInUse() <em>Is Variable Distinct In Use</em>}' attribute.
+	 * The default value of the '{@link #isIsVariableDistinctInUse() <em>Is Variable Distinct In Use</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isVariableDistinctInUse()
+	 * @see #isIsVariableDistinctInUse()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final boolean IS_VARIABLE_DISTINCT_IN_USE_EDEFAULT = true;
 	/**
-	 * The cached value of the '{@link #isVariableDistinctInUse() <em>Is Variable Distinct In Use</em>}' attribute.
+	 * The cached value of the '{@link #isIsVariableDistinctInUse() <em>Is Variable Distinct In Use</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isVariableDistinctInUse()
+	 * @see #isIsVariableDistinctInUse()
 	 * @generated
 	 * @ordered
 	 */
@@ -228,7 +228,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__NODE_PLACE:
 				return getNodePlace();
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE:
-				return isVariableDistinctInUse();
+				return isIsVariableDistinctInUse();
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__RETURN_PROPERTY:
 				return isReturnProperty();
 		}
@@ -419,7 +419,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 * @generated
 	 */
 	@Override
-	public boolean isVariableDistinctInUse() {
+	public boolean isIsVariableDistinctInUse() {
 		return isVariableDistinctInUse;
 	}
 
@@ -509,7 +509,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GET_CYPHER_VARIABLE:
 				try {
 					return getCypherVariable();
-				} 
+				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}

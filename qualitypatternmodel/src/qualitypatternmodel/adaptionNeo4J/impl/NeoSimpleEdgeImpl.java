@@ -603,7 +603,11 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 				setKeyValueParam((KeyValueParam)newValue);
 				return;
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS:
-				setNeoTargetNodeLabels((TextListParam)newValue);
+				try {
+					setNeoTargetNodeLabels((TextListParam)newValue);
+				} catch (InvalidityException e) {
+					e.printStackTrace();
+				}
 				return;
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL:
 				setNeoEdgeLabel((TextLiteralParam)newValue);
@@ -621,7 +625,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void eUnset(int featureID) {
@@ -630,7 +634,11 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 				setKeyValueParam((KeyValueParam)null);
 				return;
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS:
-				setNeoTargetNodeLabels((TextListParam)null);
+				try {
+					setNeoTargetNodeLabels((TextListParam)null);
+				} catch (InvalidityException e) {
+					e.printStackTrace();
+				}
 				return;
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL:
 				setNeoEdgeLabel((TextLiteralParam)null);
@@ -681,8 +689,13 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 				setNeoDirection((NeoDirection)arguments.get(0));
 				return null;
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___ADD_TARGET_NODE_LABEL__STRING:
-				addTargetNodeLabel((String)arguments.get(0));
-				return null;
+				try {
+					addTargetNodeLabel((String)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___ADD_NEO_EDGE_LABEL__STRING:
 				addNeoEdgeLabel((String)arguments.get(0));
 				return null;

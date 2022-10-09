@@ -192,7 +192,7 @@ public interface NeoSimpleEdge extends NeoPathPart {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
 	void addTargetNodeLabel(String label) throws InvalidityException;
