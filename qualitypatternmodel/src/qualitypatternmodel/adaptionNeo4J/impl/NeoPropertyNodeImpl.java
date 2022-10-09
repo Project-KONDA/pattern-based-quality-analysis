@@ -108,7 +108,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	public String generateCypher() throws InvalidityException, UnsupportedOperationException {
 		isNodeReturnable();	
 		if (getIncomingMapping() == null) {
-			String cypher = generateCypherNodeVariable();			
+			String cypher = "(" + generateCypherNodeVariable() + ")"; //Sollte so richtig sein			
 			return cypher;
 		}
 		return ((NeoPropertyNode) getOriginalNode()).generateCypher();
@@ -140,7 +140,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override
 	public String generateCypherNodeVariable() throws InvalidityException {
 		if (getIncomingMapping() == null) {
-			if (getIncoming() == null || getIncoming().size() != 1)
+			if (!checkForValidIncoming())
 				throw new InvalidityException("No incoming NeoPropertyEdge specified");
 			else if(!(getIncoming().get(0) instanceof NeoPropertyEdge))
 				throw new InvalidityException("Wronge incoming NeoPropertyEdge specified");
@@ -149,6 +149,11 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 			return cypher;
 		}
 		return ((NeoPropertyNode) getOriginalNode()).generateCypherNodeVariable();
+	}
+
+	//Check if this check is in the other classes similar or need similar adaption
+	private boolean checkForValidIncoming() {
+		return !(getIncoming() == null || getIncoming().size() != 1 || getIncoming().get(0) == null);
 	}
 
 	/**
@@ -204,13 +209,12 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		NeoPropertyPathParam neoPropertyPathParam;
 		NeoPropertyNode neoPropertyNode;
 		
-		neoPropertyNode = this;
-		if (neoPropertyNode.getIncoming() == null || neoPropertyNode.getIncoming().size() != 1) {
+		if (!checkForValidIncoming()) {
 			throw new InvalidityException("No imcoming edge spezified");
 		}
-		neoPropertyEdge = (NeoPropertyEdge) neoPropertyNode.getIncoming().get(0);
+		neoPropertyEdge = (NeoPropertyEdge) getIncoming().get(0);
 		neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
-		if (neoPropertyPathParam.getNeoPathPart() == null) {
+		if (neoPropertyPathParam == null || neoPropertyPathParam.getNeoPathPart() == null) {
 			throw new InvalidityException("NeoPropertyNode - This Node is not suited to be a Return Node");
 		}
 	}

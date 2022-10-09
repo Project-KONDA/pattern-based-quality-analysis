@@ -243,7 +243,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	@Override
+	@Override //--> Check for correctness
 	public String getCypherInnerEdgeNodes(boolean isReturn) throws InvalidityException {
 		if (getNeoTargetNodeLabels() == null || getNeoTargetNodeLabels().getValues().size() == 0) {
 			return null;

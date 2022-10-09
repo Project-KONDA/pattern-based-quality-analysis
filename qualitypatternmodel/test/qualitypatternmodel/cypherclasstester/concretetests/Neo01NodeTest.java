@@ -117,10 +117,6 @@ public class Neo01NodeTest extends NeoAbstractNodeTest {
 	
 	@Test
 	public void setNeoNodeLabelsThrowInvalidityException() {
-//		TextListParam textListParam = new TextListParamImpl();
-//		textListParam.addStringValue("Regesta");
-//		textListParam.addStringValue("Regesta");
-//		textListParam.addStringValue(" ");
 		TextListParam mockTextListParam = Mockito.mock(TextListParam.class);
 		EList<String> labelList = new BasicEList<String>();
 		labelList.add(" ");
