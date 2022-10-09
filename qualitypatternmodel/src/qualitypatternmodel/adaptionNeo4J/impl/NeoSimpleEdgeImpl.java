@@ -273,14 +273,18 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
 	 * @generated NOT
 	 */
 	@Override
-	public void addNeoEdgeLabel(String label) {
+	public void addNeoEdgeLabel(String label) throws InvalidityException {
+		if (label == null)
+			return;		
 		if (this.neoEdgeLabel == null) {
 			this.neoEdgeLabel = new TextLiteralParamImpl();
 		}
 		if (this.neoEdgeLabel.getValue() == null || this.neoEdgeLabel.getValue().compareTo(label) != 0) {
+			checkForWhitespaceInLabel(label);
 			this.neoEdgeLabel.setValue(label);
 		}
 	}
@@ -375,10 +379,16 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @throws InvalidityException 
+	 * @generated NOT
 	 */
 	@Override
-	public void setNeoEdgeLabel(TextLiteralParam newNeoEdgeLabel) {
+	public void setNeoEdgeLabel(TextLiteralParam newNeoEdgeLabel) throws InvalidityException {
+		if (newNeoEdgeLabel != null) {
+			if (newNeoEdgeLabel.getValue() != null) {
+				checkForWhitespaceInLabel(newNeoEdgeLabel.getValue());
+			}
+		}
 		TextLiteralParam oldNeoEdgeLabel = neoEdgeLabel;
 		neoEdgeLabel = newNeoEdgeLabel;
 		if (eNotificationRequired())
@@ -503,8 +513,10 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	@Override
 	public void setNeoTargetNodeLabels(TextListParam newNeoTargetNodeLabels) throws InvalidityException {
 		if (newNeoTargetNodeLabels != null) {
-			if (newNeoTargetNodeLabels.getValueAsString().contains(" ")) {
-				throw new InvalidityException("A Label can not contain Whitespace(s)");
+			for (String s : newNeoTargetNodeLabels.getValues()) {
+				if (s.contains(" ")) {
+					throw new InvalidityException("A Label can not contain Whitespace(s)");
+				}
 			}
 		}
 		TextListParam oldNeoTargetNodeLabels = neoTargetNodeLabels;
@@ -543,16 +555,20 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 * @generated NOT
 	 */
 	@Override
-	public void addTargetNodeLabel(String label) throws InvalidityException {
+	public void addNeoTargetNodeLabel(String label) throws InvalidityException {
 		if (this.neoTargetNodeLabels == null) {
 			this.neoTargetNodeLabels = new TextListParamImpl();
 		}
 		
 		if (!this.neoTargetNodeLabels.getValues().contains(label)) {
-			if (label.contains(" ")) {
-				throw new InvalidityException("Label can not contain Whitespace(s)");
-			}
+			checkForWhitespaceInLabel(label);
 			this.neoTargetNodeLabels.addStringValue(label);
+		}
+	}
+
+	private void checkForWhitespaceInLabel(String label) throws InvalidityException {
+		if (label.contains(" ")) {
+			throw new InvalidityException("Label can not contain Whitespace(s)");
 		}
 	}
 
@@ -593,7 +609,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
@@ -610,7 +626,12 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 				}
 				return;
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL:
-				setNeoEdgeLabel((TextLiteralParam)newValue);
+				try {
+					setNeoEdgeLabel((TextLiteralParam)newValue);
+				} catch (InvalidityException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				return;
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
 				setEdgeNumber((Integer)newValue);
@@ -641,7 +662,12 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 				}
 				return;
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL:
-				setNeoEdgeLabel((TextLiteralParam)null);
+				try {
+					setNeoEdgeLabel((TextLiteralParam)null);
+				} catch (InvalidityException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				return;
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
 				unsetEdgeNumber();
@@ -680,7 +706,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
@@ -690,14 +716,19 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 				return null;
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___ADD_TARGET_NODE_LABEL__STRING:
 				try {
-					addTargetNodeLabel((String)arguments.get(0));
+					addNeoTargetNodeLabel((String)arguments.get(0));
 					return null;
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___ADD_NEO_EDGE_LABEL__STRING:
-				addNeoEdgeLabel((String)arguments.get(0));
+				try {
+					addNeoEdgeLabel((String)arguments.get(0));
+				} catch (InvalidityException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

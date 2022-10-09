@@ -5901,11 +5901,11 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EOperation getNeoSimpleEdge__SetNeoDirection__NeoDirection();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addTargetNodeLabel(java.lang.String) <em>Add Target Node Label</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addNeoTargetNodeLabel(java.lang.String) <em>Add Target Node Label</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add Target Node Label</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addTargetNodeLabel(java.lang.String)
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addNeoTargetNodeLabel(java.lang.String)
 	 * @generated
 	 */
 	EOperation getNeoSimpleEdge__AddTargetNodeLabel__String();

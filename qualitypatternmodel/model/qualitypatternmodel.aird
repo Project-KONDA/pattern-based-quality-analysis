@@ -13095,10 +13095,10 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_r4q2gCkcEe2tHKzGTjieeg" name="addTargetNodeLabel(label EString)" tooltipText="addTargetNodeLabel(label)">
-          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/addTargetNodeLabel"/>
-          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/addTargetNodeLabel"/>
-          <semanticElements xmi:type="ecore:EParameter" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/addTargetNodeLabel/label"/>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_r4q2gCkcEe2tHKzGTjieeg" name="addNeoTargetNodeLabel(label EString)" tooltipText="addNeoTargetNodeLabel(label)">
+          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/addNeoTargetNodeLabel"/>
+          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/addNeoTargetNodeLabel"/>
+          <semanticElements xmi:type="ecore:EParameter" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/addNeoTargetNodeLabel/label"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_r4q2gSkcEe2tHKzGTjieeg" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
           </ownedStyle>

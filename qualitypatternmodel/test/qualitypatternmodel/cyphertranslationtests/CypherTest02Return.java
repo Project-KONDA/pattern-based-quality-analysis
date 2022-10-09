@@ -100,8 +100,8 @@ public class CypherTest02Return {
 		NeoComplexEdge neoComplexEdge1 = factory.createNeoComplexEdge();
 		NeoSimpleEdge neoSimpleEdge1 = factory.createNeoSimpleEdge();
 		NeoSimpleEdge neoSimpleEdge2 = factory.createNeoSimpleEdge();
-		neoSimpleEdge1.addTargetNodeLabel("IndexEntry");
-		neoSimpleEdge1.addTargetNodeLabel("IndexPlace");
+		neoSimpleEdge1.addNeoTargetNodeLabel("IndexEntry");
+		neoSimpleEdge1.addNeoTargetNodeLabel("IndexPlace");
 		neoSimpleEdge1.addNeoEdgeLabel("APPEARS_IN");
 		neoSimpleEdge2.addNeoEdgeLabel("APPEARS_IN");
 		neoSimpleEdge2.setIsLastEdge(true);
@@ -117,10 +117,10 @@ public class CypherTest02Return {
 		NeoSimpleEdge neoSimpleEdge3 = factory.createNeoSimpleEdge();
 		NeoSimpleEdge neoSimpleEdge4 = factory.createNeoSimpleEdge();
 		neoSimpleEdge3.addNeoEdgeLabel("APPEARS_IN");
-		neoSimpleEdge3.addTargetNodeLabel("IndexEntry");
-		neoSimpleEdge3.addTargetNodeLabel("IndexPerson");
+		neoSimpleEdge3.addNeoTargetNodeLabel("IndexEntry");
+		neoSimpleEdge3.addNeoTargetNodeLabel("IndexPerson");
 		neoSimpleEdge4.addNeoEdgeLabel("APPEARS_IN");
-		neoSimpleEdge4.addTargetNodeLabel("Regesta");
+		neoSimpleEdge4.addNeoTargetNodeLabel("Regesta");
 		neoSimpleEdge4.setIsLastEdge(true);
 		neoComplexEdge2.addNeoPathPart(neoSimpleEdge3);
 		neoComplexEdge2.addNeoPathPart(neoSimpleEdge4);

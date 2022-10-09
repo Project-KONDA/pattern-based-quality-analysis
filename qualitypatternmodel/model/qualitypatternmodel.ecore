@@ -1266,10 +1266,10 @@
       <eOperations name="setNeoDirection">
         <eParameters name="neoDirection" eType="#//adaptionNeo4J/NeoDirection"/>
       </eOperations>
-      <eOperations name="addTargetNodeLabel" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+      <eOperations name="addNeoTargetNodeLabel" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
-      <eOperations name="addNeoEdgeLabel">
+      <eOperations name="addNeoEdgeLabel" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="keyValueParam" eType="#//parameters/KeyValueParam"/>

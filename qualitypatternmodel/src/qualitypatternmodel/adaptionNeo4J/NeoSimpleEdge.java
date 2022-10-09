@@ -72,7 +72,7 @@ public interface NeoSimpleEdge extends NeoPathPart {
 	 * @see #getNeoEdgeLabel()
 	 * @generated
 	 */
-	void setNeoEdgeLabel(TextLiteralParam value);
+	void setNeoEdgeLabel(TextLiteralParam value) throws InvalidityException;
 
 	/**
 	 * Returns the value of the '<em><b>Edge Number</b></em>' attribute.
@@ -195,7 +195,7 @@ public interface NeoSimpleEdge extends NeoPathPart {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	void addTargetNodeLabel(String label) throws InvalidityException;
+	void addNeoTargetNodeLabel(String label) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -203,5 +203,5 @@ public interface NeoSimpleEdge extends NeoPathPart {
 	 * @model
 	 * @generated
 	 */
-	void addNeoEdgeLabel(String label);
+	void addNeoEdgeLabel(String label) throws InvalidityException;
 } // SimpleEdge

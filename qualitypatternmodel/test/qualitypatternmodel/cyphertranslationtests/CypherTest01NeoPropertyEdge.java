@@ -145,7 +145,7 @@ public class CypherTest01NeoPropertyEdge {
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
 		NeoSimpleEdge neoSimpleEdge = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge.setIsLastEdge(true);
-		neoSimpleEdge.addTargetNodeLabel("");
+		neoSimpleEdge.addNeoTargetNodeLabel("");
 		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
 		
 		return completePattern;
@@ -160,7 +160,7 @@ public class CypherTest01NeoPropertyEdge {
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
 		NeoSimpleEdge neoSimpleEdge = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge.addNeoEdgeLabel("PLACE_OF_ISSUE");
-		neoSimpleEdge.addTargetNodeLabel("Place");
+		neoSimpleEdge.addNeoTargetNodeLabel("Place");
 		neoSimpleEdge.setIsLastEdge(true);
 		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
 		
@@ -176,7 +176,7 @@ public class CypherTest01NeoPropertyEdge {
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
 		NeoSimpleEdge neoSimpleEdge = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge.addNeoEdgeLabel("PLACE_OF_ISSUE");
-		neoSimpleEdge.addTargetNodeLabel("Place");
+		neoSimpleEdge.addNeoTargetNodeLabel("Place");
 		neoSimpleEdge.setNeoDirection(NeoDirection.RIGHT);
 		neoSimpleEdge.setIsLastEdge(true);
 		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
@@ -194,8 +194,8 @@ public class CypherTest01NeoPropertyEdge {
 		NeoSimpleEdge neoSimpleEdge = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge.addNeoEdgeLabel("APPEARS_IN");
 		
-		neoSimpleEdge.addTargetNodeLabel("IndexEntry");
-		neoSimpleEdge.addTargetNodeLabel("IndexPlace");
+		neoSimpleEdge.addNeoTargetNodeLabel("IndexEntry");
+		neoSimpleEdge.addNeoTargetNodeLabel("IndexPlace");
 		neoSimpleEdge.setNeoDirection(NeoDirection.LEFT);
 		neoSimpleEdge.setIsLastEdge(true);
 		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
@@ -213,7 +213,7 @@ public class CypherTest01NeoPropertyEdge {
 		neoPropertyPathParam.setNeoPropertyName("identifier");
 		NeoSimpleEdge neoSimpleEdge = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge.addNeoEdgeLabel("PLACE_OF_ISSUE");
-		neoSimpleEdge.addTargetNodeLabel("Place");
+		neoSimpleEdge.addNeoTargetNodeLabel("Place");
 		neoSimpleEdge.setNeoDirection(NeoDirection.RIGHT);
 		neoSimpleEdge.setIsLastEdge(true);
 		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
@@ -236,7 +236,7 @@ public class CypherTest01NeoPropertyEdge {
 		neoPropertyPathParam.setNeoPropertyName("identifier");
 		NeoSimpleEdge neoSimpleEdge = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge.addNeoEdgeLabel("PLACE_OF_ISSUE");
-		neoSimpleEdge.addTargetNodeLabel("Place");
+		neoSimpleEdge.addNeoTargetNodeLabel("Place");
 		neoSimpleEdge.setNeoDirection(NeoDirection.RIGHT);
 		neoSimpleEdge.setIsLastEdge(true);
 		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
@@ -261,9 +261,9 @@ public class CypherTest01NeoPropertyEdge {
 		neoPropertyPathParam.setNeoPropertyName("path");
 		NeoComplexEdge neoComplexEdge = FACTORY.createNeoComplexEdge();
 		NeoSimpleEdge neoSimpleEdge1 = FACTORY.createNeoSimpleEdge();
-		neoSimpleEdge1.addTargetNodeLabel("");
+		neoSimpleEdge1.addNeoTargetNodeLabel("");
 		NeoSimpleEdge neoSimpleEdge2 = FACTORY.createNeoSimpleEdge();
-		neoSimpleEdge2.addTargetNodeLabel("");
+		neoSimpleEdge2.addNeoTargetNodeLabel("");
 		neoSimpleEdge2.setIsLastEdge(true);
 		
 		neoComplexEdge.addNeoPathPart(neoSimpleEdge1);
@@ -284,12 +284,12 @@ public class CypherTest01NeoPropertyEdge {
 		NeoComplexEdge neoComplexEdge = FACTORY.createNeoComplexEdge();
 		NeoSimpleEdge neoSimpleEdge1 = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge1.addNeoEdgeLabel("APPEARS_IN");
-		neoSimpleEdge1.addTargetNodeLabel("IndexEntry"); 
-		neoSimpleEdge1.addTargetNodeLabel("IndexPlace");
+		neoSimpleEdge1.addNeoTargetNodeLabel("IndexEntry"); 
+		neoSimpleEdge1.addNeoTargetNodeLabel("IndexPlace");
 		NeoSimpleEdge neoSimpleEdge2 = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge2.addNeoEdgeLabel("IS_SUB_OF");
-		neoSimpleEdge2.addTargetNodeLabel("IndexEntry"); 
-		neoSimpleEdge2.addTargetNodeLabel("IndexPerson");
+		neoSimpleEdge2.addNeoTargetNodeLabel("IndexEntry"); 
+		neoSimpleEdge2.addNeoTargetNodeLabel("IndexPerson");
 		neoSimpleEdge2.setIsLastEdge(true);
 		
 		neoComplexEdge.addNeoPathPart(neoSimpleEdge1);
@@ -310,13 +310,13 @@ public class CypherTest01NeoPropertyEdge {
 		NeoComplexEdge neoComplexEdge = FACTORY.createNeoComplexEdge();
 		NeoSimpleEdge neoSimpleEdge1 = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge1.addNeoEdgeLabel("APPEARS_IN");
-		neoSimpleEdge1.addTargetNodeLabel("IndexEntry"); 
-		neoSimpleEdge1.addTargetNodeLabel("IndexPlace");
+		neoSimpleEdge1.addNeoTargetNodeLabel("IndexEntry"); 
+		neoSimpleEdge1.addNeoTargetNodeLabel("IndexPlace");
 		neoSimpleEdge1.setNeoDirection(NeoDirection.LEFT);
 		NeoSimpleEdge neoSimpleEdge2 = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge2.addNeoEdgeLabel("IS_SUB_OF");
-		neoSimpleEdge2.addTargetNodeLabel("IndexEntry"); 
-		neoSimpleEdge2.addTargetNodeLabel("IndexPerson");
+		neoSimpleEdge2.addNeoTargetNodeLabel("IndexEntry"); 
+		neoSimpleEdge2.addNeoTargetNodeLabel("IndexPerson");
 		neoSimpleEdge2.setNeoDirection(NeoDirection.LEFT);
 		neoSimpleEdge2.setIsLastEdge(true);
 		
@@ -342,13 +342,13 @@ public class CypherTest01NeoPropertyEdge {
 		NeoComplexEdge neoComplexEdge = FACTORY.createNeoComplexEdge();
 		NeoSimpleEdge neoSimpleEdge1 = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge1.addNeoEdgeLabel("APPEARS_IN");
-		neoSimpleEdge1.addTargetNodeLabel("IndexEntry"); 
-		neoSimpleEdge1.addTargetNodeLabel("IndexPlace");
+		neoSimpleEdge1.addNeoTargetNodeLabel("IndexEntry"); 
+		neoSimpleEdge1.addNeoTargetNodeLabel("IndexPlace");
 		neoSimpleEdge1.setNeoDirection(NeoDirection.LEFT);
 		NeoSimpleEdge neoSimpleEdge2 = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge2.addNeoEdgeLabel("IS_SUB_OF");
-		neoSimpleEdge2.addTargetNodeLabel("IndexEntry"); 
-		neoSimpleEdge2.addTargetNodeLabel("IndexPerson");
+		neoSimpleEdge2.addNeoTargetNodeLabel("IndexEntry"); 
+		neoSimpleEdge2.addNeoTargetNodeLabel("IndexPerson");
 		neoSimpleEdge2.setNeoDirection(NeoDirection.LEFT);
 		neoSimpleEdge2.setIsLastEdge(true);
 		

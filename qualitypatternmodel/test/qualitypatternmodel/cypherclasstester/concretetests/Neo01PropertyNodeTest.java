@@ -130,7 +130,7 @@ public class Neo01PropertyNodeTest extends NeoAbstractNodeTest {
 		initGetCypherVariableTest(neoPropertyEdge, GENERIC_NODE_ID);
 		NeoPropertyPathParam neoPropertyPathParam = FACTORY.createNeoPropertyPathParam();
 		NeoSimpleEdge neoSimpleEdge = FACTORY.createNeoSimpleEdge();
-		neoSimpleEdge.addTargetNodeLabel("Regesta");
+		neoSimpleEdge.addNeoTargetNodeLabel("Regesta");
 		neoSimpleEdge.setIsLastEdge(true);
 		neoPropertyEdge.setNeoPropertyPathParam(neoPropertyPathParam);
 		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
