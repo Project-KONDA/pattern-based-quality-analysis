@@ -162,7 +162,7 @@ public class CypherTest06Comparison {
 		return completePattern;
 	}
 
-	private static void adaptTheNeo4JConstructsForProp(CompletePattern completePattern) {
+	private static void adaptTheNeo4JConstructsForProp(CompletePattern completePattern) throws InvalidityException {
 		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
 		neoNode.setNodePlace(NeoPlace.BEGINNING);
 		

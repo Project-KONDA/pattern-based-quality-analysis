@@ -152,6 +152,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		super();
 	}
 
+	//Need improvement??? --> NeoPath neoPropertypath at the same time??
 	@Override
 	protected NeoAbstractPathParam getNeoAbstractPathParam() {
 		if (getNeoComplexEdge() != null) {
