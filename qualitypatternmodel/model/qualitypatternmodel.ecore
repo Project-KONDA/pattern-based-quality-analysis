@@ -1266,7 +1266,7 @@
       <eOperations name="setNeoDirection">
         <eParameters name="neoDirection" eType="#//adaptionNeo4J/NeoDirection"/>
       </eOperations>
-      <eOperations name="addTargetNodeLabel">
+      <eOperations name="addTargetNodeLabel" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eOperations name="addNeoEdgeLabel">

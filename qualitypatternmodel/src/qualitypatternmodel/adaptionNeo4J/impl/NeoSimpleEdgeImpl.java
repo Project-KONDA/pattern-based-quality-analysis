@@ -498,10 +498,15 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
-	public void setNeoTargetNodeLabels(TextListParam newNeoTargetNodeLabels) {
+	public void setNeoTargetNodeLabels(TextListParam newNeoTargetNodeLabels) throws InvalidityException {
+		if (newNeoTargetNodeLabels != null) {
+			if (newNeoTargetNodeLabels.getValueAsString().contains(" ")) {
+				throw new InvalidityException("A Label can not contain Whitespace(s)");
+			}
+		}
 		TextListParam oldNeoTargetNodeLabels = neoTargetNodeLabels;
 		neoTargetNodeLabels = newNeoTargetNodeLabels;
 		if (eNotificationRequired())
@@ -538,11 +543,17 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 * @generated NOT
 	 */
 	@Override
-	public void addTargetNodeLabel(String label) {
+	public void addTargetNodeLabel(String label) throws InvalidityException {
 		if (this.neoTargetNodeLabels == null) {
 			this.neoTargetNodeLabels = new TextListParamImpl();
 		}
-		this.neoTargetNodeLabels.addStringValue(label);
+		
+		if (!this.neoTargetNodeLabels.getValues().contains(label)) {
+			if (label.contains(" ")) {
+				throw new InvalidityException("Label can not contain Whitespace(s)");
+			}
+			this.neoTargetNodeLabels.addStringValue(label);
+		}
 	}
 
 	@Override 

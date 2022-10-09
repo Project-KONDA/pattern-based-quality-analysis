@@ -125,7 +125,7 @@ public class Neo01PropertyNodeTest extends NeoAbstractNodeTest {
 		}
 	}
 
-	private NeoPropertyEdge prepaireValidPropertyEdgeStructure(int id) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
+	private NeoPropertyEdge prepaireValidPropertyEdgeStructure(int id) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, NoSuchMethodException, InvocationTargetException, InvalidityException {
 		NeoPropertyEdge neoPropertyEdge = FACTORY.createNeoPropertyEdge();
 		initGetCypherVariableTest(neoPropertyEdge, GENERIC_NODE_ID);
 		NeoPropertyPathParam neoPropertyPathParam = FACTORY.createNeoPropertyPathParam();

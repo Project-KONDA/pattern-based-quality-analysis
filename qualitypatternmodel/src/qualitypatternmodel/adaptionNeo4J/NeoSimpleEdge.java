@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.adaptionNeo4J;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.KeyValueParam;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
@@ -176,9 +177,9 @@ public interface NeoSimpleEdge extends NeoPathPart {
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Neo Target Node Labels</em>' reference.
 	 * @see #getNeoTargetNodeLabels()
-	 * @generated
+	 * @generated NOT
 	 */
-	void setNeoTargetNodeLabels(TextListParam value);
+	void setNeoTargetNodeLabels(TextListParam value) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -194,7 +195,7 @@ public interface NeoSimpleEdge extends NeoPathPart {
 	 * @model
 	 * @generated
 	 */
-	void addTargetNodeLabel(String label);
+	void addTargetNodeLabel(String label) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
