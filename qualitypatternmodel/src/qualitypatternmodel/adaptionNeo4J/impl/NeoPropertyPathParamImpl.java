@@ -144,6 +144,7 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 		return cypher;
 	}
 
+	//Check if the check for ComplexEdge // NeoSimpleEdge is necessary...
 	private void validateNeoPropertyEdge() throws InvalidityException {
 		final NeoPathPart neoPathPart = getNeoPathPart();
 		if (neoPathPart instanceof NeoComplexEdge) {

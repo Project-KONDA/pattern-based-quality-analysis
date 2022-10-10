@@ -124,6 +124,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		
 	}
 
+	//Consider that all will be flatted to only non container will be returned... outsides there is no need for handling the NeoComplexEdge
 	@Override
 	public EList<NeoPathPart> getNeoPathPartEdges() {
 		EList<NeoPathPart> list = new BasicEList<NeoPathPart>();
@@ -161,7 +162,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		NeoPathPart neoPart;
 		for (int i = (neoParts.size() - 1); i >= 0; i--) {
 			neoPart = neoParts.get(i);
-			if (neoParts instanceof NeoComplexEdge) {
+			if (neoPart instanceof NeoComplexEdge) {
 				((NeoComplexEdgeImpl) neoPart).isLastEdgeAtTheEnd();
 			} else {
 				if (neoPart.isLastEdge() && !(i == (neoParts.size() - 1))) {
@@ -217,7 +218,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		return count;
 	}
 
-	//NEEDS REWORK --> the setting of the NeComplexEdge/Counter has to be reworked
+	//NEEDS REWORK --> the setting of the NeComplexEdge/Counter has to be reworked --> Is reworked
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -225,13 +226,15 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	 */
 	@Override
 	public void addNeoPathPart(NeoPathPart neoPathPart) {
-		getNeoPathPart().add(neoPathPart);
-		if (getNeoComplexEdge() != null) {
-			((NeoPathPartImpl) neoPathPart).setCount(this.getHighestComplexEdge().getCount());
-		} else if(neoPathPart instanceof NeoComplexEdgeImpl) {
-			((NeoComplexEdgeImpl) neoPathPart).setCount(getCount(), this);
-		} else {
-			((NeoPathPartImpl) neoPathPart).setCount(getCount());
+		if (neoPathPart != null) {
+			getNeoPathPart().add(neoPathPart);
+			if (getNeoComplexEdge() != null) {
+				((NeoPathPartImpl) neoPathPart).setCount(this.getHighestComplexEdge().getCount());
+			} else if(neoPathPart instanceof NeoComplexEdgeImpl) {
+				((NeoComplexEdgeImpl) neoPathPart).setCount(getCount(), this);
+			} else {
+				((NeoPathPartImpl) neoPathPart).setCount(getCount());
+			}
 		}
 	}
 	
@@ -277,6 +280,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		return AdaptionNeo4JPackage.Literals.NEO_COMPLEX_EDGE;
 	}
 
+	//Returns all NeoEdges... not one Leafs
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

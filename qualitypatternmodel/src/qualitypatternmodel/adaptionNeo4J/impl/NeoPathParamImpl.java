@@ -63,6 +63,7 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 		setNeoPathPart(new NeoSimpleEdgeImpl());
 	}
 
+	//Check if the check for ComplexEdge // NeoSimpleEdge is necessary...
 	//TODO? make it more generic if the NeoUnspecifiedEdge is coming 
 	// --> Specific behaviour which can not be nessarcaly generalised
 	@Override

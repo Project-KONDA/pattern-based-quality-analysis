@@ -452,16 +452,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 * @generated
 	 */
 	@Override
-	public boolean isIsLastEdge() {
-		return isLastEdge;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public void setIsLastEdge(boolean newIsLastEdge) {
 		boolean oldIsLastEdge = isLastEdge;
 		isLastEdge = newIsLastEdge;
@@ -601,8 +591,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 				return basicGetNeoEdgeLabel();
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
 				return getEdgeNumber();
-			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__IS_LAST_EDGE:
-				return isIsLastEdge();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -707,7 +695,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
@@ -715,7 +703,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___SET_NEO_DIRECTION__NEODIRECTION:
 				setNeoDirection((NeoDirection)arguments.get(0));
 				return null;
-			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___ADD_TARGET_NODE_LABEL__STRING:
+			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___ADD_NEO_TARGET_NODE_LABEL__STRING:
 				try {
 					addNeoTargetNodeLabel((String)arguments.get(0));
 					return null;
@@ -726,11 +714,11 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___ADD_NEO_EDGE_LABEL__STRING:
 				try {
 					addNeoEdgeLabel((String)arguments.get(0));
-				} catch (InvalidityException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					return null;
 				}
-				return null;
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}
