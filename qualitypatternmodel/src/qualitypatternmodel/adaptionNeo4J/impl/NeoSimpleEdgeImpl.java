@@ -707,7 +707,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
