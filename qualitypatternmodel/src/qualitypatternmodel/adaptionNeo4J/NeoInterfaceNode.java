@@ -14,15 +14,15 @@ import qualitypatternmodel.exceptions.InvalidityException;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getNodePlace <em>Node Place</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#isIsVariableDistinctInUse <em>Is Variable Distinct In Use</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#getNodePlace <em>Node Place</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#isIsVariableDistinctInUse <em>Is Variable Distinct In Use</em>}</li>
  * </ul>
  *
- * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoAbstractNode()
+ * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoInterfaceNode()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface NeoAbstractNode extends NeoElement {
+public interface NeoInterfaceNode extends NeoInterfaceElement {
 
 	/**
 	 * Returns the value of the '<em><b>Node Place</b></em>' attribute.
@@ -33,14 +33,14 @@ public interface NeoAbstractNode extends NeoElement {
 	 * @return the value of the '<em>Node Place</em>' attribute.
 	 * @see qualitypatternmodel.adaptionNeo4J.NeoPlace
 	 * @see #setNodePlace(NeoPlace)
-	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoAbstractNode_NodePlace()
+	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoInterfaceNode_NodePlace()
 	 * @model default="FOLLOWING"
 	 * @generated
 	 */
 	NeoPlace getNodePlace();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getNodePlace <em>Node Place</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#getNodePlace <em>Node Place</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Node Place</em>' attribute.
@@ -57,14 +57,14 @@ public interface NeoAbstractNode extends NeoElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Is Variable Distinct In Use</em>' attribute.
 	 * @see #setIsVariableDistinctInUse(boolean)
-	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoAbstractNode_IsVariableDistinctInUse()
+	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoInterfaceNode_IsVariableDistinctInUse()
 	 * @model default="true"
 	 * @generated
 	 */
 	boolean isIsVariableDistinctInUse();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#isIsVariableDistinctInUse <em>Is Variable Distinct In Use</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#isIsVariableDistinctInUse <em>Is Variable Distinct In Use</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Is Variable Distinct In Use</em>' attribute.

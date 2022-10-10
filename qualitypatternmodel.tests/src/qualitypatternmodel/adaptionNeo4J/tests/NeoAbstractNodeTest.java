@@ -4,7 +4,7 @@ package qualitypatternmodel.adaptionNeo4J.tests;
 
 import junit.framework.TestCase;
 
-import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
+import qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,8 +13,8 @@ import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getCypherVariable() <em>Get Cypher Variable</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#getCypherVariable() <em>Get Cypher Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -27,7 +27,7 @@ public abstract class NeoAbstractNodeTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NeoAbstractNode fixture = null;
+	protected NeoInterfaceNode fixture = null;
 
 	/**
 	 * Constructs a new Neo Abstract Node test case with the given name.
@@ -45,7 +45,7 @@ public abstract class NeoAbstractNodeTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(NeoAbstractNode fixture) {
+	protected void setFixture(NeoInterfaceNode fixture) {
 		this.fixture = fixture;
 	}
 
@@ -55,15 +55,15 @@ public abstract class NeoAbstractNodeTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NeoAbstractNode getFixture() {
+	protected NeoInterfaceNode getFixture() {
 		return fixture;
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getCypherVariable() <em>Get Cypher Variable</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#getCypherVariable() <em>Get Cypher Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getCypherVariable()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#getCypherVariable()
 	 * @generated
 	 */
 	public void testGetCypherVariable() {
@@ -73,10 +73,10 @@ public abstract class NeoAbstractNodeTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoElement#getCypherReturnVariable()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement#getCypherReturnVariable()
 	 * @generated
 	 */
 	public void testGetCypherReturnVariable() {

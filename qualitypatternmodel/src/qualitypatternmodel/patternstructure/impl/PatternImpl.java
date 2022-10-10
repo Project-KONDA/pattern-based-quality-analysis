@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoElement;
+import qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement;
 import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -254,11 +254,11 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	
 	protected final Map<Integer, String> buildCypherReturnSortedMap(boolean forNode) throws InvalidityException {
 		Map<Integer, StringBuilder> cypherReturn = new TreeMap<Integer, StringBuilder>();
-		NeoElement neoElement;
+		NeoInterfaceElement neoElement;
 		
 		if (forNode) {
 			for (Node n : graph.getNodes()) {
-				neoElement = (NeoElement) n;
+				neoElement = (NeoInterfaceElement) n;
 				if (n.isReturnNode()) {
 					generateCypherGenericMap(cypherReturn, neoElement);
 				}
@@ -268,7 +268,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			for (Relation r : graph.getRelations()) {
 				neoAbstractEdge = (NeoAbstractEdge) r;
 				if (neoAbstractEdge.isReturnElement()) {
-					neoElement = (NeoElement) r;
+					neoElement = (NeoInterfaceElement) r;
 					generateCypherGenericMap(cypherReturn, neoElement);
 				}
 			}
@@ -281,7 +281,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		return Collections.unmodifiableMap(cypherReturnFixed);
 	}
 	
-	protected void generateCypherGenericMap(Map<Integer, StringBuilder> cypherReturn, NeoElement neoElement)
+	protected void generateCypherGenericMap(Map<Integer, StringBuilder> cypherReturn, NeoInterfaceElement neoElement)
 			throws InvalidityException {
 		EMap<Integer, String> tempMap;
 		StringBuilder tempSb;

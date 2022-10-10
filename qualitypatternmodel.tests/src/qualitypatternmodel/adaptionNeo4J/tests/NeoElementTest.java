@@ -4,7 +4,7 @@ package qualitypatternmodel.adaptionNeo4J.tests;
 
 import junit.framework.TestCase;
 
-import qualitypatternmodel.adaptionNeo4J.NeoElement;
+import qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,7 +13,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoElement;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -26,7 +26,7 @@ public abstract class NeoElementTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NeoElement fixture = null;
+	protected NeoInterfaceElement fixture = null;
 
 	/**
 	 * Constructs a new Neo Element test case with the given name.
@@ -44,7 +44,7 @@ public abstract class NeoElementTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(NeoElement fixture) {
+	protected void setFixture(NeoInterfaceElement fixture) {
 		this.fixture = fixture;
 	}
 
@@ -54,15 +54,15 @@ public abstract class NeoElementTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NeoElement getFixture() {
+	protected NeoInterfaceElement getFixture() {
 		return fixture;
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoElement#getCypherReturnVariable()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement#getCypherReturnVariable()
 	 * @generated
 	 */
 	public void testGetCypherReturnVariable() {

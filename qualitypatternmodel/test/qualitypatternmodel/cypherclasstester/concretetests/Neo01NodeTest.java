@@ -21,7 +21,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mockito;
 
-import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
+import qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl;
@@ -137,7 +137,7 @@ public class Neo01NodeTest extends NeoAbstractNodeTest {
 	public void getCypherVariable(int number) {
 		int id = number;
 		try {
-			NeoAbstractNode node = super.neoAbstractNode;
+			NeoInterfaceNode node = super.neoAbstractNode;
 			initGetCypherVariableTest(node, id);
 			String variable;
 			variable = assertDoesNotThrow(() -> {return node.getCypherVariable();});
@@ -154,7 +154,7 @@ public class Neo01NodeTest extends NeoAbstractNodeTest {
 	public void getCypherVariableNotValidNumber(int number) {
 		int id = number;
 		try {
-			NeoAbstractNode node = super.neoAbstractNode;
+			NeoInterfaceNode node = super.neoAbstractNode;
 			initGetCypherVariableTest(node, id);
 			String variable;
 			variable = assertDoesNotThrow(() -> {return node.getCypherVariable();});
@@ -169,19 +169,19 @@ public class Neo01NodeTest extends NeoAbstractNodeTest {
 	@ParameterizedTest
 	@ValueSource(ints = {1,10,100,1000})
 	public void generateCypherReturnVariable(int number) {
-		NeoAbstractNode node = super.neoAbstractNode;
+		NeoInterfaceNode node = super.neoAbstractNode;
 		initGetCypherReturnVariableTest(node, number, true);
 	}
 	
 	@ParameterizedTest
 	@ValueSource(ints = {1,10,100,1000})
 	public void generateCypherReturnVariableDistinct(int number) {
-		NeoAbstractNode node = super.neoAbstractNode;
+		NeoInterfaceNode node = super.neoAbstractNode;
 		node.setIsVariableDistinctInUse(false);
 		initGetCypherReturnVariableTest(node, number, false);
 	}
 	
-	private void initGetCypherReturnVariableTest(NeoAbstractNode node, int number, boolean isDistinct) {
+	private void initGetCypherReturnVariableTest(NeoInterfaceNode node, int number, boolean isDistinct) {
 		int id = number;
 		try {
 			initGetCypherVariableTest(node, id);
@@ -225,7 +225,7 @@ public class Neo01NodeTest extends NeoAbstractNodeTest {
 	@Override
 	@Test
 	public void generateCypher() {
-		NeoAbstractNode node = super.neoAbstractNode;
+		NeoInterfaceNode node = super.neoAbstractNode;
 		try {
 			initGetCypherVariableTest(node, GENERIC_NODE_ID);
 			TextListParam mockTextListParam = Mockito.mock(TextListParam.class);
@@ -248,7 +248,7 @@ public class Neo01NodeTest extends NeoAbstractNodeTest {
 	
 	@Test
 	public void generateCypherWithNoLabels() {
-		NeoAbstractNode node = super.neoAbstractNode;
+		NeoInterfaceNode node = super.neoAbstractNode;
 		try {
 			initGetCypherVariableTest(node, GENERIC_NODE_ID);
 			((NeoNodeImpl) node).setNeoNodeLabels(null);

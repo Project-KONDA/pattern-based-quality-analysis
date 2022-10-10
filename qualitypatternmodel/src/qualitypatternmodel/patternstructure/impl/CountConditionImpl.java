@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
+import qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -177,9 +177,9 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 				cypher += tempWith;
 				multi = true;
 			}
-			EMap<NeoAbstractNode, String> myCounters = ((CountPatternImpl)getCountPattern()).generateCypherCounters();
+			EMap<NeoInterfaceNode, String> myCounters = ((CountPatternImpl)getCountPattern()).generateCypherCounters();
 			
-			for (Entry<NeoAbstractNode, String> entry : myCounters.entrySet()) {
+			for (Entry<NeoInterfaceNode, String> entry : myCounters.entrySet()) {
 				if (multi) {
 					cypher += ", ";
 				}
@@ -219,7 +219,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 //	@Override 
 	private String generateCypherCountWhere() throws InvalidityException {
 		String cypher = "";
-		EMap<NeoAbstractNode, String> myCounters = ((CountPatternImpl)getCountPattern()).generateCypherCounters();
+		EMap<NeoInterfaceNode, String> myCounters = ((CountPatternImpl)getCountPattern()).generateCypherCounters();
 		final String comp = getOption().getValue().getLiteral();
 		
 		if (getArgument2() instanceof CountPattern) {
@@ -245,7 +245,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 //			}			
 		} else {
 			StringBuilder tempCypher = new StringBuilder();
-			for (Entry<NeoAbstractNode, String> entry : myCounters.entrySet()) {
+			for (Entry<NeoInterfaceNode, String> entry : myCounters.entrySet()) {
 			    if (tempCypher.length() != 0) {
 			    	tempCypher.append(" " + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + " ");
 			    }

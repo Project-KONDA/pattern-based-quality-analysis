@@ -23,7 +23,7 @@ import qualitypatternmodel.graphstructure.Relation;
  * @model abstract="true"
  * @generated
  */
-public interface NeoAbstractEdge extends Relation, NeoElement {
+public interface NeoAbstractEdge extends Relation, NeoInterfaceElement {
 
 	/**
 	 * Returns the value of the '<em><b>Return Element</b></em>' attribute.

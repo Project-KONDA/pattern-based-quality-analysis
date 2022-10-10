@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
+import qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
@@ -90,13 +90,13 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	//Es ein Simples Count
 	//Count ist für die anderen CONDITIONS als Unsuported makiert, da Cypher v4.4 und niedriger keine Verschachtelungen zulässt
 	
-	protected Set<NeoAbstractNode> countElementNodes; //Nodes --> keine PATH/Edges/Properties implementiert
+	protected Set<NeoInterfaceNode> countElementNodes; //Nodes --> keine PATH/Edges/Properties implementiert
 //	protected Set<NeoAbstractEdge> countElementEdges; //Edges --> Das Framework bezieht sich primär auf Nodes und deren Datenprobleme, daher sind Edges nicht so relevant im Moment
 //	protected Set<NeoPropertyPathParamImpl> countProperties; //Properties --> Existense kann ich prüfen und in Cypher kann man keine Doppelten Variabelen haben, daher fällt das hier weg
 	
 	//Add to Ecore?
-	public void setCountElementNodes(Set<NeoAbstractNode> countElements) {
-		Set<NeoAbstractNode> cloned_list = new HashSet<NeoAbstractNode>(countElements); //Maybe replace by LinkedHashSet
+	public void setCountElementNodes(Set<NeoInterfaceNode> countElements) {
+		Set<NeoInterfaceNode> cloned_list = new HashSet<NeoInterfaceNode>(countElements); //Maybe replace by LinkedHashSet
 		this.countElementNodes = cloned_list;
 	}
 	
@@ -127,12 +127,12 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	}
 	
 	//Just focused on Nodes... relations and path have to follow later (FUTURE WORK)
-	protected final EMap<NeoAbstractNode, String> generateCypherCounters() throws InvalidityException {
+	protected final EMap<NeoInterfaceNode, String> generateCypherCounters() throws InvalidityException {
 		if (countElementNodes.size() > 0) {
-			EMap<NeoAbstractNode, String> myCounters = new BasicEMap<NeoAbstractNode, String>();
+			EMap<NeoInterfaceNode, String> myCounters = new BasicEMap<NeoInterfaceNode, String>();
 			String temp;
 			int i = 1;
-			for (NeoAbstractNode n : countElementNodes) {
+			for (NeoInterfaceNode n : countElementNodes) {
 				if (n instanceof NeoNode || (n instanceof NeoPropertyNode && ((NeoPropertyEdge)((Node) n).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() != null )) {
 					temp = createMyCounterString(n, i);
 					myCounters.put(n, temp);
@@ -149,7 +149,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	}
 	
 	//Node-Counter
-	private String createMyCounterString(NeoAbstractNode countElement, int countCounter) throws InvalidityException {
+	private String createMyCounterString(NeoInterfaceNode countElement, int countCounter) throws InvalidityException {
 		String temp;
 		temp = CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT;
 		temp = String.format(temp, countElement.getCypherVariable());

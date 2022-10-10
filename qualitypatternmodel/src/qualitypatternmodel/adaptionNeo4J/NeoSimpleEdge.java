@@ -200,7 +200,7 @@ public interface NeoSimpleEdge extends NeoPathPart {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
 	void addNeoEdgeLabel(String label) throws InvalidityException;

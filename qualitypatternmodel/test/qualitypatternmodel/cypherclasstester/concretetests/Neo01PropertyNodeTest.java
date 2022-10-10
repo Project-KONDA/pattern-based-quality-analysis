@@ -24,7 +24,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mockito;
 
-import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
+import qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
@@ -302,7 +302,7 @@ public class Neo01PropertyNodeTest extends NeoAbstractNodeTest {
 		}
 	}
 	
-	private void initGetCypherReturnVariableTest(NeoAbstractNode node, int number) {
+	private void initGetCypherReturnVariableTest(NeoInterfaceNode node, int number) {
 		int id = number;
 		try {
 			initGetCypherVariableTest(node, id);

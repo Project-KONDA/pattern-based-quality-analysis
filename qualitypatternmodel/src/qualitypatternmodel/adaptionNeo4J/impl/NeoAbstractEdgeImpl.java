@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoElement;
+import qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 
@@ -188,9 +188,9 @@ public abstract class NeoAbstractEdgeImpl extends RelationImpl implements NeoAbs
 	 */
 	@Override
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == NeoElement.class) {
+		if (baseClass == NeoInterfaceElement.class) {
 			switch (baseOperationID) {
-				case AdaptionNeo4JPackage.NEO_ELEMENT___GET_CYPHER_RETURN_VARIABLE: return AdaptionNeo4JPackage.NEO_ABSTRACT_EDGE___GET_CYPHER_RETURN_VARIABLE;
+				case AdaptionNeo4JPackage.NEO_INTERFACE_ELEMENT___GET_CYPHER_RETURN_VARIABLE: return AdaptionNeo4JPackage.NEO_ABSTRACT_EDGE___GET_CYPHER_RETURN_VARIABLE;
 				default: return -1;
 			}
 		}

@@ -78,8 +78,8 @@ public class AdaptionNeo4JAdapterFactory extends AdapterFactoryImpl {
 	protected AdaptionNeo4JSwitch<Adapter> modelSwitch =
 		new AdaptionNeo4JSwitch<Adapter>() {
 			@Override
-			public Adapter caseNeoAbstractNode(NeoAbstractNode object) {
-				return createNeoAbstractNodeAdapter();
+			public Adapter caseNeoInterfaceNode(NeoInterfaceNode object) {
+				return createNeoInterfaceNodeAdapter();
 			}
 			@Override
 			public Adapter caseNeoNode(NeoNode object) {
@@ -126,8 +126,8 @@ public class AdaptionNeo4JAdapterFactory extends AdapterFactoryImpl {
 				return createNeoAbstractPathParamAdapter();
 			}
 			@Override
-			public Adapter caseNeoElement(NeoElement object) {
-				return createNeoElementAdapter();
+			public Adapter caseNeoInterfaceElement(NeoInterfaceElement object) {
+				return createNeoInterfaceElementAdapter();
 			}
 			@Override
 			public Adapter casePatternElement(PatternElement object) {
@@ -182,16 +182,16 @@ public class AdaptionNeo4JAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode <em>Neo Abstract Node</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode <em>Neo Interface Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode
 	 * @generated
 	 */
-	public Adapter createNeoAbstractNodeAdapter() {
+	public Adapter createNeoInterfaceNodeAdapter() {
 		return null;
 	}
 
@@ -350,16 +350,16 @@ public class AdaptionNeo4JAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionNeo4J.NeoElement <em>Neo Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement <em>Neo Interface Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoElement
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement
 	 * @generated
 	 */
-	public Adapter createNeoElementAdapter() {
+	public Adapter createNeoInterfaceElementAdapter() {
 		return null;
 	}
 

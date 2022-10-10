@@ -6,16 +6,16 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
+import qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.graphstructure.impl.NodeImpl;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 
 public abstract class NeoAbstractNodeTest implements InterfaceNeoAbstractNodeTest {
 	protected static final int GENERIC_NODE_ID = 1;
-	protected NeoAbstractNode neoAbstractNode;
+	protected NeoInterfaceNode neoAbstractNode;
 	
-	public void setUp(NeoAbstractNode neoAbstractNode) {
+	public void setUp(NeoInterfaceNode neoAbstractNode) {
 		this.neoAbstractNode = neoAbstractNode;
 	}
 	
@@ -23,7 +23,7 @@ public abstract class NeoAbstractNodeTest implements InterfaceNeoAbstractNodeTes
 		neoAbstractNode = null;
 	}
 
-	protected void initGetCypherVariableTest(NeoAbstractNode node, int id)
+	protected void initGetCypherVariableTest(NeoInterfaceNode node, int id)
 			throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
 //		node = super.neoAbstractNode;
 		Class obj = node.getClass();

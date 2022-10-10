@@ -65,23 +65,23 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	AdaptionNeo4JPackage eINSTANCE = qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.NeoElement <em>Neo Element</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement <em>Neo Interface Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoElement
-	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoElement()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement
+	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoInterfaceElement()
 	 * @generated
 	 */
-	int NEO_ELEMENT = 12;
+	int NEO_INTERFACE_ELEMENT = 12;
 
 	/**
-	 * The number of structural features of the '<em>Neo Element</em>' class.
+	 * The number of structural features of the '<em>Neo Interface Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_FEATURE_COUNT = 0;
+	int NEO_INTERFACE_ELEMENT_FEATURE_COUNT = 0;
 
 	/**
 	 * The operation id for the '<em>Get Cypher Return Variable</em>' operation.
@@ -90,26 +90,26 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT___GET_CYPHER_RETURN_VARIABLE = 0;
+	int NEO_INTERFACE_ELEMENT___GET_CYPHER_RETURN_VARIABLE = 0;
 
 	/**
-	 * The number of operations of the '<em>Neo Element</em>' class.
+	 * The number of operations of the '<em>Neo Interface Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_OPERATION_COUNT = 1;
+	int NEO_INTERFACE_ELEMENT_OPERATION_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode <em>Neo Abstract Node</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode <em>Neo Interface Node</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode
-	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoAbstractNode()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode
+	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoInterfaceNode()
 	 * @generated
 	 */
-	int NEO_ABSTRACT_NODE = 0;
+	int NEO_INTERFACE_NODE = 0;
 
 	/**
 	 * The feature id for the '<em><b>Node Place</b></em>' attribute.
@@ -118,7 +118,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_NODE__NODE_PLACE = NEO_ELEMENT_FEATURE_COUNT + 0;
+	int NEO_INTERFACE_NODE__NODE_PLACE = NEO_INTERFACE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Is Variable Distinct In Use</b></em>' attribute.
@@ -127,16 +127,16 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_NODE__IS_VARIABLE_DISTINCT_IN_USE = NEO_ELEMENT_FEATURE_COUNT + 1;
+	int NEO_INTERFACE_NODE__IS_VARIABLE_DISTINCT_IN_USE = NEO_INTERFACE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Neo Abstract Node</em>' class.
+	 * The number of structural features of the '<em>Neo Interface Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_NODE_FEATURE_COUNT = NEO_ELEMENT_FEATURE_COUNT + 2;
+	int NEO_INTERFACE_NODE_FEATURE_COUNT = NEO_INTERFACE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Cypher Return Variable</em>' operation.
@@ -145,7 +145,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_NODE___GET_CYPHER_RETURN_VARIABLE = NEO_ELEMENT___GET_CYPHER_RETURN_VARIABLE;
+	int NEO_INTERFACE_NODE___GET_CYPHER_RETURN_VARIABLE = NEO_INTERFACE_ELEMENT___GET_CYPHER_RETURN_VARIABLE;
 
 	/**
 	 * The operation id for the '<em>Get Cypher Variable</em>' operation.
@@ -154,16 +154,16 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_NODE___GET_CYPHER_VARIABLE = NEO_ELEMENT_OPERATION_COUNT + 0;
+	int NEO_INTERFACE_NODE___GET_CYPHER_VARIABLE = NEO_INTERFACE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Neo Abstract Node</em>' class.
+	 * The number of operations of the '<em>Neo Interface Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_NODE_OPERATION_COUNT = NEO_ELEMENT_OPERATION_COUNT + 1;
+	int NEO_INTERFACE_NODE_OPERATION_COUNT = NEO_INTERFACE_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl <em>Neo Node</em>}' class.
@@ -3038,13 +3038,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_SIMPLE_EDGE___SET_NEO_DIRECTION__NEODIRECTION = NEO_PATH_PART_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Add Target Node Label</em>' operation.
+	 * The operation id for the '<em>Add Neo Target Node Label</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE___ADD_TARGET_NODE_LABEL__STRING = NEO_PATH_PART_OPERATION_COUNT + 1;
+	int NEO_SIMPLE_EDGE___ADD_NEO_TARGET_NODE_LABEL__STRING = NEO_PATH_PART_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Add Neo Edge Label</em>' operation.
@@ -5680,46 +5680,46 @@ public interface AdaptionNeo4JPackage extends EPackage {
 
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode <em>Neo Abstract Node</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode <em>Neo Interface Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Neo Abstract Node</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode
+	 * @return the meta object for class '<em>Neo Interface Node</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode
 	 * @generated
 	 */
-	EClass getNeoAbstractNode();
+	EClass getNeoInterfaceNode();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getNodePlace <em>Node Place</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#getNodePlace <em>Node Place</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Node Place</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getNodePlace()
-	 * @see #getNeoAbstractNode()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#getNodePlace()
+	 * @see #getNeoInterfaceNode()
 	 * @generated
 	 */
-	EAttribute getNeoAbstractNode_NodePlace();
+	EAttribute getNeoInterfaceNode_NodePlace();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#isIsVariableDistinctInUse <em>Is Variable Distinct In Use</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#isIsVariableDistinctInUse <em>Is Variable Distinct In Use</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Is Variable Distinct In Use</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#isIsVariableDistinctInUse()
-	 * @see #getNeoAbstractNode()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#isIsVariableDistinctInUse()
+	 * @see #getNeoInterfaceNode()
 	 * @generated
 	 */
-	EAttribute getNeoAbstractNode_IsVariableDistinctInUse();
+	EAttribute getNeoInterfaceNode_IsVariableDistinctInUse();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getCypherVariable() <em>Get Cypher Variable</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#getCypherVariable() <em>Get Cypher Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Cypher Variable</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getCypherVariable()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#getCypherVariable()
 	 * @generated
 	 */
-	EOperation getNeoAbstractNode__GetCypherVariable();
+	EOperation getNeoInterfaceNode__GetCypherVariable();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoNode <em>Neo Node</em>}'.
@@ -5901,14 +5901,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EOperation getNeoSimpleEdge__SetNeoDirection__NeoDirection();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addNeoTargetNodeLabel(java.lang.String) <em>Add Target Node Label</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addNeoTargetNodeLabel(java.lang.String) <em>Add Neo Target Node Label</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Target Node Label</em>' operation.
+	 * @return the meta object for the '<em>Add Neo Target Node Label</em>' operation.
 	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addNeoTargetNodeLabel(java.lang.String)
 	 * @generated
 	 */
-	EOperation getNeoSimpleEdge__AddTargetNodeLabel__String();
+	EOperation getNeoSimpleEdge__AddNeoTargetNodeLabel__String();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addNeoEdgeLabel(java.lang.String) <em>Add Neo Edge Label</em>}' operation.
@@ -6262,24 +6262,24 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EOperation getNeoAbstractPathParam__GetCypherReturnVariable();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoElement <em>Neo Element</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement <em>Neo Interface Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Neo Element</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoElement
+	 * @return the meta object for class '<em>Neo Interface Element</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement
 	 * @generated
 	 */
-	EClass getNeoElement();
+	EClass getNeoInterfaceElement();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Cypher Return Variable</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoElement#getCypherReturnVariable()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement#getCypherReturnVariable()
 	 * @generated
 	 */
-	EOperation getNeoElement__GetCypherReturnVariable();
+	EOperation getNeoInterfaceElement__GetCypherReturnVariable();
 
 	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.adaptionNeo4J.NeoDirection <em>Neo Direction</em>}'.
@@ -6325,14 +6325,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode <em>Neo Abstract Node</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode <em>Neo Interface Node</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode
-		 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoAbstractNode()
+		 * @see qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode
+		 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoInterfaceNode()
 		 * @generated
 		 */
-		EClass NEO_ABSTRACT_NODE = eINSTANCE.getNeoAbstractNode();
+		EClass NEO_INTERFACE_NODE = eINSTANCE.getNeoInterfaceNode();
 
 		/**
 		 * The meta object literal for the '<em><b>Node Place</b></em>' attribute feature.
@@ -6340,7 +6340,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NEO_ABSTRACT_NODE__NODE_PLACE = eINSTANCE.getNeoAbstractNode_NodePlace();
+		EAttribute NEO_INTERFACE_NODE__NODE_PLACE = eINSTANCE.getNeoInterfaceNode_NodePlace();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Variable Distinct In Use</b></em>' attribute feature.
@@ -6348,7 +6348,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NEO_ABSTRACT_NODE__IS_VARIABLE_DISTINCT_IN_USE = eINSTANCE.getNeoAbstractNode_IsVariableDistinctInUse();
+		EAttribute NEO_INTERFACE_NODE__IS_VARIABLE_DISTINCT_IN_USE = eINSTANCE.getNeoInterfaceNode_IsVariableDistinctInUse();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Cypher Variable</b></em>' operation.
@@ -6356,7 +6356,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation NEO_ABSTRACT_NODE___GET_CYPHER_VARIABLE = eINSTANCE.getNeoAbstractNode__GetCypherVariable();
+		EOperation NEO_INTERFACE_NODE___GET_CYPHER_VARIABLE = eINSTANCE.getNeoInterfaceNode__GetCypherVariable();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl <em>Neo Node</em>}' class.
@@ -6503,12 +6503,12 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EOperation NEO_SIMPLE_EDGE___SET_NEO_DIRECTION__NEODIRECTION = eINSTANCE.getNeoSimpleEdge__SetNeoDirection__NeoDirection();
 
 		/**
-		 * The meta object literal for the '<em><b>Add Target Node Label</b></em>' operation.
+		 * The meta object literal for the '<em><b>Add Neo Target Node Label</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation NEO_SIMPLE_EDGE___ADD_TARGET_NODE_LABEL__STRING = eINSTANCE.getNeoSimpleEdge__AddTargetNodeLabel__String();
+		EOperation NEO_SIMPLE_EDGE___ADD_NEO_TARGET_NODE_LABEL__STRING = eINSTANCE.getNeoSimpleEdge__AddNeoTargetNodeLabel__String();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Neo Edge Label</b></em>' operation.
@@ -6797,14 +6797,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EOperation NEO_ABSTRACT_PATH_PARAM___GET_CYPHER_RETURN_VARIABLE = eINSTANCE.getNeoAbstractPathParam__GetCypherReturnVariable();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.NeoElement <em>Neo Element</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement <em>Neo Interface Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.adaptionNeo4J.NeoElement
-		 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoElement()
+		 * @see qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement
+		 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoInterfaceElement()
 		 * @generated
 		 */
-		EClass NEO_ELEMENT = eINSTANCE.getNeoElement();
+		EClass NEO_INTERFACE_ELEMENT = eINSTANCE.getNeoInterfaceElement();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Cypher Return Variable</b></em>' operation.
@@ -6812,7 +6812,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation NEO_ELEMENT___GET_CYPHER_RETURN_VARIABLE = eINSTANCE.getNeoElement__GetCypherReturnVariable();
+		EOperation NEO_INTERFACE_ELEMENT___GET_CYPHER_RETURN_VARIABLE = eINSTANCE.getNeoInterfaceElement__GetCypherReturnVariable();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.NeoDirection <em>Neo Direction</em>}' enum.

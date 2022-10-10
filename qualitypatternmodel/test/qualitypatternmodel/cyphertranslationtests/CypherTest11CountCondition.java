@@ -6,7 +6,7 @@ import java.util.Set;
 
 import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
-import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
+import qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -53,8 +53,8 @@ public class CypherTest11CountCondition {
 		completePattern.createNeo4jAdaption();
 		
 		CountPatternImpl countPatternImpl = (CountPatternImpl) countCond.getCountPattern();
-		Set<NeoAbstractNode> countElements = new HashSet<NeoAbstractNode>();
-		countElements.add((NeoAbstractNode) countPatternImpl.getGraph().getNodes().get(1));
+		Set<NeoInterfaceNode> countElements = new HashSet<NeoInterfaceNode>();
+		countElements.add((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(1));
 		countPatternImpl.setCountElementNodes(countElements);
 		
 		Graph g = countCond.getCountPattern().getGraph();

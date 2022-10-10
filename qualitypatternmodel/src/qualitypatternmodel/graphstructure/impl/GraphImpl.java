@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
+import qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
@@ -181,22 +181,22 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		
 		if (allNodesList != null && allNodesList.size() > 0) { 
 			StringBuilder cypher = new StringBuilder();	
-			EList<NeoAbstractNode> beginningNodesList = new BasicEList<NeoAbstractNode>();
+			EList<NeoInterfaceNode> beginningNodesList = new BasicEList<NeoInterfaceNode>();
 			
 			//Finding ComplexNode which represent the beginning
 			//Since we have independent graphs we can have multiple beginnings
 			//How to integrate Maybe a OPTIONAL MATCH? - OPTIONAL - How to consider (r:A)--(B:B), (r)--(C:C)?
 			//TODO: Consider that it also can start with a PrimitiveNode which has a more defined strucutre --> Not relevant any more since the model just starts with a complex edge
 			for (Node n : allNodesList) {
-				if (n instanceof NeoNode && ((NeoAbstractNode) n).getNodePlace() == NeoPlace.BEGINNING) {
-					beginningNodesList.add((NeoAbstractNode) n);
-				} else if(! (n instanceof NeoAbstractNode)) {
+				if (n instanceof NeoNode && ((NeoInterfaceNode) n).getNodePlace() == NeoPlace.BEGINNING) {
+					beginningNodesList.add((NeoInterfaceNode) n);
+				} else if(! (n instanceof NeoInterfaceNode)) {
 					throw new InvalidityException("No instance of NeoNode");
 				}
 			}
 			
 			boolean isFirst = true;
-			for (NeoAbstractNode n : beginningNodesList) {
+			for (NeoInterfaceNode n : beginningNodesList) {
 				if (!isFirst) {
 					cypher.append(CypherSpecificConstants.CLAUSE_MATCH + CypherSpecificConstants.ONE_WHITESPACES);
 				} else {
@@ -211,7 +211,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		throw new InvalidityException("No nodes are given");
 	}
 
-	private void buildNeoGraphPatternRecursively(StringBuilder cypher, NeoAbstractNode n) throws InvalidityException {
+	private void buildNeoGraphPatternRecursively(StringBuilder cypher, NeoInterfaceNode n) throws InvalidityException {
 		//In this senario it has to be considert that of there are multiple edges between nodes the last one will be taken
 		//Since multiple edges between to nodes requieres a OPTIONAL MATCH the OPTIONAL MATCH can be implemented or a break added
 		//MULTIPLE EDGES HAVE TO BE HANDELT DIFFRENTLY BUT ARE ALSO NOT SUPPORTED BY THE FRAMEWORK
@@ -254,7 +254,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			innerCounterString++;
 			cypher = new StringBuilder();
 			cypher.append(node.generateCypher());
-			((NeoAbstractNode) node).setIsVariableDistinctInUse(false);
+			((NeoInterfaceNode) node).setIsVariableDistinctInUse(false);
 		} else {
 			preCypher = cyphers.get(innerCounterString);
 			cypher = new StringBuilder();
@@ -310,7 +310,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			}
 		}
 		if (i + distinctNeoPropertyNode >= 2) {
-			((NeoAbstractNode) node).setIsVariableDistinctInUse(false);
+			((NeoInterfaceNode) node).setIsVariableDistinctInUse(false);
 		}
 		return i + distinctNeoPropertyNode >= 2;
 	}
