@@ -189,6 +189,7 @@ public class Neo04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 			assertTrue(neoSimpleEdge.getNeoEdgeLabel().getValue().compareTo(labels[labels.length - 1]) == 0);
 		} catch (Exception e) {
 			System.out.println(e);
+			assertFalse(true);
 		}
 	}
 	
@@ -203,6 +204,7 @@ public class Neo04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 			assertEquals(null, neoSimpleEdge.getNeoEdgeLabel().getValue());
 		} catch (Exception e) {
 			System.out.println(e);
+			assertFalse(true);
 		}
 	}
 	
@@ -262,6 +264,7 @@ public class Neo04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 			assertEquals("varEdge1_1", neoSimpleEdge.getCypherVariable());
 		} catch (Exception e) {
 			System.out.println(e);
+			assertFalse(true);
 		}
 	}
 	

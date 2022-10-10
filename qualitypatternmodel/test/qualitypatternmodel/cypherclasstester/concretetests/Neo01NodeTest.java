@@ -144,6 +144,7 @@ public class Neo01NodeTest extends NeoAbstractNodeTest {
 		    assertTrue(variable.matches(CypherSpecificConstants.VARIABLE_NODE + "[1-9][0-9]*")); //--> Checks if the first is the normal prefix + the last digitis are numbers 
 		} catch (Exception e) {
 			System.out.println(e);
+			assertFalse(true);
 		}
 	}
 	
@@ -160,6 +161,7 @@ public class Neo01NodeTest extends NeoAbstractNodeTest {
 		    assertFalse(variable.matches(CypherSpecificConstants.VARIABLE_NODE + "[1-9][0-9]*")); //--> Checks if the first is the normal prefix + the last digitis are numbers 
 		} catch (Exception e) {
 			System.out.println(e);
+			assertFalse(true);
 		}
 	}
 
@@ -194,6 +196,7 @@ public class Neo01NodeTest extends NeoAbstractNodeTest {
 			}
 		} catch (Exception e) {
 			System.out.println(e);
+			assertFalse(true);
 		}
 	}
 
@@ -239,6 +242,7 @@ public class Neo01NodeTest extends NeoAbstractNodeTest {
 			assertTrue(cypher.compareTo(VAR_NODE1) == 0);
 		} catch (Exception e) {
 			System.out.println(e);
+			assertFalse(true);
 		}
 	}
 	
@@ -253,6 +257,7 @@ public class Neo01NodeTest extends NeoAbstractNodeTest {
 			assertTrue(cypher.compareTo(VAR_NODE1) == 0);
 		} catch (Exception e) {
 			System.out.println(e);
+			assertFalse(true);
 		}
 	}
 	

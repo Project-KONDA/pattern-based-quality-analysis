@@ -81,6 +81,7 @@ public class Neo01PropertyNodeTest extends NeoAbstractNodeTest {
 			assertTrue(temp.compareTo(propertyAddress) == 0);
 		} catch (Exception e) {
 			System.out.println(e);
+			assertFalse(true);
 		} 
 	}
 	
@@ -96,6 +97,7 @@ public class Neo01PropertyNodeTest extends NeoAbstractNodeTest {
 			assertEquals(propertyAddress, temp);
 		} catch (Exception e) {
 			System.out.println(e);
+			assertFalse(true);
 		} 
 	}
 	
@@ -122,6 +124,7 @@ public class Neo01PropertyNodeTest extends NeoAbstractNodeTest {
 			assertDoesNotThrow(() -> m.invoke(neoPropertyNode));
 		} catch (Exception e) {
 			System.out.println(e);
+			assertFalse(true);
 		}
 	}
 
@@ -158,12 +161,14 @@ public class Neo01PropertyNodeTest extends NeoAbstractNodeTest {
 			checkForInvalidityExceptionInReflation(localNode, m);
 		} catch (Exception e) {
 			System.out.println(e);
+			assertFalse(true);
 		}
 	}
 
 	private void checkForInvalidityExceptionInReflation(NeoPropertyNode localNode, Method m) {
 		try {
 			m.invoke(localNode);
+			assertFalse(true);
 		} catch (Exception e) {
 			assertTrue(e.getCause().getClass().equals(InvalidityException.class));
 		}
@@ -185,6 +190,7 @@ public class Neo01PropertyNodeTest extends NeoAbstractNodeTest {
 			checkForInvalidityExceptionInReflation(neoPropertyNode, m);
 		} catch (Exception e) {
 			System.out.println(e);
+			assertFalse(true);
 		}
 	}
 	
@@ -197,6 +203,7 @@ public class Neo01PropertyNodeTest extends NeoAbstractNodeTest {
 		    assertTrue(variable.compareTo(CypherSpecificConstants.VARIABLE_PROPERTY_NODE + id) == 0);
 		} catch (Exception e) {
 			System.out.println(e);
+			assertFalse(true);
 		}
 	}
 
@@ -220,7 +227,8 @@ public class Neo01PropertyNodeTest extends NeoAbstractNodeTest {
 			//Something does not work here
 			assertThrows(InvalidityException.class, () -> neoPropertyNode.generateCypherNodeVariable());
 		} catch (Exception e) {
-			System.out.println("Reflaction went wrong");
+			System.out.println(e);
+			assertFalse(true);
 		}
 	}
 	
@@ -235,7 +243,8 @@ public class Neo01PropertyNodeTest extends NeoAbstractNodeTest {
 			field.set(neoPropertyNode, (EList) rList);
 			assertThrows(InvalidityException.class, () -> neoPropertyNode.generateCypherNodeVariable());
 		} catch (Exception e) {
-			System.out.println("Reflaction went wrong");
+			System.out.println(e);
+			assertFalse(true);
 		}
 	}
 
@@ -264,6 +273,7 @@ public class Neo01PropertyNodeTest extends NeoAbstractNodeTest {
 		    assertTrue(variable.compareTo(CypherSpecificConstants.VARIABLE_PROPERTY_NODE + id) == 0);
 		} catch (Exception e) {
 			System.out.println(e);
+			assertFalse(true);
 		}
 	}
 
@@ -288,6 +298,7 @@ public class Neo01PropertyNodeTest extends NeoAbstractNodeTest {
 			initGetCypherReturnVariableTest(super.neoAbstractNode, GENERIC_NODE_ID);
 		} catch (Exception e) {
 			System.out.println(e);
+			assertFalse(true);
 		}
 	}
 	
@@ -302,6 +313,7 @@ public class Neo01PropertyNodeTest extends NeoAbstractNodeTest {
 			assertTrue(variable.matches(CypherSpecificConstants.VARIABLE_PROPERTY_NODE + "[1-9][0-9]*"));
 		} catch (Exception e) {
 			System.out.println(e);
+			assertFalse(true);
 		}
 	}
 	
@@ -321,6 +333,7 @@ public class Neo01PropertyNodeTest extends NeoAbstractNodeTest {
 		    assertTrue(variable.compareTo("(" + CypherSpecificConstants.VARIABLE_PROPERTY_NODE + id + ")") == 0);
 		} catch (Exception e) {
 			System.out.println(e);
+			assertFalse(true);
 		}
 	}
 }
