@@ -217,6 +217,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		return count;
 	}
 
+	//NEEDS REWORK --> the setting of the NeComplexEdge/Counter has to be reworked
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -227,6 +228,8 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		getNeoPathPart().add(neoPathPart);
 		if (getNeoComplexEdge() != null) {
 			((NeoPathPartImpl) neoPathPart).setCount(this.getHighestComplexEdge().getCount());
+		} else if(neoPathPart instanceof NeoComplexEdgeImpl) {
+			//((NeoComplexEdgeImpl) neoPathPart).
 		} else {
 			((NeoPathPartImpl) neoPathPart).setCount(getCount());
 		}
@@ -438,7 +441,13 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		return count;
 	}
 	
+	//Needs rework!!!
 	protected void setCount(InternalCount count) {
+		this.count = count;
+	}
+	
+	//Add to AbstractNeoComplexEdge
+	protected void setCount(InternalCount count, NeoComplexEdge neoComplexEdge) {
 		this.count = count;
 	}
 	

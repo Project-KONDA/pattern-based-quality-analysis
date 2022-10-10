@@ -3081,7 +3081,7 @@
               <element xsi:nil="true"/>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Rjoq5EVUEe2j-t4I-O1eMw" x="580" y="583" width="132"/>
             </children>
-            <children xmi:type="notation:Shape" xmi:id="_m5v74EZcEe2jHOFzVqaGHQ" type="Note" fontName="Segoe UI" description="Auch zur Abstract-Class machen" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+            <children xmi:type="notation:Shape" xmi:id="_m5v74EZcEe2jHOFzVqaGHQ" type="Note" fontName="Segoe UI" description="Umbennen im Code" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
               <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_m5v74UZcEe2jHOFzVqaGHQ" source="specificStyles">
                 <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_m5v74kZcEe2jHOFzVqaGHQ" key="verticalAlignment" value="8"/>
               </eAnnotations>
@@ -12981,9 +12981,9 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Package']/@containerMappings[name='Dropped%20Package']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Package']/@containerMappings[name='Dropped%20Package']"/>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_iaxbEPh8EeyEAYheLQgtPA" name="NeoAbstractNode" tooltipText="" outgoingEdges="_S03Dz0S1Ee2kztuV4T7hhA" incomingEdges="_v6Ya2fh8EeyEAYheLQgtPA _wjQo8ANiEe206Z6-dx1KpQ" width="12" height="10">
-        <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractNode"/>
-        <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractNode"/>
+      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_iaxbEPh8EeyEAYheLQgtPA" name="NeoInterfaceNode" tooltipText="" outgoingEdges="_S03Dz0S1Ee2kztuV4T7hhA" incomingEdges="_v6Ya2fh8EeyEAYheLQgtPA _wjQo8ANiEe206Z6-dx1KpQ" width="12" height="10">
+        <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoInterfaceNode"/>
+        <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoInterfaceNode"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -12993,24 +12993,24 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
         <ownedElements xmi:type="diagram:DNodeListElement" uid="_OvbmYBo9Ee2ZadNclPsl5A" name="getCypherVariable() : EString" tooltipText="getCypherVariable() : EString">
-          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractNode/getCypherVariable"/>
-          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractNode/getCypherVariable"/>
+          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoInterfaceNode/getCypherVariable"/>
+          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoInterfaceNode/getCypherVariable"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_OvmlgBo9Ee2ZadNclPsl5A" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
         </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" uid="_jU-MQCMrEe23B9jt7anp1g" name="nodePlace : NeoPlace = FOLLOWING" tooltipText="">
-          <target xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractNode/nodePlace"/>
-          <semanticElements xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractNode/nodePlace"/>
+          <target xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoInterfaceNode/nodePlace"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoInterfaceNode/nodePlace"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_p9eKQiMrEe23B9jt7anp1g" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" uid="_Sfnh8DgiEe2icapbk5DBpQ" name="isVariableDistinctInUse : EBoolean = true" tooltipText="">
-          <target xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractNode/isVariableDistinctInUse"/>
-          <semanticElements xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractNode/isVariableDistinctInUse"/>
+          <target xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoInterfaceNode/isVariableDistinctInUse"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoInterfaceNode/isVariableDistinctInUse"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_GySiyDgjEe2icapbk5DBpQ" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
           </ownedStyle>
@@ -13420,9 +13420,9 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
         </ownedElements>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_oM1iEES0Ee2kztuV4T7hhA" name="NeoElement" tooltipText="&#xA;WARNING : The generic type associated with the 'EMap' classifier should have 2 type argument(s) to match the number of type parameter(s) of the classifier " incomingEdges="_QGEhCES1Ee2kztuV4T7hhA _S03Dz0S1Ee2kztuV4T7hhA" width="12" height="10">
-        <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoElement"/>
-        <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoElement"/>
+      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_oM1iEES0Ee2kztuV4T7hhA" name="NeoInterfaceElement" tooltipText="&#xA;WARNING : The generic type associated with the 'EMap' classifier should have 2 type argument(s) to match the number of type parameter(s) of the classifier " incomingEdges="_QGEhCES1Ee2kztuV4T7hhA _S03Dz0S1Ee2kztuV4T7hhA" width="12" height="10">
+        <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoInterfaceElement"/>
+        <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoInterfaceElement"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -13432,8 +13432,8 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
         <ownedElements xmi:type="diagram:DNodeListElement" uid="_Ju9koDgiEe2icapbk5DBpQ" name="getCypherReturnVariable() : EMap" tooltipText="getCypherReturnVariable() : EMap">
-          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoElement/getCypherReturnVariable"/>
-          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoElement/getCypherReturnVariable"/>
+          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoInterfaceElement/getCypherReturnVariable"/>
+          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoInterfaceElement/getCypherReturnVariable"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_Ju_Z0DgiEe2icapbk5DBpQ" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
           </ownedStyle>
@@ -13964,8 +13964,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_S03Dz0S1Ee2kztuV4T7hhA" sourceNode="_iaxbEPh8EeyEAYheLQgtPA" targetNode="_oM1iEES0Ee2kztuV4T7hhA">
-      <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractNode"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractNode"/>
+      <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoInterfaceNode"/>
+      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoInterfaceNode"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_S03D1kS1Ee2kztuV4T7hhA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>

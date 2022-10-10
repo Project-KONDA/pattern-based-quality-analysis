@@ -1,13 +1,49 @@
 package qualitypatternmodel.cypherclasstester.concretetests;
 
 
+import static org.junit.Assume.assumeNotNull;
+import static org.junit.Assume.assumeTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
+import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.cypherclasstester.NeoAbstractPathPartTest;
 import qualitypatternmodel.exceptions.InvalidityException;
 
 public class Neo04ComplexEdgeTest extends NeoAbstractPathPartTest {
+	NeoComplexEdge neoComplexEdge;
+	
+	@BeforeAll
+    static void initAll() {
+		
+    }
+	
+	@BeforeEach
+	public void setUp() {
+		super.setUp(FACTORY.createNeoComplexEdge());
+		neoComplexEdge = (NeoComplexEdge) super.neoPathPart;
+	}
+	
+	@AfterEach
+	public void tearDown() {
+		super.tearDown();
+		neoComplexEdge = null;
+	}
+	
+	@AfterAll
+	static void tearDownAll() {
+		
+    }
+	
 	
 	@Test
 	public void validateComplexEdge() {
@@ -44,10 +80,25 @@ public class Neo04ComplexEdgeTest extends NeoAbstractPathPartTest {
 		
 	}
 
+	//Check if the setting of NeoAbstractPathParam in the substructure is correct
+	@Test
 	@Override
 	public void getNeoPathPartEdges() {
-		// TODO Auto-generated method stub
+		assumeNotNull(neoPathPart.getNeoPathPartEdges());
+		assumeTrue(neoPathPart.getNeoPathPartEdges().size() == 0);
+		NeoPathPart part1 = FACTORY.createNeoComplexEdge();
+		NeoPathPart part2 = FACTORY.createNeoComplexEdge();
+		NeoPathPart part3 = FACTORY.createNeoSimpleEdge();
+		NeoPathPart part4 = FACTORY.createNeoSimpleEdge();
+		((NeoComplexEdge) part1).addNeoPathPart(part2);
+		((NeoComplexEdge) part1).addNeoPathPart(part3);
+		part3.setNeoComplexEdge((NeoComplexEdge) part1);
+		((NeoComplexEdge) part2).addNeoPathPart(part4);
+		((NeoComplexEdge) neoPathPart).addNeoPathPart(part1);
 		
+		assertEquals(part1, neoPathPart.getNeoPathPartEdges().get(0));
+		assertEquals(part2, neoPathPart.getNeoPathPartEdges().get(0).getNeoPathPartEdges().get(1));
+		assertEquals(part2, neoPathPart.getNeoPathPartEdges().get(0).getNeoPathPartEdges().get(1).getNeoPathPartEdges().get(0));
 	}
 
 	@Override

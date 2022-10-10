@@ -1232,8 +1232,8 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="adaptionNeo4J" nsURI="adaptionNeo4J" nsPrefix="adaptionNeo4J">
-    <eClassifiers xsi:type="ecore:EClass" name="NeoAbstractNode" abstract="true" interface="true"
-        eSuperTypes="#//adaptionNeo4J/NeoElement">
+    <eClassifiers xsi:type="ecore:EClass" name="NeoInterfaceNode" abstract="true"
+        interface="true" eSuperTypes="#//adaptionNeo4J/NeoInterfaceElement">
       <eOperations name="getCypherVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodePlace" eType="#//adaptionNeo4J/NeoPlace"
@@ -1242,7 +1242,7 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           defaultValueLiteral="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoNode" eSuperTypes="#//graphstructure/ComplexNode #//adaptionNeo4J/NeoAbstractNode">
+    <eClassifiers xsi:type="ecore:EClass" name="NeoNode" eSuperTypes="#//graphstructure/ComplexNode #//adaptionNeo4J/NeoInterfaceNode">
       <eOperations name="addLabel" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
@@ -1299,7 +1299,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoComplexEdge" eType="#//adaptionNeo4J/NeoComplexEdge"
           eOpposite="#//adaptionNeo4J/NeoComplexEdge/neoPathPart"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoPropertyNode" eSuperTypes="#//graphstructure/PrimitiveNode #//adaptionNeo4J/NeoAbstractNode">
+    <eClassifiers xsi:type="ecore:EClass" name="NeoPropertyNode" eSuperTypes="#//graphstructure/PrimitiveNode #//adaptionNeo4J/NeoInterfaceNode">
       <eOperations name="generateCypherPropertyAddressing" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="generateCypherNodeVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -1338,7 +1338,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoPropertyPathParam"
           eType="#//adaptionNeo4J/NeoPropertyPathParam" eOpposite="#//adaptionNeo4J/NeoPropertyPathParam/neoPropertyEdge"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoAbstractEdge" abstract="true" eSuperTypes="#//graphstructure/Relation #//adaptionNeo4J/NeoElement">
+    <eClassifiers xsi:type="ecore:EClass" name="NeoAbstractEdge" abstract="true" eSuperTypes="#//graphstructure/Relation #//adaptionNeo4J/NeoInterfaceElement">
       <eOperations name="setIsReturnElement">
         <eParameters name="returnElement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eOperations>
@@ -1357,7 +1357,8 @@
       <eLiterals name="BEGINNING"/>
       <eLiterals name="FOLLOWING" value="1"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoElement" abstract="true" interface="true">
+    <eClassifiers xsi:type="ecore:EClass" name="NeoInterfaceElement" abstract="true"
+        interface="true">
       <eOperations name="getCypherReturnVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
     </eClassifiers>
