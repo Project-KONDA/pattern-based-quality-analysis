@@ -69,12 +69,12 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 	//Translation of the neoPropertyEdge
 	@Override
 	public String generateCypher() throws InvalidityException {
-		String cypher = null;
+		String cypher = null; //Null will be returned because it is used as an indicator in the morphisems
 		if (getIncomingMapping() == null) {
 			if(!translated && getNeoPropertyPathParam() != null) {
 				cypher = getNeoPropertyPathParam().generateCypher();
 				this.translated = true;
-			} else {
+			} else if (getNeoPropertyPathParam() == null){
 				throw new InvalidityException("NeoEdge needs a NeoPathParam");
 			}
 		} 
@@ -99,8 +99,10 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 	
 	@Override
 	public String getReturnInnerEdgeNodes() throws InvalidityException {
-		String cypher;
-		cypher = getNeoPropertyPathParam().getReturnInnerEdgeNodes();
+		String cypher = null;
+		if (getNeoPropertyPathParam() != null) {
+			cypher = getNeoPropertyPathParam().getReturnInnerEdgeNodes();
+		}
 		return cypher;
 	}
 	

@@ -302,6 +302,7 @@ public class Neo01PropertyNodeTest extends NeoAbstractNodeTest {
 		}
 	}
 	
+	//PULL-UP ???
 	private void initGetCypherReturnVariableTest(NeoInterfaceNode node, int number) {
 		int id = number;
 		try {

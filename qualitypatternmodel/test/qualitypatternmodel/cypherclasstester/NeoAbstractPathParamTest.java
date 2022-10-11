@@ -22,8 +22,8 @@ public abstract class NeoAbstractPathParamTest implements InterfaceNeoAbstractPa
 	private static final int INTERNAL_ID_ONE = 1;
 	protected static final String VARIABLE_EDGE_ONE = CypherSpecificConstants.VARIABLE_EGDE + 1;
 	protected static final String VARIABLE_EDGE_TWO = CypherSpecificConstants.VARIABLE_EGDE + 2;
-	protected static final String VARIABLE_EAGE_ONE_CLAMPED = "(" + VARIABLE_EDGE_ONE + ")";
-	protected static final String VARIABLE_EAGE_TWO_CLAMPED = "(" + VARIABLE_EDGE_TWO + ")";
+	protected static final String VARIABLE_EAGE_ONE_CLAMPED = "[" + VARIABLE_EDGE_ONE + "]";
+	protected static final String VARIABLE_EAGE_TWO_CLAMPED = "[" + VARIABLE_EDGE_TWO + "]";
 	protected static final String REGESTA = "REGESTA";
 	protected NeoAbstractPathParam neoAbstractPathParam;
 	protected NeoSimpleEdgeImpl mockSimpleEdge;

@@ -190,7 +190,7 @@ public class Neo01NodeTest extends NeoAbstractNodeTest {
 			assumeTrue(variableMap.containsKey(0));
 			String variable = variableMap.get(0).getValue();
 			if (!isDistinct) {
-				assertTrue(variable.matches(CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_DISTINCT + " (" +CypherSpecificConstants.VARIABLE_NODE + "[1-9][0-9]*[)]{1}"));
+				assertTrue(variable.matches(CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_DISTINCT + " \\(" +CypherSpecificConstants.VARIABLE_NODE + "[1-9][0-9]*[)]+"));
 			} else {
 				assertTrue(variable.matches(CypherSpecificConstants.VARIABLE_NODE + "[1-9][0-9]*"));
 			}
