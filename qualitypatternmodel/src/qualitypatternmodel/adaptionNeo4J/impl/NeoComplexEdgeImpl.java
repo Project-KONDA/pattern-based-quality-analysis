@@ -102,14 +102,14 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		if (validateComplexEdge()) {
 			StringBuilder cypher = new StringBuilder();
 			String innerEdgeNode;
-			for (NeoPathPart part : neoPathPart) {
+			for (NeoPathPart part : getNeoPathPartEdges()) {
 				innerEdgeNode = part.getCypherInnerEdgeNodes(isReturn);
 				if (innerEdgeNode != null) {
 					if (innerEdgeNode.contains(CypherSpecificConstants.INTERNAL_EDGE_NODE)) {
 						if (cypher.length() != 0) {
 							cypher.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
 						}
-					cypher.append(innerEdgeNode);
+						cypher.append(innerEdgeNode);
 					}
 				}
 			}
@@ -424,7 +424,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 			neoAbstractPathParam = getNeoPathParam();
 		} else if (getNeoPropertyPathParam() != null) {
 			neoAbstractPathParam = getNeoPropertyPathParam();
-		}
+		} //Introduce here a runntime exception to chat the 3 case if nothing is set --> or return null?
 		return neoAbstractPathParam;	
 	}
 	

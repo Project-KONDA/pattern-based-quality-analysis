@@ -59,13 +59,17 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 		return AdaptionNeo4JPackage.Literals.NEO_PATH_PART;
 	}
 
+	//Has been changed
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public NeoPathParam getNeoPathParam() {
+		if (getNeoComplexEdge() != null) {
+			return getNeoAbstractPathParam() instanceof NeoPathParam ? (NeoPathParam) getNeoAbstractPathParam() : null;
+		}
 		if (eContainerFeatureID() != AdaptionNeo4JPackage.NEO_PATH_PART__NEO_PATH_PARAM) return null;
 		return (NeoPathParam)eInternalContainer();
 	}
@@ -102,13 +106,17 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PATH_PART__NEO_PATH_PARAM, newNeoPathParam, newNeoPathParam));
 	}
 
+	//Has been changed
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public NeoPropertyPathParam getNeoPropertyPathParam() {
+		if (getNeoComplexEdge() != null) {
+			return getNeoAbstractPathParam() instanceof NeoPropertyPathParam ? (NeoPropertyPathParam) getNeoAbstractPathParam() : null;
+		}
 		if (eContainerFeatureID() != AdaptionNeo4JPackage.NEO_PATH_PART__NEO_PROPERTY_PATH_PARAM) return null;
 		return (NeoPropertyPathParam)eInternalContainer();
 	}

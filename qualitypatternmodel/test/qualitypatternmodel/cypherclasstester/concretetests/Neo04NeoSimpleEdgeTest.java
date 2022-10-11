@@ -22,7 +22,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
@@ -38,7 +37,6 @@ import qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyPathParamImpl;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl;
 import qualitypatternmodel.cypherclasstester.NeoAbstractPathPartTest;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.graphstructure.impl.NodeImpl;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
