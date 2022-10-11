@@ -70,21 +70,24 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		return cypher.toString();
 	}
 	
+	//Check this part!
 	//GETS ALL INNER EDGES ALIASES 
 	@Override
 	public String getCypherVariable() {
 		try {
-			this.validateComplexEdge();
-			StringBuilder variables = new StringBuilder();
-			EList<NeoPathPart> neoPath = this.getNeoPathPart();
-			for(NeoPathPart path : neoPath) {
-				if (variables.length() != 0) variables.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES); 
-				variables.append(path.getCypherVariable());
+			if (validateComplexEdge()) {
+				StringBuilder variables = new StringBuilder();
+				EList<NeoPathPart> neoPath = this.getNeoPathPartEdges();
+				for(NeoPathPart path : neoPath) {
+					if (variables.length() != 0) variables.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES); 
+					variables.append(path.getCypherVariable());
+				}
+				return variables.toString();
 			}
-			return variables.toString();
 		} catch (Exception e) {
-			return null;
+			System.out.println(e);
 		}
+		return null;
 	}
 	
 	
@@ -134,14 +137,15 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		return list;
 	}
 
+	//REWORK --> Maybe also throw exception and not return false --> difficualties for explanation ???
 	//The container just checks if enough elements are given to build a ComplexEdge
 	//Maybe change here stuff that Concrete Exceptions are thrown
 	@Override
 	public boolean validateComplexEdge() throws InvalidityException {
 		boolean valid = true;
 
-		if (getNeoPathPart().size() != 0) {
-			if (!(countOfEdges() >= 2)) {
+		if (getNeoPathPart().size() != 0 || !(getNeoComplexEdge() == null)) {
+			if (!(countOfEdges() >= 2) && (getNeoComplexEdge() == null)) {
 				throw new InvalidityException("To less Primitive Edges - At least 2");
 			}
 			if (hasMultipleLastEdges()) {
@@ -165,8 +169,10 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 			if (neoPart instanceof NeoComplexEdge) {
 				((NeoComplexEdgeImpl) neoPart).isLastEdgeAtTheEnd();
 			} else {
-				if (neoPart.isLastEdge() && !(i == (neoParts.size() - 1))) {
-					isLastEdgeCorrect = false;
+				if (neoPart.isLastEdge()) {
+					if (!(i == (neoParts.size() - 1))) {
+						isLastEdgeCorrect = false;
+					}
 				}
 			}
 		}
@@ -264,9 +270,11 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		int i = 0;
 		for (NeoPathPart part : getNeoPathPart()) {
 			if (i > 0)
-				result += ",";
+				result += ", ";
 			result += part.myToString();
+			i++;
 		}
+		result += ")";
 		return result;
 	}
 	
@@ -405,6 +413,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
+	//Rework --> Maybe Pull-Up --> Inculde an Error exception if both Params are set
 	@Override
 	protected NeoAbstractPathParam getNeoAbstractPathParam() {
 		if (getNeoComplexEdge() != null) {
@@ -428,12 +437,15 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		return (NeoComplexEdgeImpl) neoComplexEdge;
 	}
 	
+	//Check that no chain is build --> Or maybe needs not to be implemented?
 	//For resetting the counting if a ComplexEdge has been created at the same time as an other Complex Edge but is in his container
 	@Override
 	public void setNeoComplexEdge(NeoComplexEdge newNeoComplexEdge) {
 		super.setNeoComplexEdge(newNeoComplexEdge);
 		setCount(((NeoComplexEdgeImpl) newNeoComplexEdge).getCount());
-		for (NeoPathPart part : getNeoPathPart()) ((NeoPathPartImpl) part).setCount(getCount());
+		for (NeoPathPart part : getNeoPathPart()) {
+			((NeoPathPartImpl) part).setCount(getCount());
+		}
 	}
 	
 	//BEGIN - For counting the inner Edges

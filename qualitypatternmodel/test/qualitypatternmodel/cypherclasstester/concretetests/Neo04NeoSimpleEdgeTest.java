@@ -18,6 +18,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -25,7 +26,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
-import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoDirection;
 import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
@@ -44,6 +44,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 
+@DisplayName("NeoSimpleEdge Test")
 public class Neo04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 	NeoSimpleEdge neoSimpleEdge;
 	
@@ -416,7 +417,7 @@ public class Neo04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 
 	//REMOCE
 	@Override
-	public void setNeoComplexEdge(NeoComplexEdge newNeoComplexEdge) {
+	public void setNeoComplexEdge() {
 		// TODO Auto-generated method stub
 		
 	}

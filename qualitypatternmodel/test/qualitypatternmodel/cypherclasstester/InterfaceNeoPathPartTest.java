@@ -2,7 +2,6 @@ package qualitypatternmodel.cypherclasstester;
 
 import org.junit.jupiter.api.Test;
 
-import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
 
 public interface InterfaceNeoPathPartTest extends INeo4J {
@@ -15,7 +14,7 @@ public interface InterfaceNeoPathPartTest extends INeo4J {
 	void generateInternalCypher();
 	void isValidLocal();
 	void getNeoAbstractPathParam();
-	void setNeoComplexEdge(NeoComplexEdge newNeoComplexEdge);
+	void setNeoComplexEdge();
 	void myToString();
 	void setCount();
 }
