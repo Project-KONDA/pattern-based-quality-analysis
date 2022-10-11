@@ -1,38 +1,292 @@
 package qualitypatternmodel.cypherclasstester.concretetests;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assume.assumeNotNull;
+import static org.junit.Assume.assumeTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+
+import junit.framework.TestListener;
+import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
+import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
+import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
+import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoComplexEdgeImpl;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoPathParamImpl;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl;
 import qualitypatternmodel.cypherclasstester.NeoAbstractPathParamTest;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.graphstructure.impl.RelationImpl;
+import qualitypatternmodel.parameters.TextListParam;
+import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.impl.TextListParamImpl;
+import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 
 public class Neo03PathParamTest extends NeoAbstractPathParamTest {
-
-	@Test
-	public void generateMultiEdgeCypher() {
+	NeoPathParam neoPathParam;
+	
+	@BeforeAll
+    static void initAll() {
+		
+    }
+	
+	@BeforeEach
+	public void setUp() {
+		try {
+			super.setUp(FACTORY.createNeoPathParam());		
+			neoPathParam = (NeoPathParam) super.neoAbstractPathParam;
+		} catch (Exception e) {
+			System.out.println(e);
+			assertFalse(true);
+		}
 		
 	}
 	
+	@AfterEach
+	public void tearDown() {
+		super.tearDown();
+	}
+		
+	@Test
 	@Override
 	public void getReturnInnerEdgeNodes() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void getCypherReturnVariable() {
-		// TODO Auto-generated method stub
-		
+		try {
+			//No NeoPathPart is set
+			assumeNotNull(neoPathParam.getNeoPathPart());
+			neoPathParam.setNeoPathPart(null);
+			assertNull(neoPathParam.getNeoPathPart());
+			assertNull(neoPathParam.getReturnInnerEdgeNodes());
+			
+			//NeoPathPart is set
+			NeoSimpleEdgeImpl mockPathPart = Mockito.mock(NeoSimpleEdgeImpl.class);
+			String internalEdgeString = CypherSpecificConstants.INTERNAL_EDGE_NODE + 1;
+			Mockito.when(mockPathPart.getCypherInnerEdgeNodes(Mockito.anyBoolean())).thenReturn(internalEdgeString);
+			neoPathParam.setNeoPathPart(mockPathPart);
+			assertEquals(internalEdgeString, neoAbstractPathParam.getReturnInnerEdgeNodes());
+		} catch (Exception e) {
+			System.out.println(e);
+			assertFalse(true);
+		}
 	}
 	
+	@Test
+	public void generateMultiEdgeCypher() {
+		try {
+			Method m = getGenerateMultiEdgecypher();
+			
+			NeoSimpleEdgeImpl neoSimpl1 = Mockito.mock(NeoSimpleEdgeImpl.class);
+			NeoSimpleEdgeImpl neoSimpl2 = Mockito.mock(NeoSimpleEdgeImpl.class);
+			String varEdge1 = "-[varEdge1]-(varNode2)";
+			Mockito.when(neoSimpl1.generateCypher()).thenReturn(varEdge1);
+			String varEdge2WithTarget = "-[varEdge2]-(varNode3)";
+			Mockito.when(neoSimpl2.generateCypher()).thenReturn(varEdge2WithTarget);
+			Mockito.when(neoSimpl2.getNeoLastEdge()).thenReturn(neoSimpl2);
+			TextListParam t = new TextListParamImpl();
+			t.addStringValue("");
+			Mockito.when(neoSimpl2.getNeoLastEdge()).thenReturn(neoSimpl2);
+			Mockito.when(neoSimpl2.getNeoTargetNodeLabels()).thenReturn(t);
+			EList<NeoPathPart> l1 = new BasicEList<NeoPathPart>();
+			l1.add(neoSimpl1);
+			Mockito.when(neoSimpl1.getNeoPathPartEdges()).thenReturn(l1);
+			EList<NeoPathPart> l2 = new BasicEList<NeoPathPart>();
+			l2.add(neoSimpl2);
+			Mockito.when(neoSimpl2.getNeoPathPartEdges()).thenReturn(l2);
+			NeoComplexEdge neoComplexEdge1 = FACTORY.createNeoComplexEdge();
+			neoComplexEdge1.addNeoPathPart(neoSimpl1);
+			neoComplexEdge1.addNeoPathPart(neoSimpl2);
+			neoPathParam.setNeoPathPart(neoComplexEdge1);
+			
+			StringBuilder sb = new StringBuilder();
+			
+			m.invoke(neoPathParam, sb);
+			assertEquals(varEdge1 + varEdge2WithTarget + "--", sb.toString());
+		} catch (Exception e) {
+			System.out.println(e);
+			assertFalse(true);
+		}
+	}
+	
+	@Test
+	public void generateMultiEdgeCypherException() {
+		try {
+			Method m = getGenerateMultiEdgecypher();
+			
+			NeoComplexEdge neoComplexEdge1 = FACTORY.createNeoComplexEdge();
+			neoComplexEdge1.addNeoPathPart(FACTORY.createNeoSimpleEdge());
+			neoComplexEdge1.addNeoPathPart(FACTORY.createNeoSimpleEdge());
+			neoPathParam.setNeoPathPart(neoComplexEdge1);
+			StringBuilder sb = new StringBuilder();
+			
+			m.invoke(neoPathParam, sb);
+		} catch (Exception e) {
+			if (e.getCause().getClass() == InvalidityException.class) {
+				assertTrue(true);
+			} else {
+				System.out.println(e);
+				assertFalse(true);
+			}
+		}
+	}
+	
+	private Method getGenerateMultiEdgecypher() throws Exception {
+		Class<NeoPathParamImpl> c = NeoPathParamImpl.class;
+		Method m = c.getDeclaredMethod("generateMultiEdgeCypher", StringBuilder.class);
+		m.setAccessible(true);
+		return m;
+	}
+	
+	@Test
+	public void generateSingeEdgeCypher() {
+		try {
+			//SimpleNeoEdge without Targets
+			Class<NeoPathParamImpl> c = NeoPathParamImpl.class;
+			Method m = c.getDeclaredMethod("generateSingeEdgeCypher", StringBuilder.class, EList.class);
+			m.setAccessible(true);
+			
+			EList<NeoPathPart> l = new BasicEList<NeoPathPart>();
+			buildMockSimpleEdge();
+			l.add(super.mockSimpleEdge);
+			
+			StringBuilder sb = new StringBuilder();
+			m.invoke(neoPathParam, sb, l);
+			assertTrue(sb.toString().compareTo("-"+ VARIABLE_EAGE_ONE_CLAMPED + "-") == 0);
+			
+			//SimpleNeoEdgeWith a Target
+			TextListParam t = new TextListParamImpl();
+			t.addStringValue("testvalue");
+			Mockito.when(super.mockSimpleEdge.getNeoTargetNodeLabels()).thenReturn(null);
+			l.clear();
+			l.add(mockSimpleEdge);
+			sb.setLength(0);
+			m.invoke(neoPathParam, sb, l);
+			assertTrue(sb.toString().compareTo("-"+ VARIABLE_EAGE_TWO_CLAMPED + "-") == 0);
+			sb.setLength(0);
+			NeoSimpleEdgeImpl mockSimplEdgeImpl2 = Mockito.mock(NeoSimpleEdgeImpl.class);
+			String tempComp = "-"+ VARIABLE_EAGE_TWO_CLAMPED + "-" + "[varNode1]";
+			Mockito.when(mockSimplEdgeImpl2.generateCypher()).thenReturn(tempComp);
+			Mockito.when(mockSimplEdgeImpl2.getNeoTargetNodeLabels()).thenReturn(t);
+			l.clear();
+			l.add(mockSimplEdgeImpl2);
+			m.invoke(neoPathParam, sb, l);
+			assertTrue(sb.toString().compareTo(tempComp + "--") == 0);
+			
+			sb.setLength(0);
+			l.clear();
+			l.add(null);
+			m.invoke(neoPathParam, sb, l);
+		} catch (Exception e) {
+			if (e.getCause().getClass() == InvalidityException.class) {
+				assertTrue(true);
+			} else {
+				System.out.println(e);
+				assertFalse(true);
+			}
+		}
+	}
+	
+
+	
+	@Test
+	@Override
+	public void getCypherReturnVariable() {
+		try {
+			buildMockSimpleEdge();
+			neoPathParam.setNeoPathPart((NeoPathPart) super.mockSimpleEdge);
+			assertEquals(NeoAbstractPathParamTest.VARIABLE_EDGE_ONE, neoPathParam.getCypherReturnVariable());
+		} catch (Exception e) {
+			System.out.println(e);
+			assertFalse(true);
+		}
+	}
+	
+	@Test
 	@Override
 	public void generateCypher() {
-		// TODO Auto-generated method stub
-		
+		try {
+			//No Part specified
+			neoPathParam.setNeoPathPart(null);
+			assertEquals("--", neoPathParam.generateCypher());
+			
+			//With a NeoSimpleEdge
+			buildMockSimpleEdge();
+			neoPathParam.setNeoPathPart(super.mockSimpleEdge);
+			assumeNotNull(neoPathParam.getNeoPathPart());
+			assertEquals("-(varEdge1)-", neoPathParam.generateCypher()); 
+			
+			//With a NeoComplexEdge	
+			NeoComplexEdge neoComplexEdge = FACTORY.createNeoComplexEdge();
+			buildMockSimpleEdge();
+			NeoSimpleEdge neoSimpleEdge1 = super.mockSimpleEdge;
+			Mockito.when(neoSimpleEdge1.isLastEdge()).thenReturn(false);
+			buildMockSimpleEdge();
+			NeoSimpleEdge neoSimpleEdge2 = super.mockSimpleEdge;
+			Mockito.when(neoSimpleEdge2.generateCypher()).thenReturn("-"+ VARIABLE_EAGE_TWO_CLAMPED + "-");
+			Mockito.when(neoSimpleEdge2.isLastEdge()).thenReturn(true);
+			Mockito.when(neoSimpleEdge2.getNeoLastEdge()).thenReturn(neoSimpleEdge2);
+			Mockito.when(neoSimpleEdge2.getNeoTargetNodeLabels()).thenReturn(null);
+			
+			neoComplexEdge.addNeoPathPart(neoSimpleEdge1);
+			neoComplexEdge.addNeoPathPart(neoSimpleEdge2);
+			neoPathParam.setNeoPathPart(neoComplexEdge);
+			assumeTrue(neoPathParam.getNeoPathPart().getNeoPathPartEdges().size() == 2);
+			assumeNotNull(neoPathParam.getNeoPathPart());
+			assertEquals("-(varEdge1)--(varEdge2)-", neoPathParam.generateCypher());			
+		} catch (Exception e) {
+			System.out.println(e);
+			assertFalse(true);
+		}
+	} 
+	
+	@Test
+//	@Override
+	public void generateCypherException() {
+		try {
+			//Set Empty NeoComplexEdge
+			neoPathParam.setNeoPathPart(FACTORY.createNeoComplexEdge());
+			assumeNotNull(neoPathParam.getNeoPathPart());
+			assertThrows(InvalidityException.class, () -> neoPathParam.generateCypher()); 
+			
+			//Set Empty NeoComplexEdge --> Which returns null
+			NeoComplexEdgeImpl mockNeoComplexEdge = Mockito.mock(NeoComplexEdgeImpl.class);
+			Mockito.when(mockNeoComplexEdge.getNeoPathPartEdges()).thenReturn(null);
+			neoPathParam.setNeoPathPart(mockNeoComplexEdge);
+			assumeNotNull(neoPathParam.getNeoPathPart());
+			assertThrows(InvalidityException.class, () -> neoPathParam.generateCypher()); 
+		} catch (Exception e) {
+			System.out.println(e);
+			assertFalse(true);
+		}
 	} 
 
+	@Test
 	@Override
 	public void createParameters() {
-		// TODO Auto-generated method stub
-		
+		neoPathParam.createParameters();
+		assertNotNull(neoPathParam.getNeoPathPart());
 	}
 
 	@Override
@@ -41,15 +295,36 @@ public class Neo03PathParamTest extends NeoAbstractPathParamTest {
 		
 	}
 
+	@Test
 	@Override
 	public void myToString() {
-		// TODO Auto-generated method stub
-		
+		buildMockSimpleEdge();		
+		neoPathParam.setNeoPathPart(super.mockSimpleEdge);
+		assertTrue(neoPathParam.myToString().compareTo("NeoPathParam [1] " + "-" + VARIABLE_EAGE_ONE_CLAMPED  + "-") == 0);	
 	}
 
+	@Test
 	@Override
 	public void getRelationNumber() {
-		// TODO Auto-generated method stub
-		
+		try {
+			NeoEdge neoEdge = FACTORY.createNeoEdge();
+			Field f = super.getInternalIdField();
+			
+			Class obj = neoPathParam.getClass();
+			Method m = super.getMethodGetRelationNumber(obj);
+			m.setAccessible(true);
+			
+			//If No NeoEdge is set return -1			
+			assertEquals(-1, m.invoke(neoPathParam));
+			
+			//NeoEdge is set with the Id 1
+			neoPathParam.setNeoEdge(neoEdge);
+			f.set(neoEdge, 1);
+			assumeNotNull(neoPathParam.getNeoEdge());
+			assertEquals(1, m.invoke(neoPathParam));
+		} catch (Exception e) {
+			System.out.println(e);
+			assertFalse(true);
+		}
 	}
 }

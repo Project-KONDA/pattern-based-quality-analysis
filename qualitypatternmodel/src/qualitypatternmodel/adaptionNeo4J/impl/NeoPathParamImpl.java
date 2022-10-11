@@ -33,6 +33,8 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPathParam {
+	private static final String NEO_PATH_PARAM = "NeoPathParam [%s]";
+
 	/**
 	 * The cached value of the '{@link #getNeoEdge() <em>Neo Edge</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -63,9 +65,7 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 		setNeoPathPart(new NeoSimpleEdgeImpl());
 	}
 
-	//Check if the check for ComplexEdge // NeoSimpleEdge is necessary...
-	//TODO? make it more generic if the NeoUnspecifiedEdge is coming 
-	// --> Specific behaviour which can not be nessarcaly generalised
+	// --> Specific behaviour which can not be necessarily generalised
 	@Override
 	public String generateCypher() throws InvalidityException {
 		if (neoPathPart != null) {
@@ -73,44 +73,50 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 			EList<NeoPathPart> neoPathParts = getNeoPathPart().getNeoPathPartEdges();
 			
 			if (neoPathParts == null || neoPathParts.size() == 0) throw new InvalidityException("NeoEdge - NeoParts can not be empty");
-				if (neoPathParts.size() > 1) {
-						generateMultiEdgeCypher(cypher, neoPathParts);
-				} else {
-					generateSingeEdgeCypher(cypher, neoPathParts);
-				} 
+			if (neoPathParts.size() > 1) {
+					generateMultiEdgeCypher(cypher);
+			} else {
+				generateSingeEdgeCypher(cypher, neoPathParts);
+			} 
 			return cypher.toString();
 		}
 		return CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES;	
 	}
 
-
-
 	private void generateSingeEdgeCypher(final StringBuilder cypher, final EList<NeoPathPart> neoPathParts)
 			throws InvalidityException {
+		if (!(neoPathParts.get(0) instanceof NeoSimpleEdgeImpl))
+				throw new InvalidityException("Wrong type of Edge");
 		cypher.append(neoPathParts.get(0).generateCypher());
 		NeoSimpleEdge neoSimpleEdge = (NeoSimpleEdge) neoPathParts.get(0);
-		if (neoSimpleEdge.getNeoTargetNodeLabels() != null &&
-				neoSimpleEdge.getNeoTargetNodeLabels().getValues().size() != 0) {
+		if (checkTargetNodes(neoSimpleEdge)) { 
 			cypher.append(CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES); 
 		}
 	}
 
-	private void generateMultiEdgeCypher(final StringBuilder cypher, final EList<NeoPathPart> neoPathParts)
-			throws InvalidityException {
+	private void generateMultiEdgeCypher(final StringBuilder cypher) throws InvalidityException {
 		final NeoPathPart neoPathPart = getNeoPathPart();
 		cypher.append(neoPathPart.generateCypher());
 
 		NeoPathPart lastEdge = null;
-		//Every ComplexEdge needs a last SimpleEdge --> Maybe can be checked in the Container --> Specific check which can not be out outsourced
+		//Every ComplexEdge needs a last SimpleEdge 
+		//--> Maybe can be checked in the Container 
+		//--> Specific check which can not be out outsourced
 		lastEdge = neoPathPart.getNeoLastEdge();
 		if (lastEdge != null) {
 			NeoSimpleEdge neoSimpleEdge = (NeoSimpleEdge) lastEdge;
-			if (neoSimpleEdge.getNeoTargetNodeLabels() != null) {
+			if (checkTargetNodes(neoSimpleEdge)) {
 				cypher.append(CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES);
 			}
 		} else {
 			throw new InvalidityException("NeoEdge - The last NeoPathPart has to be specified as lastEdge");
 		}
+	}
+
+	private boolean checkTargetNodes(NeoSimpleEdge neoSimpleEdge) {
+		//Letzter Branch ist nicht testbar, da wenn == null kann es nicht X Element haben
+		return neoSimpleEdge.getNeoTargetNodeLabels() != null && 
+					neoSimpleEdge.getNeoTargetNodeLabels().getValues().size() != 0;
 	}
 	
 	/**
@@ -158,15 +164,19 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 	
 	@Override
 	public String myToString() {
-		String result = "NeoPathParam [" + getInternalId() + "] ";
+		String result = String.format(NEO_PATH_PARAM, getInternalId());
 		try {
 			result += " " + generateCypher();
 		} catch (InvalidityException e) {}
 		return result;
 	}
 
+	//
 	@Override
 	protected int getRelationNumber() {
+		if (getNeoEdge() == null) {
+			return -1;
+		}
 		return getNeoEdge().getOriginalID();
 	}
 	

@@ -21,6 +21,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,6 +39,8 @@ import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
  * @generated
  */
 public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implements NeoPropertyPathParam {
+	private static final String NEO_PROPERTY_PATH_PARAM = "NeoPropertyPathParam [%s]";
+
 	/**
 	 * The cached value of the '{@link #getNeoPropertyEdge() <em>Neo Property Edge</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -149,33 +152,29 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 		final NeoPathPart neoPathPart = getNeoPathPart();
 		if (neoPathPart instanceof NeoComplexEdge) {
 			final NeoPathPart neoLastEdge = neoPathPart.getNeoLastEdge();
-			if (!innerEdgesHaveTargets(getNeoPathPart().getNeoPathPartEdges())) {
-				throw new InvalidityException("Every Inner Edge needs a Target Node");
-			}
 			if (neoLastEdge == null) {
 				throw new InvalidityException("NeoPropertyEdge - Last Edge has to be set");
-			} else {
-				validateNeoPathPartStructure((NeoSimpleEdge) neoLastEdge);
 			}
 		}
-	}
-
-	private void validateNeoPathPartStructure(final NeoSimpleEdge neoSimpleEdge) throws InvalidityException {
-		if (!(neoSimpleEdge.getNeoTargetNodeLabels() != null)) {
+		if (!innerEdgesHaveTargets(getNeoPathPart().getNeoPathPartEdges())) {
 			targetNodesCanNotBeNull();
 		}
 	}
 	
 	private boolean innerEdgesHaveTargets(final EList<NeoPathPart> parts)  {
 		boolean innerEdgesHaveTargets = true;
+		NeoSimpleEdge neoSimpleEdge = null;
 		for (NeoPathPart part : parts) {
 			if (part instanceof NeoComplexEdge) {
 				this.innerEdgesHaveTargets(part.getNeoPathPartEdges());
 			} else {
-				if (part.isLastEdge()) {
-					if (!(((NeoSimpleEdge) part).getNeoTargetNodeLabels() != null)) {
+				if(part instanceof NeoSimpleEdge) {
+					neoSimpleEdge = (NeoSimpleEdge) part;
+					//if (part.isLastEdge()) {
+					if (neoSimpleEdge.getNeoTargetNodeLabels() == null || neoSimpleEdge.getNeoTargetNodeLabels().getValues().size() == 0) {
 						innerEdgesHaveTargets = false;
 					}
+					//}	
 				}
 			}
 		}
@@ -298,6 +297,8 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 		if (neoPropertyName != null  && neoPropertyName.length() != 0) {
 			TextLiteralParam literalNeoPropertyName = new TextLiteralParamImpl(neoPropertyName);
 			this.neoPropertyName = literalNeoPropertyName;
+		} else if (neoPropertyName == null) {
+			setNeoPropertyName((TextLiteralParam) null);
 		}
 	}
 
@@ -434,12 +435,18 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 		return super.eInvoke(operationID, arguments);
 	}
 
+	//Speak with Arno
 	@Override
 	public boolean inputIsValid() {
-		// TODO Auto-generated method stub
-		return false;
+		try{
+			getNeoPathPart().isValid(AbstractionLevel.CONCRETE);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
+	//Speak with Arno
 	@Override
 	public String generateDescription() {
 		// TODO Auto-generated method stub
@@ -448,21 +455,25 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 
 	@Override
 	public String myToString() {
-		String result = "NeoPropertyPathParam [" + getInternalId() + "] ";
+		String result = String.format(NEO_PROPERTY_PATH_PARAM, getInternalId());
 		try {
 			String temp = generateCypher();
 			if (temp != null) {
 				result += " " + generateCypher();
 			} else if (neoPropertyName != null) {
-				result += getNeoPropertyEdge().generateCypherPropertyAddressing();
+				result += " " + getNeoPropertyEdge().generateCypherPropertyAddressing();
 			}
 		} catch (InvalidityException e) {
+			System.out.println(e);
 		} 
 		return result;
 	}
 
 	@Override
 	protected int getRelationNumber() {
+		if (getNeoPropertyEdge() == null) {
+			return -1;
+		}
 		return getNeoPropertyEdge().getOriginalID();
 	}
 } //NeoAttributePathParamImpl

@@ -244,6 +244,8 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		}
 	}
 	
+	//Improve it does not have to walk over all elements again...
+	//For example here the false in the validateComplex edge has been forgetten... needs improvements --> Just throw exceptions
 	@Override
 	public NeoPathPart getNeoLastEdge() throws InvalidityException {
 		validateComplexEdge();

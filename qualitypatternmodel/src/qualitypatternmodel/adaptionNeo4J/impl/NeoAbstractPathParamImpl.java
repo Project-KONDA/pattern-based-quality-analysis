@@ -13,6 +13,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 
 /**
  * <!-- begin-user-doc -->
@@ -93,6 +94,17 @@ public abstract class NeoAbstractPathParamImpl extends ParameterImpl implements 
 		throw new UnsupportedOperationException();
 	}
 
+	
+	@Override
+	public boolean inputIsValid() {
+		try{
+			getNeoPathPart().isValid(AbstractionLevel.CONCRETE);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

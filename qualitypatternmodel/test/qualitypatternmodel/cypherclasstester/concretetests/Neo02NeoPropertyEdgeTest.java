@@ -1,17 +1,28 @@
 package qualitypatternmodel.cypherclasstester.concretetests;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assume.assumeNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
+import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl;
 import qualitypatternmodel.cypherclasstester.NeoAbstractEdgeTest;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 
-public class Neo02NeoPropertyEdgeTest extends NeoAbstractEdgeTest{
-
+public class Neo02NeoPropertyEdgeTest extends NeoAbstractEdgeTest {
 	
 	@Test
 	public void generateCypherPropertyAddressing() {
-		assertTrue(true);
+		
 	}
 	
 	@Override
@@ -20,10 +31,10 @@ public class Neo02NeoPropertyEdgeTest extends NeoAbstractEdgeTest{
 		
 	}
 
+	@Test
 	@Override
 	public void getReturnInnerEdgeNodes() {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

@@ -152,7 +152,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		super();
 	}
 
-	//Need improvement??? --> NeoPath neoPropertypath at the same time??
+	//Need improvement??? --> NeoPath neoPropertypath at the same time?? --> Pull-Up?
 	@Override
 	protected NeoAbstractPathParam getNeoAbstractPathParam() {
 		if (getNeoComplexEdge() != null) {
@@ -241,6 +241,8 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		return cypher;
 	}
 	
+	
+	//Impove what happens is no NeoAbstractPathParam is set
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
