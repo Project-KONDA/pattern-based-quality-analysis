@@ -49,6 +49,8 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  */
 
 public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge {
+	private static final String A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S = "A Label can not contain Whitespace(s)";
+
 	/**
 	 * The cached value of the '{@link #getKeyValueParam() <em>Key Value Param</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -180,7 +182,8 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			throw new InvalidityException("Something went wronge in the SimpleNeoEdge - direction has not been set correctly");
 		}
 		
-		if (getNeoTargetNodeLabels() != null && getNeoTargetNodeLabels().getValues().size() != 0) {
+		//Always when a List exists create the NeoPropertyNode
+		if (getNeoTargetNodeLabels() != null) {
 			cypher.append("(");
 			cypher.append(getCypherInnerEdgeNodes(false));
 			if (withLabels) {
@@ -497,9 +500,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	public void setNeoTargetNodeLabels(TextListParam newNeoTargetNodeLabels) throws InvalidityException {
 		if (newNeoTargetNodeLabels != null) {
 			for (String s : newNeoTargetNodeLabels.getValues()) {
-				if (s.contains(" ")) {
-					throw new InvalidityException("A Label can not contain Whitespace(s)");
-				}
+				checkForWhitespaceInLabel(s);
 			}
 		}
 		TextListParam oldNeoTargetNodeLabels = neoTargetNodeLabels;
@@ -551,7 +552,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 
 	private void checkForWhitespaceInLabel(String label) throws InvalidityException {
 		if (label.contains(" ")) {
-			throw new InvalidityException("Label can not contain Whitespace(s)");
+			throw new InvalidityException(A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S);
 		}
 	}
 
