@@ -63,10 +63,11 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @throws InvalidityException 
+	 * @generated
 	 */
 	@Override
-	public NeoPathParam getNeoPathParam() {
+	public NeoPathParam getNeoPathParam() throws InvalidityException {
 		if (getNeoComplexEdge() != null) {
 			return getNeoAbstractPathParam() instanceof NeoPathParam ? (NeoPathParam) getNeoAbstractPathParam() : null;
 		}
@@ -106,14 +107,13 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PATH_PART__NEO_PATH_PARAM, newNeoPathParam, newNeoPathParam));
 	}
 
-	//Has been changed
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
-	public NeoPropertyPathParam getNeoPropertyPathParam() {
+	public NeoPropertyPathParam getNeoPropertyPathParam() throws InvalidityException {
 		if (getNeoComplexEdge() != null) {
 			return getNeoAbstractPathParam() instanceof NeoPropertyPathParam ? (NeoPropertyPathParam) getNeoAbstractPathParam() : null;
 		}
@@ -416,7 +416,24 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 		return super.eInvoke(operationID, arguments);
 	}
 	
-	protected abstract NeoAbstractPathParam getNeoAbstractPathParam();
+	
+	protected NeoAbstractPathParam getNeoAbstractPathParam() throws InvalidityException {
+		if (getNeoComplexEdge() != null) {
+			return ((NeoPathPartImpl) getNeoComplexEdge()).getNeoAbstractPathParam();
+		}
+		NeoAbstractPathParam neoAbstractPathParam = null;
+		if (getNeoPathParam() != null && getNeoPropertyPathParam() != null) {
+			throw new InvalidityException("Ambiguous NeoAbstractPathParam - Only one can be set");
+		}
+		if (getNeoPathParam() != null) {
+			neoAbstractPathParam = getNeoPathParam();
+		} else if (getNeoPropertyPathParam() != null) {
+			neoAbstractPathParam = getNeoPropertyPathParam();
+		} else {
+			throw new InvalidityException("No NeoAbstractPathParam is set - at last min/max 1 should be");
+		}
+		return neoAbstractPathParam;	
+	}
 	
 	//for the counting
 	protected abstract void setCount(InternalCount count);

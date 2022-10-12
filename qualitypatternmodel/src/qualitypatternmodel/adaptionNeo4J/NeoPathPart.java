@@ -31,13 +31,14 @@ public interface NeoPathPart extends PatternElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Neo Path Param</em>' container reference.
+	 * @throws InvalidityException 
 	 * @see #setNeoPathParam(NeoPathParam)
 	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPathPart_NeoPathParam()
 	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathParam#getNeoPathPart
 	 * @model opposite="neoPathPart" transient="false"
 	 * @generated
 	 */
-	NeoPathParam getNeoPathParam();
+	NeoPathParam getNeoPathParam() throws InvalidityException;
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathParam <em>Neo Path Param</em>}' container reference.
@@ -55,13 +56,14 @@ public interface NeoPathPart extends PatternElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Neo Property Path Param</em>' container reference.
+	 * @throws InvalidityException 
 	 * @see #setNeoPropertyPathParam(NeoPropertyPathParam)
 	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPathPart_NeoPropertyPathParam()
 	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPathPart
 	 * @model opposite="neoPathPart" transient="false"
 	 * @generated
 	 */
-	NeoPropertyPathParam getNeoPropertyPathParam();
+	NeoPropertyPathParam getNeoPropertyPathParam() throws InvalidityException;
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPropertyPathParam <em>Neo Property Path Param</em>}' container reference.

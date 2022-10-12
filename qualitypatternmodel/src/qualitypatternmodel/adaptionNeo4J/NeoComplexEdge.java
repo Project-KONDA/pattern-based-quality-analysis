@@ -52,4 +52,6 @@ public interface NeoComplexEdge extends NeoPathPart {
 	 */
 	void addNeoPathPart(NeoPathPart neoPathPart);
 
+	NeoAbstractPathParam getNeoAbstractPathParam() throws InvalidityException;
+
 } // SequenceEdge

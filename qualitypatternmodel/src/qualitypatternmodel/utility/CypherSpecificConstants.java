@@ -12,6 +12,7 @@ public class CypherSpecificConstants {
 	public static final String INTERNAL_EDGE_NODE = "intEgNode";
 	public static final String CONNECTION = "-";
 	public static final String CYPHER_SEPERATOR = ",";
+	public static final String CYPHER_SEPERATOR_WITH_ONE_WITHESPACE = ",";
 	public static final String CYPHER_QUOTATION_MARK = "\"";
 	public static final String CLAUSE_MATCH = "\nMATCH";
 	public static final String CLAUSE_WITH = "\nWITH";

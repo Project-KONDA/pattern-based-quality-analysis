@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
+import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -35,6 +36,11 @@ import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
  */
 //Check if somehow a NeoPathPart can be removed then the previews Edge has to be set to true
 public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdge {
+	private static final String CLOSING_BRACKET = ")";
+	private static final String NEO_COMPLEX_EDGE_S = "NeoComplexEdge [%s] (";
+	private static final String CONTAINS_NOT_ENOUGH_NEO_PATH_PARTS = " contains not enough NeoPathParts";
+	private static final String NEO_COMPLEX_PATH = "NeoComplexPath ";
+	private static final String NEO_COMPLEX_PATH_CONTAINS_NOT_ENOUGH_NEO_PATH_PARTS = NEO_COMPLEX_PATH + "%s" + CONTAINS_NOT_ENOUGH_NEO_PATH_PARTS;
 	private static final String THE_LAST_EDGE_IS_NOT_AT_THE_END = "The Last Edge is not at the End";
 	private static final String HAS_TO_MANY_LAST_EDGES_MAX_1 = "Has to many Last Edges - Max. 1";
 	private static final String TO_LESS_PRIMITIVE_EDGES_AT_LEAST_2 = "To less Primitive Edges - At least 2";
@@ -77,6 +83,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	public String getCypherVariable() {
 		try {
 			validateComplexEdge();
+			
 			StringBuilder variables = new StringBuilder();
 			EList<NeoPathPart> neoPath = this.getNeoPathPartEdges();
 			for(NeoPathPart path : neoPath) {
@@ -122,11 +129,11 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		try {
 			validateComplexEdge();
+			if (getNeoPathPart() == null)
+				throw new RuntimeException();
 		} catch (Exception e) {
-			throw new InvalidityException("NeoComplexPath " + getId() + " contains not enough NeoPathParts");
+			throw new InvalidityException(String.format(NEO_COMPLEX_PATH_CONTAINS_NOT_ENOUGH_NEO_PATH_PARTS, getId()));
 		}
-		if (getNeoPathPart() == null)
-			throw new InvalidityException("NeoComplexPath " + getId() + " contains not enough NeoPathParts");
 	}
 
 	//Consider that all will be flatted to only non container will be returned... outsides there is no need for handling the NeoComplexEdge
@@ -156,11 +163,14 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		throw new InvalidityException();
 	}
 	
-	private void setLastEdgeInAllLeaves(boolean isLastEdge) {
-		NeoSimpleEdgeImpl neoSimpleEdge = null;
-		for (NeoPathPart part : getNeoPathPartEdges()) {
-			neoSimpleEdge = (NeoSimpleEdgeImpl) part;
-			neoSimpleEdge.setIsLastEdge(isLastEdge);
+	//Sets the flag of LastEdge in Previews leave to null
+	private void setLastEdgeInPreviewsLeaves(boolean isLastEdge) {
+		if (getNeoPathPartEdges() != null && getNeoPathPartEdges().size() > 1 ) {
+			int temp = getNeoPathPartEdges().size();
+			if (getNeoPathPartEdges().get(temp - 1) instanceof NeoSimpleEdge) {
+				NeoSimpleEdgeImpl neoSimpleEdge = (NeoSimpleEdgeImpl) getNeoPathPartEdges().get(temp - 1);
+				neoSimpleEdge.setIsLastEdge(isLastEdge);
+			}
 		}
 	}
 	
@@ -242,7 +252,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	 */
 	@Override
 	public void addNeoPathPart(NeoPathPart neoPathPart) {
-		setLastEdgeInAllLeaves(false);
+		setLastEdgeInPreviewsLeaves(false);
 		if (neoPathPart != null) {
 			getNeoPathPart().add(neoPathPart);
 			if (getNeoComplexEdge() != null) {
@@ -265,15 +275,15 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 
 	@Override
 	public String myToString() {
-		String result = "NeoComplexEdge [" + getId() + "] (";
+		String result = String.format(NEO_COMPLEX_EDGE_S, getId());
 		int i = 0;
 		for (NeoPathPart part : getNeoPathPart()) {
 			if (i > 0)
-				result += ", ";
+				result += CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE;
 			result += part.myToString();
 			i++;
 		}
-		result += ")";
+		result += CLOSING_BRACKET;
 		return result;
 	}
 	
@@ -415,16 +425,21 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 
 	//Rework --> Maybe Pull-Up --> Inculde an Error exception if both Params are set
 	@Override
-	protected NeoAbstractPathParam getNeoAbstractPathParam() {
+	public NeoAbstractPathParam getNeoAbstractPathParam() throws InvalidityException {
 		if (getNeoComplexEdge() != null) {
 			return ((NeoPathPartImpl) getNeoComplexEdge()).getNeoAbstractPathParam();
 		}
 		NeoAbstractPathParam neoAbstractPathParam = null;
+		if (getNeoPathParam() != null && getNeoPropertyPathParam() != null) {
+			throw new InvalidityException("Ambiguous NeoAbstractPathParam - Only one can be set");
+		}
 		if (getNeoPathParam() != null) {
 			neoAbstractPathParam = getNeoPathParam();
 		} else if (getNeoPropertyPathParam() != null) {
 			neoAbstractPathParam = getNeoPropertyPathParam();
-		} //Introduce here a runntime exception to chat the 3 case if nothing is set --> or return null?
+		} else {
+			throw new InvalidityException("No NeoAbstractPathParam is set - at last min/max 1 should be");
+		}
 		return neoAbstractPathParam;	
 	}
 	
