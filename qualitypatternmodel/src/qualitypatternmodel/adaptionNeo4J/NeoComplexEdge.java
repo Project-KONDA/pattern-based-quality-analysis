@@ -42,7 +42,7 @@ public interface NeoComplexEdge extends NeoPathPart {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	boolean validateComplexEdge() throws InvalidityException;
+	void validateComplexEdge() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

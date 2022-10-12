@@ -34,6 +34,9 @@ import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
  * @generated
  */
 public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdge {
+	private static final String THE_LAST_EDGE_IS_NOT_AT_THE_END = "The Last Edge is not at the End";
+	private static final String HAS_TO_MANY_LAST_EDGES_MAX_1 = "Has to many Last Edges - Max. 1";
+	private static final String TO_LESS_PRIMITIVE_EDGES_AT_LEAST_2 = "To less Primitive Edges - At least 2";
 	/**
 	 * The cached value of the '{@link #getNeoPathPart() <em>Neo Path Part</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -55,11 +58,9 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	
 	@Override 
 	public String generateCypher() throws InvalidityException {
-		if (validateComplexEdge()) {
-			String cypher = generateInternalCypher();			
-			return cypher;
-		}
-		throw new InvalidityException("The ComplexEdge is not correct");
+		validateComplexEdge();
+		String cypher = generateInternalCypher();			
+		return cypher;
 	}
 	
 	private String generateInternalCypher() throws InvalidityException {
@@ -70,20 +71,18 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		return cypher.toString();
 	}
 	
-	//Check this part!
 	//GETS ALL INNER EDGES ALIASES 
 	@Override
 	public String getCypherVariable() {
 		try {
-			if (validateComplexEdge()) {
-				StringBuilder variables = new StringBuilder();
-				EList<NeoPathPart> neoPath = this.getNeoPathPartEdges();
-				for(NeoPathPart path : neoPath) {
-					if (variables.length() != 0) variables.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES); 
-					variables.append(path.getCypherVariable());
-				}
-				return variables.toString();
+			validateComplexEdge();
+			StringBuilder variables = new StringBuilder();
+			EList<NeoPathPart> neoPath = this.getNeoPathPartEdges();
+			for(NeoPathPart path : neoPath) {
+				if (variables.length() != 0) variables.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES); 
+				variables.append(path.getCypherVariable());
 			}
+			return variables.toString();
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -99,30 +98,33 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	 */
 	@Override
 	public String getCypherInnerEdgeNodes(boolean isReturn) throws InvalidityException {
-		if (validateComplexEdge()) {
-			StringBuilder cypher = new StringBuilder();
-			String innerEdgeNode;
-			for (NeoPathPart part : getNeoPathPartEdges()) {
-				innerEdgeNode = part.getCypherInnerEdgeNodes(isReturn);
-				if (innerEdgeNode != null) {
-					if (innerEdgeNode.contains(CypherSpecificConstants.INTERNAL_EDGE_NODE)) {
-						if (cypher.length() != 0) {
-							cypher.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
-						}
-						cypher.append(innerEdgeNode);
+		validateComplexEdge();
+		
+		StringBuilder cypher = new StringBuilder();
+		String innerEdgeNode;
+		for (NeoPathPart part : getNeoPathPartEdges()) {
+			innerEdgeNode = part.getCypherInnerEdgeNodes(isReturn);
+			if (innerEdgeNode != null) {
+				if (innerEdgeNode.contains(CypherSpecificConstants.INTERNAL_EDGE_NODE)) {
+					if (cypher.length() != 0) {
+						cypher.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
 					}
+					cypher.append(innerEdgeNode);
 				}
 			}
-			return cypher.toString();
 		}
-		throw new InvalidityException("ComplexEdge is not valid");
+		return cypher.toString();
 	}
 
-	//Talk about with Arno
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		if (getNeoPathPart() == null || !validateComplexEdge())
+		try {
+			validateComplexEdge();
+		} catch (Exception e) {
+			throw new InvalidityException("NeoComplexPath " + getId() + " contains not enough NeoPathParts");
+		}
+		if (getNeoPathPart() == null)
 			throw new InvalidityException("NeoComplexPath " + getId() + " contains not enough NeoPathParts");
 	}
 
@@ -136,27 +138,22 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		return list;
 	}
 
-	//REWORK --> Maybe also throw exception and not return false --> difficualties for explanation ???
 	//The container just checks if enough elements are given to build a ComplexEdge
-	//Maybe change here stuff that Concrete Exceptions are thrown
 	@Override
-	public boolean validateComplexEdge() throws InvalidityException {
-		boolean valid = true;
+	public void validateComplexEdge() throws InvalidityException {
 
 		if (getNeoPathPart().size() != 0 || !(getNeoComplexEdge() == null)) {
 			if (!(countOfEdges() >= 2) && (getNeoComplexEdge() == null)) {
-				throw new InvalidityException("To less Primitive Edges - At least 2");
+				throw new InvalidityException(TO_LESS_PRIMITIVE_EDGES_AT_LEAST_2);
 			}
 			if (hasMultipleLastEdges()) {
-				throw new InvalidityException("Has to many Last Edges - Max. 1");
+				throw new InvalidityException(HAS_TO_MANY_LAST_EDGES_MAX_1);
 			}
 			if (!isLastEdgeAtTheEnd()) {
-				throw new InvalidityException("The Last Edge is not at the End");
+				throw new InvalidityException(THE_LAST_EDGE_IS_NOT_AT_THE_END);
 			}
-		} else {
-			valid = false;
 		}
-		return valid;
+		throw new InvalidityException();
 	}
 	
 	private boolean isLastEdgeAtTheEnd() {
@@ -178,7 +175,6 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		return isLastEdgeCorrect;
 	}
 	
-	//PUT THIS TO THE ABSTRACT CLASS of COMPLEXEDGE
 	private boolean hasMultipleLastEdges() {
 		final EList<NeoPathPart> neoParts = getNeoPathPart();
 		boolean multiLastEdges = false;
@@ -196,7 +192,6 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		return multiLastEdges;		
 	}
 	
-	//PUT THIS TO THE ABSTRACT CLASS of COMPLEXEDGE
 	private int countLastEdgesInSubStructure() {
 		final EList<NeoPathPart> neoParts = getNeoPathPart();
 		int lastEdges = 0;
@@ -210,7 +205,6 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		return lastEdges;
 	}
 	
-	//PUT THIS TO THE ABSTRACT CLASS of COMPLEXEDGE
 	private int countOfEdges() {
 		int count = 0;
 		for (NeoPathPart part : getNeoPathPart()) {
@@ -223,7 +217,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		return count;
 	}
 
-	//NEEDS REWORK --> the setting of the NeComplexEdge/Counter has to be reworked --> Is reworked
+	//Get's all NeoPartsParts
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -243,25 +237,23 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		}
 	}
 	
-	//Improve it does not have to walk over all elements again...
-	//For example here the false in the validateComplex edge has been forgetten... needs improvements --> Just throw exceptions
 	@Override
 	public NeoPathPart getNeoLastEdge() throws InvalidityException {
 		validateComplexEdge();
-		final EList<NeoPathPart> parts = getNeoPathPart();
-		NeoPathPart lastEdge = null;
-		
-		for (NeoPathPart part : parts) {
-			if (part instanceof NeoComplexEdge) {
-				lastEdge = part.getNeoLastEdge();
-			} else {
-				if (part.getNeoLastEdge() != null) {
-					lastEdge = part;
-				}
-			}
-		}
-		
-		return lastEdge;
+		final EList<NeoPathPart> parts = getNeoPathPartEdges();
+		return parts.size() != 0 ? parts.get(parts.size() - 1) : null;
+//		NeoPathPart lastEdge = null;
+//		
+//		for (NeoPathPart part : parts) {
+//			if (part instanceof NeoComplexEdge) {
+//				lastEdge = part.getNeoLastEdge();
+//			} else {
+//				if (part.getNeoLastEdge() != null) {
+//					lastEdge = part;
+//				}
+//			}
+//		}
+//		return lastEdge;
 	}
 	
 

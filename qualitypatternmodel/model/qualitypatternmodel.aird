@@ -13013,7 +13013,7 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_xkL6cB49Ee28StARcPnhGA" name="validateComplexEdge() : EBoolean" tooltipText="validateComplexEdge() : EBoolean">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_xkL6cB49Ee28StARcPnhGA" name="validateComplexEdge()" tooltipText="validateComplexEdge()">
           <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoComplexEdge/validateComplexEdge"/>
           <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoComplexEdge/validateComplexEdge"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_xkMhgB49Ee28StARcPnhGA" labelAlignment="LEFT">

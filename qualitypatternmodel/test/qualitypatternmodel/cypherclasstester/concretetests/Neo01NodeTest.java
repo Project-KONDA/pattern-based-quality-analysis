@@ -32,7 +32,7 @@ import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 
-//CHECK IF THE REGEX ARE CORRECT !!!
+//Check for the Morphisem and test them too!
 @DisplayName("NeoNode Tests")
 public class Neo01NodeTest extends NeoAbstractNodeTest {
 	private static final String VAR_NODE1 = "(varNode1)";

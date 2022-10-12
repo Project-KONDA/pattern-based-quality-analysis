@@ -1253,8 +1253,7 @@
           eOpposite="#//adaptionNeo4J/NeoPathParam/neoEdge"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoComplexEdge" eSuperTypes="#//adaptionNeo4J/NeoPathPart">
-      <eOperations name="validateComplexEdge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="validateComplexEdge" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="addNeoPathPart">
         <eParameters name="neoPathPart" eType="#//adaptionNeo4J/NeoPathPart"/>
       </eOperations>
