@@ -36,7 +36,8 @@ import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 //Check if somehow a NeoPathPart can be removed then the previews Edge has to be set to true
 public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdge {
 	private static final String CLOSING_BRACKET = ")";
-	private static final String NEO_COMPLEX_EDGE_S = "NeoComplexEdge [%s] (";
+	private static final String OPENING_BRACKET = "(";
+	private static final String NEO_COMPLEX_EDGE_S = "NeoComplexEdge [%s] ";
 	private static final String CONTAINS_NOT_ENOUGH_NEO_PATH_PARTS = " contains not enough NeoPathParts";
 	private static final String NEO_COMPLEX_PATH = "NeoComplexPath ";
 	private static final String NEO_COMPLEX_PATH_CONTAINS_NOT_ENOUGH_NEO_PATH_PARTS = NEO_COMPLEX_PATH + "%s" + CONTAINS_NOT_ENOUGH_NEO_PATH_PARTS;
@@ -277,16 +278,18 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 
 	@Override
 	public String myToString() {
-		String result = String.format(NEO_COMPLEX_EDGE_S, getId());
-		int i = 0;
+		final String temp = NEO_COMPLEX_EDGE_S + OPENING_BRACKET;
+		final StringBuilder result = new StringBuilder(String.format(temp, getId()));
+		boolean isFirst = true;
 		for (NeoPathPart part : getNeoPathPart()) {
-			if (i > 0)
-				result += CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE;
-			result += part.myToString();
-			i++;
+			if (!isFirst) {
+				result.append(CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE);
+			}
+			result.append(part.myToString());
+			isFirst = false;
 		}
-		result += CLOSING_BRACKET;
-		return result;
+		result.append(CLOSING_BRACKET);
+		return result.toString();
 	}
 	
 	/**
