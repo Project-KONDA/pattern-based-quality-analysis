@@ -134,7 +134,6 @@ public class Neo01PropertyNodeTest extends NeoAbstractNodeTest {
 		NeoPropertyPathParam neoPropertyPathParam = FACTORY.createNeoPropertyPathParam();
 		NeoSimpleEdge neoSimpleEdge = FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge.addNeoTargetNodeLabel("Regesta");
-		neoSimpleEdge.setIsLastEdge(true);
 		neoPropertyEdge.setNeoPropertyPathParam(neoPropertyPathParam);
 		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
 		neoPropertyEdge.setTarget((Node)neoPropertyNode);

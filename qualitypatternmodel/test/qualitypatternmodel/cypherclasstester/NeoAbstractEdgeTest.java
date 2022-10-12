@@ -12,6 +12,7 @@ import org.mockito.Mockito;
 
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
@@ -65,7 +66,7 @@ public abstract class NeoAbstractEdgeTest implements InterfaceNeoAbstractEdgeTes
 		assumeTrue( ((RelationImpl)edge).getOriginalID() == id);
 	}
 	
-	protected NeoSimpleEdgeImpl prepaireMockObjNeoSimpleEdge(int number) {
+	protected NeoSimpleEdgeImpl prepaireMockObjNeoSimpleEdge(int number) throws InvalidityException {
 		NeoSimpleEdgeImpl mockNeoEdgeImpl = Mockito.mock(NeoSimpleEdgeImpl.class);
 		Mockito.when(mockNeoEdgeImpl.getCypherVariable()).thenReturn(String.format(VAR_EDGE_X, number));
 		return mockNeoEdgeImpl;

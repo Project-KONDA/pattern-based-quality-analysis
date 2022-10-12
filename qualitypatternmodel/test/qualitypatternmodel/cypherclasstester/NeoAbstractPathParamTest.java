@@ -12,6 +12,7 @@ import org.mockito.Mockito;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
@@ -78,4 +79,6 @@ public abstract class NeoAbstractPathParamTest implements InterfaceNeoAbstractPa
 		f.setAccessible(true);
 		return f;
 	}
+	
+
 }

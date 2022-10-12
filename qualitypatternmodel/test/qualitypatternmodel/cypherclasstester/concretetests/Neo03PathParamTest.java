@@ -18,32 +18,19 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 
-import junit.framework.TestListener;
-import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
-import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoComplexEdgeImpl;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoPathParamImpl;
-import qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl;
 import qualitypatternmodel.cypherclasstester.NeoAbstractPathParamTest;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.exceptions.MissingPatternContainerException;
-import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.parameters.TextListParam;
-import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
-import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
-import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 public class Neo03PathParamTest extends NeoAbstractPathParamTest {
@@ -223,6 +210,30 @@ public class Neo03PathParamTest extends NeoAbstractPathParamTest {
 		}
 	}
 	
+	private abstract class MockNeoSimpleEdgeImplClass extends NeoSimpleEdgeImpl {
+		@Override
+		protected abstract boolean isLastEdge();
+	}
+	
+	private MockNeoSimpleEdgeImplClass buildTheMockNeoSimpleEdgeImplClass() {
+		MockNeoSimpleEdgeImplClass mockNeoSimpleEdgeImplClass = null;
+		try {
+			mockNeoSimpleEdgeImplClass = Mockito.mock(MockNeoSimpleEdgeImplClass.class);
+			String variableEdgeOne = VARIABLE_EDGE_ONE;
+			Mockito.when(mockNeoSimpleEdgeImplClass.getCypherVariable()).thenReturn(variableEdgeOne);
+			EList<NeoPathPart> l = new BasicEList<NeoPathPart>();
+			l.add(mockNeoSimpleEdgeImplClass);
+			Mockito.when(mockNeoSimpleEdgeImplClass.getNeoPathPartEdges()).thenReturn(l);
+			Mockito.when(mockNeoSimpleEdgeImplClass.generateCypher()).thenReturn("-"+ VARIABLE_EAGE_ONE_CLAMPED + "-")
+															.thenReturn("-"+VARIABLE_EAGE_TWO_CLAMPED + "-");
+			
+		} catch (Exception e) {
+			System.out.println(e);
+			assertFalse(true);
+		}
+		return mockNeoSimpleEdgeImplClass;
+	}
+	
 	@Test
 	@Override
 	public void generateCypher() {
@@ -239,18 +250,17 @@ public class Neo03PathParamTest extends NeoAbstractPathParamTest {
 			
 			//With a NeoComplexEdge	
 			NeoComplexEdge neoComplexEdge = FACTORY.createNeoComplexEdge();
+			MockNeoSimpleEdgeImplClass mockNeoSimpleEdgeImplClass1 = buildTheMockNeoSimpleEdgeImplClass();
+			Mockito.when(mockNeoSimpleEdgeImplClass1.isLastEdge()).thenReturn(false);
 			buildMockSimpleEdge();
-			NeoSimpleEdge neoSimpleEdge1 = super.mockSimpleEdge;
-			Mockito.when(neoSimpleEdge1.isLastEdge()).thenReturn(false);
-			buildMockSimpleEdge();
-			NeoSimpleEdge neoSimpleEdge2 = super.mockSimpleEdge;
-			Mockito.when(neoSimpleEdge2.generateCypher()).thenReturn("-"+ VARIABLE_EAGE_TWO_CLAMPED + "-");
-			Mockito.when(neoSimpleEdge2.isLastEdge()).thenReturn(true);
-			Mockito.when(neoSimpleEdge2.getNeoLastEdge()).thenReturn(neoSimpleEdge2);
-			Mockito.when(neoSimpleEdge2.getNeoTargetNodeLabels()).thenReturn(null);
+			MockNeoSimpleEdgeImplClass mockNeoSimpleEdgeImplClass2 = buildTheMockNeoSimpleEdgeImplClass();
+			Mockito.when(mockNeoSimpleEdgeImplClass2.generateCypher()).thenReturn("-"+ VARIABLE_EAGE_TWO_CLAMPED + "-");
+			Mockito.when(mockNeoSimpleEdgeImplClass2.isLastEdge()).thenReturn(true);
+			Mockito.when(mockNeoSimpleEdgeImplClass2.getNeoLastEdge()).thenReturn(mockNeoSimpleEdgeImplClass2);
+			Mockito.when(mockNeoSimpleEdgeImplClass2.getNeoTargetNodeLabels()).thenReturn(null);
 			
-			neoComplexEdge.addNeoPathPart(neoSimpleEdge1);
-			neoComplexEdge.addNeoPathPart(neoSimpleEdge2);
+			neoComplexEdge.addNeoPathPart(mockNeoSimpleEdgeImplClass1);
+			neoComplexEdge.addNeoPathPart(mockNeoSimpleEdgeImplClass2);
 			neoPathParam.setNeoPathPart(neoComplexEdge);
 			assumeTrue(neoPathParam.getNeoPathPart().getNeoPathPartEdges().size() == 2);
 			assumeNotNull(neoPathParam.getNeoPathPart());
