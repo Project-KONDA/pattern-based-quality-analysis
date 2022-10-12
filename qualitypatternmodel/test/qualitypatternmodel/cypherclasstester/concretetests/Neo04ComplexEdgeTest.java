@@ -171,9 +171,12 @@ public class Neo04ComplexEdgeTest extends NeoAbstractPathPartTest {
 		unsetNeoPathPartInComplexEdge();
 	}
 
+	//Check this and think how to prevent the commented version
 	@Test //Due to ecore this tests needed to be extracted --> Unset of the NeoComplexEdge is via a EMF-CONTAINER
 	public void ComplexEdgeInAComplexEdgeException() {
-		neoComplexEdge.setNeoComplexEdge(FACTORY.createNeoComplexEdge());
+//		neoComplexEdge.setNeoComplexEdge(FACTORY.createNeoComplexEdge());
+		NeoComplexEdge neoComplexEdge1 = FACTORY.createNeoComplexEdge();
+		neoComplexEdge1.setNeoComplexEdge(neoComplexEdge);
 		assertThrows(InvalidityException.class, () -> neoComplexEdge.validateComplexEdge());
 		unsetNeoPathPartInComplexEdge();
 	}

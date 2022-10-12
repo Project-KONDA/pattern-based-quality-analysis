@@ -153,7 +153,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 //		if (getNeoPathPart().size() == 0 && !(getNeoComplexEdge() == null)) {
 //			throw new InvalidityException();
 //		}
-		if (!(countOfEdges() >= 2) && (getNeoComplexEdge() == null)) {
+		if (!(countOfEdges() >= 2) && (getNeoComplexEdge() == null) && getNeoComplexEdge() != this) {
 			throw new InvalidityException(TO_LESS_PRIMITIVE_EDGES_AT_LEAST_2);
 		}
 		if (hasMultipleLastEdges()) {
