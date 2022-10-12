@@ -40,6 +40,9 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  */
 public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoPathPart {
 	
+	private static final String NO_NEO_ABSTRACT_PATH_PARAM_IS_SET_AT_LAST_MIN_MAX_1_SHOULD_BE = "No NeoAbstractPathParam is set - at last min/max 1 should be";
+	private static final String AMBIGUOUS_NEO_ABSTRACT_PATH_PARAM_ONLY_ONE_CAN_BE_SET = "Ambiguous NeoAbstractPathParam - Only one can be set";
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -313,13 +316,13 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 				try {
 					return getNeoPathParam();
 				} catch (InvalidityException e) {
-					e.printStackTrace();
+					throw new RuntimeException(e.getCause());
 				}
 			case AdaptionNeo4JPackage.NEO_PATH_PART__NEO_PROPERTY_PATH_PARAM:
 				try {
 					return getNeoPropertyPathParam();
 				} catch (InvalidityException e) {
-					e.printStackTrace();
+					throw new RuntimeException(e.getCause());
 				}
 			case AdaptionNeo4JPackage.NEO_PATH_PART__NEO_COMPLEX_EDGE:
 				return getNeoComplexEdge();
@@ -381,13 +384,13 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 				try {
 					return getNeoPathParam() != null;
 				} catch (InvalidityException e) {
-					e.printStackTrace();
+					throw new RuntimeException(e.getCause());
 				}
 			case AdaptionNeo4JPackage.NEO_PATH_PART__NEO_PROPERTY_PATH_PARAM:
 				try {
 					return getNeoPropertyPathParam() != null;
-				} catch (InvalidityException e) {
-					e.printStackTrace();
+				} catch (Exception e) {
+					throw new RuntimeException(e.getCause());
 				}
 			case AdaptionNeo4JPackage.NEO_PATH_PART__NEO_COMPLEX_EDGE:
 				return getNeoComplexEdge() != null;
@@ -406,7 +409,12 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 			case AdaptionNeo4JPackage.NEO_PATH_PART___GET_NEO_PATH_PART_EDGES:
 				return getNeoPathPartEdges();
 			case AdaptionNeo4JPackage.NEO_PATH_PART___GET_CYPHER_VARIABLE:
-				return getCypherVariable();
+				try {
+					return getCypherVariable();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case AdaptionNeo4JPackage.NEO_PATH_PART___GET_CYPHER_INNER_EDGE_NODES__BOOLEAN:
 				try {
 					return getCypherInnerEdgeNodes((Boolean)arguments.get(0));
@@ -432,14 +440,14 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 		}
 		NeoAbstractPathParam neoAbstractPathParam = null;
 		if (getNeoPathParam() != null && getNeoPropertyPathParam() != null) {
-			throw new InvalidityException("Ambiguous NeoAbstractPathParam - Only one can be set");
+			throw new InvalidityException(AMBIGUOUS_NEO_ABSTRACT_PATH_PARAM_ONLY_ONE_CAN_BE_SET);
 		}
 		if (getNeoPathParam() != null) {
 			neoAbstractPathParam = getNeoPathParam();
 		} else if (getNeoPropertyPathParam() != null) {
 			neoAbstractPathParam = getNeoPropertyPathParam();
 		} else {
-			throw new InvalidityException("No NeoAbstractPathParam is set - at last min/max 1 should be");
+			throw new InvalidityException(NO_NEO_ABSTRACT_PATH_PARAM_IS_SET_AT_LAST_MIN_MAX_1_SHOULD_BE);
 		}
 		return neoAbstractPathParam;	
 	}

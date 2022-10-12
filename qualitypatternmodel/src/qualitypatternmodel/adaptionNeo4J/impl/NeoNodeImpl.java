@@ -364,7 +364,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 				try {
 					setNeoNodeLabels((TextListParam)newValue);
 				} catch (InvalidityException e) {
-					e.printStackTrace();
+					throw new RuntimeException(e.getCause());
 				}
 				return;
 		}
@@ -389,7 +389,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 				try {
 					setNeoNodeLabels((TextListParam)null);
 				} catch (InvalidityException e) {
-					e.printStackTrace();
+					throw new RuntimeException(e.getCause());
 				}
 				return;
 		}

@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -163,11 +162,14 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		throw new InvalidityException();
 	}
 	
+	//Check if this really works
 	//Sets the flag of LastEdge in Previews leave to null
 	private void setLastEdgeInPreviewsLeaves(boolean isLastEdge) {
-		if (getNeoPathPartEdges() != null && getNeoPathPartEdges().size() > 1 ) {
+		final NeoComplexEdge neoComplexEdge = getHighestComplexEdge();
+		final EList<NeoPathPart> l = neoComplexEdge.getNeoPathPartEdges();
+		if (l != null && l.size() > 1 ) {
 			int temp = getNeoPathPartEdges().size();
-			if (getNeoPathPartEdges().get(temp - 1) instanceof NeoSimpleEdge) {
+			if (neoComplexEdge.getNeoPathPartEdges().get(temp - 1) instanceof NeoSimpleEdge) {
 				NeoSimpleEdgeImpl neoSimpleEdge = (NeoSimpleEdgeImpl) getNeoPathPartEdges().get(temp - 1);
 				neoSimpleEdge.setIsLastEdge(isLastEdge);
 			}
@@ -421,26 +423,6 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getNeoPathPart()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	//Rework --> Maybe Pull-Up --> Inculde an Error exception if both Params are set
-	@Override
-	public NeoAbstractPathParam getNeoAbstractPathParam() throws InvalidityException {
-		if (getNeoComplexEdge() != null) {
-			return ((NeoPathPartImpl) getNeoComplexEdge()).getNeoAbstractPathParam();
-		}
-		NeoAbstractPathParam neoAbstractPathParam = null;
-		if (getNeoPathParam() != null && getNeoPropertyPathParam() != null) {
-			throw new InvalidityException("Ambiguous NeoAbstractPathParam - Only one can be set");
-		}
-		if (getNeoPathParam() != null) {
-			neoAbstractPathParam = getNeoPathParam();
-		} else if (getNeoPropertyPathParam() != null) {
-			neoAbstractPathParam = getNeoPropertyPathParam();
-		} else {
-			throw new InvalidityException("No NeoAbstractPathParam is set - at last min/max 1 should be");
-		}
-		return neoAbstractPathParam;	
 	}
 	
 	//For Counting the inner Edges

@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoDirection;
 import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
@@ -569,15 +568,15 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS:
 				try {
 					setNeoTargetNodeLabels((TextListParam)newValue);
-				} catch (InvalidityException e1) {
-					e1.printStackTrace();
+				} catch (InvalidityException e) {
+					throw new RuntimeException(e.getCause());
 				}
 				return;
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL:
 				try {
 					setNeoEdgeLabel((TextLiteralParam)newValue);
 				} catch (InvalidityException e) {
-					e.printStackTrace();
+					throw new RuntimeException(e.getCause());
 				}
 				return;
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
@@ -602,14 +601,14 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 				try {
 					setNeoTargetNodeLabels((TextListParam)null);
 				} catch (InvalidityException e) {
-					e.printStackTrace();
+					throw new RuntimeException(e.getCause());
 				}
 				return;
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL:
 				try {
 					setNeoEdgeLabel((TextLiteralParam)null);
 				} catch (InvalidityException e) {
-					e.printStackTrace();
+					throw new RuntimeException(e.getCause());
 				}
 				return;
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
