@@ -454,6 +454,16 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 * @generated
 	 */
 	@Override
+	public boolean isIsLastEdge() {
+		return isLastEdge;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public void setIsLastEdge(boolean newIsLastEdge) {
 		boolean oldIsLastEdge = isLastEdge;
 		isLastEdge = newIsLastEdge;
@@ -593,6 +603,8 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 				return basicGetNeoEdgeLabel();
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
 				return getEdgeNumber();
+			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__IS_LAST_EDGE:
+				return isIsLastEdge();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
