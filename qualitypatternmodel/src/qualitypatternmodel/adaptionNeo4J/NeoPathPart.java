@@ -128,6 +128,4 @@ public interface NeoPathPart extends PatternElement {
 	 * @generated
 	 */
 	NeoPathPart getNeoLastEdge() throws InvalidityException;
-	
-	boolean isLastEdge();
 } // NeoPathPart

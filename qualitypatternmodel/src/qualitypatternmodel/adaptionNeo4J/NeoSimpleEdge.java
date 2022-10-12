@@ -122,20 +122,7 @@ public interface NeoSimpleEdge extends NeoPathPart {
 	 * @generated
 	 */
 	boolean isSetEdgeNumber();
-
-	/**
-	 * Returns the value of the '<em><b>Is Last Edge</b></em>' attribute.
-	 * The default value is <code>"false"</code>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Last Edge</em>' attribute.
-	 * @see #setIsLastEdge(boolean)
-	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoSimpleEdge_IsLastEdge()
-	 * @model default="false"
-	 * @generated
-	 */
-	boolean isIsLastEdge();
-
+	
 	/**
 	 * Returns the value of the '<em><b>Neo Direction</b></em>' attribute.
 	 * The literals are from the enumeration {@link qualitypatternmodel.adaptionNeo4J.NeoDirection}.

@@ -33,6 +33,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
  *
  * @generated
  */
+//Check if somehow a NeoPathPart can be removed then the previews Edge has to be set to true
 public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdge {
 	private static final String THE_LAST_EDGE_IS_NOT_AT_THE_END = "The Last Edge is not at the End";
 	private static final String HAS_TO_MANY_LAST_EDGES_MAX_1 = "Has to many Last Edges - Max. 1";
@@ -163,12 +164,17 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		}
 	}
 	
+	@Override
+	protected boolean isLastEdge() {
+		return false;
+	}
+	
 	private boolean isLastEdgeAtTheEnd() {
 		final EList<NeoPathPart> neoParts = getNeoPathPart();
 		boolean isLastEdgeCorrect = true;
-		NeoPathPart neoPart;
+		NeoPathPartImpl neoPart = null;		
 		for (int i = (neoParts.size() - 1); i >= 0; i--) {
-			neoPart = neoParts.get(i);
+			neoPart = (NeoPathPartImpl) neoParts.get(i);
 			if (neoPart instanceof NeoComplexEdge) {
 				((NeoComplexEdgeImpl) neoPart).isLastEdgeAtTheEnd();
 			} else {
@@ -186,7 +192,9 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		final EList<NeoPathPart> neoParts = getNeoPathPart();
 		boolean multiLastEdges = false;
 		int lastEdges = 0;
-		for (NeoPathPart neoPart : neoParts) {
+		NeoPathPartImpl neoPart = null;
+		for (NeoPathPart neoInterfacePart : neoParts) {
+			neoPart = (NeoPathPartImpl) neoInterfacePart;
 			if (neoPart instanceof NeoComplexEdge) {
 				lastEdges += ((NeoComplexEdgeImpl) neoPart).countLastEdgesInSubStructure();
 			} else if (neoPart.isLastEdge()) {
@@ -202,7 +210,9 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	private int countLastEdgesInSubStructure() {
 		final EList<NeoPathPart> neoParts = getNeoPathPart();
 		int lastEdges = 0;
-		for (NeoPathPart neoPart : neoParts) {
+		NeoPathPartImpl neoPart = null;
+		for (NeoPathPart neoInterfacePart : neoParts) {
+			neoPart = (NeoPathPartImpl) neoInterfacePart;
 			if (neoPart instanceof NeoComplexEdge) {
 				lastEdges += ((NeoComplexEdgeImpl) neoPart).countLastEdgesInSubStructure();
 			} else if (neoPart.isLastEdge()) {

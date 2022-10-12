@@ -218,13 +218,7 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 		return CypherSpecificConstants.VARIABLE_EGDE;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isLastEdge() {
+	protected boolean isLastEdge() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

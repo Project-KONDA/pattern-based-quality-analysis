@@ -435,17 +435,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	public boolean isSetEdgeNumber() {
 		return edgeNumberESet;
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isIsLastEdge() {
-		return isLastEdge;
-	}
-
 	
 	protected void setIsLastEdge(boolean newIsLastEdge) {
 		boolean oldIsLastEdge = isLastEdge;
@@ -523,13 +512,8 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		this.neoDirection = neoDirection;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
 	@Override
-	public boolean isLastEdge() {
+	protected boolean isLastEdge() {
 		return isLastEdge;
 	}
 

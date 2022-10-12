@@ -2861,10 +2861,6 @@
                   <styles xmi:type="notation:FontStyle" xmi:id="_UO44sRo9Ee2ZadNclPsl5A" fontName="Segoe UI" fontHeight="8"/>
                   <layoutConstraint xmi:type="notation:Location" xmi:id="_UO44sho9Ee2ZadNclPsl5A"/>
                 </children>
-                <children xmi:type="notation:Node" xmi:id="_M-5jgCq9Ee2Nv72KyrRWJQ" type="3010" element="_OK8bQB8JEe20H_6KewSmww">
-                  <styles xmi:type="notation:FontStyle" xmi:id="_M-5jgSq9Ee2Nv72KyrRWJQ" fontName="Segoe UI" fontHeight="8"/>
-                  <layoutConstraint xmi:type="notation:Location" xmi:id="_M-5jgiq9Ee2Nv72KyrRWJQ"/>
-                </children>
                 <children xmi:type="notation:Node" xmi:id="_AhYeoCrYEe2A294R3WFYxg" type="3010" element="_F0GoUCkeEe2tHKzGTjieeg">
                   <styles xmi:type="notation:FontStyle" xmi:id="_AhYeoSrYEe2A294R3WFYxg" fontName="Segoe UI" fontHeight="8"/>
                   <layoutConstraint xmi:type="notation:Location" xmi:id="_AhYeoirYEe2A294R3WFYxg"/>
@@ -13104,14 +13100,6 @@
           <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/getCypherVariable"/>
           <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/getCypherVariable"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_ULyhYBo9Ee2ZadNclPsl5A" labelAlignment="LEFT">
-            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
-          </ownedStyle>
-          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
-        </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_OK8bQB8JEe20H_6KewSmww" name="isLastEdge() : EBoolean" tooltipText="isLastEdge() : EBoolean">
-          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/isLastEdge"/>
-          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/isLastEdge"/>
-          <ownedStyle xmi:type="diagram:BundledImage" uid="_OK8bQR8JEe20H_6KewSmww" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
