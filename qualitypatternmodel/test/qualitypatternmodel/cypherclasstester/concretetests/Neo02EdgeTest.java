@@ -23,9 +23,12 @@ import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoEdgeImpl;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoPathParamImpl;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyEdgeImpl;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl;
 import qualitypatternmodel.cypherclasstester.NeoAbstractEdgeTest;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.parameters.impl.ParametersFactoryImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 @DisplayName("NeoEdge Test")
@@ -131,13 +134,28 @@ public class Neo02EdgeTest extends NeoAbstractEdgeTest {
 		}
 	}
 	
-	//Think about it otherwise should be from the systemtests
 	@Test
 	@Override
 	public void createParameters() {
-		neoAbstractEdge.createParameters();
-		assertNull(neoEdge.getNeoPathParam());
-		assertNull(neoAbstractEdge.getParameterList());	
+		try {
+			neoAbstractEdge.createParameters();
+			assertNull(neoEdge.getNeoPathParam());
+			assertNull(neoEdge.getParameterList());	
+			
+			NeoEdgeImpl mockNeoEdgeImpl = Mockito.mock(NeoEdgeImpl.class);
+			ParameterList list = new ParametersFactoryImpl().createParameterList();
+			Mockito.when(mockNeoEdgeImpl.getParameterList()).thenReturn(list);
+			Mockito.doCallRealMethod().when(mockNeoEdgeImpl).createParameters();
+			mockNeoEdgeImpl.createParameters();
+			assertTrue(list.getParameters().size() == 1);
+			
+			Mockito.when(mockNeoEdgeImpl.getNeoPathParam()).thenReturn(FACTORY.createNeoPathParam());
+			mockNeoEdgeImpl.createParameters();
+			assertTrue(list.getParameters().size() == 2);
+		} catch (Exception e) {
+			System.out.println(e);
+			assertFalse(true);
+		}
 	}
 
 	@Override

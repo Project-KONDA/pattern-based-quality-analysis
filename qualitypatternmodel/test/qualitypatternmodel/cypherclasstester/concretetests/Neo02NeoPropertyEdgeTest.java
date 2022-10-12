@@ -4,7 +4,7 @@ import static org.junit.Assume.assumeNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
-
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.lang.reflect.Field;
@@ -16,25 +16,32 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
+import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoComplexEdgeImpl;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoPathParamImpl;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyEdgeImpl;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyPathParamImpl;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl;
 import qualitypatternmodel.cypherclasstester.NeoAbstractEdgeTest;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.parameters.impl.ParametersFactoryImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 
 @DisplayName("NeoPropertyEdge Test")
 public class Neo02NeoPropertyEdgeTest extends NeoAbstractEdgeTest {
-	
+	private static final String NEO_PROPERTY_NODE = CypherSpecificConstants.VARIABLE_PROPERTY_NODE + 2;
 	private static final String PLACE_OF_ISSUE = "placeOfIssue";
 	private static final String NEO_PROPERTY_EDGE_1 = "NeoPropertyEdgeImpl [1]";
+	private static final String NODE_PROPERTY_PLACE_OF_ISSUE = NEO_PROPERTY_NODE + "." + PLACE_OF_ISSUE;
 	private static final String NEO_PROPERTY_PATH_PARAM_1 = "NeoPropertyPathParam [1]";
 	private NeoPropertyEdge neoPropertyEdge;
 	
@@ -81,15 +88,75 @@ public class Neo02NeoPropertyEdgeTest extends NeoAbstractEdgeTest {
 			
 			//Get the NodeName from source
 			NeoNodeImpl mockNeoNodeImpl = Mockito.mock(NeoNodeImpl.class);
+			Mockito.when(mockNeoNodeImpl.getCypherVariable()).thenReturn(NEO_PROPERTY_NODE);
+			neoPropertyEdge.setSource((NeoNodeImpl) mockNeoNodeImpl);
+			assumeNotNull(neoPropertyEdge.getSource());
+			
+			assertTrue(neoPropertyEdge.generateCypherPropertyAddressing().compareTo(NEO_PROPERTY_NODE + "." + PLACE_OF_ISSUE) == 0);	
+			neoPropertyEdge.setSource(null);
+			
+			//Get the NodeName from NeoSimpleEdge Node
+			assertNull(neoPropertyEdge.getSource());
+			NeoSimpleEdgeImpl mockNeoSimpleEdgeImpl = Mockito.mock(NeoSimpleEdgeImpl.class);
+			Mockito.when(mockNeoSimpleEdgeImpl.getCypherInnerEdgeNodes(Mockito.anyBoolean())).thenReturn(NEO_PROPERTY_NODE);
+			propertyName.setNeoPathPart(mockNeoSimpleEdgeImpl);
+			String temp = neoPropertyEdge.generateCypherPropertyAddressing();
+			assertTrue(temp.compareTo(NODE_PROPERTY_PLACE_OF_ISSUE) == 0);
+			
+			//Get the NodeName from ComplexEdge
+			NeoComplexEdgeImpl mockNeoComplexEdgeImpl = Mockito.mock(NeoComplexEdgeImpl.class);
+			Mockito.when(mockNeoComplexEdgeImpl.getNeoLastEdge()).thenReturn(mockNeoSimpleEdgeImpl);
+			propertyName.setNeoPathPart(mockNeoComplexEdgeImpl);
+			temp = neoPropertyEdge.generateCypherPropertyAddressing();
+			assertTrue(temp.compareTo(NODE_PROPERTY_PLACE_OF_ISSUE) == 0);
+		} catch (Exception e) {
+			System.out.println(e);
+			assertFalse(true);
+		}
+	}
+	
+	@Test
+	public void generateCypherNodeVariable() {
+		try {
+			//if no neoPropertyPathParam is set return null
+			assertEquals(null, neoPropertyEdge.generateCypherNodeVariable());
+		
+			//Get the NodeName from source		
+			NeoNodeImpl mockNeoNodeImpl = Mockito.mock(NeoNodeImpl.class);
 			Mockito.when(mockNeoNodeImpl.getCypherVariable()).thenReturn(VAR_EDGE1);
 			neoPropertyEdge.setSource((NeoNodeImpl) mockNeoNodeImpl);
 			assumeNotNull(neoPropertyEdge.getSource());
 			
-			assertTrue(neoPropertyEdge.generateCypherPropertyAddressing().compareTo(VAR_EDGE1 + "." + PLACE_OF_ISSUE) == 0);	
+			NeoPropertyPathParamImpl propertyName = (NeoPropertyPathParamImpl) FACTORY.createNeoPropertyPathParam();
+			propertyName.setNeoPropertyName(PLACE_OF_ISSUE);
+			neoPropertyEdge.setNeoPropertyPathParam(propertyName);
 			
-			//Get the NodeName from LastSimpleEdge Node
+			assertTrue(neoPropertyEdge.generateCypherNodeVariable().compareTo(VAR_EDGE1) == 0);	
+			neoPropertyEdge.setSource(null);
+			
+			//Get the NodeName from NeoSimpleEdge Node
+			assertNull(neoPropertyEdge.getSource());
+			NeoSimpleEdgeImpl mockNeoSimpleEdgeImpl = Mockito.mock(NeoSimpleEdgeImpl.class);
+			Mockito.when(mockNeoSimpleEdgeImpl.getCypherInnerEdgeNodes(Mockito.anyBoolean())).thenReturn(NEO_PROPERTY_NODE);
+			propertyName.setNeoPathPart(mockNeoSimpleEdgeImpl);
+			String temp = neoPropertyEdge.generateCypherNodeVariable();
+			assertTrue(temp.compareTo(NEO_PROPERTY_NODE) == 0);
+			
+			//Get the NodeName from ComplexEdge
+			NeoComplexEdgeImpl mockNeoComplexEdgeImpl = Mockito.mock(NeoComplexEdgeImpl.class);
+			Mockito.when(mockNeoComplexEdgeImpl.getNeoLastEdge()).thenReturn(mockNeoSimpleEdgeImpl);
+			propertyName.setNeoPathPart(mockNeoComplexEdgeImpl);
+			temp = neoPropertyEdge.generateCypherNodeVariable();
+			assertTrue(temp.compareTo(NEO_PROPERTY_NODE) == 0);	
+			
+			//Get the Exception
+			NeoPathPart mockNeoPathPart = Mockito.mock(NeoPathPart.class);
+			Field f = getNeoAbstractPathParamField(NeoPropertyPathParamImpl.class, "neoPathPart");
+			f.set(propertyName, mockNeoPathPart);
+			assertThrows(InvalidityException.class, () -> neoPropertyEdge.generateCypherNodeVariable());
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println(e);
+			assertFalse(true);
 		}
 	}
 	
@@ -97,8 +164,8 @@ public class Neo02NeoPropertyEdgeTest extends NeoAbstractEdgeTest {
 	@Override
 	public void setIsReturnElement() {
 		// TODO Auto-generated method stub
-		
 	}
+		
 
 	@Test
 	@Override
@@ -168,13 +235,28 @@ public class Neo02NeoPropertyEdgeTest extends NeoAbstractEdgeTest {
 		}
 	}
 
-	//Think about it otherwise should be from the systemtests
 	@Test
 	@Override
 	public void createParameters() {
-		neoAbstractEdge.createParameters();
-		assertNull(neoPropertyEdge.getNeoPropertyPathParam());
-		assertNull(neoPropertyEdge.getParameterList());	
+		try {
+			neoAbstractEdge.createParameters();
+			assertNull(neoPropertyEdge.getNeoPropertyPathParam());
+			assertNull(neoPropertyEdge.getParameterList());	
+			
+			NeoPropertyEdgeImpl mockNeoPropertyEdgeImpl = Mockito.mock(NeoPropertyEdgeImpl.class);
+			ParameterList list = new ParametersFactoryImpl().createParameterList();
+			Mockito.when(mockNeoPropertyEdgeImpl.getParameterList()).thenReturn(list);
+			Mockito.doCallRealMethod().when(mockNeoPropertyEdgeImpl).createParameters();
+			mockNeoPropertyEdgeImpl.createParameters();
+			assertTrue(list.getParameters().size() == 1);
+			
+			Mockito.when(mockNeoPropertyEdgeImpl.getNeoPropertyPathParam()).thenReturn(FACTORY.createNeoPropertyPathParam());
+			mockNeoPropertyEdgeImpl.createParameters();
+			assertTrue(list.getParameters().size() == 2);
+		} catch (Exception e) {
+			System.out.println(e);
+			assertFalse(true);
+		}
 	}
 
 	@Override
