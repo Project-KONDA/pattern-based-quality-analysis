@@ -77,7 +77,6 @@ public class Neo03PropertyPathParamTest extends NeoAbstractPathParamTest {
 			NeoSimpleEdge neoSimpleEdge1 = FACTORY.createNeoSimpleEdge();
 			NeoSimpleEdge neoSimpleEdge2 = FACTORY.createNeoSimpleEdge();
 			neoSimpleEdge1.addNeoTargetNodeLabel(REGESTA);
-			neoSimpleEdge2.setIsLastEdge(true);
 			neoSimpleEdge2.addNeoTargetNodeLabel(REGESTA);
 			neoComplexEdge1.addNeoPathPart(neoSimpleEdge1);
 			neoComplexEdge1.addNeoPathPart(neoSimpleEdge2);

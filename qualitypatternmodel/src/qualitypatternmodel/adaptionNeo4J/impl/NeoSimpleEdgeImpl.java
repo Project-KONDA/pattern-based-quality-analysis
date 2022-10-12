@@ -47,6 +47,8 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  */
 
 public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge {
+	private static final String SOMETHING_WENT_WRONG_IN_THE_SIMPLE_NEO_EDGE_DIRECTION_HAS_NOT_BEEN_SET_CORRECTLY = "Something went wrong in the SimpleNeoEdge - direction has not been set correctly";
+
 	private static final String A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S = "A Label can not contain Whitespace(s)";
 
 	/**
@@ -144,6 +146,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		return cypher.toString();
 	}
 	
+	//Extract the Strings to constances into the Utili packages
 	private void generateInternalCypher(StringBuilder cypher, Boolean withLabels) throws InvalidityException {
 		switch (this.neoDirection) {
 		case IMPLICIT:
@@ -162,7 +165,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			cypher.append("->");
 			break;
 		default:
-			throw new InvalidityException("Something went wronge in the SimpleNeoEdge - direction has not been set correctly");
+			throw new InvalidityException(SOMETHING_WENT_WRONG_IN_THE_SIMPLE_NEO_EDGE_DIRECTION_HAS_NOT_BEEN_SET_CORRECTLY);
 		}
 		
 		//Always when a List exists create the NeoPropertyNode

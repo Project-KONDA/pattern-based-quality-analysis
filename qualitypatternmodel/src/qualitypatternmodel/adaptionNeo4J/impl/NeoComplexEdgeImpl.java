@@ -78,9 +78,10 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		return cypher.toString();
 	}
 	
+	
 	//GETS ALL INNER EDGES ALIASES 
 	@Override
-	public String getCypherVariable() {
+	public String getCypherVariable() throws InvalidityException {
 		try {
 			validateComplexEdge();
 			
@@ -149,18 +150,19 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	//The container just checks if enough elements are given to build a ComplexEdge
 	@Override
 	public void validateComplexEdge() throws InvalidityException {
-		if (getNeoPathPart().size() != 0 || !(getNeoComplexEdge() == null)) {
-			if (!(countOfEdges() >= 2) && (getNeoComplexEdge() == null)) {
-				throw new InvalidityException(TO_LESS_PRIMITIVE_EDGES_AT_LEAST_2);
-			}
-			if (hasMultipleLastEdges()) {
-				throw new InvalidityException(HAS_TO_MANY_LAST_EDGES_MAX_1);
-			}
-			if (!isLastEdgeAtTheEnd()) {
-				throw new InvalidityException(THE_LAST_EDGE_IS_NOT_AT_THE_END);
-			}
+//		if (getNeoPathPart().size() == 0 && !(getNeoComplexEdge() == null)) {
+//			throw new InvalidityException();
+//		}
+		if (!(countOfEdges() >= 2) && (getNeoComplexEdge() == null)) {
+			throw new InvalidityException(TO_LESS_PRIMITIVE_EDGES_AT_LEAST_2);
 		}
-		throw new InvalidityException();
+		if (hasMultipleLastEdges()) {
+			throw new InvalidityException(HAS_TO_MANY_LAST_EDGES_MAX_1);
+		}
+		if (!isLastEdgeAtTheEnd()) {
+			throw new InvalidityException(THE_LAST_EDGE_IS_NOT_AT_THE_END);
+		}
+		
 	}
 	
 	//Check if this really works
@@ -168,7 +170,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	private void setLastEdgeInPreviewsLeaves(boolean isLastEdge) {
 		final NeoComplexEdge neoComplexEdge = getHighestComplexEdge();
 		final EList<NeoPathPart> l = neoComplexEdge.getNeoPathPartEdges();
-		if (l != null && l.size() > 1 ) {
+		if (l != null && l.size() > 0) {
 			int temp = getNeoPathPartEdges().size();
 			if (neoComplexEdge.getNeoPathPartEdges().get(temp - 1) instanceof NeoSimpleEdge) {
 				NeoSimpleEdgeImpl neoSimpleEdge = (NeoSimpleEdgeImpl) getNeoPathPartEdges().get(temp - 1);
@@ -282,7 +284,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		final StringBuilder result = new StringBuilder(String.format(temp, getId()));
 		boolean isFirst = true;
 		for (NeoPathPart part : getNeoPathPart()) {
-			if (!isFirst) {
+			if (!isFirst) { //|| result.length() != String.format(temp, getId()).length()
 				result.append(CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE);
 			}
 			result.append(part.myToString());

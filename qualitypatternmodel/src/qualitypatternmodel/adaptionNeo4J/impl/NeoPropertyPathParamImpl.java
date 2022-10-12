@@ -39,6 +39,8 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
  * @generated
  */
 public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implements NeoPropertyPathParam {
+	private static final String NEO_PROPERTY_EDGE_TARGET_NODES_CAN_NOT_BE_NULL = "NeoPropertyEdge - TargetNodes can not be null";
+	private static final String NEO_PROPERTY_EDGE_LAST_EDGE_HAS_TO_BE_SET = "NeoPropertyEdge - Last Edge has to be set";
 	private static final String NEO_PROPERTY_PATH_PARAM = "NeoPropertyPathParam [%s]";
 
 	/**
@@ -153,7 +155,7 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 		if (neoPathPart instanceof NeoComplexEdge) {
 			final NeoPathPart neoLastEdge = neoPathPart.getNeoLastEdge();
 			if (neoLastEdge == null) {
-				throw new InvalidityException("NeoPropertyEdge - Last Edge has to be set");
+				throw new InvalidityException(NEO_PROPERTY_EDGE_LAST_EDGE_HAS_TO_BE_SET);
 			}
 		}
 		if (!innerEdgesHaveTargets(getNeoPathPart().getNeoPathPartEdges())) {
@@ -171,7 +173,7 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 				if(part instanceof NeoSimpleEdge) {
 					neoSimpleEdge = (NeoSimpleEdge) part;
 					//if (part.isLastEdge()) {
-					if (neoSimpleEdge.getNeoTargetNodeLabels() == null || neoSimpleEdge.getNeoTargetNodeLabels().getValues().size() == 0) {
+					if (checkTargetNodes(neoSimpleEdge)) {
 						innerEdgesHaveTargets = false;
 					}
 					//}	
@@ -182,7 +184,7 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 	}
 		
 	private void targetNodesCanNotBeNull() throws InvalidityException {
-		throw new InvalidityException("NeoPropertyEdge - TargetNodes can not be null");
+		throw new InvalidityException(NEO_PROPERTY_EDGE_TARGET_NODES_CAN_NOT_BE_NULL);
 	}
 	
 	/**

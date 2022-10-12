@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
+import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -68,6 +69,10 @@ public abstract class NeoAbstractPathParamImpl extends ParameterImpl implements 
 		}
 		cypher = getNeoPathPart().getCypherInnerEdgeNodes(true);
 		return cypher;
+	}
+	
+	protected boolean checkTargetNodes(NeoSimpleEdge neoSimpleEdge) {
+		return neoSimpleEdge.getNeoTargetNodeLabels() == null;
 	}
 
 	/**

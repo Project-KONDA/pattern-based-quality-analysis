@@ -250,8 +250,13 @@ public class Neo04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 	@Test
 	@Override
 	public void getCypherVariable() {
-		createMockingForNeoPathParam();
-		assertEquals("varEdge1", neoSimpleEdge.getCypherVariable());
+		try {
+			createMockingForNeoPathParam();
+			assertEquals("varEdge1", neoSimpleEdge.getCypherVariable());
+		} catch (Exception e) {
+			System.out.println(e);
+			assertFalse(true);
+		}
 	}
 	
 	@Test
@@ -270,8 +275,14 @@ public class Neo04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 	//Introduce into Interface?
 	@Test
 	public void getCypherVariableNeoPropertyPathParam() {
-		createMockingForNeoPropertyPathParam();
-		assertEquals("varEdge1", neoSimpleEdge.getCypherVariable());
+		try {
+			createMockingForNeoPropertyPathParam();
+			assertEquals("varEdge1", neoSimpleEdge.getCypherVariable());
+		} catch (Exception e) {
+			System.out.println(e);
+			assertFalse(true);
+		}
+		
 	}
 	
 	//Introduce into Interface?
@@ -321,14 +332,26 @@ public class Neo04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 	@Test
 	@Override
 	public void getNeoLastEdge() throws InvalidityException {
-		neoSimpleEdge.setIsLastEdge(true);
-		assertEquals(neoPathPart, neoPathPart.getNeoLastEdge());		
+		try {
+			assertEquals(neoPathPart, neoPathPart.getNeoLastEdge());	
+		} catch (Exception e) {
+			System.out.println(e);
+			assertFalse(true);
+		}
 	}
 	
 	@Test
 	public void isNotNeoLastEdge() throws InvalidityException {
-		neoSimpleEdge.setIsLastEdge(false);
-		assertEquals(null, neoPathPart.getNeoLastEdge());
+		try {
+			Class c = NeoSimpleEdgeImpl.class;
+			Field f = c.getDeclaredField("isLastEdge");
+			f.setAccessible(true);
+			f.set(neoPathPart, false);
+			assertEquals(null, neoPathPart.getNeoLastEdge());
+		} catch (Exception e) {
+			System.out.println(e);
+			assertFalse(true);
+		}
 	}
 
 	//Can be removed since it is generated automaticlly 
@@ -372,15 +395,24 @@ public class Neo04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 			neoPathPart.setNeoPropertyPathParam((NeoPropertyPathParam) neoAbstractPathParamImpl);
 			assertEquals(neoAbstractPathParamImpl, m.invoke(neoPathPart));
 			neoPathPart.setNeoPathParam(null);
-			
-			assertEquals(null, m.invoke(neoPathPart));	
-			assertEquals(null, m.invoke(neoPathPart));
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
 		}
 	}
 	
+	@Test
+	@Override
+	public void getNeoAbstractPathParamException() {
+		try {
+			Method m = getTheGetNeoAbstractPathParamMethod();
+			super.getNeoAbstractPathParamException(m);
+		} catch (Exception e) {
+			System.out.println(e);
+			assertFalse(true);
+		}
+	}
+
 	//Pull-Up?
 	protected class MyClassMockNeoComplexEdge extends NeoComplexEdgeImpl {
 		@Override
@@ -406,7 +438,7 @@ public class Neo04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 		}
 	}
 
-	private Method getTheGetNeoAbstractPathParamMethod() throws NoSuchMethodException {
+	public Method getTheGetNeoAbstractPathParamMethod() throws NoSuchMethodException {
 		Class obj = NeoPathPartImpl.class;
 		Method m = obj.getDeclaredMethod("getNeoAbstractPathParam");
 		m.setAccessible(true);

@@ -93,7 +93,6 @@ public class Neo03PathParamTest extends NeoAbstractPathParamTest {
 			Mockito.when(neoSimpl2.generateCypher()).thenReturn(varEdge2WithTarget);
 			Mockito.when(neoSimpl2.getNeoLastEdge()).thenReturn(neoSimpl2);
 			TextListParam t = new TextListParamImpl();
-			t.addStringValue("");
 			Mockito.when(neoSimpl2.getNeoLastEdge()).thenReturn(neoSimpl2);
 			Mockito.when(neoSimpl2.getNeoTargetNodeLabels()).thenReturn(t);
 			EList<NeoPathPart> l1 = new BasicEList<NeoPathPart>();
@@ -246,7 +245,7 @@ public class Neo03PathParamTest extends NeoAbstractPathParamTest {
 			buildMockSimpleEdge();
 			neoPathParam.setNeoPathPart(super.mockSimpleEdge);
 			assumeNotNull(neoPathParam.getNeoPathPart());
-			assertEquals("-(varEdge1)-", neoPathParam.generateCypher()); 
+			assertEquals("-[varEdge1]-", neoPathParam.generateCypher()); 
 			
 			//With a NeoComplexEdge	
 			NeoComplexEdge neoComplexEdge = FACTORY.createNeoComplexEdge();
@@ -264,7 +263,7 @@ public class Neo03PathParamTest extends NeoAbstractPathParamTest {
 			neoPathParam.setNeoPathPart(neoComplexEdge);
 			assumeTrue(neoPathParam.getNeoPathPart().getNeoPathPartEdges().size() == 2);
 			assumeNotNull(neoPathParam.getNeoPathPart());
-			assertEquals("-(varEdge1)--(varEdge2)-", neoPathParam.generateCypher());			
+			assertEquals("-[varEdge1]--[varEdge2]-", neoPathParam.generateCypher());			
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
