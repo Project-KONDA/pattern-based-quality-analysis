@@ -572,7 +572,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
@@ -584,15 +584,14 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS:
 				try {
 					setNeoTargetNodeLabels((TextListParam)newValue);
-				} catch (InvalidityException e) {
-					e.printStackTrace();
+				} catch (InvalidityException e1) {
+					e1.printStackTrace();
 				}
 				return;
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL:
 				try {
 					setNeoEdgeLabel((TextLiteralParam)newValue);
 				} catch (InvalidityException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				return;
@@ -625,7 +624,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 				try {
 					setNeoEdgeLabel((TextLiteralParam)null);
 				} catch (InvalidityException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				return;
