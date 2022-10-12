@@ -79,7 +79,7 @@ public class Neo04ComplexEdgeTest extends NeoAbstractPathPartTest {
 			//Just with NeoSimpleEdges
 			neoComplexEdge.addNeoPathPart(FACTORY.createNeoSimpleEdge());
 			neoComplexEdge.addNeoPathPart(FACTORY.createNeoSimpleEdge());
-			assertTrue(neoComplexEdge.validateComplexEdge());
+			assertDoesNotThrow(() -> neoComplexEdge.validateComplexEdge());
 			unsetNeoPathPartInComplexEdge();
 			
 			//Just with NeoSimpleEdges and NeoLastEdge
@@ -87,7 +87,7 @@ public class Neo04ComplexEdgeTest extends NeoAbstractPathPartTest {
 			NeoSimpleEdge neoSimpleEdge0 = FACTORY.createNeoSimpleEdge();
 			neoSimpleEdge0.setIsLastEdge(true);
 			neoComplexEdge.addNeoPathPart(neoSimpleEdge0);
-			assertTrue(neoComplexEdge.validateComplexEdge());
+			assertDoesNotThrow(() -> neoComplexEdge.validateComplexEdge());
 			unsetNeoPathPartInComplexEdge();
 			
 			//In NeoComplexEdges
@@ -98,7 +98,7 @@ public class Neo04ComplexEdgeTest extends NeoAbstractPathPartTest {
 			neoComplexEdge.addNeoPathPart(FACTORY.createNeoSimpleEdge());
 			neoComplexEdge.addNeoPathPart(neoComplexEdge1);
 			neoComplexEdge.addNeoPathPart(neoComplexEdge2);
-			assertTrue(neoComplexEdge.validateComplexEdge());
+			assertDoesNotThrow(() -> neoComplexEdge.validateComplexEdge());
 			unsetNeoPathPartInComplexEdge();
 			
 			//In NeoComplexEdges -- WITH LAST EDGE
@@ -111,7 +111,7 @@ public class Neo04ComplexEdgeTest extends NeoAbstractPathPartTest {
 			neoComplexEdge.addNeoPathPart(FACTORY.createNeoSimpleEdge());
 			neoComplexEdge.addNeoPathPart(neoComplexEdge1);
 			neoComplexEdge.addNeoPathPart(neoComplexEdge2);
-			assertTrue(neoComplexEdge.validateComplexEdge());
+			assertDoesNotThrow(() -> neoComplexEdge.validateComplexEdge());
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
@@ -177,9 +177,9 @@ public class Neo04ComplexEdgeTest extends NeoAbstractPathPartTest {
 	}
 
 	@Test //Due to ecore this tests needed to be extracted --> Unset of the NeoComplexEdge is via a EMF-CONTAINER
-	public void aComplexEdgeInAComplexEdgeException() {
+	public void ComplexEdgeInAComplexEdgeException() {
 		neoComplexEdge.setNeoComplexEdge(FACTORY.createNeoComplexEdge());
-		assertDoesNotThrow(() -> neoComplexEdge.validateComplexEdge());
+		assertThrows(InvalidityException.class, () -> neoComplexEdge.validateComplexEdge());
 		unsetNeoPathPartInComplexEdge();
 	}
 	
@@ -378,7 +378,7 @@ public class Neo04ComplexEdgeTest extends NeoAbstractPathPartTest {
 																		.thenReturn(null);
 			neoComplexEdge.addNeoPathPart(mockSimple1);
 			neoComplexEdge.addNeoPathPart(mockSimple2);
-			assertTrue(neoComplexEdge.validateComplexEdge());
+			assertDoesNotThrow(() -> neoComplexEdge.validateComplexEdge());
 			
 			String temp = neoComplexEdge.getCypherInnerEdgeNodes(isReturn);
 			assertTrue(temp.compareTo(CypherSpecificConstants.INTERNAL_EDGE_NODE + 1 + ", " + CypherSpecificConstants.INTERNAL_EDGE_NODE + 2) == 0);

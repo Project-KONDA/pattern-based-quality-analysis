@@ -141,7 +141,6 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	//The container just checks if enough elements are given to build a ComplexEdge
 	@Override
 	public void validateComplexEdge() throws InvalidityException {
-
 		if (getNeoPathPart().size() != 0 || !(getNeoComplexEdge() == null)) {
 			if (!(countOfEdges() >= 2) && (getNeoComplexEdge() == null)) {
 				throw new InvalidityException(TO_LESS_PRIMITIVE_EDGES_AT_LEAST_2);
@@ -154,6 +153,14 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 			}
 		}
 		throw new InvalidityException();
+	}
+	
+	private void setLastEdgeInAllLeaves(boolean isLastEdge) {
+		NeoSimpleEdgeImpl neoSimpleEdge = null;
+		for (NeoPathPart part : getNeoPathPartEdges()) {
+			neoSimpleEdge = (NeoSimpleEdgeImpl) part;
+			neoSimpleEdge.setIsLastEdge(isLastEdge);
+		}
 	}
 	
 	private boolean isLastEdgeAtTheEnd() {
@@ -225,6 +232,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	 */
 	@Override
 	public void addNeoPathPart(NeoPathPart neoPathPart) {
+		setLastEdgeInAllLeaves(false);
 		if (neoPathPart != null) {
 			getNeoPathPart().add(neoPathPart);
 			if (getNeoComplexEdge() != null) {
@@ -242,18 +250,6 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		validateComplexEdge();
 		final EList<NeoPathPart> parts = getNeoPathPartEdges();
 		return parts.size() != 0 ? parts.get(parts.size() - 1) : null;
-//		NeoPathPart lastEdge = null;
-//		
-//		for (NeoPathPart part : parts) {
-//			if (part instanceof NeoComplexEdge) {
-//				lastEdge = part.getNeoLastEdge();
-//			} else {
-//				if (part.getNeoLastEdge() != null) {
-//					lastEdge = part;
-//				}
-//			}
-//		}
-//		return lastEdge;
 	}
 	
 

@@ -33,6 +33,8 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPathParam {
+	private static final String WRONG_TYPE_OF_EDGE = "Wrong type of Edge";
+	private static final String NEO_PARTS_CAN_NOT_BE_EMPTY = "NeoParts can not be empty";
 	private static final String NEO_PATH_PARAM = "NeoPathParam [%s]";
 
 	/**
@@ -72,7 +74,9 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 			final StringBuilder cypher = new StringBuilder();
 			EList<NeoPathPart> neoPathParts = getNeoPathPart().getNeoPathPartEdges();
 			
-			if (neoPathParts == null || neoPathParts.size() == 0) throw new InvalidityException("NeoEdge - NeoParts can not be empty");
+			if (neoPathParts == null || neoPathParts.size() == 0) {
+				throw new InvalidityException(NEO_PARTS_CAN_NOT_BE_EMPTY);
+			}
 			if (neoPathParts.size() > 1) {
 					generateMultiEdgeCypher(cypher);
 			} else {
@@ -85,8 +89,9 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 
 	private void generateSingeEdgeCypher(final StringBuilder cypher, final EList<NeoPathPart> neoPathParts)
 			throws InvalidityException {
-		if (!(neoPathParts.get(0) instanceof NeoSimpleEdgeImpl))
-				throw new InvalidityException("Wrong type of Edge");
+		if (!(neoPathParts.get(0) instanceof NeoSimpleEdgeImpl)) {
+			throw new InvalidityException(WRONG_TYPE_OF_EDGE);
+		}
 		cypher.append(neoPathParts.get(0).generateCypher());
 		NeoSimpleEdge neoSimpleEdge = (NeoSimpleEdge) neoPathParts.get(0);
 		if (checkTargetNodes(neoSimpleEdge)) { 
@@ -99,17 +104,10 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 		cypher.append(neoPathPart.generateCypher());
 
 		NeoPathPart lastEdge = null;
-		//Every ComplexEdge needs a last SimpleEdge 
-		//--> Maybe can be checked in the Container 
-		//--> Specific check which can not be out outsourced
 		lastEdge = neoPathPart.getNeoLastEdge();
-		if (lastEdge != null) {
-			NeoSimpleEdge neoSimpleEdge = (NeoSimpleEdge) lastEdge;
-			if (checkTargetNodes(neoSimpleEdge)) {
-				cypher.append(CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES);
-			}
-		} else {
-			throw new InvalidityException("NeoEdge - The last NeoPathPart has to be specified as lastEdge");
+		NeoSimpleEdge neoSimpleEdge = (NeoSimpleEdge) lastEdge;
+		if (checkTargetNodes(neoSimpleEdge)) {
+			cypher.append(CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES);
 		}
 	}
 

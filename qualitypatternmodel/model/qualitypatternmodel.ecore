@@ -1279,8 +1279,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoEdgeLabel" eType="#//parameters/TextLiteralParam"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="edgeNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
           unsettable="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isLastEdge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-          defaultValueLiteral="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoPathPart" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getNeoPathPartEdges" upperBound="-1" eType="#//adaptionNeo4J/NeoPathPart"/>

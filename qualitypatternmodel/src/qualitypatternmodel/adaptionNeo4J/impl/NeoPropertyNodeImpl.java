@@ -38,6 +38,8 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * @generated
  */
 public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropertyNode {
+	private static final String WRONG_INCOMING_NEO_PROPERTY_EDGE_SPECIFIED = "Wrong incoming NeoPropertyEdge specified";
+	private static final String NO_INCOMING_NEO_PROPERTY_EDGE_SPECIFIED = "No incoming NeoPropertyEdge specified";
 	private static final int CYPHER_RETURN_ID = 1;
 	/**
 	 * The default value of the '{@link #getNodePlace() <em>Node Place</em>}' attribute.
@@ -141,9 +143,9 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	public String generateCypherNodeVariable() throws InvalidityException {
 		if (getIncomingMapping() == null) {
 			if (!checkForValidIncoming())
-				throw new InvalidityException("No incoming NeoPropertyEdge specified");
+				throw new InvalidityException(NO_INCOMING_NEO_PROPERTY_EDGE_SPECIFIED);
 			else if(!(getIncoming().get(0) instanceof NeoPropertyEdge))
-				throw new InvalidityException("Wronge incoming NeoPropertyEdge specified");
+				throw new InvalidityException(WRONG_INCOMING_NEO_PROPERTY_EDGE_SPECIFIED);
 			NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) getIncoming().get(0);
 			String cypher = neoPropertyEdge.generateCypherNodeVariable();
 			return cypher;
@@ -191,7 +193,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override
 	public EMap<Integer, String> getCypherReturnVariable() throws InvalidityException {
 		EMap<Integer, String> returnElement = new BasicEMap<Integer, String>();
-		String cypher;
+		String cypher = null;
 		if (getIncomingMapping() == null) {	
 			cypher = generateCypher();
 			returnElement.put(NeoPropertyNodeImpl.CYPHER_RETURN_ID, getCypherVariable());

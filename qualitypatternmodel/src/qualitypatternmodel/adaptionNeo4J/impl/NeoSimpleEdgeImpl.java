@@ -124,24 +124,9 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 * @ordered
 	 */
 	protected boolean edgeNumberESet;
-	/**
-	 * The default value of the '{@link #isIsLastEdge() <em>Is Last Edge</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isIsLastEdge()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean IS_LAST_EDGE_EDEFAULT = false;
 
-	/**
-	 * The cached value of the '{@link #isIsLastEdge() <em>Is Last Edge</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isIsLastEdge()
-	 * @generated
-	 * @ordered
-	 */
+	protected static final boolean IS_LAST_EDGE_EDEFAULT = true;
+
 	protected boolean isLastEdge = IS_LAST_EDGE_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc -->
@@ -458,13 +443,8 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		return isLastEdge;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setIsLastEdge(boolean newIsLastEdge) {
+	
+	protected void setIsLastEdge(boolean newIsLastEdge) {
 		boolean oldIsLastEdge = isLastEdge;
 		isLastEdge = newIsLastEdge;
 		if (eNotificationRequired())
