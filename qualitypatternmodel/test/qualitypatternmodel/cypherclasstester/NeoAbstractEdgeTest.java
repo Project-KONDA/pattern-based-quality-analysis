@@ -1,14 +1,26 @@
 package qualitypatternmodel.cypherclasstester;
 
 
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assume.assumeTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+
+import org.eclipse.emf.common.util.EMap;
+import org.mockito.Mockito;
 
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl;
+import qualitypatternmodel.graphstructure.impl.RelationImpl;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 
 public abstract class NeoAbstractEdgeTest implements InterfaceNeoAbstractEdgeTest {
 	private static final int INTERNAL_ID_ONE = 1;
+	protected static final String VAR_EDGE_X = "varEdge%s";
+	protected static final String VAR_EDGE1 = "varEdge1";
+	protected static final String VAR_EDGE1_CLAMPED = "-[varEdge1]-";
+	protected static final String INTERNAL_EDGE_NODE_1 = CypherSpecificConstants.INTERNAL_EDGE_NODE + 1;
 	protected NeoAbstractEdge neoAbstractEdge;
 	protected Field internalId;
 	
@@ -32,4 +44,38 @@ public abstract class NeoAbstractEdgeTest implements InterfaceNeoAbstractEdgeTes
 	public void tearDown() {
 		neoAbstractEdge = null;
 	}
+
+	protected void initGetCypherReturnVariableTest(NeoAbstractEdge edge, int number) {
+		int id = number;
+		try {
+			initGetCypherVariableTest(edge, id);
+			EMap<Integer, String> variableMap = edge.getCypherReturnVariable();
+			assumeTrue(variableMap.keySet().stream().count() == 1);
+			assumeTrue(variableMap.containsKey(0));
+			String variable = variableMap.get(0).getValue();
+		} catch (Exception e) {
+			System.out.println(e);
+			assertFalse(true);
+		}
+	}
+
+	protected void initGetCypherVariableTest(NeoAbstractEdge edge, int id)
+			throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+		this.internalId.set(edge, id);
+		assumeTrue( ((RelationImpl)edge).getOriginalID() == id);
+	}
+	
+	protected NeoSimpleEdgeImpl prepaireMockObjNeoSimpleEdge(int number) {
+		NeoSimpleEdgeImpl mockNeoEdgeImpl = Mockito.mock(NeoSimpleEdgeImpl.class);
+		Mockito.when(mockNeoEdgeImpl.getCypherVariable()).thenReturn(String.format(VAR_EDGE_X, number));
+		return mockNeoEdgeImpl;
+	}
+
+	protected Field getNeoAbstractPathParamField(Class cl, String fieldName)
+			throws NoSuchFieldException, SecurityException {
+				Class c = cl;
+				Field f = c.getDeclaredField(fieldName);
+				f.setAccessible(true);
+				return f;
+			}
 }

@@ -287,7 +287,7 @@ public class Neo01PropertyNodeTest extends NeoAbstractNodeTest {
 	@Override
 	@ParameterizedTest
 	@ValueSource(ints = {1,10,100,1000})
-	public void generateCypherReturnVariable(int number) {
+	public void getCypherReturnVariable(int number) {
 		try {
 			NeoPropertyEdge neoPropertyEdge = prepaireValidPropertyEdgeStructure(GENERIC_NODE_ID);
 			initGetCypherVariableTest(neoPropertyNode, GENERIC_NODE_ID);

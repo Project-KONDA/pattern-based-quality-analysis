@@ -124,7 +124,6 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		if (getNeoPathPart() == null || !validateComplexEdge())
 			throw new InvalidityException("NeoComplexPath " + getId() + " contains not enough NeoPathParts");
-		
 	}
 
 	//Consider that all will be flatted to only non container will be returned... outsides there is no need for handling the NeoComplexEdge

@@ -168,7 +168,7 @@ public class Neo01NodeTest extends NeoAbstractNodeTest {
 	@Override
 	@ParameterizedTest
 	@ValueSource(ints = {1,10,100,1000})
-	public void generateCypherReturnVariable(int number) {
+	public void getCypherReturnVariable(int number) {
 		NeoInterfaceNode node = super.neoAbstractNode;
 		initGetCypherReturnVariableTest(node, number, true);
 	}
