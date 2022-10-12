@@ -31,7 +31,6 @@ public interface NeoPathPart extends PatternElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Neo Path Param</em>' container reference.
-	 * @throws InvalidityException 
 	 * @see #setNeoPathParam(NeoPathParam)
 	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPathPart_NeoPathParam()
 	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathParam#getNeoPathPart
@@ -56,7 +55,6 @@ public interface NeoPathPart extends PatternElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Neo Property Path Param</em>' container reference.
-	 * @throws InvalidityException 
 	 * @see #setNeoPropertyPathParam(NeoPropertyPathParam)
 	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPathPart_NeoPropertyPathParam()
 	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPathPart
@@ -113,7 +111,7 @@ public interface NeoPathPart extends PatternElement {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	String getCypherVariable();
+	String getCypherVariable() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

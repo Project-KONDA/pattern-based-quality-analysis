@@ -137,21 +137,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	protected NeoSimpleEdgeImpl() {
 		super();
 	}
-
-	//Need improvement??? --> NeoPath neoPropertypath at the same time?? --> Pull-Up?
-	@Override
-	protected NeoAbstractPathParam getNeoAbstractPathParam() {
-		if (getNeoComplexEdge() != null) {
-			return ((NeoPathPartImpl) getNeoComplexEdge()).getNeoAbstractPathParam();
-		}
-		NeoAbstractPathParam neoAbstractPathParam = null;
-		if (getNeoPathParam() != null) {
-			neoAbstractPathParam = getNeoPathParam();
-		} else if (getNeoPropertyPathParam() != null) {
-			neoAbstractPathParam = getNeoPropertyPathParam();
-		}
-		return neoAbstractPathParam;
-	} 
 	
 	@Override
 	public String generateCypher() throws InvalidityException {
@@ -219,8 +204,8 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	}
 	
 	@Override
-	public String getCypherVariable() {
-		String cypher;
+	public String getCypherVariable() throws InvalidityException {
+		String cypher = null;
 		cypher = super.getCypherVariable() + ((NeoAbstractPathParamImpl) getNeoAbstractPathParam()).getRelationNumber();
 		if (edgeNumber != 0) {
 			cypher += "_" + edgeNumber;
