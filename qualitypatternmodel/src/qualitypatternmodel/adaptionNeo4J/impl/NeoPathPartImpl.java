@@ -398,8 +398,6 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 				return getNeoPathPartEdges();
 			case AdaptionNeo4JPackage.NEO_PATH_PART___GET_CYPHER_VARIABLE:
 				return getCypherVariable();
-			case AdaptionNeo4JPackage.NEO_PATH_PART___IS_LAST_EDGE:
-				return isLastEdge();
 			case AdaptionNeo4JPackage.NEO_PATH_PART___GET_CYPHER_INNER_EDGE_NODES__BOOLEAN:
 				try {
 					return getCypherInnerEdgeNodes((Boolean)arguments.get(0));
