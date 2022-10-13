@@ -2,7 +2,7 @@ package junittests;
 
 import java.util.ArrayList;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.rdftranslationtests.RdfTest01Predicates;
