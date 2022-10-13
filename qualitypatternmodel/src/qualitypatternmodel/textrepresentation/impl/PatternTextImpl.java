@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import javafx.util.Pair;
 import qualitypatternmodel.adaptionxml.XmlAxisOptionParam;
 import qualitypatternmodel.adaptionxml.XmlAxisPair;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
@@ -475,7 +474,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 //		
 //		return text + "\n" + query;
 		String regex = "[ ]*FILTER \\(\\?[a-z0-9]* = \\?[a-z0-9]*\\).";
-		List<Pair<String, String>> replacements = new BasicEList<>();
+		List<String[]> replacements = new BasicEList<>();
 		
 		String result = text;
 		for(String line: query.split("\n")) {
@@ -487,16 +486,20 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				assert vars.length == 2;
 				assert vars[0].matches("\\?[a-z0-9]*");
 				assert vars[1].matches("\\?[a-z0-9]*");
-				if (fragmentVars.contains(vars[0]))
-					replacements.add(new Pair<String, String>(vars[1], vars[0]));
-				else if (fragmentVars.contains(vars[1]))
-					replacements.add(new Pair<String, String>(vars[0], vars[1]));
+				if (fragmentVars.contains(vars[0])) {
+					String[] pair = {vars[1], vars[0]};
+					replacements.add(pair);
+				}
+				else if (fragmentVars.contains(vars[1])) {
+					String[] pair = {vars[1], vars[0]};
+					replacements.add(pair);
+				}
 			}
 			else
 				result += "\n" + line;
 		}
-		for (Pair<String, String> p: replacements) {
-			result = result.replace(p.getKey(), p.getValue());
+		for (String[] p: replacements) {
+			result = result.replace(p[0] , p[1]);
 		}	
 		return result;
 	}

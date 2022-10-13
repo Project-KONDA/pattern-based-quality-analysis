@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.adaptionxml.impl;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
 import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlElement;
@@ -107,7 +109,8 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 	
 	@Override
 	public void setTarget(Node newTarget) {
-		assert (newTarget == null || newTarget instanceof PrimitiveNode);
+		if (newTarget != null)
+			assertDoesNotThrow(() -> {newTarget.checkPrimitive();});
 		super.setTarget(newTarget);
 	}
 

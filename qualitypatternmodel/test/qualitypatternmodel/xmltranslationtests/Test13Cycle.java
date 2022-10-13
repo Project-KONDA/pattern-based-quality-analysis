@@ -1,5 +1,7 @@
 package qualitypatternmodel.xmltranslationtests;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,12 +45,8 @@ public class Test13Cycle {
 		
 		completePattern.createXmlAdaption();
 		
-		try {
-			completePattern.isValid(AbstractionLevel.CONCRETE); // InvalidityException expected due to deep equal cycle
-		} catch (InvalidityException e) {
-			System.out.println("InvalidityException '" + e.getMessage() + "' thrown as expected");
-		}
-
+		assertThrows(InvalidityException.class, () -> { completePattern.isValid(AbstractionLevel.CONCRETE);});
+		
 		((XmlElement) graph2.getNodes().get(0)).setXQueryDeepEqual(false);
 		
 		return completePattern;
