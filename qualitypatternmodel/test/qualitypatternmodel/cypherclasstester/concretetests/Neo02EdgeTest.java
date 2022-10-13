@@ -3,6 +3,7 @@ package qualitypatternmodel.cypherclasstester.concretetests;
 import static org.junit.Assume.assumeNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -148,7 +149,14 @@ public class Neo02EdgeTest extends NeoAbstractEdgeTest {
 			Mockito.doCallRealMethod().when(mockNeoEdgeImpl).createParameters();
 			mockNeoEdgeImpl.createParameters();
 			assertTrue(list.getParameters().size() == 1);
+			assertTrue(list.getParameters().get(0) instanceof NeoPathParamImpl);
+			assertEquals(mockNeoEdgeImpl, ((NeoPathParamImpl) list.getParameters().get(0)).getNeoEdge());
 			
+			Mockito.when(mockNeoEdgeImpl.getNeoPathParam()).thenReturn((NeoPathParam) list.getParameters().get(0));
+			mockNeoEdgeImpl.createParameters();
+			assertTrue(list.getParameters().size() == 1);
+			
+			//Not a valid structure just for testing correct
 			Mockito.when(mockNeoEdgeImpl.getNeoPathParam()).thenReturn(FACTORY.createNeoPathParam());
 			mockNeoEdgeImpl.createParameters();
 			assertTrue(list.getParameters().size() == 2);

@@ -1,5 +1,7 @@
 package qualitypatternmodel.cypherclasstester.concretetests;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assume.assumeNotNull;
 import static org.junit.Assume.assumeTrue;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -125,10 +127,11 @@ public class Neo01NodeTest extends NeoAbstractNodeTest {
 	}
 	
 	@Test
-	public void asd() {
-		assertDoesNotThrow(() -> {neoNode.setNeoNodeLabels(null);
-			neoNode.setNeoNodeLabels(new TextListParamImpl());
-			});
+	public void resetAndSetTestListparam() {
+		assertDoesNotThrow(() -> {neoNode.setNeoNodeLabels(null);});
+		assertNull(neoNode.getNeoNodeLabels());
+		assertDoesNotThrow(() -> {neoNode.setNeoNodeLabels(new TextListParamImpl());});
+		assertNotNull(neoNode.getNeoNodeLabels());		
 	}
 
 	@Override

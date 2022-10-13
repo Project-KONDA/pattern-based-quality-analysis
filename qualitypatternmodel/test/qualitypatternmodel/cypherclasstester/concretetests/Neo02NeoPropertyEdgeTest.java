@@ -20,6 +20,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
+import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
@@ -249,7 +250,13 @@ public class Neo02NeoPropertyEdgeTest extends NeoAbstractEdgeTest {
 			Mockito.doCallRealMethod().when(mockNeoPropertyEdgeImpl).createParameters();
 			mockNeoPropertyEdgeImpl.createParameters();
 			assertTrue(list.getParameters().size() == 1);
+			assertTrue(list.getParameters().get(0) instanceof NeoPropertyPathParam);
+
+			Mockito.when(mockNeoPropertyEdgeImpl.getNeoPropertyPathParam()).thenReturn((NeoPropertyPathParam) list.getParameters().get(0));
+			mockNeoPropertyEdgeImpl.createParameters();
+			assertTrue(list.getParameters().size() == 1);
 			
+			//Not a valid structure just for testing correct
 			Mockito.when(mockNeoPropertyEdgeImpl.getNeoPropertyPathParam()).thenReturn(FACTORY.createNeoPropertyPathParam());
 			mockNeoPropertyEdgeImpl.createParameters();
 			assertTrue(list.getParameters().size() == 2);

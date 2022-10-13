@@ -106,14 +106,15 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 		if (getIncomingMapping() == null) {
 			ParameterList pList = getParameterList();
 			if (pList != null) {
-				NeoPathParam npp = getNeoPathParam();
-				if (npp == null) {
-					npp = new NeoPathParamImpl();
-					setNeoPathParam(npp);
-					pList.add(npp);	
+				NeoPathParam neoPathParam = getNeoPathParam();
+				if (neoPathParam == null) {
+					neoPathParam = new NeoPathParamImpl();
+					setNeoPathParam(neoPathParam);
+					neoPathParam.setNeoEdge(this);
+					pList.add(neoPathParam);	
 				}
-				if (!pList.equals(npp.getParameterList())) {
-					pList.add(npp);
+				if (!pList.equals(neoPathParam.getParameterList())) {
+					pList.add(neoPathParam);
 				}
 			}
 		}
