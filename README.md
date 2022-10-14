@@ -6,7 +6,7 @@ These anti-patterns are generic with respect to database technologies and format
 Generic patterns can be adapted to several database technologies, resulting in several abstract patterns.
 An abstract pattern can be concretisized for a domain-specific database format and concrete quality problem. 
 The resulting concrete patterns can be utilized to locate quality problems in databases.
-As proof of concept, this project realizes this approach for XML databases.
+As proof of concept, this project realizes this approach for databases in XML, RDF and Neo4j.
 
 This approach is based on the observation of a dynamic digitalisation (resulting in a variety of database technologies employed) and a variety of data quality problems occurring in research data.
 
@@ -20,14 +20,15 @@ This diagram gives an overview of the components and their interfaces.
 The implementation includes a metamodel for the patterns, a pattern execution system and a front-end.
 In accordance with the outlined workflow, the tool, first of all, allows creating generic patterns via a Sirius modelling workbench.
 It contains a set of predefined generic example patterns for detecting typical data quality problems.
-The tool further supports the semi-automatic adaption of generic patterns to XML via the modelling view.
-The concretisation of an XML-adapted abstract pattern can be achieved by specifying the pattern’s parameters in a form-based view.
-Finally, a concrete pattern is automatically translated into XQuery.
-The execution system allows the application to a chosen XML database via the query processor BaseX.
+The tool further supports the semi-automatic adaption of generic patterns to different database technologies via the modelling view.
+The concretisation of an adapted abstract pattern can be achieved by specifying the pattern’s parameters in a form-based view.
+Finally, a concrete pattern is automatically translated into a corresponding query language.
+The execution system allows the application of the pattern to a database.
+For example, XML is using BaseX as XQuery processor.
 The result of the pattern application is presented to the user via the report view.
 
 The metamodel and pattern execution system are implemented in the project called ```qualitypatternmodel```.
-The graphical user interface is implemented in the project called ```patterncreation.project.design```.
+The graphical user interface is implemented in the gui branch in the project called ```patterncreation.project.design```.
 
 
 ## Built With
@@ -40,32 +41,30 @@ The graphical user interface is implemented in the project called ```patterncrea
 * [everit-org/json-schema](https://github.com/everit-org/json-schema)
 
 
-
-## Installation
-
-Prerequisites:
+## Prerequisites
 
 * Eclipse 4.12.0
 * Eclipse Modeling Framework 2.18.0
 * Eclipse Sirius 6.2
-* JUnit 5
 * Eclipse OCL (OCL Classic SDK 5.9.0 and OCL Examples and Editors SDK 6.8.0)
+* JUnit 5
 
-To set this project up locally, you just need to import it into your Eclipse workspace.
+## Installation
+
+1. Download Eclipse installer for Eclipse 2022-09 R from [https://www.eclipse.org/downloads/](https://www.eclipse.org/downloads/)
+2. Install "Eclipse Modelling Tools" from the installer
+3. Install Eclipse OCL from the Eclipse Marketplace
+4. Import the qualitypatternmodel framework from this repository into the Eclipse Workspace
 
 ## Tests
 
-Tests concerning the correctness of the translation of concrete patterns to XQuery are contained in the package ```qualitypatternmodel.translationtests```.
-The class ```TranslationTests``` allows executing the tests.
-Each test case consists of a pattern concretized for the demo database located in the ```demo.data``` folder and a manually written XQuery expression that selects all elements that are expected to be selected by the pattern.
-For each test case the concrete pattern is automatically translated to XQuery.
-Both this query and the manually written query are applied to the demo database.
-The results of these applications must be equal for the test to be successful.
-
+Tests concerning the correctness of the translation of concrete patterns are contained in the package ```qualitypatternmodel.test```.
+The tests are splitted into translation tests, where all components are validated by system tests with artificial patterns, and evaluation tests, that contain patterns, that can be applied to real databases.
+Such tests are done for all supported database technologies, namely XML, RDF and Neo4j.
 
 ## Examples
 
-In the following we will briefly present three example patterns, called `COMP`, `CARD` and `FUNC`.
+In the following we will briefly present three example patterns for XML data, called `COMP`, `CARD` and `FUNC`.
 They allow detecting quality problems in a demo XML database on cultural heritage objects.
 The demo database and the corresponding schema can be found in the folder `demo.data`.
 
@@ -90,7 +89,6 @@ In the following we will present visualizations of the concrete patterns and cor
 
 The depicted example pattern is a generic pattern for detecting simple interval violations.
 It searches for `Element0`s (identified via a `Property0`) that are related to an `Element1` (identified via a `Property1`), whose `Property2` is outside a specific range.
-
 
 ![COMP](readme_images/COMP_concrete.png)
 
@@ -158,6 +156,7 @@ As the graph shows, the pattern detects ```demo:building``` elements that contai
 * Arno Kesper - [arno.kesper@uni-marburg.de](mailto:arno.kesper@uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
 * Viola Wenz - [viola.wenz@uni-marburg.de](mailto:viola.wenz@uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
 * Lukas Tympel - [tympel@students.uni-marburg.de](mailto:tympel@students.uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
+* Lukas Hofmann - [hofman5c@students.uni-marburg.de](mailto:hofman5c@students.uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
 * Gabriele Taentzer - [taentzer@uni-marburg.de](mailto:taentzer@uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
 
 This work emerged from the research project "[KONDA](https://zenodo.org/communities/konda-project)". 
@@ -168,3 +167,4 @@ This work emerged from the research project "[KONDA](https://zenodo.org/communit
 ## License
 
 GNU Lesser General Public License v3.0
+
