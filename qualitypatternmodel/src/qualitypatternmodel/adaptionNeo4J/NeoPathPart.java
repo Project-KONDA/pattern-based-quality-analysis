@@ -103,7 +103,7 @@ public interface NeoPathPart extends PatternElement {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	EList<NeoPathPart> getNeoPathPartEdges();
+	EList<NeoPathPart> getNeoPathPartEdgeLeafs();
 
 	/**
 	 * <!-- begin-user-doc -->

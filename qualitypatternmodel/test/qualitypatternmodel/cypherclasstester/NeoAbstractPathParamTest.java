@@ -56,7 +56,7 @@ public abstract class NeoAbstractPathParamTest implements InterfaceNeoAbstractPa
 			Mockito.when(mockSimpleEdge.getCypherVariable()).thenReturn(variableEdgeOne);
 			EList<NeoPathPart> l = new BasicEList<NeoPathPart>();
 			l.add(mockSimpleEdge);
-			Mockito.when(mockSimpleEdge.getNeoPathPartEdges()).thenReturn(l);
+			Mockito.when(mockSimpleEdge.getNeoPathPartEdgeLeafs()).thenReturn(l);
 			Mockito.when(mockSimpleEdge.generateCypher()).thenReturn("-"+ VARIABLE_EAGE_ONE_CLAMPED + "-")
 															.thenReturn("-"+VARIABLE_EAGE_TWO_CLAMPED + "-");
 		} catch (Exception e) {

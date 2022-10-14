@@ -72,7 +72,7 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 	public String generateCypher() throws InvalidityException {
 		if (neoPathPart != null) {
 			final StringBuilder cypher = new StringBuilder();
-			final EList<NeoPathPart> neoPathParts = getNeoPathPart().getNeoPathPartEdges();
+			final EList<NeoPathPart> neoPathParts = getNeoPathPart().getNeoPathPartEdgeLeafs();
 			
 			if (neoPathParts == null || neoPathParts.size() == 0) {
 				throw new InvalidityException(NEO_PARTS_CAN_NOT_BE_EMPTY);

@@ -5917,11 +5917,11 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EReference getNeoPathPart_NeoComplexEdge();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathPartEdges() <em>Get Neo Path Part Edges</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathPartEdgeLeafs() <em>Get Neo Path Part Edges</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Neo Path Part Edges</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathPartEdges()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathPartEdgeLeafs()
 	 * @generated
 	 */
 	EOperation getNeoPathPart__GetNeoPathPartEdges();

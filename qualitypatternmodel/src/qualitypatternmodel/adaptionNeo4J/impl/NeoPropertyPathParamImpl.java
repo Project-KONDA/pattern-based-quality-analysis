@@ -158,7 +158,7 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 				throw new InvalidityException(NEO_PROPERTY_EDGE_LAST_EDGE_HAS_TO_BE_SET);
 			}
 		}
-		if (!innerEdgesHaveTargets(getNeoPathPart().getNeoPathPartEdges())) {
+		if (!innerEdgesHaveTargets(getNeoPathPart().getNeoPathPartEdgeLeafs())) {
 			targetNodesCanNotBeNull();
 		}
 	}
@@ -168,7 +168,7 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 		NeoSimpleEdge neoSimpleEdge = null;
 		for (NeoPathPart part : parts) {
 			if (part instanceof NeoComplexEdge) {
-				this.innerEdgesHaveTargets(part.getNeoPathPartEdges());
+				this.innerEdgesHaveTargets(part.getNeoPathPartEdgeLeafs());
 			} else {
 				if(part instanceof NeoSimpleEdge) {
 					neoSimpleEdge = (NeoSimpleEdge) part;

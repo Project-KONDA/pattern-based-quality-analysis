@@ -225,9 +225,9 @@ public class Neo04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 	@Test
 	@Override
 	public void getNeoPathPartEdges() {
-		assumeNotNull(neoSimpleEdge.getNeoPathPartEdges());
-		assumeTrue(neoSimpleEdge.getNeoPathPartEdges().size() == 1);
-		assertEquals(neoSimpleEdge, neoSimpleEdge.getNeoPathPartEdges().get(0));
+		assumeNotNull(neoSimpleEdge.getNeoPathPartEdgeLeafs());
+		assumeTrue(neoSimpleEdge.getNeoPathPartEdgeLeafs().size() == 1);
+		assertEquals(neoSimpleEdge, neoSimpleEdge.getNeoPathPartEdgeLeafs().get(0));
 	}
 	
 	//Pull-Up?

@@ -97,10 +97,10 @@ public class Neo03PathParamTest extends NeoAbstractPathParamTest {
 			Mockito.when(neoSimpl2.getNeoTargetNodeLabels()).thenReturn(t);
 			EList<NeoPathPart> l1 = new BasicEList<NeoPathPart>();
 			l1.add(neoSimpl1);
-			Mockito.when(neoSimpl1.getNeoPathPartEdges()).thenReturn(l1);
+			Mockito.when(neoSimpl1.getNeoPathPartEdgeLeafs()).thenReturn(l1);
 			EList<NeoPathPart> l2 = new BasicEList<NeoPathPart>();
 			l2.add(neoSimpl2);
-			Mockito.when(neoSimpl2.getNeoPathPartEdges()).thenReturn(l2);
+			Mockito.when(neoSimpl2.getNeoPathPartEdgeLeafs()).thenReturn(l2);
 			NeoComplexEdge neoComplexEdge1 = FACTORY.createNeoComplexEdge();
 			neoComplexEdge1.addNeoPathPart(neoSimpl1);
 			neoComplexEdge1.addNeoPathPart(neoSimpl2);
@@ -222,7 +222,7 @@ public class Neo03PathParamTest extends NeoAbstractPathParamTest {
 			Mockito.when(mockNeoSimpleEdgeImplClass.getCypherVariable()).thenReturn(variableEdgeOne);
 			EList<NeoPathPart> l = new BasicEList<NeoPathPart>();
 			l.add(mockNeoSimpleEdgeImplClass);
-			Mockito.when(mockNeoSimpleEdgeImplClass.getNeoPathPartEdges()).thenReturn(l);
+			Mockito.when(mockNeoSimpleEdgeImplClass.getNeoPathPartEdgeLeafs()).thenReturn(l);
 			Mockito.when(mockNeoSimpleEdgeImplClass.generateCypher()).thenReturn("-"+ VARIABLE_EAGE_ONE_CLAMPED + "-")
 															.thenReturn("-"+VARIABLE_EAGE_TWO_CLAMPED + "-");
 			
@@ -261,7 +261,7 @@ public class Neo03PathParamTest extends NeoAbstractPathParamTest {
 			neoComplexEdge.addNeoPathPart(mockNeoSimpleEdgeImplClass1);
 			neoComplexEdge.addNeoPathPart(mockNeoSimpleEdgeImplClass2);
 			neoPathParam.setNeoPathPart(neoComplexEdge);
-			assumeTrue(neoPathParam.getNeoPathPart().getNeoPathPartEdges().size() == 2);
+			assumeTrue(neoPathParam.getNeoPathPart().getNeoPathPartEdgeLeafs().size() == 2);
 			assumeNotNull(neoPathParam.getNeoPathPart());
 			assertEquals("-[varEdge1]--[varEdge2]-", neoPathParam.generateCypher());			
 		} catch (Exception e) {
@@ -281,7 +281,7 @@ public class Neo03PathParamTest extends NeoAbstractPathParamTest {
 			
 			//Set Empty NeoComplexEdge --> Which returns null
 			NeoComplexEdgeImpl mockNeoComplexEdge = Mockito.mock(NeoComplexEdgeImpl.class);
-			Mockito.when(mockNeoComplexEdge.getNeoPathPartEdges()).thenReturn(null);
+			Mockito.when(mockNeoComplexEdge.getNeoPathPartEdgeLeafs()).thenReturn(null);
 			neoPathParam.setNeoPathPart(mockNeoComplexEdge);
 			assumeNotNull(neoPathParam.getNeoPathPart());
 			assertThrows(InvalidityException.class, () -> neoPathParam.generateCypher()); 

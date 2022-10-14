@@ -198,7 +198,7 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	 * @generated
 	 */
 	@Override
-	public EList<NeoPathPart> getNeoPathPartEdges() {
+	public EList<NeoPathPart> getNeoPathPartEdgeLeafs() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -407,7 +407,7 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case AdaptionNeo4JPackage.NEO_PATH_PART___GET_NEO_PATH_PART_EDGES:
-				return getNeoPathPartEdges();
+				return getNeoPathPartEdgeLeafs();
 			case AdaptionNeo4JPackage.NEO_PATH_PART___GET_CYPHER_VARIABLE:
 				try {
 					return getCypherVariable();

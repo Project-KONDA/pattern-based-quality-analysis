@@ -525,7 +525,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	}
 
 	@Override 
-	public EList<NeoPathPart> getNeoPathPartEdges() {
+	public EList<NeoPathPart> getNeoPathPartEdgeLeafs() {
 		EList<NeoPathPart> l = new BasicEList<NeoPathPart>();
 		l.add(this);
 		return  l;

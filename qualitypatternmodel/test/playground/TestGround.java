@@ -1,24 +1,17 @@
 package playground;
 
 import org.basex.query.value.item.Str;
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 
 public class TestGround {
 	public static final String name = "%sHello";
 	public static void main(String[] args) {
-		internalCount count = new internalCount();
-		System.out.println(count.getCount());
-		System.out.println(count.getCount());
-		
-	}
-		
-	static class internalCount {
-		int counter = 0;
-		protected void increacseCounter() {
-			counter++;
-		}
-		
-		protected int getCount() {
-			return ++counter;
-		}
+		EList<Object> l = new BasicEList<Object>();
+		EList<Object> l2 = new BasicEList<Object>();
+		EList<Object> l3 = new BasicEList<Object>();
+		l.addAll(l2);
+		l.addAll(l3);
+		System.out.println(l.size());
 	}
 }
