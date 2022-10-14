@@ -471,10 +471,20 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	//For resetting the counting if a ComplexEdge has been created at the same time as an other Complex Edge but is in his container
 	@Override
 	public void setNeoComplexEdge(NeoComplexEdge newNeoComplexEdge) {
-		super.setNeoComplexEdge(newNeoComplexEdge);
-		setCount(((NeoComplexEdgeImpl) newNeoComplexEdge).getCount());
-		for (NeoPathPart part : getNeoPathPart()) {
-			((NeoPathPartImpl) part).setCount(getCount());
+		boolean isAHighLogicalContainer = false;
+		//Checks if the newNeoComplexEdge is already in the Container-Structure
+		if (getNeoComplexEdge() != null) {
+			NeoComplexEdge neoComplexEdge = getNeoComplexEdge();
+			while (neoComplexEdge != newNeoComplexEdge) {
+				neoComplexEdge = neoComplexEdge.getNeoComplexEdge();
+			}
+		}
+		if (isAHighLogicalContainer) {
+			super.setNeoComplexEdge(newNeoComplexEdge);
+			setCount(((NeoComplexEdgeImpl) newNeoComplexEdge).getCount());
+			for (NeoPathPart part : getNeoPathPart()) {
+				((NeoPathPartImpl) part).setCount(getCount());
+			}
 		}
 	}
 	
