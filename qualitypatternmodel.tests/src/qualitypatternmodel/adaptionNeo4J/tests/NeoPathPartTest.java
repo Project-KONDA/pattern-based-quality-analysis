@@ -13,7 +13,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathPartEdgeLeafs() <em>Get Neo Path Part Edges</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathPartEdgeLeafs() <em>Get Neo Path Part Edge Leafs</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherVariable() <em>Get Cypher Variable</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherInnerEdgeNodes(boolean) <em>Get Cypher Inner Edge Nodes</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoLastEdge() <em>Get Neo Last Edge</em>}</li>
@@ -45,13 +45,13 @@ public abstract class NeoPathPartTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathPartEdgeLeafs() <em>Get Neo Path Part Edges</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathPartEdgeLeafs() <em>Get Neo Path Part Edge Leafs</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathPartEdgeLeafs()
 	 * @generated
 	 */
-	public void testGetNeoPathPartEdges() {
+	public void testGetNeoPathPartEdgeLeafs() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

@@ -2273,13 +2273,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PATH_PART___CREATE_NEO4J_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Get Neo Path Part Edges</em>' operation.
+	 * The operation id for the '<em>Get Neo Path Part Edge Leafs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PART___GET_NEO_PATH_PART_EDGES = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
+	int NEO_PATH_PART___GET_NEO_PATH_PART_EDGE_LEAFS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Cypher Variable</em>' operation.
@@ -2588,13 +2588,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_COMPLEX_EDGE___CREATE_NEO4J_ADAPTION = NEO_PATH_PART___CREATE_NEO4J_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Get Neo Path Part Edges</em>' operation.
+	 * The operation id for the '<em>Get Neo Path Part Edge Leafs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_COMPLEX_EDGE___GET_NEO_PATH_PART_EDGES = NEO_PATH_PART___GET_NEO_PATH_PART_EDGES;
+	int NEO_COMPLEX_EDGE___GET_NEO_PATH_PART_EDGE_LEAFS = NEO_PATH_PART___GET_NEO_PATH_PART_EDGE_LEAFS;
 
 	/**
 	 * The operation id for the '<em>Get Cypher Variable</em>' operation.
@@ -2957,13 +2957,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_SIMPLE_EDGE___CREATE_NEO4J_ADAPTION = NEO_PATH_PART___CREATE_NEO4J_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Get Neo Path Part Edges</em>' operation.
+	 * The operation id for the '<em>Get Neo Path Part Edge Leafs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE___GET_NEO_PATH_PART_EDGES = NEO_PATH_PART___GET_NEO_PATH_PART_EDGES;
+	int NEO_SIMPLE_EDGE___GET_NEO_PATH_PART_EDGE_LEAFS = NEO_PATH_PART___GET_NEO_PATH_PART_EDGE_LEAFS;
 
 	/**
 	 * The operation id for the '<em>Get Cypher Variable</em>' operation.
@@ -5917,14 +5917,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EReference getNeoPathPart_NeoComplexEdge();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathPartEdgeLeafs() <em>Get Neo Path Part Edges</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathPartEdgeLeafs() <em>Get Neo Path Part Edge Leafs</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Neo Path Part Edges</em>' operation.
+	 * @return the meta object for the '<em>Get Neo Path Part Edge Leafs</em>' operation.
 	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathPartEdgeLeafs()
 	 * @generated
 	 */
-	EOperation getNeoPathPart__GetNeoPathPartEdges();
+	EOperation getNeoPathPart__GetNeoPathPartEdgeLeafs();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherVariable() <em>Get Cypher Variable</em>}' operation.
@@ -6488,12 +6488,12 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EReference NEO_PATH_PART__NEO_COMPLEX_EDGE = eINSTANCE.getNeoPathPart_NeoComplexEdge();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Neo Path Part Edges</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Neo Path Part Edge Leafs</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation NEO_PATH_PART___GET_NEO_PATH_PART_EDGES = eINSTANCE.getNeoPathPart__GetNeoPathPartEdges();
+		EOperation NEO_PATH_PART___GET_NEO_PATH_PART_EDGE_LEAFS = eINSTANCE.getNeoPathPart__GetNeoPathPartEdgeLeafs();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Cypher Variable</b></em>' operation.

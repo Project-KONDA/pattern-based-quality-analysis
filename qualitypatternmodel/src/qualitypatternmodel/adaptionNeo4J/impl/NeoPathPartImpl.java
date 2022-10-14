@@ -406,7 +406,7 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AdaptionNeo4JPackage.NEO_PATH_PART___GET_NEO_PATH_PART_EDGES:
+			case AdaptionNeo4JPackage.NEO_PATH_PART___GET_NEO_PATH_PART_EDGE_LEAFS:
 				return getNeoPathPartEdgeLeafs();
 			case AdaptionNeo4JPackage.NEO_PATH_PART___GET_CYPHER_VARIABLE:
 				try {
