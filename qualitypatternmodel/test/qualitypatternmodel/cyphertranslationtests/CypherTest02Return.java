@@ -104,7 +104,6 @@ public class CypherTest02Return {
 		neoSimpleEdge1.addNeoTargetNodeLabel("IndexPlace");
 		neoSimpleEdge1.addNeoEdgeLabel("APPEARS_IN");
 		neoSimpleEdge2.addNeoEdgeLabel("APPEARS_IN");
-		neoSimpleEdge2.setIsLastEdge(true);
 		NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
 		neoComplexEdge1.addNeoPathPart(neoSimpleEdge1);
 		neoComplexEdge1.addNeoPathPart(neoSimpleEdge2);
@@ -121,7 +120,6 @@ public class CypherTest02Return {
 		neoSimpleEdge3.addNeoTargetNodeLabel("IndexPerson");
 		neoSimpleEdge4.addNeoEdgeLabel("APPEARS_IN");
 		neoSimpleEdge4.addNeoTargetNodeLabel("Regesta");
-		neoSimpleEdge4.setIsLastEdge(true);
 		neoComplexEdge2.addNeoPathPart(neoSimpleEdge3);
 		neoComplexEdge2.addNeoPathPart(neoSimpleEdge4);
 		neoPropertyPathParam.setNeoPathPart(neoComplexEdge2);

@@ -34,33 +34,38 @@ public class CypherTest00 {
 	public static final AdaptionNeo4JFactory FACTORY = new AdaptionNeo4JFactoryImpl();
 	
 	protected static void test(ArrayList<CompletePattern> completePatterns) {
-		Java2Neo4JConnector connector = new Java2Neo4JConnector();
-		for (CompletePattern completePattern : completePatterns) {
-			replace(completePattern);
-			try {
-//				completePattern.isValid(AbstractionLevel.CONCRETE); // TODO: allow technology-dependent validation
-				System.out.println("\n\n___PATTERN_(VALID)___");
-				System.out.println(completePattern.myToString());
-				System.out.print("\n___TRANSLATION___");
-				String query = completePattern.generateCypher();
-				//Depending on the test mode activated the db-connector
-				System.out.println(query); 
-				//Include the null check for the results
-				String hashCode = query.hashCode() + "";
-				connector.queryTester(query, hashCode);
-				String returnString = query.substring(query.indexOf(CypherSpecificConstants.CLAUSE_RETURN));
-				if (returnString.toLowerCase().contains("null")) {
-					throw new InvalidityException("The RETURN-CLAUSE contains null.");
-				}
-			} catch (Exception e) {
-				System.out.println();
-				e.printStackTrace();
-				try {
-				  System.out.println(completePattern.myToString());
-				} catch (Exception e2) {
-					e2.printStackTrace();
+		try {
+			try (Java2Neo4JConnector connector = new Java2Neo4JConnector()) {
+				for (CompletePattern completePattern : completePatterns) {
+					replace(completePattern);
+					try {
+//						completePattern.isValid(AbstractionLevel.CONCRETE); // TODO: allow technology-dependent validation
+						System.out.println("\n\n___PATTERN_(VALID)___");
+						System.out.println(completePattern.myToString());
+						System.out.print("\n___TRANSLATION___");
+						String query = completePattern.generateCypher();
+						//Depending on the test mode activated the db-connector
+						System.out.println(query); 
+						//Include the null check for the results
+						String hashCode = query.hashCode() + "";
+						connector.queryTester(query, hashCode);
+						String returnString = query.substring(query.indexOf(CypherSpecificConstants.CLAUSE_RETURN));
+						if (returnString.toLowerCase().contains("null")) {
+							throw new InvalidityException("The RETURN-CLAUSE contains null.");
+						}
+					} catch (Exception e) {
+						System.out.println();
+						e.printStackTrace();
+						try {
+						  System.out.println(completePattern.myToString());
+						} catch (Exception e2) {
+							e2.printStackTrace();
+						}
+					}
 				}
 			}
+		} catch (Exception e) {
+			System.out.println(e);
 		}
 	}
 	
