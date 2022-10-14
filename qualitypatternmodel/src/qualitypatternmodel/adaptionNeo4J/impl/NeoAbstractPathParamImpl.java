@@ -72,7 +72,7 @@ public abstract class NeoAbstractPathParamImpl extends ParameterImpl implements 
 	}
 	
 	protected boolean checkTargetNodes(NeoSimpleEdge neoSimpleEdge) {
-		return neoSimpleEdge.getNeoTargetNodeLabels() == null;
+		return neoSimpleEdge.getNeoTargetNodeLabels() != null;
 	}
 
 	/**
