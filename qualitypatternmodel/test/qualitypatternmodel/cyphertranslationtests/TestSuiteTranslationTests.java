@@ -24,7 +24,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 @TestInstance(Lifecycle.PER_CLASS)
-public class TestSuitTranslationTests {
+public class TestSuiteTranslationTests {
 	private static final String EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION = "NOT ALL EXCPECTED EXCEPTIONS HAVE BEEN THROWN";
 	private ArrayList<CompletePattern> completePatterns;
 	
