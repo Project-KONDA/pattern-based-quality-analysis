@@ -16,17 +16,14 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
-import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoComplexEdgeImpl;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl;
-import qualitypatternmodel.adaptionNeo4J.impl.NeoPathParamImpl;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyEdgeImpl;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyPathParamImpl;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl;
@@ -252,6 +249,14 @@ public class Neo02NeoPropertyEdgeTest extends NeoAbstractEdgeTest {
 			assertTrue(list.getParameters().size() == 1);
 			assertTrue(list.getParameters().get(0) instanceof NeoPropertyPathParam);
 
+			//For setting the NeoPropertyEdge in the NeoPropertyPathParam
+//			Mockito.doCallRealMethod().when(mockNeoEdgeImpl);
+			//EMF interne logic zur bidirektionalem setzen der Werte wird nicht getriggert, daher manuelle einfügung
+//			((NeoPathParam) list.getParameters().get(0)).setNeoEdge(mockNeoEdgeImpl);
+			
+//			assertEquals(mockNeoEdgeImpl, ((NeoPathParamImpl) list.getParameters().get(0)).getNeoEdge());
+			
+			
 			Mockito.when(mockNeoPropertyEdgeImpl.getNeoPropertyPathParam()).thenReturn((NeoPropertyPathParam) list.getParameters().get(0));
 			mockNeoPropertyEdgeImpl.createParameters();
 			assertTrue(list.getParameters().size() == 1);

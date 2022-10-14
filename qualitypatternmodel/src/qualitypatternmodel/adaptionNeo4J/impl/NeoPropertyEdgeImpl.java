@@ -195,7 +195,6 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 				if (neoPropertyPathParam == null) {
 					neoPropertyPathParam = new NeoPropertyPathParamImpl();
 					setNeoPropertyPathParam(neoPropertyPathParam);
-//					neoPropertyPathParam.setNeoPropertyEdge(this);
 					pList.add(neoPropertyPathParam);	
 				}
 				if (!pList.equals(neoPropertyPathParam.getParameterList())) {

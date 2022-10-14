@@ -110,7 +110,6 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 				if (neoPathParam == null) {
 					neoPathParam = new NeoPathParamImpl();
 					setNeoPathParam(neoPathParam);
-//					neoPathParam.setNeoEdge(this);
 					pList.add(neoPathParam);	
 				}
 				if (!pList.equals(neoPathParam.getParameterList())) {

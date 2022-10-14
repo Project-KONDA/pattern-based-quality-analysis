@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.lang.reflect.Method;
 
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 
 public abstract class NeoAbstractPathPartTest implements InterfaceNeoPathPartTest {
@@ -46,5 +47,12 @@ public abstract class NeoAbstractPathPartTest implements InterfaceNeoPathPartTes
 			System.out.println(e);
 			assertFalse(true);
 		}
+	}
+
+	protected Method getTheGetNeoAbstractPathParamMethod() throws NoSuchMethodException {
+		Class obj = NeoPathPartImpl.class;
+		Method m = obj.getDeclaredMethod("getNeoAbstractPathParam");
+		m.setAccessible(true);
+		return m;
 	}
 }

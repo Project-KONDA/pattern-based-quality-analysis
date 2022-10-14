@@ -142,7 +142,9 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	public EList<NeoPathPart> getNeoPathPartEdges() {
 		EList<NeoPathPart> list = new BasicEList<NeoPathPart>();
 		for(NeoPathPart neoPath : getNeoPathPart()) {
-			list.addAll(neoPath.getNeoPathPartEdges());
+			if (neoPath != null && neoPath.getNeoPathPartEdges() != null) {
+				list.addAll(neoPath.getNeoPathPartEdges());
+			}
 		}
 		return list;
 	}
@@ -257,15 +259,17 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	 */
 	@Override
 	public void addNeoPathPart(NeoPathPart neoPathPart) {
-		setLastEdgeInPreviewsLeaves(false);
 		if (neoPathPart != null) {
-			getNeoPathPart().add(neoPathPart);
-			if (getNeoComplexEdge() != null) {
-				((NeoPathPartImpl) neoPathPart).setCount(this.getHighestComplexEdge().getCount());
-			} else if(neoPathPart instanceof NeoComplexEdgeImpl) {
-				((NeoComplexEdgeImpl) neoPathPart).setCount(getCount(), this);
-			} else {
-				((NeoPathPartImpl) neoPathPart).setCount(getCount());
+			setLastEdgeInPreviewsLeaves(false);
+			if (neoPathPart != null) {
+				getNeoPathPart().add(neoPathPart);
+				if (getNeoComplexEdge() != null) {
+					((NeoPathPartImpl) neoPathPart).setCount(this.getHighestComplexEdge().getCount());
+				} else if(neoPathPart instanceof NeoComplexEdgeImpl) {
+					((NeoComplexEdgeImpl) neoPathPart).setCount(getCount(), this);
+				} else {
+					((NeoPathPartImpl) neoPathPart).setCount(getCount());
+				}
 			}
 		}
 	}

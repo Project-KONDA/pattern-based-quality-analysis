@@ -32,7 +32,6 @@ import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoAbstractPathParamImpl;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoComplexEdgeImpl;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoPathParamImpl;
-import qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyPathParamImpl;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl;
 import qualitypatternmodel.cypherclasstester.NeoAbstractPathPartTest;
@@ -436,13 +435,6 @@ public class Neo04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 			System.out.println(e);
 			assertFalse(true);
 		}
-	}
-
-	public Method getTheGetNeoAbstractPathParamMethod() throws NoSuchMethodException {
-		Class obj = NeoPathPartImpl.class;
-		Method m = obj.getDeclaredMethod("getNeoAbstractPathParam");
-		m.setAccessible(true);
-		return m;
 	}
 
 	//REMOCE
