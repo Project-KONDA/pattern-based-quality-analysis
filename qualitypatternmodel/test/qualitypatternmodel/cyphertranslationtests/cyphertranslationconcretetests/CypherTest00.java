@@ -25,7 +25,6 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
-import static qualitypatternmodel.xmltranslationtests.Test00.*;
 
 
 //--> Systemtest und kein Kompnententest
