@@ -38,9 +38,9 @@ public class CypherTest00 extends CypherTranslationAbstract {
 	@Override
 	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		completePatterns.add(getBasePatternFinal());
+		completePatterns.add(getBasePatternCypher());
 		completePatterns.add(getBasePatternComplexFinal());
-		completePatterns.add(getComplexMatchStructure());
+		completePatterns.add(getComplexStructure());
 		completePatterns.add(getBasePatternCondDateConcrete("1440-02-02"));
 		completePatterns.add(getBasePatternCondConcrete("1439-12-20"));
 		completePatterns.add(getBasePatternMatchConcrete("1439.*"));
@@ -53,14 +53,34 @@ public class CypherTest00 extends CypherTranslationAbstract {
 		//Add Exception-Tests
 	}
 	
-	protected static CompletePattern getBasePatternFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	/**
+	 *@author Lukas
+	 *<p> This is a simple base Pattern which contains a NeoNode and a NeoPropertyNode
+	 *	The NeoPropertyNode is not printed. Both are connected by a NeoPropertyEdge without a NeoPropertyPathParam
+	 * </p>
+	 * @return
+	 * @throws InvalidityException
+	 * @throws OperatorCycleException
+	 * @throws MissingPatternContainerException
+	 */
+	protected static CompletePattern getBasePatternCypher() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePattern();
 		completePattern.createNeo4jAdaption();
-		
 		return completePattern;
 	}
 	
-	private static CompletePattern getComplexMatchStructure() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	/**
+	 * @author Lukas
+	 * <p> This Pattern represents a Complex Structure with 6 NeoNodes
+	 * With are all connected.
+	 * Fitting labels have been added as well  
+	 * </p>
+	 * @return
+	 * @throws InvalidityException
+	 * @throws OperatorCycleException
+	 * @throws MissingPatternContainerException
+	 */
+	private static CompletePattern getComplexStructure() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		

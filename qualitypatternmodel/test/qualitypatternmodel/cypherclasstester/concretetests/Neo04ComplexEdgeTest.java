@@ -398,6 +398,7 @@ public class Neo04ComplexEdgeTest extends NeoAbstractPathPartTest {
 	@Test
 	public void getCypherVariableException() {	
 		try {
+			//Look at this again
 			assertNull(neoPathPart.getCypherVariable());
 			neoComplexEdge.addNeoPathPart(FACTORY.createNeoComplexEdge());
 			assertEquals(null, neoPathPart.getCypherVariable());

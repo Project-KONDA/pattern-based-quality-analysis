@@ -99,7 +99,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 
 	@Override
 	public String generateCypher() throws InvalidityException {
-		//TODO --> Optimization
+		//TODO --> Optimization --> Future Work
 		if (getIncomingMapping() == null) {
 			StringBuilder cypher = new StringBuilder();
 			cypher.append("(");

@@ -104,7 +104,6 @@ public class CypherTest01NeoEdge extends CypherTranslationAbstract {
 		neoEdge.setReturnElement(true);
 		NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
 		NeoSimpleEdge neoSimpleEdge = (NeoSimpleEdge) neoPathParam.getNeoPathPart();
-		//neoSimpleEdge.addStringTargetNodeLabel("PLACE_OF_ISSUE"); --> With that it also has to be tested
 		neoSimpleEdge.addNeoEdgeLabel("PLACE_OF_ISSUE");
 		
 		NeoNode neoNode1 = (NeoNode) completePattern.getGraph().getNodes().get(0);
@@ -155,7 +154,7 @@ public class CypherTest01NeoEdge extends CypherTranslationAbstract {
 		return completePattern;
 	}
 	
-	//Wichtig --> Besonders für die NeoPropertyNode
+	
 	private static CompletePattern getSimpleEdgeWithTargetNodeAndDopple() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternNeoEdge();
 		NeoEdge neoEdge = (NeoEdge) completePattern.getGraph().getRelations().get(0);

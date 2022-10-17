@@ -26,6 +26,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
+import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
@@ -41,6 +42,9 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class NotConditionImpl extends ConditionImpl implements NotCondition {
+	private static final String CYPHER_CLOSING_BRACKET = ")";
+	private static final String CYPHER_OPEN_BRAKET = " (";
+	private static final String INVALID_CONDITION = "Invalid condition";
 	/**
 	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -64,7 +68,7 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	public String generateXQuery() throws InvalidityException {
 		if (condition != null) {
 			String conQuery = condition.generateXQuery().replace("\n", "\n  "); 
-			return "not(" + conQuery + ")";
+			return "not(" + conQuery + CYPHER_CLOSING_BRACKET;
 		} else {
 			throw new InvalidityException("invalid condition");
 		}
@@ -111,17 +115,17 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 			throw new UnsupportedOperationException();
 		}
 		
-		if (condition != null) {
+		if (!(condition == null || condition instanceof TrueElement)) {
 			String result = null;
 			if (condition instanceof NotCondition) {
 				return ((NotCondition) condition).getCondition().generateCypher();
 			}
 			
 			result = CypherSpecificConstants.BOOLEAN_OPERATOR_NOT;
-			result += " (" + condition.generateCypher() + ")";
+			result += CYPHER_OPEN_BRAKET + condition.generateCypher() + CYPHER_CLOSING_BRACKET;
 			return result;	
 		}
-		throw new InvalidityException("Not Condition - invalid condition");
+		throw new InvalidityException(INVALID_CONDITION);
 	}
 	
 	@Override
@@ -135,7 +139,7 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && condition == null)
-			throw new InvalidityException("condition null (" + getInternalId() + ")");
+			throw new InvalidityException("condition null (" + getInternalId() + CYPHER_CLOSING_BRACKET);
 	}
 	
 	@Override

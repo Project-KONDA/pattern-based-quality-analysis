@@ -1,6 +1,7 @@
 package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
 import java.util.ArrayList;
+
 import qualitypatternmodel.adaptionNeo4J.NeoDirection;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
@@ -21,6 +22,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.DateParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
@@ -29,7 +31,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
 
 
-//Think about to create a other test class just for the QuantifiedCond!
+//Think about to create a other test class just for the QuantifiedCond! --> Done
 //Specelly for the exceptiontests 
 public class CypherTest03NotCondition extends CypherTranslationAbstract {    
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -55,7 +57,9 @@ public class CypherTest03NotCondition extends CypherTranslationAbstract {
 	@Override
 	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		// TODO Auto-generated method stub
+		completePatternsExceptions.add(notCondDoesNotContainConndititon());
+		completePatternsExceptions.add(notCondContainsTrueElement());
+		//completePatternsExceptions.add(notCondContainsCountPattern());
 	}
 
 	private static CompletePattern getTestPattern1() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -622,4 +626,36 @@ public class CypherTest03NotCondition extends CypherTranslationAbstract {
 		
 		return completePattern;		
 	}
+	
+	//Exception-Patterns
+	private static CompletePattern notCondDoesNotContainConndititon() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern comp = CypherTest00.getBasePattern();
+		NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
+		notCond.setCondition(null);
+		comp.createNeo4jAdaption();
+		comp.setCondition(notCond);
+		return comp;
+	}
+	
+	//True Element is the ending however it is not printed --> Thus a empty excpression would be inside of the query
+	private static CompletePattern notCondContainsTrueElement() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern comp = CypherTest00.getBasePattern();
+		comp.setCondition(PatternstructureFactory.eINSTANCE.createNotCondition());
+		comp.createNeo4jAdaption();
+		return comp;
+	}
+	
+	//In current dev a count condition can not be neasted
+	private static CompletePattern notCondContainsCountPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern comp = CypherTest00.getBasePattern();
+		NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
+		comp.setCondition(notCond);
+		CountCondition count = PatternstructureFactory.eINSTANCE.createCountCondition();
+		count.setCountPattern(PatternstructureFactory.eINSTANCE.createCountPattern());
+		count.setArgument2(PatternstructureFactory.eINSTANCE.createNumberElement());
+		notCond.setCondition(count);
+		comp.createNeo4jAdaption();
+		return comp;
+	}
+	
 }
