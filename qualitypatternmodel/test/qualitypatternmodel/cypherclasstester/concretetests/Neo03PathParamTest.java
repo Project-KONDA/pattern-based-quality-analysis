@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -33,6 +34,7 @@ import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
+@DisplayName("NeoPathParamTest")
 public class Neo03PathParamTest extends NeoAbstractPathParamTest {
 	NeoPathParam neoPathParam;
 	

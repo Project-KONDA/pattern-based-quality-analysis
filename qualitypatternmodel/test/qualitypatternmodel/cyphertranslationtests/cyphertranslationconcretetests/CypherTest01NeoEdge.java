@@ -370,35 +370,6 @@ public class CypherTest01NeoEdge extends CypherTranslationAbstract {
 		return completePattern;
 	}
 	
-
-	//Rework since the last edge is set automaticlly
-	//Exception In the ComplexEdge
-	//The ComplexEdge is not correct -- Because "No LastEdge"
-	private static CompletePattern tryValidateComplexEdgeNoLastEdgeIsSet() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getBasePatternNeoEdge();
-		NeoEdge neoEdge = (NeoEdge) completePattern.getGraph().getRelations().get(0);
-		NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
-		NeoComplexEdge neoComplexEdge = NEO_FACTORY.createNeoComplexEdge();
-		NeoSimpleEdge neoSimpleEdge1 = NEO_FACTORY.createNeoSimpleEdge();
-		neoSimpleEdge1.addNeoTargetNodeLabel("Place");
-		neoSimpleEdge1.addNeoEdgeLabel("PLACE_OF_ISSUE");
-		neoSimpleEdge1.setNeoDirection(NeoDirection.RIGHT);
-		NeoSimpleEdge neoSimpleEdge2 = NEO_FACTORY.createNeoSimpleEdge();
-		neoSimpleEdge2.addNeoEdgeLabel("PLACE_OF_ISSUE");
-		neoSimpleEdge2.setNeoDirection(NeoDirection.LEFT);
-		neoSimpleEdge2.addNeoTargetNodeLabel("Regesta");
-		NeoSimpleEdge neoSimpleEdge3 = NEO_FACTORY.createNeoSimpleEdge();
-		neoSimpleEdge3.addNeoEdgeLabel("APPEARS_IN");
-		neoSimpleEdge3.setNeoDirection(NeoDirection.LEFT);
-		
-		neoComplexEdge.addNeoPathPart(neoSimpleEdge1);
-		neoComplexEdge.addNeoPathPart(neoSimpleEdge2);
-		neoComplexEdge.addNeoPathPart(neoSimpleEdge3);
-		neoPathParam.setNeoPathPart(neoComplexEdge);
-		
-		return completePattern;
-	}
-	
 	//Exception In the NeoNode
 	//ComplexNode can not be empty
 	private static CompletePattern tryNeoNeoPathPartIsSetWithEmptyComplexEdge() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

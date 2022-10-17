@@ -28,7 +28,6 @@ public abstract class CypherTranslationAbstract implements CypherTranslationeInt
 	public static final String END_SPECIFIC_TESTS = "<<< END - Specific Tests >>>";
 	public static final String BEGIN_SPECIFIC_TESTS = "<<< BEGIN - Specific Tests >>>";
 	
-
 	public static void exceptionTestHandler(ArrayList<CompletePattern> completePatterns) {
 		for (CompletePattern completePattern : completePatterns) {
 			try {
@@ -57,7 +56,6 @@ public abstract class CypherTranslationAbstract implements CypherTranslationeInt
 				for (CompletePattern completePattern : completePatterns) {
 					replace(completePattern);
 					try {
-	//						completePattern.isValid(AbstractionLevel.CONCRETE); // TODO: allow technology-dependent validation
 						System.out.println(PATTERN_VALID);
 						System.out.println(completePattern.myToString());
 						System.out.print(TRANSLATION);
@@ -86,7 +84,6 @@ public abstract class CypherTranslationAbstract implements CypherTranslationeInt
 
 	public void generalizedInvalidtyExceptionTests()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		//INTRODUCE THE EXCEPTION TESTS
 		ArrayList<CompletePattern> completePatternsExceptions = new ArrayList<CompletePattern>();
 		buildInvalidityExceptionPatterns(completePatternsExceptions);
 		if (completePatternsExceptions.size() != 0) {
@@ -100,7 +97,6 @@ public abstract class CypherTranslationAbstract implements CypherTranslationeInt
 
 	public void generalizedTests()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		//Tests
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		buildPatterns(completePatterns);
 		if (completePatterns.size() != 0) {

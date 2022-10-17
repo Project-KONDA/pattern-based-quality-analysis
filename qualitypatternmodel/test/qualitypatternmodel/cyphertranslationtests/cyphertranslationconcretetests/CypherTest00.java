@@ -25,8 +25,6 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
-
-
 //--> Systemtest und kein Kompnententest
 public class CypherTest00 extends CypherTranslationAbstract {
 	public static final AdaptionNeo4JFactory FACTORY = new AdaptionNeo4JFactoryImpl();
@@ -52,7 +50,7 @@ public class CypherTest00 extends CypherTranslationAbstract {
 	@Override
 	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		// TODO Auto-generated method stub
+		//Add Exception-Tests
 	}
 	
 	protected static CompletePattern getBasePatternFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
