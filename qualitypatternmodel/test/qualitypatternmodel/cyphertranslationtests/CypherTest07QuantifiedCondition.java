@@ -36,7 +36,7 @@ public class CypherTest07QuantifiedCondition {
 		System.out.println("");
 		System.out.println("<<< BEGIN - Exception Tests >>>");
 		ArrayList<CompletePattern> completePatternsExceptions = new ArrayList<CompletePattern>();
-		buildExceptionPatterns(completePatternsExceptions);
+		buildInvalidtyExceptionPatterns(completePatternsExceptions);
 		//Call Exception Handler
 		CypherTest00.exceptionHandler(completePatternsExceptions);
 		System.out.println("<<< END - Exception Tests >>>");
@@ -45,10 +45,10 @@ public class CypherTest07QuantifiedCondition {
 
 	
 	//CHECKING WHAT HAPPENS IF THE GRAPH HAS ALSO CONDITIONS --> Build test with multiple properties!
-	protected static void buildExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
+	protected static void buildInvalidtyExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		completePatternsExceptions.add(getNodesWhereExits(true));
-		completePatternsExceptions.add(tryNodesWhereMultiplePropertyExistsChecks(true));
+		
+		
 		completePatternsExceptions.add(tryNodesWhereNoBeginnings(false));
 		completePatternsExceptions.add(tryNodesWhereNoBeginnings(true));
 		completePatternsExceptions.add(tryWithForAllPropertyExistence());
@@ -57,8 +57,9 @@ public class CypherTest07QuantifiedCondition {
 	protected static void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(getNodesWhereExits(false));
+		completePatterns.add(getNodesWhereExits(true));
 		completePatterns.add(getNodesWhereMultiplePropertyExistsChecks(false));
-		completePatterns.add(getNodesWhereMultiplePropertyExistsChecks(true));
+		completePatterns.add(getNodesWhereMultiplePropertyExistsChecks(true));		
 	}
 	
 	private static CompletePattern getBasePattern() throws InvalidityException {
@@ -75,6 +76,7 @@ public class CypherTest07QuantifiedCondition {
 		return completePattern;	
 	}
 	
+	//Does not throw an Exception --> have a deeper look inside again what it does
 	//PATTERN where to identifie a missing element with exists
 	private static CompletePattern getNodesWhereExits(boolean not) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePattern();

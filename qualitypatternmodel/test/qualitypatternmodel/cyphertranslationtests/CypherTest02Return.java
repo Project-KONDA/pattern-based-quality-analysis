@@ -39,14 +39,14 @@ public class CypherTest02Return {
 		System.out.println("");
 		System.out.println("<<< BEGIN - Exception Tests >>>");
 		ArrayList<CompletePattern> completePatternsExceptions = new ArrayList<CompletePattern>();
-		buildExceptionPatterns(completePatternsExceptions);
+		buildInvalidyExceptionPatterns(completePatternsExceptions);
 		//Call Exception Handler
 		CypherTest00.exceptionHandler(completePatternsExceptions);
 		System.out.println("<<< END - Exception Tests >>>");
 		System.out.println("");
 	}
 
-	protected static void buildExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
+	protected static void buildInvalidyExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatternsExceptions.add(tryNoReturnClause());
 		completePatternsExceptions.add(tryThereIsNoNeoPropertyNode());

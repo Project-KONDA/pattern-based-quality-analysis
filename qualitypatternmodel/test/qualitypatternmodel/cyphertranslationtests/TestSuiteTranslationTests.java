@@ -17,7 +17,6 @@ import org.junit.jupiter.api.AfterEach;
 import java.util.ArrayList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -25,8 +24,13 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
 
 @TestInstance(Lifecycle.PER_CLASS)
 public class TestSuiteTranslationTests {
+	private static final String NEWLINE = "\n";
+	private static final String NULL = "null";
+	private static final String THE_RETURN_CLAUSE_CONTAINS_NULL = "The RETURN-CLAUSE contains null";
 	private static final String DIFFRENT_OTHER_EXCEPTIONS = "Diffrent other Exceptions";
-	private static final String EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION = "NOT ALL EXCPECTED EXCEPTIONS HAVE BEEN THROWN";
+	private static final String EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION = "NOT ALL INVALIDTIY EXCPECTED EXCEPTIONS HAVE BEEN THROWN";
+	private static final String EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION = "NOT ALL UNSUPPORTED MESSAGE EXCPECTED EXCEPTIONS HAVE BEEN THROWN";
+	private static final String THE_MATCH_CLAUSE_CONTAINS_NULL = "The MATCH-CLAUSE contains null";
 	private ArrayList<CompletePattern> completePatterns;
 	
 	@BeforeAll
@@ -47,284 +51,333 @@ public class TestSuiteTranslationTests {
 	@Test
 	public void CypherTest00() {		
 		assertDoesNotThrow(() -> {CypherTest00.buildPatterns(completePatterns); 
-			test(completePatterns);});
+			tester(completePatterns);});
 	}
 
 	@Test
 	public void CypherTest01NeoEdge() {		
 		assertDoesNotThrow(() -> {CypherTest01NeoEdge.buildPatterns(completePatterns); 
-		test(completePatterns);});
+			tester(completePatterns);});
 	}
 	
 	
 	@Test
 	public void CypherTest01NeoEdgeExceptions() {		
-		assertThrows(InvalidityException.class, () -> {CypherTest01NeoEdge.buildPatterns(completePatterns); 
-				CypherTest00.exceptionHandler(completePatterns);},
+		assertThrows(InvalidityException.class, () -> {CypherTest01NeoEdge.buildInvalidateExceptionPatterns(completePatterns);
+				for (CompletePattern cp : completePatterns) exceptionHandler(cp);},
 				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-		assertThrows(OperatorCycleException.class, () -> {CypherTest01NeoEdge.tryBuildNeoNeoNeedsAPathParam(); 
-					CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
+		assertThrows(InvalidityException.class, () -> {CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
 				//Add additional Exceptions
 				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
+		assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoEdge.tryBuildNeoNeoNeedsAPathParam();
+				//Add additional Exceptions,
+				}, 
+				EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
+//		assertThrows(Exception.class, () -> {//Add additional Exceptions
+//			}, DIFFRENT_OTHER_EXCEPTIONS);
+	}
+	
+	@Test
+	public void CypherTest01NeoPropertyEdge() {		
+		assertDoesNotThrow(() -> {CypherTest01NeoPropertyEdge.buildPatterns(completePatterns); 
+			tester(completePatterns);});
+	}
+	
+	@Test
+	public void CypherTest01NeoPropertyEdgeExceptions() {		
+		assertThrows(InvalidityException.class, () -> {CypherTest01NeoEdge.buildInvalidateExceptionPatterns(completePatterns);
+					for (CompletePattern cp : completePatterns) exceptionHandler(cp);},
+					EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
+//		assertThrows(OperatorCycleException.class, () -> {CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
+//					//Add additional Exceptions
+//					EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
+//		assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoEdge.tryBuildNeoNeoNeedsAPathParam();
+//					//Add additional Exceptions,
+//					}, 
+//					EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
+//		assertThrows(Exception.class, () -> {//Add additional Exceptions
+//					}, DIFFRENT_OTHER_EXCEPTIONS);
+	}
+	
+	
+	@Test
+	public void CypherTest02Return() {		
+		assertDoesNotThrow(() -> {CypherTest02Return.buildPatterns(completePatterns); 
+		tester(completePatterns);});
+	}
+	
+	@Test
+	public void CypherTest02ReturnExceptions() {		
+		assertThrows(InvalidityException.class, () -> {CypherTest02Return.buildInvalidyExceptionPatterns(completePatterns);
+				for (CompletePattern cp : completePatterns) exceptionHandler(cp);
+				},
+				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
+//		assertThrows(OperatorCycleException.class, () -> {CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
+//				//Add additional Exceptions
+//				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
+//		assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoEdge.tryBuildNeoNeoNeedsAPathParam();
+//			//Add additional Exceptions,
+//			}, 
+//			EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
+//		assertThrows(Exception.class, () -> {//Add additional Exceptions
+//			}, DIFFRENT_OTHER_EXCEPTIONS);
+	}
+	
+	
+	@Test
+	public void CypherTest03NotCondition() {		
+		assertDoesNotThrow(() -> {CypherTest03NotCondition.buildPatterns(completePatterns); 
+		tester(completePatterns);});
+	}
+	
+	//@Test
+	public void CypherTest03NotConditionExceptions() {		
+		assertThrows(InvalidityException.class, () -> {//Add additional Exceptions
+				},
+				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
+		assertThrows(OperatorCycleException.class, () -> {CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
+				//Add additional Exceptions
+				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
+		assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoEdge.tryBuildNeoNeoNeedsAPathParam();
+			//Add additional Exceptions,
+			}, 
+			EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
 		assertThrows(Exception.class, () -> {//Add additional Exceptions
 			}, DIFFRENT_OTHER_EXCEPTIONS);
 	}
 	
 	
 	@Test
-	public void CypherTest01NeoPropertyEdge() {		
-		assertDoesNotThrow(() -> {CypherTest01NeoPropertyEdge.buildPatterns(completePatterns); 
-		test(completePatterns);});
-	}
-	
-//	@Test
-//	public void CypherTest01NeoEdgeExceptions() {		
-//		assertThrows(InvalidityException.class, () -> {CypherTest01NeoPropertyEdge.buildPatterns(completePatterns); 
-//				CypherTest00.exceptionHandler(completePatterns);},
-//				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-////		assertThrows(OperatorCycleException.class, () -> {CypherTest01NeoPropertyEdge.buildPatterns(completePatterns); 
-////		CypherTest00.exceptionHandler(completePatterns);},
-////				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-////		assertThrows(MissingPatternContainerException.class, () -> {CypherTest01NeoPropertyEdge.buildPatterns(completePatterns); 
-////		CypherTest00.exceptionHandler(completePatterns);},
-////				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-//	}
-	
-	
-	@Test
-	public void CypherTest02Return() {		
-		assertDoesNotThrow(() -> {CypherTest02Return.buildPatterns(completePatterns); 
-		test(completePatterns);});
-	}
-	
-//	@Test
-//	public void CypherTest01NeoEdgeExceptions() {		
-//		assertThrows(InvalidityException.class, () -> {CypherTest02Return.buildPatterns(completePatterns); 
-//				CypherTest00.exceptionHandler(completePatterns);},
-//				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-////		assertThrows(OperatorCycleException.class, () -> {CypherTest02Return.buildPatterns(completePatterns); 
-////		CypherTest00.exceptionHandler(completePatterns);},
-////				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-////		assertThrows(MissingPatternContainerException.class, () -> {CypherTest02Return.buildPatterns(completePatterns); 
-////		CypherTest00.exceptionHandler(completePatterns);},
-////				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-//	}
-	
-	
-	@Test
-	public void CypherTest03NotCondition() {		
-		assertDoesNotThrow(() -> {CypherTest03NotCondition.buildPatterns(completePatterns); 
-		test(completePatterns);});
-	}
-	
-//	@Test
-//	public void CypherTest03NotCondition() {		
-//		assertThrows(InvalidityException.class, () -> {CypherTest03NotCondition.buildPatterns(completePatterns); 
-//				CypherTest00.exceptionHandler(completePatterns);},
-//				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-////		assertThrows(OperatorCycleException.class, () -> {CypherTest03NotCondition.buildPatterns(completePatterns); 
-////		CypherTest00.exceptionHandler(completePatterns);},
-////				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-////		assertThrows(MissingPatternContainerException.class, () -> {CypherTest03NotCondition.buildPatterns(completePatterns); 
-////		CypherTest00.exceptionHandler(completePatterns);},
-////				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-//	}
-	
-	
-	@Test
 	public void CypherTest04Formula() {		
 		assertDoesNotThrow(() -> {CypherTest04Formula.buildPatterns(completePatterns); 
-		test(completePatterns);});
+		tester(completePatterns);});
 	}
 	
-//	@Test
-//	public void CypherTest04Formula() {		
-//		assertThrows(InvalidityException.class, () -> {CypherTest04Formula.buildPatterns(completePatterns); 
-//				CypherTest00.exceptionHandler(completePatterns);},
-//				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-////		assertThrows(OperatorCycleException.class, () -> {CypherTest04Formula.buildPatterns(completePatterns); 
-////		CypherTest00.exceptionHandler(completePatterns);},
-////				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-////		assertThrows(MissingPatternContainerException.class, () -> {CypherTest04Formula.buildPatterns(completePatterns); 
-////		CypherTest00.exceptionHandler(completePatterns);},
-////				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-//	}
+	//@Test
+	public void CypherTest04FormulaExceptions() {		
+		assertThrows(InvalidityException.class, () -> {//Add additional Exceptions
+				},
+				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
+		assertThrows(OperatorCycleException.class, () -> {CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
+				//Add additional Exceptions
+				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
+		assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoEdge.tryBuildNeoNeoNeedsAPathParam();
+			//Add additional Exceptions,
+			}, 
+			EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
+		assertThrows(Exception.class, () -> {//Add additional Exceptions
+			}, DIFFRENT_OTHER_EXCEPTIONS);
+	}
 	
 	@Test
 	public void CypherTest05ParameterValues() {	
 		ArrayList<ParameterValue> values = CypherTest05ParameterValues.getTestParameters();	
 		assertDoesNotThrow(() -> {CypherTest05ParameterValues.buildPatterns(completePatterns, values); 
-		test(completePatterns);});
+		tester(completePatterns);});
 	}
 	
-//	@Test
-//	public void CypherTest05ParameterValues() {		
-//		assertThrows(InvalidityException.class, () -> {CypherTest05ParameterValues.buildPatterns(completePatterns); 
-//				CypherTest00.exceptionHandler(completePatterns);},
-//				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-////		assertThrows(OperatorCycleException.class, () -> {CypherTest05ParameterValues.buildPatterns(completePatterns); 
-////		CypherTest00.exceptionHandler(completePatterns);},
-////				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-////		assertThrows(MissingPatternContainerException.class, () -> {CypherTest05ParameterValues.buildPatterns(completePatterns); 
-////		CypherTest00.exceptionHandler(completePatterns);},
-////				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-//	}
+	//@Test
+	public void CypherTest05ParameterValuesExceptions() {		
+		assertThrows(InvalidityException.class, () -> {//Add additional Exceptions
+				},
+				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
+		assertThrows(OperatorCycleException.class, () -> {CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
+				//Add additional Exceptions
+				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
+		assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoEdge.tryBuildNeoNeoNeedsAPathParam();
+			//Add additional Exceptions,
+			}, 
+			EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
+		assertThrows(Exception.class, () -> {//Add additional Exceptions
+			}, DIFFRENT_OTHER_EXCEPTIONS);
+	}
 	
 	
 	@Test
 	public void CypherTest06Comparison() {	
 		assertDoesNotThrow(() -> {CypherTest06Comparison.buildPatterns(completePatterns); 
-		test(completePatterns);});
+		tester(completePatterns);});
 	}
 	
-//	@Test
-//	public void CypherTest06Comparison() {		
-//		assertThrows(InvalidityException.class, () -> {CypherTest06Comparison.buildPatterns(completePatterns); 
-//				CypherTest00.exceptionHandler(completePatterns);},
-//				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-////		assertThrows(OperatorCycleException.class, () -> {CypherTest06Comparison.buildPatterns(completePatterns); 
-////		CypherTest00.exceptionHandler(completePatterns);},
-////				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-////		assertThrows(MissingPatternContainerException.class, () -> {CypherTest06Comparison.buildPatterns(completePatterns); 
-////		CypherTest00.exceptionHandler(completePatterns);},
-////				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-//	}
+	//@Test
+	public void CypherTest06ComparisonExceptions() {		
+		assertThrows(InvalidityException.class, () -> {//Add additional Exceptions
+				},
+				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
+		assertThrows(OperatorCycleException.class, () -> {CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
+				//Add additional Exceptions
+				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
+		assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoEdge.tryBuildNeoNeoNeedsAPathParam();
+			//Add additional Exceptions,
+			}, 
+			EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
+		assertThrows(Exception.class, () -> {//Add additional Exceptions
+			}, DIFFRENT_OTHER_EXCEPTIONS);
+	}
 	
 	
 	@Test
 	public void CypherTest07QuantifiedCondition() {	
 		assertDoesNotThrow(() -> {CypherTest07QuantifiedCondition.buildPatterns(completePatterns); 
-		test(completePatterns);});
+		tester(completePatterns);});
 	}
 	
-//	@Test
-//	public void CypherTest07QuantifiedCondition() {		
-//		assertThrows(InvalidityException.class, () -> {CypherTest07QuantifiedCondition.buildPatterns(completePatterns); 
-//				CypherTest00.exceptionHandler(completePatterns);},
+	@Test
+	public void CypherTest07QuantifiedConditionExceptions() {		
+		assertThrows(InvalidityException.class, () -> {CypherTest07QuantifiedCondition.buildInvalidtyExceptionPatterns(completePatterns);
+					for (CompletePattern cp : completePatterns) exceptionHandler(cp);
+					},
+					EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
+//		assertThrows(OperatorCycleException.class, () -> {CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
+//				//Add additional Exceptions
 //				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-////		assertThrows(OperatorCycleException.class, () -> {CypherTest07QuantifiedCondition.buildPatterns(completePatterns); 
-////		CypherTest00.exceptionHandler(completePatterns);},
-////				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-////		assertThrows(MissingPatternContainerException.class, () -> {CypherTest07QuantifiedCondition.buildPatterns(completePatterns); 
-////		CypherTest00.exceptionHandler(completePatterns);},
-////				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-//	}	
+//		assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoEdge.tryBuildNeoNeoNeedsAPathParam();
+//			//Add additional Exceptions,
+//			}, 
+//			EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
+//		assertThrows(Exception.class, () -> {//Add additional Exceptions
+//			}, DIFFRENT_OTHER_EXCEPTIONS);
+	}	
 	
 	@Test
 	public void CypherTest08Cycle() {	
 		assertDoesNotThrow(() -> {CypherTest08Cycle.buildPatterns(completePatterns); 
-		test(completePatterns);});
+		tester(completePatterns);});
 	}
 	
-//	@Test
-//	public void CypherTest09Contains() {		
-//		assertThrows(InvalidityException.class, () -> {CypherTest09Contains.buildPatterns(completePatterns); 
-//				CypherTest00.exceptionHandler(completePatterns);},
-//				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-////		assertThrows(OperatorCycleException.class, () -> {CypherTest09Contains.buildPatterns(completePatterns); 
-////		CypherTest00.exceptionHandler(completePatterns);},
-////				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-////		assertThrows(MissingPatternContainerException.class, () -> {CypherTest09Contains.buildPatterns(completePatterns); 
-////		CypherTest00.exceptionHandler(completePatterns);},
-////				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-//	}
+	//@Test
+	public void CypherTest08CycleExceptions() {		
+		assertThrows(InvalidityException.class, () -> {//Add additonal Exceptions
+				},
+				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
+		assertThrows(OperatorCycleException.class, () -> {CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
+				//Add additional Exceptions
+				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
+		assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoEdge.tryBuildNeoNeoNeedsAPathParam();
+			//Add additional Exceptions,
+			}, 
+			EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
+		assertThrows(Exception.class, () -> {//Add additional Exceptions
+			}, DIFFRENT_OTHER_EXCEPTIONS);
+	}
 	
 	
 	@Test
 	public void CypherTest09Contains() {	
 		assertDoesNotThrow(() -> {CypherTest09Contains.buildPatterns(completePatterns); 
-		test(completePatterns);});
+		tester(completePatterns);});
 	}
 	
-//	@Test
-//	public void CypherTest09Contains() {		
-//		assertThrows(InvalidityException.class, () -> {CypherTest09Contains.buildPatterns(completePatterns); 
-//				CypherTest00.exceptionHandler(completePatterns);},
-//				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-////		assertThrows(OperatorCycleException.class, () -> {CypherTest09Contains.buildPatterns(completePatterns); 
-////		CypherTest00.exceptionHandler(completePatterns);},
-////				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-////		assertThrows(MissingPatternContainerException.class, () -> {CypherTest09Contains.buildPatterns(completePatterns); 
-////		CypherTest00.exceptionHandler(completePatterns);},
-////				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-//	}
+	//@Test
+	public void CypherTest09ContainsExceptions() {		
+		assertThrows(InvalidityException.class, () -> {//Add additional Exceptions
+				},
+				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
+		assertThrows(OperatorCycleException.class, () -> {CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
+				//Add additional Exceptions
+				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
+		assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoEdge.tryBuildNeoNeoNeedsAPathParam();
+			//Add additional Exceptions,
+			}, 
+				EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
+		assertThrows(Exception.class, () -> {//Add additional Exceptions
+			}, DIFFRENT_OTHER_EXCEPTIONS);
+	}
 	
 	@Test
 	public void CypherTest10Match() {	
 		assertDoesNotThrow(() -> {CypherTest10Match.buildPatterns(completePatterns); 
-		test(completePatterns);});
+		tester(completePatterns);});
 	}
 	
-//	@Test
-//	public void CypherTest09Contains() {		
-//		assertThrows(InvalidityException.class, () -> {CypherTest10Match.buildPatterns(completePatterns); 
-//				CypherTest00.exceptionHandler(completePatterns);},
-//				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-////		assertThrows(OperatorCycleException.class, () -> {CypherTest10Match.buildPatterns(completePatterns); 
-////		CypherTest00.exceptionHandler(completePatterns);},
-////				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-////		assertThrows(MissingPatternContainerException.class, () -> {CypherTest10Match.buildPatterns(completePatterns); 
-////		CypherTest00.exceptionHandler(completePatterns);},
-////				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-//	}
+	@Test
+	public void CypherTest10MatchExceptions() {		
+		assertThrows(InvalidityException.class, () -> {CypherTest10Match.buildInvalidtyExceptionPatterns(completePatterns);
+				for (CompletePattern cp : completePatterns) exceptionHandler(cp);},
+				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
+		assertThrows(InvalidityException.class, () -> {CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
+				//Add additional Exceptions
+				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
+		assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoEdge.tryBuildNeoNeoNeedsAPathParam();
+				//Add additional Exceptions,
+				}, 
+				EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
+//		assertThrows(Exception.class, () -> {//Add additional Exceptions
+//				}, DIFFRENT_OTHER_EXCEPTIONS);
+	}
 	
 	
 	@Test
 	public void CypherTest11CountCondition() {	
 		assertDoesNotThrow(() -> {CypherTest11CountCondition.buildPatterns(completePatterns); 
-		test(completePatterns);});
+		tester(completePatterns);});
 	}
 	
-//	@Test
-//	public void CypherTest11CountCondition() {		
-//		assertThrows(InvalidityException.class, () -> {CypherTest11CountCondition.buildPatterns(completePatterns); 
-//				CypherTest00.exceptionHandler(completePatterns);},
+	//@Test
+	public void CypherTest11CountConditionExceptions() {		
+		assertThrows(InvalidityException.class, () -> {//Add additional Exceptions
+				CypherTest00.exceptionHandler(completePatterns);},
+				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
+//		assertThrows(OperatorCycleException.class, () -> {CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
+//				//Add additional Exceptions
 //				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-////		assertThrows(OperatorCycleException.class, () -> {CypherTest11CountCondition.buildPatterns(completePatterns); 
-////		CypherTest00.exceptionHandler(completePatterns);},
-////				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-////		assertThrows(MissingPatternContainerException.class, () -> {CypherTest11CountCondition.buildPatterns(completePatterns); 
-////		CypherTest00.exceptionHandler(completePatterns);},
-////				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-//	}
+//		assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoEdge.tryBuildNeoNeoNeedsAPathParam();
+//				//Add additional Exceptions,
+//				}, 
+//				EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
+//		assertThrows(Exception.class, () -> {//Add additional Exceptions
+//				}, DIFFRENT_OTHER_EXCEPTIONS);
+	}
 	
 	
 	@Test
-	public void CypherTest12Match() {	
+	public void CypherTest12CheckNull() {	
 		assertDoesNotThrow(() -> {CypherTest12CheckNull.buildPatterns(completePatterns); 
-			test(completePatterns);});
+			tester(completePatterns);});
 	}
 	
-//	@Test
-//	public void CypherTest09Contains() {		
-//		assertThrows(InvalidityException.class, () -> {CypherTest10Match.buildPatterns(completePatterns); 
-//				CypherTest00.exceptionHandler(completePatterns);},
-//				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-////		assertThrows(OperatorCycleException.class, () -> {CypherTest10Match.buildPatterns(completePatterns); 
-////		CypherTest00.exceptionHandler(completePatterns);},
-////				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-////		assertThrows(MissingPatternContainerException.class, () -> {CypherTest10Match.buildPatterns(completePatterns); 
-////		CypherTest00.exceptionHandler(completePatterns);},
-////				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-//	}
+	//@Test
+	public void CypherTest12CheckNullExceptions() {		
+		assertThrows(InvalidityException.class, () -> {//Add additional Exceptions
+				},
+				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
+		assertThrows(OperatorCycleException.class, () -> {CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
+				//Add additional Exceptions
+				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
+		assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoEdge.tryBuildNeoNeoNeedsAPathParam();
+				//Add additional Exceptions,
+				}, 
+				EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
+		assertThrows(Exception.class, () -> {//Add additional Exceptions
+				}, DIFFRENT_OTHER_EXCEPTIONS);
+	}
 
 	
-	public void test(ArrayList<CompletePattern> completePatterns) throws InvalidityException {
-		Java2Neo4JConnector connector = new Java2Neo4JConnector();
-		for (CompletePattern completePattern : completePatterns) {
-			replace(completePattern);
-			System.out.println("\n\n___PATTERN_(VALID)___");
-			System.out.println(completePattern.myToString());
-			System.out.print("\n___TRANSLATION___");
-			String query = completePattern.generateCypher();
-			
-			//Include the null check for the results
-			String hashCode = query.hashCode() + "";
-			connector.queryTester(query, hashCode);
-			String returnString = query.substring(query.indexOf(CypherSpecificConstants.CLAUSE_RETURN));
-			if (returnString.toLowerCase().contains("null")) {
-				throw new InvalidityException("The RETURN-CLAUSE contains null.");
+	protected void tester(ArrayList<CompletePattern> completePatterns) throws InvalidityException {
+		try (Java2Neo4JConnector connector = new Java2Neo4JConnector()){
+			for (CompletePattern completePattern : completePatterns) {
+				replace(completePattern);
+				
+				String query = completePattern.generateCypher();
+				String hashCode = query.hashCode() + "";
+				connector.queryTester(query, hashCode, false);
+				
+				//Include the null check for the results
+				String matchString = query.substring(query.indexOf(CypherSpecificConstants.CLAUSE_MATCH), query.indexOf(NEWLINE));
+				if (matchString.toLowerCase().contains(NULL)) {
+					throw new InvalidityException(THE_MATCH_CLAUSE_CONTAINS_NULL);
+				}
+				String returnString = query.substring(query.indexOf(CypherSpecificConstants.CLAUSE_RETURN));
+				if (returnString.toLowerCase().contains(NULL)) {
+					throw new InvalidityException(THE_RETURN_CLAUSE_CONTAINS_NULL);
+				}
 			}
+		} catch (Exception e) {
+			throw e;
 		}
+	} 
+	
+	protected static void exceptionHandler(CompletePattern completePattern) throws InvalidityException {
+		completePattern.generateCypher();
 	}
 }

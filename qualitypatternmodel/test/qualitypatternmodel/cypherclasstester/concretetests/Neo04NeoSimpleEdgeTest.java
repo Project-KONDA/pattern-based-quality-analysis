@@ -69,14 +69,22 @@ public class Neo04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 	
 	@Test
 	public void setNeoDirection() {
-		neoSimpleEdge.setNeoDirection(NeoDirection.IMPLICIT);
-		assertEquals(NeoDirection.IMPLICIT,neoSimpleEdge.getNeoDirection());
-		neoSimpleEdge.setNeoDirection(NeoDirection.LEFT);
-		assertEquals(NeoDirection.LEFT,neoSimpleEdge.getNeoDirection());
-		neoSimpleEdge.setNeoDirection(NeoDirection.RIGHT);
-		assertEquals(NeoDirection.RIGHT, neoSimpleEdge.getNeoDirection());
-		neoSimpleEdge.setNeoDirection(null);
-		assertEquals(null, neoSimpleEdge.getNeoDirection());
+		try {
+			neoSimpleEdge.setNeoDirection(NeoDirection.IMPLICIT);
+			assertEquals(NeoDirection.IMPLICIT,neoSimpleEdge.getNeoDirection());
+			neoSimpleEdge.setNeoDirection(NeoDirection.LEFT);
+			assertEquals(NeoDirection.LEFT,neoSimpleEdge.getNeoDirection());
+			neoSimpleEdge.setNeoDirection(NeoDirection.RIGHT);
+			assertEquals(NeoDirection.RIGHT, neoSimpleEdge.getNeoDirection());
+		} catch (Exception e) {
+			System.out.println(e);
+			assertFalse(true);
+		}
+	}
+	
+	@Test
+	public void setNeoDirectionException() {
+		assertThrows(InvalidityException.class, ()-> neoSimpleEdge.setNeoDirection(null));
 	}
 	
 	@ParameterizedTest

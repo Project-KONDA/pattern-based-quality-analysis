@@ -34,24 +34,26 @@ public class CypherTest10Match {
         System.out.println("");         
         
         //INTRODUCE THE EXCEPTION TESTS
-        
 		System.out.println("");
 		System.out.println("<<< BEGIN - Exception Tests >>>");
 		ArrayList<CompletePattern> completePatternsExceptions = new ArrayList<CompletePattern>();
-		buildExceptionPatterns(completePatternsExceptions);
+		buildInvalidtyExceptionPatterns(completePatternsExceptions);
 		//Call Exception Handler
 		CypherTest10Match.exceptionHandler(completePatternsExceptions);
 		System.out.println("<<< END - Exception Tests >>>");
 		System.out.println("");
     }
 
-	protected static void buildExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
+	//REWORK the test here
+	protected static void buildInvalidtyExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatternsExceptions.add(tryMatchInvalidOption(true));
 		completePatternsExceptions.add(tryMatchInvalidOption(false));
 		completePatternsExceptions.add(tryMatchInvalidOptionDiffrent(true));
 		completePatternsExceptions.add(tryMatchInvalidOptionDiffrent3(true));
-		completePatternsExceptions.add(tryMatchInvalidOptionDiffrent4(false));
+		
+		//REWORK
+		//completePatternsExceptions.add(tryMatchInvalidOptionDiffrent4(false));
 	}
 
 	protected static void buildPatterns(ArrayList<CompletePattern> completePatterns)
@@ -209,8 +211,9 @@ public class CypherTest10Match {
 		return pattern;
 	}
 	
+	//Needs rework
 	private static CompletePattern tryMatchInvalidOptionDiffrent4(boolean invert)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
@@ -229,14 +232,10 @@ public class CypherTest10Match {
 		neoPropertyPathParam.setNeoPropertyName("summary");
 		
 		match = (Match) pattern.getGraph().getOperatorList().getOperators().get(0);
-		
-		try {		    
-		    Field primitiveNode = match.getClass().getDeclaredField("primitiveNode");
-		    primitiveNode.setAccessible(true);
-		    primitiveNode.set(match, null);
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
+				    
+	    Field primitiveNode = match.getClass().getDeclaredField("primitiveNode");
+	    primitiveNode.setAccessible(true);
+	    primitiveNode.set(match, null);
 		
 		return pattern;
 	}

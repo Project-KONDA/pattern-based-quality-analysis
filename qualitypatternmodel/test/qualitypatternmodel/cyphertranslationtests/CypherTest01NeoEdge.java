@@ -69,11 +69,10 @@ public class CypherTest01NeoEdge {
 
 	protected static void buildInvalidateExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		completePatternsExceptions.add(tryNoNeoAdaption());
-//		completePatternsExceptions.add(tryNoBeginning());
-		completePatternsExceptions.add(tryToCreateNeoDirectionErrorShallNotWork());
+		completePatternsExceptions.add(tryNoNeoAdaption());
+		completePatternsExceptions.add(tryNoBeginning());
 //		completePatternsExceptions.add(tryValidateComplexEdgeNoLastEdgeIsSet());
-//		completePatternsExceptions.add(tryNeoNeoPathPartIsSetWithEmptyComplexEdge());
+		completePatternsExceptions.add(tryNeoNeoPathPartIsSetWithEmptyComplexEdge());
 	}
 
 	protected static void buildPatterns(ArrayList<CompletePattern> completePatterns)
@@ -388,7 +387,7 @@ public class CypherTest01NeoEdge {
 	}
 	
 
-	
+	//Rework since the last edge is set automaticlly
 	//Exception In the ComplexEdge
 	//The ComplexEdge is not correct -- Because "No LastEdge"
 	private static CompletePattern tryValidateComplexEdgeNoLastEdgeIsSet() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
