@@ -45,7 +45,7 @@ public class CypherTest00 {
 						System.out.print("\n___TRANSLATION___");
 						String query = completePattern.generateCypher();
 						//Depending on the test mode activated the db-connector
-						System.out.println(query); 
+//						System.out.println(query); 
 						//Include the null check for the results
 						String hashCode = query.hashCode() + "";
 						connector.queryTester(query, hashCode);
@@ -82,12 +82,10 @@ public class CypherTest00 {
 				System.out.println("");
 				System.out.println("-- Beginning of the Exceptions --");
 				System.out.println(e.toString());
-//				e.printStackTrace();
 				try {
 				  System.out.println(completePattern.myToString());
 				} catch (Exception e2) {
 					System.out.println(e2.toString());
-					//e2.printStackTrace();
 				}
 				System.out.println("Test successful");
 			}
@@ -118,7 +116,6 @@ public class CypherTest00 {
 		return completePattern;
 	}
 	
-	//Test ist nicht correct --> Oder doch? Muss analysiert werden!
 	private static CompletePattern getComplexMatchStructure() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
@@ -245,7 +242,6 @@ public class CypherTest00 {
 		EList<String> textLabels = new BasicEList<String>();
 		textLabels.add("Regesta");
 		labels.setValueIfValid(textLabels);
-//		labels.setValueFromString("Regesta"); --> Darf ich diese Methode überschreiben?
 		node.setNeoNodeLabels(labels);
 			
 		return completePattern;		
@@ -272,7 +268,6 @@ public class CypherTest00 {
 		EList<String> textLabels = new BasicEList<String>();
 		textLabels.add("Regesta");
 		labels.setValueIfValid(textLabels);
-//		labels.setValueFromString("Regesta"); --> Darf ich diese Methode überschreiben?
 		node.setNeoNodeLabels(labels);
 		
 		return completePattern;		
@@ -305,11 +300,3 @@ public class CypherTest00 {
 		return completePattern;		
 	}
 }
-
-//Build something with the setting because here is some error
-//private static void makeConcreteSimpleEdge(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-////	NeoEdge ne = (NeoEdge) completePattern.getGraph().getRelations().get(0);
-////	NeoPathParam npp = CypherTest00.factory.createNeoPathParam();
-////	npp.setNeoPath(CypherTest00.factory.createNeoSimpleEdge());
-////	ne.setNeoPathParam(npp);
-//}

@@ -47,6 +47,10 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  */
 
 public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge {
+	private static final String NEO_DIRECTION_CAN_NOT_BE_NULL = "NeoDirection can not be null";
+
+	private static final String A_NEO_PATH_PART_NEEDS_A_NEO_ABSTRACT_PATH_PARAM = "A NeoPathPart needs a NeoAbstractPathParam";
+
 	private static final String SOMETHING_WENT_WRONG_IN_THE_SIMPLE_NEO_EDGE_DIRECTION_HAS_NOT_BEEN_SET_CORRECTLY = "Something went wrong in the SimpleNeoEdge - direction has not been set correctly";
 
 	private static final String A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S = "A Label can not contain Whitespace(s)";
@@ -227,9 +231,9 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		final NeoAbstractPathParamImpl neoAbstractPathParam = ((NeoAbstractPathParamImpl) getNeoAbstractPathParam());
 		String cypher = null;
 		if (neoAbstractPathParam == null) {
-			throw new InvalidityException("A NeoPathPart needs a NeoAbstractPathParam");
+			throw new InvalidityException(A_NEO_PATH_PART_NEEDS_A_NEO_ABSTRACT_PATH_PARAM);
 		}
-		if (getNeoTargetNodeLabels() == null || getNeoTargetNodeLabels().getValues().size() == 0) {
+		if (getNeoTargetNodeLabels() == null) {
 			cypher =  null;
 		} else if (!isLastEdge) {
 			if (edgeNumber != 0) {
@@ -488,10 +492,9 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 * @generated NOT
 	 */
 	@Override
-	public void setNeoDirection(NeoDirection neoDirection) {
+	public void setNeoDirection(NeoDirection neoDirection) throws InvalidityException {
 		if (neoDirection == null) {
-			this.neoDirection = neoDirection; 
-			return;
+			throw new InvalidityException(NEO_DIRECTION_CAN_NOT_BE_NULL);
 		}
 		this.neoDirection = neoDirection;
 	}
@@ -646,14 +649,19 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___SET_NEO_DIRECTION__NEODIRECTION:
-				setNeoDirection((NeoDirection)arguments.get(0));
-				return null;
+				try {
+					setNeoDirection((NeoDirection)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___ADD_NEO_TARGET_NODE_LABEL__STRING:
 				try {
 					addNeoTargetNodeLabel((String)arguments.get(0));

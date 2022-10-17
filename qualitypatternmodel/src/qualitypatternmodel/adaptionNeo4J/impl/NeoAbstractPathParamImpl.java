@@ -71,7 +71,7 @@ public abstract class NeoAbstractPathParamImpl extends ParameterImpl implements 
 		return cypher;
 	}
 	
-	protected boolean checkTargetNodes(NeoSimpleEdge neoSimpleEdge) {
+	protected boolean existsTargetNode(NeoSimpleEdge neoSimpleEdge) {
 		return neoSimpleEdge.getNeoTargetNodeLabels() != null;
 	}
 

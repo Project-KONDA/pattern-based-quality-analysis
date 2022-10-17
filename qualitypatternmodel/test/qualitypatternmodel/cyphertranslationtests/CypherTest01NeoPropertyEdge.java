@@ -37,7 +37,7 @@ public class CypherTest01NeoPropertyEdge {
 		System.out.println("");
 		System.out.println("<<< BEGIN - Exception Tests >>>");
 		ArrayList<CompletePattern> completePatternsExceptions = new ArrayList<CompletePattern>();
-//		buildExceptionPatterns(completePatternsExceptions);
+		buildExceptionPatterns(completePatternsExceptions);
 		//Call Exception Handler
 		CypherTest00.exceptionHandler(completePatternsExceptions);
 		System.out.println("<<< END - Exception Tests >>>");
@@ -53,15 +53,15 @@ public class CypherTest01NeoPropertyEdge {
 
 	protected static void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		completePatterns.add(getBlankSimpleEdge());
-//		completePatterns.add(getNeoPropertyEdge());
-//		completePatterns.add(getSimpleEdgeReturnOnlyProperty());
-//		completePatterns.add(getSimpleEdgeReturnOnlyMultiProperty());
-//		completePatterns.add(getSimpleEdgeWithLabels());
-//		completePatterns.add(getSimpleEdgeWithLabelsRight());
-//		completePatterns.add(getSimpleEdgeWithLabelsLeft());
-//		completePatterns.add(getSimpleEdgeWithTargetNodePropertyNProperty());
-//		completePatterns.add(getSimpleEdgeWithTargetNodePropertyNNeoPropertyEdgeNProperty());
+		completePatterns.add(getBlankSimpleEdge());
+		completePatterns.add(getNeoPropertyEdge());
+		completePatterns.add(getSimpleEdgeReturnOnlyProperty());
+		completePatterns.add(getSimpleEdgeReturnOnlyMultiProperty());
+		completePatterns.add(getSimpleEdgeWithLabels());
+		completePatterns.add(getSimpleEdgeWithLabelsRight());
+		completePatterns.add(getSimpleEdgeWithLabelsLeft());
+		completePatterns.add(getSimpleEdgeWithTargetNodePropertyNProperty());
+		completePatterns.add(getSimpleEdgeWithTargetNodePropertyNNeoPropertyEdgeNProperty());
 		completePatterns.add(getComplexEdge());
 		completePatterns.add(getComplexEdgeWithLabels());
 		completePatterns.add(getComplexEdgeWithLabelsDiffrentDirections());

@@ -160,10 +160,10 @@ public interface NeoSimpleEdge extends NeoPathPart {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	void setNeoDirection(NeoDirection neoDirection);
+	void setNeoDirection(NeoDirection neoDirection) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

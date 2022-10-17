@@ -94,7 +94,7 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 		}
 		cypher.append(neoPathParts.get(0).generateCypher());
 		NeoSimpleEdge neoSimpleEdge = (NeoSimpleEdge) neoPathParts.get(0);
-		if (checkTargetNodes(neoSimpleEdge)) { 
+		if (existsTargetNode(neoSimpleEdge)) { 
 			cypher.append(CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES); 
 		}
 	}
@@ -106,7 +106,7 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 		NeoPathPart lastEdge = null;
 		lastEdge = neoPathPart.getNeoLastEdge();
 		NeoSimpleEdge neoSimpleEdge = (NeoSimpleEdge) lastEdge;
-		if (checkTargetNodes(neoSimpleEdge)) {
+		if (existsTargetNode(neoSimpleEdge)) {
 			cypher.append(CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES);
 		}
 	}

@@ -165,18 +165,16 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 	
 	private boolean innerEdgesHaveTargets(final EList<NeoPathPart> parts)  {
 		boolean innerEdgesHaveTargets = true;
-		NeoSimpleEdgeImpl neoSimpleEdge = null;
+		NeoSimpleEdge neoSimpleEdge = null;
 		for (NeoPathPart part : parts) {
 			if (part instanceof NeoComplexEdge) {
 				this.innerEdgesHaveTargets(part.getNeoPathPartEdgeLeafs());
 			} else {
 				if(part instanceof NeoSimpleEdge) {
-					neoSimpleEdge = (NeoSimpleEdgeImpl) part;
-					if (!neoSimpleEdge.isLastEdge()) {
-						if (checkTargetNodes(neoSimpleEdge)) {
-							innerEdgesHaveTargets = false;
-						}
-					}	
+					neoSimpleEdge = (NeoSimpleEdge) part;
+					if (!existsTargetNode(neoSimpleEdge)) {
+						innerEdgesHaveTargets = false;
+					}
 				}
 			}
 		}

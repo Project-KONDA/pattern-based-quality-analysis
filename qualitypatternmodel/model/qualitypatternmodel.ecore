@@ -1262,7 +1262,7 @@
           eOpposite="#//adaptionNeo4J/NeoPathPart/neoComplexEdge"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoSimpleEdge" eSuperTypes="#//adaptionNeo4J/NeoPathPart">
-      <eOperations name="setNeoDirection">
+      <eOperations name="setNeoDirection" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="neoDirection" eType="#//adaptionNeo4J/NeoDirection"/>
       </eOperations>
       <eOperations name="addNeoTargetNodeLabel" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
