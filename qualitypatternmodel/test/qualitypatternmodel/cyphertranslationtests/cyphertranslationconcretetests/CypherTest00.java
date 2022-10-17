@@ -1,12 +1,12 @@
-package qualitypatternmodel.cyphertranslationtests;
+package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
 import java.util.ArrayList;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
-import playground.Java2Neo4JConnector;
 import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
+import qualitypatternmodel.cyphertranslationtests.CypherTranslationAbstract;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
@@ -24,77 +24,22 @@ import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.utility.CypherSpecificConstants;
 
 import static qualitypatternmodel.xmltranslationtests.Test00.*;
 
 
 //--> Systemtest und kein Kompnententest
-public class CypherTest00 {
+public class CypherTest00 extends CypherTranslationAbstract {
 	public static final AdaptionNeo4JFactory FACTORY = new AdaptionNeo4JFactoryImpl();
 	
-	protected static void test(ArrayList<CompletePattern> completePatterns) {
-		try (Java2Neo4JConnector connector = new Java2Neo4JConnector()) {
-			for (CompletePattern completePattern : completePatterns) {
-				replace(completePattern);
-				try {
-//						completePattern.isValid(AbstractionLevel.CONCRETE); // TODO: allow technology-dependent validation
-					System.out.println("\n\n___PATTERN_(VALID)___");
-					System.out.println(completePattern.myToString());
-					System.out.print("\n___TRANSLATION___");
-					String query = completePattern.generateCypher();
-					//Depending on the test mode activated the db-connector
-//						System.out.println(query); 
-					//Include the null check for the results
-					String hashCode = query.hashCode() + "";
-					connector.queryTester(query, hashCode, true);
-					String returnString = query.substring(query.indexOf(CypherSpecificConstants.CLAUSE_RETURN));
-					if (returnString.toLowerCase().contains("null")) {
-						throw new InvalidityException("The RETURN-CLAUSE contains null.");
-					}
-				} catch (Exception e) {
-					System.out.println();
-					e.printStackTrace();
-					try {
-					  System.out.println(completePattern.myToString());
-					} catch (Exception e2) {
-						e2.printStackTrace();
-					}
-				}
-			}
-		}
-	}
-	
-	protected static void exceptionHandler(ArrayList<CompletePattern> completePatterns) {
-		for (CompletePattern completePattern : completePatterns) {
-			try {
-				replace(completePattern);
-				System.out.println("\n\n___PATTERN_(VALID)___");
-				System.out.println(completePattern.myToString());
-				System.out.print("\n___TRANSLATION___");
-				System.out.println(completePattern.generateCypher());
-				System.out.println("No Exception has been triggered");
-			} catch (Exception e) {
-				System.out.println("");
-				System.out.println("-- Beginning of the Exceptions --");
-				System.out.println(e.toString());
-				try {
-				  System.out.println(completePattern.myToString());
-				} catch (Exception e2) {
-					System.out.println(e2.toString());
-				}
-				System.out.println("Test successful");
-			}
-		}
-	}
-	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		buildPatterns(completePatterns);
-		CypherTest00.test(completePatterns);
+		CypherTest00 nullTest = new CypherTest00();
+		nullTest.generalizedTests();         
+		nullTest.generalizedInvalidtyExceptionTests();
 	}
 
-	protected static void buildPatterns(ArrayList<CompletePattern> completePatterns)
+	@Override
+	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(getBasePatternFinal());
 		completePatterns.add(getBasePatternComplexFinal());
@@ -103,6 +48,12 @@ public class CypherTest00 {
 		completePatterns.add(getBasePatternCondConcrete("1439-12-20"));
 		completePatterns.add(getBasePatternMatchConcrete("1439.*"));
 		completePatterns.add(getBasePatternMatchNotConcrete("1439.*"));
+	}
+	
+	@Override
+	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		// TODO Auto-generated method stub
 	}
 	
 	protected static CompletePattern getBasePatternFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

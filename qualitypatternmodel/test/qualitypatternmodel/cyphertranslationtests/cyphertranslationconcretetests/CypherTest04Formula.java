@@ -1,14 +1,13 @@
-package qualitypatternmodel.cyphertranslationtests;
+package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
 import java.util.ArrayList;
 
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
-import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
+import qualitypatternmodel.cyphertranslationtests.CypherTranslationAbstract;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -19,23 +18,15 @@ import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
-public class CypherTest04Formula {
-	private static final AdaptionNeo4JFactory FACTORY = new AdaptionNeo4JFactoryImpl();
-    
+public class CypherTest04Formula extends CypherTranslationAbstract {    
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-            //Tests
-            System.out.println("");
-            System.out.println("<<< BEGIN - Tests >>>");
-            ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-            buildPatterns(completePatterns);
-            CypherTest00.test(completePatterns);
-            System.out.println("<<< END - Tests >>>");
-            System.out.println("");         
-            
-            //INTRODUCE THE EXCEPTION TESTS
+    	CypherTest04Formula formula = new CypherTest04Formula();
+    	formula.generalizedTests();         
+    	formula.generalizedInvalidtyExceptionTests();	
     }
 
-	protected static void buildPatterns(ArrayList<CompletePattern> completePatterns)
+    @Override
+	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		for (LogicalOperator lo: LogicalOperator.VALUES) {
 			completePatterns.add(getFormulaPattern(lo, false));
@@ -46,6 +37,13 @@ public class CypherTest04Formula {
 		}
 		
 		completePatterns.add(getTestPattern3());
+	}
+	
+	@Override
+	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		// TODO Auto-generated method stub
+		
 	}
     
 	private static CompletePattern getFormulaPattern(LogicalOperator lo, boolean clamped) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -89,7 +87,7 @@ public class CypherTest04Formula {
 		neoNode.addLabel("Place");
 		neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(1);
 		neoPathParam = neoEdge.getNeoPathParam();
-		neoSimpleEdge = FACTORY.createNeoSimpleEdge();
+		neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge.addNeoEdgeLabel("PLACE_OF_ISSUE");
 		neoPathParam.setNeoPathPart(neoSimpleEdge);
 		
@@ -102,7 +100,7 @@ public class CypherTest04Formula {
 		neoNode.addLabel("IndexPlace");
 		neoEdge = (NeoEdge) quantifiedCond2.getGraph().getRelations().get(1);
 		neoPathParam = neoEdge.getNeoPathParam();
-		neoSimpleEdge = FACTORY.createNeoSimpleEdge();
+		neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge.addNeoEdgeLabel("APPEARS_IN");
 		neoPathParam.setNeoPathPart(neoSimpleEdge);
 		
@@ -153,7 +151,7 @@ public class CypherTest04Formula {
 		neoNode.addLabel("IndexPlace");
 		neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(1);
 		neoPathParam = neoEdge.getNeoPathParam();
-		neoSimpleEdge = FACTORY.createNeoSimpleEdge();
+		neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge.addNeoEdgeLabel("IS_SUB_OF");
 		neoPathParam.setNeoPathPart(neoSimpleEdge);
 		
@@ -165,12 +163,11 @@ public class CypherTest04Formula {
 		neoNode.addLabel("Regesta");
 		neoEdge = (NeoEdge) quantifiedCond2.getGraph().getRelations().get(1);
 		neoPathParam = neoEdge.getNeoPathParam();
-		neoSimpleEdge = FACTORY.createNeoSimpleEdge();
+		neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge.addNeoEdgeLabel("placeOfIssue");
 		neoPathParam.setNeoPathPart(neoSimpleEdge);
 		
 		return completePattern;
-	}
-	
+	}	
 }
 

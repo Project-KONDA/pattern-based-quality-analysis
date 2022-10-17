@@ -1,14 +1,13 @@
-package qualitypatternmodel.cyphertranslationtests;
+package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
-
 import qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
+import qualitypatternmodel.cyphertranslationtests.CypherTranslationAbstract;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -22,18 +21,23 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.impl.CountPatternImpl;
 
-public class CypherTest11CountCondition {
-	
-	protected static ArrayList<CompletePattern> buildPatterns(ArrayList<CompletePattern> completePatterns) throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
-		completePatterns.add(getCountInPatternPattern());
-		return completePatterns;
-	}
-	
+public class CypherTest11CountCondition extends CypherTranslationAbstract {
+		
 	public static void main(String[] args)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		buildPatterns(completePatterns);
-		CypherTest00.test(completePatterns);
+		CypherTest11CountCondition count = new CypherTest11CountCondition();
+		count.generalizedTests();         
+		count.generalizedInvalidtyExceptionTests();
+	}
+	
+	public void buildPatterns(ArrayList<CompletePattern> completePatterns) throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
+		completePatterns.add(getCountInPatternPattern());
+	}
+	
+	@Override
+	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		// TODO Auto-generated method stub
 	}
 	
 	private static CompletePattern getCountInPatternPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

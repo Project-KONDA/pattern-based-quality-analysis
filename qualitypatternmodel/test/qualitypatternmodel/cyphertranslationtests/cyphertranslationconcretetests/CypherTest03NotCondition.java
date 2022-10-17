@@ -1,7 +1,6 @@
-package qualitypatternmodel.cyphertranslationtests;
+package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
 import java.util.ArrayList;
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
 import qualitypatternmodel.adaptionNeo4J.NeoDirection;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
@@ -10,7 +9,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
-import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
+import qualitypatternmodel.cyphertranslationtests.CypherTranslationAbstract;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -32,24 +31,15 @@ import qualitypatternmodel.patternstructure.Quantifier;
 
 //Think about to create a other test class just for the QuantifiedCond!
 //Specelly for the exceptiontests 
-public class CypherTest03NotCondition {
-	private static final AdaptionNeo4JFactory FACTORY = new AdaptionNeo4JFactoryImpl();
-    
+public class CypherTest03NotCondition extends CypherTranslationAbstract {    
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-            //Tests
-            System.out.println("");
-            System.out.println("<<< BEGIN - Tests >>>");
-            ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-            buildPatterns(completePatterns);
-            //Call tester from CypherTest00
-            CypherTest00.test(completePatterns);
-            System.out.println("<<< END - Tests >>>");
-            System.out.println("");         
-            
-            //INTRODUCE THE EXCEPTION TESTS ???
+    	CypherTest03NotCondition not = new CypherTest03NotCondition();
+    	not.generalizedTests();         
+    	not.generalizedInvalidtyExceptionTests();	
     }
 
-	protected static void buildPatterns(ArrayList<CompletePattern> completePatterns)
+    @Override
+	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(getTestPattern1());
 		completePatterns.add(getTestPattern1WithConditions());
@@ -60,6 +50,12 @@ public class CypherTest03NotCondition {
 		completePatterns.add(getNotNotNotPattern());
 		completePatterns.add(getNotNotNotNotPattern());
 		completePatterns.add(getNotNotNotNotNotPattern());
+	}
+    
+	@Override
+	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		// TODO Auto-generated method stub
 	}
 
 	private static CompletePattern getTestPattern1() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -105,7 +101,7 @@ public class CypherTest03NotCondition {
 	    //Edge Specification - FORALL
 	    NeoEdge neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(0);
 	    NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
-	    NeoSimpleEdge neoSimpleEdge = FACTORY.createNeoSimpleEdge();
+	    NeoSimpleEdge neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
 	    neoSimpleEdge.setNeoDirection(NeoDirection.LEFT);
 	    neoPathParam.setNeoPathPart(neoSimpleEdge);
 	   	
@@ -120,7 +116,7 @@ public class CypherTest03NotCondition {
 	    //Edge Specification - INNER EXISTS
 	    neoEdge = (NeoEdge) quantifiedCond2.getGraph().getRelations().get(1);
 	    neoPathParam = neoEdge.getNeoPathParam();
-	    neoSimpleEdge = FACTORY.createNeoSimpleEdge();
+	    neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
 	    neoSimpleEdge.setNeoDirection(NeoDirection.RIGHT);
 	    neoPathParam.setNeoPathPart(neoSimpleEdge);
 	    
@@ -199,7 +195,7 @@ public class CypherTest03NotCondition {
 	    //Edge Specification - FORALL
 	    NeoEdge neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(2);
 	    NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
-	    NeoSimpleEdge neoSimpleEdge = FACTORY.createNeoSimpleEdge();
+	    NeoSimpleEdge neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
 	    neoSimpleEdge.setNeoDirection(NeoDirection.LEFT);
 	    neoPathParam.setNeoPathPart(neoSimpleEdge);
 	    
@@ -218,7 +214,7 @@ public class CypherTest03NotCondition {
 	    //Edge Specification - INNER EXISTS
 	    neoEdge = (NeoEdge) quantifiedCond2.getGraph().getRelations().get(4);
 	    neoPathParam = neoEdge.getNeoPathParam();
-	    neoSimpleEdge = FACTORY.createNeoSimpleEdge();
+	    neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
 	    neoSimpleEdge.setNeoDirection(NeoDirection.RIGHT);
 	    neoPathParam.setNeoPathPart(neoSimpleEdge);  
 	    
@@ -274,21 +270,21 @@ public class CypherTest03NotCondition {
 	    //First Edge Specification
 	    NeoEdge neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(0);
 	    NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
-	    NeoSimpleEdge neoSimpleEdge = FACTORY.createNeoSimpleEdge();
+	    NeoSimpleEdge neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
 	    neoSimpleEdge.addNeoEdgeLabel("APPEARS_IN");
 	    neoPathParam.setNeoPathPart(neoSimpleEdge);
 	    
 	    //Second Edge Specification
 	    neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(1);
 	    neoPathParam = neoEdge.getNeoPathParam();
-	    neoSimpleEdge = FACTORY.createNeoSimpleEdge();
+	    neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
 	    neoSimpleEdge.addNeoEdgeLabel("ACTION");
 	    neoPathParam.setNeoPathPart(neoSimpleEdge);
 	    
 	    //Third Edge Specification
 	    neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(2);
 	    neoPathParam = neoEdge.getNeoPathParam();
-	    neoSimpleEdge = FACTORY.createNeoSimpleEdge();
+	    neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
 	    neoSimpleEdge.addNeoEdgeLabel("RECIPIENT_IN");
 	    neoPathParam.setNeoPathPart(neoSimpleEdge);
 	            
@@ -334,7 +330,7 @@ public class CypherTest03NotCondition {
 	    //First Edge Specification
 	    NeoEdge neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(0);
 	    NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
-	    NeoSimpleEdge neoSimpleEdge = FACTORY.createNeoSimpleEdge();
+	    NeoSimpleEdge neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
 	    neoSimpleEdge.addNeoEdgeLabel("APPEARS_IN");
 	    neoSimpleEdge.setNeoDirection(NeoDirection.LEFT);
 	    neoPathParam.setNeoPathPart(neoSimpleEdge);
@@ -342,14 +338,14 @@ public class CypherTest03NotCondition {
 	    //Second Edge Specification
 	    neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(1);
 	    neoPathParam = neoEdge.getNeoPathParam();
-	    neoSimpleEdge = FACTORY.createNeoSimpleEdge();
+	    neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
 	    neoSimpleEdge.addNeoEdgeLabel("IS_SUB_OF");
 	    neoPathParam.setNeoPathPart(neoSimpleEdge);
 	    
 	    //Third Edge Specification
 	    neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(2);
 	    neoPathParam = neoEdge.getNeoPathParam();
-	    neoSimpleEdge = FACTORY.createNeoSimpleEdge();
+	    neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
 	    neoSimpleEdge.addNeoEdgeLabel("RECIPIENT_IN");
 	    neoPathParam.setNeoPathPart(neoSimpleEdge);
 	            
@@ -403,7 +399,7 @@ public class CypherTest03NotCondition {
 	    //First Edge Specification
 	    NeoEdge neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(1);
 	    NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
-	    NeoSimpleEdge neoSimpleEdge = FACTORY.createNeoSimpleEdge();
+	    NeoSimpleEdge neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
 	    neoSimpleEdge.addNeoEdgeLabel("APPEARS_IN");
 //	    neoSimpleEdge.setNeoDirection(NeoDirection.LEFT);
 	    neoPathParam.setNeoPathPart(neoSimpleEdge);
@@ -411,7 +407,7 @@ public class CypherTest03NotCondition {
 	    //Second Edge Specification
 	    neoEdge = (NeoEdge) quantifiedCond2.getGraph().getRelations().get(2);
 	    neoPathParam = neoEdge.getNeoPathParam();
-	    neoSimpleEdge = FACTORY.createNeoSimpleEdge();
+	    neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
 //	    neoSimpleEdge.addNeoEdgeLabel("APPEARS_IN");
 	    neoPathParam.setNeoPathPart(neoSimpleEdge);
 		

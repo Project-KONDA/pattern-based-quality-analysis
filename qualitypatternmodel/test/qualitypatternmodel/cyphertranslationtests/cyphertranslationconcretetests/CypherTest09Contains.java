@@ -1,4 +1,4 @@
-package qualitypatternmodel.cyphertranslationtests;
+package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
+import qualitypatternmodel.cyphertranslationtests.CypherTranslationAbstract;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -15,24 +16,18 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
-public class CypherTest09Contains {
-    private final static String LINK = "http://opac.regesta-imperii.de/lang_de/kurztitelsuche_r.php?kurztitel=gudenus,_cod._dipl.";
+public class CypherTest09Contains extends CypherTranslationAbstract {
+    
+	private final static String LINK = "http://opac.regesta-imperii.de/lang_de/kurztitelsuche_r.php?kurztitel=gudenus,_cod._dipl.";
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-        //Tests
-        System.out.println("");
-        System.out.println("<<< BEGIN - Tests >>>");
-        ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-        buildPatterns(completePatterns);
-        //Call tester from CypherTest00
-        CypherTest00.test(completePatterns);
-        System.out.println("<<< END - Tests >>>");
-        System.out.println("");         
-        
-        //INTRODUCE THE EXCEPTION TESTS 
+		CypherTest09Contains contains = new CypherTest09Contains();
+		contains.generalizedTests();         
+		contains.generalizedInvalidtyExceptionTests();
     }
 
-	protected static void buildPatterns(ArrayList<CompletePattern> completePatterns)
+	@Override
+	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(getPatternContains(true, CypherTest09Contains.LINK));
         completePatterns.add(getPatternContains(false, CypherTest09Contains.LINK));
@@ -40,6 +35,13 @@ public class CypherTest09Contains {
         final Map<String, String> propertyNamesAndValues = createPropertyNameAndValueMap();
         completePatterns.add(getMultipleContains(true, propertyNamesAndValues));
         completePatterns.add(getMultipleContains(false, propertyNamesAndValues));
+	}
+	
+	@Override
+	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		// TODO Auto-generated method stub
+		
 	}
     
     private static void makeConcrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

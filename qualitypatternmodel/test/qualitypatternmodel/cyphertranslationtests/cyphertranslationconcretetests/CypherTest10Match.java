@@ -1,4 +1,4 @@
-package qualitypatternmodel.cyphertranslationtests;
+package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
 import static qualitypatternmodel.xmltranslationtests.Test00.replace;
 
@@ -9,6 +9,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
+import qualitypatternmodel.cyphertranslationtests.CypherTranslationAbstract;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -19,33 +20,18 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
-public class CypherTest10Match {
+public class CypherTest10Match extends CypherTranslationAbstract {
 //	https://neo4j.com/docs/cypher-manual/current/clauses/where/ --> Consider the diffrent regex expressions from here
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-        //Tests
-        System.out.println("");
-        System.out.println("<<< BEGIN - Tests >>>");
-        ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		buildPatterns(completePatterns);
-        //Call tester from CypherTest00
-        CypherTest00.test(completePatterns);
-        System.out.println("<<< END - Tests >>>");
-        System.out.println("");         
-        
-        //INTRODUCE THE EXCEPTION TESTS
-		System.out.println("");
-		System.out.println("<<< BEGIN - Exception Tests >>>");
-		ArrayList<CompletePattern> completePatternsExceptions = new ArrayList<CompletePattern>();
-		buildInvalidtyExceptionPatterns(completePatternsExceptions);
-		//Call Exception Handler
-		CypherTest10Match.exceptionHandler(completePatternsExceptions);
-		System.out.println("<<< END - Exception Tests >>>");
-		System.out.println("");
+		CypherTest10Match match = new CypherTest10Match();
+		match.generalizedTests();         
+		match.generalizedInvalidtyExceptionTests();
     }
 
 	//REWORK the test here
-	protected static void buildInvalidtyExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
+	@Override
+	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatternsExceptions.add(tryMatchInvalidOption(true));
 		completePatternsExceptions.add(tryMatchInvalidOption(false));
@@ -55,8 +41,9 @@ public class CypherTest10Match {
 		//REWORK
 		//completePatternsExceptions.add(tryMatchInvalidOptionDiffrent4(false));
 	}
-
-	protected static void buildPatterns(ArrayList<CompletePattern> completePatterns)
+	
+	@Override
+	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(getPatternMatch(true, "Churfürsten"));
 		completePatterns.add(getPatternMatch(false, "Churfürsten"));

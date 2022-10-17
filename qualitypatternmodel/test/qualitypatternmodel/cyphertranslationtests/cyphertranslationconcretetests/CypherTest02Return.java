@@ -1,7 +1,7 @@
-package qualitypatternmodel.cyphertranslationtests;
+package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
 import java.util.ArrayList;
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
+
 import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
@@ -11,7 +11,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
-import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
+import qualitypatternmodel.cyphertranslationtests.CypherTranslationAbstract;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -21,38 +21,23 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
-public class CypherTest02Return {
-	public static final AdaptionNeo4JFactory factory = new AdaptionNeo4JFactoryImpl();
+public class CypherTest02Return extends CypherTranslationAbstract {
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		//Tests
-		System.out.println("");
-		System.out.println("<<< BEGIN - Tests >>>");
-		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		buildPatterns(completePatterns);
-		//Call tester from CypherTest00
-		CypherTest00.test(completePatterns);
-		System.out.println("<<< END - Tests >>>");
-		System.out.println("");
-		
-		//Exception tests
-		System.out.println("");
-		System.out.println("<<< BEGIN - Exception Tests >>>");
-		ArrayList<CompletePattern> completePatternsExceptions = new ArrayList<CompletePattern>();
-		buildInvalidyExceptionPatterns(completePatternsExceptions);
-		//Call Exception Handler
-		CypherTest00.exceptionHandler(completePatternsExceptions);
-		System.out.println("<<< END - Exception Tests >>>");
-		System.out.println("");
+		CypherTest02Return cypherReturn = new CypherTest02Return();
+		cypherReturn.generalizedTests();         
+		cypherReturn.generalizedInvalidtyExceptionTests();	
 	}
 
-	protected static void buildInvalidyExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
+	@Override
+	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatternsExceptions.add(tryNoReturnClause());
 		completePatternsExceptions.add(tryThereIsNoNeoPropertyNode());
 	}
-
-	protected static void buildPatterns(ArrayList<CompletePattern> completePatterns)
+	
+	@Override
+	public  void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(getAllPossibleReturnTypes());
 	}
@@ -97,9 +82,9 @@ public class CypherTest02Return {
 		neoPropertyEdge.setIsReturnElement(true);
 		
 		//NeoEdge
-		NeoComplexEdge neoComplexEdge1 = factory.createNeoComplexEdge();
-		NeoSimpleEdge neoSimpleEdge1 = factory.createNeoSimpleEdge();
-		NeoSimpleEdge neoSimpleEdge2 = factory.createNeoSimpleEdge();
+		NeoComplexEdge neoComplexEdge1 = NEO_FACTORY.createNeoComplexEdge();
+		NeoSimpleEdge neoSimpleEdge1 = NEO_FACTORY.createNeoSimpleEdge();
+		NeoSimpleEdge neoSimpleEdge2 = NEO_FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge1.addNeoTargetNodeLabel("IndexEntry");
 		neoSimpleEdge1.addNeoTargetNodeLabel("IndexPlace");
 		neoSimpleEdge1.addNeoEdgeLabel("APPEARS_IN");
@@ -112,9 +97,9 @@ public class CypherTest02Return {
 		//NeoProperteyEdge
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
 		neoPropertyPathParam.setNeoPropertyName("summary");
-		NeoComplexEdge neoComplexEdge2 = factory.createNeoComplexEdge();
-		NeoSimpleEdge neoSimpleEdge3 = factory.createNeoSimpleEdge();
-		NeoSimpleEdge neoSimpleEdge4 = factory.createNeoSimpleEdge();
+		NeoComplexEdge neoComplexEdge2 = NEO_FACTORY.createNeoComplexEdge();
+		NeoSimpleEdge neoSimpleEdge3 = NEO_FACTORY.createNeoSimpleEdge();
+		NeoSimpleEdge neoSimpleEdge4 = NEO_FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge3.addNeoEdgeLabel("APPEARS_IN");
 		neoSimpleEdge3.addNeoTargetNodeLabel("IndexEntry");
 		neoSimpleEdge3.addNeoTargetNodeLabel("IndexPerson");

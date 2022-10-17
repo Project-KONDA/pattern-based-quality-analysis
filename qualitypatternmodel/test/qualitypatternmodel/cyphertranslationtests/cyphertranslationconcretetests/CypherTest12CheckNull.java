@@ -1,4 +1,4 @@
-package qualitypatternmodel.cyphertranslationtests;
+package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
 import java.util.ArrayList;
 
@@ -6,45 +6,30 @@ import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
+import qualitypatternmodel.cyphertranslationtests.CypherTranslationAbstract;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.NullCheck;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
-public class CypherTest12CheckNull {
+public class CypherTest12CheckNull extends CypherTranslationAbstract {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-        //Tests
-        System.out.println("");
-        System.out.println("<<< BEGIN - Tests >>>");
-        ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		buildPatterns(completePatterns);
-        //Call tester from CypherTest00
-        CypherTest00.test(completePatterns);
-        System.out.println("<<< END - Tests >>>");
-        System.out.println("");         
-        
-//        //INTRODUCE THE EXCEPTION TESTS
-//        
-//		System.out.println("");
-//		System.out.println("<<< BEGIN - Exception Tests >>>");
-//		ArrayList<CompletePattern> completePatternsExceptions = new ArrayList<CompletePattern>();
-//		buildExceptionPatterns(completePatternsExceptions);
-//		//Call Exception Handler
-//		CypherTest10Match.exceptionHandler(completePatternsExceptions);
-//		System.out.println("<<< END - Exception Tests >>>");
-//		System.out.println("");
+        CypherTranslationAbstract checkNull = new CypherTest12CheckNull();
+        checkNull.generalizedTests();         
+        checkNull.generalizedInvalidtyExceptionTests();
     }
 
-	protected static void buildExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
+	@Override
+	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
 	}
 
-	protected static void buildPatterns(ArrayList<CompletePattern> completePatterns)
+	@Override
+	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(tryIsNull(true, "isoStartDate"));
 		completePatterns.add(tryIsNull(false, "isoStartDate"));

@@ -1,4 +1,4 @@
-package qualitypatternmodel.cyphertranslationtests;
+package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
 import java.util.ArrayList;
 
@@ -6,6 +6,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
+import qualitypatternmodel.cyphertranslationtests.CypherTranslationAbstract;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -18,48 +19,33 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
 
-public class CypherTest07QuantifiedCondition {
+public class CypherTest07QuantifiedCondition extends CypherTranslationAbstract {
 	//Add BooleanOperators Test here
 	//Add a beginning in the morph which is not the end to thest the pattern-match generation alg
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		//Tests
-		System.out.println("");
-		System.out.println("<<< BEGIN - Tests >>>");
-		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		buildPatterns(completePatterns);
-		//Call tester from CypherTest00
-		CypherTest00.test(completePatterns);
-		System.out.println("<<< END - Tests >>>");
-		System.out.println("");
-		
-		//Exception tests
-		System.out.println("");
-		System.out.println("<<< BEGIN - Exception Tests >>>");
-		ArrayList<CompletePattern> completePatternsExceptions = new ArrayList<CompletePattern>();
-		buildInvalidtyExceptionPatterns(completePatternsExceptions);
-		//Call Exception Handler
-		CypherTest00.exceptionHandler(completePatternsExceptions);
-		System.out.println("<<< END - Exception Tests >>>");
-		System.out.println("");
+		CypherTest07QuantifiedCondition quantifiedCond = new CypherTest07QuantifiedCondition();
+		quantifiedCond.generalizedTests();         
+		quantifiedCond.generalizedInvalidtyExceptionTests(); 
 	}
-
+	
+	@Override
+	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		completePatterns.add(getNodesWhereExits(false));
+		completePatterns.add(getNodesWhereExits(true));
+		completePatterns.add(getNodesWhereMultiplePropertyExistsChecks(false));
+		completePatterns.add(getNodesWhereMultiplePropertyExistsChecks(true));		
+	}
 	
 	//CHECKING WHAT HAPPENS IF THE GRAPH HAS ALSO CONDITIONS --> Build test with multiple properties!
-	protected static void buildInvalidtyExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
+	@Override
+	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
 		
 		completePatternsExceptions.add(tryNodesWhereNoBeginnings(false));
 		completePatternsExceptions.add(tryNodesWhereNoBeginnings(true));
 		completePatternsExceptions.add(tryWithForAllPropertyExistence());
-	}
-
-	protected static void buildPatterns(ArrayList<CompletePattern> completePatterns)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		completePatterns.add(getNodesWhereExits(false));
-		completePatterns.add(getNodesWhereExits(true));
-		completePatterns.add(getNodesWhereMultiplePropertyExistsChecks(false));
-		completePatterns.add(getNodesWhereMultiplePropertyExistsChecks(true));		
 	}
 	
 	private static CompletePattern getBasePattern() throws InvalidityException {

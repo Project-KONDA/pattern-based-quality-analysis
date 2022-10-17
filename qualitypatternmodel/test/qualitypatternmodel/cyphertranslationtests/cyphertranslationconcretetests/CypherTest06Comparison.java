@@ -1,4 +1,4 @@
-package qualitypatternmodel.cyphertranslationtests;
+package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
 import java.util.ArrayList;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
@@ -9,6 +9,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
+import qualitypatternmodel.cyphertranslationtests.CypherTranslationAbstract;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -27,26 +28,18 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
-public class CypherTest06Comparison {
-	private static final AdaptionNeo4JFactory FACTORY = new AdaptionNeo4JFactoryImpl();
+public class CypherTest06Comparison extends CypherTranslationAbstract {
     //All in the CompletePattern beginning will be set automatical in the condtions it is diffrent. 
     //The morphings for the relation --> Do nothing if a morphed relation is reached (set at least a boolean for more flexiblity)
     //Relation variables can be only used once
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-            //Tests
-            System.out.println("");
-            System.out.println("<<< BEGIN - Tests >>>");
-            ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-            buildPatterns(completePatterns);
-            //Call tester from CypherTest00
-            CypherTest00.test(completePatterns);
-            System.out.println("<<< END - Tests >>>");
-            System.out.println("");         
-            
-            //INTRODUCE THE EXCEPTION TESTS 
+    	CypherTest06Comparison comparison = new CypherTest06Comparison();
+    	comparison.generalizedTests();         
+    	comparison.generalizedInvalidtyExceptionTests();
     }
 
-	protected static void buildPatterns(ArrayList<CompletePattern> completePatterns)
+    @Override
+	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(getComparisonTwoNeoNodes(ComparisonOperator.EQUAL));
 		completePatterns.add(getComparisonTwoNeoNodes(ComparisonOperator.NOTEQUAL));
@@ -67,6 +60,12 @@ public class CypherTest06Comparison {
 		completePatterns.add(getMultipleComparisons());
 		completePatterns.add(getCompareByElementId(ComparisonOperator.NOTEQUAL));
 		completePatterns.add(getCompareByElementId(ComparisonOperator.EQUAL));
+	}
+    
+	@Override
+	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		// TODO Auto-generated method stub
 	}
 	
 	protected static CompletePattern getBasePattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -171,9 +170,9 @@ public class CypherTest06Comparison {
 		
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
-		NeoSimpleEdge neoSimpleEdge = FACTORY.createNeoSimpleEdge();
+		NeoSimpleEdge neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
 		neoPropertyPathParam.setNeoPropertyName("normalizedGerman");
-		neoSimpleEdge = FACTORY.createNeoSimpleEdge();
+		neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge.addNeoEdgeLabel("PLACE_OF_ISSUE");
 		neoSimpleEdge.addNeoTargetNodeLabel("Place");
 		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
@@ -181,7 +180,7 @@ public class CypherTest06Comparison {
 		neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(1);
 		neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
 		neoPropertyPathParam.setNeoPropertyName("normalizedGerman");
-		neoSimpleEdge = FACTORY.createNeoSimpleEdge();
+		neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge.addNeoEdgeLabel("PLACE_OF_ISSUE");
 		neoSimpleEdge.addNeoTargetNodeLabel("Place");
 		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
@@ -314,13 +313,13 @@ public class CypherTest06Comparison {
 		
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
-		NeoSimpleEdge neoSimpleEdge = FACTORY.createNeoSimpleEdge();
+		NeoSimpleEdge neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge.addNeoTargetNodeLabel("");
 		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
 		
 		neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(1);
 		neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
-		neoSimpleEdge = FACTORY.createNeoSimpleEdge();
+		neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge.addNeoTargetNodeLabel("");
 		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
 		
@@ -355,7 +354,7 @@ public class CypherTest06Comparison {
 		neoNode.setNodePlace(NeoPlace.BEGINNING);
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(1);
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
-		NeoSimpleEdge neoSimpleEdge = FACTORY.createNeoSimpleEdge();
+		NeoSimpleEdge neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
 		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
 		
 		return completePattern;

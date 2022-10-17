@@ -1,4 +1,4 @@
-package qualitypatternmodel.cyphertranslationtests;
+package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
 import java.util.ArrayList;
 
@@ -6,10 +6,10 @@ import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
+import qualitypatternmodel.cyphertranslationtests.CypherTranslationAbstract;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.ReturnType;
@@ -27,30 +27,33 @@ import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TimeParam;
 import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
-import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
-import qualitypatternmodel.parameters.impl.MultiListParamImpl;
 import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
-public class CypherTest05ParameterValues {
+public class CypherTest05ParameterValues extends CypherTranslationAbstract {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		//Look in the NeoDoc to check the fitting syntax 
 		//The Dataset is not containing something else except date and string
 		
-		//Tests
+		CypherTranslationAbstract parameterValues = new CypherTest05ParameterValues();
+		parameterValues.generalizedTests();         
+		parameterValues.generalizedInvalidtyExceptionTests();	
+    	
+    	//Specific case for this test class
+    	//Tests
 		System.out.println("");
-		System.out.println("<<< BEGIN - Tests >>>");
+		System.out.println(BEGIN_SPECIFIC_TESTS);
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		ArrayList<ParameterValue> values = getTestParameters();				
 		buildPatterns(completePatterns, values);	
 		
 		//Call tester from CypherTest00
-		CypherTest00.test(completePatterns);
-		System.out.println("<<< END - Tests >>>");
+		CypherTranslationAbstract.tester(completePatterns);
+		System.out.println(END_SPECIFIC_TESTS);
 		System.out.println("");		
 	}
 
-	protected static void buildPatterns(ArrayList<CompletePattern> completePatterns, ArrayList<ParameterValue> values)
+	public static void buildPatterns(ArrayList<CompletePattern> completePatterns, ArrayList<ParameterValue> values)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		//TextLiteralParam
 		CompletePattern completePattern = getConcreteComparisonPattern(values.get(0), "date");
@@ -86,6 +89,12 @@ public class CypherTest05ParameterValues {
 		//MultiListParam + IN
 		completePattern = getConcreteComparisonPatternWithIn(values.get(7), "origPlaceOfIssue");
 		completePatterns.add(completePattern);
+	}
+	
+	@Override
+	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		// TODO Auto-generated method stub
 	}
 	
 	private static CompletePattern getConcreteBaseComparisonPattern(ParameterValue parameter) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -126,7 +135,7 @@ public class CypherTest05ParameterValues {
 		return completePattern;
 	}
 	
-	protected static ArrayList<ParameterValue> getTestParameters() {
+	public static ArrayList<ParameterValue> getTestParameters() {
 		ArrayList<ParameterValue> parameters = new ArrayList<ParameterValue>();
 
 		ParametersPackage.eINSTANCE.eClass();
@@ -176,4 +185,10 @@ public class CypherTest05ParameterValues {
 		return parameters;
 	}
 
+	@Override
+	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		// TODO Auto-generated method stub
+		
+	}
 }

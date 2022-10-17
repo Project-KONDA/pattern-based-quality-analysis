@@ -1,7 +1,8 @@
-package qualitypatternmodel.cyphertranslationtests;
+package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
 import java.util.ArrayList;
 
+import qualitypatternmodel.cyphertranslationtests.CypherTranslationAbstract;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -9,25 +10,24 @@ import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 
-public class CypherTest08Cycle {
+public class CypherTest08Cycle extends CypherTranslationAbstract {
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-        //Tests
-        System.out.println("");
-        System.out.println("<<< BEGIN - Tests >>>");
-        ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-        buildPatterns(completePatterns);
-        //Call tester from CypherTest00
-        CypherTest00.test(completePatterns);
-        System.out.println("<<< END - Tests >>>");
-        System.out.println("");         
-        
-        //INTRODUCE THE EXCEPTION TESTS ??? 
+    	CypherTest08Cycle cycle = new CypherTest08Cycle();
+		cycle.generalizedTests();         
+		cycle.generalizedInvalidtyExceptionTests(); 
     }
 
-	protected static void buildPatterns(ArrayList<CompletePattern> completePatterns)
+	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(getCyclePattern(2));
         completePatterns.add(getCyclePattern(3));
+	}
+	
+	@Override
+	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		// TODO Auto-generated method stub
+		
 	}
     
 	private static CompletePattern getCyclePattern(int nodesInCycle) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
