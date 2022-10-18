@@ -45,6 +45,10 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class FormulaImpl extends ConditionImpl implements Formula {
+	private static final String OPERATOR_NULL = "operator null";
+	private static final String INVALID_OPERATOR = "invalid operator";
+	private static final String INVALID_ARGUMENTS = "invalid arguments";
+
 	/**
 	 * The default value of the '{@link #getOperator() <em>Operator</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -96,6 +100,8 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	 * @ordered
 	 */
 	protected static final boolean CLAMPED_EDEFAULT = false;
+
+    
 
 	/**
 	 * The cached value of the '{@link #isClamped() <em>Clamped</em>}' attribute.
@@ -149,11 +155,11 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 					result += "(" + condition2Query + ")";					
 					break;
 				default:
-					throw new InvalidityException("invalid arguments");
+					throw new InvalidityException(INVALID_ARGUMENTS);
 				}
 				
 			} else {
-				throw new InvalidityException("invalid arguments");
+				throw new InvalidityException(INVALID_ARGUMENTS);
 			}
 			
 			return addMissingBrackets(result);
@@ -194,11 +200,11 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 					result += "(" + condition1Query + " = " + condition2Query + ")";
 					break;
 				default:
-					throw new InvalidityException("invalid arguments");
+					throw new InvalidityException(INVALID_ARGUMENTS);
 				}
 				
 			} else {
-				throw new InvalidityException("invalid arguments");
+				throw new InvalidityException(INVALID_ARGUMENTS);
 			}
 			
 			return addMissingBrackets(result);
@@ -256,10 +262,10 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 					cypher.append("(" + condition1Query + CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + " " + condition2Query + ")");
 					break;
 				default:
-					throw new InvalidityException("invalid arguments");
+					throw new InvalidityException(INVALID_OPERATOR);
 				}
 			} else {
-				throw new InvalidityException("invalid arguments");
+				throw new InvalidityException(INVALID_ARGUMENTS);
 			}
 			if (this.clamped) {
 				cypher.insert(0, "(");
@@ -267,7 +273,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 			}
 			return cypher.toString();
 		}
-		throw new InvalidityException("operator null");
+		throw new InvalidityException(OPERATOR_NULL);
 	}
 
 	@Override

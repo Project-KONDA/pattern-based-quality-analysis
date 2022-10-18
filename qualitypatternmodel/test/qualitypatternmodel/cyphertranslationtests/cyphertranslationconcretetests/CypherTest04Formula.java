@@ -1,5 +1,7 @@
 package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
+
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
@@ -17,7 +19,9 @@ import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
+import qualitypatternmodel.patternstructure.impl.FormulaImpl;
 
+//The tests of the othercomponents are integrated in the systemtests since the componenttests for the framework do not exists
 public class CypherTest04Formula extends CypherTranslationAbstract {    
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
     	CypherTest04Formula formula = new CypherTest04Formula();
@@ -42,11 +46,14 @@ public class CypherTest04Formula extends CypherTranslationAbstract {
 	@Override
 	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		// TODO Auto-generated method stub
-		
+		//completePatternsExceptions.add(operatorIsNullException());
+		//completePatternsExceptions.add(notExistingOperatorException());
+//		completePatternsExceptions.add(cond1IsNull());
+//		completePatternsExceptions.add(cond2IsNull());
+//		completePatternsExceptions.add(cond1Andcond2IsNull());
 	}
     
-	private static CompletePattern getFormulaPattern(LogicalOperator lo, boolean clamped) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private CompletePattern getFormulaPattern(LogicalOperator lo, boolean clamped) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		CompletePattern completePattern = CypherTest00.getBasePattern();
 		
@@ -112,7 +119,7 @@ public class CypherTest04Formula extends CypherTranslationAbstract {
 //	MATCH (r:IndexPlace)
 //	WHERE (Exists{MATCH(r)-[:IS_SUB_OF]-(:IndexPlace)} OR EXISTS{MATCH (r)-[:placeOfIssue]-(:Regesta)})
 //	RETURN r
-	private static CompletePattern getTestPattern3() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private CompletePattern getTestPattern3() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = CypherTest00.getBasePattern();
 		
 		Formula formula = PatternstructureFactory.eINSTANCE.createFormula();
@@ -169,5 +176,74 @@ public class CypherTest04Formula extends CypherTranslationAbstract {
 		
 		return completePattern;
 	}	
+	
+	
+	//Exception Tests --> Rework all of them!
+	
+	//Needs rework 
+	private CompletePattern operatorIsNullException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = CypherTest00.getBasePattern();
+		
+		Formula formula = PatternstructureFactory.eINSTANCE.createFormula();
+		completePattern.setCondition(formula);
+		
+		completePattern.createNeo4jAdaption();
+		
+		try {
+			Class c = FormulaImpl.class;
+			Field f = c.getDeclaredField("operator");
+			f.setAccessible(true);
+			f.set(formula, null);
+			f.setAccessible(false);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		
+		return completePattern;
+	}
+	
+	//Rework???
+	private CompletePattern notExistingOperatorException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = CypherTest00.getBasePattern();
+//		Formula formula = PatternstructureFactory.eINSTANCE.createFormula();
+//		completePattern.setCondition(formula);
+//		formula.setOperator(LogicalOperator.NOTHING);
+//		
+		return completePattern;
+	}
+	
+	private CompletePattern cond1IsNull() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = CypherTest00.getBasePattern();
+		Formula formula = PatternstructureFactory.eINSTANCE.createFormula();
+		completePattern.setCondition(formula);
+		formula.setCondition2(PatternstructureFactory.eINSTANCE.createQuantifiedCondition());
+		
+		completePattern.createNeo4jAdaption();		
+		
+		return completePattern;		
+	}
+	
+	private CompletePattern cond2IsNull() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = CypherTest00.getBasePattern();
+		Formula formula = PatternstructureFactory.eINSTANCE.createFormula();
+		completePattern.setCondition(formula);
+		formula.setCondition1(PatternstructureFactory.eINSTANCE.createQuantifiedCondition());
+		
+		completePattern.createNeo4jAdaption();		
+
+		return completePattern;	
+	}
+	
+	private CompletePattern cond1Andcond2IsNull() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = CypherTest00.getBasePattern();
+		Formula formula = PatternstructureFactory.eINSTANCE.createFormula();
+		completePattern.setCondition(formula);
+		formula.setOperator(LogicalOperator.OR);
+		
+		completePattern.createNeo4jAdaption();		
+		formula.setCondition1(null);
+		formula.setCondition2(null);
+		return completePattern;		
+	}
 }
 

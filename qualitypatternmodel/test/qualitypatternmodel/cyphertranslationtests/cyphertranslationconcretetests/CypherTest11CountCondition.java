@@ -40,7 +40,7 @@ public class CypherTest11CountCondition extends CypherTranslationAbstract {
 		// TODO Auto-generated method stub
 	}
 	
-	private static CompletePattern getCountInPatternPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private CompletePattern getCountInPatternPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePattern();
 		
 		CountCondition countCond = PatternstructureFactory.eINSTANCE.createCountCondition();
@@ -69,7 +69,7 @@ public class CypherTest11CountCondition extends CypherTranslationAbstract {
 	}
 	
 	
-	private static CompletePattern getBasePattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private CompletePattern getBasePattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		

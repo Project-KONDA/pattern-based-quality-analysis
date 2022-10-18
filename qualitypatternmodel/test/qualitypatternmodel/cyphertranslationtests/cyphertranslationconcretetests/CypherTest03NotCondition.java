@@ -25,6 +25,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.NotCondition;
+import qualitypatternmodel.patternstructure.NumberElement;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -59,7 +60,7 @@ public class CypherTest03NotCondition extends CypherTranslationAbstract {
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatternsExceptions.add(notCondDoesNotContainConndititon());
 		completePatternsExceptions.add(notCondContainsTrueElement());
-		//completePatternsExceptions.add(notCondContainsCountPattern());
+		completePatternsExceptions.add(notCondContainsCountPattern());
 	}
 
 	private static CompletePattern getTestPattern1() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -627,7 +628,7 @@ public class CypherTest03NotCondition extends CypherTranslationAbstract {
 		return completePattern;		
 	}
 	
-	//Exception-Patterns
+	//Exception-Patterns --> Rework all of them!
 	private static CompletePattern notCondDoesNotContainConndititon() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern comp = CypherTest00.getBasePattern();
 		NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
@@ -645,17 +646,23 @@ public class CypherTest03NotCondition extends CypherTranslationAbstract {
 		return comp;
 	}
 	
+	//Why does that not work???
 	//In current dev a count condition can not be neasted
-	private static CompletePattern notCondContainsCountPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern comp = CypherTest00.getBasePattern();
+	private CompletePattern notCondContainsCountPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getBasePattern();
+		
 		NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
-		comp.setCondition(notCond);
-		CountCondition count = PatternstructureFactory.eINSTANCE.createCountCondition();
-		count.setCountPattern(PatternstructureFactory.eINSTANCE.createCountPattern());
-		count.setArgument2(PatternstructureFactory.eINSTANCE.createNumberElement());
-		notCond.setCondition(count);
-		comp.createNeo4jAdaption();
-		return comp;
+		CountCondition countCond = PatternstructureFactory.eINSTANCE.createCountCondition();
+		countCond.setPattern(completePattern);
+		notCond.setCondition(countCond);
+		
+		NumberElement numberElement = PatternstructureFactory.eINSTANCE.createNumberElement();
+		countCond.setArgument2(numberElement);
+		numberElement.getNumberParam().setValue(1.);
+		
+		completePattern.createNeo4jAdaption();
+	
+		return completePattern;
 	}
 	
 }

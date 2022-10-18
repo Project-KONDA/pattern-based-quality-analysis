@@ -23,7 +23,7 @@ public class MultiListParamImpl extends AbstractListParamImpl implements MultiLi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected MultiListParamImpl() {
+	public MultiListParamImpl() {
 		super();
 	}
 
