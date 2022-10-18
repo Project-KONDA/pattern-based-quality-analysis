@@ -41,11 +41,10 @@ public class CypherTest07QuantifiedCondition extends CypherTranslationAbstract {
 	@Override
 	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		
-		
 		completePatternsExceptions.add(tryNodesWhereNoBeginnings(false));
 		completePatternsExceptions.add(tryNodesWhereNoBeginnings(true));
 		completePatternsExceptions.add(tryWithForAllPropertyExistence());
+		completePatternsExceptions.add(noNodesAreDefinedInTheGraphException());
 	}
 	
 	private static CompletePattern getBasePattern() throws InvalidityException {
@@ -173,5 +172,15 @@ public class CypherTest07QuantifiedCondition extends CypherTranslationAbstract {
 	
 		
 		return completePattern;	
+	}
+	
+	//Introduce here the tests from the NotCondition
+	
+	//Exception tests
+	private CompletePattern noNodesAreDefinedInTheGraphException() throws InvalidityException {
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		completePattern.setGraph(null);
+		
+		return completePattern;
 	}
 }

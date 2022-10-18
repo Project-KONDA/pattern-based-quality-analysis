@@ -56,6 +56,12 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class QuantifiedConditionImpl extends ConditionImpl implements QuantifiedCondition {
+	private static final String QUANTIFIED_COND_GRAPH_IS_EMPTY = "QuantifiedCond - Graph is Empty";
+
+	private static final String INVALID_QUANTIFIER = "invalid quantifier";
+
+	private static final String QUANTIFIED_COND_NEEDS_INNER_CONDITION = "QuantifiedCond - Needs innerCondition";
+
 	/**
 	 * The cached value of the '{@link #getMorphism() <em>Morphism</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -125,7 +131,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		if (quantifier == Quantifier.EXISTS || quantifier == Quantifier.FORALL) {
 			result = graph.generateXQuery();
 		} else {
-			throw new InvalidityException("invalid quantifier");
+			throw new InvalidityException(INVALID_QUANTIFIER);
 		}
 		result += "(" + condition.generateXQuery() + ")";
 		return result;
@@ -165,13 +171,12 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				query += "\n}";
 			}
 		} else {
-			throw new InvalidityException("invalid quantifier");
+			throw new InvalidityException(INVALID_QUANTIFIER);
 		}
 		return query;
 	}
 	
 	//BEGIN -- Neo4J
-	
 	//ADD TO ECORE
 	//Logisch macht es kein sinn kein anderen logischen Operator zu haben
 	private static final String LOGICAL_OPERATOR_AND = LogicalOperator.AND.toString().toUpperCase();
@@ -203,7 +208,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				exists = generateExistsMatch(cypher, cypherWhere, exists);
 			}
 		} else {
-			throw new InvalidityException("QuantifiedCond - Graph is Empty");
+			throw new InvalidityException(QUANTIFIED_COND_GRAPH_IS_EMPTY);
 		}
 		
 		return exists; 		
@@ -295,7 +300,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				addWhiteSpacesForPreviewsCondition(localCypher);
 				localCypher.append(")");
 			} else {
-				throw new InvalidityException("QuantifiedCond - Needs innerCondition");
+				throw new InvalidityException(QUANTIFIED_COND_NEEDS_INNER_CONDITION);
 			}
 		
 			cypherWhere.append(localCypher.toString());
@@ -305,7 +310,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			checkCypherWhere(cypher, cypherWhere);
 			exists = String.format(exists, cypher.toString());
 		} else {
-			throw new InvalidityException("invalid quantifier");
+			throw new InvalidityException(INVALID_QUANTIFIER);
 		}
 		return exists;
 	}
@@ -321,7 +326,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				lineBreak = false;
 			} else {
 				localCypher.insert(currentIndex + 1, CypherSpecificConstants.TWELVE_WHITESPACES); 
-				fromIndex = currentIndex + 12;
+				fromIndex = currentIndex + CypherSpecificConstants.TWELVE_WHITESPACES.length();
 			}
 		}
 	}

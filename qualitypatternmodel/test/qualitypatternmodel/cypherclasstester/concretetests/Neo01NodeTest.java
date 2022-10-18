@@ -25,7 +25,6 @@ import org.mockito.Mockito;
 
 import qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
-import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl;
 import qualitypatternmodel.cypherclasstester.NeoAbstractNodeTest;
 import qualitypatternmodel.exceptions.InvalidityException;

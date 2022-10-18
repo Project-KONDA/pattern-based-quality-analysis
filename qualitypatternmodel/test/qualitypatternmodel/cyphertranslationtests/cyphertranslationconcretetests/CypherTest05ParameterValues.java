@@ -42,23 +42,23 @@ public class CypherTest05ParameterValues extends CypherTranslationAbstract {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		//Look in the NeoDoc to check the fitting syntax 
 		//The Dataset is not containing something else except date and string
+	    	
+    	//Specific case for this test class
+    	//Tests
+		System.out.println("");
+		System.out.println(BEGIN_SPECIFIC_TESTS);
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		ArrayList<ParameterValue> values = getTestParameters();				
+		buildPatterns(completePatterns, values);	
+		
+		//Call tester from CypherTest00
+		CypherTranslationAbstract.tester(completePatterns);
+		System.out.println(END_SPECIFIC_TESTS);
+		System.out.println("");	
 		
 		CypherTranslationAbstract parameterValues = new CypherTest05ParameterValues();
 		parameterValues.generalizedTests();         
 		parameterValues.generalizedInvalidtyExceptionTests();	
-    	
-//    	//Specific case for this test class
-//    	//Tests
-//		System.out.println("");
-//		System.out.println(BEGIN_SPECIFIC_TESTS);
-//		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-//		ArrayList<ParameterValue> values = getTestParameters();				
-//		buildPatterns(completePatterns, values);	
-//		
-//		//Call tester from CypherTest00
-//		CypherTranslationAbstract.tester(completePatterns);
-//		System.out.println(END_SPECIFIC_TESTS);
-//		System.out.println("");		
 	}
 
 	public static void buildPatterns(ArrayList<CompletePattern> completePatterns, ArrayList<ParameterValue> values)
@@ -99,20 +99,12 @@ public class CypherTest05ParameterValues extends CypherTranslationAbstract {
 		completePatterns.add(completePattern);
 	}
 	
-	@Override
-	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		completePatternsExceptions.add(booleanParamException());
-	}
-	
 	private static CompletePattern getConcreteBaseComparisonPattern(ParameterValue parameter) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = CypherTest00.getBasePattern();
 		Node se = completePattern.getGraph().getNodes().get(1);
 		UntypedParameterValue p = se.addPrimitiveComparison();
 		p.replace(parameter);
 		completePattern.createNeo4jAdaption();
-		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.setNodePlace(NeoPlace.BEGINNING);
 		
 		return completePattern;
 	}
@@ -199,14 +191,28 @@ public class CypherTest05ParameterValues extends CypherTranslationAbstract {
 		// TODO Auto-generated method stub
 	}
 	
+	@Override
+	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		completePatternsExceptions.add(textLiteralParamException());
+//		completePatternsExceptions.add(textListParamException());
+//		completePatternsExceptions.add(multiListParamException());
+//		completePatternsExceptions.add(numberParamException());
+//		completePatternsExceptions.add(booleanParamException());
+//		completePatternsExceptions.add(dateParamException());
+//		completePatternsExceptions.add(timeParamException());
+//		completePatternsExceptions.add(dateTimeParamException());
+	}
+	
 	//Exceptions --> Needs rework
 	private CompletePattern textLiteralParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		TextLiteralParam textParam = new TextLiteralParamImpl();
-		textParam.setValue(null);
 		CompletePattern completePattern = getConcreteComparisonPattern(textParam, "countryName");
 		
 		return completePattern;
 	}
+	
+
 	
 	private CompletePattern textListParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		TextListParam textParam = new TextListParamImpl();
