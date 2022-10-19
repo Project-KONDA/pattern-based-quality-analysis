@@ -52,7 +52,7 @@ public class CypherTest05ParameterValues extends CypherTranslationAbstract {
 		buildPatterns(completePatterns, values);	
 		
 		//Call tester from CypherTest00
-		CypherTranslationAbstract.tester(completePatterns);
+		CypherTranslationAbstract.testAllCompletePatterns(completePatterns, true, true);
 		System.out.println(END_SPECIFIC_TESTS);
 		System.out.println("");	
 		

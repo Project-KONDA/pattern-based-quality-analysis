@@ -37,14 +37,14 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
 
 @TestInstance(Lifecycle.PER_CLASS)
 public class TestSuiteTranslationTests {
-	private static final String NEWLINE = "\n";
-	private static final String NULL = "null";
-	private static final String THE_RETURN_CLAUSE_CONTAINS_NULL = "The RETURN-CLAUSE contains null";
 	private static final String DIFFRENT_OTHER_EXCEPTIONS = "Diffrent other Exceptions";
 	private static final String EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION = "NOT ALL INVALIDTIY EXCPECTED EXCEPTIONS HAVE BEEN THROWN";
 	private static final String EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION = "NOT ALL UNSUPPORTED MESSAGE EXCPECTED EXCEPTIONS HAVE BEEN THROWN";
-	private static final String THE_MATCH_CLAUSE_CONTAINS_NULL = "The MATCH-CLAUSE contains null";
 	private ArrayList<CompletePattern> completePatterns;
+	protected static final String THE_MATCH_CLAUSE_CONTAINS_NULL = "The MATCH-CLAUSE contains null";
+	protected static final String NEWLINE = "\n";
+	protected static final String NULL = "null";
+	protected static final String THE_RETURN_CLAUSE_CONTAINS_NULL = "The RETURN-CLAUSE contains null";
 	
 	@BeforeAll
 	public void beforeClassFunction(){
