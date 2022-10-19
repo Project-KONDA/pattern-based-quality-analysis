@@ -1,5 +1,7 @@
 package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 
 import qualitypatternmodel.cyphertranslationtests.CypherTranslationAbstract;
@@ -9,12 +11,18 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
-
+//Warum dauert der test so lange?
 public class CypherTest08Cycle extends CypherTranslationAbstract {
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
     	CypherTest08Cycle cycle = new CypherTest08Cycle();
+    	Instant start = Instant.now();
 		cycle.generalizedTests();         
-		cycle.generalizedInvalidtyExceptionTests(); 
+		cycle.generalizedInvalidtyExceptionTests();
+		
+		// CODE HERE        
+		Instant finish = Instant.now();
+		long timeElapsed = Duration.between(start, finish).toMillis();
+		System.out.println(timeElapsed);
     }
 
 	public void buildPatterns(ArrayList<CompletePattern> completePatterns)

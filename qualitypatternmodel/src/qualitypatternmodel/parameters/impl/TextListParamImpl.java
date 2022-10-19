@@ -2,8 +2,6 @@
  */
 package qualitypatternmodel.parameters.impl;
 
-import static qualitypatternmodel.utility.Constants.*;
-
 import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;

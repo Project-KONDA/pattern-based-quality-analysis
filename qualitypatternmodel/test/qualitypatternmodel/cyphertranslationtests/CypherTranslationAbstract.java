@@ -1,8 +1,8 @@
 package qualitypatternmodel.cyphertranslationtests;
 
-import static qualitypatternmodel.xmltranslationtests.Test00.replace;
-
 import java.util.ArrayList;
+
+import org.eclipse.emf.common.util.EList;
 
 import playground.Java2Neo4JConnector;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
@@ -10,6 +10,13 @@ import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.parameters.BooleanParam;
+import qualitypatternmodel.parameters.NumberParam;
+import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParametersFactory;
+import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
@@ -22,6 +29,7 @@ public abstract class CypherTranslationAbstract implements CypherTranslationeInt
 	public static final String NO_EXCEPTION_HAS_BEEN_TRIGGERED = "No Exception has been triggered";
 	public static final String TRANSLATION = "\n___TRANSLATION___";
 	public static final String PATTERN_VALID = "\n\n___PATTERN_(VALID)___";
+	public static final String PATTERN_NOT_VALID = "\n\n___PATTERN_(NOT VALID)___";
 	public static final AdaptionNeo4JFactory NEO_FACTORY = new AdaptionNeo4JFactoryImpl();
 	public static final String END_BUILD_PATTERN_EXCEPTIONS = "<<< END - Build-Pattern-Exceptions >>>";
 	public static final String BEGIN_BUILD_PATTERN_EXCEPTIONS = "<<< BEGIN - Build-Pattern-Exceptions >>>";
@@ -31,8 +39,7 @@ public abstract class CypherTranslationAbstract implements CypherTranslationeInt
 	public static void exceptionTestHandler(ArrayList<CompletePattern> completePatterns) {
 		for (CompletePattern completePattern : completePatterns) {
 			try {
-				replace(completePattern);
-				System.out.println(PATTERN_VALID);
+				System.out.println(PATTERN_NOT_VALID);
 				System.out.println(completePattern.myToString());
 				System.out.print(TRANSLATION);
 				System.out.println(completePattern.generateCypher());
@@ -69,10 +76,10 @@ public abstract class CypherTranslationAbstract implements CypherTranslationeInt
 						}
 						
 						//Include the null check for the results
-						if (withDb) {
-							String hashCode = query.hashCode() + "";
-							connector.queryTester(query, hashCode, true);							
-						}
+//						if (withDb) {
+//							String hashCode = query.hashCode() + "";
+//							connector.queryTester(query, hashCode, true);							
+//						}
 					} catch (Exception e) {
 						System.out.println();
 						e.printStackTrace();
@@ -126,5 +133,48 @@ public abstract class CypherTranslationAbstract implements CypherTranslationeInt
 		    System.out.println(CypherTranslationAbstract.END_TESTS);
 		    System.out.println("");
 		}
+	}
+	
+	public static CompletePattern replace(CompletePattern pattern) {
+		ParametersPackage.eINSTANCE.eClass();
+		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
+		
+		EList<Parameter> params = pattern.getParameterList().getParameters();
+		for (int i = params.size()-1; i > -1; i--) {
+			Parameter param = pattern.getParameterList().getParameters().get(i);
+			if (param instanceof UntypedParameterValue) {
+				TextLiteralParam text = parametersFactory.createTextLiteralParam();
+				text.setValue("unknown");
+				((UntypedParameterValue) param).replace(text);
+			}
+			if (param instanceof TextLiteralParam) {
+				TextLiteralParam text = (TextLiteralParam) param;
+				if(text.getValue() == null) {
+					text.setValue("something");
+				}
+			}
+			if (param instanceof BooleanParam) {
+				BooleanParam bool = (BooleanParam) param;
+				if(bool.getValue() == null) {
+					bool.setValue(true);
+				}
+			}
+			if (param instanceof NumberParam) {
+				NumberParam number = (NumberParam) param;
+				if(number.getValue() == null) {
+					number.setValue(0.0);
+				}
+			}
+//			What is this doing??
+//			if (param instanceof XmlPathParam) {
+//				XmlPathParam xmlPathParam = (XmlPathParam) param;
+//				for(XmlAxisPair pair : xmlPathParam.getXmlAxisPairs()) {
+//					if(pair.getTextLiteralParam().getValue() == null) {
+//						pair.getTextLiteralParam().setValue("");
+//					}
+//				}
+//			}
+		}
+		return pattern;
 	}
 }

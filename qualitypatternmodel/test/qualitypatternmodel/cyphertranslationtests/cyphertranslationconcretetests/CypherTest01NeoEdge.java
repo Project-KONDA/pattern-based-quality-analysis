@@ -1,5 +1,7 @@
 package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 
 import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
@@ -27,8 +29,14 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 public class CypherTest01NeoEdge extends CypherTranslationAbstract {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CypherTest01NeoEdge neoEdge = new CypherTest01NeoEdge();
+		Instant start = Instant.now();
+		
 		neoEdge.generalizedTests();         
 		neoEdge.generalizedInvalidtyExceptionTests();	
+		
+		Instant finish = Instant.now();
+		long timeElapsed = Duration.between(start, finish).toMillis();
+		System.out.println(timeElapsed);
 		
 		//Specific test for the NeoEdge
 		//Exception during Build-Pattern

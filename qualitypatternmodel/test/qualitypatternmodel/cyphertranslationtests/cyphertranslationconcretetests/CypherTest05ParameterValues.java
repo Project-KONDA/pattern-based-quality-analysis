@@ -2,8 +2,6 @@ package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetest
 
 import java.util.ArrayList;
 
-import qualitypatternmodel.adaptionNeo4J.NeoNode;
-import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.cyphertranslationtests.CypherTranslationAbstract;
@@ -195,18 +193,19 @@ public class CypherTest05ParameterValues extends CypherTranslationAbstract {
 	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatternsExceptions.add(textLiteralParamException());
-//		completePatternsExceptions.add(textListParamException());
-//		completePatternsExceptions.add(multiListParamException());
-//		completePatternsExceptions.add(numberParamException());
-//		completePatternsExceptions.add(booleanParamException());
-//		completePatternsExceptions.add(dateParamException());
-//		completePatternsExceptions.add(timeParamException());
-//		completePatternsExceptions.add(dateTimeParamException());
+		completePatternsExceptions.add(textListParamException());
+		completePatternsExceptions.add(multiListParamException());
+		completePatternsExceptions.add(numberParamException());
+		completePatternsExceptions.add(booleanParamException());
+		completePatternsExceptions.add(dateParamException());
+		completePatternsExceptions.add(timeParamException());
+		completePatternsExceptions.add(dateTimeParamException());
 	}
 	
 	//Exceptions --> Needs rework
 	private CompletePattern textLiteralParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		TextLiteralParam textParam = new TextLiteralParamImpl();
+		textParam.setValue(null);
 		CompletePattern completePattern = getConcreteComparisonPattern(textParam, "countryName");
 		
 		return completePattern;

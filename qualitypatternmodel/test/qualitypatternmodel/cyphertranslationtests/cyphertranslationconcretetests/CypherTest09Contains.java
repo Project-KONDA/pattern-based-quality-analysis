@@ -1,5 +1,7 @@
 package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -22,8 +24,13 @@ public class CypherTest09Contains extends CypherTranslationAbstract {
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CypherTest09Contains contains = new CypherTest09Contains();
+		Instant start = Instant.now();
 		contains.generalizedTests();         
 		contains.generalizedInvalidtyExceptionTests();
+		
+		Instant finish = Instant.now();
+		long timeElapsed = Duration.between(start, finish).toMillis();
+		System.out.println(timeElapsed);
     }
 
 	@Override
