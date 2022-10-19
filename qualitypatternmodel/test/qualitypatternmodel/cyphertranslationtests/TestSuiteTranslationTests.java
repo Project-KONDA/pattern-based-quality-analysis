@@ -31,7 +31,6 @@ import qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests
 import qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests.CypherTest11CountCondition;
 import qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests.CypherTest12CheckNull;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
@@ -183,10 +182,8 @@ public class TestSuiteTranslationTests {
 	}
 	
 	@Test
-	public void CypherTest05ParameterValues() {	
-		ArrayList<ParameterValue> values = CypherTest05ParameterValues.getTestParameters();	
-		assertDoesNotThrow(() -> {new CypherTest05ParameterValues().buildPatterns(completePatterns);
-			CypherTest05ParameterValues.buildPatterns(completePatterns, values); 
+	public void CypherTest05ParameterValues() {		
+		assertDoesNotThrow(() -> {new CypherTest05ParameterValues().buildPatterns(completePatterns); 
 		tester(completePatterns);});
 	}
 	

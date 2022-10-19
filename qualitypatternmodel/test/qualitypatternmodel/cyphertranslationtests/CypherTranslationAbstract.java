@@ -110,7 +110,7 @@ public abstract class CypherTranslationAbstract implements CypherTranslationeInt
 	}
 
 	public void generalizedInvalidtyExceptionTests()
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
 		ArrayList<CompletePattern> completePatternsExceptions = new ArrayList<CompletePattern>();
 		buildInvalidityExceptionPatterns(completePatternsExceptions);
 		if (completePatternsExceptions.size() != 0) {

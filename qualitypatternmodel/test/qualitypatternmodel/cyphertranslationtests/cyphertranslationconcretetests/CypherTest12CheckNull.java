@@ -18,8 +18,12 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 public class CypherTest12CheckNull extends CypherTranslationAbstract {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
         CypherTranslationAbstract checkNull = new CypherTest12CheckNull();
-        checkNull.generalizedTests();         
-        checkNull.generalizedInvalidtyExceptionTests();
+        try {
+        	checkNull.generalizedTests();         
+            checkNull.generalizedInvalidtyExceptionTests();
+        } catch (Exception e) {
+			System.out.println(e);
+		}
     }
 
 	@Override

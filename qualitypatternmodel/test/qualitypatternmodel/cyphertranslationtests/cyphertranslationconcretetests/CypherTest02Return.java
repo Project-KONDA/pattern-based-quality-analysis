@@ -25,8 +25,12 @@ public class CypherTest02Return extends CypherTranslationAbstract {
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CypherTest02Return cypherReturn = new CypherTest02Return();
-		cypherReturn.generalizedTests();         
-		cypherReturn.generalizedInvalidtyExceptionTests();	
+		try {
+			cypherReturn.generalizedTests();         
+			cypherReturn.generalizedInvalidtyExceptionTests();	
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 	@Override

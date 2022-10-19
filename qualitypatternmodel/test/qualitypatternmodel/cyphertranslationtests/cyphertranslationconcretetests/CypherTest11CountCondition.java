@@ -26,8 +26,12 @@ public class CypherTest11CountCondition extends CypherTranslationAbstract {
 	public static void main(String[] args)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CypherTest11CountCondition count = new CypherTest11CountCondition();
-		count.generalizedTests();         
-		count.generalizedInvalidtyExceptionTests();
+		try {
+			count.generalizedTests();         
+			count.generalizedInvalidtyExceptionTests();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 	
 	public void buildPatterns(ArrayList<CompletePattern> completePatterns) throws InvalidityException, OperatorCycleException, MissingPatternContainerException{

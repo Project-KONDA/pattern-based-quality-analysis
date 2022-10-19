@@ -1,6 +1,9 @@
 package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
+
+import org.eclipse.emf.common.util.BasicEList;
 
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
@@ -12,6 +15,7 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.parameters.AbstractListParam;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.DateParam;
 import qualitypatternmodel.parameters.DateTimeParam;
@@ -25,6 +29,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TimeParam;
 import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
+import qualitypatternmodel.parameters.impl.AbstractListParamImpl;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.DateParamImpl;
 import qualitypatternmodel.parameters.impl.DateTimeParamImpl;
@@ -40,27 +45,20 @@ public class CypherTest05ParameterValues extends CypherTranslationAbstract {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		//Look in the NeoDoc to check the fitting syntax 
 		//The Dataset is not containing something else except date and string
-	    	
-    	//Specific case for this test class
-    	//Tests
-		System.out.println("");
-		System.out.println(BEGIN_SPECIFIC_TESTS);
-		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		ArrayList<ParameterValue> values = getTestParameters();				
-		buildPatterns(completePatterns, values);	
-		
-		//Call tester from CypherTest00
-		CypherTranslationAbstract.testAllCompletePatterns(completePatterns, true, true);
-		System.out.println(END_SPECIFIC_TESTS);
-		System.out.println("");	
-		
-		CypherTranslationAbstract parameterValues = new CypherTest05ParameterValues();
-		parameterValues.generalizedTests();         
-		parameterValues.generalizedInvalidtyExceptionTests();	
+	    
+		try {
+			CypherTranslationAbstract parameterValues = new CypherTest05ParameterValues();
+//			parameterValues.generalizedTests();         
+			parameterValues.generalizedInvalidtyExceptionTests();
+		} catch (Exception e) {
+			System.out.println(e);
+		}	
 	}
 
-	public static void buildPatterns(ArrayList<CompletePattern> completePatterns, ArrayList<ParameterValue> values)
+	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		ArrayList<ParameterValue> values = getTestParameters();
+		
 		//TextLiteralParam
 		CompletePattern completePattern = getConcreteComparisonPattern(values.get(0), "date");
 		completePatterns.add(completePattern);	
@@ -95,6 +93,20 @@ public class CypherTest05ParameterValues extends CypherTranslationAbstract {
 		//MultiListParam + IN
 		completePattern = getConcreteComparisonPatternWithIn(values.get(7), "origPlaceOfIssue");
 		completePatterns.add(completePattern);
+	}
+	
+	//Warum werden einige Fälle nicht grün hervorgehoben --> Obwohl es abgetestet wird?
+	@Override
+	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
+		completePatternsExceptions.add(textLiteralParamException());
+		completePatternsExceptions.add(textListParamException());
+		completePatternsExceptions.add(multiListParamException());
+		completePatternsExceptions.add(numberParamException());
+		completePatternsExceptions.add(booleanParamException());
+		completePatternsExceptions.add(dateParamException());
+		completePatternsExceptions.add(timeParamException());
+		completePatternsExceptions.add(dateTimeParamException());
 	}
 	
 	private static CompletePattern getConcreteBaseComparisonPattern(ParameterValue parameter) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -182,25 +194,6 @@ public class CypherTest05ParameterValues extends CypherTranslationAbstract {
 		
 		return parameters;
 	}
-
-	@Override
-	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		// TODO Auto-generated method stub
-	}
-	
-	@Override
-	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		completePatternsExceptions.add(textLiteralParamException());
-		completePatternsExceptions.add(textListParamException());
-		completePatternsExceptions.add(multiListParamException());
-		completePatternsExceptions.add(numberParamException());
-		completePatternsExceptions.add(booleanParamException());
-		completePatternsExceptions.add(dateParamException());
-		completePatternsExceptions.add(timeParamException());
-		completePatternsExceptions.add(dateTimeParamException());
-	}
 	
 	//Exceptions --> Needs rework
 	private CompletePattern textLiteralParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -213,26 +206,35 @@ public class CypherTest05ParameterValues extends CypherTranslationAbstract {
 	
 
 	
-	private CompletePattern textListParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		TextListParam textParam = new TextListParamImpl();
-		//Es wird mit null inisalisiert, daher sollte es so passen		
-		CompletePattern completePattern = getConcreteComparisonPattern(textParam, "countryNames");
+	private CompletePattern textListParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
+		TextListParam listParam = new TextListParamImpl();
+		Field f = getFieldValuesFromListParam();
+		f.set(listParam, new BasicEList<String>());	
+		CompletePattern completePattern = getConcreteComparisonPattern(listParam, "countryNames");
 		
 		return completePattern;
 	}
 	
-	private CompletePattern multiListParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		MultiListParam textParam = new MultiListParamImpl();
-		//Es wird mit null inisalisiert, daher sollte es so passen		
-		CompletePattern completePattern = getConcreteComparisonPattern(textParam, "countryNames");
+	private CompletePattern multiListParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException {
+		MultiListParam multiListParam = new MultiListParamImpl();
+		Field f = getFieldValuesFromListParam();
+		f.set(multiListParam, new BasicEList<String>());
+		CompletePattern completePattern = getConcreteComparisonPattern(multiListParam, "countryNames");
 		
 		return completePattern;
+	}
+
+	protected Field getFieldValuesFromListParam() throws NoSuchFieldException {
+		Class<AbstractListParamImpl> c = AbstractListParamImpl.class;
+		Field f = c.getDeclaredField("values");
+		f.setAccessible(true);
+		return f;
 	}
 	
 	private CompletePattern numberParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		NumberParam textParam = new NumberParamImpl();
-		//Es wird mit null inisalisiert, daher sollte es so passen		
-		CompletePattern completePattern = getConcreteComparisonPattern(textParam, "countryId");
+		NumberParam numberParam = new NumberParamImpl();
+		numberParam.setValue(null);	
+		CompletePattern completePattern = getConcreteComparisonPattern(numberParam, "countryId");
 		
 		return completePattern;
 	}
@@ -246,25 +248,25 @@ public class CypherTest05ParameterValues extends CypherTranslationAbstract {
 	}
 	
 	private CompletePattern dateParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		DateParam textParam = new DateParamImpl();
-		//Es wird mit null inisalisiert, daher sollte es so passen		
-		CompletePattern completePattern = getConcreteComparisonPattern(textParam, "bornOn");
+		DateParam dateParam = new DateParamImpl();
+		dateParam.setValue(null);	
+		CompletePattern completePattern = getConcreteComparisonPattern(dateParam, "bornOn");
 		
 		return completePattern;
 	}
 	
 	private CompletePattern timeParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		TimeParam textParam = new TimeParamImpl();
-		//Es wird mit null inisalisiert, daher sollte es so passen		
-		CompletePattern completePattern = getConcreteComparisonPattern(textParam, "bornOn");
+		TimeParam timeParam = new TimeParamImpl();
+		timeParam.setValue(null);		
+		CompletePattern completePattern = getConcreteComparisonPattern(timeParam, "bornOn");
 		
 		return completePattern;
 	}
 	
 	private CompletePattern dateTimeParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		DateTimeParam textParam = new DateTimeParamImpl();
-		//Es wird mit null inisalisiert, daher sollte es so passen		
-		CompletePattern completePattern = getConcreteComparisonPattern(textParam, "bornOn");
+		DateTimeParam dateTimeParam = new DateTimeParamImpl();
+		dateTimeParam.setValue(null);	
+		CompletePattern completePattern = getConcreteComparisonPattern(dateTimeParam, "bornOn");
 		
 		return completePattern;
 	}

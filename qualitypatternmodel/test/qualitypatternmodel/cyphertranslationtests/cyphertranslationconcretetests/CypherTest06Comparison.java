@@ -40,8 +40,13 @@ public class CypherTest06Comparison extends CypherTranslationAbstract {
     //Relation variables can be only used once
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
     	CypherTest06Comparison comparison = new CypherTest06Comparison();
-    	comparison.generalizedTests();         
-    	comparison.generalizedInvalidtyExceptionTests();
+    	try {
+    		comparison.generalizedTests();         
+        	comparison.generalizedInvalidtyExceptionTests();
+    	} catch (Exception e) {
+			System.out.println(e);
+		}
+    	
     }
 
     @Override

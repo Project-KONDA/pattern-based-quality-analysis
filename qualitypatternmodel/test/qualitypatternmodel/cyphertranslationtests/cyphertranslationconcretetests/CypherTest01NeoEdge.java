@@ -29,14 +29,18 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 public class CypherTest01NeoEdge extends CypherTranslationAbstract {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CypherTest01NeoEdge neoEdge = new CypherTest01NeoEdge();
-		Instant start = Instant.now();
+//		Instant start = Instant.now();
+		try {
+			neoEdge.generalizedTests();         
+			neoEdge.generalizedInvalidtyExceptionTests();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+			
 		
-		neoEdge.generalizedTests();         
-		neoEdge.generalizedInvalidtyExceptionTests();	
-		
-		Instant finish = Instant.now();
-		long timeElapsed = Duration.between(start, finish).toMillis();
-		System.out.println(timeElapsed);
+//		Instant finish = Instant.now();
+//		long timeElapsed = Duration.between(start, finish).toMillis();
+//		System.out.println(timeElapsed);
 		
 		//Specific test for the NeoEdge
 		//Exception during Build-Pattern

@@ -25,8 +25,13 @@ public class CypherTest09Contains extends CypherTranslationAbstract {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CypherTest09Contains contains = new CypherTest09Contains();
 		Instant start = Instant.now();
-		contains.generalizedTests();         
-		contains.generalizedInvalidtyExceptionTests();
+		try {
+			contains.generalizedTests();         
+			contains.generalizedInvalidtyExceptionTests();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
 		
 		Instant finish = Instant.now();
 		long timeElapsed = Duration.between(start, finish).toMillis();

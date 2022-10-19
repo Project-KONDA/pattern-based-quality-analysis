@@ -37,8 +37,12 @@ import qualitypatternmodel.patternstructure.Quantifier;
 public class CypherTest03NotCondition extends CypherTranslationAbstract {    
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
     	CypherTest03NotCondition not = new CypherTest03NotCondition();
-    	not.generalizedTests();         
-    	not.generalizedInvalidtyExceptionTests();	
+    	try {
+        	not.generalizedTests();         
+        	not.generalizedInvalidtyExceptionTests();
+    	} catch (Exception e) {
+			System.out.println(e);
+		}
     }
 
     @Override

@@ -30,9 +30,13 @@ public class CypherTest00 extends CypherTranslationAbstract {
 	public static final AdaptionNeo4JFactory FACTORY = new AdaptionNeo4JFactoryImpl();
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CypherTest00 nullTest = new CypherTest00();
-		nullTest.generalizedTests();         
-		nullTest.generalizedInvalidtyExceptionTests();
+		CypherTest00 cypher00 = new CypherTest00();
+		try {
+			cypher00.generalizedTests();         
+			cypher00.generalizedInvalidtyExceptionTests();			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 	@Override

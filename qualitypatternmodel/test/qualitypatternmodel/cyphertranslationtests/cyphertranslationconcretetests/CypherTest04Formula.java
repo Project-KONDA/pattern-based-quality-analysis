@@ -25,8 +25,12 @@ import qualitypatternmodel.patternstructure.impl.FormulaImpl;
 public class CypherTest04Formula extends CypherTranslationAbstract {    
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
     	CypherTest04Formula formula = new CypherTest04Formula();
-    	formula.generalizedTests();         
-    	formula.generalizedInvalidtyExceptionTests();	
+    	try {
+    		formula.generalizedTests();         
+        	formula.generalizedInvalidtyExceptionTests();	
+    	} catch (Exception e) {
+			System.out.println(e);
+		}
     }
 
     @Override

@@ -25,8 +25,13 @@ public class CypherTest01NeoPropertyEdge extends CypherTranslationAbstract {
 		
 		Instant start = Instant.now();
 		
-		neoPropertyEdge.generalizedTests();         
-		neoPropertyEdge.generalizedInvalidtyExceptionTests();
+		try {
+			neoPropertyEdge.generalizedTests();         
+			neoPropertyEdge.generalizedInvalidtyExceptionTests();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
 		
 		Instant finish = Instant.now();
 		long timeElapsed = Duration.between(start, finish).toMillis();

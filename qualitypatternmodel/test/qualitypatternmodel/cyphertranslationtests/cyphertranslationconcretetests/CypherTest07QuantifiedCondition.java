@@ -24,8 +24,12 @@ public class CypherTest07QuantifiedCondition extends CypherTranslationAbstract {
 	//Add a beginning in the morph which is not the end to thest the pattern-match generation alg
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CypherTest07QuantifiedCondition quantifiedCond = new CypherTest07QuantifiedCondition();
-		quantifiedCond.generalizedTests();         
-		quantifiedCond.generalizedInvalidtyExceptionTests(); 
+		try {
+			quantifiedCond.generalizedTests();         
+			quantifiedCond.generalizedInvalidtyExceptionTests(); 
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 	
 	@Override
