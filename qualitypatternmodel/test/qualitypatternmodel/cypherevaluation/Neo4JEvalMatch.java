@@ -19,30 +19,31 @@ import qualitypatternmodel.rdftranslationtests.RdfTest00;
 public class Neo4JEvalMatch {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getMatchRdfAbstract());
-		completePatterns.add(getMatchWiki());
-		RdfTest00.test(completePatterns);
+		completePatterns.add(getMatchNeo4JAbstract());
+		completePatterns.add(getMatchDate());
+		Neo4JQueryPrinter.queryPrinterSys(completePatterns);
 	}
 	
-	public static CompletePattern getMatchRdfAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern getMatchNeo4JAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = EvalMatch.getMatchGeneric();	
-		completePattern.createRdfAdaption();
+		completePattern.createNeo4jAdaption();
+		//Set the beginning in the QuantifiedCond
 		return completePattern;		
 	}
 
-	public static CompletePattern getMatchWiki() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getMatchRdfAbstract();
+	public static CompletePattern getMatchDate() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getMatchNeo4JAbstract();
 				
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 		
-		BooleanParam p0 = ((BooleanParam) params.get(0));
-		TextLiteralParam p1 = ((TextLiteralParam) params.get(1));
-		RdfPathParam p2 = ((RdfPathParam) params.get(2));
-		
-		p0.setValue(false);
-		p1.setValue("^(<http:\\\\/\\\\/www\\\\.wikidata\\\\.org\\\\/entity\\\\/Q[0-9]+> )?Point\\\\((-)?[0-9]+(\\\\.[0-9]+)? (-)?[0-9]+(\\\\.[0-9]+)?\\\\)$");
-//		p1.setValue("\\?");
-		((RdfSinglePredicate) p2.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P625"));
+//		BooleanParam p0 = ((BooleanParam) params.get(0));
+//		TextLiteralParam p1 = ((TextLiteralParam) params.get(1));
+//		RdfPathParam p2 = ((RdfPathParam) params.get(2));
+//		
+//		p0.setValue(false);
+//		p1.setValue("^(<http:\\\\/\\\\/www\\\\.wikidata\\\\.org\\\\/entity\\\\/Q[0-9]+> )?Point\\\\((-)?[0-9]+(\\\\.[0-9]+)? (-)?[0-9]+(\\\\.[0-9]+)?\\\\)$");
+////		p1.setValue("\\?");
+//		((RdfSinglePredicate) p2.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P625"));
 		
 		return completePattern;
 	}

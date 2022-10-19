@@ -17,12 +17,13 @@ public class Neo4JEvalAppDup {
 		completePatterns.add(getAppDup2Concrete());
 		completePatterns.add(getAppDup3Abstract());
 		completePatterns.add(getAppDup3Concrete());
-		Neo4JQueryPrinter.queryPrinter(completePatterns);
+		Neo4JQueryPrinter.queryPrinterSys(completePatterns);
 	}
 
 	public static CompletePattern getAppDup2Abstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = EvalAppDup.getAppDup2Generic();	
 		completePattern.createNeo4jAdaption();
+		//Set the beginning in the QuantifiedCond
 		return completePattern;		
 	}
 	
@@ -39,6 +40,7 @@ public class Neo4JEvalAppDup {
 	public static CompletePattern getAppDup3Abstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = EvalAppDup.getAppDup3Generic();
 		completePattern.createNeo4jAdaption();
+		//Set the beginning in the QuantifiedCond
 		return completePattern;
 	}
 	

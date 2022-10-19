@@ -21,41 +21,30 @@ public class Neo4JEvalCard {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		
-		completePatterns.add(getCardRdfAbstract());
-		completePatterns.add(getCardWikiFather());
-		completePatterns.add(getCardWikiMother());
+		completePatterns.add(getNeo4JCardAbstract());
+		completePatterns.add(getCardPlaseOfIssuePlace());
+		completePatterns.add(getCardPlaseOfIssueIndexPlace());
 		
 		RdfTest00.test(completePatterns);
 	}
-	
-	public static CompletePattern getCardRdfAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+
+	public static CompletePattern getNeo4JCardAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = EvalCard.getCard2Generic();	
 		completePattern.createRdfAdaption();
 		return completePattern;		
 	}
 
-	public static CompletePattern getCardWikiFather() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getCardRdfAbstract();
+	public static CompletePattern getCardPlaseOfIssuePlace() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getNeo4JCardAbstract();		
+//		List<Parameter> params = completePattern.getParameterList().getParameters();
 				
-		List<Parameter> params = completePattern.getParameterList().getParameters();
-				
-		ComparisonOptionParam p0 = ((ComparisonOptionParam) params.get(0));
-		NumberParam p1 = ((NumberParam) params.get(1));
-		RdfPathParam p2 = ((RdfPathParam) params.get(2));
-		
-		p0.setValue(ComparisonOperator.GREATER);
-		p1.setValue(1.);
-
-		((RdfSinglePredicate) p2.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P22"));
-		
 		return completePattern;
-	}
+	}	
 	
-	public static CompletePattern getCardWikiMother() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getCardWikiFather();
-
-		((RdfSinglePredicate)((RdfPathParam) completePattern.getParameterList().getParameters().get(2)).getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P25"));
-		
+	private static CompletePattern getCardPlaseOfIssueIndexPlace() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getNeo4JCardAbstract();		
+//		List<Parameter> params = completePattern.getParameterList().getParameters();
+				
 		return completePattern;
 	}
 }

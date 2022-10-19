@@ -16,47 +16,28 @@ import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.rdftranslationtests.RdfTest00;
 
+//has to be checked if necessary since it is to similar to the MANDSTRUC
 public class Neo4JEvalExNEx {
 	// also called MANDSTRUC2
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getExNexAbstract());
-		completePatterns.add(getExNexFather());
-		completePatterns.add(getExNexGender());
-		RdfTest00.test(completePatterns);
+		completePatterns.add(getExNexNeo4JAbstract());
+		completePatterns.add(getRegestaWithOutPlace());
+		Neo4JQueryPrinter.queryPrinterSys(completePatterns);
 	}
 
-	private static CompletePattern getExNexAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getExNexNeo4JAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = EvalExNEx.getExNExGeneric();
-		completePattern.createRdfAdaption();
+		completePattern.createNeo4jAdaption();
+		//Maybe add the BEGINNING for the Condition
 		return completePattern;		
 	}
 	
-	static CompletePattern getExNexFather() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getExNexAbstract();
-		EList<Parameter> params = completePattern.getParameterList().getParameters();
-		
-		UntypedParameterValue p0 = ((UntypedParameterValue) params.get(0));
-//		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
-//		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
-		RdfPathParam p3 = ((RdfPathParam) params.get(3));
-		RdfPathParam p4 = ((RdfPathParam) params.get(4));
-		
-		p0.replace(new IriParamImpl("wd:Q5")); 
-		
-		((RdfSinglePredicate) p3.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P31"));
-		((RdfSinglePredicate) p4.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P22"));
+	static CompletePattern getRegestaWithOutPlace() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getExNexNeo4JAbstract();
+//		EList<Parameter> params = completePattern.getParameterList().getParameters();
 		
 		return completePattern;
-	}
-	
-	static CompletePattern getExNexGender() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getExNexFather();
-		EList<Parameter> params = completePattern.getParameterList().getParameters();
-		RdfPathParam p4 = ((RdfPathParam) params.get(4));
-		((RdfSinglePredicate) p4.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P21"));
-		return completePattern;
-	}
-	
+	}	
 }

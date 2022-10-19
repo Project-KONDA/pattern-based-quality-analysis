@@ -22,46 +22,24 @@ import qualitypatternmodel.rdftranslationtests.RdfTest00;
 public class Neo4JEvalComp {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getCompRdfAbstract());
-		completePatterns.add(getCompWiki());
-		RdfTest00.test(completePatterns);
 		
+		completePatterns.add(getCompNeo4JAbstract());
+		completePatterns.add(getCompPlaces());
+		
+		Neo4JQueryPrinter.queryPrinterSys(completePatterns);
 	}
 	
-	public static CompletePattern getCompRdfAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern getCompNeo4JAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = EvalComp.getCompGeneric();	
-		completePattern.createRdfAdaption();
+		completePattern.createNeo4jAdaption();
+		//Set the BEGINNING in the Condition
 		return completePattern;		
 	}
 	
-	public static CompletePattern getCompWiki() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getCompRdfAbstract();
+	public static CompletePattern getCompPlaces() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getCompNeo4JAbstract();
 				
-		List<Parameter> params = completePattern.getParameterList().getParameters();
-		
-		int i=0;
-		for (Parameter p: completePattern.getParameterList().getParameters()){
-			System.out.println(p.getClass().getSimpleName() + " p" + i + " = ((" + p.getClass().getSimpleName() + ") params.get(" + i + "));");
-			i++;
-		}
-		
-		ComparisonOptionParam p0 = ((ComparisonOptionParam) params.get(0));
-		TypeOptionParam p1 = ((TypeOptionParam) params.get(1));
-		RdfPathParam p2 = ((RdfPathParam) params.get(2));
-		RdfPathParam p3 = ((RdfPathParam) params.get(3));
-
-		p0.setValue(ComparisonOperator.GREATER);
-		p1.setValue(ReturnType.DATE);
-
-		IriParam p2iri = new IriParamImpl();
-		p2iri.setPrefix("wdt");
-		p2iri.setSuffix("P569");
-		((RdfSinglePredicate) p2.getRdfPathPart()).setIriParam(p2iri);
-		
-		IriParam p3iri = new IriParamImpl();
-		p3iri.setPrefix("wdt");
-		p3iri.setSuffix("P570");
-		((RdfSinglePredicate) p3.getRdfPathPart()).setIriParam(p3iri);
+//		List<Parameter> params = completePattern.getParameterList().getParameters();
 		
 		return completePattern;
 	}
