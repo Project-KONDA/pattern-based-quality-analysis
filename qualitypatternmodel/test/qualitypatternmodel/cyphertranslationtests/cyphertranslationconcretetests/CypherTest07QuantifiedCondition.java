@@ -177,9 +177,7 @@ public class CypherTest07QuantifiedCondition extends CypherTranslationAbstract {
 		
 		return completePattern;	
 	}
-	
-	//Introduce here the tests from the NotCondition
-	
+		
 	//Exception tests
 	private CompletePattern noNodesAreDefinedInTheGraphException() throws InvalidityException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();

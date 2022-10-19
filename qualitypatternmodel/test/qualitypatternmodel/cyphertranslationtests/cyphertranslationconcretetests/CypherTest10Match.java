@@ -233,26 +233,42 @@ public class CypherTest10Match extends CypherTranslationAbstract {
 	}
 	
 	
-	
-	// --> If a ComplexNode NeoNode has a match
-	private static void exceptionHandler(ArrayList<CompletePattern> completePatterns) {
+    @Override
+	public void generalizedInvalidtyExceptionTests()
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
+		ArrayList<CompletePattern> completePatternsExceptions = new ArrayList<CompletePattern>();
+		buildInvalidityExceptionPatterns(completePatternsExceptions);
+		if (completePatternsExceptions.size() != 0) {
+			System.out.println("");
+			System.out.println(CypherTranslationAbstract.BEGIN_BUILD_PATTERN_EXCEPTIONS);		
+			CypherTest10Match.exceptionTestHandler(completePatternsExceptions);
+			System.out.println(CypherTranslationAbstract.END_BUILD_PATTERN_EXCEPTIONS);
+			System.out.println("");
+		}
+	}
+    
+	public static void exceptionTestHandler(ArrayList<CompletePattern> completePatterns) {
 		for (CompletePattern completePattern : completePatterns) {
 			try {
-				replace(completePattern);
-				System.out.print("\n___TRANSLATION___");
+				System.out.println(PATTERN_NOT_VALID);
+				try {
+					System.out.println(completePattern.myToString());
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				System.out.print(TRANSLATION);
 				System.out.println(completePattern.generateCypher());
-				System.out.println("No Exception has been triggered");
+				System.out.println(NO_EXCEPTION_HAS_BEEN_TRIGGERED);
 			} catch (Exception e) {
-				System.out.println("-- Beginning of the Exceptions --");
+				System.out.println("");
+				System.out.println(BEGINNING_OF_THE_EXCEPTIONS_TESTS);
 				System.out.println(e.toString());
-//				e.printStackTrace();
 				try {
 				  System.out.println(completePattern.myToString());
 				} catch (Exception e2) {
 					System.out.println(e2.toString());
-					//e2.printStackTrace();
 				}
-				System.out.println("Test successful");
+				System.out.println(TEST_SUCCESSFUL);
 			}
 		}
 	}

@@ -1,7 +1,6 @@
 package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
-import java.time.Duration;
-import java.time.Instant;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -14,6 +13,9 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.operators.Contains;
+import qualitypatternmodel.operators.impl.ContainsImpl;
+import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -24,18 +26,12 @@ public class CypherTest09Contains extends CypherTranslationAbstract {
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CypherTest09Contains contains = new CypherTest09Contains();
-		Instant start = Instant.now();
 		try {
 			contains.generalizedTests();         
 			contains.generalizedInvalidtyExceptionTests();
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		
-		
-		Instant finish = Instant.now();
-		long timeElapsed = Duration.between(start, finish).toMillis();
-		System.out.println(timeElapsed);
     }
 
 	@Override
@@ -51,12 +47,14 @@ public class CypherTest09Contains extends CypherTranslationAbstract {
 	
 	@Override
 	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		// TODO Auto-generated method stub
-		
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+		completePatternsExceptions.add(optionIsNull());
+		completePatternsExceptions.add(contentIsNull());
+		completePatternsExceptions.add(contentValueIsNull());
+		completePatternsExceptions.add(primitiveNodeIsNull());
 	}
     
-    private static void makeConcrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+    private void makeConcrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
     	completePattern.createNeo4jAdaption();
     	
 		NeoPropertyEdge npe = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
@@ -64,7 +62,7 @@ public class CypherTest09Contains extends CypherTranslationAbstract {
 		nppp.setNeoPropertyName("archivalHistory");
     }
     
-    private static CompletePattern getPatternContains(Boolean invert, String str) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+    private CompletePattern getPatternContains(Boolean invert, String str) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
@@ -78,7 +76,7 @@ public class CypherTest09Contains extends CypherTranslationAbstract {
 		return pattern;
 	}
 	
-    private static CompletePattern getMultipleContains(Boolean invert, final Map<String, String> propertyNameAndValue) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+    private CompletePattern getMultipleContains(Boolean invert, final Map<String, String> propertyNameAndValue) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		CompletePattern pattern = factory.createCompletePattern();
@@ -98,7 +96,7 @@ public class CypherTest09Contains extends CypherTranslationAbstract {
 		return pattern;
 	}
 	
-    private static void makeConcreteMult(CompletePattern completePattern, final Map<String, String> propertyNameAndValue) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+    private void makeConcreteMult(CompletePattern completePattern, final Map<String, String> propertyNameAndValue) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
     	completePattern.createNeo4jAdaption();
     	
 		NeoPropertyEdge npe;
@@ -113,7 +111,7 @@ public class CypherTest09Contains extends CypherTranslationAbstract {
 		}		
     }
     
-    private static final Map<String, String> createPropertyNameAndValueMap() {
+    private final Map<String, String> createPropertyNameAndValueMap() {
     	Map<String, String> map = new HashMap<String, String>();
     	map.put("bandpk", "13000000");
     	map.put("exchangeIdentifier", "20_000001_000001_013_0");
@@ -125,10 +123,81 @@ public class CypherTest09Contains extends CypherTranslationAbstract {
     	return map;
     }
 	
-	//ComplexEdge testing
-	
 	//Exceptions
-	//--> NeoNode has a contains --> The rdf test is a good tamplate --> Even it works in Neo4J it makes no sense
-	//--> NeoPropertyPathParam has no PropertyName
-	//--> "invalid option" 
+    
+    private CompletePattern optionIsNull() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+    	CompletePattern completePattern = getPatternContains(true, CypherTest09Contains.LINK);
+    	Contains contains = (Contains) completePattern.getGraph().getAllOperators().get(0);
+    	contains.setOption(null);
+    	return completePattern;
+    }
+    
+    private CompletePattern contentIsNull() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+    	CompletePattern completePattern = getPatternContains(true, CypherTest09Contains.LINK);
+    	Contains contains = (Contains) completePattern.getGraph().getAllOperators().get(0);
+    	contains.setContent(null);
+    	return completePattern;
+    }
+    
+    private CompletePattern contentValueIsNull() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+    	CompletePattern completePattern = getPatternContains(true, CypherTest09Contains.LINK);
+    	Contains contains = (Contains) completePattern.getGraph().getAllOperators().get(0);
+    	TextLiteralParam tp = new TextLiteralParamImpl();
+    	contains.setContent(tp);
+    	return completePattern;
+    }
+    
+    private CompletePattern primitiveNodeIsNull() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+    	CompletePattern completePattern = getPatternContains(true, CypherTest09Contains.LINK);
+    	Contains contains = (Contains) completePattern.getGraph().getAllOperators().get(0);
+    	Class<ContainsImpl> c = ContainsImpl.class;
+    	
+    	Field f = c.getDeclaredField("primitiveNode");
+    	f.setAccessible(true);
+    	f.set(contains, null);
+    	f.setAccessible(false);
+
+    	return completePattern;
+    }
+    
+    @Override
+	public void generalizedInvalidtyExceptionTests()
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
+		ArrayList<CompletePattern> completePatternsExceptions = new ArrayList<CompletePattern>();
+		buildInvalidityExceptionPatterns(completePatternsExceptions);
+		if (completePatternsExceptions.size() != 0) {
+			System.out.println("");
+			System.out.println(CypherTranslationAbstract.BEGIN_BUILD_PATTERN_EXCEPTIONS);		
+			CypherTest09Contains.exceptionTestHandler(completePatternsExceptions);
+			System.out.println(CypherTranslationAbstract.END_BUILD_PATTERN_EXCEPTIONS);
+			System.out.println("");
+		}
+	}
+    
+	public static void exceptionTestHandler(ArrayList<CompletePattern> completePatterns) {
+		for (CompletePattern completePattern : completePatterns) {
+			try {
+				System.out.println(PATTERN_NOT_VALID);
+				try {
+					System.out.println(completePattern.myToString());
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				System.out.print(TRANSLATION);
+				System.out.println(completePattern.generateCypher());
+				System.out.println(NO_EXCEPTION_HAS_BEEN_TRIGGERED);
+			} catch (Exception e) {
+				System.out.println("");
+				System.out.println(BEGINNING_OF_THE_EXCEPTIONS_TESTS);
+				System.out.println(e.toString());
+				try {
+				  System.out.println(completePattern.myToString());
+				} catch (Exception e2) {
+					System.out.println(e2.toString());
+				}
+				System.out.println(TEST_SUCCESSFUL);
+			}
+		}
+	}
+    
 }

@@ -269,7 +269,6 @@ public class CypherTest06Comparison extends CypherTranslationAbstract {
 	//WENN IMPLEMENTIERT: im Match ausgedrückte Comparisons müssen gecheckt werden
 	//Equivalente ausdrücke müssen nicht getestet werden
 	
-	//Exceptions
 	//Should throw an exception
 	private CompletePattern getComparisonTwoNeoPropertyNodesWithVariableName(ComparisonOptionParam comparisonOptionParam) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
