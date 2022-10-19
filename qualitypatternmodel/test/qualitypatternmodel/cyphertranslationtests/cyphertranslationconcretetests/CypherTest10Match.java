@@ -1,7 +1,5 @@
 package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
-import static qualitypatternmodel.xmltranslationtests.Test00.replace;
-
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
@@ -34,17 +32,14 @@ public class CypherTest10Match extends CypherTranslationAbstract {
 		
     }
 
-	//REWORK the test here
 	@Override
 	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException {
 		completePatternsExceptions.add(tryMatchInvalidOption(true));
 		completePatternsExceptions.add(tryMatchInvalidOption(false));
 		completePatternsExceptions.add(tryMatchInvalidOptionDiffrent(true));
 		completePatternsExceptions.add(tryMatchInvalidOptionDiffrent3(true));
-		
-		//REWORK
-		//completePatternsExceptions.add(tryMatchInvalidOptionDiffrent4(false));
+		completePatternsExceptions.add(tryMatchInvalidOptionDiffrent4(false));
 	}
 	
 	@Override
@@ -89,9 +84,8 @@ public class CypherTest10Match extends CypherTranslationAbstract {
 	}
 	
 	//Exceptions 
-	// --> "Match - invalid option"
 	private static CompletePattern tryMatchInvalidOption(boolean invert)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
@@ -108,32 +102,26 @@ public class CypherTest10Match extends CypherTranslationAbstract {
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) pattern.getGraph().getRelations().get(0);
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
 		neoPropertyPathParam.setNeoPropertyName("summary");
-		
-
-		
+	
 		match = (Match) pattern.getGraph().getOperatorList().getOperators().get(0);
 		
-		try {
-			Field option = match.getClass().getDeclaredField("option");
-		    option.setAccessible(true);
-		    option.set(match, null);
-		    
-		    Field regularExpression = match.getClass().getDeclaredField("regularExpression");
-		    regularExpression.setAccessible(true);
-		    regularExpression.set(match, null);
-		    
-		    Field primitiveNode = match.getClass().getDeclaredField("primitiveNode");
-		    primitiveNode.setAccessible(true);
-		    primitiveNode.set(match, null);
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
+		Field option = match.getClass().getDeclaredField("option");
+	    option.setAccessible(true);
+	    option.set(match, null);
+	    
+	    Field regularExpression = match.getClass().getDeclaredField("regularExpression");
+	    regularExpression.setAccessible(true);
+	    regularExpression.set(match, null);
+	    
+	    Field primitiveNode = match.getClass().getDeclaredField("primitiveNode");
+	    primitiveNode.setAccessible(true);
+	    primitiveNode.set(match, null);
 		
 		return pattern;
 	}
 	
 	private static CompletePattern tryMatchInvalidOptionDiffrent(boolean invert)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
@@ -153,25 +141,20 @@ public class CypherTest10Match extends CypherTranslationAbstract {
 		
 		match = (Match) pattern.getGraph().getOperatorList().getOperators().get(0);
 		
-		try {
-			TextLiteralParam t = new TextLiteralParamImpl();
-		    Field value = t.getClass().getDeclaredField("value");
-			value.setAccessible(true);
-			value.set(t, null);
-		    
-		    Field regularExpression = match.getClass().getDeclaredField("regularExpression");
-			regularExpression.setAccessible(true);
-			regularExpression.set(match, t);
-		 
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		
+		TextLiteralParam t = new TextLiteralParamImpl();
+	    Field value = t.getClass().getDeclaredField("value");
+		value.setAccessible(true);
+		value.set(t, null);
+	    
+	    Field regularExpression = match.getClass().getDeclaredField("regularExpression");
+		regularExpression.setAccessible(true);
+		regularExpression.set(match, t);
+
 		return pattern;
 	}
 	
 	private static CompletePattern tryMatchInvalidOptionDiffrent3(boolean invert)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
@@ -190,20 +173,13 @@ public class CypherTest10Match extends CypherTranslationAbstract {
 		neoPropertyPathParam.setNeoPropertyName("summary");
 		
 		match = (Match) pattern.getGraph().getOperatorList().getOperators().get(0);
-		
-		try {		    
-		    Field regularExpression = match.getClass().getDeclaredField("regularExpression");
-			regularExpression.setAccessible(true);
-			regularExpression.set(match, null);
-		 
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		
+			    
+	    Field regularExpression = match.getClass().getDeclaredField("regularExpression");
+		regularExpression.setAccessible(true);
+		regularExpression.set(match, null);		
 		return pattern;
 	}
 	
-	//Needs rework
 	private static CompletePattern tryMatchInvalidOptionDiffrent4(boolean invert)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException {
 		PatternstructurePackage.eINSTANCE.eClass();
