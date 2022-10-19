@@ -21,21 +21,13 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class CypherTest01NeoPropertyEdge extends CypherTranslationAbstract {	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CypherTest01NeoPropertyEdge neoPropertyEdge = new CypherTest01NeoPropertyEdge();
-		
-		Instant start = Instant.now();
-		
+		CypherTest01NeoPropertyEdge neoPropertyEdge = new CypherTest01NeoPropertyEdge();		
 		try {
 			neoPropertyEdge.generalizedTests();         
 			neoPropertyEdge.generalizedInvalidtyExceptionTests();
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		
-		
-		Instant finish = Instant.now();
-		long timeElapsed = Duration.between(start, finish).toMillis();
-		System.out.println(timeElapsed);
 	}
 
 	@Override

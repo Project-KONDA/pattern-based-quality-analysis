@@ -29,36 +29,30 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 public class CypherTest01NeoEdge extends CypherTranslationAbstract {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CypherTest01NeoEdge neoEdge = new CypherTest01NeoEdge();
-//		Instant start = Instant.now();
 		try {
 			neoEdge.generalizedTests();         
 			neoEdge.generalizedInvalidtyExceptionTests();
-		} catch (Exception e) {
-			System.out.println(e);
-		}
 			
-		
-//		Instant finish = Instant.now();
-//		long timeElapsed = Duration.between(start, finish).toMillis();
-//		System.out.println(timeElapsed);
-		
-		//Specific test for the NeoEdge
-		//Exception during Build-Pattern
-		System.out.println("");
-		System.out.println(BEGIN_BUILD_PATTERN_EXCEPTIONS);
-		try {
-			//List here all exceptions which occure while build + Naming
-			System.out.println("Exception: Set NeoPathPart");
-			tryBuildNeoNeoNeedsAPathParam();
-			System.out.println("Exception: Setting the NeoDirection to null");
-			tryToCreateNeoDirectionErrorShallNotWork();
+			//Specific test for the NeoEdge
+			//Exception during Build-Pattern
+			System.out.println("");
+			System.out.println(BEGIN_BUILD_PATTERN_EXCEPTIONS);
+			try {
+				//List here all exceptions which occure while build + Naming
+				System.out.println("Exception: Set NeoPathPart");
+				tryBuildNeoNeoNeedsAPathParam();
+				System.out.println("Exception: Setting the NeoDirection to null");
+				tryToCreateNeoDirectionErrorShallNotWork();
+				System.out.println("");
+			} catch (Exception e) {
+				System.out.println(e);
+				System.out.println("");
+			}
+			System.out.println(END_BUILD_PATTERN_EXCEPTIONS);
 			System.out.println("");
 		} catch (Exception e) {
 			System.out.println(e);
-			System.out.println("");
 		}
-		System.out.println(END_BUILD_PATTERN_EXCEPTIONS);
-		System.out.println("");
 	}
 
 	@Override

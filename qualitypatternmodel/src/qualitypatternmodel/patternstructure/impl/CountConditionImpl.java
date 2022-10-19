@@ -162,7 +162,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			
 			return cypher.toString();
 		}
-		throw new InvalidityException();
+		throw new InvalidityException("Insert matching name for Exception");
 	}
 	
 	//Die Patternsprache deckt keine COUNTS im Return ab
