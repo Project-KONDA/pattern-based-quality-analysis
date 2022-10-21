@@ -19,14 +19,14 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.rdftranslationtests.RdfTest00;
 
-public class Neo4JEvalComp {
+public class CypherEvalComp {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		
 		completePatterns.add(getCompNeo4JAbstract());
 		completePatterns.add(getCompPlaces());
 		
-		Neo4JQueryPrinter.queryPrinterSys(completePatterns);
+		CypherQueryPrinter.queryPrinterSys(completePatterns);
 	}
 	
 	public static CompletePattern getCompNeo4JAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

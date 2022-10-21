@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import qualitypatternmodel.cyphertranslationtests.CypherTranslationAbstract;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
-class Neo4JQueryPrinter {
+class CypherQueryPrinter {
 		protected static void queryPrinterSys(ArrayList<CompletePattern> completePatterns) {
 			CypherTranslationAbstract.testAllCompletePatterns(completePatterns, false, true);
 		}

@@ -16,12 +16,12 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.rdftranslationtests.RdfTest00;
 
-public class Neo4JEvalMatch {
+public class CypherEvalMatch {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getMatchNeo4JAbstract());
 		completePatterns.add(getMatchDate());
-		Neo4JQueryPrinter.queryPrinterSys(completePatterns);
+		CypherQueryPrinter.queryPrinterSys(completePatterns);
 	}
 	
 	public static CompletePattern getMatchNeo4JAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

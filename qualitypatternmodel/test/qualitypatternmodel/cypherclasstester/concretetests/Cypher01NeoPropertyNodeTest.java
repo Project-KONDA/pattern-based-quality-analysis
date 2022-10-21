@@ -42,7 +42,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
 
 
 @DisplayName("NeoPropertyNode Tests")
-public class Neo01PropertyNodeTest extends NeoAbstractNodeTest {
+public class Cypher01NeoPropertyNodeTest extends NeoAbstractNodeTest {
 	NeoPropertyNode neoPropertyNode;
 	
 	@BeforeAll

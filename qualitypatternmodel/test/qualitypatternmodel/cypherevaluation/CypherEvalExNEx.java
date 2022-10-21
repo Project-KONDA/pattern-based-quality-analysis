@@ -17,14 +17,14 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.rdftranslationtests.RdfTest00;
 
 //has to be checked if necessary since it is to similar to the MANDSTRUC
-public class Neo4JEvalExNEx {
+public class CypherEvalExNEx {
 	// also called MANDSTRUC2
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getExNexNeo4JAbstract());
 		completePatterns.add(getRegestaWithOutPlace());
-		Neo4JQueryPrinter.queryPrinterSys(completePatterns);
+		CypherQueryPrinter.queryPrinterSys(completePatterns);
 	}
 
 	private static CompletePattern getExNexNeo4JAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

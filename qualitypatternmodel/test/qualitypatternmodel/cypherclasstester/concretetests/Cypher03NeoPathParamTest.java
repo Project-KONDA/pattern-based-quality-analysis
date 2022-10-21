@@ -35,7 +35,7 @@ import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 @DisplayName("NeoPathParamTest")
-public class Neo03PathParamTest extends NeoAbstractPathParamTest {
+public class Cypher03NeoPathParamTest extends NeoAbstractPathParamTest {
 	NeoPathParam neoPathParam;
 	
 	@BeforeAll

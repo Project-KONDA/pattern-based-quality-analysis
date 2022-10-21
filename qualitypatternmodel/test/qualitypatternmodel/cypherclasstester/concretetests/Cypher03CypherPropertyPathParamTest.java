@@ -41,7 +41,7 @@ import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 @DisplayName("NeoPropertyPathParam Test")
-public class Neo03PropertyPathParamTest extends NeoAbstractPathParamTest {
+public class Cypher03CypherPropertyPathParamTest extends NeoAbstractPathParamTest {
 	private static final String NEO_PROPERTY_PATH_PARAM_VARIABLE_EAGE_ONE_CLAMPED = "NeoPropertyPathParam [1] " + "-"+ VARIABLE_EAGE_ONE_CLAMPED + "-";
 	private static final String ORIGINAL_PLACE_OF_ISSUE = "originalPlaceOfIssue";
 	private static final String INDEXPLACE = "INDEXPLACE";

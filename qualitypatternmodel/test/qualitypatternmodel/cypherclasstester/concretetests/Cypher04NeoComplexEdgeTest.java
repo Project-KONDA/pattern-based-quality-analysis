@@ -42,7 +42,7 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 @DisplayName("NeoComplexEdge Test")
-public class Neo04ComplexEdgeTest extends NeoAbstractPathPartTest {
+public class Cypher04NeoComplexEdgeTest extends NeoAbstractPathPartTest {
 	private static final String VARIABLE_EDGE_3 = CypherSpecificConstants.VARIABLE_EGDE + "3";
 	private static final String VARIABLE_EDGE_2 = CypherSpecificConstants.VARIABLE_EGDE + "2";
 	private static final String VARIABLE_EDGE_1 = CypherSpecificConstants.VARIABLE_EGDE + "1";

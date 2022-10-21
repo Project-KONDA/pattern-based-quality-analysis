@@ -10,14 +10,14 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.evaluation.EvalAppDup;
 
-public class Neo4JEvalAppDup {
+public class CypherEvalAppDup {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getAppDup2Abstract());
 		completePatterns.add(getAppDup2Concrete());
 		completePatterns.add(getAppDup3Abstract());
 		completePatterns.add(getAppDup3Concrete());
-		Neo4JQueryPrinter.queryPrinterSys(completePatterns);
+		CypherQueryPrinter.queryPrinterSys(completePatterns);
 	}
 
 	public static CompletePattern getAppDup2Abstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

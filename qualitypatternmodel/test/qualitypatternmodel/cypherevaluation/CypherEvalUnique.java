@@ -8,14 +8,14 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
-public class Neo4JEvalUnique {
+public class CypherEvalUnique {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		
 		completePatterns.add(getUniqueAbstract());
 		completePatterns.add(getUniqueIdentifier());
 		
-		Neo4JQueryPrinter.queryPrinterSys(completePatterns);
+		CypherQueryPrinter.queryPrinterSys(completePatterns);
 	}
 
 	private static CompletePattern getUniqueAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

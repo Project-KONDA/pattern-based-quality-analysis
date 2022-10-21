@@ -15,14 +15,14 @@ import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.xmltranslationtests.Test00;
 
-public class Neo4JEvalMandStruc {
+public class CypherEvalMandStruc {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getMandStrucAbstract());
 		completePatterns.add(getMandStrucRegestaPlace());
 		completePatterns.add(getMandStrucEntryConnections());
 		
-		Neo4JQueryPrinter.queryPrinterSys(completePatterns);
+		CypherQueryPrinter.queryPrinterSys(completePatterns);
 	}
 	
 	public static CompletePattern getMandStrucAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

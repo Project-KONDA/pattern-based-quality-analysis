@@ -17,7 +17,7 @@ import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.xmltranslationtests.Test00;
 
-public class Neo4JEvalMandAtt {
+public class CypherEvalMandAtt {
 	
 	// also called MAND
 	
@@ -28,7 +28,7 @@ public class Neo4JEvalMandAtt {
 		completePatterns.add(getMandatt3Neo4JAbstract());
 		//completePatterns.add(getMandattMidasAps()); //Create a fitting Pattern for this --> In regard to Mandatt3
 		
-		Neo4JQueryPrinter.queryPrinterSys(completePatterns);		
+		CypherQueryPrinter.queryPrinterSys(completePatterns);		
 	}
 	
 	public static CompletePattern getMandattNeo4JAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

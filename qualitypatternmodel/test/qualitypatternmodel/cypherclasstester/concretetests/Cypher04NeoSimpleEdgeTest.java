@@ -42,7 +42,7 @@ import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 
 @DisplayName("NeoSimpleEdge Test")
-public class Neo04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
+public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 	NeoSimpleEdge neoSimpleEdge;
 	
 	@BeforeAll

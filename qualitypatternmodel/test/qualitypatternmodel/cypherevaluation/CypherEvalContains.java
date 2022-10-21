@@ -8,13 +8,13 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 
-public class Neo4JEvalContains {
+public class CypherEvalContains {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getContainNeo4JAbstract());
 		completePatterns.add(getContainMissspelling());
 		completePatterns.add(getContainTag());
-		Neo4JQueryPrinter.queryPrinterSys(completePatterns);
+		CypherQueryPrinter.queryPrinterSys(completePatterns);
 	}
 
 	public static CompletePattern getContainNeo4JAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
