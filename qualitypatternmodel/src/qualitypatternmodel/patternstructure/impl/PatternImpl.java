@@ -58,6 +58,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public abstract class PatternImpl extends PatternElementImpl implements Pattern {
+	private static final String A_CYPHER_QUERY_NEED_A_MATCH_CLAUSE = "A cypher query need a Match-Clause";
 	/**
 	 * The cached value of the '{@link #getGraph() <em>Graph</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -211,7 +212,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		String matchClause;
 		matchClause = graph.generateCypher();
 		if(matchClause.length() !=0 ) matchClause = CypherSpecificConstants.CLAUSE_MATCH + " "  + matchClause;
-		else throw new InvalidityException("A cypher query need a Match-Clause");		
+		else throw new InvalidityException(A_CYPHER_QUERY_NEED_A_MATCH_CLAUSE);		
 		
 		String whereClause = "";
 		whereClause += graph.generateCypherWhere();

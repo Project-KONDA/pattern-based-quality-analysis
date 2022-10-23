@@ -22,6 +22,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -115,16 +116,16 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	
 	//Just focused on Nodes... relations and path have to follow later (FUTURE WORK)
 	protected final EMap<NeoInterfaceNode, String> generateCypherCounters() throws InvalidityException {
-		if (countElementNodes.size() > 0) {
+		if (countElementNodes == null || countElementNodes.size() > 0) {
 			EMap<NeoInterfaceNode, String> myCounters = new BasicEMap<NeoInterfaceNode, String>();
 			String temp;
 			int i = 1;
 			for (NeoInterfaceNode n : countElementNodes) {
-				if (n instanceof NeoNode || (n instanceof NeoPropertyNode && ((NeoPropertyEdge)((Node) n).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() != null )) {
+				if (checkForNode(n)) {
 					temp = createMyCounterString(n, i);
 					myCounters.put(n, temp);
 					i++;
-				} else if ((n instanceof NeoPropertyNode && ((NeoPropertyEdge)((Node) n).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() == null )) {
+				} else if (checkForProperty(n)) {
 					temp = createMyCounterString((NeoPropertyNode) n, i);
 					myCounters.put(n, temp);
 					i++;
@@ -133,6 +134,34 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 			return myCounters;
 		}
 		throw new InvalidityException(NO_COUNT_ELEMENTS_EXISTS);
+	}
+
+	private boolean checkForProperty(NeoInterfaceNode n) {
+		boolean t = false;
+		if (n instanceof NeoPropertyNode) {
+			NeoPropertyPathParam neoParam = ((NeoPropertyEdge)((Node) n).getIncoming().get(0)).getNeoPropertyPathParam();
+			if (neoParam != null) {
+				if (neoParam.getNeoPathPart() == null) {
+					t = true;
+				}
+			}
+		}
+		return t;
+	}
+
+	private boolean checkForNode(NeoInterfaceNode n) {
+		boolean t = false;
+		if (n instanceof NeoNode) {
+			t = true;
+		} else if (n instanceof NeoPropertyNode) {
+			NeoPropertyPathParam neoParam = ((NeoPropertyEdge)((Node) n).getIncoming().get(0)).getNeoPropertyPathParam();
+			if (neoParam != null) {
+				if (neoParam.getNeoPathPart() != null) {
+					t = true;
+				}
+			}
+		}
+		return t;
 	}
 	
 	//Node-Counter

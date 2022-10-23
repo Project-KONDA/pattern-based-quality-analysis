@@ -1,7 +1,5 @@
 package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
-import java.time.Duration;
-import java.time.Instant;
 import java.util.ArrayList;
 import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoDirection;
@@ -33,6 +31,7 @@ public class CypherTest01NeoPropertyEdge extends CypherTranslationAbstract {
 	@Override
 	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		completePatternsExceptions.add(try1());
 		completePatternsExceptions.add(trySimpleEdgeWithProperty());
 		completePatternsExceptions.add(trySetComplexWithOutLastEdge());
 		completePatternsExceptions.add(tryNeoPathPartsWithOutNeoTarget());
@@ -230,11 +229,6 @@ public class CypherTest01NeoPropertyEdge extends CypherTranslationAbstract {
 		neoPropertyNode.setReturnProperty(true);
 		
 		return completePattern;
-	}
-	
-	private static CompletePattern getSimpleEdgeWithOptionalMatch() {
-		
-		return null;
 	}
 		
 	private static CompletePattern getComplexEdge() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

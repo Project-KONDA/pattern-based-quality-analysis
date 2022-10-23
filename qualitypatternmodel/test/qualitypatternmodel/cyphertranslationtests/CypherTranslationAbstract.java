@@ -21,6 +21,8 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 public abstract class CypherTranslationAbstract implements CypherTranslationeInterface {
+	public static final AdaptionNeo4JFactory NEO_FACTORY = new AdaptionNeo4JFactoryImpl();
+	
 	public static final String BEGIN_TESTS = "<<< BEGIN - Tests >>>";
 	public static final String END_TESTS = "<<< END - Tests >>>";
 	public static final String TEST_SUCCESSFUL = "Test successful";
@@ -30,11 +32,12 @@ public abstract class CypherTranslationAbstract implements CypherTranslationeInt
 	public static final String TRANSLATION = "\n___TRANSLATION___";
 	public static final String PATTERN_VALID = "\n\n___PATTERN_(VALID)___";
 	public static final String PATTERN_NOT_VALID = "\n\n___PATTERN_(NOT VALID)___";
-	public static final AdaptionNeo4JFactory NEO_FACTORY = new AdaptionNeo4JFactoryImpl();
 	public static final String END_BUILD_PATTERN_EXCEPTIONS = "<<< END - Build-Pattern-Exceptions >>>";
 	public static final String BEGIN_BUILD_PATTERN_EXCEPTIONS = "<<< BEGIN - Build-Pattern-Exceptions >>>";
 	public static final String END_SPECIFIC_TESTS = "<<< END - Specific Tests >>>";
 	public static final String BEGIN_SPECIFIC_TESTS = "<<< BEGIN - Specific Tests >>>";
+	
+	
 	
 	public static void exceptionTestHandler(ArrayList<CompletePattern> completePatterns) {
 		for (CompletePattern completePattern : completePatterns) {

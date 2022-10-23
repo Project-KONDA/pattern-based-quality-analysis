@@ -36,7 +36,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
 
 @TestInstance(Lifecycle.PER_CLASS)
 public class TestSuiteTranslationTests {
-	private static final String DIFFRENT_OTHER_EXCEPTIONS = "Diffrent other Exceptions";
+//	private static final String DIFFRENT_OTHER_EXCEPTIONS = "Diffrent other Exceptions";
 	private static final String EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION = "NOT ALL INVALIDTIY EXCPECTED EXCEPTIONS HAVE BEEN THROWN";
 	private static final String EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION = "NOT ALL UNSUPPORTED MESSAGE EXCPECTED EXCEPTIONS HAVE BEEN THROWN";
 	private ArrayList<CompletePattern> completePatterns;
