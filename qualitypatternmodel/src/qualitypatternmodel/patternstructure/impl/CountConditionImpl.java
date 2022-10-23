@@ -55,6 +55,10 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class CountConditionImpl extends ConditionImpl implements CountCondition {
+	private static final String INVALID_OPTION = "invalid option";
+
+	private static final String THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY = "The current version does not support this functionality";
+
 	/**
 	 * The cached value of the '{@link #getCountPattern() <em>Count Pattern</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -106,7 +110,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		if(getOption() != null && getOption().getValue() != null) {
 			return argument1 + " " + getOption().getValue() + " " + argument2;
 		} else {
-			throw new InvalidityException("invalid option");
+			throw new InvalidityException(INVALID_OPTION);
 		}
 		
 	}
@@ -136,7 +140,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			query += ")\n}";
 			return query;
 		} else {
-			throw new InvalidityException("invalid option");
+			throw new InvalidityException(INVALID_OPTION);
 		}
 		
 	}
@@ -151,7 +155,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			cypher.append(getCountPattern().generateCypher());
 			
 			if (getArgument2() instanceof CountCondition) {
-				cypher.append(getArgument2().generateCypher());
+				throw new UnsupportedOperationException(THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY);
 			}
 			
 			String tempWhere;
@@ -162,11 +166,10 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			
 			return cypher.toString();
 		}
-		throw new InvalidityException("Insert matching name for Exception");
+		throw new InvalidityException(INVALID_OPTION);
 	}
 	
 	//Die Patternsprache deckt keine COUNTS im Return ab
-//	@Override 
 	private String generateCypherWith() throws InvalidityException {
 		String cypher = CypherSpecificConstants.CLAUSE_WITH + CypherSpecificConstants.ONE_WHITESPACES;
 		if (!(getArgument2() instanceof CountPattern)) {
@@ -181,68 +184,24 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			
 			for (Entry<NeoInterfaceNode, String> entry : myCounters.entrySet()) {
 				if (multi) {
-					cypher += ", ";
+					cypher += CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE;
 				}
 				cypher += entry.getValue();				
 			}
 		} else {
-			throw new UnsupportedOperationException("Think about a potential Exception name");
-//			String tempWith;
-//			tempWith = ((CountPatternImpl) getCountPattern()).generateCypherWith();			
-//			EMap<NeoAbstractNode, String> myCounters = ((CountPatternImpl)getCountPattern()).generateCypherCounters();
-//			EMap<NeoAbstractNode, String> myCounters2 = ((CountPatternImpl)getArgument2()).generateCypherCounters();
-//			//Remove all duplicates
-//			for (Entry<NeoAbstractNode, String> entry1 : myCounters.entrySet()) {
-//				for (Entry<NeoAbstractNode, String> entry2 : myCounters2.entrySet()) {
-//					if (entry1.getKey() == entry2.getKey()) {
-//						myCounters2.remove(entry2);
-//					}
-//				}
-//			}
-//			
-//			boolean multi = false;
-//			if (!tempWith.isEmpty()) {
-//				cypher += tempWith;
-//				multi = true;
-//			}
-//			
-//			for (Entry<NeoAbstractNode, String> entry : myCounters.entrySet()) {
-//				if (multi) {
-//					cypher += ", ";
-//				}
-//				cypher += entry.getValue();				
-//			}
+			throw new UnsupportedOperationException(THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY);
 		}
 		return cypher;
 	}
 	
-//	@Override 
+
 	private String generateCypherCountWhere() throws InvalidityException {
 		String cypher = "";
 		EMap<NeoInterfaceNode, String> myCounters = ((CountPatternImpl)getCountPattern()).generateCypherCounters();
 		final String comp = getOption().getValue().getLiteral();
 		
 		if (getArgument2() instanceof CountPattern) {
-			throw new UnsupportedOperationException("In the current implementation the second CountCondition Argument can not be a CountPattern");
-//			StringBuilder tempCypher = new StringBuilder();
-//			EMap<NeoAbstractNode, String> myCounters2 = ((CountPatternImpl)getArgument2()).generateCypherCounters();
-//			//Remove all duplicates
-//			for (Entry<NeoAbstractNode, String> entry1 : myCounters.entrySet()) {
-//				for (Entry<NeoAbstractNode, String> entry2 : myCounters2.entrySet()) {
-//					if (entry1.getKey() == entry2.getKey()) {
-//						myCounters2.remove(entry2);
-//					}
-//				}
-//			}
-//			
-//			for (Entry<NeoAbstractNode, String> entry1 : myCounters.entrySet()) {
-//				for (Entry<NeoAbstractNode, String> entry2 : myCounters2.entrySet()) {
-//					if (tempCypher.length() != 0) {
-//						tempCypher.append(" " + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + " ");
-//					}
-//					tempCypher.append(entry1.getValue() + comp + entry2.getValue());
-//				}
-//			}			
+			throw new UnsupportedOperationException(THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY);		
 		} else {
 			StringBuilder tempCypher = new StringBuilder();
 			for (Entry<NeoInterfaceNode, String> entry : myCounters.entrySet()) {
@@ -292,7 +251,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			throw new InvalidityException("argument2 missing");
 		}
 		if(getOption() == null) {
-			throw new InvalidityException("invalid option");
+			throw new InvalidityException(INVALID_OPTION);
 		} 		
 	}
 	

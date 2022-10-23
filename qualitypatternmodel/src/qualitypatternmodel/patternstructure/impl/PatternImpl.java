@@ -334,7 +334,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 						lineBreak = false;
 					} else {
 						localCypher.insert(currentIndex + 1, CypherSpecificConstants.TWELVE_WHITESPACES); 
-						fromIndex = currentIndex + 12;
+						fromIndex = currentIndex + CypherSpecificConstants.TWELVE_WHITESPACES.length();
 					}
 				}
 				cond = localCypher.toString();

@@ -55,6 +55,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * @generated
  */
 public class CountPatternImpl extends PatternImpl implements CountPattern {
+	private static final String NO_COUNT_ELEMENTS_EXISTS = "No Count Elements exists";
 	/**
 	 * The cached value of the '{@link #getMorphism() <em>Morphism</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -85,14 +86,12 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	
 	
 	
-	//BEGIN - CYPHER
+	//BEGIN - CYPHER (Simples Count)
 	//Der folgende Abschnitt gehört zum Cypher COUNT
-	//Es ein Simples Count
 	//Count ist für die anderen CONDITIONS als Unsuported makiert, da Cypher v4.4 und niedriger keine Verschachtelungen zulässt
 	
-	protected Set<NeoInterfaceNode> countElementNodes; //Nodes --> keine PATH/Edges/Properties implementiert
-//	protected Set<NeoAbstractEdge> countElementEdges; //Edges --> Das Framework bezieht sich primär auf Nodes und deren Datenprobleme, daher sind Edges nicht so relevant im Moment
-//	protected Set<NeoPropertyPathParamImpl> countProperties; //Properties --> Existense kann ich prüfen und in Cypher kann man keine Doppelten Variabelen haben, daher fällt das hier weg
+	//Nodes --> keine PATH/Edges/Properties implementiert
+	protected Set<NeoInterfaceNode> countElementNodes; 
 	
 	//Add to Ecore?
 	public void setCountElementNodes(Set<NeoInterfaceNode> countElements) {
@@ -100,22 +99,10 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		this.countElementNodes = cloned_list;
 	}
 	
-//	//Add to Ecore?
-//	public void setCountElementEdges(Set<NeoAbstractEdge> countElements) {
-//		Set<NeoAbstractEdge> cloned_list = new HashSet<NeoAbstractEdge>(countElements); //Maybe replace by LinkedHashSet
-//		this.countElementEdges = cloned_list;
-//	}
-//	
-//	//Add to Ecore?
-//	public void setCountProperties(Set<NeoPropertyPathParamImpl> countElements) {
-//		Set<NeoPropertyPathParamImpl> cloned_list = new HashSet<NeoPropertyPathParamImpl>(countProperties); //Maybe replace by LinkedHashSet
-//		this.countProperties = cloned_list;
-//	}
-	
 	@Override 
 	public String generateCypher() throws InvalidityException {
-		StringBuilder cypher = new StringBuilder();
-		Graph g = getGraph();
+		final StringBuilder cypher = new StringBuilder();
+		final Graph g = getGraph();
 		cypher.append(CypherSpecificConstants.CLAUSE_MATCH + CypherSpecificConstants.ONE_WHITESPACES);
 		cypher.append(g.generateCypher());
 		String tempWhere = g.generateCypherWhere();
@@ -145,7 +132,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 			}
 			return myCounters;
 		}
-		throw new InvalidityException("CountPattern - No Count Elements exists");
+		throw new InvalidityException(NO_COUNT_ELEMENTS_EXISTS);
 	}
 	
 	//Node-Counter
@@ -156,24 +143,6 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		temp += CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_ALIAS_CALL + CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT_NAMING + countCounter;
 		return temp;
 	}
-	
-	//Property-Counting
-//	private String createMyCounterString(NeoPropertyPathParamImpl countElement, int countCounter) throws InvalidityException {
-//		String temp;
-//		temp = CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT;
-//		temp = String.format(temp, countElement.getNeoPropertyEdge().generateCypherPropertyAddressing());
-//		temp += CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_ALIAS_CALL + CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT_NAMING + countCounter;
-//		return temp;
-//	}
-	
-	//Edge-Counting
-//	private String createMyCounterString(NeoAbstractEdge countElement, int countCounter) throws InvalidityException {
-//		String temp;
-//		temp = CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT;
-//		temp = String.format(temp, countElement.generateC);
-//		temp += CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_ALIAS_CALL + CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT_NAMING + countCounter;
-//		return temp;
-//	}
 	
 	//Needs refactoring --> Get all return elements from the original Graph and puts it into the WITH except properties - This can be accessed as long as the Node is in the with
 	protected String generateCypherWith() throws InvalidityException {
@@ -214,17 +183,16 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		return cypher;
 	}
 
-	private String joiningReturnValues(String cypher, final Map<Integer, String> cypherReturn,
-			final StringBuilder cypherSb) {
+	private String joiningReturnValues(String cypher, final Map<Integer, String> cypherReturn, final StringBuilder cypherSb) {
 		for (Map.Entry<Integer, String> mapElement : cypherReturn.entrySet()) {	  
 			if (cypherSb.length() != 0) {
-				cypherSb.append(", ");
+				cypherSb.append(CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE);
 			}
 			cypherSb.append(mapElement.getValue()); //--> Check the case what would be if there is a null
 		}
 		if (cypherSb.length() != 0) {
 			if (cypher.length() != 0) {
-				cypher += ", ";
+				cypher += CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE;
 			}
 			cypher += cypherSb.toString();
 		}
@@ -712,13 +680,47 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 } //SubpatternImpl
 
 
+//Additional parts for potential future implementations
+//protected Set<NeoAbstractEdge> countElementEdges; //Edges --> Das Framework bezieht sich primär auf Nodes und deren Datenprobleme, daher sind Edges nicht so relevant im Moment
+//protected Set<NeoPropertyPathParamImpl> countProperties; //Properties --> Existense kann ich prüfen und in Cypher kann man keine Doppelten Variabelen haben, daher fällt das hier weg
+
+////Add to Ecore?
+//public void setCountElementEdges(Set<NeoAbstractEdge> countElements) {
+//	Set<NeoAbstractEdge> cloned_list = new HashSet<NeoAbstractEdge>(countElements); //Maybe replace by LinkedHashSet
+//	this.countElementEdges = cloned_list;
+//}
+//
+////Add to Ecore?
+//public void setCountProperties(Set<NeoPropertyPathParamImpl> countElements) {
+//	Set<NeoPropertyPathParamImpl> cloned_list = new HashSet<NeoPropertyPathParamImpl>(countProperties); //Maybe replace by LinkedHashSet
+//	this.countProperties = cloned_list;
+//}
+
 //PROTOTYPE - FUTURE WORK
 //private static int myCountersInt = 0;
 //private List<String> myCounters = new LinkedList<String>();
 //protected List<String> getMyCounters() {
 //	return myCounters;
 //}
-//
+
+//Property-Counting
+//private String createMyCounterString(NeoPropertyPathParamImpl countElement, int countCounter) throws InvalidityException {
+//	String temp;
+//	temp = CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT;
+//	temp = String.format(temp, countElement.getNeoPropertyEdge().generateCypherPropertyAddressing());
+//	temp += CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_ALIAS_CALL + CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT_NAMING + countCounter;
+//	return temp;
+//}
+
+//Edge-Counting
+//private String createMyCounterString(NeoAbstractEdge countElement, int countCounter) throws InvalidityException {
+//	String temp;
+//	temp = CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT;
+//	temp = String.format(temp, countElement.generateC);
+//	temp += CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_ALIAS_CALL + CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT_NAMING + countCounter;
+//	return temp;
+//}
+
 ////PROTOTYP - FUTURE WORK
 //@Override
 //public String generateCypher() throws InvalidityException {

@@ -21,6 +21,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.impl.CountPatternImpl;
 
+//Test also the COUNTING with NeoPropertyNodes
 public class CypherTest11CountCondition extends CypherTranslationAbstract {
 		
 	public static void main(String[] args)
