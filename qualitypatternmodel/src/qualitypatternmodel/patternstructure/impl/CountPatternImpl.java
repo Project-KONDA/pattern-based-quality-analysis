@@ -104,10 +104,13 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	public String generateCypher() throws InvalidityException {
 		final StringBuilder cypher = new StringBuilder();
 		final Graph g = getGraph();
-		cypher.append(CypherSpecificConstants.CLAUSE_MATCH + CypherSpecificConstants.ONE_WHITESPACES);
-		cypher.append(g.generateCypher());
+		final String temp = g.generateCypher();
+		if (temp != null && !temp.isBlank()) {
+			cypher.append(CypherSpecificConstants.CLAUSE_MATCH + CypherSpecificConstants.ONE_WHITESPACES);
+			cypher.append(g.generateCypher());
+		}
 		String tempWhere = g.generateCypherWhere();
-		if (!tempWhere.isEmpty()) {
+		if (!tempWhere.isBlank()) {
 			cypher.append(CypherSpecificConstants.CLAUSE_WHERE + CypherSpecificConstants.ONE_WHITESPACES);
 			cypher.append(tempWhere);
 		}
@@ -166,11 +169,15 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	
 	//Node-Counter
 	private String createMyCounterString(NeoInterfaceNode countElement, int countCounter) throws InvalidityException {
-		String temp;
-		temp = CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT;
-		temp = String.format(temp, countElement.getCypherVariable());
-		temp += CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_ALIAS_CALL + CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT_NAMING + countCounter;
-		return temp;
+		final String cypherVariable = countElement.getCypherVariable();
+		if (cypherVariable != null) {
+			String temp;
+			temp = CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT;
+			temp = String.format(temp, countElement.getCypherVariable());
+			temp += CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_ALIAS_CALL + CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT_NAMING + countCounter;
+			return temp;
+		}
+		throw new InvalidityException("Something went wrong in accessing the CypherVariable");
 	}
 	
 	//Needs refactoring --> Get all return elements from the original Graph and puts it into the WITH except properties - This can be accessed as long as the Node is in the with

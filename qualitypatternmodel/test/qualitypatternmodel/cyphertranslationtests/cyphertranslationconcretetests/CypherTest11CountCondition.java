@@ -113,7 +113,7 @@ public class CypherTest11CountCondition extends CypherTranslationAbstract {
 		countPatternImpl.setCountElementNodes(countElements);				
 		
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) countPatternImpl.getGraph().getRelations().get(1);
-		NeoPropertyPathParam neoPropertyPathParam = NEO_FACTORY.createNeoPropertyPathParam();
+		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
 		neoPropertyPathParam.setNeoPropertyName("placeOfIssue");
 		neoPropertyPathParam.setNeoPathPart(NEO_FACTORY.createNeoSimpleEdge());
 		neoPropertyEdge.setNeoPropertyPathParam(neoPropertyPathParam);

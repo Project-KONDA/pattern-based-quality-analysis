@@ -38,6 +38,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * @generated
  */
 public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPropertyEdge {
+	private static final String THERE_IS_NO_NEO_SIMPLE_EDGE_FOR_THE_TARGET_TYPE = "There is no NeoSimpleEdge for the target type";
 	/**
 	 * The cached value of the '{@link #getNeoPropertyPathParam() <em>Neo Property Path Param</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -167,13 +168,14 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 					NeoNode neoNode = (NeoNode) getSource();
 					cypher = neoNode.getCypherVariable();
 				} else {
-					NeoPathPart neoLastEdge = null;
-					if (neoPropertyPathParam.getNeoPathPart() instanceof NeoComplexEdge) {
-						neoLastEdge = neoPropertyPathParam.getNeoPathPart().getNeoLastEdge();
-					} else if (neoPropertyPathParam.getNeoPathPart() instanceof NeoSimpleEdge) {
-						neoLastEdge = neoPropertyPathParam.getNeoPathPart();
-					} else {
-						throw new InvalidityException("There is no NeoSimpleEdge for the target type");
+					NeoPathPart neoLastEdge = neoPropertyPathParam.getNeoPathPart().getNeoLastEdge();
+//					if (neoPropertyPathParam.getNeoPathPart() instanceof NeoComplexEdge) {
+//						neoLastEdge = neoPropertyPathParam.getNeoPathPart().getNeoLastEdge();
+//					} else if (neoPropertyPathParam.getNeoPathPart() instanceof NeoSimpleEdge) {
+//						neoLastEdge = neoPropertyPathParam.getNeoPathPart();
+//					} else {
+					if (neoLastEdge == null) {
+						throw new InvalidityException(THERE_IS_NO_NEO_SIMPLE_EDGE_FOR_THE_TARGET_TYPE);
 					}
 					cypher = neoLastEdge.getCypherInnerEdgeNodes(false);
 				}
