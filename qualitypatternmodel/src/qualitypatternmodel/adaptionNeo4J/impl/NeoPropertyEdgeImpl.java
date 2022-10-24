@@ -19,7 +19,6 @@ import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
-import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -169,11 +168,6 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 					cypher = neoNode.getCypherVariable();
 				} else {
 					NeoPathPart neoLastEdge = neoPropertyPathParam.getNeoPathPart().getNeoLastEdge();
-//					if (neoPropertyPathParam.getNeoPathPart() instanceof NeoComplexEdge) {
-//						neoLastEdge = neoPropertyPathParam.getNeoPathPart().getNeoLastEdge();
-//					} else if (neoPropertyPathParam.getNeoPathPart() instanceof NeoSimpleEdge) {
-//						neoLastEdge = neoPropertyPathParam.getNeoPathPart();
-//					} else {
 					if (neoLastEdge == null) {
 						throw new InvalidityException(THERE_IS_NO_NEO_SIMPLE_EDGE_FOR_THE_TARGET_TYPE);
 					}

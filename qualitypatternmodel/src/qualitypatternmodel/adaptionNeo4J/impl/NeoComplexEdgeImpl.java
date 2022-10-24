@@ -88,7 +88,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 			StringBuilder variables = new StringBuilder();
 			EList<NeoPathPart> neoPath = this.getNeoPathPartEdgeLeafs();
 			for(NeoPathPart path : neoPath) {
-				if (variables.length() != 0) variables.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES); 
+				if (variables.length() != 0) variables.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE); 
 				variables.append(path.getCypherVariable());
 			}
 			return variables.toString();
@@ -116,7 +116,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 			if (innerEdgeNode != null) {
 				if (innerEdgeNode.contains(CypherSpecificConstants.INTERNAL_EDGE_NODE)) {
 					if (cypher.length() != 0) {
-						cypher.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
+						cypher.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE);
 					}
 					cypher.append(innerEdgeNode);
 				}

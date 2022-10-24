@@ -56,11 +56,11 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class QuantifiedConditionImpl extends ConditionImpl implements QuantifiedCondition {
-	private static final String QUANTIFIED_COND_GRAPH_IS_EMPTY = "QuantifiedCond - Graph is Empty";
-
+	private static final String NO_BEGINNING_IS_SPECIFIED = "No Beginning is specified";
+	private static final String MODEL_HAS_TO_BUILD_A_PATTERN_STRUCTURE = "Model has to build a Pattern-Structure";
+	private static final String QUANTIFIED_COND_GRAPH_IS_EMPTY = "Graph is Empty";
 	private static final String INVALID_QUANTIFIER = "invalid quantifier";
-
-	private static final String QUANTIFIED_COND_NEEDS_INNER_CONDITION = "QuantifiedCond - Needs innerCondition";
+	private static final String QUANTIFIED_COND_NEEDS_INNER_CONDITION = "Needs innerCondition";
 
 	/**
 	 * The cached value of the '{@link #getMorphism() <em>Morphism</em>}' containment reference.
@@ -244,23 +244,23 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			if (quantifier == Quantifier.EXISTS && getNotCondition() == null) {
 				for (NeoPropertyNode node : neoPropertyNodes) {
 					if (cypher.length() != 0) {
-						cypher.append("," + CypherSpecificConstants.ONE_WHITESPACES);
+						cypher.append("," + CypherSpecificConstants.ONE_WHITESPACE);
 					}
 					cypher.append(node.generateCypherPropertyAddressing());
 				}
 				return String.format(exists, cypher.toString());
 			} else if (quantifier == Quantifier.EXISTS && getNotCondition() != null) {
 				for (NeoPropertyNode node : neoPropertyNodes) {
-					if (cypher.length() != 0) cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACES);
+					if (cypher.length() != 0) cypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
 					cypher.append(String.format(CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_PROPERTY, node.generateCypherPropertyAddressing()));
 				}
 				String temp = "(" + cypher.toString() + ")";
 				return temp;				
 			} else if (quantifier == Quantifier.FORALL) {
-				throw new InvalidityException("QuantifiedCond - Model has to build a Pattern-Structure");
+				throw new InvalidityException(MODEL_HAS_TO_BUILD_A_PATTERN_STRUCTURE);
 			}
 		} 
-		throw new InvalidityException("QuantifiedCond - No Beginning is specified");
+		throw new InvalidityException(NO_BEGINNING_IS_SPECIFIED);
 	}
 	
 	private String generateExistsMatch(StringBuilder cypher, StringBuilder cypherWhere, String exists)
@@ -292,7 +292,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			//USING INTERNALY THE EXISTS
 			StringBuilder localCypher = new StringBuilder();
 			localCypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_NOT);
-			localCypher.append(CypherSpecificConstants.ONE_WHITESPACES + "(");
+			localCypher.append(CypherSpecificConstants.ONE_WHITESPACE + "(");
 			
 			//INCLUDE INNER EXPRESSION FOR FORALL	
 			if (!(getCondition() instanceof TrueElementImpl)) {

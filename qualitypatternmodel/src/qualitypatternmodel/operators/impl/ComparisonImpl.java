@@ -352,8 +352,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	private void generateCypherStandardComp(StringBuilder cypher, final String argument1Translation,
 			final String argument2Translation, final String comp) {
 		cypher.append(argument1Translation);
-		cypher.append(CypherSpecificConstants.ONE_WHITESPACES + comp
-				+ CypherSpecificConstants.ONE_WHITESPACES);
+		cypher.append(CypherSpecificConstants.ONE_WHITESPACE + comp
+				+ CypherSpecificConstants.ONE_WHITESPACE);
 		cypher.append(argument2Translation);
 	}
 
@@ -362,8 +362,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		boolean b = checkForValidCypherNode();
 		if (b) {
 			cypher.append(String.format(CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_ID, argument1Translation));
-			cypher.append(CypherSpecificConstants.ONE_WHITESPACES + comp
-					+ CypherSpecificConstants.ONE_WHITESPACES);
+			cypher.append(CypherSpecificConstants.ONE_WHITESPACE + comp
+					+ CypherSpecificConstants.ONE_WHITESPACE);
 			cypher.append(String.format(CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_ID, argument2Translation));
 		} else {
 			throw new UnsupportedOperationException();
@@ -377,14 +377,14 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}
 		if (!negation) {
 			cypher.append(argument1Translation);
-			cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_IN
-					+ CypherSpecificConstants.ONE_WHITESPACES);
+			cypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_IN
+					+ CypherSpecificConstants.ONE_WHITESPACE);
 			cypher.append(argument2Translation);
 		} else {
 			cypher.append("( " + CypherSpecificConstants.BOOLEAN_OPERATOR_NOT);
 			cypher.append(argument1Translation);
-			cypher.append(CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_IN
-					+ CypherSpecificConstants.ONE_WHITESPACES);
+			cypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_IN
+					+ CypherSpecificConstants.ONE_WHITESPACE);
 			cypher.append(argument2Translation);
 			cypher.append(" )");
 		}

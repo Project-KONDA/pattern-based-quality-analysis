@@ -224,7 +224,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 				cond = addWhiteSpacesForConditions(cond, whereClause);
 				if (!whereClause.isEmpty() && !cond.isEmpty()) 
 					whereClause +=  "\n" + CypherSpecificConstants.TWELVE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND 
-									+ CypherSpecificConstants.ONE_WHITESPACES;
+									+ CypherSpecificConstants.ONE_WHITESPACE;
 				whereClause += cond;
 			}
 		} //else {
@@ -317,7 +317,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	protected void appendInnerEdgeNodes(final StringBuilder cypherInnerEdgeNodes, NeoAbstractEdge neoAbstractEdge)
 			throws InvalidityException {
 		if (neoAbstractEdge.getReturnInnerEdgeNodes() != null) {
-			if (cypherInnerEdgeNodes.length() != 0) cypherInnerEdgeNodes.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
+			if (cypherInnerEdgeNodes.length() != 0) cypherInnerEdgeNodes.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE);
 			cypherInnerEdgeNodes.append(neoAbstractEdge.getReturnInnerEdgeNodes());
 		}
 	}

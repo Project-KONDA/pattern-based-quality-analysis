@@ -171,7 +171,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	
 	//Die Patternsprache deckt keine COUNTS im Return ab
 	private String generateCypherWith() throws InvalidityException {
-		String cypher = CypherSpecificConstants.CLAUSE_WITH + CypherSpecificConstants.ONE_WHITESPACES;
+		String cypher = CypherSpecificConstants.CLAUSE_WITH + CypherSpecificConstants.ONE_WHITESPACE;
 		if (!(getArgument2() instanceof CountPattern)) {
 			boolean multi = false;
 			String tempWith;
@@ -188,10 +188,9 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 				}
 				cypher += entry.getValue();				
 			}
-		} else {
-			throw new UnsupportedOperationException(THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY);
+			return cypher;
 		}
-		return cypher;
+		throw new UnsupportedOperationException(THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY);
 	}
 	
 
@@ -213,7 +212,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 				tempCypher.append(getArgument2().generateCypher());
 			}
 			if (tempCypher.length() != 0) {
-				cypher = CypherSpecificConstants.CLAUSE_WHERE + CypherSpecificConstants.ONE_WHITESPACES + tempCypher.toString();
+				cypher = CypherSpecificConstants.CLAUSE_WHERE + CypherSpecificConstants.ONE_WHITESPACE + tempCypher.toString();
 			}
 		}
 		

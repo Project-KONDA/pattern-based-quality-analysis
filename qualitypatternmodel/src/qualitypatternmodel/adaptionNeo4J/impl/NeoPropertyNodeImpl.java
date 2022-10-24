@@ -38,6 +38,8 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * @generated
  */
 public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropertyNode {
+	private static final String NO_IMCOMING_EDGE_SPEZIFIED = "No imcoming edge spezified";
+	private static final String THIS_NODE_IS_NOT_SUITED_TO_BE_A_RETURN_NODE = "This Node is not suited to be a Return Node";
 	private static final String WRONG_INCOMING_NEO_PROPERTY_EDGE_SPECIFIED = "Wrong incoming NeoPropertyEdge specified";
 	private static final String NO_INCOMING_NEO_PROPERTY_EDGE_SPECIFIED = "No incoming NeoPropertyEdge specified";
 	private static final int CYPHER_RETURN_ID = 1;
@@ -110,7 +112,12 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	public String generateCypher() throws InvalidityException, UnsupportedOperationException {
 		isNodeReturnable();	
 		if (getIncomingMapping() == null) {
-			String cypher = "(" + generateCypherNodeVariable() + ")"; //Sollte so richtig sein			
+			final String temp = generateCypherNodeVariable();
+			String cypher = null;
+			if (temp != null) {
+				cypher = "(" + temp + ")";		
+				return cypher;
+			}
 			return cypher;
 		}
 		return ((NeoPropertyNode) getOriginalNode()).generateCypher();
@@ -176,10 +183,14 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override
 	public String getCypherVariable() throws InvalidityException {
 		if (getIncomingMapping() == null) {	
-			String cypher;
-			cypher = generateCypher();
-			cypher = cypher.replace("(", "");
-			cypher = cypher.replace(")", "");
+			final String temp = generateCypher();
+			String cypher = null;
+			if (temp != null) {
+				cypher = temp;
+				cypher = cypher.replace("(", "");
+				cypher = cypher.replace(")", "");
+			}
+			
 			return cypher;
 		}
 		return ((NeoPropertyNode) getOriginalNode()).getCypherVariable(); 
@@ -210,12 +221,12 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		NeoPropertyPathParam neoPropertyPathParam;
 		
 		if (!checkForValidIncoming()) {
-			throw new InvalidityException("No imcoming edge spezified");
+			throw new InvalidityException(NO_IMCOMING_EDGE_SPEZIFIED);
 		}
 		neoPropertyEdge = (NeoPropertyEdge) getIncoming().get(0);
 		neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
 		if (neoPropertyPathParam == null || neoPropertyPathParam.getNeoPathPart() == null) {
-			throw new InvalidityException("NeoPropertyNode - This Node is not suited to be a Return Node");
+			throw new InvalidityException(THIS_NODE_IS_NOT_SUITED_TO_BE_A_RETURN_NODE);
 		}
 	}
 

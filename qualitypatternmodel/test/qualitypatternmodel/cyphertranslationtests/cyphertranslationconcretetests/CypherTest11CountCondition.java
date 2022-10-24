@@ -9,6 +9,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
+import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.cyphertranslationtests.CypherTranslationAbstract;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -16,6 +17,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.NumberElement;
@@ -38,22 +40,22 @@ public class CypherTest11CountCondition extends CypherTranslationAbstract {
 	}
 	
 	public void buildPatterns(ArrayList<CompletePattern> completePatterns) throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
-//		completePatterns.add(getCountInPattern());
-//		completePatterns.add(getCountConditionWithWhereClause());
+		completePatterns.add(getCountInPattern());
+		completePatterns.add(getCountConditionWithWhereClause());
+		completePatterns.add(countAPropertyNode());
 		completePatterns.add(countAProperty());
 	}
 	
 	@Override
 	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		completePatternsExceptions.add(generateNoCountElementsExceptions());
-//		completePatternsExceptions.add(generateNoCountElementsExceptionsNoElementInSet());
+		completePatternsExceptions.add(generateNoCountElementsExceptions());
+		completePatternsExceptions.add(generateNoCountElementsExceptionsNoElementInSet());
 	}
 	
 	private CompletePattern getCountInPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePattern();
 		CountCondition countCond = getBaseCountCoundition(completePattern);
-		
 		
 		completePattern.createNeo4jAdaption();
 		
@@ -62,7 +64,7 @@ public class CypherTest11CountCondition extends CypherTranslationAbstract {
 		countElements.add((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(1));
 		countPatternImpl.setCountElementNodes(countElements);
 		
-		setCountConditionBeginning(countCond);
+		setCountConditionBeginning(countCond, 0);
 		
 		return completePattern;
 	}
@@ -94,9 +96,35 @@ public class CypherTest11CountCondition extends CypherTranslationAbstract {
 //		neoPropertyPathParam.setNeoPropertyName("placeOfIssue");
 //		neoPropertyEdge.setNeoPropertyPathParam(neoPropertyPathParam);
 				
-		setCountConditionBeginning(countCond);
+		setCountConditionBeginning(countCond, 0);
 		
 		return completePattern; 		
+	}
+	
+	private CompletePattern countAPropertyNode() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getBasePattern();
+		CountCondition countCond = getBaseCountCoundition(completePattern);
+		countCond.getCountPattern().getGraph().addPrimitiveNode();
+		countCond.getCountPattern().getGraph().addRelation((ComplexNode) countCond.getCountPattern().getGraph().getNodes().get(1), countCond.getCountPattern().getGraph().getNodes().get(2));
+		
+		completePattern.createNeo4jAdaption();
+		
+		CountPatternImpl countPatternImpl = (CountPatternImpl) countCond.getCountPattern();
+		Set<NeoInterfaceNode> countElements = new HashSet<NeoInterfaceNode>();
+		countElements.add((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(2));
+		countPatternImpl.setCountElementNodes(countElements);				
+		
+		((NeoNode) countPatternImpl.getGraph().getNodes().get(1)).setNodePlace(NeoPlace.BEGINNING);
+		
+		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) countPatternImpl.getGraph().getRelations().get(1);
+		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
+		neoPropertyPathParam.setNeoPropertyName("placeOfIssue");
+		NeoSimpleEdge neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
+		neoSimpleEdge.setNeoTargetNodeLabels(new TextListParamImpl());
+		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
+		neoPropertyEdge.setNeoPropertyPathParam(neoPropertyPathParam);
+		
+		return completePattern;
 	}
 	
 	private CompletePattern countAProperty() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -115,8 +143,6 @@ public class CypherTest11CountCondition extends CypherTranslationAbstract {
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) countPatternImpl.getGraph().getRelations().get(1);
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
 		neoPropertyPathParam.setNeoPropertyName("placeOfIssue");
-		neoPropertyPathParam.setNeoPathPart(NEO_FACTORY.createNeoSimpleEdge());
-		neoPropertyEdge.setNeoPropertyPathParam(neoPropertyPathParam);
 		
 		return completePattern;
 	}
@@ -135,9 +161,9 @@ public class CypherTest11CountCondition extends CypherTranslationAbstract {
 		return countCond;
 	}
 	
-	protected void setCountConditionBeginning(CountCondition countCond) {
+	protected void setCountConditionBeginning(CountCondition countCond, int ix) {
 		Graph g = countCond.getCountPattern().getGraph();
-		NeoNode neoNode = (NeoNode) g.getNodes().get(0);
+		NeoNode neoNode = (NeoNode) g.getNodes().get(ix);
 		neoNode.setNodePlace(NeoPlace.BEGINNING);
 	}
 	
@@ -175,4 +201,29 @@ public class CypherTest11CountCondition extends CypherTranslationAbstract {
 		
 		return completePattern;
 	}
+	
+	private CompletePattern generateAccessingCypherVariableException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getBasePattern();
+		CountCondition countCond = getBaseCountCoundition(completePattern);
+		countCond.getCountPattern().getGraph().addPrimitiveNode();
+		countCond.getCountPattern().getGraph().addRelation((ComplexNode) countCond.getCountPattern().getGraph().getNodes().get(0), countCond.getCountPattern().getGraph().getNodes().get(2));
+		
+		completePattern.createNeo4jAdaption();
+		
+		CountPatternImpl countPatternImpl = (CountPatternImpl) countCond.getCountPattern();
+		Set<NeoInterfaceNode> countElements = new HashSet<NeoInterfaceNode>();
+		countElements.add((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(2));
+		countPatternImpl.setCountElementNodes(countElements);				
+		
+		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) countPatternImpl.getGraph().getRelations().get(1);
+		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
+		neoPropertyPathParam.setNeoPropertyName("placeOfIssue");
+		neoPropertyPathParam.setNeoPathPart(NEO_FACTORY.createNeoSimpleEdge());
+		neoPropertyEdge.setNeoPropertyPathParam(neoPropertyPathParam);
+		
+		return completePattern;
+	}
 }
+
+
+

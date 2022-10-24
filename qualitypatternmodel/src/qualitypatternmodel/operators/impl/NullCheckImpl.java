@@ -201,9 +201,9 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 		if(option != null && primitiveNode != null) {
 			String cypher;
 			if (option.getValue()) {
-				cypher = ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing() + CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_IS_NULL;
+				cypher = ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing() + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_IS_NULL;
 			} else {
-				cypher = ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing() + CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_IS_NOT_NULL;
+				cypher = ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing() + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_IS_NOT_NULL;
 			}	
 			return cypher;
 		}

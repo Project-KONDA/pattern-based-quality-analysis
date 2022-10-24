@@ -136,11 +136,11 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 	public String generateCypher() throws InvalidityException {
 		if(option != null && content != null && content.getValue() != null && primitiveNode != null) {
 			if (option.getValue()) {
-				return ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing() + CypherSpecificConstants.ONE_WHITESPACES +
+				return ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing() + CypherSpecificConstants.ONE_WHITESPACE +
 						  CypherSpecificConstants.WHERE_OPERATOR_CONTAINS + " (" + CypherSpecificConstants.CYPHER_QUOTATION_MARK + content.getValue() +
 						  CypherSpecificConstants.CYPHER_QUOTATION_MARK + ")";
 			} 
-			return  CypherSpecificConstants.BOOLEAN_OPERATOR_NOT+ " (" + ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing() + CypherSpecificConstants.ONE_WHITESPACES +
+			return  CypherSpecificConstants.BOOLEAN_OPERATOR_NOT+ " (" + ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing() + CypherSpecificConstants.ONE_WHITESPACE +
 					  CypherSpecificConstants.WHERE_OPERATOR_CONTAINS + " (" +  CypherSpecificConstants.CYPHER_QUOTATION_MARK + content.getValue() + 
 					  CypherSpecificConstants.CYPHER_QUOTATION_MARK + "))";		
 		}

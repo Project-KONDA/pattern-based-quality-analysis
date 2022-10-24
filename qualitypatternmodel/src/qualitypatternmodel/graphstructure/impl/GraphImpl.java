@@ -81,6 +81,8 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class GraphImpl extends PatternElementImpl implements Graph {
+	private static final String NO_NODES_ARE_GIVEN = "No nodes are given";
+
 	/**
 	 * The cached value of the '{@link #getNodes() <em>Nodes</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -198,7 +200,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			boolean isFirst = true;
 			for (NeoInterfaceNode n : beginningNodesList) {
 				if (!isFirst) {
-					cypher.append(CypherSpecificConstants.CLAUSE_MATCH + CypherSpecificConstants.ONE_WHITESPACES);
+					cypher.append(CypherSpecificConstants.CLAUSE_MATCH + CypherSpecificConstants.ONE_WHITESPACE);
 				} else {
 					isFirst = false;
 				}
@@ -208,7 +210,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		
 			return cypher.toString();
 		}
-		throw new InvalidityException("No nodes are given");
+		throw new InvalidityException(NO_NODES_ARE_GIVEN);
 	}
 
 	private void buildNeoGraphPatternRecursively(StringBuilder cypher, NeoInterfaceNode n) throws InvalidityException {
@@ -222,7 +224,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		boolean localSeperationNeeded = false;
 		for (StringBuilder sb : listCypher) {
 			if (localSeperationNeeded) {
-				cypher.append("," + CypherSpecificConstants.ONE_WHITESPACES); //TODO check the StyleGuid how to do that the best
+				cypher.append("," + CypherSpecificConstants.ONE_WHITESPACE); //TODO check the StyleGuid how to do that the best
 			} else {
 				localSeperationNeeded = true;
 			}
@@ -330,7 +332,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			if (operator.generateCypher() != null) {
 				if (cypher.length() != 1) {
 					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.SIX_WHITESPACES 
-							+ CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACES);
+							+ CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
 				}
 				cypher.append(operator.generateCypher());	
 			}

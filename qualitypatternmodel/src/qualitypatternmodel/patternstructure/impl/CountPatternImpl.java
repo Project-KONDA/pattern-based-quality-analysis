@@ -56,6 +56,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * @generated
  */
 public class CountPatternImpl extends PatternImpl implements CountPattern {
+	private static final String SOMETHING_WENT_WRONG_IN_ACCESSING_THE_CYPHER_VARIABLE = "Something went wrong in accessing the Cypher Variable";
 	private static final String NO_COUNT_ELEMENTS_EXISTS = "No Count Elements exists";
 	/**
 	 * The cached value of the '{@link #getMorphism() <em>Morphism</em>}' containment reference.
@@ -102,16 +103,26 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	
 	@Override 
 	public String generateCypher() throws InvalidityException {
-		final StringBuilder cypher = new StringBuilder();
 		final Graph g = getGraph();
+		//Think about how to catch a case if there is no Beginning however still something what has to be extra printed like a NeoPropertyNode
+//		boolean containsAtleastOneBeginning = true;
+//		NeoNode neo = null;
+//		for (Node n : g.getNodes()) {
+//			if (neo )
+//		}
+//		if () {
+//			throw new InvalidityException(NO_BEGINNING_IS_SPECIFIED);
+//		}
+		
+		final StringBuilder cypher = new StringBuilder();
 		final String temp = g.generateCypher();
-		if (temp != null && !temp.isBlank()) {
-			cypher.append(CypherSpecificConstants.CLAUSE_MATCH + CypherSpecificConstants.ONE_WHITESPACES);
-			cypher.append(g.generateCypher());
+		if (!temp.isBlank()) {
+			cypher.append(CypherSpecificConstants.CLAUSE_MATCH + CypherSpecificConstants.ONE_WHITESPACE);
+			cypher.append(temp);
 		}
 		String tempWhere = g.generateCypherWhere();
 		if (!tempWhere.isBlank()) {
-			cypher.append(CypherSpecificConstants.CLAUSE_WHERE + CypherSpecificConstants.ONE_WHITESPACES);
+			cypher.append(CypherSpecificConstants.CLAUSE_WHERE + CypherSpecificConstants.ONE_WHITESPACE);
 			cypher.append(tempWhere);
 		}
 		return cypher.toString();		
@@ -169,15 +180,26 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	
 	//Node-Counter
 	private String createMyCounterString(NeoInterfaceNode countElement, int countCounter) throws InvalidityException {
-		final String cypherVariable = countElement.getCypherVariable();
+		String cypherVariable = null;
+		if (countElement instanceof NeoPropertyNode) {
+			NeoPropertyNode neoPropertyNode = (NeoPropertyNode) countElement;
+			cypherVariable = neoPropertyNode.generateCypherPropertyAddressing();
+		} else {
+			cypherVariable = countElement.getCypherVariable();
+		}
 		if (cypherVariable != null) {
 			String temp;
 			temp = CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT;
-			temp = String.format(temp, countElement.getCypherVariable());
-			temp += CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_ALIAS_CALL + CypherSpecificConstants.ONE_WHITESPACES + CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT_NAMING + countCounter;
+			if (countElement instanceof NeoPropertyNode) {
+				NeoPropertyNode neoPropertyNode = (NeoPropertyNode) countElement;
+				temp = String.format(temp, neoPropertyNode.generateCypherPropertyAddressing());
+			} else {
+				temp = String.format(temp, countElement.getCypherVariable());
+			}
+			temp += CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.CYPHER_ALIAS_CALL + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT_NAMING + countCounter;
 			return temp;
 		}
-		throw new InvalidityException("Something went wrong in accessing the CypherVariable");
+		throw new InvalidityException(SOMETHING_WENT_WRONG_IN_ACCESSING_THE_CYPHER_VARIABLE);
 	}
 	
 	//Needs refactoring --> Get all return elements from the original Graph and puts it into the WITH except properties - This can be accessed as long as the Node is in the with

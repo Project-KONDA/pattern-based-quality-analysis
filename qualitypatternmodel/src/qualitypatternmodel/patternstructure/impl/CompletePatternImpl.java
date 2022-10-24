@@ -448,7 +448,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			if (cypher.length() != 0) {
 				cypher += CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE + "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherInnerEdgeNodes.toString();
 			} else {
-				cypher = CypherSpecificConstants.ONE_WHITESPACES + cypherInnerEdgeNodes.toString();
+				cypher = CypherSpecificConstants.ONE_WHITESPACE + cypherInnerEdgeNodes.toString();
 			}
 		}
 		return cypher;
@@ -463,7 +463,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				cypher += ", " + "\n";
 				cypher += CypherSpecificConstants.SIX_WHITESPACES;
 			} else {
-				cypher = CypherSpecificConstants.ONE_WHITESPACES;
+				cypher = CypherSpecificConstants.ONE_WHITESPACE;
 			}
 			cypher += cypherNeoProperties.toString();
 		}
@@ -475,7 +475,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		NeoPropertyNode neoPropertyNode;
 		for (Node n : graph.getNodes()) {
 			if (n instanceof NeoPropertyNode && ((NeoPropertyNode)n).isReturnProperty()) {
-				if (cypherNeoProperties.length() != 0) cypherNeoProperties.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACES);
+				if (cypherNeoProperties.length() != 0) cypherNeoProperties.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE);
 				neoPropertyNode = (NeoPropertyNode) n;
 				cypherNeoProperties.append(neoPropertyNode.generateCypherPropertyAddressing());
 			}
@@ -488,7 +488,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		    	cypher += ", " + "\n";
 		    	cypher += CypherSpecificConstants.SIX_WHITESPACES;
 		    } else {
-		    	cypher = CypherSpecificConstants.ONE_WHITESPACES;
+		    	cypher = CypherSpecificConstants.ONE_WHITESPACE;
 		    }
 			cypher += mapElement.getValue();
 		}
