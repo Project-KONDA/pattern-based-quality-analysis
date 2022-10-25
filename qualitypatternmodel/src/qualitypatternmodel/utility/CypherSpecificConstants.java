@@ -58,4 +58,6 @@ public class CypherSpecificConstants {
 	
 	
 	//Cypher Specific Exception Messages
+	public static final String THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY = "The current version does not support this functionality";
+
 }

@@ -3,21 +3,19 @@
 package qualitypatternmodel.patternstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
-import org.eclipse.emf.common.util.BasicEMap;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+
+import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
@@ -28,6 +26,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -93,12 +92,22 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	//Count ist für die anderen CONDITIONS als Unsuported makiert, da Cypher v4.4 und niedriger keine Verschachtelungen zulässt
 	
 	//Nodes --> keine PATH/Edges/Properties implementiert
-	protected Set<NeoInterfaceNode> countElementNodes; 
+	protected EList<NeoInterfaceNode> countElementNodes = null; 
 	
 	//Add to Ecore?
-	public void setCountElementNodes(Set<NeoInterfaceNode> countElements) {
-		Set<NeoInterfaceNode> cloned_list = new HashSet<NeoInterfaceNode>(countElements); //Maybe replace by LinkedHashSet
-		this.countElementNodes = cloned_list;
+	public void addCountElementNode(NeoInterfaceNode countElements) {
+		if (countElements != null) {
+			if (this.countElementNodes == null) {
+				this.countElementNodes = new BasicEList<NeoInterfaceNode>(); //For sorted
+			}
+			if (!countElementNodes.contains(countElements)) { //Checks for duplicated
+				this.countElementNodes.add(countElements);
+			}
+		}
+	}
+	
+	public void removeCountElementNode(NeoInterfaceNode countElements) {
+		this.countElementNodes.remove(countElements);
 	}
 	
 	@Override 
@@ -129,19 +138,19 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	}
 	
 	//Just focused on Nodes... relations and path have to follow later (FUTURE WORK)
-	protected final EMap<NeoInterfaceNode, String> generateCypherCounters() throws InvalidityException {
-		if (countElementNodes == null || countElementNodes.size() > 0) {
-			EMap<NeoInterfaceNode, String> myCounters = new BasicEMap<NeoInterfaceNode, String>();
+	protected final EList<String> generateCypherCounters() throws InvalidityException {
+		if (countElementNodes != null || countElementNodes.size() > 0) {
+			EList<String> myCounters = new BasicEList<String>();
 			String temp;
 			int i = 1;
 			for (NeoInterfaceNode n : countElementNodes) {
 				if (checkForNode(n)) {
 					temp = createMyCounterString(n, i);
-					myCounters.put(n, temp);
+					myCounters.add(temp);
 					i++;
 				} else if (checkForProperty(n)) {
 					temp = createMyCounterString((NeoPropertyNode) n, i);
-					myCounters.put(n, temp);
+					myCounters.add(temp);
 					i++;
 				}
 			}
@@ -204,40 +213,50 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	
 	//Needs refactoring --> Get all return elements from the original Graph and puts it into the WITH except properties - This can be accessed as long as the Node is in the with
 	protected String generateCypherWith() throws InvalidityException {
-		StringBuilder cypher = new StringBuilder();
-		Graph g = getGraph();
+		final StringBuilder cypher = new StringBuilder();
+		final Graph g = getGraph();
 		
-		if (g.getNodes().size() > 0) {
-			cypher.append(generateCypherReturnNodes(""));
+		if (g.getReturnNodes().size() > 0) {
+			cypher.append(generateCypherReturnNodes(cypher.toString()));
 		}
 		
-		if (g.getRelations().size() > 0) {
+		final EList<Relation> lReturnRelations = lReturnRelations();
+		if (lReturnRelations.size() > 0) {
 			cypher.append(generateCypherReturnEdges(cypher.toString()));
 		}
 		
 		return cypher.toString();
 	}
 	
+	private EList<Relation> lReturnRelations() {
+		final Graph g = getGraph();
+		final EList<Relation> lReturnRelations = new BasicEList<Relation>();
+		NeoAbstractEdge neoAbstractEdge = null;
+		for (Relation r : g.getRelations()) {
+			neoAbstractEdge = (NeoAbstractEdge) r;
+			if (neoAbstractEdge.isReturnElement()) {
+				lReturnRelations.add(r);
+			}
+		}
+		return lReturnRelations;
+	}
+	
 	@Override
 	protected String generateCypherReturnNodes(String cypher) throws InvalidityException {
-		if (graph.getNodes().size() != 0) {
-			//Building the generic Nodes for Return
-			final Map<Integer, String> cypherReturn = buildCypherReturnSortedMap(true);
-			final StringBuilder cypherSb = new StringBuilder();
-			cypher = joiningReturnValues(cypher, cypherReturn, cypherSb);
-		}
+		//Building the generic Nodes for Return
+		final Map<Integer, String> cypherReturn = buildCypherReturnSortedMap(true);
+		final StringBuilder cypherSb = new StringBuilder();
+		cypher = joiningReturnValues(cypher, cypherReturn, cypherSb);
 		return cypher;
 	}
 	
 	@Override
 	protected String generateCypherReturnEdges(String cypher) throws InvalidityException {
-		if (graph.getRelations().size() != 0) {
-			//Building the generic Relations for Return
-			final Map<Integer, String> cypherReturn = buildCypherReturnSortedMap(false);
-			final StringBuilder cypherSb = new StringBuilder();
-			cypher = joiningReturnValues(cypher, cypherReturn, cypherSb);			
-			cypher = generateCypherSpecialEdgeString(cypher);
-		}
+		//Building the generic Relations for Return
+		final Map<Integer, String> cypherReturn = buildCypherReturnSortedMap(false);
+		final StringBuilder cypherSb = new StringBuilder();
+		cypher = joiningReturnValues(cypher, cypherReturn, cypherSb);			
+		cypher = generateCypherSpecialEdgeString(cypher);
 		return cypher;
 	}
 

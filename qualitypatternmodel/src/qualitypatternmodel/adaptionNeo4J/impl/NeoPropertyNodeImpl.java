@@ -38,6 +38,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * @generated
  */
 public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropertyNode {
+	private static final String NO_PROPERTY_NAME_IS_SPECIFIED = "No Property Name is specified";
 	private static final String NO_IMCOMING_EDGE_SPEZIFIED = "No imcoming edge spezified";
 	private static final String THIS_NODE_IS_NOT_SUITED_TO_BE_A_RETURN_NODE = "This Node is not suited to be a Return Node";
 	private static final String WRONG_INCOMING_NEO_PROPERTY_EDGE_SPECIFIED = "Wrong incoming NeoPropertyEdge specified";
@@ -134,6 +135,9 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 			String cypher = null;
 			if (checkForValidIncoming()) {
 				NeoPropertyEdge edge = (NeoPropertyEdge) getIncoming().get(0);
+				if (edge.getNeoPropertyPathParam().getNeoPropertyName() == null) {
+					throw new InvalidityException(NO_PROPERTY_NAME_IS_SPECIFIED);
+				}
 				cypher = edge.generateCypherPropertyAddressing();
 			}
 			return cypher;

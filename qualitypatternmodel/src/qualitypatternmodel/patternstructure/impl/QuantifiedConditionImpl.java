@@ -191,7 +191,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	public String generateCypher() throws InvalidityException {
 		//Neasted Structures of the COUNT is in Neo4J/Cypher not possible v4.4 and lower
 		if (getCondition() instanceof CountCondition) {
-			throw new UnsupportedOperationException();
+			throw new UnsupportedOperationException(CypherSpecificConstants.THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY);
 		}
 		
 		StringBuilder cypher = new StringBuilder();

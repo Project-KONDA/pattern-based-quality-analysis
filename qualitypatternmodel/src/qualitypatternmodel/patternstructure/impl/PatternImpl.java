@@ -299,14 +299,14 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		    	cypherReturn.put(i, tempSb);
 		    } else {
 		    	tempSb = cypherReturn.get(i);
-		    	tempSb.append(", " + entry.getValue());
+		    	tempSb.append(CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE + entry.getValue());
 		    }
 		}
 	}
 	
 	protected String generateCypherSpecialEdgeString(String cypher) throws InvalidityException {
-		final StringBuilder cypherInnerEdgeNodes = new StringBuilder();
-		NeoAbstractEdge neoAbstractEdge;
+		final StringBuilder cypherInnerEdgeNodes = new StringBuilder(cypher);
+		NeoAbstractEdge neoAbstractEdge = null;
 		for (Relation r : graph.getRelations()) {
 			neoAbstractEdge = (NeoAbstractEdge) r;
 			appendInnerEdgeNodes(cypherInnerEdgeNodes, neoAbstractEdge);
