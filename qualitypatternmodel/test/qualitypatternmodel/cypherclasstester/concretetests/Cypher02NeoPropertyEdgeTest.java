@@ -136,6 +136,7 @@ public class Cypher02NeoPropertyEdgeTest extends NeoAbstractEdgeTest {
 			assertNull(neoPropertyEdge.getSource());
 			NeoSimpleEdgeImpl mockNeoSimpleEdgeImpl = Mockito.mock(NeoSimpleEdgeImpl.class);
 			Mockito.when(mockNeoSimpleEdgeImpl.getCypherInnerEdgeNodes(Mockito.anyBoolean())).thenReturn(NEO_PROPERTY_NODE);
+			Mockito.when(mockNeoSimpleEdgeImpl.getNeoLastEdge()).thenReturn(mockNeoSimpleEdgeImpl);
 			propertyName.setNeoPathPart(mockNeoSimpleEdgeImpl);
 			String temp = neoPropertyEdge.generateCypherNodeVariable();
 			assertTrue(temp.compareTo(NEO_PROPERTY_NODE) == 0);

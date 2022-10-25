@@ -2,7 +2,6 @@ package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetest
 
 import java.util.ArrayList;
 
-import org.eclipse.emf.common.util.EList;
 import org.mockito.Mockito;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
@@ -19,15 +18,8 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
-import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
-import qualitypatternmodel.parameters.NumberParam;
-import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.ParametersFactory;
-import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TypeOptionParam;
-import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;

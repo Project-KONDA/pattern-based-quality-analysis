@@ -73,9 +73,9 @@ public class CypherTest03NotCondition extends CypherTranslationAbstract {
 		
 		CompletePattern completePattern = factory.createCompletePattern();
 		completePattern.setName("MyPattern");
-		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
+		completePattern.getGraph().getNodes().get(0).makeComplex();
 		
-	    complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
+	    completePattern.getGraph().getNodes().get(0).makeComplex();
 	    NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
 	    completePattern.setCondition(notCond);
 	    
@@ -241,11 +241,9 @@ public class CypherTest03NotCondition extends CypherTranslationAbstract {
 		
 		CompletePattern completePattern = factory.createCompletePattern();
 		completePattern.setName("MyPattern");
-		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
-	//    		Node node2 = completePattern.getGraph().addNode(); --> Problem der Redundanten Edges Lösen
-	//    		completePattern.getGraph().addRelation(complexNode1, node2); --> Nutzen des Counters aus der NeoPropertyNode
+		completePattern.getGraph().getNodes().get(0).makeComplex();
 		
-	    complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
+	    completePattern.getGraph().getNodes().get(0).makeComplex();
 	    NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
 	    completePattern.setCondition(notCond);
 	    
@@ -307,9 +305,9 @@ public class CypherTest03NotCondition extends CypherTranslationAbstract {
 		
 		CompletePattern completePattern = factory.createCompletePattern();
 		completePattern.setName("MyPattern");
-		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
+		completePattern.getGraph().getNodes().get(0).makeComplex();
 		
-	    complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
+	    completePattern.getGraph().getNodes().get(0).makeComplex();
 	    QuantifiedCondition quantifiedCond1 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 	    completePattern.setCondition(quantifiedCond1);
 	    
@@ -554,7 +552,7 @@ public class CypherTest03NotCondition extends CypherTranslationAbstract {
 		CompletePattern completePattern = factory.createCompletePattern();
 		completePattern.setName("MyPattern");
 		
-		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
+		completePattern.getGraph().getNodes().get(0).makeComplex();
 	
 		return completePattern;		
 	}
@@ -618,8 +616,6 @@ public class CypherTest03NotCondition extends CypherTranslationAbstract {
 		NotCondition notCond = (NotCondition) completePattern.getCondition();
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) notCond.getCondition();
 		Graph graph1 = quantifiedCondition.getGraph();
-		QuantifiedCondition innerquantifiedCond = (QuantifiedCondition) quantifiedCondition.getCondition();
-		Graph graph2 = innerquantifiedCond.getGraph();
 		
 		//Specified quantifiedCondition
 		NeoNode neoNode2 = (NeoNode) graph1.getNodes().get(1);
@@ -654,19 +650,23 @@ public class CypherTest03NotCondition extends CypherTranslationAbstract {
 	//In current dev a count condition can not be neasted
 	private CompletePattern notCondContainsCountPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePattern();
-		
-		NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
-		CountCondition countCond = PatternstructureFactory.eINSTANCE.createCountCondition();
-		countCond.setPattern(completePattern);
+		CountCondition countCond = getBaseCountCoundition(completePattern);
+		NotCondition notCond = (NotCondition) completePattern.getCondition();
 		notCond.setCondition(countCond);
-		
-		NumberElement numberElement = PatternstructureFactory.eINSTANCE.createNumberElement();
-		countCond.setArgument2(numberElement);
-		numberElement.getNumberParam().setValue(1.);
 		
 		completePattern.createNeo4jAdaption();
 	
 		return completePattern;
+	}
+	
+	protected static CountCondition getBaseCountCoundition(CompletePattern completePattern) {
+		CountCondition countCond = PatternstructureFactory.eINSTANCE.createCountCondition();
+		countCond.setPattern(completePattern);
+		
+		NumberElement numberElement = PatternstructureFactory.eINSTANCE.createNumberElement();
+		countCond.setArgument2(numberElement);
+		numberElement.getNumberParam().setValue(1.);
+		return countCond;
 	}
 	
 }

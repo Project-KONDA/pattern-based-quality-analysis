@@ -135,7 +135,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 			String cypher = null;
 			if (checkForValidIncoming()) {
 				NeoPropertyEdge edge = (NeoPropertyEdge) getIncoming().get(0);
-				if (edge.getNeoPropertyPathParam().getNeoPropertyName() == null) {
+				if (edge.getNeoPropertyPathParam() == null || edge.getNeoPropertyPathParam().getNeoPropertyName() == null) {
 					throw new InvalidityException(NO_PROPERTY_NAME_IS_SPECIFIED);
 				}
 				cypher = edge.generateCypherPropertyAddressing();

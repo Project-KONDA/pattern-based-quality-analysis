@@ -168,15 +168,6 @@ public abstract class CypherTranslationAbstract implements CypherTranslationeInt
 					number.setValue(0.0);
 				}
 			}
-//			What is this doing??
-//			if (param instanceof XmlPathParam) {
-//				XmlPathParam xmlPathParam = (XmlPathParam) param;
-//				for(XmlAxisPair pair : xmlPathParam.getXmlAxisPairs()) {
-//					if(pair.getTextLiteralParam().getValue() == null) {
-//						pair.getTextLiteralParam().setValue("");
-//					}
-//				}
-//			}
 		}
 		return pattern;
 	}

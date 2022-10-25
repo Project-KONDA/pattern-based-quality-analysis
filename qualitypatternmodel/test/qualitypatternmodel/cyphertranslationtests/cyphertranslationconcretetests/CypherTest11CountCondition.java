@@ -227,7 +227,7 @@ public class CypherTest11CountCondition extends CypherTranslationAbstract {
 		return completePattern;
 	}
 
-	private CountCondition getBaseCountCoundition(CompletePattern completePattern) {
+	protected static CountCondition getBaseCountCoundition(CompletePattern completePattern) {
 		CountCondition countCond = PatternstructureFactory.eINSTANCE.createCountCondition();
 		countCond.setPattern(completePattern);
 		

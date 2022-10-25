@@ -25,12 +25,10 @@ import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mockito;
 
 import qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode;
-import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
-import qualitypatternmodel.adaptionNeo4J.impl.NeoAbstractPathParamImpl;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyNodeImpl;
 import qualitypatternmodel.cypherclasstester.NeoAbstractNodeTest;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -70,11 +68,15 @@ public class Cypher01NeoPropertyNodeTest extends NeoAbstractNodeTest {
 	@Test
 	public void generateCypherPropertyAddressing() {
 		try {
-			String propertyAddress = CypherSpecificConstants.VARIABLE_PROPERTY_NODE + GENERIC_NODE_ID + "placeOfIssue";
+			String placeOfIssue = "placeOfIssue";
+			String propertyAddress = CypherSpecificConstants.VARIABLE_PROPERTY_NODE + GENERIC_NODE_ID + placeOfIssue;
 			Field field = getIncomingField();
 			EList<Relation> relations = new BasicEList<Relation>();
 			NeoPropertyEdge mockNeoPropertyEdge = Mockito.mock(NeoPropertyEdge.class);
 			Mockito.when(mockNeoPropertyEdge.generateCypherPropertyAddressing()).thenReturn(propertyAddress);
+			NeoPropertyPathParam mockNeoPropertyPathParam = Mockito.mock(NeoPropertyPathParam.class);
+			Mockito.when(mockNeoPropertyEdge.getNeoPropertyPathParam()).thenReturn(mockNeoPropertyPathParam);
+			Mockito.when(mockNeoPropertyPathParam.getNeoPropertyName()).thenReturn(placeOfIssue);
 			relations.add(mockNeoPropertyEdge);
 			field.set(neoPropertyNode, relations);
 			String temp = neoPropertyNode.generateCypherPropertyAddressing();
