@@ -36,7 +36,7 @@ public class Java2Neo4JConnector implements AutoCloseable {
 			final Java2Neo4JConnector connector = new Java2Neo4JConnector(URI, USER, PASSWORD);
 			final Driver driver = connector.driver;
 			driver.verifyConnectivity();
-			connector.queryTesterWithException("MATCH (r:Regesta) RETURN r", "testQuery", true);
+			connector.queryTesterWithException("MATCH (r:Regesta) RETURN r", "testQuery", false);
 			connector.close();
 			return true;
 		} catch (Exception e) {
