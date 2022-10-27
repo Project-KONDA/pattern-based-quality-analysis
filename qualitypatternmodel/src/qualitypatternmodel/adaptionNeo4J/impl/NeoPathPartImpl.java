@@ -204,11 +204,6 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
 	@Override
 	public String getCypherVariable() throws InvalidityException {
 		return CypherSpecificConstants.VARIABLE_EGDE;

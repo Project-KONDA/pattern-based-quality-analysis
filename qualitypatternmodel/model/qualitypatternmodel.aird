@@ -4,7 +4,7 @@
     <semanticResources>qualitypatternmodel.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_A2WtQB2REeqrGqxc7qjo8A">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name=" class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="7357cedd-1ff5-416c-9da4-8b15d2c7b329">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name=" class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="5ceb6e16-ee3b-40c3-a769-fc10742dc6f3">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="qualitypatternmodel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -3042,6 +3042,21 @@
               </children>
               <styles xmi:type="notation:ShapeStyle" xmi:id="_oOquEUS0Ee2kztuV4T7hhA" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oOquEkS0Ee2kztuV4T7hhA" x="442" y="6" width="228" height="73"/>
+            </children>
+            <children xmi:type="notation:Shape" xmi:id="_T5XoQFYgEe2DJv-qf6Z-nw" type="Note" fontName="Segoe UI" description="Maybe extract an interface to capsulate the getCypherVariable" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_T5XoQVYgEe2DJv-qf6Z-nw" source="specificStyles">
+                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_T5XoQlYgEe2DJv-qf6Z-nw" key="verticalAlignment" value="8"/>
+              </eAnnotations>
+              <children xmi:type="notation:BasicDecorationNode" xmi:id="_T5Y2YFYgEe2DJv-qf6Z-nw" type="DiagramName">
+                <element xsi:nil="true"/>
+              </children>
+              <children xmi:type="notation:BasicDecorationNode" xmi:id="_T5Y2YVYgEe2DJv-qf6Z-nw" type="Description">
+                <element xsi:nil="true"/>
+              </children>
+              <styles xmi:type="notation:TextStyle" xmi:id="_T5XoQ1YgEe2DJv-qf6Z-nw" textAlignment="Center"/>
+              <styles xmi:type="notation:LineTypeStyle" xmi:id="_T5XoRFYgEe2DJv-qf6Z-nw"/>
+              <element xsi:nil="true"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_T5XoRVYgEe2DJv-qf6Z-nw" x="720" y="718" width="203"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_TKib4gLoEe2GF_6PqNgKEg"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_TKib4wLoEe2GF_6PqNgKEg"/>
@@ -13097,7 +13112,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_ULx6UBo9Ee2ZadNclPsl5A" name="getCypherVariable() : EString" tooltipText="getCypherVariable() : EString">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_ULx6UBo9Ee2ZadNclPsl5A" name="getCypherVariable()" tooltipText="getCypherVariable()">
           <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/getCypherVariable"/>
           <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/getCypherVariable"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_ULyhYBo9Ee2ZadNclPsl5A" labelAlignment="LEFT">
