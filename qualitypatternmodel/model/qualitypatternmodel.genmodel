@@ -1049,9 +1049,11 @@
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoComplexEdge">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoComplexEdge/neoPathPart"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoComplexEdge/validateComplexEdge"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoComplexEdge/addNeoPathPart">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionNeo4J/NeoComplexEdge/addNeoPathPart/neoPathPart"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoComplexEdge/removeNeoPathPart">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionNeo4J/NeoComplexEdge/removeNeoPathPart/neoPathPart"/>
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge">
