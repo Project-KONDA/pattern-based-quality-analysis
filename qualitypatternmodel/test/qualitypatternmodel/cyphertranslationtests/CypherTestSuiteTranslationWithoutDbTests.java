@@ -18,7 +18,7 @@ public class CypherTestSuiteTranslationWithoutDbTests extends CypherAbstractTest
 	@Override
 	protected void tester(ArrayList<CompletePattern> completePatterns) throws Exception {
 		System.out.println(CypherAbstractTranslation.BEGIN_TESTS);
-		CypherAbstractTranslation.testAllCompletePattrns(completePatterns, false);
+		testAllCompletePatterns(completePatterns, false);
 	    System.out.println(CypherAbstractTranslation.END_TESTS);
 	}
 	

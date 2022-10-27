@@ -168,13 +168,14 @@ public class CypherTest09Contains extends CypherAbstractTranslation {
 		if (completePatternsExceptions.size() != 0) {
 			System.out.println("");
 			System.out.println(CypherAbstractTranslation.BEGIN_BUILD_PATTERN_EXCEPTIONS);		
-			CypherTest09Contains.exceptionTestHandler(completePatternsExceptions);
+			exceptionTestHandler(completePatternsExceptions);
 			System.out.println(CypherAbstractTranslation.END_BUILD_PATTERN_EXCEPTIONS);
 			System.out.println("");
 		}
 	}
     
-	public static void exceptionTestHandler(ArrayList<CompletePattern> completePatterns) {
+    @Override
+	public void exceptionTestHandler(ArrayList<CompletePattern> completePatterns) {
 		for (CompletePattern completePattern : completePatterns) {
 			try {
 				System.out.println(PATTERN_NOT_VALID);

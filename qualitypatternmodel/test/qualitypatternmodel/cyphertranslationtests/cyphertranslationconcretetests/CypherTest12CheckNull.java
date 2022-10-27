@@ -52,7 +52,6 @@ public class CypherTest12CheckNull extends CypherAbstractTranslation {
 			pattern.getGraph().getNodes().get(0).addOutgoing().getTarget().addPrimitiveNullCheck(isNull);
 		}
 		
-		NullCheck nullCheck = ((NullCheck) pattern.getGraph().getOperatorList().getOperators().get(0));		
 		makeConcrete(pattern);
 		
 		return pattern;
@@ -78,7 +77,7 @@ public class CypherTest12CheckNull extends CypherAbstractTranslation {
 		NullCheck nullCheck = ((NullCheck) pattern.getGraph().getOperatorList().getOperators().get(0));		
 		makeConcrete(pattern);
 		
-		Class c = NullCheckImpl.class;
+		Class<NullCheckImpl> c = NullCheckImpl.class;
 		Field option = c.getDeclaredField("option");
 		option.setAccessible(true);
 		option.set(nullCheck, null);
@@ -95,7 +94,7 @@ public class CypherTest12CheckNull extends CypherAbstractTranslation {
 		NullCheck nullCheck = ((NullCheck) pattern.getGraph().getOperatorList().getOperators().get(0));		
 		makeConcrete(pattern);
 		
-		Class c = NullCheckImpl.class;
+		Class<NullCheckImpl> c = NullCheckImpl.class;
 		Field option = c.getDeclaredField("primitiveNode");
 		option.setAccessible(true);
 		option.set(nullCheck, null);
@@ -112,13 +111,14 @@ public class CypherTest12CheckNull extends CypherAbstractTranslation {
 		if (completePatternsExceptions.size() != 0) {
 			System.out.println("");
 			System.out.println(CypherAbstractTranslation.BEGIN_BUILD_PATTERN_EXCEPTIONS);		
-			CypherTest10Match.exceptionTestHandler(completePatternsExceptions);
+			exceptionTestHandler(completePatternsExceptions);
 			System.out.println(CypherAbstractTranslation.END_BUILD_PATTERN_EXCEPTIONS);
 			System.out.println("");
 		}
 	}
     
-	public static void exceptionTestHandler(ArrayList<CompletePattern> completePatterns) {
+    @Override
+	public void exceptionTestHandler(ArrayList<CompletePattern> completePatterns) {
 		for (CompletePattern completePattern : completePatterns) {
 			try {
 				System.out.println(PATTERN_NOT_VALID);
@@ -134,11 +134,6 @@ public class CypherTest12CheckNull extends CypherAbstractTranslation {
 				System.out.println("");
 				System.out.println(BEGINNING_OF_THE_EXCEPTIONS_TESTS);
 				System.out.println(e.toString());
-				try {
-				  System.out.println(completePattern.myToString());
-				} catch (Exception e2) {
-					System.out.println(e2.toString());
-				}
 				System.out.println(TEST_SUCCESSFUL);
 			}
 		}

@@ -11,6 +11,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExecutionCondition;
 
+import playground.Java2Neo4JConnector;
 import qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests.CypherTest00;
 import qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests.CypherTest01NeoEdge;
 import qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests.CypherTest01NeoPropertyEdge;
@@ -28,6 +29,7 @@ import qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
+//The Excption handler can do more then the for the suite case
 public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCondition {
 
 	private static final String EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION = "NOT ALL INVALIDTIY EXCPECTED EXCEPTIONS HAVE BEEN THROWN";
@@ -42,6 +44,17 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 
 	protected static void exceptionHandler(CompletePattern completePattern) throws InvalidityException {
 		completePattern.generateCypher();
+	}
+	
+	public static void testAllCompletePatterns(ArrayList<CompletePattern> completePatterns, boolean isDbOn) throws Exception {
+		if (isDbOn) {
+			try (Java2Neo4JConnector connector = new Java2Neo4JConnector()) {
+				CypherAbstractTranslation.innerTestAllCompletePatterns(completePatterns, connector);
+			}
+		} else {
+			Java2Neo4JConnector connector = null;
+			CypherAbstractTranslation.innerTestAllCompletePatterns(completePatterns, connector);
+		}
 	}
 
 	@BeforeAll
@@ -310,8 +323,8 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 	}
 
 	public void CypherTest11CountConditionExceptions() {		
-			assertThrows(InvalidityException.class, () -> {//Add additional Exceptions
-					CypherTest00.exceptionTestHandler(completePatterns);},
+			assertThrows(InvalidityException.class, () -> {new CypherTest11CountCondition().buildInvalidityExceptionPatterns(completePatterns);
+					for (CompletePattern cp : completePatterns) exceptionHandler(cp);},
 					EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
 	//		assertThrows(OperatorCycleException.class, () -> {CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
 	//				//Add additional Exceptions

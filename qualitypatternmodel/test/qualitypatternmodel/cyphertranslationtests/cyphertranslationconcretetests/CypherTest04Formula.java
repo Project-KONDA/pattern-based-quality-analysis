@@ -32,7 +32,7 @@ public class CypherTest04Formula extends CypherAbstractTranslation {
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
     	CypherTest04Formula formula = new CypherTest04Formula();
     	try {
-    		//formula.generalizedTests();         
+    		formula.generalizedTests();         
         	formula.generalizedInvalidtyExceptionTests();	
     	} catch (Exception e) {
 			System.out.println(e);
@@ -56,14 +56,14 @@ public class CypherTest04Formula extends CypherAbstractTranslation {
 	@Override
 	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		completePatternsExceptions.add(generateOperatorIsNullException());
-//		completePatternsExceptions.add(generateNotExistingOperatorException());
+		completePatternsExceptions.add(generateOperatorIsNullException());
+		completePatternsExceptions.add(generateNotExistingOperatorException());
 		completePatternsExceptions.add(generateCond1IsNullException());
 		completePatternsExceptions.add(generateCond2IsNullException());
-//		completePatternsExceptions.add(generatecond1Andcond2IsNullException());
-//		completePatternsExceptions.add(generateFormulaCondContainsCountPatternExceptionInArg1());
-//		completePatternsExceptions.add(generateFormulaCondContainsCountPatternExceptionInArg2());
-//		completePatternsExceptions.add(generateFormulaCondContainsCountPatternExceptionInArg1And2());
+		completePatternsExceptions.add(generatecond1Andcond2IsNullException());
+		completePatternsExceptions.add(generateFormulaCondContainsCountPatternExceptionInArg1());
+		completePatternsExceptions.add(generateFormulaCondContainsCountPatternExceptionInArg2());
+		completePatternsExceptions.add(generateFormulaCondContainsCountPatternExceptionInArg1And2());
 	}
     
 	private CompletePattern getFormulaPattern(LogicalOperator lo, boolean clamped) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -313,8 +313,8 @@ public class CypherTest04Formula extends CypherAbstractTranslation {
 		
 		return countCondition;
 	}
-	
-   	//Hidden from Parent
+
+	@Override
 	public void exceptionTestHandler(ArrayList<CompletePattern> completePatterns) {
 		for (CompletePattern completePattern : completePatterns) {
 			try {

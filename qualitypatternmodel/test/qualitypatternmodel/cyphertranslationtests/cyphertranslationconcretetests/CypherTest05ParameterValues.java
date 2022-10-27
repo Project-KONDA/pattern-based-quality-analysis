@@ -47,7 +47,7 @@ public class CypherTest05ParameterValues extends CypherAbstractTranslation {
 	    
 		try {
 			CypherAbstractTranslation parameterValues = new CypherTest05ParameterValues();
-//			parameterValues.generalizedTests();         
+			parameterValues.generalizedTests();         
 			parameterValues.generalizedInvalidtyExceptionTests();
 		} catch (Exception e) {
 			System.out.println(e);

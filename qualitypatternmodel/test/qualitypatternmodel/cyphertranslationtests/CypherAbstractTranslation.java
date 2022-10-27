@@ -93,10 +93,10 @@ public abstract class CypherAbstractTranslation implements CypherInterfaceTransl
 			System.out.print(MODE + TESTING_WITHOUT_DB);
 		}
 		System.out.println("\n\n");
-		testAllCompletePattrns(completePatterns, isDbOn);
+		testAllCompletePatterns(completePatterns, isDbOn);
 	}
 
-	public void testAllCompletePattrns(ArrayList<CompletePattern> completePatterns, boolean isDbOn)
+	public void testAllCompletePatterns(ArrayList<CompletePattern> completePatterns, boolean isDbOn)
 			throws Exception {
 		if (isDbOn) {
 			try (Java2Neo4JConnector connector = new Java2Neo4JConnector()) {
@@ -108,7 +108,7 @@ public abstract class CypherAbstractTranslation implements CypherInterfaceTransl
 		}
 	}
 
-	private void innerTestAllCompletePatterns(ArrayList<CompletePattern> completePatterns, Java2Neo4JConnector connector) throws Exception {
+	protected static void innerTestAllCompletePatterns(ArrayList<CompletePattern> completePatterns, Java2Neo4JConnector connector) throws Exception {
 		for (CompletePattern completePattern : completePatterns) {
 			replace(completePattern);
 			try {
@@ -140,7 +140,7 @@ public abstract class CypherAbstractTranslation implements CypherInterfaceTransl
 		}
 	}
 
-	protected void checkForNullInMatchAndReturn(String query) throws InvalidityException {
+	protected static void checkForNullInMatchAndReturn(String query) throws InvalidityException {
 		//Test for null in MATCH
 		String matchString = query.substring(query.indexOf(CypherSpecificConstants.CLAUSE_MATCH), query.indexOf(CypherAbstractTestSuiteTranslation.NEWLINE));
 		if (matchString.toLowerCase().contains(CypherAbstractTestSuiteTranslation.NULL)) {
@@ -263,5 +263,18 @@ public abstract class CypherAbstractTranslation implements CypherInterfaceTransl
 		return completePattern;	
 	}
 	
+	public static CompletePattern getCompBasePattern() throws InvalidityException {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		
+		CompletePattern completePattern = factory.createCompletePattern();
+		completePattern.setName("MyPattern");
+		
+		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
+		PrimitiveNode pn = completePattern.getGraph().addPrimitiveNode();
+		completePattern.getGraph().addRelation(complexNode1, pn);
+	
+		return completePattern;	
+	}
 	//END - FACTORY-METHODS for common Patterns and Structures
 }

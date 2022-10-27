@@ -34,15 +34,7 @@ public interface NeoComplexEdge extends NeoPathPart {
 	 * @model opposite="neoComplexEdge" containment="true" lower="2"
 	 * @generated
 	 */
-	EList<NeoPathPart> getNeoPathPart();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	void validateComplexEdge() throws InvalidityException;
+	EList<NeoPathPart> getNeoPathPart();	
 
 	/**
 	 * <!-- begin-user-doc -->

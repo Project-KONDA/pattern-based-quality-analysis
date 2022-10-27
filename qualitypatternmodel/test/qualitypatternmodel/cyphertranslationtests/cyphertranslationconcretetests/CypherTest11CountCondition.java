@@ -63,7 +63,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern getCountInPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getBasePattern();
+		CompletePattern completePattern = getComplexBasePattern();
 		CountCondition countCond = getBaseCountCoundition(completePattern);
 		
 		completePattern.createNeo4jAdaption();
@@ -78,7 +78,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern getCountInPatternWithRemoveAElement() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getBasePattern();
+		CompletePattern completePattern = getComplexBasePattern();
 		CountCondition countCond = getBaseCountCoundition(completePattern);
 		
 		completePattern.createNeo4jAdaption();
@@ -95,7 +95,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern getMultiCountsInPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getBasePattern();
+		CompletePattern completePattern = getComplexBasePattern();
 		CountCondition countCond = getBaseCountCoundition(completePattern);
 		
 		completePattern.createNeo4jAdaption();
@@ -110,7 +110,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern getCountConditionWithWhereClause() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getBasePattern();
+		CompletePattern completePattern = getComplexBasePattern();
 		completePattern.getGraph().addPrimitiveNode();
 		completePattern.getGraph().addRelation((ComplexNode) completePattern.getGraph().getNodes().get(0), completePattern.getGraph().getNodes().get(1));
 		CountCondition countCond = getBaseCountCoundition(completePattern);
@@ -139,7 +139,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern getCountAPropertyNode() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getBasePattern();
+		CompletePattern completePattern = getComplexBasePattern();
 		CountCondition countCond = getBaseCountCoundition(completePattern);
 		countCond.getCountPattern().getGraph().addPrimitiveNode();
 		countCond.getCountPattern().getGraph().addRelation((ComplexNode) countCond.getCountPattern().getGraph().getNodes().get(1), countCond.getCountPattern().getGraph().getNodes().get(2));
@@ -163,7 +163,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern getCountWithRelations() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getBasePattern();
+		CompletePattern completePattern = getComplexBasePattern();
 		CountCondition countCond = getBaseCountCoundition(completePattern);
 		countCond.getCountPattern().getGraph().addPrimitiveNode();
 		countCond.getCountPattern().getGraph().addRelation((ComplexNode) countCond.getCountPattern().getGraph().getNodes().get(1), countCond.getCountPattern().getGraph().getNodes().get(2));
@@ -188,7 +188,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern getCountAProperty() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getBasePattern();
+		CompletePattern completePattern = getComplexBasePattern();
 		CountCondition countCond = getBaseCountCoundition(completePattern);
 		countCond.getCountPattern().getGraph().addPrimitiveNode();
 		countCond.getCountPattern().getGraph().addRelation((ComplexNode) countCond.getCountPattern().getGraph().getNodes().get(0), countCond.getCountPattern().getGraph().getNodes().get(2));
@@ -206,7 +206,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern getJustCount() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getBasePattern();
+		CompletePattern completePattern = getComplexBasePattern();
 		CountCondition countCond = getBaseCountCoundition(completePattern);
 		countCond.getCountPattern().getGraph().addPrimitiveNode();
 		countCond.getCountPattern().getGraph().addRelation((ComplexNode) countCond.getCountPattern().getGraph().getNodes().get(0), countCond.getCountPattern().getGraph().getNodes().get(2));
@@ -249,7 +249,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 	
 	//Exceptions 
 	private CompletePattern generateNoCountElementsExceptions() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getBasePattern();
+		CompletePattern completePattern = getComplexBasePattern();
 		
 		completePattern.createNeo4jAdaption();
 		
@@ -257,7 +257,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern generateNoCountElementsExceptionsNoElementInSet() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getBasePattern();
+		CompletePattern completePattern = getComplexBasePattern();
 		CountCondition countCond = getBaseCountCoundition(completePattern);
 		
 		completePattern.createNeo4jAdaption();
@@ -269,7 +269,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern generateNullCountElementsNoElementInSetExceptions() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getBasePattern();
+		CompletePattern completePattern = getComplexBasePattern();
 		CountCondition countCond = getBaseCountCoundition(completePattern);
 		
 		completePattern.createNeo4jAdaption();
@@ -281,7 +281,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern generateNoElementsContainedInSetException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getBasePattern();
+		CompletePattern completePattern = getComplexBasePattern();
 		CountCondition countCond = getBaseCountCoundition(completePattern);
 		
 		completePattern.createNeo4jAdaption();
@@ -293,7 +293,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern generateAccessingCypherVariableException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getBasePattern();
+		CompletePattern completePattern = getComplexBasePattern();
 		CountCondition countCond = getBaseCountCoundition(completePattern);
 		countCond.getCountPattern().getGraph().addPrimitiveNode();
 		countCond.getCountPattern().getGraph().addRelation((ComplexNode) countCond.getCountPattern().getGraph().getNodes().get(0), countCond.getCountPattern().getGraph().getNodes().get(2));
@@ -307,7 +307,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern generateNullOperatorException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getBasePattern();
+		CompletePattern completePattern = getComplexBasePattern();
 		CountCondition countCond = getBaseCountCoundition(completePattern);
 		countCond.getCountPattern().getGraph().addPrimitiveNode();
 		countCond.getCountPattern().getGraph().addRelation((ComplexNode) countCond.getCountPattern().getGraph().getNodes().get(0), countCond.getCountPattern().getGraph().getNodes().get(2));
@@ -321,7 +321,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 	
 	//rewrok
 	private CompletePattern generateWrongOperatorException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		CompletePattern completePattern = getBasePattern();
+//		CompletePattern completePattern = getComplexBasePattern();
 //		CountCondition countCond = getBaseCountCoundition(completePattern);
 //		countCond.getCountPattern().getGraph().addPrimitiveNode();
 //		countCond.getCountPattern().getGraph().addRelation((ComplexNode) countCond.getCountPattern().getGraph().getNodes().get(0), countCond.getCountPattern().getGraph().getNodes().get(2));
@@ -335,7 +335,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern generateCompletePatternArgTwoIsCountException () throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getBasePattern();
+		CompletePattern completePattern = getComplexBasePattern();
 		CountCondition countCond = getBaseCountCoundition(completePattern);
 		countCond.setArgument2(PatternstructureFactory.eINSTANCE.createCountPattern());
 		
@@ -352,14 +352,14 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 		if (completePatternsExceptions.size() != 0) {
 			System.out.println("");
 			System.out.println(CypherAbstractTranslation.BEGIN_BUILD_PATTERN_EXCEPTIONS);		
-			CypherTest11CountCondition.exceptionTestHandler(completePatternsExceptions);
+			exceptionTestHandler(completePatternsExceptions);
 			System.out.println(CypherAbstractTranslation.END_BUILD_PATTERN_EXCEPTIONS);
 			System.out.println("");
 		}
 	}
    
    	//FACTORY-METHODS
-	private static CompletePattern getBasePattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getComplexBasePattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
@@ -370,8 +370,8 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 		return completePattern;	
 	}
    
-   	//Hidden from Parent
-	public static void exceptionTestHandler(ArrayList<CompletePattern> completePatterns) {
+	@Override
+	public void exceptionTestHandler(ArrayList<CompletePattern> completePatterns) {
 		for (CompletePattern completePattern : completePatterns) {
 			try {
 				System.out.println(PATTERN_NOT_VALID);

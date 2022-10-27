@@ -36,12 +36,11 @@ public class CypherTest08Cycle extends CypherAbstractTranslation {
 	@Override
 	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		// TODO Auto-generated method stub
-		
+		//Nothing to generate here		
 	}
     
-	private static CompletePattern getCyclePattern(int nodesInCycle) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest00.getBasePattern();
+	private CompletePattern getCyclePattern(int nodesInCycle) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getBasePattern();
 		ComplexNode newNode0 = (ComplexNode) completePattern.getGraph().getNodes().get(0);
 		ComplexNode[] newNode = new ComplexNode[nodesInCycle];
 		for (int i = 0; i < nodesInCycle; i++) {

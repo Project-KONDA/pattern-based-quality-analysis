@@ -15,7 +15,6 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
-import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
 
@@ -52,19 +51,7 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 		completePatternsExceptions.add(generateQuantifiedCondContainsCountPatternException());
 	}
 	
-	public static CompletePattern getCompBasePattern() throws InvalidityException {
-		PatternstructurePackage.eINSTANCE.eClass();
-		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		
-		CompletePattern completePattern = factory.createCompletePattern();
-		completePattern.setName("MyPattern");
-		
-		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
-		PrimitiveNode pn = completePattern.getGraph().addPrimitiveNode();
-		completePattern.getGraph().addRelation(complexNode1, pn);
-	
-		return completePattern;	
-	}
+
 	
 	//Does not throw an Exception --> have a deeper look inside again what it does
 	//PATTERN where to identifie a missing element with exists

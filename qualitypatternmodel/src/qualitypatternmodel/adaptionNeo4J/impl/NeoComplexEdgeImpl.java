@@ -41,7 +41,6 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	private static final String CONTAINS_NOT_ENOUGH_NEO_PATH_PARTS = " contains not enough NeoPathParts";
 	private static final String NEO_COMPLEX_PATH = "NeoComplexPath ";
 	private static final String NEO_COMPLEX_PATH_CONTAINS_NOT_ENOUGH_NEO_PATH_PARTS = NEO_COMPLEX_PATH + "%s" + CONTAINS_NOT_ENOUGH_NEO_PATH_PARTS;
-	private static final String THE_LAST_EDGE_IS_NOT_AT_THE_END = "The Last Edge is not at the End";
 	private static final String HAS_TO_MANY_LAST_EDGES_MAX_1 = "Has to many Last Edges - Max. 1 - Reorganizing failed";
 	private static final String TO_LESS_PRIMITIVE_EDGES_AT_LEAST_2 = "To less Primitive Edges - At least 2";
 	/**
@@ -150,21 +149,10 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	}
 
 	//The container just checks if enough elements are given to build a ComplexEdge
-	@Override
-	public void validateComplexEdge() throws InvalidityException {
-//		if (getNeoPathPart().size() == 0 && !(getNeoComplexEdge() == null)) {
-//			throw new InvalidityException();
-//		}
+	protected void validateComplexEdge() throws InvalidityException {
 		if (!(countOfEdges() >= 2) && (getNeoComplexEdge() == null) && getNeoComplexEdge() != this) {
 			throw new InvalidityException(TO_LESS_PRIMITIVE_EDGES_AT_LEAST_2);
-		}
-		if (hasMultipleLastEdges()) {
-			reorganiseLastEdgeFlagging();
-		}
-		if (!isLastEdgeAtTheEnd()) {
-			throw new InvalidityException(THE_LAST_EDGE_IS_NOT_AT_THE_END);
-		}
-		
+		}		
 	}
 	
 	private void reorganiseLastEdgeFlagging() throws InvalidityException {
@@ -207,59 +195,6 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	@Override
 	protected boolean isLastEdge() {
 		return false;
-	}
-	
-	private boolean isLastEdgeAtTheEnd() {
-		final EList<NeoPathPart> neoParts = getNeoPathPart();
-		boolean isLastEdgeCorrect = true;
-		NeoPathPartImpl neoPart = null;		
-		for (int i = (neoParts.size() - 1); i >= 0; i--) {
-			neoPart = (NeoPathPartImpl) neoParts.get(i);
-			if (neoPart instanceof NeoComplexEdge) {
-				((NeoComplexEdgeImpl) neoPart).isLastEdgeAtTheEnd();
-			} else {
-				if (neoPart.isLastEdge()) {
-					if (!(i == (neoParts.size() - 1))) {
-						isLastEdgeCorrect = false;
-					}
-				}
-			}
-		}
-		return isLastEdgeCorrect;
-	}
-	
-	private boolean hasMultipleLastEdges() {
-		final EList<NeoPathPart> neoParts = getNeoPathPart();
-		boolean multiLastEdges = false;
-		int lastEdges = 0;
-		NeoPathPartImpl neoPart = null;
-		for (NeoPathPart neoInterfacePart : neoParts) {
-			neoPart = (NeoPathPartImpl) neoInterfacePart;
-			if (neoPart instanceof NeoComplexEdge) {
-				lastEdges += ((NeoComplexEdgeImpl) neoPart).countLastEdgesInSubStructure();
-			} else if (neoPart.isLastEdge()) {
-				lastEdges++;
-			}
-		}
-		if (lastEdges > 1) {
-			multiLastEdges = true;
-		}
-		return multiLastEdges;		
-	}
-	
-	private int countLastEdgesInSubStructure() {
-		final EList<NeoPathPart> neoParts = getNeoPathPart();
-		int lastEdges = 0;
-		NeoPathPartImpl neoPart = null;
-		for (NeoPathPart neoInterfacePart : neoParts) {
-			neoPart = (NeoPathPartImpl) neoInterfacePart;
-			if (neoPart instanceof NeoComplexEdge) {
-				lastEdges += ((NeoComplexEdgeImpl) neoPart).countLastEdgesInSubStructure();
-			} else if (neoPart.isLastEdge()) {
-				lastEdges++;
-			}
-		}
-		return lastEdges;
 	}
 	
 	private int countOfEdges() {
