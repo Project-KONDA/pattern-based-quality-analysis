@@ -68,7 +68,7 @@ public class Test12Count {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
-		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.getGraph().getReturnNodes().get(0).addOutgoing().getTarget().addPrimitiveComparison();
 		
 		CountCondition countCondition = factory.createCountCondition();

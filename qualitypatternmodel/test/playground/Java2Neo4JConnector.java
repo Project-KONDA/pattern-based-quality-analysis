@@ -10,10 +10,10 @@ public class Java2Neo4JConnector implements AutoCloseable {
 	//https://neo4j.com/developer/java/
 	//https://mvnrepository.com/artifact/org.neo4j.driver/neo4j-java-driver/4.4.9
 	
-   private final Driver driver; 
-   private final static String URI = "bolt://localhost:7687";
-   private final static String USER = "neo4j";
-   private final static String PASSWORD = "Regesten";
+   final Driver driver; 
+   final static String URI = "bolt://localhost:7687";
+   final static String USER = "neo4j";
+   final static String PASSWORD = "Regesten";
    
 	
     public Java2Neo4JConnector(String uri, String user, String password) {
@@ -26,7 +26,22 @@ public class Java2Neo4JConnector implements AutoCloseable {
 
 	@Override
 	public void close() {
-		driver.close();		
+		driver.close();	
+		
+	}
+	 
+	public static boolean verifyConnectivity() {
+		boolean isActive = true;
+		try {
+			final Java2Neo4JConnector connector = new Java2Neo4JConnector(URI, USER, PASSWORD);
+			final Driver driver = connector.driver;
+			driver.verifyConnectivity();
+			connector.queryTester("MATCH (r:Regesta) RETURN r", "testQuery", true);
+			connector.close();
+		} catch (Exception e) {
+			isActive = false;
+		}
+		return isActive;
 	}
 	
     public void queryTester(final String query, final String queryID, boolean print) {
@@ -40,7 +55,6 @@ public class Java2Neo4JConnector implements AutoCloseable {
         }
     }
 	
-    //TODO - Specify everything more concrete 
 	public static void main(String[] args) {
 		@SuppressWarnings("resource")
 		Java2Neo4JConnector connector = new Java2Neo4JConnector(URI, USER, PASSWORD);

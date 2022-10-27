@@ -1,20 +1,12 @@
 package qualitypatternmodel.cypherevaluation;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.operators.ComparisonOperator;
-import qualitypatternmodel.adaptionrdf.RdfPathParam;
-import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
-import qualitypatternmodel.adaptionrdf.impl.IriParamImpl;
 import qualitypatternmodel.evaluation.EvalCard;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.parameters.ComparisonOptionParam;
-import qualitypatternmodel.parameters.NumberParam;
-import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.rdftranslationtests.RdfTest00;
 
 public class CypherEvalCard {

@@ -26,7 +26,11 @@ public class CypherEvalComp {
 		completePatterns.add(getCompNeo4JAbstract());
 		completePatterns.add(getCompPlaces());
 		
-		CypherQueryPrinter.queryPrinterSys(completePatterns);
+		try {
+			CypherQueryPrinter.queryPrinterSys(completePatterns);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 	
 	public static CompletePattern getCompNeo4JAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

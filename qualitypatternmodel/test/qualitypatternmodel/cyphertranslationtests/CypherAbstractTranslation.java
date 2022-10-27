@@ -20,7 +20,7 @@ import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
-public abstract class CypherTranslationAbstract implements CypherTranslationeInterface {
+public abstract class CypherAbstractTranslation implements CypherInterfaceTranslatione {
 	public static final AdaptionNeo4JFactory NEO_FACTORY = new AdaptionNeo4JFactoryImpl();
 	
 	public static final String BEGIN_TESTS = "<<< BEGIN - Tests >>>";
@@ -61,8 +61,7 @@ public abstract class CypherTranslationAbstract implements CypherTranslationeInt
 		}
 	}
 
-	//Look at this that not so much redundancy exists
-	public static void testAllCompletePatterns(ArrayList<CompletePattern> completePatterns, Boolean withDb, Boolean printQuery) {
+	public static void testAllCompletePatterns(ArrayList<CompletePattern> completePatterns, Boolean withDb, Boolean printQuery) throws Exception {
 			try (Java2Neo4JConnector connector = new Java2Neo4JConnector()) {
 				for (CompletePattern completePattern : completePatterns) {
 					replace(completePattern);
@@ -79,10 +78,10 @@ public abstract class CypherTranslationAbstract implements CypherTranslationeInt
 						}
 						
 						//Include the null check for the results
-//						if (withDb) {
-//							String hashCode = query.hashCode() + "";
-//							connector.queryTester(query, hashCode, true);							
-//						}
+						if (withDb) {
+							String hashCode = query.hashCode() + "";
+							connector.queryTester(query, hashCode, true);							
+						}
 					} catch (Exception e) {
 						System.out.println();
 						e.printStackTrace();
@@ -90,7 +89,9 @@ public abstract class CypherTranslationAbstract implements CypherTranslationeInt
 						  System.out.println(completePattern.myToString());
 						} catch (Exception e2) {
 							e2.printStackTrace();
+							throw e2;
 						}
+						throw e;
 					}
 				}
 			}
@@ -98,16 +99,16 @@ public abstract class CypherTranslationAbstract implements CypherTranslationeInt
 
 	protected static void checkForNullInMatchAndReturn(String query) throws InvalidityException {
 		//Test for null in MATCH
-		String matchString = query.substring(query.indexOf(CypherSpecificConstants.CLAUSE_MATCH), query.indexOf(TestSuiteTranslationTests.NEWLINE));
-		if (matchString.toLowerCase().contains(TestSuiteTranslationTests.NULL)) {
-			throw new InvalidityException(TestSuiteTranslationTests.THE_MATCH_CLAUSE_CONTAINS_NULL);
+		String matchString = query.substring(query.indexOf(CypherSpecificConstants.CLAUSE_MATCH), query.indexOf(CypherAbstractTestSuiteTranslation.NEWLINE));
+		if (matchString.toLowerCase().contains(CypherAbstractTestSuiteTranslation.NULL)) {
+			throw new InvalidityException(CypherAbstractTestSuiteTranslation.THE_MATCH_CLAUSE_CONTAINS_NULL);
 		}
 		matchString = null;						
 		
 		//Test for null in RETURN
 		String returnString = query.substring(query.indexOf(CypherSpecificConstants.CLAUSE_RETURN));
-		if (returnString.toLowerCase().contains(TestSuiteTranslationTests.NULL)) {
-			throw new InvalidityException(TestSuiteTranslationTests.THE_RETURN_CLAUSE_CONTAINS_NULL);
+		if (returnString.toLowerCase().contains(CypherAbstractTestSuiteTranslation.NULL)) {
+			throw new InvalidityException(CypherAbstractTestSuiteTranslation.THE_RETURN_CLAUSE_CONTAINS_NULL);
 		}
 		returnString  = null;
 	}
@@ -118,9 +119,9 @@ public abstract class CypherTranslationAbstract implements CypherTranslationeInt
 		buildInvalidityExceptionPatterns(completePatternsExceptions);
 		if (completePatternsExceptions.size() != 0) {
 			System.out.println("");
-			System.out.println(CypherTranslationAbstract.BEGIN_BUILD_PATTERN_EXCEPTIONS);		
-			CypherTranslationAbstract.exceptionTestHandler(completePatternsExceptions);
-			System.out.println(CypherTranslationAbstract.END_BUILD_PATTERN_EXCEPTIONS);
+			System.out.println(CypherAbstractTranslation.BEGIN_BUILD_PATTERN_EXCEPTIONS);		
+			CypherAbstractTranslation.exceptionTestHandler(completePatternsExceptions);
+			System.out.println(CypherAbstractTranslation.END_BUILD_PATTERN_EXCEPTIONS);
 			System.out.println("");
 		}
 	}
@@ -131,9 +132,14 @@ public abstract class CypherTranslationAbstract implements CypherTranslationeInt
 		buildPatterns(completePatterns);
 		if (completePatterns.size() != 0) {
 		    System.out.println("");
-		    System.out.println(CypherTranslationAbstract.BEGIN_TESTS);
-			CypherTranslationAbstract.testAllCompletePatterns(completePatterns, true, true);
-		    System.out.println(CypherTranslationAbstract.END_TESTS);
+		    System.out.println(CypherAbstractTranslation.BEGIN_TESTS);
+		    try {
+		    	CypherAbstractTranslation.testAllCompletePatterns(completePatterns, true, true);
+		    } catch (Exception e) {
+				System.out.println(e);
+			}
+			
+		    System.out.println(CypherAbstractTranslation.END_TESTS);
 		    System.out.println("");
 		}
 	}

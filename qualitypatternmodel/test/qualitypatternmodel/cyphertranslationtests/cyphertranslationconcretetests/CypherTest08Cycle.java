@@ -2,7 +2,7 @@ package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetest
 
 import java.util.ArrayList;
 
-import qualitypatternmodel.cyphertranslationtests.CypherTranslationAbstract;
+import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -10,7 +10,7 @@ import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 //Warum dauert der test so lange?
-public class CypherTest08Cycle extends CypherTranslationAbstract {
+public class CypherTest08Cycle extends CypherAbstractTranslation {
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
     	CypherTest08Cycle cycle = new CypherTest08Cycle();
 //    	Instant start = Instant.now();

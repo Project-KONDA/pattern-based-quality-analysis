@@ -15,7 +15,11 @@ public class CypherEvalUnique {
 		completePatterns.add(getUniqueAbstract());
 		completePatterns.add(getUniqueIdentifier());
 		
-		CypherQueryPrinter.queryPrinterSys(completePatterns);
+		try {
+			CypherQueryPrinter.queryPrinterSys(completePatterns);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 	private static CompletePattern getUniqueAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

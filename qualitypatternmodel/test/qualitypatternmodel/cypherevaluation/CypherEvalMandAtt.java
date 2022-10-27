@@ -1,21 +1,12 @@
 package qualitypatternmodel.cypherevaluation;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import qualitypatternmodel.adaptionxml.XmlPropertyKind;
-import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.evaluation.EvalMandAtt;
-import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.TextListParam;
-import qualitypatternmodel.parameters.UntypedParameterValue;
-import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.xmltranslationtests.Test00;
 
 public class CypherEvalMandAtt {
 	
@@ -28,7 +19,11 @@ public class CypherEvalMandAtt {
 		completePatterns.add(getMandatt3Neo4JAbstract());
 		//completePatterns.add(getMandattMidasAps()); //Create a fitting Pattern for this --> In regard to Mandatt3
 		
-		CypherQueryPrinter.queryPrinterSys(completePatterns);		
+		try {
+			CypherQueryPrinter.queryPrinterSys(completePatterns);
+		} catch (Exception e) {
+			System.out.println(e);
+		}		
 	}
 	
 	public static CompletePattern getMandattNeo4JAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

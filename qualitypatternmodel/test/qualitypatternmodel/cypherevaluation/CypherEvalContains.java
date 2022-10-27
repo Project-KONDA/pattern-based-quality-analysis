@@ -14,7 +14,12 @@ public class CypherEvalContains {
 		completePatterns.add(getContainNeo4JAbstract());
 		completePatterns.add(getContainMissspelling());
 		completePatterns.add(getContainTag());
-		CypherQueryPrinter.queryPrinterSys(completePatterns);
+		
+		try {
+			CypherQueryPrinter.queryPrinterSys(completePatterns);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 	public static CompletePattern getContainNeo4JAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

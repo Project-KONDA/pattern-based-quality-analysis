@@ -1,19 +1,11 @@
 package qualitypatternmodel.cypherevaluation;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import qualitypatternmodel.adaptionxml.XmlPropertyKind;
-import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.evaluation.EvalMandStruc;
-import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.xmltranslationtests.Test00;
 
 public class CypherEvalMandStruc {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -22,7 +14,11 @@ public class CypherEvalMandStruc {
 		completePatterns.add(getMandStrucRegestaPlace());
 		completePatterns.add(getMandStrucEntryConnections());
 		
-		CypherQueryPrinter.queryPrinterSys(completePatterns);
+		try {
+			CypherQueryPrinter.queryPrinterSys(completePatterns);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 	
 	public static CompletePattern getMandStrucAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

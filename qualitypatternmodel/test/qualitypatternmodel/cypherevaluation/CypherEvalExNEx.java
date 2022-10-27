@@ -2,19 +2,11 @@ package qualitypatternmodel.cypherevaluation;
 
 import java.util.ArrayList;
 
-import org.eclipse.emf.common.util.EList;
-
-import qualitypatternmodel.adaptionrdf.RdfPathParam;
-import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
-import qualitypatternmodel.adaptionrdf.impl.IriParamImpl;
 import qualitypatternmodel.evaluation.EvalExNEx;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.rdftranslationtests.RdfTest00;
 
 //has to be checked if necessary since it is to similar to the MANDSTRUC
 public class CypherEvalExNEx {
@@ -24,7 +16,12 @@ public class CypherEvalExNEx {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getExNexNeo4JAbstract());
 		completePatterns.add(getRegestaWithOutPlace());
-		CypherQueryPrinter.queryPrinterSys(completePatterns);
+		
+		try {
+			CypherQueryPrinter.queryPrinterSys(completePatterns);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 	private static CompletePattern getExNexNeo4JAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

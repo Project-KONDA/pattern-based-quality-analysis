@@ -10,7 +10,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
-import qualitypatternmodel.cyphertranslationtests.CypherTranslationAbstract;
+import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -34,7 +34,7 @@ import qualitypatternmodel.patternstructure.Quantifier;
 
 //Think about to create a other test class just for the QuantifiedCond! --> Done
 //Specelly for the exceptiontests 
-public class CypherTest03NotCondition extends CypherTranslationAbstract {    
+public class CypherTest03NotCondition extends CypherAbstractTranslation {    
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
     	CypherTest03NotCondition not = new CypherTest03NotCondition();
     	try {

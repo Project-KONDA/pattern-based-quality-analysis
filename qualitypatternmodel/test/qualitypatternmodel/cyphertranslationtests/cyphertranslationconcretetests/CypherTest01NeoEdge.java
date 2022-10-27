@@ -9,7 +9,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
-import qualitypatternmodel.cyphertranslationtests.CypherTranslationAbstract;
+import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -24,7 +24,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 //Am Modeldiagramm die entscheidungen getroffen
 //Erklären welche Tests für das Metamodell gemacht habe
 //Erfolgreich Test ja/nein --> Cypher querys beschreiben
-public class CypherTest01NeoEdge extends CypherTranslationAbstract {
+public class CypherTest01NeoEdge extends CypherAbstractTranslation {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CypherTest01NeoEdge neoEdge = new CypherTest01NeoEdge();
 		try {

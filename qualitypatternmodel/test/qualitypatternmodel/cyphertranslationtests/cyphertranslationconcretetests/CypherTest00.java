@@ -6,7 +6,7 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
-import qualitypatternmodel.cyphertranslationtests.CypherTranslationAbstract;
+import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
@@ -26,7 +26,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 //--> Systemtest und kein Kompnententest
-public class CypherTest00 extends CypherTranslationAbstract {
+public class CypherTest00 extends CypherAbstractTranslation {
 	public static final AdaptionNeo4JFactory FACTORY = new AdaptionNeo4JFactoryImpl();
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

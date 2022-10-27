@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
-import qualitypatternmodel.cyphertranslationtests.CypherTranslationAbstract;
+import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -20,7 +20,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
-public class CypherTest09Contains extends CypherTranslationAbstract {
+public class CypherTest09Contains extends CypherAbstractTranslation {
     
 	private final static String LINK = "http://opac.regesta-imperii.de/lang_de/kurztitelsuche_r.php?kurztitel=gudenus,_cod._dipl.";
 	
@@ -167,9 +167,9 @@ public class CypherTest09Contains extends CypherTranslationAbstract {
 		buildInvalidityExceptionPatterns(completePatternsExceptions);
 		if (completePatternsExceptions.size() != 0) {
 			System.out.println("");
-			System.out.println(CypherTranslationAbstract.BEGIN_BUILD_PATTERN_EXCEPTIONS);		
+			System.out.println(CypherAbstractTranslation.BEGIN_BUILD_PATTERN_EXCEPTIONS);		
 			CypherTest09Contains.exceptionTestHandler(completePatternsExceptions);
-			System.out.println(CypherTranslationAbstract.END_BUILD_PATTERN_EXCEPTIONS);
+			System.out.println(CypherAbstractTranslation.END_BUILD_PATTERN_EXCEPTIONS);
 			System.out.println("");
 		}
 	}

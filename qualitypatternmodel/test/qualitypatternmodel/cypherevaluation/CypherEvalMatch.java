@@ -4,24 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.adaptionrdf.RdfPathParam;
-import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
-import qualitypatternmodel.adaptionrdf.impl.IriParamImpl;
 import qualitypatternmodel.evaluation.EvalMatch;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.rdftranslationtests.RdfTest00;
 
 public class CypherEvalMatch {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getMatchNeo4JAbstract());
 		completePatterns.add(getMatchDate());
-		CypherQueryPrinter.queryPrinterSys(completePatterns);
+		
+		try {
+			CypherQueryPrinter.queryPrinterSys(completePatterns);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 	
 	public static CompletePattern getMatchNeo4JAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

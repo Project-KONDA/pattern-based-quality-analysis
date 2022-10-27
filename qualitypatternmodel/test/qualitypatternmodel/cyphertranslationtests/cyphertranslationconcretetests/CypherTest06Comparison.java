@@ -9,7 +9,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
-import qualitypatternmodel.cyphertranslationtests.CypherTranslationAbstract;
+import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -26,7 +26,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
-public class CypherTest06Comparison extends CypherTranslationAbstract {
+public class CypherTest06Comparison extends CypherAbstractTranslation {
     //All in the CompletePattern beginning will be set automatical in the condtions it is diffrent. 
     //The morphings for the relation --> Do nothing if a morphed relation is reached (set at least a boolean for more flexiblity)
     //Relation variables can be only used once

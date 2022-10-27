@@ -7,7 +7,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
-import qualitypatternmodel.cyphertranslationtests.CypherTranslationAbstract;
+import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -18,7 +18,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
-public class CypherTest10Match extends CypherTranslationAbstract {
+public class CypherTest10Match extends CypherAbstractTranslation {
 //	https://neo4j.com/docs/cypher-manual/current/clauses/where/ --> Consider the diffrent regex expressions from here
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -216,9 +216,9 @@ public class CypherTest10Match extends CypherTranslationAbstract {
 		buildInvalidityExceptionPatterns(completePatternsExceptions);
 		if (completePatternsExceptions.size() != 0) {
 			System.out.println("");
-			System.out.println(CypherTranslationAbstract.BEGIN_BUILD_PATTERN_EXCEPTIONS);		
+			System.out.println(CypherAbstractTranslation.BEGIN_BUILD_PATTERN_EXCEPTIONS);		
 			CypherTest10Match.exceptionTestHandler(completePatternsExceptions);
-			System.out.println(CypherTranslationAbstract.END_BUILD_PATTERN_EXCEPTIONS);
+			System.out.println(CypherAbstractTranslation.END_BUILD_PATTERN_EXCEPTIONS);
 			System.out.println("");
 		}
 	}

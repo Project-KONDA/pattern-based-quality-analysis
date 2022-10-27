@@ -17,7 +17,11 @@ public class CypherEvalAppDup {
 		completePatterns.add(getAppDup2Concrete());
 		completePatterns.add(getAppDup3Abstract());
 		completePatterns.add(getAppDup3Concrete());
-		CypherQueryPrinter.queryPrinterSys(completePatterns);
+		try {
+			CypherQueryPrinter.queryPrinterSys(completePatterns);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 	public static CompletePattern getAppDup2Abstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

@@ -9,7 +9,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
-import qualitypatternmodel.cyphertranslationtests.CypherTranslationAbstract;
+import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -25,7 +25,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.impl.CountPatternImpl;
 
 //Test also the COUNTING with NeoPropertyNodes
-public class CypherTest11CountCondition extends CypherTranslationAbstract {
+public class CypherTest11CountCondition extends CypherAbstractTranslation {
 		
 	public static void main(String[] args)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -363,9 +363,9 @@ public class CypherTest11CountCondition extends CypherTranslationAbstract {
 		buildInvalidityExceptionPatterns(completePatternsExceptions);
 		if (completePatternsExceptions.size() != 0) {
 			System.out.println("");
-			System.out.println(CypherTranslationAbstract.BEGIN_BUILD_PATTERN_EXCEPTIONS);		
+			System.out.println(CypherAbstractTranslation.BEGIN_BUILD_PATTERN_EXCEPTIONS);		
 			CypherTest11CountCondition.exceptionTestHandler(completePatternsExceptions);
-			System.out.println(CypherTranslationAbstract.END_BUILD_PATTERN_EXCEPTIONS);
+			System.out.println(CypherAbstractTranslation.END_BUILD_PATTERN_EXCEPTIONS);
 			System.out.println("");
 		}
 	}

@@ -9,7 +9,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
-import qualitypatternmodel.cyphertranslationtests.CypherTranslationAbstract;
+import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -22,7 +22,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.impl.FormulaImpl;
 
 //The tests of the othercomponents are integrated in the systemtests since the componenttests for the framework do not exists
-public class CypherTest04Formula extends CypherTranslationAbstract {    
+public class CypherTest04Formula extends CypherAbstractTranslation {    
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
     	CypherTest04Formula formula = new CypherTest04Formula();
     	try {

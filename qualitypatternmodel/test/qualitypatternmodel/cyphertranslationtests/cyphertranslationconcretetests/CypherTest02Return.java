@@ -11,7 +11,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
-import qualitypatternmodel.cyphertranslationtests.CypherTranslationAbstract;
+import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -21,7 +21,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
-public class CypherTest02Return extends CypherTranslationAbstract {
+public class CypherTest02Return extends CypherAbstractTranslation {
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CypherTest02Return cypherReturn = new CypherTest02Return();

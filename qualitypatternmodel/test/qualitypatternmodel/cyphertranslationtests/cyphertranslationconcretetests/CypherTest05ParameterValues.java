@@ -7,7 +7,7 @@ import org.eclipse.emf.common.util.BasicEList;
 
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
-import qualitypatternmodel.cyphertranslationtests.CypherTranslationAbstract;
+import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -41,13 +41,13 @@ import qualitypatternmodel.parameters.impl.TimeParamImpl;
 import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
-public class CypherTest05ParameterValues extends CypherTranslationAbstract {
+public class CypherTest05ParameterValues extends CypherAbstractTranslation {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		//Look in the NeoDoc to check the fitting syntax 
 		//The Dataset is not containing something else except date and string
 	    
 		try {
-			CypherTranslationAbstract parameterValues = new CypherTest05ParameterValues();
+			CypherAbstractTranslation parameterValues = new CypherTest05ParameterValues();
 //			parameterValues.generalizedTests();         
 			parameterValues.generalizedInvalidtyExceptionTests();
 		} catch (Exception e) {

@@ -6,7 +6,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
-import qualitypatternmodel.cyphertranslationtests.CypherTranslationAbstract;
+import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -19,7 +19,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
 
-public class CypherTest07QuantifiedCondition extends CypherTranslationAbstract {
+public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 	//Add BooleanOperators Test here
 	//Add a beginning in the morph which is not the end to thest the pattern-match generation alg
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
