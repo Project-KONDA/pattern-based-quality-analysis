@@ -7,10 +7,14 @@ import org.neo4j.driver.Result;
 import org.neo4j.driver.Session;
 
 public class Java2Neo4JConnector implements AutoCloseable {
+	private static final String IS_VALID = " is valid!\n\t\t\t";
+	private static final String QUERY2 = "Query: ";
+	private static final String TEST_QUERY = "testQuery";
 	//https://neo4j.com/developer/java/
 	//https://mvnrepository.com/artifact/org.neo4j.driver/neo4j-java-driver/4.4.9
 	
-   final Driver driver; 
+   private static final String MATCH_R_REGESTA_RETURN_R = "MATCH (r:Regesta) RETURN r";
+final Driver driver; 
    final static String URI = "bolt://localhost:7687";
    final static String USER = "neo4j";
    final static String PASSWORD = "Regesten";
@@ -31,18 +35,22 @@ public class Java2Neo4JConnector implements AutoCloseable {
 	}
 	 
 	public static boolean verifyConnectivity() {
-		boolean isActive = false;
+		Java2Neo4JConnector connector = null;
 		try {
-			final Java2Neo4JConnector connector = new Java2Neo4JConnector(URI, USER, PASSWORD);
+			connector = new Java2Neo4JConnector(URI, USER, PASSWORD);
 			final Driver driver = connector.driver;
 			driver.verifyConnectivity();
-			connector.queryTesterWithException("MATCH (r:Regesta) RETURN r", "testQuery", false);
+			connector.queryTesterWithException(MATCH_R_REGESTA_RETURN_R, TEST_QUERY, false);
 			connector.close();
 			return true;
 		} catch (Exception e) {
-			isActive = false;
+			try {
+				if (connector != null) {
+					connector.close();
+				}
+			} catch (Exception e2) {}
+			return false;
 		}
-		return isActive;
 	}
 	
     private void queryTesterWithException(final String query, final String queryID, boolean print) throws Exception {
@@ -52,7 +60,7 @@ public class Java2Neo4JConnector implements AutoCloseable {
                 String resultString = result.consume().toString();
                 return resultString;
             });
-            if (print) System.out.println("Query: " + queryID + " is valid!\n\t\t\t" + data);
+            if (print) System.out.println(QUERY2 + queryID + IS_VALID + data);
         } catch (Exception e) {
 			throw (e);
 		}
@@ -67,8 +75,8 @@ public class Java2Neo4JConnector implements AutoCloseable {
     }
 	
 	public static void main(String[] args) {
-		@SuppressWarnings("resource")
-		Java2Neo4JConnector connector = new Java2Neo4JConnector(URI, USER, PASSWORD);
-		connector.queryTester("MATCH (r:Regesta) RETURN r", "testQuery", true);
+		try (Java2Neo4JConnector connector = new Java2Neo4JConnector(URI, USER, PASSWORD)) {
+			connector.queryTester(MATCH_R_REGESTA_RETURN_R, TEST_QUERY, true);
+		}
 	}
 }
