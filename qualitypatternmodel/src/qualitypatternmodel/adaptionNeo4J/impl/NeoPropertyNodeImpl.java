@@ -194,7 +194,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 				cypher = cypher.replace("(", "");
 				cypher = cypher.replace(")", "");
 			}
-			
 			return cypher;
 		}
 		return ((NeoPropertyNode) getOriginalNode()).getCypherVariable(); 

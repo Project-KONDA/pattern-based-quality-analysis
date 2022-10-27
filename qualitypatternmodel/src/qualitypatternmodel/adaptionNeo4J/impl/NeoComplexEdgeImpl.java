@@ -33,15 +33,15 @@ import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
  *
  * @generated
  */
-//Check if somehow a NeoPathPart can be removed then the previews Edge has to be set to true
+
 public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdge {
+	private static final String NOT_A_VALID_COMPLEX_EDGE = "Not a valid ComplexEdge";
 	private static final String CLOSING_BRACKET = ")";
 	private static final String OPENING_BRACKET = "(";
 	private static final String NEO_COMPLEX_EDGE_S = "NeoComplexEdge [%s] ";
 	private static final String CONTAINS_NOT_ENOUGH_NEO_PATH_PARTS = " contains not enough NeoPathParts";
 	private static final String NEO_COMPLEX_PATH = "NeoComplexPath ";
 	private static final String NEO_COMPLEX_PATH_CONTAINS_NOT_ENOUGH_NEO_PATH_PARTS = NEO_COMPLEX_PATH + "%s" + CONTAINS_NOT_ENOUGH_NEO_PATH_PARTS;
-	private static final String HAS_TO_MANY_LAST_EDGES_MAX_1 = "Has to many Last Edges - Max. 1 - Reorganizing failed";
 	private static final String TO_LESS_PRIMITIVE_EDGES_AT_LEAST_2 = "To less Primitive Edges - At least 2";
 	/**
 	 * The cached value of the '{@link #getNeoPathPart() <em>Neo Path Part</em>}' containment reference list.
@@ -51,7 +51,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<NeoPathPart> neoPathPart;
+	protected EList<NeoPathPart> neoPathParts;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -92,13 +92,11 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 			}
 			return variables.toString();
 		} catch (Exception e) {
-			System.out.println(e);
+			throw new InvalidityException(NOT_A_VALID_COMPLEX_EDGE);
 		}
-		return null;
 	}
 	
 	
-	//DO I NEED THE DIFFRENCE BETWEEN THIS TO METHODS?
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -155,19 +153,12 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		}		
 	}
 	
-	private void reorganiseLastEdgeFlagging() throws InvalidityException {
-		try {
-			final NeoComplexEdge neoComplexEdge = getHighestComplexEdge();
-			final EList<NeoPathPart> parts = neoComplexEdge.getNeoPathPartEdgeLeafs();
-			NeoSimpleEdgeImpl neoSimpleEdge = null;
-			for (NeoPathPart part : parts) {
-				neoSimpleEdge = (NeoSimpleEdgeImpl) part;
-				neoSimpleEdge.setIsLastEdge(false);
-			}
-			neoSimpleEdge = (NeoSimpleEdgeImpl) parts.get(parts.size() - 1);
-			neoSimpleEdge.setIsLastEdge(true);
-		} catch (Exception e) {
-			throw new InvalidityException(HAS_TO_MANY_LAST_EDGES_MAX_1);
+	private void reorganiseLastEdgeFlagging() {
+		final NeoComplexEdge neoComplexEdge = getHighestComplexEdge();
+		final EList<NeoPathPart> parts = neoComplexEdge.getNeoPathPartEdgeLeafs();
+		final NeoSimpleEdgeImpl lastEge = (NeoSimpleEdgeImpl) parts.get(parts.size() - 1);
+		if (!lastEge.isLastEdge) {
+			lastEge.setIsLastEdge(true);
 		}
 	}
 	
@@ -209,7 +200,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		return count;
 	}
 
-	//Get's all NeoPartsParts
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -236,13 +227,12 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void removeNeoPathPart(NeoPathPart neoPathPart) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		this.neoPathParts.remove(neoPathPart);
+		this.reorganiseLastEdgeFlagging();
 	}
 
 	@Override
@@ -279,7 +269,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		return AdaptionNeo4JPackage.Literals.NEO_COMPLEX_EDGE;
 	}
 
-	//Returns all NeoEdges... not one Leafs
+	//Returns all NeoEdges... not only Leafs
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -287,10 +277,10 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	 */
 	@Override
 	public EList<NeoPathPart> getNeoPathPart() {
-		if (neoPathPart == null) {
-			neoPathPart = new EObjectContainmentWithInverseEList<NeoPathPart>(NeoPathPart.class, this, AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH_PART, AdaptionNeo4JPackage.NEO_PATH_PART__NEO_COMPLEX_EDGE);
+		if (neoPathParts == null) {
+			neoPathParts = new EObjectContainmentWithInverseEList<NeoPathPart>(NeoPathPart.class, this, AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH_PART, AdaptionNeo4JPackage.NEO_PATH_PART__NEO_COMPLEX_EDGE);
 		}
-		return neoPathPart;
+		return neoPathParts;
 	}
 
 	/**
@@ -362,7 +352,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH_PART:
-				return neoPathPart != null && !neoPathPart.isEmpty();
+				return neoPathParts != null && !neoPathParts.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
