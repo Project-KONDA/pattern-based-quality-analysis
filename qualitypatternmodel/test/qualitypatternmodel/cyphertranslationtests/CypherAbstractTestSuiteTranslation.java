@@ -9,6 +9,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExecutionCondition;
 
 import qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests.CypherTest00;
 import qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests.CypherTest01NeoEdge;
@@ -27,7 +28,7 @@ import qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
-public abstract class CypherAbstractTestSuiteTranslation {
+public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCondition {
 
 	private static final String EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION = "NOT ALL INVALIDTIY EXCPECTED EXCEPTIONS HAVE BEEN THROWN";
 	private static final String EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION = "NOT ALL UNSUPPORTED MESSAGE EXCPECTED EXCEPTIONS HAVE BEEN THROWN";
@@ -36,6 +37,8 @@ public abstract class CypherAbstractTestSuiteTranslation {
 	protected static final String NEWLINE = "\n";
 	protected static final String NULL = "null";
 	protected static final String THE_RETURN_CLAUSE_CONTAINS_NULL = "The RETURN-CLAUSE contains null";
+	protected static final String TEST_DISABLED_ON_QA_ENVIRONMENT = "Test disabled on QA environment";
+	protected static final String TEST_ENABLED_ON_QA_ENVIRONMENT = "Test enabled on QA environment";
 
 	protected static void exceptionHandler(CompletePattern completePattern) throws InvalidityException {
 		completePattern.generateCypher();
@@ -326,7 +329,7 @@ public abstract class CypherAbstractTestSuiteTranslation {
 		assertDoesNotThrow(() -> {new CypherTest12CheckNull().buildPatterns(completePatterns); 
 			tester(completePatterns);});
 	}
-
+	
 	public void CypherTest12CheckNullExceptions() {		
 			assertThrows(InvalidityException.class, () -> {//Add additional Exceptions
 					},

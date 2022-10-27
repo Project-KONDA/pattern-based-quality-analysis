@@ -31,20 +31,21 @@ public class Java2Neo4JConnector implements AutoCloseable {
 	}
 	 
 	public static boolean verifyConnectivity() {
-		boolean isActive = true;
+		boolean isActive = false;
 		try {
 			final Java2Neo4JConnector connector = new Java2Neo4JConnector(URI, USER, PASSWORD);
 			final Driver driver = connector.driver;
 			driver.verifyConnectivity();
-			connector.queryTester("MATCH (r:Regesta) RETURN r", "testQuery", true);
+			connector.queryTesterWithException("MATCH (r:Regesta) RETURN r", "testQuery", true);
 			connector.close();
+			return true;
 		} catch (Exception e) {
 			isActive = false;
 		}
 		return isActive;
 	}
 	
-    public void queryTester(final String query, final String queryID, boolean print) {
+    private void queryTesterWithException(final String query, final String queryID, boolean print) throws Exception {
         try (Session session = driver.session()) {
             String data = session.writeTransaction(tx -> {
                 Result result = tx.run(query);
@@ -52,7 +53,17 @@ public class Java2Neo4JConnector implements AutoCloseable {
                 return resultString;
             });
             if (print) System.out.println("Query: " + queryID + " is valid!\n\t\t\t" + data);
-        }
+        } catch (Exception e) {
+			throw (e);
+		}
+    }
+    
+    public void queryTester(final String query, final String queryID, boolean print) {
+    	try {
+    		queryTesterWithException(query, queryID, print);
+    	} catch (Exception e) {
+			System.out.println(e);
+		}
     }
 	
 	public static void main(String[] args) {
