@@ -13,8 +13,8 @@ public class Java2Neo4JConnector implements AutoCloseable {
 	//https://neo4j.com/developer/java/
 	//https://mvnrepository.com/artifact/org.neo4j.driver/neo4j-java-driver/4.4.9
 	
-   private static final String MATCH_R_REGESTA_RETURN_R = "MATCH (r:Regesta) RETURN r";
-final Driver driver; 
+   private static final String MATCH_R_REGESTA_RETURN_R = "MATCH (r:Regesta) RETURN r LIMIT 1";
+   final Driver driver; 
    final static String URI = "bolt://localhost:7687";
    final static String USER = "neo4j";
    final static String PASSWORD = "Regesten";
@@ -40,7 +40,6 @@ final Driver driver;
 			connector = new Java2Neo4JConnector(URI, USER, PASSWORD);
 			final Driver driver = connector.driver;
 			driver.verifyConnectivity();
-			connector.queryTesterWithException(MATCH_R_REGESTA_RETURN_R, TEST_QUERY, false);
 			connector.close();
 			return true;
 		} catch (Exception e) {

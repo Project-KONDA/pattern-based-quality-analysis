@@ -15,7 +15,6 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
-import qualitypatternmodel.parameters.AbstractListParam;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.DateParam;
 import qualitypatternmodel.parameters.DateTimeParam;
@@ -110,7 +109,7 @@ public class CypherTest05ParameterValues extends CypherAbstractTranslation {
 	}
 	
 	private static CompletePattern getConcreteBaseComparisonPattern(ParameterValue parameter) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest00.getBasePattern();
+		CompletePattern completePattern = getBasePattern();
 		Node se = completePattern.getGraph().getNodes().get(1);
 		UntypedParameterValue p = se.addPrimitiveComparison();
 		p.replace(parameter);

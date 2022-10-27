@@ -245,19 +245,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 		Graph g = countCond.getCountPattern().getGraph();
 		NeoNode neoNode = (NeoNode) g.getNodes().get(ix);
 		neoNode.setNodePlace(NeoPlace.BEGINNING);
-	}
-	
-	private CompletePattern getBasePattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		PatternstructurePackage.eINSTANCE.eClass();
-		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		
-		CompletePattern completePattern = factory.createCompletePattern();
-		completePattern.getGraph().getNodes().get(0).makeComplex();
-		completePattern.setName("MyPattern");
-	
-		return completePattern;	
-	}
-	
+	}	
 	
 	//Exceptions 
 	private CompletePattern generateNoCountElementsExceptions() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -370,6 +358,19 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 		}
 	}
    
+   	//FACTORY-METHODS
+	private static CompletePattern getBasePattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		
+		CompletePattern completePattern = factory.createCompletePattern();
+		completePattern.getGraph().getNodes().get(0).makeComplex();
+		completePattern.setName("MyPattern");
+	
+		return completePattern;	
+	}
+   
+   	//Hidden from Parent
 	public static void exceptionTestHandler(ArrayList<CompletePattern> completePatterns) {
 		for (CompletePattern completePattern : completePatterns) {
 			try {

@@ -76,10 +76,10 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			assertThrows(InvalidityException.class, () -> {new CypherTest01NeoEdge().buildInvalidityExceptionPatterns(completePatterns);
 					for (CompletePattern cp : completePatterns) exceptionHandler(cp);},
 					EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-			assertThrows(InvalidityException.class, () -> {CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
+			assertThrows(InvalidityException.class, () -> {CypherTest01NeoEdge.generateToCreateNeoDirectionErrorShallNotWorkException();},
 					//Add additional Exceptions
 					EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-			assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoEdge.tryBuildNeoNeoNeedsAPathParam();
+			assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoEdge.generateBuildNeoNeoNeedsAPathParamException();
 					//Add additional Exceptions,
 					}, 
 					EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);

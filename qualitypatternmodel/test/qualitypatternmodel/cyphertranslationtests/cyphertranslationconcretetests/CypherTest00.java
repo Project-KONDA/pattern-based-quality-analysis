@@ -16,7 +16,6 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.impl.DateParamImpl;
@@ -128,21 +127,6 @@ public class CypherTest00 extends CypherAbstractTranslation {
 		neoNode.addLabel("IndexPerson");
 		
 		return completePattern;
-	}
-	
-	
-	protected static CompletePattern getBasePattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		PatternstructurePackage.eINSTANCE.eClass();
-		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		
-		CompletePattern completePattern = factory.createCompletePattern();
-		completePattern.setName("MyPattern");
-		
-		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
-		PrimitiveNode pn = completePattern.getGraph().addPrimitiveNode();
-		completePattern.getGraph().addRelation(complexNode1, pn);
-	
-		return completePattern;	
 	}
 	
 	private static CompletePattern getBasePatternComplexFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

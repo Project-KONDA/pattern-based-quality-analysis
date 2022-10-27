@@ -4,14 +4,12 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
-import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.NullCheck;
 import qualitypatternmodel.operators.impl.NullCheckImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;

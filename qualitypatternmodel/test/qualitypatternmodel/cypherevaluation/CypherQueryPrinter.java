@@ -7,14 +7,14 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 
 class CypherQueryPrinter {
 		protected static void queryPrinterSys(ArrayList<CompletePattern> completePatterns) throws Exception {
-			CypherAbstractTranslation.testAllCompletePatterns(completePatterns, false, true);
+			CypherAbstractTranslation.testAllCompletePatternsWithDbCheck(completePatterns);
 		}
 		
 		protected static void queryPrinterDb(ArrayList<CompletePattern> completePatterns) throws Exception {
-			CypherAbstractTranslation.testAllCompletePatterns(completePatterns, true, false);
+			CypherAbstractTranslation.testAllCompletePatternsWithDbCheck(completePatterns);
 		}
 		
 		protected static void queryPrinterSysAndDb(ArrayList<CompletePattern> completePatterns) throws Exception {
-			CypherAbstractTranslation.testAllCompletePatterns(completePatterns, true, true);
+			CypherAbstractTranslation.testAllCompletePatternsWithDbCheck(completePatterns);
 		}
 }

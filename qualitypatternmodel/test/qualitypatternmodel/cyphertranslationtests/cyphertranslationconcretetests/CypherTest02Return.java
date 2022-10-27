@@ -46,25 +46,8 @@ public class CypherTest02Return extends CypherAbstractTranslation {
 		completePatterns.add(getAllPossibleReturnTypes());
 	}
 	
-	private static CompletePattern getBase() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		PatternstructurePackage.eINSTANCE.eClass();
-		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		
-		CompletePattern completePattern = factory.createCompletePattern();
-		completePattern.setName("MyPattern");
-		
-		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
-		completePattern.getGraph().addNode();
-		ComplexNode complexNode2 = completePattern.getGraph().getNodes().get(1).makeComplex();
-		completePattern.getGraph().addRelation(complexNode1, complexNode2);
-		Node node = completePattern.getGraph().addPrimitiveNode();
-		completePattern.getGraph().addRelation(complexNode2, node);
-		
-		return completePattern;	
-	}
-	
-	private static CompletePattern getAllPossibleReturnTypes() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
-		CompletePattern compltePattern = getBase();
+	private CompletePattern getAllPossibleReturnTypes() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
+		CompletePattern compltePattern = getBasePatternReturn();
 		compltePattern.createNeo4jAdaption();
 		//Nodes
 		NeoNode complexNode1 = (NeoNode) compltePattern.getGraph().getNodes().get(0);
@@ -118,8 +101,8 @@ public class CypherTest02Return extends CypherAbstractTranslation {
 	
 	//Exceptions
 	//return element(s) missing - CompletePattern
-	private static CompletePattern tryNoReturnClause() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern compltePattern = getBase();
+	private CompletePattern tryNoReturnClause() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern compltePattern = getBasePatternReturn();
 		compltePattern.createNeo4jAdaption();
 		
 		//Nodes
@@ -131,8 +114,8 @@ public class CypherTest02Return extends CypherAbstractTranslation {
 	}
 	
 	//CompletePattern: There is no NeoPropertyNode - CompletePattern
-	private static CompletePattern tryThereIsNoNeoPropertyNode() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern compltePattern = getBase();
+	private CompletePattern tryThereIsNoNeoPropertyNode() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern compltePattern = getBasePatternReturn();
 		compltePattern.createNeo4jAdaption();
 		NeoNode complexNode1 = (NeoNode) compltePattern.getGraph().getNodes().get(0);
 		complexNode1.setNodePlace(NeoPlace.BEGINNING);
@@ -143,4 +126,21 @@ public class CypherTest02Return extends CypherAbstractTranslation {
 		return compltePattern;
 	}
 	
+	//FACTORY-METHODS
+	private static CompletePattern getBasePatternReturn() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		
+		CompletePattern completePattern = factory.createCompletePattern();
+		completePattern.setName("MyPattern");
+		
+		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
+		completePattern.getGraph().addNode();
+		ComplexNode complexNode2 = completePattern.getGraph().getNodes().get(1).makeComplex();
+		completePattern.getGraph().addRelation(complexNode1, complexNode2);
+		Node node = completePattern.getGraph().addPrimitiveNode();
+		completePattern.getGraph().addRelation(complexNode2, node);
+		
+		return completePattern;	
+	}
 }

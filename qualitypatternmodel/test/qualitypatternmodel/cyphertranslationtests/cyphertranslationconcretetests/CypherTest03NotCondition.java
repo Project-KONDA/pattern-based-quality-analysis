@@ -22,10 +22,8 @@ import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.DateParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.NotCondition;
-import qualitypatternmodel.patternstructure.NumberElement;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -36,7 +34,7 @@ import qualitypatternmodel.patternstructure.Quantifier;
 //Specelly for the exceptiontests 
 public class CypherTest03NotCondition extends CypherAbstractTranslation {    
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-    	CypherTest03NotCondition not = new CypherTest03NotCondition();
+    	CypherAbstractTranslation not = new CypherTest03NotCondition();
     	try {
         	not.generalizedTests();         
         	not.generalizedInvalidtyExceptionTests();
@@ -50,6 +48,7 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(getTestPattern1());
 		completePatterns.add(getTestPattern1WithConditions());
+//		completePatterns.add(testPatternQuery1());
 		completePatterns.add(getTestPattern2());
 		completePatterns.add(getTestPattern5());
 		completePatterns.add(getNotExistsExists());
@@ -62,12 +61,12 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 	@Override
 	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		completePatternsExceptions.add(notCondDoesNotContainConndititon());
-		completePatternsExceptions.add(notCondContainsTrueElement());
-		completePatternsExceptions.add(notCondContainsCountPattern());
+		completePatternsExceptions.add(generateNotCondDoesNotContainConndititonException());
+		completePatternsExceptions.add(generateNotCondContainsTrueElementException());
+		completePatternsExceptions.add(generateNotCondContainsCountPatternException());
 	}
 
-	private static CompletePattern getTestPattern1() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private CompletePattern getTestPattern1() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
@@ -132,7 +131,7 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 	    return completePattern;
 	}
 	
-	private static CompletePattern getTestPattern1WithConditions() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private CompletePattern getTestPattern1WithConditions() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
@@ -235,7 +234,7 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 	}
 	
 	
-	private static CompletePattern getTestPattern2() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private CompletePattern getTestPattern2() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
@@ -299,7 +298,7 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 	}
       
 	
-	private static CompletePattern getTestPattern5() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private CompletePattern getTestPattern5() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
@@ -359,7 +358,7 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 	    return completePattern;
 	}	
 	
-	private static CompletePattern getNotExistsExists() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private CompletePattern getNotExistsExists() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = CypherTest00.getBasePattern();
 		
 	    NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
@@ -420,19 +419,9 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 		
 		return completePattern;
 	}
-	
-	private static CompletePattern getBasePattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest00.getBasePattern();
 		
-	    NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
-	    completePattern.setCondition(notCond);
-	    
-	    return completePattern;
-	}
-	
-	
-	private static CompletePattern getNotNotPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest03NotCondition.getBasePattern();
+	private CompletePattern getNotNotPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = CypherTest03NotCondition.getNotCondBasePattern();
 		
 	    NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
 	    ((NotCondition) completePattern.getCondition()).setCondition(notCond);
@@ -455,8 +444,8 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 		return completePattern;
 	}
 	
-	private static CompletePattern getNotNotNotPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest03NotCondition.getBasePattern();
+	private CompletePattern getNotNotNotPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = CypherTest03NotCondition.getNotCondBasePattern();
 		
 	    NotCondition notCond1 = PatternstructureFactory.eINSTANCE.createNotCondition();
 	    ((NotCondition) completePattern.getCondition()).setCondition(notCond1);
@@ -482,8 +471,8 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 		return completePattern;
 	}
 	
-	private static CompletePattern getNotNotNotNotPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest03NotCondition.getBasePattern();
+	private CompletePattern getNotNotNotNotPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = CypherTest03NotCondition.getNotCondBasePattern();
 		
 	    NotCondition notCond1 = PatternstructureFactory.eINSTANCE.createNotCondition();
 	    ((NotCondition) completePattern.getCondition()).setCondition(notCond1);
@@ -512,8 +501,8 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 		return completePattern;
 	}	
 	
-	private static CompletePattern getNotNotNotNotNotPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest03NotCondition.getBasePattern();
+	private CompletePattern getNotNotNotNotNotPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = CypherTest03NotCondition.getNotCondBasePattern();
 		
 	    NotCondition notCond1 = PatternstructureFactory.eINSTANCE.createNotCondition();
 	    ((NotCondition) completePattern.getCondition()).setCondition(notCond1);
@@ -545,7 +534,7 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 		return completePattern;
 	}	
 	
-	private static CompletePattern testPatternQuery1Generic() throws InvalidityException {
+	private CompletePattern testPatternQuery1Generic() throws InvalidityException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
@@ -557,7 +546,7 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 		return completePattern;		
 	}
 	
-	private static CompletePattern testPatternQuery1GenericPrepairCon() throws InvalidityException {		
+	private CompletePattern testPatternQuery1GenericPrepairCon() throws InvalidityException {		
 		CompletePattern completePattern = testPatternQuery1Generic();
 		Graph graph = completePattern.getGraph();
 		ComplexNode complexnode1 = (ComplexNode) graph.getNodes().get(0);
@@ -605,7 +594,7 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 	}
 	
 	//Show Arno --> Dopple Edge with direction is not Possible in the Current Version
-	private static CompletePattern testPatternQuery1() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private CompletePattern testPatternQuery1() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = testPatternQuery1GenericPrepairCon();
 		//Make Abstract
 		completePattern.createNeo4jAdaption();
@@ -628,8 +617,7 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 		return completePattern;		
 	}
 	
-	//Exception-Patterns --> Rework all of them!
-	private static CompletePattern notCondDoesNotContainConndititon() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private CompletePattern generateNotCondDoesNotContainConndititonException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern comp = CypherTest00.getBasePattern();
 		NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
 		notCond.setCondition(null);
@@ -638,35 +626,30 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 		return comp;
 	}
 	
-	//True Element is the ending however it is not printed --> Thus a empty excpression would be inside of the query
-	private static CompletePattern notCondContainsTrueElement() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private CompletePattern generateNotCondContainsTrueElementException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern comp = CypherTest00.getBasePattern();
 		comp.setCondition(PatternstructureFactory.eINSTANCE.createNotCondition());
 		comp.createNeo4jAdaption();
 		return comp;
 	}
 	
-	//Why does that not work???
-	//In current dev a count condition can not be neasted
-	private CompletePattern notCondContainsCountPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getBasePattern();
-		CountCondition countCond = getBaseCountCoundition(completePattern);
-		NotCondition notCond = (NotCondition) completePattern.getCondition();
-		notCond.setCondition(countCond);
+	private CompletePattern generateNotCondContainsCountPatternException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getNotCondBasePattern();
+		completePattern.setCondition(PatternstructureFactory.eINSTANCE.createNotCondition());
+		setCountCounditionInsideOfAnotherCondition(completePattern);		
 		
 		completePattern.createNeo4jAdaption();
 	
 		return completePattern;
 	}
 	
-	protected static CountCondition getBaseCountCoundition(CompletePattern completePattern) {
-		CountCondition countCond = PatternstructureFactory.eINSTANCE.createCountCondition();
-		countCond.setPattern(completePattern);
+	//FACTORY-METHODS
+	private static CompletePattern getNotCondBasePattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getBasePattern();
 		
-		NumberElement numberElement = PatternstructureFactory.eINSTANCE.createNumberElement();
-		countCond.setArgument2(numberElement);
-		numberElement.getNumberParam().setValue(1.);
-		return countCond;
+	    NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
+	    completePattern.setCondition(notCond);
+	    
+	    return completePattern;
 	}
-	
 }
