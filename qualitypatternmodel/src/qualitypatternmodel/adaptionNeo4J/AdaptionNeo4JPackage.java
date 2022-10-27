@@ -2624,22 +2624,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_COMPLEX_EDGE___GET_NEO_LAST_EDGE = NEO_PATH_PART___GET_NEO_LAST_EDGE;
 
 	/**
-	 * The operation id for the '<em>Validate Complex Edge</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_COMPLEX_EDGE___VALIDATE_COMPLEX_EDGE = NEO_PATH_PART_OPERATION_COUNT + 0;
-
-	/**
 	 * The operation id for the '<em>Add Neo Path Part</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_COMPLEX_EDGE___ADD_NEO_PATH_PART__NEOPATHPART = NEO_PATH_PART_OPERATION_COUNT + 1;
+	int NEO_COMPLEX_EDGE___ADD_NEO_PATH_PART__NEOPATHPART = NEO_PATH_PART_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Remove Neo Path Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_COMPLEX_EDGE___REMOVE_NEO_PATH_PART__NEOPATHPART = NEO_PATH_PART_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Neo Complex Edge</em>' class.
@@ -5759,16 +5759,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EReference getNeoComplexEdge_NeoPathPart();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#validateComplexEdge() <em>Validate Complex Edge</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Validate Complex Edge</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#validateComplexEdge()
-	 * @generated
-	 */
-	EOperation getNeoComplexEdge__ValidateComplexEdge();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#addNeoPathPart(qualitypatternmodel.adaptionNeo4J.NeoPathPart) <em>Add Neo Path Part</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5777,6 +5767,16 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getNeoComplexEdge__AddNeoPathPart__NeoPathPart();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#removeNeoPathPart(qualitypatternmodel.adaptionNeo4J.NeoPathPart) <em>Remove Neo Path Part</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Remove Neo Path Part</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#removeNeoPathPart(qualitypatternmodel.adaptionNeo4J.NeoPathPart)
+	 * @generated
+	 */
+	EOperation getNeoComplexEdge__RemoveNeoPathPart__NeoPathPart();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge <em>Neo Simple Edge</em>}'.
@@ -6364,20 +6364,20 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EReference NEO_COMPLEX_EDGE__NEO_PATH_PART = eINSTANCE.getNeoComplexEdge_NeoPathPart();
 
 		/**
-		 * The meta object literal for the '<em><b>Validate Complex Edge</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NEO_COMPLEX_EDGE___VALIDATE_COMPLEX_EDGE = eINSTANCE.getNeoComplexEdge__ValidateComplexEdge();
-
-		/**
 		 * The meta object literal for the '<em><b>Add Neo Path Part</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation NEO_COMPLEX_EDGE___ADD_NEO_PATH_PART__NEOPATHPART = eINSTANCE.getNeoComplexEdge__AddNeoPathPart__NeoPathPart();
+
+		/**
+		 * The meta object literal for the '<em><b>Remove Neo Path Part</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_COMPLEX_EDGE___REMOVE_NEO_PATH_PART__NEOPATHPART = eINSTANCE.getNeoComplexEdge__RemoveNeoPathPart__NeoPathPart();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl <em>Neo Simple Edge</em>}' class.

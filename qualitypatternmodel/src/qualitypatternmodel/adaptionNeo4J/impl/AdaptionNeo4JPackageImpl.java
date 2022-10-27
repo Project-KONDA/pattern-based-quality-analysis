@@ -383,7 +383,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
-	public EOperation getNeoComplexEdge__ValidateComplexEdge() {
+	public EOperation getNeoComplexEdge__AddNeoPathPart__NeoPathPart() {
 		return neoComplexEdgeEClass.getEOperations().get(0);
 	}
 
@@ -393,7 +393,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
-	public EOperation getNeoComplexEdge__AddNeoPathPart__NeoPathPart() {
+	public EOperation getNeoComplexEdge__RemoveNeoPathPart__NeoPathPart() {
 		return neoComplexEdgeEClass.getEOperations().get(1);
 	}
 
@@ -890,8 +890,8 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 
 		neoComplexEdgeEClass = createEClass(NEO_COMPLEX_EDGE);
 		createEReference(neoComplexEdgeEClass, NEO_COMPLEX_EDGE__NEO_PATH_PART);
-		createEOperation(neoComplexEdgeEClass, NEO_COMPLEX_EDGE___VALIDATE_COMPLEX_EDGE);
 		createEOperation(neoComplexEdgeEClass, NEO_COMPLEX_EDGE___ADD_NEO_PATH_PART__NEOPATHPART);
+		createEOperation(neoComplexEdgeEClass, NEO_COMPLEX_EDGE___REMOVE_NEO_PATH_PART__NEOPATHPART);
 
 		neoSimpleEdgeEClass = createEClass(NEO_SIMPLE_EDGE);
 		createEReference(neoSimpleEdgeEClass, NEO_SIMPLE_EDGE__KEY_VALUE_PARAM);
@@ -1021,10 +1021,10 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		initEClass(neoComplexEdgeEClass, NeoComplexEdge.class, "NeoComplexEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNeoComplexEdge_NeoPathPart(), this.getNeoPathPart(), this.getNeoPathPart_NeoComplexEdge(), "neoPathPart", null, 2, -1, NeoComplexEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getNeoComplexEdge__ValidateComplexEdge(), null, "validateComplexEdge", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
-
 		op = initEOperation(getNeoComplexEdge__AddNeoPathPart__NeoPathPart(), null, "addNeoPathPart", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getNeoPathPart(), "neoPathPart", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getNeoComplexEdge__RemoveNeoPathPart__NeoPathPart(), null, "removeNeoPathPart", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getNeoPathPart(), "neoPathPart", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(neoSimpleEdgeEClass, NeoSimpleEdge.class, "NeoSimpleEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

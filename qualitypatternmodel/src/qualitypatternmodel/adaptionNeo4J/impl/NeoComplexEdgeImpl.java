@@ -233,6 +233,18 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		}
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void removeNeoPathPart(NeoPathPart neoPathPart) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
 	@Override
 	public NeoPathPart getNeoLastEdge() throws InvalidityException {
 		validateComplexEdge();
@@ -363,16 +375,11 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE___VALIDATE_COMPLEX_EDGE:
-				try {
-					validateComplexEdge();
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE___ADD_NEO_PATH_PART__NEOPATHPART:
 				addNeoPathPart((NeoPathPart)arguments.get(0));
+				return null;
+			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE___REMOVE_NEO_PATH_PART__NEOPATHPART:
+				removeNeoPathPart((NeoPathPart)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
