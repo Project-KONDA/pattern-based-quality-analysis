@@ -722,23 +722,24 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			//
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\n"
 					+ "WHERE EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge6:PLACE_OF_ISSUE]-(varNode9:Place) } \n"
+					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place) } \n"
 					+ "      AND EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge8:APPEARS_IN]-(varNode12:IndexEntry:IndexPlace) }\n"
+					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace) }\n"
+					+ "RETURN varNode5");
+			i++;
+			
+			//
+			System.out.println(completePatterns.get(i).generateCypher());
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\n"
+					+ "WHERE EXISTS { \n"
+					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place) } \n"
+					+ "      OR EXISTS { \n"
+					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace) }\n"
 					+ "RETURN varNode5");
 			i++;
 			
 			//
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\n"
-					+ "WHERE EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge6:PLACE_OF_ISSUE]-(varNode9:Place) } \n"
-					+ "      OR EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge8:APPEARS_IN]-(varNode12:IndexEntry:IndexPlace) }\n"
-					+ "RETURN varNode5");
-			i++;
-			
-			//
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\r\n"
 					+ "WHERE NOT EXISTS { \n"
 					+ "            MATCH (varNode5)-[varEdge6:PLACE_OF_ISSUE]-(varNode9:Place) } \n"
 					+ "      AND EXISTS { \n"
@@ -799,7 +800,7 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			i++;
 			//
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\n"
-					+ "WHERE ((EXISTS { \r\n"
+					+ "WHERE ((EXISTS { \n"
 					+ "            MATCH (varNode5)-[varEdge6:PLACE_OF_ISSUE]-(varNode9:Place) } \n"
 					+ "      AND NOT EXISTS { \n"
 					+ "            MATCH (varNode5)-[varEdge8:APPEARS_IN]-(varNode12:IndexEntry:IndexPlace) })\n"
@@ -947,7 +948,7 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			//getMultipleComparisons
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5)-[varEdge3:PLACE_OF_ISSUE]-(varPropertyNode6:Place)\n"
 					+ "MATCH (varNode7)-[varEdge4:PLACE_OF_ISSUE]-(varPropertyNode8:Place)\n"
-					+ "WHERE (varNode5 <> varNode7\r\n"
+					+ "WHERE (varNode5 <> varNode7\n"
 					+ "            AND varNode7 <> varNode5\n"
 					+ "            AND varNode5 = varNode7\n"
 					+ "            AND varNode7 = varNode5\n"
@@ -1170,35 +1171,71 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 	@Test
 	public void cypherTest11CountConditionQueryComp() {		
 		try {
-			new CypherTest01NeoEdge().buildPatterns(completePatterns);
+			new CypherTest11CountCondition().buildPatterns(completePatterns);
 			int i = 0;
 			
-			//
-			assertEquals(completePatterns.get(i).generateCypher(), "\n");
+			//getJustCount
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4)\n"
+					+ "WITH COUNT(varNode4) AS myCounter1\n"
+					+ "WHERE myCounter1 = 1.0\n"
+					+ "RETURN varNode4");
 			i++;
 			
-			//
-			assertEquals(completePatterns.get(i).generateCypher(), "\n");
+			//getCountInPattern
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3)\n"
+					+ "MATCH (varNode3)-[varEdge2]-(varNode4)\n"
+					+ "WITH varNode3, COUNT(varNode4) AS myCounter1\n"
+					+ "WHERE myCounter1 = 1.0\n"
+					+ "RETURN varNode3");
 			i++;
 			
-			//
-			assertEquals(completePatterns.get(i).generateCypher(), "\n");
+			//getCountInPatternWithRemoveAElement
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3)\n"
+					+ "MATCH (varNode3)-[varEdge2]-(varNode4)\n"
+					+ "WITH varNode3, COUNT(varNode4) AS myCounter1\n"
+					+ "WHERE myCounter1 = 1.0\n"
+					+ "RETURN varNode3");
 			i++;
 			
-			//
-			assertEquals(completePatterns.get(i).generateCypher(), "\n");
+			//getMultiCountsInPattern
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3)\n"
+					+ "MATCH (varNode3)-[varEdge2]-(varNode4)\n"
+					+ "WITH varNode3, COUNT(varNode3) AS myCounter1, COUNT(varNode4) AS myCounter2\n"
+					+ "WHERE myCounter1 = 1.0 AND myCounter2 = 1.0\n"
+					+ "RETURN varNode3");
 			i++;
 			
-			//
-			assertEquals(completePatterns.get(i).generateCypher(), "\n");
+			//getCountConditionWithWhereClause
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5)\n"
+					+ "WHERE (varNode5.placeOfIssue = \"Wien\")\n"
+					+ "MATCH (varNode5)-[varEdge4]-(varNode6)\n"
+					+ "WHERE (varNode5 = varNode6)\n"
+					+ "WITH varNode5, COUNT(varNode5) AS myCounter1\n"
+					+ "WHERE myCounter1 = 1.0\n"
+					+ "RETURN varNode5");
 			i++;
 			
-			//
-			assertEquals(completePatterns.get(i).generateCypher(), "\n");
+			//getCountAPropertyNode
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4)\n"
+					+ "MATCH (varNode5)-[varEdge3]-(varPropertyNode6)\n"
+					+ "WITH varNode4, COUNT(varNode5) AS myCounter1\n"
+					+ "WHERE myCounter1 = 1.0\n"
+					+ "RETURN varNode4");
 			i++;
 			
-			//
-			assertEquals(completePatterns.get(i).generateCypher(), "\n");
+			//getCountAProperty
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4)\n"
+					+ "WITH varNode4, COUNT(varNode4.placeOfIssue) AS myCounter1\n"
+					+ "WHERE myCounter1 = 1.0\n"
+					+ "RETURN varNode4");
+			i++;
+			
+			//getCountWithRelations --> Error
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4)\n"
+					+ "MATCH (varNode5)-[varEdge3]-(varPropertyNode6)\n"
+					+ "WITH varNode4, varEdge3, COUNT(varNode5) AS myCounter1\n"
+					+ "WHERE myCounter1 = 1.0\n"
+					+ "RETURN varNode4");
 			i++;
 			
 			assertTrue(NOT_ALL_PATTERN_HAVE_BEEN_CHECK, i == completePatterns.size());

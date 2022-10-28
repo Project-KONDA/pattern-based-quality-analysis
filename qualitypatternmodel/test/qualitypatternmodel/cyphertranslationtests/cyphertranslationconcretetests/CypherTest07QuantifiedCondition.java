@@ -44,9 +44,9 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 	@Override
 	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		completePatternsExceptions.add(tryNodesWhereNoBeginnings(false));
-		completePatternsExceptions.add(tryNodesWhereNoBeginnings(true));
-		completePatternsExceptions.add(tryWithForAllPropertyExistence());
+		completePatternsExceptions.add(generateNodesWhereNoBeginningsException(false));
+		completePatternsExceptions.add(generateNodesWhereNoBeginningsException(true));
+		completePatternsExceptions.add(generateWithForAllPropertyExistenceException());
 		completePatternsExceptions.add(generateNoNodesAreDefinedInTheGraphException());
 		completePatternsExceptions.add(generateQuantifiedCondContainsCountPatternException());
 	}
@@ -55,8 +55,8 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 	
 	//Does not throw an Exception --> have a deeper look inside again what it does
 	//PATTERN where to identifie a missing element with exists
-	private static CompletePattern getNodesWhereExits(boolean not) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getCompBasePattern();
+	private CompletePattern getNodesWhereExits(boolean not) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = CypherAbstractTranslation.getCompBasePattern();
 		QuantifiedCondition quantifiedCond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		quantifiedCond.setQuantifier(Quantifier.EXISTS);
 		if (not) {
@@ -81,14 +81,14 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 	}
 	
 	
-	private static CompletePattern getNodesWhereMultiplePropertyExistsChecks(boolean not) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return tryNodesWhereMultiplePropertyExistsChecks(false);
+	private CompletePattern getNodesWhereMultiplePropertyExistsChecks(boolean not) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		return generateNodesWhereMultiplePropertyExistsChecksException(false);
 	}
 	
 	
 	//Exception
-	private static CompletePattern tryNodesWhereMultiplePropertyExistsChecks(boolean not) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getCompBasePattern();
+	private CompletePattern generateNodesWhereMultiplePropertyExistsChecksException(boolean not) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = CypherAbstractTranslation.getCompBasePattern();
 		PrimitiveNode pn = completePattern.getGraph().addPrimitiveNode();
 		ComplexNode cn = (ComplexNode) completePattern.getGraph().getNodes().get(0);
 		completePattern.getGraph().addRelation(cn, pn);
@@ -131,15 +131,15 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 		return completePattern;	
 	}
 	
-	private static CompletePattern tryWithForAllPropertyExistence() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = tryNodesWhereMultiplePropertyExistsChecks(false);
+	private CompletePattern generateWithForAllPropertyExistenceException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = generateNodesWhereMultiplePropertyExistsChecksException(false);
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		quantifiedCondition.setQuantifier(Quantifier.FORALL);
 		return completePattern;
 	}
 	
-	private static CompletePattern tryNodesWhereNoBeginnings(boolean not) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getCompBasePattern();
+	private CompletePattern generateNodesWhereNoBeginningsException(boolean not) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = CypherAbstractTranslation.getCompBasePattern();
 		PrimitiveNode pn = completePattern.getGraph().addPrimitiveNode();
 		ComplexNode cn = (ComplexNode) completePattern.getGraph().getNodes().get(0);
 		completePattern.getGraph().addRelation(cn, pn);
@@ -175,9 +175,9 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern generateQuantifiedCondContainsCountPatternException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getCompBasePattern();
+		CompletePattern completePattern = CypherAbstractTranslation.getCompBasePattern();
 		completePattern.setCondition(PatternstructureFactory.eINSTANCE.createQuantifiedCondition());
-		setCountCounditionInsideOfAnotherCondition(completePattern);		
+		CypherAbstractTranslation.setCountCounditionInsideOfAnotherCondition(completePattern);		
 		
 		completePattern.createNeo4jAdaption();
 	

@@ -41,7 +41,7 @@ public class CypherTest12CheckNull extends CypherAbstractTranslation {
 		completePatterns.add(generateIsNullException(false, "isoStartDate"));
 	}
 
-	private static CompletePattern generateIsNullException(Boolean isNull, String str) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private CompletePattern generateIsNullException(Boolean isNull, String str) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
@@ -57,7 +57,7 @@ public class CypherTest12CheckNull extends CypherAbstractTranslation {
 		return pattern;
 	}
 	
-	private static void makeConcrete(CompletePattern pattern)
+	private void makeConcrete(CompletePattern pattern)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		pattern.createNeo4jAdaption();
 		NeoNode neoNode = (NeoNode) pattern.getGraph().getNodes().get(0);
@@ -69,7 +69,7 @@ public class CypherTest12CheckNull extends CypherAbstractTranslation {
 	}
 	
 	//Exceptions
-	private static CompletePattern getNullCheckInvalidOptionException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+	private CompletePattern getNullCheckInvalidOptionException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;	
 		CompletePattern pattern = factory.createCompletePattern();
 		pattern.getGraph().getNodes().get(0).addOutgoing().getTarget().addPrimitiveNullCheck();
@@ -86,7 +86,7 @@ public class CypherTest12CheckNull extends CypherAbstractTranslation {
 		return pattern;
 	}
 	
-	private static CompletePattern getNullCheckNullPrimitiveNodeException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+	private CompletePattern getNullCheckNullPrimitiveNodeException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;	
 		CompletePattern pattern = factory.createCompletePattern();
 		pattern.getGraph().getNodes().get(0).addOutgoing().getTarget().addPrimitiveNullCheck();

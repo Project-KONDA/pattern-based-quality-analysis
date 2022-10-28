@@ -109,17 +109,7 @@ public class CypherTest05ParameterValues extends CypherAbstractTranslation {
 		completePatternsExceptions.add(dateTimeParamException());
 	}
 	
-	private static CompletePattern getConcreteBaseComparisonPattern(ParameterValue parameter) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getBasePattern();
-		Node se = completePattern.getGraph().getNodes().get(1);
-		UntypedParameterValue p = se.addPrimitiveComparison();
-		p.replace(parameter);
-		completePattern.createNeo4jAdaption();
-		
-		return completePattern;
-	}
-	
-	private static CompletePattern getConcreteComparisonPattern(ParameterValue parameter, String propertyName) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private CompletePattern getConcreteComparisonPattern(ParameterValue parameter, String propertyName) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getConcreteBaseComparisonPattern(parameter);
 		
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
@@ -145,7 +135,7 @@ public class CypherTest05ParameterValues extends CypherAbstractTranslation {
 		return completePattern;
 	}
 	
-	public static ArrayList<ParameterValue> getTestParameters() {
+	private ArrayList<ParameterValue> getTestParameters() {
 		ArrayList<ParameterValue> parameters = new ArrayList<ParameterValue>();
 
 		ParametersPackage.eINSTANCE.eClass();
@@ -267,6 +257,17 @@ public class CypherTest05ParameterValues extends CypherAbstractTranslation {
 		DateTimeParam dateTimeParam = new DateTimeParamImpl();
 		dateTimeParam.setValue(null);	
 		CompletePattern completePattern = getConcreteComparisonPattern(dateTimeParam, "bornOn");
+		
+		return completePattern;
+	}
+	
+	//FACTORY-METHOD
+	private static CompletePattern getConcreteBaseComparisonPattern(ParameterValue parameter) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = CypherAbstractTranslation.getBasePattern();
+		Node se = completePattern.getGraph().getNodes().get(1);
+		UntypedParameterValue p = se.addPrimitiveComparison();
+		p.replace(parameter);
+		completePattern.createNeo4jAdaption();
 		
 		return completePattern;
 	}

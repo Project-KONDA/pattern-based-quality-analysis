@@ -59,7 +59,7 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 	
 
     
-	private static CompletePattern getPatternMatch(Boolean invert, String str) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private CompletePattern getPatternMatch(Boolean invert, String str) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
@@ -73,7 +73,7 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 		return pattern;
 	}
 
-	private static void makeConcrete(CompletePattern pattern)
+	private void makeConcrete(CompletePattern pattern)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		pattern.createNeo4jAdaption();
 		NeoNode neoNode = (NeoNode) pattern.getGraph().getNodes().get(0);
@@ -86,7 +86,7 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 	}
 	
 	//Exceptions 
-	private static CompletePattern generateMatchInvalidOptionException(boolean invert)
+	private CompletePattern generateMatchInvalidOptionException(boolean invert)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
@@ -122,7 +122,7 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 		return pattern;
 	}
 	
-	private static CompletePattern generateMatchInvalidOptionDiffrentException(boolean invert)
+	private CompletePattern generateMatchInvalidOptionDiffrentException(boolean invert)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
@@ -155,7 +155,7 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 		return pattern;
 	}
 	
-	private static CompletePattern tryMatchInvalidOptionDiffrent3(boolean invert)
+	private CompletePattern generateMatchInvalidOptionDiffrent3Exception(boolean invert)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
@@ -182,7 +182,7 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 		return pattern;
 	}
 	
-	private static CompletePattern generateMatchInvalidOptionDiffrent4Exception(boolean invert)
+	private CompletePattern generateMatchInvalidOptionDiffrent4Exception(boolean invert)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;

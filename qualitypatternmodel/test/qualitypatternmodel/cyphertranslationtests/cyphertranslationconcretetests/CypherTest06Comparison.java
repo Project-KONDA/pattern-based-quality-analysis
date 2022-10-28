@@ -91,7 +91,7 @@ public class CypherTest06Comparison extends CypherAbstractTranslation {
     
     
 	private CompletePattern getComparisonTwoNeoNodes(ComparisonOperator comparisonOption) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getCompBasePatternWithReverse();
+		CompletePattern completePattern = CypherTest06Comparison.getCompBasePatternWithReverse();
 		prepaireGenericComparisonTwoNodes(comparisonOption, completePattern);
 		
 		completePattern.createNeo4jAdaption();
@@ -137,7 +137,7 @@ public class CypherTest06Comparison extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(ComparisonOperator comparisonOption) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getCompBasePatternWithReverse();
+		CompletePattern completePattern = CypherTest06Comparison.getCompBasePatternWithReverse();
 		prepaireGenericComparisonTwoNeoPropertiesWithNeoPathParm(comparisonOption, completePattern);
 				
 		completePattern.createNeo4jAdaption();
@@ -201,7 +201,7 @@ public class CypherTest06Comparison extends CypherAbstractTranslation {
 	
 	//Include also multiple comparions
 	private CompletePattern getMultipleComparisons() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getCompBasePatternWithReverse();
+		CompletePattern completePattern = CypherTest06Comparison.getCompBasePatternWithReverse();
 		prepaireGenericComparisonTwoNodes(ComparisonOperator.EQUAL, completePattern);
 		prepaireGenericComparisonTwoNodes(ComparisonOperator.NOTEQUAL, completePattern); 
 		prepaireGenericComparisonTwoNeoPropertiesWithNeoPathParm(ComparisonOperator.EQUAL, completePattern);
@@ -215,7 +215,7 @@ public class CypherTest06Comparison extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern getCompareByElementId(ComparisonOperator comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getCompBasePatternWithReverse();
+		CompletePattern completePattern = CypherTest06Comparison.getCompBasePatternWithReverse();
 		prepaireGenericComparisonTwoNodesById(comp, completePattern);
 //		prepaireGenericComparisonTwoNeoPropertiesWithNeoPathParm(ComparisonOperator.EQUAL, completePattern);
 //		prepaireGenericComparisonTwoNeoPropertiesWithNeoPathParm(ComparisonOperator.NOTEQUAL, completePattern); 
@@ -268,7 +268,7 @@ public class CypherTest06Comparison extends CypherAbstractTranslation {
 //	RETURN r
 	//Also exceptionTest
 	private CompletePattern getComparisonTwoNeoPropertiesWithNeoParts(ComparisonOperator comparisonOption) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getCompBasePatternWithReverse();
+		CompletePattern completePattern = CypherTest06Comparison.getCompBasePatternWithReverse();
 		PrimitiveNode primitiveNode1 = (PrimitiveNode) completePattern.getGraph().getNodes().get(1);
 		PrimitiveNode primitiveNode2 = (PrimitiveNode) completePattern.getGraph().getNodes().get(3);
 		Comparison comp;
@@ -307,7 +307,7 @@ public class CypherTest06Comparison extends CypherAbstractTranslation {
 	
 	//Include this exception: Adding Condition Failed: Nodes not of same type ComplexNodeImpl PrimitiveNodeImpl
 	private CompletePattern getComparisonNeoNodeAndNeoPropertyNodesWithNeoPart(ComparisonOperator comparisonOption) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getCompBasePatternWithReverse();
+		CompletePattern completePattern = CypherTest06Comparison.getCompBasePatternWithReverse();
 		ComplexNode complexNode = (ComplexNode) completePattern.getGraph().getNodes().get(0);
 		PrimitiveNode primitiveNode = (PrimitiveNode) completePattern.getGraph().getNodes().get(3);
 		Comparison comp;
@@ -339,7 +339,7 @@ public class CypherTest06Comparison extends CypherAbstractTranslation {
 	
 	//has to be fixed
 	private CompletePattern setWrongOptionParam() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getCompBasePatternWithReverse();
+		CompletePattern completePattern = CypherTest06Comparison.getCompBasePatternWithReverse();
 		
 		ComparisonOperator mockLogicalOperator = Mockito.mock(ComparisonOperator.class);
 		Mockito.when(mockLogicalOperator.ordinal()).thenReturn(-1);

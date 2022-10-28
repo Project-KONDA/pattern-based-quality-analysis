@@ -40,7 +40,7 @@ public class CypherTest08Cycle extends CypherAbstractTranslation {
 	}
     
 	private CompletePattern getCyclePattern(int nodesInCycle) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getBasePattern();
+		CompletePattern completePattern = CypherAbstractTranslation.getBasePattern();
 		ComplexNode newNode0 = (ComplexNode) completePattern.getGraph().getNodes().get(0);
 		ComplexNode[] newNode = new ComplexNode[nodesInCycle];
 		for (int i = 0; i < nodesInCycle; i++) {

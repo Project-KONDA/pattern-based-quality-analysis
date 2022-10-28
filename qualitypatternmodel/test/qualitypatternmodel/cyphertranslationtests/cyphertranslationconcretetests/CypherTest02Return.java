@@ -47,7 +47,7 @@ public class CypherTest02Return extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern getAllPossibleReturnTypes() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
-		CompletePattern compltePattern = getBasePatternReturn();
+		CompletePattern compltePattern = CypherTest02Return.getBasePatternReturn();
 		compltePattern.createNeo4jAdaption();
 		//Nodes
 		NeoNode complexNode1 = (NeoNode) compltePattern.getGraph().getNodes().get(0);
@@ -102,7 +102,7 @@ public class CypherTest02Return extends CypherAbstractTranslation {
 	//Exceptions
 	//return element(s) missing - CompletePattern
 	private CompletePattern generateNoReturnClauseException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern compltePattern = getBasePatternReturn();
+		CompletePattern compltePattern = CypherTest02Return.getBasePatternReturn();
 		compltePattern.createNeo4jAdaption();
 		
 		//Nodes
@@ -115,7 +115,7 @@ public class CypherTest02Return extends CypherAbstractTranslation {
 	
 	//CompletePattern: There is no NeoPropertyNode - CompletePattern
 	private CompletePattern generateThereIsNoNeoPropertyNodeException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern compltePattern = getBasePatternReturn();
+		CompletePattern compltePattern = CypherTest02Return.getBasePatternReturn();
 		compltePattern.createNeo4jAdaption();
 		NeoNode complexNode1 = (NeoNode) compltePattern.getGraph().getNodes().get(0);
 		complexNode1.setNodePlace(NeoPlace.BEGINNING);

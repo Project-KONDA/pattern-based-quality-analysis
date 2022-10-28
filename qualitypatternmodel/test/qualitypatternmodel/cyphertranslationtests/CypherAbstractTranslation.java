@@ -249,6 +249,21 @@ public abstract class CypherAbstractTranslation implements CypherInterfaceTransl
 		return countCondition;
 	}
 	
+	protected static CompletePattern getBasePatternComplex() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		
+		CompletePattern completePattern = factory.createCompletePattern();
+		completePattern.setName("MyPattern");
+		
+		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
+		completePattern.getGraph().addNode();
+		ComplexNode complexNode2 = completePattern.getGraph().getNodes().get(1).makeComplex();
+		completePattern.getGraph().addRelation(complexNode1, complexNode2);
+		
+		return completePattern;		
+	}
+	
 	protected static CompletePattern getBasePattern() throws InvalidityException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;

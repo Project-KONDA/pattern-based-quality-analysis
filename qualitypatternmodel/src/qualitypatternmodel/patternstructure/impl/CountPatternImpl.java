@@ -139,7 +139,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	
 	//Just focused on Nodes... relations and path have to follow later (FUTURE WORK)
 	protected final EList<String> generateCypherCounters() throws InvalidityException {
-		if (countElementNodes != null || countElementNodes.size() > 0) {
+		if (countElementNodes != null && countElementNodes.size() > 0) {
 			EList<String> myCounters = new BasicEList<String>();
 			String temp;
 			int i = 1;
@@ -226,7 +226,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		final EList<Relation> lReturnRelations = lReturnRelations();
 		if (lReturnRelations.size() > 0) {
 			String cypherEdges = generateCypherReturnEdges(cypher);
-			if (!cypherEdges.isEmpty()) {
+			if (!cypherEdges.isBlank()) {
 				cypher = cypherEdges;
 			}
 		}
