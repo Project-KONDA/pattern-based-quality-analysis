@@ -31,6 +31,8 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * @generated
  */
 public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
+	private static final String NEO_EDGE_NEEDS_A_NEO_PATH_PARAM = "NeoEdge needs a NeoPathParam";
+	private static final String NEO_PATH_PARAM_NEED_TO_BE_SET = "NeoPathParam need to be set";
 	/**
 	 * The cached value of the '{@link #getNeoPathParam() <em>Neo Path Param</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -69,7 +71,7 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 				cypher = getNeoPathParam().generateCypher();
 				this.translated = true;
 			} else if(getNeoPathParam() == null) {
-				throw new InvalidityException("NeoEdge needs a NeoPathParam");
+				throw new InvalidityException(NEO_EDGE_NEEDS_A_NEO_PATH_PARAM);
 			}
 		}
 		return cypher;
@@ -87,7 +89,7 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 				returnElement.put(NeoAbstractEdgeImpl.CYPHER_RETURN_ID, cypher);
 			}
 		} else {
-			throw new InvalidityException("No NeoPathParam need to be set");
+			throw new InvalidityException(NEO_PATH_PARAM_NEED_TO_BE_SET);
 		}
 		return returnElement;
 	}

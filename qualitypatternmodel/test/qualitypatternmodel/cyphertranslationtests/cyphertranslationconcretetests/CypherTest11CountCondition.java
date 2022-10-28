@@ -2,13 +2,18 @@ package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetest
 
 import java.util.ArrayList;
 
+import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
+import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoEdgeImpl;
 import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -60,6 +65,28 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 		completePatternsExceptions.add(generateNullOperatorException());
 //		completePatternsExceptions.add(generateWrongOperatorException()); //--> rewrok
 		completePatternsExceptions.add(generateCompletePatternArgTwoIsCountException());
+	}
+	
+	private CompletePattern getJustCount() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = CypherTest11CountCondition.getComplexBasePattern();
+		CountCondition countCond = CypherTest11CountCondition.getBaseCountCoundition(completePattern);
+		countCond.getCountPattern().getGraph().addPrimitiveNode();
+		countCond.getCountPattern().getGraph().addRelation((ComplexNode) countCond.getCountPattern().getGraph().getNodes().get(0), countCond.getCountPattern().getGraph().getNodes().get(2));
+		
+		completePattern.createNeo4jAdaption();
+		
+		CountPatternImpl countPatternImpl = (CountPatternImpl) countCond.getCountPattern();
+		countPatternImpl.addCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(0));				
+		
+		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) countPatternImpl.getGraph().getRelations().get(1);
+		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
+		neoPropertyPathParam.setNeoPropertyName("placeOfIssue");
+		
+		for (Node n : countPatternImpl.getGraph().getNodes()) {
+			n.setReturnNode(false);
+		}
+		
+		return completePattern;
 	}
 	
 	private CompletePattern getCountInPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -162,27 +189,29 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 		return completePattern;
 	}
 	
+	//Fixing
 	private CompletePattern getCountWithRelations() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = CypherTest11CountCondition.getComplexBasePattern();
+		ComplexNode node = completePattern.getGraph().addComplexNode();
+		completePattern.getGraph().addRelation((ComplexNode) completePattern.getGraph().getNodes().get(0), node);
+
+		node.setReturnNode(true);
 		CountCondition countCond = CypherTest11CountCondition.getBaseCountCoundition(completePattern);
-		countCond.getCountPattern().getGraph().addPrimitiveNode();
-		countCond.getCountPattern().getGraph().addRelation((ComplexNode) countCond.getCountPattern().getGraph().getNodes().get(1), countCond.getCountPattern().getGraph().getNodes().get(2));
 		
 		completePattern.createNeo4jAdaption();
 		
 		CountPatternImpl countPatternImpl = (CountPatternImpl) countCond.getCountPattern();
-		countPatternImpl.addCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(1));				
+		countPatternImpl.addCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(2));				
 		
-		((NeoNode) countPatternImpl.getGraph().getNodes().get(1)).setNodePlace(NeoPlace.BEGINNING);
+		((ComplexNode) completePattern.getGraph().getNodes().get(0)).setReturnNode(false);
+		((ComplexNode) countPatternImpl.getGraph().getNodes().get(0)).setReturnNode(false);
+		((ComplexNode) countPatternImpl.getGraph().getNodes().get(1)).setReturnNode(true);
+		((NeoEdgeImpl) countPatternImpl.getGraph().getRelations().get(1)).setIsReturnElement(true);		
 		
-		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) countPatternImpl.getGraph().getRelations().get(1);
-		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
-		neoPropertyPathParam.setNeoPropertyName("placeOfIssue");
-		NeoSimpleEdge neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
-		neoSimpleEdge.setNeoTargetNodeLabels(new TextListParamImpl());
-		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
-		neoPropertyEdge.setNeoPropertyPathParam(neoPropertyPathParam);
-		neoPropertyEdge.setIsReturnElement(true);
+		((NeoNode) countPatternImpl.getGraph().getNodes().get(0)).setNodePlace(NeoPlace.BEGINNING);
+		((NeoNode) completePattern.getGraph().getNodes().get(0)).addLabel("Regesta");
+		((NeoNode) completePattern.getGraph().getNodes().get(1)).addLabel("IndexPlace");
+		((NeoNode) countCond.getCountPattern().getGraph().getNodes().get(2)).addLabel("IndexPerson");
 		
 		return completePattern;
 	}
@@ -201,28 +230,6 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) countPatternImpl.getGraph().getRelations().get(1);
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
 		neoPropertyPathParam.setNeoPropertyName("placeOfIssue");
-		
-		return completePattern;
-	}
-	
-	private CompletePattern getJustCount() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest11CountCondition.getComplexBasePattern();
-		CountCondition countCond = CypherTest11CountCondition.getBaseCountCoundition(completePattern);
-		countCond.getCountPattern().getGraph().addPrimitiveNode();
-		countCond.getCountPattern().getGraph().addRelation((ComplexNode) countCond.getCountPattern().getGraph().getNodes().get(0), countCond.getCountPattern().getGraph().getNodes().get(2));
-		
-		completePattern.createNeo4jAdaption();
-		
-		CountPatternImpl countPatternImpl = (CountPatternImpl) countCond.getCountPattern();
-		countPatternImpl.addCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(0));				
-		
-		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) countPatternImpl.getGraph().getRelations().get(1);
-		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
-		neoPropertyPathParam.setNeoPropertyName("placeOfIssue");
-		
-		for (Node n : countPatternImpl.getGraph().getNodes()) {
-			n.setReturnNode(false);
-		}
 		
 		return completePattern;
 	}

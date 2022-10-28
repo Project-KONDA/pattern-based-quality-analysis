@@ -1230,11 +1230,11 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			i++;
 			
 			//getCountWithRelations --> Error
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4)\n"
-					+ "MATCH (varNode5)-[varEdge3]-(varPropertyNode6)\n"
-					+ "WITH varNode4, varEdge3, COUNT(varNode5) AS myCounter1\n"
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4:Regesta)-[varEdge2]-(varNode5:IndexPlace)\n"
+					+ "MATCH (varNode4)-[varEdge4]-(varNode6:IndexPerson)\n"
+					+ "WITH varNode5, varEdge4, COUNT(varNode6) AS myCounter1\n"
 					+ "WHERE myCounter1 = 1.0\n"
-					+ "RETURN varNode4");
+					+ "RETURN varNode5");
 			i++;
 			
 			assertTrue(NOT_ALL_PATTERN_HAVE_BEEN_CHECK, i == completePatterns.size());
