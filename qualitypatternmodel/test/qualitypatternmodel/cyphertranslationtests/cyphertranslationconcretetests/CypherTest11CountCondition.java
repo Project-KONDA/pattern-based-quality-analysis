@@ -2,12 +2,8 @@ package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetest
 
 import java.util.ArrayList;
 
-import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
-import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
@@ -166,25 +162,22 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern getCountAPropertyNode() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest11CountCondition.getComplexBasePattern();
+		CompletePattern completePattern = CypherAbstractTranslation.getBasePattern();
 		CountCondition countCond = CypherTest11CountCondition.getBaseCountCoundition(completePattern);
-		countCond.getCountPattern().getGraph().addPrimitiveNode();
-		countCond.getCountPattern().getGraph().addRelation((ComplexNode) countCond.getCountPattern().getGraph().getNodes().get(1), countCond.getCountPattern().getGraph().getNodes().get(2));
 		
 		completePattern.createNeo4jAdaption();
 		
 		CountPatternImpl countPatternImpl = (CountPatternImpl) countCond.getCountPattern();
-		countPatternImpl.addCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(1));				
+		countPatternImpl.addCountElementNode((NeoInterfaceNode) completePattern.getGraph().getNodes().get(1));				
 		
-		((NeoNode) countPatternImpl.getGraph().getNodes().get(1)).setNodePlace(NeoPlace.BEGINNING);
+		((NeoNode) countPatternImpl.getGraph().getNodes().get(0)).setNodePlace(NeoPlace.BEGINNING);
 		
-		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) countPatternImpl.getGraph().getRelations().get(1);
+		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
-		neoPropertyPathParam.setNeoPropertyName("placeOfIssue");
 		NeoSimpleEdge neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
-		neoSimpleEdge.setNeoTargetNodeLabels(new TextListParamImpl());
+		neoSimpleEdge.addNeoTargetNodeLabel("IndexPlace");
+		neoSimpleEdge.addNeoEdgeLabel("PLACE_OF_ISSUE");
 		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
-		neoPropertyEdge.setNeoPropertyPathParam(neoPropertyPathParam);
 		
 		return completePattern;
 	}

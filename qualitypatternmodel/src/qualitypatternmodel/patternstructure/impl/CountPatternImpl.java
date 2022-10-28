@@ -154,6 +154,9 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 					i++;
 				}
 			}
+			if (myCounters.size() == 0) {
+				throw new InvalidityException(NO_COUNT_ELEMENTS_EXISTS);
+			}
 			return myCounters;
 		}
 		throw new InvalidityException(NO_COUNT_ELEMENTS_EXISTS);
@@ -190,16 +193,16 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	//Node-Counter
 	private String createMyCounterString(NeoInterfaceNode countElement, int countCounter) throws InvalidityException {
 		String cypherVariable = null;
-		if (countElement instanceof NeoPropertyNode) {
-			NeoPropertyNode neoPropertyNode = (NeoPropertyNode) countElement;
-			cypherVariable = neoPropertyNode.generateCypherPropertyAddressing();
+		if (checkForNeoPropertyNode(countElement)) {
+				NeoPropertyNode neoPropertyNode = (NeoPropertyNode) countElement;
+				cypherVariable = neoPropertyNode.generateCypherPropertyAddressing();
 		} else {
 			cypherVariable = countElement.getCypherVariable();
 		}
 		if (cypherVariable != null) {
 			String temp;
 			temp = CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT;
-			if (countElement instanceof NeoPropertyNode) {
+			if (checkForNeoPropertyNode(countElement)) {
 				NeoPropertyNode neoPropertyNode = (NeoPropertyNode) countElement;
 				temp = String.format(temp, neoPropertyNode.generateCypherPropertyAddressing());
 			} else {
@@ -209,6 +212,10 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 			return temp;
 		}
 		throw new InvalidityException(SOMETHING_WENT_WRONG_IN_ACCESSING_THE_CYPHER_VARIABLE);
+	}
+
+	private boolean checkForNeoPropertyNode(NeoInterfaceNode countElement) {
+		return countElement instanceof NeoPropertyNode && ((NeoPropertyEdge)((NeoPropertyNode) countElement).getIncoming().get(0)).getNeoPropertyPathParam() != null && ((NeoPropertyEdge)((NeoPropertyNode) countElement).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() == null;
 	}
 	
 	//Needs refactoring --> Get all return elements from the original Graph and puts it into the WITH except properties - This can be accessed as long as the Node is in the with
