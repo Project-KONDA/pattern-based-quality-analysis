@@ -912,17 +912,17 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			
 			//Equal
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5)\n"
-					+ "MATCH (varNode7)\n"
-					+ "WHERE (varNode5 = varNode7\n"
-					+ "            AND varNode7 = varNode5)\n"
+					+ "MATCH (varNode6)\n"
+					+ "WHERE (varNode5 = varNode6\n"
+					+ "            AND varNode6 = varNode5)\n"
 					+ "RETURN varNode5");
 			i++;
 			
 			//Unequal
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5)\n"
-					+ "MATCH (varNode7)\n"
-					+ "WHERE (varNode5 <> varNode7\n"
-					+ "            AND varNode7 <> varNode5)\n"
+					+ "MATCH (varNode6)\n"
+					+ "WHERE (varNode5 <> varNode6\n"
+					+ "            AND varNode6 <> varNode5)\n"
 					+ "RETURN varNode5");
 			i++;
 			
