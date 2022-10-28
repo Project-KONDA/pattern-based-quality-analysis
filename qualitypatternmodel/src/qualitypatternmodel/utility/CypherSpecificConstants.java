@@ -26,8 +26,8 @@ public class CypherSpecificConstants {
 	public static final String THREE_WHITESPACES = "   ";
 	public static final String SIX_WHITESPACES = "      ";
 	public static final String TWELVE_WHITESPACES = "            ";
-	public static final String PREDICATE_FUNCTION_EXISTS_MATCH = "EXISTS { %s }";
-	public static final String PREDICATE_FUNCTION_EXISTS_PROPERTY = "EXISTS ( %s )";
+	public static final String PREDICATE_FUNCTION_EXISTS_MATCH = "EXISTS {%s}";
+	public static final String PREDICATE_FUNCTION_EXISTS_PROPERTY = "EXISTS (%s)";
 	public static final String BOOLEAN_OPERATOR_PREFIX = "\n      ";
 	public static final String BOOLEAN_OPERATOR_XOR = "XOR";
 	public static final String BOOLEAN_OPERATOR_NOT = "NOT";
@@ -56,6 +56,8 @@ public class CypherSpecificConstants {
 	
 	public static final String CYPHER_ALIAS_CALL = "AS";
 	
+	public static final String SIGNLE_OPENING_ROUND_BRACKET = "(";
+	public static final String SIGNLE_CLOSING_ROUND_BRACKET = ")";
 	
 	//Cypher Specific Exception Messages
 	public static final String THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY = "The current version does not support this functionality";

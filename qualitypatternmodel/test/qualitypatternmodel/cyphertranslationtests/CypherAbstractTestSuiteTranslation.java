@@ -631,10 +631,10 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			
 			//getTestPattern1
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4:Literature)\n"
-					+ "WHERE NOT (EXISTS { \n"
+					+ "WHERE NOT (EXISTS {\n"
 					+ "            MATCH (varNode4)<-[varEdge2]-(varNode5:Regesta)\n"
-					+ "            WHERE NOT (EXISTS { \n"
-					+ "                        MATCH (varNode5)-[varEdge4]->(varNode6:Reference) }) })\n"
+					+ "            WHERE NOT (EXISTS {\n"
+					+ "                        MATCH (varNode5)-[varEdge4]->(varNode6:Reference)})})\n"
 					+ "RETURN varNode4");
 			i++;
 			
@@ -642,12 +642,12 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode8:Literature)\n"
 					+ "WHERE (varNode8.title = \"BATTENBERG\"\n"
 					+ "            AND varNode8.url = \"http://opac.regesta-imperii.de/lang_de/kurztitelsuche_r.php?kurztitel=battenberg,_solmser_urkunden_1\")\n"
-					+ "            AND NOT (EXISTS { \n"
+					+ "            AND NOT (EXISTS {\n"
 					+ "                        MATCH (varNode8)<-[varEdge6]-(varNode9:Regesta)\n"
-					+ "                        WHERE NOT (EXISTS { \n"
+					+ "                        WHERE NOT (EXISTS {\n"
 					+ "                                    MATCH (varNode9)-[varEdge11]->(varNode10:Reference)\n"
-					+ "                                    WHERE (varNode10.title = \"Kulpis Documenta S. 181f.\") })\n"
-					+ "                        AND (varNode9.isoStartDate = date('1439-12-20')) })\n"
+					+ "                                    WHERE (varNode10.title = \"Kulpis Documenta S. 181f.\")})\n"
+					+ "                        AND (varNode9.isoStartDate = date('1439-12-20'))})\n"
 					+ "RETURN varNode8");
 			i++;
 			
@@ -657,53 +657,53 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			
 			//getTestPattern2
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\n"
-					+ "WHERE NOT (EXISTS { \n"
-					+ "            MATCH (varNode5), (varNode5)-[varEdge4:APPEARS_IN]-(varNode6:IndexPerson), (varNode5)-[varEdge5:ACTION]-(varNode7:Action), (varNode5)-[varEdge6:RECIPIENT_IN]-(varNode8:IndexPlace) })\n"
+					+ "WHERE NOT (EXISTS {\n"
+					+ "            MATCH (varNode5), (varNode5)-[varEdge4:APPEARS_IN]-(varNode6:IndexPerson), (varNode5)-[varEdge5:ACTION]-(varNode7:Action), (varNode5)-[varEdge6:RECIPIENT_IN]-(varNode8:IndexPlace)})\n"
 					+ "RETURN varNode5");
 			i++;
 			
 			//getTestPattern5
 //			System.out.println(completePatterns.get(i).generateCypher());
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4:Regesta)\n"
-					+ "WHERE EXISTS { \n"
-					+ "            MATCH (varNode4), (varNode4)<-[varEdge4:APPEARS_IN]-(varNode5:IndexPerson)-[varEdge5:IS_SUB_OF]-(varNode6:IndexPlace), (varNode4)-[varEdge6:RECIPIENT_IN]-(varNode6) }\n"
+					+ "WHERE EXISTS {\n"
+					+ "            MATCH (varNode4), (varNode4)<-[varEdge4:APPEARS_IN]-(varNode5:IndexPerson)-[varEdge5:IS_SUB_OF]-(varNode6:IndexPlace), (varNode4)-[varEdge6:RECIPIENT_IN]-(varNode6)}\n"
 					+ "RETURN varNode4");
 			i++;
 			
 			//getNotExistsExists
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\n"
-					+ "WHERE NOT (EXISTS { \n"
+					+ "WHERE NOT (EXISTS {\n"
 					+ "            MATCH (varNode5)-[varEdge4:APPEARS_IN]-(varNode6:IndexPerson)\n"
-					+ "            WHERE EXISTS { \n"
-					+ "                        MATCH (varNode6)-[varEdge6]-(varNode7:Regesta) } })\n"
+					+ "            WHERE EXISTS {\n"
+					+ "                        MATCH (varNode6)-[varEdge6]-(varNode7:Regesta)}})\n"
 					+ "RETURN varNode5");
 			i++;
 			
 			//getNotNotPattern
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4)\n"
-					+ "WHERE EXISTS { \n"
-					+ "            MATCH (varNode4)-[varEdge4]-(varNode5) }\n"
+					+ "WHERE EXISTS {\n"
+					+ "            MATCH (varNode4)-[varEdge4]-(varNode5)}\n"
 					+ "RETURN varNode4");
 			i++;
 			
 			//getNotNotPattern
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4)\n"
-					+ "WHERE NOT (EXISTS { \n"
-					+ "            MATCH (varNode4)-[varEdge4]-(varNode5) })\n"
+					+ "WHERE NOT (EXISTS {\n"
+					+ "            MATCH (varNode4)-[varEdge4]-(varNode5)})\n"
 					+ "RETURN varNode4");
 			i++;
 			
 			//getNotNotNotNotPattern
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4)\n"
-					+ "WHERE EXISTS { \n"
-					+ "            MATCH (varNode4)-[varEdge4]-(varNode5) }\n"
+					+ "WHERE EXISTS {\n"
+					+ "            MATCH (varNode4)-[varEdge4]-(varNode5)}\n"
 					+ "RETURN varNode4");
 			i++;
 			
 			//getNotNotNotNotNotPattern
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4)\n"
-					+ "WHERE NOT (EXISTS { \n"
-					+ "            MATCH (varNode4)-[varEdge4]-(varNode5) })\n"
+					+ "WHERE NOT (EXISTS {\n"
+					+ "            MATCH (varNode4)-[varEdge4]-(varNode5)})\n"
 					+ "RETURN varNode4");
 			i++;
 			
@@ -722,116 +722,116 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			
 			//
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\n"
-					+ "WHERE EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place) } \n"
-					+ "      AND EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace) }\n"
+					+ "WHERE EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place)} \n"
+					+ "      AND EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace)}\n"
 					+ "RETURN varNode5");
 			i++;
 			
 			//
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\n"
-					+ "WHERE EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place) } \n"
-					+ "      OR EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace) }\n"
+					+ "WHERE EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place)} \n"
+					+ "      OR EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace)}\n"
 					+ "RETURN varNode5");
 			i++;
 			
 			//
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\n"
-					+ "WHERE NOT EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place) } \n"
-					+ "      AND EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace) }\n"
+					+ "WHERE NOT EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place)} \n"
+					+ "      AND EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace)}\n"
 					+ "RETURN varNode5");
 			i++;
 			
 //			//
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\n"
-					+ "WHERE (EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place) } \n"
-					+ "      AND NOT EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace) })\n"
-					+ "      OR (NOT EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place) } \n"
-					+ "      AND EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace) })\n"
+					+ "WHERE (EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place)} \n"
+					+ "      AND NOT EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace)})\n"
+					+ "      OR (NOT EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place)} \n"
+					+ "      AND EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace)})\n"
 					+ "RETURN varNode5");
 			i++;
 			
 			//
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\n"
-					+ "WHERE (EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place) } \n"
-					+ "      AND EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace) })\n"
-					+ "      OR NOT (EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place) }\n"
-					+ "      AND EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace) })\n"
+					+ "WHERE (EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place)} \n"
+					+ "      AND EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace)})\n"
+					+ "      OR NOT (EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place)}\n"
+					+ "      AND EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace)})\n"
 					+ "RETURN varNode5");
 			i++;
 			
 			//
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\n"
-					+ "WHERE (EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place) } \n"
-					+ "      AND EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace) })\n"
+					+ "WHERE (EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place)} \n"
+					+ "      AND EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace)})\n"
 					+ "RETURN varNode5");
 			i++;
 			
 			//
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\n"
-					+ "WHERE (EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place) } \n"
-					+ "      OR EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace) })\n"
+					+ "WHERE (EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place)} \n"
+					+ "      OR EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace)})\n"
 					+ "RETURN varNode5");
 			i++;
 			
 			//
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\n"
-					+ "WHERE (NOT EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place) } \n"
-					+ "      AND EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace) })\n"
+					+ "WHERE (NOT EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place)} \n"
+					+ "      AND EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace)})\n"
 					+ "RETURN varNode5");
 			i++;
 			
 			//
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\n"
-					+ "WHERE ((EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place) } \n"
-					+ "      AND NOT EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace) })\n"
-					+ "      OR (NOT EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place) } \n"
-					+ "      AND EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace) }))\n"
+					+ "WHERE ((EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place)} \n"
+					+ "      AND NOT EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace)})\n"
+					+ "      OR (NOT EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place)} \n"
+					+ "      AND EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace)}))\n"
 					+ "RETURN varNode5");
 			i++;
 			
 			//
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\n"
-					+ "WHERE ((EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place) } \n"
-					+ "      AND EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace) })\n"
-					+ "      OR NOT (EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place) }\n"
-					+ "      AND EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace) }))\n"
+					+ "WHERE ((EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place)} \n"
+					+ "      AND EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace)})\n"
+					+ "      OR NOT (EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place)}\n"
+					+ "      AND EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace)}))\n"
 					+ "RETURN varNode5");
 			i++;
 			
 			//
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:IndexPlace)\n"
-					+ "WHERE (EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge5:IS_SUB_OF]-(varNode6:IndexPlace) } \n"
-					+ "      OR EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge6:placeOfIssue]-(varNode7:Regesta) })\n"
+					+ "WHERE (EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge5:IS_SUB_OF]-(varNode6:IndexPlace)} \n"
+					+ "      OR EXISTS {\n"
+					+ "            MATCH (varNode5)-[varEdge6:placeOfIssue]-(varNode7:Regesta)})\n"
 					+ "RETURN varNode5");
 			i++;
 			
@@ -996,25 +996,25 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			
 			//getNodesWhereExits (false)
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3:Regesta)\n"
-					+ "WHERE EXISTS ( varNode3.origPlaceOfIssue )\n"
+					+ "WHERE EXISTS (varNode3.origPlaceOfIssue)\n"
 					+ "RETURN varNode3");
 			i++;
 			
 			//getNodesWhereExits (true)
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3:Regesta)\n"
-					+ "WHERE NOT ((EXISTS ( varNode3.origPlaceOfIssue )))\n"
+					+ "WHERE NOT ((EXISTS (varNode3.origPlaceOfIssue)))\n"
 					+ "RETURN varNode3");
 			i++;
 			
 			//getNodesWhereMultiplePropertyExistsChecks (false)
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\n"
-					+ "WHERE EXISTS ( varNode5.origPlaceOfIssue, varNode5.origPlaceOfIssue, varNode5.origPlaceOfIssue )\n"
+					+ "WHERE EXISTS (varNode5.origPlaceOfIssue, varNode5.origPlaceOfIssue, varNode5.origPlaceOfIssue)\n"
 					+ "RETURN varNode5");
 			i++;
 			
 			//getNodesWhereMultiplePropertyExistsChecks (true)
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\n"
-					+ "WHERE EXISTS ( varNode5.origPlaceOfIssue, varNode5.origPlaceOfIssue, varNode5.origPlaceOfIssue )\n"
+					+ "WHERE EXISTS (varNode5.origPlaceOfIssue, varNode5.origPlaceOfIssue, varNode5.origPlaceOfIssue)\n"
 					+ "RETURN varNode5");
 			i++;
 			
