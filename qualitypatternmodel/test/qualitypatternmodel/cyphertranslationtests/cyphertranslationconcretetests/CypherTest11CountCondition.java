@@ -51,7 +51,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 		completePatterns.add(getCountConditionWithWhereClause());
 		completePatterns.add(getCountAPropertyNode());
 		completePatterns.add(getCountAProperty());
-		completePatterns.add(getCountWithRelations()); //--> Why does this so much computation?
+		completePatterns.add(getCountWithRelations());
 	}
 	
 	@Override
@@ -189,7 +189,13 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 		return completePattern;
 	}
 	
-	//Fixing
+	/*
+	 * MATCH (varNode4:Regesta)-[varEdge2]-(varNode5:IndexPlace)
+	 * MATCH (varNode4)-[varEdge5]-(varNode8:IndexPerson)
+	 * WITH varNode5, varEdge5, COUNT(varNode8) AS myCounter1
+	 * WHERE myCounter1 = 1.0
+	 * RETURN varNode5
+	 */
 	private CompletePattern getCountWithRelations() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = CypherTest11CountCondition.getComplexBasePattern();
 		ComplexNode node = completePattern.getGraph().addComplexNode();
