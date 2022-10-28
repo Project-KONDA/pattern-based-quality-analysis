@@ -729,7 +729,6 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			i++;
 			
 			//
-			System.out.println(completePatterns.get(i).generateCypher());
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\n"
 					+ "WHERE EXISTS { \n"
 					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place) } \n"
@@ -739,24 +738,25 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			i++;
 			
 			//
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\n"
+
+			assertEquals(completePatterns.get(i).generateCypher(), "MATCH (varNode5:Regesta)\n"
 					+ "WHERE NOT EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge6:PLACE_OF_ISSUE]-(varNode9:Place) } \n"
+					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place) } \n"
 					+ "      AND EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge8:APPEARS_IN]-(varNode12:IndexEntry:IndexPlace) }\n"
+					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace) }\n"
 					+ "RETURN varNode5");
 			i++;
 			
-			//
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\n"
+//			//
+			assertEquals(completePatterns.get(i).generateCypher(), "MATCH (varNode5:Regesta)\n"
 					+ "WHERE (EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge6:PLACE_OF_ISSUE]-(varNode9:Place) } \n"
+					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place) } \n"
 					+ "      AND NOT EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge8:APPEARS_IN]-(varNode12:IndexEntry:IndexPlace) })\n"
+					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace) })\n"
 					+ "      OR (NOT EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge6:PLACE_OF_ISSUE]-(varNode9:Place) } \n"
+					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place) } \n"
 					+ "      AND EXISTS { \n"
-					+ "            MATCH (varNode5)-[varEdge8:APPEARS_IN]-(varNode12:IndexEntry:IndexPlace) })\n"
+					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace) })\n"
 					+ "RETURN varNode5");
 			i++;
 			
@@ -931,8 +931,8 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5)-[varEdge3:PLACE_OF_ISSUE]-(varPropertyNode6:Place)\n"
 					+ "MATCH (varNode7)-[varEdge4:PLACE_OF_ISSUE]-(varPropertyNode8:Place)\n"
 					+ "WHERE (varNode5 <> varNode7\n"
-					+ "            AND varPropertyNode6.normalizedGerman = varPropertyNode8.normalizedGerman\n"
-					+ "            AND varPropertyNode8.normalizedGerman = varPropertyNode6.normalizedGerman)\n"
+					+ "            AND varPropertyNode6.normalizedGerman <> varPropertyNode8.normalizedGerman\n"
+					+ "            AND varPropertyNode8.normalizedGerman <> varPropertyNode6.normalizedGerman)\n"
 					+ "RETURN varNode5");
 			i++;
 			
