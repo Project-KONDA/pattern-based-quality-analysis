@@ -213,19 +213,25 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	
 	//Needs refactoring --> Get all return elements from the original Graph and puts it into the WITH except properties - This can be accessed as long as the Node is in the with
 	protected String generateCypherWith() throws InvalidityException {
-		final StringBuilder cypher = new StringBuilder();
+		String cypher = "";
 		final Graph g = getGraph();
 		
 		if (g.getReturnNodes().size() > 0) {
-			cypher.append(generateCypherReturnNodes(cypher.toString()));
+			String cypherNodes = generateCypherReturnNodes(cypher);
+			if (!cypherNodes.isBlank()) {
+				cypher = cypherNodes;
+			}
 		}
 		
 		final EList<Relation> lReturnRelations = lReturnRelations();
 		if (lReturnRelations.size() > 0) {
-			cypher.append(generateCypherReturnEdges(cypher.toString()));
+			String cypherEdges = generateCypherReturnEdges(cypher);
+			if (!cypherEdges.isEmpty()) {
+				cypher = cypherEdges;
+			}
 		}
 		
-		return cypher.toString();
+		return cypher;
 	}
 	
 	private EList<Relation> lReturnRelations() {

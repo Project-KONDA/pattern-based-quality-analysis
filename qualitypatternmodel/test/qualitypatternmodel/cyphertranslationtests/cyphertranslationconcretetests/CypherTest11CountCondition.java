@@ -39,14 +39,14 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 	}
 	
 	public void buildPatterns(ArrayList<CompletePattern> completePatterns) throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
+		completePatterns.add(getJustCount());
 		completePatterns.add(getCountInPattern());
 		completePatterns.add(getCountInPatternWithRemoveAElement());
 		completePatterns.add(getMultiCountsInPattern());
 		completePatterns.add(getCountConditionWithWhereClause());
 		completePatterns.add(getCountAPropertyNode());
 		completePatterns.add(getCountAProperty());
-		completePatterns.add(getJustCount());
-		completePatterns.add(getCountWithRelations());
+//		completePatterns.add(getCountWithRelations()); //--> Why does this so much computation?
 	}
 	
 	@Override
@@ -247,7 +247,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 		neoNode.setNodePlace(NeoPlace.BEGINNING);
 	}	
 	
-	//Exceptions 
+	//Exceptions --> Need rework!!!
 	private CompletePattern generateNoCountElementsExceptions() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getComplexBasePattern();
 		
