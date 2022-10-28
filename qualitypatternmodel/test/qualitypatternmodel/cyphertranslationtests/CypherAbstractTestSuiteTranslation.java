@@ -78,19 +78,19 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 
 	//BEGIN - Syntax Validation
 	@Test
-	public void CypherTest00() {		
+	public void cypherTest00() {		
 		assertDoesNotThrow(() -> {new CypherTest00().buildPatterns(completePatterns); 
 			tester(completePatterns);});
 	}
 
 	@Test
-	public void CypherTest01NeoEdge() {		
+	public void cypherTest01NeoEdge() {		
 		assertDoesNotThrow(() -> {new CypherTest01NeoEdge().buildPatterns(completePatterns); 
 			tester(completePatterns);});
 	}
 
 	@Test
-	public void CypherTest01NeoEdgeExceptions() {		
+	public void cypherTest01NeoEdgeExceptions() {		
 			assertThrows(InvalidityException.class, () -> {new CypherTest01NeoEdge().buildInvalidityExceptionPatterns(completePatterns);
 					for (CompletePattern cp : completePatterns) exceptionHandler(cp);},
 					EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
@@ -106,13 +106,13 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 		}
 
 	@Test
-	public void CypherTest01NeoPropertyEdge() {		
+	public void cypherTest01NeoPropertyEdge() {		
 		assertDoesNotThrow(() -> {new CypherTest01NeoPropertyEdge().buildPatterns(completePatterns); 
 			tester(completePatterns);});
 	}
 
 	@Test
-	public void CypherTest01NeoPropertyEdgeExceptions() {		
+	public void cypherTest01NeoPropertyEdgeExceptions() {		
 			assertThrows(InvalidityException.class, () -> {new CypherTest01NeoPropertyEdge().buildInvalidityExceptionPatterns(completePatterns);
 						for (CompletePattern cp : completePatterns) exceptionHandler(cp);},
 						EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
@@ -128,13 +128,13 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 		}
 
 	@Test
-	public void CypherTest02Return() {		
+	public void cypherTest02Return() {		
 		assertDoesNotThrow(() -> {new CypherTest02Return().buildPatterns(completePatterns); 
 		tester(completePatterns);});
 	}
 
 	@Test
-	public void CypherTest02ReturnExceptions() {		
+	public void cypherTest02ReturnExceptions() {		
 			assertThrows(InvalidityException.class, () -> {new CypherTest02Return().buildInvalidityExceptionPatterns(completePatterns);
 					for (CompletePattern cp : completePatterns) exceptionHandler(cp);
 					},
@@ -151,12 +151,12 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 		}
 
 	@Test
-	public void CypherTest03NotCondition() {		
+	public void cypherTest03NotCondition() {		
 		assertDoesNotThrow(() -> {new CypherTest03NotCondition().buildPatterns(completePatterns); 
 		tester(completePatterns);});
 	}
 
-	public void CypherTest03NotConditionExceptions() {		
+	public void cypherTest03NotConditionExceptions() {		
 			assertThrows(InvalidityException.class, () -> {//Add additional Exceptions
 					},
 					EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
@@ -172,12 +172,12 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 		}
 
 	@Test
-	public void CypherTest04Formula() {		
+	public void cypherTest04Formula() {		
 		assertDoesNotThrow(() -> {new CypherTest04Formula().buildPatterns(completePatterns); 
 		tester(completePatterns);});
 	}
 
-	public void CypherTest04FormulaExceptions() {		
+	public void cypherTest04FormulaExceptions() {		
 			assertThrows(InvalidityException.class, () -> {//Add additional Exceptions
 					},
 					EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
@@ -193,12 +193,12 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 		}
 
 	@Test
-	public void CypherTest05ParameterValues() {		
+	public void cypherTest05ParameterValues() {		
 		assertDoesNotThrow(() -> {new CypherTest05ParameterValues().buildPatterns(completePatterns); 
 		tester(completePatterns);});
 	}
 
-	public void CypherTest05ParameterValuesExceptions() {		
+	public void cypherTest05ParameterValuesExceptions() {		
 			assertThrows(InvalidityException.class, () -> {//Add additional Exceptions
 					},
 					EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
@@ -214,12 +214,12 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 		}
 
 	@Test
-	public void CypherTest06Comparison() {	
+	public void cypherTest06Comparison() {	
 		assertDoesNotThrow(() -> {new CypherTest06Comparison().buildPatterns(completePatterns); 
 		tester(completePatterns);});
 	}
 
-	public void CypherTest06ComparisonExceptions() {		
+	public void cypherTest06ComparisonExceptions() {		
 			assertThrows(InvalidityException.class, () -> {//Add additional Exceptions
 					},
 					EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
@@ -235,13 +235,13 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 		}
 
 	@Test
-	public void CypherTest07QuantifiedCondition() {	
+	public void cypherTest07QuantifiedCondition() {	
 		assertDoesNotThrow(() -> {new CypherTest07QuantifiedCondition().buildPatterns(completePatterns); 
 		tester(completePatterns);});
 	}
 
 	@Test
-	public void CypherTest07QuantifiedConditionExceptions() {		
+	public void cypherTest07QuantifiedConditionExceptions() {		
 			assertThrows(InvalidityException.class, () -> {new CypherTest07QuantifiedCondition().buildInvalidityExceptionPatterns(completePatterns);
 						for (CompletePattern cp : completePatterns) exceptionHandler(cp);
 						},
@@ -258,12 +258,12 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 		}
 
 	@Test
-	public void CypherTest08Cycle() {
+	public void cypherTest08Cycle() {
 		assertDoesNotThrow(() -> {new CypherTest08Cycle().buildPatterns(completePatterns); 
 		tester(completePatterns);});
 	}
 
-	public void CypherTest08CycleExceptions() {		
+	public void cypherTest08CycleExceptions() {		
 			assertThrows(InvalidityException.class, () -> {//Add additonal Exceptions
 					},
 					EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
@@ -279,12 +279,12 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 		}
 
 	@Test
-	public void CypherTest09Contains() {	
+	public void cypherTest09Contains() {	
 		assertDoesNotThrow(() -> {new CypherTest09Contains().buildPatterns(completePatterns); 
 		tester(completePatterns);});
 	}
 
-	public void CypherTest09ContainsExceptions() {		
+	public void cypherTest09ContainsExceptions() {		
 			assertThrows(InvalidityException.class, () -> {//Add additional Exceptions
 					},
 					EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
@@ -300,13 +300,13 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 		}
 
 	@Test
-	public void CypherTest10Match() {	
+	public void cypherTest10Match() {	
 		assertDoesNotThrow(() -> {new CypherTest10Match().buildPatterns(completePatterns); 
 		tester(completePatterns);});
 	}
 
 	@Test
-	public void CypherTest10MatchExceptions() {		
+	public void cypherTest10MatchExceptions() {		
 			assertThrows(InvalidityException.class, () -> {new CypherTest10Match().buildInvalidityExceptionPatterns(completePatterns);
 					for (CompletePattern cp : completePatterns) exceptionHandler(cp);},
 					EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
@@ -322,12 +322,12 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 		}
 
 	@Test
-	public void CypherTest11CountCondition() {	
+	public void cypherTest11CountCondition() {	
 		assertDoesNotThrow(() -> {new CypherTest11CountCondition().buildPatterns(completePatterns); 
 		tester(completePatterns);});
 	}
 
-	public void CypherTest11CountConditionExceptions() {		
+	public void cypherTest11CountConditionExceptions() {		
 			assertThrows(InvalidityException.class, () -> {new CypherTest11CountCondition().buildInvalidityExceptionPatterns(completePatterns);
 					for (CompletePattern cp : completePatterns) exceptionHandler(cp);},
 					EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
@@ -343,12 +343,12 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 		}
 
 	@Test
-	public void CypherTest12CheckNull() {	
+	public void cypherTest12CheckNull() {	
 		assertDoesNotThrow(() -> {new CypherTest12CheckNull().buildPatterns(completePatterns); 
 			tester(completePatterns);});
 	}
 	
-	public void CypherTest12CheckNullExceptions() {		
+	public void cypherTest12CheckNullExceptions() {		
 			assertThrows(InvalidityException.class, () -> {//Add additional Exceptions
 					},
 					EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
