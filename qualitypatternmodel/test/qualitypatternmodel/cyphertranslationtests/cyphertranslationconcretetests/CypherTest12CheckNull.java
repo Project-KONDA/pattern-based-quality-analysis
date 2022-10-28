@@ -30,18 +30,18 @@ public class CypherTest12CheckNull extends CypherAbstractTranslation {
 	@Override
 	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
-			completePatternsExceptions.add(nullCheckInvalidOptionException());
-			completePatternsExceptions.add(nullCheckNullPrimitiveNodeException());
+			completePatternsExceptions.add(getNullCheckInvalidOptionException());
+			completePatternsExceptions.add(getNullCheckNullPrimitiveNodeException());
 	}
 
 	@Override
 	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		completePatterns.add(tryIsNull(true, "isoStartDate"));
-		completePatterns.add(tryIsNull(false, "isoStartDate"));
+		completePatterns.add(generateIsNullException(true, "isoStartDate"));
+		completePatterns.add(generateIsNullException(false, "isoStartDate"));
 	}
 
-	private static CompletePattern tryIsNull(Boolean isNull, String str) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern generateIsNullException(Boolean isNull, String str) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
@@ -69,7 +69,7 @@ public class CypherTest12CheckNull extends CypherAbstractTranslation {
 	}
 	
 	//Exceptions
-	private static CompletePattern nullCheckInvalidOptionException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+	private static CompletePattern getNullCheckInvalidOptionException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;	
 		CompletePattern pattern = factory.createCompletePattern();
 		pattern.getGraph().getNodes().get(0).addOutgoing().getTarget().addPrimitiveNullCheck();
@@ -86,7 +86,7 @@ public class CypherTest12CheckNull extends CypherAbstractTranslation {
 		return pattern;
 	}
 	
-	private static CompletePattern nullCheckNullPrimitiveNodeException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+	private static CompletePattern getNullCheckNullPrimitiveNodeException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;	
 		CompletePattern pattern = factory.createCompletePattern();
 		pattern.getGraph().getNodes().get(0).addOutgoing().getTarget().addPrimitiveNullCheck();

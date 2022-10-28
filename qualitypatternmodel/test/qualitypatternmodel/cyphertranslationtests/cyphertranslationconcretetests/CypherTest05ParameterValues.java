@@ -61,6 +61,7 @@ public class CypherTest05ParameterValues extends CypherAbstractTranslation {
 		//TextLiteralParam
 		CompletePattern completePattern = getConcreteComparisonPattern(values.get(0), "date");
 		completePatterns.add(completePattern);	
+		
 		//TextListParam
 		completePattern = getConcreteComparisonPattern(values.get(1), "origPlaceOfIssue");
 		completePatterns.add(completePattern);	

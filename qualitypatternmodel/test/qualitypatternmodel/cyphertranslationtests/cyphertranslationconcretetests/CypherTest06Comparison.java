@@ -58,7 +58,7 @@ public class CypherTest06Comparison extends CypherAbstractTranslation {
 //        			completePatterns.add(getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(c));
 //        		}
 //        	   }            
-		completePatterns.add(getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(ComparisonOperator.EQUAL));
+		completePatterns.add(getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(ComparisonOperator.NOTEQUAL));
 		completePatterns.add(getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(ComparisonOperator.EQUAL));
 		completePatterns.add(getMultipleComparisons());
 		completePatterns.add(getCompareByElementId(ComparisonOperator.NOTEQUAL));

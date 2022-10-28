@@ -53,7 +53,7 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 		completePatterns.add(getTestPattern5());
 		completePatterns.add(getNotExistsExists());
 		completePatterns.add(getNotNotPattern());
-		completePatterns.add(getNotNotNotPattern());
+		completePatterns.add(getNotNotPattern());
 		completePatterns.add(getNotNotNotNotPattern());
 		completePatterns.add(getNotNotNotNotNotPattern());
 	}

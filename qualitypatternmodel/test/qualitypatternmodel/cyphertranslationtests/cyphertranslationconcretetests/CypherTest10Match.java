@@ -33,16 +33,6 @@ public class CypherTest10Match extends CypherAbstractTranslation {
     }
 
 	@Override
-	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException {
-		completePatternsExceptions.add(tryMatchInvalidOption(true));
-		completePatternsExceptions.add(tryMatchInvalidOption(false));
-		completePatternsExceptions.add(tryMatchInvalidOptionDiffrent(true));
-		completePatternsExceptions.add(tryMatchInvalidOptionDiffrent3(true));
-		completePatternsExceptions.add(tryMatchInvalidOptionDiffrent4(false));
-	}
-	
-	@Override
 	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(getPatternMatch(true, "Churfürsten"));
@@ -56,6 +46,18 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 		completePatterns.add(getPatternMatch(true, ".*(?s)Churfürsten.*"));
 		completePatterns.add(getPatternMatch(false, ".*(?s)Churfürsten.*"));
 	}
+	
+	@Override
+	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException {
+		completePatternsExceptions.add(generateMatchInvalidOptionException(true));
+		completePatternsExceptions.add(generateMatchInvalidOptionException(false));
+		completePatternsExceptions.add(generateMatchInvalidOptionDiffrentException(true));
+		completePatternsExceptions.add(generateMatchInvalidOptionDiffrentException(true));
+		completePatternsExceptions.add(generateMatchInvalidOptionDiffrent4Exception(false));
+	}
+	
+
     
 	private static CompletePattern getPatternMatch(Boolean invert, String str) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
@@ -84,7 +86,7 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 	}
 	
 	//Exceptions 
-	private static CompletePattern tryMatchInvalidOption(boolean invert)
+	private static CompletePattern generateMatchInvalidOptionException(boolean invert)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
@@ -120,7 +122,7 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 		return pattern;
 	}
 	
-	private static CompletePattern tryMatchInvalidOptionDiffrent(boolean invert)
+	private static CompletePattern generateMatchInvalidOptionDiffrentException(boolean invert)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
@@ -180,7 +182,7 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 		return pattern;
 	}
 	
-	private static CompletePattern tryMatchInvalidOptionDiffrent4(boolean invert)
+	private static CompletePattern generateMatchInvalidOptionDiffrent4Exception(boolean invert)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
