@@ -299,7 +299,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			if (!(getCondition() instanceof TrueElementImpl)) {
 				localCypher.append(getCondition().generateCypher());
 				addWhiteSpacesForPreviewsCondition(localCypher);
-				localCypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
+				localCypher.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
 			} else {
 				throw new InvalidityException(QUANTIFIED_COND_NEEDS_INNER_CONDITION);
 			}
