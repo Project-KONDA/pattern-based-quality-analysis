@@ -1,7 +1,5 @@
 package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
-import java.time.Duration;
-import java.time.Instant;
 import java.util.ArrayList;
 
 import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
