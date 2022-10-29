@@ -63,11 +63,15 @@ public abstract class CypherAbstractTranslation implements CypherInterfaceTransl
 	public static final String BEGIN_SPECIFIC_TESTS = "<<< BEGIN - Specific Tests >>>";
 	
 	//BEGIN - Procedural methods for execution
-	public void exceptionTestHandler(ArrayList<CompletePattern> completePatterns) {
+	public static void exceptionTestHandler(ArrayList<CompletePattern> completePatterns) {
 		for (CompletePattern completePattern : completePatterns) {
 			try {
 				System.out.println(PATTERN_NOT_VALID);
-				System.out.println(completePattern.myToString());
+				try {
+					System.out.println(completePattern.myToString());
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
 				System.out.print(TRANSLATION);
 				System.out.println(completePattern.generateCypher());
 				System.out.println(NO_EXCEPTION_HAS_BEEN_TRIGGERED);
@@ -85,7 +89,7 @@ public abstract class CypherAbstractTranslation implements CypherInterfaceTransl
 		}
 	}
 
-	public void testAllCompletePatternsWithDbCheck(ArrayList<CompletePattern> completePatterns) throws Exception {
+	public static void testAllCompletePatternsWithDbCheck(ArrayList<CompletePattern> completePatterns) throws Exception {
 		boolean isDbOn = playground.Java2Neo4JConnector.verifyConnectivity();
 		if (isDbOn) {
 			System.out.print(MODE + TESTING_WITH_DB);
@@ -96,7 +100,7 @@ public abstract class CypherAbstractTranslation implements CypherInterfaceTransl
 		testAllCompletePatterns(completePatterns, isDbOn);
 	}
 
-	public void testAllCompletePatterns(ArrayList<CompletePattern> completePatterns, boolean isDbOn)
+	public static void testAllCompletePatterns(ArrayList<CompletePattern> completePatterns, boolean isDbOn)
 			throws Exception {
 		if (isDbOn) {
 			try (Java2Neo4JConnector connector = new Java2Neo4JConnector()) {
@@ -183,7 +187,7 @@ public abstract class CypherAbstractTranslation implements CypherInterfaceTransl
 		if (completePatternsExceptions.size() != 0) {
 			System.out.println("");
 			System.out.println(CypherAbstractTranslation.BEGIN_BUILD_PATTERN_EXCEPTIONS);		
-			exceptionTestHandler(completePatternsExceptions);
+			CypherAbstractTranslation.exceptionTestHandler(completePatternsExceptions);
 			System.out.println(CypherAbstractTranslation.END_BUILD_PATTERN_EXCEPTIONS);
 			System.out.println("");
 		}

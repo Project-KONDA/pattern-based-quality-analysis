@@ -116,26 +116,4 @@ public class CypherTest12CheckNull extends CypherAbstractTranslation {
 			System.out.println("");
 		}
 	}
-    
-    @Override
-	public void exceptionTestHandler(ArrayList<CompletePattern> completePatterns) {
-		for (CompletePattern completePattern : completePatterns) {
-			try {
-				System.out.println(PATTERN_NOT_VALID);
-				try {
-					System.out.println(completePattern.myToString());
-				} catch (Exception e) {
-					// TODO: handle exception
-				}
-				System.out.print(TRANSLATION);
-				System.out.println(completePattern.generateCypher());
-				System.out.println(NO_EXCEPTION_HAS_BEEN_TRIGGERED);
-			} catch (Exception e) {
-				System.out.println("");
-				System.out.println(BEGINNING_OF_THE_EXCEPTIONS_TESTS);
-				System.out.println(e.toString());
-				System.out.println(TEST_SUCCESSFUL);
-			}
-		}
-	}
 }
