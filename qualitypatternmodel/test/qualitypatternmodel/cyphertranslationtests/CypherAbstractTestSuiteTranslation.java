@@ -1175,7 +1175,7 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			
 			//getJustCount
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4)\n"
-					+ "WITH COUNT(varNode4) AS myCounter1\n"
+					+ "WITH varNode4, COUNT(varNode4) AS myCounter1\n"
 					+ "WHERE myCounter1 = 1.0\n"
 					+ "RETURN varNode4");
 			i++;

@@ -1,5 +1,7 @@
 package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 
 import org.eclipse.emf.common.util.BasicEList;
@@ -29,7 +31,7 @@ public class CypherTest00 extends CypherAbstractTranslation {
 		CypherTest00 cypher00 = new CypherTest00();
 		try {
 			cypher00.generalizedTests();         
-			cypher00.generalizedInvalidtyExceptionTests();			
+			cypher00.generalizedInvalidtyExceptionTests();
 		} catch (Exception e) {
 			System.out.println(e);
 		}

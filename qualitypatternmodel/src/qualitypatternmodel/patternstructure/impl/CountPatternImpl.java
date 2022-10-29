@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement;
 import qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
@@ -55,6 +56,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * @generated
  */
 public class CountPatternImpl extends PatternImpl implements CountPattern {
+	private static final String NOT_ALL_RETURN_ELEMENTS_ARE_CONTAINED_IN_THE_WITH_CLAUSE = "Not all Return-Elements are contained in the WITH-Clause";
 	private static final String SOMETHING_WENT_WRONG_IN_ACCESSING_THE_CYPHER_VARIABLE = "Something went wrong in accessing the Cypher Variable";
 	private static final String NO_COUNT_ELEMENTS_EXISTS = "No Count Elements exists";
 	/**
@@ -223,7 +225,8 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		String cypher = "";
 		final Graph g = getGraph();
 		
-		if (g.getReturnNodes().size() > 0) {
+		final EList<Node> lReturnNodes = g.getReturnNodes();
+		if (lReturnNodes.size() > 0) {
 			String cypherNodes = generateCypherReturnNodes(cypher);
 			if (!cypherNodes.isBlank()) {
 				cypher = cypherNodes;
@@ -237,8 +240,34 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 				cypher = cypherEdges;
 			}
 		}
-		
+		allReturnElementsAreInWith(cypher, lReturnNodes, lReturnRelations);
 		return cypher;
+	}
+	
+	private void allReturnElementsAreInWith(final String cypher, final EList<Node> lReturnNodes, final EList<Relation> lReturnRelations) throws InvalidityException {
+		if (lReturnNodes.size() > 0) {
+			NeoInterfaceNode neoNode = null;
+			for (Node n : lReturnNodes) {
+				neoNode = (NeoInterfaceNode) n;
+				if (!cypher.contains(neoNode.getCypherVariable())) {
+					throw new InvalidityException(NOT_ALL_RETURN_ELEMENTS_ARE_CONTAINED_IN_THE_WITH_CLAUSE);
+				}
+			}
+		}
+		if (lReturnRelations.size() > 0) {
+			NeoInterfaceElement neoEdge = null;
+			for (Relation r : lReturnRelations) {
+				neoEdge = (NeoInterfaceElement) r;
+				try {
+					if (!cypher.contains(neoEdge.getCypherReturnVariable().get(0).getValue())) {
+						throw new InvalidityException(NOT_ALL_RETURN_ELEMENTS_ARE_CONTAINED_IN_THE_WITH_CLAUSE);
+					}
+				} catch (Exception e) {
+					throw new InvalidityException(NOT_ALL_RETURN_ELEMENTS_ARE_CONTAINED_IN_THE_WITH_CLAUSE);
+				}
+				
+			}
+		}
 	}
 	
 	private EList<Relation> lReturnRelations() {
