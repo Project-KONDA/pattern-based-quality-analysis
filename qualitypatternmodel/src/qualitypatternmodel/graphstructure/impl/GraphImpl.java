@@ -189,6 +189,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			//Since we have independent graphs we can have multiple beginnings
 			//How to integrate Maybe a OPTIONAL MATCH? - OPTIONAL - How to consider (r:A)--(B:B), (r)--(C:C)?
 			//TODO: Consider that it also can start with a PrimitiveNode which has a more defined strucutre --> Not relevant any more since the model just starts with a complex edge
+			//Maybe change this in the future to generate OPTIONAL MATCH
 			for (Node n : allNodesList) {
 				if (n instanceof NeoNode && ((NeoInterfaceNode) n).getNodePlace() == NeoPlace.BEGINNING) {
 					beginningNodesList.add((NeoInterfaceNode) n);
@@ -206,8 +207,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				}
 				buildNeoGraphPatternRecursively(cypher, n);
 			}
-			//Maybe change this in the future to generate OPTIONAL MATCH
-		
 			return cypher.toString();
 		}
 		throw new InvalidityException(NO_NODES_ARE_GIVEN);
@@ -224,7 +223,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		boolean localSeperationNeeded = false;
 		for (StringBuilder sb : listCypher) {
 			if (localSeperationNeeded) {
-				cypher.append("," + CypherSpecificConstants.ONE_WHITESPACE); //TODO check the StyleGuid how to do that the best
+				cypher.append(CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE);
 			} else {
 				localSeperationNeeded = true;
 			}

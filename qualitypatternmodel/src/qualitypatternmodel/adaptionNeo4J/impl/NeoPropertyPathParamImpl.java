@@ -463,9 +463,7 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 			} else if (neoPropertyName != null) {
 				result += " " + getNeoPropertyEdge().generateCypherPropertyAddressing();
 			}
-		} catch (InvalidityException e) {
-			System.out.println(e);
-		} 
+		} catch (InvalidityException e) {} 
 		return result;
 	}
 
