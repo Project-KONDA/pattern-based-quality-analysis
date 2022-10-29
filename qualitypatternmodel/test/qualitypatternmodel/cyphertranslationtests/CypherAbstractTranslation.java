@@ -92,7 +92,7 @@ public abstract class CypherAbstractTranslation implements CypherInterfaceTransl
 		} else {
 			System.out.print(MODE + TESTING_WITHOUT_DB);
 		}
-		System.out.println("\n\n");
+		System.out.println("\n");
 		testAllCompletePatterns(completePatterns, isDbOn);
 	}
 
@@ -123,6 +123,8 @@ public abstract class CypherAbstractTranslation implements CypherInterfaceTransl
 				if (connector != null) {
 					String hashCode = query.hashCode() + "";
 					connector.queryTester(query, hashCode, true);
+					System.out.println("\n-- Original Query --");
+					System.out.println(query);
 				} else {
 					System.out.println(query);
 				}

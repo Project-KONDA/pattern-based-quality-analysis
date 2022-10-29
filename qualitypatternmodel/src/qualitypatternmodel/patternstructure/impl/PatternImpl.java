@@ -58,6 +58,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public abstract class PatternImpl extends PatternElementImpl implements Pattern {
+	private static final String A_MAP_FROM_RECHIVED_FROM_A_NEO4J_COMPONENT_SHOULD_ONLY_CONTAIN_ONE_ENTRY = "A Map from rechived from a Neo4J component should only contain one entry";
 	private static final String A_CYPHER_QUERY_NEED_A_MATCH_CLAUSE = "A cypher query need a Match-Clause";
 	/**
 	 * The cached value of the '{@link #getGraph() <em>Graph</em>}' containment reference.
@@ -175,7 +176,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		EList<Node> returnElements = graph.getReturnNodes();
 		for (int i = 0; i < returnElements.size(); i++) {
 			if (i != 0)
-				returnClause += ", ";
+				returnClause += CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE;
 			XmlNode r = ((XmlNode) returnElements.get(i)); 
 			if (r.getVariables() == null || r.getVariables().isEmpty()) {
 				throw new InvalidityException("There was no associated variable generated to the Return Element");
@@ -209,13 +210,18 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	//BEGIN - NEO4J/CYPHER
 	@Override
 	public String generateCypher() throws InvalidityException {
-		String matchClause;
-		matchClause = graph.generateCypher();
-		if(matchClause.length() !=0 ) matchClause = CypherSpecificConstants.CLAUSE_MATCH + " "  + matchClause;
-		else throw new InvalidityException(A_CYPHER_QUERY_NEED_A_MATCH_CLAUSE);		
+		String matchClause = graph.generateCypher();
+		if(matchClause != null) {
+			matchClause = CypherSpecificConstants.CLAUSE_MATCH + " "  + matchClause;
+		} else {
+			throw new InvalidityException(A_CYPHER_QUERY_NEED_A_MATCH_CLAUSE);		
+		}
 		
 		String whereClause = "";
-		whereClause += graph.generateCypherWhere();
+		String tempWhere = graph.generateCypherWhere();
+		if (tempWhere != null) {
+			whereClause = tempWhere;
+		}
 		
 		//In the current version this feature is not supported. Hence Cypher does not allow AGGREGATION-FUNCTIONS to be neasted
 		if (!(condition instanceof CountConditionImpl)) {
@@ -227,13 +233,14 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 									+ CypherSpecificConstants.ONE_WHITESPACE;
 				whereClause += cond;
 			}
-		} //else {
-			//throw new UnsupportedOperationException("Find matching Exception Naming");
-		//}
+		}
 		if (whereClause.length() != 0) whereClause = CypherSpecificConstants.CLAUSE_WHERE + " " + whereClause;
-		if (whereClause.length() == 0) whereClause = "";
+		if (whereClause.length() == 0) whereClause = null;
 		
-		String cypher = matchClause + whereClause;
+		String cypher = matchClause;
+		if (whereClause != null) {
+			cypher += whereClause;
+		}
 		
 		if ((condition instanceof CountConditionImpl)) {
 			CountConditionImpl count = (CountConditionImpl) getCondition();
@@ -243,12 +250,10 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		return cypher;
 	}
 	
-	//Add to Ecore?
 	protected String generateCypherReturnNodes(String cypher) throws InvalidityException {
 		throw new UnsupportedOperationException();
 	}
 	
-	//Add to Ecore?
 	protected String generateCypherReturnEdges(String cypher) throws InvalidityException {
 		throw new UnsupportedOperationException();
 	}
@@ -290,7 +295,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		tempMap = neoElement.getCypherReturnVariable();
 		
 		if (tempMap.keySet().stream().count() != 1)
-			throw new InvalidityException("find a matching name");
+			throw new InvalidityException(A_MAP_FROM_RECHIVED_FROM_A_NEO4J_COMPONENT_SHOULD_ONLY_CONTAIN_ONE_ENTRY);
 		for (Map.Entry<Integer, String> entry : tempMap.entrySet()) {
 		    i = entry.getKey();
 		    if (cypherReturn.get(i) == null) {

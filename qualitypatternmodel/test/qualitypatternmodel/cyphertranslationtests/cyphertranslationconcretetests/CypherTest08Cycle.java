@@ -1,5 +1,7 @@
 package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 
 import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
@@ -13,7 +15,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 public class CypherTest08Cycle extends CypherAbstractTranslation {
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
     	CypherTest08Cycle cycle = new CypherTest08Cycle();
-//    	Instant start = Instant.now();
+    	Instant start = Instant.now();
     	try {
     		cycle.generalizedTests();         
     		cycle.generalizedInvalidtyExceptionTests();
@@ -22,9 +24,9 @@ public class CypherTest08Cycle extends CypherAbstractTranslation {
 		}
 		
 		// CODE HERE        
-//		Instant finish = Instant.now();
-//		long timeElapsed = Duration.between(start, finish).toMillis();
-//		System.out.println(timeElapsed);
+		Instant finish = Instant.now();
+		long timeElapsed = Duration.between(start, finish).toMillis();
+		System.out.println(timeElapsed);
     }
 
 	public void buildPatterns(ArrayList<CompletePattern> completePatterns)

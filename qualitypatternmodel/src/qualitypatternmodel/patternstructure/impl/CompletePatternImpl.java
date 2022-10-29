@@ -71,6 +71,10 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  */
 public class CompletePatternImpl extends PatternImpl implements CompletePattern {
 	
+	private static final String RETURN_ELEMENT_S_MISSING = "return element(s) missing";
+
+	private static final String A_CYPHER_QUERY_NEED_A_RETURN_CLAUSE = "A cypher query need a Return-Clause";
+
 	/**
 	 * The cached value of the '{@link #getParameterList() <em>Parameter List</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -387,7 +391,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		//NeoEdges are less significant from the meaning thus ignored but in future extentsions also possible to just return
 		//Return of * also future feature
 		if (returnProperties) {} else if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
-			throw new InvalidityException("return element(s) missing");
+			throw new InvalidityException(RETURN_ELEMENT_S_MISSING);
 		}
 		
 		String completeCyString;
@@ -396,7 +400,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		//Es wäre gut das Modell noch mit einem getReturnRelations zu erweitern! 
 		String returnClause = this.generateCypherReturn();
 		if(returnClause.length() != 0) returnClause = CypherSpecificConstants.CLAUSE_RETURN + returnClause;
-		else throw new InvalidityException("A cypher query need a Return-Clause");
+		else throw new InvalidityException(A_CYPHER_QUERY_NEED_A_RETURN_CLAUSE);
 		completeCyString += returnClause;
 		
 		return completeCyString;

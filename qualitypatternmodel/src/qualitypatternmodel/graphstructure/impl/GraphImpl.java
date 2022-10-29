@@ -81,6 +81,8 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class GraphImpl extends PatternElementImpl implements Graph {
+	private static final String NO_INSTANCE_OF_NEO_NODE = "No instance of NeoNode";
+
 	private static final String NO_NODES_ARE_GIVEN = "No nodes are given";
 
 	/**
@@ -179,11 +181,11 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	//Returns the needed Graph-Pattern for Cypher
 	@Override
 	public String generateCypher() throws InvalidityException {	
-		EList<Node> allNodesList = getNodes();
+		final EList<Node> allNodesList = getNodes();
 		
 		if (allNodesList != null && allNodesList.size() > 0) { 
-			StringBuilder cypher = new StringBuilder();	
-			EList<NeoInterfaceNode> beginningNodesList = new BasicEList<NeoInterfaceNode>();
+			final StringBuilder cypher = new StringBuilder();	
+			final EList<NeoInterfaceNode> beginningNodesList = new BasicEList<NeoInterfaceNode>();
 			
 			//Finding ComplexNode which represent the beginning
 			//Since we have independent graphs we can have multiple beginnings
@@ -194,7 +196,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				if (n instanceof NeoNode && ((NeoInterfaceNode) n).getNodePlace() == NeoPlace.BEGINNING) {
 					beginningNodesList.add((NeoInterfaceNode) n);
 				} else if(! (n instanceof NeoInterfaceNode)) {
-					throw new InvalidityException("No instance of NeoNode");
+					throw new InvalidityException(NO_INSTANCE_OF_NEO_NODE);
 				}
 			}
 			
@@ -298,7 +300,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		int distinctNeoPropertyNode = 0; 
 		NeoPropertyEdge neoPropertyEdge;
 		for (Relation r : node.getOutgoing()) {
-			//--> Mapped Relations werden nicht bei Subqueries berücksichtigt 
+			//--> Mapped Relations are not considered in Morphed Graphs 
 			if (r.getOriginalRelation() == r) { //r.getIncomingMapping() == null &&
 				if (r instanceof NeoEdge) {
 					i++;
@@ -326,7 +328,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		StringBuilder cypher = new StringBuilder();
 		OperatorList opList = this.getOperatorList();
 		//Add this to RegelWerk that the Operators are all in breakers
-		cypher.append("(");
+		cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
 		for (Operator operator : opList.getOperators()) {
 			if (operator.generateCypher() != null) {
 				if (cypher.length() != 1) {
@@ -337,7 +339,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			}
 		}
 		if (cypher.length() == 1) return "";
-		cypher.append(")");
+		cypher.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
 		return cypher.toString();
 	}
 	//END - Neo4J
