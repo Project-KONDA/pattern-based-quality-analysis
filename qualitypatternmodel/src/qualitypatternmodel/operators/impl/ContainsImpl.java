@@ -34,6 +34,7 @@ import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
@@ -52,6 +53,10 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class ContainsImpl extends BooleanOperatorImpl implements Contains {
+	
+
+	private static final String INVALID_OPTION = "invalid option";
+
 	/**
 	 * The cached value of the '{@link #getPrimitiveNode() <em>Primitive Node</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -110,7 +115,7 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 				return primitiveNode.generateXQuery() + "not(contains(., \"" + content.getValue() + "\"))";
 			}	
 		} else {
-			throw new InvalidityException("invalid option");
+			throw new InvalidityException(INVALID_OPTION);
 		}
 	}
 	
@@ -128,23 +133,27 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 				return "\nFILTER (!contains(" + primitiveNode.generateSparql() + ", " + content.generateSparql() + "))";
 			}	
 		} else {
-			throw new InvalidityException("invalid option");
+			throw new InvalidityException(INVALID_OPTION);
 		}
 	}
 	
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		if(option != null && content != null && content.getValue() != null && primitiveNode != null) {
-			if (option.getValue()) {
-				return ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing() + CypherSpecificConstants.ONE_WHITESPACE +
-						  CypherSpecificConstants.WHERE_OPERATOR_CONTAINS + " (" + CypherSpecificConstants.CYPHER_QUOTATION_MARK + content.getValue() +
-						  CypherSpecificConstants.CYPHER_QUOTATION_MARK + ")";
-			} 
-			return  CypherSpecificConstants.BOOLEAN_OPERATOR_NOT+ " (" + ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing() + CypherSpecificConstants.ONE_WHITESPACE +
-					  CypherSpecificConstants.WHERE_OPERATOR_CONTAINS + " (" +  CypherSpecificConstants.CYPHER_QUOTATION_MARK + content.getValue() + 
-					  CypherSpecificConstants.CYPHER_QUOTATION_MARK + "))";		
+			String tempCypherPropertyAddressing = ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing();
+			if (!tempCypherPropertyAddressing.isEmpty()) {
+				if (option.getValue()) {
+					return tempCypherPropertyAddressing + CypherSpecificConstants.ONE_WHITESPACE +
+							  CypherSpecificConstants.WHERE_OPERATOR_CONTAINS + " (" + CypherSpecificConstants.CYPHER_QUOTATION_MARK + content.getValue() +
+							  CypherSpecificConstants.CYPHER_QUOTATION_MARK + ")";
+				} 
+				return  CypherSpecificConstants.BOOLEAN_OPERATOR_NOT+ " (" + tempCypherPropertyAddressing + CypherSpecificConstants.ONE_WHITESPACE +
+						  CypherSpecificConstants.WHERE_OPERATOR_CONTAINS + " (" +  CypherSpecificConstants.CYPHER_QUOTATION_MARK + content.getValue() + 
+						  CypherSpecificConstants.CYPHER_QUOTATION_MARK + "))";
+			}
+			throw new InvalidityException(CypherSpecificConstants.NO_VALID_PROPERTY_IS_ACCESSABLE);
 		}
-		throw new InvalidityException("Contains - invalid option");
+		throw new InvalidityException(Constants.INVALID_OPTION);
 	}
 	
 	@Override

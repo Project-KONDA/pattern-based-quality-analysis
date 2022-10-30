@@ -45,6 +45,8 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class FormulaImpl extends ConditionImpl implements Formula {
+	private static final String COND2_IS_NOT_GENERATING_A_VALID_QUERY = "Cond2 is not generating a valid query";
+	private static final String COND1_IS_NOT_GENERATING_A_VALID_QUERY = "Cond1 is not generating a valid query";
 	private static final String OPERATOR_NULL = "operator null";
 	private static final String INVALID_OPERATOR = "invalid operator";
 	private static final String INVALID_ARGUMENTS = "invalid arguments";
@@ -225,8 +227,14 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		if (this.operator != null) {
 			StringBuilder cypher = new StringBuilder();
 			if (this.condition1 != null && this.condition2 != null) {
-				String condition1Query = condition1.generateCypher();
-				String condition2Query = condition2.generateCypher();
+				final String condition1Query = condition1.generateCypher();
+				final String condition2Query = condition2.generateCypher();
+				if (condition1Query.isEmpty()) {
+					throw new InvalidityException(COND1_IS_NOT_GENERATING_A_VALID_QUERY);
+				} 
+				if (condition2Query.isEmpty()) {
+					throw new InvalidityException(COND2_IS_NOT_GENERATING_A_VALID_QUERY);
+				}
 				
 				//For cypher there are less Boolean Operators
 				switch (operator) {
@@ -268,8 +276,8 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 				throw new InvalidityException(INVALID_ARGUMENTS);
 			}
 			if (this.clamped) {
-				cypher.insert(0, "(");
-				cypher.append(")");
+				cypher.insert(0, CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
+				cypher.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
 			}
 			return cypher.toString();
 		}

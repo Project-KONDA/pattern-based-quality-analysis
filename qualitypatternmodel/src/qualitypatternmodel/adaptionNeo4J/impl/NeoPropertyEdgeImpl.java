@@ -37,6 +37,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * @generated
  */
 public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPropertyEdge {
+	private static final String NEO_PROPERTY_EDGE_NEEDS_A_NEO_PROPERTY_PATH_PARAM = "NeoPropertyEdge needs a NeoPropertyPathParam";
 	private static final String THERE_IS_NO_NEO_SIMPLE_EDGE_FOR_THE_TARGET_TYPE = "There is no NeoSimpleEdge for the target type";
 	/**
 	 * The cached value of the '{@link #getNeoPropertyPathParam() <em>Neo Property Path Param</em>}' reference.
@@ -69,13 +70,13 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 	//Translation of the neoPropertyEdge
 	@Override
 	public String generateCypher() throws InvalidityException {
-		String cypher = null; //Null will be returned because it is used as an indicator in the morphisems
+		String cypher = ""; //Null will be returned because it is used as an indicator in the morphisems
 		if (getIncomingMapping() == null) {
 			if(!translated && getNeoPropertyPathParam() != null) {
 				cypher = getNeoPropertyPathParam().generateCypher();
 				this.translated = true;
 			} else if (getNeoPropertyPathParam() == null){
-				throw new InvalidityException("NeoPropertyEdge needs a NeoPropertyPathParam");
+				throw new InvalidityException(NEO_PROPERTY_EDGE_NEEDS_A_NEO_PROPERTY_PATH_PARAM);
 			}
 		} 
 		return cypher;
@@ -148,7 +149,7 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 			NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) getOriginalRelation();
 			return neoPropertyEdge.generateCypherPropertyAddressing();
 		}
-		return null;
+		return "";
 	}
 	
 	/**
@@ -176,7 +177,7 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 				
 				return cypher;
 			}
-			return null;
+			return "";
 		}
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) getOriginalRelation();
 		return neoPropertyEdge.generateCypherNodeVariable();

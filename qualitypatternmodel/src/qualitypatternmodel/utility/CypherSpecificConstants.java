@@ -61,5 +61,5 @@ public class CypherSpecificConstants {
 	
 	//Cypher Specific Exception Messages
 	public static final String THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY = "The current version does not support this functionality";
-
+	public static final String NO_VALID_PROPERTY_IS_ACCESSABLE = "No valid Property is accessable";
 }

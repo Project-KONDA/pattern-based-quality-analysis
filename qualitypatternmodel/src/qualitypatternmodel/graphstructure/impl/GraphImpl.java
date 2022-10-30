@@ -271,7 +271,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		for (Relation innerEdges : node.getOutgoing()) {
 			cypherText = innerEdges.generateCypher();
 			//Checks for the morphisem. No Edge will be printed if it is from a previews graph
-			if (cypherText != null) { 
+			if (!cypherText.isEmpty()) { 
 				cypherEdge = new StringBuilder();
 				cypherEdge.append(cypher.toString());
 				

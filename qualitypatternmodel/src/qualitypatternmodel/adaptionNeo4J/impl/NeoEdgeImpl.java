@@ -65,7 +65,7 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 	
 	@Override
 	public String generateCypher() throws InvalidityException {
-		String cypher = null;
+		String cypher = "";
 		if (getIncomingMapping() == null) {
 			if(!translated && getNeoPathParam() != null) {
 				cypher = getNeoPathParam().generateCypher();

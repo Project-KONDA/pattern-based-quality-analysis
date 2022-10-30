@@ -114,7 +114,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		isNodeReturnable();	
 		if (getIncomingMapping() == null) {
 			final String temp = generateCypherNodeVariable();
-			String cypher = null;
+			String cypher = "";
 			if (temp != null) {
 				cypher = "(" + temp + ")";		
 				return cypher;
@@ -132,7 +132,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override
 	public String generateCypherPropertyAddressing() throws InvalidityException {
 		if (getIncomingMapping() == null) {
-			String cypher = null;
+			String cypher = "";
 			if (checkForValidIncoming()) {
 				NeoPropertyEdge edge = (NeoPropertyEdge) getIncoming().get(0);
 				if (edge.getNeoPropertyPathParam() == null || edge.getNeoPropertyPathParam().getNeoPropertyName() == null) {
@@ -188,7 +188,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	public String getCypherVariable() throws InvalidityException {
 		if (getIncomingMapping() == null) {	
 			final String temp = generateCypher();
-			String cypher = null;
+			String cypher = "";
 			if (temp != null) {
 				cypher = temp;
 				cypher = cypher.replace("(", "");

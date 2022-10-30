@@ -53,6 +53,7 @@ import qualitypatternmodel.parameters.impl.ParameterValueImpl;
 import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
@@ -73,6 +74,10 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
+	private static final String THE_SECOND_ARGUMENT_HAS_TO_BE_A_LIST = "The second Argument has to be a List";
+
+	private static final String AT_LEAST_ONE_OF_TWO_ARGUMENTS_IS_NOT_VALID = "At least one of two arguments is not valid";
+
 	/**
 	 * The cached value of the '{@link #getArgument1() <em>Argument1</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -290,16 +295,16 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	//Durch ein Operator Container könnten weitere Logik zur Verknüpfung ergänzt werden
 	@Override 
 	public String generateCypher() throws InvalidityException {
-//		if (neoInWhereClause()) {
+		if (option != null && option.getValue() != null && argument1 != null && argument2 != null) {
 			StringBuilder cypher = new StringBuilder();
 			final List<String> arguments = cypherArgumentCheckerAndConverter();
 			final String argument1Translation = arguments.get(0);
 			final String argument2Translation = arguments.get(1); 
 					
 			matchCypherOperators(cypher, argument1Translation, argument2Translation);
-			return cypher.toString(); 
-//		}	
-//		return "Test";
+			return cypher.toString();
+		} 
+		throw new InvalidityException(Constants.INVALID_OPTION);
 	}
 
 	private void matchCypherOperators(StringBuilder cypher, final String argument1Translation,
@@ -373,7 +378,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	private void generateCypherListComparison(final StringBuilder cypher, final String argument1Translation,
 			final String argument2Translation, final boolean negation) throws InvalidityException {
 		if (!(getArgument2() instanceof AbstractListParam)) {
-			throw new InvalidityException("Comparison - The second Argument has to be a List");	
+			throw new InvalidityException(THE_SECOND_ARGUMENT_HAS_TO_BE_A_LIST);	
 		}
 		if (!negation) {
 			cypher.append(argument1Translation);
@@ -447,9 +452,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			argument2Translation = ((NeoNode) getArgument2()).getCypherVariable(); 
 		}
 		
-		if (argument1Translation == null || argument2Translation == null || 
-				argument1Translation.isEmpty() || argument2Translation.isEmpty()) {
-			throw new InvalidityException("Comparison - At least one of two arguments is not valid");
+		if (argument1Translation.isEmpty() || argument2Translation.isEmpty()) {
+			throw new InvalidityException(AT_LEAST_ONE_OF_TWO_ARGUMENTS_IS_NOT_VALID);
 		}
 			
 		List<String> result = new ArrayList<String>();

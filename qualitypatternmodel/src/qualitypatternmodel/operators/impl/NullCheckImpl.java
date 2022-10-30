@@ -29,6 +29,7 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
@@ -200,14 +201,18 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 	public String generateCypher() throws InvalidityException {
 		if(option != null && primitiveNode != null) {
 			String cypher;
-			if (option.getValue()) {
-				cypher = ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing() + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_IS_NULL;
-			} else {
-				cypher = ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing() + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_IS_NOT_NULL;
-			}	
-			return cypher;
+			String tempCypherPropertyAddressing = ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing();
+			if (!tempCypherPropertyAddressing.isEmpty()) {
+				if (option.getValue()) {
+					cypher = tempCypherPropertyAddressing + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_IS_NULL;
+				} else {
+					cypher = tempCypherPropertyAddressing + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_IS_NOT_NULL;
+				}	
+				return cypher;
+			}
+			throw new InvalidityException(CypherSpecificConstants.NO_VALID_PROPERTY_IS_ACCESSABLE);
 		}
-		throw new InvalidityException("NullCheck - invalid option");
+		throw new InvalidityException(Constants.INVALID_OPTION);
 	}
 
 	@Override

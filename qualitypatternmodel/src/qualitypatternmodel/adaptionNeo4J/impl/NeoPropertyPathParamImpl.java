@@ -141,7 +141,7 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 	//Checks the diffrent Componentes of the PARAM --> Composite
 	@Override 
 	public String generateCypher() throws InvalidityException {
-		String cypher = null;
+		String cypher = "";
 		if (getNeoPathPart() != null) {
 			validateNeoPropertyEdge();
 			cypher = getNeoPathPart().generateCypher();
@@ -469,7 +469,7 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 		String result = String.format(NEO_PROPERTY_PATH_PARAM, getInternalId());
 		try {
 			String temp = generateCypher();
-			if (temp != null) {
+			if (!temp.isEmpty()) {
 				result += " " + generateCypher();
 			} else if (neoPropertyName != null) {
 				result += " " + getNeoPropertyEdge().generateCypherPropertyAddressing();

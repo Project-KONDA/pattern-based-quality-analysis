@@ -47,7 +47,8 @@ public class Constants {
 	public static final String PARAMETER_TYPE_COMPARISON = "ComparisonOption";
 	public static final String PARAMETER_TYPE_TYPE = "TypeOption";
 
-	
+	//Global Exception Messages
+	public static final String INVALID_OPTION = "invalid option";
 	
 	/**
 	 * Appends as many closing brackets to <code>str</code> as it contains opening brackets that are not yet closed.

@@ -32,6 +32,7 @@ import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
@@ -50,6 +51,8 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class MatchImpl extends BooleanOperatorImpl implements Match {
+	private static final String INVALID_OPTION = "invalid option";
+
 	/**
 	 * The cached value of the '{@link #getPrimitiveNode() <em>Primitive Node</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -101,7 +104,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 				return primitiveNode.generateXQuery() + "not(matches(., \"" + regularExpression.getValue() + "\"))";
 			}	
 		} else {
-			throw new InvalidityException("invalid option");
+			throw new InvalidityException(INVALID_OPTION);
 		}
 	}
 	
@@ -114,21 +117,25 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 				return "\nFILTER (!regex(" + primitiveNode.generateSparql() + ", " + regularExpression.generateSparql() + "))";
 			}	
 		} else {
-			throw new InvalidityException("invalid option");
+			throw new InvalidityException(INVALID_OPTION);
 		}
 	}
 	
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		if(option != null && regularExpression != null && regularExpression.getValue() != null && primitiveNode != null) {
-			if (option.getValue()) {
-				return ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing() + " " + CypherSpecificConstants.SPECIAL_CYPHER_REGEX_EXPRESSION 
-						+ " " + regularExpression.generateCypher();
-			} 
-			return CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " (" + ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing()
-					+ " " +	CypherSpecificConstants.SPECIAL_CYPHER_REGEX_EXPRESSION + " " + regularExpression.generateCypher() + ")";
+			String tempCypherPropertyAddressing = ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing();
+			if (!tempCypherPropertyAddressing.isEmpty()) {				
+				if (option.getValue()) {
+					return tempCypherPropertyAddressing + " " + CypherSpecificConstants.SPECIAL_CYPHER_REGEX_EXPRESSION 
+							+ " " + regularExpression.generateCypher();
+				} 
+				return CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " (" + tempCypherPropertyAddressing
+						+ " " +	CypherSpecificConstants.SPECIAL_CYPHER_REGEX_EXPRESSION + " " + regularExpression.generateCypher() + ")";
+			}
+			throw new InvalidityException(CypherSpecificConstants.NO_VALID_PROPERTY_IS_ACCESSABLE);
 		}
-		throw new InvalidityException("Match - invalid option");
+		throw new InvalidityException(Constants.INVALID_OPTION);
 	}
 	
 	@Override

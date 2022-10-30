@@ -217,7 +217,13 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	}
 
 	private boolean checkForNeoPropertyNode(NeoInterfaceNode countElement) {
-		return countElement instanceof NeoPropertyNode && ((NeoPropertyEdge)((NeoPropertyNode) countElement).getIncoming().get(0)).getNeoPropertyPathParam() != null && ((NeoPropertyEdge)((NeoPropertyNode) countElement).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() == null;
+		boolean result = false;
+		try {
+			result = countElement instanceof NeoPropertyNode && ((NeoPropertyEdge)((NeoPropertyNode) countElement).getIncoming().get(0)).getNeoPropertyPathParam() != null && ((NeoPropertyEdge)((NeoPropertyNode) countElement).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() == null;
+		} catch (Exception e) {
+			result = false;
+		}
+		return result;
 	}
 	
 	//Needs refactoring --> Get all return elements from the original Graph and puts it into the WITH except properties - This can be accessed as long as the Node is in the with

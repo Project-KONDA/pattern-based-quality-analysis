@@ -76,7 +76,11 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	
 	@Override
 	public String generateCypher() throws InvalidityException {
-		return getNumberParam().generateCypher();
+		try {
+			return getNumberParam().generateCypher();
+		} catch (Exception e) {
+			throw new InvalidityException(e.getMessage());
+		}
 	}
 	
 	@Override

@@ -211,7 +211,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	@Override
 	public String generateCypher() throws InvalidityException {
 		String matchClause = graph.generateCypher();
-		if(matchClause != null) {
+		if(!matchClause.isEmpty()) {
 			matchClause = CypherSpecificConstants.CLAUSE_MATCH + " "  + matchClause;
 		} else {
 			throw new InvalidityException(A_CYPHER_QUERY_NEED_A_MATCH_CLAUSE);		
@@ -219,7 +219,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		
 		String whereClause = "";
 		String tempWhere = graph.generateCypherWhere();
-		if (tempWhere != null) {
+		if (!tempWhere.isEmpty()) {
 			whereClause = tempWhere;
 		}
 		

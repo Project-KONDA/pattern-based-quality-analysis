@@ -42,6 +42,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class NotConditionImpl extends ConditionImpl implements NotCondition {
+	private static final String NO_VALID_QUERY_IS_GENERATED = "No valid query is generated";
 	private static final String CYPHER_CLOSING_BRACKET = ")";
 	private static final String CYPHER_OPEN_BRAKET = " (";
 	private static final String INVALID_CONDITION = "Invalid condition";
@@ -116,14 +117,18 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 		}
 		
 		if (!(condition == null || condition instanceof TrueElement)) {
-			String result = null;
+			String cypher = "";
 			if (condition instanceof NotCondition) {
 				return ((NotCondition) condition).getCondition().generateCypher();
 			}
 			
-			result = CypherSpecificConstants.BOOLEAN_OPERATOR_NOT;
-			result += CYPHER_OPEN_BRAKET + condition.generateCypher() + CYPHER_CLOSING_BRACKET;
-			return result;	
+			cypher = CypherSpecificConstants.BOOLEAN_OPERATOR_NOT;
+			final String temp = condition.generateCypher();
+			if (temp.isEmpty()) {
+				throw new InvalidityException(NO_VALID_QUERY_IS_GENERATED);
+			}
+			cypher += CYPHER_OPEN_BRAKET + temp + CYPHER_CLOSING_BRACKET;
+			return cypher;	
 		}
 		throw new InvalidityException(INVALID_CONDITION);
 	}
