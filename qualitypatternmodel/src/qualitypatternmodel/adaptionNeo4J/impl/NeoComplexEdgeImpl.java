@@ -42,7 +42,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	private static final String CONTAINS_NOT_ENOUGH_NEO_PATH_PARTS = " contains not enough NeoPathParts";
 	private static final String NEO_COMPLEX_PATH = "NeoComplexPath ";
 	private static final String NEO_COMPLEX_PATH_CONTAINS_NOT_ENOUGH_NEO_PATH_PARTS = NEO_COMPLEX_PATH + "%s" + CONTAINS_NOT_ENOUGH_NEO_PATH_PARTS;
-	private static final String TO_LESS_PRIMITIVE_EDGES_AT_LEAST_2 = "To less Primitive Edges - At least 2";
+	private static final String TO_LESS_PRIMITIVE_EDGES_AT_LEAST_2 = NOT_A_VALID_COMPLEX_EDGE + " - To less Primitive Edges - At least 2";
 	/**
 	 * The cached value of the '{@link #getNeoPathPart() <em>Neo Path Part</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -81,19 +81,15 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	//GETS ALL INNER EDGES ALIASES 
 	@Override
 	public String getCypherVariable() throws InvalidityException {
-		try {
-			validateComplexEdge();
-			
-			StringBuilder variables = new StringBuilder();
-			EList<NeoPathPart> neoPath = this.getNeoPathPartEdgeLeafs();
-			for(NeoPathPart path : neoPath) {
-				if (variables.length() != 0) variables.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE); 
-				variables.append(path.getCypherVariable());
-			}
-			return variables.toString();
-		} catch (Exception e) {
-			throw new InvalidityException(NOT_A_VALID_COMPLEX_EDGE);
+		validateComplexEdge();
+		
+		StringBuilder variables = new StringBuilder();
+		EList<NeoPathPart> neoPath = this.getNeoPathPartEdgeLeafs();
+		for(NeoPathPart path : neoPath) {
+			if (variables.length() != 0) variables.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE); 
+			variables.append(path.getCypherVariable());
 		}
+		return variables.toString();
 	}
 	
 	
@@ -401,6 +397,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	
 	//Check that no chain is build --> Or maybe needs not to be implemented?
 	//For resetting the counting if a ComplexEdge has been created at the same time as an other Complex Edge but is in his container
+	//Improve that the setNeoComplexEdge does not allow to set a NeoComplexEdge below or the same!
 	@Override
 	public void setNeoComplexEdge(NeoComplexEdge newNeoComplexEdge) {
 		boolean isAHighLogicalContainer = true;

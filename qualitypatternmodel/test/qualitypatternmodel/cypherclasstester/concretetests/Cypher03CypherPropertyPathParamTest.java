@@ -231,7 +231,8 @@ public class Cypher03CypherPropertyPathParamTest extends NeoAbstractPathParamTes
 	@Test
 	@Override
 	public void createParameters() {
-		assertThrows(UnsupportedOperationException.class, () -> neoAbstractPathParam.createParameters());
+		neoAbstractPathParam.createParameters();
+		assertTrue(neoPropertyPathParam.getNeoPathPart() instanceof NeoSimpleEdge);
 	}
 
 	@Override

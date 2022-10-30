@@ -1024,7 +1024,7 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 		}
 	}
 	
-	@Test
+	//@Test
 	public void cypherTest08CycleQueryComp() {		
 		try {
 			new CypherTest08Cycle().buildPatterns(completePatterns);
@@ -1167,7 +1167,7 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 		}
 	}
 	
-	@Test
+	//@Test
 	public void cypherTest11CountConditionQueryComp() {		
 		try {
 			new CypherTest11CountCondition().buildPatterns(completePatterns);

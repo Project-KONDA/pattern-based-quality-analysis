@@ -39,8 +39,8 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
  * @generated
  */
 public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implements NeoPropertyPathParam {
-	private static final String NEO_PROPERTY_EDGE_TARGET_NODES_CAN_NOT_BE_NULL = "NeoPropertyEdge - TargetNodes can not be null";
-	private static final String NEO_PROPERTY_EDGE_LAST_EDGE_HAS_TO_BE_SET = "NeoPropertyEdge - Last Edge has to be set";
+	private static final String NEO_PROPERTY_EDGE_TARGET_NODES_CAN_NOT_BE_NULL = "TargetNodes can not be null";
+	private static final String NEO_PROPERTY_EDGE_LAST_EDGE_HAS_TO_BE_SET = "Last Edge has to be set";
 	private static final String NEO_PROPERTY_PATH_PARAM = "NeoPropertyPathParam [%s]";
 
 	/**
@@ -183,6 +183,17 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 		
 	private void targetNodesCanNotBeNull() throws InvalidityException {
 		throw new InvalidityException(NEO_PROPERTY_EDGE_TARGET_NODES_CAN_NOT_BE_NULL);
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void createParameters() {
+		NeoSimpleEdgeImpl nse = new NeoSimpleEdgeImpl();
+		setNeoPathPart(nse);
 	}
 	
 	/**

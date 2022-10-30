@@ -64,7 +64,7 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 	 */
 	protected NeoPathParamImpl() {
 		super();
-		setNeoPathPart(new NeoSimpleEdgeImpl());
+		createParameters();
 	}
 
 	// --> Specific behaviour which can not be necessarily generalised

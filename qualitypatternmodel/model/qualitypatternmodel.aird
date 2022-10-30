@@ -4,7 +4,7 @@
     <semanticResources>qualitypatternmodel.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_A2WtQB2REeqrGqxc7qjo8A">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name=" class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="5ceb6e16-ee3b-40c3-a769-fc10742dc6f3">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name=" class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="02689690-1978-42c8-ab21-cb2e954373ab">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="qualitypatternmodel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -3056,7 +3056,22 @@
               <styles xmi:type="notation:TextStyle" xmi:id="_T5XoQ1YgEe2DJv-qf6Z-nw" textAlignment="Center"/>
               <styles xmi:type="notation:LineTypeStyle" xmi:id="_T5XoRFYgEe2DJv-qf6Z-nw"/>
               <element xsi:nil="true"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_T5XoRVYgEe2DJv-qf6Z-nw" x="720" y="718" width="203"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_T5XoRVYgEe2DJv-qf6Z-nw" x="695" y="728" width="203"/>
+            </children>
+            <children xmi:type="notation:Shape" xmi:id="_wUDjQFesEe2EYv074aQ3WA" type="Note" fontName="Segoe UI" description="Sollte nicht die Assoziation zum NeoAbstractPathParam gehen?" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_wUDjQVesEe2EYv074aQ3WA" source="specificStyles">
+                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_wUDjQlesEe2EYv074aQ3WA" key="verticalAlignment" value="8"/>
+              </eAnnotations>
+              <children xmi:type="notation:BasicDecorationNode" xmi:id="_wUExYFesEe2EYv074aQ3WA" type="DiagramName">
+                <element xsi:nil="true"/>
+              </children>
+              <children xmi:type="notation:BasicDecorationNode" xmi:id="_wUExYVesEe2EYv074aQ3WA" type="Description">
+                <element xsi:nil="true"/>
+              </children>
+              <styles xmi:type="notation:TextStyle" xmi:id="_wUDjQ1esEe2EYv074aQ3WA" textAlignment="Center"/>
+              <styles xmi:type="notation:LineTypeStyle" xmi:id="_wUDjRFesEe2EYv074aQ3WA"/>
+              <element xsi:nil="true"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wUDjRVesEe2EYv074aQ3WA" x="630" y="638" width="152"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_TKib4gLoEe2GF_6PqNgKEg"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_TKib4wLoEe2GF_6PqNgKEg"/>
@@ -6030,7 +6045,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1CXdkSkqEe2Wp4Cnfy4wfg" x="67" y="-10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_1CYrsCkqEe2Wp4Cnfy4wfg" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1CYrsSkqEe2Wp4Cnfy4wfg" x="125" y="-11"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1CYrsSkqEe2Wp4Cnfy4wfg" x="123" y="2"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_1CZSwCkqEe2Wp4Cnfy4wfg" type="6003">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1CZSwSkqEe2Wp4Cnfy4wfg" x="10" y="-68"/>
