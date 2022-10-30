@@ -72,7 +72,7 @@ public class Cypher02NeoPropertyEdgeTest extends NeoAbstractEdgeTest {
 	public void generateCypherPropertyAddressing() {
 		try {
 			//if no neoPropertyPathParam is set return null
-			assertEquals(null, neoPropertyEdge.generateCypherPropertyAddressing());
+			assertEquals("", neoPropertyEdge.generateCypherPropertyAddressing());
 			
 			//Source Node is not set && The case if no neoPropertyPathParam is set
 			NeoPropertyPathParamImpl propertyName = (NeoPropertyPathParamImpl) FACTORY.createNeoPropertyPathParam();
@@ -117,7 +117,7 @@ public class Cypher02NeoPropertyEdgeTest extends NeoAbstractEdgeTest {
 	public void generateCypherNodeVariable() {
 		try {
 			//if no neoPropertyPathParam is set return null
-			assertEquals(null, neoPropertyEdge.generateCypherNodeVariable());
+			assertEquals("", neoPropertyEdge.generateCypherNodeVariable());
 		
 			//Get the NodeName from source		
 			NeoNodeImpl mockNeoNodeImpl = Mockito.mock(NeoNodeImpl.class);
@@ -194,7 +194,7 @@ public class Cypher02NeoPropertyEdgeTest extends NeoAbstractEdgeTest {
 			f.set(neoPropertyEdge, mockNeoPropertyPathParam);
 			assumeNotNull(neoPropertyEdge.getNeoPropertyPathParam());
 			assertTrue(neoAbstractEdge.generateCypher().compareTo(VAR_EDGE1_CLAMPED) == 0);
-			assertEquals(null, neoAbstractEdge.generateCypher());
+			assertEquals("", neoAbstractEdge.generateCypher());
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);

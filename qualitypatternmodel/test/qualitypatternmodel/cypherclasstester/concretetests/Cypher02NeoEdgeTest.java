@@ -95,7 +95,7 @@ public class Cypher02NeoEdgeTest extends NeoAbstractEdgeTest {
 			f.set(neoEdge, mockNeoPathParam);
 			assumeNotNull(neoEdge.getNeoPathParam());
 			assertTrue(neoAbstractEdge.generateCypher().compareTo(VAR_EDGE1_CLAMPED) == 0);
-			assertEquals(null, neoAbstractEdge.generateCypher());
+			assertEquals("", neoAbstractEdge.generateCypher());
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);

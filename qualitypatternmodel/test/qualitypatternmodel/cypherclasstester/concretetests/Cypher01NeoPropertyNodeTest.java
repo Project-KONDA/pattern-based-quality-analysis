@@ -88,9 +88,9 @@ public class Cypher01NeoPropertyNodeTest extends NeoAbstractNodeTest {
 	}
 	
 	@Test
-	public void generateCypherPropertyAddressingNullReturn() {
+	public void generateCypherPropertyAddressingEmptyReturn() {
 		try {
-			String propertyAddress = null;
+			String propertyAddress = "";
 			Field field = getIncomingField();
 			EList<Relation> relations = new BasicEList<Relation>();
 			relations.add(null);
@@ -120,7 +120,7 @@ public class Cypher01NeoPropertyNodeTest extends NeoAbstractNodeTest {
 			rList.add(neoPropertyEdge);
 			field.set(neoPropertyNode, rList);
 			
-			Class obj = NeoPropertyNodeImpl.class;
+			Class<NeoPropertyNodeImpl> obj = NeoPropertyNodeImpl.class;
 			Method m = obj.getDeclaredMethod("isNodeReturnable", null);
 			m.setAccessible(true);
 			assertDoesNotThrow(() -> m.invoke(neoPropertyNode));
@@ -146,11 +146,11 @@ public class Cypher01NeoPropertyNodeTest extends NeoAbstractNodeTest {
 	public void isNodeReturnableNot() {
 		try {
 			NeoPropertyNode localNode = neoPropertyNode;
-			Class obj = NeoPropertyNodeImpl.class;
+			Class<NeoPropertyNodeImpl> obj = NeoPropertyNodeImpl.class;
 			Method m = obj.getDeclaredMethod("isNodeReturnable", null);
 			m.setAccessible(true);
 			Field field = getIncomingField();
-			field.set(localNode, (EList) null);
+			field.set(localNode, (EList<?>) null);
 //			checkForInvalidityExceptionInReflation(localNode, m); //Exception is not thrown because no List --> Check why
 			EList<Relation> rList = new BasicEList<Relation>();
 			rList.add(FACTORY.createNeoPropertyEdge());
@@ -178,7 +178,7 @@ public class Cypher01NeoPropertyNodeTest extends NeoAbstractNodeTest {
 	@Test
 	public void isNodeReturnableNotBecauseNoNeoPathPart() {
 		try {
-			Class obj = NeoPropertyNodeImpl.class;
+			Class<NeoPropertyNodeImpl> obj = NeoPropertyNodeImpl.class;
 			Method m = obj.getDeclaredMethod("isNodeReturnable", null);
 			m.setAccessible(true);
 			
@@ -224,7 +224,7 @@ public class Cypher01NeoPropertyNodeTest extends NeoAbstractNodeTest {
 		assertThrows(InvalidityException.class, () -> neoPropertyNode.generateCypherNodeVariable());
 		try {
 			Field field = getIncomingField();
-			field.set(neoPropertyNode, (EList) null);
+			field.set(neoPropertyNode, (EList<?>) null);
 			//Something does not work here
 			assertThrows(InvalidityException.class, () -> neoPropertyNode.generateCypherNodeVariable());
 		} catch (Exception e) {
@@ -241,7 +241,7 @@ public class Cypher01NeoPropertyNodeTest extends NeoAbstractNodeTest {
 			Field field = getIncomingField();
 			EList<Relation> rList = new BasicEList<Relation>();
 			rList.add(new RelationImpl());
-			field.set(neoPropertyNode, (EList) rList);
+			field.set(neoPropertyNode, (EList<Relation>) rList);
 			assertThrows(InvalidityException.class, () -> neoPropertyNode.generateCypherNodeVariable());
 		} catch (Exception e) {
 			System.out.println(e);
@@ -250,7 +250,7 @@ public class Cypher01NeoPropertyNodeTest extends NeoAbstractNodeTest {
 	}
 
 	private Field getIncomingField() throws NoSuchFieldException {
-		Class obj = NodeImpl.class;			
+		Class<NodeImpl> obj = NodeImpl.class;			
 		Field field = obj.getDeclaredField("incoming");
 		field.setAccessible(true);
 		return field;

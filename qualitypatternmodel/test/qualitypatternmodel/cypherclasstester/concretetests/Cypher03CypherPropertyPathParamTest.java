@@ -6,11 +6,9 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assume.assumeNotNull;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import org.eclipse.emf.common.util.BasicEList;
@@ -23,13 +21,10 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
-import qualitypatternmodel.adaptionNeo4J.impl.NeoPathParamImpl;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyEdgeImpl;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyPathParamImpl;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl;
@@ -210,7 +205,7 @@ public class Cypher03CypherPropertyPathParamTest extends NeoAbstractPathParamTes
 	public void generateCypher() {
 		try {
 			//If nothing is set
-			assertEquals(null, super.neoAbstractPathParam.generateCypher());
+			assertEquals("", super.neoAbstractPathParam.generateCypher());
 			
 			//If NeoPathParts are set
 			buildMockSimpleEdge();
