@@ -54,7 +54,7 @@ public class CypherTest02Return extends CypherAbstractTranslation {
 		NeoNode complexNode2 = (NeoNode) compltePattern.getGraph().getNodes().get(1);
 		NeoPropertyNode neoPropertyNode = (NeoPropertyNode) compltePattern.getGraph().getNodes().get(2);
 		
-		complexNode1.setNodePlace(NeoPlace.BEGINNING);
+		complexNode1.setNeoPlace(NeoPlace.BEGINNING);
 		complexNode1.addLabel("Regesta");
 		complexNode2.setReturnNode(true);
 		complexNode2.addLabel("Regesta");
@@ -107,7 +107,7 @@ public class CypherTest02Return extends CypherAbstractTranslation {
 		
 		//Nodes
 		NeoNode complexNode1 = (NeoNode) compltePattern.getGraph().getNodes().get(0);
-		complexNode1.setNodePlace(NeoPlace.BEGINNING);
+		complexNode1.setNeoPlace(NeoPlace.BEGINNING);
 		complexNode1.setReturnNode(false);
 		
 		return compltePattern;
@@ -118,7 +118,7 @@ public class CypherTest02Return extends CypherAbstractTranslation {
 		CompletePattern compltePattern = CypherTest02Return.getBasePatternReturn();
 		compltePattern.createNeo4jAdaption();
 		NeoNode complexNode1 = (NeoNode) compltePattern.getGraph().getNodes().get(0);
-		complexNode1.setNodePlace(NeoPlace.BEGINNING);
+		complexNode1.setNeoPlace(NeoPlace.BEGINNING);
 		
 		NeoPropertyNode neoPropertyNode = (NeoPropertyNode) compltePattern.getGraph().getNodes().get(2);
 		neoPropertyNode.setReturnNode(true);

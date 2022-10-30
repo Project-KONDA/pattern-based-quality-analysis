@@ -77,7 +77,7 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		pattern.createNeo4jAdaption();
 		NeoNode neoNode = (NeoNode) pattern.getGraph().getNodes().get(0);
-		neoNode.setNodePlace(NeoPlace.BEGINNING);
+		neoNode.setNeoPlace(NeoPlace.BEGINNING);
 		neoNode.addLabel("Regesta");
 		
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) pattern.getGraph().getRelations().get(0);
@@ -98,7 +98,7 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 		
 		pattern.createNeo4jAdaption();
 		NeoNode neoNode = (NeoNode) pattern.getGraph().getNodes().get(0);
-		neoNode.setNodePlace(NeoPlace.BEGINNING);
+		neoNode.setNeoPlace(NeoPlace.BEGINNING);
 		neoNode.addLabel("Regesta");
 		
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) pattern.getGraph().getRelations().get(0);
@@ -134,7 +134,7 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 		
 		pattern.createNeo4jAdaption();
 		NeoNode neoNode = (NeoNode) pattern.getGraph().getNodes().get(0);
-		neoNode.setNodePlace(NeoPlace.BEGINNING);
+		neoNode.setNeoPlace(NeoPlace.BEGINNING);
 		neoNode.addLabel("Regesta");
 		
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) pattern.getGraph().getRelations().get(0);
@@ -167,7 +167,7 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 		
 		pattern.createNeo4jAdaption();
 		NeoNode neoNode = (NeoNode) pattern.getGraph().getNodes().get(0);
-		neoNode.setNodePlace(NeoPlace.BEGINNING);
+		neoNode.setNeoPlace(NeoPlace.BEGINNING);
 		neoNode.addLabel("Regesta");
 		
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) pattern.getGraph().getRelations().get(0);
@@ -194,7 +194,7 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 		
 		pattern.createNeo4jAdaption();
 		NeoNode neoNode = (NeoNode) pattern.getGraph().getNodes().get(0);
-		neoNode.setNodePlace(NeoPlace.BEGINNING);
+		neoNode.setNeoPlace(NeoPlace.BEGINNING);
 		neoNode.addLabel("Regesta");
 		
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) pattern.getGraph().getRelations().get(0);

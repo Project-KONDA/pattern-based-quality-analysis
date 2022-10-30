@@ -101,7 +101,7 @@ public class CypherTest04Formula extends CypherAbstractTranslation {
 		
 		
 		neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(0);
-		neoNode.setNodePlace(NeoPlace.BEGINNING);
+		neoNode.setNeoPlace(NeoPlace.BEGINNING);
 		
 		neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(2);
 		neoNode.addLabel("Place");
@@ -113,7 +113,7 @@ public class CypherTest04Formula extends CypherAbstractTranslation {
 		
 		
 		neoNode = (NeoNode) quantifiedCond2.getGraph().getNodes().get(0);
-		neoNode.setNodePlace(NeoPlace.BEGINNING);
+		neoNode.setNeoPlace(NeoPlace.BEGINNING);
 		
 		neoNode = (NeoNode) quantifiedCond2.getGraph().getNodes().get(2);
 		neoNode.addLabel("IndexEntry");
@@ -166,7 +166,7 @@ public class CypherTest04Formula extends CypherAbstractTranslation {
 		
 		
 		neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(0);
-		neoNode.setNodePlace(NeoPlace.BEGINNING);
+		neoNode.setNeoPlace(NeoPlace.BEGINNING);
 		neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(2);
 		neoNode.addLabel("IndexPlace");
 		neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(1);
@@ -177,7 +177,7 @@ public class CypherTest04Formula extends CypherAbstractTranslation {
 		
 		
 		neoNode = (NeoNode) quantifiedCond2.getGraph().getNodes().get(0);
-		neoNode.setNodePlace(NeoPlace.BEGINNING);
+		neoNode.setNeoPlace(NeoPlace.BEGINNING);
 
 		neoNode = (NeoNode) quantifiedCond2.getGraph().getNodes().get(2);
 		neoNode.addLabel("Regesta");

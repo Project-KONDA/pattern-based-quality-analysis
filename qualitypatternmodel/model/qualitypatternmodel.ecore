@@ -1236,7 +1236,7 @@
         interface="true" eSuperTypes="#//adaptionNeo4J/NeoInterfaceElement">
       <eOperations name="getCypherVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodePlace" eType="#//adaptionNeo4J/NeoPlace"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="neoPlace" eType="#//adaptionNeo4J/NeoPlace"
           defaultValueLiteral="FOLLOWING"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isVariableDistinctInUse"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"

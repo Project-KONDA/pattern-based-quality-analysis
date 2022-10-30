@@ -75,7 +75,7 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 		neoPropertyEdge.getNeoPropertyPathParam().setNeoPropertyName("origPlaceOfIssue");
 		
 		NeoPropertyNode neoPropertyNode = (NeoPropertyNode) quantifiedCond.getGraph().getNodes().get(1);
-		neoPropertyNode.setNodePlace(NeoPlace.BEGINNING);
+		neoPropertyNode.setNeoPlace(NeoPlace.BEGINNING);
 		
 		return completePattern;	
 	}
@@ -120,13 +120,13 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 		neoPropertyEdge.getNeoPropertyPathParam().setNeoPropertyName("origPlaceOfIssue");
 		
 		NeoPropertyNode neoPropertyNode = (NeoPropertyNode) quantifiedCond.getGraph().getNodes().get(1);
-		neoPropertyNode.setNodePlace(NeoPlace.BEGINNING);
+		neoPropertyNode.setNeoPlace(NeoPlace.BEGINNING);
 		
 		neoPropertyNode = (NeoPropertyNode) quantifiedCond.getGraph().getNodes().get(2);
-		neoPropertyNode.setNodePlace(NeoPlace.BEGINNING);
+		neoPropertyNode.setNeoPlace(NeoPlace.BEGINNING);
 		
 		neoPropertyNode = (NeoPropertyNode) quantifiedCond.getGraph().getNodes().get(3);
-		neoPropertyNode.setNodePlace(NeoPlace.BEGINNING);
+		neoPropertyNode.setNeoPlace(NeoPlace.BEGINNING);
 		
 		return completePattern;	
 	}

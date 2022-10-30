@@ -365,7 +365,7 @@ public class CypherTest01NeoEdge extends CypherAbstractTranslation {
 		CompletePattern completePattern = CypherAbstractTranslation.getBasePatternComplex();
 		completePattern.createNeo4jAdaption();
 		NeoNode neoNode  = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.setNodePlace(NeoPlace.FOLLOWING);
+		neoNode.setNeoPlace(NeoPlace.FOLLOWING);
 		
 		return completePattern;
 	}

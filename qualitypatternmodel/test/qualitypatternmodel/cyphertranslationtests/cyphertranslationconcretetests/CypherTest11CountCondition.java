@@ -169,7 +169,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 		CountPatternImpl countPatternImpl = (CountPatternImpl) countCond.getCountPattern();
 		countPatternImpl.addCountElementNode((NeoInterfaceNode) completePattern.getGraph().getNodes().get(1));				
 		
-		((NeoNode) countPatternImpl.getGraph().getNodes().get(0)).setNodePlace(NeoPlace.BEGINNING);
+		((NeoNode) countPatternImpl.getGraph().getNodes().get(0)).setNeoPlace(NeoPlace.BEGINNING);
 		
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
@@ -206,7 +206,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 		((ComplexNode) countPatternImpl.getGraph().getNodes().get(1)).setReturnNode(true);
 		((NeoEdgeImpl) countPatternImpl.getGraph().getRelations().get(1)).setIsReturnElement(true);		
 		
-		((NeoNode) countPatternImpl.getGraph().getNodes().get(0)).setNodePlace(NeoPlace.BEGINNING);
+		((NeoNode) countPatternImpl.getGraph().getNodes().get(0)).setNeoPlace(NeoPlace.BEGINNING);
 		((NeoNode) completePattern.getGraph().getNodes().get(0)).addLabel("Regesta");
 		((NeoNode) completePattern.getGraph().getNodes().get(1)).addLabel("IndexPlace");
 		((NeoNode) countCond.getCountPattern().getGraph().getNodes().get(2)).addLabel("IndexPerson");
@@ -376,7 +376,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 	private static void setCountConditionBeginning(CountCondition countCond, int ix) {
 		Graph g = countCond.getCountPattern().getGraph();
 		NeoNode neoNode = (NeoNode) g.getNodes().get(ix);
-		neoNode.setNodePlace(NeoPlace.BEGINNING);
+		neoNode.setNeoPlace(NeoPlace.BEGINNING);
 	}	
 }
 

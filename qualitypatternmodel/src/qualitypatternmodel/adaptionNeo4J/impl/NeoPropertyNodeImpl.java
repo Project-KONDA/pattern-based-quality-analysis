@@ -61,7 +61,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 * @generated
 	 * @ordered
 	 */
-	protected NeoPlace nodePlace = NODE_PLACE_EDEFAULT;
+	protected NeoPlace neoPlace = NODE_PLACE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isIsVariableDistinctInUse() <em>Is Variable Distinct In Use</em>}' attribute.
@@ -260,7 +260,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__NODE_PLACE:
-				setNodePlace((NeoPlace)newValue);
+				setNeoPlace((NeoPlace)newValue);
 				return;
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE:
 				setIsVariableDistinctInUse((Boolean)newValue);
@@ -281,7 +281,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__NODE_PLACE:
-				setNodePlace(NODE_PLACE_EDEFAULT);
+				setNeoPlace(NODE_PLACE_EDEFAULT);
 				return;
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE:
 				setIsVariableDistinctInUse(IS_VARIABLE_DISTINCT_IN_USE_EDEFAULT);
@@ -302,7 +302,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__NODE_PLACE:
-				return nodePlace != NODE_PLACE_EDEFAULT;
+				return neoPlace != NODE_PLACE_EDEFAULT;
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE:
 				return isVariableDistinctInUse != IS_VARIABLE_DISTINCT_IN_USE_EDEFAULT;
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__RETURN_PROPERTY:
@@ -413,7 +413,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 */
 	@Override
 	public NeoPlace getNodePlace() {
-		return nodePlace;
+		return neoPlace;
 	}
 
 	/**
@@ -422,11 +422,11 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 * @generated
 	 */
 	@Override
-	public void setNodePlace(NeoPlace newNodePlace) {
-		NeoPlace oldNodePlace = nodePlace;
-		nodePlace = newNodePlace == null ? NODE_PLACE_EDEFAULT : newNodePlace;
+	public void setNeoPlace(NeoPlace newNodePlace) {
+		NeoPlace oldNodePlace = neoPlace;
+		neoPlace = newNodePlace == null ? NODE_PLACE_EDEFAULT : newNodePlace;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PROPERTY_NODE__NODE_PLACE, oldNodePlace, nodePlace));
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PROPERTY_NODE__NODE_PLACE, oldNodePlace, neoPlace));
 	}
 
 	/**
@@ -551,7 +551,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (nodePlace: ");
-		result.append(nodePlace);
+		result.append(neoPlace);
 		result.append(", isVariableDistinctInUse: ");
 		result.append(isVariableDistinctInUse);
 		result.append(", returnProperty: ");

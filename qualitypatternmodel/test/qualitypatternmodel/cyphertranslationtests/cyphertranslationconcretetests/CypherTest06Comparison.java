@@ -96,10 +96,10 @@ public class CypherTest06Comparison extends CypherAbstractTranslation {
 		
 		completePattern.createNeo4jAdaption();
 		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.setNodePlace(NeoPlace.BEGINNING); 
+		neoNode.setNeoPlace(NeoPlace.BEGINNING); 
 		
 		neoNode = (NeoNode) completePattern.getGraph().getNodes().get(2);
-		neoNode.setNodePlace(NeoPlace.BEGINNING);
+		neoNode.setNeoPlace(NeoPlace.BEGINNING);
 		
 		return completePattern;
 	}

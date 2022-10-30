@@ -32,7 +32,7 @@ public interface NeoInterfaceNode extends NeoInterfaceElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Node Place</em>' attribute.
 	 * @see qualitypatternmodel.adaptionNeo4J.NeoPlace
-	 * @see #setNodePlace(NeoPlace)
+	 * @see #setNeoPlace(NeoPlace)
 	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoInterfaceNode_NodePlace()
 	 * @model default="FOLLOWING"
 	 * @generated
@@ -48,7 +48,7 @@ public interface NeoInterfaceNode extends NeoInterfaceElement {
 	 * @see #getNodePlace()
 	 * @generated
 	 */
-	void setNodePlace(NeoPlace value);
+	void setNeoPlace(NeoPlace value);
 
 	/**
 	 * Returns the value of the '<em><b>Is Variable Distinct In Use</b></em>' attribute.

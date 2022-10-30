@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
@@ -30,6 +31,7 @@ import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.operators.impl.OperatorImpl;
@@ -803,14 +805,34 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 
 	private void findNeo4JBeginnings(PatternElement patternElement) {
 		CompletePattern completePattern = (CompletePattern) patternElement;
-		NeoNode neoNode;
-		for (Node node : completePattern.getGraph().getNodes()) {
-			if (node instanceof NeoNode) {
-				neoNode = (NeoNode) node;
-				if (neoNode.getIncoming().size() == 0 && neoNode.getIncomingMapping() == null) {
-					neoNode.setNodePlace(NeoPlace.BEGINNING);
+		EList<NeoNode> remainingNeoNodes = new BasicEList<NeoNode>();
+		if (completePattern.getGraph().getNodes().size() != 0) {
+			NeoNode neoNode;
+			for (Node node : completePattern.getGraph().getNodes()) {
+				if (node instanceof NeoNode) {
+					neoNode = (NeoNode) node;
+					if (neoNode.getIncoming().size() == 0 && neoNode.getIncomingMapping() == null) {
+						neoNode.setNeoPlace(NeoPlace.BEGINNING);
+					} else if (neoNode.getIncomingMapping() == null) {
+						remainingNeoNodes.add(neoNode);
+					}
 				}
 			}
+			completePattern = null;
+			neoNode = null;
+		}
+//		if (remainingNeoNodes.size() != 0) {
+//			for (NeoNode n : remainingNeoNodes) {
+//				findNeo4JBeginingsInCycleStructures(n);
+//			}
+//		}
+	}
+	
+	private void findNeo4JBeginingsInCycleStructures(NeoNode remainingNeoNode) {
+		for (Relation r : remainingNeoNode.getOutgoing()) {
+			if (r.getTarget() == remainingNeoNode) {
+				remainingNeoNode.setNeoPlace(NeoPlace.BEGINNING);
+			} //else if 
 		}
 	}
 
