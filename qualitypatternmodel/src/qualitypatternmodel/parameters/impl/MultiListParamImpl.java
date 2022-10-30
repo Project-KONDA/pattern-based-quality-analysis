@@ -65,6 +65,12 @@ public class MultiListParamImpl extends AbstractListParamImpl implements MultiLi
 				cypher.append(s); 	
 			} else if (areValuesFloat(s)) {
 				cypher.append(s); 
+			} else if (areValuesTime(s)) {
+				cypher.append("time(\'" + s + "\')"); 
+			} else if (areValuesDateTime(s)) {
+				cypher.append("datetime(\'" + s + "\')"); 
+			} else if (areValuesDate(s)) {
+				cypher.append("date(\'" + s + "\')"); 
 			} else {
 				cypher.append("\"" + s +"\""); 
 			}
@@ -75,9 +81,7 @@ public class MultiListParamImpl extends AbstractListParamImpl implements MultiLi
 		return cypher.toString();
 	}
 	
-	private boolean areValuesInts(String value) {
-		boolean areValuesInts = true;
-		String regex = "[+-]?[0-9]+";
+	private boolean matching(String value, boolean areValuesInts, String regex) {
 		Pattern p = Pattern.compile(regex);
 		Matcher m = p.matcher(value);
 		if (!(m.find() && m.group().equals(value))) {
@@ -86,14 +90,39 @@ public class MultiListParamImpl extends AbstractListParamImpl implements MultiLi
 		return areValuesInts;
 	}
 	
+	private boolean areValuesDate(String value) {
+		boolean areValuesInts = true;
+		String regex = "";
+		areValuesInts = matching(value, areValuesInts, regex);
+		return areValuesInts;
+	}
+
+	private boolean areValuesDateTime(String value) {
+		boolean areValuesInts = true;
+		String regex = "";
+		areValuesInts = matching(value, areValuesInts, regex);
+		return areValuesInts;
+	}
+
+
+	private boolean areValuesTime(String value) {
+		boolean areValuesInts = true;
+		String regex = "";
+		areValuesInts = matching(value, areValuesInts, regex);
+		return areValuesInts;
+	}
+
+	private boolean areValuesInts(String value) {
+		boolean areValuesInts = true;
+		String regex = "[+-]?[0-9]+";
+		areValuesInts = matching(value, areValuesInts, regex);
+		return areValuesInts;
+	}
+	
 	private boolean areValuesFloat(String value) {
 		boolean areValuesInts = true;
 		String regex = "[+-]?[0-9]+(\\.[0-9]+)?([Ee][+-]?[0-9]+)?";
-		Pattern p = Pattern.compile(regex);
-		Matcher m = p.matcher(value);
-		if (!(m.find() && m.group().equals(value))) {
-			areValuesInts = false;
-		}
+		areValuesInts = matching(value, areValuesInts, regex);
 		return areValuesInts;
 	}
 

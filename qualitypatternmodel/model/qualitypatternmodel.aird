@@ -4,7 +4,7 @@
     <semanticResources>qualitypatternmodel.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_A2WtQB2REeqrGqxc7qjo8A">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name=" class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="ba1ba46b-9293-4532-9780-503ecb98ee74">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name=" class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="e67a97ac-b8ba-473f-8454-2e995f2a911b">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="qualitypatternmodel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -3072,36 +3072,6 @@
               <styles xmi:type="notation:LineTypeStyle" xmi:id="_wUDjRFesEe2EYv074aQ3WA"/>
               <element xsi:nil="true"/>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wUDjRVesEe2EYv074aQ3WA" x="630" y="638" width="152"/>
-            </children>
-            <children xmi:type="notation:Shape" xmi:id="_F4BBoFh2Ee2YTJ5591-jMg" type="Note" fontName="Segoe UI" description="It also allows to set in a NeoSimpleEdge to set a ComplexEdge" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
-              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_F4BBoVh2Ee2YTJ5591-jMg" source="specificStyles">
-                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_F4BBolh2Ee2YTJ5591-jMg" key="verticalAlignment" value="8"/>
-              </eAnnotations>
-              <children xmi:type="notation:BasicDecorationNode" xmi:id="_F4CPwFh2Ee2YTJ5591-jMg" type="DiagramName">
-                <element xsi:nil="true"/>
-              </children>
-              <children xmi:type="notation:BasicDecorationNode" xmi:id="_F4CPwVh2Ee2YTJ5591-jMg" type="Description">
-                <element xsi:nil="true"/>
-              </children>
-              <styles xmi:type="notation:TextStyle" xmi:id="_F4BBo1h2Ee2YTJ5591-jMg" textAlignment="Center"/>
-              <styles xmi:type="notation:LineTypeStyle" xmi:id="_F4BBpFh2Ee2YTJ5591-jMg"/>
-              <element xsi:nil="true"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_F4BBpVh2Ee2YTJ5591-jMg" x="540" y="778" width="97"/>
-            </children>
-            <children xmi:type="notation:Shape" xmi:id="_LOnS4Fh2Ee2YTJ5591-jMg" type="Note" fontName="Segoe UI" description="Until now the setComplexEdge is overriden as unssupported. Is there a better way?" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
-              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_LOnS4Vh2Ee2YTJ5591-jMg" source="specificStyles">
-                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_LOnS4lh2Ee2YTJ5591-jMg" key="verticalAlignment" value="8"/>
-              </eAnnotations>
-              <children xmi:type="notation:BasicDecorationNode" xmi:id="_LOnS5lh2Ee2YTJ5591-jMg" type="DiagramName">
-                <element xsi:nil="true"/>
-              </children>
-              <children xmi:type="notation:BasicDecorationNode" xmi:id="_LOnS51h2Ee2YTJ5591-jMg" type="Description">
-                <element xsi:nil="true"/>
-              </children>
-              <styles xmi:type="notation:TextStyle" xmi:id="_LOnS41h2Ee2YTJ5591-jMg" textAlignment="Center"/>
-              <styles xmi:type="notation:LineTypeStyle" xmi:id="_LOnS5Fh2Ee2YTJ5591-jMg"/>
-              <element xsi:nil="true"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LOnS5Vh2Ee2YTJ5591-jMg" x="512" y="879" width="109"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_TKib4gLoEe2GF_6PqNgKEg"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_TKib4wLoEe2GF_6PqNgKEg"/>

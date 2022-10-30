@@ -34,6 +34,7 @@ import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
+import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
@@ -53,7 +54,6 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  */
 public class CountConditionImpl extends ConditionImpl implements CountCondition {
 	private static final String NO_COUNTELEMENTS_ARE_GIVEN = "No countelements are given";
-	private static final String INVALID_OPTION = "invalid option";
 	/**
 	 * The cached value of the '{@link #getCountPattern() <em>Count Pattern</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -105,7 +105,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		if(getOption() != null && getOption().getValue() != null) {
 			return argument1 + " " + getOption().getValue() + " " + argument2;
 		} else {
-			throw new InvalidityException(INVALID_OPTION);
+			throw new InvalidityException("invalid option");
 		}
 		
 	}
@@ -135,7 +135,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			query += ")\n}";
 			return query;
 		} else {
-			throw new InvalidityException(INVALID_OPTION);
+			throw new InvalidityException("invalid option");
 		}
 		
 	}
@@ -159,7 +159,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			
 			return cypher.toString();
 		}
-		throw new InvalidityException(INVALID_OPTION);
+		throw new InvalidityException(Constants.INVALID_OPTION);
 	}
 	
 	//Die Patternsprache deckt keine COUNTS im Return ab
@@ -237,7 +237,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			throw new InvalidityException("argument2 missing");
 		}
 		if(getOption() == null) {
-			throw new InvalidityException(INVALID_OPTION);
+			throw new InvalidityException("invalid option");
 		} 		
 	}
 	

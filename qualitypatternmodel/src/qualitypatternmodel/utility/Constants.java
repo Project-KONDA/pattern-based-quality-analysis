@@ -49,6 +49,9 @@ public class Constants {
 
 	//Global Exception Messages
 	public static final String INVALID_OPTION = "invalid option";
+	public static final String INVALID_ARGUMENTS = "invalid arguments";
+	public static final String INVALID_OPERATOR = "invalid operator";
+	public static final String OPERATOR_NULL = "operator null";
 	
 	/**
 	 * Appends as many closing brackets to <code>str</code> as it contains opening brackets that are not yet closed.

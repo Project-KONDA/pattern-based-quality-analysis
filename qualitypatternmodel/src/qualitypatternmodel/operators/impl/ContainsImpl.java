@@ -53,10 +53,6 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class ContainsImpl extends BooleanOperatorImpl implements Contains {
-	
-
-	private static final String INVALID_OPTION = "invalid option";
-
 	/**
 	 * The cached value of the '{@link #getPrimitiveNode() <em>Primitive Node</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -115,7 +111,7 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 				return primitiveNode.generateXQuery() + "not(contains(., \"" + content.getValue() + "\"))";
 			}	
 		} else {
-			throw new InvalidityException(INVALID_OPTION);
+			throw new InvalidityException("invalid option");
 		}
 	}
 	
@@ -133,7 +129,7 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 				return "\nFILTER (!contains(" + primitiveNode.generateSparql() + ", " + content.generateSparql() + "))";
 			}	
 		} else {
-			throw new InvalidityException(INVALID_OPTION);
+			throw new InvalidityException("invalid option");
 		}
 	}
 	

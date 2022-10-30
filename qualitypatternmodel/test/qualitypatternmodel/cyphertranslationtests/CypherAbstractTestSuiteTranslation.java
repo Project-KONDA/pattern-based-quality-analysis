@@ -631,7 +631,7 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			
 			//getTestPattern1
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4:Literature)\n"
-					+ "WHERE NOT (EXISTS {\n"
+					+ "WHERE NOT(EXISTS {\n"
 					+ "            MATCH (varNode4)<-[varEdge2]-(varNode5:Regesta)\n"
 					+ "            WHERE NOT (EXISTS {\n"
 					+ "                        MATCH (varNode5)-[varEdge4]->(varNode6:Reference)})})\n"
@@ -642,9 +642,9 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode8:Literature)\n"
 					+ "WHERE (varNode8.title = \"BATTENBERG\"\n"
 					+ "            AND varNode8.url = \"http://opac.regesta-imperii.de/lang_de/kurztitelsuche_r.php?kurztitel=battenberg,_solmser_urkunden_1\")\n"
-					+ "            AND NOT (EXISTS {\n"
+					+ "            AND NOT(EXISTS {\n"
 					+ "                        MATCH (varNode8)<-[varEdge6]-(varNode9:Regesta)\n"
-					+ "                        WHERE NOT (EXISTS {\n"
+					+ "                        WHERE NOT (EXISTS {\r\n"
 					+ "                                    MATCH (varNode9)-[varEdge11]->(varNode10:Reference)\n"
 					+ "                                    WHERE (varNode10.title = \"Kulpis Documenta S. 181f.\")})\n"
 					+ "                        AND (varNode9.isoStartDate = date('1439-12-20'))})\n"
@@ -656,6 +656,7 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 //			i++;
 			
 			//getTestPattern2
+			System.out.println(completePatterns.get(i).generateCypher());
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\n"
 					+ "WHERE NOT (EXISTS {\n"
 					+ "            MATCH (varNode5), (varNode5)-[varEdge4:APPEARS_IN]-(varNode6:IndexPerson), (varNode5)-[varEdge5:ACTION]-(varNode7:Action), (varNode5)-[varEdge6:RECIPIENT_IN]-(varNode8:IndexPlace)})\n"
@@ -663,6 +664,7 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			i++;
 			
 			//getTestPattern5
+			System.out.println(completePatterns.get(i).generateCypher());
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4:Regesta)\n"
 					+ "WHERE EXISTS {\n"
 					+ "            MATCH (varNode4), (varNode4)<-[varEdge4:APPEARS_IN]-(varNode5:IndexPerson)-[varEdge5:IS_SUB_OF]-(varNode6:IndexPlace), (varNode4)-[varEdge6:RECIPIENT_IN]-(varNode6)}\n"
@@ -670,6 +672,7 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			i++;
 			
 			//getNotExistsExists
+			System.out.println(completePatterns.get(i).generateCypher());
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\n"
 					+ "WHERE NOT (EXISTS {\n"
 					+ "            MATCH (varNode5)-[varEdge4:APPEARS_IN]-(varNode6:IndexPerson)\n"
@@ -679,6 +682,7 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			i++;
 			
 			//getNotNotPattern
+			System.out.println(completePatterns.get(i).generateCypher());
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4)\n"
 					+ "WHERE EXISTS {\n"
 					+ "            MATCH (varNode4)-[varEdge4]-(varNode5)}\n"
@@ -686,6 +690,7 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			i++;
 			
 			//getNotNotPattern
+			System.out.println(completePatterns.get(i).generateCypher());
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4)\n"
 					+ "WHERE NOT (EXISTS {\n"
 					+ "            MATCH (varNode4)-[varEdge4]-(varNode5)})\n"
@@ -693,6 +698,7 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			i++;
 			
 			//getNotNotNotNotPattern
+			System.out.println(completePatterns.get(i).generateCypher());
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4)\n"
 					+ "WHERE EXISTS {\n"
 					+ "            MATCH (varNode4)-[varEdge4]-(varNode5)}\n"
@@ -700,6 +706,7 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			i++;
 			
 			//getNotNotNotNotNotPattern
+			System.out.println(completePatterns.get(i).generateCypher());
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4)\n"
 					+ "WHERE NOT (EXISTS {\n"
 					+ "            MATCH (varNode4)-[varEdge4]-(varNode5)})\n"

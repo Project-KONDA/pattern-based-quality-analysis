@@ -47,9 +47,8 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
 public class FormulaImpl extends ConditionImpl implements Formula {
 	private static final String COND2_IS_NOT_GENERATING_A_VALID_QUERY = "Cond2 is not generating a valid query";
 	private static final String COND1_IS_NOT_GENERATING_A_VALID_QUERY = "Cond1 is not generating a valid query";
-	private static final String OPERATOR_NULL = "operator null";
-	private static final String INVALID_OPERATOR = "invalid operator";
-	private static final String INVALID_ARGUMENTS = "invalid arguments";
+	
+	
 
 	/**
 	 * The default value of the '{@link #getOperator() <em>Operator</em>}' attribute.
@@ -157,11 +156,11 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 					result += "(" + condition2Query + ")";					
 					break;
 				default:
-					throw new InvalidityException(INVALID_ARGUMENTS);
+					throw new InvalidityException("invalid arguments");
 				}
 				
 			} else {
-				throw new InvalidityException(INVALID_ARGUMENTS);
+				throw new InvalidityException("invalid arguments");
 			}
 			
 			return addMissingBrackets(result);
@@ -202,11 +201,11 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 					result += "(" + condition1Query + " = " + condition2Query + ")";
 					break;
 				default:
-					throw new InvalidityException(INVALID_ARGUMENTS);
+					throw new InvalidityException("invalid arguments");
 				}
 				
 			} else {
-				throw new InvalidityException(INVALID_ARGUMENTS);
+				throw new InvalidityException("invalid arguments");
 			}
 			
 			return addMissingBrackets(result);
@@ -250,13 +249,13 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 					break;
 				case XOR:
 					//XOR is between the EXISTS-FUNCTION NOT POSSIBLE
-					cypher.append("(" + condition1Query + " ");
+					cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + condition1Query + " ");
 					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
-					cypher.append(" " + CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " " + condition2Query + ")");
+					cypher.append(" " + CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " " + condition2Query + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
 					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_OR + " ");
-					cypher.append("(" + CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " " + condition1Query + " ");
+					cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " " + condition1Query + " ");
 					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
-					cypher.append(" " + condition2Query + ")");
+					cypher.append(" " + condition2Query + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
 					break;
 				case IMPLIES:
 					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " " + condition1Query + " ");
@@ -264,16 +263,16 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 					cypher.append(" " + condition2Query);
 					break;
 				case EQUAL:
-					cypher.append("(" + condition1Query + " " + CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + " " + condition2Query + ")");
+					cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + condition1Query + " " + CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + " " + condition2Query + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
 					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_OR + " ");
 					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " ");
-					cypher.append("(" + condition1Query + CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + " " + condition2Query + ")");
+					cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + condition1Query + CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + " " + condition2Query + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
 					break;
 				default:
-					throw new InvalidityException(INVALID_OPERATOR);
+					throw new InvalidityException(Constants.INVALID_OPERATOR);
 				}
 			} else {
-				throw new InvalidityException(INVALID_ARGUMENTS);
+				throw new InvalidityException(Constants.INVALID_ARGUMENTS);
 			}
 			if (this.clamped) {
 				cypher.insert(0, CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
@@ -281,7 +280,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 			}
 			return cypher.toString();
 		}
-		throw new InvalidityException(OPERATOR_NULL);
+		throw new InvalidityException(Constants.OPERATOR_NULL);
 	}
 
 	@Override

@@ -57,7 +57,6 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  */
 public class QuantifiedConditionImpl extends ConditionImpl implements QuantifiedCondition {
 	private static final String NO_MATCH_IS_GIVEN = "No Match is given";
-	private static final String NO_BEGINNING_IS_SPECIFIED = "No Beginning is specified";
 	private static final String MODEL_HAS_TO_BUILD_A_PATTERN_STRUCTURE = "Model has to build a Pattern-Structure";
 	private static final String QUANTIFIED_COND_GRAPH_IS_EMPTY = "Graph is Empty";
 	private static final String INVALID_QUANTIFIER = "invalid quantifier";
@@ -132,7 +131,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		if (quantifier == Quantifier.EXISTS || quantifier == Quantifier.FORALL) {
 			result = graph.generateXQuery();
 		} else {
-			throw new InvalidityException(INVALID_QUANTIFIER);
+			throw new InvalidityException("invalid quantifier");
 		}
 		result += "(" + condition.generateXQuery() + ")";
 		return result;
@@ -172,7 +171,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				query += "\n}";
 			}
 		} else {
-			throw new InvalidityException(INVALID_QUANTIFIER);
+			throw new InvalidityException("invalid quantifier");
 		}
 		return query;
 	}
@@ -261,7 +260,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				throw new InvalidityException(MODEL_HAS_TO_BUILD_A_PATTERN_STRUCTURE);
 			}
 		} 
-		throw new InvalidityException(NO_BEGINNING_IS_SPECIFIED);
+		throw new InvalidityException(CypherSpecificConstants.NO_BEGINNING_IS_SPECIFIED);
 	}
 	
 	private String generateExistsMatch(StringBuilder cypher, StringBuilder cypherWhere, String exists)
@@ -269,8 +268,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		//INCLUDE THE GRAPH-PATTERN - Is needed for both cases
 		cypher.append(String.format(CypherSpecificConstants.CLAUSE_MATCH_INLUCE_W, CypherSpecificConstants.TWELVE_WHITESPACES));
 		String cypherText = graph.generateCypher();
-		if (cypherText == null || cypherText == "" || cypherText.isEmpty())
+		if (cypherText == null || cypherText == "" || cypherText.isEmpty()) {
 			throw new InvalidityException(NO_MATCH_IS_GIVEN);
+		}
 		cypher.append(" " + cypherText); 
 		
 		if (quantifier == Quantifier.EXISTS ) {

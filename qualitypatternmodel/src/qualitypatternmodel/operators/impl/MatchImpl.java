@@ -51,8 +51,6 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class MatchImpl extends BooleanOperatorImpl implements Match {
-	private static final String INVALID_OPTION = "invalid option";
-
 	/**
 	 * The cached value of the '{@link #getPrimitiveNode() <em>Primitive Node</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -104,7 +102,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 				return primitiveNode.generateXQuery() + "not(matches(., \"" + regularExpression.getValue() + "\"))";
 			}	
 		} else {
-			throw new InvalidityException(INVALID_OPTION);
+			throw new InvalidityException("invalid option");
 		}
 	}
 	
@@ -117,7 +115,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 				return "\nFILTER (!regex(" + primitiveNode.generateSparql() + ", " + regularExpression.generateSparql() + "))";
 			}	
 		} else {
-			throw new InvalidityException(INVALID_OPTION);
+			throw new InvalidityException("invalid option");
 		}
 	}
 	

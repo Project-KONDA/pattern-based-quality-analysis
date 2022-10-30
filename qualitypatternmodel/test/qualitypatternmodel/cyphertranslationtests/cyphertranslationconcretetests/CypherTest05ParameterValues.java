@@ -48,7 +48,7 @@ public class CypherTest05ParameterValues extends CypherAbstractTranslation {
 		try {
 			CypherAbstractTranslation parameterValues = new CypherTest05ParameterValues();
 			parameterValues.generalizedTests();         
-			parameterValues.generalizedInvalidtyExceptionTests();
+//			parameterValues.generalizedInvalidtyExceptionTests();
 		} catch (Exception e) {
 			System.out.println(e);
 		}	
@@ -172,6 +172,9 @@ public class CypherTest05ParameterValues extends CypherAbstractTranslation {
 		input9.getValues().add("-17");
 		input9.getValues().add("-17.0");
 		input9.getValues().add("-17.0+");
+		input9.getValues().add("1439-12-20");
+		input9.getValues().add("2020-10-03T09:00:00");
+		input9.getValues().add("09:00:00");
 		
 		parameters.add(input1);
 		parameters.add(input2);

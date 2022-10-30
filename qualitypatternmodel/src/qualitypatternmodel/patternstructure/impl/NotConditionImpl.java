@@ -43,8 +43,6 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  */
 public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	private static final String NO_VALID_QUERY_IS_GENERATED = "No valid query is generated";
-	private static final String CYPHER_CLOSING_BRACKET = ")";
-	private static final String CYPHER_OPEN_BRAKET = " (";
 	private static final String INVALID_CONDITION = "Invalid condition";
 	/**
 	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
@@ -69,7 +67,7 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	public String generateXQuery() throws InvalidityException {
 		if (condition != null) {
 			String conQuery = condition.generateXQuery().replace("\n", "\n  "); 
-			return "not(" + conQuery + CYPHER_CLOSING_BRACKET;
+			return "not(" + conQuery + ")";
 		} else {
 			throw new InvalidityException("invalid condition");
 		}
@@ -127,7 +125,7 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 			if (temp.isEmpty()) {
 				throw new InvalidityException(NO_VALID_QUERY_IS_GENERATED);
 			}
-			cypher += CYPHER_OPEN_BRAKET + temp + CYPHER_CLOSING_BRACKET;
+			cypher += CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + temp + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
 			return cypher;	
 		}
 		throw new InvalidityException(INVALID_CONDITION);
@@ -144,7 +142,7 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && condition == null)
-			throw new InvalidityException("condition null (" + getInternalId() + CYPHER_CLOSING_BRACKET);
+			throw new InvalidityException("condition null (" + getInternalId() + ")");
 	}
 	
 	@Override

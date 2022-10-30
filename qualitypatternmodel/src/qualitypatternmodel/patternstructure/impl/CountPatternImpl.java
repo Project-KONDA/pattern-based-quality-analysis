@@ -58,7 +58,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
 public class CountPatternImpl extends PatternImpl implements CountPattern {
 	private static final String NOT_ALL_RETURN_ELEMENTS_ARE_CONTAINED_IN_THE_WITH_CLAUSE = "Not all Return-Elements are contained in the WITH-Clause";
 	private static final String SOMETHING_WENT_WRONG_IN_ACCESSING_THE_CYPHER_VARIABLE = "Something went wrong in accessing the Cypher Variable";
-	private static final String NO_COUNT_ELEMENTS_EXISTS = "No Count Elements exists";
+	
 	/**
 	 * The cached value of the '{@link #getMorphism() <em>Morphism</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -157,11 +157,11 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 				}
 			}
 			if (myCounters.size() == 0) {
-				throw new InvalidityException(NO_COUNT_ELEMENTS_EXISTS);
+				throw new InvalidityException(CypherSpecificConstants.NO_COUNT_ELEMENTS_EXISTS);
 			}
 			return myCounters;
 		}
-		throw new InvalidityException(NO_COUNT_ELEMENTS_EXISTS);
+		throw new InvalidityException(CypherSpecificConstants.NO_COUNT_ELEMENTS_EXISTS);
 	}
 
 	private boolean checkForProperty(NeoInterfaceNode n) {
