@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
+import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoDirection;
 import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
@@ -47,12 +48,10 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  */
 
 public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge {
+	private static final String A_NEO_COMPLEX_EDGE_CAN_NOT_BE_SET_IN_A_NEO_SIMPLE_EDGE = "A NeoComplexEdge can not be set in a NeoSimpleEdge";
 	private static final String NEO_DIRECTION_CAN_NOT_BE_NULL = "NeoDirection can not be null";
-
 	private static final String A_NEO_PATH_PART_NEEDS_A_NEO_ABSTRACT_PATH_PARAM = "A NeoPathPart needs a NeoAbstractPathParam";
-
 	private static final String SOMETHING_WENT_WRONG_IN_THE_SIMPLE_NEO_EDGE_DIRECTION_HAS_NOT_BEEN_SET_CORRECTLY = "Something went wrong in the SimpleNeoEdge - direction has not been set correctly";
-
 	private static final String A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S = "A Label can not contain Whitespace(s)";
 
 	/**
@@ -717,14 +716,4 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	protected void setCount(InternalCount count) {
 		setEdgeNumber(count.getCount());		
 	}
-
-	
-//	  It can not just be done like this, since the id's of the other edges also have to be changed
-//	  Maybe introduce something like an observer? 	
-//	@Override
-//    protected void finalize() {
-//        System.out.print("Set the counter down by 1.");
-//        fillTheGapWithLastElement(this);
-//        NeoPathPartImpl.COUNTER--;
-//    }
 } //SimpleEdgeImpl

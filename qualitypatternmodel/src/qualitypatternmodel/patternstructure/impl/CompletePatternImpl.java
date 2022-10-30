@@ -791,21 +791,67 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		return super.createRdfAdaption();
 	}
 
-	//TODO --> set the first return node as the beginnings node
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValid(AbstractionLevel.GENERIC);
 		
 		PatternElement patternElement = super.createNeo4jAdaption();
-		findNeo4JBeginnings(patternElement);
+		setNeo4JBeginnings(patternElement);
 		
 		return patternElement;
 	}
 
+	//Look at this https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/
+	//adapt this https://www.geeksforgeeks.org/detect-cycle-in-a-graph/ 
+	private void setNeo4JBeginnings(PatternElement patternElement) {
+		if (false) { //isCyclic()
+			setNeo4JBeginingsInCycleStructures(this);
+		} else {
+			setNeo4JBeginningsInTreeStructure(this);
+		}
+	}
+	
+//	private boolean isCyclic() {
+//		final int v = this.getGraph().getNodes().size();
+//		boolean isCyclic = false;
+//		boolean[] visited = new boolean[v];
+//        boolean[] recStack = new boolean[v];
+//        EList<Node> adj = null;
+//        for (int i = 0; i < v; i++) {
+//        	if (isCyclicUtil(i, adj, visited, recStack)) {
+//        		isCyclic = true;
+//        	}
+//        }  
+//		return isCyclic;
+//	}
+//	
+//	private boolean isCyclicUtil(int i, EList<Node> adj, boolean[] visited, boolean[] recStack) {
+//		boolean isCyclicUtil = false;
+//		if (recStack[i]) {
+//			return true;
+//		}
+//            
+//        if (visited[i]) {
+//        	return false;
+//        }
+//            
+//        visited[i] = true;
+// 
+//        recStack[i] = true;
+//        EList<Integer> children = adj.get(i);
+//         
+//        for (Integer c: children) {
+//        	if (isCyclicUtil(c, visited, recStack)) {
+//        		return true;
+//        	}
+//        }
+//            
+//        recStack[i] = false;
+// 
+//        return false;
+//	}
 
-	private void findNeo4JBeginnings(PatternElement patternElement) {
-		CompletePattern completePattern = (CompletePattern) patternElement;
-		EList<NeoNode> remainingNeoNodes = new BasicEList<NeoNode>();
+	private void setNeo4JBeginningsInTreeStructure(CompletePattern completePattern) {
 		if (completePattern.getGraph().getNodes().size() != 0) {
 			NeoNode neoNode;
 			for (Node node : completePattern.getGraph().getNodes()) {
@@ -813,27 +859,16 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 					neoNode = (NeoNode) node;
 					if (neoNode.getIncoming().size() == 0 && neoNode.getIncomingMapping() == null) {
 						neoNode.setNeoPlace(NeoPlace.BEGINNING);
-					} else if (neoNode.getIncomingMapping() == null) {
-						remainingNeoNodes.add(neoNode);
 					}
 				}
 			}
 			completePattern = null;
 			neoNode = null;
 		}
-//		if (remainingNeoNodes.size() != 0) {
-//			for (NeoNode n : remainingNeoNodes) {
-//				findNeo4JBeginingsInCycleStructures(n);
-//			}
-//		}
 	}
 	
-	private void findNeo4JBeginingsInCycleStructures(NeoNode remainingNeoNode) {
-		for (Relation r : remainingNeoNode.getOutgoing()) {
-			if (r.getTarget() == remainingNeoNode) {
-				remainingNeoNode.setNeoPlace(NeoPlace.BEGINNING);
-			} //else if 
-		}
+	private void setNeo4JBeginingsInCycleStructures(CompletePattern completePattern) {
+
 	}
 
 	/**

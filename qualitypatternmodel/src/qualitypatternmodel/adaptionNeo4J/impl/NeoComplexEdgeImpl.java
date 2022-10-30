@@ -229,6 +229,18 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	public void removeNeoPathPart(NeoPathPart neoPathPart) {
 		this.neoPathParts.remove(neoPathPart);
 		this.reorganiseLastEdgeFlagging();
+		if (neoPathPart instanceof NeoComplexEdge) {
+			reogranizeCounting();
+		}
+	}
+	
+	private void reogranizeCounting() {
+		NeoComplexEdgeImpl highest = getHighestComplexEdge();
+		highest.unsetCount();
+		createInternalCounter();
+		for (NeoPathPart part : getNeoPathPart()) {
+			((NeoPathPartImpl)part).setCount(getCount());
+		}
 	}
 
 	@Override
@@ -400,24 +412,10 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	//Improve that the setNeoComplexEdge does not allow to set a NeoComplexEdge below or the same!
 	@Override
 	public void setNeoComplexEdge(NeoComplexEdge newNeoComplexEdge) {
-		boolean isAHighLogicalContainer = true;
-		//Maybe throw an Exception???
-		//Checks if the newNeoComplexEdge is already in the Container-Structure
-		if (getNeoComplexEdge() != null) {
-			NeoComplexEdge neoComplexEdge = getNeoComplexEdge();
-			while (neoComplexEdge != newNeoComplexEdge) {
-				neoComplexEdge = neoComplexEdge.getNeoComplexEdge();
-				if (neoComplexEdge == newNeoComplexEdge) {
-					isAHighLogicalContainer = false;
-				}
-			}
-		}
-		if (isAHighLogicalContainer) {
-			super.setNeoComplexEdge(newNeoComplexEdge);
-			setCount(((NeoComplexEdgeImpl) newNeoComplexEdge).getCount());
-			for (NeoPathPart part : getNeoPathPart()) {
-				((NeoPathPartImpl) part).setCount(getCount());
-			}
+		super.setNeoComplexEdge(newNeoComplexEdge);
+		setCount(getHighestComplexEdge().getCount());
+		for (NeoPathPart part : getNeoPathPart()) {
+			((NeoPathPartImpl) part).setCount(getCount());
 		}
 	}
 	

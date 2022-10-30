@@ -1024,19 +1024,29 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 		}
 	}
 	
-	//@Test
+	@Test
 	public void cypherTest08CycleQueryComp() {		
 		try {
 			new CypherTest08Cycle().buildPatterns(completePatterns);
 			int i = 0;
 			
 			//getCyclePattern(2)
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4)-[varEdge4]-(varNode5)-[varEdge5]-(varNode4)\n"
+					+ "RETURN varNode4");
+			i++;
+			
+			//getCyclePattern(3)
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5)-[varEdge5]-(varNode6)-[varEdge6]-(varNode7)-[varEdge7]-(varNode5)\n"
+					+ "RETURN varNode5");
+			i++;
+			
+			//getCyclePatternComp(2)
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5)-[varEdge4]-(varNode6)-[varEdge5]-(varNode7)\n"
 					+ "WHERE (varNode5 = varNode7)\n"
 					+ "RETURN varNode5");
 			i++;
 			
-			//getCyclePattern(3)
+			//getCyclePatternComp(3)
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode6)-[varEdge5]-(varNode7)-[varEdge6]-(varNode8)-[varEdge7]-(varNode9)\n"
 					+ "WHERE (varNode6 = varNode9)\n"
 					+ "RETURN varNode6");
