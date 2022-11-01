@@ -40,7 +40,7 @@ public class ConcretePatternListServlet extends HttpServlet {
 				String result = "[";
 				for (String name: fileNames) {
 					String filePath = Util.CONCRETE_PATTERNS_PATH + name + ".patternstructure";	
-					URL folderURL = getClass().getClassLoader().getResource(Util.CONCRETE_PATTERNS_PATH);
+//					URL folderURL = getClass().getClassLoader().getResource(Util.CONCRETE_PATTERNS_PATH);
 					URL fileURL = getClass().getClassLoader().getResource(filePath);	
 					CompletePattern pattern = null;
 					String description = "";

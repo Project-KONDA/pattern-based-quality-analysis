@@ -29,7 +29,7 @@ public class SchemaValidationServlet extends HttpServlet {
 		URL fileURL = getClass().getClassLoader().getResource(filePath);	
 		
 		String filePathDb = Util.DATABASES_PATH + Util.DATABASES_NAME + ".execution";	
-		URL folderURLDb = getClass().getClassLoader().getResource(Util.DATABASES_PATH);
+//		URL folderURLDb = getClass().getClassLoader().getResource(Util.DATABASES_PATH);
 		URL fileURLDb = getClass().getClassLoader().getResource(filePathDb);
 		
 		if(fileURL != null && folderURL != null) {

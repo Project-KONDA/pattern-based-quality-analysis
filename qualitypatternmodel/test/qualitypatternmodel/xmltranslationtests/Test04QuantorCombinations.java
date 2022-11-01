@@ -72,7 +72,7 @@ public class Test04QuantorCombinations {
 		
 		Node e1q1 = qcond.getGraph().getNodes().get(0);
 		Node e2q1 = qcond.getGraph().getNodes().get(1);
-		Relation relation2 = e1q1.addOutgoing(e2q1);
+		e1q1.addOutgoing(e2q1);
 		
 		Node se3 = graphFactory.createNode();
 		qcond2.getGraph().getNodes().add(se3);

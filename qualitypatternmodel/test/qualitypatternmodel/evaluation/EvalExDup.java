@@ -13,7 +13,7 @@ import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.NumberParam;
-import qualitypatternmodel.parameters.ParametersFactory;
+//import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Condition;
@@ -81,7 +81,7 @@ public class EvalExDup {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		ParametersPackage.eINSTANCE.eClass();
-		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
+//		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		completePattern.getGraph().getReturnNodes().get(0).addOutgoing().getTarget().addPrimitiveComparison();

@@ -72,7 +72,7 @@ public class EvalMandAtt {
 		
 		Graph graph0 = qc0.getGraph();
 		Node returnInGraph0 = graph0.getReturnNodes().get(0);
-		Node element0 = returnInGraph0.addOutgoing().getTarget().makeComplex();
+		returnInGraph0.addOutgoing().getTarget().makeComplex();
 		
 		Formula form = factory.createFormula();
 		qc0.setCondition(form);
@@ -88,7 +88,7 @@ public class EvalMandAtt {
 		Node e0InGraph1 = graph1.getNodes().get(1);
 		Node element2 = e0InGraph1.addOutgoing().getTarget().makeComplex();
 		
-		Node element5 = element2.addOutgoing().getTarget().makeComplex();
+		element2.addOutgoing().getTarget().makeComplex();
 		
 		QuantifiedCondition qc1 = factory.createQuantifiedCondition();
 		form.setCondition2(qc1);

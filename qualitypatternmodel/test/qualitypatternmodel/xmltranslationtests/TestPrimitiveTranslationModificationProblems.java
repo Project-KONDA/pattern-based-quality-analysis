@@ -10,7 +10,7 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.graphstructure.Relation;
+//import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -63,7 +63,8 @@ public class TestPrimitiveTranslationModificationProblems {
 		nodeA.setGraph(g);
 		Node nodeB = graphFactory.createNode();
 		nodeB.setGraph(g);
-		Relation r = nodeA.addOutgoing(nodeB);
+//		Relation r = 
+		nodeA.addOutgoing(nodeB);
 		
 		completePattern.createXmlAdaption();
 		

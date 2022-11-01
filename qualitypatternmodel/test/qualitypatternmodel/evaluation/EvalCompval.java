@@ -78,7 +78,7 @@ public class EvalCompval {
 
 	public static CompletePattern getCompval3Generic() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);
+//		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);
 
 		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		completePattern.setCondition(quantifiedCondition);

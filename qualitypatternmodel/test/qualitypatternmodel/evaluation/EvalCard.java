@@ -9,7 +9,7 @@ import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.operators.ComparisonOperator;
-import qualitypatternmodel.parameters.ParametersFactory;
+//import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
@@ -66,7 +66,7 @@ public class EvalCard {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory patternStructureFactory = PatternstructureFactory.eINSTANCE;
 		ParametersPackage.eINSTANCE.eClass();
-		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
+//		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		
@@ -201,7 +201,7 @@ public class EvalCard {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory patternStructureFactory = PatternstructureFactory.eINSTANCE;
 		ParametersPackage.eINSTANCE.eClass();
-		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
+//		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		

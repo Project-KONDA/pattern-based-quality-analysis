@@ -1446,13 +1446,12 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		if (this.getClass() == node.getClass() && this.getClass() != NodeImpl.class) {
 			try {
 				Comparison comparison = new ComparisonImpl();
-				CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
+//				CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
 				Graph graph = (Graph) getAncestor(Graph.class);
 				OperatorList oplist = graph.getOperatorList();
 					
 				oplist.add(comparison);	
 				comparison.createParameters();
-				PrimitiveNode p = null;
 				comparison.setArgument1(this);
 				comparison.setArgument2(node);
 				comparison.createParameters();
@@ -2178,7 +2177,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public TextLiteralParam addPrimitiveComparison(String value) {
-		Comparison comparison = new ComparisonImpl();		
+//		Comparison comparison = new ComparisonImpl();		
 		try {
 			TextLiteralParam textlit = new TextLiteralParamImpl(value);
 			addPrimitiveComparison(textlit);

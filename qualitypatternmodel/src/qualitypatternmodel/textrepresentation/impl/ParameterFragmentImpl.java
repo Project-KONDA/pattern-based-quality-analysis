@@ -17,11 +17,11 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
-import qualitypatternmodel.adaptionxml.XmlProperty;
+//import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyOptionParamImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlAxisOptionParamImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.graphstructure.Node;
+//import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -249,8 +249,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		}
 		if(parameter instanceof XmlPropertyOptionParamImpl) {
 			XmlPropertyOptionParamImpl propertyOption = (XmlPropertyOptionParamImpl) parameter;
-			Node node = propertyOption.getXmlPathParam().getXmlNavigation().getTarget();
-			XmlProperty xmlProperty = (XmlProperty) node;
+//			Node node = propertyOption.getXmlPathParam().getXmlNavigation().getTarget();
+//			XmlProperty xmlProperty = (XmlProperty) node;
 			TextLiteralParam textLiteral = propertyOption.getAttributeName();
 			if(textLiteral.getMatches().isEmpty() && textLiteral.getComparison1().isEmpty() && textLiteral.getComparison2().isEmpty()) {
 				int dependentParameterID = getPatternText().getPattern().getParameterList().getParameters().indexOf(textLiteral);

@@ -58,7 +58,7 @@ public class EMFModelLoad {
         Resource resource = resSet.getResource(URI
                 .createURI(dbPath), true);
 		if(resource.getContents().get(0) instanceof Databases) {
-			Databases db = (Databases) resource.getContents().get(0);	         
+//			Databases db = (Databases) resource.getContents().get(0);	         
 		} else {
 			return null;
 		}
@@ -118,7 +118,7 @@ public class EMFModelLoad {
         Resource resource = resSet.getResource(URI
                 .createURI(path), true);
 		if(resource.getContents().get(0) instanceof Databases) {
-			Databases db = (Databases) resource.getContents().get(0);	         
+//			Databases db = (Databases) resource.getContents().get(0);	         
 		} else {
 			return null;
 		}

@@ -2,7 +2,7 @@ package qualitypatternmodel.xmltranslationtests;
 import java.util.ArrayList;
 import java.util.List;
 
-import qualitypatternmodel.adaptionxml.XmlNavigation;
+//import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -36,7 +36,7 @@ public class Test03Quantor {
 	
 	public static CompletePattern getPatternExistsFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
-		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+//		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
 //		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
@@ -50,7 +50,7 @@ public class Test03Quantor {
 	
 	public static CompletePattern getPatternExistsNavigation() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
-		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+//		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
 //		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
@@ -98,7 +98,8 @@ public class Test03Quantor {
 				
 		// EXISTS additional graph structure
 		Node se1 = cond.getGraph().getReturnNodes().get(0);	
-		Node se2 = se1.addOutgoing().getTarget();		
+//		Node se2 = se1.addOutgoing().getTarget();
+		se1.addOutgoing();
 		
 		return completePattern;
 	}
@@ -120,8 +121,8 @@ public class Test03Quantor {
 		
 		completePattern.createXmlAdaption();
 		
-		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
-		XmlNavigation nav = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(1);
+//		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
+//		XmlNavigation nav = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(1);
 		
 		return completePattern;
 	}
