@@ -1,16 +1,20 @@
 package qualitypatternmodel.xmltranslationtests;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import qualitypatternmodel.patternstructure.*;
-import qualitypatternmodel.xmltestutility.PatternTestPair;
-import qualitypatternmodel.graphstructure.*;
-import qualitypatternmodel.adaptionxml.XmlAxisKind;
-import qualitypatternmodel.adaptionxml.XmlPathParam;
-import qualitypatternmodel.adaptionxml.XmlElementNavigation;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
-import qualitypatternmodel.exceptions.*;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.ComplexNode;
+import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.GraphstructureFactory;
+import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.PatternstructureFactory;
+import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class TestPrimitiveTranslationModificationProblems {
 

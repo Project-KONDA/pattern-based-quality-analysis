@@ -5,6 +5,7 @@ package qualitypatternmodel.adaptionxml.impl;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 import org.eclipse.emf.ecore.EClass;
+
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
@@ -13,7 +14,6 @@ import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 
 /**

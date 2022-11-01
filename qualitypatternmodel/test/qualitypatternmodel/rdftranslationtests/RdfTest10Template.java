@@ -1,7 +1,5 @@
 package qualitypatternmodel.rdftranslationtests;
 
-import java.util.ArrayList;
-
 import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
 import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
@@ -11,7 +9,6 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.OperatorsFactory;
 import qualitypatternmodel.patternstructure.CompletePattern;

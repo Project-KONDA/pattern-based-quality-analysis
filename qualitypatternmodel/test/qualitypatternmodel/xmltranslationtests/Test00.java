@@ -5,14 +5,11 @@ import java.util.List;
 import org.eclipse.emf.common.util.EList;
 //import org.graalvm.graphio.GraphStructure;
 
-import qualitypatternmodel.patternstructure.*;
-import qualitypatternmodel.xmltestutility.PatternTestPair;
-import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlAxisPair;
-import qualitypatternmodel.adaptionxml.XmlElementNavigation;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
-import qualitypatternmodel.exceptions.*;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.NumberParam;
@@ -21,6 +18,11 @@ import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.PatternstructureFactory;
+import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test00 {
 	

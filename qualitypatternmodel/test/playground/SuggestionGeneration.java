@@ -5,18 +5,10 @@ import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_DATA_PAT
 import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_SCHEMA_NAME;
 import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_SCHEMA_PATH;
 
-import java.io.IOException;
 import java.util.List;
 
-import org.basex.core.BaseXException;
-import org.basex.query.QueryException;
-import org.basex.query.QueryIOException;
-import org.eclipse.emf.common.util.Diagnostic;
-
-import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
-import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -31,8 +23,6 @@ import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.utility.EMFModelLoad;
-import qualitypatternmodel.xmltestutility.EMFValidationPreparation;
 import qualitypatternmodel.xmltranslationtests.Test00;
 
 public class SuggestionGeneration {

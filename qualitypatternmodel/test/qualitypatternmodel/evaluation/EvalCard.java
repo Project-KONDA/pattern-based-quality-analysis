@@ -1,5 +1,16 @@
 package qualitypatternmodel.evaluation;
 
+import java.util.ArrayList;
+
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.ComplexNode;
+import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.parameters.ParametersFactory;
+import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountPattern;
@@ -9,19 +20,6 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
 import qualitypatternmodel.xmltranslationtests.Test00;
-import qualitypatternmodel.graphstructure.ComplexNode;
-import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.operators.ComparisonOperator;
-import qualitypatternmodel.parameters.NumberParam;
-import qualitypatternmodel.parameters.ParametersFactory;
-import qualitypatternmodel.parameters.ParametersPackage;
-
-import java.util.ArrayList;
-
-import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.exceptions.MissingPatternContainerException;
-import qualitypatternmodel.exceptions.OperatorCycleException;
 
 public class EvalCard {
 

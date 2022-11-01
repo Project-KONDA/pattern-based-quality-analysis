@@ -1,10 +1,6 @@
 package junittests;
 
-import java.util.ArrayList;
-
 import org.junit.jupiter.api.Test;
-
-import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class Neo4jJUnitTests {
 	

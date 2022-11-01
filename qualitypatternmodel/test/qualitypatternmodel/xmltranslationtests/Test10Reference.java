@@ -3,18 +3,23 @@ package qualitypatternmodel.xmltranslationtests;
 import java.util.ArrayList;
 import java.util.List;
 
-import qualitypatternmodel.patternstructure.*;
-import qualitypatternmodel.xmltestutility.PatternTestPair;
-import qualitypatternmodel.graphstructure.*;
-import qualitypatternmodel.operators.*;
-import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.GraphstructureFactory;
+import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.QuantifiedCondition;
+import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test10Reference {
 	

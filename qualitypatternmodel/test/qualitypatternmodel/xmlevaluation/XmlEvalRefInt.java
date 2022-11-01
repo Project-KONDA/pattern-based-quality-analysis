@@ -3,14 +3,6 @@ package qualitypatternmodel.xmlevaluation;
 import java.util.ArrayList;
 import java.util.List;
 
-import qualitypatternmodel.graphstructure.ComplexNode;
-import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.graphstructure.GraphstructureFactory;
-import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.PrimitiveNode;
-import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.operators.Comparison;
-import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
@@ -20,12 +12,7 @@ import qualitypatternmodel.evaluation.EvalRefInt;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.patternstructure.NotCondition;
-import qualitypatternmodel.patternstructure.PatternstructureFactory;
-import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.xmltranslationtests.Test00;
 
 public class XmlEvalRefInt {
