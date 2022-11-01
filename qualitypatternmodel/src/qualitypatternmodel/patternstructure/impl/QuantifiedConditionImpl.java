@@ -177,12 +177,8 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 	
 	//BEGIN -- Neo4J
-	//ADD TO ECORE
 	//Logisch macht es kein sinn kein anderen logischen Operator zu haben
 	private static final String LOGICAL_OPERATOR_AND = LogicalOperator.AND.toString().toUpperCase();
-//	public void setLogicalOperator(LogicalOperator logicalOperatpor) {
-//		this.logicalOperator = logicalOperatpor;
-//	}
 	
 	//In the count condition a new graph will be build thus there is no problem to set it straigt. 
 	//However it has to be considert that from the original graph variables have to be loaded (morphism can be used to handle that)
@@ -197,7 +193,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		StringBuilder cypher = new StringBuilder();
 		String exists = "";
 		
-		if (getGraph().getNodes() != null && getGraph().getNodes().size() != 0) {
+		if (getGraph().getNodes().size() != 0) {
 			boolean onlyNeoPropertyNodes = areOnlyNeoPropertyNodesInExists();
 			if (onlyNeoPropertyNodes) {
 				exists = CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_PROPERTY;
