@@ -167,10 +167,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 	 * @see #getCounter()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-		protected static final Integer COUNTER_EDEFAULT = new Integer(1);
+		protected static final Integer COUNTER_EDEFAULT = Integer.valueOf(1);
 
 	/**
 	 * The cached value of the '{@link #getCounter() <em>Counter</em>}' attribute.
@@ -189,10 +189,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getElementCounter()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final Integer ELEMENT_COUNTER_EDEFAULT = new Integer(1);
+	protected static final Integer ELEMENT_COUNTER_EDEFAULT = Integer.valueOf(1);
 
 	/**
 	 * The cached value of the '{@link #getElementCounter() <em>Element Counter</em>}' attribute.
@@ -210,10 +210,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRelationCounter()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final Integer RELATION_COUNTER_EDEFAULT = new Integer(1);
+	protected static final Integer RELATION_COUNTER_EDEFAULT = Integer.valueOf(1);
 
 	/**
 	 * The cached value of the '{@link #getRelationCounter() <em>Relation Counter</em>}' attribute.
@@ -231,10 +231,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 	 * @see #getOperatorCounter()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-		protected static final Integer OPERATOR_COUNTER_EDEFAULT = new Integer(1);
+		protected static final Integer OPERATOR_COUNTER_EDEFAULT = Integer.valueOf(1);
 
 	/**
 	 * The cached value of the '{@link #getOperatorCounter() <em>Operator Counter</em>}' attribute.
@@ -252,10 +252,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 	 * @see #getParameterCounter()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-		protected static final Integer PARAMETER_COUNTER_EDEFAULT = new Integer(1);
+		protected static final Integer PARAMETER_COUNTER_EDEFAULT = Integer.valueOf(1);
 
 	/**
 	 * The cached value of the '{@link #getParameterCounter() <em>Parameter Counter</em>}' attribute.
@@ -372,7 +372,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @generated NOT
 	 */
 	@Override
-	public int getNewRefNo(Class type) {
+	public int getNewRefNo(Class<?> type) {
 		getElementCounter();
 		if (NodeImpl.class.isAssignableFrom(type)) 
 			return elementCounter++;
@@ -1046,6 +1046,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {

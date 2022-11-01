@@ -7,7 +7,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.graphstructure.GraphstructureFactory;
+//import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -38,7 +38,7 @@ public class Test03Quantor {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
+//		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
 		// Pattern Structure
 		CompletePattern completePattern = getPatternExists();	
@@ -52,7 +52,7 @@ public class Test03Quantor {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
+//		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
 		// Pattern Structure
 		CompletePattern completePattern = getPatternExists();	
@@ -72,7 +72,7 @@ public class Test03Quantor {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
+//		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
 		// Pattern Structure
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
@@ -89,7 +89,7 @@ public class Test03Quantor {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
+//		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
 		// Pattern Structure
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;

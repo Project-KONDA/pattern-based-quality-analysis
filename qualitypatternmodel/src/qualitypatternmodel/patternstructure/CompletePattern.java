@@ -293,9 +293,9 @@ public interface CompletePattern extends Pattern {
 	 * @return the new value of the internal id counter for the <code>class</code> of the given <code>type</code>
 	 * <!-- end-user-doc -->
 	 * @model required="true" typeDataType="qualitypatternmodel.patternstructure.ClassWrapper"
-	 * @generated
+	 * @generated NOT
 	 */
-	int getNewRefNo(Class type);
+	int getNewRefNo(Class<?> type);
 
 	/**
 	 * <!-- begin-user-doc -->

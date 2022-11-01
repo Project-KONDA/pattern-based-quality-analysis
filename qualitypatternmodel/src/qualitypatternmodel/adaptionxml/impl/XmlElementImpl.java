@@ -511,7 +511,6 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	 * @generated
 	 */
 	@Override
-	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case AdaptionxmlPackage.XML_ELEMENT___GET_TAG_FROM_COMPARISONS:

@@ -44,8 +44,6 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.xmlservlettests.ServletTestsUtil;
 
-import static qualitypatternmodel.adaptionxml.XmlAxisKind.*;
-
 
 /**
  * <!-- begin-user-doc -->
@@ -284,6 +282,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 		return msgs;
 	}
 
+	@SuppressWarnings("unused")
 	private void removeUnusedAttributeNames() {
 		EMap<String,Integer> attributeNamesCopy = new BasicEMap<String, Integer>();
 		attributeNamesCopy.addAll(getAttributeNames());			
@@ -294,6 +293,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private void removeUnusedElementNames() {
 		EMap<String,Integer> elementNamesCopy = new BasicEMap<String, Integer>();
 		elementNamesCopy.addAll(getElementNames());			

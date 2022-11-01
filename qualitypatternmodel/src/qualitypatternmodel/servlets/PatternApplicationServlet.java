@@ -19,6 +19,7 @@ import qualitypatternmodel.execution.Result;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.EMFModelLoad;
 
+@SuppressWarnings("serial")
 public class PatternApplicationServlet extends HttpServlet {
 	
 

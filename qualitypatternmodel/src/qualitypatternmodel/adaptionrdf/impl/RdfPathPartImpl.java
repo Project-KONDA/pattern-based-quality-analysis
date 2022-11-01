@@ -162,7 +162,6 @@ public abstract class RdfPathPartImpl extends PatternElementImpl implements RdfP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {

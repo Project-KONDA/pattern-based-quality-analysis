@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.EMFModelLoad;
 
+@SuppressWarnings("serial")
 public class FinalizedPatternListServlet extends HttpServlet {
 	
 	@Override

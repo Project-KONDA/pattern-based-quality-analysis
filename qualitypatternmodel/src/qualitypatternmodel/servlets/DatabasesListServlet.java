@@ -13,6 +13,7 @@ import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.execution.impl.DatabasesImpl;
 import qualitypatternmodel.utility.EMFModelLoad;
 
+@SuppressWarnings("serial")
 public class DatabasesListServlet extends HttpServlet {
 
 	@Override

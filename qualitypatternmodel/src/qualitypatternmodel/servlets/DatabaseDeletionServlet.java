@@ -21,6 +21,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.EMFModelLoad;
 import qualitypatternmodel.utility.EMFModelSave;
 
+@SuppressWarnings("serial")
 public class DatabaseDeletionServlet extends HttpServlet {
 
 	@Override

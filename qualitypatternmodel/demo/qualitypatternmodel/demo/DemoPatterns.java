@@ -53,9 +53,11 @@ public class DemoPatterns {
 
 	
 	private static CompletePattern compConcrete;
+	@SuppressWarnings("unused")
 	private static CompletePattern compTextConcrete;
 	private static CompletePattern compLidoConcrete;
 	private static CompletePattern cardConcrete;
+	@SuppressWarnings("unused")
 	private static CompletePattern cardConcreteFinalized;
 	private static CompletePattern cardConcreteLido;
 	private static CompletePattern funcConcrete;

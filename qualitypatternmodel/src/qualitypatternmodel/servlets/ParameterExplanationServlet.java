@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import qualitypatternmodel.utility.Constants;
 
+@SuppressWarnings("serial")
 public class ParameterExplanationServlet extends HttpServlet {
 
 	@Override

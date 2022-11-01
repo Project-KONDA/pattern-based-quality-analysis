@@ -16,7 +16,7 @@ import qualitypatternmodel.execution.LocalXmlDataDatabase;
 import qualitypatternmodel.execution.LocalXmlSchemaDatabase;
 import qualitypatternmodel.execution.impl.LocalXmlDataDatabaseImpl;
 import qualitypatternmodel.execution.impl.LocalXmlSchemaDatabaseImpl;
-import qualitypatternmodel.parameters.ComparisonOptionParam;
+//import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TypeOptionParam;
@@ -33,7 +33,7 @@ public class SuggestionGeneration {
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 		
 		UntypedParameterValue p0 = ((UntypedParameterValue) params.get(0));
-		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
+//		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
 		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
 		XmlPathParam p3 = ((XmlPathParam) params.get(3));
 		XmlPathParam p4 = ((XmlPathParam) params.get(4));

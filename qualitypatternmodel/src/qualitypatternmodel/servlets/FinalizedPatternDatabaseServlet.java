@@ -16,6 +16,7 @@ import qualitypatternmodel.execution.impl.DatabasesImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.EMFModelLoad;
 
+@SuppressWarnings("serial")
 public class FinalizedPatternDatabaseServlet extends HttpServlet {
 	
 	@Override

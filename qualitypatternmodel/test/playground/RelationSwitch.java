@@ -3,7 +3,7 @@ package playground;
 import java.util.ArrayList;
 import java.util.List;
 
-import qualitypatternmodel.graphstructure.GraphstructureFactory;
+//import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
@@ -44,7 +44,7 @@ public class RelationSwitch {
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 
 		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;		
+//		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;		
 				
 		CompletePattern completePattern = Test03Quantor.getPatternExists();
 		TrueElement t = (TrueElement) ((QuantifiedCondition) completePattern.getCondition()).getCondition();

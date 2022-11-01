@@ -55,7 +55,7 @@ public class ServletTestsUtil {
 			HttpURLConnection connection = (HttpURLConnection) new URL(PATH_PREFIX + Util.INSTANTIATION_ENDPOINT + abstractPatternName + "/" + textName).openConnection();
 			connection.setRequestMethod("POST");
 			
-			String parameters = "name=" + URLEncoder.encode(concretePatternName);
+			String parameters = "name=" + URLEncoder.encode(concretePatternName, "UTF-8");
 			
 			connection.setDoOutput(true);
 		    OutputStreamWriter wr = new OutputStreamWriter(connection.getOutputStream());
@@ -94,12 +94,12 @@ public class ServletTestsUtil {
 		String patternAndParam = concretePatternName + "/" + parameterId;
 		HttpURLConnection connection = (HttpURLConnection) new URL(PATH_PREFIX + Util.CONCRETISATION_ENDPOINT + patternAndParam).openConnection();
 		connection.setRequestMethod("POST");
-		String valueEncoded = URLEncoder.encode(value);
+		String valueEncoded = URLEncoder.encode(value, "UTF-8");
 		String parameters = "value=" + valueEncoded;
 		
 		String typeEncoded = ".*";
 		if(type != null) {
-			typeEncoded = URLEncoder.encode(type);
+			typeEncoded = URLEncoder.encode(type, "UTF-8");
 			parameters += "&type=" + typeEncoded;
 		}
 		
@@ -153,15 +153,15 @@ public class ServletTestsUtil {
 		HttpURLConnection connection = (HttpURLConnection) new URL(PATH_PREFIX + Util.DATABASE_REGISTRATION_ENDPOINT + localName).openConnection();
 		connection.setRequestMethod("POST");
 		
-		String hostEncoded = URLEncoder.encode(host);
+		String hostEncoded = URLEncoder.encode(host, "UTF-8");
 		String parameters = "host=" + hostEncoded;
-		String portEncoded = URLEncoder.encode(port);
+		String portEncoded = URLEncoder.encode(port, "UTF-8");
 		parameters += "&port=" + portEncoded;
-		String nameEncoded = URLEncoder.encode(name);
+		String nameEncoded = URLEncoder.encode(name, "UTF-8");
 		parameters += "&name=" + nameEncoded;
-		String userEncoded = URLEncoder.encode(user);
+		String userEncoded = URLEncoder.encode(user, "UTF-8");
 		parameters += "&user=" + userEncoded;
-		String passwordEncoded = URLEncoder.encode(password);
+		String passwordEncoded = URLEncoder.encode(password, "UTF-8");
 		parameters += "&password=" + passwordEncoded;
 		
 		connection.setDoOutput(true);

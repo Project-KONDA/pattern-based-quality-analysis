@@ -17,6 +17,7 @@ import qualitypatternmodel.execution.impl.ServerXmlDataDatabaseImpl;
 import qualitypatternmodel.utility.EMFModelLoad;
 import qualitypatternmodel.utility.EMFModelSave;
 
+@SuppressWarnings("serial")
 public class DatabasesRegistrationServlet extends HttpServlet {
 	
 

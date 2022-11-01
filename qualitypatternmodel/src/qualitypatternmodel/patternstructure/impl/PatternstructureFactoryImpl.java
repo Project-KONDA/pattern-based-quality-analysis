@@ -329,6 +329,7 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("rawtypes")
 	public Class createClassWrapperFromString(EDataType eDataType, String initialValue) {
 		return (Class)super.createFromString(eDataType, initialValue);
 	}

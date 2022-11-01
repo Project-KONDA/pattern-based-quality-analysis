@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import java.util.ArrayList;
 import java.util.List;
 
-import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -55,9 +54,9 @@ public class Test13Cycle {
 	public static List<PatternTestPair> getTestPairs() {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 
-		for (XmlAxisKind ax : XmlAxisKind.VALUES) {
+//		for (XmlAxisKind ax : XmlAxisKind.VALUES) {
 //			testPairs.add(new PatternTestPair(<name>, <completePattern>, <query>));
-		}
+//		}
 		return testPairs;
 	}
 }

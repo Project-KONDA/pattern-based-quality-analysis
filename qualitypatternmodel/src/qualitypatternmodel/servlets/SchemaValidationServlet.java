@@ -15,6 +15,7 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.EMFModelLoad;
 
+@SuppressWarnings("serial")
 public class SchemaValidationServlet extends HttpServlet {
 	
 	

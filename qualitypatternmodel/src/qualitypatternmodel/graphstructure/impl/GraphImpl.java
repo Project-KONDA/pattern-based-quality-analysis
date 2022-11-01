@@ -476,8 +476,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			Class<? extends Node> clazz = node.getClass();
 			Node newElement = new NodeImpl();
 			try {
-				newElement = clazz.newInstance();
-			} catch (InstantiationException | IllegalAccessException e) {
+				newElement = clazz.getDeclaredConstructor().newInstance();
+			} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
 				e.printStackTrace();
 				// should never happen
 			}

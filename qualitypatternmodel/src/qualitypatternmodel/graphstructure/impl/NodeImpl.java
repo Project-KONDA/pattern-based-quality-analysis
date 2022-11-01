@@ -674,6 +674,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private void setGraphForCorrespondingElements(Graph newGraph) {
 		for (ElementMapping mapping : getOutgoingMappings()) {
 			if (!( mapping.getMorphism().getMorphismContainer() instanceof CountPattern)) {

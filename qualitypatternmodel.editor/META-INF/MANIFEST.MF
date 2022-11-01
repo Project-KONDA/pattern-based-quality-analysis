@@ -8,7 +8,7 @@ Bundle-ClassPath: .
 Bundle-Activator: qualitypatternmodel.parameters.presentation.QualitypatternmodelEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: qualitypatternmodel.adaptionrdf.presentation,
  qualitypatternmodel.adaptionxml.presentation,
  qualitypatternmodel.execution.presentation,

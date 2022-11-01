@@ -46,7 +46,7 @@ public class Util {
 
 
 	
-	public static String getFileNamesInFolder(String path, Class clas) throws URISyntaxException {
+	public static String getFileNamesInFolder(String path, Class<?> clas) throws URISyntaxException {
 		URL url = clas.getClassLoader().getResource(path);		
 		if(url != null) {			
 			File[] files = Paths.get(url.toURI()).toFile().listFiles();
@@ -68,7 +68,7 @@ public class Util {
 		}
 	}
 	
-	public static ArrayList<String> getListOfFileNamesInFolder(String path, Class clas) throws URISyntaxException {
+	public static ArrayList<String> getListOfFileNamesInFolder(String path, Class<?> clas) throws URISyntaxException {
 		URL url = clas.getClassLoader().getResource(path);
 		ArrayList<String> fileNames = new ArrayList<String>();
 		if(url != null) {			

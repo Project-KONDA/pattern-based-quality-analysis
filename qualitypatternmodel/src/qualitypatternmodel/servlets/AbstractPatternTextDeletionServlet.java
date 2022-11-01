@@ -13,6 +13,7 @@ import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.utility.EMFModelLoad;
 import qualitypatternmodel.utility.EMFModelSave;
 
+@SuppressWarnings("serial")
 public class AbstractPatternTextDeletionServlet extends HttpServlet {
 	
 	@Override
