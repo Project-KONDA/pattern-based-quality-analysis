@@ -14,6 +14,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
@@ -34,11 +35,11 @@ public class CypherEvalMandStruc {
 			
 			printMandStruc1UnconnectedNodes();
 			
-//			System.out.println();
-//			System.out.println("---");
-//			System.out.println();
-//			
-//			getMandStruc2HasPlaceOrIndexPlace();
+			System.out.println();
+			System.out.println("---");
+			System.out.println();
+			
+			printMandStruc2HasPlaceOrIndexPlace();
 			
 	}
 	
@@ -233,22 +234,78 @@ public class CypherEvalMandStruc {
 	
 	
 	//BEGIN -- Optinal
-	private static void getMandStruc2HasPlaceOrIndexPlace () {
+	private static void printMandStruc2HasPlaceOrIndexPlace() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+CompletePattern completePatternMandStruc1HasPlace;
 		
+		//Generic
+		Instant start = Instant.now();
+		
+		completePatternMandStruc1HasPlace = getMandStrucGeneric2HasPlaceOrIndexPlace();
+		
+		Instant finish = Instant.now();
+		long timeElapsed = Duration.between(start, finish).toMillis();
+		System.out.println("Speed time of Generic: " + timeElapsed);
+		
+		
+		//Generic --> Abstract 
+		start = Instant.now();
+		
+		completePatternMandStruc1HasPlace = getMandStrucAbstract2HasPlaceOrIndexPlace(completePatternMandStruc1HasPlace);
+		
+		finish = Instant.now();
+		timeElapsed = Duration.between(start, finish).toMillis();
+		System.out.println("Speed time of Generic --> Abstract: " + timeElapsed);
+
+		
+		//Abstract --> Concrete
+		start = Instant.now();
+		
+		completePatternMandStruc1HasPlace = getMandStrucConcrete2HasPlaceOrIndexPlace(completePatternMandStruc1HasPlace);
+		
+		finish = Instant.now();
+		timeElapsed = Duration.between(start, finish).toMillis();
+		System.out.println("Speed time of Abstract --> Concrete: " + timeElapsed);
+		
+		
+		//To Query
+		try {
+			start = Instant.now();
+			
+			System.out.println(completePatternMandStruc1HasPlace.generateCypher());
+			
+			finish = Instant.now();
+			timeElapsed = Duration.between(start, finish).toMillis();
+			System.out.println("Speed time of cypher generation: " + timeElapsed);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
-	private static CompletePattern getMandStrucGeneric2HasPlaceOrIndexPlace () throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = EvalMandStruc.getMandstrucGeneric();
+	private static CompletePattern getMandStrucGeneric2HasPlaceOrIndexPlace() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = EvalMandStruc.getMandStrucGeneric2();
 		return completePattern;
 	}
 	
-	private static CompletePattern getMandStrucAbstract2HasPlaceOrIndexPlace () throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = EvalMandStruc.getMandstrucGeneric();
+	private static CompletePattern getMandStrucAbstract2HasPlaceOrIndexPlace(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		completePattern.createNeo4jAdaption();
 		return completePattern;
 	}
 	
-	private static CompletePattern getMandStrucConcrete2HasPlaceOrIndexPlace () throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = EvalMandStruc.getMandstrucGeneric();
+	private static CompletePattern getMandStrucConcrete2HasPlaceOrIndexPlace(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
+		neoNode.addLabel("Regesta");
+		
+		Formula formula = ((Formula) ((NotCondition) completePattern.getCondition()).getCondition());
+		NeoNode neoNode1Cond1 = (NeoNode) ((QuantifiedCondition) formula.getCondition1()).getGraph().getNodes().get(0);
+		neoNode1Cond1.setNeoPlace(NeoPlace.BEGINNING);
+		NeoNode neoNode2Cond1 = (NeoNode) ((QuantifiedCondition) formula.getCondition1()).getGraph().getNodes().get(1);
+		neoNode2Cond1.addLabel("Place");
+		
+		NeoNode neoNode1Cond2 = (NeoNode) ((QuantifiedCondition) formula.getCondition2()).getGraph().getNodes().get(0);
+		neoNode1Cond2.setNeoPlace(NeoPlace.BEGINNING);
+		NeoNode neoNode2Cond2 = (NeoNode) ((QuantifiedCondition) formula.getCondition2()).getGraph().getNodes().get(1);
+		neoNode2Cond2.addLabel("IndexPlace");
+		
 		return completePattern;
 	}
 }
