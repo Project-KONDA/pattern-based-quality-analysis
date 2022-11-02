@@ -220,7 +220,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		//MULTIPLE EDGES HAVE TO BE HANDELT DIFFRENTLY BUT ARE ALSO NOT SUPPORTED BY THE FRAMEWORK
 		//TODO BUILD THE NON-LINEAR PATH GENERATION
 		
-		List<StringBuilder> listCypher = new LinkedList<StringBuilder>();
+		EList<StringBuilder> listCypher = new BasicEList<StringBuilder>();
 		listCypher = traverseOverPattern((ComplexNode) n, listCypher, 0);		
 		boolean localSeperationNeeded = false;
 		for (StringBuilder sb : listCypher) {
@@ -231,9 +231,10 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			}
 			cypher.append(sb.toString());
 		}
+		listCypher = null;
 	}
 	
-	private EList<StringBuilder> traverseOverPattern(ComplexNode node, List<StringBuilder> cyphers, int counterString) throws InvalidityException {
+	private EList<StringBuilder> traverseOverPattern(ComplexNode node, EList<StringBuilder> cyphers, int counterString) throws InvalidityException {
 		int innerCounterString = counterString;
 		StringBuilder cypher;
 		StringBuilder cypherEdge;
@@ -270,7 +271,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		boolean hasEdges = false;
 		for (Relation innerEdges : node.getOutgoing()) {
 			cypherText = innerEdges.generateCypher();
-			//Checks for the morphisem. No Edge will be printed if it is from a previews graph
+			//Checks for the morphisem. No Edge will be printed if it is from a previews graph --> No reprinting of the edge
 			if (!cypherText.isEmpty()) { 
 				cypherEdge = new StringBuilder();
 				cypherEdge.append(cypher.toString());
@@ -289,12 +290,14 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			}
 		}
 
-		if (!hasEdges)
+		if (!hasEdges) {
 			result.add(cypher);
-		
+		}
+			
 		return result;
 	}
 
+	//Rename this function
 	private boolean checkIfVisibleFork(ComplexNode node) {
 		int i = 0;
 		int distinctNeoPropertyNode = 0; 

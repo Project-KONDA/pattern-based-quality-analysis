@@ -10,6 +10,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.evaluation.EvalAppDup;
 
+//Sollten wir auch ratios vergleichen --> Wie viele gute und wie viele schlechte Daten?
 public class CypherEvalAppDup {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();

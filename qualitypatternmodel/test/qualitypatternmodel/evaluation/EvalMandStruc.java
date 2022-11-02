@@ -47,7 +47,7 @@ public class EvalMandStruc {
 		return1.addOutgoing().getTarget().makeComplex();
 		return completePattern;
 	}
-	
+		
 	public static CompletePattern getMandstruc3Generic() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;

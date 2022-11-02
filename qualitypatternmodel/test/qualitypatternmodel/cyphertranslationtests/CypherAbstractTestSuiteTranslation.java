@@ -402,7 +402,7 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 					+ "WHERE (varNode3.endDate = \"1439-12-20\")\n"
 					+ "RETURN varNode3");
 			i++;
-			
+		
 			//getBasePatternMatchConcrete
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3:Regesta)\n"
 					+ "WHERE (varNode3.endDate =~ \"1439.*\")\n"
@@ -871,7 +871,7 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 					+ "WHERE (varNode3.age = 1452.0)\n"
 					+ "RETURN varNode3");
 			i++;
-			
+	
 			//BooleanParam
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3)\n"
 					+ "WHERE (varNode3.isVater = true)\n"
