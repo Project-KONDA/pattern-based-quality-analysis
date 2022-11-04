@@ -14,7 +14,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#getNodePlace <em>Node Place</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#getNeoPlace <em>Neo Place</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#isIsVariableDistinctInUse <em>Is Variable Distinct In Use</em>}</li>
  * </ul>
  *
@@ -25,27 +25,27 @@ import qualitypatternmodel.exceptions.InvalidityException;
 public interface NeoInterfaceNode extends NeoInterfaceElement {
 
 	/**
-	 * Returns the value of the '<em><b>Node Place</b></em>' attribute.
+	 * Returns the value of the '<em><b>Neo Place</b></em>' attribute.
 	 * The default value is <code>"FOLLOWING"</code>.
 	 * The literals are from the enumeration {@link qualitypatternmodel.adaptionNeo4J.NeoPlace}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Node Place</em>' attribute.
+	 * @return the value of the '<em>Neo Place</em>' attribute.
 	 * @see qualitypatternmodel.adaptionNeo4J.NeoPlace
 	 * @see #setNeoPlace(NeoPlace)
-	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoInterfaceNode_NodePlace()
+	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoInterfaceNode_NeoPlace()
 	 * @model default="FOLLOWING"
 	 * @generated
 	 */
-	NeoPlace getNodePlace();
+	NeoPlace getNeoPlace();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#getNodePlace <em>Node Place</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#getNeoPlace <em>Neo Place</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Node Place</em>' attribute.
+	 * @param value the new value of the '<em>Neo Place</em>' attribute.
 	 * @see qualitypatternmodel.adaptionNeo4J.NeoPlace
-	 * @see #getNodePlace()
+	 * @see #getNeoPlace()
 	 * @generated
 	 */
 	void setNeoPlace(NeoPlace value);

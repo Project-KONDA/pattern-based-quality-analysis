@@ -62,7 +62,7 @@ public class NeoComplexEdgeItemProvider extends NeoPathPartItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(AdaptionNeo4JPackage.Literals.NEO_COMPLEX_EDGE__NEO_PATH_PART);
+			childrenFeatures.add(AdaptionNeo4JPackage.Literals.NEO_COMPLEX_EDGE__NEO_PATH_PARTS);
 		}
 		return childrenFeatures;
 	}
@@ -118,7 +118,7 @@ public class NeoComplexEdgeItemProvider extends NeoPathPartItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(NeoComplexEdge.class)) {
-			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH_PART:
+			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH_PARTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -138,12 +138,12 @@ public class NeoComplexEdgeItemProvider extends NeoPathPartItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AdaptionNeo4JPackage.Literals.NEO_COMPLEX_EDGE__NEO_PATH_PART,
+				(AdaptionNeo4JPackage.Literals.NEO_COMPLEX_EDGE__NEO_PATH_PARTS,
 				 AdaptionNeo4JFactory.eINSTANCE.createNeoComplexEdge()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AdaptionNeo4JPackage.Literals.NEO_COMPLEX_EDGE__NEO_PATH_PART,
+				(AdaptionNeo4JPackage.Literals.NEO_COMPLEX_EDGE__NEO_PATH_PARTS,
 				 AdaptionNeo4JFactory.eINSTANCE.createNeoSimpleEdge()));
 	}
 

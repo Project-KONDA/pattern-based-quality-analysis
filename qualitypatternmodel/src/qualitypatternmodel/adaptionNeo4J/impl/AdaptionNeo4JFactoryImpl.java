@@ -82,6 +82,8 @@ public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNe
 				return createNeoDirectionFromString(eDataType, initialValue);
 			case AdaptionNeo4JPackage.NEO_PLACE:
 				return createNeoPlaceFromString(eDataType, initialValue);
+			case AdaptionNeo4JPackage.NEW_DATA_TYPE3:
+				return createNewDataType3FromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -99,6 +101,8 @@ public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNe
 				return convertNeoDirectionToString(eDataType, instanceValue);
 			case AdaptionNeo4JPackage.NEO_PLACE:
 				return convertNeoPlaceToString(eDataType, instanceValue);
+			case AdaptionNeo4JPackage.NEW_DATA_TYPE3:
+				return convertNewDataType3ToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -230,6 +234,24 @@ public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNe
 	 */
 	public String convertNeoPlaceToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Object createNewDataType3FromString(EDataType eDataType, String initialValue) {
+		return super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertNewDataType3ToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

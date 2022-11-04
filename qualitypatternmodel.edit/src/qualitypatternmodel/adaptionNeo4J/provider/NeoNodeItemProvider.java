@@ -48,7 +48,7 @@ public class NeoNodeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNodePlacePropertyDescriptor(object);
+			addNeoPlacePropertyDescriptor(object);
 			addIsVariableDistinctInUsePropertyDescriptor(object);
 			addNeoNodeLabelsPropertyDescriptor(object);
 		}
@@ -56,19 +56,19 @@ public class NeoNodeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Node Place feature.
+	 * This adds a property descriptor for the Neo Place feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNodePlacePropertyDescriptor(Object object) {
+	protected void addNeoPlacePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NeoInterfaceNode_nodePlace_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NeoInterfaceNode_nodePlace_feature", "_UI_NeoInterfaceNode_type"),
-				 AdaptionNeo4JPackage.Literals.NEO_INTERFACE_NODE__NODE_PLACE,
+				 getString("_UI_NeoInterfaceNode_neoPlace_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NeoInterfaceNode_neoPlace_feature", "_UI_NeoInterfaceNode_type"),
+				 AdaptionNeo4JPackage.Literals.NEO_INTERFACE_NODE__NEO_PLACE,
 				 true,
 				 false,
 				 false,
@@ -159,7 +159,7 @@ public class NeoNodeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(NeoNode.class)) {
-			case AdaptionNeo4JPackage.NEO_NODE__NODE_PLACE:
+			case AdaptionNeo4JPackage.NEO_NODE__NEO_PLACE:
 			case AdaptionNeo4JPackage.NEO_NODE__IS_VARIABLE_DISTINCT_IN_USE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

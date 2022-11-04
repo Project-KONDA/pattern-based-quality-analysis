@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.adaptionNeo4J;
 
+import org.eclipse.emf.common.util.EList;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 
@@ -48,10 +50,10 @@ public interface NeoPropertyNode extends PrimitiveNode, NeoInterfaceNode {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @model many="false" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	String generateCypherPropertyAddressing() throws InvalidityException;
+	EList generateCypherPropertyAddressing() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -75,14 +75,14 @@ public interface NeoPathPart extends PatternElement {
 
 	/**
 	 * Returns the value of the '<em><b>Neo Complex Edge</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#getNeoPathPart <em>Neo Path Part</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#getNeoPathParts <em>Neo Path Parts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Neo Complex Edge</em>' container reference.
 	 * @see #setNeoComplexEdge(NeoComplexEdge)
 	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPathPart_NeoComplexEdge()
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#getNeoPathPart
-	 * @model opposite="neoPathPart" transient="false"
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#getNeoPathParts
+	 * @model opposite="neoPathParts" transient="false"
 	 * @generated
 	 */
 	NeoComplexEdge getNeoComplexEdge();

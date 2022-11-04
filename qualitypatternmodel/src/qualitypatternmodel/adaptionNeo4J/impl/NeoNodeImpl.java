@@ -34,7 +34,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl#getNodePlace <em>Node Place</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl#getNeoPlace <em>Neo Place</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl#isIsVariableDistinctInUse <em>Is Variable Distinct In Use</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl#getNeoNodeLabels <em>Neo Node Labels</em>}</li>
  * </ul>
@@ -42,25 +42,25 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
+	/**
+	 * The default value of the '{@link #getNeoPlace() <em>Neo Place</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNeoPlace()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final NeoPlace NEO_PLACE_EDEFAULT = NeoPlace.FOLLOWING;
 	private static final int CYPHER_RETURN_ID = 0;
 	/**
-	 * The default value of the '{@link #getNodePlace() <em>Node Place</em>}' attribute.
+	 * The cached value of the '{@link #getNeoPlace() <em>Neo Place</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNodePlace()
+	 * @see #getNeoPlace()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final NeoPlace NODE_PLACE_EDEFAULT = NeoPlace.FOLLOWING;
-	/**
-	 * The cached value of the '{@link #getNodePlace() <em>Node Place</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNodePlace()
-	 * @generated
-	 * @ordered
-	 */
-	protected NeoPlace neoPlace = NODE_PLACE_EDEFAULT;
+	protected NeoPlace neoPlace = NEO_PLACE_EDEFAULT;
 	/**
 	 * The default value of the '{@link #isIsVariableDistinctInUse() <em>Is Variable Distinct In Use</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -219,7 +219,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	 * @generated
 	 */
 	@Override
-	public NeoPlace getNodePlace() {
+	public NeoPlace getNeoPlace() {
 		return neoPlace;
 	}
 
@@ -229,11 +229,11 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	 * @generated
 	 */
 	@Override
-	public void setNeoPlace(NeoPlace newNodePlace) {
-		NeoPlace oldNodePlace = neoPlace;
-		neoPlace = newNodePlace == null ? NODE_PLACE_EDEFAULT : newNodePlace;
+	public void setNeoPlace(NeoPlace newNeoPlace) {
+		NeoPlace oldNeoPlace = neoPlace;
+		neoPlace = newNeoPlace == null ? NEO_PLACE_EDEFAULT : newNeoPlace;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_NODE__NODE_PLACE, oldNodePlace, neoPlace));
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_NODE__NEO_PLACE, oldNeoPlace, neoPlace));
 	}
 
 	/**
@@ -334,8 +334,8 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_NODE__NODE_PLACE:
-				return getNodePlace();
+			case AdaptionNeo4JPackage.NEO_NODE__NEO_PLACE:
+				return getNeoPlace();
 			case AdaptionNeo4JPackage.NEO_NODE__IS_VARIABLE_DISTINCT_IN_USE:
 				return isIsVariableDistinctInUse();
 			case AdaptionNeo4JPackage.NEO_NODE__NEO_NODE_LABELS:
@@ -354,7 +354,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_NODE__NODE_PLACE:
+			case AdaptionNeo4JPackage.NEO_NODE__NEO_PLACE:
 				setNeoPlace((NeoPlace)newValue);
 				return;
 			case AdaptionNeo4JPackage.NEO_NODE__IS_VARIABLE_DISTINCT_IN_USE:
@@ -379,15 +379,15 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_NODE__NODE_PLACE:
-				setNeoPlace(NODE_PLACE_EDEFAULT);
+			case AdaptionNeo4JPackage.NEO_NODE__NEO_PLACE:
+				setNeoPlace(NEO_PLACE_EDEFAULT);
 				return;
 			case AdaptionNeo4JPackage.NEO_NODE__IS_VARIABLE_DISTINCT_IN_USE:
 				setIsVariableDistinctInUse(IS_VARIABLE_DISTINCT_IN_USE_EDEFAULT);
 				return;
 			case AdaptionNeo4JPackage.NEO_NODE__NEO_NODE_LABELS:
 				try {
-					setNeoNodeLabels((TextListParam)null);
+					setNeoNodeLabels((TextListParam) null);
 				} catch (InvalidityException e) {
 					throw new RuntimeException(e.getCause());
 				}
@@ -404,8 +404,8 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_NODE__NODE_PLACE:
-				return neoPlace != NODE_PLACE_EDEFAULT;
+			case AdaptionNeo4JPackage.NEO_NODE__NEO_PLACE:
+				return neoPlace != NEO_PLACE_EDEFAULT;
 			case AdaptionNeo4JPackage.NEO_NODE__IS_VARIABLE_DISTINCT_IN_USE:
 				return isVariableDistinctInUse != IS_VARIABLE_DISTINCT_IN_USE_EDEFAULT;
 			case AdaptionNeo4JPackage.NEO_NODE__NEO_NODE_LABELS:
@@ -428,7 +428,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 		}
 		if (baseClass == NeoInterfaceNode.class) {
 			switch (derivedFeatureID) {
-				case AdaptionNeo4JPackage.NEO_NODE__NODE_PLACE: return AdaptionNeo4JPackage.NEO_INTERFACE_NODE__NODE_PLACE;
+				case AdaptionNeo4JPackage.NEO_NODE__NEO_PLACE: return AdaptionNeo4JPackage.NEO_INTERFACE_NODE__NEO_PLACE;
 				case AdaptionNeo4JPackage.NEO_NODE__IS_VARIABLE_DISTINCT_IN_USE: return AdaptionNeo4JPackage.NEO_INTERFACE_NODE__IS_VARIABLE_DISTINCT_IN_USE;
 				default: return -1;
 			}
@@ -450,7 +450,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 		}
 		if (baseClass == NeoInterfaceNode.class) {
 			switch (baseFeatureID) {
-				case AdaptionNeo4JPackage.NEO_INTERFACE_NODE__NODE_PLACE: return AdaptionNeo4JPackage.NEO_NODE__NODE_PLACE;
+				case AdaptionNeo4JPackage.NEO_INTERFACE_NODE__NEO_PLACE: return AdaptionNeo4JPackage.NEO_NODE__NEO_PLACE;
 				case AdaptionNeo4JPackage.NEO_INTERFACE_NODE__IS_VARIABLE_DISTINCT_IN_USE: return AdaptionNeo4JPackage.NEO_NODE__IS_VARIABLE_DISTINCT_IN_USE;
 				default: return -1;
 			}
@@ -524,7 +524,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (nodePlace: ");
+		result.append(" (neoPlace: ");
 		result.append(neoPlace);
 		result.append(", isVariableDistinctInUse: ");
 		result.append(isVariableDistinctInUse);

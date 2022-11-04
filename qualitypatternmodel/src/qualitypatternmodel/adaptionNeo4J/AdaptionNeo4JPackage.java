@@ -4,6 +4,7 @@ package qualitypatternmodel.adaptionNeo4J;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -112,13 +113,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_INTERFACE_NODE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Node Place</b></em>' attribute.
+	 * The feature id for the '<em><b>Neo Place</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_INTERFACE_NODE__NODE_PLACE = NEO_INTERFACE_ELEMENT_FEATURE_COUNT + 0;
+	int NEO_INTERFACE_NODE__NEO_PLACE = NEO_INTERFACE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Is Variable Distinct In Use</b></em>' attribute.
@@ -311,13 +312,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_NODE__OUTGOING = GraphstructurePackage.COMPLEX_NODE__OUTGOING;
 
 	/**
-	 * The feature id for the '<em><b>Node Place</b></em>' attribute.
+	 * The feature id for the '<em><b>Neo Place</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE__NODE_PLACE = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 0;
+	int NEO_NODE__NEO_PLACE = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Is Variable Distinct In Use</b></em>' attribute.
@@ -2363,13 +2364,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_COMPLEX_EDGE__NEO_COMPLEX_EDGE = NEO_PATH_PART__NEO_COMPLEX_EDGE;
 
 	/**
-	 * The feature id for the '<em><b>Neo Path Part</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Neo Path Parts</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_COMPLEX_EDGE__NEO_PATH_PART = NEO_PATH_PART_FEATURE_COUNT + 0;
+	int NEO_COMPLEX_EDGE__NEO_PATH_PARTS = NEO_PATH_PART_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Neo Complex Edge</em>' class.
@@ -3182,13 +3183,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PROPERTY_NODE__NULL_CHECK = GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK;
 
 	/**
-	 * The feature id for the '<em><b>Node Place</b></em>' attribute.
+	 * The feature id for the '<em><b>Neo Place</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE__NODE_PLACE = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 0;
+	int NEO_PROPERTY_NODE__NEO_PLACE = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Is Variable Distinct In Use</b></em>' attribute.
@@ -5644,6 +5645,17 @@ public interface AdaptionNeo4JPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '<em>New Data Type3</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.lang.Object
+	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNewDataType3()
+	 * @generated
+	 */
+	int NEW_DATA_TYPE3 = 15;
+
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode <em>Neo Interface Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5654,15 +5666,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EClass getNeoInterfaceNode();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#getNodePlace <em>Node Place</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#getNeoPlace <em>Neo Place</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Node Place</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#getNodePlace()
+	 * @return the meta object for the attribute '<em>Neo Place</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#getNeoPlace()
 	 * @see #getNeoInterfaceNode()
 	 * @generated
 	 */
-	EAttribute getNeoInterfaceNode_NodePlace();
+	EAttribute getNeoInterfaceNode_NeoPlace();
 
 	/**
 	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#isIsVariableDistinctInUse <em>Is Variable Distinct In Use</em>}'.
@@ -5748,15 +5760,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EClass getNeoComplexEdge();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#getNeoPathPart <em>Neo Path Part</em>}'.
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#getNeoPathParts <em>Neo Path Parts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Neo Path Part</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#getNeoPathPart()
+	 * @return the meta object for the containment reference list '<em>Neo Path Parts</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#getNeoPathParts()
 	 * @see #getNeoComplexEdge()
 	 * @generated
 	 */
-	EReference getNeoComplexEdge_NeoPathPart();
+	EReference getNeoComplexEdge_NeoPathParts();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#addNeoPathPart(qualitypatternmodel.adaptionNeo4J.NeoPathPart) <em>Add Neo Path Part</em>}' operation.
@@ -6245,6 +6257,17 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EEnum getNeoPlace();
 
 	/**
+	 * Returns the meta object for data type '{@link java.lang.Object <em>New Data Type3</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>New Data Type3</em>'.
+	 * @see java.lang.Object
+	 * @model instanceClass="java.lang.Object"
+	 * @generated
+	 */
+	EDataType getNewDataType3();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6278,12 +6301,12 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EClass NEO_INTERFACE_NODE = eINSTANCE.getNeoInterfaceNode();
 
 		/**
-		 * The meta object literal for the '<em><b>Node Place</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Neo Place</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NEO_INTERFACE_NODE__NODE_PLACE = eINSTANCE.getNeoInterfaceNode_NodePlace();
+		EAttribute NEO_INTERFACE_NODE__NEO_PLACE = eINSTANCE.getNeoInterfaceNode_NeoPlace();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Variable Distinct In Use</b></em>' attribute feature.
@@ -6356,12 +6379,12 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EClass NEO_COMPLEX_EDGE = eINSTANCE.getNeoComplexEdge();
 
 		/**
-		 * The meta object literal for the '<em><b>Neo Path Part</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Neo Path Parts</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NEO_COMPLEX_EDGE__NEO_PATH_PART = eINSTANCE.getNeoComplexEdge_NeoPathPart();
+		EReference NEO_COMPLEX_EDGE__NEO_PATH_PARTS = eINSTANCE.getNeoComplexEdge_NeoPathParts();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Neo Path Part</b></em>' operation.
@@ -6760,6 +6783,16 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum NEO_PLACE = eINSTANCE.getNeoPlace();
+
+		/**
+		 * The meta object literal for the '<em>New Data Type3</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.lang.Object
+		 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNewDataType3()
+		 * @generated
+		 */
+		EDataType NEW_DATA_TYPE3 = eINSTANCE.getNewDataType3();
 
 	}
 
