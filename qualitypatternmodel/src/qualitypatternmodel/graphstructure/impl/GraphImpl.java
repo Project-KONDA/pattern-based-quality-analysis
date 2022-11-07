@@ -4,8 +4,6 @@ package qualitypatternmodel.graphstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -347,26 +345,24 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	
 	private String generateCypherWhereOperators() throws InvalidityException {
 		final StringBuilder cypherOperators = new StringBuilder();
-		if (this.getOperatorList().getOperators().size() == 0) {
-			final OperatorList opList = this.getOperatorList();
-			//Add this to RegelWerk that the Operators are all in breakers
-			cypherOperators.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
-			for (Operator operator : opList.getOperators()) {
-				if (operator.generateCypher() != null) {
-					if (cypherOperators.length() != 1) {
-						cypherOperators.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.SIX_WHITESPACES 
-								+ CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
-					}
-					cypherOperators.append(operator.generateCypher());	
+		final OperatorList opList = this.getOperatorList();
+		//Add this to RegelWerk that the Operators are all in breakers
+		cypherOperators.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
+		for (Operator operator : opList.getOperators()) {
+			if (operator.generateCypher() != null) {
+				if (cypherOperators.length() != 1) {
+					cypherOperators.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.SIX_WHITESPACES 
+							+ CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
 				}
+				cypherOperators.append(operator.generateCypher());	
 			}
-			
-			if (cypherOperators.length() != 1) {
-				cypherOperators.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
-			} else {
-				//Resets the StringBuilder to have an Empty one
-				cypherOperators.setLength(0);
-			}
+		}
+		
+		if (cypherOperators.length() != 1) {
+			cypherOperators.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
+		} else {
+			//Resets the StringBuilder to have an Empty one
+			cypherOperators.setLength(0);
 		}
 		return cypherOperators.toString();
 	}

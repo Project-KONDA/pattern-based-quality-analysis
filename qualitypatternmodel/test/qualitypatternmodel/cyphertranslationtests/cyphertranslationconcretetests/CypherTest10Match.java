@@ -24,7 +24,7 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CypherTest10Match match = new CypherTest10Match();
 		try {
-			match.generalizedTests();         
+//			match.generalizedTests();         
 			match.generalizedInvalidtyExceptionTests();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -52,10 +52,10 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException {
 		completePatternsExceptions.add(generateMatchInvalidOptionException(true));
-		completePatternsExceptions.add(generateMatchInvalidOptionException(false));
-		completePatternsExceptions.add(generateMatchInvalidOptionDiffrentException(true));
-		completePatternsExceptions.add(generateMatchInvalidOptionDiffrentException(true));
-		completePatternsExceptions.add(generateMatchInvalidOptionDiffrent4Exception(false));
+//		completePatternsExceptions.add(generateMatchInvalidOptionException(false));
+//		completePatternsExceptions.add(generateMatchInvalidOptionDiffrentException(true));
+//		completePatternsExceptions.add(generateMatchInvalidOptionDiffrentException(true));
+//		completePatternsExceptions.add(generateMatchInvalidOptionDiffrent4Exception(false));
 	}
 	
 

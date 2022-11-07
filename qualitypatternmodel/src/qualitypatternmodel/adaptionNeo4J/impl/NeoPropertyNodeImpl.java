@@ -161,8 +161,8 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 				final String adressing = cypherList.get(1);
 				cypherList.clear();
 				cypherList.add(adressing);
-			} else {
-				final String adressing = getCypherComparisonVariableFromPreviewsNodes();
+			} else if (getIncomingMapping() != null) {
+				final String adressing = ((NeoPropertyNodeImpl) getIncomingMapping()).getCypherComparisonVariableFromPreviewsNodes();
 				if (adressing != null) {
 					cypherList.add(adressing);
 				}
