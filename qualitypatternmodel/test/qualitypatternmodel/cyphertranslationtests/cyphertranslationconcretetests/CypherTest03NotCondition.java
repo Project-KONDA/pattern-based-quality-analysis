@@ -40,6 +40,7 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
         	//not.generalizedInvalidtyExceptionTests();
     	} catch (Exception e) {
 			System.out.println(e);
+			e.printStackTrace();
 		}
     }
 

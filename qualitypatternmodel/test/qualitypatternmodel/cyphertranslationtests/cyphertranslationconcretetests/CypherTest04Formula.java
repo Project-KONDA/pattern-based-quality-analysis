@@ -36,6 +36,7 @@ public class CypherTest04Formula extends CypherAbstractTranslation {
         	formula.generalizedInvalidtyExceptionTests();	
     	} catch (Exception e) {
 			System.out.println(e);
+			e.printStackTrace();
 		}
     }
 

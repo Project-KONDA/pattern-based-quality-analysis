@@ -51,6 +51,7 @@ public class CypherTest05ParameterValues extends CypherAbstractTranslation {
 //			parameterValues.generalizedInvalidtyExceptionTests();
 		} catch (Exception e) {
 			System.out.println(e);
+			e.printStackTrace();
 		}	
 	}
 

@@ -35,6 +35,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 			count.generalizedInvalidtyExceptionTests();
 		} catch (Exception e) {
 			System.out.println(e);
+			e.printStackTrace();
 		}
 	}
 	

@@ -34,6 +34,7 @@ public class CypherTest00 extends CypherAbstractTranslation {
 			cypher00.generalizedInvalidtyExceptionTests();
 		} catch (Exception e) {
 			System.out.println(e);
+			e.printStackTrace();
 		}
 	}
 

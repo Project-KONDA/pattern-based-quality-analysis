@@ -115,13 +115,16 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	}
 	
 	@Override 
-	public String generateCypher() throws InvalidityException, UnsupportedOperationException {
-		isNodeReturnable();	
+	public String generateCypher() throws InvalidityException, UnsupportedOperationException {	
 		if (getIncomingMapping() == null) {
-			final String temp = generateCypherNodeVariable();
+			final String[] temp = generateCypherNodeVariable().split(CypherSpecificConstants.SEPERATOR);
 			String cypher = new String();
 			if (temp != null) {
-				cypher = CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + temp + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;		
+				boolean multi = false;
+				for (String s : temp) {
+					if (multi) cypher += CypherSpecificConstants.SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE;
+					cypher += CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + s + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;		
+				}
 				return cypher;
 			}
 			return cypher;
@@ -129,7 +132,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		return ((NeoPropertyNode) getOriginalNode()).generateCypher();
 	}	
 	
-	//REWORK --> generateCypher and getCypher Variable
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -158,11 +160,12 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		} else {
 			cypherList = ((NeoPropertyNode) getOriginalNode()).generateCypherPropertyAddressing();
 			if (cypherList.size() > 1) {
-				final String adressing = cypherList.get(1);
+				final String adressing = cypherList.get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
 				cypherList.clear();
 				cypherList.add(adressing);
 			} else if (getIncomingMapping() != null) {
-				final String adressing = ((NeoPropertyNodeImpl) getIncomingMapping()).getCypherComparisonVariableFromPreviewsNodes();
+				final Node node = (Node) getIncomingMapping().getSource();
+				final String adressing = ((NeoPropertyNodeImpl) node).getCypherComparisonVariableFromPreviewsNodes();
 				if (adressing != null) {
 					cypherList.add(adressing);
 				}
@@ -211,16 +214,28 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 				throw new InvalidityException(NO_INCOMING_NEO_PROPERTY_EDGE_SPECIFIED);
 			else if(!(getIncoming().get(0) instanceof NeoPropertyEdge))
 				throw new InvalidityException(WRONG_INCOMING_NEO_PROPERTY_EDGE_SPECIFIED);
-			NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) getIncoming().get(0);
-			String cypher = neoPropertyEdge.generateCypherNodeVariable();
-			return cypher;
+			final StringBuilder cypher = new StringBuilder();
+			int countReturnables = 0;
+			for (int i = 0; i < getIncoming().size(); i++) {
+				if (isNodeReturnable(i)) {					
+					NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) getIncoming().get(i);
+					cypher.append(neoPropertyEdge.generateCypherNodeVariable());
+					cypher.append(CypherSpecificConstants.SEPERATOR);
+				} else {
+					countReturnables++;
+				}
+			}
+			if (countReturnables == getIncoming().size()) {
+				throw new InvalidityException(NeoPropertyNodeImpl.THIS_NODE_IS_NOT_SUITED_TO_BE_A_RETURN_NODE);
+			}
+			return cypher.toString();
 		}
 		return ((NeoPropertyNode) getOriginalNode()).generateCypherNodeVariable();
 	}
 
 	//Check if this check is in the other classes similar or need similar adaption
 	private boolean checkForValidIncoming() throws InvalidityException {
-		boolean result = !(getIncoming() == null);
+		boolean result = !(getIncoming() == null && getIncoming().size() == 0);
 		if (result) {
 			for (Relation r : getIncoming()) {
 				if (!(r instanceof NeoPropertyEdge)) {
@@ -253,12 +268,16 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override
 	public String getCypherVariable() throws InvalidityException {
 		if (getIncomingMapping() == null) {	
-			final String temp = generateCypher();
+			final String[] temp = generateCypher().split(CypherSpecificConstants.SEPERATOR);
 			String cypher = "";
 			if (temp != null) {
-				cypher = temp;
-				cypher = cypher.replace("(", "");
-				cypher = cypher.replace(")", "");
+				for (String s : temp) {
+					cypher += s;
+					cypher = cypher.replace("(", "");
+					cypher = cypher.replace(")", "");
+					cypher += CypherSpecificConstants.SEPERATOR;
+				}
+				
 			}
 			return cypher;
 		}
@@ -272,28 +291,38 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 */
 	@Override
 	public EMap<Integer, String> getCypherReturnVariable() throws InvalidityException {
-		EMap<Integer, String> returnElement = new BasicEMap<Integer, String>();
+		final EMap<Integer, String> returnElement = new BasicEMap<Integer, String>();
+		final String[] temp = getCypherVariable().split(CypherSpecificConstants.SEPERATOR);
+		final StringBuilder cypher = new StringBuilder();
+		for (String s : temp) {
+			cypher.append(s + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.CYPHER_SEPERATOR);
+		}
+		//Removes the last CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.CYPHER_SEPERATOR
+		//Otherwise redundancy in separators can be produced
+		cypher.replace(cypher.length() - 2, cypher.length(), new String());
 		if (getIncomingMapping() == null) {	
-			returnElement.put(NeoPropertyNodeImpl.CYPHER_RETURN_ID, getCypherVariable());
+			returnElement.put(NeoPropertyNodeImpl.CYPHER_RETURN_ID, cypher.toString());
 			return returnElement;
 		} else {
-			returnElement.put(NeoPropertyNodeImpl.CYPHER_RETURN_ID, getCypherVariable());
+			returnElement.put(NeoPropertyNodeImpl.CYPHER_RETURN_ID, cypher.toString());
 		}
 		return returnElement;
 	}
 
-	private void isNodeReturnable() throws InvalidityException {
+	private boolean isNodeReturnable(int ix) throws InvalidityException {
 		NeoPropertyEdge neoPropertyEdge;
 		NeoPropertyPathParam neoPropertyPathParam;
 		
 		if (!checkForValidIncoming()) {
 			throw new InvalidityException(NO_IMCOMING_EDGE_SPEZIFIED);
 		}
-		neoPropertyEdge = (NeoPropertyEdge) getIncoming().get(0);
+		boolean result = true;
+		neoPropertyEdge = (NeoPropertyEdge) getIncoming().get(ix);
 		neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
 		if (neoPropertyPathParam == null || neoPropertyPathParam.getNeoPathPart() == null) {
-			throw new InvalidityException(THIS_NODE_IS_NOT_SUITED_TO_BE_A_RETURN_NODE);
+			result = false;
 		}
+		return result;
 	}
 
 	/**

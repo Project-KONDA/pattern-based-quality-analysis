@@ -30,6 +30,7 @@ public class CypherTest02Return extends CypherAbstractTranslation {
 			cypherReturn.generalizedInvalidtyExceptionTests();	
 		} catch (Exception e) {
 			System.out.println(e);
+			e.printStackTrace();
 		}
 	}
 

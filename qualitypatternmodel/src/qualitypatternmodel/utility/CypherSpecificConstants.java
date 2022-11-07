@@ -67,4 +67,5 @@ public class CypherSpecificConstants {
 	
 	//Special Constants for addressing
 	public static final int FIRST_CYPHER_PROPERTY_ADDRESSING = 0;
+	public static final String SEPERATOR = ";";
 }

@@ -28,6 +28,7 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 			quantifiedCond.generalizedInvalidtyExceptionTests(); 
 		} catch (Exception e) {
 			System.out.println(e);
+			e.printStackTrace();
 		}
 	}
 	

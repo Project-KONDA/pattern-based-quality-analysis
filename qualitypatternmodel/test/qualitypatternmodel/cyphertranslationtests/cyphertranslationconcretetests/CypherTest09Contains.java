@@ -31,6 +31,7 @@ public class CypherTest09Contains extends CypherAbstractTranslation {
 			contains.generalizedInvalidtyExceptionTests();
 		} catch (Exception e) {
 			System.out.println(e);
+			e.printStackTrace();
 		}
     }
 

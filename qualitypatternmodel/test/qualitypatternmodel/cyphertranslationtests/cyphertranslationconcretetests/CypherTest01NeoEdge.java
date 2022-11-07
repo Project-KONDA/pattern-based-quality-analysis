@@ -51,6 +51,7 @@ public class CypherTest01NeoEdge extends CypherAbstractTranslation {
 			System.out.println("");
 		} catch (Exception e) {
 			System.out.println(e);
+			e.printStackTrace();
 		}
 	}
 

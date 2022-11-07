@@ -37,6 +37,7 @@ public class CypherTest06Comparison extends CypherAbstractTranslation {
         	comparison.generalizedInvalidtyExceptionTests();
     	} catch (Exception e) {
 			System.out.println(e);
+			e.printStackTrace();
 		}
     	
     }

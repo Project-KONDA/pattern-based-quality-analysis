@@ -396,10 +396,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			throw new InvalidityException(RETURN_ELEMENT_S_MISSING);
 		}
 		
-		String completeCyString;
+		String completeCyString = new String(); 
 		completeCyString = super.generateCypher();
-		
-		//Es wäre gut das Modell noch mit einem getReturnRelations zu erweitern! 
+		 
 		String returnClause = this.generateCypherReturn();
 		if(returnClause.length() != 0) returnClause = CypherSpecificConstants.CLAUSE_RETURN + returnClause;
 		else throw new InvalidityException(A_CYPHER_QUERY_NEED_A_RETURN_CLAUSE);
@@ -466,7 +465,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		callCypherPropertyAddressingString(cypherNeoProperties);
 		if (cypherNeoProperties.length() != 0) {
 			if (cypher.length() != 0) {
-				cypher += ", " + "\n";
+				cypher += CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE + "\n";
 				cypher += CypherSpecificConstants.SIX_WHITESPACES;
 			} else {
 				cypher = CypherSpecificConstants.ONE_WHITESPACE;
@@ -483,7 +482,13 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			if (n instanceof NeoPropertyNode && ((NeoPropertyNode)n).isReturnProperty()) {
 				if (cypherNeoProperties.length() != 0) cypherNeoProperties.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE);
 				neoPropertyNode = (NeoPropertyNode) n;
-				cypherNeoProperties.append(neoPropertyNode.generateCypherPropertyAddressing());
+				final EList<String> tempCypher = neoPropertyNode.generateCypherPropertyAddressing();
+				boolean multi = false;
+				for (String s : tempCypher) {
+					if (multi) cypherNeoProperties.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE);
+					cypherNeoProperties.append(s);
+					multi = true;
+				}
 			}
 		}
 	}

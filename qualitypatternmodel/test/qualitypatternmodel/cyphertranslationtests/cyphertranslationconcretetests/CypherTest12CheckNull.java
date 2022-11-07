@@ -24,6 +24,7 @@ public class CypherTest12CheckNull extends CypherAbstractTranslation {
             checkNull.generalizedInvalidtyExceptionTests();
         } catch (Exception e) {
 			System.out.println(e);
+			e.printStackTrace();
 		}
     }
 
