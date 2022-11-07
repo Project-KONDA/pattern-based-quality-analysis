@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoDirection;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
+import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
@@ -19,13 +20,16 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.NotCondition;
+import qualitypatternmodel.patternstructure.PatternstructureFactory;
+import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class CypherTest01NeoPropertyEdge extends CypherAbstractTranslation {	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CypherTest01NeoPropertyEdge neoPropertyEdge = new CypherTest01NeoPropertyEdge();		
 		try {
 			neoPropertyEdge.generalizedTests();         
-			neoPropertyEdge.generalizedInvalidtyExceptionTests();
+//			neoPropertyEdge.generalizedInvalidtyExceptionTests();
 		} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();
@@ -35,21 +39,21 @@ public class CypherTest01NeoPropertyEdge extends CypherAbstractTranslation {
 	@Override
 	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		completePatterns.add(getBlankSimpleEdge());
-		completePatterns.add(getNeoPropertyEdge());
-		completePatterns.add(getSimpleEdgeReturnOnlyProperty());
-		completePatterns.add(getSimpleEdgeReturnOnlyMultiProperty());
-		completePatterns.add(getSimpleEdgeWithLabels());
-		completePatterns.add(getSimpleEdgeWithLabelsRight());
-		completePatterns.add(getSimpleEdgeWithLabelsLeft());
-		completePatterns.add(getSimpleEdgeWithTargetNodePropertyNProperty());
-		completePatterns.add(getSimpleEdgeWithTargetNodePropertyNNeoPropertyEdgeNProperty());
-		completePatterns.add(getComplexEdge());
-		completePatterns.add(getComplexEdgeWithLabels());
-		completePatterns.add(getComplexEdgeWithLabelsDiffrentDirections());
-		completePatterns.add(getComplexEdgeWithLabelsDiffrentDirectionsAndAllReturns());
-		completePatterns.add(getMultiEdgesToNeoPropertyNode());
-//		completePatterns.add(getMultiEdgesToNeoPropertyNodeWithConditon());
+//		completePatterns.add(getBlankSimpleEdge());
+//		completePatterns.add(getNeoPropertyEdge());
+//		completePatterns.add(getSimpleEdgeReturnOnlyProperty());
+//		completePatterns.add(getSimpleEdgeReturnOnlyMultiProperty());
+//		completePatterns.add(getSimpleEdgeWithLabels());
+//		completePatterns.add(getSimpleEdgeWithLabelsRight());
+//		completePatterns.add(getSimpleEdgeWithLabelsLeft());
+//		completePatterns.add(getSimpleEdgeWithTargetNodePropertyNProperty());
+//		completePatterns.add(getSimpleEdgeWithTargetNodePropertyNNeoPropertyEdgeNProperty());
+//		completePatterns.add(getComplexEdge());
+//		completePatterns.add(getComplexEdgeWithLabels());
+//		completePatterns.add(getComplexEdgeWithLabelsDiffrentDirections());
+//		completePatterns.add(getComplexEdgeWithLabelsDiffrentDirectionsAndAllReturns());
+//		completePatterns.add(getMultiEdgesToNeoPropertyNode());
+		completePatterns.add(getMultiEdgesToNeoPropertyNodeWithConditon());
 	}
 	
 	@Override
@@ -344,8 +348,25 @@ public class CypherTest01NeoPropertyEdge extends CypherAbstractTranslation {
 	
 	private CompletePattern getMultiEdgesToNeoPropertyNodeWithConditon() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = buildMultiEdgesToNeoPropertyNode();
+		completePattern.getGraph().addPrimitiveNode();
+		NotCondition notCondition = PatternstructureFactory.eINSTANCE.createNotCondition();
+		completePattern.setCondition(notCondition);
+		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		notCondition.setCondition(quantifiedCondition);
+		ComplexNode complexNode1 = (ComplexNode) quantifiedCondition.getGraph().getNodes().get(0);
+		quantifiedCondition.getGraph().addRelation(complexNode1, quantifiedCondition.getGraph().getNodes().get(5));
+		ComplexNode complexNode2 = (ComplexNode) quantifiedCondition.getGraph().getNodes().get(2);
+		quantifiedCondition.getGraph().addRelation(complexNode2, quantifiedCondition.getGraph().getNodes().get(5));
 		
+		completePattern.createNeo4jAdaption();
+		concretizesMultiEdgesToNeoPropertyNode(completePattern);
 		
+		NeoNode neoNode = (NeoNode) quantifiedCondition.getGraph().getNodes().get(0);
+		neoNode.setNeoPlace(NeoPlace.BEGINNING);
+		NeoPropertyEdge neoPropertyEdge1 = (NeoPropertyEdge) quantifiedCondition.getGraph().getRelations().get(4); 
+		neoPropertyEdge1.getNeoPropertyPathParam().setNeoPropertyName("placeOfIssue");
+		NeoPropertyEdge neoPropertyEdge2 = (NeoPropertyEdge) quantifiedCondition.getGraph().getRelations().get(5); 
+		neoPropertyEdge2.getNeoPropertyPathParam().setNeoPropertyName("placeOfIssue");
 		
 		return completePattern;
 	}

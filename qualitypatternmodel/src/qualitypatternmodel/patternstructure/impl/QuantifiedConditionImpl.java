@@ -344,13 +344,12 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 
 	private void appendCypherWhere(StringBuilder query) throws InvalidityException {
-		if (graph.generateCypherWhere() != null && graph.generateCypherWhere() != "" && !graph.generateCypherWhere().isEmpty()) {
+		if (graph.generateCypherWhere() != null && !graph.generateCypherWhere().isEmpty()) {
 			if (query.length() != 0) {
 				query.append("\n" + CypherSpecificConstants.TWELVE_WHITESPACES
 						+ LOGICAL_OPERATOR_AND + " ");
 			}
 			query.append(graph.generateCypherWhere());
-			
 		}
 	}
 	//END -- Neo4J

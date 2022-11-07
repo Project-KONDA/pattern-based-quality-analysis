@@ -133,7 +133,7 @@ public abstract class CypherAbstractTranslation implements CypherInterfaceTransl
 					System.out.println(query);
 				}
 			} catch (Exception e) {
-				System.out.println();
+				System.out.println(e);
 				e.printStackTrace();
 				try {
 				  System.out.println(completePattern.myToString());

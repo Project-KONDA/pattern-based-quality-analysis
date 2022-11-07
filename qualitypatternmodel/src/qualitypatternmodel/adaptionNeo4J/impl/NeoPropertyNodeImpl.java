@@ -152,33 +152,57 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 						throw new InvalidityException(NO_PROPERTY_NAME_IS_SPECIFIED);
 					}
 					cypher = edge.generateCypherPropertyAddressing();
-					cypherList.add(cypher);
+					if (!alreadyContainedInCypherPropertyAddressingList(cypherList, cypher)) {						
+						cypherList.add(cypher);
+					}
 				}
 			}
 			cypher = null;
 			cypherResult = cypherList;
 		} else {
-			cypherList = ((NeoPropertyNode) getOriginalNode()).generateCypherPropertyAddressing();
-			if (cypherList.size() > 1) {
-				final String adressing = cypherList.get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
-				cypherList.clear();
-				cypherList.add(adressing);
-			} else if (getIncomingMapping() != null) {
-				final Node node = (Node) getIncomingMapping().getSource();
-				final String adressing = ((NeoPropertyNodeImpl) node).getCypherComparisonVariableFromPreviewsNodes();
-				if (adressing != null) {
-					cypherList.add(adressing);
+			final EList<String> currentEdgeList = new BasicEList<String>();
+			NeoPropertyEdge neoPropertyEdge = null;
+			for (Relation r : getIncoming()) {
+				neoPropertyEdge = (NeoPropertyEdge) r;
+				if (neoPropertyEdge.getIncomingMapping() == null) {
+					currentEdgeList.add(neoPropertyEdge.generateCypherPropertyAddressing());
 				}
-			}			
+			}
+			if (currentEdgeList.size() != 0) {
+				cypherList = ((NeoPropertyNodeImpl) getOriginalNode()).generateCypherPropertyAddressing();
+				if (cypherList.size() > 1) {
+					final String adressing = cypherList.get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
+					cypherList.clear();
+					cypherList.add(adressing);
+				} else if (getIncomingMapping() != null) {
+					final Node node = (Node) getIncomingMapping().getSource();
+					final String adressing = ((NeoPropertyNodeImpl) node).getCypherComparisonVariableFromPreviewsNodes();
+					if (adressing != null) {
+						cypherList.add(adressing);
+					}
+				}
+			}	
 			cypherResult = cypherList;
+			cypherResult.addAll(currentEdgeList);
 		}
-		if (cypherList.size() == 0) {
-			throw new InvalidityException(NeoPropertyNodeImpl.NO_CYPHER_PROPERTY_ADDRESSINGS_COULD_BE_GENERATED);
-		}
+		//Remove duplicates
 		cypherList = null;
 		return cypherResult;
 	}
 	
+	private boolean alreadyContainedInCypherPropertyAddressingList(EList<String> cypherList, String cypher) {
+		boolean isContained = false;
+		String temp = null;
+		for (int i = 0; i < cypherList.size(); i++) {
+			temp = cypherList.get(i);
+			if (temp.compareTo(cypher) == 0) {
+				isContained = true;
+				i = cypherList.size();
+			}
+		}
+		return isContained;
+	}
+
 	//Checking every previews Mapping in Case the original has no incoming relation
 	private String getCypherComparisonVariableFromPreviewsNodes() throws InvalidityException {
 		String adressing = null;
