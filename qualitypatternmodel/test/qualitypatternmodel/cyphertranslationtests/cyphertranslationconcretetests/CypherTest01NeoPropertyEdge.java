@@ -29,7 +29,7 @@ public class CypherTest01NeoPropertyEdge extends CypherAbstractTranslation {
 		CypherTest01NeoPropertyEdge neoPropertyEdge = new CypherTest01NeoPropertyEdge();		
 		try {
 			neoPropertyEdge.generalizedTests();         
-//			neoPropertyEdge.generalizedInvalidtyExceptionTests();
+			neoPropertyEdge.generalizedInvalidtyExceptionTests();
 		} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();
@@ -39,20 +39,20 @@ public class CypherTest01NeoPropertyEdge extends CypherAbstractTranslation {
 	@Override
 	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		completePatterns.add(getBlankSimpleEdge());
-//		completePatterns.add(getNeoPropertyEdge());
-//		completePatterns.add(getSimpleEdgeReturnOnlyProperty());
-//		completePatterns.add(getSimpleEdgeReturnOnlyMultiProperty());
-//		completePatterns.add(getSimpleEdgeWithLabels());
-//		completePatterns.add(getSimpleEdgeWithLabelsRight());
-//		completePatterns.add(getSimpleEdgeWithLabelsLeft());
-//		completePatterns.add(getSimpleEdgeWithTargetNodePropertyNProperty());
-//		completePatterns.add(getSimpleEdgeWithTargetNodePropertyNNeoPropertyEdgeNProperty());
-//		completePatterns.add(getComplexEdge());
-//		completePatterns.add(getComplexEdgeWithLabels());
-//		completePatterns.add(getComplexEdgeWithLabelsDiffrentDirections());
-//		completePatterns.add(getComplexEdgeWithLabelsDiffrentDirectionsAndAllReturns());
-//		completePatterns.add(getMultiEdgesToNeoPropertyNode());
+		completePatterns.add(getBlankSimpleEdge());
+		completePatterns.add(getNeoPropertyEdge());
+		completePatterns.add(getSimpleEdgeReturnOnlyProperty());
+		completePatterns.add(getSimpleEdgeReturnOnlyMultiProperty());
+		completePatterns.add(getSimpleEdgeWithLabels());
+		completePatterns.add(getSimpleEdgeWithLabelsRight());
+		completePatterns.add(getSimpleEdgeWithLabelsLeft());
+		completePatterns.add(getSimpleEdgeWithTargetNodePropertyNProperty());
+		completePatterns.add(getSimpleEdgeWithTargetNodePropertyNNeoPropertyEdgeNProperty());
+		completePatterns.add(getComplexEdge());
+		completePatterns.add(getComplexEdgeWithLabels());
+		completePatterns.add(getComplexEdgeWithLabelsDiffrentDirections());
+		completePatterns.add(getComplexEdgeWithLabelsDiffrentDirectionsAndAllReturns());
+		completePatterns.add(getMultiEdgesToNeoPropertyNode());
 		completePatterns.add(getMultiEdgesToNeoPropertyNodeWithConditon());
 	}
 	

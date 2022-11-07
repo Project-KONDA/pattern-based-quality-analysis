@@ -162,14 +162,21 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		} else {
 			final EList<String> currentEdgeList = new BasicEList<String>();
 			NeoPropertyEdge neoPropertyEdge = null;
+			String cypher = null;
 			for (Relation r : getIncoming()) {
 				neoPropertyEdge = (NeoPropertyEdge) r;
 				if (neoPropertyEdge.getIncomingMapping() == null) {
-					currentEdgeList.add(neoPropertyEdge.generateCypherPropertyAddressing());
+					cypher = neoPropertyEdge.generateCypherPropertyAddressing();
+					if (!alreadyContainedInCypherPropertyAddressingList(currentEdgeList, cypher)) {						
+						currentEdgeList.add(cypher);
+					}
 				}
 			}
 			if (currentEdgeList.size() != 0) {
-				cypherList = ((NeoPropertyNodeImpl) getOriginalNode()).generateCypherPropertyAddressing();
+				cypherList = new BasicEList<String>();
+				try {
+					cypherList = ((NeoPropertyNodeImpl) getOriginalNode()).generateCypherPropertyAddressing();
+				} catch (Exception e) {}
 				if (cypherList.size() > 1) {
 					final String adressing = cypherList.get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
 					cypherList.clear();
@@ -185,8 +192,12 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 			cypherResult = cypherList;
 			cypherResult.addAll(currentEdgeList);
 		}
-		//Remove duplicates
 		cypherList = null;
+		if (getOutgoingMappings().size() == 0) {
+			if (cypherResult.size() == 0) {
+				throw new InvalidityException(NO_PROPERTY_NAME_IS_SPECIFIED);
+			}
+		}
 		return cypherResult;
 	}
 	

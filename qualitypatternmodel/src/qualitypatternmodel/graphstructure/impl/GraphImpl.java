@@ -368,37 +368,53 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 	
 	private String generateCypherWhereStructureComps() throws InvalidityException {
-		final StringBuilder cypherStructurComps = new StringBuilder();
+		String tempComps = null;
+		try {
+			tempComps = generateComparisonsOfSameNeoPropertyNodes();
+		} catch (Exception e) {
+			return new String();
+		}
 		//Add all needed Comparisons if a NeoPropertyNode has multiple incoming edges
-		cypherStructurComps.append(this.generateComparisonsOfSameNeoPropertyNodes());
-		return cypherStructurComps.toString();
+		String cypherStructurComps = this.generateComparisonsOfSameNeoPropertyNodes();
+		return cypherStructurComps;
 	}
 
 	@SuppressWarnings("unchecked")
 	private final String generateComparisonsOfSameNeoPropertyNodes() throws InvalidityException {
 		final StringBuilder cypher = new StringBuilder();
+		final StringBuilder tempCypher = new StringBuilder();
 		EList<String> tempList = null;
 		NeoPropertyNode property = null;
 		String startNeoPropertyNode = null;
 		for (Node n : this.getNodes()) {
-			if (n instanceof NeoPropertyNode && n.getIncoming().size() > 1) {
-				property = (NeoPropertyNode) n;
-				tempList = property.generateCypherPropertyAddressing();
-				if (tempList.size() > 1) {
-					startNeoPropertyNode = tempList.get(0);
-					for (int i = 1; i < tempList.size(); i++) {
-						if (!cypher.toString().isEmpty()) {
-							cypher.append(CypherSpecificConstants.ONE_WHITESPACE);
-							cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
-							cypher.append(CypherSpecificConstants.ONE_WHITESPACE);
+			try {
+				if (n instanceof NeoPropertyNode && n.getIncoming().size() > 1) {
+					property = (NeoPropertyNode) n;
+					tempList = property.generateCypherPropertyAddressing();
+					if (tempList.size() > 1) {
+						startNeoPropertyNode = tempList.get(0);
+						for (int i = 1; i < tempList.size(); i++) {
+							if (!cypher.toString().isEmpty()) {
+								tempCypher.append(CypherSpecificConstants.ONE_WHITESPACE);
+								tempCypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
+								tempCypher.append(CypherSpecificConstants.ONE_WHITESPACE);
+							}
+							tempCypher.append(startNeoPropertyNode);
+							tempCypher.append(CypherSpecificConstants.ONE_WHITESPACE);
+							tempCypher.append(CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_EQUAL);
+							tempCypher.append(CypherSpecificConstants.ONE_WHITESPACE);
+							tempCypher.append(tempList.get(i));
+							
+							//If everthing worked until here fine do:
+							cypher.append(tempCypher.toString());
+							tempCypher.setLength(0);
 						}
-						cypher.append(startNeoPropertyNode);
-						cypher.append(CypherSpecificConstants.ONE_WHITESPACE);
-						cypher.append(CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_EQUAL);
-						cypher.append(CypherSpecificConstants.ONE_WHITESPACE);
-						cypher.append(tempList.get(i));
 					}
 				}
+			} catch (Exception e) {
+				//Do nothing --> need of less check, since an exception is thrown
+				//generateCypherPropertyAddressing() is throwing an Exception since in the case of direct addressings in the Operators at least one Element has to exists
+				//"It's easier to ask forgiveness than it is to get permission" --> Grace Hopper
 			}
 			startNeoPropertyNode = null;
 			tempList = null;
