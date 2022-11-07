@@ -89,7 +89,7 @@ public abstract class CypherAbstractTranslation implements CypherInterfaceTransl
 		}
 	}
 
-	public static void testAllCompletePatternsWithDbCheck(ArrayList<CompletePattern> completePatterns) throws Exception {
+	public static void testAllCompletePatternsWithDbCheck(ArrayList<CompletePattern> completePatterns) {
 		boolean isDbOn = playground.Java2Neo4JConnector.verifyConnectivity();
 		if (isDbOn) {
 			System.out.print(MODE + TESTING_WITH_DB);
@@ -100,19 +100,18 @@ public abstract class CypherAbstractTranslation implements CypherInterfaceTransl
 		testAllCompletePatterns(completePatterns, isDbOn);
 	}
 
-	public static void testAllCompletePatterns(ArrayList<CompletePattern> completePatterns, boolean isDbOn)
-			throws Exception {
-		if (isDbOn) {
-			try (Java2Neo4JConnector connector = new Java2Neo4JConnector()) {
+	public static void testAllCompletePatterns(ArrayList<CompletePattern> completePatterns, boolean isDbOn) {
+			if (isDbOn) {
+				try (Java2Neo4JConnector connector = new Java2Neo4JConnector()) {
+					innerTestAllCompletePatterns(completePatterns, connector);
+				}
+			} else {
+				Java2Neo4JConnector connector = null;
 				innerTestAllCompletePatterns(completePatterns, connector);
 			}
-		} else {
-			Java2Neo4JConnector connector = null;
-			innerTestAllCompletePatterns(completePatterns, connector);
-		}
 	}
 
-	protected static void innerTestAllCompletePatterns(ArrayList<CompletePattern> completePatterns, Java2Neo4JConnector connector) throws Exception {
+	protected static void innerTestAllCompletePatterns(ArrayList<CompletePattern> completePatterns, Java2Neo4JConnector connector) {
 		for (CompletePattern completePattern : completePatterns) {
 			replace(completePattern);
 			try {
@@ -138,10 +137,9 @@ public abstract class CypherAbstractTranslation implements CypherInterfaceTransl
 				try {
 				  System.out.println(completePattern.myToString());
 				} catch (Exception e2) {
+					System.out.println(e2);
 					e2.printStackTrace();
-					throw e2;
 				}
-				throw e;
 			}
 		}
 	}
@@ -169,13 +167,7 @@ public abstract class CypherAbstractTranslation implements CypherInterfaceTransl
 		if (completePatterns.size() != 0) {
 			System.out.println("");
 			System.out.println(CypherAbstractTranslation.BEGIN_TESTS);
-			try {
-				testAllCompletePatternsWithDbCheck(completePatterns);
-			} catch (Exception e) {
-				System.out.println(e);
-				e.printStackTrace();
-			}
-			
+			testAllCompletePatternsWithDbCheck(completePatterns);
 			System.out.println(CypherAbstractTranslation.END_TESTS);
 			System.out.println("");
 		}

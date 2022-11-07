@@ -394,7 +394,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 					if (tempList.size() > 1) {
 						startNeoPropertyNode = tempList.get(0);
 						for (int i = 1; i < tempList.size(); i++) {
-							if (!cypher.toString().isEmpty()) {
+							if (cypher.length() != 0) {
 								tempCypher.append(CypherSpecificConstants.ONE_WHITESPACE);
 								tempCypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
 								tempCypher.append(CypherSpecificConstants.ONE_WHITESPACE);
@@ -407,17 +407,20 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 							
 							//If everthing worked until here fine do:
 							cypher.append(tempCypher.toString());
-							tempCypher.setLength(0);
 						}
 					}
 				}
 			} catch (Exception e) {
-				//Do nothing --> need of less check, since an exception is thrown
+				//Do nothing --> need of less checks, since an exception is thrown. The structure has not to be iterated twice in the worst case --> Check of valid and if valid then generat it
+				//Actually if configured everything correctly there should be no exception
 				//generateCypherPropertyAddressing() is throwing an Exception since in the case of direct addressings in the Operators at least one Element has to exists
-				//"It's easier to ask forgiveness than it is to get permission" --> Grace Hopper
+				//"It's easier to ask forgiveness than it is to get permission" & "Ask forgiveness, not permission" --> Grace Hopper
+				//https://medium.com/nerd-for-tech/look-before-you-leap-vs-easier-to-ask-for-forgiveness-than-permission-in-programming-85d17a5f48c8
+			} finally {
+				tempCypher.setLength(0);
+				startNeoPropertyNode = null;
+				tempList = null;
 			}
-			startNeoPropertyNode = null;
-			tempList = null;
 		}
 		String resultCypher = new String(); 
 		if (!(cypher.length() == 0)) {
