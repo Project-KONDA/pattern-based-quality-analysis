@@ -13,7 +13,10 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
+import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
@@ -25,6 +28,7 @@ public class CypherTest01NeoPropertyEdge extends CypherAbstractTranslation {
 			neoPropertyEdge.generalizedInvalidtyExceptionTests();
 		} catch (Exception e) {
 			System.out.println(e);
+			e.printStackTrace();
 		}
 	}
 
@@ -44,6 +48,8 @@ public class CypherTest01NeoPropertyEdge extends CypherAbstractTranslation {
 		completePatterns.add(getComplexEdgeWithLabels());
 		completePatterns.add(getComplexEdgeWithLabelsDiffrentDirections());
 		completePatterns.add(getComplexEdgeWithLabelsDiffrentDirectionsAndAllReturns());
+		completePatterns.add(getMultiEdgesToNeoPropertyNode());
+//		completePatterns.add(getMultiEdgesToNeoPropertyNodeWithConditon());
 	}
 	
 	@Override
@@ -325,6 +331,25 @@ public class CypherTest01NeoPropertyEdge extends CypherAbstractTranslation {
 		return completePattern;
 	}
 	
+	private CompletePattern getMultiEdgesToNeoPropertyNode() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = buildMultiEdgesToNeoPropertyNode();
+		completePattern.createNeo4jAdaption();
+		
+		concretizesMultiEdgesToNeoPropertyNode(completePattern);
+		return completePattern;
+	}
+
+	
+
+	
+	private CompletePattern getMultiEdgesToNeoPropertyNodeWithConditon() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = buildMultiEdgesToNeoPropertyNode();
+		
+		
+		
+		return completePattern;
+	}
+	
 	
 	//Exceptions
 	private CompletePattern generateSimpleException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -420,5 +445,33 @@ public class CypherTest01NeoPropertyEdge extends CypherAbstractTranslation {
 		completePattern.createNeo4jAdaption();
 		
 		return completePattern;
+	}
+	
+	private static CompletePattern buildMultiEdgesToNeoPropertyNode() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = CypherAbstractTranslation.getBasePattern();
+		Graph g = completePattern.getGraph();
+		PrimitiveNode primitiveNode = (PrimitiveNode) g.getNodes().get(1);
+		ComplexNode complexNode1 = g.addComplexNode();
+		g.addRelation(complexNode1, primitiveNode);
+		ComplexNode complexNode2 = g.addComplexNode();
+		g.addRelation(complexNode2, primitiveNode);
+		ComplexNode complexNode3 = g.addComplexNode();
+		g.addRelation(complexNode3, primitiveNode);
+		
+		return completePattern;
+	}
+	
+	private static void concretizesMultiEdgesToNeoPropertyNode(CompletePattern completePattern) throws InvalidityException {
+		NeoPropertyEdge neoPropertyEdge = null;
+		for (Relation r : completePattern.getGraph().getRelations()) {
+			neoPropertyEdge = (NeoPropertyEdge) r;
+			neoPropertyEdge.getNeoPropertyPathParam().setNeoPropertyName("placeOfIssue");
+		}
+		neoPropertyEdge.getNeoPropertyPathParam().createParameters();
+		((NeoSimpleEdge) neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart()).addNeoTargetNodeLabel("Regesta");
+		
+		neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(2);
+		neoPropertyEdge.getNeoPropertyPathParam().createParameters();
+		((NeoSimpleEdge) neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart()).addNeoTargetNodeLabel("Regesta");
 	}
 }

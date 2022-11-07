@@ -27,6 +27,8 @@ import qualitypatternmodel.parameters.TypeOptionParam;
  * @generated
  */
 public interface Comparison extends BooleanOperator {
+	
+
 	/**
 	 * Returns the value of the '<em><b>Argument1</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Comparable#getComparison1 <em>Comparison1</em>}'.

@@ -64,4 +64,7 @@ public class CypherSpecificConstants {
 	public static final String NO_VALID_PROPERTY_IS_ACCESSABLE = "No valid Property is accessable";
 	public static final String NO_COUNT_ELEMENTS_EXISTS = "No Count Elements exists";
 	public static final String NO_BEGINNING_IS_SPECIFIED = "No Beginning is specified";
+	
+	//Special Constants for addressing
+	public static final int FIRST_CYPHER_PROPERTY_ADDRESSING = 0;
 }

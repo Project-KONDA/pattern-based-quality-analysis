@@ -173,6 +173,7 @@ public abstract class CypherAbstractTranslation implements CypherInterfaceTransl
 				testAllCompletePatternsWithDbCheck(completePatterns);
 			} catch (Exception e) {
 				System.out.println(e);
+				e.printStackTrace();
 			}
 			
 			System.out.println(CypherAbstractTranslation.END_TESTS);

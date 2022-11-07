@@ -4,6 +4,7 @@ package qualitypatternmodel.adaptionNeo4J.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.BasicEMap;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
@@ -19,8 +20,10 @@ import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl;
 import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,6 +41,8 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * @generated
  */
 public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropertyNode {
+	private static final String NO_CYPHER_PROPERTY_ADDRESSINGS_COULD_BE_GENERATED = "No Cypher-Property-Addressings could be generated";
+	private static final String NO_VALID_NEO_PROPERTY_EDGE = "No valid NeoPropertyEdge";
 	/**
 	 * The default value of the '{@link #getNeoPlace() <em>Neo Place</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -47,7 +52,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 * @ordered
 	 */
 	protected static final NeoPlace NEO_PLACE_EDEFAULT = NeoPlace.FOLLOWING;
-	private static final String NO_PROPERTY_NAME_IS_SPECIFIED = "No Property Name is specified";
+	private static final String NO_PROPERTY_NAME_IS_SPECIFIED = "No Property-Name is specified";
 	private static final String NO_IMCOMING_EDGE_SPEZIFIED = "No imcoming edge spezified";
 	private static final String THIS_NODE_IS_NOT_SUITED_TO_BE_A_RETURN_NODE = "This Node is not suited to be a Return Node";
 	private static final String WRONG_INCOMING_NEO_PROPERTY_EDGE_SPECIFIED = "Wrong incoming NeoPropertyEdge specified";
@@ -114,9 +119,9 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		isNodeReturnable();	
 		if (getIncomingMapping() == null) {
 			final String temp = generateCypherNodeVariable();
-			String cypher = "";
+			String cypher = new String();
 			if (temp != null) {
-				cypher = "(" + temp + ")";		
+				cypher = CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + temp + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;		
 				return cypher;
 			}
 			return cypher;
@@ -124,25 +129,74 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		return ((NeoPropertyNode) getOriginalNode()).generateCypher();
 	}	
 	
+	//REWORK --> generateCypher and getCypher Variable
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public EList<String> generateCypherPropertyAddressing() throws InvalidityException {
+		EList<String> cypherList = new BasicEList<String>();
+		EList<String> cypherResult = null;
 		if (getIncomingMapping() == null) {
-			String cypher = "";
-			if (checkForValidIncoming()) {
-				NeoPropertyEdge edge = (NeoPropertyEdge) getIncoming().get(0);
-				if (edge.getNeoPropertyPathParam() == null || edge.getNeoPropertyPathParam().getNeoPropertyName() == null) {
-					throw new InvalidityException(NO_PROPERTY_NAME_IS_SPECIFIED);
+			NeoPropertyEdge edge = null;
+			String cypher = new String();
+			for (int i = 0; i < getIncoming().size(); i++) {
+				if (checkForValidIncoming()) {
+					edge = (NeoPropertyEdge) getIncoming().get(i);
+					if (edge.getNeoPropertyPathParam() == null || edge.getNeoPropertyPathParam().getNeoPropertyName() == null) {
+						throw new InvalidityException(NO_PROPERTY_NAME_IS_SPECIFIED);
+					}
+					cypher = edge.generateCypherPropertyAddressing();
+					cypherList.add(cypher);
 				}
-				cypher = edge.generateCypherPropertyAddressing();
 			}
-			return cypher;
+			cypher = null;
+			cypherResult = cypherList;
+		} else {
+			cypherList = ((NeoPropertyNode) getOriginalNode()).generateCypherPropertyAddressing();
+			if (cypherList.size() > 1) {
+				final String adressing = cypherList.get(1);
+				cypherList.clear();
+				cypherList.add(adressing);
+			} else {
+				final String adressing = getCypherComparisonVariableFromPreviewsNodes();
+				if (adressing != null) {
+					cypherList.add(adressing);
+				}
+			}			
+			cypherResult = cypherList;
 		}
-		return ((NeoPropertyNode) getOriginalNode()).generateCypherPropertyAddressing();
+		if (cypherList.size() == 0) {
+			throw new InvalidityException(NeoPropertyNodeImpl.NO_CYPHER_PROPERTY_ADDRESSINGS_COULD_BE_GENERATED);
+		}
+		cypherList = null;
+		return cypherResult;
+	}
+	
+	//Checking every previews Mapping in Case the original has no incoming relation
+	private String getCypherComparisonVariableFromPreviewsNodes() throws InvalidityException {
+		String adressing = null;
+		if (getIncomingMapping() != null && adressing == null) {
+			NeoPropertyEdge edge = null;
+			String temp = null;
+			for (Relation r : getIncoming()) {
+				edge = (NeoPropertyEdge) r;
+				if (edge.getOriginalRelation() == null) {
+					temp = edge.generateCypherPropertyAddressing();
+					if (!temp.isEmpty()) {
+						adressing = temp;
+						break;
+					}					
+				}
+			}
+			if (adressing == null) {
+				adressing = getCypherComparisonVariableFromPreviewsNodes();
+			}
+		}
+		return adressing;
 	}
 	
 	/**
@@ -165,8 +219,20 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	}
 
 	//Check if this check is in the other classes similar or need similar adaption
-	private boolean checkForValidIncoming() {
-		return !(getIncoming() == null || getIncoming().size() != 1 || getIncoming().get(0) == null);
+	private boolean checkForValidIncoming() throws InvalidityException {
+		boolean result = !(getIncoming() == null);
+		if (result) {
+			for (Relation r : getIncoming()) {
+				if (!(r instanceof NeoPropertyEdge)) {
+					result = false;
+					break;
+				}
+			}			
+		}
+		if (!result) {
+			throw new InvalidityException(NeoPropertyNodeImpl.NO_VALID_NEO_PROPERTY_EDGE);
+		}
+		return result;
 	}
 
 	/**
@@ -207,13 +273,10 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override
 	public EMap<Integer, String> getCypherReturnVariable() throws InvalidityException {
 		EMap<Integer, String> returnElement = new BasicEMap<Integer, String>();
-		String cypher = null;
 		if (getIncomingMapping() == null) {	
-			cypher = generateCypher();
 			returnElement.put(NeoPropertyNodeImpl.CYPHER_RETURN_ID, getCypherVariable());
 			return returnElement;
 		} else {
-			cypher = ((NeoPropertyNode) getOriginalNode()).generateCypherNodeVariable();
 			returnElement.put(NeoPropertyNodeImpl.CYPHER_RETURN_ID, getCypherVariable());
 		}
 		return returnElement;

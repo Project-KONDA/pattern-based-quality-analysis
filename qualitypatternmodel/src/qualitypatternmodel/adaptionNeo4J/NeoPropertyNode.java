@@ -51,9 +51,9 @@ public interface NeoPropertyNode extends PrimitiveNode, NeoInterfaceNode {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model many="false" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
+	 * @generated NOT
 	 */
-	EList generateCypherPropertyAddressing() throws InvalidityException;
+	EList<String> generateCypherPropertyAddressing() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

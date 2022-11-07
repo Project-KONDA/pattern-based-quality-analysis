@@ -37,7 +37,7 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
     	CypherAbstractTranslation not = new CypherTest03NotCondition();
     	try {
         	not.generalizedTests();         
-        	not.generalizedInvalidtyExceptionTests();
+        	//not.generalizedInvalidtyExceptionTests();
     	} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -46,16 +46,16 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
     @Override
 	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		completePatterns.add(getTestPattern1());
+//		completePatterns.add(getTestPattern1());
 		completePatterns.add(getTestPattern1WithConditions());
-//		completePatterns.add(testPatternQuery1());
-		completePatterns.add(getTestPattern2());
-		completePatterns.add(getTestPattern5());
-		completePatterns.add(getNotExistsExists());
-		completePatterns.add(getNotNotPattern());
-		completePatterns.add(getNotNotNotPattern());
-		completePatterns.add(getNotNotNotNotPattern());
-		completePatterns.add(getNotNotNotNotNotPattern());
+////		completePatterns.add(testPatternQuery1());
+//		completePatterns.add(getTestPattern2());
+//		completePatterns.add(getTestPattern5());
+//		completePatterns.add(getNotExistsExists());
+//		completePatterns.add(getNotNotPattern());
+//		completePatterns.add(getNotNotNotPattern());
+//		completePatterns.add(getNotNotNotNotPattern());
+//		completePatterns.add(getNotNotNotNotNotPattern());
 	}
     
 	@Override

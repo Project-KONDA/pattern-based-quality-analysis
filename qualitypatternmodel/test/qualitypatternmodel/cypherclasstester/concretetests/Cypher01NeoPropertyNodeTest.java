@@ -79,8 +79,8 @@ public class Cypher01NeoPropertyNodeTest extends NeoAbstractNodeTest {
 			Mockito.when(mockNeoPropertyPathParam.getNeoPropertyName()).thenReturn(placeOfIssue);
 			relations.add(mockNeoPropertyEdge);
 			field.set(neoPropertyNode, relations);
-			String temp = neoPropertyNode.generateCypherPropertyAddressing();
-			assertTrue(temp.compareTo(propertyAddress) == 0);
+			EList<String> temp = neoPropertyNode.generateCypherPropertyAddressing();
+			assertTrue(temp.get(1).compareTo(propertyAddress) == 0);
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
@@ -95,7 +95,7 @@ public class Cypher01NeoPropertyNodeTest extends NeoAbstractNodeTest {
 			EList<Relation> relations = new BasicEList<Relation>();
 			relations.add(null);
 			field.set(neoPropertyNode, relations);
-			String temp = neoPropertyNode.generateCypherPropertyAddressing();
+			EList<String> temp = neoPropertyNode.generateCypherPropertyAddressing();
 			assertEquals(propertyAddress, temp);
 		} catch (Exception e) {
 			System.out.println(e);

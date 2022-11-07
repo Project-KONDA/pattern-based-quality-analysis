@@ -439,14 +439,14 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		String argument2Translation = null; 
 		
 		if (getArgument1() instanceof NeoPropertyNode && getArgument2() instanceof NeoPropertyNode) {
-			argument1Translation = ((NeoPropertyNode) getArgument1()).generateCypherPropertyAddressing(); 
-			argument2Translation = ((NeoPropertyNode) getArgument2()).generateCypherPropertyAddressing();
+			argument1Translation = (String) ((NeoPropertyNode) getArgument1()).generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING); 
+			argument2Translation = (String) ((NeoPropertyNode) getArgument2()).generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
 		} else if (getArgument1() instanceof NeoPropertyNode && !(getArgument2() instanceof NeoPropertyNode)) {
-			argument1Translation = ((NeoPropertyNode) getArgument1()).generateCypherPropertyAddressing();
+			argument1Translation = (String) ((NeoPropertyNode) getArgument1()).generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
 			argument2Translation = getArgument2().generateCypher(); 
 		} else if (!(getArgument1() instanceof NeoPropertyNode) && getArgument2() instanceof NeoPropertyNode) {
 			argument1Translation = getArgument1().generateCypher();
-			argument2Translation = ((NeoPropertyNode) getArgument2()).generateCypherPropertyAddressing();
+			argument2Translation = (String) ((NeoPropertyNode) getArgument2()).generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
 		} else if (getArgument1() instanceof NeoNode && getArgument2() instanceof NeoNode) {
 			argument1Translation = ((NeoNode) getArgument1()).getCypherVariable(); 
 			argument2Translation = ((NeoNode) getArgument2()).getCypherVariable(); 

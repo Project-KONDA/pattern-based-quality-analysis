@@ -122,7 +122,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		if(option != null && regularExpression != null && regularExpression.getValue() != null && primitiveNode != null) {
-			String tempCypherPropertyAddressing = ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing();
+			String tempCypherPropertyAddressing = ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
 			if (!tempCypherPropertyAddressing.isEmpty()) {				
 				if (option.getValue()) {
 					return tempCypherPropertyAddressing + " " + CypherSpecificConstants.SPECIAL_CYPHER_REGEX_EXPRESSION 

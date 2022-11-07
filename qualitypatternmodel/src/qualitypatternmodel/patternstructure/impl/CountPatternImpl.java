@@ -197,7 +197,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		String cypherVariable = null;
 		if (checkForNeoPropertyNode(countElement)) {
 				NeoPropertyNode neoPropertyNode = (NeoPropertyNode) countElement;
-				cypherVariable = neoPropertyNode.generateCypherPropertyAddressing();
+				cypherVariable = neoPropertyNode.generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
 		} else {
 			cypherVariable = countElement.getCypherVariable();
 		}
@@ -206,7 +206,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 			temp = CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT;
 			if (checkForNeoPropertyNode(countElement)) {
 				NeoPropertyNode neoPropertyNode = (NeoPropertyNode) countElement;
-				temp = String.format(temp, neoPropertyNode.generateCypherPropertyAddressing());
+				temp = String.format(temp, neoPropertyNode.generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING));
 			} else {
 				temp = String.format(temp, countElement.getCypherVariable());
 			}

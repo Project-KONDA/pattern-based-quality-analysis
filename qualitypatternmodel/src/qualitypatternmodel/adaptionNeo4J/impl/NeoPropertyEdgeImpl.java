@@ -37,6 +37,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * @generated
  */
 public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPropertyEdge {
+	private static final String THE_SOURCE_NEEDS_TO_BE_SET = "The Source needs to be set";
 	private static final String NEO_PROPERTY_EDGE_NEEDS_A_NEO_PROPERTY_PATH_PARAM = "NeoPropertyEdge needs a NeoPropertyPathParam";
 	private static final String THERE_IS_NO_NEO_SIMPLE_EDGE_FOR_THE_TARGET_TYPE = "There is no NeoSimpleEdge for the target type";
 	/**
@@ -124,6 +125,7 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 	 */
 	@Override
 	public String generateCypherPropertyAddressing() throws InvalidityException {
+		String result = new String();
 		if (getIncomingMapping() == null) {
 			final NeoPropertyPathParam neoPropertyPathParam = getNeoPropertyPathParam();
 			if (neoPropertyPathParam != null) {
@@ -133,23 +135,21 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 					if (getSource() != null) {
 						NeoNode neoNode = (NeoNode) getSource();
 						variable = neoNode.getCypherVariable();
-					} else throw new InvalidityException("The TargetSource needs to be set");
+					} else throw new InvalidityException(THE_SOURCE_NEEDS_TO_BE_SET);
 				} else {
 					NeoPathPart neoPathPart = neoPropertyPathParam.getNeoPathPart();
-					if (neoPathPart instanceof NeoComplexEdge) {
-						neoPathPart = neoPathPart.getNeoLastEdge();
-					}
+					neoPathPart = neoPathPart.getNeoLastEdge();
 					variable = neoPathPart.getCypherInnerEdgeNodes(false);
 				}
 				
 				cypher = variable + "." + getNeoPropertyPathParam().getNeoPropertyName();
-				return cypher;
+				result = cypher;
 			}
 		} else {
 			NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) getOriginalRelation();
-			return neoPropertyEdge.generateCypherPropertyAddressing();
+			result = neoPropertyEdge.generateCypherPropertyAddressing();
 		}
-		return "";
+		return result;
 	}
 	
 	/**

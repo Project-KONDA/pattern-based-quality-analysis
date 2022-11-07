@@ -47,9 +47,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  */
 
 public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge {
-	private static final String A_NEO_COMPLEX_EDGE_CAN_NOT_BE_SET_IN_A_NEO_SIMPLE_EDGE = "A NeoComplexEdge can not be set in a NeoSimpleEdge";
 	private static final String NEO_DIRECTION_CAN_NOT_BE_NULL = "NeoDirection can not be null";
-	private static final String A_NEO_PATH_PART_NEEDS_A_NEO_ABSTRACT_PATH_PARAM = "A NeoPathPart needs a NeoAbstractPathParam";
 	private static final String SOMETHING_WENT_WRONG_IN_THE_SIMPLE_NEO_EDGE_DIRECTION_HAS_NOT_BEEN_SET_CORRECTLY = "Something went wrong in the SimpleNeoEdge - direction has not been set correctly";
 	private static final String A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S = "A Label can not contain Whitespace(s)";
 
@@ -172,7 +170,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		
 		//Always when a List exists create the NeoPropertyNode
 		if (getNeoTargetNodeLabels() != null) {
-			cypher.append("(");
+			cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
 			cypher.append(getCypherInnerEdgeNodes(false));
 			if (withLabels) {
 				EList<String> labels = getNeoTargetNodeLabels().getValues();
@@ -182,7 +180,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 					}
 				}
 			}
-			cypher.append(")");
+			cypher.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
 		}
 	}
 	
@@ -232,7 +230,8 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		if (getNeoTargetNodeLabels() == null) {
 			cypher =  null;
 		} else if (isLastEdge && !isReturn && neoAbstractPathParam instanceof NeoPropertyPathParam) {
-			cypher = CypherSpecificConstants.VARIABLE_PROPERTY_NODE + ((NeoPropertyPathParam) neoAbstractPathParam).getNeoPropertyEdge().getTarget().getOriginalID();
+			//The relation number is needed since multiple relations can go into a NeoPropertyNode
+			cypher = CypherSpecificConstants.VARIABLE_PROPERTY_NODE + ((NeoPropertyPathParam) neoAbstractPathParam).getNeoPropertyEdge().getTarget().getOriginalID() + "_"+ neoAbstractPathParam.getRelationNumber();
 		} else if (!isLastEdge){
 			cypher = createInnerEdgeNumberingNames(neoAbstractPathParam);
 		} else if (isLastEdge && neoAbstractPathParam instanceof NeoPathParam) {

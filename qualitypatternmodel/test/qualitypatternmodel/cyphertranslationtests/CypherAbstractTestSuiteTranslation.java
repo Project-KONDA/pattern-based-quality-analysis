@@ -594,6 +594,15 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 					+ "      intEgNode2");
 			i++;
 			
+			//getComplexEdgeWithLabelsDiffrentDirectionsAndAllReturns
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode6)\n"
+					+ "MATCH (varNode8)\n"
+					+ "MATCH (varNode9)-[varEdge7]-(varPropertyNode7_7:Regesta)\n"
+					+ "MATCH (varNode10)-[varEdge8]-(varPropertyNode7_8:Regesta)\n"
+					+ "WHERE (varNode6.placeOfIssue = varNode8.placeOfIssue AND varNode6.placeOfIssue = varPropertyNode7_7.placeOfIssue AND varNode6.placeOfIssue = varPropertyNode7_8.placeOfIssue)\n"
+					+ "RETURN varNode6");
+			i++;
+			
 			assertTrue(NOT_ALL_PATTERN_HAVE_BEEN_CHECK, i == completePatterns.size());
 		} catch (Exception e) {
 			System.out.println(e);

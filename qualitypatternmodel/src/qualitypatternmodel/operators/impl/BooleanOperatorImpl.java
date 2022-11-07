@@ -38,6 +38,7 @@ import qualitypatternmodel.graphstructure.Node;
  * @generated
  */
 public abstract class BooleanOperatorImpl extends OperatorImpl implements BooleanOperator {
+	
 	/**
 	 * The cached value of the '{@link #getNodes() <em>Nodes</em>}' reference list.
 	 * <!-- begin-user-doc -->

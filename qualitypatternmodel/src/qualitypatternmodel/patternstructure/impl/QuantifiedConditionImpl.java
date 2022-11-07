@@ -216,7 +216,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		for (Node node : getGraph().getNodes()) {
 			if (node instanceof NeoNode) {
 				neoNode = (NeoNode) node;
-				if (neoNode.getNodePlace() == NeoPlace.BEGINNING) {
+				if (neoNode.getNeoPlace() == NeoPlace.BEGINNING) {
 					onlyNeoPropertyNodes = false;
 				}
 			}
@@ -230,7 +230,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		for (Node node : getGraph().getNodes()) {
 			if (node instanceof NeoPropertyNode) {
 				neoPropertyNode = (NeoPropertyNode) node; 
-				if (neoPropertyNode.getNodePlace() == NeoPlace.BEGINNING) {
+				if (neoPropertyNode.getNeoPlace() == NeoPlace.BEGINNING) {
 					neoPropertyNodes.add(neoPropertyNode);
 				}
 			}
@@ -242,13 +242,13 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 					if (cypher.length() != 0) {
 						cypher.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE);
 					}
-					cypher.append(node.generateCypherPropertyAddressing());
+					cypher.append(node.generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING));
 				}
 				return String.format(exists, cypher.toString());
 			} else if (quantifier == Quantifier.EXISTS && getNotCondition() != null) {
 				for (NeoPropertyNode node : neoPropertyNodes) {
 					if (cypher.length() != 0) cypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
-					cypher.append(String.format(CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_PROPERTY, node.generateCypherPropertyAddressing()));
+					cypher.append(String.format(CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_PROPERTY, node.generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING)));
 				}
 				String temp = CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + cypher.toString() + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
 				return temp;				

@@ -136,7 +136,7 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		if(option != null && content != null && content.getValue() != null && primitiveNode != null) {
-			String tempCypherPropertyAddressing = ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing();
+			String tempCypherPropertyAddressing = (String) ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
 			if (!tempCypherPropertyAddressing.isEmpty()) {
 				if (option.getValue()) {
 					return tempCypherPropertyAddressing + CypherSpecificConstants.ONE_WHITESPACE +

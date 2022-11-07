@@ -28,6 +28,7 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 			match.generalizedInvalidtyExceptionTests();
 		} catch (Exception e) {
 			System.out.println(e);
+			e.printStackTrace();
 		}
 		
     }
@@ -68,21 +69,9 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 		Match match = ((Match) pattern.getGraph().getOperatorList().getOperators().get(0));
 		match.getOption().setValue(invert);
 		
-		makeConcrete(pattern);
+		CypherTest10Match.makeConcrete(pattern);
 		
 		return pattern;
-	}
-
-	private void makeConcrete(CompletePattern pattern)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		pattern.createNeo4jAdaption();
-		NeoNode neoNode = (NeoNode) pattern.getGraph().getNodes().get(0);
-		neoNode.setNeoPlace(NeoPlace.BEGINNING);
-		neoNode.addLabel("Regesta");
-		
-		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) pattern.getGraph().getRelations().get(0);
-		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
-		neoPropertyPathParam.setNeoPropertyName("summary");
 	}
 	
 	//Exceptions 
@@ -223,5 +212,18 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 			System.out.println(CypherAbstractTranslation.END_BUILD_PATTERN_EXCEPTIONS);
 			System.out.println("");
 		}
+	}
+    
+    //FACTORY-METHODS
+	private static void makeConcrete(CompletePattern pattern)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		pattern.createNeo4jAdaption();
+		NeoNode neoNode = (NeoNode) pattern.getGraph().getNodes().get(0);
+		neoNode.setNeoPlace(NeoPlace.BEGINNING);
+		neoNode.addLabel("Regesta");
+		
+		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) pattern.getGraph().getRelations().get(0);
+		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
+		neoPropertyPathParam.setNeoPropertyName("summary");
 	}
 }

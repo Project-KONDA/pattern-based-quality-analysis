@@ -22,6 +22,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
@@ -193,7 +194,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			//TODO: Consider that it also can start with a PrimitiveNode which has a more defined strucutre --> Not relevant any more since the model just starts with a complex edge
 			//Maybe change this in the future to generate OPTIONAL MATCH
 			for (Node n : allNodesList) {
-				if (n instanceof NeoNode && ((NeoInterfaceNode) n).getNodePlace() == NeoPlace.BEGINNING) {
+				if (n instanceof NeoNode && ((NeoInterfaceNode) n).getNeoPlace() == NeoPlace.BEGINNING) {
 					beginningNodesList.add((NeoInterfaceNode) n);
 				} else if(! (n instanceof NeoInterfaceNode)) {
 					throw new InvalidityException(NO_INSTANCE_OF_NEO_NODE);
@@ -328,22 +329,89 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	@Override
 	public String generateCypherWhere() throws InvalidityException {
-		StringBuilder cypher = new StringBuilder();
-		OperatorList opList = this.getOperatorList();
-		//Add this to RegelWerk that the Operators are all in breakers
-		cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
-		for (Operator operator : opList.getOperators()) {
-			if (operator.generateCypher() != null) {
-				if (cypher.length() != 1) {
-					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.SIX_WHITESPACES 
-							+ CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
-				}
-				cypher.append(operator.generateCypher());	
+		String cypher = new String();
+		cypher = generateCypherWhereStructureComps();
+		if (cypher.isEmpty()) {
+			cypher = generateCypherWhereOperators();
+		} else {
+			final String tempCypherOps = generateCypherWhereOperators();
+			if (!tempCypherOps.isEmpty()) {
+				cypher = CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + cypher;
+				cypher += CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE;
+				cypher += tempCypherOps + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
 			}
 		}
-		if (cypher.length() == 1) return "";
-		cypher.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
-		return cypher.toString();
+		
+		return cypher;
+	}
+	
+	private String generateCypherWhereOperators() throws InvalidityException {
+		final StringBuilder cypherOperators = new StringBuilder();
+		if (this.getOperatorList().getOperators().size() == 0) {
+			final OperatorList opList = this.getOperatorList();
+			//Add this to RegelWerk that the Operators are all in breakers
+			cypherOperators.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
+			for (Operator operator : opList.getOperators()) {
+				if (operator.generateCypher() != null) {
+					if (cypherOperators.length() != 1) {
+						cypherOperators.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.SIX_WHITESPACES 
+								+ CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
+					}
+					cypherOperators.append(operator.generateCypher());	
+				}
+			}
+			
+			if (cypherOperators.length() != 1) {
+				cypherOperators.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
+			} else {
+				//Resets the StringBuilder to have an Empty one
+				cypherOperators.setLength(0);
+			}
+		}
+		return cypherOperators.toString();
+	}
+	
+	private String generateCypherWhereStructureComps() throws InvalidityException {
+		final StringBuilder cypherStructurComps = new StringBuilder();
+		//Add all needed Comparisons if a NeoPropertyNode has multiple incoming edges
+		cypherStructurComps.append(this.generateComparisonsOfSameNeoPropertyNodes());
+		return cypherStructurComps.toString();
+	}
+
+	@SuppressWarnings("unchecked")
+	private final String generateComparisonsOfSameNeoPropertyNodes() throws InvalidityException {
+		final StringBuilder cypher = new StringBuilder();
+		EList<String> tempList = null;
+		NeoPropertyNode property = null;
+		String startNeoPropertyNode = null;
+		for (Node n : this.getNodes()) {
+			if (n instanceof NeoPropertyNode && n.getIncoming().size() > 1) {
+				property = (NeoPropertyNode) n;
+				tempList = property.generateCypherPropertyAddressing();
+				if (tempList.size() > 1) {
+					startNeoPropertyNode = tempList.get(0);
+					for (int i = 1; i < tempList.size(); i++) {
+						if (!cypher.toString().isEmpty()) {
+							cypher.append(CypherSpecificConstants.ONE_WHITESPACE);
+							cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
+							cypher.append(CypherSpecificConstants.ONE_WHITESPACE);
+						}
+						cypher.append(startNeoPropertyNode);
+						cypher.append(CypherSpecificConstants.ONE_WHITESPACE);
+						cypher.append(CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_EQUAL);
+						cypher.append(CypherSpecificConstants.ONE_WHITESPACE);
+						cypher.append(tempList.get(i));
+					}
+				}
+			}
+			startNeoPropertyNode = null;
+			tempList = null;
+		}
+		String resultCypher = new String(); 
+		if (!(cypher.length() == 0)) {
+			resultCypher = CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + cypher.toString() + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
+		}
+		return resultCypher;
 	}
 	//END - Neo4J
 	
