@@ -36,26 +36,26 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 	@Override
 	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		completePatterns.add(getPatternMatch(true, "Churfürsten"));
-//		completePatterns.add(getPatternMatch(false, "Churfürsten"));
-//        completePatterns.add(getPatternMatch(true, ".*Churfürsten.*"));
-//		completePatterns.add(getPatternMatch(false, ".*Churfürsten.*"));
-//        completePatterns.add(getPatternMatch(true, ".*(?i)Churfürsten.*"));
-//		completePatterns.add(getPatternMatch(false, ".*(?i)Churfürsten.*"));
-//		completePatterns.add(getPatternMatch(true, ".*(?m)Churfürsten.*"));
-//		completePatterns.add(getPatternMatch(false, ".*(?m)Churfürsten.*"));
-//		completePatterns.add(getPatternMatch(true, ".*(?s)Churfürsten.*"));
-//		completePatterns.add(getPatternMatch(false, ".*(?s)Churfürsten.*"));
+		completePatterns.add(getPatternMatch(true, "Churfürsten"));
+		completePatterns.add(getPatternMatch(false, "Churfürsten"));
+        completePatterns.add(getPatternMatch(true, ".*Churfürsten.*"));
+		completePatterns.add(getPatternMatch(false, ".*Churfürsten.*"));
+        completePatterns.add(getPatternMatch(true, ".*(?i)Churfürsten.*"));
+		completePatterns.add(getPatternMatch(false, ".*(?i)Churfürsten.*"));
+		completePatterns.add(getPatternMatch(true, ".*(?m)Churfürsten.*"));
+		completePatterns.add(getPatternMatch(false, ".*(?m)Churfürsten.*"));
+		completePatterns.add(getPatternMatch(true, ".*(?s)Churfürsten.*"));
+		completePatterns.add(getPatternMatch(false, ".*(?s)Churfürsten.*"));
 	}
 	
 	@Override
 	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException {
 		completePatternsExceptions.add(generateMatchInvalidOptionException(true));
-//		completePatternsExceptions.add(generateMatchInvalidOptionException(false));
-//		completePatternsExceptions.add(generateMatchInvalidOptionDiffrentException(true));
-//		completePatternsExceptions.add(generateMatchInvalidOptionDiffrentException(true));
-//		completePatternsExceptions.add(generateMatchInvalidOptionDiffrent4Exception(false));
+		completePatternsExceptions.add(generateMatchInvalidOptionException(false));
+		completePatternsExceptions.add(generateMatchInvalidOptionDiffrentException(true));
+		completePatternsExceptions.add(generateMatchInvalidOptionDiffrentException(true));
+		completePatternsExceptions.add(generateMatchInvalidOptionDiffrent4Exception(false));
 	}
 	
 

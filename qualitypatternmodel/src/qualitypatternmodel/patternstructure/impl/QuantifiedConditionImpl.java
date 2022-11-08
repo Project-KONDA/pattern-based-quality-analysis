@@ -256,7 +256,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 					properties = node.generateCypherPropertyAddressing(); //If the list is empty the exception is thrown in the NeoPropertyNode
 					for (int i = 0; i < properties.size(); i++) {
 						if (i > 0) cypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
-						cypher.append(String.format(CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_PROPERTY, node.generateCypherPropertyAddressing()));
+						cypher.append(String.format(CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_PROPERTY, properties.get(i)));
 					}
 				}
 				return CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + cypher.toString() + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;				

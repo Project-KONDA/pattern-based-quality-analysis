@@ -115,12 +115,12 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 		}
 		
 		if (!(condition == null || condition instanceof TrueElement)) {
-			String cypher = "";
+			String cypher = new String();
 			if (condition instanceof NotCondition) {
 				return ((NotCondition) condition).getCondition().generateCypher();
 			}
 			
-			cypher = CypherSpecificConstants.BOOLEAN_OPERATOR_NOT;
+			cypher = CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + CypherSpecificConstants.ONE_WHITESPACE;
 			final String temp = condition.generateCypher();
 			if (temp.isEmpty()) {
 				throw new InvalidityException(NO_VALID_QUERY_IS_GENERATED);

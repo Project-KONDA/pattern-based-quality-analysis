@@ -523,7 +523,7 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			i++;
 			
 			//getNeoPropertyEdge
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3)-[varEdge2]-(varPropertyNode4)\n"
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3)-[varEdge2]-(varPropertyNode4_2)\n"
 					+ "RETURN varNode3");
 			i++;
 			
@@ -538,71 +538,82 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			i++;
 			
 			//getSimpleEdgeWithLabels
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3:Regesta)-[varEdge2:PLACE_OF_ISSUE]-(varPropertyNode4:Place)\n"
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3:Regesta)-[varEdge2:PLACE_OF_ISSUE]-(varPropertyNode4_2:Place)\n"
 					+ "RETURN varNode3");
 			i++;
 			
 			//getSimpleEdgeWithLabelsRight
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3:Regesta)-[varEdge2:PLACE_OF_ISSUE]->(varPropertyNode4:Place)\n"
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3:Regesta)-[varEdge2:PLACE_OF_ISSUE]->(varPropertyNode4_2:Place)\n"
 					+ "RETURN varNode3");
 			i++;
 			
 			//getSimpleEdgeWithLabelsLeft
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3:Regesta)<-[varEdge2:APPEARS_IN]-(varPropertyNode4:IndexEntry:IndexPlace)\n"
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3:Regesta)<-[varEdge2:APPEARS_IN]-(varPropertyNode4_2:IndexEntry:IndexPlace)\n"
 					+ "RETURN varNode3");
 			i++;
 			
 			//getSimpleEdgeWithTargetNodePropertyNProperty
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3:Regesta)-[varEdge2:PLACE_OF_ISSUE]->(varPropertyNode4:Place)\n"
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3:Regesta)-[varEdge2:PLACE_OF_ISSUE]->(varPropertyNode4_2:Place)\n"
 					+ "RETURN varNode3, \n"
-					+ "      varPropertyNode4, \n"
-					+ "      varPropertyNode4.identifier");
+					+ "      varPropertyNode4_2, \n"
+					+ "      varPropertyNode4_2.identifier");
 			i++;
 			
 			//getSimpleEdgeWithTargetNodePropertyNNeoPropertyEdgeNProperty
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3:Regesta)-[varEdge2:PLACE_OF_ISSUE]->(varPropertyNode4:Place)\n"
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3:Regesta)-[varEdge2:PLACE_OF_ISSUE]->(varPropertyNode4_2:Place)\n"
 					+ "RETURN varNode3, \n"
-					+ "      varPropertyNode4, \n"
-					+ "      varPropertyNode4.identifier, \n"
+					+ "      varPropertyNode4_2, \n"
+					+ "      varPropertyNode4_2.identifier, \n"
 					+ "      varEdge2");
 			i++;
 			
 			//getComplexEdge
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3)-[varEdge2]-(intEgNode2)-[varEdge2_1]-(varPropertyNode4)\n"
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3)-[varEdge2]-(intEgNode2)-[varEdge2_1]-(varPropertyNode4_2)\n"
 					+ "RETURN varNode3, \n"
 					+ "      intEgNode2");
 			i++;
 			
 			//getComplexEdgeWithLabels
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3:Regesta)-[varEdge2:APPEARS_IN]-(intEgNode2:IndexEntry:IndexPlace)-[varEdge2_1:IS_SUB_OF]-(varPropertyNode4:IndexEntry:IndexPerson)\n"
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3:Regesta)-[varEdge2:APPEARS_IN]-(intEgNode2:IndexEntry:IndexPlace)-[varEdge2_1:IS_SUB_OF]-(varPropertyNode4_2:IndexEntry:IndexPerson)\n"
 					+ "RETURN varNode3, \n"
 					+ "      intEgNode2");
 			i++;
 			
 			//getComplexEdgeWithLabelsDiffrentDirections
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3:Regesta)<-[varEdge2:APPEARS_IN]-(intEgNode2:IndexEntry:IndexPlace)<-[varEdge2_1:IS_SUB_OF]-(varPropertyNode4:IndexEntry:IndexPerson)\n"
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3:Regesta)<-[varEdge2:APPEARS_IN]-(intEgNode2:IndexEntry:IndexPlace)<-[varEdge2_1:IS_SUB_OF]-(varPropertyNode4_2:IndexEntry:IndexPerson)\n"
 					+ "RETURN varNode3, \n"
 					+ "      intEgNode2");
 			i++;
 			
 			//getComplexEdgeWithLabelsDiffrentDirectionsAndAllReturns
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3:Regesta)<-[varEdge2:APPEARS_IN]-(intEgNode2:IndexEntry:IndexPlace)<-[varEdge2_1:IS_SUB_OF]-(varPropertyNode4:IndexEntry:IndexPerson)\n"
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3:Regesta)<-[varEdge2:APPEARS_IN]-(intEgNode2:IndexEntry:IndexPlace)<-[varEdge2_1:IS_SUB_OF]-(varPropertyNode4_2:IndexEntry:IndexPerson)\n"
 					+ "RETURN varNode3, \n"
-					+ "      varPropertyNode4, \n"
-					+ "      varPropertyNode4.path, \n"
+					+ "      varPropertyNode4_2, \n"
+					+ "      varPropertyNode4_2.path, \n"
 					+ "      varEdge2, varEdge2_1, \n"
 					+ "      intEgNode2");
 			i++;
 			
 			//getComplexEdgeWithLabelsDiffrentDirectionsAndAllReturns
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode6)\n"
-					+ "MATCH (varNode8)\n"
-					+ "MATCH (varNode9)-[varEdge7]-(varPropertyNode7_7:Regesta)\n"
-					+ "MATCH (varNode10)-[varEdge8]-(varPropertyNode7_8:Regesta)\n"
-					+ "WHERE (varNode6.placeOfIssue = varNode8.placeOfIssue AND varNode6.placeOfIssue = varPropertyNode7_7.placeOfIssue AND varNode6.placeOfIssue = varPropertyNode7_8.placeOfIssue)\n"
+					+ "MATCH (varNode7)\n"
+					+ "MATCH (varNode8)-[varEdge5]-(varPropertyNode9_5:Regesta)\n"
+					+ "MATCH (varNode10)-[varEdge6]-(varPropertyNode9_6:Regesta)\n"
+					+ "WHERE (varNode6.placeOfIssue = varNode7.placeOfIssuevarNode6.placeOfIssue = varNode7.placeOfIssue AND varNode6.placeOfIssue = varPropertyNode9_5.placeOfIssuevarNode6.placeOfIssue = varNode7.placeOfIssue AND varNode6.placeOfIssue = varPropertyNode9_5.placeOfIssue AND varNode6.placeOfIssue = varPropertyNode9_6.placeOfIssue)\n"
 					+ "RETURN varNode6");
 			i++;
-			
+
+			//getMultiEdgesToNeoPropertyNode
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode7)\n"
+					+ "MATCH (varNode8)\n"
+					+ "MATCH (varNode9)-[varEdge6]-(varPropertyNode10_6:Regesta)\n"
+					+ "MATCH (varNode11)-[varEdge8]-(varPropertyNode10_8:Regesta)\n"
+					+ "WHERE (varNode7.placeOfIssue = varNode8.placeOfIssuevarNode7.placeOfIssue = varNode8.placeOfIssue AND varNode7.placeOfIssue = varPropertyNode10_6.placeOfIssuevarNode7.placeOfIssue = varNode8.placeOfIssue AND varNode7.placeOfIssue = varPropertyNode10_6.placeOfIssue AND varNode7.placeOfIssue = varPropertyNode10_8.placeOfIssue)\n"
+					+ "            AND NOT (EXISTS {\n"
+					+ "                        MATCH (varNode7)\n"
+					+ "                        WHERE (varNode7.placeOfIssue = varNode8.placeOfIssue)})\n"
+					+ "RETURN varNode7");
+			i++;			
 			assertTrue(NOT_ALL_PATTERN_HAVE_BEEN_CHECK, i == completePatterns.size());
 		} catch (Exception e) {
 			System.out.println(e);
@@ -617,10 +628,10 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			int i = 0;
 			
 			//getAllPossibleReturnTypes
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4:Regesta)-[varEdge3:APPEARS_IN]-(intEgNode3:IndexEntry:IndexPlace)-[varEdge3_1:APPEARS_IN]-(varNode5:Regesta)-[varEdge4:APPEARS_IN]-(intEgNode4:IndexEntry:IndexPerson)-[varEdge4_1:APPEARS_IN]-(varPropertyNode6:Regesta)\n"
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4:Regesta)-[varEdge3:APPEARS_IN]-(intEgNode3:IndexEntry:IndexPlace)-[varEdge3_1:APPEARS_IN]-(varNode5:Regesta)-[varEdge4:APPEARS_IN]-(intEgNode4:IndexEntry:IndexPerson)-[varEdge4_1:APPEARS_IN]-(varPropertyNode6_4:Regesta)\n"
 					+ "RETURN varNode4, varNode5, \n"
-					+ "      varPropertyNode6, \n"
-					+ "      varPropertyNode6.summary, \n"
+					+ "      varPropertyNode6_4, \n"
+					+ "      varPropertyNode6_4.summary, \n"
 					+ "      varEdge3, varEdge3_1, varEdge4, varEdge4_1, \n"
 					+ "      intEgNode3, intEgNode4");
 			i++;
@@ -640,7 +651,7 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			
 			//getTestPattern1
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4:Literature)\n"
-					+ "WHERE NOT(EXISTS {\n"
+					+ "WHERE NOT (EXISTS {\n"
 					+ "            MATCH (varNode4)<-[varEdge2]-(varNode5:Regesta)\n"
 					+ "            WHERE NOT (EXISTS {\n"
 					+ "                        MATCH (varNode5)-[varEdge4]->(varNode6:Reference)})})\n"
@@ -651,9 +662,9 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode8:Literature)\n"
 					+ "WHERE (varNode8.title = \"BATTENBERG\"\n"
 					+ "            AND varNode8.url = \"http://opac.regesta-imperii.de/lang_de/kurztitelsuche_r.php?kurztitel=battenberg,_solmser_urkunden_1\")\n"
-					+ "            AND NOT(EXISTS {\n"
+					+ "            AND NOT (EXISTS {\n"
 					+ "                        MATCH (varNode8)<-[varEdge6]-(varNode9:Regesta)\n"
-					+ "                        WHERE NOT (EXISTS {\r\n"
+					+ "                        WHERE NOT (EXISTS {\n"
 					+ "                                    MATCH (varNode9)-[varEdge11]->(varNode10:Reference)\n"
 					+ "                                    WHERE (varNode10.title = \"Kulpis Documenta S. 181f.\")})\n"
 					+ "                        AND (varNode9.isoStartDate = date('1439-12-20'))})\n"
@@ -665,7 +676,6 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 //			i++;
 			
 			//getTestPattern2
-			System.out.println(completePatterns.get(i).generateCypher());
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\n"
 					+ "WHERE NOT (EXISTS {\n"
 					+ "            MATCH (varNode5), (varNode5)-[varEdge4:APPEARS_IN]-(varNode6:IndexPerson), (varNode5)-[varEdge5:ACTION]-(varNode7:Action), (varNode5)-[varEdge6:RECIPIENT_IN]-(varNode8:IndexPlace)})\n"
@@ -673,7 +683,6 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			i++;
 			
 			//getTestPattern5
-			System.out.println(completePatterns.get(i).generateCypher());
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4:Regesta)\n"
 					+ "WHERE EXISTS {\n"
 					+ "            MATCH (varNode4), (varNode4)<-[varEdge4:APPEARS_IN]-(varNode5:IndexPerson)-[varEdge5:IS_SUB_OF]-(varNode6:IndexPlace), (varNode4)-[varEdge6:RECIPIENT_IN]-(varNode6)}\n"
@@ -681,7 +690,6 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			i++;
 			
 			//getNotExistsExists
-			System.out.println(completePatterns.get(i).generateCypher());
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\n"
 					+ "WHERE NOT (EXISTS {\n"
 					+ "            MATCH (varNode5)-[varEdge4:APPEARS_IN]-(varNode6:IndexPerson)\n"
@@ -691,7 +699,6 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			i++;
 			
 			//getNotNotPattern
-			System.out.println(completePatterns.get(i).generateCypher());
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4)\n"
 					+ "WHERE EXISTS {\n"
 					+ "            MATCH (varNode4)-[varEdge4]-(varNode5)}\n"
@@ -699,7 +706,6 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			i++;
 			
 			//getNotNotPattern
-			System.out.println(completePatterns.get(i).generateCypher());
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4)\n"
 					+ "WHERE NOT (EXISTS {\n"
 					+ "            MATCH (varNode4)-[varEdge4]-(varNode5)})\n"
@@ -707,7 +713,6 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			i++;
 			
 			//getNotNotNotNotPattern
-			System.out.println(completePatterns.get(i).generateCypher());
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4)\n"
 					+ "WHERE EXISTS {\n"
 					+ "            MATCH (varNode4)-[varEdge4]-(varNode5)}\n"
@@ -715,7 +720,6 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			i++;
 			
 			//getNotNotNotNotNotPattern
-			System.out.println(completePatterns.get(i).generateCypher());
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4)\n"
 					+ "WHERE NOT (EXISTS {\n"
 					+ "            MATCH (varNode4)-[varEdge4]-(varNode5)})\n"
@@ -907,13 +911,13 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			
 			//MultiListParam
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3)\n"
-					+ "WHERE (varNode3.origPlaceOfIssue = [\"unknown\", \"USA\", 17, 17.0, -17, -17.0, \"-17.0+\"])\n"
+					+ "WHERE (varNode3.origPlaceOfIssue = [\"unknown\", \"USA\", 17, 17.0, -17, -17.0, \"-17.0+\", \"1439-12-20\", \"2020-10-03T09:00:00\", \"09:00:00\"])\n"
 					+ "RETURN varNode3");
 			i++;
 			
 			//MultiListParam + IN
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3)\n"
-					+ "WHERE (varNode3.origPlaceOfIssue IN [\"unknown\", \"USA\", 17, 17.0, -17, -17.0, \"-17.0+\"])\n"
+					+ "WHERE (varNode3.origPlaceOfIssue IN [\"unknown\", \"USA\", 17, 17.0, -17, -17.0, \"-17.0+\", \"1439-12-20\", \"2020-10-03T09:00:00\", \"09:00:00\"])\n"
 					+ "RETURN varNode3");
 			i++;
 			
@@ -947,50 +951,50 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			i++;
 			
 			//getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName (NOTEQUAL)
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5)-[varEdge3:PLACE_OF_ISSUE]-(varPropertyNode6:Place)\n"
-					+ "MATCH (varNode7)-[varEdge4:PLACE_OF_ISSUE]-(varPropertyNode8:Place)\n"
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5)-[varEdge3:PLACE_OF_ISSUE]-(varPropertyNode6_3:Place)\n"
+					+ "MATCH (varNode7)-[varEdge4:PLACE_OF_ISSUE]-(varPropertyNode8_4:Place)\n"
 					+ "WHERE (varNode5 <> varNode7\n"
-					+ "            AND varPropertyNode6.normalizedGerman <> varPropertyNode8.normalizedGerman\n"
-					+ "            AND varPropertyNode8.normalizedGerman <> varPropertyNode6.normalizedGerman)\n"
+					+ "            AND varPropertyNode6_3.normalizedGerman <> varPropertyNode8_4.normalizedGerman\n"
+					+ "            AND varPropertyNode8_4.normalizedGerman <> varPropertyNode6_3.normalizedGerman)\n"
 					+ "RETURN varNode5");
 			i++;
 			
 			//getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName (EQUAL)
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5)-[varEdge3:PLACE_OF_ISSUE]-(varPropertyNode6:Place)\n"
-					+ "MATCH (varNode7)-[varEdge4:PLACE_OF_ISSUE]-(varPropertyNode8:Place)\n"
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5)-[varEdge3:PLACE_OF_ISSUE]-(varPropertyNode6_3:Place)\n"
+					+ "MATCH (varNode7)-[varEdge4:PLACE_OF_ISSUE]-(varPropertyNode8_4:Place)\n"
 					+ "WHERE (varNode5 <> varNode7\n"
-					+ "            AND varPropertyNode6.normalizedGerman = varPropertyNode8.normalizedGerman\n"
-					+ "            AND varPropertyNode8.normalizedGerman = varPropertyNode6.normalizedGerman)\n"
+					+ "            AND varPropertyNode6_3.normalizedGerman = varPropertyNode8_4.normalizedGerman\n"
+					+ "            AND varPropertyNode8_4.normalizedGerman = varPropertyNode6_3.normalizedGerman)\n"
 					+ "RETURN varNode5");
 			i++;
 			
 			//getMultipleComparisons
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5)-[varEdge3:PLACE_OF_ISSUE]-(varPropertyNode6:Place)\n"
-					+ "MATCH (varNode7)-[varEdge4:PLACE_OF_ISSUE]-(varPropertyNode8:Place)\n"
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5)-[varEdge3:PLACE_OF_ISSUE]-(varPropertyNode6_3:Place)\n"
+					+ "MATCH (varNode7)-[varEdge4:PLACE_OF_ISSUE]-(varPropertyNode8_4:Place)\n"
 					+ "WHERE (varNode5 <> varNode7\n"
 					+ "            AND varNode7 <> varNode5\n"
 					+ "            AND varNode5 = varNode7\n"
 					+ "            AND varNode7 = varNode5\n"
 					+ "            AND varNode5 = varNode7\n"
-					+ "            AND varPropertyNode6.normalizedGerman <> varPropertyNode8.normalizedGerman\n"
-					+ "            AND varPropertyNode8.normalizedGerman <> varPropertyNode6.normalizedGerman\n"
+					+ "            AND varPropertyNode6_3.normalizedGerman <> varPropertyNode8_4.normalizedGerman\n"
+					+ "            AND varPropertyNode8_4.normalizedGerman <> varPropertyNode6_3.normalizedGerman\n"
 					+ "            AND varNode5 = varNode7\n"
-					+ "            AND varPropertyNode6.normalizedGerman = varPropertyNode8.normalizedGerman\n"
-					+ "            AND varPropertyNode8.normalizedGerman = varPropertyNode6.normalizedGerman)\n"
+					+ "            AND varPropertyNode6_3.normalizedGerman = varPropertyNode8_4.normalizedGerman\n"
+					+ "            AND varPropertyNode8_4.normalizedGerman = varPropertyNode6_3.normalizedGerman)\n"
 					+ "RETURN varNode5");
 			i++;
 			
 			//getCompareByElementId (NOTEQUAL)
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5)-[varEdge3:PLACE_OF_ISSUE]-(varPropertyNode6:Place)\n"
-					+ "MATCH (varNode7)-[varEdge4:PLACE_OF_ISSUE]-(varPropertyNode8:Place)\n"
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5)-[varEdge3:PLACE_OF_ISSUE]-(varPropertyNode6_3:Place)\n"
+					+ "MATCH (varNode7)-[varEdge4:PLACE_OF_ISSUE]-(varPropertyNode8_4:Place)\n"
 					+ "WHERE (ID(varNode5) <> ID(varNode7)\n"
 					+ "            AND varNode7 <> varNode5)\n"
 					+ "RETURN varNode5");
 			i++;
 			
 			//getCompareByElementId (EQUAL)
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5)-[varEdge3:PLACE_OF_ISSUE]-(varPropertyNode6:Place)\n"
-					+ "MATCH (varNode7)-[varEdge4:PLACE_OF_ISSUE]-(varPropertyNode8:Place)\n"
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5)-[varEdge3:PLACE_OF_ISSUE]-(varPropertyNode6_3:Place)\n"
+					+ "MATCH (varNode7)-[varEdge4:PLACE_OF_ISSUE]-(varPropertyNode8_4:Place)\n"
 					+ "WHERE (ID(varNode5) = ID(varNode7)\n"
 					+ "            AND varNode7 = varNode5)\n"
 					+ "RETURN varNode5");
@@ -1016,6 +1020,7 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			i++;
 			
 			//getNodesWhereExits (true)
+			System.out.println(completePatterns.get(i).generateCypher());
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3:Regesta)\n"
 					+ "WHERE NOT ((EXISTS (varNode3.origPlaceOfIssue)))\n"
 					+ "RETURN varNode3");
