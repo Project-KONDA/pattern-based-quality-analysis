@@ -368,14 +368,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 	
 	private String generateCypherWhereStructureComps() throws InvalidityException {
-		String tempComps = null;
-		try {
-			tempComps = generateComparisonsOfSameNeoPropertyNodes();
-		} catch (Exception e) {
-			return new String();
-		}
+		final String tempComps = generateComparisonsOfSameNeoPropertyNodes();
 		//Add all needed Comparisons if a NeoPropertyNode has multiple incoming edges
-		String cypherStructurComps = this.generateComparisonsOfSameNeoPropertyNodes();
+		String cypherStructurComps = tempComps;
 		return cypherStructurComps;
 	}
 
@@ -410,16 +405,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 						}
 					}
 				}
-			} catch (Exception e) {
-				//Do nothing --> need of less checks, since an exception is thrown. The structure has not to be iterated twice in the worst case --> Check of valid and if valid then generat it
-				//Actually if configured everything correctly there should be no exception
-				//generateCypherPropertyAddressing() is throwing an Exception since in the case of direct addressings in the Operators at least one Element has to exists
-				//"It's easier to ask forgiveness than it is to get permission" & "Ask forgiveness, not permission" --> Grace Hopper
-				//https://medium.com/nerd-for-tech/look-before-you-leap-vs-easier-to-ask-for-forgiveness-than-permission-in-programming-85d17a5f48c8
-			} finally {
-				tempCypher.setLength(0);
-				startNeoPropertyNode = null;
-				tempList = null;
+			} catch (InvalidityException e) {
+				throw e;
 			}
 		}
 		String resultCypher = new String(); 

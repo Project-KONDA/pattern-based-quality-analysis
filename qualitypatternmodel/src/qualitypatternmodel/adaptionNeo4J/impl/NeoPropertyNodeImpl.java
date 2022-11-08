@@ -114,6 +114,12 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		super();
 	}
 	
+	/**
+	 *@author Lukas Sebastian Hofmann
+	 *@return Returns a String with multiple NeoPropertyNodes which are seperated by ";". In comparison to the other genrateCyphers in the Adaption-Package
+	 *This method should <b> primarily used internally <\b>. Since the return type in this Child is different to the other .generateCypher()-Methods in this Package.
+	 *However, if used then <b>split the String by the literal <i>";"<\i><\b>. 
+	 */
 	@Override 
 	public String generateCypher() throws InvalidityException, UnsupportedOperationException {	
 		if (getIncomingMapping() == null) {
@@ -204,7 +210,12 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 			cypherList = ((NeoPropertyNodeImpl) getOriginalNode()).generateCypherPropertyAddressing();
 		} catch (Exception e) {
 			//DO NOTHING --> SINCE NO EXCEPTION WILL BE THROWN --> SEE  IN generateCypherPropertyAddressing THE CONDTION WHEN SOMETHING WILL BE THROWEN
-			//Always a list will be returned. Thus there is no need for creating one.
+			//Always a list will be returned. Thus there is no need for creating one. --> Could also be solved with an annotation to suppress the warning
+			//Do nothing --> need of less checks, since an exception is thrown. The structure has not to be iterated twice in the worst case --> Check of valid and if valid then generat it
+			//Actually if configured everything correctly there should be no exception
+			//generateCypherPropertyAddressing() is throwing an Exception since in the case of direct addressings in the Operators at least one Element has to exists
+			//"It's easier to ask forgiveness than it is to get permission" & "Ask forgiveness, not permission" --> Grace Hopper
+			//https://medium.com/nerd-for-tech/look-before-you-leap-vs-easier-to-ask-for-forgiveness-than-permission-in-programming-85d17a5f48c8
 		}
 		if (cypherList.size() > 1) {
 			final String adressing = cypherList.get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
@@ -325,12 +336,12 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	public String getCypherVariable() throws InvalidityException {
 		if (getIncomingMapping() == null) {	
 			final String[] temp = generateCypher().split(CypherSpecificConstants.SEPERATOR);
-			String cypher = "";
+			String cypher = new String();
 			if (temp != null) {
 				for (String s : temp) {
 					cypher += s;
-					cypher = cypher.replace("(", "");
-					cypher = cypher.replace(")", "");
+					cypher = cypher.replace(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET, "");
+					cypher = cypher.replace(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET, "");
 					cypher += CypherSpecificConstants.SEPERATOR;
 				}
 				
