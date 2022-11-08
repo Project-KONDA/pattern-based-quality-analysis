@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
@@ -28,6 +29,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
@@ -73,6 +75,8 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  */
 public class CompletePatternImpl extends PatternImpl implements CompletePattern {
 	
+	private static final String NO_SUB_GRAPH_S_HAVE_BEEN_IDENTIFIED = "No (Sub-)Graph(-s) have been identified";
+
 	private static final String RETURN_ELEMENT_S_MISSING = "return element(s) missing";
 
 	private static final String A_CYPHER_QUERY_NEED_A_RETURN_CLAUSE = "A cypher query need a Return-Clause";
@@ -406,7 +410,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		
 		return completeCyString;
 	}
-
 	//PROTOTYP: in Zukünftigen Versionen müsste man noch das SET/REMOVE für das COUNT-Pattern integrieren --> Ist aber in dem Modell nicht vorgesehen
 	
 	/**
@@ -465,7 +468,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		callCypherPropertyAddressingString(cypherNeoProperties);
 		if (cypherNeoProperties.length() != 0) {
 			if (cypher.length() != 0) {
-				cypher += CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE + "\n";
+				cypher += CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE + "\n";
 				cypher += CypherSpecificConstants.SIX_WHITESPACES;
 			} else {
 				cypher = CypherSpecificConstants.ONE_WHITESPACE;
@@ -480,12 +483,12 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		NeoPropertyNode neoPropertyNode;
 		for (Node n : graph.getNodes()) {
 			if (n instanceof NeoPropertyNode && ((NeoPropertyNode)n).isReturnProperty()) {
-				if (cypherNeoProperties.length() != 0) cypherNeoProperties.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE);
+				if (cypherNeoProperties.length() != 0) cypherNeoProperties.append(CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE);
 				neoPropertyNode = (NeoPropertyNode) n;
 				final EList<String> tempCypher = neoPropertyNode.generateCypherPropertyAddressing();
 				boolean multi = false;
 				for (String s : tempCypher) {
-					if (multi) cypherNeoProperties.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE);
+					if (multi) cypherNeoProperties.append(CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE);
 					cypherNeoProperties.append(s);
 					multi = true;
 				}
@@ -496,7 +499,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	private String formattingCypherReturnTypes(String cypher, final Map<Integer, String> cypherReturn) {
 		for (Map.Entry<Integer, String> mapElement : cypherReturn.entrySet()) {	  
 		    if (cypher.length() != 0) {
-		    	cypher += ", " + "\n";
+		    	cypher += CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE + "\n";
 		    	cypher += CypherSpecificConstants.SIX_WHITESPACES;
 		    } else {
 		    	cypher = CypherSpecificConstants.ONE_WHITESPACE;
@@ -505,6 +508,102 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		}
 		return cypher;
 	}
+	
+	
+	//BEGIN - AUTOMATIC SETTING OF THE BEGINNING
+	private void setNeo4JBeginnings(PatternElement patternElement) throws InvalidityException {
+		final EList<EList<NeoInterfaceNode>> graphs = getAllSubGraphs(); 
+		setBeginningInSubGraph(graphs);		
+	}
+	
+	private EList<EList<NeoInterfaceNode>> getAllSubGraphs() throws InvalidityException {
+		final EList<NeoInterfaceNode> neoInterfaceNodes = getAllNeoInterfaceNodes();
+		final EList<EList<NeoInterfaceNode>> graphs = new BasicEList<EList<NeoInterfaceNode>>();
+		EList<NeoInterfaceNode> graph = null;
+		for (NeoInterfaceNode neoInterfaceNode : neoInterfaceNodes) {
+			if (!containedInSubGraphList(graphs, neoInterfaceNode)) {
+				graph = new BasicEList<NeoInterfaceNode>();
+				getAllSubGraphRecusrive(neoInterfaceNode, graph);
+				graphs.add(graph);
+			}
+		}
+		if (graphs.size() == 0) {
+			throw new InvalidityException(NO_SUB_GRAPH_S_HAVE_BEEN_IDENTIFIED);
+		}
+		return graphs;
+	}
+	
+	private void getAllSubGraphRecusrive(final NeoInterfaceNode neoInterfaceNode, final EList<NeoInterfaceNode> neoInterfaceNodesList) {
+		if (!containedInGraphList(neoInterfaceNodesList, neoInterfaceNode)) {
+			neoInterfaceNodesList.add(neoInterfaceNode);
+			if (neoInterfaceNode instanceof ComplexNode) {
+				final ComplexNode complexNode = (ComplexNode) neoInterfaceNode;
+				NeoInterfaceNode tempNeoInterfaceNode = null;
+				for (Relation r : complexNode.getOutgoing()) {
+					tempNeoInterfaceNode = (NeoInterfaceNode) r.getTarget();
+					getAllSubGraphRecusrive(tempNeoInterfaceNode, neoInterfaceNodesList);
+				}				
+			}
+		}			
+	}
+	
+	private boolean containedInSubGraphList(final EList<EList<NeoInterfaceNode>> graphs, NeoInterfaceNode neoInterfaceNode) {
+		boolean contained = false;
+		EList<NeoInterfaceNode> graph = null;
+		for (int i = 0; i < graphs.size(); i++) {
+			graph = graphs.get(i);
+			if (graph.contains(neoInterfaceNode)) {
+				contained = true;
+				i = graphs.size();
+			}
+		}
+		return contained;
+	}
+	
+	private boolean containedInGraphList(EList<NeoInterfaceNode> graph, NeoInterfaceNode neoInterfaceNode) {
+		final EList<EList<NeoInterfaceNode>> graphs = new BasicEList<EList<NeoInterfaceNode>>();
+		graphs.add(graph);
+		return this.containedInSubGraphList(graphs, neoInterfaceNode);
+	}
+	
+
+	private EList<NeoInterfaceNode> getAllNeoInterfaceNodes() {
+		final EList<NeoInterfaceNode> neoInterfaceNodes = new BasicEList<NeoInterfaceNode>();
+		final EList<Node> nodes = getGraph().getNodes();
+		for (Node n : nodes) {
+			neoInterfaceNodes.add((NeoInterfaceNode) n);
+		}
+		return neoInterfaceNodes;
+	}
+	
+	private void setBeginningInSubGraph(final EList<EList<NeoInterfaceNode>> graphs) {
+		boolean hasBeginning = false;
+		Node node = null;
+		NeoNode neoNode = null;
+		for (EList<NeoInterfaceNode> graph : graphs) {
+			for (NeoInterfaceNode neoInterfaceNode : graph) {
+				node = (Node) neoInterfaceNode;
+				if (node.getIncoming().size() == 0 && node instanceof NeoNode) {
+					neoNode = (NeoNode) node;
+					neoNode.setNeoPlace(NeoPlace.BEGINNING);
+					hasBeginning = true;
+				}
+			}
+			if (!hasBeginning) {
+				for (int i = 0; i < graph.size(); i++) {
+					node = (Node) graph.get(i);
+					if (node instanceof NeoNode) {
+						neoNode = (NeoNode) node;
+						neoNode.setNeoPlace(NeoPlace.BEGINNING);
+						hasBeginning = true;
+						i = graph.size();
+					}
+				}
+			}
+			hasBeginning = false;
+		}
+	}
+	//END - AUTOMATIC SETTING OF THE BEGINNING
 	//END - NEO4J/CYPHER
 	
 	
@@ -804,76 +903,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		setNeo4JBeginnings(patternElement);
 		
 		return patternElement;
-	}
-
-	//Look at this https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/
-	//adapt this https://www.geeksforgeeks.org/detect-cycle-in-a-graph/ 
-	private void setNeo4JBeginnings(PatternElement patternElement) {
-		if (false) { //isCyclic()
-			setNeo4JBeginingsInCycleStructures(this);
-		} else {
-			setNeo4JBeginningsInTreeStructure(this);
-		}
-	}
-	
-//	private boolean isCyclic() {
-//		final int v = this.getGraph().getNodes().size();
-//		boolean isCyclic = false;
-//		boolean[] visited = new boolean[v];
-//        boolean[] recStack = new boolean[v];
-//        EList<Node> adj = null;
-//        for (int i = 0; i < v; i++) {
-//        	if (isCyclicUtil(i, adj, visited, recStack)) {
-//        		isCyclic = true;
-//        	}
-//        }  
-//		return isCyclic;
-//	}
-//	
-//	private boolean isCyclicUtil(int i, EList<Node> adj, boolean[] visited, boolean[] recStack) {
-//		boolean isCyclicUtil = false;
-//		if (recStack[i]) {
-//			return true;
-//		}
-//            
-//        if (visited[i]) {
-//        	return false;
-//        }
-//            
-//        visited[i] = true;
-// 
-//        recStack[i] = true;
-//        EList<Integer> children = adj.get(i);
-//         
-//        for (Integer c: children) {
-//        	if (isCyclicUtil(c, visited, recStack)) {
-//        		return true;
-//        	}
-//        }
-//            
-//        recStack[i] = false;
-// 
-//        return false;
-//	}
-
-	private void setNeo4JBeginningsInTreeStructure(CompletePattern completePattern) {
-		if (completePattern.getGraph().getNodes().size() != 0) {
-			NeoNode neoNode;
-			for (Node node : completePattern.getGraph().getNodes()) {
-				if (node instanceof NeoNode) {
-					neoNode = (NeoNode) node;
-					if (neoNode.getIncoming().size() == 0 && neoNode.getIncomingMapping() == null) {
-						neoNode.setNeoPlace(NeoPlace.BEGINNING);
-					}
-				}
-			}
-			completePattern = null;
-			neoNode = null;
-		}
-	}
-	
-	private void setNeo4JBeginingsInCycleStructures(CompletePattern completePattern) {
-
 	}
 
 	/**

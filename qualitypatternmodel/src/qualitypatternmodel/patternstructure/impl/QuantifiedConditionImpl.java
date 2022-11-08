@@ -237,21 +237,29 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		}
 		
 		if (neoPropertyNodes.size() != 0) {
+			EList<String> properties = null;
 			if (quantifier == Quantifier.EXISTS && getNotCondition() == null) {
 				for (NeoPropertyNode node : neoPropertyNodes) {
 					if (cypher.length() != 0) {
 						cypher.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE);
 					}
-					cypher.append(node.generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING));
+					properties = node.generateCypherPropertyAddressing(); //If the list is empty the exception is thrown in the NeoPropertyNode
+					for (int i = 0; i < properties.size(); i++) {
+						if (i > 0) cypher.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE);
+						cypher.append(properties.get(i));
+					}
 				}
 				return String.format(exists, cypher.toString());
 			} else if (quantifier == Quantifier.EXISTS && getNotCondition() != null) {
 				for (NeoPropertyNode node : neoPropertyNodes) {
 					if (cypher.length() != 0) cypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
-					cypher.append(String.format(CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_PROPERTY, node.generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING)));
+					properties = node.generateCypherPropertyAddressing(); //If the list is empty the exception is thrown in the NeoPropertyNode
+					for (int i = 0; i < properties.size(); i++) {
+						if (i > 0) cypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
+						cypher.append(String.format(CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_PROPERTY, node.generateCypherPropertyAddressing()));
+					}
 				}
-				String temp = CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + cypher.toString() + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
-				return temp;				
+				return CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + cypher.toString() + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;				
 			} else if (quantifier == Quantifier.FORALL) {
 				throw new InvalidityException(MODEL_HAS_TO_BUILD_A_PATTERN_STRUCTURE);
 			}

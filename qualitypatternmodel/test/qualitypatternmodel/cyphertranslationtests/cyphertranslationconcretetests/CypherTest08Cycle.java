@@ -159,7 +159,7 @@ public class CypherTest08Cycle extends CypherAbstractTranslation {
 
 	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		completePatterns.add(getCyclePattern(2)); //Something is going wrong here... but what???
+		completePatterns.add(getCyclePattern(2));
         completePatterns.add(getCyclePattern(3));
         completePatterns.add(getCyclePatternComp(2));
         completePatterns.add(getCyclePatternComp(3));
@@ -174,8 +174,6 @@ public class CypherTest08Cycle extends CypherAbstractTranslation {
 	
 	private CompletePattern getCyclePattern(int nodesInCycle) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = CypherTest08Cycle.buildPatternCycle(nodesInCycle);
-		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.setNeoPlace(NeoPlace.BEGINNING);
 		
 		return completePattern;
 	}
@@ -183,8 +181,6 @@ public class CypherTest08Cycle extends CypherAbstractTranslation {
 	
 	private CompletePattern getCyclePatternComp(int nodesInCycle) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = CypherTest08Cycle.buildPatternCycleComp(nodesInCycle);
-		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.setNeoPlace(NeoPlace.BEGINNING);
 		
 		return completePattern;
 	}
