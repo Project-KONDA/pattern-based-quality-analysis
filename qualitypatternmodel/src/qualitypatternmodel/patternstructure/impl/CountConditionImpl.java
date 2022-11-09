@@ -53,7 +53,6 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class CountConditionImpl extends ConditionImpl implements CountCondition {
-	private static final String NO_COUNTELEMENTS_ARE_GIVEN = "No countelements are given";
 	/**
 	 * The cached value of the '{@link #getCountPattern() <em>Count Pattern</em>}' containment reference.
 	 * <!-- begin-user-doc -->

@@ -3,7 +3,6 @@ package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetest
 import java.util.ArrayList;
 
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
-import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
@@ -41,11 +40,11 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 		completePatterns.add(getNodesWhereMultiplePropertyExistsChecks(true));		
 	}
 	
-	//CHECKING WHAT HAPPENS IF THE GRAPH HAS ALSO CONDITIONS --> Build test with multiple properties!
+
 	@Override
 	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		completePatternsExceptions.add(generateNodesWhereNoBeginningsException(false));
+		//completePatternsExceptions.add(generateNodesWhereNoBeginningsException(false));
 		completePatternsExceptions.add(generateNodesWhereNoBeginningsException(true));
 		completePatternsExceptions.add(generateWithForAllPropertyExistenceException());
 		completePatternsExceptions.add(generateNoNodesAreDefinedInTheGraphException());
@@ -67,71 +66,25 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 		} else {
 			completePattern.setCondition(quantifiedCond);
 		}
-		
+		quantifiedCond.getGraph().addRelation((ComplexNode) quantifiedCond.getGraph().getNodes().get(0), quantifiedCond.getGraph().addPrimitiveNode());
 		completePattern.createNeo4jAdaption();
 		
 		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
 		neoNode.addLabel("Regesta");
-		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
-		neoPropertyEdge.getNeoPropertyPathParam().setNeoPropertyName("origPlaceOfIssue");
 		
-		NeoPropertyNode neoPropertyNode = (NeoPropertyNode) quantifiedCond.getGraph().getNodes().get(1);
-		neoPropertyNode.setNeoPlace(NeoPlace.BEGINNING);
+		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) quantifiedCond.getGraph().getRelations().get(1);
+		neoPropertyEdge.getNeoPropertyPathParam().setNeoPropertyName("origPlaceOfIssue");
 		
 		return completePattern;	
 	}
 	
 	
 	private CompletePattern getNodesWhereMultiplePropertyExistsChecks(boolean not) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return generateNodesWhereMultiplePropertyExistsChecksException(false);
+		return generateNodesWhereMultiplePropertyExistsChecksException(not);
 	}
 	
 	
-	//Exception
-	private CompletePattern generateNodesWhereMultiplePropertyExistsChecksException(boolean not) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherAbstractTranslation.getCompBasePattern();
-		PrimitiveNode pn = completePattern.getGraph().addPrimitiveNode();
-		ComplexNode cn = (ComplexNode) completePattern.getGraph().getNodes().get(0);
-		completePattern.getGraph().addRelation(cn, pn);
-		QuantifiedCondition quantifiedCond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
-		quantifiedCond.setQuantifier(Quantifier.EXISTS);
-		if (not) {
-			NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
-			completePattern.setCondition(notCond);
-			notCond.setCondition(quantifiedCond);
-		} else {
-			completePattern.setCondition(quantifiedCond);
-		}
-		
-		pn = quantifiedCond.getGraph().addPrimitiveNode();
-		cn = (ComplexNode) quantifiedCond.getGraph().getNodes().get(0);
-		quantifiedCond.getGraph().addRelation(cn, pn);
-		
-		completePattern.createNeo4jAdaption();
-		
-		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.addLabel("Regesta");
-		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
-		neoPropertyEdge.getNeoPropertyPathParam().setNeoPropertyName("origPlaceOfIssue");
-		
-		neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(1);
-		neoPropertyEdge.getNeoPropertyPathParam().setNeoPropertyName("origPlaceOfIssue");
-		
-		neoPropertyEdge = (NeoPropertyEdge) quantifiedCond.getGraph().getRelations().get(2);
-		neoPropertyEdge.getNeoPropertyPathParam().setNeoPropertyName("origPlaceOfIssue");
-		
-		NeoPropertyNode neoPropertyNode = (NeoPropertyNode) quantifiedCond.getGraph().getNodes().get(1);
-		neoPropertyNode.setNeoPlace(NeoPlace.BEGINNING);
-		
-		neoPropertyNode = (NeoPropertyNode) quantifiedCond.getGraph().getNodes().get(2);
-		neoPropertyNode.setNeoPlace(NeoPlace.BEGINNING);
-		
-		neoPropertyNode = (NeoPropertyNode) quantifiedCond.getGraph().getNodes().get(3);
-		neoPropertyNode.setNeoPlace(NeoPlace.BEGINNING);
-		
-		return completePattern;	
-	}
-	
+	//Exceptions
 	private CompletePattern generateWithForAllPropertyExistenceException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = generateNodesWhereMultiplePropertyExistsChecksException(false);
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
@@ -139,6 +92,7 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 		return completePattern;
 	}
 	
+	@Deprecated
 	private CompletePattern generateNodesWhereNoBeginningsException(boolean not) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = CypherAbstractTranslation.getCompBasePattern();
 		PrimitiveNode pn = completePattern.getGraph().addPrimitiveNode();
@@ -183,5 +137,46 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 		completePattern.createNeo4jAdaption();
 	
 		return completePattern;
+	}
+	
+	//FACTORY-METHODS 
+	private static CompletePattern generateNodesWhereMultiplePropertyExistsChecksException(boolean not) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = CypherAbstractTranslation.getCompBasePattern();
+		QuantifiedCondition quantifiedCond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		quantifiedCond.setQuantifier(Quantifier.EXISTS);
+		if (not) {
+			NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
+			completePattern.setCondition(notCond);
+			notCond.setCondition(quantifiedCond);
+		} else {
+			completePattern.setCondition(quantifiedCond);
+		}
+		
+		PrimitiveNode pn = quantifiedCond.getGraph().addPrimitiveNode();
+		ComplexNode cn = (ComplexNode) quantifiedCond.getGraph().getNodes().get(0);
+		quantifiedCond.getGraph().addRelation(cn, pn);
+		
+		pn = quantifiedCond.getGraph().addPrimitiveNode();
+		cn = (ComplexNode) quantifiedCond.getGraph().getNodes().get(0);
+		quantifiedCond.getGraph().addRelation(cn, pn);
+
+		pn = quantifiedCond.getGraph().addPrimitiveNode();
+		cn = (ComplexNode) quantifiedCond.getGraph().getNodes().get(0);
+		quantifiedCond.getGraph().addRelation(cn, pn);
+		
+		completePattern.createNeo4jAdaption();
+		
+		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
+		neoNode.addLabel("Regesta");
+		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) quantifiedCond.getGraph().getRelations().get(1);
+		neoPropertyEdge.getNeoPropertyPathParam().setNeoPropertyName("origPlaceOfIssue");
+		
+		neoPropertyEdge = (NeoPropertyEdge) quantifiedCond.getGraph().getRelations().get(2);
+		neoPropertyEdge.getNeoPropertyPathParam().setNeoPropertyName("origPlaceOfIssue");
+		
+		neoPropertyEdge = (NeoPropertyEdge) quantifiedCond.getGraph().getRelations().get(3);
+		neoPropertyEdge.getNeoPropertyPathParam().setNeoPropertyName("placeOfIssue");
+		
+		return completePattern;	
 	}
 }

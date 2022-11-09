@@ -16,6 +16,7 @@ import qualitypatternmodel.parameters.TextListParam;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoNode#getNeoNodeLabels <em>Neo Node Labels</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoNode#getNeoPlace <em>Neo Place</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoNode()
@@ -46,6 +47,32 @@ public interface NeoNode extends ComplexNode, NeoInterfaceNode {
 	 * @generated NOT
 	 */
 	void setNeoNodeLabels(TextListParam value) throws InvalidityException;
+
+	/**
+	 * Returns the value of the '<em><b>Neo Place</b></em>' attribute.
+	 * The default value is <code>"FOLLOWING"</code>.
+	 * The literals are from the enumeration {@link qualitypatternmodel.adaptionNeo4J.NeoPlace}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Neo Place</em>' attribute.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPlace
+	 * @see #setNeoPlace(NeoPlace)
+	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoNode_NeoPlace()
+	 * @model default="FOLLOWING"
+	 * @generated
+	 */
+	NeoPlace getNeoPlace();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoNode#getNeoPlace <em>Neo Place</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Neo Place</em>' attribute.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPlace
+	 * @see #getNeoPlace()
+	 * @generated
+	 */
+	void setNeoPlace(NeoPlace value);
 
 	/**
 	 * <!-- begin-user-doc -->

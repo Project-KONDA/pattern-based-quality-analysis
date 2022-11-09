@@ -429,7 +429,7 @@
           eType="#//graphstructure/Relation" eOpposite="#//graphstructure/Relation/target"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnNode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeModifiable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-          changeable="false" defaultValueLiteral="true"/>
+          defaultValueLiteral="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="translated" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="predicatesAreBeingTranslated"
@@ -450,6 +450,8 @@
       <eOperations name="addComplexNode" eType="#//graphstructure/ComplexNode"/>
       <eOperations name="addPrimitiveNode" eType="#//graphstructure/PrimitiveNode"/>
       <eOperations name="generateCypherWhere" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="getAllSubGraphs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" lowerBound="1"
           upperBound="-1" eType="#//graphstructure/Node" containment="true" eOpposite="#//graphstructure/Node/graph"/>
@@ -1236,8 +1238,6 @@
         interface="true" eSuperTypes="#//adaptionNeo4J/NeoInterfaceElement">
       <eOperations name="getCypherVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="neoPlace" eType="#//adaptionNeo4J/NeoPlace"
-          defaultValueLiteral="FOLLOWING"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isVariableDistinctInUse"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           defaultValueLiteral="true"/>
@@ -1247,6 +1247,8 @@
         <eParameters name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoNodeLabels" eType="#//parameters/TextListParam"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="neoPlace" eType="#//adaptionNeo4J/NeoPlace"
+          defaultValueLiteral="FOLLOWING"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoEdge" eSuperTypes="#//adaptionNeo4J/NeoAbstractEdge">
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoPathParam" eType="#//adaptionNeo4J/NeoPathParam"

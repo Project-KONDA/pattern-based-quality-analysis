@@ -210,11 +210,22 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type Modifiable</em>' attribute.
+	 * @see #setTypeModifiable(boolean)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getNode_TypeModifiable()
-	 * @model default="true" changeable="false"
+	 * @model default="true"
 	 * @generated
 	 */
 	boolean isTypeModifiable();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Node#isTypeModifiable <em>Type Modifiable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type Modifiable</em>' attribute.
+	 * @see #isTypeModifiable()
+	 * @generated
+	 */
+	void setTypeModifiable(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Return Node</b></em>' attribute.

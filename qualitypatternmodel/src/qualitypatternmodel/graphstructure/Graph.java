@@ -176,6 +176,14 @@ public interface Graph extends PatternElement {
 	String generateCypherWhere() throws InvalidityException;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" many="false"
+	 * @generated NOT
+	 */
+	EList<EList<Node>> getAllSubGraphs() throws InvalidityException;
+
+	/**
 	 * Returns the value of the '<em><b>Quantified Condition</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getGraph <em>Graph</em>}'.
 	 * <!-- begin-user-doc -->

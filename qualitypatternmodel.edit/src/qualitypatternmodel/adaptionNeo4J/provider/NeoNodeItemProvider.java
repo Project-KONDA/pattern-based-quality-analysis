@@ -48,9 +48,9 @@ public class NeoNodeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNeoPlacePropertyDescriptor(object);
 			addIsVariableDistinctInUsePropertyDescriptor(object);
 			addNeoNodeLabelsPropertyDescriptor(object);
+			addNeoPlacePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -66,9 +66,9 @@ public class NeoNodeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NeoInterfaceNode_neoPlace_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NeoInterfaceNode_neoPlace_feature", "_UI_NeoInterfaceNode_type"),
-				 AdaptionNeo4JPackage.Literals.NEO_INTERFACE_NODE__NEO_PLACE,
+				 getString("_UI_NeoNode_neoPlace_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NeoNode_neoPlace_feature", "_UI_NeoNode_type"),
+				 AdaptionNeo4JPackage.Literals.NEO_NODE__NEO_PLACE,
 				 true,
 				 false,
 				 false,
@@ -159,8 +159,8 @@ public class NeoNodeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(NeoNode.class)) {
-			case AdaptionNeo4JPackage.NEO_NODE__NEO_PLACE:
 			case AdaptionNeo4JPackage.NEO_NODE__IS_VARIABLE_DISTINCT_IN_USE:
+			case AdaptionNeo4JPackage.NEO_NODE__NEO_PLACE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

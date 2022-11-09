@@ -102,8 +102,8 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 	    neoNode.addLabel("Literature");
 	    
 	    //Node Specification - FORALL
-	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(0);
-	    neoNode.setNeoPlace(NeoPlace.BEGINNING);
+//	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(0);
+//	    neoNode.setNeoPlace(NeoPlace.BEGINNING);
 	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(1);
 	    neoNode.addLabel("Regesta");
 	    

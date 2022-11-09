@@ -51,33 +51,10 @@ public class NeoPropertyNodeItemProvider extends PrimitiveNodeItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNeoPlacePropertyDescriptor(object);
 			addIsVariableDistinctInUsePropertyDescriptor(object);
 			addReturnPropertyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Neo Place feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNeoPlacePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_NeoInterfaceNode_neoPlace_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NeoInterfaceNode_neoPlace_feature", "_UI_NeoInterfaceNode_type"),
-				 AdaptionNeo4JPackage.Literals.NEO_INTERFACE_NODE__NEO_PLACE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -162,7 +139,6 @@ public class NeoPropertyNodeItemProvider extends PrimitiveNodeItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(NeoPropertyNode.class)) {
-			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__NEO_PLACE:
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE:
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__RETURN_PROPERTY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

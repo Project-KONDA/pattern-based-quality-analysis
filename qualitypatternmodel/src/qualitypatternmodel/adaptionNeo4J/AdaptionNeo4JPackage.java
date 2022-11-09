@@ -113,22 +113,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_INTERFACE_NODE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Neo Place</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_INTERFACE_NODE__NEO_PLACE = NEO_INTERFACE_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Is Variable Distinct In Use</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_INTERFACE_NODE__IS_VARIABLE_DISTINCT_IN_USE = NEO_INTERFACE_ELEMENT_FEATURE_COUNT + 1;
+	int NEO_INTERFACE_NODE__IS_VARIABLE_DISTINCT_IN_USE = NEO_INTERFACE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Neo Interface Node</em>' class.
@@ -137,7 +128,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_INTERFACE_NODE_FEATURE_COUNT = NEO_INTERFACE_ELEMENT_FEATURE_COUNT + 2;
+	int NEO_INTERFACE_NODE_FEATURE_COUNT = NEO_INTERFACE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Cypher Return Variable</em>' operation.
@@ -312,22 +303,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_NODE__OUTGOING = GraphstructurePackage.COMPLEX_NODE__OUTGOING;
 
 	/**
-	 * The feature id for the '<em><b>Neo Place</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_NODE__NEO_PLACE = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Is Variable Distinct In Use</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE__IS_VARIABLE_DISTINCT_IN_USE = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 1;
+	int NEO_NODE__IS_VARIABLE_DISTINCT_IN_USE = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Neo Node Labels</b></em>' reference.
@@ -336,7 +318,16 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE__NEO_NODE_LABELS = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 2;
+	int NEO_NODE__NEO_NODE_LABELS = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Neo Place</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE__NEO_PLACE = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Neo Node</em>' class.
@@ -3183,22 +3174,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PROPERTY_NODE__NULL_CHECK = GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK;
 
 	/**
-	 * The feature id for the '<em><b>Neo Place</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NODE__NEO_PLACE = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Is Variable Distinct In Use</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 1;
+	int NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Return Property</b></em>' attribute.
@@ -3207,7 +3189,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE__RETURN_PROPERTY = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 2;
+	int NEO_PROPERTY_NODE__RETURN_PROPERTY = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Neo Property Node</em>' class.
@@ -3216,7 +3198,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE_FEATURE_COUNT = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 3;
+	int NEO_PROPERTY_NODE_FEATURE_COUNT = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -5666,17 +5648,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EClass getNeoInterfaceNode();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#getNeoPlace <em>Neo Place</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Neo Place</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#getNeoPlace()
-	 * @see #getNeoInterfaceNode()
-	 * @generated
-	 */
-	EAttribute getNeoInterfaceNode_NeoPlace();
-
-	/**
 	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#isIsVariableDistinctInUse <em>Is Variable Distinct In Use</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5717,6 +5688,17 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getNeoNode_NeoNodeLabels();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoNode#getNeoPlace <em>Neo Place</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Neo Place</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoNode#getNeoPlace()
+	 * @see #getNeoNode()
+	 * @generated
+	 */
+	EAttribute getNeoNode_NeoPlace();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoNode#addLabel(java.lang.String) <em>Add Label</em>}' operation.
@@ -6301,14 +6283,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EClass NEO_INTERFACE_NODE = eINSTANCE.getNeoInterfaceNode();
 
 		/**
-		 * The meta object literal for the '<em><b>Neo Place</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NEO_INTERFACE_NODE__NEO_PLACE = eINSTANCE.getNeoInterfaceNode_NeoPlace();
-
-		/**
 		 * The meta object literal for the '<em><b>Is Variable Distinct In Use</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6341,6 +6315,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * @generated
 		 */
 		EReference NEO_NODE__NEO_NODE_LABELS = eINSTANCE.getNeoNode_NeoNodeLabels();
+
+		/**
+		 * The meta object literal for the '<em><b>Neo Place</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NEO_NODE__NEO_PLACE = eINSTANCE.getNeoNode_NeoPlace();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Label</b></em>' operation.

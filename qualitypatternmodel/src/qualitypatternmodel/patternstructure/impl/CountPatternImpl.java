@@ -92,7 +92,6 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	//BEGIN - CYPHER (Simples Count)
 	//Der folgende Abschnitt gehört zum Cypher COUNT
 	//Count ist für die anderen CONDITIONS als Unsuported makiert, da Cypher v4.4 und niedriger keine Verschachtelungen zulässt
-	
 	//Nodes --> keine PATH/Edges/Properties implementiert
 	protected EList<NeoInterfaceNode> countElementNodes = null; 
 	
@@ -228,7 +227,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	
 	//Needs refactoring --> Get all return elements from the original Graph and puts it into the WITH except properties - This can be accessed as long as the Node is in the with
 	protected String generateCypherWith() throws InvalidityException {
-		String cypher = "";
+		String cypher = new String();
 		final Graph g = getGraph();
 		
 		final EList<Node> lReturnNodes = g.getReturnNodes();

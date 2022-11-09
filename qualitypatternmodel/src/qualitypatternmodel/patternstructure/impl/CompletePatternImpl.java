@@ -29,11 +29,9 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.XmlDataDatabase;
-import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.operators.impl.OperatorImpl;
@@ -74,11 +72,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class CompletePatternImpl extends PatternImpl implements CompletePattern {
-	
-	private static final String NO_SUB_GRAPH_S_HAVE_BEEN_IDENTIFIED = "No (Sub-)Graph(-s) have been identified";
-
 	private static final String RETURN_ELEMENT_S_MISSING = "return element(s) missing";
-
 	private static final String A_CYPHER_QUERY_NEED_A_RETURN_CLAUSE = "A cypher query need a Return-Clause";
 
 	/**
@@ -512,68 +506,17 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	
 	//BEGIN - AUTOMATIC SETTING OF THE BEGINNING
 	private void setNeo4JBeginnings(PatternElement patternElement) throws InvalidityException {
-		final EList<EList<NeoInterfaceNode>> graphs = getAllSubGraphs(); 
+		final EList<EList<Node>> genericGraphs = this.getGraph().getAllSubGraphs(); 
+		final EList<EList<NeoInterfaceNode>> graphs = new BasicEList<EList<NeoInterfaceNode>>();
+		EList<NeoInterfaceNode> graphList = null;
+		for (EList<Node> graph : genericGraphs) {
+			graphList = new BasicEList<NeoInterfaceNode>();
+			for (Node n : graph) {
+				graphList.add((NeoInterfaceNode) n);
+			}
+			graphs.add(graphList);
+		}
 		setBeginningInSubGraph(graphs);		
-	}
-	
-	private EList<EList<NeoInterfaceNode>> getAllSubGraphs() throws InvalidityException {
-		final EList<NeoInterfaceNode> neoInterfaceNodes = getAllNeoInterfaceNodes();
-		final EList<EList<NeoInterfaceNode>> graphs = new BasicEList<EList<NeoInterfaceNode>>();
-		EList<NeoInterfaceNode> graph = null;
-		for (NeoInterfaceNode neoInterfaceNode : neoInterfaceNodes) {
-			if (!containedInSubGraphList(graphs, neoInterfaceNode)) {
-				graph = new BasicEList<NeoInterfaceNode>();
-				getAllSubGraphRecusrive(neoInterfaceNode, graph);
-				graphs.add(graph);
-			}
-		}
-		if (graphs.size() == 0) {
-			throw new InvalidityException(NO_SUB_GRAPH_S_HAVE_BEEN_IDENTIFIED);
-		}
-		return graphs;
-	}
-	
-	private void getAllSubGraphRecusrive(final NeoInterfaceNode neoInterfaceNode, final EList<NeoInterfaceNode> neoInterfaceNodesList) {
-		if (!containedInGraphList(neoInterfaceNodesList, neoInterfaceNode)) {
-			neoInterfaceNodesList.add(neoInterfaceNode);
-			if (neoInterfaceNode instanceof ComplexNode) {
-				final ComplexNode complexNode = (ComplexNode) neoInterfaceNode;
-				NeoInterfaceNode tempNeoInterfaceNode = null;
-				for (Relation r : complexNode.getOutgoing()) {
-					tempNeoInterfaceNode = (NeoInterfaceNode) r.getTarget();
-					getAllSubGraphRecusrive(tempNeoInterfaceNode, neoInterfaceNodesList);
-				}				
-			}
-		}			
-	}
-	
-	private boolean containedInSubGraphList(final EList<EList<NeoInterfaceNode>> graphs, NeoInterfaceNode neoInterfaceNode) {
-		boolean contained = false;
-		EList<NeoInterfaceNode> graph = null;
-		for (int i = 0; i < graphs.size(); i++) {
-			graph = graphs.get(i);
-			if (graph.contains(neoInterfaceNode)) {
-				contained = true;
-				i = graphs.size();
-			}
-		}
-		return contained;
-	}
-	
-	private boolean containedInGraphList(EList<NeoInterfaceNode> graph, NeoInterfaceNode neoInterfaceNode) {
-		final EList<EList<NeoInterfaceNode>> graphs = new BasicEList<EList<NeoInterfaceNode>>();
-		graphs.add(graph);
-		return this.containedInSubGraphList(graphs, neoInterfaceNode);
-	}
-	
-
-	private EList<NeoInterfaceNode> getAllNeoInterfaceNodes() {
-		final EList<NeoInterfaceNode> neoInterfaceNodes = new BasicEList<NeoInterfaceNode>();
-		final EList<Node> nodes = getGraph().getNodes();
-		for (Node n : nodes) {
-			neoInterfaceNodes.add((NeoInterfaceNode) n);
-		}
-		return neoInterfaceNodes;
 	}
 	
 	private void setBeginningInSubGraph(final EList<EList<NeoInterfaceNode>> graphs) {

@@ -81,7 +81,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  */
 public class GraphImpl extends PatternElementImpl implements Graph {
 	private static final String NO_INSTANCE_OF_NEO_NODE = "No instance of NeoNode";
-
+	private static final String NO_SUB_GRAPH_S_HAVE_BEEN_IDENTIFIED = "No (Sub-)Graph(-s) have been identified";
 	private static final String NO_NODES_ARE_GIVEN = "No nodes are given";
 
 	/**
@@ -192,7 +192,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			//TODO: Consider that it also can start with a PrimitiveNode which has a more defined strucutre --> Not relevant any more since the model just starts with a complex edge
 			//Maybe change this in the future to generate OPTIONAL MATCH
 			for (Node n : allNodesList) {
-				if (n instanceof NeoNode && ((NeoInterfaceNode) n).getNeoPlace() == NeoPlace.BEGINNING) {
+				if (n instanceof NeoNode && ((NeoNode) n).getNeoPlace() == NeoPlace.BEGINNING) {
 					beginningNodesList.add((NeoInterfaceNode) n);
 				} else if(! (n instanceof NeoInterfaceNode)) {
 					throw new InvalidityException(NO_INSTANCE_OF_NEO_NODE);
@@ -343,6 +343,66 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		return cypher;
 	}
 	
+	//BEGIN - Further graph-alg.
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
+	 * @generated NOT
+	 */
+	@Override
+	public EList<EList<Node>> getAllSubGraphs() throws InvalidityException {
+		final EList<Node> nodes = getNodes();
+		final EList<EList<Node>> graphs = new BasicEList<EList<Node>>();
+		EList<Node> graph = null;
+		for (Node node : nodes) {
+			if (!containedInSubGraphList(graphs, node)) {
+				graph = new BasicEList<Node>();
+				getAllSubGraphRecusrive(node, graph);
+				graphs.add(graph);
+			}
+		}
+		if (graphs.size() == 0) {
+			throw new InvalidityException(NO_SUB_GRAPH_S_HAVE_BEEN_IDENTIFIED);
+		}
+		return graphs;
+	}
+	
+	
+	private void getAllSubGraphRecusrive(final Node node, final EList<Node> nodeList) {
+		if (!containedInGraphList(nodeList, node)) {
+			nodeList.add(node);
+			if (node instanceof ComplexNode) {
+				final ComplexNode complexNode = (ComplexNode) node;
+				Node tempNode = null;
+				for (Relation r : complexNode.getOutgoing()) {
+					tempNode = (Node) r.getTarget();
+					getAllSubGraphRecusrive(tempNode, nodeList);
+				}				
+			}
+		}			
+	}
+	
+	private boolean containedInSubGraphList(final EList<EList<Node>> graphs, Node node) {
+		boolean contained = false;
+		EList<Node> graph = null;
+		for (int i = 0; i < graphs.size(); i++) {
+			graph = graphs.get(i);
+			if (graph.contains(node)) {
+				contained = true;
+				i = graphs.size();
+			}
+		}
+		return contained;
+	}
+	
+	private boolean containedInGraphList(EList<Node> graph, Node node) {
+		final EList<EList<Node>> graphs = new BasicEList<EList<Node>>();
+		graphs.add(graph);
+		return this.containedInSubGraphList(graphs, node);
+	}
+	//END - Further graph-alg.
+
 	private String generateCypherWhereOperators() throws InvalidityException {
 		final StringBuilder cypherOperators = new StringBuilder();
 		final OperatorList opList = this.getOperatorList();
@@ -374,7 +434,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		return cypherStructurComps;
 	}
 
-	@SuppressWarnings("unchecked")
 	private final String generateComparisonsOfSameNeoPropertyNodes() throws InvalidityException {
 		final StringBuilder cypher = new StringBuilder();
 		final StringBuilder tempCypher = new StringBuilder();
@@ -1312,6 +1371,13 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			case GraphstructurePackage.GRAPH___GENERATE_CYPHER_WHERE:
 				try {
 					return generateCypherWhere();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.GRAPH___GET_ALL_SUB_GRAPHS:
+				try {
+					return getAllSubGraphs();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

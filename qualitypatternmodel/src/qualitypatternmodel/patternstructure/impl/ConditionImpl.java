@@ -5,18 +5,30 @@ package qualitypatternmodel.patternstructure.impl;
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+
+import qualitypatternmodel.adaptionNeo4J.NeoEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode;
+import qualitypatternmodel.adaptionNeo4J.NeoNode;
+import qualitypatternmodel.adaptionNeo4J.NeoPlace;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
@@ -504,5 +516,118 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 		}
 		return super.eInvoke(operationID, arguments);
 	}
-
+	
+	//BEGIN - Neo4J/Cypher
+	protected void setNeo4JBeginnings(Graph graph) throws InvalidityException {
+		final EList<EList<NeoNode>> neoGraphs = getAllNeoNodes(graph);
+		setBeginningInSubGraph(neoGraphs);
+		neoGraphs.clear();
+		final EList<NeoNode> flattenNodes = getAllNeoNodesFlatten(graph);
+		setBeginningInSubGraphForNeoPropertyNodes(getAllNeoPropertyNodesFlatten(graph));
+		flattenNodes.clear();
+	}
+	
+	/**
+	* @author Lukas Sebastian Hofmann
+	* This setBeginning is focused on finding the correct incoming Node via the new created edge in the Condition
+	* If no incoming edge is new the newly created edge is taken as a starting point
+	*/
+	private void setBeginningInSubGraph(EList<EList<NeoNode>> neoGraphs) {
+		NeoNode tempNeoNode = null;
+		NeoEdge tempNeoEdge = null;
+		for (EList<NeoNode> neoNodeList: neoGraphs) {
+			for (NeoNode neoNode : neoNodeList) {
+				if (neoNode.getIncomingMapping() == null) {
+					if (neoNode.getIncoming().size() == 0) {
+						neoNode.setNeoPlace(NeoPlace.BEGINNING);
+					} else {
+						int i = neoNode.getIncoming().size();
+						for (Relation r : neoNode.getIncoming()) {
+							tempNeoEdge = (NeoEdge) r;
+							if (r.getIncomingMapping() == null) {
+								tempNeoNode = (NeoNode) tempNeoEdge.getSource();
+								if (tempNeoNode.getIncomingMapping() != null) {
+									tempNeoNode.setNeoPlace(NeoPlace.BEGINNING);
+									i--;
+								}					
+							}
+						}
+						if (i == neoNode.getIncoming().size()) {
+							neoNode.setNeoPlace(NeoPlace.BEGINNING);
+						}
+					}
+				}
+			}
+		}		
+	}
+	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param nodes
+	 * In this method all NeoPropertyNodes which have a a morphed node as source node will be set to make generatable.
+	 * Due to the fact, that a NeoPropertyNode can not be a starting Node the source node will be set with the flag BEGINNING.
+	 * However, if the source node is not morphed nothing will be set.
+	 */
+	//Consider cyclic structures..
+	private void setBeginningInSubGraphForNeoPropertyNodes(EList<NeoPropertyNode> nodes) {
+		NeoNode neoNode = null;
+		NeoPropertyEdge neoPropertyEdge = null;
+		for (NeoPropertyNode node : nodes) {
+			if (node.getIncomingMapping() == null) {
+				for (Relation r : node.getIncoming()) {
+					neoPropertyEdge = (NeoPropertyEdge) r;
+					if (neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart() != null) {
+						neoNode = (NeoNode) r.getSource();
+						if (neoNode.getIncomingMapping() != null) {
+							neoNode.setNeoPlace(NeoPlace.BEGINNING);
+						}
+					}
+				}			
+			}
+		}
+	}
+	
+	protected EList<EList<NeoNode>> getAllNeoNodes(Graph graph) throws InvalidityException {
+		final EList<EList<NeoNode>> neoGraphs = new BasicEList<EList<NeoNode>>();
+		EList<NeoNode> neoGraph = null;
+		NeoNode neoNode = null;
+		for (EList<Node> nodeList : graph.getAllSubGraphs()) {
+			neoGraph = new BasicEList<NeoNode>();
+			for (Node node : nodeList) {
+				if (node instanceof NeoNode) {
+					neoNode = (NeoNode) node;
+					neoGraph.add(neoNode);
+				}
+			}
+			if (neoGraph.size() != 0) {
+				neoGraphs.add(neoGraph);
+			}
+		}
+		return neoGraphs;
+	}
+	
+	protected EList<NeoNode> getAllNeoNodesFlatten(Graph graph) throws InvalidityException {
+		final EList<EList<NeoNode>> neoGraphs = getAllNeoNodes(graph);
+		final EList<NeoNode> neoNodes = new BasicEList<NeoNode>();
+		for (EList<NeoNode> list : neoGraphs) {
+			for (NeoNode neoNode : list) {
+				neoNodes.add(neoNode);
+			}
+		}
+		return neoNodes;
+	}
+	
+	protected EList<NeoPropertyNode> getAllNeoPropertyNodesFlatten(Graph graph) throws InvalidityException {
+		final EList<EList<Node>> neoGraphs = graph.getAllSubGraphs();
+		final EList<NeoPropertyNode> neoPropertyNodes = new BasicEList<NeoPropertyNode>();
+		for (EList<Node> list : neoGraphs) {
+			for (Node node : list) {
+				if (node instanceof NeoPropertyNode) {
+					neoPropertyNodes.add((NeoPropertyNode) node);					
+				}
+			}
+		}
+		return neoPropertyNodes;
+	}
+	//END - Neo4J/Cypher
 } //ConditionImpl

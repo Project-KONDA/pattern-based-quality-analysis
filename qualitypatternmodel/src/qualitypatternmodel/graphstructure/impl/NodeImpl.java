@@ -601,6 +601,19 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated
 	 */
 	@Override
+	public void setTypeModifiable(boolean newTypeModifiable) {
+		boolean oldTypeModifiable = typeModifiable;
+		typeModifiable = newTypeModifiable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.NODE__TYPE_MODIFIABLE, oldTypeModifiable, typeModifiable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public boolean isReturnNode() {
 		return returnNode;
 	}
@@ -1983,6 +1996,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			case GraphstructurePackage.NODE__RETURN_NODE:
 				setReturnNode((Boolean)newValue);
 				return;
+			case GraphstructurePackage.NODE__TYPE_MODIFIABLE:
+				setTypeModifiable((Boolean)newValue);
+				return;
 			case GraphstructurePackage.NODE__TRANSLATED:
 				setTranslated((Boolean)newValue);
 				return;
@@ -2026,6 +2042,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return;
 			case GraphstructurePackage.NODE__RETURN_NODE:
 				setReturnNode(RETURN_NODE_EDEFAULT);
+				return;
+			case GraphstructurePackage.NODE__TYPE_MODIFIABLE:
+				setTypeModifiable(TYPE_MODIFIABLE_EDEFAULT);
 				return;
 			case GraphstructurePackage.NODE__TRANSLATED:
 				setTranslated(TRANSLATED_EDEFAULT);

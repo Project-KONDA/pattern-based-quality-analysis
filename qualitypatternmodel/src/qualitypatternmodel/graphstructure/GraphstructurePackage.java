@@ -2729,13 +2729,22 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH___GENERATE_CYPHER_WHERE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 8;
 
 	/**
+	 * The operation id for the '<em>Get All Sub Graphs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH___GET_ALL_SUB_GRAPHS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 9;
+
+	/**
 	 * The number of operations of the '<em>Graph</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 9;
+	int GRAPH_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.Adaptable <em>Adaptable</em>}' class.
@@ -4695,6 +4704,16 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getGraph__GenerateCypherWhere();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Graph#getAllSubGraphs() <em>Get All Sub Graphs</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Sub Graphs</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Graph#getAllSubGraphs()
+	 * @generated
+	 */
+	EOperation getGraph__GetAllSubGraphs();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Graph#getReturnNodes() <em>Get Return Nodes</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5589,6 +5608,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation GRAPH___GENERATE_CYPHER_WHERE = eINSTANCE.getGraph__GenerateCypherWhere();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Sub Graphs</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRAPH___GET_ALL_SUB_GRAPHS = eINSTANCE.getGraph__GetAllSubGraphs();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Return Nodes</b></em>' operation.

@@ -121,7 +121,7 @@ public class OperatorsFactoryImpl extends EFactoryImpl implements OperatorsFacto
 	 */
 	@Override
 	public Comparison createComparison() {
-		Comparison comparison = new ComparisonImpl();
+		ComparisonImpl comparison = new ComparisonImpl();
 		return comparison;
 	}
 

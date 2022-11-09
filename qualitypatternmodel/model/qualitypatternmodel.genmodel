@@ -399,6 +399,7 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/addComplexNode"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/addPrimitiveNode"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/generateCypherWhere"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/getAllSubGraphs"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//graphstructure/Comparable">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -1033,13 +1034,13 @@
       </genEnums>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//adaptionNeo4J/NewDataType3"/>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoInterfaceNode">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionNeo4J/NeoInterfaceNode/neoPlace"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionNeo4J/NeoInterfaceNode/isVariableDistinctInUse"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoInterfaceNode/getCypherVariable"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoNode">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoNode/neoNodeLabels"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionNeo4J/NeoNode/neoPlace"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoNode/addLabel">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionNeo4J/NeoNode/addLabel/label"/>
         </genOperations>

@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode;
 import qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement;
-import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
@@ -33,7 +32,6 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyNodeImpl#getNeoPlace <em>Neo Place</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyNodeImpl#isIsVariableDistinctInUse <em>Is Variable Distinct In Use</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyNodeImpl#isReturnProperty <em>Return Property</em>}</li>
  * </ul>
@@ -43,30 +41,12 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
 public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropertyNode {
 	private static final String NO_CYPHER_PROPERTY_ADDRESSINGS_COULD_BE_GENERATED = "No Cypher-Property-Addressings could be generated";
 	private static final String NO_VALID_NEO_PROPERTY_EDGE = "No valid NeoPropertyEdge";
-	/**
-	 * The default value of the '{@link #getNeoPlace() <em>Neo Place</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNeoPlace()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final NeoPlace NEO_PLACE_EDEFAULT = NeoPlace.FOLLOWING;
 	private static final String NO_PROPERTY_NAME_IS_SPECIFIED = "No Property-Name is specified";
 	private static final String NO_IMCOMING_EDGE_SPEZIFIED = "No imcoming edge spezified";
 	private static final String THIS_NODE_IS_NOT_SUITED_TO_BE_A_RETURN_NODE = "This Node is not suited to be a Return Node";
 	private static final String WRONG_INCOMING_NEO_PROPERTY_EDGE_SPECIFIED = "Wrong incoming NeoPropertyEdge specified";
 	private static final String NO_INCOMING_NEO_PROPERTY_EDGE_SPECIFIED = "No incoming NeoPropertyEdge specified";
 	private static final int CYPHER_RETURN_ID = 1;
-	/**
-	 * The cached value of the '{@link #getNeoPlace() <em>Neo Place</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNeoPlace()
-	 * @generated
-	 * @ordered
-	 */
-	protected NeoPlace neoPlace = NEO_PLACE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isIsVariableDistinctInUse() <em>Is Variable Distinct In Use</em>}' attribute.
@@ -400,8 +380,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__NEO_PLACE:
-				return getNeoPlace();
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE:
 				return isIsVariableDistinctInUse();
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__RETURN_PROPERTY:
@@ -418,9 +396,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__NEO_PLACE:
-				setNeoPlace((NeoPlace)newValue);
-				return;
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE:
 				setIsVariableDistinctInUse((Boolean)newValue);
 				return;
@@ -439,9 +414,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__NEO_PLACE:
-				setNeoPlace(NEO_PLACE_EDEFAULT);
-				return;
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE:
 				setIsVariableDistinctInUse(IS_VARIABLE_DISTINCT_IN_USE_EDEFAULT);
 				return;
@@ -460,8 +432,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__NEO_PLACE:
-				return neoPlace != NEO_PLACE_EDEFAULT;
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE:
 				return isVariableDistinctInUse != IS_VARIABLE_DISTINCT_IN_USE_EDEFAULT;
 			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__RETURN_PROPERTY:
@@ -484,7 +454,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		}
 		if (baseClass == NeoInterfaceNode.class) {
 			switch (derivedFeatureID) {
-				case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__NEO_PLACE: return AdaptionNeo4JPackage.NEO_INTERFACE_NODE__NEO_PLACE;
 				case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE: return AdaptionNeo4JPackage.NEO_INTERFACE_NODE__IS_VARIABLE_DISTINCT_IN_USE;
 				default: return -1;
 			}
@@ -506,7 +475,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		}
 		if (baseClass == NeoInterfaceNode.class) {
 			switch (baseFeatureID) {
-				case AdaptionNeo4JPackage.NEO_INTERFACE_NODE__NEO_PLACE: return AdaptionNeo4JPackage.NEO_PROPERTY_NODE__NEO_PLACE;
 				case AdaptionNeo4JPackage.NEO_INTERFACE_NODE__IS_VARIABLE_DISTINCT_IN_USE: return AdaptionNeo4JPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE;
 				default: return -1;
 			}
@@ -563,29 +531,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override
 	protected EClass eStaticClass() {
 		return AdaptionNeo4JPackage.Literals.NEO_PROPERTY_NODE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NeoPlace getNeoPlace() {
-		return neoPlace;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setNeoPlace(NeoPlace newNeoPlace) {
-		NeoPlace oldNeoPlace = neoPlace;
-		neoPlace = newNeoPlace == null ? NEO_PLACE_EDEFAULT : newNeoPlace;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PROPERTY_NODE__NEO_PLACE, oldNeoPlace, neoPlace));
 	}
 
 	/**
@@ -709,9 +654,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (neoPlace: ");
-		result.append(neoPlace);
-		result.append(", isVariableDistinctInUse: ");
+		result.append(" (isVariableDistinctInUse: ");
 		result.append(isVariableDistinctInUse);
 		result.append(", returnProperty: ");
 		result.append(returnProperty);
