@@ -33,7 +33,7 @@ public class CypherTest04Formula extends CypherAbstractTranslation {
     	CypherTest04Formula formula = new CypherTest04Formula();
     	try {
     		formula.generalizedTests();         
-        	formula.generalizedInvalidtyExceptionTests();	
+//        	formula.generalizedInvalidtyExceptionTests();	
     	} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();
@@ -100,10 +100,6 @@ public class CypherTest04Formula extends CypherAbstractTranslation {
 		NeoPathParam neoPathParam;
 		NeoSimpleEdge neoSimpleEdge;
 		
-		
-		neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(0);
-		neoNode.setNeoPlace(NeoPlace.BEGINNING);
-		
 		neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(2);
 		neoNode.addLabel("Place");
 		neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(1);
@@ -111,10 +107,6 @@ public class CypherTest04Formula extends CypherAbstractTranslation {
 		neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge.addNeoEdgeLabel("PLACE_OF_ISSUE");
 		neoPathParam.setNeoPathPart(neoSimpleEdge);
-		
-		
-		neoNode = (NeoNode) quantifiedCond2.getGraph().getNodes().get(0);
-		neoNode.setNeoPlace(NeoPlace.BEGINNING);
 		
 		neoNode = (NeoNode) quantifiedCond2.getGraph().getNodes().get(2);
 		neoNode.addLabel("IndexEntry");
@@ -165,9 +157,6 @@ public class CypherTest04Formula extends CypherAbstractTranslation {
 		NeoPathParam neoPathParam;
 		NeoSimpleEdge neoSimpleEdge;
 		
-		
-		neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(0);
-		neoNode.setNeoPlace(NeoPlace.BEGINNING);
 		neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(2);
 		neoNode.addLabel("IndexPlace");
 		neoEdge = (NeoEdge) quantifiedCond1.getGraph().getRelations().get(1);
@@ -175,10 +164,6 @@ public class CypherTest04Formula extends CypherAbstractTranslation {
 		neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
 		neoSimpleEdge.addNeoEdgeLabel("IS_SUB_OF");
 		neoPathParam.setNeoPathPart(neoSimpleEdge);
-		
-		
-		neoNode = (NeoNode) quantifiedCond2.getGraph().getNodes().get(0);
-		neoNode.setNeoPlace(NeoPlace.BEGINNING);
 
 		neoNode = (NeoNode) quantifiedCond2.getGraph().getNodes().get(2);
 		neoNode.addLabel("Regesta");

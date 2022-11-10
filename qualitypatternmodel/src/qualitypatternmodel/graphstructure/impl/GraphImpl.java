@@ -213,7 +213,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		throw new InvalidityException(NO_NODES_ARE_GIVEN);
 	}
 
-	private void buildNeoGraphPatternRecursively(StringBuilder cypher, NeoInterfaceNode n) throws InvalidityException {
+	private final void buildNeoGraphPatternRecursively(StringBuilder cypher, NeoInterfaceNode n) throws InvalidityException {
 		//In this senario it has to be considert that of there are multiple edges between nodes the last one will be taken
 		//Since multiple edges between to nodes requieres a OPTIONAL MATCH the OPTIONAL MATCH can be implemented or a break added
 		//MULTIPLE EDGES HAVE TO BE HANDELT DIFFRENTLY BUT ARE ALSO NOT SUPPORTED BY THE FRAMEWORK
@@ -233,7 +233,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		listCypher = null;
 	}
 	
-	private EList<StringBuilder> traverseOverPattern(ComplexNode node, EList<StringBuilder> cyphers, int counterString) throws InvalidityException {
+	private final EList<StringBuilder> traverseOverPattern(ComplexNode node, EList<StringBuilder> cyphers, int counterString) throws InvalidityException {
 		int innerCounterString = counterString;
 		StringBuilder cypher;
 		StringBuilder cypherEdge;
@@ -297,7 +297,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	//Rename this function
-	private boolean checkIfVisibleFork(ComplexNode node) {
+	private final boolean checkIfVisibleFork(ComplexNode node) {
 		int i = 0;
 		int distinctNeoPropertyNode = 0; 
 		NeoPropertyEdge neoPropertyEdge;
@@ -342,68 +342,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		
 		return cypher;
 	}
-	
-	//BEGIN - Further graph-alg.
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
-	 * @generated NOT
-	 */
-	@Override
-	public EList<EList<Node>> getAllSubGraphs() throws InvalidityException {
-		final EList<Node> nodes = getNodes();
-		final EList<EList<Node>> graphs = new BasicEList<EList<Node>>();
-		EList<Node> graph = null;
-		for (Node node : nodes) {
-			if (!containedInSubGraphList(graphs, node)) {
-				graph = new BasicEList<Node>();
-				getAllSubGraphRecusrive(node, graph);
-				graphs.add(graph);
-			}
-		}
-		if (graphs.size() == 0) {
-			throw new InvalidityException(NO_SUB_GRAPH_S_HAVE_BEEN_IDENTIFIED);
-		}
-		return graphs;
-	}
-	
-	
-	private void getAllSubGraphRecusrive(final Node node, final EList<Node> nodeList) {
-		if (!containedInGraphList(nodeList, node)) {
-			nodeList.add(node);
-			if (node instanceof ComplexNode) {
-				final ComplexNode complexNode = (ComplexNode) node;
-				Node tempNode = null;
-				for (Relation r : complexNode.getOutgoing()) {
-					tempNode = (Node) r.getTarget();
-					getAllSubGraphRecusrive(tempNode, nodeList);
-				}				
-			}
-		}			
-	}
-	
-	private boolean containedInSubGraphList(final EList<EList<Node>> graphs, Node node) {
-		boolean contained = false;
-		EList<Node> graph = null;
-		for (int i = 0; i < graphs.size(); i++) {
-			graph = graphs.get(i);
-			if (graph.contains(node)) {
-				contained = true;
-				i = graphs.size();
-			}
-		}
-		return contained;
-	}
-	
-	private boolean containedInGraphList(EList<Node> graph, Node node) {
-		final EList<EList<Node>> graphs = new BasicEList<EList<Node>>();
-		graphs.add(graph);
-		return this.containedInSubGraphList(graphs, node);
-	}
-	//END - Further graph-alg.
 
-	private String generateCypherWhereOperators() throws InvalidityException {
+	private final String generateCypherWhereOperators() throws InvalidityException {
 		final StringBuilder cypherOperators = new StringBuilder();
 		final OperatorList opList = this.getOperatorList();
 		//Add this to RegelWerk that the Operators are all in breakers
@@ -427,7 +367,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		return cypherOperators.toString();
 	}
 	
-	private String generateCypherWhereStructureComps() throws InvalidityException {
+	private final String generateCypherWhereStructureComps() throws InvalidityException {
 		final String tempComps = generateComparisonsOfSameNeoPropertyNodes();
 		//Add all needed Comparisons if a NeoPropertyNode has multiple incoming edges
 		String cypherStructurComps = tempComps;
@@ -475,6 +415,66 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		return resultCypher;
 	}
 	//END - Neo4J
+	
+	//BEGIN - Further graph-alg.
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @throws InvalidityException 
+		 * @generated NOT
+		 */
+		@Override
+		public final EList<EList<Node>> getAllSubGraphs() throws InvalidityException {
+			final EList<Node> nodes = getNodes();
+			final EList<EList<Node>> graphs = new BasicEList<EList<Node>>();
+			EList<Node> graph = null;
+			for (Node node : nodes) {
+				if (!containedInSubGraphList(graphs, node)) {
+					graph = new BasicEList<Node>();
+					getAllSubGraphRecusrive(node, graph);
+					graphs.add(graph);
+				}
+			}
+			if (graphs.size() == 0) {
+				throw new InvalidityException(NO_SUB_GRAPH_S_HAVE_BEEN_IDENTIFIED);
+			}
+			return graphs;
+		}
+		
+		
+		private final void getAllSubGraphRecusrive(final Node node, final EList<Node> nodeList) {
+			if (!containedInGraphList(nodeList, node)) {
+				nodeList.add(node);
+				if (node instanceof ComplexNode) {
+					final ComplexNode complexNode = (ComplexNode) node;
+					Node tempNode = null;
+					for (Relation r : complexNode.getOutgoing()) {
+						tempNode = (Node) r.getTarget();
+						getAllSubGraphRecusrive(tempNode, nodeList);
+					}				
+				}
+			}			
+		}
+		
+		private final boolean containedInSubGraphList(final EList<EList<Node>> graphs, Node node) {
+			boolean contained = false;
+			EList<Node> graph = null;
+			for (int i = 0; i < graphs.size(); i++) {
+				graph = graphs.get(i);
+				if (graph.contains(node)) {
+					contained = true;
+					i = graphs.size();
+				}
+			}
+			return contained;
+		}
+		
+		private final boolean containedInGraphList(EList<Node> graph, Node node) {
+			final EList<EList<Node>> graphs = new BasicEList<EList<Node>>();
+			graphs.add(graph);
+			return this.containedInSubGraphList(graphs, node);
+		}
+		//END - Further graph-alg.
 	
 	@Override
 	public void initializeTranslation() {

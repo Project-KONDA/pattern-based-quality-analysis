@@ -16,6 +16,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
@@ -140,7 +141,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	}
 	
 	//BEGIN - CYPHER
-	//SIMPLE CYPHER COUNT --> has many restrictuins like that it can not be a part of another Condition
+	//SIMPLE CYPHER COUNT --> has many restrictions, such as that it cannot be part of another condition
 	//The second argument can not be an other COUNT-PATTERN --> Implement that --> Would lead to diverse challenges
 	@Override 
 	public String generateCypher() throws InvalidityException {
@@ -263,6 +264,8 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		getCountPattern().createNeo4jAdaption();
 		getArgument2().createNeo4jAdaption();
+		final Graph graph = getCountPattern().getGraph();
+		super.setNeo4JBeginnings(graph);
 		return this;
 	}
 	

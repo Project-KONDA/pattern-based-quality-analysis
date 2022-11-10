@@ -413,13 +413,13 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 */
 	@Override
 	public String generateCypherReturn() throws InvalidityException {
-		String cypher = "";
+		String cypher = new String();
 		cypher = generateCypherReturnNodes(cypher);
 		cypher = generateCypherReturnEdges(cypher);
 		return cypher;
 	}
 	
-	protected String generateCypherReturnNodes(String cypher) throws InvalidityException {
+	protected final String generateCypherReturnNodes(String cypher) throws InvalidityException {
 		if (graph.getNodes().size() != 0) {
 			//Building the generic Nodes for Return
 			final Map<Integer, String> cypherReturn = buildCypherReturnSortedMap(true);
@@ -432,7 +432,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		return cypher;
 	}
 
-	protected String generateCypherReturnEdges(String cypher) throws InvalidityException {
+	protected final String generateCypherReturnEdges(String cypher) throws InvalidityException {
 		if (graph.getRelations().size() != 0) {
 			//Building the generic Relations for Return
 			final Map<Integer, String> cypherReturn = buildCypherReturnSortedMap(false);
@@ -444,7 +444,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		return cypher;
 	}
 	
-	protected String generateCypherSpecialEdgeString(String cypher) throws InvalidityException {
+	protected final String generateCypherSpecialEdgeString(String cypher) throws InvalidityException {
 		final StringBuilder cypherInnerEdgeNodes = new StringBuilder(super.generateCypherSpecialEdgeString(""));
 		if (cypherInnerEdgeNodes.length() != 0) {
 			if (cypher.length() != 0) {
@@ -457,7 +457,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	}
 
 	//For PopertyAddressing mainly
-	protected String buildCypherSpecialNodeString(String cypher) throws InvalidityException {
+	protected final String buildCypherSpecialNodeString(String cypher) throws InvalidityException {
 		final StringBuilder cypherNeoProperties = new StringBuilder();
 		callCypherPropertyAddressingString(cypherNeoProperties);
 		if (cypherNeoProperties.length() != 0) {
@@ -472,7 +472,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		return cypher;
 	}
 	
-	private void callCypherPropertyAddressingString(final StringBuilder cypherNeoProperties)
+	private final void callCypherPropertyAddressingString(final StringBuilder cypherNeoProperties)
 			throws InvalidityException {
 		NeoPropertyNode neoPropertyNode;
 		for (Node n : graph.getNodes()) {
@@ -490,7 +490,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		}
 	}
 	
-	private String formattingCypherReturnTypes(String cypher, final Map<Integer, String> cypherReturn) {
+	private final String formattingCypherReturnTypes(String cypher, final Map<Integer, String> cypherReturn) {
 		for (Map.Entry<Integer, String> mapElement : cypherReturn.entrySet()) {	  
 		    if (cypher.length() != 0) {
 		    	cypher += CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE + "\n";
@@ -505,7 +505,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	
 	
 	//BEGIN - AUTOMATIC SETTING OF THE BEGINNING
-	private void setNeo4JBeginnings(PatternElement patternElement) throws InvalidityException {
+	private final void setNeo4JBeginnings(PatternElement patternElement) throws InvalidityException {
 		final EList<EList<Node>> genericGraphs = this.getGraph().getAllSubGraphs(); 
 		final EList<EList<NeoInterfaceNode>> graphs = new BasicEList<EList<NeoInterfaceNode>>();
 		EList<NeoInterfaceNode> graphList = null;
@@ -519,7 +519,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		setBeginningInSubGraph(graphs);		
 	}
 	
-	private void setBeginningInSubGraph(final EList<EList<NeoInterfaceNode>> graphs) {
+	private final void setBeginningInSubGraph(final EList<EList<NeoInterfaceNode>> graphs) {
 		boolean hasBeginning = false;
 		Node node = null;
 		NeoNode neoNode = null;

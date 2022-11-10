@@ -116,8 +116,8 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 	   	
 	    
 	    //Node Specification - INNER EXISTS
-	    neoNode = (NeoNode) quantifiedCond2.getGraph().getNodes().get(1);
-	    neoNode.setNeoPlace(NeoPlace.BEGINNING);
+//	    neoNode = (NeoNode) quantifiedCond2.getGraph().getNodes().get(1);
+//	    neoNode.setNeoPlace(NeoPlace.BEGINNING);
 	    neoNode = (NeoNode) quantifiedCond2.getGraph().getNodes().get(2);
 	    neoNode.addLabel("Reference");
 	    
@@ -195,8 +195,8 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 	    neoPropertyPathParam.setNeoPropertyName("url");
 	    
 	    //Node Specification - FORALL
-	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(0);
-	    neoNode.setNeoPlace(NeoPlace.BEGINNING);
+//	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(0);
+//	    neoNode.setNeoPlace(NeoPlace.BEGINNING);
 	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(3);
 	    neoNode.addLabel("Regesta");
 	    
@@ -214,8 +214,8 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 	   	
 	    
 	    //Node Specification - INNER EXISTS
-	    neoNode = (NeoNode) quantifiedCond2.getGraph().getNodes().get(3);
-	    neoNode.setNeoPlace(NeoPlace.BEGINNING);
+//	    neoNode = (NeoNode) quantifiedCond2.getGraph().getNodes().get(3);
+//	    neoNode.setNeoPlace(NeoPlace.BEGINNING);
 	    neoNode = (NeoNode) quantifiedCond2.getGraph().getNodes().get(5);
 	    neoNode.addLabel("Reference");
 	    
@@ -265,8 +265,8 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 	    neoNode.addLabel("Regesta");
 	    
 	    //Node Specification
-	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(0);
-	    neoNode.setNeoPlace(NeoPlace.BEGINNING);
+//	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(0);
+//	    neoNode.setNeoPlace(NeoPlace.BEGINNING);
 	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(1);
 	    neoNode.addLabel("IndexPerson");
 	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(2);
@@ -327,8 +327,8 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 	    neoNode.addLabel("Regesta");
 	    
 	    //Node Specification
-	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(0);
-	    neoNode.setNeoPlace(NeoPlace.BEGINNING);
+//	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(0);
+//	    neoNode.setNeoPlace(NeoPlace.BEGINNING);
 	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(1);
 	    neoNode.addLabel("IndexPerson");
 	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(2);
@@ -392,13 +392,13 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 	    //Bei einem nicht Verwenden des beginnings müsste es über die vorgehenden Relations geregelt werden
 	    //Jede vorrangehende Relation müsste wissen, ob sie für die Conditions relevant ist, was mehr oder gleich viel Aufwand ist wie ein Beginning zu setzen
 	    //Alg's müssten angepasst werden
-	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(0);
-	    neoNode.setNeoPlace(NeoPlace.BEGINNING);
+//	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(0);
+//	    neoNode.setNeoPlace(NeoPlace.BEGINNING);
 	    neoNode = (NeoNode) quantifiedCond1.getGraph().getNodes().get(2);
 	    neoNode.addLabel("IndexPerson");
 	    
-	    neoNode = (NeoNode) quantifiedCond2.getGraph().getNodes().get(2);
-	    neoNode.setNeoPlace(NeoPlace.BEGINNING);
+//	    neoNode = (NeoNode) quantifiedCond2.getGraph().getNodes().get(2);
+//	    neoNode.setNeoPlace(NeoPlace.BEGINNING);
 	    neoNode = (NeoNode) quantifiedCond2.getGraph().getNodes().get(3);
 	    neoNode.addLabel("Regesta");
 	    
@@ -439,8 +439,8 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 	    completePattern.createNeo4jAdaption();	    
 	    NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
 	    Graph graph = quantifiedCond1.getGraph();
-	    neoNode = (NeoNode) graph.getNodes().get(0);
-	    neoNode.setNeoPlace(NeoPlace.BEGINNING);
+//	    neoNode = (NeoNode) graph.getNodes().get(0);
+//	    neoNode.setNeoPlace(NeoPlace.BEGINNING);
 	    
 		return completePattern;
 	}
@@ -466,8 +466,8 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 	    completePattern.createNeo4jAdaption();	    
 	    NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
 	    Graph graph = quantifiedCond1.getGraph();
-	    neoNode = (NeoNode) graph.getNodes().get(0);
-	    neoNode.setNeoPlace(NeoPlace.BEGINNING);
+//	    neoNode = (NeoNode) graph.getNodes().get(0);
+//	    neoNode.setNeoPlace(NeoPlace.BEGINNING);
 	    
 		return completePattern;
 	}
@@ -496,8 +496,8 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 	    completePattern.createNeo4jAdaption();	    
 	    NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
 	    Graph graph = quantifiedCond1.getGraph();
-	    neoNode = (NeoNode) graph.getNodes().get(0);
-	    neoNode.setNeoPlace(NeoPlace.BEGINNING);
+//	    neoNode = (NeoNode) graph.getNodes().get(0);
+//	    neoNode.setNeoPlace(NeoPlace.BEGINNING);
 	    
 		return completePattern;
 	}	
@@ -529,8 +529,8 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 	    completePattern.createNeo4jAdaption();	    
 	    NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
 	    Graph graph = quantifiedCond1.getGraph();
-	    neoNode = (NeoNode) graph.getNodes().get(0);
-	    neoNode.setNeoPlace(NeoPlace.BEGINNING);
+//	    neoNode = (NeoNode) graph.getNodes().get(0);
+//	    neoNode.setNeoPlace(NeoPlace.BEGINNING);
 	    
 		return completePattern;
 	}	

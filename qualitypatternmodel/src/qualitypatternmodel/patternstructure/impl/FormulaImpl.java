@@ -215,13 +215,12 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		}
 	}
 	
+	//BEGIN - Neo4J
 	//HOW TO INTEGRATE THE PRIMITIVE/COMPLEX COMPARISONS? FOR CONNECTING WITH AND/OR/XOR --> Not Needed this Operations have to be done in the Parameter-Package
 	@Override 
 	public String generateCypher() throws InvalidityException {
-		//Neasted Structures of the COUNT is in Neo4J/Cypher not possible v4.4 and lower
-		if (getCondition1() instanceof CountCondition || getCondition2() instanceof CountCondition) {
-			throw new UnsupportedOperationException(CypherSpecificConstants.THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY);
-		}
+		super.checkNextConditon(getCondition1());
+		super.checkNextConditon(getCondition2());
 		
 		if (this.operator != null) {
 			StringBuilder cypher = new StringBuilder();
@@ -282,6 +281,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		}
 		throw new InvalidityException(Constants.OPERATOR_NULL);
 	}
+	//END - Neo4J
 
 	@Override
 	public void initializeTranslation() {

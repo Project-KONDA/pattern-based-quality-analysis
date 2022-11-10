@@ -23,6 +23,7 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.patternstructure.Condition;
+import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.MorphismContainer;
@@ -31,6 +32,7 @@ import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,6 +52,8 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
  * @generated
  */
 public abstract class ConditionImpl extends PatternElementImpl implements Condition {
+	private static final int FIRST_NODE_IN_CYCLIC_SUB_GRAPH = 0;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -518,7 +522,7 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	}
 	
 	//BEGIN - Neo4J/Cypher
-	protected void setNeo4JBeginnings(Graph graph) throws InvalidityException {
+	protected final void setNeo4JBeginnings(Graph graph) throws InvalidityException {
 		final EList<EList<NeoNode>> neoGraphs = getAllNeoNodes(graph);
 		setBeginningInSubGraph(neoGraphs);
 		neoGraphs.clear();
@@ -532,16 +536,21 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	* This setBeginning is focused on finding the correct incoming Node via the new created edge in the Condition
 	* If no incoming edge is new the newly created edge is taken as a starting point
 	*/
-	private void setBeginningInSubGraph(EList<EList<NeoNode>> neoGraphs) {
+	private final void setBeginningInSubGraph(EList<EList<NeoNode>> neoGraphs) {
+		//Since JAVA works internally with points this is not increasing the needed space a lot
+		final EList<EList<NeoNode>> cyclicSubGraphsWithNoBeginnings = new BasicEList<EList<NeoNode>>(); 
+		EList<NeoNode> tempCyclicSubGraphsWithNoBeginnings = null;
 		NeoNode tempNeoNode = null;
 		NeoEdge tempNeoEdge = null;
+		int i = -1;
 		for (EList<NeoNode> neoNodeList: neoGraphs) {
+			tempCyclicSubGraphsWithNoBeginnings = new BasicEList<NeoNode>();
 			for (NeoNode neoNode : neoNodeList) {
 				if (neoNode.getIncomingMapping() == null) {
 					if (neoNode.getIncoming().size() == 0) {
 						neoNode.setNeoPlace(NeoPlace.BEGINNING);
 					} else {
-						int i = neoNode.getIncoming().size();
+						i = neoNode.getIncoming().size();
 						for (Relation r : neoNode.getIncoming()) {
 							tempNeoEdge = (NeoEdge) r;
 							if (r.getIncomingMapping() == null) {
@@ -549,27 +558,38 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 								if (tempNeoNode.getIncomingMapping() != null) {
 									tempNeoNode.setNeoPlace(NeoPlace.BEGINNING);
 									i--;
-								}					
+								}				
 							}
 						}
-						if (i == neoNode.getIncoming().size()) {
+						//When no start has been set since no Incoming Relation. It is a new SubGraph in the Condtion
+						if (i == neoNode.getIncoming().size() && i == 0) {
 							neoNode.setNeoPlace(NeoPlace.BEGINNING);
+						} else {
+							tempCyclicSubGraphsWithNoBeginnings.add(tempNeoNode);
 						}
+						i = -1;
 					}
 				}
 			}
-		}		
+			if (tempCyclicSubGraphsWithNoBeginnings.size() != 0) {
+				cyclicSubGraphsWithNoBeginnings.add(tempCyclicSubGraphsWithNoBeginnings);
+			}
+			tempCyclicSubGraphsWithNoBeginnings = null;
+		}
+		for (EList<NeoNode> cyclicSubGraph : cyclicSubGraphsWithNoBeginnings) {
+			cyclicSubGraph.get(ConditionImpl.FIRST_NODE_IN_CYCLIC_SUB_GRAPH).setNeoPlace(NeoPlace.BEGINNING);
+		}
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param nodes
 	 * In this method all NeoPropertyNodes which have a a morphed node as source node will be set to make generatable.
 	 * Due to the fact, that a NeoPropertyNode can not be a starting Node the source node will be set with the flag BEGINNING.
 	 * However, if the source node is not morphed nothing will be set.
+	 * No cycles are possible in the version from 10/11/2022. Due to this fact in this method no cycle check is done.
 	 */
-	//Consider cyclic structures..
-	private void setBeginningInSubGraphForNeoPropertyNodes(EList<NeoPropertyNode> nodes) {
+	private final void setBeginningInSubGraphForNeoPropertyNodes(EList<NeoPropertyNode> nodes) {
 		NeoNode neoNode = null;
 		NeoPropertyEdge neoPropertyEdge = null;
 		for (NeoPropertyNode node : nodes) {
@@ -587,7 +607,7 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 		}
 	}
 	
-	protected EList<EList<NeoNode>> getAllNeoNodes(Graph graph) throws InvalidityException {
+	protected final EList<EList<NeoNode>> getAllNeoNodes(Graph graph) throws InvalidityException {
 		final EList<EList<NeoNode>> neoGraphs = new BasicEList<EList<NeoNode>>();
 		EList<NeoNode> neoGraph = null;
 		NeoNode neoNode = null;
@@ -606,7 +626,7 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 		return neoGraphs;
 	}
 	
-	protected EList<NeoNode> getAllNeoNodesFlatten(Graph graph) throws InvalidityException {
+	protected final EList<NeoNode> getAllNeoNodesFlatten(Graph graph) throws InvalidityException {
 		final EList<EList<NeoNode>> neoGraphs = getAllNeoNodes(graph);
 		final EList<NeoNode> neoNodes = new BasicEList<NeoNode>();
 		for (EList<NeoNode> list : neoGraphs) {
@@ -617,7 +637,7 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 		return neoNodes;
 	}
 	
-	protected EList<NeoPropertyNode> getAllNeoPropertyNodesFlatten(Graph graph) throws InvalidityException {
+	protected final EList<NeoPropertyNode> getAllNeoPropertyNodesFlatten(Graph graph) throws InvalidityException {
 		final EList<EList<Node>> neoGraphs = graph.getAllSubGraphs();
 		final EList<NeoPropertyNode> neoPropertyNodes = new BasicEList<NeoPropertyNode>();
 		for (EList<Node> list : neoGraphs) {
@@ -629,5 +649,12 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 		}
 		return neoPropertyNodes;
 	}
+	
+	//Neasted Structures of the COUNT is in Neo4J/Cypher not possible v4.4 and lower
+	protected final void checkNextConditon(Condition condition) throws UnsupportedOperationException {
+		if (condition instanceof CountCondition) {
+			throw new UnsupportedOperationException(CypherSpecificConstants.THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY);
+		}
+	}	
 	//END - Neo4J/Cypher
 } //ConditionImpl
