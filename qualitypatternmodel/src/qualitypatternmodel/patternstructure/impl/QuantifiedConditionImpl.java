@@ -14,6 +14,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import qualitypatternmodel.adaptionNeo4J.NeoEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
@@ -44,6 +46,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
+import qualitypatternmodel.patternstructure.RelationMapping;
 import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
@@ -304,6 +307,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		}
 		Comparison comparison = null;
 		Object o = null;
+		final EList<NeoInterfaceNode> allNeoInterfaceNodesUsedInExistsMatch = getAllNeoInterfaceNodesInExistsMatch();	
 		for (Operator op : usingOperators) {
 			if (!(op instanceof Comparison)) {
 					operatorStringList.add(op.generateCypher());
@@ -313,8 +317,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				o = comparison.getArgument2();
 				//Checks if a Node is contained in the EXISTS-MATCH, where the comparison should be done
 				if (o instanceof Node) {
-					if (!(((Node) o).getIncomingMapping() != null)) {
-						//Introduce further check if the node is used in Exists - Match
+					if (!(((Node) o).getIncomingMapping() != null) || !allNeoInterfaceNodesUsedInExistsMatch.contains(o)) {
 						operatorStringList.add(op.generateCypher());
 					}
 				}
@@ -322,6 +325,28 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		}
 
 		return operatorStringList.stream().toArray(String[]::new);
+	}
+	
+	private final EList<NeoInterfaceNode> getAllNeoInterfaceNodesInExistsMatch() throws InvalidityException {
+		final EList<NeoInterfaceNode> neoNeoInterfaceNodeNodes = new BasicEList<NeoInterfaceNode>();
+		for (NeoNode neoNode : super.getAllNeoNodesFlatten(getGraph())) {
+			if (neoNode.getNeoPlace() == NeoPlace.BEGINNING) {
+				walkOverGraphAndGetAllNodesWhichHaveAStartPoint(neoNode, neoNeoInterfaceNodeNodes);
+			}
+		}
+		return neoNeoInterfaceNodeNodes;
+	}
+	
+	private void walkOverGraphAndGetAllNodesWhichHaveAStartPoint(final NeoNode neoNode, final EList<NeoInterfaceNode> neoNeoInterfaceNodeNodes) {
+		neoNeoInterfaceNodeNodes.add(neoNode);
+		for (Relation r : neoNode.getOutgoing()) {
+			if (!neoNeoInterfaceNodeNodes.contains((NeoInterfaceNode) r.getTarget())) {
+				neoNeoInterfaceNodeNodes.add((NeoInterfaceNode) r.getTarget());
+				if (r instanceof NeoEdge) {
+					walkOverGraphAndGetAllNodesWhichHaveAStartPoint((NeoNode) r.getTarget(), neoNeoInterfaceNodeNodes);
+				} 
+			}
+		}
 	}
 	
 	/**
@@ -338,7 +363,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		getAllNeoPropertiesToAddress(neoPropertyEdges, neoVarPropertyEdges, uniqueNeoPropertyEdges);
 		
 		if (neoPropertyEdges.size() != 0 || neoVarPropertyEdges.size() != 0) {
-			EList<String> properties = null;
 			String result = new String();
 			if (quantifier == Quantifier.EXISTS && getNotCondition() == null) {
 				for (NeoPropertyEdge edge : neoPropertyEdges) {
@@ -394,7 +418,14 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	
 	/**
 	 * @author Lukas Sebastian Hofmann
-	 * @throws InvalidityException
+	 * @param neoPropertyEdges
+	 * @param neoVarPropertyEdges
+	 * @param uniqueNeoPropertyEdges
+	 * This method adds to the passed List all Properties of the fitting category. All Neo-Properties which shall be addressed directly.
+	 * Node + Property, e.g. node1.originalPlace
+	 * Since the lists contains the actual node different possible possible methods, depending on the type of the Node, can be accessed
+	 * It has the advantage that the method works with references instead of creating new Objects or simple returning a String-Value. 
+	 * <b>Attention<\b> <i> No node will be return which has been handled in a previews Condition <\i>.
 	 */
 	private final void getAllNeoPropertiesToAddress(final EList<NeoPropertyEdge> neoPropertyEdges,
 			final EList<NeoPropertyEdge> neoVarPropertyEdges, final Set<NeoPropertyNode> uniqueNeoPropertyEdges) {
@@ -413,13 +444,12 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 					//aka was generated in a QuantifiedCondition
 					boolean isBreakable = false;
 					boolean isAlreadyChecked = false;
+					RelationMapping relationalMapping = null;
 					while (neoPropertyEdge.getIncomingMapping() != null && !isBreakable) {
-						neoPropertyEdge = (NeoPropertyEdge) neoPropertyEdge.getIncomingMapping();
-						if (neoPropertyEdge.getGraph().getQuantifiedCondition() != null) {
-							if (neoPropertyEdge.getOriginalRelation() == originalNeoPropertyEdge) {
-								isAlreadyChecked = true;
-								isBreakable = true;
-							}
+						relationalMapping = neoPropertyEdge.getIncomingMapping();
+						if (relationalMapping.getTarget().getGraph().getQuantifiedCondition() != null) {
+							isAlreadyChecked = true;
+							isBreakable = true;
 						}
 					}
 
@@ -609,17 +639,21 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		return exists;
 	}
 	
-
-	private final void addWhiteSpacesForPreviewsCondition(StringBuilder localCypher) {
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param cypher
+	 * This adds extra whitespaces to the query-parts from previews conditions.
+	 */
+	private final void addWhiteSpacesForPreviewsCondition(StringBuilder cypher) {
 		boolean lineBreak = true;
 		int fromIndex = 0;
 		int currentIndex = 0;
 		while (lineBreak) {
-			currentIndex = localCypher.indexOf("\n", fromIndex);
+			currentIndex = cypher.indexOf("\n", fromIndex);
 			if (currentIndex == -1) {
 				lineBreak = false;
 			} else {
-				localCypher.insert(currentIndex + 1, CypherSpecificConstants.TWELVE_WHITESPACES); 
+				cypher.insert(currentIndex + 1, CypherSpecificConstants.TWELVE_WHITESPACES); 
 				fromIndex = currentIndex + CypherSpecificConstants.TWELVE_WHITESPACES.length();
 			}
 		}
