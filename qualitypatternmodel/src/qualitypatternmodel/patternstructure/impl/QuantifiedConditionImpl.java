@@ -3,7 +3,6 @@
 package qualitypatternmodel.patternstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import org.eclipse.emf.common.notify.Notification;
@@ -12,11 +11,7 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import qualitypatternmodel.adaptionNeo4J.NeoEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPlace;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
@@ -27,10 +22,8 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
-import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.Condition;
@@ -66,7 +59,6 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class QuantifiedConditionImpl extends ConditionImpl implements QuantifiedCondition {
-	private static final String TWO_WHITES_PACES = "  ";
 	private static final String NO_MATCH_IS_GIVEN = "No Match is given";
 	private static final String MODEL_HAS_TO_BUILD_A_PATTERN_STRUCTURE = "Model has to build a Pattern-Structure";
 	private static final String QUANTIFIED_COND_GRAPH_IS_EMPTY = "Graph is Empty";
@@ -203,7 +195,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	public String generateCypher() throws InvalidityException {
 		super.checkNextConditon(getCondition());						
 		if (getGraph().getNodes().size() != 0) {
-			final StringBuilder cypher = new StringBuilder();
+			
 			String exists = new String();	
 			final EList<NeoNode> neoNodes = getAllNeoNodesFlatten(graph);
 			boolean hasBeginning = false;
@@ -213,9 +205,10 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				}
 			}
 			
-			if(hasBeginning) {
-				//add white spaces?
-				final String tempCypherExistsMatch = generateExistsMatch(cypher, cypher);
+			final StringBuilder cypher = new StringBuilder();
+			if (hasBeginning) {
+				final StringBuilder cypherWhere = new StringBuilder();
+				final String tempCypherExistsMatch = generateExistsMatch(cypher, cypherWhere);
 				if (!tempCypherExistsMatch.isEmpty()) {
 					exists = tempCypherExistsMatch;
 				}

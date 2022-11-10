@@ -34,7 +34,7 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 	@Override
 	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		completePatterns.add(getNodesWhereExits(false));
+		completePatterns.add(getNodesWhereExits(false));
 		completePatterns.add(getNodesWhereExits(true));
 		completePatterns.add(getNodesWhereMultiplePropertyExistsChecks(false));
 		completePatterns.add(getNodesWhereMultiplePropertyExistsChecks(true));		
