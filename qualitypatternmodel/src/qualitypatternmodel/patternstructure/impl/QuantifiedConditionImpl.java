@@ -229,7 +229,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			if (!tempCypherExistsMatch.isEmpty() && !tempCypherOnlyProperties.isEmpty()) {
 				tempCypherExistsMatch = removeDuplicateOps(tempCypherExistsMatch);
 				final String[] tempCypherWherePropertyExists = generateCypherWherForOnlyProperties();
-				exists = CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + tempCypherExistsMatch + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND 
+				exists = CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + tempCypherExistsMatch + "\n" + CypherSpecificConstants.TWELVE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND 
 						+ CypherSpecificConstants.ONE_WHITESPACE + tempCypherOnlyProperties + "%s" + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
 				if (tempCypherWherePropertyExists.length == 0) {
 					exists = String.format(exists, new String());
@@ -254,7 +254,8 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 					addWhiteSpacesForPreviewsCondition(cypherWhereOnlyPropertiesSb);
 					exists += cypherWhereOnlyPropertiesSb.toString();
 				}
-				if (getCondition() instanceof CountConditionImpl || getCondition() instanceof TrueElement) {
+				//Improve the following CountCondition
+				if (!(getCondition() instanceof CountConditionImpl || getCondition() instanceof TrueElement)) {
 					final StringBuilder localSb = new StringBuilder(getCondition().generateCypher());
 					addWhiteSpacesForPreviewsCondition(localSb);					
 					exists += localSb.toString();
@@ -434,7 +435,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			if (r instanceof NeoPropertyEdge) {
 				neoPropertyEdge = (NeoPropertyEdge) r;
 				if (r.getIncomingMapping() == null) {
-					if (neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart() == null) {
+					if (neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart() == null) { //&& ((NeoNode) neoPropertyEdge.getSource()).getNeoPlace() != NeoPlace.BEGINNING
 						neoPropertyEdges.add(neoPropertyEdge);
 						uniqueNeoPropertyEdges.add((NeoPropertyNode) neoPropertyEdge.getTarget());
 					}
@@ -472,8 +473,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 */
 	private final void addNeoPropertyToNotExists(StringBuilder cypher, NeoPropertyEdge edge) throws InvalidityException {
 		String property;
-		if (cypher.length() != 0) cypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
+		if (cypher.length() != 0) cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
 		property = edge.generateCypherPropertyAddressing();
+		cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + CypherSpecificConstants.ONE_WHITESPACE);
 		cypher.append(String.format(CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_PROPERTY, property));
 	}
 	

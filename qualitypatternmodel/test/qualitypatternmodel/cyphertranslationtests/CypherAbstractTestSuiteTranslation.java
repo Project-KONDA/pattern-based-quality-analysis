@@ -616,6 +616,7 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			i++;
 
 			//getMultiEdgesToNeoPropertyNode
+			System.out.println(completePatterns.get(i).generateCypher());
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode7)\n"
 					+ "MATCH (varNode8)\n"
 					+ "MATCH (varNode9)-[varEdge6]-(varPropertyNode10_6:Regesta)\n"
