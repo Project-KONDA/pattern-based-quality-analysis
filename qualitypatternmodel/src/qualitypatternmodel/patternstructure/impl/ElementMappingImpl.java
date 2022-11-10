@@ -70,8 +70,8 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 			throw new InvalidityException("ElementMapping " + getInternalId() + ": target element null");
 		if (!target.getClass().equals(source.getClass())) {
 			throw new InvalidityException("ElementMapping " + getInternalId() + 
-					": unequal types of source (" + source.getInternalId() + " in " + source.getGraph().getInternalId() + ") "
-					+ "and target (" + target.getInternalId() + " in " + target.getGraph().getInternalId() + ") elements");			
+					": unequal types of source (" + source.getClass().getSimpleName() + " " + source.getInternalId() + " in " + source.getGraph().getInternalId() + ") "
+					+ "and target (" + target.getClass().getSimpleName() + " " + target.getInternalId() + " in " + target.getGraph().getInternalId() + ") elements");			
 		}
 	}
 

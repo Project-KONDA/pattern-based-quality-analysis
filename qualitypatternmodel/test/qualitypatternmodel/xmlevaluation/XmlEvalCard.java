@@ -21,7 +21,7 @@ public class XmlEvalCard {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 //		completePatterns.add(getCard3Abstract());
-		completePatterns.add(getCardAbstractMidas());
+		completePatterns.add(getCardCondPlusAbstract());
 		completePatterns.add(getCardMidasApsOb30());
 		completePatterns.add(getCardMidasOb30());
 		completePatterns.add(getCardLidoActorName());
@@ -29,27 +29,35 @@ public class XmlEvalCard {
 		Test00.getQueries(completePatterns);
 //		Test00.test(completePatterns);		
 	}
+	
 
-	public static CompletePattern getCard2PlusAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = EvalCard.getCard2PlusGeneric();
+
+	public static CompletePattern getCardAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = EvalCard.getCardGeneric();
+		completePattern.createXmlAdaption();		
+		return completePattern;
+	}
+
+	public static CompletePattern getCardPlusAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = EvalCard.getCardPlusGeneric();
 		completePattern.createXmlAdaption();		
 		return completePattern;
 	}
 	
-	public static CompletePattern getCardAbstractMidas() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
-		CompletePattern completePattern =  EvalCard.getCard2CondPlusGeneric();
+	public static CompletePattern getCardCondAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
+		CompletePattern completePattern =  EvalCard.getCardCondGeneric();
 		completePattern.createXmlAdaption();
 		return completePattern;
 	}
 	
-	public static CompletePattern getCard2CondPlusAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
-		CompletePattern completePattern =  EvalCard.getCard2CondPlusGeneric();
+	public static CompletePattern getCardCondPlusAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
+		CompletePattern completePattern =  EvalCard.getCardCondPlusGeneric();
 		completePattern.createXmlAdaption();
 		return completePattern;
 	}
 		
 	static CompletePattern getCardLidoActorName() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getCard2PlusAbstract();
+		CompletePattern completePattern = getCardPlusAbstract();
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 		
 //		ComparisonOptionParam p0 = ((ComparisonOptionParam) params.get(0));
@@ -73,7 +81,7 @@ public class XmlEvalCard {
 	}
 	
 	private static CompletePattern getCardMidasApsOb30() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getCard2PlusAbstract();
+		CompletePattern completePattern = getCardPlusAbstract();
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 //		ComparisonOptionParam p0 = ((ComparisonOptionParam) params.get(0));
 		NumberParam p1 = ((NumberParam) params.get(1));
@@ -90,7 +98,7 @@ public class XmlEvalCard {
 	}
 	
 	public static CompletePattern getCardMidasOb30() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getCard2CondPlusAbstract();
+		CompletePattern completePattern = getCardCondPlusAbstract();
 		
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 

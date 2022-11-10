@@ -31,13 +31,25 @@ public class XmlEvalAppDup {
 		Test00.test(completePatterns);
 	}
 	
-	static CompletePattern getAppdup3CondAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern getAppdup2CondAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = EvalAppDup.getAppDup2CondGeneric();
+		completePattern.createXmlAdaption();
+		return completePattern;
+	}
+	
+	public static CompletePattern getAppdup3CondAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = EvalAppDup.getAppDup3CondGeneric();
 		completePattern.createXmlAdaption();
 		return completePattern;
 	}
 	
-	static CompletePattern getAppdup3Abstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern getAppdup2Abstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = EvalAppDup.getAppDup2Generic();
+		completePattern.createXmlAdaption();
+		return completePattern;
+	}
+	
+	public static CompletePattern getAppdup3Abstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = EvalAppDup.getAppDup3Generic();
 		completePattern.createXmlAdaption();
 		return completePattern;

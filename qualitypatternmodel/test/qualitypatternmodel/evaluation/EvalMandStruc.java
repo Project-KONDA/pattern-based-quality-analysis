@@ -19,9 +19,11 @@ public class EvalMandStruc {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 
-		completePatterns.add(getMandstrucGeneric());
-		completePatterns.add(getMandstruc3Generic());
+//		completePatterns.add(getMandstrucGeneric());
+//		completePatterns.add(getMandstrucCondGeneric());
+//		completePatterns.add(getMandstruc3Generic());
 		completePatterns.add(getMandstruc3CondGeneric());
+		completePatterns.add(getMandstruc3CondGeneric2());		
 		
 		for (CompletePattern cp: completePatterns)
 			Test00.printGenericPatternExampleXQuery(cp);
@@ -73,7 +75,15 @@ public class EvalMandStruc {
 		return completePattern;
 	}
 	
-	public static CompletePattern getMandstruc3CondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern getMandstrucCondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		CompletePattern completePattern = factory.createCompletePattern();
+
+		return completePattern;
+	}
+	
+	public static CompletePattern getMandstruc3CondGeneric2() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
@@ -98,6 +108,23 @@ public class EvalMandStruc {
 		Node n1g2 = n1g1.getOutgoingMappings().get(0).getTarget(); 
 		Node n2g2 = n1g2.addOutgoing().getTarget().makeComplex();
 		n2g2.addOutgoing().getTarget().addPrimitiveComparison();
+		
+		System.out.println(completePattern.myToString());
+		return completePattern;
+	}
+	
+	public static CompletePattern getMandstruc3CondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getMandstruc3Generic();
+		Node n1 = completePattern.getGraph().getNodes().get(0);
+		n1.addOutgoing().getTarget().addPrimitiveComparison();
+		
+		Node n2 = ((QuantifiedCondition) completePattern.getCondition()).getGraph().getNodes().get(1);
+		n2.addOutgoing().getTarget().addPrimitiveComparison();
+
+		Node n3 = ((QuantifiedCondition)((NotCondition)((QuantifiedCondition) completePattern.getCondition()).getCondition()).getCondition()).getGraph().getNodes().get(2);
+		n3.addOutgoing().getTarget().addPrimitiveComparison();
+		
+		System.out.println(completePattern.myToString());
 		return completePattern;
 	}
 }

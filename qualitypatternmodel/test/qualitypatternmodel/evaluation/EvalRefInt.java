@@ -25,13 +25,50 @@ public class EvalRefInt {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		
+
+		completePatterns.add(getRefintGeneric());
 		completePatterns.add(getRefintCondGeneric());
 		completePatterns.add(getRefintRunningExampleGeneric());
 		
 		for (CompletePattern cp: completePatterns)
 			Test00.printGenericPatternExampleXQuery(cp);
 //			System.out.println(cp.myToString());
+	}
+	
+	public static CompletePattern getRefintGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		GraphstructurePackage.eINSTANCE.eClass();
+		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
+				
+		CompletePattern completePattern = factory.createCompletePattern();
+		QuantifiedCondition qc1 = factory.createQuantifiedCondition(); 
+		NotCondition notc = factory.createNotCondition();
+		QuantifiedCondition qc2 = factory.createQuantifiedCondition();
+		
+		completePattern.setCondition(qc1);
+		qc1.setCondition(notc);
+		notc.setCondition(qc2);
+		
+		Graph g1 = qc1.getGraph();
+		Graph g2 = qc2.getGraph();
+				
+		g1.getReturnNodes().get(0).addOutgoing().getTarget().makeComplex();
+		
+		Node e2g2 = g2.getNodes().get(1);
+		PrimitiveNode e4g2 = e2g2.addOutgoing().getTarget().makePrimitive();
+		
+		ComplexNode e5g2 = graphFactory.createComplexNode();
+		e5g2.setGraph(g2);
+		
+		ComplexNode e7g2 = e5g2.addOutgoing().getTarget().makeComplex();
+		PrimitiveNode e9g2 = e7g2.addOutgoing().getTarget().makePrimitive();
+		
+		Comparison c = e4g2.addComparison(e9g2);
+		
+		c.getOption().setValue(ComparisonOperator.EQUAL);
+		c.getTypeOption().setValue(ReturnType.STRING);
+		return completePattern; 
 	}
 	
 	public static CompletePattern getRefintCondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

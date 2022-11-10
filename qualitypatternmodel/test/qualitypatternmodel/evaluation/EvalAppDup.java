@@ -35,6 +35,7 @@ public class EvalAppDup {
 		
 		completePatterns.add(getAppDup2Generic());
 		completePatterns.add(getAppDup3Generic());
+		completePatterns.add(getAppDup2CondGeneric());
 		completePatterns.add(getAppDup3CondGeneric());
 		completePatterns.add(getAppDupCountGeneric());
 		
@@ -107,7 +108,15 @@ public class EvalAppDup {
 		return completePattern;
 	}
 
+	public static CompletePattern getAppDup2CondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		return getAppDupXCondGeneric(2);
+	}
 	public static CompletePattern getAppDup3CondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		return getAppDupXCondGeneric(3);
+	}
+	
+
+	private static CompletePattern getAppDupXCondGeneric(int x) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		ParametersPackage.eINSTANCE.eClass();
@@ -153,7 +162,7 @@ public class EvalAppDup {
 			ComplexNode n21 = (ComplexNode) g2.getNodes().get(0);
 			ComplexNode n22 = (ComplexNode) g2.getNodes().get(2);
 			
-			for (int i = 0; i<3; i++) {
+			for (int i = 0; i<x; i++) {
 				Relation r = n21.addOutgoing();
 				Relation r2 = n22.addOutgoing();
 				Node node1 = r.getTarget().makeComplex();

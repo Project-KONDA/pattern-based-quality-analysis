@@ -26,10 +26,10 @@ public class EvalCard {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		
-		completePatterns.add(getCard2Generic());
-		completePatterns.add(getCard2PlusGeneric());
-		completePatterns.add(getCard2CondGeneric());
-		completePatterns.add(getCard2CondPlusGeneric());
+		completePatterns.add(getCardGeneric());
+		completePatterns.add(getCardPlusGeneric());
+		completePatterns.add(getCardCondGeneric());
+		completePatterns.add(getCardCondPlusGeneric());
 //		completePatterns.add(getCard3Generic());
 //		completePatterns.add(getCard3CondGeneric());
 		
@@ -38,7 +38,7 @@ public class EvalCard {
 //			System.out.println(cp.myToString());
 	}
 	
-	public static CompletePattern getCard2Generic() throws InvalidityException {
+	public static CompletePattern getCardGeneric() throws InvalidityException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		
 		// Context graph of pattern:
@@ -56,13 +56,15 @@ public class EvalCard {
 		NumberElementImpl ne = new NumberElementImpl();
 		countCondition.setArgument2(ne);
 		ne.createParameters();
+		ne.getNumberParam().setValue(1.);
+		countCondition.getOption().setValue(ComparisonOperator.GREATER);
 		
 		element0Copy.addOutgoing().getTarget(); //.makePrimitive();
 		
 		return completePattern;	
 	}
 	
-	public static CompletePattern getCard2PlusGeneric() throws InvalidityException {
+	public static CompletePattern getCardPlusGeneric() throws InvalidityException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory patternStructureFactory = PatternstructureFactory.eINSTANCE;
 		ParametersPackage.eINSTANCE.eClass();
@@ -102,7 +104,7 @@ public class EvalCard {
 	}
 	
 	
-	public static CompletePattern getCard2CondGeneric() throws InvalidityException {
+	public static CompletePattern getCardCondGeneric() throws InvalidityException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		
 		Node r = completePattern.getGraph().getReturnNodes().get(0).makeComplex();
@@ -119,6 +121,8 @@ public class EvalCard {
 		NumberElementImpl ne = new NumberElementImpl();
 		countCondition.setArgument2(ne);
 		ne.createParameters();
+		ne.getNumberParam().setValue(1.);
+		countCondition.getOption().setValue(ComparisonOperator.GREATER);
 		
 		return completePattern;	
 	}
@@ -197,7 +201,7 @@ public class EvalCard {
 //		return completePattern;
 //	}
 //	
-	public static CompletePattern getCard2CondPlusGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern getCardCondPlusGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory patternStructureFactory = PatternstructureFactory.eINSTANCE;
 		ParametersPackage.eINSTANCE.eClass();

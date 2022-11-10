@@ -45,7 +45,6 @@ public class PatternExecution {
 		execute(XmlEvalMatch.getMatchMidas3100Abbreviation(), databaseNameMidas); // 4.7.5 Abbreviations
 		execute(XmlEvalMatch.getMatchMidas5060(), databaseNameMidas); // 4.8.1 Misfielded Values
 		execute(XmlEvalMatch.getMatchMidas5064(), databaseNameMidas); // 4.8.2 Extraneous Data
-		execute(XmlEvalExdupl.getExactDuplicatesMidasWer(), databaseNameMidas); // 4.9.1 Exact Duplicate Records
 		execute(XmlEvalAppDup.getAppdup3Midas(), databaseNameMidas); // 4.9.2 Approximate Duplicate Records
 		execute(XmlEvalComp.getCompMidas(), databaseNameMidas); // 4.9.3 Information Placed in Multiple Locations
 		execute(XmlEvalMatch.getMatchMidas5360(), databaseNameMidas); // 4.10.1 Heterogeneous Measure Units
@@ -77,7 +76,6 @@ public class PatternExecution {
 //		execute(EvalMatch.getMatchLidoNameActorSetAbbreviation(), databaseNameLido); // 4.7.5 Abbreviations
 		execute(XmlEvalMatch.getMatchLidoMeasurementUnit(), databaseNameLido); // 4.8.1 Misfielded Values
 		execute(XmlEvalMatch.getMatchLidoNamePlaceSet(), databaseNameLido); // 4.8.2 Extraneous Data
-		execute(XmlEvalExdupl.getExactDuplicatesLido(), databaseNameLido); // 4.9.1 Exact Duplicate Records
 		execute(XmlEvalUnique.getUniqueLidoObjectPublishedId(), databaseNameLido); // 4.9.2 Approximate Duplicate records
 		execute(XmlEvalUnique.getUniqueComplexLidoNameActorSet(), databaseNameLido); // 4.9.3 Information Placed in Multiple Locations
 		// 4.10.1 Heterogeneous Measure Units (not considered problematic in LIDO)

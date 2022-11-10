@@ -21,9 +21,9 @@ public class RdfEvalExNEx {
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getExNexAbstract());
+//		completePatterns.add(getExNexAbstract());
 		completePatterns.add(getExNexFather());
-		completePatterns.add(getExNexGender());
+//		completePatterns.add(getExNexGender());
 		RdfTest00.test(completePatterns);
 	}
 
