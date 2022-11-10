@@ -24,7 +24,7 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 		CypherTest07QuantifiedCondition quantifiedCond = new CypherTest07QuantifiedCondition();
 		try {
 			quantifiedCond.generalizedTests();         
-			quantifiedCond.generalizedInvalidtyExceptionTests(); 
+//			quantifiedCond.generalizedInvalidtyExceptionTests(); 
 		} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();
@@ -50,8 +50,6 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 		completePatternsExceptions.add(generateNoNodesAreDefinedInTheGraphException());
 		completePatternsExceptions.add(generateQuantifiedCondContainsCountPatternException());
 	}
-	
-
 	
 	//Does not throw an Exception --> have a deeper look inside again what it does
 	//PATTERN where to identifie a missing element with exists

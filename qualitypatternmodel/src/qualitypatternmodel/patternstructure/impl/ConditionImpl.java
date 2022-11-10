@@ -601,7 +601,7 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 						if (neoNode.getIncomingMapping() != null) {
 							neoNode.setNeoPlace(NeoPlace.BEGINNING);
 						}
-					}
+					} 
 				}			
 			}
 		}

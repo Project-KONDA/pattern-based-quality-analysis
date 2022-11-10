@@ -3,6 +3,8 @@
 package qualitypatternmodel.adaptionNeo4J.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.BasicEMap;
@@ -98,17 +100,19 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 *@author Lukas Sebastian Hofmann
 	 *@return Returns a String with multiple NeoPropertyNodes which are seperated by ";". In comparison to the other genrateCyphers in the Adaption-Package
 	 *This method should <b> primarily used internally <\b>. Since the return type in this Child is different to the other .generateCypher()-Methods in this Package.
-	 *However, if used then <b>split the String by the literal <i>";"<\i><\b>. 
+	 *However, if used then <b>split the String by the literal <i>";"<\i><\b>.
+	 *It also only returns the distinct String-Array 
 	 */
 	@Override 
 	public String generateCypher() throws InvalidityException, UnsupportedOperationException {	
 		if (getIncomingMapping() == null) {
-			final String[] temp = generateCypherNodeVariable().split(CypherSpecificConstants.SEPERATOR);
+			String[] temp = generateCypherNodeVariable().split(CypherSpecificConstants.SEPERATOR);
+			temp = Arrays.stream(temp).distinct().toArray(String[]::new);
 			String cypher = new String();
 			if (temp != null) {
 				boolean multi = false;
 				for (String s : temp) {
-					if (multi) cypher += CypherSpecificConstants.SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE;
+					if (multi) cypher += CypherSpecificConstants.SEPERATOR;
 					cypher += CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + s + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;		
 				}
 				return cypher;
@@ -282,7 +286,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 
 	//Check if this check is in the other classes similar or need similar adaption
 	private boolean checkForValidIncoming() throws InvalidityException {
-		boolean result = !(getIncoming() == null && getIncoming().size() == 0);
+		boolean result = !(getIncoming() == null || getIncoming().size() == 0);
 		if (result) {
 			for (Relation r : getIncoming()) {
 				if (!(r instanceof NeoPropertyEdge)) {

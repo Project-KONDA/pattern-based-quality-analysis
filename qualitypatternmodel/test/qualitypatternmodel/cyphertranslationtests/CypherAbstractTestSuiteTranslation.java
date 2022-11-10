@@ -607,11 +607,12 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			i++;
 			
 			//getComplexEdgeWithLabelsDiffrentDirectionsAndAllReturns
+			System.out.println(completePatterns.get(i).generateCypher());
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode6)\n"
 					+ "MATCH (varNode7)\n"
 					+ "MATCH (varNode8)-[varEdge5]-(varPropertyNode9_5:Regesta)\n"
 					+ "MATCH (varNode10)-[varEdge6]-(varPropertyNode9_6:Regesta)\n"
-					+ "WHERE (varNode6.placeOfIssue = varNode7.placeOfIssuevarNode6.placeOfIssue = varNode7.placeOfIssue AND varNode6.placeOfIssue = varPropertyNode9_5.placeOfIssuevarNode6.placeOfIssue = varNode7.placeOfIssue AND varNode6.placeOfIssue = varPropertyNode9_5.placeOfIssue AND varNode6.placeOfIssue = varPropertyNode9_6.placeOfIssue)\n"
+					+ "WHERE (varNode6.placeOfIssue = varNode7.placeOfIssue AND varNode6.placeOfIssue = varPropertyNode9_5.placeOfIssue AND varNode6.placeOfIssue = varPropertyNode9_6.placeOfIssue)\n"
 					+ "RETURN varNode6");
 			i++;
 

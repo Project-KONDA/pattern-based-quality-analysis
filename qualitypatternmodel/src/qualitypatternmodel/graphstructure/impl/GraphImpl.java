@@ -327,19 +327,18 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	@Override
 	public String generateCypherWhere() throws InvalidityException {
+		final String cypherWhere = generateCypherWhereOperators();
+		final String cypherWhereStructurComps = generateComparisonsOfSameNeoPropertyNodes();
 		String cypher = new String();
-		cypher = generateCypherWhereStructureComps();
-		if (cypher.isEmpty()) {
-			cypher = generateCypherWhereOperators();
-		} else {
-			final String tempCypherOps = generateCypherWhereOperators();
-			if (!tempCypherOps.isEmpty()) {
-				cypher = CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + cypher;
-				cypher += CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE;
-				cypher += tempCypherOps + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
-			}
+		if (!cypherWhere.isEmpty() && !cypherWhereStructurComps.isEmpty()) {
+			cypher = CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET;
+			cypher += cypherWhere;
+			cypher += CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE;
+			cypher += cypherWhereStructurComps;
+			cypher += CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
 		}
-		
+		cypher += cypherWhere;
+		cypher += cypherWhereStructurComps;
 		return cypher;
 	}
 
@@ -365,13 +364,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			cypherOperators.setLength(0);
 		}
 		return cypherOperators.toString();
-	}
-	
-	private final String generateCypherWhereStructureComps() throws InvalidityException {
-		final String tempComps = generateComparisonsOfSameNeoPropertyNodes();
-		//Add all needed Comparisons if a NeoPropertyNode has multiple incoming edges
-		String cypherStructurComps = tempComps;
-		return cypherStructurComps;
 	}
 
 	private final String generateComparisonsOfSameNeoPropertyNodes() throws InvalidityException {
@@ -401,6 +393,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 							
 							//If everthing worked until here fine do:
 							cypher.append(tempCypher.toString());
+							tempCypher.setLength(0);
 						}
 					}
 				}
