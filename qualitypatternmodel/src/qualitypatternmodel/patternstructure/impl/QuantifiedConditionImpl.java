@@ -34,7 +34,6 @@ import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.Condition;
-import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.MorphismContainer;
@@ -198,19 +197,14 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 * @author Lukas Sebastian Hofmann
 	 * @throws InvalidityException
 	 * Generates the Exists-Match "EXISTS {MATCH ... WHERE ... }" or the Exists-Property "EXISTS(Property1,...PropertyX" or "(NOT EXISTS (Property1) AND ... AND NOT EXISTS (PropertyX))"for the Neo4J context
-	 * Both variants can be used separately or in combination.
-	 * The selecting process in which case what is used depends on the new added Relation(-s) and Node(-s) in the quantified graph.
-	 * It also checks if in the case of both Exists-Variants no duplicates in the use of operations exists and removes duplicates
+	 * Both variants are used separately. Depending if new nodes, e.g. NeoPropertyNodes which are inside of a NeoNode or outside should be checked.
 	 */
-	//Ist das alles so im Sinne des Modelpatterns
 	@Override
 	public String generateCypher() throws InvalidityException {
-		super.checkNextConditon(getCondition());		
-		final StringBuilder cypher = new StringBuilder();
-		String exists = new String();			
-				
+		super.checkNextConditon(getCondition());						
 		if (getGraph().getNodes().size() != 0) {
-			final StringBuilder cypherWhere = new StringBuilder();
+			final StringBuilder cypher = new StringBuilder();
+			String exists = new String();	
 			final EList<NeoNode> neoNodes = getAllNeoNodesFlatten(graph);
 			boolean hasBeginning = false;
 			for (NeoNode neoNode : neoNodes) {
@@ -218,137 +212,31 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 					hasBeginning = true;
 				}
 			}
-			String tempCypherExistsMatch = new String();
-			if (hasBeginning) {
-				tempCypherExistsMatch = generateExistsMatch(cypher, cypherWhere);
-				cypher.setLength(0);	
-			}
 			
-			final String tempCypherOnlyProperties = generateExistsProperty(cypher);
-			cypher.setLength(0);
-			
-			//In the case of calling tempCypherExistsMatch the .getCondition.generateCypher() is already called
-			if (!tempCypherExistsMatch.isEmpty() && !tempCypherOnlyProperties.isEmpty()) {
-				tempCypherExistsMatch = removeDuplicateOps(tempCypherExistsMatch);
-				final String[] tempCypherWherePropertyExists = generateCypherWhereForOnlyProperties();
-				exists = CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + tempCypherExistsMatch + "\n" + CypherSpecificConstants.TWELVE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND 
-						+ CypherSpecificConstants.ONE_WHITESPACE + tempCypherOnlyProperties + "%s" + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
-				if (tempCypherWherePropertyExists.length == 0) {
-					exists = String.format(exists, new String());
-				} else {
-					final StringBuilder localSb = new StringBuilder();
-					for (String s : tempCypherWherePropertyExists) {
-						if (localSb.length() != 0) {
-							localSb.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
-						}
-						localSb.append(s);
-					}
-					exists = String.format(exists, CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + localSb.toString());
-				}
-			} else if(!tempCypherExistsMatch.isEmpty()) {
-				exists = tempCypherExistsMatch;				
-			} else if(!tempCypherOnlyProperties.isEmpty()) {
-				exists = tempCypherOnlyProperties;
-				//In this case the .generateCypherWhere from the graph can be called since the Exists-Condition does not contain an Exists-Match and no additional Sub-Query-Nodes can be generated.
-				final String cypherWhereOnlyProperties = graph.generateCypherWhere();
-				if (!cypherWhereOnlyProperties.isEmpty()) {
-					final StringBuilder cypherWhereOnlyPropertiesSb = new StringBuilder(cypherWhereOnlyProperties);
-					addWhiteSpacesForPreviewsCondition(cypherWhereOnlyPropertiesSb);
-					exists += cypherWhereOnlyPropertiesSb.toString();
-				}
-				//Improve the following CountCondition
-				if (!(getCondition() instanceof CountConditionImpl || getCondition() instanceof TrueElement)) {
-					final StringBuilder localSb = new StringBuilder(getCondition().generateCypher());
-					addWhiteSpacesForPreviewsCondition(localSb);					
-					exists += localSb.toString();
+			if(hasBeginning) {
+				//add white spaces?
+				final String tempCypherExistsMatch = generateExistsMatch(cypher, cypher);
+				if (!tempCypherExistsMatch.isEmpty()) {
+					exists = tempCypherExistsMatch;
 				}
 			} else {
+				final String tempCypherOnlyProperties = generateExistsProperty(cypher);
+				if (!tempCypherOnlyProperties.isEmpty()) {
+					exists = tempCypherOnlyProperties;
+					if (!(getCondition() instanceof CountConditionImpl || getCondition() instanceof TrueElement)) {
+						final StringBuilder localSb = new StringBuilder(getCondition().generateCypher());
+						addWhiteSpacesForPreviewsCondition(localSb);					
+						exists += localSb.toString();
+					}
+				}
+			}
+			if (exists.isEmpty()) {
 				throw new InvalidityException(NO_EXISTS_CAN_BE_BUILD);
 			}
+			return exists;
 		} else {
 			throw new InvalidityException(QUANTIFIED_COND_GRAPH_IS_EMPTY);
-		}
-		
-		return exists; 		
-	}
-
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @throws InvalidityException
-	 * Replaces all duplicated Conditions from the Exists-Match structure. Since Exists-Match calls the generateCypherWhere from the Graph which contains all operators and due to this fact redundancies can occur.
-	 */
-	private final String removeDuplicateOps(String tempCypherExistsMatch) throws InvalidityException {
-		final String[] alreadyExistingOps = generateCypherWhereForOnlyProperties();
-		for (String s : alreadyExistingOps) {
-			if (tempCypherExistsMatch.contains(CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE + s)) {
-				tempCypherExistsMatch = tempCypherExistsMatch.replace(CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE + s, new String());
-			} else if (tempCypherExistsMatch.contains(s + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND)) {
-				tempCypherExistsMatch = tempCypherExistsMatch.replace(s + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND, new String());
-			} else if (tempCypherExistsMatch.contains(s)) {
-				tempCypherExistsMatch = tempCypherExistsMatch.replace(s, new String());
-			} //else no duplicates contained
-		}
-		tempCypherExistsMatch = tempCypherExistsMatch.replaceAll(TWO_WHITES_PACES, CypherSpecificConstants.ONE_WHITESPACE);
-		return tempCypherExistsMatch;
-	}
-	
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @param cypher
-	 * @param edge
-	 * @throws InvalidityException
-	 * Generates all conditions which shall be satisfied for Exists property-checks which are not contained in the Exists-Match-Structure
-	 * All operators which are based of an mix between Exists and Exists-Match are handled in the Exists-Match
-	 */
-	private final String[] generateCypherWhereForOnlyProperties() throws InvalidityException {
-		final Set<NeoPropertyNode> uniqueNeoPropertyNodes = new HashSet<NeoPropertyNode>();
-		getAllNeoPropertiesToAddress(new BasicEList<NeoPropertyEdge>(), new BasicEList<NeoPropertyEdge>(), uniqueNeoPropertyNodes);
-		final EList<String> operatorStringList = new BasicEList<String>();
-		final EList<Operator> usingOperators = new BasicEList<Operator>();
-		for (NeoPropertyNode node : uniqueNeoPropertyNodes) {		
-				usingOperators.addAll(node.getAllOperators());
-		}
-		Comparison comparison = null;
-		Object o = null;
-		final EList<NeoInterfaceNode> allNeoInterfaceNodesUsedInExistsMatch = getAllNeoInterfaceNodesInExistsMatch();	
-		for (Operator op : usingOperators) {
-			if (!(op instanceof Comparison)) {
-					operatorStringList.add(op.generateCypher());
-			} else {
-				comparison = (Comparison) op;
-				o = comparison.getArgument2();
-				//Checks if a Node is contained in the EXISTS-MATCH, where the comparison should be done
-				if (o instanceof Node) {
-					if (!(((Node) o).getIncomingMapping() != null) || !allNeoInterfaceNodesUsedInExistsMatch.contains(o)) {
-						operatorStringList.add(op.generateCypher());
-					}
-				}
-			}
-		}
-
-		return operatorStringList.stream().toArray(String[]::new);
-	}
-	
-	private final EList<NeoInterfaceNode> getAllNeoInterfaceNodesInExistsMatch() throws InvalidityException {
-		final EList<NeoInterfaceNode> neoNeoInterfaceNodeNodes = new BasicEList<NeoInterfaceNode>();
-		for (NeoNode neoNode : super.getAllNeoNodesFlatten(getGraph())) {
-			if (neoNode.getNeoPlace() == NeoPlace.BEGINNING) {
-				walkOverGraphAndGetAllNodesWhichHaveAStartPoint(neoNode, neoNeoInterfaceNodeNodes);
-			}
-		}
-		return neoNeoInterfaceNodeNodes;
-	}
-	
-	private void walkOverGraphAndGetAllNodesWhichHaveAStartPoint(final NeoNode neoNode, final EList<NeoInterfaceNode> neoNeoInterfaceNodeNodes) {
-		neoNeoInterfaceNodeNodes.add(neoNode);
-		for (Relation r : neoNode.getOutgoing()) {
-			if (!neoNeoInterfaceNodeNodes.contains((NeoInterfaceNode) r.getTarget())) {
-				neoNeoInterfaceNodeNodes.add((NeoInterfaceNode) r.getTarget());
-				if (r instanceof NeoEdge) {
-					walkOverGraphAndGetAllNodesWhichHaveAStartPoint((NeoNode) r.getTarget(), neoNeoInterfaceNodeNodes);
-				} 
-			}
-		}
+		}		
 	}
 	
 	/**
@@ -376,13 +264,12 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				if (cypher.length() != 0) {
 					final String exists = CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_PROPERTY;
 					result = String.format(exists, cypher.toString());
-					result = addComparisonsOfSameNeoPropertyNodes(neoPropertyEdges, neoVarPropertyEdges,
-							uniqueNeoPropertyNodes, result);
+					result += graph.generateCypherWhere();
 				}
 				return result;
 			} else if (quantifier == Quantifier.EXISTS && getNotCondition() != null) {
 				for (NeoPropertyNode node : uniqueNeoPropertyNodes) {
-					if (node.getAllOperators().size() != 0 || node.getIncoming().size() != 1) {
+					if (node.getAllOperators().size() != 0 && node.getIncoming().size() != 1) {
 						addNeoPropertyToNotExistsWithWhere(cypher, node);
 					} else {
 						addNeoPropertyToNotExists(cypher, node);
@@ -481,24 +368,14 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		
 		final StringBuilder localCypherWhere = new StringBuilder();
 		isOnly = false;
-		Comparison comparison = null;
 		for (Operator op : node.getAllOperators()) {
 			if (!isOnly) {
 				localCypherWhere.append(CypherSpecificConstants.ONE_WHITESPACE);
 				localCypherWhere.append(CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
 				localCypherWhere.append(CypherSpecificConstants.ONE_WHITESPACE);
 			}
-			if (op instanceof Comparison) {
-				comparison = (Comparison) op;
-				Object o = comparison.getArgument2();
-				if (((Node) o).getIncomingMapping() != null) {
-					localCypherWhere.append(op.generateCypher());
-				} //The other cases will be handled in the EXISTS-MATCH, since EXISTS () is just used when something already exists... then also the EXISTS-MATCH can look if the condition is true and everything is anyway connect with an AND-Operator 
-				isOnly = true;
-			} else {
-				localCypherWhere.append(op.generateCypher());
-				isOnly = true;
-			}			
+			localCypherWhere.append(op.generateCypher());
+			isOnly = true;		
 		}
 		if (localCypherWhere.length() != 0) {
 			localCypherWhere.append(CypherSpecificConstants.ONE_WHITESPACE);
@@ -530,10 +407,10 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			property = edge.generateCypherPropertyAddressing();
 			localCypher.append(String.format(CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_PROPERTY, property));
 		}
-		if (cypher.length() != 0) {
+		if (localCypher.length() != 0 && cypher.length() != 0) {
 			cypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
-			cypher.append(localCypher.toString());
 		}
+		cypher.append(localCypher.toString());
 	}
 	
 	/**
@@ -1436,3 +1313,85 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 
 } // QuantifiedConditionImpl
+
+
+
+///**
+// * @author Lukas Sebastian Hofmann
+// * @throws InvalidityException
+// * Replaces all duplicated Conditions from the Exists-Match structure. Since Exists-Match calls the generateCypherWhere from the Graph which contains all operators and due to this fact redundancies can occur.
+// */
+//private final String removeDuplicateOps(String tempCypherExistsMatch) throws InvalidityException {
+//	final String[] alreadyExistingOps = generateCypherWhereForOnlyProperties();
+//	for (String s : alreadyExistingOps) {
+//		if (tempCypherExistsMatch.contains(CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE + s)) {
+//			tempCypherExistsMatch = tempCypherExistsMatch.replace(CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE + s, new String());
+//		} else if (tempCypherExistsMatch.contains(s + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND)) {
+//			tempCypherExistsMatch = tempCypherExistsMatch.replace(s + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND, new String());
+//		} else if (tempCypherExistsMatch.contains(s)) {
+//			tempCypherExistsMatch = tempCypherExistsMatch.replace(s, new String());
+//		} //else no duplicates contained
+//	}
+//	tempCypherExistsMatch = tempCypherExistsMatch.replaceAll(TWO_WHITES_PACES, CypherSpecificConstants.ONE_WHITESPACE);
+//	return tempCypherExistsMatch;
+//}
+
+
+///**
+// * @author Lukas Sebastian Hofmann
+// * @param cypher
+// * @param edge
+// * @throws InvalidityException
+// * Generates all conditions which shall be satisfied for Exists property-checks which are not contained in the Exists-Match-Structure
+// * All operators which are based of an mix between Exists and Exists-Match are handled in the Exists-Match
+// */
+//private final String[] generateCypherWhereForOnlyProperties() throws InvalidityException {
+//	final Set<NeoPropertyNode> uniqueNeoPropertyNodes = new HashSet<NeoPropertyNode>();
+//	getAllNeoPropertiesToAddress(new BasicEList<NeoPropertyEdge>(), new BasicEList<NeoPropertyEdge>(), uniqueNeoPropertyNodes);
+//	final EList<String> operatorStringList = new BasicEList<String>();
+//	final EList<Operator> usingOperators = new BasicEList<Operator>();
+//	for (NeoPropertyNode node : uniqueNeoPropertyNodes) {		
+//			usingOperators.addAll(node.getAllOperators());
+//	}
+//	Comparison comparison = null;
+//	Object o = null;
+//	final EList<NeoInterfaceNode> allNeoInterfaceNodesUsedInExistsMatch = getAllNeoInterfaceNodesInExistsMatch();	
+//	for (Operator op : usingOperators) {
+//		if (!(op instanceof Comparison)) {
+//				operatorStringList.add(op.generateCypher());
+//		} else {
+//			comparison = (Comparison) op;
+//			o = comparison.getArgument2();
+//			//Checks if a Node is contained in the EXISTS-MATCH, where the comparison should be done
+//			if (o instanceof Node) {
+//				if (!(((Node) o).getIncomingMapping() != null) || !allNeoInterfaceNodesUsedInExistsMatch.contains(o)) {
+//					operatorStringList.add(op.generateCypher());
+//				}
+//			}
+//		}
+//	}
+//
+//	return operatorStringList.stream().toArray(String[]::new);
+//}
+
+//private final EList<NeoInterfaceNode> getAllNeoInterfaceNodesInExistsMatch() throws InvalidityException {
+//	final EList<NeoInterfaceNode> neoNeoInterfaceNodeNodes = new BasicEList<NeoInterfaceNode>();
+//	for (NeoNode neoNode : super.getAllNeoNodesFlatten(getGraph())) {
+//		if (neoNode.getNeoPlace() == NeoPlace.BEGINNING) {
+//			walkOverGraphAndGetAllNodesWhichHaveAStartPoint(neoNode, neoNeoInterfaceNodeNodes);
+//		}
+//	}
+//	return neoNeoInterfaceNodeNodes;
+//}
+
+//private void walkOverGraphAndGetAllNodesWhichHaveAStartPoint(final NeoNode neoNode, final EList<NeoInterfaceNode> neoNeoInterfaceNodeNodes) {
+//	neoNeoInterfaceNodeNodes.add(neoNode);
+//	for (Relation r : neoNode.getOutgoing()) {
+//		if (!neoNeoInterfaceNodeNodes.contains((NeoInterfaceNode) r.getTarget())) {
+//			neoNeoInterfaceNodeNodes.add((NeoInterfaceNode) r.getTarget());
+//			if (r instanceof NeoEdge) {
+//				walkOverGraphAndGetAllNodesWhichHaveAStartPoint((NeoNode) r.getTarget(), neoNeoInterfaceNodeNodes);
+//			} 
+//		}
+//	}
+//}
