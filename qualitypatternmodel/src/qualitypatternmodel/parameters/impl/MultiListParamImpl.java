@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.MultiListParam;
 import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,6 +48,12 @@ public class MultiListParamImpl extends AbstractListParamImpl implements MultiLi
 		throw new UnsupportedOperationException();
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return String
+	 * @throws InvalidityException
+	 * Generates the sub-query for MultiListParam.
+	 */
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		if(getValues().isEmpty()) {
@@ -59,7 +66,7 @@ public class MultiListParamImpl extends AbstractListParamImpl implements MultiLi
 		cypher.append("[");
 		for(String s : getValues()) {
 			if (i > 0) {
-				cypher.append(", ");
+				cypher.append(CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE);
 			}
 			if (areValuesInts(s)) {
 				cypher.append(s); 	

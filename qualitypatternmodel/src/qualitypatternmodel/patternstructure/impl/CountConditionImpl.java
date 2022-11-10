@@ -143,6 +143,12 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	//BEGIN - CYPHER
 	//SIMPLE CYPHER COUNT --> has many restrictions, such as that it cannot be part of another condition
 	//The second argument can not be an other COUNT-PATTERN --> Implement that --> Would lead to diverse challenges
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * Translates a simple count pattern. One or more count-elements can be compared to on numerical value.
+	 * COUNTS in Return-Clause is not supported by the model.
+	 * <b>No support</b> for <b>nested COUNT</b> Cypher v4.4 and below.
+	 */
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		if (getArgument2() instanceof CountPattern) {
@@ -162,8 +168,13 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		throw new InvalidityException(Constants.INVALID_OPTION);
 	}
 	
-	//Die Patternsprache deckt keine COUNTS im Return ab
-	private String generateCypherWith() throws InvalidityException {
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return String
+	 * @throws InvalidityException
+	 * Creates the substring of WITH
+	 */
+	private final String generateCypherWith() throws InvalidityException {
 		String cypher = CypherSpecificConstants.CLAUSE_WITH + CypherSpecificConstants.ONE_WHITESPACE;
 		boolean multi = false;
 		String tempWith;
@@ -184,12 +195,17 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		return cypher;
 	}
 	
-
-	private String generateCypherCountWhere() throws InvalidityException {
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return String
+	 * @throws InvalidityException
+	 * Creates the substring of the Where-Clause of the count-condition.
+	 */
+	private final String generateCypherCountWhere() throws InvalidityException {
 		final EList<String> myCounters = ((CountPatternImpl)getCountPattern()).generateCypherCounters();
 		final String comp = getOption().getValue().getLiteral();
 		final StringBuilder tempCypher = new StringBuilder();
-		String cypher = "";
+		String cypher = new String();
 		
 		for (String entry : myCounters) {
 		    if (tempCypher.length() != 0) {

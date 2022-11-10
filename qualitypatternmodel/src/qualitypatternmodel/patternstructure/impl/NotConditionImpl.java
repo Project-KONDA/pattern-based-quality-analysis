@@ -107,12 +107,15 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 		}
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * Negates a Condition.
+	 * <b>No support</b> for <b>nested COUNT</b> Cypher v4.4 and below.
+	 */
+	//BEGIN - NEO4J
 	@Override
 	public String generateCypher() throws InvalidityException {
-		//Neasted Structures of the COUNT is in Neo4J/Cypher not possible v4.4 and lower
-		if (getCondition() instanceof CountCondition) {
-			throw new UnsupportedOperationException(CypherSpecificConstants.THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY);
-		}
+		super.checkNextConditon(getCondition());
 		
 		if (!(condition == null || condition instanceof TrueElement)) {
 			String cypher = new String();
@@ -130,6 +133,7 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 		}
 		throw new InvalidityException(INVALID_CONDITION);
 	}
+	//END - NEO4J
 	
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

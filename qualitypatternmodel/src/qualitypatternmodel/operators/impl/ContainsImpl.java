@@ -133,6 +133,11 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 		}
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @throws InvalidityException
+	 * Generates the substring for contains.
+	 */
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		if(option != null && content != null && content.getValue() != null && primitiveNode != null) {
@@ -140,12 +145,12 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 			if (!tempCypherPropertyAddressing.isEmpty()) {
 				if (option.getValue()) {
 					return tempCypherPropertyAddressing + CypherSpecificConstants.ONE_WHITESPACE +
-							  CypherSpecificConstants.WHERE_OPERATOR_CONTAINS + " (" + CypherSpecificConstants.CYPHER_QUOTATION_MARK + content.getValue() +
-							  CypherSpecificConstants.CYPHER_QUOTATION_MARK + ")";
+							  CypherSpecificConstants.WHERE_OPERATOR_CONTAINS + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + CypherSpecificConstants.CYPHER_QUOTATION_MARK + content.getValue() +
+							  CypherSpecificConstants.CYPHER_QUOTATION_MARK + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
 				} 
-				return  CypherSpecificConstants.BOOLEAN_OPERATOR_NOT+ " (" + tempCypherPropertyAddressing + CypherSpecificConstants.ONE_WHITESPACE +
-						  CypherSpecificConstants.WHERE_OPERATOR_CONTAINS + " (" +  CypherSpecificConstants.CYPHER_QUOTATION_MARK + content.getValue() + 
-						  CypherSpecificConstants.CYPHER_QUOTATION_MARK + "))";
+				return  CypherSpecificConstants.BOOLEAN_OPERATOR_NOT+ CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + tempCypherPropertyAddressing + CypherSpecificConstants.ONE_WHITESPACE +
+						  CypherSpecificConstants.WHERE_OPERATOR_CONTAINS + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET +  CypherSpecificConstants.CYPHER_QUOTATION_MARK + content.getValue() + 
+						  CypherSpecificConstants.CYPHER_QUOTATION_MARK + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
 			}
 			throw new InvalidityException(CypherSpecificConstants.NO_VALID_PROPERTY_IS_ACCESSABLE);
 		}

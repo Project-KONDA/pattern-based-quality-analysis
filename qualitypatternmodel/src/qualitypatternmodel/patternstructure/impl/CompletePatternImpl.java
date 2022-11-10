@@ -375,6 +375,13 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	}
 	
 	//BEGIN - NEO4J/CYPHER
+	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return String
+	 * Return the complete Cypher-Read/Quality-Query.
+	 * At least on Return-Node has to be given.
+	 */
 	@Override
 	public String generateCypher() throws InvalidityException {		
 		initializeTranslation();
@@ -388,7 +395,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		}
 		
 		// I can not only return the complete Nodes... I also can Return the Properties
-		//NeoEdges are less significant from the meaning thus ignored but in future extentsions also possible to just return
+		//NeoEdges are less significant from the meaning thus ignored but in future extensions also possible to just return
 		//Return of * also future feature
 		if (returnProperties) {} else if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
 			throw new InvalidityException(RETURN_ELEMENT_S_MISSING);
@@ -419,6 +426,12 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		return cypher;
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param cypher
+	 * @return String
+	 * This method generates the substring for all Nodes and Properties which shall be returned.
+	 */
 	protected final String generateCypherReturnNodes(String cypher) throws InvalidityException {
 		if (graph.getNodes().size() != 0) {
 			//Building the generic Nodes for Return
@@ -432,6 +445,12 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		return cypher;
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param cypher
+	 * @return string
+	 * This method generates the substring for all Edges which shall be returned.
+	 */
 	protected final String generateCypherReturnEdges(String cypher) throws InvalidityException {
 		if (graph.getRelations().size() != 0) {
 			//Building the generic Relations for Return
@@ -444,6 +463,12 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		return cypher;
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param cypher
+	 * @return String
+	 * This methods generates the substring for all special return types which can not be handled in {@generateCypherReturnEdges} or {generateCypherReturnNodes}.
+	 */
 	protected final String generateCypherSpecialEdgeString(String cypher) throws InvalidityException {
 		final StringBuilder cypherInnerEdgeNodes = new StringBuilder(super.generateCypherSpecialEdgeString(""));
 		if (cypherInnerEdgeNodes.length() != 0) {
@@ -457,7 +482,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	}
 
 	//For PopertyAddressing mainly
-	protected final String buildCypherSpecialNodeString(String cypher) throws InvalidityException {
+	private final String buildCypherSpecialNodeString(String cypher) throws InvalidityException {
 		final StringBuilder cypherNeoProperties = new StringBuilder();
 		callCypherPropertyAddressingString(cypherNeoProperties);
 		if (cypherNeoProperties.length() != 0) {
@@ -503,7 +528,13 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		return cypher;
 	}
 	
-	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param patternElement
+	 * @throws InvalidityException
+	 * This methods sets the beginning in each subgraph. It determines where later on the generating of the match clause shall start.
+	 * Furthermore, it reduces the time of cypher-query-generation 
+	 */
 	//BEGIN - AUTOMATIC SETTING OF THE BEGINNING
 	private final void setNeo4JBeginnings(PatternElement patternElement) throws InvalidityException {
 		final EList<EList<Node>> genericGraphs = this.getGraph().getAllSubGraphs(); 
@@ -548,7 +579,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	}
 	//END - AUTOMATIC SETTING OF THE BEGINNING
 	//END - NEO4J/CYPHER
-	
 	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

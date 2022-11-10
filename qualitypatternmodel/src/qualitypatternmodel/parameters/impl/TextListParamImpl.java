@@ -66,6 +66,12 @@ public class TextListParamImpl extends AbstractListParamImpl implements TextList
 		}
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return String
+	 * @throws InvalidityException
+	 * Generates the sub-query for TextListParam.
+	 */
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		if(getValues().isEmpty()) {

@@ -119,6 +119,11 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		}
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @throws InvalidityException
+	 * Generates the substring for match/regex.
+	 */
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		if(option != null && regularExpression != null && regularExpression.getValue() != null && primitiveNode != null) {
@@ -126,10 +131,10 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			if (!tempCypherPropertyAddressing.isEmpty()) {				
 				if (option.getValue()) {
 					return tempCypherPropertyAddressing + " " + CypherSpecificConstants.SPECIAL_CYPHER_REGEX_EXPRESSION 
-							+ " " + regularExpression.generateCypher();
+							+ CypherSpecificConstants.ONE_WHITESPACE + regularExpression.generateCypher();
 				} 
 				return CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " (" + tempCypherPropertyAddressing
-						+ " " +	CypherSpecificConstants.SPECIAL_CYPHER_REGEX_EXPRESSION + " " + regularExpression.generateCypher() + ")";
+						+ CypherSpecificConstants.ONE_WHITESPACE +	CypherSpecificConstants.SPECIAL_CYPHER_REGEX_EXPRESSION + " " + regularExpression.generateCypher() + ")";
 			}
 			throw new InvalidityException(CypherSpecificConstants.NO_VALID_PROPERTY_IS_ACCESSABLE);
 		}

@@ -290,9 +290,14 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}
 	}
 	
-	//TODO: Wie könnte man die anderen Operatoren von Cypher berücksichtigen wie IS NULL etc
 	//Die Comparisons/Contains/MATCHES sind mit einem AND verknüpft
 	//Durch ein Operator Container könnten weitere Logik zur Verknüpfung ergänzt werden
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return String
+	 * @throws InvalidityException
+	 * Generates the sub-query for Comparison.
+	 */
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		if (option != null && option.getValue() != null && argument1 != null && argument2 != null) {
@@ -404,7 +409,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				getArgument2() instanceof NeoPropertyNode && ((NeoPropertyEdge)((NeoPropertyNode) getArgument2()).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() != null);
 	}
 	
-	//ADD to the .ecore-Model
+	//FUTURE WORK
+	@Deprecated
 	public String generateCypherInMatch() throws InvalidityException {
 //		if (!neoInWhereClause()) {
 //			String cypher;
@@ -420,10 +426,11 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 //			}
 //			return cypher;
 //		}
-		return null;
+		throw new UnsupportedOperationException();
 	}
 	
-	//ADD to the .ecore-Model
+	//FUTURE WORK
+	@Deprecated
 	public boolean neoInWhereClause() throws InvalidityException{
 		boolean result = true;
 		if (((getArgument1() instanceof NeoPropertyNode && getArgument2() instanceof ParameterValue) ||
@@ -434,6 +441,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		return result;
 	}
 	
+	//FUTURE WORK
+	@Deprecated
 	private final List<String> cypherArgumentCheckerAndConverter() throws InvalidityException {
 		String argument1Translation = null;
 		String argument2Translation = null; 

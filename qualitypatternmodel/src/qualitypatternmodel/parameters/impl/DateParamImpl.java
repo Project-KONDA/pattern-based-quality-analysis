@@ -89,6 +89,12 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 		}
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return String
+	 * @throws InvalidityException
+	 * Generates the sub-query for DateParam
+	 */
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		if (getValue() != null) {

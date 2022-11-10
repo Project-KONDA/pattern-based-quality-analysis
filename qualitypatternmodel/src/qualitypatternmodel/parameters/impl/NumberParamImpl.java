@@ -106,6 +106,12 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 		}
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return String
+	 * @throws InvalidityException
+	 * Generates the sub-query for NumberParam. In Cypher is no difference between comparing int == int, double == double and int == double
+	 */
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		if (getValue() != null) {

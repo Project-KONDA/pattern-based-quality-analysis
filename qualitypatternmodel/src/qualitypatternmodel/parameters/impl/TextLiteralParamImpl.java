@@ -150,6 +150,12 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 		}
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return String
+	 * @throws InvalidityException
+	 * Generates the sub-query for TextLiteralParam.
+	 */
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		if(inputIsValid()) {

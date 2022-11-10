@@ -1,8 +1,9 @@
 package qualitypatternmodel.utility;
-/*
- * This class has been introduced for flexible changing the nameing of diffrent Neo4J specific constrains.
+/**
+ * This class has been introduced for flexible changing the nameing of different Neo4J specific constants.
  * You could switch the nameing as like
- * Keep an eye on the constrains given by Cypher, since diffrent symboles like $ are not allowed and lead to an error 
+ * Keep an eye on the constrains given by Cypher, since different symbols like $ are not allowed and lead to an error.
+ * Generally it can be said that also this extracting of constants maintenance is easier to manage if one of this is changing not everywhere in the code changes have to be done. 
  */
 
 public class CypherSpecificConstants {
@@ -18,7 +19,7 @@ public class CypherSpecificConstants {
 	public static final String CLAUSE_WITH = "\nWITH";
 	public static final String CLAUSE_WHERE = "\nWHERE";
 	public static final String CLAUSE_RETURN = "\nRETURN";
-	public static final String CLAUSE_MATCH_INLUCE_W = "\n%sMATCH"; //Include_W is for the includsion of whitspaces
+	public static final String CLAUSE_MATCH_INLUCE_W = "\n%sMATCH";
 	public static final String CLAUSE_WITH_INLUCE_W = "\n%sWITH";
 	public static final String CLAUSE_WHERE_INLUCE_W = "\n%sWHERE";
 	public static final String CLAUSE_RETURN_INLUCE_W = "\n%sRETURN";

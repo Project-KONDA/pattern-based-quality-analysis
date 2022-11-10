@@ -197,6 +197,11 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 		throw new UnsupportedOperationException();
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @throws InvalidityException
+	 * Generates the substring for IS NULL or IS NOT NULL.
+	 */
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		if(option != null && primitiveNode != null) {

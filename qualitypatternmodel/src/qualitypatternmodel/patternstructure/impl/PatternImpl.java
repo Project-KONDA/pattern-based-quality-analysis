@@ -176,7 +176,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		EList<Node> returnElements = graph.getReturnNodes();
 		for (int i = 0; i < returnElements.size(); i++) {
 			if (i != 0)
-				returnClause += CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE;
+				returnClause += ", ";
 			XmlNode r = ((XmlNode) returnElements.get(i)); 
 			if (r.getVariables() == null || r.getVariables().isEmpty()) {
 				throw new InvalidityException("There was no associated variable generated to the Return Element");
@@ -208,16 +208,22 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	}
 	
 	//BEGIN - NEO4J/CYPHER
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return String
+	 * Generates the subquery for the MATCH-CLAUSE and the WHERE-CLAUSE with operators/conditions.
+	 * Generates and integrates the Condition into the the WHERE-CLAUSE.
+	 */
 	@Override
 	public String generateCypher() throws InvalidityException {
 		String matchClause = graph.generateCypher();
 		if(!matchClause.isEmpty()) {
-			matchClause = CypherSpecificConstants.CLAUSE_MATCH + " "  + matchClause;
+			matchClause = CypherSpecificConstants.CLAUSE_MATCH + CypherSpecificConstants.ONE_WHITESPACE  + matchClause;
 		} else {
 			throw new InvalidityException(A_CYPHER_QUERY_NEED_A_MATCH_CLAUSE);		
 		}
 		
-		String whereClause = "";
+		String whereClause = new String();
 		String tempWhere = graph.generateCypherWhere();
 		if (!tempWhere.isEmpty()) {
 			whereClause = tempWhere;
@@ -234,7 +240,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 				whereClause += cond;
 			}
 		}
-		if (whereClause.length() != 0) whereClause = CypherSpecificConstants.CLAUSE_WHERE + " " + whereClause;
+		if (whereClause.length() != 0) whereClause = CypherSpecificConstants.CLAUSE_WHERE + CypherSpecificConstants.ONE_WHITESPACE + whereClause;
 		if (whereClause.length() == 0) whereClause = null;
 		
 		String cypher = matchClause;
@@ -258,6 +264,13 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		throw new UnsupportedOperationException();
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param forNode
+	 * @return Map
+	 * @throws InvalidityException
+	 * Collects and Returns all the Return-Elements.
+	 */
 	protected final Map<Integer, String> buildCypherReturnSortedMap(boolean forNode) throws InvalidityException {
 		Map<Integer, StringBuilder> cypherReturn = new TreeMap<Integer, StringBuilder>();
 		NeoInterfaceElement neoElement;
@@ -280,6 +293,8 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			}
 		}
 		
+		//Turns the StringBuilds into Strings since the memory consumption of a string is less as from a StringBuilder
+		//Further on StringBuilders in a unmodifiable Map could be modified and Strings not. 
 		Map<Integer, String> cypherReturnFixed = new TreeMap<Integer, String>();
 		for (Map.Entry<Integer, StringBuilder> entry : cypherReturn.entrySet()) {
 			cypherReturnFixed.put(entry.getKey(), entry.getValue().toString());
@@ -289,9 +304,9 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	
 	protected void generateCypherGenericMap(Map<Integer, StringBuilder> cypherReturn, NeoInterfaceElement neoElement)
 			throws InvalidityException {
-		EMap<Integer, String> tempMap;
-		StringBuilder tempSb;
-		Integer i;
+		EMap<Integer, String> tempMap = null;
+		StringBuilder tempSb = null;
+		Integer i = null;
 		tempMap = neoElement.getCypherReturnVariable();
 		
 		if (tempMap.keySet().stream().count() != 1)

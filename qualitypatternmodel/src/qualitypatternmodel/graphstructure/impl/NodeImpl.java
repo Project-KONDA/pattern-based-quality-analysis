@@ -96,6 +96,8 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  * @generated
  */
 public class NodeImpl extends PatternElementImpl implements Node {
+	private static final String CORRESPONDING_NODE_NOT_FOUND = "corresponding node not found";
+
 	/**
 	 * The cached value of the '{@link #getComparison1() <em>Comparison1</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -1627,18 +1629,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				((NodeImpl) map.getTarget()).adaptAsNeoNodeRecursive();
 			}			
 			
-//			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
-//			incomingCopy2.addAll(neoNode.getIncoming());
-//			for(Relation relation : incomingCopy2) {
-				//Here we need to check if the incoming Relations Source is a Primitive (NeoPropertyEdge) or a Complex (NeoEdge) is
-				//Depending we need here a diffrent Edge adaption
-//				if (relation.getSource() instanceof ComplexNode) {
-//					relation.adaptAsNeoEdge();
-//				} else {
-//					relation.adaptAsPropertyEdge();
-//				}
-//			}
-			
 			return neoNode;			
 		} else {
 			for (ElementMapping map: getOutgoingMappings()) {
@@ -1654,7 +1644,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	@Override
-	//Umbennen und auch im .ecore berücksichtigen
 	public NeoPropertyNode adaptAsNeoPropertyNode() throws InvalidityException {
 		Graph graph = getGraph();
 		NeoPropertyNode elementOriginal = ((NodeImpl) getOriginalNode()).adaptAsNeoPropertyRecursive();
@@ -1676,7 +1665,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				}
 			}
 		}
-		throw new InvalidityException("corresponding node not found");
+		throw new InvalidityException(CORRESPONDING_NODE_NOT_FOUND);
 	}
 
 	private NeoPropertyNode adaptAsNeoPropertyRecursive() throws InvalidityException {
@@ -1732,22 +1721,15 @@ public class NodeImpl extends PatternElementImpl implements Node {
 
 			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
 			incomingCopy2.addAll(neoPropertyNode.getIncoming());
-//			for(Relation relation : incomingCopy2) {
-				//All relations from a NeoEdge or a NeoPropertyEdge incoming here is a NeoProperty-Edge
-				//Hence there is no requirment for adapting it as a NeoEdge
-//				relation.adaptAsPropertyEdge();
-//			}
 			
 			return neoPropertyNode;
 		} else {
-			//TODO something is here wrong
 			for (ElementMapping map: getOutgoingMappings()) {
 				((NodeImpl) map.getTarget()).adaptAsNeoPropertyRecursive();
 			}
 			return (NeoPropertyNode) this;
 		}
 	}
-	
 	//END - Adapte for Neo4J/Cypher
 
 	/**
