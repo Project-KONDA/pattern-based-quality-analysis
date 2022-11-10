@@ -2930,13 +2930,13 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM__XML_PROPERTY_OPTION_PARAM = PARAMETER_VALUE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Xml Axis Pair</b></em>' container reference.
+	 * The feature id for the '<em><b>Xml Axis Part</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM__XML_AXIS_PAIR = PARAMETER_VALUE_FEATURE_COUNT + 3;
+	int TEXT_LITERAL_PARAM__XML_AXIS_PART = PARAMETER_VALUE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Contains</b></em>' reference list.
@@ -6991,15 +6991,15 @@ public interface ParametersPackage extends EPackage {
 	EReference getTextLiteralParam_XmlPropertyOptionParam();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.parameters.TextLiteralParam#getXmlAxisPair <em>Xml Axis Pair</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.parameters.TextLiteralParam#getXmlAxisPart <em>Xml Axis Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Xml Axis Pair</em>'.
-	 * @see qualitypatternmodel.parameters.TextLiteralParam#getXmlAxisPair()
+	 * @return the meta object for the container reference '<em>Xml Axis Part</em>'.
+	 * @see qualitypatternmodel.parameters.TextLiteralParam#getXmlAxisPart()
 	 * @see #getTextLiteralParam()
 	 * @generated
 	 */
-	EReference getTextLiteralParam_XmlAxisPair();
+	EReference getTextLiteralParam_XmlAxisPart();
 
 	/**
 	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.TextLiteralParam#getContains <em>Contains</em>}'.
@@ -7736,12 +7736,12 @@ public interface ParametersPackage extends EPackage {
 		EReference TEXT_LITERAL_PARAM__XML_PROPERTY_OPTION_PARAM = eINSTANCE.getTextLiteralParam_XmlPropertyOptionParam();
 
 		/**
-		 * The meta object literal for the '<em><b>Xml Axis Pair</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Xml Axis Part</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TEXT_LITERAL_PARAM__XML_AXIS_PAIR = eINSTANCE.getTextLiteralParam_XmlAxisPair();
+		EReference TEXT_LITERAL_PARAM__XML_AXIS_PART = eINSTANCE.getTextLiteralParam_XmlAxisPart();
 
 		/**
 		 * The meta object literal for the '<em><b>Contains</b></em>' reference list feature.

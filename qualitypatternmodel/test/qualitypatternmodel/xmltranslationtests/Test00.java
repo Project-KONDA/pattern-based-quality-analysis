@@ -5,7 +5,7 @@ import java.util.List;
 import org.eclipse.emf.common.util.EList;
 //import org.graalvm.graphio.GraphStructure;
 
-import qualitypatternmodel.adaptionxml.XmlAxisPair;
+import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -148,7 +148,7 @@ public class Test00 {
 			}
 			if (param instanceof XmlPathParam) {
 				XmlPathParam xmlPathParam = (XmlPathParam) param;
-				for(XmlAxisPair pair : xmlPathParam.getXmlAxisPairs()) {
+				for(XmlAxisPart pair : xmlPathParam.getXmlAxisParts()) {
 					if(pair.getTextLiteralParam().getValue() == null) {
 						pair.getTextLiteralParam().setValue("");
 					}

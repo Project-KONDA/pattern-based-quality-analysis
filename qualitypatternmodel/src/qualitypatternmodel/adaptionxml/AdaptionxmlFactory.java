@@ -103,13 +103,13 @@ public interface AdaptionxmlFactory extends EFactory {
 	XmlPathParam createXmlPathParam();
 
 	/**
-	 * Returns a new object of class '<em>Xml Axis Pair</em>'.
+	 * Returns a new object of class '<em>Xml Axis Part</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Xml Axis Pair</em>'.
+	 * @return a new object of class '<em>Xml Axis Part</em>'.
 	 * @generated
 	 */
-	XmlAxisPair createXmlAxisPair();
+	XmlAxisPart createXmlAxisPart();
 
 	/**
 	 * Returns the package supported by this factory.

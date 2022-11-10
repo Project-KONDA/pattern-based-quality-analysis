@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlAxisOptionParam;
-import qualitypatternmodel.adaptionxml.XmlAxisPair;
+import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
@@ -193,15 +193,15 @@ public class DemoPatternTexts {
 		XmlElementNavigation navigation0 = (XmlElementNavigation) completePattern.getGraph().getRelations().get(1);
 		XmlPathParam xmlPathParam = navigation0.getXmlPathParam();
 		
-		XmlAxisPair axisPair = AdaptionxmlFactory.eINSTANCE.createXmlAxisPair();
-		xmlPathParam.getXmlAxisPairs().add(axisPair);
-		XmlAxisOptionParam xmlAxisOptionParam = axisPair.getXmlAxisOptionParam();		
+		XmlAxisPart axisPart = AdaptionxmlFactory.eINSTANCE.createXmlAxisPart();
+		xmlPathParam.getXmlAxisParts().add(axisPart);
+		XmlAxisOptionParam xmlAxisOptionParam = axisPart.getXmlAxisOptionParam();		
 		paramPredefAxis0.setValue(XmlAxisKind.DESCENDANT.getName());
 		paramPredefAxis0.getParameter().add(xmlAxisOptionParam);
 		
 		// <tag>
 		ParameterFragment paramTagNameParent = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-		TextLiteralParam textLiteralParam = axisPair.getTextLiteralParam();
+		TextLiteralParam textLiteralParam = axisPart.getTextLiteralParam();
 		paramTagNameParent.getParameter().add(textLiteralParam);
 		paramTagNameParent.setName("tag_name_parent");
 		paramTagNameParent.setExampleValue(DEMO_NAMESPACE + "building");
@@ -219,15 +219,15 @@ public class DemoPatternTexts {
 		XmlNavigation navigation1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
 		XmlPathParam xmlPathParam1 = navigation1.getXmlPathParam();
 		
-		XmlAxisPair axisPair1 = AdaptionxmlFactory.eINSTANCE.createXmlAxisPair();
-		xmlPathParam1.getXmlAxisPairs().add(axisPair1);
-		XmlAxisOptionParam xmlAxisOptionParam2 = axisPair1.getXmlAxisOptionParam();		
+		XmlAxisPart axisPart1 = AdaptionxmlFactory.eINSTANCE.createXmlAxisPart();
+		xmlPathParam1.getXmlAxisParts().add(axisPart1);
+		XmlAxisOptionParam xmlAxisOptionParam2 = axisPart1.getXmlAxisOptionParam();		
 		paramPredefAxis1.setValue(XmlAxisKind.CHILD.getName());
 		paramPredefAxis1.getParameter().add(xmlAxisOptionParam2);
 		
 		// <tag>
 		ParameterFragment paramTagNameChild = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-		TextLiteralParam textLiteralParam2 = axisPair1.getTextLiteralParam();
+		TextLiteralParam textLiteralParam2 = axisPart1.getTextLiteralParam();
 		paramTagNameChild.getParameter().add(textLiteralParam2);
 		paramTagNameChild.setName("tag_name_child");
 		paramTagNameChild.setExampleValue(DEMO_NAMESPACE + "creator");

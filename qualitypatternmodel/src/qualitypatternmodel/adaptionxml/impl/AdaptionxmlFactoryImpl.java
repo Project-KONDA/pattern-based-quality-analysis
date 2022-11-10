@@ -66,7 +66,7 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 			case AdaptionxmlPackage.XML_AXIS_OPTION_PARAM: return createXmlAxisOptionParam();
 			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM: return createXmlPropertyOptionParam();
 			case AdaptionxmlPackage.XML_PATH_PARAM: return createXmlPathParam();
-			case AdaptionxmlPackage.XML_AXIS_PAIR: return createXmlAxisPair();
+			case AdaptionxmlPackage.XML_AXIS_PART: return createXmlAxisPart();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -215,9 +215,9 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	 * @generated
 	 */
 	@Override
-	public XmlAxisPair createXmlAxisPair() {
-		XmlAxisPairImpl xmlAxisPair = new XmlAxisPairImpl();
-		return xmlAxisPair;
+	public XmlAxisPart createXmlAxisPart() {
+		XmlAxisPartImpl xmlAxisPart = new XmlAxisPartImpl();
+		return xmlAxisPart;
 	}
 
 	/**

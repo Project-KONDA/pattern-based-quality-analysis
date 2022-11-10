@@ -19,7 +19,7 @@ import qualitypatternmodel.parameters.Parameter;
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisOptionParam#getOptions <em>Options</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisOptionParam#getValue <em>Value</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisOptionParam#getXmlAxisPair <em>Xml Axis Pair</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisOptionParam#getXmlAxisPart <em>Xml Axis Part</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlAxisOptionParam()
@@ -68,28 +68,28 @@ public interface XmlAxisOptionParam extends Parameter {
 	void setValue(XmlAxisKind value);
 
 	/**
-	 * Returns the value of the '<em><b>Xml Axis Pair</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlAxisPair#getXmlAxisOptionParam <em>Xml Axis Option Param</em>}'.
+	 * Returns the value of the '<em><b>Xml Axis Part</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlAxisOptionParam <em>Xml Axis Option Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Xml Axis Pair</em>' container reference.
-	 * @see #setXmlAxisPair(XmlAxisPair)
-	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlAxisOptionParam_XmlAxisPair()
-	 * @see qualitypatternmodel.adaptionxml.XmlAxisPair#getXmlAxisOptionParam
+	 * @return the value of the '<em>Xml Axis Part</em>' container reference.
+	 * @see #setXmlAxisPart(XmlAxisPart)
+	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlAxisOptionParam_XmlAxisPart()
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlAxisOptionParam
 	 * @model opposite="xmlAxisOptionParam" required="true" transient="false"
 	 * @generated
 	 */
-	XmlAxisPair getXmlAxisPair();
+	XmlAxisPart getXmlAxisPart();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlAxisOptionParam#getXmlAxisPair <em>Xml Axis Pair</em>}' container reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlAxisOptionParam#getXmlAxisPart <em>Xml Axis Part</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Xml Axis Pair</em>' container reference.
-	 * @see #getXmlAxisPair()
+	 * @param value the new value of the '<em>Xml Axis Part</em>' container reference.
+	 * @see #getXmlAxisPart()
 	 * @generated
 	 */
-	void setXmlAxisPair(XmlAxisPair value);
+	void setXmlAxisPart(XmlAxisPart value);
 
 	/**
 	 * <!-- begin-user-doc -->

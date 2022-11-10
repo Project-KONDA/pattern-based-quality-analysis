@@ -5,7 +5,7 @@ package qualitypatternmodel.adaptionxml.tests;
 import junit.textui.TestRunner;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
-import qualitypatternmodel.adaptionxml.XmlAxisPair;
+import qualitypatternmodel.adaptionxml.XmlAxisPart;
 
 import qualitypatternmodel.patternstructure.tests.PatternElementTest;
 
@@ -16,19 +16,19 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPair#getNextXmlAxisPairs() <em>Get Next Xml Axis Pairs</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPair#getPreviousXmlAxisPairs() <em>Get Previous Xml Axis Pairs</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPair#inferAxisSuggestions() <em>Infer Axis Suggestions</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPair#inferElementTagSuggestions() <em>Infer Element Tag Suggestions</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPair#inferElementTagSuggestionsFromIncomingRelations() <em>Infer Element Tag Suggestions From Incoming Relations</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPair#inferElementTagSuggestionsFromOutgoingRelations() <em>Infer Element Tag Suggestions From Outgoing Relations</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getNextXmlAxisPairs() <em>Get Next Xml Axis Pairs</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getPreviousXmlAxisPairs() <em>Get Previous Xml Axis Pairs</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPart#inferAxisSuggestions() <em>Infer Axis Suggestions</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPart#inferElementTagSuggestions() <em>Infer Element Tag Suggestions</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPart#inferElementTagSuggestionsFromIncomingRelations() <em>Infer Element Tag Suggestions From Incoming Relations</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPart#inferElementTagSuggestionsFromOutgoingRelations() <em>Infer Element Tag Suggestions From Outgoing Relations</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
  * </ul>
  * </p>
  * @generated
  */
-public class XmlAxisPairTest extends PatternElementTest {
+public class XmlAxisPartTest extends PatternElementTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -36,28 +36,28 @@ public class XmlAxisPairTest extends PatternElementTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(XmlAxisPairTest.class);
+		TestRunner.run(XmlAxisPartTest.class);
 	}
 
 	/**
-	 * Constructs a new Xml Axis Pair test case with the given name.
+	 * Constructs a new Xml Axis Part test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XmlAxisPairTest(String name) {
+	public XmlAxisPartTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Xml Axis Pair test case.
+	 * Returns the fixture for this Xml Axis Part test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected XmlAxisPair getFixture() {
-		return (XmlAxisPair)fixture;
+	protected XmlAxisPart getFixture() {
+		return (XmlAxisPart)fixture;
 	}
 
 	/**
@@ -68,7 +68,7 @@ public class XmlAxisPairTest extends PatternElementTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(AdaptionxmlFactory.eINSTANCE.createXmlAxisPair());
+		setFixture(AdaptionxmlFactory.eINSTANCE.createXmlAxisPart());
 	}
 
 	/**
@@ -83,10 +83,10 @@ public class XmlAxisPairTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlAxisPair#getNextXmlAxisPairs() <em>Get Next Xml Axis Pairs</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getNextXmlAxisPairs() <em>Get Next Xml Axis Pairs</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.XmlAxisPair#getNextXmlAxisPairs()
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#getNextXmlAxisPairs()
 	 * @generated
 	 */
 	public void testGetNextXmlAxisPairs() {
@@ -96,10 +96,10 @@ public class XmlAxisPairTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlAxisPair#getPreviousXmlAxisPairs() <em>Get Previous Xml Axis Pairs</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getPreviousXmlAxisPairs() <em>Get Previous Xml Axis Pairs</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.XmlAxisPair#getPreviousXmlAxisPairs()
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#getPreviousXmlAxisPairs()
 	 * @generated
 	 */
 	public void testGetPreviousXmlAxisPairs() {
@@ -109,10 +109,10 @@ public class XmlAxisPairTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlAxisPair#inferAxisSuggestions() <em>Infer Axis Suggestions</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#inferAxisSuggestions() <em>Infer Axis Suggestions</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.XmlAxisPair#inferAxisSuggestions()
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#inferAxisSuggestions()
 	 * @generated
 	 */
 	public void testInferAxisSuggestions() {
@@ -122,10 +122,10 @@ public class XmlAxisPairTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlAxisPair#inferElementTagSuggestions() <em>Infer Element Tag Suggestions</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#inferElementTagSuggestions() <em>Infer Element Tag Suggestions</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.XmlAxisPair#inferElementTagSuggestions()
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#inferElementTagSuggestions()
 	 * @generated
 	 */
 	public void testInferElementTagSuggestions() {
@@ -135,10 +135,10 @@ public class XmlAxisPairTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlAxisPair#inferElementTagSuggestionsFromIncomingRelations() <em>Infer Element Tag Suggestions From Incoming Relations</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#inferElementTagSuggestionsFromIncomingRelations() <em>Infer Element Tag Suggestions From Incoming Relations</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.XmlAxisPair#inferElementTagSuggestionsFromIncomingRelations()
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#inferElementTagSuggestionsFromIncomingRelations()
 	 * @generated
 	 */
 	public void testInferElementTagSuggestionsFromIncomingRelations() {
@@ -148,10 +148,10 @@ public class XmlAxisPairTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlAxisPair#inferElementTagSuggestionsFromOutgoingRelations() <em>Infer Element Tag Suggestions From Outgoing Relations</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#inferElementTagSuggestionsFromOutgoingRelations() <em>Infer Element Tag Suggestions From Outgoing Relations</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.XmlAxisPair#inferElementTagSuggestionsFromOutgoingRelations()
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#inferElementTagSuggestionsFromOutgoingRelations()
 	 * @generated
 	 */
 	public void testInferElementTagSuggestionsFromOutgoingRelations() {

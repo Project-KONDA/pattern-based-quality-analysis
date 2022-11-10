@@ -823,12 +823,12 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 			if(r instanceof XmlElementNavigation) {
 				XmlElementNavigation nav = (XmlElementNavigation) r;
 				xmlPathParam = nav.getXmlPathParam();
-				if(xmlPathParam.getXmlAxisPairs().isEmpty()) {
+				if(xmlPathParam.getXmlAxisParts().isEmpty()) {
 					for (Relation previousRelation : nav.getSource().getIncoming()) {
 						if(previousRelation instanceof XmlElementNavigation) {
 							XmlElementNavigation previousNav = (XmlElementNavigation) previousRelation;
 							XmlPathParam previousPathParam = previousNav.getXmlPathParam();
-							TextLiteralParam text = previousPathParam.getXmlAxisPairs().get(previousPathParam.getXmlAxisPairs().size()-1).getTextLiteralParam();
+							TextLiteralParam text = previousPathParam.getXmlAxisParts().get(previousPathParam.getXmlAxisParts().size()-1).getTextLiteralParam();
 							if(text != null) {
 								EList<String> newSuggestions = text.inferSuggestions();
 								if(suggestions.isEmpty() || newSuggestions.isEmpty()) {
@@ -841,7 +841,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 					}
 					
 				} else {
-					TextLiteralParam text = xmlPathParam.getXmlAxisPairs().get(xmlPathParam.getXmlAxisPairs().size()-1).getTextLiteralParam();
+					TextLiteralParam text = xmlPathParam.getXmlAxisParts().get(xmlPathParam.getXmlAxisParts().size()-1).getTextLiteralParam();
 					if(text != null) {
 						EList<String> newSuggestions = text.inferSuggestions();
 						if(suggestions.isEmpty() || newSuggestions.isEmpty()) {

@@ -18,7 +18,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.XmlAxisPair;
+import qualitypatternmodel.adaptionxml.XmlAxisPart;
 
 import qualitypatternmodel.parameters.ParametersFactory;
 
@@ -27,19 +27,19 @@ import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionxml.XmlAxisPair} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionxml.XmlAxisPart} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class XmlAxisPairItemProvider extends PatternElementItemProvider {
+public class XmlAxisPartItemProvider extends PatternElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XmlAxisPairItemProvider(AdapterFactory adapterFactory) {
+	public XmlAxisPartItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -70,8 +70,9 @@ public class XmlAxisPairItemProvider extends PatternElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(AdaptionxmlPackage.Literals.XML_AXIS_PAIR__TEXT_LITERAL_PARAM);
-			childrenFeatures.add(AdaptionxmlPackage.Literals.XML_AXIS_PAIR__XML_AXIS_OPTION_PARAM);
+			childrenFeatures.add(AdaptionxmlPackage.Literals.XML_AXIS_PART__TEXT_LITERAL_PARAM);
+			childrenFeatures.add(AdaptionxmlPackage.Literals.XML_AXIS_PART__XML_AXIS_OPTION_PARAM);
+			childrenFeatures.add(AdaptionxmlPackage.Literals.XML_AXIS_PART__XML_PROPERTY_OPTION);
 		}
 		return childrenFeatures;
 	}
@@ -90,14 +91,14 @@ public class XmlAxisPairItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This returns XmlAxisPair.gif.
+	 * This returns XmlAxisPart.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/XmlAxisPair"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/XmlAxisPart"));
 	}
 
 	/**
@@ -108,10 +109,10 @@ public class XmlAxisPairItemProvider extends PatternElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((XmlAxisPair)object).getId();
+		String label = ((XmlAxisPart)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_XmlAxisPair_type") :
-			getString("_UI_XmlAxisPair_type") + " " + label;
+			getString("_UI_XmlAxisPart_type") :
+			getString("_UI_XmlAxisPart_type") + " " + label;
 	}
 
 
@@ -126,9 +127,10 @@ public class XmlAxisPairItemProvider extends PatternElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(XmlAxisPair.class)) {
-			case AdaptionxmlPackage.XML_AXIS_PAIR__TEXT_LITERAL_PARAM:
-			case AdaptionxmlPackage.XML_AXIS_PAIR__XML_AXIS_OPTION_PARAM:
+		switch (notification.getFeatureID(XmlAxisPart.class)) {
+			case AdaptionxmlPackage.XML_AXIS_PART__TEXT_LITERAL_PARAM:
+			case AdaptionxmlPackage.XML_AXIS_PART__XML_AXIS_OPTION_PARAM:
+			case AdaptionxmlPackage.XML_AXIS_PART__XML_PROPERTY_OPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -148,13 +150,18 @@ public class XmlAxisPairItemProvider extends PatternElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AdaptionxmlPackage.Literals.XML_AXIS_PAIR__TEXT_LITERAL_PARAM,
+				(AdaptionxmlPackage.Literals.XML_AXIS_PART__TEXT_LITERAL_PARAM,
 				 ParametersFactory.eINSTANCE.createTextLiteralParam()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AdaptionxmlPackage.Literals.XML_AXIS_PAIR__XML_AXIS_OPTION_PARAM,
+				(AdaptionxmlPackage.Literals.XML_AXIS_PART__XML_AXIS_OPTION_PARAM,
 				 AdaptionxmlFactory.eINSTANCE.createXmlAxisOptionParam()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AdaptionxmlPackage.Literals.XML_AXIS_PART__XML_PROPERTY_OPTION,
+				 AdaptionxmlFactory.eINSTANCE.createXmlPropertyOptionParam()));
 	}
 
 	/**

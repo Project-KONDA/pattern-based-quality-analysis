@@ -68,7 +68,7 @@ public class SuggestionGeneration {
 
         System.out.println("> P4 Element Tag Suggestions:\n");
 //        TextLiteralParam text = (TextLiteralParam) completePattern.getParameterList().getParameters().get(0);
-        TextLiteralParam text = p4.getXmlAxisPairs().get(0).getTextLiteralParam();
+        TextLiteralParam text = p4.getXmlAxisParts().get(0).getTextLiteralParam();
         for(String s : text.inferSuggestions()) {
         	System.out.println(s);
         }
