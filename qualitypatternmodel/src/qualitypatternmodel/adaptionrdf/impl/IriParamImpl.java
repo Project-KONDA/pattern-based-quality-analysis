@@ -130,7 +130,7 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 	}
 	
 	@Override
-	public void isValid (AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(abstractionLevel);
 	}
 
@@ -544,8 +544,11 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 
 	@Override
 	public String myToString() {
-		// TODO Auto-generated method stub
-		return null;
+		String result = "iri [" + getInternalId() + "] ";
+		try {
+			result += generateSparql();
+		} catch (InvalidityException e) {}
+		return result;
 	}
 
 	@Override
