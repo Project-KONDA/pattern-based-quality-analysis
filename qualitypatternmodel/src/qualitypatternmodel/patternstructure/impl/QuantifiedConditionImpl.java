@@ -456,14 +456,15 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		if (neoPropertyEdges.size() != 0 || neoVarPropertyEdges.size() != 0) {
 			final StringBuilder localCBuilder = new StringBuilder();
 			for (NeoPropertyNode n : uniqueNeoPropertyNodes) {
-				if (n.getAllOperators().size() == 0 || n.getIncoming().size() == 0) {
+				if (n.getAllOperators().size() == 0 && n.getIncoming().size() == 0) {
 					for (Relation r : n.getIncoming()) {
 						addNeoPropertyToExists(localCBuilder, (NeoPropertyEdge) r);
-						
 					}
 				}
 			}
-			cypher.append(String.format(CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_PROPERTY, localCBuilder));
+			if (!localCBuilder.isEmpty()) {
+				cypher.append(String.format(CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_PROPERTY, localCBuilder));
+			}
 		}
 	}
 	
