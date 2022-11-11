@@ -41,4 +41,24 @@ public class EvalContains {
 		
 		return completePattern;	
 	}
+	
+	public static CompletePattern getContainsGenericWithTwoPrimitiveNodesGeneric() throws InvalidityException {
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		
+		// Context graph of pattern:
+		completePattern.getGraph().getReturnNodes().get(0).makeComplex();
+		
+		// First-order logic condition of pattern:
+		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		completePattern.setCondition(quantifiedCondition);
+		
+		Node element0Copy = quantifiedCondition.getGraph().getReturnNodes().get(0);
+		
+		Node element1 = element0Copy.addOutgoing().getTarget().makePrimitive();
+		element1.addPrimitiveContains();
+		Node element2 = element0Copy.addOutgoing().getTarget().makePrimitive();
+		element2.addPrimitiveContains();
+		
+		return completePattern;	
+	}
 }

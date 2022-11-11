@@ -257,8 +257,12 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				for (NeoPropertyEdge edge : neoVarPropertyEdges) {
 					addNeoPropertyToExists(cypher, edge);
 				}
-				addGraphWhereToExistsProperty(cypher, result);
 				result = String.format(CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_PROPERTY, cypher.toString());
+				cypher.setLength(0);
+				cypher.append(result);
+				result = new String();
+				addGraphWhereToExistsProperty(cypher, result);
+				result = cypher.toString();
 			} else if (quantifier == Quantifier.EXISTS && getNotCondition() != null) {
 				for (NeoPropertyNode node : uniqueNeoPropertyNodes) {
 					addNeoPropertyToNotExists(cypher, node);

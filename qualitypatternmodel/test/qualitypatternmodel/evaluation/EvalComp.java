@@ -92,4 +92,18 @@ public class EvalComp {
 		
 		return completePattern;
 	}
+	
+	public static CompletePattern getFundamentalCompGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+
+		CompletePattern completePattern = factory.createCompletePattern();
+		
+		Graph g1 = completePattern.getGraph();
+		g1.getReturnNodes().get(0).makeComplex();
+		Node node1 = g1.getReturnNodes().get(0).addOutgoing().getTarget().makePrimitive();
+		node1.addComparison(g1.getReturnNodes().get(0).addOutgoing().getTarget().makePrimitive());
+		
+		return completePattern;
+	}
 }

@@ -32,7 +32,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
-/* 
+/**
  * <p> 
  * 	<b>
  * 		This fill is structured as followed:
