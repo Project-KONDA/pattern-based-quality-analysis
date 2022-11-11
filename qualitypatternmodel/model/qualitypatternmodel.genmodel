@@ -624,7 +624,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/XmlPropertyOptionParam/value"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlPropertyOptionParam/xmlPathParam"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlPropertyOptionParam/attributeName"/>
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlPropertyOptionParam/XmlAxisPart"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlPropertyOptionParam/xmlAxisPart"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlPropertyOptionParam/setValueIfValid">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XmlPropertyOptionParam/setValueIfValid/newValue"/>
         </genOperations>

@@ -19,6 +19,7 @@ import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlAxisOptionParam;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
@@ -103,13 +104,22 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		String query = getXmlAxisOptionParam().generateXQuery();
-		if (getTextLiteralParam() != null) {
-			String literal = getTextLiteralParam().generateXQuery();
-			if ( !(literal.equals("\"\"")) && !(literal.equals("\"*\""))) {
-				query += "[name()=" + literal + "]";
+		String condition = "/name()";
+		String literal = "";
+		if (getTextLiteralParam() != null) 
+			literal = getTextLiteralParam().generateXQuery();
+		if (xmlPropertyOption != null)
+			condition = getXmlPropertyOption().generateXQuery();
+		
+		if (literal.equals("") || literal.equals("\"\"") || literal.equals("\"*\"")){
+			if (condition == "/name()") {
+				return query;
 			}
+			else {
+				return query + "[." + condition + "]";
+			}		
 		}
-		return query; 
+		return query + "[." + condition + "=" + literal + "]"; 
 	}
 	
 	@Override
@@ -132,7 +142,6 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 		if (xmlAxisOptionParam == null) {
 			throw new InvalidityException("axisOptionParam null");
 		}
-		
 	}
 	
 	@Override
@@ -306,6 +315,11 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	 */
 	@Override
 	public XmlPropertyOptionParam getXmlPropertyOption() {
+		if (xmlPropertyOption == null){
+			XmlPropertyOptionParam p = new XmlPropertyOptionParamImpl();
+			p.setValue(XmlPropertyKind.TAG);
+			setXmlPropertyOption(p);			
+		}
 		return xmlPropertyOption;
 	}
 
