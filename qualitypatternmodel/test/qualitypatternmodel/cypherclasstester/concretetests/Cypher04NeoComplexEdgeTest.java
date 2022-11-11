@@ -131,14 +131,13 @@ public class Cypher04NeoComplexEdgeTest extends NeoAbstractPathPartTest {
 	}
 
 	private void unsetNeoPathPartInComplexEdge() {
-		((NeoComplexEdgeImpl) neoComplexEdge).eUnset((int) AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH_PART);
+		((NeoComplexEdgeImpl) neoComplexEdge).eUnset((int) AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH_PARTS);
 		assumeNotNull(neoComplexEdge.getNeoPathPartEdgeLeafs());
 		assertTrue(neoComplexEdge.getNeoPathPartEdgeLeafs().size() == 0);
 		
 	}
 	
-	//this three methods have been tested indicectly
-	//countOfEdges()
+	//tested indirectly: countOfEdges()
 	@Test
 	public void notValidatComplexEdge() {
 		checkIfComplexEdgeIsNotValid();
@@ -581,10 +580,10 @@ public class Cypher04NeoComplexEdgeTest extends NeoAbstractPathPartTest {
 			neoComplexEdge1.addNeoPathPart(FACTORY.createNeoComplexEdge());
 			neoComplexEdge1.addNeoPathPart(FACTORY.createNeoSimpleEdge());
 			((NeoComplexEdge) neoPathPart).addNeoPathPart(neoComplexEdge1);
-			assumeNotNull(((NeoComplexEdge) neoPathPart).getNeoPathPart());
-			assertTrue(((NeoComplexEdge) neoPathPart).getNeoPathPart().size() == 1);
-			assumeNotNull(neoComplexEdge1.getNeoPathPart());
-			assertTrue(neoComplexEdge1.getNeoPathPart().size() == 2);
+			assumeNotNull(((NeoComplexEdge) neoPathPart).getNeoPathParts());
+			assertTrue(((NeoComplexEdge) neoPathPart).getNeoPathParts().size() == 1);
+			assumeNotNull(neoComplexEdge1.getNeoPathParts());
+			assertTrue(neoComplexEdge1.getNeoPathParts().size() == 2);
 			
 			assertEquals(neoComplexEdge, neoComplexEdge1.getNeoComplexEdge());
 			Class<NeoComplexEdgeImpl> c = NeoComplexEdgeImpl.class;

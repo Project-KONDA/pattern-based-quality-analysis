@@ -157,7 +157,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		NeoPropertyEdge edge = null;
 		String cypher = new String();
 		for (int i = 0; i < getIncoming().size(); i++) {
-			if (checkForValidIncoming()) {
+			if (checkForValidIncomings()) {
 				edge = (NeoPropertyEdge) getIncoming().get(i);
 				if (edge.getNeoPropertyPathParam() == null || edge.getNeoPropertyPathParam().getNeoPropertyName() == null) {
 					throw new InvalidityException(NO_PROPERTY_NAME_IS_SPECIFIED);
@@ -261,10 +261,8 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override
 	public String generateCypherNodeVariable() throws InvalidityException {
 		if (getIncomingMapping() == null) {
-			if (!checkForValidIncoming())
+			if (!checkForValidIncomings())
 				throw new InvalidityException(NO_INCOMING_NEO_PROPERTY_EDGE_SPECIFIED);
-			else if(!(getIncoming().get(0) instanceof NeoPropertyEdge))
-				throw new InvalidityException(WRONG_INCOMING_NEO_PROPERTY_EDGE_SPECIFIED);
 			final StringBuilder cypher = new StringBuilder();
 			int countReturnables = 0;
 			for (int i = 0; i < getIncoming().size(); i++) {
@@ -285,7 +283,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	}
 
 	//Check if this check is in the other classes similar or need similar adaption
-	private boolean checkForValidIncoming() throws InvalidityException {
+	private boolean checkForValidIncomings() throws InvalidityException {
 		boolean result = !(getIncoming() == null || getIncoming().size() == 0);
 		if (result) {
 			for (Relation r : getIncoming()) {
@@ -364,8 +362,10 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		NeoPropertyEdge neoPropertyEdge;
 		NeoPropertyPathParam neoPropertyPathParam;
 		
-		if (!checkForValidIncoming()) {
+		if (!checkForValidIncomings()) {
 			throw new InvalidityException(NO_IMCOMING_EDGE_SPEZIFIED);
+		} else if (getIncoming().get(ix) == null) {
+			throw new InvalidityException(WRONG_INCOMING_NEO_PROPERTY_EDGE_SPECIFIED);
 		}
 		boolean result = true;
 		neoPropertyEdge = (NeoPropertyEdge) getIncoming().get(ix);
