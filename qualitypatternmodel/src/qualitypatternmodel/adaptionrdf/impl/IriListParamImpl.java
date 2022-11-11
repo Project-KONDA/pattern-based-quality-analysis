@@ -69,12 +69,12 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
 	
 	@Override
 	public String generateSparql() throws InvalidityException {
-		if(getIriParam().isEmpty()) {
+		if(getIriParams().isEmpty()) {
 			return super.generateSparql();
 		}
 		String query = "";
 		int i = 0;
-		for(IriParam p : getIriParam()) {
+		for(IriParam p : getIriParams()) {
 			if (i>0) {
 				query += ", ";
 			}
