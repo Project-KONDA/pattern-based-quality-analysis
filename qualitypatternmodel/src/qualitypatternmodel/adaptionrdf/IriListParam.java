@@ -16,6 +16,7 @@ import qualitypatternmodel.parameters.ParameterValue;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionrdf.IriListParam#getIriParam <em>Iri Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.IriListParam#getRdfIriNode <em>Rdf Iri Node</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getIriListParam()
@@ -36,5 +37,29 @@ public interface IriListParam extends ParameterValue {
 	 * @generated
 	 */
 	EList<IriParam> getIriParam();
+
+	/**
+	 * Returns the value of the '<em><b>Rdf Iri Node</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.RdfIriNode#getRdfIriNodeTypes <em>Rdf Iri Node Types</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Rdf Iri Node</em>' reference.
+	 * @see #setRdfIriNode(RdfIriNode)
+	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getIriListParam_RdfIriNode()
+	 * @see qualitypatternmodel.adaptionrdf.RdfIriNode#getRdfIriNodeTypes
+	 * @model opposite="rdfIriNodeTypes"
+	 * @generated
+	 */
+	RdfIriNode getRdfIriNode();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.IriListParam#getRdfIriNode <em>Rdf Iri Node</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Rdf Iri Node</em>' reference.
+	 * @see #getRdfIriNode()
+	 * @generated
+	 */
+	void setRdfIriNode(RdfIriNode value);
 
 } // IriListParam

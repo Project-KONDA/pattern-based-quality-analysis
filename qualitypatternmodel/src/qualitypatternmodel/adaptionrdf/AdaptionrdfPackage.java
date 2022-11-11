@@ -642,13 +642,22 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_IRI_NODE__OUTGOING = GraphstructurePackage.COMPLEX_NODE__OUTGOING;
 
 	/**
+	 * The feature id for the '<em><b>Rdf Iri Node Types</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_IRI_NODE__RDF_IRI_NODE_TYPES = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Rdf Iri Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRI_NODE_FEATURE_COUNT = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 0;
+	int RDF_IRI_NODE_FEATURE_COUNT = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -3828,13 +3837,22 @@ public interface AdaptionrdfPackage extends EPackage {
 	int IRI_LIST_PARAM__IRI_PARAM = ParametersPackage.PARAMETER_VALUE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Rdf Iri Node</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM__RDF_IRI_NODE = ParametersPackage.PARAMETER_VALUE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Iri List Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_LIST_PARAM_FEATURE_COUNT = ParametersPackage.PARAMETER_VALUE_FEATURE_COUNT + 1;
+	int IRI_LIST_PARAM_FEATURE_COUNT = ParametersPackage.PARAMETER_VALUE_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -4706,6 +4724,17 @@ public interface AdaptionrdfPackage extends EPackage {
 	EClass getRdfIriNode();
 
 	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionrdf.RdfIriNode#getRdfIriNodeTypes <em>Rdf Iri Node Types</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Rdf Iri Node Types</em>'.
+	 * @see qualitypatternmodel.adaptionrdf.RdfIriNode#getRdfIriNodeTypes()
+	 * @see #getRdfIriNode()
+	 * @generated
+	 */
+	EReference getRdfIriNode_RdfIriNodeTypes();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionrdf.RdfPathPart <em>Rdf Path Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4959,6 +4988,17 @@ public interface AdaptionrdfPackage extends EPackage {
 	EReference getIriListParam_IriParam();
 
 	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionrdf.IriListParam#getRdfIriNode <em>Rdf Iri Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Rdf Iri Node</em>'.
+	 * @see qualitypatternmodel.adaptionrdf.IriListParam#getRdfIriNode()
+	 * @see #getIriListParam()
+	 * @generated
+	 */
+	EReference getIriListParam_RdfIriNode();
+
+	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.adaptionrdf.RdfQuantifier <em>Rdf Quantifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5018,6 +5058,14 @@ public interface AdaptionrdfPackage extends EPackage {
 		 * @generated
 		 */
 		EClass RDF_IRI_NODE = eINSTANCE.getRdfIriNode();
+
+		/**
+		 * The meta object literal for the '<em><b>Rdf Iri Node Types</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RDF_IRI_NODE__RDF_IRI_NODE_TYPES = eINSTANCE.getRdfIriNode_RdfIriNodeTypes();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfPathPartImpl <em>Rdf Path Part</em>}' class.
@@ -5228,6 +5276,14 @@ public interface AdaptionrdfPackage extends EPackage {
 		 * @generated
 		 */
 		EReference IRI_LIST_PARAM__IRI_PARAM = eINSTANCE.getIriListParam_IriParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Rdf Iri Node</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IRI_LIST_PARAM__RDF_IRI_NODE = eINSTANCE.getIriListParam_RdfIriNode();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionrdf.RdfQuantifier <em>Rdf Quantifier</em>}' enum.

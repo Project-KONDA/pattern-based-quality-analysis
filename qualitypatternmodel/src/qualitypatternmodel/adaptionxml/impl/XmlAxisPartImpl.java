@@ -19,7 +19,6 @@ import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlAxisOptionParam;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
-import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
@@ -315,11 +314,6 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	 */
 	@Override
 	public XmlPropertyOptionParam getXmlPropertyOption() {
-		if (xmlPropertyOption == null){
-			XmlPropertyOptionParam p = new XmlPropertyOptionParamImpl();
-			p.setValue(XmlPropertyKind.TAG);
-			setXmlPropertyOption(p);			
-		}
 		return xmlPropertyOption;
 	}
 

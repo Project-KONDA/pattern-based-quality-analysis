@@ -1144,7 +1144,10 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="rdfPathParam" eType="#//adaptionrdf/RdfPathParam"
           eOpposite="#//adaptionrdf/RdfPathParam/rdfPredicate"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RdfIriNode" eSuperTypes="#//graphstructure/ComplexNode #//adaptionrdf/RdfNode"/>
+    <eClassifiers xsi:type="ecore:EClass" name="RdfIriNode" eSuperTypes="#//graphstructure/ComplexNode #//adaptionrdf/RdfNode">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfIriNodeTypes" eType="#//adaptionrdf/IriListParam"
+          eOpposite="#//adaptionrdf/IriListParam/rdfIriNode"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RdfPathPart" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getRdfSinglePredicates" upperBound="-1" eType="#//adaptionrdf/RdfSinglePredicate"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="invert" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -1183,6 +1186,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="IriListParam" eSuperTypes="#//parameters/ParameterValue">
       <eStructuralFeatures xsi:type="ecore:EReference" name="iriParam" upperBound="-1"
           eType="#//adaptionrdf/IriParam" containment="true" eOpposite="#//adaptionrdf/IriParam/iriListParam"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfIriNode" eType="#//adaptionrdf/RdfIriNode"
+          eOpposite="#//adaptionrdf/RdfIriNode/rdfIriNodeTypes"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RdfPathParam" eSuperTypes="#//parameters/Parameter #//graphstructure/Adaptable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="rdfPredicate" eType="#//adaptionrdf/RdfPredicate"

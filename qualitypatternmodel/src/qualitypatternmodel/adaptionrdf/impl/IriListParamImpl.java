@@ -4,6 +4,7 @@ package qualitypatternmodel.adaptionrdf.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -11,12 +12,14 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.IriListParam;
 import qualitypatternmodel.adaptionrdf.IriParam;
+import qualitypatternmodel.adaptionrdf.RdfIriNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.impl.ParameterValueImpl;
 
@@ -29,6 +32,7 @@ import qualitypatternmodel.parameters.impl.ParameterValueImpl;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionrdf.impl.IriListParamImpl#getIriParam <em>Iri Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.impl.IriListParamImpl#getRdfIriNode <em>Rdf Iri Node</em>}</li>
  * </ul>
  *
  * @generated
@@ -43,6 +47,16 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
 	 * @ordered
 	 */
 	protected EList<IriParam> iriParam;
+
+	/**
+	 * The cached value of the '{@link #getRdfIriNode() <em>Rdf Iri Node</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRdfIriNode()
+	 * @generated
+	 * @ordered
+	 */
+	protected RdfIriNode rdfIriNode;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -98,12 +112,78 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public RdfIriNode getRdfIriNode() {
+		if (rdfIriNode != null && rdfIriNode.eIsProxy()) {
+			InternalEObject oldRdfIriNode = (InternalEObject)rdfIriNode;
+			rdfIriNode = (RdfIriNode)eResolveProxy(oldRdfIriNode);
+			if (rdfIriNode != oldRdfIriNode) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionrdfPackage.IRI_LIST_PARAM__RDF_IRI_NODE, oldRdfIriNode, rdfIriNode));
+			}
+		}
+		return rdfIriNode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RdfIriNode basicGetRdfIriNode() {
+		return rdfIriNode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRdfIriNode(RdfIriNode newRdfIriNode, NotificationChain msgs) {
+		RdfIriNode oldRdfIriNode = rdfIriNode;
+		rdfIriNode = newRdfIriNode;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.IRI_LIST_PARAM__RDF_IRI_NODE, oldRdfIriNode, newRdfIriNode);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRdfIriNode(RdfIriNode newRdfIriNode) {
+		if (newRdfIriNode != rdfIriNode) {
+			NotificationChain msgs = null;
+			if (rdfIriNode != null)
+				msgs = ((InternalEObject)rdfIriNode).eInverseRemove(this, AdaptionrdfPackage.RDF_IRI_NODE__RDF_IRI_NODE_TYPES, RdfIriNode.class, msgs);
+			if (newRdfIriNode != null)
+				msgs = ((InternalEObject)newRdfIriNode).eInverseAdd(this, AdaptionrdfPackage.RDF_IRI_NODE__RDF_IRI_NODE_TYPES, RdfIriNode.class, msgs);
+			msgs = basicSetRdfIriNode(newRdfIriNode, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.IRI_LIST_PARAM__RDF_IRI_NODE, newRdfIriNode, newRdfIriNode));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAM:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIriParam()).basicAdd(otherEnd, msgs);
+			case AdaptionrdfPackage.IRI_LIST_PARAM__RDF_IRI_NODE:
+				if (rdfIriNode != null)
+					msgs = ((InternalEObject)rdfIriNode).eInverseRemove(this, AdaptionrdfPackage.RDF_IRI_NODE__RDF_IRI_NODE_TYPES, RdfIriNode.class, msgs);
+				return basicSetRdfIriNode((RdfIriNode)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -118,6 +198,8 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
 		switch (featureID) {
 			case AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAM:
 				return ((InternalEList<?>)getIriParam()).basicRemove(otherEnd, msgs);
+			case AdaptionrdfPackage.IRI_LIST_PARAM__RDF_IRI_NODE:
+				return basicSetRdfIriNode(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -132,6 +214,9 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
 		switch (featureID) {
 			case AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAM:
 				return getIriParam();
+			case AdaptionrdfPackage.IRI_LIST_PARAM__RDF_IRI_NODE:
+				if (resolve) return getRdfIriNode();
+				return basicGetRdfIriNode();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -149,6 +234,9 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
 				getIriParam().clear();
 				getIriParam().addAll((Collection<? extends IriParam>)newValue);
 				return;
+			case AdaptionrdfPackage.IRI_LIST_PARAM__RDF_IRI_NODE:
+				setRdfIriNode((RdfIriNode)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -164,6 +252,9 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
 			case AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAM:
 				getIriParam().clear();
 				return;
+			case AdaptionrdfPackage.IRI_LIST_PARAM__RDF_IRI_NODE:
+				setRdfIriNode((RdfIriNode)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -178,6 +269,8 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
 		switch (featureID) {
 			case AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAM:
 				return iriParam != null && !iriParam.isEmpty();
+			case AdaptionrdfPackage.IRI_LIST_PARAM__RDF_IRI_NODE:
+				return rdfIriNode != null;
 		}
 		return super.eIsSet(featureID);
 	}
