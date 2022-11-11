@@ -765,7 +765,7 @@
           eOpposite="#//adaptionxml/XmlPathParam/xmlPropertyOptionParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="attributeName" eType="#//parameters/TextLiteralParam"
           containment="true" eOpposite="#//parameters/TextLiteralParam/xmlPropertyOptionParam"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="XmlAxisPart" eType="#//adaptionxml/XmlAxisPart"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="xmlAxisPart" eType="#//adaptionxml/XmlAxisPart"
           eOpposite="#//adaptionxml/XmlAxisPart/xmlPropertyOption"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlPathParam" eSuperTypes="#//graphstructure/Adaptable #//parameters/Parameter">
@@ -807,7 +807,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlPathParam" lowerBound="1"
           eType="#//adaptionxml/XmlPathParam" eOpposite="#//adaptionxml/XmlPathParam/xmlAxisParts"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlPropertyOption" eType="#//adaptionxml/XmlPropertyOptionParam"
-          containment="true" eOpposite="#//adaptionxml/XmlPropertyOptionParam/XmlAxisPart"/>
+          containment="true" eOpposite="#//adaptionxml/XmlPropertyOptionParam/xmlAxisPart"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlNavigation" abstract="true" eSuperTypes="#//graphstructure/Relation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlPathParam" eType="#//adaptionxml/XmlPathParam"

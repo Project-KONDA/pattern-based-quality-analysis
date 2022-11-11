@@ -108,7 +108,7 @@ public interface XmlAxisPart extends PatternElement, Adaptable {
 	 * @see #setXmlPropertyOption(XmlPropertyOptionParam)
 	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlAxisPart_XmlPropertyOption()
 	 * @see qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getXmlAxisPart
-	 * @model opposite="XmlAxisPart" containment="true"
+	 * @model opposite="xmlAxisPart" containment="true"
 	 * @generated
 	 */
 	XmlPropertyOptionParam getXmlPropertyOption();

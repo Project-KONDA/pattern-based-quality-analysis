@@ -4,7 +4,7 @@
     <semanticResources>qualitypatternmodel.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_A2WtQB2REeqrGqxc7qjo8A">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name=" class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="0f3d622e-7acf-4873-b1d6-176d12c9bd11">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name=" class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="a23c58ad-b480-4caf-a2b8-7af12931353b">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="qualitypatternmodel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -2972,7 +2972,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_G3A6J8rUEeysRuROHE0Ryg" x="-27" y="-17"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_G3A6KMrUEeysRuROHE0Ryg" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_G3A6KcrUEeysRuROHE0Ryg" x="123" y="52"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_G3A6KcrUEeysRuROHE0Ryg" x="-26" y="52"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_G3A6IcrUEeysRuROHE0Ryg" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_G3A6IsrUEeysRuROHE0Ryg" fontName="Segoe UI" fontHeight="8"/>
@@ -5209,10 +5209,10 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gcUahWDsEe2RKPTyFLSpDQ" x="10" y="-10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_gcUahmDsEe2RKPTyFLSpDQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gcUah2DsEe2RKPTyFLSpDQ" x="-18" y="-77"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gcUah2DsEe2RKPTyFLSpDQ" x="-68" y="68"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_gcUaiGDsEe2RKPTyFLSpDQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gcUaiWDsEe2RKPTyFLSpDQ" x="-57" y="-66"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gcUaiWDsEe2RKPTyFLSpDQ" x="-69" y="-41"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_gcUagWDsEe2RKPTyFLSpDQ" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_gcUagmDsEe2RKPTyFLSpDQ" fontName="Segoe UI" fontHeight="8"/>
@@ -11898,9 +11898,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_gbhJQGDsEe2RKPTyFLSpDQ" sourceNode="_8daj0Dh7EeqWT8u6R6QK9w" targetNode="_4CDYYMrQEeysRuROHE0Ryg" beginLabel="[0..1] xmlPropertyOption" endLabel="[0..1] XmlAxisPart">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//adaptionxml/XmlPropertyOptionParam/XmlAxisPart"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//adaptionxml/XmlPropertyOptionParam/XmlAxisPart"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_gbhJQGDsEe2RKPTyFLSpDQ" sourceNode="_8daj0Dh7EeqWT8u6R6QK9w" targetNode="_4CDYYMrQEeysRuROHE0Ryg" beginLabel="[0..1] xmlPropertyOption" endLabel="[0..1] xmlAxisPart">
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//adaptionxml/XmlPropertyOptionParam/xmlAxisPart"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//adaptionxml/XmlPropertyOptionParam/xmlAxisPart"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart/xmlPropertyOption"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_lRmHkGDsEe2RKPTyFLSpDQ" description="_66L1OzkAEeqWT8u6R6QK9w" sourceArrow="InputArrow" targetArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_lRmHkWDsEe2RKPTyFLSpDQ" showIcon="false"/>
