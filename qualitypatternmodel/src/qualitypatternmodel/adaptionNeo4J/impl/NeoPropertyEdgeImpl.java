@@ -36,6 +36,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * @generated
  */
 public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPropertyEdge {
+	private static final String NO_NEO_PROPERTY_NAME_WAS_SPECIFIED = "No NeoPropertyName was specified";
 	private static final String THE_SOURCE_NEEDS_TO_BE_SET = "The Source needs to be set";
 	private static final String NEO_PROPERTY_EDGE_NEEDS_A_NEO_PROPERTY_PATH_PARAM = "NeoPropertyEdge needs a NeoPropertyPathParam";
 	private static final String THERE_IS_NO_NEO_SIMPLE_EDGE_FOR_THE_TARGET_TYPE = "There is no NeoSimpleEdge for the target type";
@@ -140,7 +141,9 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 					neoPathPart = neoPathPart.getNeoLastEdge();
 					variable = neoPathPart.getCypherInnerEdgeNodes(false);
 				}
-				
+				if (getNeoPropertyPathParam().getNeoPropertyName() == null) {
+					throw new InvalidityException(NO_NEO_PROPERTY_NAME_WAS_SPECIFIED);
+				}
 				cypher = variable + "." + getNeoPropertyPathParam().getNeoPropertyName();
 				result = cypher;
 			}
