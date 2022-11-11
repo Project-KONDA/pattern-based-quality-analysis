@@ -10,6 +10,12 @@ import qualitypatternmodel.adaptionrdf.RdfNode;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Rdf Node</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.RdfNode#generateRdfTypes() <em>Generate Rdf Types</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public abstract class RdfNodeTest extends TestCase {
@@ -50,6 +56,19 @@ public abstract class RdfNodeTest extends TestCase {
 	 */
 	protected RdfNode getFixture() {
 		return fixture;
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionrdf.RdfNode#generateRdfTypes() <em>Generate Rdf Types</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionrdf.RdfNode#generateRdfTypes()
+	 * @generated
+	 */
+	public void testGenerateRdfTypes() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //RdfNodeTest

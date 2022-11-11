@@ -15,7 +15,7 @@ import qualitypatternmodel.parameters.ParameterValue;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionrdf.IriListParam#getIriParam <em>Iri Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.IriListParam#getIriParams <em>Iri Params</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionrdf.IriListParam#getRdfIriNode <em>Rdf Iri Node</em>}</li>
  * </ul>
  *
@@ -25,18 +25,18 @@ import qualitypatternmodel.parameters.ParameterValue;
  */
 public interface IriListParam extends ParameterValue {
 	/**
-	 * Returns the value of the '<em><b>Iri Param</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Iri Params</b></em>' containment reference list.
 	 * The list contents are of type {@link qualitypatternmodel.adaptionrdf.IriParam}.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.IriParam#getIriListParam <em>Iri List Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Iri Param</em>' containment reference list.
-	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getIriListParam_IriParam()
+	 * @return the value of the '<em>Iri Params</em>' containment reference list.
+	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getIriListParam_IriParams()
 	 * @see qualitypatternmodel.adaptionrdf.IriParam#getIriListParam
 	 * @model opposite="iriListParam" containment="true"
 	 * @generated
 	 */
-	EList<IriParam> getIriParam();
+	EList<IriParam> getIriParams();
 
 	/**
 	 * Returns the value of the '<em><b>Rdf Iri Node</b></em>' reference.

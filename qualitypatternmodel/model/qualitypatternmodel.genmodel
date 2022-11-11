@@ -963,7 +963,9 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfSinglePredicate">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfSinglePredicate/iriParam"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfNode"/>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfNode">
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionrdf/RdfNode/generateRdfTypes"/>
+      </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfLiteralNode"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/IriParam">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/IriParam/rdfSinglePredicate"/>
@@ -980,7 +982,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfSequence/items"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/IriListParam">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/IriListParam/iriParam"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/IriListParam/iriParams"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/IriListParam/rdfIriNode"/>
       </genClasses>

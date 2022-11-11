@@ -31,7 +31,7 @@ import qualitypatternmodel.parameters.impl.ParameterValueImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionrdf.impl.IriListParamImpl#getIriParam <em>Iri Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.impl.IriListParamImpl#getIriParams <em>Iri Params</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionrdf.impl.IriListParamImpl#getRdfIriNode <em>Rdf Iri Node</em>}</li>
  * </ul>
  *
@@ -39,14 +39,14 @@ import qualitypatternmodel.parameters.impl.ParameterValueImpl;
  */
 public class IriListParamImpl extends ParameterValueImpl implements IriListParam {
 	/**
-	 * The cached value of the '{@link #getIriParam() <em>Iri Param</em>}' containment reference list.
+	 * The cached value of the '{@link #getIriParams() <em>Iri Params</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIriParam()
+	 * @see #getIriParams()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<IriParam> iriParam;
+	protected EList<IriParam> iriParams;
 
 	/**
 	 * The cached value of the '{@link #getRdfIriNode() <em>Rdf Iri Node</em>}' reference.
@@ -100,11 +100,11 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
 	 * @generated
 	 */
 	@Override
-	public EList<IriParam> getIriParam() {
-		if (iriParam == null) {
-			iriParam = new EObjectContainmentWithInverseEList<IriParam>(IriParam.class, this, AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAM, AdaptionrdfPackage.IRI_PARAM__IRI_LIST_PARAM);
+	public EList<IriParam> getIriParams() {
+		if (iriParams == null) {
+			iriParams = new EObjectContainmentWithInverseEList<IriParam>(IriParam.class, this, AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAMS, AdaptionrdfPackage.IRI_PARAM__IRI_LIST_PARAM);
 		}
-		return iriParam;
+		return iriParams;
 	}
 
 	/**
@@ -178,8 +178,8 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAM:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIriParam()).basicAdd(otherEnd, msgs);
+			case AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAMS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIriParams()).basicAdd(otherEnd, msgs);
 			case AdaptionrdfPackage.IRI_LIST_PARAM__RDF_IRI_NODE:
 				if (rdfIriNode != null)
 					msgs = ((InternalEObject)rdfIriNode).eInverseRemove(this, AdaptionrdfPackage.RDF_IRI_NODE__RDF_IRI_NODE_TYPES, RdfIriNode.class, msgs);
@@ -196,8 +196,8 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAM:
-				return ((InternalEList<?>)getIriParam()).basicRemove(otherEnd, msgs);
+			case AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAMS:
+				return ((InternalEList<?>)getIriParams()).basicRemove(otherEnd, msgs);
 			case AdaptionrdfPackage.IRI_LIST_PARAM__RDF_IRI_NODE:
 				return basicSetRdfIriNode(null, msgs);
 		}
@@ -212,8 +212,8 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAM:
-				return getIriParam();
+			case AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAMS:
+				return getIriParams();
 			case AdaptionrdfPackage.IRI_LIST_PARAM__RDF_IRI_NODE:
 				if (resolve) return getRdfIriNode();
 				return basicGetRdfIriNode();
@@ -230,9 +230,9 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAM:
-				getIriParam().clear();
-				getIriParam().addAll((Collection<? extends IriParam>)newValue);
+			case AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAMS:
+				getIriParams().clear();
+				getIriParams().addAll((Collection<? extends IriParam>)newValue);
 				return;
 			case AdaptionrdfPackage.IRI_LIST_PARAM__RDF_IRI_NODE:
 				setRdfIriNode((RdfIriNode)newValue);
@@ -249,8 +249,8 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAM:
-				getIriParam().clear();
+			case AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAMS:
+				getIriParams().clear();
 				return;
 			case AdaptionrdfPackage.IRI_LIST_PARAM__RDF_IRI_NODE:
 				setRdfIriNode((RdfIriNode)null);
@@ -267,8 +267,8 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAM:
-				return iriParam != null && !iriParam.isEmpty();
+			case AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAMS:
+				return iriParams != null && !iriParams.isEmpty();
 			case AdaptionrdfPackage.IRI_LIST_PARAM__RDF_IRI_NODE:
 				return rdfIriNode != null;
 		}

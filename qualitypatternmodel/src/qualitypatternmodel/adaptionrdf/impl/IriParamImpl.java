@@ -334,7 +334,7 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newIriListParam != null)
-				msgs = ((InternalEObject)newIriListParam).eInverseAdd(this, AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAM, IriListParam.class, msgs);
+				msgs = ((InternalEObject)newIriListParam).eInverseAdd(this, AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAMS, IriListParam.class, msgs);
 			msgs = basicSetIriListParam(newIriListParam, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -399,7 +399,7 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 			case AdaptionrdfPackage.IRI_PARAM__RDF_SINGLE_PREDICATE:
 				return eInternalContainer().eInverseRemove(this, AdaptionrdfPackage.RDF_SINGLE_PREDICATE__IRI_PARAM, RdfSinglePredicate.class, msgs);
 			case AdaptionrdfPackage.IRI_PARAM__IRI_LIST_PARAM:
-				return eInternalContainer().eInverseRemove(this, AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAM, IriListParam.class, msgs);
+				return eInternalContainer().eInverseRemove(this, AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAMS, IriListParam.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}

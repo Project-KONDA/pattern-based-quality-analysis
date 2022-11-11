@@ -2,8 +2,10 @@
  */
 package qualitypatternmodel.adaptionrdf.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
@@ -11,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.IriListParam;
 import qualitypatternmodel.adaptionrdf.RdfIriNode;
+import qualitypatternmodel.adaptionrdf.RdfNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -170,6 +173,18 @@ public class RdfIriNodeImpl extends ComplexNodeImpl implements RdfIriNode {
 	 * @generated
 	 */
 	@Override
+	public String generateRdfTypes() throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case AdaptionrdfPackage.RDF_IRI_NODE__RDF_IRI_NODE_TYPES:
@@ -251,6 +266,41 @@ public class RdfIriNodeImpl extends ComplexNodeImpl implements RdfIriNode {
 				return rdfIriNodeTypes != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == RdfNode.class) {
+			switch (baseOperationID) {
+				case AdaptionrdfPackage.RDF_NODE___GENERATE_RDF_TYPES: return AdaptionrdfPackage.RDF_IRI_NODE___GENERATE_RDF_TYPES;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case AdaptionrdfPackage.RDF_IRI_NODE___GENERATE_RDF_TYPES:
+				try {
+					return generateRdfTypes();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //RdfIriNodeImpl

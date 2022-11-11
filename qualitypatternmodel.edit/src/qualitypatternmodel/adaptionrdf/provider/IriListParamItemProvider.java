@@ -91,7 +91,7 @@ public class IriListParamItemProvider extends ParameterValueItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(AdaptionrdfPackage.Literals.IRI_LIST_PARAM__IRI_PARAM);
+			childrenFeatures.add(AdaptionrdfPackage.Literals.IRI_LIST_PARAM__IRI_PARAMS);
 		}
 		return childrenFeatures;
 	}
@@ -147,7 +147,7 @@ public class IriListParamItemProvider extends ParameterValueItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(IriListParam.class)) {
-			case AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAM:
+			case AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAMS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -167,7 +167,7 @@ public class IriListParamItemProvider extends ParameterValueItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AdaptionrdfPackage.Literals.IRI_LIST_PARAM__IRI_PARAM,
+				(AdaptionrdfPackage.Literals.IRI_LIST_PARAM__IRI_PARAMS,
 				 AdaptionrdfFactory.eINSTANCE.createIriParam()));
 	}
 

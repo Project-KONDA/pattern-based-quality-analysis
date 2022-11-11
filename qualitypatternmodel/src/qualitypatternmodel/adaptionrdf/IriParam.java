@@ -118,14 +118,14 @@ public interface IriParam extends ParameterValue {
 
 	/**
 	 * Returns the value of the '<em><b>Iri List Param</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.IriListParam#getIriParam <em>Iri Param</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.IriListParam#getIriParams <em>Iri Params</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Iri List Param</em>' container reference.
 	 * @see #setIriListParam(IriListParam)
 	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getIriParam_IriListParam()
-	 * @see qualitypatternmodel.adaptionrdf.IriListParam#getIriParam
-	 * @model opposite="iriParam" transient="false"
+	 * @see qualitypatternmodel.adaptionrdf.IriListParam#getIriParams
+	 * @model opposite="iriParams" transient="false"
 	 * @generated
 	 */
 	IriListParam getIriListParam();
