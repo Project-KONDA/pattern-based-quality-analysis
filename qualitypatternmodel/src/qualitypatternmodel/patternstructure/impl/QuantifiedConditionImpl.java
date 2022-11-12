@@ -4,8 +4,6 @@ package qualitypatternmodel.patternstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -241,6 +239,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 * @param cypher
 	 * @throws InvalidityException
 	 * Checks and generates all the properties which shall be represented with an Exists and not an Exists-Match structure.
+	 * A Comparison or Function call is an implicated exists check.
 	 */
 	private final String generateExistsProperty(final StringBuilder cypher) throws InvalidityException {
 		final EList<NeoPropertyEdge> neoPropertyEdges = new BasicEList<NeoPropertyEdge>();
@@ -249,29 +248,27 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		getAllNeoPropertiesToAddress(neoPropertyEdges, neoVarPropertyEdges, uniqueNeoPropertyNodes);
 		
 		String result = new String();
-		if (neoPropertyEdges.size() != 0 || neoVarPropertyEdges.size() != 0) {
-			if (quantifier == Quantifier.EXISTS && getNotCondition() == null) {
-				for (NeoPropertyEdge edge : neoPropertyEdges) {
-					addNeoPropertyToExists(cypher, edge);
-				}
-				for (NeoPropertyEdge edge : neoVarPropertyEdges) {
-					addNeoPropertyToExists(cypher, edge);
-				}
-				result = String.format(CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_PROPERTY, cypher.toString());
-				cypher.setLength(0);
-				cypher.append(result);
-				result = new String();
-				addGraphWhereToExistsProperty(cypher, result);
-				result = cypher.toString();
-			} else if (quantifier == Quantifier.EXISTS && getNotCondition() != null) {
-				for (NeoPropertyNode node : uniqueNeoPropertyNodes) {
-					addNeoPropertyToNotExists(cypher, node);
-				}
-				addGraphWhereToExistsProperty(cypher, result);
-				result = cypher.toString();
-			} else if (quantifier == Quantifier.FORALL) {
-				throw new InvalidityException(MODEL_HAS_TO_BUILD_A_PATTERN_STRUCTURE);
+		if (quantifier == Quantifier.EXISTS && getNotCondition() == null) {
+			for (NeoPropertyEdge edge : neoPropertyEdges) {
+				addNeoPropertyToExists(cypher, edge);
 			}
+			for (NeoPropertyEdge edge : neoVarPropertyEdges) {
+				addNeoPropertyToExists(cypher, edge);
+			}
+			if (!cypher.isEmpty()) result = String.format(CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_PROPERTY, cypher.toString());
+			cypher.setLength(0);
+			cypher.append(result);
+			result = new String();
+			addGraphWhereToExistsProperty(cypher, result);
+			result = cypher.toString();
+		} else if (quantifier == Quantifier.EXISTS && getNotCondition() != null) {
+			for (NeoPropertyNode node : uniqueNeoPropertyNodes) {
+				addNeoPropertyToNotExists(cypher, node);
+			}
+			addGraphWhereToExistsProperty(cypher, result);
+			result = cypher.toString();
+		} else if (quantifier == Quantifier.FORALL) {
+			throw new InvalidityException(MODEL_HAS_TO_BUILD_A_PATTERN_STRUCTURE);
 		}
 		return result;
 	}
@@ -296,7 +293,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	cypher.append(localCypher.toString());
 	}
 	
-	private void addGraphWhereToExistsProperty(final StringBuilder cypher, String result) throws InvalidityException {
+	private final void addGraphWhereToExistsProperty(final StringBuilder cypher, String result) throws InvalidityException {
 		if (cypher.length() != 0) {
 			final String where = graph.generateCypherWhere();
 			if (!where.isEmpty()) {
@@ -305,6 +302,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				cypher.append(result);
 			}
 		}
+		cypher.append(graph.generateCypherWhere());
 	}
 	
 	/**
@@ -325,9 +323,11 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			if (r instanceof NeoPropertyEdge) {
 				neoPropertyEdge = (NeoPropertyEdge) r;
 				if (r.getIncomingMapping() == null) {
-					if (neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart() == null) { //&& ((NeoNode) neoPropertyEdge.getSource()).getNeoPlace() != NeoPlace.BEGINNING
-						neoPropertyEdges.add(neoPropertyEdge);
-						uniqueNeoPropertyNodes.add((NeoPropertyNode) neoPropertyEdge.getTarget());
+					if (neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart() == null) {
+						if (!isImplicitlyChecked(neoPropertyEdge)) {
+							neoPropertyEdges.add(neoPropertyEdge);
+							uniqueNeoPropertyNodes.add((NeoPropertyNode) neoPropertyEdge.getTarget());							
+						}
 					}
 				} else if (r.getIncomingMapping() != null) {
 					final NeoPropertyEdge originalNeoPropertyEdge = (NeoPropertyEdge) neoPropertyEdge.getOriginalRelation();					
@@ -345,13 +345,19 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 					}
 					if (!isAlreadyChecked) {
 						if (originalNeoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart() != null) {
-							neoVarPropertyEdges.add(originalNeoPropertyEdge);
-							uniqueNeoPropertyNodes.add((NeoPropertyNode) originalNeoPropertyEdge.getTarget());
+							if (!isImplicitlyChecked(originalNeoPropertyEdge)) {
+								neoVarPropertyEdges.add(originalNeoPropertyEdge);
+								uniqueNeoPropertyNodes.add((NeoPropertyNode) originalNeoPropertyEdge.getTarget());								
+							}
 						}	
 					}
 				}
 			} 
 		}
+	}
+
+	private final boolean isImplicitlyChecked(final NeoPropertyEdge originalNeoPropertyEdge) {
+		return originalNeoPropertyEdge.getTarget().getIncoming().size() != 1 || originalNeoPropertyEdge.getTarget().getAllOperators().size() != 0;
 	}
 	
 	/**
@@ -400,12 +406,12 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			}
 		}
 		
-		if (quantifier == Quantifier.EXISTS ) {
+		if (quantifier == Quantifier.EXISTS) {
 			//INCLUDE the WHERE			
 			appendCypherWhere(cypherWhere);
-			addCypherWherePrefix(cypherWhere);
-			checkCypherWhere(cypher, cypherWhere);
-			includeExistsProperties(cypher);
+			appendCypherWherePrefix(cypherWhere);
+			checkAndAppendCypherWhere(cypher, cypherWhere);
+			appendExistsProperties(cypher);
 			
 			if (!(getCondition() instanceof TrueElementImpl)) {
 				StringBuilder conditionWhere = new StringBuilder(condition.generateCypher());
@@ -430,9 +436,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		
 			cypherWhere.append(localCypher.toString());
 			appendCypherWhere(cypherWhere);
-			addCypherWherePrefix(cypherWhere);
-			checkCypherWhere(cypher, cypherWhere);
-			includeExistsProperties(cypher);
+			appendCypherWherePrefix(cypherWhere);
+			checkAndAppendCypherWhere(cypher, cypherWhere);
+			appendExistsProperties(cypher);
 			
 			exists = String.format(exists, cypher.toString());
 		} else {
@@ -441,7 +447,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		return exists;
 	}
 
-	private void includeExistsProperties(StringBuilder cypher) throws InvalidityException {
+	private final void appendExistsProperties(StringBuilder cypher) throws InvalidityException {
 		final StringBuilder cypherTemp = new StringBuilder();
 		createTheExistsPropertyForExistsMatch(cypherTemp);
 		String cypherPropertyExists = cypherTemp.toString();
@@ -452,7 +458,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		}
 	}
 
-	private void createTheExistsPropertyForExistsMatch(StringBuilder cypher) throws InvalidityException {
+	private final void createTheExistsPropertyForExistsMatch(StringBuilder cypher) throws InvalidityException {
 		final EList<NeoPropertyEdge> neoPropertyEdges = new BasicEList<NeoPropertyEdge>();
 		final EList<NeoPropertyEdge> neoVarPropertyEdges = new BasicEList<NeoPropertyEdge>();
 		final Set<NeoPropertyNode> uniqueNeoPropertyNodes = new TreeSet<NeoPropertyNode>((NeoPropertyNode node1, NeoPropertyNode node2) -> (node1.getOriginalID() - node2.getOriginalID()));
@@ -492,12 +498,13 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		}
 	}
 
-	private final void checkCypherWhere(StringBuilder cypher, StringBuilder cypherWhere) {
-		if (cypherWhere.length() != 0) 
+	private final void checkAndAppendCypherWhere(final StringBuilder cypher, final StringBuilder cypherWhere) {
+		if (cypherWhere.length() != 0) {
 			cypher.append(cypherWhere.toString());
+		}
 	}
 
-	private final void addCypherWherePrefix(StringBuilder cypherWhere) {
+	private final void appendCypherWherePrefix(final StringBuilder cypherWhere) {
 		if (cypherWhere.length() != 0) {
 			String where = String.format(CypherSpecificConstants.CLAUSE_WHERE_INLUCE_W, CypherSpecificConstants.TWELVE_WHITESPACES);
 			where += CypherSpecificConstants.ONE_WHITESPACE + cypherWhere.toString();
@@ -507,14 +514,14 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		}
 	}
 
-	private final void appendCypherWhere(StringBuilder query) throws InvalidityException {
-		if (graph.generateCypherWhere() != null && !graph.generateCypherWhere().isEmpty()) {
+	private final void appendCypherWhere(final StringBuilder query) throws InvalidityException {
+		String tempCypher = graph.generateCypherWhere();			
+		if (tempCypher != null && !tempCypher.isEmpty()) {
 			if (query.length() != 0) {
 				query.append("\n" + CypherSpecificConstants.TWELVE_WHITESPACES
 						+ LOGICAL_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
 			}
-			String tempCypher = graph.generateCypherWhere();
-			tempCypher.replaceAll("\n" + CypherSpecificConstants.CLAUSE_RETURN, "\n" + CypherSpecificConstants.TWELVE_WHITESPACES);
+			tempCypher = tempCypher.replaceAll("\n", "\n" + CypherSpecificConstants.TWELVE_WHITESPACES);
 			query.append(tempCypher);
 		}
 	}

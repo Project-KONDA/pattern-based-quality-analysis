@@ -1,25 +1,17 @@
 package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
-
-import org.eclipse.emf.common.util.BasicEList;
-import org.eclipse.emf.common.util.EList;
-import org.mockito.Mockito;
 
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
+import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
-import qualitypatternmodel.graphstructure.impl.GraphImpl;
-import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
@@ -31,9 +23,14 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 	//Add a beginning in the morph which is not the end to thest the pattern-match generation alg
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CypherTest07QuantifiedCondition quantifiedCond = new CypherTest07QuantifiedCondition();
+		//In the notCond is also a lot of QuantifiedTesting inside. Thus it is also executed here to check the codecoverage for the QuantifiedCond
+		CypherTest03NotCondition notCond = new CypherTest03NotCondition();
 		try {
 			quantifiedCond.generalizedTests();         
-			quantifiedCond.generalizedInvalidtyExceptionTests(); 
+			quantifiedCond.generalizedInvalidtyExceptionTests();
+			quantifiedCond = null;
+			notCond.generalizedTests();         
+			notCond.generalizedInvalidtyExceptionTests(); 
 		} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();
@@ -51,6 +48,8 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 		completePatterns.add(getExistsMatchWithSamePropertyName(true));
 		completePatterns.add(getExistsMatchWithExistsProperty(true));
 		completePatterns.add(getExistsMatchWithExistsProperty(false));
+		completePatterns.add(getExistsMatchWithExistsPropertyWithExternalProperty(false));
+		//Build a check for NeoPropertyNode internal / external and with two quantified conds
 	}
 	
 
@@ -146,6 +145,42 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 		npe = (NeoPropertyEdge) g.getRelations().get(3);
 		npe.getNeoPropertyPathParam().setNeoPropertyName("endDate");
 		((NeoPropertyEdge) g.getRelations().get(2)).getTarget().addPrimitiveContains("1613");
+		
+		return completePattern;
+	}
+	
+	private CompletePattern getExistsMatchWithExistsPropertyWithExternalProperty(boolean not) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getBasePattern();
+		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		Graph g = quantifiedCondition.getGraph();
+		if (not) {
+			NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
+			completePattern.setCondition(notCond);
+			notCond.setCondition(quantifiedCondition);
+		} else {
+			completePattern.setCondition(quantifiedCondition);
+		}
+		ComplexNode cn = g.addComplexNode();
+		g.addRelation((ComplexNode) g.getNodes().get(0), cn);
+		PrimitiveNode pn = g.addPrimitiveNode();
+		g.addRelation(cn, pn);
+		
+		pn = g.addPrimitiveNode();
+		g.addRelation(cn, pn);
+		
+		completePattern.createNeo4jAdaption();
+		
+		NeoPropertyEdge npe = (NeoPropertyEdge) g.getRelations().get(2);
+		npe.getNeoPropertyPathParam().setNeoPropertyName("startDate");
+		npe.getNeoPropertyPathParam().createParameters();
+		((NeoSimpleEdge) npe.getNeoPropertyPathParam().getNeoPathPart()).addNeoTargetNodeLabel("DateNode");
+		
+		npe = (NeoPropertyEdge) g.getRelations().get(3);
+		npe.getNeoPropertyPathParam().createParameters();
+		((NeoSimpleEdge) npe.getNeoPropertyPathParam().getNeoPathPart()).addNeoTargetNodeLabel("DateNode");
+		npe.getNeoPropertyPathParam().setNeoPropertyName("endDate");
+		((NeoPropertyEdge) g.getRelations().get(2)).getTarget().addPrimitiveContains("1613");
+		((NeoPropertyEdge) g.getRelations().get(3)).getTarget().addPrimitiveContains("1614");
 		
 		return completePattern;
 	}
