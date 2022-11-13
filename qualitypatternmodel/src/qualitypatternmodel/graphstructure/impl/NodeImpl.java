@@ -14,11 +14,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
-import qualitypatternmodel.adaptionNeo4J.NeoNode;
-import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
-import qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyNodeImpl;
-import qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
+import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jFactoryImpl;
+import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyNodeImpl;
+import qualitypatternmodel.adaptionneo4j.impl.NeoNodeImpl;
 import qualitypatternmodel.adaptionrdf.RdfIriNode;
 import qualitypatternmodel.adaptionrdf.RdfLiteralNode;
 import qualitypatternmodel.adaptionrdf.impl.RdfIriNodeImpl;
@@ -1584,7 +1584,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	
 	private NeoNode adaptAsNeoNodeRecursive() throws InvalidityException {
 		if (!(this instanceof NeoNode)) {	
-			NeoNodeImpl neoNode = (NeoNodeImpl) AdaptionNeo4JFactoryImpl.init().createNeoNode();
+			NeoNodeImpl neoNode = (NeoNodeImpl) Adaptionneo4jFactoryImpl.init().createNeoNode();
 			neoNode.typeModifiable = true;
 			neoNode.setGraphSimple(getGraph());				
 					
@@ -1670,7 +1670,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 
 	private NeoPropertyNode adaptAsNeoPropertyRecursive() throws InvalidityException {
 		if (!(this instanceof NeoPropertyNode)) {
-			NeoPropertyNodeImpl neoPropertyNode = (NeoPropertyNodeImpl) AdaptionNeo4JFactoryImpl.init().createNeoPropertyNode();	
+			NeoPropertyNodeImpl neoPropertyNode = (NeoPropertyNodeImpl) Adaptionneo4jFactoryImpl.init().createNeoPropertyNode();	
 			neoPropertyNode.typeModifiable = true;
 			neoPropertyNode.setGraphSimple(getGraph());			
 			

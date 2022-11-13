@@ -9,9 +9,9 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.mockito.Mockito;
 
-import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
-import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
-import qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl;
+import qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoPathPart;
+import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 

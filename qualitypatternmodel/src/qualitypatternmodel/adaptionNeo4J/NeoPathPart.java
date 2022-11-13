@@ -1,46 +1,48 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J;
+package qualitypatternmodel.adaptionneo4j;
 
 import org.eclipse.emf.common.util.EList;
+
 import qualitypatternmodel.exceptions.InvalidityException;
+
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Neo Path</b></em>'.
+ * A representation of the model object '<em><b>Neo Path Part</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathParam <em>Neo Path Param</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPropertyPathParam <em>Neo Property Path Param</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoComplexEdge <em>Neo Complex Edge</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoPathParam <em>Neo Path Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoPropertyPathParam <em>Neo Property Path Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoComplexEdge <em>Neo Complex Edge</em>}</li>
  * </ul>
  *
- * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPathPart()
+ * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoPathPart()
  * @model abstract="true"
  * @generated
  */
 public interface NeoPathPart extends PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Neo Path Param</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionNeo4J.NeoPathParam#getNeoPathPart <em>Neo Path Part</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionneo4j.NeoPathParam#getNeoPathPart <em>Neo Path Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Neo Path Param</em>' container reference.
 	 * @see #setNeoPathParam(NeoPathParam)
-	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPathPart_NeoPathParam()
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathParam#getNeoPathPart
+	 * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoPathPart_NeoPathParam()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPathParam#getNeoPathPart
 	 * @model opposite="neoPathPart" transient="false"
-	 * @generated
+	 * @generated NOT
 	 */
 	NeoPathParam getNeoPathParam() throws InvalidityException;
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathParam <em>Neo Path Param</em>}' container reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoPathParam <em>Neo Path Param</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Neo Path Param</em>' container reference.
@@ -51,20 +53,20 @@ public interface NeoPathPart extends PatternElement {
 
 	/**
 	 * Returns the value of the '<em><b>Neo Property Path Param</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPathPart <em>Neo Path Part</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam#getNeoPathPart <em>Neo Path Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Neo Property Path Param</em>' container reference.
 	 * @see #setNeoPropertyPathParam(NeoPropertyPathParam)
-	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPathPart_NeoPropertyPathParam()
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPathPart
+	 * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoPathPart_NeoPropertyPathParam()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam#getNeoPathPart
 	 * @model opposite="neoPathPart" transient="false"
-	 * @generated
+	 * @generated NOT
 	 */
 	NeoPropertyPathParam getNeoPropertyPathParam() throws InvalidityException;
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPropertyPathParam <em>Neo Property Path Param</em>}' container reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoPropertyPathParam <em>Neo Property Path Param</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Neo Property Path Param</em>' container reference.
@@ -75,20 +77,20 @@ public interface NeoPathPart extends PatternElement {
 
 	/**
 	 * Returns the value of the '<em><b>Neo Complex Edge</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#getNeoPathParts <em>Neo Path Parts</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionneo4j.NeoComplexEdge#getNeoPathParts <em>Neo Path Parts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Neo Complex Edge</em>' container reference.
 	 * @see #setNeoComplexEdge(NeoComplexEdge)
-	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPathPart_NeoComplexEdge()
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#getNeoPathParts
+	 * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoPathPart_NeoComplexEdge()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoComplexEdge#getNeoPathParts
 	 * @model opposite="neoPathParts" transient="false"
 	 * @generated
 	 */
 	NeoComplexEdge getNeoComplexEdge();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoComplexEdge <em>Neo Complex Edge</em>}' container reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoComplexEdge <em>Neo Complex Edge</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Neo Complex Edge</em>' container reference.
@@ -108,14 +110,19 @@ public interface NeoPathPart extends PatternElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String getCypherVariable() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
 	String getCypherInnerEdgeNodes(boolean isReturn) throws InvalidityException;
 
-	
-	String getCypherVariable() throws InvalidityException;
-	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -123,4 +130,5 @@ public interface NeoPathPart extends PatternElement {
 	 * @generated
 	 */
 	NeoPathPart getNeoLastEdge() throws InvalidityException;
+
 } // NeoPathPart

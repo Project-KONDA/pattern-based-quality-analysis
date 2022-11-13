@@ -1,6 +1,6 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.presentation;
+package qualitypatternmodel.adaptionneo4j.presentation;
 
 
 import java.util.ArrayList;
@@ -69,8 +69,8 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 
@@ -93,7 +93,7 @@ import qualitypatternmodel.parameters.presentation.QualitypatternmodelEditorPlug
  * <!-- end-user-doc -->
  * @generated
  */
-public class AdaptionNeo4JModelWizard extends Wizard implements INewWizard {
+public class Adaptionneo4jModelWizard extends Wizard implements INewWizard {
 	/**
 	 * The supported extensions for created files.
 	 * <!-- begin-user-doc -->
@@ -101,7 +101,7 @@ public class AdaptionNeo4JModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final List<String> FILE_EXTENSIONS =
-		Collections.unmodifiableList(Arrays.asList(QualitypatternmodelEditorPlugin.INSTANCE.getString("_UI_AdaptionNeo4JEditorFilenameExtensions").split("\\s*,\\s*")));
+		Collections.unmodifiableList(Arrays.asList(QualitypatternmodelEditorPlugin.INSTANCE.getString("_UI_Adaptionneo4jEditorFilenameExtensions").split("\\s*,\\s*")));
 
 	/**
 	 * A formatted list of supported file extensions, suitable for display.
@@ -110,7 +110,7 @@ public class AdaptionNeo4JModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final String FORMATTED_FILE_EXTENSIONS =
-		QualitypatternmodelEditorPlugin.INSTANCE.getString("_UI_AdaptionNeo4JEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+		QualitypatternmodelEditorPlugin.INSTANCE.getString("_UI_Adaptionneo4jEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
 	/**
 	 * This caches an instance of the model package.
@@ -118,7 +118,7 @@ public class AdaptionNeo4JModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AdaptionNeo4JPackage adaptionNeo4JPackage = AdaptionNeo4JPackage.eINSTANCE;
+	protected Adaptionneo4jPackage adaptionneo4jPackage = Adaptionneo4jPackage.eINSTANCE;
 
 	/**
 	 * This caches an instance of the model factory.
@@ -126,7 +126,7 @@ public class AdaptionNeo4JModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AdaptionNeo4JFactory adaptionNeo4JFactory = adaptionNeo4JPackage.getAdaptionNeo4JFactory();
+	protected Adaptionneo4jFactory adaptionneo4jFactory = adaptionneo4jPackage.getAdaptionneo4jFactory();
 
 	/**
 	 * This is the file creation page.
@@ -134,7 +134,7 @@ public class AdaptionNeo4JModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AdaptionNeo4JModelWizardNewFileCreationPage newFileCreationPage;
+	protected Adaptionneo4jModelWizardNewFileCreationPage newFileCreationPage;
 
 	/**
 	 * This is the initial object creation page.
@@ -142,7 +142,7 @@ public class AdaptionNeo4JModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AdaptionNeo4JModelWizardInitialObjectCreationPage initialObjectCreationPage;
+	protected Adaptionneo4jModelWizardInitialObjectCreationPage initialObjectCreationPage;
 
 	/**
 	 * Remember the selection during initialization for populating the default container.
@@ -179,7 +179,7 @@ public class AdaptionNeo4JModelWizard extends Wizard implements INewWizard {
 		this.workbench = workbench;
 		this.selection = selection;
 		setWindowTitle(QualitypatternmodelEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(QualitypatternmodelEditorPlugin.INSTANCE.getImage("full/wizban/NewAdaptionNeo4J")));
+		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(QualitypatternmodelEditorPlugin.INSTANCE.getImage("full/wizban/NewAdaptionneo4j")));
 	}
 
 	/**
@@ -191,7 +191,7 @@ public class AdaptionNeo4JModelWizard extends Wizard implements INewWizard {
 	protected Collection<String> getInitialObjectNames() {
 		if (initialObjectNames == null) {
 			initialObjectNames = new ArrayList<String>();
-			for (EClassifier eClassifier : adaptionNeo4JPackage.getEClassifiers()) {
+			for (EClassifier eClassifier : adaptionneo4jPackage.getEClassifiers()) {
 				if (eClassifier instanceof EClass) {
 					EClass eClass = (EClass)eClassifier;
 					if (!eClass.isAbstract()) {
@@ -211,8 +211,8 @@ public class AdaptionNeo4JModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	protected EObject createInitialModel() {
-		EClass eClass = (EClass)adaptionNeo4JPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
-		EObject rootObject = adaptionNeo4JFactory.create(eClass);
+		EClass eClass = (EClass)adaptionneo4jPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
+		EObject rootObject = adaptionneo4jFactory.create(eClass);
 		return rootObject;
 	}
 
@@ -314,14 +314,14 @@ public class AdaptionNeo4JModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public class AdaptionNeo4JModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
+	public class Adaptionneo4jModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
 		/**
 		 * Pass in the selection.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public AdaptionNeo4JModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
+		public Adaptionneo4jModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
 			super(pageId, selection);
 		}
 
@@ -361,7 +361,7 @@ public class AdaptionNeo4JModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public class AdaptionNeo4JModelWizardInitialObjectCreationPage extends WizardPage {
+	public class Adaptionneo4jModelWizardInitialObjectCreationPage extends WizardPage {
 		/**
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -389,7 +389,7 @@ public class AdaptionNeo4JModelWizard extends Wizard implements INewWizard {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public AdaptionNeo4JModelWizardInitialObjectCreationPage(String pageId) {
+		public Adaptionneo4jModelWizardInitialObjectCreationPage(String pageId) {
 			super(pageId);
 		}
 
@@ -575,10 +575,10 @@ public class AdaptionNeo4JModelWizard extends Wizard implements INewWizard {
 	public void addPages() {
 		// Create a page, set the title, and the initial model file name.
 		//
-		newFileCreationPage = new AdaptionNeo4JModelWizardNewFileCreationPage("Whatever", selection);
-		newFileCreationPage.setTitle(QualitypatternmodelEditorPlugin.INSTANCE.getString("_UI_AdaptionNeo4JModelWizard_label"));
-		newFileCreationPage.setDescription(QualitypatternmodelEditorPlugin.INSTANCE.getString("_UI_AdaptionNeo4JModelWizard_description"));
-		newFileCreationPage.setFileName(QualitypatternmodelEditorPlugin.INSTANCE.getString("_UI_AdaptionNeo4JEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
+		newFileCreationPage = new Adaptionneo4jModelWizardNewFileCreationPage("Whatever", selection);
+		newFileCreationPage.setTitle(QualitypatternmodelEditorPlugin.INSTANCE.getString("_UI_Adaptionneo4jModelWizard_label"));
+		newFileCreationPage.setDescription(QualitypatternmodelEditorPlugin.INSTANCE.getString("_UI_Adaptionneo4jModelWizard_description"));
+		newFileCreationPage.setFileName(QualitypatternmodelEditorPlugin.INSTANCE.getString("_UI_Adaptionneo4jEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
@@ -604,7 +604,7 @@ public class AdaptionNeo4JModelWizard extends Wizard implements INewWizard {
 
 					// Make up a unique new name here.
 					//
-					String defaultModelBaseFilename = QualitypatternmodelEditorPlugin.INSTANCE.getString("_UI_AdaptionNeo4JEditorFilenameDefaultBase");
+					String defaultModelBaseFilename = QualitypatternmodelEditorPlugin.INSTANCE.getString("_UI_Adaptionneo4jEditorFilenameDefaultBase");
 					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
 					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
 					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
@@ -614,8 +614,8 @@ public class AdaptionNeo4JModelWizard extends Wizard implements INewWizard {
 				}
 			}
 		}
-		initialObjectCreationPage = new AdaptionNeo4JModelWizardInitialObjectCreationPage("Whatever2");
-		initialObjectCreationPage.setTitle(QualitypatternmodelEditorPlugin.INSTANCE.getString("_UI_AdaptionNeo4JModelWizard_label"));
+		initialObjectCreationPage = new Adaptionneo4jModelWizardInitialObjectCreationPage("Whatever2");
+		initialObjectCreationPage.setTitle(QualitypatternmodelEditorPlugin.INSTANCE.getString("_UI_Adaptionneo4jModelWizard_label"));
 		initialObjectCreationPage.setDescription(QualitypatternmodelEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
 	}

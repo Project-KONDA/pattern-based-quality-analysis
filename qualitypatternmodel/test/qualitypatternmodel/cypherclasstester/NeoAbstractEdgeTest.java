@@ -10,8 +10,8 @@ import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.util.EMap;
 import org.mockito.Mockito;
 
-import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
-import qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl;
+import qualitypatternmodel.adaptionneo4j.NeoAbstractEdge;
+import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;

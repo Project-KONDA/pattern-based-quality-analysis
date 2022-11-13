@@ -15,8 +15,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
 import qualitypatternmodel.graphstructure.Graph;
@@ -237,12 +236,12 @@ public class GraphItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(GraphstructurePackage.Literals.GRAPH__NODES,
-				 AdaptionNeo4JFactory.eINSTANCE.createNeoNode()));
+				 Adaptionneo4jFactory.eINSTANCE.createNeoNode()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(GraphstructurePackage.Literals.GRAPH__NODES,
-				 AdaptionNeo4JFactory.eINSTANCE.createNeoPropertyNode()));
+				 Adaptionneo4jFactory.eINSTANCE.createNeoPropertyNode()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -277,12 +276,12 @@ public class GraphItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(GraphstructurePackage.Literals.GRAPH__RELATIONS,
-				 AdaptionNeo4JFactory.eINSTANCE.createNeoEdge()));
+				 Adaptionneo4jFactory.eINSTANCE.createNeoEdge()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(GraphstructurePackage.Literals.GRAPH__RELATIONS,
-				 AdaptionNeo4JFactory.eINSTANCE.createNeoPropertyEdge()));
+				 Adaptionneo4jFactory.eINSTANCE.createNeoPropertyEdge()));
 	}
 
 	/**

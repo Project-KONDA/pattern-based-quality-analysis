@@ -1,9 +1,11 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J;
+package qualitypatternmodel.adaptionneo4j;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+
 import qualitypatternmodel.graphstructure.Adaptable;
+
 import qualitypatternmodel.parameters.Parameter;
 
 /**
@@ -12,11 +14,18 @@ import qualitypatternmodel.parameters.Parameter;
  * <!-- end-user-doc -->
  *
  *
- * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoAbstractPathParam()
+ * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoAbstractPathParam()
  * @model abstract="true"
  * @generated
  */
 public interface NeoAbstractPathParam extends Parameter, Adaptable {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String getReturnInnerEdgeNodes() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -26,11 +35,4 @@ public interface NeoAbstractPathParam extends Parameter, Adaptable {
 	 */
 	String getCypherReturnVariable() throws InvalidityException;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	String getReturnInnerEdgeNodes() throws InvalidityException;
 } // NeoAbstractPathParam

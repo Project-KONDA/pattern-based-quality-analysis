@@ -2,17 +2,13 @@ package qualitypatternmodel.cypherevaluation;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.List;
 
-import qualitypatternmodel.adaptionNeo4J.NeoNode;
-import qualitypatternmodel.adaptionNeo4J.NeoPlace;
+import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoPlace;
 import qualitypatternmodel.evaluation.EvalMandStruc;
-import qualitypatternmodel.evaluation.EvalMatch;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.NotCondition;
@@ -102,12 +98,12 @@ public class CypherEvalMandStruc {
 	
 	private static CompletePattern getMandStrucConcrete1HasPlace(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.addLabel("Regesta");
+		neoNode.addNeoLabel("Regesta");
 		
 		NeoNode neoNodeCond1 = (NeoNode) ((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph().getNodes().get(0);
 		neoNodeCond1.setNeoPlace(NeoPlace.BEGINNING);
 		NeoNode neoNodeCond2 = (NeoNode) ((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph().getNodes().get(1);
-		neoNodeCond2.addLabel("Place");
+		neoNodeCond2.addNeoLabel("Place");
 		
 		return completePattern;
 	}
@@ -165,7 +161,7 @@ public class CypherEvalMandStruc {
 	
 	private static CompletePattern getMandStrucConcrete1IndexEntryIsConnected (CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.addLabel("IndexEntry");
+		neoNode.addNeoLabel("IndexEntry");
 		
 		NeoNode neoNodeCond1 = (NeoNode) ((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph().getNodes().get(0);
 		neoNodeCond1.setNeoPlace(NeoPlace.BEGINNING);
@@ -293,18 +289,18 @@ CompletePattern completePatternMandStruc1HasPlace;
 	
 	private static CompletePattern getMandStrucConcrete2HasPlaceOrIndexPlace(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.addLabel("Regesta");
+		neoNode.addNeoLabel("Regesta");
 		
 		Formula formula = ((Formula) ((NotCondition) completePattern.getCondition()).getCondition());
 		NeoNode neoNode1Cond1 = (NeoNode) ((QuantifiedCondition) formula.getCondition1()).getGraph().getNodes().get(0);
 		neoNode1Cond1.setNeoPlace(NeoPlace.BEGINNING);
 		NeoNode neoNode2Cond1 = (NeoNode) ((QuantifiedCondition) formula.getCondition1()).getGraph().getNodes().get(1);
-		neoNode2Cond1.addLabel("Place");
+		neoNode2Cond1.addNeoLabel("Place");
 		
 		NeoNode neoNode1Cond2 = (NeoNode) ((QuantifiedCondition) formula.getCondition2()).getGraph().getNodes().get(0);
 		neoNode1Cond2.setNeoPlace(NeoPlace.BEGINNING);
 		NeoNode neoNode2Cond2 = (NeoNode) ((QuantifiedCondition) formula.getCondition2()).getGraph().getNodes().get(1);
-		neoNode2Cond2.addLabel("IndexPlace");
+		neoNode2Cond2.addNeoLabel("IndexPlace");
 		
 		return completePattern;
 	}

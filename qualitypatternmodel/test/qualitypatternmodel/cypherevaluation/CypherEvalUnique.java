@@ -2,24 +2,20 @@ package qualitypatternmodel.cypherevaluation;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.util.ArrayList;
 
-import qualitypatternmodel.adaptionNeo4J.NeoNode;
-import qualitypatternmodel.adaptionNeo4J.NeoPlace;
-import qualitypatternmodel.evaluation.EvalMandStruc;
+import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoPlace;
 import qualitypatternmodel.evaluation.EvalUnique;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
-import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.utility.EMFModelSave;
 
 public class CypherEvalUnique {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -98,12 +94,12 @@ public class CypherEvalUnique {
 		
 		private static CompletePattern getUniqueConcrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 			NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-			neoNode.addLabel("Regesta");
+			neoNode.addNeoLabel("Regesta");
 			
 			NeoNode neoNodeCond1 = (NeoNode) ((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph().getNodes().get(0);
 			neoNodeCond1.setNeoPlace(NeoPlace.BEGINNING);
 			NeoNode neoNodeCond2 = (NeoNode) ((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph().getNodes().get(1);
-			neoNodeCond2.addLabel("Place");
+			neoNodeCond2.addNeoLabel("Place");
 			
 			return completePattern;
 		}

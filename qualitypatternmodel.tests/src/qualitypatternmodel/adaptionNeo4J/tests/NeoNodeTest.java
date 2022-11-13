@@ -1,11 +1,11 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.tests;
+package qualitypatternmodel.adaptionneo4j.tests;
 
 import junit.textui.TestRunner;
 
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
-import qualitypatternmodel.adaptionNeo4J.NeoNode;
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
+import qualitypatternmodel.adaptionneo4j.NeoNode;
 
 import qualitypatternmodel.graphstructure.tests.ComplexNodeTest;
 
@@ -16,9 +16,9 @@ import qualitypatternmodel.graphstructure.tests.ComplexNodeTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoNode#addLabel(java.lang.String) <em>Add Label</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#getCypherVariable() <em>Get Cypher Variable</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoNode#addNeoLabel(java.lang.String) <em>Add Neo Label</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoInterfaceNode#getCypherVariable() <em>Get Cypher Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoInterfaceElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -63,7 +63,7 @@ public class NeoNodeTest extends ComplexNodeTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(AdaptionNeo4JFactory.eINSTANCE.createNeoNode());
+		setFixture(Adaptionneo4jFactory.eINSTANCE.createNeoNode());
 	}
 
 	/**
@@ -78,23 +78,23 @@ public class NeoNodeTest extends ComplexNodeTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoNode#addLabel(java.lang.String) <em>Add Label</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoNode#addNeoLabel(java.lang.String) <em>Add Neo Label</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoNode#addLabel(java.lang.String)
+	 * @see qualitypatternmodel.adaptionneo4j.NeoNode#addNeoLabel(java.lang.String)
 	 * @generated
 	 */
-	public void testAddLabel__String() {
+	public void testAddNeoLabel__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#getCypherVariable() <em>Get Cypher Variable</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoInterfaceNode#getCypherVariable() <em>Get Cypher Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#getCypherVariable()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoInterfaceNode#getCypherVariable()
 	 * @generated
 	 */
 	public void testGetCypherVariable() {
@@ -104,10 +104,10 @@ public class NeoNodeTest extends ComplexNodeTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoInterfaceElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement#getCypherReturnVariable()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoInterfaceElement#getCypherReturnVariable()
 	 * @generated
 	 */
 	public void testGetCypherReturnVariable() {

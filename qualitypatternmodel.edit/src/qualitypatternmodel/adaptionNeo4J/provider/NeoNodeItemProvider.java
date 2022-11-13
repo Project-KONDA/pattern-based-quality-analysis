@@ -1,6 +1,6 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.provider;
+package qualitypatternmodel.adaptionneo4j.provider;
 
 
 import java.util.Collection;
@@ -10,23 +10,26 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.NeoNode;
+
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
+import qualitypatternmodel.adaptionneo4j.NeoNode;
+
 import qualitypatternmodel.graphstructure.provider.ComplexNodeItemProvider;
+
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoNode} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoNode} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class NeoNodeItemProvider 
-	extends ComplexNodeItemProvider {
+public class NeoNodeItemProvider extends ComplexNodeItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -56,28 +59,6 @@ public class NeoNodeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Neo Place feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNeoPlacePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_NeoNode_neoPlace_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NeoNode_neoPlace_feature", "_UI_NeoNode_type"),
-				 AdaptionNeo4JPackage.Literals.NEO_NODE__NEO_PLACE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Is Variable Distinct In Use feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -90,7 +71,7 @@ public class NeoNodeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_NeoInterfaceNode_isVariableDistinctInUse_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NeoInterfaceNode_isVariableDistinctInUse_feature", "_UI_NeoInterfaceNode_type"),
-				 AdaptionNeo4JPackage.Literals.NEO_INTERFACE_NODE__IS_VARIABLE_DISTINCT_IN_USE,
+				 Adaptionneo4jPackage.Literals.NEO_INTERFACE_NODE__IS_VARIABLE_DISTINCT_IN_USE,
 				 true,
 				 false,
 				 false,
@@ -112,11 +93,33 @@ public class NeoNodeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_NeoNode_neoNodeLabels_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NeoNode_neoNodeLabels_feature", "_UI_NeoNode_type"),
-				 AdaptionNeo4JPackage.Literals.NEO_NODE__NEO_NODE_LABELS,
+				 Adaptionneo4jPackage.Literals.NEO_NODE__NEO_NODE_LABELS,
 				 true,
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Neo Place feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNeoPlacePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NeoNode_neoPlace_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NeoNode_neoPlace_feature", "_UI_NeoNode_type"),
+				 Adaptionneo4jPackage.Literals.NEO_NODE__NEO_PLACE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -159,8 +162,8 @@ public class NeoNodeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(NeoNode.class)) {
-			case AdaptionNeo4JPackage.NEO_NODE__IS_VARIABLE_DISTINCT_IN_USE:
-			case AdaptionNeo4JPackage.NEO_NODE__NEO_PLACE:
+			case Adaptionneo4jPackage.NEO_NODE__IS_VARIABLE_DISTINCT_IN_USE:
+			case Adaptionneo4jPackage.NEO_NODE__NEO_PLACE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

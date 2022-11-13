@@ -1,11 +1,11 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.tests;
+package qualitypatternmodel.adaptionneo4j.tests;
 
 import junit.textui.TestRunner;
 
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,7 +14,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#setNeoPropertyName(java.lang.String) <em>Set Neo Property Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam#setNeoPropertyName(java.lang.String) <em>Set Neo Property Name</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -59,7 +59,7 @@ public class NeoPropertyPathParamTest extends NeoAbstractPathParamTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(AdaptionNeo4JFactory.eINSTANCE.createNeoPropertyPathParam());
+		setFixture(Adaptionneo4jFactory.eINSTANCE.createNeoPropertyPathParam());
 	}
 
 	/**
@@ -74,10 +74,10 @@ public class NeoPropertyPathParamTest extends NeoAbstractPathParamTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#setNeoPropertyName(java.lang.String) <em>Set Neo Property Name</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam#setNeoPropertyName(java.lang.String) <em>Set Neo Property Name</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#setNeoPropertyName(java.lang.String)
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam#setNeoPropertyName(java.lang.String)
 	 * @generated
 	 */
 	public void testSetNeoPropertyName__String() {

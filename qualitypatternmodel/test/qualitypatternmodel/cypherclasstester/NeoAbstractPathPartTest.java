@@ -5,8 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.lang.reflect.Method;
 
-import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
-import qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl;
+import qualitypatternmodel.adaptionneo4j.NeoPathPart;
+import qualitypatternmodel.adaptionneo4j.impl.NeoPathPartImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 
 public abstract class NeoAbstractPathPartTest implements InterfaceNeoPathPartTest {

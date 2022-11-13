@@ -113,8 +113,8 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated qualitypatternmodel -->
       <factory
-            uri="adaptionNeo4J"
-            class="qualitypatternmodel.adaptionNeo4J.provider.AdaptionNeo4JItemProviderAdapterFactory"
+            uri="adaptionneo4j"
+            class="qualitypatternmodel.adaptionneo4j.provider.Adaptionneo4jItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

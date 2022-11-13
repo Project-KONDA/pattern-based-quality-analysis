@@ -2,14 +2,14 @@ package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetest
 
 import java.util.ArrayList;
 
-import qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode;
-import qualitypatternmodel.adaptionNeo4J.NeoNode;
-import qualitypatternmodel.adaptionNeo4J.NeoPlace;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
-import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
-import qualitypatternmodel.adaptionNeo4J.impl.NeoEdgeImpl;
+import qualitypatternmodel.adaptionneo4j.NeoInterfaceNode;
+import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoPlace;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
+import qualitypatternmodel.adaptionneo4j.impl.NeoEdgeImpl;
 import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -189,9 +189,9 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 		((NeoEdgeImpl) countPatternImpl.getGraph().getRelations().get(1)).setIsReturnElement(true);		
 		
 //		((NeoNode) countPatternImpl.getGraph().getNodes().get(0)).setNeoPlace(NeoPlace.BEGINNING);
-		((NeoNode) completePattern.getGraph().getNodes().get(0)).addLabel("Regesta");
-		((NeoNode) completePattern.getGraph().getNodes().get(1)).addLabel("IndexPlace");
-		((NeoNode) countCond.getCountPattern().getGraph().getNodes().get(2)).addLabel("IndexPerson");
+		((NeoNode) completePattern.getGraph().getNodes().get(0)).addNeoLabel("Regesta");
+		((NeoNode) completePattern.getGraph().getNodes().get(1)).addNeoLabel("IndexPlace");
+		((NeoNode) countCond.getCountPattern().getGraph().getNodes().get(2)).addNeoLabel("IndexPerson");
 		
 		return completePattern;
 	}

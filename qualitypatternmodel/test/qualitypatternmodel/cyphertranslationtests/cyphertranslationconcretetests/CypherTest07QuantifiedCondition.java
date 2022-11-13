@@ -2,9 +2,9 @@ package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetest
 
 import java.util.ArrayList;
 
-import qualitypatternmodel.adaptionNeo4J.NeoNode;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
+import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
+import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -82,7 +82,7 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 		completePattern.createNeo4jAdaption();
 		
 		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.addLabel("Regesta");
+		neoNode.addNeoLabel("Regesta");
 		
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
 		neoPropertyEdge.getNeoPropertyPathParam().setNeoPropertyName("placeOfIssue");
@@ -223,7 +223,7 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 		completePattern.createNeo4jAdaption();
 		
 		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.addLabel("Regesta");
+		neoNode.addNeoLabel("Regesta");
 	
 		
 		return completePattern;	
@@ -275,7 +275,7 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 		completePattern.createNeo4jAdaption();
 		
 		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.addLabel("Regesta");
+		neoNode.addNeoLabel("Regesta");
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) quantifiedCond.getGraph().getRelations().get(1);
 		neoPropertyEdge.getNeoPropertyPathParam().setNeoPropertyName("origPlaceOfIssue");
 		

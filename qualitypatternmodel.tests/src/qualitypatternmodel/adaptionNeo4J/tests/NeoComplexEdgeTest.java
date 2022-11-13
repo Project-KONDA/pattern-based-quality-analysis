@@ -1,11 +1,11 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.tests;
+package qualitypatternmodel.adaptionneo4j.tests;
 
 import junit.textui.TestRunner;
 
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
-import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
+import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,8 +14,8 @@ import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#addNeoPathPart(qualitypatternmodel.adaptionNeo4J.NeoPathPart) <em>Add Neo Path Part</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#removeNeoPathPart(qualitypatternmodel.adaptionNeo4J.NeoPathPart) <em>Remove Neo Path Part</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoComplexEdge#addNeoPathPart(qualitypatternmodel.adaptionneo4j.NeoPathPart) <em>Add Neo Path Part</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoComplexEdge#removeNeoPathPart(qualitypatternmodel.adaptionneo4j.NeoPathPart) <em>Remove Neo Path Part</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -60,7 +60,7 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(AdaptionNeo4JFactory.eINSTANCE.createNeoComplexEdge());
+		setFixture(Adaptionneo4jFactory.eINSTANCE.createNeoComplexEdge());
 	}
 
 	/**
@@ -75,10 +75,10 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#addNeoPathPart(qualitypatternmodel.adaptionNeo4J.NeoPathPart) <em>Add Neo Path Part</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoComplexEdge#addNeoPathPart(qualitypatternmodel.adaptionneo4j.NeoPathPart) <em>Add Neo Path Part</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#addNeoPathPart(qualitypatternmodel.adaptionNeo4J.NeoPathPart)
+	 * @see qualitypatternmodel.adaptionneo4j.NeoComplexEdge#addNeoPathPart(qualitypatternmodel.adaptionneo4j.NeoPathPart)
 	 * @generated
 	 */
 	public void testAddNeoPathPart__NeoPathPart() {
@@ -88,10 +88,10 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#removeNeoPathPart(qualitypatternmodel.adaptionNeo4J.NeoPathPart) <em>Remove Neo Path Part</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoComplexEdge#removeNeoPathPart(qualitypatternmodel.adaptionneo4j.NeoPathPart) <em>Remove Neo Path Part</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#removeNeoPathPart(qualitypatternmodel.adaptionNeo4J.NeoPathPart)
+	 * @see qualitypatternmodel.adaptionneo4j.NeoComplexEdge#removeNeoPathPart(qualitypatternmodel.adaptionneo4j.NeoPathPart)
 	 * @generated
 	 */
 	public void testRemoveNeoPathPart__NeoPathPart() {

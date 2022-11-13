@@ -27,16 +27,16 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mockito;
 
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
-import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
-import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
-import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
-import qualitypatternmodel.adaptionNeo4J.impl.NeoComplexEdgeImpl;
-import qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl;
-import qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl;
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
+import qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
+import qualitypatternmodel.adaptionneo4j.NeoPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoPathPart;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
+import qualitypatternmodel.adaptionneo4j.impl.NeoComplexEdgeImpl;
+import qualitypatternmodel.adaptionneo4j.impl.NeoPathPartImpl;
+import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
 import qualitypatternmodel.cypherclasstester.NeoAbstractPathPartTest;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
@@ -131,7 +131,7 @@ public class Cypher04NeoComplexEdgeTest extends NeoAbstractPathPartTest {
 	}
 
 	private void unsetNeoPathPartInComplexEdge() {
-		((NeoComplexEdgeImpl) neoComplexEdge).eUnset((int) AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH_PARTS);
+		((NeoComplexEdgeImpl) neoComplexEdge).eUnset((int) Adaptionneo4jPackage.NEO_COMPLEX_EDGE__NEO_PATH_PARTS);
 		assumeNotNull(neoComplexEdge.getNeoPathPartEdgeLeafs());
 		assertTrue(neoComplexEdge.getNeoPathPartEdgeLeafs().size() == 0);
 		

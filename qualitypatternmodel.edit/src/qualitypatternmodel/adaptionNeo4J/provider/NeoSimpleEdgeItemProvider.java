@@ -1,6 +1,6 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.provider;
+package qualitypatternmodel.adaptionneo4j.provider;
 
 
 import java.util.Collection;
@@ -8,16 +8,17 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
+
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
+import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -66,55 +67,11 @@ public class NeoSimpleEdgeItemProvider extends NeoPathPartItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_NeoSimpleEdge_keyValueParam_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NeoSimpleEdge_keyValueParam_feature", "_UI_NeoSimpleEdge_type"),
-				 AdaptionNeo4JPackage.Literals.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM,
+				 Adaptionneo4jPackage.Literals.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM,
 				 true,
 				 false,
 				 true,
 				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Neo Edge Label feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNeoEdgeLabelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_NeoSimpleEdge_neoEdgeLabel_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NeoSimpleEdge_neoEdgeLabel_feature", "_UI_NeoSimpleEdge_type"),
-				 AdaptionNeo4JPackage.Literals.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Edge Number feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addEdgeNumberPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_NeoSimpleEdge_edgeNumber_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NeoSimpleEdge_edgeNumber_feature", "_UI_NeoSimpleEdge_type"),
-				 AdaptionNeo4JPackage.Literals.NEO_SIMPLE_EDGE__EDGE_NUMBER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -132,7 +89,7 @@ public class NeoSimpleEdgeItemProvider extends NeoPathPartItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_NeoSimpleEdge_neoDirection_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NeoSimpleEdge_neoDirection_feature", "_UI_NeoSimpleEdge_type"),
-				 AdaptionNeo4JPackage.Literals.NEO_SIMPLE_EDGE__NEO_DIRECTION,
+				 Adaptionneo4jPackage.Literals.NEO_SIMPLE_EDGE__NEO_DIRECTION,
 				 false,
 				 false,
 				 false,
@@ -154,11 +111,55 @@ public class NeoSimpleEdgeItemProvider extends NeoPathPartItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_NeoSimpleEdge_neoTargetNodeLabels_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NeoSimpleEdge_neoTargetNodeLabels_feature", "_UI_NeoSimpleEdge_type"),
-				 AdaptionNeo4JPackage.Literals.NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS,
+				 Adaptionneo4jPackage.Literals.NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS,
 				 true,
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Neo Edge Label feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNeoEdgeLabelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NeoSimpleEdge_neoEdgeLabel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NeoSimpleEdge_neoEdgeLabel_feature", "_UI_NeoSimpleEdge_type"),
+				 Adaptionneo4jPackage.Literals.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Edge Number feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEdgeNumberPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NeoSimpleEdge_edgeNumber_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NeoSimpleEdge_edgeNumber_feature", "_UI_NeoSimpleEdge_type"),
+				 Adaptionneo4jPackage.Literals.NEO_SIMPLE_EDGE__EDGE_NUMBER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -201,8 +202,8 @@ public class NeoSimpleEdgeItemProvider extends NeoPathPartItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(NeoSimpleEdge.class)) {
-			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__NEO_DIRECTION:
-			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
+			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_DIRECTION:
+			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -1,11 +1,9 @@
 package qualitypatternmodel.cypherclasstester;
 
-import org.junit.jupiter.api.Test;
-
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
-import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
+import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jFactoryImpl;
 
 interface INeo4J {
-	AdaptionNeo4JFactory FACTORY = new AdaptionNeo4JFactoryImpl();
+	Adaptionneo4jFactory FACTORY = new Adaptionneo4jFactoryImpl();
 	void generateCypher(); //Maybe do this just in the Systemtests
 }

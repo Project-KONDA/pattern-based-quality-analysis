@@ -1,6 +1,6 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.provider;
+package qualitypatternmodel.adaptionneo4j.provider;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -21,7 +21,7 @@ import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import qualitypatternmodel.adaptionNeo4J.util.AdaptionNeo4JAdapterFactory;
+import qualitypatternmodel.adaptionneo4j.util.Adaptionneo4jAdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -32,7 +32,7 @@ import qualitypatternmodel.adaptionNeo4J.util.AdaptionNeo4JAdapterFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AdaptionNeo4JItemProviderAdapterFactory extends AdaptionNeo4JAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+public class Adaptionneo4jItemProviderAdapterFactory extends Adaptionneo4jAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -63,7 +63,7 @@ public class AdaptionNeo4JItemProviderAdapterFactory extends AdaptionNeo4JAdapte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AdaptionNeo4JItemProviderAdapterFactory() {
+	public Adaptionneo4jItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
 		supportedTypes.add(IStructuredItemContentProvider.class);
 		supportedTypes.add(ITreeItemContentProvider.class);
@@ -72,7 +72,7 @@ public class AdaptionNeo4JItemProviderAdapterFactory extends AdaptionNeo4JAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionNeo4J.NeoNode} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionneo4j.NeoNode} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -80,7 +80,7 @@ public class AdaptionNeo4JItemProviderAdapterFactory extends AdaptionNeo4JAdapte
 	protected NeoNodeItemProvider neoNodeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoNode}.
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoNode}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -95,7 +95,7 @@ public class AdaptionNeo4JItemProviderAdapterFactory extends AdaptionNeo4JAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionNeo4J.NeoEdge} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionneo4j.NeoEdge} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -103,7 +103,7 @@ public class AdaptionNeo4JItemProviderAdapterFactory extends AdaptionNeo4JAdapte
 	protected NeoEdgeItemProvider neoEdgeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoEdge}.
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoEdge}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -118,7 +118,7 @@ public class AdaptionNeo4JItemProviderAdapterFactory extends AdaptionNeo4JAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionNeo4J.NeoComplexEdge} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionneo4j.NeoComplexEdge} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -126,7 +126,7 @@ public class AdaptionNeo4JItemProviderAdapterFactory extends AdaptionNeo4JAdapte
 	protected NeoComplexEdgeItemProvider neoComplexEdgeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoComplexEdge}.
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoComplexEdge}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -141,7 +141,7 @@ public class AdaptionNeo4JItemProviderAdapterFactory extends AdaptionNeo4JAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -149,7 +149,7 @@ public class AdaptionNeo4JItemProviderAdapterFactory extends AdaptionNeo4JAdapte
 	protected NeoSimpleEdgeItemProvider neoSimpleEdgeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge}.
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -164,7 +164,7 @@ public class AdaptionNeo4JItemProviderAdapterFactory extends AdaptionNeo4JAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionneo4j.NeoPropertyNode} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -172,7 +172,7 @@ public class AdaptionNeo4JItemProviderAdapterFactory extends AdaptionNeo4JAdapte
 	protected NeoPropertyNodeItemProvider neoPropertyNodeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode}.
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoPropertyNode}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -187,7 +187,7 @@ public class AdaptionNeo4JItemProviderAdapterFactory extends AdaptionNeo4JAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionNeo4J.NeoPathParam} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionneo4j.NeoPathParam} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -195,7 +195,7 @@ public class AdaptionNeo4JItemProviderAdapterFactory extends AdaptionNeo4JAdapte
 	protected NeoPathParamItemProvider neoPathParamItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoPathParam}.
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoPathParam}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -210,7 +210,7 @@ public class AdaptionNeo4JItemProviderAdapterFactory extends AdaptionNeo4JAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -218,7 +218,7 @@ public class AdaptionNeo4JItemProviderAdapterFactory extends AdaptionNeo4JAdapte
 	protected NeoPropertyPathParamItemProvider neoPropertyPathParamItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam}.
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -233,7 +233,7 @@ public class AdaptionNeo4JItemProviderAdapterFactory extends AdaptionNeo4JAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionneo4j.NeoPropertyEdge} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -241,7 +241,7 @@ public class AdaptionNeo4JItemProviderAdapterFactory extends AdaptionNeo4JAdapte
 	protected NeoPropertyEdgeItemProvider neoPropertyEdgeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge}.
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoPropertyEdge}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

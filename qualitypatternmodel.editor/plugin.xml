@@ -236,12 +236,12 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="qualitypatternmodel.adaptionNeo4J.presentation.AdaptionNeo4JModelWizardID"
-            name="%_UI_AdaptionNeo4JModelWizard_label"
-            class="qualitypatternmodel.adaptionNeo4J.presentation.AdaptionNeo4JModelWizard"
+            id="qualitypatternmodel.adaptionneo4j.presentation.Adaptionneo4jModelWizardID"
+            name="%_UI_Adaptionneo4jModelWizard_label"
+            class="qualitypatternmodel.adaptionneo4j.presentation.Adaptionneo4jModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/AdaptionNeo4JModelFile.gif">
-         <description>%_UI_AdaptionNeo4JModelWizard_description</description>
+            icon="icons/full/obj16/Adaptionneo4jModelFile.gif">
+         <description>%_UI_Adaptionneo4jModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
    </extension>
@@ -249,12 +249,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated qualitypatternmodel -->
       <editor
-            id="qualitypatternmodel.adaptionNeo4J.presentation.AdaptionNeo4JEditorID"
-            name="%_UI_AdaptionNeo4JEditor_label"
-            icon="icons/full/obj16/AdaptionNeo4JModelFile.gif"
+            id="qualitypatternmodel.adaptionneo4j.presentation.Adaptionneo4jEditorID"
+            name="%_UI_Adaptionneo4jEditor_label"
+            icon="icons/full/obj16/Adaptionneo4jModelFile.gif"
             extensions="adaptionneo4j"
-            class="qualitypatternmodel.adaptionNeo4J.presentation.AdaptionNeo4JEditor"
-            contributorClass="qualitypatternmodel.adaptionNeo4J.presentation.AdaptionNeo4JActionBarContributor">
+            class="qualitypatternmodel.adaptionneo4j.presentation.Adaptionneo4jEditor"
+            contributorClass="qualitypatternmodel.adaptionneo4j.presentation.Adaptionneo4jActionBarContributor">
       </editor>
    </extension>
 

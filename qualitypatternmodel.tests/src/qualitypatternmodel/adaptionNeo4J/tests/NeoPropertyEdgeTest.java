@@ -1,11 +1,11 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.tests;
+package qualitypatternmodel.adaptionneo4j.tests;
 
 import junit.textui.TestRunner;
 
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,8 +14,8 @@ import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge#generateCypherPropertyAddressing() <em>Generate Cypher Property Addressing</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge#generateCypherNodeVariable() <em>Generate Cypher Node Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPropertyEdge#generateCypherPropertyAddressing() <em>Generate Cypher Property Addressing</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPropertyEdge#generateCypherNodeVariable() <em>Generate Cypher Node Variable</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -60,7 +60,7 @@ public class NeoPropertyEdgeTest extends NeoAbstractEdgeTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(AdaptionNeo4JFactory.eINSTANCE.createNeoPropertyEdge());
+		setFixture(Adaptionneo4jFactory.eINSTANCE.createNeoPropertyEdge());
 	}
 
 	/**
@@ -75,10 +75,10 @@ public class NeoPropertyEdgeTest extends NeoAbstractEdgeTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge#generateCypherPropertyAddressing() <em>Generate Cypher Property Addressing</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyEdge#generateCypherPropertyAddressing() <em>Generate Cypher Property Addressing</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge#generateCypherPropertyAddressing()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPropertyEdge#generateCypherPropertyAddressing()
 	 * @generated
 	 */
 	public void testGenerateCypherPropertyAddressing() {
@@ -88,10 +88,10 @@ public class NeoPropertyEdgeTest extends NeoAbstractEdgeTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge#generateCypherNodeVariable() <em>Generate Cypher Node Variable</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyEdge#generateCypherNodeVariable() <em>Generate Cypher Node Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge#generateCypherNodeVariable()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPropertyEdge#generateCypherNodeVariable()
 	 * @generated
 	 */
 	public void testGenerateCypherNodeVariable() {

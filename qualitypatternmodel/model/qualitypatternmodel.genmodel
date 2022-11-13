@@ -1022,114 +1022,113 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam/rdfPathPart"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="AdaptionNeo4J" disposableProviderFactory="true" ecorePackage="qualitypatternmodel.ecore#//adaptionNeo4J">
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//adaptionNeo4J/NeoDirection">
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionNeo4J/NeoDirection/IMPLICIT"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionNeo4J/NeoDirection/RIGHT"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionNeo4J/NeoDirection/LEFT"/>
+    <nestedGenPackages prefix="Adaptionneo4j" disposableProviderFactory="true" ecorePackage="qualitypatternmodel.ecore#//adaptionneo4j">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//adaptionneo4j/NeoDirection">
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionneo4j/NeoDirection/IMPLICIT"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionneo4j/NeoDirection/RIGHT"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionneo4j/NeoDirection/LEFT"/>
       </genEnums>
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPlace">
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPlace/BEGINNING"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPlace/FOLLOWING"/>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//adaptionneo4j/NeoPlace">
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionneo4j/NeoPlace/BEGINNING"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionneo4j/NeoPlace/FOLLOWING"/>
       </genEnums>
-      <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//adaptionNeo4J/NewDataType3"/>
-      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoInterfaceNode">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionNeo4J/NeoInterfaceNode/isVariableDistinctInUse"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoInterfaceNode/getCypherVariable"/>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoInterfaceNode">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionneo4j/NeoInterfaceNode/isVariableDistinctInUse"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoInterfaceNode/getCypherVariable"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoNode">
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoNode">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoNode/neoNodeLabels"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionNeo4J/NeoNode/neoPlace"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoNode/addLabel">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionNeo4J/NeoNode/addLabel/label"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionneo4j/NeoNode/neoNodeLabels"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionneo4j/NeoNode/neoPlace"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoNode/addNeoLabel">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionneo4j/NeoNode/addNeoLabel/label"/>
         </genOperations>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoEdge">
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoEdge">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoEdge/neoPathParam"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionneo4j/NeoEdge/neoPathParam"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoComplexEdge">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoComplexEdge/neoPathParts"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoComplexEdge/addNeoPathPart">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionNeo4J/NeoComplexEdge/addNeoPathPart/neoPathPart"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoComplexEdge">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionneo4j/NeoComplexEdge/neoPathParts"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoComplexEdge/addNeoPathPart">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionneo4j/NeoComplexEdge/addNeoPathPart/neoPathPart"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoComplexEdge/removeNeoPathPart">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionNeo4J/NeoComplexEdge/removeNeoPathPart/neoPathPart"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoComplexEdge/removeNeoPathPart">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionneo4j/NeoComplexEdge/removeNeoPathPart/neoPathPart"/>
         </genOperations>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge">
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoSimpleEdge">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/keyValueParam"/>
-        <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/neoDirection"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionneo4j/NeoSimpleEdge/keyValueParam"/>
+        <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionneo4j/NeoSimpleEdge/neoDirection"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/neoTargetNodeLabels"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionneo4j/NeoSimpleEdge/neoTargetNodeLabels"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/neoEdgeLabel"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/edgeNumber"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/setNeoDirection">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/setNeoDirection/neoDirection"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionneo4j/NeoSimpleEdge/neoEdgeLabel"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionneo4j/NeoSimpleEdge/edgeNumber"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoSimpleEdge/setNeoDirection">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionneo4j/NeoSimpleEdge/setNeoDirection/neoDirection"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/addNeoTargetNodeLabel">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/addNeoTargetNodeLabel/label"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoSimpleEdge/addNeoTargetNodeLabel">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionneo4j/NeoSimpleEdge/addNeoTargetNodeLabel/label"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/addNeoEdgeLabel">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionNeo4J/NeoSimpleEdge/addNeoEdgeLabel/label"/>
-        </genOperations>
-      </genClasses>
-      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart">
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/neoPathParam"/>
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/neoPropertyPathParam"/>
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/neoComplexEdge"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/getNeoPathPartEdgeLeafs"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/getCypherVariable"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/getCypherInnerEdgeNodes">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/getCypherInnerEdgeNodes/isReturn"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathPart/getNeoLastEdge"/>
-      </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyNode">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyNode/returnProperty"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyNode/generateCypherPropertyAddressing"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyNode/generateCypherNodeVariable"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyNode/setIsReturnProperty">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyNode/setIsReturnProperty/returnProperty"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoSimpleEdge/addNeoEdgeLabel">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionneo4j/NeoSimpleEdge/addNeoEdgeLabel/label"/>
         </genOperations>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathParam">
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoPathPart">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionneo4j/NeoPathPart/neoPathParam"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionneo4j/NeoPathPart/neoPropertyPathParam"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionneo4j/NeoPathPart/neoComplexEdge"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoPathPart/getNeoPathPartEdgeLeafs"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoPathPart/getCypherVariable"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoPathPart/getCypherInnerEdgeNodes">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionneo4j/NeoPathPart/getCypherInnerEdgeNodes/isReturn"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoPathPart/getNeoLastEdge"/>
+      </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyNode">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyNode/returnProperty"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyNode/generateCypherPropertyAddressing"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyNode/generateCypherNodeVariable"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyNode/setIsReturnProperty">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyNode/setIsReturnProperty/returnProperty"/>
+        </genOperations>
+      </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoPathParam">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathParam/neoEdge"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoPathParam/neoPathPart"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionneo4j/NeoPathParam/neoEdge"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionneo4j/NeoPathParam/neoPathPart"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyPathParam">
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyPathParam">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyPathParam/neoPropertyEdge"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyPathParam/neoPropertyEdge"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyPathParam/neoPropertyName"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyPathParam/neoPathPart"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyPathParam/setNeoPropertyName">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyPathParam/setNeoPropertyName/neoPropertyName"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyPathParam/neoPropertyName"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyPathParam/neoPathPart"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyPathParam/setNeoPropertyName">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyPathParam/setNeoPropertyName/neoPropertyName"/>
         </genOperations>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyEdge">
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyEdge">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyEdge/neoPropertyPathParam"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyEdge/generateCypherPropertyAddressing"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyEdge/generateCypherNodeVariable"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyEdge/neoPropertyPathParam"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyEdge/generateCypherPropertyAddressing"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyEdge/generateCypherNodeVariable"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractEdge">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractEdge/returnElement"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractEdge/setIsReturnElement">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractEdge/setIsReturnElement/returnElement"/>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoAbstractEdge">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionneo4j/NeoAbstractEdge/returnElement"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoAbstractEdge/setIsReturnElement">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionneo4j/NeoAbstractEdge/setIsReturnElement/returnElement"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractEdge/getReturnInnerEdgeNodes"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoAbstractEdge/getReturnInnerEdgeNodes"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractPathParam">
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractPathParam/getReturnInnerEdgeNodes"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractPathParam/getCypherReturnVariable"/>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoAbstractPathParam">
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoAbstractPathParam/getReturnInnerEdgeNodes"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoAbstractPathParam/getCypherReturnVariable"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoInterfaceElement">
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoInterfaceElement/getCypherReturnVariable"/>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoInterfaceElement">
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoInterfaceElement/getCypherReturnVariable"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

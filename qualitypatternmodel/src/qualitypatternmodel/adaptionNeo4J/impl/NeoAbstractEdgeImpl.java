@@ -1,6 +1,6 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.impl;
+package qualitypatternmodel.adaptionneo4j.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
@@ -9,9 +9,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement;
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
+import qualitypatternmodel.adaptionneo4j.NeoAbstractEdge;
+import qualitypatternmodel.adaptionneo4j.NeoInterfaceElement;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 
@@ -23,7 +23,7 @@ import qualitypatternmodel.graphstructure.impl.RelationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoAbstractEdgeImpl#isReturnElement <em>Return Element</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.impl.NeoAbstractEdgeImpl#isReturnElement <em>Return Element</em>}</li>
  * </ul>
  *
  * @generated
@@ -65,7 +65,7 @@ public abstract class NeoAbstractEdgeImpl extends RelationImpl implements NeoAbs
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return AdaptionNeo4JPackage.Literals.NEO_ABSTRACT_EDGE;
+		return Adaptionneo4jPackage.Literals.NEO_ABSTRACT_EDGE;
 	}
 
 	/**
@@ -88,7 +88,7 @@ public abstract class NeoAbstractEdgeImpl extends RelationImpl implements NeoAbs
 		boolean oldReturnElement = returnElement;
 		returnElement = newReturnElement;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_ABSTRACT_EDGE__RETURN_ELEMENT, oldReturnElement, returnElement));
+			eNotify(new ENotificationImpl(this, Notification.SET, Adaptionneo4jPackage.NEO_ABSTRACT_EDGE__RETURN_ELEMENT, oldReturnElement, returnElement));
 	}
 
 	/**
@@ -131,7 +131,7 @@ public abstract class NeoAbstractEdgeImpl extends RelationImpl implements NeoAbs
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_ABSTRACT_EDGE__RETURN_ELEMENT:
+			case Adaptionneo4jPackage.NEO_ABSTRACT_EDGE__RETURN_ELEMENT:
 				return isReturnElement();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -145,7 +145,7 @@ public abstract class NeoAbstractEdgeImpl extends RelationImpl implements NeoAbs
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_ABSTRACT_EDGE__RETURN_ELEMENT:
+			case Adaptionneo4jPackage.NEO_ABSTRACT_EDGE__RETURN_ELEMENT:
 				setReturnElement((Boolean)newValue);
 				return;
 		}
@@ -160,7 +160,7 @@ public abstract class NeoAbstractEdgeImpl extends RelationImpl implements NeoAbs
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_ABSTRACT_EDGE__RETURN_ELEMENT:
+			case Adaptionneo4jPackage.NEO_ABSTRACT_EDGE__RETURN_ELEMENT:
 				setReturnElement(RETURN_ELEMENT_EDEFAULT);
 				return;
 		}
@@ -175,7 +175,7 @@ public abstract class NeoAbstractEdgeImpl extends RelationImpl implements NeoAbs
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_ABSTRACT_EDGE__RETURN_ELEMENT:
+			case Adaptionneo4jPackage.NEO_ABSTRACT_EDGE__RETURN_ELEMENT:
 				return returnElement != RETURN_ELEMENT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
@@ -190,7 +190,7 @@ public abstract class NeoAbstractEdgeImpl extends RelationImpl implements NeoAbs
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == NeoInterfaceElement.class) {
 			switch (baseOperationID) {
-				case AdaptionNeo4JPackage.NEO_INTERFACE_ELEMENT___GET_CYPHER_RETURN_VARIABLE: return AdaptionNeo4JPackage.NEO_ABSTRACT_EDGE___GET_CYPHER_RETURN_VARIABLE;
+				case Adaptionneo4jPackage.NEO_INTERFACE_ELEMENT___GET_CYPHER_RETURN_VARIABLE: return Adaptionneo4jPackage.NEO_ABSTRACT_EDGE___GET_CYPHER_RETURN_VARIABLE;
 				default: return -1;
 			}
 		}
@@ -205,17 +205,17 @@ public abstract class NeoAbstractEdgeImpl extends RelationImpl implements NeoAbs
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AdaptionNeo4JPackage.NEO_ABSTRACT_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN:
+			case Adaptionneo4jPackage.NEO_ABSTRACT_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN:
 				setIsReturnElement((Boolean)arguments.get(0));
 				return null;
-			case AdaptionNeo4JPackage.NEO_ABSTRACT_EDGE___GET_RETURN_INNER_EDGE_NODES:
+			case Adaptionneo4jPackage.NEO_ABSTRACT_EDGE___GET_RETURN_INNER_EDGE_NODES:
 				try {
 					return getReturnInnerEdgeNodes();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case AdaptionNeo4JPackage.NEO_ABSTRACT_EDGE___GET_CYPHER_RETURN_VARIABLE:
+			case Adaptionneo4jPackage.NEO_ABSTRACT_EDGE___GET_CYPHER_RETURN_VARIABLE:
 				try {
 					return getCypherReturnVariable();
 				}

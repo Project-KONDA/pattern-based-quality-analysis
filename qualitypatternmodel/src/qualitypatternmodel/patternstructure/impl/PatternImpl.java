@@ -20,8 +20,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement;
+import qualitypatternmodel.adaptionneo4j.NeoAbstractEdge;
+import qualitypatternmodel.adaptionneo4j.NeoInterfaceElement;
 import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;

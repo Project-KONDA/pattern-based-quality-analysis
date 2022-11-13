@@ -1,23 +1,22 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J;
+package qualitypatternmodel.adaptionneo4j;
 
-import org.eclipse.emf.common.util.EMap;
 import qualitypatternmodel.exceptions.InvalidityException;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Abstract Neo Node</b></em>'.
+ * A representation of the model object '<em><b>Neo Interface Node</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#isIsVariableDistinctInUse <em>Is Variable Distinct In Use</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoInterfaceNode#isIsVariableDistinctInUse <em>Is Variable Distinct In Use</em>}</li>
  * </ul>
  *
- * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoInterfaceNode()
+ * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoInterfaceNode()
  * @model interface="true" abstract="true"
  * @generated
  */
@@ -29,14 +28,14 @@ public interface NeoInterfaceNode extends NeoInterfaceElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Is Variable Distinct In Use</em>' attribute.
 	 * @see #setIsVariableDistinctInUse(boolean)
-	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoInterfaceNode_IsVariableDistinctInUse()
+	 * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoInterfaceNode_IsVariableDistinctInUse()
 	 * @model default="true"
 	 * @generated
 	 */
 	boolean isIsVariableDistinctInUse();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#isIsVariableDistinctInUse <em>Is Variable Distinct In Use</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionneo4j.NeoInterfaceNode#isIsVariableDistinctInUse <em>Is Variable Distinct In Use</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Is Variable Distinct In Use</em>' attribute.
@@ -53,11 +52,4 @@ public interface NeoInterfaceNode extends NeoInterfaceElement {
 	 */
 	String getCypherVariable() throws InvalidityException;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated NOT
-	 */
-	EMap<Integer, String> getCypherReturnVariable() throws InvalidityException;
-} // AbstractNeoNode
+} // NeoInterfaceNode

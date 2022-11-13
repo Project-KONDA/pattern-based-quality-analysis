@@ -1,8 +1,8 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.tests;
+package qualitypatternmodel.adaptionneo4j.tests;
 
-import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
+import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 
 import qualitypatternmodel.patternstructure.tests.PatternElementTest;
 
@@ -13,10 +13,10 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathPartEdgeLeafs() <em>Get Neo Path Part Edge Leafs</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherVariable() <em>Get Cypher Variable</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherInnerEdgeNodes(boolean) <em>Get Cypher Inner Edge Nodes</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoLastEdge() <em>Get Neo Last Edge</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoPathPartEdgeLeafs() <em>Get Neo Path Part Edge Leafs</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getCypherVariable() <em>Get Cypher Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getCypherInnerEdgeNodes(boolean) <em>Get Cypher Inner Edge Nodes</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoLastEdge() <em>Get Neo Last Edge</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -45,10 +45,10 @@ public abstract class NeoPathPartTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathPartEdgeLeafs() <em>Get Neo Path Part Edge Leafs</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoPathPartEdgeLeafs() <em>Get Neo Path Part Edge Leafs</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoPathPartEdgeLeafs()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoPathPartEdgeLeafs()
 	 * @generated
 	 */
 	public void testGetNeoPathPartEdgeLeafs() {
@@ -58,10 +58,10 @@ public abstract class NeoPathPartTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherVariable() <em>Get Cypher Variable</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getCypherVariable() <em>Get Cypher Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherVariable()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPathPart#getCypherVariable()
 	 * @generated
 	 */
 	public void testGetCypherVariable() {
@@ -71,10 +71,10 @@ public abstract class NeoPathPartTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherInnerEdgeNodes(boolean) <em>Get Cypher Inner Edge Nodes</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getCypherInnerEdgeNodes(boolean) <em>Get Cypher Inner Edge Nodes</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherInnerEdgeNodes(boolean)
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPathPart#getCypherInnerEdgeNodes(boolean)
 	 * @generated
 	 */
 	public void testGetCypherInnerEdgeNodes__boolean() {
@@ -84,10 +84,10 @@ public abstract class NeoPathPartTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoLastEdge() <em>Get Neo Last Edge</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoLastEdge() <em>Get Neo Last Edge</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getNeoLastEdge()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoLastEdge()
 	 * @generated
 	 */
 	public void testGetNeoLastEdge() {

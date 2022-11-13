@@ -1,8 +1,8 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.tests;
+package qualitypatternmodel.adaptionneo4j.tests;
 
-import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam;
 
 import qualitypatternmodel.parameters.tests.ParameterTest;
 
@@ -13,8 +13,8 @@ import qualitypatternmodel.parameters.tests.ParameterTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
  * </ul>
@@ -45,10 +45,10 @@ public abstract class NeoAbstractPathParamTest extends ParameterTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getReturnInnerEdgeNodes()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam#getReturnInnerEdgeNodes()
 	 * @generated
 	 */
 	public void testGetReturnInnerEdgeNodes() {
@@ -58,10 +58,10 @@ public abstract class NeoAbstractPathParamTest extends ParameterTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getCypherReturnVariable()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam#getCypherReturnVariable()
 	 * @generated
 	 */
 	public void testGetCypherReturnVariable() {

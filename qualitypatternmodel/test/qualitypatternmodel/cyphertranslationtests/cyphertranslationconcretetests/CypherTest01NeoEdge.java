@@ -2,13 +2,13 @@ package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetest
 
 import java.util.ArrayList;
 
-import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoDirection;
-import qualitypatternmodel.adaptionNeo4J.NeoEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoNode;
-import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
-import qualitypatternmodel.adaptionNeo4J.NeoPlace;
-import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
+import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
+import qualitypatternmodel.adaptionneo4j.NeoDirection;
+import qualitypatternmodel.adaptionneo4j.NeoEdge;
+import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoPlace;
+import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -110,8 +110,8 @@ public class CypherTest01NeoEdge extends CypherAbstractTranslation {
 		NeoNode neoNode1 = (NeoNode) completePattern.getGraph().getNodes().get(0);
 		NeoNode neoNode2 = (NeoNode) completePattern.getGraph().getNodes().get(1);
 		
-		neoNode1.addLabel("Regesta");
-		neoNode2.addLabel("Place");
+		neoNode1.addNeoLabel("Regesta");
+		neoNode2.addNeoLabel("Place");
 		neoNode2.setReturnNode(true);
 		
 		return completePattern;
@@ -129,8 +129,8 @@ public class CypherTest01NeoEdge extends CypherAbstractTranslation {
 		NeoNode neoNode1 = (NeoNode) completePattern.getGraph().getNodes().get(0);
 		NeoNode neoNode2 = (NeoNode) completePattern.getGraph().getNodes().get(1);
 		
-		neoNode1.addLabel("Regesta");
-		neoNode2.addLabel("Place");
+		neoNode1.addNeoLabel("Regesta");
+		neoNode2.addNeoLabel("Place");
 		neoNode2.setReturnNode(true);
 		
 		return completePattern;
@@ -148,8 +148,8 @@ public class CypherTest01NeoEdge extends CypherAbstractTranslation {
 		NeoNode neoNode1 = (NeoNode) completePattern.getGraph().getNodes().get(0);
 		NeoNode neoNode2 = (NeoNode) completePattern.getGraph().getNodes().get(1);
 		
-		neoNode1.addLabel("Place");
-		neoNode2.addLabel("Regesta");
+		neoNode1.addNeoLabel("Place");
+		neoNode2.addNeoLabel("Regesta");
 		neoNode2.setReturnNode(true);
 		
 		return completePattern;
@@ -173,8 +173,8 @@ public class CypherTest01NeoEdge extends CypherAbstractTranslation {
 		NeoNode neoNode2 = (NeoNode) completePattern.getGraph().getNodes().get(1);
 		neoNode2.setReturnNode(true);
 		
-		neoNode1.addLabel("Regesta");
-		neoNode2.addLabel("Regesta");
+		neoNode1.addNeoLabel("Regesta");
+		neoNode2.addNeoLabel("Regesta");
 		
 		return completePattern;
 	}
@@ -196,8 +196,8 @@ public class CypherTest01NeoEdge extends CypherAbstractTranslation {
 		NeoNode neoNode2 = (NeoNode) completePattern.getGraph().getNodes().get(1);
 		neoNode2.setReturnNode(true);
 		
-		neoNode1.addLabel("Regesta");
-		neoNode2.addLabel("Regesta");
+		neoNode1.addNeoLabel("Regesta");
+		neoNode2.addNeoLabel("Regesta");
 		
 		return completePattern;
 	}
@@ -235,8 +235,8 @@ public class CypherTest01NeoEdge extends CypherAbstractTranslation {
 		NeoNode neoNode2 = (NeoNode) completePattern.getGraph().getNodes().get(1);
 		neoNode2.setReturnNode(true);
 		
-		neoNode1.addLabel("Regesta");
-		neoNode2.addLabel("Regesta");
+		neoNode1.addNeoLabel("Regesta");
+		neoNode2.addNeoLabel("Regesta");
 		
 		return completePattern;
 	}
@@ -265,8 +265,8 @@ public class CypherTest01NeoEdge extends CypherAbstractTranslation {
 		NeoNode neoNode2 = (NeoNode) completePattern.getGraph().getNodes().get(1);
 		neoNode2.setReturnNode(true);
 		
-		neoNode1.addLabel("Regesta");
-		neoNode2.addLabel("Regesta");
+		neoNode1.addNeoLabel("Regesta");
+		neoNode2.addNeoLabel("Regesta");
 		
 		return completePattern;
 	}
@@ -296,9 +296,9 @@ public class CypherTest01NeoEdge extends CypherAbstractTranslation {
 		NeoNode neoNode2 = (NeoNode) completePattern.getGraph().getNodes().get(1);
 		neoNode2.setReturnNode(true);
 		
-		neoNode1.addLabel("Regesta");
-		neoNode2.addLabel("IndexEntry");
-		neoNode2.addLabel("IndexPerson");
+		neoNode1.addNeoLabel("Regesta");
+		neoNode2.addNeoLabel("IndexEntry");
+		neoNode2.addNeoLabel("IndexPerson");
 		
 		return completePattern;
 	}
@@ -331,9 +331,9 @@ public class CypherTest01NeoEdge extends CypherAbstractTranslation {
 		NeoNode neoNode2 = (NeoNode) completePattern.getGraph().getNodes().get(1);
 		neoNode2.setReturnNode(true);
 		
-		neoNode1.addLabel("Regesta");
-		neoNode2.addLabel("IndexEntry");
-		neoNode2.addLabel("IndexPerson");
+		neoNode1.addNeoLabel("Regesta");
+		neoNode2.addNeoLabel("IndexEntry");
+		neoNode2.addNeoLabel("IndexPerson");
 		
 		return completePattern;
 	}

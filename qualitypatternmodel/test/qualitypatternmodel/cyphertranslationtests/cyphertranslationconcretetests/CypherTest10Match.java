@@ -3,10 +3,10 @@ package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetest
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
-import qualitypatternmodel.adaptionNeo4J.NeoNode;
-import qualitypatternmodel.adaptionNeo4J.NeoPlace;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoPlace;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -88,7 +88,7 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 		pattern.createNeo4jAdaption();
 		NeoNode neoNode = (NeoNode) pattern.getGraph().getNodes().get(0);
 		neoNode.setNeoPlace(NeoPlace.BEGINNING);
-		neoNode.addLabel("Regesta");
+		neoNode.addNeoLabel("Regesta");
 		
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) pattern.getGraph().getRelations().get(0);
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
@@ -124,7 +124,7 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 		pattern.createNeo4jAdaption();
 		NeoNode neoNode = (NeoNode) pattern.getGraph().getNodes().get(0);
 		neoNode.setNeoPlace(NeoPlace.BEGINNING);
-		neoNode.addLabel("Regesta");
+		neoNode.addNeoLabel("Regesta");
 		
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) pattern.getGraph().getRelations().get(0);
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
@@ -157,7 +157,7 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 		pattern.createNeo4jAdaption();
 		NeoNode neoNode = (NeoNode) pattern.getGraph().getNodes().get(0);
 		neoNode.setNeoPlace(NeoPlace.BEGINNING);
-		neoNode.addLabel("Regesta");
+		neoNode.addNeoLabel("Regesta");
 		
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) pattern.getGraph().getRelations().get(0);
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
@@ -184,7 +184,7 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 		pattern.createNeo4jAdaption();
 		NeoNode neoNode = (NeoNode) pattern.getGraph().getNodes().get(0);
 		neoNode.setNeoPlace(NeoPlace.BEGINNING);
-		neoNode.addLabel("Regesta");
+		neoNode.addNeoLabel("Regesta");
 		
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) pattern.getGraph().getRelations().get(0);
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
@@ -220,7 +220,7 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 		pattern.createNeo4jAdaption();
 		NeoNode neoNode = (NeoNode) pattern.getGraph().getNodes().get(0);
 		neoNode.setNeoPlace(NeoPlace.BEGINNING);
-		neoNode.addLabel("Regesta");
+		neoNode.addNeoLabel("Regesta");
 		
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) pattern.getGraph().getRelations().get(0);
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();

@@ -1,6 +1,6 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.impl;
+package qualitypatternmodel.adaptionneo4j.impl;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -10,15 +10,15 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
-import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
+import qualitypatternmodel.adaptionneo4j.NeoPathPart;
+import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.utility.CypherSpecificConstants;
-import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
+import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +28,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoComplexEdgeImpl#getNeoPathParts <em>Neo Path Parts</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.impl.NeoComplexEdgeImpl#getNeoPathParts <em>Neo Path Parts</em>}</li>
  * </ul>
  *
  * @generated
@@ -274,7 +274,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return AdaptionNeo4JPackage.Literals.NEO_COMPLEX_EDGE;
+		return Adaptionneo4jPackage.Literals.NEO_COMPLEX_EDGE;
 	}
 
 	/**
@@ -285,7 +285,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	@Override
 	public EList<NeoPathPart> getNeoPathParts() {
 		if (neoPathParts == null) {
-			neoPathParts = new EObjectContainmentWithInverseEList<NeoPathPart>(NeoPathPart.class, this, AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH_PARTS, AdaptionNeo4JPackage.NEO_PATH_PART__NEO_COMPLEX_EDGE);
+			neoPathParts = new EObjectContainmentWithInverseEList<NeoPathPart>(NeoPathPart.class, this, Adaptionneo4jPackage.NEO_COMPLEX_EDGE__NEO_PATH_PARTS, Adaptionneo4jPackage.NEO_PATH_PART__NEO_COMPLEX_EDGE);
 		}
 		return neoPathParts;
 	}
@@ -298,7 +298,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH_PARTS:
+			case Adaptionneo4jPackage.NEO_COMPLEX_EDGE__NEO_PATH_PARTS:
 				return ((InternalEList<?>)getNeoPathParts()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -312,7 +312,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH_PARTS:
+			case Adaptionneo4jPackage.NEO_COMPLEX_EDGE__NEO_PATH_PARTS:
 				return getNeoPathParts();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -327,7 +327,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH_PARTS:
+			case Adaptionneo4jPackage.NEO_COMPLEX_EDGE__NEO_PATH_PARTS:
 				getNeoPathParts().clear();
 				getNeoPathParts().addAll((Collection<? extends NeoPathPart>)newValue);
 				return;
@@ -343,7 +343,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH_PARTS:
+			case Adaptionneo4jPackage.NEO_COMPLEX_EDGE__NEO_PATH_PARTS:
 				getNeoPathParts().clear();
 				return;
 		}
@@ -358,7 +358,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH_PARTS:
+			case Adaptionneo4jPackage.NEO_COMPLEX_EDGE__NEO_PATH_PARTS:
 				return neoPathParts != null && !neoPathParts.isEmpty();
 		}
 		return super.eIsSet(featureID);
@@ -372,10 +372,10 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE___ADD_NEO_PATH_PART__NEOPATHPART:
+			case Adaptionneo4jPackage.NEO_COMPLEX_EDGE___ADD_NEO_PATH_PART__NEOPATHPART:
 				addNeoPathPart((NeoPathPart)arguments.get(0));
 				return null;
-			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE___REMOVE_NEO_PATH_PART__NEOPATHPART:
+			case Adaptionneo4jPackage.NEO_COMPLEX_EDGE___REMOVE_NEO_PATH_PART__NEOPATHPART:
 				removeNeoPathPart((NeoPathPart)arguments.get(0));
 				return null;
 		}
@@ -391,7 +391,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH_PARTS:
+			case Adaptionneo4jPackage.NEO_COMPLEX_EDGE__NEO_PATH_PARTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getNeoPathParts()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);

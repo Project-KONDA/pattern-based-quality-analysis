@@ -1,6 +1,6 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.provider;
+package qualitypatternmodel.adaptionneo4j.provider;
 
 
 import java.util.Collection;
@@ -8,16 +8,19 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
+
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -63,7 +66,7 @@ public class NeoPropertyPathParamItemProvider extends NeoAbstractPathParamItemPr
 				 getResourceLocator(),
 				 getString("_UI_NeoPropertyPathParam_neoPropertyEdge_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NeoPropertyPathParam_neoPropertyEdge_feature", "_UI_NeoPropertyPathParam_type"),
-				 AdaptionNeo4JPackage.Literals.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_EDGE,
+				 Adaptionneo4jPackage.Literals.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_EDGE,
 				 true,
 				 false,
 				 true,
@@ -85,7 +88,7 @@ public class NeoPropertyPathParamItemProvider extends NeoAbstractPathParamItemPr
 				 getResourceLocator(),
 				 getString("_UI_NeoPropertyPathParam_neoPropertyName_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NeoPropertyPathParam_neoPropertyName_feature", "_UI_NeoPropertyPathParam_type"),
-				 AdaptionNeo4JPackage.Literals.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_NAME,
+				 Adaptionneo4jPackage.Literals.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_NAME,
 				 true,
 				 false,
 				 true,
@@ -106,7 +109,7 @@ public class NeoPropertyPathParamItemProvider extends NeoAbstractPathParamItemPr
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(AdaptionNeo4JPackage.Literals.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART);
+			childrenFeatures.add(Adaptionneo4jPackage.Literals.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART);
 		}
 		return childrenFeatures;
 	}
@@ -162,7 +165,7 @@ public class NeoPropertyPathParamItemProvider extends NeoAbstractPathParamItemPr
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(NeoPropertyPathParam.class)) {
-			case AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART:
+			case Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -182,13 +185,13 @@ public class NeoPropertyPathParamItemProvider extends NeoAbstractPathParamItemPr
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AdaptionNeo4JPackage.Literals.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART,
-				 AdaptionNeo4JFactory.eINSTANCE.createNeoComplexEdge()));
+				(Adaptionneo4jPackage.Literals.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART,
+				 Adaptionneo4jFactory.eINSTANCE.createNeoComplexEdge()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AdaptionNeo4JPackage.Literals.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART,
-				 AdaptionNeo4JFactory.eINSTANCE.createNeoSimpleEdge()));
+				(Adaptionneo4jPackage.Literals.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART,
+				 Adaptionneo4jFactory.eINSTANCE.createNeoSimpleEdge()));
 	}
 
 }

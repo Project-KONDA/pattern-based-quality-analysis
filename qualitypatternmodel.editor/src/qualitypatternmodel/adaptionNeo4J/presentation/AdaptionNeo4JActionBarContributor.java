@@ -1,6 +1,6 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.presentation;
+package qualitypatternmodel.adaptionneo4j.presentation;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -42,12 +42,12 @@ import org.eclipse.ui.PartInitException;
 import qualitypatternmodel.parameters.presentation.QualitypatternmodelEditorPlugin;
 
 /**
- * This is the action bar contributor for the AdaptionNeo4J model editor.
+ * This is the action bar contributor for the Adaptionneo4j model editor.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AdaptionNeo4JActionBarContributor
+public class Adaptionneo4jActionBarContributor
 	extends EditingDomainActionBarContributor
 	implements ISelectionChangedListener {
 	/**
@@ -150,7 +150,7 @@ public class AdaptionNeo4JActionBarContributor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AdaptionNeo4JActionBarContributor() {
+	public Adaptionneo4jActionBarContributor() {
 		super(ADDITIONS_LAST_STYLE);
 		loadResourceAction = new LoadResourceAction();
 		validateAction = new ValidateAction();
@@ -181,7 +181,7 @@ public class AdaptionNeo4JActionBarContributor
 	public void contributeToMenu(IMenuManager menuManager) {
 		super.contributeToMenu(menuManager);
 
-		IMenuManager submenuManager = new MenuManager(QualitypatternmodelEditorPlugin.INSTANCE.getString("_UI_AdaptionNeo4JEditor_menu"), "qualitypatternmodel.adaptionNeo4JMenuID");
+		IMenuManager submenuManager = new MenuManager(QualitypatternmodelEditorPlugin.INSTANCE.getString("_UI_Adaptionneo4jEditor_menu"), "qualitypatternmodel.adaptionneo4jMenuID");
 		menuManager.insertAfter("additions", submenuManager);
 		submenuManager.add(new Separator("settings"));
 		submenuManager.add(new Separator("actions"));

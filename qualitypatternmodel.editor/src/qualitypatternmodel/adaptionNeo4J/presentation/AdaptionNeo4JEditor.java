@@ -1,6 +1,6 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.presentation;
+package qualitypatternmodel.adaptionneo4j.presentation;
 
 
 import java.io.IOException;
@@ -155,7 +155,7 @@ import org.eclipse.emf.edit.ui.util.EditUIUtil;
 
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
-import qualitypatternmodel.adaptionNeo4J.provider.AdaptionNeo4JItemProviderAdapterFactory;
+import qualitypatternmodel.adaptionneo4j.provider.Adaptionneo4jItemProviderAdapterFactory;
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
@@ -179,12 +179,12 @@ import qualitypatternmodel.textrepresentation.provider.TextrepresentationItemPro
 
 
 /**
- * This is an example of a AdaptionNeo4J model editor.
+ * This is an example of a Adaptionneo4j model editor.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AdaptionNeo4JEditor
+public class Adaptionneo4jEditor
 	extends MultiPageEditorPart
 	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
 	/**
@@ -347,18 +347,18 @@ public class AdaptionNeo4JEditor
 			public void partActivated(IWorkbenchPart p) {
 				if (p instanceof ContentOutline) {
 					if (((ContentOutline)p).getCurrentPage() == contentOutlinePage) {
-						getActionBarContributor().setActiveEditor(AdaptionNeo4JEditor.this);
+						getActionBarContributor().setActiveEditor(Adaptionneo4jEditor.this);
 
 						setCurrentViewer(contentOutlineViewer);
 					}
 				}
 				else if (p instanceof PropertySheet) {
 					if (propertySheetPages.contains(((PropertySheet)p).getCurrentPage())) {
-						getActionBarContributor().setActiveEditor(AdaptionNeo4JEditor.this);
+						getActionBarContributor().setActiveEditor(Adaptionneo4jEditor.this);
 						handleActivate();
 					}
 				}
-				else if (p == AdaptionNeo4JEditor.this) {
+				else if (p == Adaptionneo4jEditor.this) {
 					handleActivate();
 				}
 			}
@@ -539,7 +539,7 @@ public class AdaptionNeo4JEditor
 								 public void run() {
 									 removedResources.addAll(visitor.getRemovedResources());
 									 if (!isDirty()) {
-										 getSite().getPage().closeEditor(AdaptionNeo4JEditor.this, false);
+										 getSite().getPage().closeEditor(Adaptionneo4jEditor.this, false);
 									 }
 								 }
 							 });
@@ -551,7 +551,7 @@ public class AdaptionNeo4JEditor
 								 @Override
 								 public void run() {
 									 changedResources.addAll(visitor.getChangedResources());
-									 if (getSite().getPage().getActiveEditor() == AdaptionNeo4JEditor.this) {
+									 if (getSite().getPage().getActiveEditor() == Adaptionneo4jEditor.this) {
 										 handleActivate();
 									 }
 								 }
@@ -583,7 +583,7 @@ public class AdaptionNeo4JEditor
 
 		if (!removedResources.isEmpty()) {
 			if (handleDirtyConflict()) {
-				getSite().getPage().closeEditor(AdaptionNeo4JEditor.this, false);
+				getSite().getPage().closeEditor(Adaptionneo4jEditor.this, false);
 			}
 			else {
 				removedResources.clear();
@@ -711,7 +711,7 @@ public class AdaptionNeo4JEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AdaptionNeo4JEditor() {
+	public Adaptionneo4jEditor() {
 		super();
 		initializeEditingDomain();
 	}
@@ -736,7 +736,7 @@ public class AdaptionNeo4JEditor
 		adapterFactory.addAdapterFactory(new ExecutionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TextrepresentationItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new AdaptionrdfItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new AdaptionNeo4JItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new Adaptionneo4jItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.
@@ -1063,7 +1063,7 @@ public class AdaptionNeo4JEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), AdaptionNeo4JEditor.this) {
+					new ViewerPane(getSite().getPage(), Adaptionneo4jEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							Tree tree = new Tree(composite, SWT.MULTI);
@@ -1098,7 +1098,7 @@ public class AdaptionNeo4JEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), AdaptionNeo4JEditor.this) {
+					new ViewerPane(getSite().getPage(), Adaptionneo4jEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							Tree tree = new Tree(composite, SWT.MULTI);
@@ -1127,7 +1127,7 @@ public class AdaptionNeo4JEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), AdaptionNeo4JEditor.this) {
+					new ViewerPane(getSite().getPage(), Adaptionneo4jEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new ListViewer(composite);
@@ -1152,7 +1152,7 @@ public class AdaptionNeo4JEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), AdaptionNeo4JEditor.this) {
+					new ViewerPane(getSite().getPage(), Adaptionneo4jEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new TreeViewer(composite);
@@ -1179,7 +1179,7 @@ public class AdaptionNeo4JEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), AdaptionNeo4JEditor.this) {
+					new ViewerPane(getSite().getPage(), Adaptionneo4jEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new TableViewer(composite);
@@ -1222,7 +1222,7 @@ public class AdaptionNeo4JEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), AdaptionNeo4JEditor.this) {
+					new ViewerPane(getSite().getPage(), Adaptionneo4jEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new TreeViewer(composite);
@@ -1447,8 +1447,8 @@ public class AdaptionNeo4JEditor
 			new ExtendedPropertySheetPage(editingDomain, ExtendedPropertySheetPage.Decoration.NONE, null, 0, false) {
 				@Override
 				public void setSelectionToViewer(List<?> selection) {
-					AdaptionNeo4JEditor.this.setSelectionToViewer(selection);
-					AdaptionNeo4JEditor.this.setFocus();
+					Adaptionneo4jEditor.this.setSelectionToViewer(selection);
+					Adaptionneo4jEditor.this.setFocus();
 				}
 
 				@Override

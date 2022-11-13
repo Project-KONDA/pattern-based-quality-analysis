@@ -2,23 +2,18 @@ package qualitypatternmodel.cypherevaluation;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.util.ArrayList;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.adaptionNeo4J.NeoNode;
-import qualitypatternmodel.adaptionNeo4J.NeoPlace;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
+import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.evaluation.EvalContains;
-import qualitypatternmodel.evaluation.EvalMandStruc;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.operators.Contains;
-import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 
@@ -95,7 +90,7 @@ public class CypherEvalContains {
 	
 	private static CompletePattern getExistsContainsWithTwoPrimitivesConcret(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.addLabel("Regesta");
+		neoNode.addNeoLabel("Regesta");
 		
 		Graph g = ((QuantifiedCondition) completePattern.getCondition()).getGraph(); 
 		NeoPropertyNode neoPropertyNode = (NeoPropertyNode) g.getNodes().get(1);
@@ -177,8 +172,8 @@ public class CypherEvalContains {
 	
 	private static CompletePattern getOldContainsConcrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.addLabel("IndexEntry");
-		neoNode.addLabel("IndexPerson");
+		neoNode.addNeoLabel("IndexEntry");
+		neoNode.addNeoLabel("IndexPerson");
 		
 		Graph g = ((QuantifiedCondition) completePattern.getCondition()).getGraph(); 
 		NeoPropertyNode neoPropertyNode = (NeoPropertyNode) g.getNodes().get(1);

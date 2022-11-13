@@ -73,8 +73,9 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated qualitypatternmodel -->
       <package
-            uri="adaptionNeo4J"
-            class="qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage"
+            uri="adaptionneo4j"
+            class="qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage"
             genModel="model/qualitypatternmodel.genmodel"/>
    </extension>
+
 </plugin>

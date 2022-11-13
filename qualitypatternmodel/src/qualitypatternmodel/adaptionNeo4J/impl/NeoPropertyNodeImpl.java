@@ -1,10 +1,9 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.impl;
+package qualitypatternmodel.adaptionneo4j.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.BasicEMap;
@@ -12,12 +11,12 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode;
-import qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoInterfaceNode;
+import qualitypatternmodel.adaptionneo4j.NeoInterfaceElement;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
@@ -34,8 +33,8 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyNodeImpl#isIsVariableDistinctInUse <em>Is Variable Distinct In Use</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyNodeImpl#isReturnProperty <em>Return Property</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.impl.NeoPropertyNodeImpl#isIsVariableDistinctInUse <em>Is Variable Distinct In Use</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.impl.NeoPropertyNodeImpl#isReturnProperty <em>Return Property</em>}</li>
  * </ul>
  *
  * @generated
@@ -384,9 +383,9 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE:
+			case Adaptionneo4jPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE:
 				return isIsVariableDistinctInUse();
-			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__RETURN_PROPERTY:
+			case Adaptionneo4jPackage.NEO_PROPERTY_NODE__RETURN_PROPERTY:
 				return isReturnProperty();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -400,10 +399,10 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE:
+			case Adaptionneo4jPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE:
 				setIsVariableDistinctInUse((Boolean)newValue);
 				return;
-			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__RETURN_PROPERTY:
+			case Adaptionneo4jPackage.NEO_PROPERTY_NODE__RETURN_PROPERTY:
 				setReturnProperty((Boolean)newValue);
 				return;
 		}
@@ -418,10 +417,10 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE:
+			case Adaptionneo4jPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE:
 				setIsVariableDistinctInUse(IS_VARIABLE_DISTINCT_IN_USE_EDEFAULT);
 				return;
-			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__RETURN_PROPERTY:
+			case Adaptionneo4jPackage.NEO_PROPERTY_NODE__RETURN_PROPERTY:
 				setReturnProperty(RETURN_PROPERTY_EDEFAULT);
 				return;
 		}
@@ -436,9 +435,9 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE:
+			case Adaptionneo4jPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE:
 				return isVariableDistinctInUse != IS_VARIABLE_DISTINCT_IN_USE_EDEFAULT;
-			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__RETURN_PROPERTY:
+			case Adaptionneo4jPackage.NEO_PROPERTY_NODE__RETURN_PROPERTY:
 				return returnProperty != RETURN_PROPERTY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
@@ -458,7 +457,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		}
 		if (baseClass == NeoInterfaceNode.class) {
 			switch (derivedFeatureID) {
-				case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE: return AdaptionNeo4JPackage.NEO_INTERFACE_NODE__IS_VARIABLE_DISTINCT_IN_USE;
+				case Adaptionneo4jPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE: return Adaptionneo4jPackage.NEO_INTERFACE_NODE__IS_VARIABLE_DISTINCT_IN_USE;
 				default: return -1;
 			}
 		}
@@ -479,7 +478,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		}
 		if (baseClass == NeoInterfaceNode.class) {
 			switch (baseFeatureID) {
-				case AdaptionNeo4JPackage.NEO_INTERFACE_NODE__IS_VARIABLE_DISTINCT_IN_USE: return AdaptionNeo4JPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE;
+				case Adaptionneo4jPackage.NEO_INTERFACE_NODE__IS_VARIABLE_DISTINCT_IN_USE: return Adaptionneo4jPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE;
 				default: return -1;
 			}
 		}
@@ -534,7 +533,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return AdaptionNeo4JPackage.Literals.NEO_PROPERTY_NODE;
+		return Adaptionneo4jPackage.Literals.NEO_PROPERTY_NODE;
 	}
 
 	/**
@@ -557,7 +556,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		boolean oldIsVariableDistinctInUse = isVariableDistinctInUse;
 		isVariableDistinctInUse = newIsVariableDistinctInUse;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE, oldIsVariableDistinctInUse, isVariableDistinctInUse));
+			eNotify(new ENotificationImpl(this, Notification.SET, Adaptionneo4jPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE, oldIsVariableDistinctInUse, isVariableDistinctInUse));
 	}
 
 	/**
@@ -580,7 +579,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		boolean oldReturnProperty = returnProperty;
 		returnProperty = newReturnProperty;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PROPERTY_NODE__RETURN_PROPERTY, oldReturnProperty, returnProperty));
+			eNotify(new ENotificationImpl(this, Notification.SET, Adaptionneo4jPackage.NEO_PROPERTY_NODE__RETURN_PROPERTY, oldReturnProperty, returnProperty));
 	}
 
 	/**
@@ -592,13 +591,13 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == NeoInterfaceElement.class) {
 			switch (baseOperationID) {
-				case AdaptionNeo4JPackage.NEO_INTERFACE_ELEMENT___GET_CYPHER_RETURN_VARIABLE: return AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GET_CYPHER_RETURN_VARIABLE;
+				case Adaptionneo4jPackage.NEO_INTERFACE_ELEMENT___GET_CYPHER_RETURN_VARIABLE: return Adaptionneo4jPackage.NEO_PROPERTY_NODE___GET_CYPHER_RETURN_VARIABLE;
 				default: return -1;
 			}
 		}
 		if (baseClass == NeoInterfaceNode.class) {
 			switch (baseOperationID) {
-				case AdaptionNeo4JPackage.NEO_INTERFACE_NODE___GET_CYPHER_VARIABLE: return AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GET_CYPHER_VARIABLE;
+				case Adaptionneo4jPackage.NEO_INTERFACE_NODE___GET_CYPHER_VARIABLE: return Adaptionneo4jPackage.NEO_PROPERTY_NODE___GET_CYPHER_VARIABLE;
 				default: return -1;
 			}
 		}
@@ -613,31 +612,31 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GENERATE_CYPHER_PROPERTY_ADDRESSING:
+			case Adaptionneo4jPackage.NEO_PROPERTY_NODE___GENERATE_CYPHER_PROPERTY_ADDRESSING:
 				try {
 					return generateCypherPropertyAddressing();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GENERATE_CYPHER_NODE_VARIABLE:
+			case Adaptionneo4jPackage.NEO_PROPERTY_NODE___GENERATE_CYPHER_NODE_VARIABLE:
 				try {
 					return generateCypherNodeVariable();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE___SET_IS_RETURN_PROPERTY__BOOLEAN:
+			case Adaptionneo4jPackage.NEO_PROPERTY_NODE___SET_IS_RETURN_PROPERTY__BOOLEAN:
 				setIsReturnProperty((Boolean)arguments.get(0));
 				return null;
-			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GET_CYPHER_VARIABLE:
+			case Adaptionneo4jPackage.NEO_PROPERTY_NODE___GET_CYPHER_VARIABLE:
 				try {
 					return getCypherVariable();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GET_CYPHER_RETURN_VARIABLE:
+			case Adaptionneo4jPackage.NEO_PROPERTY_NODE___GET_CYPHER_RETURN_VARIABLE:
 				try {
 					return getCypherReturnVariable();
 				}

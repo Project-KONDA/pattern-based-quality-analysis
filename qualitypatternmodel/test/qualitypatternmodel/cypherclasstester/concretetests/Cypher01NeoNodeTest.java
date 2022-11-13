@@ -23,9 +23,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mockito;
 
-import qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode;
-import qualitypatternmodel.adaptionNeo4J.NeoNode;
-import qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl;
+import qualitypatternmodel.adaptionneo4j.NeoInterfaceNode;
+import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.impl.NeoNodeImpl;
 import qualitypatternmodel.cypherclasstester.NeoAbstractNodeTest;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.TextListParam;
@@ -68,7 +68,7 @@ public class Cypher01NeoNodeTest extends NeoAbstractNodeTest {
 	@ValueSource(strings = {"", "Regesta", "IndexPlace", "IndexEntry" })
 	public void addLabel(String labels) {
 		String label = labels;
-		assertDoesNotThrow(() -> neoNode.addLabel(label));
+		assertDoesNotThrow(() -> neoNode.addNeoLabel(label));
 
 		EList<String> labelList = neoNode.getNeoNodeLabels().getValues();
 		assumeNotNull(labelList);
@@ -82,7 +82,7 @@ public class Cypher01NeoNodeTest extends NeoAbstractNodeTest {
 	public void multiLabel(String labelsParam) {
 		String[] labels = labelsParam.split(",");
 		for (String label : labels) {
-			assertDoesNotThrow(() ->  neoNode.addLabel(label));
+			assertDoesNotThrow(() ->  neoNode.addNeoLabel(label));
 		}
 		EList<String> labelList = neoNode.getNeoNodeLabels().getValues();
 		assumeNotNull(labelList);
@@ -98,7 +98,7 @@ public class Cypher01NeoNodeTest extends NeoAbstractNodeTest {
 	public void setSameLabels(String labelsParam) {
 		String[] labels = labelsParam.split(",");
 		for (String label : labels) {
-			assertDoesNotThrow(() ->  neoNode.addLabel(label));
+			assertDoesNotThrow(() ->  neoNode.addNeoLabel(label));
 		}
 		EList<String> labelList = neoNode.getNeoNodeLabels().getValues();
 		assumeNotNull(labelList);
@@ -111,7 +111,7 @@ public class Cypher01NeoNodeTest extends NeoAbstractNodeTest {
 	@Test
 	public void addLabelThrowInvalidityException() {
 		String label = " ";
-		assertThrows(InvalidityException.class, () -> neoNode.addLabel(label));
+		assertThrows(InvalidityException.class, () -> neoNode.addNeoLabel(label));
 	}
 	
 	@Test

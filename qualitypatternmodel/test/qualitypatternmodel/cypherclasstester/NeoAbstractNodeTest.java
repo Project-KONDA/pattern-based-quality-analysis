@@ -5,9 +5,8 @@ import static org.junit.Assume.assumeTrue;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode;
-import qualitypatternmodel.adaptionNeo4J.NeoEdge;
+import qualitypatternmodel.adaptionneo4j.NeoAbstractEdge;
+import qualitypatternmodel.adaptionneo4j.NeoInterfaceNode;
 import qualitypatternmodel.graphstructure.impl.NodeImpl;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 

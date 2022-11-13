@@ -1,11 +1,11 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.tests;
+package qualitypatternmodel.adaptionneo4j.tests;
 
 import junit.textui.TestRunner;
 
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
-import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
+import qualitypatternmodel.adaptionneo4j.NeoPathParam;
 
 /**
  * <!-- begin-user-doc -->
@@ -53,7 +53,7 @@ public class NeoPathParamTest extends NeoAbstractPathParamTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(AdaptionNeo4JFactory.eINSTANCE.createNeoPathParam());
+		setFixture(Adaptionneo4jFactory.eINSTANCE.createNeoPathParam());
 	}
 
 	/**

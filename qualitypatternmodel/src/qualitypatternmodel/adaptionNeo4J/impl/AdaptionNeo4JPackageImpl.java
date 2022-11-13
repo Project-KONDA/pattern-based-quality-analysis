@@ -1,10 +1,9 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.impl;
+package qualitypatternmodel.adaptionneo4j.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -12,23 +11,24 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode;
-import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
-import qualitypatternmodel.adaptionNeo4J.NeoEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement;
-import qualitypatternmodel.adaptionNeo4J.NeoNode;
-import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
-import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
-import qualitypatternmodel.adaptionNeo4J.NeoPlace;
-import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoDirection;
-import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
+import qualitypatternmodel.adaptionneo4j.NeoAbstractEdge;
+import qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
+import qualitypatternmodel.adaptionneo4j.NeoDirection;
+import qualitypatternmodel.adaptionneo4j.NeoEdge;
+import qualitypatternmodel.adaptionneo4j.NeoInterfaceElement;
+import qualitypatternmodel.adaptionneo4j.NeoInterfaceNode;
+import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoPathPart;
+import qualitypatternmodel.adaptionneo4j.NeoPlace;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
+
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 
 import qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl;
@@ -67,7 +67,7 @@ import qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl
  * <!-- end-user-doc -->
  * @generated
  */
-public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNeo4JPackage {
+public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionneo4jPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -174,13 +174,6 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	private EEnum neoPlaceEEnum = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType newDataType3EDataType = null;
-
-	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -191,14 +184,13 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#eNS_URI
+	 * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */
-	private AdaptionNeo4JPackageImpl() {
-		super(eNS_URI, AdaptionNeo4JFactory.eINSTANCE);
+	private Adaptionneo4jPackageImpl() {
+		super(eNS_URI, Adaptionneo4jFactory.eINSTANCE);
 	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -209,7 +201,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 *
-	 * <p>This method is used to initialize {@link AdaptionNeo4JPackage#eINSTANCE} when that field is accessed.
+	 * <p>This method is used to initialize {@link Adaptionneo4jPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -218,12 +210,12 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
-	public static AdaptionNeo4JPackage init() {
-		if (isInited) return (AdaptionNeo4JPackage)EPackage.Registry.INSTANCE.getEPackage(AdaptionNeo4JPackage.eNS_URI);
+	public static Adaptionneo4jPackage init() {
+		if (isInited) return (Adaptionneo4jPackage)EPackage.Registry.INSTANCE.getEPackage(Adaptionneo4jPackage.eNS_URI);
 
 		// Obtain or create and register package
-		Object registeredAdaptionNeo4JPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		AdaptionNeo4JPackageImpl theAdaptionNeo4JPackage = registeredAdaptionNeo4JPackage instanceof AdaptionNeo4JPackageImpl ? (AdaptionNeo4JPackageImpl)registeredAdaptionNeo4JPackage : new AdaptionNeo4JPackageImpl();
+		Object registeredAdaptionneo4jPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		Adaptionneo4jPackageImpl theAdaptionneo4jPackage = registeredAdaptionneo4jPackage instanceof Adaptionneo4jPackageImpl ? (Adaptionneo4jPackageImpl)registeredAdaptionneo4jPackage : new Adaptionneo4jPackageImpl();
 
 		isInited = true;
 
@@ -246,7 +238,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		AdaptionrdfPackageImpl theAdaptionrdfPackage = (AdaptionrdfPackageImpl)(registeredPackage instanceof AdaptionrdfPackageImpl ? registeredPackage : AdaptionrdfPackage.eINSTANCE);
 
 		// Create package meta-data objects
-		theAdaptionNeo4JPackage.createPackageContents();
+		theAdaptionneo4jPackage.createPackageContents();
 		theParametersPackage.createPackageContents();
 		theOperatorsPackage.createPackageContents();
 		theGraphstructurePackage.createPackageContents();
@@ -257,7 +249,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		theAdaptionrdfPackage.createPackageContents();
 
 		// Initialize created meta-data
-		theAdaptionNeo4JPackage.initializePackageContents();
+		theAdaptionneo4jPackage.initializePackageContents();
 		theParametersPackage.initializePackageContents();
 		theOperatorsPackage.initializePackageContents();
 		theGraphstructurePackage.initializePackageContents();
@@ -268,11 +260,11 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		theAdaptionrdfPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
-		theAdaptionNeo4JPackage.freeze();
+		theAdaptionneo4jPackage.freeze();
 
 		// Update the registry and return the package
-		EPackage.Registry.INSTANCE.put(AdaptionNeo4JPackage.eNS_URI, theAdaptionNeo4JPackage);
-		return theAdaptionNeo4JPackage;
+		EPackage.Registry.INSTANCE.put(Adaptionneo4jPackage.eNS_URI, theAdaptionneo4jPackage);
+		return theAdaptionneo4jPackage;
 	}
 
 	/**
@@ -341,7 +333,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
-	public EOperation getNeoNode__AddLabel__String() {
+	public EOperation getNeoNode__AddNeoLabel__String() {
 		return neoNodeEClass.getEOperations().get(0);
 	}
 
@@ -431,6 +423,26 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
+	public EAttribute getNeoSimpleEdge_NeoDirection() {
+		return (EAttribute)neoSimpleEdgeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getNeoSimpleEdge_NeoTargetNodeLabels() {
+		return (EReference)neoSimpleEdgeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getNeoSimpleEdge_NeoEdgeLabel() {
 		return (EReference)neoSimpleEdgeEClass.getEStructuralFeatures().get(3);
 	}
@@ -443,6 +455,36 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	@Override
 	public EAttribute getNeoSimpleEdge_EdgeNumber() {
 		return (EAttribute)neoSimpleEdgeEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNeoSimpleEdge__SetNeoDirection__NeoDirection() {
+		return neoSimpleEdgeEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNeoSimpleEdge__AddNeoTargetNodeLabel__String() {
+		return neoSimpleEdgeEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNeoSimpleEdge__AddNeoEdgeLabel__String() {
+		return neoSimpleEdgeEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -581,56 +623,6 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNeoSimpleEdge_NeoDirection() {
-		return (EAttribute)neoSimpleEdgeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getNeoSimpleEdge_NeoTargetNodeLabels() {
-		return (EReference)neoSimpleEdgeEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getNeoSimpleEdge__SetNeoDirection__NeoDirection() {
-		return neoSimpleEdgeEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getNeoSimpleEdge__AddNeoTargetNodeLabel__String() {
-		return neoSimpleEdgeEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getNeoSimpleEdge__AddNeoEdgeLabel__String() {
-		return neoSimpleEdgeEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getNeoPathParam() {
 		return neoPathParamEClass;
 	}
@@ -671,16 +663,6 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
-	public EReference getNeoPropertyPathParam_NeoPathPart() {
-		return (EReference)neoPropertyPathParamEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getNeoPropertyPathParam_NeoPropertyEdge() {
 		return (EReference)neoPropertyPathParamEClass.getEStructuralFeatures().get(0);
 	}
@@ -693,6 +675,16 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	@Override
 	public EReference getNeoPropertyPathParam_NeoPropertyName() {
 		return (EReference)neoPropertyPathParamEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getNeoPropertyPathParam_NeoPathPart() {
+		return (EReference)neoPropertyPathParamEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -861,18 +853,8 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
-	public EDataType getNewDataType3() {
-		return newDataType3EDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public AdaptionNeo4JFactory getAdaptionNeo4JFactory() {
-		return (AdaptionNeo4JFactory)getEFactoryInstance();
+	public Adaptionneo4jFactory getAdaptionneo4jFactory() {
+		return (Adaptionneo4jFactory)getEFactoryInstance();
 	}
 
 	/**
@@ -901,7 +883,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		neoNodeEClass = createEClass(NEO_NODE);
 		createEReference(neoNodeEClass, NEO_NODE__NEO_NODE_LABELS);
 		createEAttribute(neoNodeEClass, NEO_NODE__NEO_PLACE);
-		createEOperation(neoNodeEClass, NEO_NODE___ADD_LABEL__STRING);
+		createEOperation(neoNodeEClass, NEO_NODE___ADD_NEO_LABEL__STRING);
 
 		neoEdgeEClass = createEClass(NEO_EDGE);
 		createEReference(neoEdgeEClass, NEO_EDGE__NEO_PATH_PARAM);
@@ -966,9 +948,6 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		// Create enums
 		neoDirectionEEnum = createEEnum(NEO_DIRECTION);
 		neoPlaceEEnum = createEEnum(NEO_PLACE);
-
-		// Create data types
-		newDataType3EDataType = createEDataType(NEW_DATA_TYPE3);
 	}
 
 	/**
@@ -1032,7 +1011,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		initEReference(getNeoNode_NeoNodeLabels(), theParametersPackage.getTextListParam(), null, "neoNodeLabels", null, 0, 1, NeoNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNeoNode_NeoPlace(), this.getNeoPlace(), "neoPlace", "FOLLOWING", 0, 1, NeoNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getNeoNode__AddLabel__String(), null, "addLabel", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNeoNode__AddNeoLabel__String(), null, "addNeoLabel", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "label", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
@@ -1074,7 +1053,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 
 		initEOperation(getNeoPathPart__GetNeoPathPartEdgeLeafs(), this.getNeoPathPart(), "getNeoPathPartEdgeLeafs", 0, -1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getNeoPathPart__GetCypherVariable(), null, "getCypherVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNeoPathPart__GetCypherVariable(), ecorePackage.getEString(), "getCypherVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getNeoPathPart__GetCypherInnerEdgeNodes__boolean(), ecorePackage.getEString(), "getCypherInnerEdgeNodes", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1149,11 +1128,8 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		addEEnumLiteral(neoPlaceEEnum, NeoPlace.BEGINNING);
 		addEEnumLiteral(neoPlaceEEnum, NeoPlace.FOLLOWING);
 
-		// Initialize data types
-		initEDataType(newDataType3EDataType, Object.class, "NewDataType3", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-
 		// Create resource
 		createResource(eNS_URI);
 	}
 
-} //AdaptionNeo4JPackageImpl
+} //Adaptionneo4jPackageImpl

@@ -1,6 +1,6 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.provider;
+package qualitypatternmodel.adaptionneo4j.provider;
 
 
 import java.util.Collection;
@@ -13,18 +13,18 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
+
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 
 import qualitypatternmodel.graphstructure.provider.PrimitiveNodeItemProvider;
 
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoPropertyNode} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -70,7 +70,7 @@ public class NeoPropertyNodeItemProvider extends PrimitiveNodeItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_NeoInterfaceNode_isVariableDistinctInUse_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NeoInterfaceNode_isVariableDistinctInUse_feature", "_UI_NeoInterfaceNode_type"),
-				 AdaptionNeo4JPackage.Literals.NEO_INTERFACE_NODE__IS_VARIABLE_DISTINCT_IN_USE,
+				 Adaptionneo4jPackage.Literals.NEO_INTERFACE_NODE__IS_VARIABLE_DISTINCT_IN_USE,
 				 true,
 				 false,
 				 false,
@@ -92,7 +92,7 @@ public class NeoPropertyNodeItemProvider extends PrimitiveNodeItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_NeoPropertyNode_returnProperty_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NeoPropertyNode_returnProperty_feature", "_UI_NeoPropertyNode_type"),
-				 AdaptionNeo4JPackage.Literals.NEO_PROPERTY_NODE__RETURN_PROPERTY,
+				 Adaptionneo4jPackage.Literals.NEO_PROPERTY_NODE__RETURN_PROPERTY,
 				 true,
 				 false,
 				 false,
@@ -139,8 +139,8 @@ public class NeoPropertyNodeItemProvider extends PrimitiveNodeItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(NeoPropertyNode.class)) {
-			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE:
-			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE__RETURN_PROPERTY:
+			case Adaptionneo4jPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE:
+			case Adaptionneo4jPackage.NEO_PROPERTY_NODE__RETURN_PROPERTY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

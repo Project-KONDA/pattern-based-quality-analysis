@@ -1,6 +1,6 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J;
+package qualitypatternmodel.adaptionneo4j;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Neo Direction</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoDirection()
+ * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoDirection()
  * @model
  * @generated
  */

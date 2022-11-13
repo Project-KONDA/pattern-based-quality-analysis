@@ -1,8 +1,8 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.tests;
+package qualitypatternmodel.adaptionneo4j.tests;
 
-import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
+import qualitypatternmodel.adaptionneo4j.NeoAbstractEdge;
 
 import qualitypatternmodel.graphstructure.tests.RelationTest;
 
@@ -13,9 +13,9 @@ import qualitypatternmodel.graphstructure.tests.RelationTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#setIsReturnElement(boolean) <em>Set Is Return Element</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoAbstractEdge#setIsReturnElement(boolean) <em>Set Is Return Element</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoAbstractEdge#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoInterfaceElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -44,10 +44,10 @@ public abstract class NeoAbstractEdgeTest extends RelationTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#setIsReturnElement(boolean) <em>Set Is Return Element</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoAbstractEdge#setIsReturnElement(boolean) <em>Set Is Return Element</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#setIsReturnElement(boolean)
+	 * @see qualitypatternmodel.adaptionneo4j.NeoAbstractEdge#setIsReturnElement(boolean)
 	 * @generated
 	 */
 	public void testSetIsReturnElement__boolean() {
@@ -57,10 +57,10 @@ public abstract class NeoAbstractEdgeTest extends RelationTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoAbstractEdge#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#getReturnInnerEdgeNodes()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoAbstractEdge#getReturnInnerEdgeNodes()
 	 * @generated
 	 */
 	public void testGetReturnInnerEdgeNodes() {
@@ -70,10 +70,10 @@ public abstract class NeoAbstractEdgeTest extends RelationTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoInterfaceElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement#getCypherReturnVariable()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoInterfaceElement#getCypherReturnVariable()
 	 * @generated
 	 */
 	public void testGetCypherReturnVariable() {

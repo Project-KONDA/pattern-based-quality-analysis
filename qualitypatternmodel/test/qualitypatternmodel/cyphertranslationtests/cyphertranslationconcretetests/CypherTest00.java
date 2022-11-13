@@ -1,16 +1,14 @@
 package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
-import java.time.Duration;
-import java.time.Instant;
 import java.util.ArrayList;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
-import qualitypatternmodel.adaptionNeo4J.NeoNode;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -115,16 +113,16 @@ public class CypherTest00 extends CypherAbstractTranslation {
 		NeoNode neoNode;
 		
 		neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.addLabel("Place");
+		neoNode.addNeoLabel("Place");
 		
 		neoNode = (NeoNode) completePattern.getGraph().getNodes().get(1);
-		neoNode.addLabel("Regesta");
+		neoNode.addNeoLabel("Regesta");
 		
 		neoNode = (NeoNode) completePattern.getGraph().getNodes().get(4);
-		neoNode.addLabel("Place");
+		neoNode.addNeoLabel("Place");
 		
 		neoNode = (NeoNode) completePattern.getGraph().getNodes().get(5);
-		neoNode.addLabel("IndexPerson");
+		neoNode.addNeoLabel("IndexPerson");
 		
 		return completePattern;
 	}

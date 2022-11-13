@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import org.eclipse.emf.common.util.EList;
 
 import playground.Java2Neo4JConnector;
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
-import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
+import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jFactoryImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -47,7 +47,7 @@ public abstract class CypherAbstractTranslation implements CypherInterfaceTransl
 	private static final String TESTING_WITHOUT_DB = "Testing without DB";
 	private static final String TESTING_WITH_DB = "Testing with DB";
 	private static final String MODE = "Mode - ";
-	public static final AdaptionNeo4JFactory NEO_FACTORY = new AdaptionNeo4JFactoryImpl();
+	public static final Adaptionneo4jFactory NEO_FACTORY = new Adaptionneo4jFactoryImpl();
 	public static final String BEGIN_TESTS = "<<< BEGIN - Tests >>>";
 	public static final String END_TESTS = "<<< END - Tests >>>";
 	public static final String TEST_SUCCESSFUL = "Test successful";

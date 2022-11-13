@@ -1,11 +1,11 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.tests;
+package qualitypatternmodel.adaptionneo4j.tests;
 
 import junit.textui.TestRunner;
 
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
-import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
+import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,9 +14,9 @@ import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#setNeoDirection(qualitypatternmodel.adaptionNeo4J.NeoDirection) <em>Set Neo Direction</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addNeoTargetNodeLabel(java.lang.String) <em>Add Neo Target Node Label</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addNeoEdgeLabel(java.lang.String) <em>Add Neo Edge Label</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#setNeoDirection(qualitypatternmodel.adaptionneo4j.NeoDirection) <em>Set Neo Direction</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#addNeoTargetNodeLabel(java.lang.String) <em>Add Neo Target Node Label</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#addNeoEdgeLabel(java.lang.String) <em>Add Neo Edge Label</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -61,7 +61,7 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(AdaptionNeo4JFactory.eINSTANCE.createNeoSimpleEdge());
+		setFixture(Adaptionneo4jFactory.eINSTANCE.createNeoSimpleEdge());
 	}
 
 	/**
@@ -76,10 +76,10 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#setNeoDirection(qualitypatternmodel.adaptionNeo4J.NeoDirection) <em>Set Neo Direction</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#setNeoDirection(qualitypatternmodel.adaptionneo4j.NeoDirection) <em>Set Neo Direction</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#setNeoDirection(qualitypatternmodel.adaptionNeo4J.NeoDirection)
+	 * @see qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#setNeoDirection(qualitypatternmodel.adaptionneo4j.NeoDirection)
 	 * @generated
 	 */
 	public void testSetNeoDirection__NeoDirection() {
@@ -89,10 +89,10 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addNeoTargetNodeLabel(java.lang.String) <em>Add Neo Target Node Label</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#addNeoTargetNodeLabel(java.lang.String) <em>Add Neo Target Node Label</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addNeoTargetNodeLabel(java.lang.String)
+	 * @see qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#addNeoTargetNodeLabel(java.lang.String)
 	 * @generated
 	 */
 	public void testAddNeoTargetNodeLabel__String() {
@@ -102,10 +102,10 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addNeoEdgeLabel(java.lang.String) <em>Add Neo Edge Label</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#addNeoEdgeLabel(java.lang.String) <em>Add Neo Edge Label</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#addNeoEdgeLabel(java.lang.String)
+	 * @see qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#addNeoEdgeLabel(java.lang.String)
 	 * @generated
 	 */
 	public void testAddNeoEdgeLabel__String() {

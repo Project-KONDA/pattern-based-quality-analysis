@@ -1,6 +1,6 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.provider;
+package qualitypatternmodel.adaptionneo4j.provider;
 
 
 import java.util.Collection;
@@ -10,15 +10,17 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
+
+import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoPathPart} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoPathPart} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated

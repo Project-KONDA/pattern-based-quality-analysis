@@ -158,8 +158,7 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import qualitypatternmodel.graphstructure.provider.GraphstructureItemProviderAdapterFactory;
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
-
-import qualitypatternmodel.adaptionNeo4J.provider.AdaptionNeo4JItemProviderAdapterFactory;
+import qualitypatternmodel.adaptionneo4j.provider.Adaptionneo4jItemProviderAdapterFactory;
 import qualitypatternmodel.adaptionrdf.provider.AdaptionrdfItemProviderAdapterFactory;
 
 import qualitypatternmodel.adaptionxml.provider.AdaptionxmlItemProviderAdapterFactory;
@@ -735,7 +734,7 @@ public class GraphstructureEditor
 		adapterFactory.addAdapterFactory(new ExecutionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TextrepresentationItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new AdaptionrdfItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new AdaptionNeo4JItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new Adaptionneo4jItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

@@ -1,6 +1,6 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.impl;
+package qualitypatternmodel.adaptionneo4j.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -9,11 +9,11 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
-import qualitypatternmodel.adaptionNeo4J.NeoEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
-import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
+import qualitypatternmodel.adaptionneo4j.NeoPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoEdge;
+import qualitypatternmodel.adaptionneo4j.NeoPathPart;
+import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.utility.CypherSpecificConstants;
@@ -26,8 +26,8 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathParamImpl#getNeoEdge <em>Neo Edge</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathParamImpl#getNeoPathPart <em>Neo Path Part</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.impl.NeoPathParamImpl#getNeoEdge <em>Neo Edge</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.impl.NeoPathParamImpl#getNeoPathPart <em>Neo Path Part</em>}</li>
  * </ul>
  *
  * @generated
@@ -132,7 +132,7 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 		NeoEdge oldNeoEdge = neoEdge;
 		neoEdge = newNeoEdge;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE, oldNeoEdge, newNeoEdge);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, Adaptionneo4jPackage.NEO_PATH_PARAM__NEO_EDGE, oldNeoEdge, newNeoEdge);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -179,7 +179,7 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return AdaptionNeo4JPackage.Literals.NEO_PATH_PARAM;
+		return Adaptionneo4jPackage.Literals.NEO_PATH_PARAM;
 	}
 	
 	/**
@@ -194,7 +194,7 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 			neoEdge = (NeoEdge)eResolveProxy(oldNeoEdge);
 			if (neoEdge != oldNeoEdge) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE, oldNeoEdge, neoEdge));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Adaptionneo4jPackage.NEO_PATH_PARAM__NEO_EDGE, oldNeoEdge, neoEdge));
 			}
 		}
 		return neoEdge;
@@ -219,14 +219,14 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 		if (newNeoEdge != neoEdge) {
 			NotificationChain msgs = null;
 			if (neoEdge != null)
-				msgs = ((InternalEObject)neoEdge).eInverseRemove(this, AdaptionNeo4JPackage.NEO_EDGE__NEO_PATH_PARAM, NeoEdge.class, msgs);
+				msgs = ((InternalEObject)neoEdge).eInverseRemove(this, Adaptionneo4jPackage.NEO_EDGE__NEO_PATH_PARAM, NeoEdge.class, msgs);
 			if (newNeoEdge != null)
-				msgs = ((InternalEObject)newNeoEdge).eInverseAdd(this, AdaptionNeo4JPackage.NEO_EDGE__NEO_PATH_PARAM, NeoEdge.class, msgs);
+				msgs = ((InternalEObject)newNeoEdge).eInverseAdd(this, Adaptionneo4jPackage.NEO_EDGE__NEO_PATH_PARAM, NeoEdge.class, msgs);
 			msgs = basicSetNeoEdge(newNeoEdge, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE, newNeoEdge, newNeoEdge));
+			eNotify(new ENotificationImpl(this, Notification.SET, Adaptionneo4jPackage.NEO_PATH_PARAM__NEO_EDGE, newNeoEdge, newNeoEdge));
 	}
 
 	/**
@@ -248,7 +248,7 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 		NeoPathPart oldNeoPathPart = neoPathPart;
 		neoPathPart = newNeoPathPart;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_PATH_PART, oldNeoPathPart, newNeoPathPart);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, Adaptionneo4jPackage.NEO_PATH_PARAM__NEO_PATH_PART, oldNeoPathPart, newNeoPathPart);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -264,14 +264,14 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 		if (newNeoPathPart != neoPathPart) {
 			NotificationChain msgs = null;
 			if (neoPathPart != null)
-				msgs = ((InternalEObject)neoPathPart).eInverseRemove(this, AdaptionNeo4JPackage.NEO_PATH_PART__NEO_PATH_PARAM, NeoPathPart.class, msgs);
+				msgs = ((InternalEObject)neoPathPart).eInverseRemove(this, Adaptionneo4jPackage.NEO_PATH_PART__NEO_PATH_PARAM, NeoPathPart.class, msgs);
 			if (newNeoPathPart != null)
-				msgs = ((InternalEObject)newNeoPathPart).eInverseAdd(this, AdaptionNeo4JPackage.NEO_PATH_PART__NEO_PATH_PARAM, NeoPathPart.class, msgs);
+				msgs = ((InternalEObject)newNeoPathPart).eInverseAdd(this, Adaptionneo4jPackage.NEO_PATH_PART__NEO_PATH_PARAM, NeoPathPart.class, msgs);
 			msgs = basicSetNeoPathPart(newNeoPathPart, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_PATH_PART, newNeoPathPart, newNeoPathPart));
+			eNotify(new ENotificationImpl(this, Notification.SET, Adaptionneo4jPackage.NEO_PATH_PARAM__NEO_PATH_PART, newNeoPathPart, newNeoPathPart));
 	}
 
 	/**
@@ -283,13 +283,13 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE:
+			case Adaptionneo4jPackage.NEO_PATH_PARAM__NEO_EDGE:
 				if (neoEdge != null)
-					msgs = ((InternalEObject)neoEdge).eInverseRemove(this, AdaptionNeo4JPackage.NEO_EDGE__NEO_PATH_PARAM, NeoEdge.class, msgs);
+					msgs = ((InternalEObject)neoEdge).eInverseRemove(this, Adaptionneo4jPackage.NEO_EDGE__NEO_PATH_PARAM, NeoEdge.class, msgs);
 				return basicSetNeoEdge((NeoEdge)otherEnd, msgs);
-			case AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_PATH_PART:
+			case Adaptionneo4jPackage.NEO_PATH_PARAM__NEO_PATH_PART:
 				if (neoPathPart != null)
-					msgs = ((InternalEObject)neoPathPart).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_PATH_PART, null, msgs);
+					msgs = ((InternalEObject)neoPathPart).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Adaptionneo4jPackage.NEO_PATH_PARAM__NEO_PATH_PART, null, msgs);
 				return basicSetNeoPathPart((NeoPathPart)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -303,9 +303,9 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE:
+			case Adaptionneo4jPackage.NEO_PATH_PARAM__NEO_EDGE:
 				return basicSetNeoEdge(null, msgs);
-			case AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_PATH_PART:
+			case Adaptionneo4jPackage.NEO_PATH_PARAM__NEO_PATH_PART:
 				return basicSetNeoPathPart(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -319,10 +319,10 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE:
+			case Adaptionneo4jPackage.NEO_PATH_PARAM__NEO_EDGE:
 				if (resolve) return getNeoEdge();
 				return basicGetNeoEdge();
-			case AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_PATH_PART:
+			case Adaptionneo4jPackage.NEO_PATH_PARAM__NEO_PATH_PART:
 				return getNeoPathPart();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -337,10 +337,10 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE:
+			case Adaptionneo4jPackage.NEO_PATH_PARAM__NEO_EDGE:
 				setNeoEdge((NeoEdge)newValue);
 				return;
-			case AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_PATH_PART:
+			case Adaptionneo4jPackage.NEO_PATH_PARAM__NEO_PATH_PART:
 				setNeoPathPart((NeoPathPart)newValue);
 				return;
 		}
@@ -355,10 +355,10 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE:
+			case Adaptionneo4jPackage.NEO_PATH_PARAM__NEO_EDGE:
 				setNeoEdge((NeoEdge)null);
 				return;
-			case AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_PATH_PART:
+			case Adaptionneo4jPackage.NEO_PATH_PARAM__NEO_PATH_PART:
 				setNeoPathPart((NeoPathPart)null);
 				return;
 		}
@@ -373,9 +373,9 @@ public class NeoPathParamImpl extends NeoAbstractPathParamImpl implements NeoPat
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE:
+			case Adaptionneo4jPackage.NEO_PATH_PARAM__NEO_EDGE:
 				return neoEdge != null;
-			case AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_PATH_PART:
+			case Adaptionneo4jPackage.NEO_PATH_PARAM__NEO_PATH_PART:
 				return neoPathPart != null;
 		}
 		return super.eIsSet(featureID);

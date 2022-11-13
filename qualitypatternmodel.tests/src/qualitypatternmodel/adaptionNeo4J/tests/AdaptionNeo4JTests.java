@@ -1,6 +1,6 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.tests;
+package qualitypatternmodel.adaptionneo4j.tests;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -9,11 +9,11 @@ import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test suite for the '<em><b>adaptionNeo4J</b></em>' package.
+ * A test suite for the '<em><b>adaptionneo4j</b></em>' package.
  * <!-- end-user-doc -->
  * @generated
  */
-public class AdaptionNeo4JTests extends TestSuite {
+public class Adaptionneo4jTests extends TestSuite {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -30,7 +30,7 @@ public class AdaptionNeo4JTests extends TestSuite {
 	 * @generated
 	 */
 	public static Test suite() {
-		TestSuite suite = new AdaptionNeo4JTests("adaptionNeo4J Tests");
+		TestSuite suite = new Adaptionneo4jTests("adaptionneo4j Tests");
 		suite.addTestSuite(NeoNodeTest.class);
 		suite.addTestSuite(NeoEdgeTest.class);
 		suite.addTestSuite(NeoComplexEdgeTest.class);
@@ -47,8 +47,8 @@ public class AdaptionNeo4JTests extends TestSuite {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AdaptionNeo4JTests(String name) {
+	public Adaptionneo4jTests(String name) {
 		super(name);
 	}
 
-} //AdaptionNeo4JTests
+} //Adaptionneo4jTests

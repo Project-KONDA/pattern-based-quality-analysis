@@ -1,6 +1,6 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.provider;
+package qualitypatternmodel.adaptionneo4j.provider;
 
 
 import java.util.Collection;
@@ -8,14 +8,15 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoPropertyEdge} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -60,7 +61,7 @@ public class NeoPropertyEdgeItemProvider extends NeoAbstractEdgeItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_NeoPropertyEdge_neoPropertyPathParam_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NeoPropertyEdge_neoPropertyPathParam_feature", "_UI_NeoPropertyEdge_type"),
-				 AdaptionNeo4JPackage.Literals.NEO_PROPERTY_EDGE__NEO_PROPERTY_PATH_PARAM,
+				 Adaptionneo4jPackage.Literals.NEO_PROPERTY_EDGE__NEO_PROPERTY_PATH_PARAM,
 				 true,
 				 false,
 				 true,

@@ -5,12 +5,12 @@ import java.time.Instant;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
-import qualitypatternmodel.adaptionNeo4J.NeoNode;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
-import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
-import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
+import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
+import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
+import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jFactoryImpl;
 import qualitypatternmodel.evaluation.EvalComp;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -22,7 +22,7 @@ import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 
 public class CypherEvalComp {
-	public static final AdaptionNeo4JFactory NEO_FACTORY = new AdaptionNeo4JFactoryImpl();
+	public static final Adaptionneo4jFactory NEO_FACTORY = new Adaptionneo4jFactoryImpl();
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		//New Ones	
@@ -102,7 +102,7 @@ public class CypherEvalComp {
 	
 	private static CompletePattern getFundamentalConcret1(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.addLabel("Regesta");
+		neoNode.addNeoLabel("Regesta");
 		
 		NeoPropertyEdge neoPropertyEdge1 = (NeoPropertyEdge) neoNode.getOutgoing().get(0);
 		neoPropertyEdge1.getNeoPropertyPathParam().setNeoPropertyName("placeOfIssue");
@@ -118,7 +118,7 @@ public class CypherEvalComp {
 	
 	private static CompletePattern getFundamentalConcret2(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.addLabel("Regesta");
+		neoNode.addNeoLabel("Regesta");
 		
 		NeoPropertyEdge neoPropertyEdge1 = (NeoPropertyEdge) neoNode.getOutgoing().get(0);
 		neoPropertyEdge1.getNeoPropertyPathParam().setNeoPropertyName("placeOfIssue");
@@ -140,12 +140,12 @@ public class CypherEvalComp {
 	////Old Ones
 	//BEGIN
 	private static void printOldCompare() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePatternMandStruc1HasPlace;
+		CompletePattern completePatternCompare;
 		
 		//Generic
 		Instant start = Instant.now();
 		
-		completePatternMandStruc1HasPlace = getOldCompareGeneric();
+		completePatternCompare = getOldCompareGeneric();
 		
 		Instant finish = Instant.now();
 		long timeElapsed = Duration.between(start, finish).toMillis();
@@ -155,7 +155,7 @@ public class CypherEvalComp {
 		//Generic --> Abstract 
 		start = Instant.now();
 		
-		completePatternMandStruc1HasPlace = getOldCompareAbstract(completePatternMandStruc1HasPlace);
+		completePatternCompare = getOldCompareAbstract(completePatternCompare);
 		
 		finish = Instant.now();
 		timeElapsed = Duration.between(start, finish).toMillis();
@@ -165,7 +165,7 @@ public class CypherEvalComp {
 		//Abstract --> Concrete
 		start = Instant.now();
 		
-		completePatternMandStruc1HasPlace = getOldCompareConcrete(completePatternMandStruc1HasPlace);
+		completePatternCompare = getOldCompareConcrete(completePatternCompare);
 		
 		finish = Instant.now();
 		timeElapsed = Duration.between(start, finish).toMillis();
@@ -176,7 +176,7 @@ public class CypherEvalComp {
 		try {
 			start = Instant.now();
 			
-			System.out.println(completePatternMandStruc1HasPlace.generateCypher());
+			System.out.println(completePatternCompare.generateCypher());
 			
 			finish = Instant.now();
 			timeElapsed = Duration.between(start, finish).toMillis();
@@ -197,7 +197,7 @@ public class CypherEvalComp {
 	
 	private static CompletePattern getOldCompareConcrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.addLabel("Regesta");
+		neoNode.addNeoLabel("Regesta");
 		
 		Graph g = ((QuantifiedCondition) completePattern.getCondition()).getGraph(); 
 

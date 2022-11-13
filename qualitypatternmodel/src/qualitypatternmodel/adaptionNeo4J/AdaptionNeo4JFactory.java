@@ -1,6 +1,6 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J;
+package qualitypatternmodel.adaptionneo4j;
 
 import org.eclipse.emf.ecore.EFactory;
 
@@ -9,17 +9,17 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage
+ * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage
  * @generated
  */
-public interface AdaptionNeo4JFactory extends EFactory {
+public interface Adaptionneo4jFactory extends EFactory {
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	AdaptionNeo4JFactory eINSTANCE = qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl.init();
+	Adaptionneo4jFactory eINSTANCE = qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jFactoryImpl.init();
 
 	/**
 	 * Returns a new object of class '<em>Neo Node</em>'.
@@ -100,6 +100,6 @@ public interface AdaptionNeo4JFactory extends EFactory {
 	 * @return the package supported by this factory.
 	 * @generated
 	 */
-	AdaptionNeo4JPackage getAdaptionNeo4JPackage();
+	Adaptionneo4jPackage getAdaptionneo4jPackage();
 
-} //AdaptionNeo4JFactory
+} //Adaptionneo4jFactory

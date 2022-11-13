@@ -1,11 +1,11 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.tests;
+package qualitypatternmodel.adaptionneo4j.tests;
 
 import junit.textui.TestRunner;
 
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 
 import qualitypatternmodel.graphstructure.tests.PrimitiveNodeTest;
 
@@ -16,11 +16,11 @@ import qualitypatternmodel.graphstructure.tests.PrimitiveNodeTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#generateCypherPropertyAddressing() <em>Generate Cypher Property Addressing</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#generateCypherNodeVariable() <em>Generate Cypher Node Variable</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#setIsReturnProperty(boolean) <em>Set Is Return Property</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#getCypherVariable() <em>Get Cypher Variable</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPropertyNode#generateCypherPropertyAddressing() <em>Generate Cypher Property Addressing</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPropertyNode#generateCypherNodeVariable() <em>Generate Cypher Node Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPropertyNode#setIsReturnProperty(boolean) <em>Set Is Return Property</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoInterfaceNode#getCypherVariable() <em>Get Cypher Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoInterfaceElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -65,7 +65,7 @@ public class NeoPropertyNodeTest extends PrimitiveNodeTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(AdaptionNeo4JFactory.eINSTANCE.createNeoPropertyNode());
+		setFixture(Adaptionneo4jFactory.eINSTANCE.createNeoPropertyNode());
 	}
 
 	/**
@@ -80,10 +80,10 @@ public class NeoPropertyNodeTest extends PrimitiveNodeTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#generateCypherPropertyAddressing() <em>Generate Cypher Property Addressing</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyNode#generateCypherPropertyAddressing() <em>Generate Cypher Property Addressing</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#generateCypherPropertyAddressing()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPropertyNode#generateCypherPropertyAddressing()
 	 * @generated
 	 */
 	public void testGenerateCypherPropertyAddressing() {
@@ -93,10 +93,10 @@ public class NeoPropertyNodeTest extends PrimitiveNodeTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#generateCypherNodeVariable() <em>Generate Cypher Node Variable</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyNode#generateCypherNodeVariable() <em>Generate Cypher Node Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#generateCypherNodeVariable()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPropertyNode#generateCypherNodeVariable()
 	 * @generated
 	 */
 	public void testGenerateCypherNodeVariable() {
@@ -106,10 +106,10 @@ public class NeoPropertyNodeTest extends PrimitiveNodeTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#setIsReturnProperty(boolean) <em>Set Is Return Property</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyNode#setIsReturnProperty(boolean) <em>Set Is Return Property</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyNode#setIsReturnProperty(boolean)
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPropertyNode#setIsReturnProperty(boolean)
 	 * @generated
 	 */
 	public void testSetIsReturnProperty__boolean() {
@@ -119,10 +119,10 @@ public class NeoPropertyNodeTest extends PrimitiveNodeTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#getCypherVariable() <em>Get Cypher Variable</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoInterfaceNode#getCypherVariable() <em>Get Cypher Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoInterfaceNode#getCypherVariable()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoInterfaceNode#getCypherVariable()
 	 * @generated
 	 */
 	public void testGetCypherVariable() {
@@ -132,10 +132,10 @@ public class NeoPropertyNodeTest extends PrimitiveNodeTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoInterfaceElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoInterfaceElement#getCypherReturnVariable()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoInterfaceElement#getCypherReturnVariable()
 	 * @generated
 	 */
 	public void testGetCypherReturnVariable() {

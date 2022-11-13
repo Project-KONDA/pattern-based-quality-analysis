@@ -1,6 +1,6 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.impl;
+package qualitypatternmodel.adaptionneo4j.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import qualitypatternmodel.adaptionNeo4J.*;
+import qualitypatternmodel.adaptionneo4j.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,24 +19,24 @@ import qualitypatternmodel.adaptionNeo4J.*;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNeo4JFactory {
+public class Adaptionneo4jFactoryImpl extends EFactoryImpl implements Adaptionneo4jFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static AdaptionNeo4JFactory init() {
+	public static Adaptionneo4jFactory init() {
 		try {
-			AdaptionNeo4JFactory theAdaptionNeo4JFactory = (AdaptionNeo4JFactory)EPackage.Registry.INSTANCE.getEFactory(AdaptionNeo4JPackage.eNS_URI);
-			if (theAdaptionNeo4JFactory != null) {
-				return theAdaptionNeo4JFactory;
+			Adaptionneo4jFactory theAdaptionneo4jFactory = (Adaptionneo4jFactory)EPackage.Registry.INSTANCE.getEFactory(Adaptionneo4jPackage.eNS_URI);
+			if (theAdaptionneo4jFactory != null) {
+				return theAdaptionneo4jFactory;
 			}
 		}
 		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
-		return new AdaptionNeo4JFactoryImpl();
+		return new Adaptionneo4jFactoryImpl();
 	}
 
 	/**
@@ -45,7 +45,7 @@ public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AdaptionNeo4JFactoryImpl() {
+	public Adaptionneo4jFactoryImpl() {
 		super();
 	}
 
@@ -57,14 +57,14 @@ public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNe
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case AdaptionNeo4JPackage.NEO_NODE: return createNeoNode();
-			case AdaptionNeo4JPackage.NEO_EDGE: return createNeoEdge();
-			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE: return createNeoComplexEdge();
-			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE: return createNeoSimpleEdge();
-			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE: return createNeoPropertyNode();
-			case AdaptionNeo4JPackage.NEO_PATH_PARAM: return createNeoPathParam();
-			case AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM: return createNeoPropertyPathParam();
-			case AdaptionNeo4JPackage.NEO_PROPERTY_EDGE: return createNeoPropertyEdge();
+			case Adaptionneo4jPackage.NEO_NODE: return createNeoNode();
+			case Adaptionneo4jPackage.NEO_EDGE: return createNeoEdge();
+			case Adaptionneo4jPackage.NEO_COMPLEX_EDGE: return createNeoComplexEdge();
+			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE: return createNeoSimpleEdge();
+			case Adaptionneo4jPackage.NEO_PROPERTY_NODE: return createNeoPropertyNode();
+			case Adaptionneo4jPackage.NEO_PATH_PARAM: return createNeoPathParam();
+			case Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM: return createNeoPropertyPathParam();
+			case Adaptionneo4jPackage.NEO_PROPERTY_EDGE: return createNeoPropertyEdge();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -78,12 +78,10 @@ public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNe
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case AdaptionNeo4JPackage.NEO_DIRECTION:
+			case Adaptionneo4jPackage.NEO_DIRECTION:
 				return createNeoDirectionFromString(eDataType, initialValue);
-			case AdaptionNeo4JPackage.NEO_PLACE:
+			case Adaptionneo4jPackage.NEO_PLACE:
 				return createNeoPlaceFromString(eDataType, initialValue);
-			case AdaptionNeo4JPackage.NEW_DATA_TYPE3:
-				return createNewDataType3FromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -97,12 +95,10 @@ public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNe
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case AdaptionNeo4JPackage.NEO_DIRECTION:
+			case Adaptionneo4jPackage.NEO_DIRECTION:
 				return convertNeoDirectionToString(eDataType, instanceValue);
-			case AdaptionNeo4JPackage.NEO_PLACE:
+			case Adaptionneo4jPackage.NEO_PLACE:
 				return convertNeoPlaceToString(eDataType, instanceValue);
-			case AdaptionNeo4JPackage.NEW_DATA_TYPE3:
-				return convertNewDataType3ToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -241,27 +237,9 @@ public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object createNewDataType3FromString(EDataType eDataType, String initialValue) {
-		return super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertNewDataType3ToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
-	public AdaptionNeo4JPackage getAdaptionNeo4JPackage() {
-		return (AdaptionNeo4JPackage)getEPackage();
+	public Adaptionneo4jPackage getAdaptionneo4jPackage() {
+		return (Adaptionneo4jPackage)getEPackage();
 	}
 
 	/**
@@ -271,8 +249,8 @@ public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Deprecated
-	public static AdaptionNeo4JPackage getPackage() {
-		return AdaptionNeo4JPackage.eINSTANCE;
+	public static Adaptionneo4jPackage getPackage() {
+		return Adaptionneo4jPackage.eINSTANCE;
 	}
 
-} //AdaptionNeo4JFactoryImpl
+} //Adaptionneo4jFactoryImpl

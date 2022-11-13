@@ -16,11 +16,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-import qualitypatternmodel.adaptionNeo4J.NeoEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoNode;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
-import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
+import qualitypatternmodel.adaptionneo4j.NeoEdge;
+import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
+import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jFactoryImpl;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.adaptionrdf.impl.RdfPredicateImpl;
 import qualitypatternmodel.adaptionxml.XmlElement;
@@ -1165,7 +1165,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	
 	private NeoPropertyEdge adaptAsNeoPropertyEdgeRecursive() throws InvalidityException {
 		if (!(this instanceof NeoPropertyEdge)) {
-			NeoPropertyEdge edge = (NeoPropertyEdge) AdaptionNeo4JFactoryImpl.init().createNeoPropertyEdge();
+			NeoPropertyEdge edge = (NeoPropertyEdge) Adaptionneo4jFactoryImpl.init().createNeoPropertyEdge();
 
 			edge.setName(getName());
 			edge.setGraphSimple(getGraph());
@@ -1239,7 +1239,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 
 	private NeoEdge adaptAsNeoEdgeRecursive() throws InvalidityException {
 		if (!(this instanceof NeoEdge)) {
-			NeoEdge edge = (NeoEdge) AdaptionNeo4JFactoryImpl.init().createNeoEdge();
+			NeoEdge edge = (NeoEdge) Adaptionneo4jFactoryImpl.init().createNeoEdge();
 
 			edge.setName(getName());
 			edge.setGraphSimple(getGraph());
