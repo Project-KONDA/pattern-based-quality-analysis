@@ -5,14 +5,15 @@ package qualitypatternmodel.patternstructure.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
-import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.ElementMapping;
+import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.patternstructure.ElementMapping} object.
@@ -107,19 +108,14 @@ public class ElementMappingItemProvider extends MappingItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		ElementMapping elementMapping = (ElementMapping) object;
-		String text = getString("_UI_ElementMapping_type") + " " + elementMapping.getInternalId();		
-//		if(elementMapping.getFrom() != null) {
-//			text += " from " + getString("_UI_Element_type") + " " + elementMapping.getFrom().getRefNo();
-//		}
-//		if(elementMapping.getTo() != null) {
-//			text += " to " + getString("_UI_Element_type") + " " + elementMapping.getTo().getRefNo();
-//		}
-		return text;		
+		String label = ((ElementMapping)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ElementMapping_type") :
+			getString("_UI_ElementMapping_type") + " " + label;
 	}
 
 

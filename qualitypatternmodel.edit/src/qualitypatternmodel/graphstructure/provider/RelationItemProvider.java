@@ -5,6 +5,7 @@ package qualitypatternmodel.graphstructure.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -14,9 +15,12 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
+
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
+
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**
@@ -227,16 +231,14 @@ public class RelationItemProvider extends PatternElementItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		Relation relation = (Relation) object;
-		String text = getString("_UI_Relation_type") + " " + relation.getInternalId();
-//		if(relation.getOption() != null && relation.getOption().getValue() != null) {
-//			text += " " + relation.getOption().getValue().getName();
-//		}
-		return text;
+		String label = ((Relation)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Relation_type") :
+			getString("_UI_Relation_type") + " " + label;
 	}
 
 

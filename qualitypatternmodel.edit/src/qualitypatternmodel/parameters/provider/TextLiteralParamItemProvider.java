@@ -133,16 +133,14 @@ public class TextLiteralParamItemProvider extends ParameterValueItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		TextLiteralParam textLiteral = (TextLiteralParam) object;
-		String text = getString("_UI_TextLiteral_type") + " " + textLiteral.getInternalId();		
-		if(textLiteral.getValue() != null) {
-			text += " " + textLiteral.getValue();
-		}		
-		return text;
+		String label = ((TextLiteralParam)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_TextLiteralParam_type") :
+			getString("_UI_TextLiteralParam_type") + " " + label;
 	}
 
 

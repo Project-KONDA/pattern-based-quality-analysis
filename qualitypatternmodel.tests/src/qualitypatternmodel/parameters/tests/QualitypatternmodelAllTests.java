@@ -6,8 +6,6 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 
 import junit.textui.TestRunner;
-import qualitypatternmodel.adaptionneo4j.tests.Adaptionneo4jTests;
-import qualitypatternmodel.adaptionrdf.tests.AdaptionrdfTests;
 import qualitypatternmodel.adaptionxml.tests.AdaptionxmlTests;
 import qualitypatternmodel.execution.tests.ExecutionTests;
 import qualitypatternmodel.graphstructure.tests.GraphstructureTests;
@@ -46,8 +44,6 @@ public class QualitypatternmodelAllTests extends TestSuite {
 		suite.addTest(AdaptionxmlTests.suite());
 		suite.addTest(ExecutionTests.suite());
 		suite.addTest(TextrepresentationTests.suite());
-		suite.addTest(AdaptionrdfTests.suite());
-		suite.addTest(Adaptionneo4jTests.suite());
 		return suite;
 	}
 

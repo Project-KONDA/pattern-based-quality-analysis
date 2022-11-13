@@ -12,15 +12,15 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.parameters.Parameter#validateAgainstSchema() <em>Validate Against Schema</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.Parameter#validateExampleValue(java.lang.String) <em>Validate Example Value</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#inputIsValid() <em>Input Is Valid</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.Parameter#isUsed() <em>Is Used</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.Parameter#setValueFromString(java.lang.String) <em>Set Value From String</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.Parameter#getValueAsString() <em>Get Value As String</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.Parameter#checkComparisonConsistency() <em>Check Comparison Consistency</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.Parameter#getOptionsAsStringList() <em>Get Options As String List</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#generateDescription() <em>Generate Description</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.Parameter#isUsed() <em>Is Used</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.Parameter#getValueAsString() <em>Get Value As String</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.Parameter#setValueFromString(java.lang.String) <em>Set Value From String</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.Parameter#getOptionsAsStringList() <em>Get Options As String List</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.Parameter#validateAgainstSchema() <em>Validate Against Schema</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.Parameter#checkComparisonConsistency() <em>Check Comparison Consistency</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.Parameter#validateExampleValue(java.lang.String) <em>Validate Example Value</em>}</li>
  * </ul>
  * </p>
  * @generated

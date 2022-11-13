@@ -15,7 +15,6 @@ import qualitypatternmodel.textrepresentation.Fragment;
  * <ul>
  *   <li>{@link qualitypatternmodel.textrepresentation.Fragment#generateJSON() <em>Generate JSON</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.Fragment#getPreview() <em>Get Preview</em>}</li>
- *   <li>{@link qualitypatternmodel.textrepresentation.Fragment#generateSparqlTemplate() <em>Generate Sparql Template</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -81,19 +80,6 @@ public abstract class FragmentTest extends TestCase {
 	 * @generated
 	 */
 	public void testGetPreview() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.textrepresentation.Fragment#generateSparqlTemplate() <em>Generate Sparql Template</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.textrepresentation.Fragment#generateSparqlTemplate()
-	 * @generated
-	 */
-	public void testGenerateSparqlTemplate() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

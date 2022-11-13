@@ -6,7 +6,8 @@ import junit.textui.TestRunner;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
 import qualitypatternmodel.adaptionxml.XmlElement;
-import qualitypatternmodel.graphstructure.tests.ComplexNodeTest;
+
+import qualitypatternmodel.graphstructure.tests.ElementTest;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,15 +16,15 @@ import qualitypatternmodel.graphstructure.tests.ComplexNodeTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlElement#getTagFromComparisons() <em>Get Tag From Comparisons</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlNode#translatePredicates() <em>Translate Predicates</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlNode#getXQueryRepresentation() <em>Get XQuery Representation</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlNode#translateMultipleIncoming() <em>Translate Multiple Incoming</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlElement#getXQueryRepresentation() <em>Get XQuery Representation</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlElement#getXQueryVariable() <em>Get XQuery Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlElement#translatePredicates() <em>Translate Predicates</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlElement#getTagComparisons() <em>Get Tag Comparisons</em>}</li>
  * </ul>
  * </p>
  * @generated
  */
-public class XmlElementTest extends ComplexNodeTest {
+public class XmlElementTest extends ElementTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -78,36 +79,10 @@ public class XmlElementTest extends ComplexNodeTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlElement#getTagFromComparisons() <em>Get Tag From Comparisons</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlElement#getXQueryRepresentation() <em>Get XQuery Representation</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.XmlElement#getTagFromComparisons()
-	 * @generated
-	 */
-	public void testGetTagFromComparisons() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlNode#translatePredicates() <em>Translate Predicates</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.XmlNode#translatePredicates()
-	 * @generated
-	 */
-	public void testTranslatePredicates() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlNode#getXQueryRepresentation() <em>Get XQuery Representation</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.XmlNode#getXQueryRepresentation()
+	 * @see qualitypatternmodel.adaptionxml.XmlElement#getXQueryRepresentation()
 	 * @generated
 	 */
 	public void testGetXQueryRepresentation() {
@@ -117,13 +92,39 @@ public class XmlElementTest extends ComplexNodeTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlNode#translateMultipleIncoming() <em>Translate Multiple Incoming</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlElement#getXQueryVariable() <em>Get XQuery Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.XmlNode#translateMultipleIncoming()
+	 * @see qualitypatternmodel.adaptionxml.XmlElement#getXQueryVariable()
 	 * @generated
 	 */
-	public void testTranslateMultipleIncoming() {
+	public void testGetXQueryVariable() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlElement#translatePredicates() <em>Translate Predicates</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.XmlElement#translatePredicates()
+	 * @generated
+	 */
+	public void testTranslatePredicates() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlElement#getTagComparisons() <em>Get Tag Comparisons</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.XmlElement#getTagComparisons()
+	 * @generated
+	 */
+	public void testGetTagComparisons() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

@@ -16,13 +16,12 @@ import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}</li>
- *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#addFragment(qualitypatternmodel.textrepresentation.Fragment) <em>Add Fragment</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#generateJSON() <em>Generate JSON</em>}</li>
- *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getPreview() <em>Get Preview</em>}</li>
- *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#delete() <em>Delete</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#instantiate() <em>Instantiate</em>}</li>
- *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#generateSparqlTemplate() <em>Generate Sparql Template</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#delete() <em>Delete</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getPreview() <em>Get Preview</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#addFragment(qualitypatternmodel.textrepresentation.Fragment) <em>Add Fragment</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -132,19 +131,6 @@ public class PatternTextTest extends TestCase {
 	 * @generated
 	 */
 	public void testInstantiate() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.textrepresentation.PatternText#generateSparqlTemplate() <em>Generate Sparql Template</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.textrepresentation.PatternText#generateSparqlTemplate()
-	 * @generated
-	 */
-	public void testGenerateSparqlTemplate() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

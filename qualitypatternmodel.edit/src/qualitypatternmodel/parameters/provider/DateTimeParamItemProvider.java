@@ -87,16 +87,14 @@ public class DateTimeParamItemProvider extends ParameterValueItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		DateTimeParam datetime = (DateTimeParam) object;
-		String text = getString("_UI_DateTimeParam_type") + " " + datetime.getInternalId();
-		if(datetime.getValue() != null) {
-			text += " " + datetime.getValue();
-		}
-		return text;
+		String label = ((DateTimeParam)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_DateTimeParam_type") :
+			getString("_UI_DateTimeParam_type") + " " + label;
 	}
 
 

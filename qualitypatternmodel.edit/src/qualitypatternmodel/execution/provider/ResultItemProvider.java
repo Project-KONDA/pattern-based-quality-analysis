@@ -142,50 +142,6 @@ public class ResultItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Runtime feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRuntimePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Result_runtime_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Result_runtime_feature", "_UI_Result_type"),
-				 ExecutionPackage.Literals.RESULT__RUNTIME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Problem Number feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addProblemNumberPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Result_problemNumber_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Result_problemNumber_feature", "_UI_Result_type"),
-				 ExecutionPackage.Literals.RESULT__PROBLEM_NUMBER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the End Date feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -230,6 +186,50 @@ public class ResultItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Split Result feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSplitResultPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Result_splitResult_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Result_splitResult_feature", "_UI_Result_type"),
+				 ExecutionPackage.Literals.RESULT__SPLIT_RESULT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Problem Number feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addProblemNumberPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Result_problemNumber_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Result_problemNumber_feature", "_UI_Result_type"),
+				 ExecutionPackage.Literals.RESULT__PROBLEM_NUMBER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Match Number feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -252,23 +252,23 @@ public class ResultItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Split Result feature.
+	 * This adds a property descriptor for the Runtime feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSplitResultPropertyDescriptor(Object object) {
+	protected void addRuntimePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Result_splitResult_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Result_splitResult_feature", "_UI_Result_type"),
-				 ExecutionPackage.Literals.RESULT__SPLIT_RESULT,
+				 getString("_UI_Result_runtime_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Result_runtime_feature", "_UI_Result_type"),
+				 ExecutionPackage.Literals.RESULT__RUNTIME,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}

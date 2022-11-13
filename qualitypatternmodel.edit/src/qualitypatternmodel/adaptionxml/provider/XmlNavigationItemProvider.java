@@ -13,11 +13,12 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
+
 import qualitypatternmodel.graphstructure.provider.RelationItemProvider;
 
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
@@ -138,12 +139,14 @@ public class XmlNavigationItemProvider extends RelationItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		XmlNavigation relation = (XmlNavigation) object;
-		return getString("_UI_XmlNavigation_type") + " " + relation.getInternalId();
+		String label = ((XmlNavigation)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_XmlNavigation_type") :
+			getString("_UI_XmlNavigation_type") + " " + label;
 	}
 
 

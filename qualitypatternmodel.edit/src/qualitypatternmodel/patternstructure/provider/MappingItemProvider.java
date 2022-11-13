@@ -5,9 +5,12 @@ package qualitypatternmodel.patternstructure.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+
 import qualitypatternmodel.patternstructure.Mapping;
 
 /**
@@ -46,12 +49,14 @@ public class MappingItemProvider extends PatternElementItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		Mapping mapping = (Mapping) object;
-		return getString("_UI_Mapping_type") + " " + mapping.getInternalId();		
+		String label = ((Mapping)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Mapping_type") :
+			getString("_UI_Mapping_type") + " " + label;
 	}
 
 

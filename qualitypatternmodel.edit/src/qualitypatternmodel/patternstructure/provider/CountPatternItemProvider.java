@@ -8,9 +8,12 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -92,13 +95,14 @@ public class CountPatternItemProvider extends PatternItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		CountPattern numberelement = (CountPattern) object;
-		String text = getString("_UI_CountPattern_type") + " " + numberelement.getInternalId();
-		return text;
+		String label = ((CountPattern)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CountPattern_type") :
+			getString("_UI_CountPattern_type") + " " + label;
 	}
 
 

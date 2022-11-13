@@ -8,7 +8,9 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+
 import qualitypatternmodel.parameters.UntypedParameterValue;
 
 /**
@@ -58,13 +60,16 @@ public class UntypedParameterValueItemProvider extends ParameterValueItemProvide
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		UntypedParameterValue untypedParameter = (UntypedParameterValue)object;
-		return "Untyped Parameter " + untypedParameter.getInternalId();
+		String label = ((UntypedParameterValue)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_UntypedParameterValue_type") :
+			getString("_UI_UntypedParameterValue_type") + " " + label;
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

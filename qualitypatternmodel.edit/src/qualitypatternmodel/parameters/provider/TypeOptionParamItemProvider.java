@@ -8,10 +8,12 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TypeOptionParam;
 
@@ -21,8 +23,7 @@ import qualitypatternmodel.parameters.TypeOptionParam;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TypeOptionParamItemProvider 
-	extends ParameterItemProvider {
+public class TypeOptionParamItemProvider extends ParameterItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -132,13 +133,16 @@ public class TypeOptionParamItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		TypeOptionParam typeOption = (TypeOptionParam)object;
-		return "Type Option " + typeOption.getInternalId() + " " + typeOption.getValue().getName();
+		String label = ((TypeOptionParam)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_TypeOptionParam_type") :
+			getString("_UI_TypeOptionParam_type") + " " + label;
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

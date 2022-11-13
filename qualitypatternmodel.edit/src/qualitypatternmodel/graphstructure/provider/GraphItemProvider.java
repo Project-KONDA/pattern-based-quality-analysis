@@ -5,6 +5,7 @@ package qualitypatternmodel.graphstructure.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -15,14 +16,21 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
+
 import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
+
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
+
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+
 import qualitypatternmodel.operators.OperatorsFactory;
+
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
+
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**
@@ -150,14 +158,14 @@ public class GraphItemProvider extends PatternElementItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		Graph graph = (Graph) object;
-		if (graph.isReturnGraph()) 
-			return "Return" + getString("_UI_Graph_type") + " " + graph.getInternalId();	
-		return getString("_UI_Graph_type") + " " + graph.getInternalId();			
+		String label = ((Graph)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Graph_type") :
+			getString("_UI_Graph_type") + " " + label;
 	}
 
 

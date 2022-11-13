@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+
 import qualitypatternmodel.patternstructure.TrueElement;
 
 /**
@@ -59,18 +60,14 @@ public class TrueElementItemProvider extends ConditionItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		TrueElement trueelem = (TrueElement) object;
-		String text = "True " + trueelem.getInternalId();
-//		String text = getString("_UI_TrueElement_type") + " " + trueelem.getInternalId();
-		return text;
-//		String label = ((TrueElement)object).getId();
-//		return label == null || label.length() == 0 ?
-//			getString("_UI_TrueElement_type") :
-//			getString("_UI_TrueElement_type") + " " + label;
+		String label = ((TrueElement)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_TrueElement_type") :
+			getString("_UI_TrueElement_type") + " " + label;
 	}
 
 

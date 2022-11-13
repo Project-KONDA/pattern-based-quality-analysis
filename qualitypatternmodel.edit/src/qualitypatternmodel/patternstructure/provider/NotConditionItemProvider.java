@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -94,18 +95,14 @@ public class NotConditionItemProvider extends ConditionItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		NotCondition notelem = (NotCondition) object;
-//		String text = getString("_UI_NotElement_type") + " " + notelem.getInternalId();
-		String text = "Not " + notelem.getInternalId();
-		return text;
-//		String label = ((NotElement)object).getId();
-//		return label == null || label.length() == 0 ?
-//			getString("_UI_NotElement_type") :
-//			getString("_UI_NotElement_type") + " " + label;
+		String label = ((NotCondition)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_NotCondition_type") :
+			getString("_UI_NotCondition_type") + " " + label;
 	}
 
 

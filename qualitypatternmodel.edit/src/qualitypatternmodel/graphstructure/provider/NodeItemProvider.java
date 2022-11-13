@@ -10,10 +10,12 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
 
@@ -175,50 +177,6 @@ public class NodeItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Translated feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTranslatedPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Node_translated_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Node_translated_feature", "_UI_Node_type"),
-				 GraphstructurePackage.Literals.NODE__TRANSLATED,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Predicates Are Being Translated feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPredicatesAreBeingTranslatedPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Node_predicatesAreBeingTranslated_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Node_predicatesAreBeingTranslated_feature", "_UI_Node_type"),
-				 GraphstructurePackage.Literals.NODE__PREDICATES_ARE_BEING_TRANSLATED,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Predicates feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -298,6 +256,50 @@ public class NodeItemProvider extends PatternElementItemProvider {
 				 getString("_UI_Node_typeModifiable_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Node_typeModifiable_feature", "_UI_Node_type"),
 				 GraphstructurePackage.Literals.NODE__TYPE_MODIFIABLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Translated feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTranslatedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Node_translated_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Node_translated_feature", "_UI_Node_type"),
+				 GraphstructurePackage.Literals.NODE__TRANSLATED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Predicates Are Being Translated feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPredicatesAreBeingTranslatedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Node_predicatesAreBeingTranslated_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Node_predicatesAreBeingTranslated_feature", "_UI_Node_type"),
+				 GraphstructurePackage.Literals.NODE__PREDICATES_ARE_BEING_TRANSLATED,
 				 true,
 				 false,
 				 false,

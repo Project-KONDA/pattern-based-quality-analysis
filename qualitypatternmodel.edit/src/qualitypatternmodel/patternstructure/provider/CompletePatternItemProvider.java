@@ -5,6 +5,7 @@ package qualitypatternmodel.patternstructure.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -14,9 +15,12 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import qualitypatternmodel.parameters.ParametersFactory;
+
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
+
 import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
 
 /**
@@ -40,16 +44,22 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-//			addCheckMorphismOfNextGraphPropertyDescriptor(object);
-//			addElementCounterPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
+			addDatabasePropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
+			addAbstractNamePropertyDescriptor(object);
+			addCounterPropertyDescriptor(object);
+			addElementCounterPropertyDescriptor(object);
+			addRelationCounterPropertyDescriptor(object);
+			addOperatorCounterPropertyDescriptor(object);
+			addParameterCounterPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -99,6 +109,72 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CompletePattern_description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_description_feature", "_UI_CompletePattern_type"),
+				 PatternstructurePackage.Literals.COMPLETE_PATTERN__DESCRIPTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Abstract Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAbstractNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CompletePattern_abstractName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_abstractName_feature", "_UI_CompletePattern_type"),
+				 PatternstructurePackage.Literals.COMPLETE_PATTERN__ABSTRACT_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Counter feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCounterPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CompletePattern_counter_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_counter_feature", "_UI_CompletePattern_type"),
+				 PatternstructurePackage.Literals.COMPLETE_PATTERN__COUNTER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Element Counter feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -143,28 +219,6 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Parameter Counter feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addParameterCounterPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CompletePattern_parameterCounter_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_parameterCounter_feature", "_UI_CompletePattern_type"),
-				 PatternstructurePackage.Literals.COMPLETE_PATTERN__PARAMETER_COUNTER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Operator Counter feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -187,63 +241,19 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Counter feature.
+	 * This adds a property descriptor for the Parameter Counter feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCounterPropertyDescriptor(Object object) {
+	protected void addParameterCounterPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CompletePattern_counter_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_counter_feature", "_UI_CompletePattern_type"),
-				 PatternstructurePackage.Literals.COMPLETE_PATTERN__COUNTER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Description feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CompletePattern_description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_description_feature", "_UI_CompletePattern_type"),
-				 PatternstructurePackage.Literals.COMPLETE_PATTERN__DESCRIPTION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Abstract Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAbstractNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CompletePattern_abstractName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_abstractName_feature", "_UI_CompletePattern_type"),
-				 PatternstructurePackage.Literals.COMPLETE_PATTERN__ABSTRACT_NAME,
+				 getString("_UI_CompletePattern_parameterCounter_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_parameterCounter_feature", "_UI_CompletePattern_type"),
+				 PatternstructurePackage.Literals.COMPLETE_PATTERN__PARAMETER_COUNTER,
 				 true,
 				 false,
 				 false,
@@ -298,16 +308,14 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		CompletePattern completePattern = (CompletePattern) object;
-		String text = getString("_UI_CompletePattern_type") + " " + completePattern.getInternalId();
-		if(completePattern.getName() != null) {
-			text += " " + completePattern.getName();
-		}
-		return text;
+		String label = ((CompletePattern)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CompletePattern_type") :
+			getString("_UI_CompletePattern_type") + " " + label;
 	}
 
 

@@ -8,7 +8,9 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+
 import qualitypatternmodel.parameters.TextListParam;
 
 /**
@@ -58,18 +60,14 @@ public class TextListParamItemProvider extends AbstractListParamItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		TextListParam textList = (TextListParam) object;
-		String text = getString("_UI_TextList_type") + " " + textList.getInternalId();		
-		if(textList.getValues() != null) {
-			for(String value : textList.getValues()) {
-				text += " " + value;
-			}
-		}		
-		return text;
+		String label = ((TextListParam)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_TextListParam_type") :
+			getString("_UI_TextListParam_type") + " " + label;
 	}
 
 

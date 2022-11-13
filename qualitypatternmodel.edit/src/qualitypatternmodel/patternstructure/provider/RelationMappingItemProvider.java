@@ -5,11 +5,13 @@ package qualitypatternmodel.patternstructure.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
 
@@ -106,19 +108,14 @@ public class RelationMappingItemProvider extends MappingItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		RelationMapping relationMapping = (RelationMapping) object;
-		String text = getString("_UI_RelationMapping_type") + " " + relationMapping.getInternalId();		
-//		if(relationMapping.getFrom() != null) {
-//			text += " from " + getString("_UI_Relation_type") + " " + relationMapping.getFrom().getRefNo();
-//		}
-//		if(relationMapping.getTo() != null) {
-//			text += " to " + getString("_UI_Relation_type") + " " + relationMapping.getTo().getRefNo();
-//		}
-		return text;
+		String label = ((RelationMapping)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_RelationMapping_type") :
+			getString("_UI_RelationMapping_type") + " " + label;
 	}
 
 

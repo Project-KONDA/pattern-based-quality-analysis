@@ -5,6 +5,7 @@ package qualitypatternmodel.parameters.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -155,12 +156,14 @@ public class ComparisonOptionParamItemProvider extends ParameterItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		ComparisonOptionParam comparisonOption = (ComparisonOptionParam) object;
-		return "Comparison Option " + comparisonOption.getInternalId() + " " + comparisonOption.getValue().getName();
+		String label = ((ComparisonOptionParam)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ComparisonOptionParam_type") :
+			getString("_UI_ComparisonOptionParam_type") + " " + label;
 	}
 
 

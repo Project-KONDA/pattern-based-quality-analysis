@@ -5,6 +5,7 @@ package qualitypatternmodel.patternstructure.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -13,6 +14,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -38,7 +40,7 @@ public class MorphismItemProvider extends PatternElementItemProvider {
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
@@ -47,11 +49,6 @@ public class MorphismItemProvider extends PatternElementItemProvider {
 
 			addSourcePropertyDescriptor(object);
 			addTargetPropertyDescriptor(object);
-//			addMorphDepthPropertyDescriptor(object);
-//			addCheckSingleElementMappingsPropertyDescriptor(object);
-//			addCheckRelationMappingsPropertyDescriptor(object);
-//			addCheckSingleElementMappingsUniquenessPropertyDescriptor(object);
-//			addCheckRelationMappingsUniquenessPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -145,20 +142,14 @@ public class MorphismItemProvider extends PatternElementItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		Morphism morphism = (Morphism) object;
-		String text = getString("_UI_Morphism_type") + " " + morphism.getInternalId();
-//		if(morphism.getFrom() != null) {
-//			text += " from " + getString("_UI_Graph_type") + " " + morphism.getFrom().getRefNo();
-//		}
-//		if(morphism.getTo() != null) {
-//			text += " to " + getString("_UI_Graph_type") + " " + morphism.getTo().getRefNo();
-//		}
-		return text;
-		
+		String label = ((Morphism)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Morphism_type") :
+			getString("_UI_Morphism_type") + " " + label;
 	}
 
 

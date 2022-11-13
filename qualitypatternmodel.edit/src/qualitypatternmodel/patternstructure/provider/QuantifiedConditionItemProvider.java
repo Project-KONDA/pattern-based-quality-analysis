@@ -5,6 +5,7 @@ package qualitypatternmodel.patternstructure.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -42,7 +43,7 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
@@ -50,7 +51,6 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addQuantifierPropertyDescriptor(object);
-//			addCheckMorphismOfNextGraphPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -124,12 +124,14 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) object;
-		return getString("_UI_QuantifiedCondition_type") + " " + quantifiedCondition.getQuantifier().getName();
+		String label = ((QuantifiedCondition)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_QuantifiedCondition_type") :
+			getString("_UI_QuantifiedCondition_type") + " " + label;
 	}
 
 

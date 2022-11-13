@@ -120,13 +120,14 @@ public class CountConditionItemProvider extends ConditionItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		CountCondition numberelement = (CountCondition) object;
-		String text = getString("_UI_CountCondition_type") + " " + numberelement.getInternalId();
-		return text;
+		String label = ((CountCondition)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CountCondition_type") :
+			getString("_UI_CountCondition_type") + " " + label;
 	}
 
 

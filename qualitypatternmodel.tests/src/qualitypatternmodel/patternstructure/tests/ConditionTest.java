@@ -12,7 +12,6 @@ import qualitypatternmodel.patternstructure.Condition;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.Condition#getNextMorphismContainers() <em>Get Next Morphism Containers</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Condition#isInRdfFilter() <em>Is In Rdf Filter</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -48,19 +47,6 @@ public abstract class ConditionTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testGetNextMorphismContainers() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.Condition#isInRdfFilter() <em>Is In Rdf Filter</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.Condition#isInRdfFilter()
-	 * @generated
-	 */
-	public void testIsInRdfFilter() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

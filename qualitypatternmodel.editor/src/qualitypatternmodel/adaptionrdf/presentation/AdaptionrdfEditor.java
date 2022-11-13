@@ -158,7 +158,9 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import qualitypatternmodel.adaptionrdf.provider.AdaptionrdfItemProviderAdapterFactory;
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
+
 import qualitypatternmodel.adaptionneo4j.provider.Adaptionneo4jItemProviderAdapterFactory;
+
 import qualitypatternmodel.adaptionxml.provider.AdaptionxmlItemProviderAdapterFactory;
 
 import qualitypatternmodel.execution.provider.ExecutionItemProviderAdapterFactory;

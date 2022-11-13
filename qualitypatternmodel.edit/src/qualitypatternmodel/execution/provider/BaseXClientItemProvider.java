@@ -20,10 +20,11 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import qualitypatternmodel.execution.BaseXClient;
 import qualitypatternmodel.execution.ExecutionPackage;
+
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**

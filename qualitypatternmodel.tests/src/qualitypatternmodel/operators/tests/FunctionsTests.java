@@ -1,6 +1,6 @@
 /**
  */
-package qualitypatternmodel.graphstructure.tests;
+package qualitypatternmodel.operators.tests;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -9,11 +9,11 @@ import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test suite for the '<em><b>graphstructure</b></em>' package.
+ * A test suite for the '<em><b>functions</b></em>' package.
  * <!-- end-user-doc -->
  * @generated
  */
-public class GraphstructureTests extends TestSuite {
+public class FunctionsTests extends TestSuite {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -30,11 +30,10 @@ public class GraphstructureTests extends TestSuite {
 	 * @generated
 	 */
 	public static Test suite() {
-		TestSuite suite = new GraphstructureTests("graphstructure Tests");
-		suite.addTestSuite(RelationTest.class);
-		suite.addTestSuite(PropertyTest.class);
-		suite.addTestSuite(ElementTest.class);
-		suite.addTestSuite(GraphTest.class);
+		TestSuite suite = new FunctionsTests("functions Tests");
+		suite.addTestSuite(MatchTest.class);
+		suite.addTestSuite(ComparisonTest.class);
+		suite.addTestSuite(OperatorListTest.class);
 		return suite;
 	}
 
@@ -43,8 +42,8 @@ public class GraphstructureTests extends TestSuite {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GraphstructureTests(String name) {
+	public FunctionsTests(String name) {
 		super(name);
 	}
 
-} //GraphstructureTests
+} //FunctionsTests

@@ -5,6 +5,7 @@ package qualitypatternmodel.operators.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -14,8 +15,11 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+
 import qualitypatternmodel.operators.Operator;
+
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
+
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**
@@ -100,12 +104,14 @@ public class OperatorItemProvider extends PatternElementItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		Operator operator = (Operator) object;
-		return getString("_UI_Operator_type") + " " + operator.getInternalId();		
+		String label = ((Operator)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Operator_type") :
+			getString("_UI_Operator_type") + " " + label;
 	}
 
 

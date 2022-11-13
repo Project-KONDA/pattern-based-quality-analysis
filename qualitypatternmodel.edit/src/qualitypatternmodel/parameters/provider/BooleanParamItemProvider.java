@@ -5,6 +5,7 @@ package qualitypatternmodel.parameters.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -155,16 +156,14 @@ public class BooleanParamItemProvider extends ParameterValueItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT 
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		BooleanParam bool = (BooleanParam) object;
-		String text = getString("_UI_Boolean_type") + " " + bool.getInternalId();
-		if(bool.getValue() != null) {
-			text += " " + bool.getValue();
-		}
-		return text;
+		String label = ((BooleanParam)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BooleanParam_type") :
+			getString("_UI_BooleanParam_type") + " " + label;
 	}
 
 

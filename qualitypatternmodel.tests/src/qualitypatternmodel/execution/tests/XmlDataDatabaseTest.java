@@ -14,21 +14,17 @@ import qualitypatternmodel.execution.XmlDataDatabase;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#recordElementName(java.lang.String) <em>Record Element Name</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#removeElementName(java.lang.String) <em>Remove Element Name</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#addElementNames(org.eclipse.emf.common.util.EList) <em>Add Element Names</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#recordAttributeValue(java.lang.String) <em>Record Attribute Value</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#recordDataValue(java.lang.String) <em>Record Data Value</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#removeAttributeValue(java.lang.String) <em>Remove Attribute Value</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#removeDataValue(java.lang.String) <em>Remove Data Value</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#recordElementName(java.lang.String) <em>Record Element Name</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#recordAttributeName(java.lang.String) <em>Record Attribute Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#removeElementName(java.lang.String) <em>Remove Element Name</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#removeAttributeName(java.lang.String) <em>Remove Attribute Name</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#addAttributeNames(org.eclipse.emf.common.util.EList) <em>Add Attribute Names</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#recordAttributeValue(java.lang.String) <em>Record Attribute Value</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#removeAttributeValue(java.lang.String) <em>Remove Attribute Value</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#addElementNames(org.eclipse.emf.common.util.EList) <em>Add Element Names</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#createSchemaDatabaseFromReferencedSchema() <em>Create Schema Database From Referenced Schema</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromAxisPreviousTag(qualitypatternmodel.adaptionxml.XmlAxisKind, java.lang.String) <em>Get Suggestions From Axis Previous Tag</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromAxisPreviousRoot(qualitypatternmodel.adaptionxml.XmlAxisKind) <em>Get Suggestions From Axis Previous Root</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromSourceTargetTag(java.lang.String, java.lang.String) <em>Get Suggestions From Source Target Tag</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromAxisNextTag(qualitypatternmodel.adaptionxml.XmlAxisKind, java.lang.String) <em>Get Suggestions From Axis Next Tag</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#findXSDURL() <em>Find XSDURL</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.Database#execute(qualitypatternmodel.patternstructure.CompletePattern, java.lang.String, java.lang.String) <em>Execute</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.Database#countMatches(qualitypatternmodel.patternstructure.CompletePattern) <em>Count Matches</em>}</li>
@@ -91,39 +87,13 @@ public class XmlDataDatabaseTest extends XmlDatabaseTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.execution.XmlDataDatabase#recordElementName(java.lang.String) <em>Record Element Name</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDataDatabase#recordAttributeValue(java.lang.String) <em>Record Attribute Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.XmlDataDatabase#recordElementName(java.lang.String)
+	 * @see qualitypatternmodel.execution.XmlDataDatabase#recordAttributeValue(java.lang.String)
 	 * @generated
 	 */
-	public void testRecordElementName__String() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.execution.XmlDataDatabase#removeElementName(java.lang.String) <em>Remove Element Name</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.XmlDataDatabase#removeElementName(java.lang.String)
-	 * @generated
-	 */
-	public void testRemoveElementName__String() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.execution.XmlDataDatabase#addElementNames(org.eclipse.emf.common.util.EList) <em>Add Element Names</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.XmlDataDatabase#addElementNames(org.eclipse.emf.common.util.EList)
-	 * @generated
-	 */
-	public void testAddElementNames__EList() {
+	public void testRecordAttributeValue__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -143,6 +113,19 @@ public class XmlDataDatabaseTest extends XmlDatabaseTest {
 	}
 
 	/**
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDataDatabase#removeAttributeValue(java.lang.String) <em>Remove Attribute Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.XmlDataDatabase#removeAttributeValue(java.lang.String)
+	 * @generated
+	 */
+	public void testRemoveAttributeValue__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
 	 * Tests the '{@link qualitypatternmodel.execution.XmlDataDatabase#removeDataValue(java.lang.String) <em>Remove Data Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -156,6 +139,19 @@ public class XmlDataDatabaseTest extends XmlDatabaseTest {
 	}
 
 	/**
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDataDatabase#recordElementName(java.lang.String) <em>Record Element Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.XmlDataDatabase#recordElementName(java.lang.String)
+	 * @generated
+	 */
+	public void testRecordElementName__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
 	 * Tests the '{@link qualitypatternmodel.execution.XmlDataDatabase#recordAttributeName(java.lang.String) <em>Record Attribute Name</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -163,6 +159,19 @@ public class XmlDataDatabaseTest extends XmlDatabaseTest {
 	 * @generated
 	 */
 	public void testRecordAttributeName__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDataDatabase#removeElementName(java.lang.String) <em>Remove Element Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.XmlDataDatabase#removeElementName(java.lang.String)
+	 * @generated
+	 */
+	public void testRemoveElementName__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -195,26 +204,13 @@ public class XmlDataDatabaseTest extends XmlDatabaseTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.execution.XmlDataDatabase#recordAttributeValue(java.lang.String) <em>Record Attribute Value</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDataDatabase#addElementNames(org.eclipse.emf.common.util.EList) <em>Add Element Names</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.XmlDataDatabase#recordAttributeValue(java.lang.String)
+	 * @see qualitypatternmodel.execution.XmlDataDatabase#addElementNames(org.eclipse.emf.common.util.EList)
 	 * @generated
 	 */
-	public void testRecordAttributeValue__String() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.execution.XmlDataDatabase#removeAttributeValue(java.lang.String) <em>Remove Attribute Value</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.XmlDataDatabase#removeAttributeValue(java.lang.String)
-	 * @generated
-	 */
-	public void testRemoveAttributeValue__String() {
+	public void testAddElementNames__EList() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -228,58 +224,6 @@ public class XmlDataDatabaseTest extends XmlDatabaseTest {
 	 * @generated
 	 */
 	public void testCreateSchemaDatabaseFromReferencedSchema() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromAxisPreviousTag(qualitypatternmodel.adaptionxml.XmlAxisKind, java.lang.String) <em>Get Suggestions From Axis Previous Tag</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromAxisPreviousTag(qualitypatternmodel.adaptionxml.XmlAxisKind, java.lang.String)
-	 * @generated
-	 */
-	public void testGetSuggestionsFromAxisPreviousTag__XmlAxisKind_String() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromAxisPreviousRoot(qualitypatternmodel.adaptionxml.XmlAxisKind) <em>Get Suggestions From Axis Previous Root</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromAxisPreviousRoot(qualitypatternmodel.adaptionxml.XmlAxisKind)
-	 * @generated
-	 */
-	public void testGetSuggestionsFromAxisPreviousRoot__XmlAxisKind() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromSourceTargetTag(java.lang.String, java.lang.String) <em>Get Suggestions From Source Target Tag</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromSourceTargetTag(java.lang.String, java.lang.String)
-	 * @generated
-	 */
-	public void testGetSuggestionsFromSourceTargetTag__String_String() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromAxisNextTag(qualitypatternmodel.adaptionxml.XmlAxisKind, java.lang.String) <em>Get Suggestions From Axis Next Tag</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromAxisNextTag(qualitypatternmodel.adaptionxml.XmlAxisKind, java.lang.String)
-	 * @generated
-	 */
-	public void testGetSuggestionsFromAxisNextTag__XmlAxisKind_String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

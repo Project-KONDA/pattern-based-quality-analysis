@@ -5,9 +5,12 @@ package qualitypatternmodel.patternstructure.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+
 import qualitypatternmodel.patternstructure.Condition;
 
 /**
@@ -31,15 +34,13 @@ public class ConditionItemProvider extends PatternElementItemProvider {
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-//			addCondDepthPropertyDescriptor(object);
-//			addGetNextQuantifiedConditionsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -48,12 +49,14 @@ public class ConditionItemProvider extends PatternElementItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		Condition condition = (Condition) object;
-		return getString("_UI_Condition_type") + " " + condition.getInternalId();		
+		String label = ((Condition)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Condition_type") :
+			getString("_UI_Condition_type") + " " + label;
 	}
 
 

@@ -14,7 +14,9 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import qualitypatternmodel.adaptionxml.XmlRoot;
+
 import qualitypatternmodel.graphstructure.provider.ComplexNodeItemProvider;
+
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**

@@ -5,6 +5,7 @@ package qualitypatternmodel.parameters.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -109,16 +110,14 @@ public class NumberParamItemProvider extends ParameterValueItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		qualitypatternmodel.parameters.NumberParam number = (qualitypatternmodel.parameters.NumberParam) object;
-		String text = getString("_UI_Number_type") + " " + number.getInternalId();
-		if(number.getValue() != null) {
-			text += " " + number.getValue();
-		}
-		return text;
+		String label = ((NumberParam)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_NumberParam_type") :
+			getString("_UI_NumberParam_type") + " " + label;
 	}
 
 

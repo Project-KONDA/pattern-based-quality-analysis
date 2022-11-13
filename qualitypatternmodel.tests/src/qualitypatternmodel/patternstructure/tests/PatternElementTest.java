@@ -12,29 +12,25 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#generateQuery() <em>Generate Query</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getAllParameters() <em>Get All Parameters</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#prepareTranslation() <em>Prepare Translation</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#isValidLocal(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid Local</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#myToString() <em>My To String</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#generateCypher() <em>Generate Cypher</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#generateXQuery() <em>Generate XQuery</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#generateSparql() <em>Generate Sparql</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getContainer() <em>Get Container</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getAncestor(java.lang.Class) <em>Get Ancestor</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#initializeTranslation() <em>Initialize Translation</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#prepareTranslation() <em>Prepare Translation</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getOperatorList() <em>Get Operator List</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getParameterList() <em>Get Parameter List</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getAllParameters() <em>Get All Parameters</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#myToString() <em>My To String</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#prepareParameterUpdates() <em>Prepare Parameter Updates</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#triggerParameterUpdates(qualitypatternmodel.patternstructure.PatternElement, org.eclipse.emf.common.util.EList) <em>Trigger Parameter Updates</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#updateParameters(qualitypatternmodel.parameters.ParameterList) <em>Update Parameters</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#triggerParameterUpdates(qualitypatternmodel.patternstructure.PatternElement) <em>Trigger Parameter Updates</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getParameterList() <em>Get Parameter List</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getOperatorList() <em>Get Operator List</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#createXMLAdaption() <em>Create XML Adaption</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#finalizeXMLAdaption() <em>Finalize XML Adaption</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#recordValues(qualitypatternmodel.execution.XmlDataDatabase) <em>Record Values</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#relationsXmlAdapted() <em>Relations Xml Adapted</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#createXmlAdaption() <em>Create Xml Adaption</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#createRdfAdaption() <em>Create Rdf Adaption</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#createNeo4jAdaption() <em>Create Neo4j Adaption</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#triggerParameterUpdates(qualitypatternmodel.patternstructure.PatternElement, org.eclipse.emf.common.util.EList) <em>Trigger Parameter Updates</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#triggerParameterUpdates(qualitypatternmodel.patternstructure.PatternElement) <em>Trigger Parameter Updates</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#updateParameters(qualitypatternmodel.parameters.ParameterList) <em>Update Parameters</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -77,6 +73,19 @@ public abstract class PatternElementTest extends TestCase {
 	 */
 	protected PatternElement getFixture() {
 		return fixture;
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#generateQuery() <em>Generate Query</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.PatternElement#generateQuery()
+	 * @generated
+	 */
+	public void testGenerateQuery() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 	/**
@@ -184,6 +193,32 @@ public abstract class PatternElementTest extends TestCase {
 	}
 
 	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#createXMLAdaption() <em>Create XML Adaption</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.PatternElement#createXMLAdaption()
+	 * @generated
+	 */
+	public void testCreateXMLAdaption() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#finalizeXMLAdaption() <em>Finalize XML Adaption</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.PatternElement#finalizeXMLAdaption()
+	 * @generated
+	 */
+	public void testFinalizeXMLAdaption() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
 	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#recordValues(qualitypatternmodel.execution.XmlDataDatabase) <em>Record Values</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -204,45 +239,6 @@ public abstract class PatternElementTest extends TestCase {
 	 * @generated
 	 */
 	public void testRelationsXmlAdapted() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#createXmlAdaption() <em>Create Xml Adaption</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#createXmlAdaption()
-	 * @generated
-	 */
-	public void testCreateXmlAdaption() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#createRdfAdaption() <em>Create Rdf Adaption</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#createRdfAdaption()
-	 * @generated
-	 */
-	public void testCreateRdfAdaption() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#createNeo4jAdaption() <em>Create Neo4j Adaption</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#createNeo4jAdaption()
-	 * @generated
-	 */
-	public void testCreateNeo4jAdaption() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -288,19 +284,6 @@ public abstract class PatternElementTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#initializeTranslation() <em>Initialize Translation</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#initializeTranslation()
-	 * @generated
-	 */
-	public void testInitializeTranslation() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#getContainer() <em>Get Container</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -334,45 +317,6 @@ public abstract class PatternElementTest extends TestCase {
 	 * @generated
 	 */
 	public void testMyToString() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#generateCypher() <em>Generate Cypher</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#generateCypher()
-	 * @generated
-	 */
-	public void testGenerateCypher() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#generateXQuery() <em>Generate XQuery</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#generateXQuery()
-	 * @generated
-	 */
-	public void testGenerateXQuery() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#generateSparql() <em>Generate Sparql</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#generateSparql()
-	 * @generated
-	 */
-	public void testGenerateSparql() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

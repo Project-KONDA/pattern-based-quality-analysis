@@ -5,20 +5,27 @@ package qualitypatternmodel.parameters.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
+
 import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
+
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
+
+import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.ParameterList;
+
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**
@@ -98,13 +105,14 @@ public class ParameterListItemProvider extends PatternElementItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-//		ParameterList parameterList = (ParameterList) object;
-		return getString("_UI_ParameterList_type");
-//		+ " " + parameterList.getRefNo();
+		String label = ((ParameterList)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ParameterList_type") :
+			getString("_UI_ParameterList_type") + " " + label;
 	}
 
 

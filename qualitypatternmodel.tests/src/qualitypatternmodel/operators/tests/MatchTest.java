@@ -14,6 +14,7 @@ import qualitypatternmodel.operators.OperatorsFactory;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.operators.Match#getElement() <em>Get Element</em>}</li>
+ *   <li>{@link qualitypatternmodel.operators.Match#copy() <em>Copy</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -80,6 +81,19 @@ public class MatchTest extends BooleanOperatorTest {
 	 * @generated
 	 */
 	public void testGetElement() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.operators.Match#copy() <em>Copy</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.operators.Match#copy()
+	 * @generated
+	 */
+	public void testCopy() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

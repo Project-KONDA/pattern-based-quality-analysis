@@ -5,11 +5,13 @@ package qualitypatternmodel.operators.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.OperatorsPackage;
 
@@ -72,6 +74,28 @@ public class ComparisonItemProvider extends BooleanOperatorItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Argument2 feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addArgument2PropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Comparison_argument2_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Comparison_argument2_feature", "_UI_Comparison_type"),
+				 OperatorsPackage.Literals.COMPARISON__ARGUMENT2,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Option feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -116,28 +140,6 @@ public class ComparisonItemProvider extends BooleanOperatorItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Argument2 feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addArgument2PropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Comparison_argument2_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Comparison_argument2_feature", "_UI_Comparison_type"),
-				 OperatorsPackage.Literals.COMPARISON__ARGUMENT2,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns Comparison.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -152,16 +154,14 @@ public class ComparisonItemProvider extends BooleanOperatorItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		Comparison comp = (Comparison) object;
-		String text = getString("_UI_Comparison_type") + " " + comp.getInternalId();
-		if(comp.getOption() != null && comp.getOption().getValue() != null) {
-			text += " " + comp.getOption().getValue().getName();
-		}
-		return text;
+		String label = ((Comparison)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Comparison_type") :
+			getString("_UI_Comparison_type") + " " + label;
 	}
 
 

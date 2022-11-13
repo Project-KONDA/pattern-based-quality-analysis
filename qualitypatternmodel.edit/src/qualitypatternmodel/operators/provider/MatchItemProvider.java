@@ -5,11 +5,13 @@ package qualitypatternmodel.operators.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.OperatorsPackage;
 
@@ -71,28 +73,6 @@ public class MatchItemProvider extends BooleanOperatorItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Regular Expression feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRegularExpressionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Match_regularExpression_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Match_regularExpression_feature", "_UI_Match_type"),
-				 OperatorsPackage.Literals.MATCH__REGULAR_EXPRESSION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Option feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -106,6 +86,28 @@ public class MatchItemProvider extends BooleanOperatorItemProvider {
 				 getString("_UI_Match_option_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Match_option_feature", "_UI_Match_type"),
 				 OperatorsPackage.Literals.MATCH__OPTION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Regular Expression feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRegularExpressionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Match_regularExpression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Match_regularExpression_feature", "_UI_Match_type"),
+				 OperatorsPackage.Literals.MATCH__REGULAR_EXPRESSION,
 				 true,
 				 false,
 				 true,
@@ -129,16 +131,14 @@ public class MatchItemProvider extends BooleanOperatorItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		Match match = (Match) object;
-		String text = getString("_UI_Match_type") + " " + match.getInternalId();
-//		if(match.getRegularExpression() != null && match.getRegularExpression().getValue() != null) {
-//			text += " " + match.getRegularExpression().getValue();
-//		}
-		return text;
+		String label = ((Match)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Match_type") :
+			getString("_UI_Match_type") + " " + label;
 	}
 
 

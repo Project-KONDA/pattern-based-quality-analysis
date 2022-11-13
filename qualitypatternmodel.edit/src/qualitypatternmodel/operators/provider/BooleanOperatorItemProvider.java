@@ -5,6 +5,7 @@ package qualitypatternmodel.operators.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -73,12 +74,14 @@ public class BooleanOperatorItemProvider extends OperatorItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		BooleanOperator booleanOperator = (BooleanOperator) object;
-		return getString("_UI_BooleanOperator_type") + " " + booleanOperator.getInternalId();
+		String label = ((BooleanOperator)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BooleanOperator_type") :
+			getString("_UI_BooleanOperator_type") + " " + label;
 	}
 
 

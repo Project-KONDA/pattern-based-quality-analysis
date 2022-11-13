@@ -14,9 +14,9 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.parameters.ParameterList#validateAgainstSchema() <em>Validate Against Schema</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.ParameterList#add(qualitypatternmodel.parameters.Parameter) <em>Add</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.ParameterList#remove(qualitypatternmodel.parameters.Parameter) <em>Remove</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.ParameterList#validateAgainstSchema() <em>Validate Against Schema</em>}</li>
  * </ul>
  * </p>
  * @generated

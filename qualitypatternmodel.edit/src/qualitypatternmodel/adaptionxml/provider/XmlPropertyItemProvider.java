@@ -13,12 +13,14 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlProperty;
+
 import qualitypatternmodel.graphstructure.provider.PrimitiveNodeItemProvider;
+
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**
@@ -114,17 +116,14 @@ public class XmlPropertyItemProvider extends PrimitiveNodeItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-//		String label = ((XmlProperty)object).getName();
-//		return label == null || label.length() == 0 ?
-//			getString("_UI_XmlProperty_type") :
-//			getString("_UI_XmlProperty_type") + " " + label;
-		
-		XmlProperty property = (XmlProperty) object;
-		return getString("_UI_XmlProperty_type") + " \"" + property.getName();
+		String label = ((XmlProperty)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_XmlProperty_type") :
+			getString("_UI_XmlProperty_type") + " " + label;
 	}
 
 
