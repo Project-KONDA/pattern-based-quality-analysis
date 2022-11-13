@@ -47,7 +47,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ocl.pivot.uml;bundle-version="1.8.0",
  org.eclipse.ocl.xtext.oclinecore;bundle-version="1.8.0",
  org.junit,
- org.eclipse.swt
+ org.eclipse.swt,
+ qualitypatternmodel
 Bundle-ActivationPolicy: lazy
 Import-Package: org.junit.runners,
  qualitypatternmodel.parameters.impl
