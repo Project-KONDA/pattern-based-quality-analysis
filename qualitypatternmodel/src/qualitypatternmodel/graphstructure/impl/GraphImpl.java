@@ -350,8 +350,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		for (Operator operator : opList.getOperators()) {
 			if (operator.generateCypher() != null) {
 				if (cypherOperators.length() != 1) {
-					cypherOperators.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.SIX_WHITESPACES 
-							+ CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
+					cypherOperators.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
 				}
 				cypherOperators.append(operator.generateCypher());	
 			}

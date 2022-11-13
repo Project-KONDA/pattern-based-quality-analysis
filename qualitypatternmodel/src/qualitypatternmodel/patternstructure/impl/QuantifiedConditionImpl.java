@@ -218,7 +218,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				if (!tempCypherOnlyProperties.isEmpty()) {
 					exists = tempCypherOnlyProperties;
 					if (!(getCondition() instanceof CountConditionImpl || getCondition() instanceof TrueElement)) {
-						final StringBuilder localSb = new StringBuilder(getCondition().generateCypher());
+						final StringBuilder localSb = new StringBuilder(getCondition().generateCypher());					
 						addWhiteSpacesForPreviewsCondition(localSb);					
 						exists += localSb.toString();
 					}
@@ -500,7 +500,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	private final void checkAndAppendCypherWhere(final StringBuilder cypher, final StringBuilder cypherWhere) {
 		if (cypherWhere.length() != 0) {
-//			cypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
 			cypher.append(cypherWhere.toString());
 		}
 	}
@@ -522,7 +521,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				query.append("\n" + CypherSpecificConstants.TWELVE_WHITESPACES
 						+ LOGICAL_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
 			}
-			tempCypher = tempCypher.replaceAll("\n", "\n" + CypherSpecificConstants.TWELVE_WHITESPACES);
 			query.append(tempCypher);
 		}
 	}
