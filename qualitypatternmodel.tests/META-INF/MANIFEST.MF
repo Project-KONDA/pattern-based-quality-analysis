@@ -8,7 +8,9 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: qualitypatternmodel.adaptionxml.tests,
+Export-Package: qualitypatternmodel.adaptionneo4j.tests,
+ qualitypatternmodel.adaptionrdf.tests,
+ qualitypatternmodel.adaptionxml.tests,
  qualitypatternmodel.execution.tests,
  qualitypatternmodel.graphstructure.tests,
  qualitypatternmodel.operators.tests,

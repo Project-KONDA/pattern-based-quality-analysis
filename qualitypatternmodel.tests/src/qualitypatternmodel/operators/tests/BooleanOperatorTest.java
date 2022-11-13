@@ -11,9 +11,9 @@ import qualitypatternmodel.operators.BooleanOperator;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.operators.BooleanOperator#addElement(qualitypatternmodel.graphstructure.Element) <em>Add Element</em>}</li>
- *   <li>{@link qualitypatternmodel.operators.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.Element) <em>Remove Element</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.BooleanOperator#createParameters() <em>Create Parameters</em>}</li>
+ *   <li>{@link qualitypatternmodel.operators.BooleanOperator#addElement(qualitypatternmodel.graphstructure.Node) <em>Add Element</em>}</li>
+ *   <li>{@link qualitypatternmodel.operators.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.Node) <em>Remove Element</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -42,32 +42,6 @@ public abstract class BooleanOperatorTest extends OperatorTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.operators.BooleanOperator#addElement(qualitypatternmodel.graphstructure.Element) <em>Add Element</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.operators.BooleanOperator#addElement(qualitypatternmodel.graphstructure.Element)
-	 * @generated
-	 */
-	public void testAddElement__Element() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.operators.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.Element) <em>Remove Element</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.operators.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.Element)
-	 * @generated
-	 */
-	public void testRemoveElement__Element() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link qualitypatternmodel.operators.BooleanOperator#createParameters() <em>Create Parameters</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -75,6 +49,32 @@ public abstract class BooleanOperatorTest extends OperatorTest {
 	 * @generated
 	 */
 	public void testCreateParameters() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.operators.BooleanOperator#addElement(qualitypatternmodel.graphstructure.Node) <em>Add Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.operators.BooleanOperator#addElement(qualitypatternmodel.graphstructure.Node)
+	 * @generated
+	 */
+	public void testAddElement__Node() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.operators.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.Node) <em>Remove Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.operators.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.Node)
+	 * @generated
+	 */
+	public void testRemoveElement__Node() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

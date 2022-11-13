@@ -32,7 +32,6 @@ public class ParametersTests extends TestSuite {
 	public static Test suite() {
 		TestSuite suite = new ParametersTests("parameters Tests");
 		suite.addTestSuite(ComparisonOptionParamTest.class);
-		suite.addTestSuite(PropertyOptionParamTest.class);
 		suite.addTestSuite(ParameterListTest.class);
 		suite.addTestSuite(BooleanParamTest.class);
 		suite.addTestSuite(TextListParamTest.class);
@@ -42,8 +41,9 @@ public class ParametersTests extends TestSuite {
 		suite.addTestSuite(TimeParamTest.class);
 		suite.addTestSuite(UntypedParameterValueTest.class);
 		suite.addTestSuite(DateTimeParamTest.class);
-		suite.addTestSuite(RelationOptionParamTest.class);
 		suite.addTestSuite(TypeOptionParamTest.class);
+		suite.addTestSuite(KeyValueParamTest.class);
+		suite.addTestSuite(MultiListParamTest.class);
 		return suite;
 	}
 

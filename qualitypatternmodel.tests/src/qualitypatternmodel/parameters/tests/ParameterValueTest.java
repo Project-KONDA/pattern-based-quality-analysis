@@ -11,21 +11,21 @@ import qualitypatternmodel.parameters.ParameterValue;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.parameters.ParameterValue#isInTagComparison() <em>Is In Tag Comparison</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.ParameterValue#isInAttributeComparison() <em>Is In Attribute Comparison</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.ParameterValue#isInDataComparison() <em>Is In Data Comparison</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.ParameterValue#getTagComparisonElements() <em>Get Tag Comparison Elements</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.ParameterValue#inferElementTagSuggestions() <em>Infer Element Tag Suggestions</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.ParameterValue#getElementTags() <em>Get Element Tags</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.ParameterValue#getAttributeNames() <em>Get Attribute Names</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.ParameterValue#getDataValues() <em>Get Data Values</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.ParameterValue#getAttributeValues() <em>Get Attribute Values</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.ParameterValue#getSuggestions() <em>Get Suggestions</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.ParameterValue#replace(qualitypatternmodel.parameters.ParameterValue) <em>Replace</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.ParameterValue#replaceViaValue(java.lang.String[], java.lang.String) <em>Replace Via Value</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.ParameterValue#getElementTags() <em>Get Element Tags</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.ParameterValue#getDataValues() <em>Get Data Values</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.ParameterValue#isInDataComparison() <em>Is In Data Comparison</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.ParameterValue#isInTagComparison() <em>Is In Tag Comparison</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.ParameterValue#getAttributeNames() <em>Get Attribute Names</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.ParameterValue#getAttributeValues() <em>Get Attribute Values</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.ParameterValue#isInAttributeComparison() <em>Is In Attribute Comparison</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.ParameterValue#getSuggestions() <em>Get Suggestions</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.ParameterValue#inferSuggestions() <em>Infer Suggestions</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getReturnType() <em>Get Return Type</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#isTranslatable() <em>Is Translatable</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getAllArgumentElements() <em>Get All Argument Elements</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Comparable#isOperatorArgument() <em>Is Operator Argument</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -87,32 +87,6 @@ public abstract class ParameterValueTest extends ParameterTest {
 	 * @generated
 	 */
 	public void testIsInDataComparison() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.ParameterValue#getTagComparisonElements() <em>Get Tag Comparison Elements</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.ParameterValue#getTagComparisonElements()
-	 * @generated
-	 */
-	public void testGetTagComparisonElements() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.ParameterValue#inferElementTagSuggestions() <em>Infer Element Tag Suggestions</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.ParameterValue#inferElementTagSuggestions()
-	 * @generated
-	 */
-	public void testInferElementTagSuggestions() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -184,6 +158,19 @@ public abstract class ParameterValueTest extends ParameterTest {
 	}
 
 	/**
+	 * Tests the '{@link qualitypatternmodel.parameters.ParameterValue#inferSuggestions() <em>Infer Suggestions</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.ParameterValue#inferSuggestions()
+	 * @generated
+	 */
+	public void testInferSuggestions() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
 	 * Tests the '{@link qualitypatternmodel.parameters.ParameterValue#replace(qualitypatternmodel.parameters.ParameterValue) <em>Replace</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -243,6 +230,19 @@ public abstract class ParameterValueTest extends ParameterTest {
 	 * @generated
 	 */
 	public void testGetAllArgumentElements() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Comparable#isOperatorArgument() <em>Is Operator Argument</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Comparable#isOperatorArgument()
+	 * @generated
+	 */
+	public void testIsOperatorArgument() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

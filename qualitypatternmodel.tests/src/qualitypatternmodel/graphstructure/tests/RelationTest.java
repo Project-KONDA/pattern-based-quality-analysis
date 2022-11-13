@@ -16,14 +16,19 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <p>
  * The following operations are tested:
  * <ul>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#getOriginalID() <em>Get Original ID</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#getOriginalRelation() <em>Get Original Relation</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#setGraphSimple(qualitypatternmodel.graphstructure.Graph) <em>Set Graph Simple</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#removeRelationFromPreviousGraphs() <em>Remove Relation From Previous Graphs</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#removeMappingsToNext() <em>Remove Mappings To Next</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Relation#adaptAsXMLNavigation() <em>Adapt As XML Navigation</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Relation#adaptAsXMLReference() <em>Adapt As XML Reference</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Relation#setGraphSimple(qualitypatternmodel.graphstructure.Graph) <em>Set Graph Simple</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Relation#getOriginalID() <em>Get Original ID</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#adaptAsXmlElementNavigation() <em>Adapt As Xml Element Navigation</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#adaptAsXmlPropertyNavigation() <em>Adapt As Xml Property Navigation</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#adaptAsXmlReference() <em>Adapt As Xml Reference</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#adaptAsRdfPredicate() <em>Adapt As Rdf Predicate</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#adaptAsNeoEdge() <em>Adapt As Neo Edge</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#adaptAsPropertyEdge() <em>Adapt As Property Edge</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -109,26 +114,78 @@ public class RelationTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsXMLNavigation() <em>Adapt As XML Navigation</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsXmlElementNavigation() <em>Adapt As Xml Element Navigation</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Relation#adaptAsXMLNavigation()
+	 * @see qualitypatternmodel.graphstructure.Relation#adaptAsXmlElementNavigation()
 	 * @generated
 	 */
-	public void testAdaptAsXMLNavigation() {
+	public void testAdaptAsXmlElementNavigation() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsXMLReference() <em>Adapt As XML Reference</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsXmlPropertyNavigation() <em>Adapt As Xml Property Navigation</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Relation#adaptAsXMLReference()
+	 * @see qualitypatternmodel.graphstructure.Relation#adaptAsXmlPropertyNavigation()
 	 * @generated
 	 */
-	public void testAdaptAsXMLReference() {
+	public void testAdaptAsXmlPropertyNavigation() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsXmlReference() <em>Adapt As Xml Reference</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Relation#adaptAsXmlReference()
+	 * @generated
+	 */
+	public void testAdaptAsXmlReference() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsRdfPredicate() <em>Adapt As Rdf Predicate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Relation#adaptAsRdfPredicate()
+	 * @generated
+	 */
+	public void testAdaptAsRdfPredicate() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsNeoEdge() <em>Adapt As Neo Edge</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Relation#adaptAsNeoEdge()
+	 * @generated
+	 */
+	public void testAdaptAsNeoEdge() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsPropertyEdge() <em>Adapt As Property Edge</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Relation#adaptAsPropertyEdge()
+	 * @generated
+	 */
+	public void testAdaptAsPropertyEdge() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -155,6 +212,19 @@ public class RelationTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testGetOriginalID() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#getOriginalRelation() <em>Get Original Relation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Relation#getOriginalRelation()
+	 * @generated
+	 */
+	public void testGetOriginalRelation() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
