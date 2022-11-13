@@ -20,6 +20,7 @@ import qualitypatternmodel.patternstructure.Quantifier;
 
 public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 	//Add BooleanOperators Test here
+	//Add more neasted tests
 	//Add a beginning in the morph which is not the end to thest the pattern-match generation alg
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CypherTest07QuantifiedCondition quantifiedCond = new CypherTest07QuantifiedCondition();
