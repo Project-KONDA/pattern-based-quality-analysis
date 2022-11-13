@@ -415,7 +415,8 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			if (!(getCondition() instanceof TrueElementImpl)) {
 				StringBuilder conditionWhere = new StringBuilder(condition.generateCypher());
 				addWhiteSpacesForPreviewsCondition(conditionWhere);
-				cypherWhere.append(conditionWhere.toString());
+				conditionWhere.insert(0, CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
+				checkAndAppendCypherWhere(cypher, conditionWhere);
 			}
 			exists = String.format(exists, cypher.toString());
 		} else if (quantifier == Quantifier.FORALL) {
@@ -499,6 +500,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	private final void checkAndAppendCypherWhere(final StringBuilder cypher, final StringBuilder cypherWhere) {
 		if (cypherWhere.length() != 0) {
+//			cypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
 			cypher.append(cypherWhere.toString());
 		}
 	}

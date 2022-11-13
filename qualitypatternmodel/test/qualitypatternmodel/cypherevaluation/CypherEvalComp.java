@@ -19,7 +19,10 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
+import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
+import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 
 public class CypherEvalComp {
 	public static final Adaptionneo4jFactory NEO_FACTORY = new Adaptionneo4jFactoryImpl();
@@ -35,6 +38,12 @@ public class CypherEvalComp {
 		
 		//Old ones
 		printOldCompare();
+		
+		System.out.println();
+		System.out.println("---");
+		System.out.println();
+		
+		printOldCondComp();
 	}
 
 	//New Ones
@@ -213,78 +222,131 @@ public class CypherEvalComp {
 	}
 	//END 
 	
-//	//BEGIN
-//	private static void printOldContains() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		CompletePattern completePatternMandStruc1HasPlace;
-//		
-//		//Generic
-//		Instant start = Instant.now();
-//		
-//		completePatternMandStruc1HasPlace = getOldContainsGeneric();
-//		
-//		Instant finish = Instant.now();
-//		long timeElapsed = Duration.between(start, finish).toMillis();
-//		System.out.println("Speed time of Generic: " + timeElapsed);
-//		
-//		
-//		//Generic --> Abstract 
-//		start = Instant.now();
-//		
-//		completePatternMandStruc1HasPlace = getOldContainsAbstract(completePatternMandStruc1HasPlace);
-//		
-//		finish = Instant.now();
-//		timeElapsed = Duration.between(start, finish).toMillis();
-//		System.out.println("Speed time of Generic --> Abstract: " + timeElapsed);
-//		
-//		
-//		//Abstract --> Concrete
-//		start = Instant.now();
-//		
-//		completePatternMandStruc1HasPlace = getOldContainsConcrete(completePatternMandStruc1HasPlace);
-//		
-//		finish = Instant.now();
-//		timeElapsed = Duration.between(start, finish).toMillis();
-//		System.out.println("Speed time of Abstract --> Concrete: " + timeElapsed);
-//		
-//		
-//		//To Query
-//		try {
-//			start = Instant.now();
-//			
-//			System.out.println(completePatternMandStruc1HasPlace.generateCypher());
-//			
-//			finish = Instant.now();
-//			timeElapsed = Duration.between(start, finish).toMillis();
-//			System.out.println("Speed time of cypher generation: " + timeElapsed);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//	}
-//	
-//	private static CompletePattern getOldContainsGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		return EvalContains.getContainsGeneric();
-//	}
-//	
-//	private static CompletePattern getOldContainsAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		completePattern.createNeo4jAdaption();
-//		return completePattern;
-//	}
-//	
-//	private static CompletePattern getOldContainsConcrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-//		neoNode.addLabel("IndexEntry");
-//		neoNode.addLabel("IndexPerson");
-//		
-//		Graph g = ((QuantifiedCondition) completePattern.getCondition()).getGraph(); 
-//		NeoPropertyNode neoPropertyNode = (NeoPropertyNode) g.getNodes().get(1);
-//		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) neoPropertyNode.getIncoming().get(0);
-//		neoPropertyEdge.getNeoPropertyPathParam().setNeoPropertyName("label");
-//		Contains contains = (Contains) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getAllOperators().get(0); 
-//		TextLiteralParam textLiteralParam = new TextLiteralParamImpl();
-//		textLiteralParam.setValue(",");
-//		contains.setContent(textLiteralParam);
-//		
-//		return completePattern;
-//	}
-//	//END 
+	//BEGIN
+	private static void printOldCondComp() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePatternCondComp;
+		
+		//Generic
+		Instant start = Instant.now();
+		
+		completePatternCondComp = getOldCondCompGeneric();
+		
+		Instant finish = Instant.now();
+		long timeElapsed = Duration.between(start, finish).toMillis();
+		System.out.println("Speed time of Generic: " + timeElapsed);
+		
+		
+		//Generic --> Abstract 
+		start = Instant.now();
+		
+		completePatternCondComp = getOldCondCompAbstract(completePatternCondComp);
+		
+		finish = Instant.now();
+		timeElapsed = Duration.between(start, finish).toMillis();
+		System.out.println("Speed time of Generic --> Abstract: " + timeElapsed);
+		
+		
+		//Abstract --> Concrete
+		start = Instant.now();
+		
+		completePatternCondComp = getOldCondCompConcrete(completePatternCondComp);
+		
+		finish = Instant.now();
+		timeElapsed = Duration.between(start, finish).toMillis();
+		System.out.println("Speed time of Abstract --> Concrete: " + timeElapsed);
+		
+		
+		//To Query
+		try {
+			start = Instant.now();
+			
+			System.out.println(completePatternCondComp.generateCypher());
+			
+			finish = Instant.now();
+			timeElapsed = Duration.between(start, finish).toMillis();
+			System.out.println("Speed time of cypher generation: " + timeElapsed);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private static CompletePattern getOldCondCompGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		return EvalComp.getCompCondGeneric();
+	}
+	
+	private static CompletePattern getOldCondCompAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		completePattern.createNeo4jAdaption();
+		return completePattern;
+	}
+	
+	//Has to be filled with correct concretization values
+	private static CompletePattern getOldCondCompConcrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		Graph g = completePattern.getGraph();
+		
+		NeoNode neoNode1 = (NeoNode) completePattern.getGraph().getNodes().get(0);
+		neoNode1.addNeoLabel("Regesta");
+		NeoPropertyNode neoPropertyNode1 = (NeoPropertyNode) g.getNodes().get(1);
+		((NeoPropertyEdge) neoPropertyNode1.getIncoming().get(0)).getNeoPropertyPathParam().setNeoPropertyName("Place");
+		
+		Comparison comparison1 = (Comparison) neoPropertyNode1.getAllOperators().get(0);
+		ComparisonOptionParam comparisonOptionParam1 = new ComparisonOptionParamImpl();
+		comparisonOptionParam1.setValue(ComparisonOperator.EQUAL);
+		comparison1.setOption(comparisonOptionParam1);
+		TextLiteralParam tx1 = new TextLiteralParamImpl();
+		tx1.setValue("hello");
+		((UntypedParameterValue) comparison1.getArgument2()).replace(tx1);
+
+		//First QuantifiedCondition
+		g = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
+		
+		NeoNode neoNode2 = (NeoNode) g.getNodes().get(2);
+		neoNode2.addNeoLabel("Regesta");
+		
+		NeoPropertyNode neoPropertyNode2 = (NeoPropertyNode) g.getNodes().get(3);
+		NeoPropertyEdge neoPropertyEdge2 = (NeoPropertyEdge) neoPropertyNode2.getIncoming().get(0);
+		neoPropertyEdge2.getNeoPropertyPathParam().setNeoPropertyName("Place");
+		
+		Comparison comparison2 = (Comparison) neoPropertyNode2.getAllOperators().get(0);
+		ComparisonOptionParam comparisonOptionParam2 = new ComparisonOptionParamImpl();
+		comparisonOptionParam2.setValue(ComparisonOperator.EQUAL);
+		comparison2.setOption(comparisonOptionParam2);
+		TextLiteralParam tx2 = new TextLiteralParamImpl();
+		tx2.setValue("hello");
+		((UntypedParameterValue) comparison2.getArgument2()).replace(tx1);
+		
+		//Second QuantifiedCondition
+		g = ((QuantifiedCondition) ((QuantifiedCondition) completePattern.getCondition()).getCondition()).getGraph(); 
+		
+		NeoNode neoNode3 = (NeoNode) g.getNodes().get(4);
+		neoNode3.addNeoLabel("Regesta");
+		
+		NeoPropertyNode neoPropertyNode3 = (NeoPropertyNode) g.getNodes().get(5);
+		NeoPropertyEdge neoPropertyEdge3 = (NeoPropertyEdge) neoPropertyNode3.getIncoming().get(0);
+		neoPropertyEdge3.getNeoPropertyPathParam().setNeoPropertyName("Test");
+
+		NeoPropertyNode neoPropertyNode4 = (NeoPropertyNode) g.getNodes().get(6);
+		NeoPropertyEdge neoPropertyEdge4 = (NeoPropertyEdge) neoPropertyNode4.getIncoming().get(0);
+		neoPropertyEdge4.getNeoPropertyPathParam().setNeoPropertyName("Test");
+		
+		NeoPropertyNode neoPropertyNode5 = (NeoPropertyNode) g.getNodes().get(7);
+		NeoPropertyEdge neoPropertyEdge5 = (NeoPropertyEdge) neoPropertyNode5.getIncoming().get(0);
+		neoPropertyEdge5.getNeoPropertyPathParam().setNeoPropertyName("Test");
+		
+		
+		Comparison comparison3 = (Comparison) neoPropertyNode4.getAllOperators().get(0);
+		ComparisonOptionParam comparisonOptionParam3 = new ComparisonOptionParamImpl();
+		comparisonOptionParam3.setValue(ComparisonOperator.EQUAL);
+		comparison3.setOption(comparisonOptionParam2);
+		TextLiteralParam tx3 = new TextLiteralParamImpl();
+		tx3.setValue("hello");
+		((UntypedParameterValue) comparison3.getArgument2()).replace(tx1);
+
+		Comparison comparison4 = (Comparison) neoPropertyNode5.getAllOperators().get(0);
+		ComparisonOptionParam comparisonOptionParam4 = new ComparisonOptionParamImpl();
+		comparisonOptionParam4.setValue(ComparisonOperator.EQUAL);
+		comparison4.setOption(comparisonOptionParam2);
+		
+		return completePattern;
+	}
+	//END 
 }

@@ -189,7 +189,7 @@ public class CypherTest05ParameterValues extends CypherAbstractTranslation {
 		return parameters;
 	}
 	
-	//Exceptions --> Needs rework
+	//Exceptions
 	private CompletePattern textLiteralParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		TextLiteralParam textParam = new TextLiteralParamImpl();
 		textParam.setValue(null);

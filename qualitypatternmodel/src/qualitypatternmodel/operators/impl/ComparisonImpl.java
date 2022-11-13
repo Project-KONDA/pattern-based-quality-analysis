@@ -401,12 +401,41 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		
 	}
 
-	private boolean checkForValidCypherNode() {
+	private final boolean checkForValidCypherNode() {
 		return (getArgument1() instanceof NeoNode && getArgument2() instanceof NeoNode) || 
 				((getArgument1() instanceof NeoNode && getArgument2() instanceof NeoPropertyNode && ((NeoPropertyEdge)((NeoPropertyNode) getArgument2()).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() != null)) ||
 				((getArgument1() instanceof NeoPropertyEdge && ((NeoPropertyEdge)((NeoPropertyNode) getArgument2()).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() != null) && getArgument2() instanceof NeoNode) ||
 				((getArgument1() instanceof NeoPropertyEdge && ((NeoPropertyEdge)((NeoPropertyNode) getArgument2()).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() != null) && 
 				getArgument2() instanceof NeoPropertyNode && ((NeoPropertyEdge)((NeoPropertyNode) getArgument2()).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() != null);
+	}
+	
+	private final List<String> cypherArgumentCheckerAndConverter() throws InvalidityException {
+		String argument1Translation = null;
+		String argument2Translation = null; 
+		
+		if (getArgument1() instanceof NeoPropertyNode && getArgument2() instanceof NeoPropertyNode) {
+			argument1Translation = (String) ((NeoPropertyNode) getArgument1()).generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING); 
+			argument2Translation = (String) ((NeoPropertyNode) getArgument2()).generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
+		} else if (getArgument1() instanceof NeoPropertyNode && !(getArgument2() instanceof NeoPropertyNode)) {
+			argument1Translation = (String) ((NeoPropertyNode) getArgument1()).generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
+			argument2Translation = getArgument2().generateCypher(); 
+		} else if (!(getArgument1() instanceof NeoPropertyNode) && getArgument2() instanceof NeoPropertyNode) {
+			argument1Translation = getArgument1().generateCypher();
+			argument2Translation = (String) ((NeoPropertyNode) getArgument2()).generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
+		} else if (getArgument1() instanceof NeoNode && getArgument2() instanceof NeoNode) {
+			argument1Translation = ((NeoNode) getArgument1()).getCypherVariable(); 
+			argument2Translation = ((NeoNode) getArgument2()).getCypherVariable(); 
+		}
+		
+		if (argument1Translation.isEmpty() || argument2Translation.isEmpty()) {
+			throw new InvalidityException(AT_LEAST_ONE_OF_TWO_ARGUMENTS_IS_NOT_VALID);
+		}
+			
+		List<String> result = new ArrayList<String>();
+		result.add(argument1Translation);
+		result.add(argument2Translation);
+		result = Collections.unmodifiableList(result);
+		return result;
 	}
 	
 	//FUTURE WORK
@@ -438,37 +467,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				&& option.getValue() == ComparisonOperator.EQUAL) {
 			if(option.getValue() == ComparisonOperator.EQUAL) result = false;
 		} else if (getArgument1() instanceof NeoNode || getArgument2() instanceof NeoNode) throw new InvalidityException("Args 1 oder 2 can not be a NeoNode");
-		return result;
-	}
-	
-	//FUTURE WORK
-	@Deprecated
-	private final List<String> cypherArgumentCheckerAndConverter() throws InvalidityException {
-		String argument1Translation = null;
-		String argument2Translation = null; 
-		
-		if (getArgument1() instanceof NeoPropertyNode && getArgument2() instanceof NeoPropertyNode) {
-			argument1Translation = (String) ((NeoPropertyNode) getArgument1()).generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING); 
-			argument2Translation = (String) ((NeoPropertyNode) getArgument2()).generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
-		} else if (getArgument1() instanceof NeoPropertyNode && !(getArgument2() instanceof NeoPropertyNode)) {
-			argument1Translation = (String) ((NeoPropertyNode) getArgument1()).generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
-			argument2Translation = getArgument2().generateCypher(); 
-		} else if (!(getArgument1() instanceof NeoPropertyNode) && getArgument2() instanceof NeoPropertyNode) {
-			argument1Translation = getArgument1().generateCypher();
-			argument2Translation = (String) ((NeoPropertyNode) getArgument2()).generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
-		} else if (getArgument1() instanceof NeoNode && getArgument2() instanceof NeoNode) {
-			argument1Translation = ((NeoNode) getArgument1()).getCypherVariable(); 
-			argument2Translation = ((NeoNode) getArgument2()).getCypherVariable(); 
-		}
-		
-		if (argument1Translation.isEmpty() || argument2Translation.isEmpty()) {
-			throw new InvalidityException(AT_LEAST_ONE_OF_TWO_ARGUMENTS_IS_NOT_VALID);
-		}
-			
-		List<String> result = new ArrayList<String>();
-		result.add(argument1Translation);
-		result.add(argument2Translation);
-		result = Collections.unmodifiableList(result);
 		return result;
 	}
 	
