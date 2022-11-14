@@ -310,10 +310,13 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public XmlPropertyOptionParam getXmlPropertyOption() {
+		if (xmlPropertyOption == null) {
+			setXmlPropertyOption(new XmlPropertyOptionParamImpl());
+		}
 		return xmlPropertyOption;
 	}
 
@@ -620,8 +623,10 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 		ParameterList parameterList = getParameterList();		
 		if(parameterList != null) {
 			if(getXmlAxisOptionParam() == null) {
-				XmlAxisOptionParam axis = new XmlAxisOptionParamImpl();
-				setXmlAxisOptionParam(axis);
+				setXmlAxisOptionParam(new XmlAxisOptionParamImpl());
+			}	
+			if(getXmlAxisOptionParam() == null) {
+				setXmlAxisOptionParam(new XmlAxisOptionParamImpl());
 			}	
 		}
 	}
