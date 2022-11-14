@@ -755,11 +755,11 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 			int i = 0;
 			
 			//
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\n"
+			assertEquals(completePatterns.get(i).generateCypher(), "MATCH (varNode5:Regesta)\n"
 					+ "WHERE EXISTS {\n"
-					+ "            MATCH (varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place)} \n"
+					+ "            MATCH(varNode5)-[varEdge5:PLACE_OF_ISSUE]-(varNode6:Place)} \n"
 					+ "      AND EXISTS {\n"
-					+ "            MATCH (varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace)}\n"
+					+ "            MATCH(varNode5)-[varEdge6:APPEARS_IN]-(varNode7:IndexEntry:IndexPlace)}\n"
 					+ "RETURN varNode5");
 			i++;
 			

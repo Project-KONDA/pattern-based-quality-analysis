@@ -32,7 +32,7 @@ public class CypherTest04Formula extends CypherAbstractTranslation {
     	CypherTest04Formula formula = new CypherTest04Formula();
     	try {
     		formula.generalizedTests();         
-//        	formula.generalizedInvalidtyExceptionTests();	
+        	formula.generalizedInvalidtyExceptionTests();	
     	} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();
