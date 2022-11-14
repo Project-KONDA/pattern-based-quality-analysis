@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import qualitypatternmodel.adaptionneo4j.NeoInterfaceNode;
 import qualitypatternmodel.adaptionneo4j.NeoNode;
-import qualitypatternmodel.adaptionneo4j.NeoPlace;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
@@ -70,7 +69,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 		completePattern.createNeo4jAdaption();
 		
 		CountPatternImpl countPatternImpl = (CountPatternImpl) countCond.getCountPattern();
-		countPatternImpl.addCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(0));				
+		countPatternImpl.addNeoCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(0));				
 		
 		return completePattern;
 	}
@@ -82,8 +81,8 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 		completePattern.createNeo4jAdaption();
 		
 		CountPatternImpl countPatternImpl = (CountPatternImpl) countCond.getCountPattern();
-		countPatternImpl.addCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(1));
-		countPatternImpl.addCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(1)); //Checks if duplicated are ignored
+		countPatternImpl.addNeoCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(1));
+		countPatternImpl.addNeoCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(1)); //Checks if duplicated are ignored
 		
 		return completePattern;
 	}
@@ -95,10 +94,10 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 		completePattern.createNeo4jAdaption();
 		
 		CountPatternImpl countPatternImpl = (CountPatternImpl) countCond.getCountPattern();
-		countPatternImpl.addCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(1));
+		countPatternImpl.addNeoCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(1));
 		countPatternImpl.removeCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(1));
 		countPatternImpl.removeCountElementNode(null);
-		countPatternImpl.addCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(1));
+		countPatternImpl.addNeoCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(1));
 		
 		return completePattern;
 	}
@@ -110,8 +109,8 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 		completePattern.createNeo4jAdaption();
 		
 		CountPatternImpl countPatternImpl = (CountPatternImpl) countCond.getCountPattern();
-		countPatternImpl.addCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(0));
-		countPatternImpl.addCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(1));
+		countPatternImpl.addNeoCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(0));
+		countPatternImpl.addNeoCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(1));
 		
 		return completePattern;
 	}
@@ -125,7 +124,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 		completePattern.createNeo4jAdaption();
 		
 		CountPatternImpl countPatternImpl = (CountPatternImpl) countCond.getCountPattern();
-		countPatternImpl.addCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(0));
+		countPatternImpl.addNeoCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(0));
 		
 		Graph g = countCond.getCountPattern().getGraph();
 		NeoNode neoNode = (NeoNode) g.getNodes().get(0);
@@ -149,7 +148,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 		completePattern.createNeo4jAdaption();
 		
 		CountPatternImpl countPatternImpl = (CountPatternImpl) countCond.getCountPattern();
-		countPatternImpl.addCountElementNode((NeoInterfaceNode) completePattern.getGraph().getNodes().get(1));				
+		countPatternImpl.addNeoCountElementNode((NeoInterfaceNode) completePattern.getGraph().getNodes().get(1));				
 		
 //		((NeoNode) countPatternImpl.getGraph().getNodes().get(0)).setNeoPlace(NeoPlace.BEGINNING);
 		
@@ -181,7 +180,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 		completePattern.createNeo4jAdaption();
 		
 		CountPatternImpl countPatternImpl = (CountPatternImpl) countCond.getCountPattern();
-		countPatternImpl.addCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(2));				
+		countPatternImpl.addNeoCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(2));				
 		
 		((ComplexNode) completePattern.getGraph().getNodes().get(0)).setReturnNode(false);
 		((ComplexNode) countPatternImpl.getGraph().getNodes().get(0)).setReturnNode(false);
@@ -205,7 +204,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 		completePattern.createNeo4jAdaption();
 		
 		CountPatternImpl countPatternImpl = (CountPatternImpl) countCond.getCountPattern();
-		countPatternImpl.addCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(2));			
+		countPatternImpl.addNeoCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(2));			
 		
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) countPatternImpl.getGraph().getRelations().get(1);
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
@@ -233,7 +232,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 		completePattern.createNeo4jAdaption();
 		
 		CountPatternImpl countPatternImpl = (CountPatternImpl) countCond.getCountPattern();
-		countPatternImpl.addCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(1));
+		countPatternImpl.addNeoCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(1));
 		countPatternImpl.removeCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(1));
 		
 		return completePattern;
@@ -246,7 +245,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 		completePattern.createNeo4jAdaption();
 		
 		CountPatternImpl countPatternImpl = (CountPatternImpl) countCond.getCountPattern();
-		countPatternImpl.addCountElementNode(null);
+		countPatternImpl.addNeoCountElementNode(null);
 		
 		return completePattern;
 	}
@@ -258,7 +257,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 		completePattern.createNeo4jAdaption();
 		
 		CountPatternImpl countPatternImpl = (CountPatternImpl) countCond.getCountPattern();
-		countPatternImpl.addCountElementNode(null);
+		countPatternImpl.addNeoCountElementNode(null);
 		
 		return completePattern;
 	}
@@ -272,7 +271,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 		completePattern.createNeo4jAdaption();
 		
 		CountPatternImpl countPatternImpl = (CountPatternImpl) countCond.getCountPattern();
-		countPatternImpl.addCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(2));				
+		countPatternImpl.addNeoCountElementNode((NeoInterfaceNode) countPatternImpl.getGraph().getNodes().get(2));				
 		
 		return completePattern;
 	}

@@ -92,11 +92,11 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	//BEGIN - CYPHER (Simples Count)
 	//Der folgende Abschnitt gehört zum Cypher COUNT
 	//Count ist für die anderen CONDITIONS als Unsuported makiert, da Cypher v4.4 und niedriger keine Verschachtelungen zulässt
-	//Nodes --> keine PATH/Edges/Properties implementiert
+	//Nodes --> keine PATH/Edges implementiert
 	protected EList<NeoInterfaceNode> countElementNodes = null; 
 	
 	//Add to Ecore?
-	public void addCountElementNode(NeoInterfaceNode countElements) {
+	public void addNeoCountElementNode(NeoInterfaceNode countElements) {
 		if (countElements != null) {
 			if (this.countElementNodes == null) {
 				this.countElementNodes = new BasicEList<NeoInterfaceNode>(); //For sorted
@@ -113,17 +113,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	
 	@Override 
 	public String generateCypher() throws InvalidityException {
-		final Graph g = getGraph();
-		//Think about how to catch a case if there is no Beginning however still something what has to be extra printed like a NeoPropertyNode
-//		boolean containsAtleastOneBeginning = true;
-//		NeoNode neo = null;
-//		for (Node n : g.getNodes()) {
-//			if (neo )
-//		}
-//		if () {
-//			throw new InvalidityException(NO_BEGINNING_IS_SPECIFIED);
-//		}
-		
+		final Graph g = getGraph();	
 		final StringBuilder cypher = new StringBuilder();
 		final String temp = g.generateCypher();
 		if (!temp.isBlank()) {
@@ -141,7 +131,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	//Just focused on Nodes... relations and path have to follow later (FUTURE WORK)
 	protected final EList<String> generateCypherCounters() throws InvalidityException {
 		if (countElementNodes != null && countElementNodes.size() > 0) {
-			EList<String> myCounters = new BasicEList<String>();
+			final EList<String> myCounters = new BasicEList<String>();
 			String temp;
 			int i = 1;
 			for (NeoInterfaceNode n : countElementNodes) {
@@ -207,7 +197,15 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 				NeoPropertyNode neoPropertyNode = (NeoPropertyNode) countElement;
 				temp = String.format(temp, neoPropertyNode.generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING));
 			} else {
-				temp = String.format(temp, countElement.getCypherVariable());
+				final String[] elements = countElement.getCypherVariable().split(CypherSpecificConstants.SEPERATOR);
+				final StringBuilder localSb = new StringBuilder();
+				for (String element : elements) {
+					if (!localSb.isEmpty()) {
+						localSb.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE);
+					}
+					localSb.append(String.format(temp, element));
+				}
+				temp = localSb.toString();  
 			}
 			temp += CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.CYPHER_ALIAS_CALL + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT_NAMING + countCounter;
 			return temp;
@@ -225,7 +223,6 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		return result;
 	}
 	
-	//Needs refactoring --> Get all return elements from the original Graph and puts it into the WITH except properties - This can be accessed as long as the Node is in the with
 	protected String generateCypherWith() throws InvalidityException {
 		String cypher = new String();
 		final Graph g = getGraph();
@@ -312,7 +309,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 			if (cypherSb.length() != 0) {
 				cypherSb.append(CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE);
 			}
-			cypherSb.append(mapElement.getValue()); //--> Check the case what would be if there is a null
+			cypherSb.append(mapElement.getValue());
 		}
 		if (cypherSb.length() != 0) {
 			if (cypher.length() != 0) {
