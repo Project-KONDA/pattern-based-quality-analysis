@@ -101,13 +101,15 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 	public static Map<String, String> standardIris;
 	static {
 		standardIris = new HashMap<>();
+		standardIris.put("rdf"		, "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
+		standardIris.put("rdfs"		, "http://www.w3.org/2000/01/rdf-schema#");
+		standardIris.put("xsd"		, "http://www.w3.org/2001/XMLSchema#");
+		standardIris.put("wikibase"	, "http://wikiba.se/ontology#");
 		standardIris.put("wd"		, "http://www.wikidata.org/entity/");
 		standardIris.put("wdt"		, "http://www.wikidata.org/prop/direct/");
-		standardIris.put("wikibase", "http://wikiba.se/ontology#");
 		standardIris.put("p"		, "http://www.wikidata.org/prop/>");
 		standardIris.put("ps"		, "http://www.wikidata.org/prop/statement/");
 		standardIris.put("pq"		, "http://www.wikidata.org/prop/qualifier/");
-		standardIris.put("rdfs"	, "http://www.w3.org/2000/01/rdf-schema#");
 		standardIris.put("bd"		, "http://www.bigdata.com/rdf#");
 	}
 
