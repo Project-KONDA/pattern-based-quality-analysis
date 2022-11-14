@@ -241,32 +241,32 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 				//For cypher there are less Boolean Operators
 				switch (operator) {
 				case AND:
-					cypher.append(condition1Query + " ");
+					cypher.append(condition1Query);
 					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
-					cypher.append(" " + condition2Query);
+					cypher.append(CypherSpecificConstants.ONE_WHITESPACE + condition2Query);
 					break;
 				case OR:
-					cypher.append(condition1Query + " ");
+					cypher.append(condition1Query);
 					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_OR);
-					cypher.append(" " + condition2Query);
+					cypher.append(CypherSpecificConstants.ONE_WHITESPACE + condition2Query);
 					break;
 				case XOR:
 					//XOR is between the EXISTS-FUNCTION NOT POSSIBLE
-					cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + condition1Query + " ");
+					cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + condition1Query);
 					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
 					cypher.append(" " + CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " " + condition2Query + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
 					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_OR + " ");
-					cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " " + condition1Query + " ");
+					cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " " + condition1Query);
 					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
 					cypher.append(" " + condition2Query + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
 					break;
 				case IMPLIES:
-					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " " + condition1Query + " ");
+					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " " + condition1Query);
 					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
 					cypher.append(" " + condition2Query);
 					break;
 				case EQUAL:
-					cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + condition1Query + " " + CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + " " + condition2Query + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
+					cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + condition1Query + CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + " " + condition2Query + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
 					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_OR + " ");
 					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " ");
 					cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + condition1Query + CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + " " + condition2Query + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);

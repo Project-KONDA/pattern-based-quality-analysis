@@ -219,7 +219,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 					exists = tempCypherOnlyProperties;
 					if (!(getCondition() instanceof CountConditionImpl || getCondition() instanceof TrueElement)) {
 						final StringBuilder localSb = new StringBuilder(getCondition().generateCypher());					
-						addWhiteSpacesForPreviewsCondition(localSb);					
+						addWhiteSpacesForPreviewsCondition(localSb, CypherSpecificConstants.TWELVE_WHITESPACES);					
 						exists += localSb.toString();
 					}
 				}
@@ -399,9 +399,13 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		} else {
 			final String[] temp = Arrays.stream(cypherText.split(CypherSpecificConstants.CLAUSE_MATCH)).filter(x -> !x.isBlank()).toArray(String[]::new); 
 			cypherText = null;
-			for (String s : temp) {
-				s = String.format(CypherSpecificConstants.CLAUSE_MATCH_INLUCE_W, CypherSpecificConstants.TWELVE_WHITESPACES) + s;
-				cypher.append(s);
+			for (int i = 0; i < temp.length; i++) {
+				if (i == 0) {
+					cypherText = String.format(CypherSpecificConstants.CLAUSE_MATCH_INLUCE_W, CypherSpecificConstants.TWELVE_WHITESPACES) + CypherSpecificConstants.ONE_WHITESPACE + temp[i].trim();					
+				} else {
+					cypherText = CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE + temp[i].trim();					
+				}
+				cypher.append(cypherText);
 			}
 		}
 		
@@ -414,31 +418,43 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			
 			if (!(getCondition() instanceof TrueElementImpl)) {
 				StringBuilder conditionWhere = new StringBuilder(condition.generateCypher());
-				addWhiteSpacesForPreviewsCondition(conditionWhere);
-				conditionWhere.insert(0, CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
+				addWhiteSpacesForPreviewsCondition(conditionWhere, CypherSpecificConstants.TWELVE_WHITESPACES);
+				if (!cypherWhere.isEmpty()) {
+					conditionWhere.insert(0, "\n" + CypherSpecificConstants.SIX_WHITESPACES + CypherSpecificConstants.SIX_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);					
+				} else {
+					conditionWhere.insert(0, String.format(CypherSpecificConstants.CLAUSE_WHERE_INLUCE_W, CypherSpecificConstants.SIX_WHITESPACES) + CypherSpecificConstants.ONE_WHITESPACE);
+				}
 				checkAndAppendCypherWhere(cypher, conditionWhere);
 			}
 			exists = String.format(exists, cypher.toString());
 		} else if (quantifier == Quantifier.FORALL) {
 			//USING INTERNALY THE EXISTS
-			StringBuilder localCypher = new StringBuilder();
-			localCypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_NOT);
-			localCypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
-			
-			//INCLUDE INNER EXPRESSION FOR FORALL	
-			if (!(getCondition() instanceof TrueElementImpl)) {
-				localCypher.append(getCondition().generateCypher());
-				addWhiteSpacesForPreviewsCondition(localCypher);
-				localCypher.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
-			} else {
-				throw new InvalidityException(QUANTIFIED_COND_NEEDS_INNER_CONDITION);
-			}
-		
-			cypherWhere.append(localCypher.toString());
 			appendCypherWhere(cypherWhere);
 			appendCypherWherePrefix(cypherWhere);
 			checkAndAppendCypherWhere(cypher, cypherWhere);
 			appendExistsProperties(cypher);
+			
+			//INCLUDE INNER EXPRESSION FOR FORALL	
+			if (!(getCondition() instanceof TrueElementImpl)) {
+				StringBuilder localCypher = new StringBuilder();
+				localCypher.setLength(0);
+				localCypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_NOT);
+				localCypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
+				localCypher.append(getCondition().generateCypher());
+				localCypher.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
+				addWhiteSpacesForPreviewsCondition(localCypher, CypherSpecificConstants.TWELVE_WHITESPACES);
+				if (!cypherWhere.isEmpty()) {
+					addWhiteSpacesForPreviewsCondition(localCypher, CypherSpecificConstants.SIX_WHITESPACES);
+					localCypher.insert(0, "\n" + CypherSpecificConstants.TWELVE_WHITESPACES + CypherSpecificConstants.SIX_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
+					checkAndAppendCypherWhere(cypher, localCypher);
+				} else {
+					addWhiteSpacesForPreviewsCondition(localCypher, CypherSpecificConstants.SIX_WHITESPACES);
+					appendCypherWherePrefix(localCypher);
+					checkAndAppendCypherWhere(cypher, localCypher);
+				}
+			} else {
+				throw new InvalidityException(QUANTIFIED_COND_NEEDS_INNER_CONDITION);
+			}
 			
 			exists = String.format(exists, cypher.toString());
 		} else {
@@ -482,8 +498,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 * @author Lukas Sebastian Hofmann
 	 * @param cypher
 	 * This adds extra whitespaces to the query-parts from previews conditions.
+	 * @param whiteSpaces TODO
 	 */
-	private final void addWhiteSpacesForPreviewsCondition(StringBuilder cypher) {
+	private final void addWhiteSpacesForPreviewsCondition(final StringBuilder cypher, final String whiteSpaces) {
 		boolean lineBreak = true;
 		int fromIndex = 0;
 		int currentIndex = 0;
@@ -492,8 +509,8 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			if (currentIndex == -1) {
 				lineBreak = false;
 			} else {
-				cypher.insert(currentIndex + 1, CypherSpecificConstants.TWELVE_WHITESPACES); 
-				fromIndex = currentIndex + CypherSpecificConstants.TWELVE_WHITESPACES.length();
+				cypher.insert(currentIndex + 1, whiteSpaces); 
+				fromIndex = currentIndex + whiteSpaces.length();
 			}
 		}
 	}
@@ -515,7 +532,8 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 
 	private final void appendCypherWhere(final StringBuilder query) throws InvalidityException {
-		String tempCypher = graph.generateCypherWhere();			
+		String tempCypher = graph.generateCypherWhere();
+		tempCypher = tempCypher.replaceAll("\n", "\n" + CypherSpecificConstants.SIX_WHITESPACES);
 		if (tempCypher != null && !tempCypher.isEmpty()) {
 			if (query.length() != 0) {
 				query.append("\n" + CypherSpecificConstants.TWELVE_WHITESPACES

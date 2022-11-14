@@ -28,10 +28,10 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 		CypherTest03NotCondition notCond = new CypherTest03NotCondition();
 		try {
 			quantifiedCond.generalizedTests();         
-//			quantifiedCond.generalizedInvalidtyExceptionTests();
+			quantifiedCond.generalizedInvalidtyExceptionTests();
 			quantifiedCond = null;
 			notCond.generalizedTests();         
-//			notCond.generalizedInvalidtyExceptionTests(); 
+			notCond.generalizedInvalidtyExceptionTests(); 
 		} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();
@@ -57,8 +57,6 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 	@Override
 	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
-		//completePatternsExceptions.add(generateNodesWhereNoBeginningsException(false));
-		completePatternsExceptions.add(generateNodesWhereNoBeginningsException(true));
 		completePatternsExceptions.add(generateWithForAllPropertyExistenceException());
 		completePatternsExceptions.add(generateNoNodesAreDefinedInTheGraphException());
 		completePatternsExceptions.add(generateQuantifiedCondContainsCountPatternException());
@@ -199,37 +197,7 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 		CompletePattern completePattern = notSpecifiedneoPropertyNamesToTheSameNeoPopertyNode(not);
 		completePattern.createNeo4jAdaption();
 		return completePattern;
-	}
-	
-	@Deprecated
-	private CompletePattern generateNodesWhereNoBeginningsException(boolean not) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherAbstractTranslation.getCompBasePattern();
-		PrimitiveNode pn = completePattern.getGraph().addPrimitiveNode();
-		ComplexNode cn = (ComplexNode) completePattern.getGraph().getNodes().get(0);
-		completePattern.getGraph().addRelation(cn, pn);
-		QuantifiedCondition quantifiedCond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
-		quantifiedCond.setQuantifier(Quantifier.EXISTS);
-		if (not) {
-			NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
-			completePattern.setCondition(notCond);
-			notCond.setCondition(quantifiedCond);
-		} else {
-			completePattern.setCondition(quantifiedCond);
-		}
-		
-		pn = quantifiedCond.getGraph().addPrimitiveNode();
-		cn = (ComplexNode) quantifiedCond.getGraph().getNodes().get(0);
-		quantifiedCond.getGraph().addRelation(cn, pn);
-		
-		completePattern.createNeo4jAdaption();
-		
-		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.addNeoLabel("Regesta");
-	
-		
-		return completePattern;	
-	}
-	
+	}	
 	
 	private CompletePattern generateNoNodesAreDefinedInTheGraphException() throws InvalidityException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
