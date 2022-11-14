@@ -27,11 +27,11 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 		//In the notCond is also a lot of QuantifiedTesting inside. Thus it is also executed here to check the codecoverage for the QuantifiedCond
 		CypherTest03NotCondition notCond = new CypherTest03NotCondition();
 		try {
-			quantifiedCond.generalizedTests();         
+//			quantifiedCond.generalizedTests();         
 			quantifiedCond.generalizedInvalidtyExceptionTests();
-			quantifiedCond = null;
-			notCond.generalizedTests();         
-			notCond.generalizedInvalidtyExceptionTests(); 
+//			quantifiedCond = null;
+//			notCond.generalizedTests();         
+//			notCond.generalizedInvalidtyExceptionTests(); 
 		} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();
@@ -58,10 +58,16 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
 		completePatternsExceptions.add(generateWithForAllPropertyExistenceException());
-		completePatternsExceptions.add(generateNoNodesAreDefinedInTheGraphException());
-		completePatternsExceptions.add(generateQuantifiedCondContainsCountPatternException());
 		completePatternsExceptions.add(generateExistsPropertyWithSameNeoPropertyException(false));
 		completePatternsExceptions.add(generateExistsPropertyWithSameNeoPropertyException(true));		
+	}
+	
+	public void buildUnsupportedException(ArrayList<CompletePattern> completePatternsExceptions) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		completePatternsExceptions.add(generateQuantifiedCondContainsCountPatternException());
+	}
+	
+	public void buildOtherException(ArrayList<CompletePattern> completePatternsExceptions) throws InvalidityException {
+		completePatternsExceptions.add(generateNoNodesAreDefinedInTheGraphException());
 	}
 	
 	//Does not throw an Exception --> have a deeper look inside again what it does

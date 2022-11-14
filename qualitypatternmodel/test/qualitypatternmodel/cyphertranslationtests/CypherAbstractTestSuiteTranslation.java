@@ -257,12 +257,18 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 	//		assertThrows(OperatorCycleException.class, () -> {CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
 	//				//Add additional Exceptions
 	//				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-	//		assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoEdge.tryBuildNeoNeoNeedsAPathParam();
-	//			//Add additional Exceptions,
-	//			}, 
-	//			EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
-//			assertThrows(Exception.class, () -> {//Add additional Exceptions
-//				}, DIFFRENT_OTHER_EXCEPTIONS);
+			completePatterns.clear();
+			assertDoesNotThrow(() -> new CypherTest07QuantifiedCondition().buildUnsupportedException(completePatterns));
+			for (CompletePattern cp : completePatterns) {
+				assertThrows(Exception.class, () -> {exceptionHandler(cp);},
+				EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
+			}
+			completePatterns.clear();
+			assertDoesNotThrow(() -> new CypherTest07QuantifiedCondition().buildOtherException(completePatterns));
+			for (CompletePattern cp : completePatterns) {
+				assertThrows(Exception.class, () -> {exceptionHandler(cp);
+					});
+			}
 		}
 
 	@Test

@@ -30,14 +30,14 @@ public class CypherEvalComp {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		//New Ones	
 		//Contains two different concretizations
-//		printFundamentalComp();
-//		
-//		System.out.println();
-//		System.out.println("---");
-//		System.out.println();
-//		
-//		//Old ones
-//		printOldCompare();
+		printFundamentalComp();
+		
+		System.out.println();
+		System.out.println("---");
+		System.out.println();
+		
+		//Old ones
+		printOldCompare();
 		
 		System.out.println();
 		System.out.println("---");

@@ -125,7 +125,7 @@ public abstract class CypherAbstractTranslation implements CypherInterfaceTransl
 				//If db is activeted or a connection can be established
 				if (connector != null) {
 					String hashCode = query.hashCode() + "";
-					connector.queryTester(query, hashCode, true);
+					connector.queryTester(query + " LIMIT 1", hashCode, true);
 					System.out.println("\n-- Original Query --");
 					System.out.println(query);
 				} else {
