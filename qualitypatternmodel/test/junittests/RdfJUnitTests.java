@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.rdftranslationtests.RdfTest01Predicates;
+import qualitypatternmodel.rdftranslationtests.RdfTest01_2Types;
 import qualitypatternmodel.rdftranslationtests.RdfTest02Return;
 import qualitypatternmodel.rdftranslationtests.RdfTest03Quantor;
 import qualitypatternmodel.rdftranslationtests.RdfTest04NotElement;
@@ -23,6 +24,17 @@ public class RdfJUnitTests {
 	public void test01() {
 		try {
 			ArrayList<CompletePattern> testpairs = RdfTest01Predicates.getPatterns();
+			assert(!testpairs.isEmpty());
+		} catch (Exception e) {
+			assert(false);
+		}
+		assert(true);
+	}
+	
+	@Test
+	public void test01_2() {
+		try {
+			ArrayList<CompletePattern> testpairs = RdfTest01_2Types.getPatterns();
 			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
 			assert(false);

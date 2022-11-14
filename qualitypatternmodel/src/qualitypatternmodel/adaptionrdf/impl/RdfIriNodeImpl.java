@@ -76,7 +76,7 @@ public class RdfIriNodeImpl extends ComplexNodeImpl implements RdfIriNode {
 		String result = "";
 		if (this.equals(getOriginalNode()) && getRdfIriNodeTypes() != null) {
 			for (IriParam iri: getRdfIriNodeTypes().getIriParams()) {
-				result += this.generateSparql() + " " + RDF_TYPE_PREDICATE + " " + iri.generateSparql() + ".\n";
+				result += "\n" + this.generateSparql() + " " + RDF_TYPE_PREDICATE + " " + iri.generateSparql() + ".";
 			}
 		}
 		return result;
