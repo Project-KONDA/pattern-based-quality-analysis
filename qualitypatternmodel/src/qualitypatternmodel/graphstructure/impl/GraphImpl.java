@@ -28,6 +28,7 @@ import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.adaptionxml.impl.XmlElementNavigationImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyNavigationImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlRootImpl;
+import qualitypatternmodel.adaptionrdf.RdfNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -152,6 +153,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public String generateSparql() throws InvalidityException {
 		String result = "";
+		for(Node node : getNodes())
+			result += ((RdfNode) node).generateRdfTypes();
+		
 		for(Node node : getNodes()) {
 			if(node instanceof ComplexNode) {
 				ComplexNode c = (ComplexNode) node;

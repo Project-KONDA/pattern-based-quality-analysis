@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.IriListParam;
+import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfIriNode;
 import qualitypatternmodel.adaptionrdf.RdfNode;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -36,6 +37,9 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * @generated
  */
 public class RdfIriNodeImpl extends ComplexNodeImpl implements RdfIriNode {
+	
+	public static String RDF_TYPE_PREDICATE = "rdf:type";
+	
 	/**
 	 * The cached value of the '{@link #getRdfIriNodeTypes() <em>Rdf Iri Node Types</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -58,6 +62,22 @@ public class RdfIriNodeImpl extends ComplexNodeImpl implements RdfIriNode {
 	@Override
 	public String generateSparql() {
 		return "?var" + getOriginalID();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String generateRdfTypes() throws InvalidityException {
+		String result = "";
+		if (this.equals(getOriginalNode()) && getRdfIriNodeTypes() != null) {
+			for (IriParam iri: getRdfIriNodeTypes().getIriParams()) {
+				result += this.generateSparql() + " " + RDF_TYPE_PREDICATE + " " + iri.generateSparql() + ".\n";
+			}
+		}
+		return result;
 	}
 	
 	@Override
@@ -165,18 +185,6 @@ public class RdfIriNodeImpl extends ComplexNodeImpl implements RdfIriNode {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_IRI_NODE__RDF_IRI_NODE_TYPES, newRdfIriNodeTypes, newRdfIriNodeTypes));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String generateRdfTypes() throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**

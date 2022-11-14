@@ -48,6 +48,16 @@ public class RdfLiteralNodeImpl extends PrimitiveNodeImpl implements RdfLiteralN
 		}
 		return "?var" + getOriginalID();
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String generateRdfTypes() throws InvalidityException {
+		return "";
+	}
 	
 	
 	@Override
@@ -94,18 +104,6 @@ public class RdfLiteralNodeImpl extends PrimitiveNodeImpl implements RdfLiteralN
 	@Override
 	protected EClass eStaticClass() {
 		return AdaptionrdfPackage.Literals.RDF_LITERAL_NODE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String generateRdfTypes() throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
