@@ -1335,6 +1335,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	public RdfIriNode adaptAsRdfIriNode() throws InvalidityException {
 		Graph graph = getGraph();
 		RdfIriNode elementOriginal = ((NodeImpl) getOriginalNode()).adaptAsRdfIriNodeRecursive();
+		elementOriginal.createParameters();
 				
 		for(Node n: graph.getNodes()) {
 			if(n instanceof RdfIriNode) {

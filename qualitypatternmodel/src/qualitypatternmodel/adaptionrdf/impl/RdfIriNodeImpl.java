@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.IriListParam;
 import qualitypatternmodel.adaptionrdf.IriParam;
@@ -18,6 +19,7 @@ import qualitypatternmodel.adaptionrdf.RdfNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.impl.ComplexNodeImpl;
@@ -185,6 +187,27 @@ public class RdfIriNodeImpl extends ComplexNodeImpl implements RdfIriNode {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_IRI_NODE__RDF_IRI_NODE_TYPES, newRdfIriNodeTypes, newRdfIriNodeTypes));
+	}
+	
+	@Override
+	public void setGraph(Graph newGraph) {
+		super.setGraph(newGraph);
+		createParameters();
+	}
+
+	@Override
+	public void createParameters() {
+		if (this == getOriginalNode()) {
+			if (getRdfIriNodeTypes() == null)
+				setRdfIriNodeTypes(new IriListParamImpl());
+			if (getParameterList() != null && getParameterList() != getRdfIriNodeTypes().getParameterList())
+				getRdfIriNodeTypes().setParameterList(getParameterList());
+		} else {
+			if (getRdfIriNodeTypes() != null) {
+				getRdfIriNodeTypes().setParameterList(null);
+				setRdfIriNodeTypes(null);
+			}
+		}
 	}
 
 	/**
