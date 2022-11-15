@@ -3,18 +3,28 @@ package qualitypatternmodel.cypherevaluation;
 import java.time.Duration;
 import java.time.Instant;
 
+import org.eclipse.emf.common.util.EList;
+
 import qualitypatternmodel.adaptionneo4j.NeoNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.evaluation.EvalContains;
+import qualitypatternmodel.evaluation.EvalExNEx;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.Contains;
+import qualitypatternmodel.parameters.ComparisonOptionParam;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.UntypedParameterValue;
+import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 //also called MANDSTRUC2
@@ -24,19 +34,19 @@ public class CypherEvalExNEx {
 		//New Ones		
 		
 		//Old ones
-		printExNEx();
-		
-		System.out.println();
-		System.out.println("---");
-		System.out.println();
+//		printExNEx();
+//		
+//		System.out.println();
+//		System.out.println("---");
+//		System.out.println();
 		
 		printExNExCond();
 		
-		System.out.println();
-		System.out.println("---");
-		System.out.println();
-		
-		printExNExCond2Cond();
+//		System.out.println();
+//		System.out.println("---");
+//		System.out.println();
+//		
+//		printExNExCond2Cond();
 	}
 
 	//New Ones
@@ -92,7 +102,7 @@ public class CypherEvalExNEx {
 	}
 	
 	private static CompletePattern getOldExNExGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return EvalContains.getContainsGeneric();
+		return EvalExNEx.getExNExGeneric();
 	}
 	
 	private static CompletePattern getOldExNExAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -100,19 +110,34 @@ public class CypherEvalExNEx {
 		return completePattern;
 	}
 	
+	/**
+	 * Every regesta with a regid should have a Place
+	 * @param completePattern
+	 * @return
+	 * @throws InvalidityException
+	 * @throws OperatorCycleException
+	 * @throws MissingPatternContainerException
+	 */
 	private static CompletePattern getOldExNExConcrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.addNeoLabel("IndexEntry");
-		neoNode.addNeoLabel("IndexPerson");
+		neoNode.addNeoLabel("Regesta");
+		NeoPropertyNode neoPropertyNode1 = (NeoPropertyNode) neoNode.getOutgoing().get(0).getTarget();
+		NeoPropertyEdge neoPropertyEdge1 = (NeoPropertyEdge) neoPropertyNode1.getIncoming().get(0);
+		neoPropertyEdge1.getNeoPropertyPathParam().setNeoPropertyName("regid");
+	
+		Graph g = ((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph(); 
+		NeoNode neoNode2 = (NeoNode) g.getNodes().get(2);
+		neoNode2.addNeoLabel("Place");
 		
-		Graph g = ((QuantifiedCondition) completePattern.getCondition()).getGraph(); 
-		NeoPropertyNode neoPropertyNode = (NeoPropertyNode) g.getNodes().get(1);
-		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) neoPropertyNode.getIncoming().get(0);
-		neoPropertyEdge.getNeoPropertyPathParam().setNeoPropertyName("label");
-		Contains contains = (Contains) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getAllOperators().get(0); 
-		TextLiteralParam textLiteralParam = new TextLiteralParamImpl();
-		textLiteralParam.setValue(",");
-		contains.setContent(textLiteralParam);
+		EList<Parameter> params = completePattern.getParameterList().getParameters();
+		UntypedParameterValue p0 = ((UntypedParameterValue) params.get(0));
+		TextLiteralParam tx1 = new TextLiteralParamImpl();
+		tx1.setValue("");
+		p0. replace(tx1);
+		Comparison comparison1 = (Comparison) neoPropertyNode1.getAllOperators().get(0);
+		ComparisonOptionParam comparisonOptionParam = new ComparisonOptionParamImpl();
+		comparisonOptionParam.setValue(ComparisonOperator.NOTEQUAL);
+		comparison1.setOption(comparisonOptionParam);
 		
 		return completePattern;
 	}
@@ -167,7 +192,7 @@ public class CypherEvalExNEx {
 	}
 	
 	private static CompletePattern getOldExNExCondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return EvalContains.getContainsGeneric();
+		return EvalExNEx.getExNExCondGeneric();
 	}
 	
 	private static CompletePattern getOldExNExCondAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -177,17 +202,14 @@ public class CypherEvalExNEx {
 	
 	private static CompletePattern getOldExNExCondConcrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.addNeoLabel("IndexEntry");
-		neoNode.addNeoLabel("IndexPerson");
+		neoNode.addNeoLabel("Regesta");
+		NeoPropertyNode neoPropertyNode1 = (NeoPropertyNode) neoNode.getOutgoing().get(0).getTarget();
+		NeoPropertyEdge neoPropertyEdge1 = (NeoPropertyEdge) neoPropertyNode1.getIncoming().get(0);
+		neoPropertyEdge1.getNeoPropertyPathParam().setNeoPropertyName("regid");
 		
-		Graph g = ((QuantifiedCondition) completePattern.getCondition()).getGraph(); 
-		NeoPropertyNode neoPropertyNode = (NeoPropertyNode) g.getNodes().get(1);
-		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) neoPropertyNode.getIncoming().get(0);
-		neoPropertyEdge.getNeoPropertyPathParam().setNeoPropertyName("label");
-		Contains contains = (Contains) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getAllOperators().get(0); 
-		TextLiteralParam textLiteralParam = new TextLiteralParamImpl();
-		textLiteralParam.setValue(",");
-		contains.setContent(textLiteralParam);
+		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
+		Graph g = quantifiedCondition.getGraph(); 
+		
 		
 		return completePattern;
 	}
