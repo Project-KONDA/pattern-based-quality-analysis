@@ -49,7 +49,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	protected RdfPredicate rdfPredicate;
 
 	/**
-	 * The cached value of the '{@link #getRdfPathPart() <em>Rdf Path Part</em>}' reference.
+	 * The cached value of the '{@link #getRdfPathPart() <em>Rdf Path Part</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRdfPathPart()
@@ -161,14 +161,6 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 */
 	@Override
 	public RdfPathPart getRdfPathPart() {
-		if (rdfPathPart != null && rdfPathPart.eIsProxy()) {
-			InternalEObject oldRdfPathPart = (InternalEObject)rdfPathPart;
-			rdfPathPart = (RdfPathPart)eResolveProxy(oldRdfPathPart);
-			if (rdfPathPart != oldRdfPathPart) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PART, oldRdfPathPart, rdfPathPart));
-			}
-		}
 		return rdfPathPart;
 	}
 
@@ -177,8 +169,14 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RdfPathPart basicGetRdfPathPart() {
-		return rdfPathPart;
+	public NotificationChain basicSetRdfPathPart(RdfPathPart newRdfPathPart, NotificationChain msgs) {
+		RdfPathPart oldRdfPathPart = rdfPathPart;
+		rdfPathPart = newRdfPathPart;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PART, oldRdfPathPart, newRdfPathPart);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -188,10 +186,17 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 */
 	@Override
 	public void setRdfPathPart(RdfPathPart newRdfPathPart) {
-		RdfPathPart oldRdfPathPart = rdfPathPart;
-		rdfPathPart = newRdfPathPart;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PART, oldRdfPathPart, rdfPathPart));
+		if (newRdfPathPart != rdfPathPart) {
+			NotificationChain msgs = null;
+			if (rdfPathPart != null)
+				msgs = ((InternalEObject)rdfPathPart).eInverseRemove(this, AdaptionrdfPackage.RDF_PATH_PART__RDF_PATH_PARAM, RdfPathPart.class, msgs);
+			if (newRdfPathPart != null)
+				msgs = ((InternalEObject)newRdfPathPart).eInverseAdd(this, AdaptionrdfPackage.RDF_PATH_PART__RDF_PATH_PARAM, RdfPathPart.class, msgs);
+			msgs = basicSetRdfPathPart(newRdfPathPart, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PART, newRdfPathPart, newRdfPathPart));
 	}
 
 	/**
@@ -229,6 +234,10 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 				if (rdfPredicate != null)
 					msgs = ((InternalEObject)rdfPredicate).eInverseRemove(this, AdaptionrdfPackage.RDF_PREDICATE__RDF_PATH_PARAM, RdfPredicate.class, msgs);
 				return basicSetRdfPredicate((RdfPredicate)otherEnd, msgs);
+			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PART:
+				if (rdfPathPart != null)
+					msgs = ((InternalEObject)rdfPathPart).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PART, null, msgs);
+				return basicSetRdfPathPart((RdfPathPart)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -243,6 +252,8 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 		switch (featureID) {
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PREDICATE:
 				return basicSetRdfPredicate(null, msgs);
+			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PART:
+				return basicSetRdfPathPart(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -259,8 +270,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 				if (resolve) return getRdfPredicate();
 				return basicGetRdfPredicate();
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PART:
-				if (resolve) return getRdfPathPart();
-				return basicGetRdfPathPart();
+				return getRdfPathPart();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

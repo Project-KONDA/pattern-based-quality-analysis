@@ -48,22 +48,24 @@ public interface RdfPathParam extends Parameter, Adaptable {
 	void setRdfPredicate(RdfPredicate value);
 
 	/**
-	 * Returns the value of the '<em><b>Rdf Path Part</b></em>' reference.
+	 * Returns the value of the '<em><b>Rdf Path Part</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.RdfPathPart#getRdfPathParam <em>Rdf Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rdf Path Part</em>' reference.
+	 * @return the value of the '<em>Rdf Path Part</em>' containment reference.
 	 * @see #setRdfPathPart(RdfPathPart)
 	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathParam_RdfPathPart()
-	 * @model
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathPart#getRdfPathParam
+	 * @model opposite="rdfPathParam" containment="true"
 	 * @generated
 	 */
 	RdfPathPart getRdfPathPart();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfPathPart <em>Rdf Path Part</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfPathPart <em>Rdf Path Part</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rdf Path Part</em>' reference.
+	 * @param value the new value of the '<em>Rdf Path Part</em>' containment reference.
 	 * @see #getRdfPathPart()
 	 * @generated
 	 */

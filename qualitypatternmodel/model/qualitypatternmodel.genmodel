@@ -958,6 +958,7 @@
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfPathPart">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionrdf/RdfPathPart/invert"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionrdf/RdfPathPart/quantifier"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfPathPart/rdfPathParam"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionrdf/RdfPathPart/getRdfSinglePredicates"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfSinglePredicate">

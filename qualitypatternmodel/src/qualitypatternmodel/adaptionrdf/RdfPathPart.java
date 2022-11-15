@@ -16,6 +16,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathPart#isInvert <em>Invert</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathPart#getQuantifier <em>Quantifier</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathPart#getRdfPathParam <em>Rdf Path Param</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathPart()
@@ -69,6 +70,30 @@ public interface RdfPathPart extends PatternElement {
 	 * @generated
 	 */
 	void setQuantifier(RdfQuantifier value);
+
+	/**
+	 * Returns the value of the '<em><b>Rdf Path Param</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfPathPart <em>Rdf Path Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Rdf Path Param</em>' container reference.
+	 * @see #setRdfPathParam(RdfPathParam)
+	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathPart_RdfPathParam()
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfPathPart
+	 * @model opposite="rdfPathPart" transient="false"
+	 * @generated
+	 */
+	RdfPathParam getRdfPathParam();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPathPart#getRdfPathParam <em>Rdf Path Param</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Rdf Path Param</em>' container reference.
+	 * @see #getRdfPathParam()
+	 * @generated
+	 */
+	void setRdfPathParam(RdfPathParam value);
 
 	/**
 	 * <!-- begin-user-doc -->

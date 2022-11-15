@@ -311,6 +311,16 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 	 * @generated
 	 */
 	@Override
+	public EReference getRdfPathPart_RdfPathParam() {
+		return (EReference)rdfPathPartEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getRdfPathPart__GetRdfSinglePredicates() {
 		return rdfPathPartEClass.getEOperations().get(0);
 	}
@@ -583,6 +593,7 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 		rdfPathPartEClass = createEClass(RDF_PATH_PART);
 		createEAttribute(rdfPathPartEClass, RDF_PATH_PART__INVERT);
 		createEAttribute(rdfPathPartEClass, RDF_PATH_PART__QUANTIFIER);
+		createEReference(rdfPathPartEClass, RDF_PATH_PART__RDF_PATH_PARAM);
 		createEOperation(rdfPathPartEClass, RDF_PATH_PART___GET_RDF_SINGLE_PREDICATES);
 
 		rdfSinglePredicateEClass = createEClass(RDF_SINGLE_PREDICATE);
@@ -676,6 +687,7 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 		initEClass(rdfPathPartEClass, RdfPathPart.class, "RdfPathPart", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRdfPathPart_Invert(), ecorePackage.getEBoolean(), "invert", null, 0, 1, RdfPathPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRdfPathPart_Quantifier(), this.getRdfQuantifier(), "quantifier", null, 0, 1, RdfPathPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRdfPathPart_RdfPathParam(), this.getRdfPathParam(), this.getRdfPathParam_RdfPathPart(), "rdfPathParam", null, 0, 1, RdfPathPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getRdfPathPart__GetRdfSinglePredicates(), this.getRdfSinglePredicate(), "getRdfSinglePredicates", 0, -1, IS_UNIQUE, IS_ORDERED);
 
@@ -710,7 +722,7 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 
 		initEClass(rdfPathParamEClass, RdfPathParam.class, "RdfPathParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRdfPathParam_RdfPredicate(), this.getRdfPredicate(), this.getRdfPredicate_RdfPathParam(), "rdfPredicate", null, 0, 1, RdfPathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRdfPathParam_RdfPathPart(), this.getRdfPathPart(), null, "rdfPathPart", null, 0, 1, RdfPathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRdfPathParam_RdfPathPart(), this.getRdfPathPart(), this.getRdfPathPart_RdfPathParam(), "rdfPathPart", null, 0, 1, RdfPathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(rdfQuantifierEEnum, RdfQuantifier.class, "RdfQuantifier");

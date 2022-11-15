@@ -1282,13 +1282,22 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PATH_PART__QUANTIFIER = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Rdf Path Param</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART__RDF_PATH_PARAM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Rdf Path Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int RDF_PATH_PART_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1570,6 +1579,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @ordered
 	 */
 	int RDF_SINGLE_PREDICATE__QUANTIFIER = RDF_PATH_PART__QUANTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Rdf Path Param</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_SINGLE_PREDICATE__RDF_PATH_PARAM = RDF_PATH_PART__RDF_PATH_PARAM;
 
 	/**
 	 * The feature id for the '<em><b>Iri Param</b></em>' containment reference.
@@ -3232,6 +3250,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_XOR__QUANTIFIER = RDF_PATH_PART__QUANTIFIER;
 
 	/**
+	 * The feature id for the '<em><b>Rdf Path Param</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_XOR__RDF_PATH_PARAM = RDF_PATH_PART__RDF_PATH_PARAM;
+
+	/**
 	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3519,6 +3546,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @ordered
 	 */
 	int RDF_SEQUENCE__QUANTIFIER = RDF_PATH_PART__QUANTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Rdf Path Param</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_SEQUENCE__RDF_PATH_PARAM = RDF_PATH_PART__RDF_PATH_PARAM;
 
 	/**
 	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
@@ -4377,7 +4413,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PATH_PARAM__RDF_PREDICATE = ParametersPackage.PARAMETER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Rdf Path Part</b></em>' reference.
+	 * The feature id for the '<em><b>Rdf Path Part</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -4794,6 +4830,17 @@ public interface AdaptionrdfPackage extends EPackage {
 	EAttribute getRdfPathPart_Quantifier();
 
 	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionrdf.RdfPathPart#getRdfPathParam <em>Rdf Path Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Rdf Path Param</em>'.
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathPart#getRdfPathParam()
+	 * @see #getRdfPathPart()
+	 * @generated
+	 */
+	EReference getRdfPathPart_RdfPathParam();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionrdf.RdfPathPart#getRdfSinglePredicates() <em>Get Rdf Single Predicates</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4825,10 +4872,10 @@ public interface AdaptionrdfPackage extends EPackage {
 	EReference getRdfPathParam_RdfPredicate();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfPathPart <em>Rdf Path Part</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfPathPart <em>Rdf Path Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Rdf Path Part</em>'.
+	 * @return the meta object for the containment reference '<em>Rdf Path Part</em>'.
 	 * @see qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfPathPart()
 	 * @see #getRdfPathParam()
 	 * @generated
@@ -5131,6 +5178,14 @@ public interface AdaptionrdfPackage extends EPackage {
 		EAttribute RDF_PATH_PART__QUANTIFIER = eINSTANCE.getRdfPathPart_Quantifier();
 
 		/**
+		 * The meta object literal for the '<em><b>Rdf Path Param</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RDF_PATH_PART__RDF_PATH_PARAM = eINSTANCE.getRdfPathPart_RdfPathParam();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Rdf Single Predicates</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5157,7 +5212,7 @@ public interface AdaptionrdfPackage extends EPackage {
 		EReference RDF_PATH_PARAM__RDF_PREDICATE = eINSTANCE.getRdfPathParam_RdfPredicate();
 
 		/**
-		 * The meta object literal for the '<em><b>Rdf Path Part</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Rdf Path Part</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
