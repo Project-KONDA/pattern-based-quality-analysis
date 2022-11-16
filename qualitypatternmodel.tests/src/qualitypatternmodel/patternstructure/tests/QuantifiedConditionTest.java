@@ -75,19 +75,6 @@ public class QuantifiedConditionTest extends ConditionTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.MorphismContainer#copyPreviousGraph() <em>Copy Previous Graph</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.MorphismContainer#copyPreviousGraph()
-	 * @generated
-	 */
-	public void testCopyPreviousGraph() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link qualitypatternmodel.patternstructure.QuantifiedCondition#checkMorphismOfNextGraph() <em>Check Morphism Of Next Graph</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -95,6 +82,19 @@ public class QuantifiedConditionTest extends ConditionTest {
 	 * @generated
 	 */
 	public void testCheckMorphismOfNextGraph() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.MorphismContainer#copyPreviousGraph() <em>Copy Previous Graph</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.MorphismContainer#copyPreviousGraph()
+	 * @generated
+	 */
+	public void testCopyPreviousGraph() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

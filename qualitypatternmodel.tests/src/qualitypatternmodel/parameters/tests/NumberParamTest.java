@@ -3,12 +3,13 @@
 package qualitypatternmodel.parameters.tests;
 
 import junit.textui.TestRunner;
+
 import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.ParametersFactory;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Number</b></em>'.
+ * A test case for the model object '<em><b>Number Param</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following operations are tested:
@@ -85,4 +86,4 @@ public class NumberParamTest extends ParameterValueTest {
 		fail();
 	}
 
-} //NumberTest
+} //NumberParamTest

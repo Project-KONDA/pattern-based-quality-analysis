@@ -1,6 +1,5 @@
 package playground;
 
-import org.basex.query.value.item.Str;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 

@@ -3,6 +3,7 @@
 package qualitypatternmodel.execution.tests;
 
 import junit.framework.TestCase;
+
 import qualitypatternmodel.execution.XmlDatabase;
 
 /**

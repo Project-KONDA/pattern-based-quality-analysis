@@ -9,7 +9,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Count Comparison</b></em>'.
+ * A test case for the model object '<em><b>Count Condition</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following operations are tested:
@@ -100,4 +100,4 @@ public class CountConditionTest extends ConditionTest {
 		fail();
 	}
 
-} //CountComparisonTest
+} //CountConditionTest

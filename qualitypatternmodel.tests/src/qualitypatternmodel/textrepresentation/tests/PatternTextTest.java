@@ -99,6 +99,32 @@ public class PatternTextTest extends TestCase {
 	}
 
 	/**
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.PatternText#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.textrepresentation.PatternText#isValid(qualitypatternmodel.patternstructure.AbstractionLevel)
+	 * @generated
+	 */
+	public void testIsValid__AbstractionLevel() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.PatternText#addFragment(qualitypatternmodel.textrepresentation.Fragment) <em>Add Fragment</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.textrepresentation.PatternText#addFragment(qualitypatternmodel.textrepresentation.Fragment)
+	 * @generated
+	 */
+	public void testAddFragment__Fragment() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
 	 * Tests the '{@link qualitypatternmodel.textrepresentation.PatternText#generateJSON() <em>Generate JSON</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -112,13 +138,26 @@ public class PatternTextTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.textrepresentation.PatternText#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.PatternText#getPreview() <em>Get Preview</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.textrepresentation.PatternText#isValid(qualitypatternmodel.patternstructure.AbstractionLevel)
+	 * @see qualitypatternmodel.textrepresentation.PatternText#getPreview()
 	 * @generated
 	 */
-	public void testIsValid__AbstractionLevel() {
+	public void testGetPreview() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.PatternText#delete() <em>Delete</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.textrepresentation.PatternText#delete()
+	 * @generated
+	 */
+	public void testDelete() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -145,45 +184,6 @@ public class PatternTextTest extends TestCase {
 	 * @generated
 	 */
 	public void testGenerateSparqlTemplate() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.textrepresentation.PatternText#delete() <em>Delete</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.textrepresentation.PatternText#delete()
-	 * @generated
-	 */
-	public void testDelete() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.textrepresentation.PatternText#getPreview() <em>Get Preview</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.textrepresentation.PatternText#getPreview()
-	 * @generated
-	 */
-	public void testGetPreview() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.textrepresentation.PatternText#addFragment(qualitypatternmodel.textrepresentation.Fragment) <em>Add Fragment</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.textrepresentation.PatternText#addFragment(qualitypatternmodel.textrepresentation.Fragment)
-	 * @generated
-	 */
-	public void testAddFragment__Fragment() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

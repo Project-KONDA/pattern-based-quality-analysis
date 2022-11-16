@@ -3,12 +3,13 @@
 package qualitypatternmodel.parameters.tests;
 
 import junit.textui.TestRunner;
+
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.ParametersFactory;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Comparison Option</b></em>'.
+ * A test case for the model object '<em><b>Comparison Option Param</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following operations are tested:
@@ -85,4 +86,4 @@ public class ComparisonOptionParamTest extends ParameterTest {
 		fail();
 	}
 
-} //ComparisonOptionTest
+} //ComparisonOptionParamTest

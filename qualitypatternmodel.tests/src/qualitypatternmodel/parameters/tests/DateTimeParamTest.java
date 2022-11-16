@@ -3,12 +3,13 @@
 package qualitypatternmodel.parameters.tests;
 
 import junit.textui.TestRunner;
+
 import qualitypatternmodel.parameters.DateTimeParam;
 import qualitypatternmodel.parameters.ParametersFactory;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Date Time</b></em>'.
+ * A test case for the model object '<em><b>Date Time Param</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following operations are tested:
@@ -85,4 +86,4 @@ public class DateTimeParamTest extends ParameterValueTest {
 		fail();
 	}
 
-} //DateTimeTest
+} //DateTimeParamTest

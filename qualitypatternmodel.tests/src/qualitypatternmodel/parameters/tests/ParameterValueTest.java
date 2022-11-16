@@ -54,39 +54,26 @@ public abstract class ParameterValueTest extends ParameterTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.ParameterValue#isInTagComparison() <em>Is In Tag Comparison</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.parameters.ParameterValue#replace(qualitypatternmodel.parameters.ParameterValue) <em>Replace</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.ParameterValue#isInTagComparison()
+	 * @see qualitypatternmodel.parameters.ParameterValue#replace(qualitypatternmodel.parameters.ParameterValue)
 	 * @generated
 	 */
-	public void testIsInTagComparison() {
+	public void testReplace__ParameterValue() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.ParameterValue#isInAttributeComparison() <em>Is In Attribute Comparison</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.parameters.ParameterValue#replaceViaValue(java.lang.String[], java.lang.String) <em>Replace Via Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.ParameterValue#isInAttributeComparison()
+	 * @see qualitypatternmodel.parameters.ParameterValue#replaceViaValue(java.lang.String[], java.lang.String)
 	 * @generated
 	 */
-	public void testIsInAttributeComparison() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.ParameterValue#isInDataComparison() <em>Is In Data Comparison</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.ParameterValue#isInDataComparison()
-	 * @generated
-	 */
-	public void testIsInDataComparison() {
+	public void testReplaceViaValue__String_String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -106,19 +93,6 @@ public abstract class ParameterValueTest extends ParameterTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.ParameterValue#getAttributeNames() <em>Get Attribute Names</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.ParameterValue#getAttributeNames()
-	 * @generated
-	 */
-	public void testGetAttributeNames() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link qualitypatternmodel.parameters.ParameterValue#getDataValues() <em>Get Data Values</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -132,6 +106,45 @@ public abstract class ParameterValueTest extends ParameterTest {
 	}
 
 	/**
+	 * Tests the '{@link qualitypatternmodel.parameters.ParameterValue#isInDataComparison() <em>Is In Data Comparison</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.ParameterValue#isInDataComparison()
+	 * @generated
+	 */
+	public void testIsInDataComparison() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.parameters.ParameterValue#isInTagComparison() <em>Is In Tag Comparison</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.ParameterValue#isInTagComparison()
+	 * @generated
+	 */
+	public void testIsInTagComparison() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.parameters.ParameterValue#getAttributeNames() <em>Get Attribute Names</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.ParameterValue#getAttributeNames()
+	 * @generated
+	 */
+	public void testGetAttributeNames() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
 	 * Tests the '{@link qualitypatternmodel.parameters.ParameterValue#getAttributeValues() <em>Get Attribute Values</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -139,6 +152,19 @@ public abstract class ParameterValueTest extends ParameterTest {
 	 * @generated
 	 */
 	public void testGetAttributeValues() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.parameters.ParameterValue#isInAttributeComparison() <em>Is In Attribute Comparison</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.ParameterValue#isInAttributeComparison()
+	 * @generated
+	 */
+	public void testIsInAttributeComparison() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -165,32 +191,6 @@ public abstract class ParameterValueTest extends ParameterTest {
 	 * @generated
 	 */
 	public void testInferSuggestions() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.ParameterValue#replace(qualitypatternmodel.parameters.ParameterValue) <em>Replace</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.ParameterValue#replace(qualitypatternmodel.parameters.ParameterValue)
-	 * @generated
-	 */
-	public void testReplace__ParameterValue() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.ParameterValue#replaceViaValue(java.lang.String[], java.lang.String) <em>Replace Via Value</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.ParameterValue#replaceViaValue(java.lang.String[], java.lang.String)
-	 * @generated
-	 */
-	public void testReplaceViaValue__String_String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

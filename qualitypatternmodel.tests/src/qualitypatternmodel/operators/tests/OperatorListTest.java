@@ -3,8 +3,10 @@
 package qualitypatternmodel.operators.tests;
 
 import junit.textui.TestRunner;
+
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsFactory;
+
 import qualitypatternmodel.patternstructure.tests.PatternElementTest;
 
 /**

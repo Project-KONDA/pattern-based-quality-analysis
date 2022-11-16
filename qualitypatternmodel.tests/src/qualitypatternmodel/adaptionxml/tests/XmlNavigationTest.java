@@ -8,7 +8,7 @@ import qualitypatternmodel.graphstructure.tests.RelationTest;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>XML Navigation</b></em>'.
+ * A test case for the model object '<em><b>Xml Navigation</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
@@ -35,4 +35,4 @@ public abstract class XmlNavigationTest extends RelationTest {
 		return (XmlNavigation)fixture;
 	}
 
-} //XMLNavigationTest
+} //XmlNavigationTest

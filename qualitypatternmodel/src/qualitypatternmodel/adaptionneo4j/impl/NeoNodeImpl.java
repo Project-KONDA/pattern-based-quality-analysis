@@ -14,7 +14,6 @@ import qualitypatternmodel.adaptionneo4j.NeoInterfaceNode;
 import qualitypatternmodel.adaptionneo4j.NeoInterfaceElement;
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoNode;
-import qualitypatternmodel.adaptionneo4j.NeoPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoPlace;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -253,6 +252,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 		createParameters();
 	}
 	
+	//Since NeoLabel should be a Parameter
 	@Override
 	public void createParameters() {
 		if (getIncomingMapping() == null) {
@@ -327,7 +327,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 			this.neoNodeLabels = new TextListParamImpl();
 		}
 		if (!this.neoNodeLabels.getValues().contains(label)) {
-			if (label.contains(" ")) {
+			if (label.contains(CypherSpecificConstants.ONE_WHITESPACE)) {
 				throw new InvalidityException(A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S);
 			}
 			this.neoNodeLabels.addStringValue(label);
@@ -343,17 +343,20 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	@Override
 	public void setNeoNodeLabels(TextListParam newNeoNodeLabels) throws InvalidityException {
 		if (newNeoNodeLabels != null) {
-			for (String value : newNeoNodeLabels.getValues()) { //Same has to be done for the other classes
-				if (value.contains(CypherSpecificConstants.ONE_WHITESPACE)) { //--> The redunancy check is done in the TextListParam
-					//However that would not be a problem in Neo4J (r:Action:Action) [multi times the same label]
-					throw new InvalidityException(A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S);
-				}
+			for (String value : newNeoNodeLabels.getValues()) { 
+				checkForWhiteSpacesInLabel(value);
 			}
 		}
 		TextListParam oldNeoNodeLabels = neoNodeLabels;
 		neoNodeLabels = newNeoNodeLabels;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, Adaptionneo4jPackage.NEO_NODE__NEO_NODE_LABELS, oldNeoNodeLabels, neoNodeLabels));
+	}
+
+	private void checkForWhiteSpacesInLabel(String value) throws InvalidityException {
+		if (value.contains(CypherSpecificConstants.ONE_WHITESPACE)) {
+			throw new InvalidityException(A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S);
+		}
 	}
 
 	/**

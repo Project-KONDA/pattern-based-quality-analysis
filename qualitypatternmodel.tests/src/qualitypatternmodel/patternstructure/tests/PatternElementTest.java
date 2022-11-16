@@ -3,6 +3,7 @@
 package qualitypatternmodel.patternstructure.tests;
 
 import junit.framework.TestCase;
+
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -80,26 +81,13 @@ public abstract class PatternElementTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#getAllParameters() <em>Get All Parameters</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#getAllParameters()
+	 * @see qualitypatternmodel.patternstructure.PatternElement#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
 	 * @generated
 	 */
-	public void testGetAllParameters() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#prepareTranslation() <em>Prepare Translation</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#prepareTranslation()
-	 * @generated
-	 */
-	public void testPrepareTranslation() {
+	public void testValidate__DiagnosticChain_Map() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -132,26 +120,117 @@ public abstract class PatternElementTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#myToString() <em>My To String</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @see qualitypatternmodel.patternstructure.PatternElement#myToString()
 	 * @generated
 	 */
-	public void testValidate__DiagnosticChain_Map() {
+	public void testMyToString() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#prepareParameterUpdates() <em>Prepare Parameter Updates</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#generateCypher() <em>Generate Cypher</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#prepareParameterUpdates()
+	 * @see qualitypatternmodel.patternstructure.PatternElement#generateCypher()
 	 * @generated
 	 */
-	public void testPrepareParameterUpdates() {
+	public void testGenerateCypher() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#generateXQuery() <em>Generate XQuery</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.PatternElement#generateXQuery()
+	 * @generated
+	 */
+	public void testGenerateXQuery() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#generateSparql() <em>Generate Sparql</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.PatternElement#generateSparql()
+	 * @generated
+	 */
+	public void testGenerateSparql() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#getContainer() <em>Get Container</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.PatternElement#getContainer()
+	 * @generated
+	 */
+	public void testGetContainer() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#getAncestor(java.lang.Class) <em>Get Ancestor</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.PatternElement#getAncestor(java.lang.Class)
+	 * @generated
+	 */
+	public void testGetAncestor__Class() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#initializeTranslation() <em>Initialize Translation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.PatternElement#initializeTranslation()
+	 * @generated
+	 */
+	public void testInitializeTranslation() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#prepareTranslation() <em>Prepare Translation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.PatternElement#prepareTranslation()
+	 * @generated
+	 */
+	public void testPrepareTranslation() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#getOperatorList() <em>Get Operator List</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.PatternElement#getOperatorList()
+	 * @generated
+	 */
+	public void testGetOperatorList() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -171,13 +250,65 @@ public abstract class PatternElementTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#getOperatorList() <em>Get Operator List</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#getAllParameters() <em>Get All Parameters</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#getOperatorList()
+	 * @see qualitypatternmodel.patternstructure.PatternElement#getAllParameters()
 	 * @generated
 	 */
-	public void testGetOperatorList() {
+	public void testGetAllParameters() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#prepareParameterUpdates() <em>Prepare Parameter Updates</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.PatternElement#prepareParameterUpdates()
+	 * @generated
+	 */
+	public void testPrepareParameterUpdates() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#triggerParameterUpdates(qualitypatternmodel.patternstructure.PatternElement, org.eclipse.emf.common.util.EList) <em>Trigger Parameter Updates</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.PatternElement#triggerParameterUpdates(qualitypatternmodel.patternstructure.PatternElement, org.eclipse.emf.common.util.EList)
+	 * @generated
+	 */
+	public void testTriggerParameterUpdates__PatternElement_EList() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#updateParameters(qualitypatternmodel.parameters.ParameterList) <em>Update Parameters</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.PatternElement#updateParameters(qualitypatternmodel.parameters.ParameterList)
+	 * @generated
+	 */
+	public void testUpdateParameters__ParameterList() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#triggerParameterUpdates(qualitypatternmodel.patternstructure.PatternElement) <em>Trigger Parameter Updates</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.PatternElement#triggerParameterUpdates(qualitypatternmodel.patternstructure.PatternElement)
+	 * @generated
+	 */
+	public void testTriggerParameterUpdates__PatternElement() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -243,136 +374,6 @@ public abstract class PatternElementTest extends TestCase {
 	 * @generated
 	 */
 	public void testCreateNeo4jAdaption() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#triggerParameterUpdates(qualitypatternmodel.patternstructure.PatternElement, org.eclipse.emf.common.util.EList) <em>Trigger Parameter Updates</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#triggerParameterUpdates(qualitypatternmodel.patternstructure.PatternElement, org.eclipse.emf.common.util.EList)
-	 * @generated
-	 */
-	public void testTriggerParameterUpdates__PatternElement_EList() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#triggerParameterUpdates(qualitypatternmodel.patternstructure.PatternElement) <em>Trigger Parameter Updates</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#triggerParameterUpdates(qualitypatternmodel.patternstructure.PatternElement)
-	 * @generated
-	 */
-	public void testTriggerParameterUpdates__PatternElement() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#updateParameters(qualitypatternmodel.parameters.ParameterList) <em>Update Parameters</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#updateParameters(qualitypatternmodel.parameters.ParameterList)
-	 * @generated
-	 */
-	public void testUpdateParameters__ParameterList() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#getContainer() <em>Get Container</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#getContainer()
-	 * @generated
-	 */
-	public void testGetContainer() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#getAncestor(java.lang.Class) <em>Get Ancestor</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#getAncestor(java.lang.Class)
-	 * @generated
-	 */
-	public void testGetAncestor__Class() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#initializeTranslation() <em>Initialize Translation</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#initializeTranslation()
-	 * @generated
-	 */
-	public void testInitializeTranslation() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#myToString() <em>My To String</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#myToString()
-	 * @generated
-	 */
-	public void testMyToString() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#generateCypher() <em>Generate Cypher</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#generateCypher()
-	 * @generated
-	 */
-	public void testGenerateCypher() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#generateXQuery() <em>Generate XQuery</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#generateXQuery()
-	 * @generated
-	 */
-	public void testGenerateXQuery() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#generateSparql() <em>Generate Sparql</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#generateSparql()
-	 * @generated
-	 */
-	public void testGenerateSparql() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

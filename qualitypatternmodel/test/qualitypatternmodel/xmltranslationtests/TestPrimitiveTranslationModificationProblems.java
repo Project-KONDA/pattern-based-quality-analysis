@@ -1,15 +1,8 @@
 package qualitypatternmodel.xmltranslationtests;
 
 import java.util.ArrayList;
-import java.util.List;
-
 import qualitypatternmodel.patternstructure.*;
-import qualitypatternmodel.xmltestutility.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
-import qualitypatternmodel.adaptionxml.XmlAxisKind;
-import qualitypatternmodel.adaptionxml.XmlPathParam;
-import qualitypatternmodel.adaptionxml.XmlElementNavigation;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.exceptions.*;
 
 public class TestPrimitiveTranslationModificationProblems {

@@ -3,8 +3,10 @@
 package qualitypatternmodel.parameters.tests;
 
 import junit.textui.TestRunner;
-import qualitypatternmodel.parameters.ParametersFactory;
+
 import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.parameters.ParametersFactory;
+
 import qualitypatternmodel.patternstructure.tests.PatternElementTest;
 
 /**
@@ -76,6 +78,19 @@ public class ParameterListTest extends PatternElementTest {
 	}
 
 	/**
+	 * Tests the '{@link qualitypatternmodel.parameters.ParameterList#validateAgainstSchema() <em>Validate Against Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.ParameterList#validateAgainstSchema()
+	 * @generated
+	 */
+	public void testValidateAgainstSchema() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
 	 * Tests the '{@link qualitypatternmodel.parameters.ParameterList#add(qualitypatternmodel.parameters.Parameter) <em>Add</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -96,19 +111,6 @@ public class ParameterListTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testRemove__Parameter() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.ParameterList#validateAgainstSchema() <em>Validate Against Schema</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.ParameterList#validateAgainstSchema()
-	 * @generated
-	 */
-	public void testValidateAgainstSchema() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

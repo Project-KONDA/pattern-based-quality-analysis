@@ -88,6 +88,45 @@ public class RelationTest extends PatternElementTest {
 	}
 
 	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#getOriginalID() <em>Get Original ID</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Relation#getOriginalID()
+	 * @generated
+	 */
+	public void testGetOriginalID() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#getOriginalRelation() <em>Get Original Relation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Relation#getOriginalRelation()
+	 * @generated
+	 */
+	public void testGetOriginalRelation() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#setGraphSimple(qualitypatternmodel.graphstructure.Graph) <em>Set Graph Simple</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Relation#setGraphSimple(qualitypatternmodel.graphstructure.Graph)
+	 * @generated
+	 */
+	public void testSetGraphSimple__Graph() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
 	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#removeRelationFromPreviousGraphs() <em>Remove Relation From Previous Graphs</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -186,45 +225,6 @@ public class RelationTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testAdaptAsPropertyEdge() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#setGraphSimple(qualitypatternmodel.graphstructure.Graph) <em>Set Graph Simple</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Relation#setGraphSimple(qualitypatternmodel.graphstructure.Graph)
-	 * @generated
-	 */
-	public void testSetGraphSimple__Graph() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#getOriginalID() <em>Get Original ID</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Relation#getOriginalID()
-	 * @generated
-	 */
-	public void testGetOriginalID() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#getOriginalRelation() <em>Get Original Relation</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Relation#getOriginalRelation()
-	 * @generated
-	 */
-	public void testGetOriginalRelation() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

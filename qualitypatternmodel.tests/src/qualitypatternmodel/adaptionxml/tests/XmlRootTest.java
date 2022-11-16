@@ -11,7 +11,7 @@ import qualitypatternmodel.graphstructure.tests.ComplexNodeTest;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>XML Root</b></em>'.
+ * A test case for the model object '<em><b>Xml Root</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
@@ -69,4 +69,4 @@ public class XmlRootTest extends ComplexNodeTest {
 		setFixture(null);
 	}
 
-} //XMLRootTest
+} //XmlRootTest

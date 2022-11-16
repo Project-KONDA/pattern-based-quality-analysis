@@ -11,7 +11,7 @@ import qualitypatternmodel.graphstructure.tests.RelationTest;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>XML Reference</b></em>'.
+ * A test case for the model object '<em><b>Xml Reference</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following operations are tested:
@@ -116,4 +116,4 @@ public class XmlReferenceTest extends RelationTest {
 		fail();
 	}
 
-} //XMLReferenceTest
+} //XmlReferenceTest

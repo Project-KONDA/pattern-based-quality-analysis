@@ -9,7 +9,7 @@ import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test suite for the '<em><b>inputfields</b></em>' package.
+ * A test suite for the '<em><b>parameters</b></em>' package.
  * <!-- end-user-doc -->
  * @generated
  */
@@ -56,4 +56,4 @@ public class ParametersTests extends TestSuite {
 		super(name);
 	}
 
-} //InputfieldsTests
+} //ParametersTests

@@ -3,12 +3,13 @@
 package qualitypatternmodel.parameters.tests;
 
 import junit.textui.TestRunner;
+
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.ParametersFactory;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Boolean</b></em>'.
+ * A test case for the model object '<em><b>Boolean Param</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following operations are tested:
@@ -85,4 +86,4 @@ public class BooleanParamTest extends ParameterValueTest {
 		fail();
 	}
 
-} //BooleanTest
+} //BooleanParamTest

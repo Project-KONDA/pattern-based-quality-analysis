@@ -3,6 +3,7 @@
 package qualitypatternmodel.operators.tests;
 
 import qualitypatternmodel.operators.Operator;
+
 import qualitypatternmodel.patternstructure.tests.PatternElementTest;
 
 /**
@@ -62,6 +63,19 @@ public abstract class OperatorTest extends PatternElementTest {
 	}
 
 	/**
+	 * Tests the '{@link qualitypatternmodel.operators.Operator#getArguments() <em>Get Arguments</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.operators.Operator#getArguments()
+	 * @generated
+	 */
+	public void testGetArguments() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
 	 * Tests the '{@link qualitypatternmodel.operators.Operator#getRootBooleanOperators() <em>Get Root Boolean Operators</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -69,19 +83,6 @@ public abstract class OperatorTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testGetRootBooleanOperators() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.operators.Operator#isCycleFree(org.eclipse.emf.common.util.EList) <em>Is Cycle Free</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.operators.Operator#isCycleFree(org.eclipse.emf.common.util.EList)
-	 * @generated
-	 */
-	public void testIsCycleFree__EList() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -101,13 +102,13 @@ public abstract class OperatorTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.operators.Operator#getArguments() <em>Get Arguments</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.operators.Operator#isCycleFree(org.eclipse.emf.common.util.EList) <em>Is Cycle Free</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.operators.Operator#getArguments()
+	 * @see qualitypatternmodel.operators.Operator#isCycleFree(org.eclipse.emf.common.util.EList)
 	 * @generated
 	 */
-	public void testGetArguments() {
+	public void testIsCycleFree__EList() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

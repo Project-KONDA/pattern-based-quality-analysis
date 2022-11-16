@@ -3,6 +3,7 @@
 package qualitypatternmodel.operators.tests;
 
 import junit.textui.TestRunner;
+
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.OperatorsFactory;
 

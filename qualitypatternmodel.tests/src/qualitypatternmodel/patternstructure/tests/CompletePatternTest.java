@@ -9,7 +9,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Pattern</b></em>'.
+ * A test case for the model object '<em><b>Complete Pattern</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following operations are tested:
@@ -79,6 +79,32 @@ public class CompletePatternTest extends PatternTest {
 	}
 
 	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.CompletePattern#validateAgainstSchema() <em>Validate Against Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#validateAgainstSchema()
+	 * @generated
+	 */
+	public void testValidateAgainstSchema() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.CompletePattern#getAbstractionLevel() <em>Get Abstraction Level</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getAbstractionLevel()
+	 * @generated
+	 */
+	public void testGetAbstractionLevel() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
 	 * Tests the '{@link qualitypatternmodel.patternstructure.CompletePattern#getNewRefNo(java.lang.Class) <em>Get New Ref No</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -130,30 +156,4 @@ public class CompletePatternTest extends PatternTest {
 		fail();
 	}
 
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.CompletePattern#getAbstractionLevel() <em>Get Abstraction Level</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.CompletePattern#getAbstractionLevel()
-	 * @generated
-	 */
-	public void testGetAbstractionLevel() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.CompletePattern#validateAgainstSchema() <em>Validate Against Schema</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.CompletePattern#validateAgainstSchema()
-	 * @generated
-	 */
-	public void testValidateAgainstSchema() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-} //PatternTest
+} //CompletePatternTest

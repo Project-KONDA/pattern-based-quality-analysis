@@ -6,7 +6,7 @@ import qualitypatternmodel.patternstructure.CountConditionArgument;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Count Comparison Argument</b></em>'.
+ * A test case for the model object '<em><b>Count Condition Argument</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
@@ -33,4 +33,4 @@ public abstract class CountConditionArgumentTest extends PatternElementTest {
 		return (CountConditionArgument)fixture;
 	}
 
-} //CountComparisonArgumentTest
+} //CountConditionArgumentTest

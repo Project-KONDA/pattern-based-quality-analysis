@@ -11,7 +11,7 @@ import qualitypatternmodel.graphstructure.tests.PrimitiveNodeTest;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>XML Property</b></em>'.
+ * A test case for the model object '<em><b>Xml Property</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following operations are tested:
@@ -116,4 +116,4 @@ public class XmlPropertyTest extends PrimitiveNodeTest {
 		fail();
 	}
 
-} //XMLPropertyTest
+} //XmlPropertyTest

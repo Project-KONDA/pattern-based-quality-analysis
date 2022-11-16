@@ -3,12 +3,13 @@
 package qualitypatternmodel.parameters.tests;
 
 import junit.textui.TestRunner;
+
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.TextListParam;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Text List</b></em>'.
+ * A test case for the model object '<em><b>Text List Param</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
@@ -66,4 +67,4 @@ public class TextListParamTest extends AbstractListParamTest {
 		setFixture(null);
 	}
 
-} //TextListTest
+} //TextListParamTest

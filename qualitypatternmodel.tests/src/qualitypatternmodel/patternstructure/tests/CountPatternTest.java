@@ -4,12 +4,12 @@ package qualitypatternmodel.patternstructure.tests;
 
 import junit.textui.TestRunner;
 
-import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.CountPattern;
+import qualitypatternmodel.patternstructure.PatternstructureFactory;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Subpattern</b></em>'.
+ * A test case for the model object '<em><b>Count Pattern</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following operations are tested:
@@ -86,4 +86,4 @@ public class CountPatternTest extends PatternTest {
 		fail();
 	}
 
-} //SubpatternTest
+} //CountPatternTest

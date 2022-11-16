@@ -93,6 +93,32 @@ public class MorphismTest extends PatternElementTest {
 	}
 
 	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Relation, qualitypatternmodel.graphstructure.Relation) <em>Add Mapping</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Relation, qualitypatternmodel.graphstructure.Relation)
+	 * @generated
+	 */
+	public void testAddMapping__Relation_Relation() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#removeInconsistentMappings() <em>Remove Inconsistent Mappings</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.Morphism#removeInconsistentMappings()
+	 * @generated
+	 */
+	public void testRemoveInconsistentMappings() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
 	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#checkElementMappings() <em>Check Element Mappings</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -100,6 +126,19 @@ public class MorphismTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testCheckElementMappings() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#checkElementMappingsUniqueness() <em>Check Element Mappings Uniqueness</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.Morphism#checkElementMappingsUniqueness()
+	 * @generated
+	 */
+	public void testCheckElementMappingsUniqueness() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -126,45 +165,6 @@ public class MorphismTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testCheckRelationMappingsUniqueness() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#checkElementMappingsUniqueness() <em>Check Element Mappings Uniqueness</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.Morphism#checkElementMappingsUniqueness()
-	 * @generated
-	 */
-	public void testCheckElementMappingsUniqueness() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Relation, qualitypatternmodel.graphstructure.Relation) <em>Add Mapping</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Relation, qualitypatternmodel.graphstructure.Relation)
-	 * @generated
-	 */
-	public void testAddMapping__Relation_Relation() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#removeInconsistentMappings() <em>Remove Inconsistent Mappings</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.Morphism#removeInconsistentMappings()
-	 * @generated
-	 */
-	public void testRemoveInconsistentMappings() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

@@ -3,12 +3,13 @@
 package qualitypatternmodel.parameters.tests;
 
 import junit.textui.TestRunner;
+
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.TextLiteralParam;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Text Literal</b></em>'.
+ * A test case for the model object '<em><b>Text Literal Param</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following operations are tested:
@@ -85,4 +86,4 @@ public class TextLiteralParamTest extends ParameterValueTest {
 		fail();
 	}
 
-} //TextLiteralTest
+} //TextLiteralParamTest

@@ -9,7 +9,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Not Element</b></em>'.
+ * A test case for the model object '<em><b>Not Condition</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following operations are tested:
@@ -86,4 +86,4 @@ public class NotConditionTest extends ConditionTest {
 		fail();
 	}
 
-} //NotElementTest
+} //NotConditionTest

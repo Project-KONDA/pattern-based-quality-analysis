@@ -6,13 +6,21 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 
 import junit.textui.TestRunner;
+
 import qualitypatternmodel.adaptionneo4j.tests.Adaptionneo4jTests;
+
 import qualitypatternmodel.adaptionrdf.tests.AdaptionrdfTests;
+
 import qualitypatternmodel.adaptionxml.tests.AdaptionxmlTests;
+
 import qualitypatternmodel.execution.tests.ExecutionTests;
+
 import qualitypatternmodel.graphstructure.tests.GraphstructureTests;
+
 import qualitypatternmodel.operators.tests.OperatorsTests;
+
 import qualitypatternmodel.patternstructure.tests.PatternstructureTests;
+
 import qualitypatternmodel.textrepresentation.tests.TextrepresentationTests;
 
 /**

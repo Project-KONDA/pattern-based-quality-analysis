@@ -3,6 +3,7 @@
 package qualitypatternmodel.parameters.tests;
 
 import qualitypatternmodel.parameters.Parameter;
+
 import qualitypatternmodel.patternstructure.tests.PatternElementTest;
 
 /**
@@ -49,6 +50,32 @@ public abstract class ParameterTest extends PatternElementTest {
 	}
 
 	/**
+	 * Tests the '{@link qualitypatternmodel.parameters.Parameter#validateAgainstSchema() <em>Validate Against Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.Parameter#validateAgainstSchema()
+	 * @generated
+	 */
+	public void testValidateAgainstSchema() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.parameters.Parameter#validateExampleValue(java.lang.String) <em>Validate Example Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.Parameter#validateExampleValue(java.lang.String)
+	 * @generated
+	 */
+	public void testValidateExampleValue__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
 	 * Tests the '{@link qualitypatternmodel.parameters.Parameter#inputIsValid() <em>Input Is Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,19 +83,6 @@ public abstract class ParameterTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testInputIsValid() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.Parameter#generateDescription() <em>Generate Description</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.Parameter#generateDescription()
-	 * @generated
-	 */
-	public void testGenerateDescription() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -88,19 +102,6 @@ public abstract class ParameterTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.Parameter#getValueAsString() <em>Get Value As String</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.Parameter#getValueAsString()
-	 * @generated
-	 */
-	public void testGetValueAsString() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link qualitypatternmodel.parameters.Parameter#setValueFromString(java.lang.String) <em>Set Value From String</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -114,26 +115,13 @@ public abstract class ParameterTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.Parameter#getOptionsAsStringList() <em>Get Options As String List</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.parameters.Parameter#getValueAsString() <em>Get Value As String</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.Parameter#getOptionsAsStringList()
+	 * @see qualitypatternmodel.parameters.Parameter#getValueAsString()
 	 * @generated
 	 */
-	public void testGetOptionsAsStringList() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.Parameter#validateAgainstSchema() <em>Validate Against Schema</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.Parameter#validateAgainstSchema()
-	 * @generated
-	 */
-	public void testValidateAgainstSchema() {
+	public void testGetValueAsString() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -153,13 +141,26 @@ public abstract class ParameterTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.Parameter#validateExampleValue(java.lang.String) <em>Validate Example Value</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.parameters.Parameter#getOptionsAsStringList() <em>Get Options As String List</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.Parameter#validateExampleValue(java.lang.String)
+	 * @see qualitypatternmodel.parameters.Parameter#getOptionsAsStringList()
 	 * @generated
 	 */
-	public void testValidateExampleValue__String() {
+	public void testGetOptionsAsStringList() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.parameters.Parameter#generateDescription() <em>Generate Description</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.Parameter#generateDescription()
+	 * @generated
+	 */
+	public void testGenerateDescription() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

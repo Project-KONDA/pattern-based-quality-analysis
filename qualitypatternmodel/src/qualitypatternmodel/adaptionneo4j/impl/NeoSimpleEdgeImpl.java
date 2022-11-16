@@ -47,6 +47,9 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  */
 
 public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge {
+	private static final String LINE = "-";
+	private static final String RIGHT = "->";
+	private static final String LEFT = "<-";
 	private static final String NEO_DIRECTION_CAN_NOT_BE_NULL = "NeoDirection can not be null";
 	private static final String SOMETHING_WENT_WRONG_IN_THE_SIMPLE_NEO_EDGE_DIRECTION_HAS_NOT_BEEN_SET_CORRECTLY = "Something went wrong in the SimpleNeoEdge - direction has not been set correctly";
 	private static final String A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S = "A Label can not contain Whitespace(s)";
@@ -150,19 +153,19 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	private void generateInternalCypher(StringBuilder cypher, Boolean withLabels) throws InvalidityException {
 		switch (this.neoDirection) {
 		case IMPLICIT:
-			cypher.append("-");
+			cypher.append(LINE);
 			this.generateInternalCypherLabelGenerator(cypher);
-			cypher.append("-");
+			cypher.append(LINE);
 			break;
 		case LEFT:
-			cypher.append("<-");
+			cypher.append(LEFT);
 			this.generateInternalCypherLabelGenerator(cypher);
-			cypher.append("-");
+			cypher.append(LINE);
 			break;
 		case RIGHT:
-			cypher.append("-");
+			cypher.append(LINE);
 			this.generateInternalCypherLabelGenerator(cypher);
-			cypher.append("->");
+			cypher.append(RIGHT);
 			break;
 		default:
 			throw new InvalidityException(SOMETHING_WENT_WRONG_IN_THE_SIMPLE_NEO_EDGE_DIRECTION_HAS_NOT_BEEN_SET_CORRECTLY);
@@ -520,7 +523,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	}
 
 	private void checkForWhitespaceInLabel(String label) throws InvalidityException {
-		if (label.contains(" ")) {
+		if (label.contains(CypherSpecificConstants.ONE_WHITESPACE)) {
 			throw new InvalidityException(A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S);
 		}
 	}

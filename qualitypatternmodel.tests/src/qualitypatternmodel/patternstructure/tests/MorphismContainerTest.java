@@ -6,7 +6,7 @@ import qualitypatternmodel.patternstructure.MorphismContainer;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Graph Container</b></em>'.
+ * A test case for the model object '<em><b>Morphism Container</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following operations are tested:
@@ -66,4 +66,4 @@ public abstract class MorphismContainerTest extends PatternElementTest {
 		fail();
 	}
 
-} //GraphContainerTest
+} //MorphismContainerTest

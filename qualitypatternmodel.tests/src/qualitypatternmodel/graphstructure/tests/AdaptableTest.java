@@ -3,6 +3,7 @@
 package qualitypatternmodel.graphstructure.tests;
 
 import qualitypatternmodel.graphstructure.Adaptable;
+
 import qualitypatternmodel.patternstructure.tests.PatternElementTest;
 
 /**
@@ -42,19 +43,6 @@ public abstract class AdaptableTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList()
-	 * @generated
-	 */
-	public void testRemoveParametersFromParameterList() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,6 +50,19 @@ public abstract class AdaptableTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testCreateParameters() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList()
+	 * @generated
+	 */
+	public void testRemoveParametersFromParameterList() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

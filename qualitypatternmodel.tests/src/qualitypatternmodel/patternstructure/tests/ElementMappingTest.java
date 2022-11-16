@@ -4,12 +4,12 @@ package qualitypatternmodel.patternstructure.tests;
 
 import junit.textui.TestRunner;
 
-import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.ElementMapping;
+import qualitypatternmodel.patternstructure.PatternstructureFactory;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Single Element Mapping</b></em>'.
+ * A test case for the model object '<em><b>Element Mapping</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
@@ -67,4 +67,4 @@ public class ElementMappingTest extends MappingTest {
 		setFixture(null);
 	}
 
-} //SingleElementMappingTest
+} //ElementMappingTest

@@ -11,7 +11,7 @@ import qualitypatternmodel.graphstructure.tests.ComplexNodeTest;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>XML Element</b></em>'.
+ * A test case for the model object '<em><b>Xml Element</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following operations are tested:
@@ -92,6 +92,19 @@ public class XmlElementTest extends ComplexNodeTest {
 	}
 
 	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlNode#translatePredicates() <em>Translate Predicates</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.XmlNode#translatePredicates()
+	 * @generated
+	 */
+	public void testTranslatePredicates() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
 	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlNode#getXQueryRepresentation() <em>Get XQuery Representation</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -117,17 +130,4 @@ public class XmlElementTest extends ComplexNodeTest {
 		fail();
 	}
 
-	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlNode#translatePredicates() <em>Translate Predicates</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.XmlNode#translatePredicates()
-	 * @generated
-	 */
-	public void testTranslatePredicates() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-} //XMLElementTest
+} //XmlElementTest
