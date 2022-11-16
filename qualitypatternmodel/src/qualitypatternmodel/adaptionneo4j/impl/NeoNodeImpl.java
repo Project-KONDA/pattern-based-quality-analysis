@@ -14,13 +14,16 @@ import qualitypatternmodel.adaptionneo4j.NeoInterfaceNode;
 import qualitypatternmodel.adaptionneo4j.NeoInterfaceElement;
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoPlace;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.impl.ComplexNodeImpl;
+import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -244,6 +247,35 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	@Override
 	public boolean isIsVariableDistinctInUse() {
 		return isVariableDistinctInUse;
+	}
+	
+	@Override
+	public void setGraph(Graph newGraph) {
+		super.setGraph(newGraph);
+		createParameters();
+	}
+	
+	@Override
+	public void createParameters() {
+		if (getIncomingMapping() == null) {
+			ParameterList pList = getParameterList();
+			if (pList != null) {
+				TextListParam labels = getNeoNodeLabels();
+				if (labels == null) {
+					labels = new TextListParamImpl();
+					try {
+						setNeoNodeLabels(labels);
+					} catch (InvalidityException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					pList.add(labels);	
+				}
+				if (!pList.equals(labels.getParameterList())) {
+					pList.add(labels);
+				}
+			}
+		}
 	}
 
 	/**

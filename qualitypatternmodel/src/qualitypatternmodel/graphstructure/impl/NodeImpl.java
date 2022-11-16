@@ -1560,6 +1560,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	public NeoNode adaptAsNeoNode() throws InvalidityException {
 		Graph graph = getGraph();
 		NeoNode elementOriginal = ((NodeImpl) getOriginalNode()).adaptAsNeoNodeRecursive();
+		elementOriginal.createParameters();
 		
 		for (Node n : graph.getNodes()) {
 			if(n instanceof NeoNode) {
