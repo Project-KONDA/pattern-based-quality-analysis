@@ -176,7 +176,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 				EList<String> labels = getNeoTargetNodeLabels().getValues();
 				for (String label : labels) {
 					if (label != "") {
-						cypher.append(":" + label);
+						cypher.append(CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_EQUAL_IN_GRAPH_MATCHING_LABELING + label);
 					}
 				}
 			}

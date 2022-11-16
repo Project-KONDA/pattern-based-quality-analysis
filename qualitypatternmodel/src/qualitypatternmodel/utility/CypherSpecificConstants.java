@@ -42,6 +42,7 @@ public class CypherSpecificConstants {
 	
 	public static final String CYPHER_COMPARISON_OPERATOR_EQUAL = "=";
 	public static final String CYPHER_COMPARISON_OPERATOR_EQUAL_IN_GRAPH_MATCHING = ":";
+	public static final String CYPHER_COMPARISON_OPERATOR_EQUAL_IN_GRAPH_MATCHING_LABELING = ":";
 	public static final String CYPHER_COMPARISON_OPERATOR_NOTEQUAL = "<>";
 	public static final String CYPHER_COMPARISON_OPERATOR_GREATER = ">"; 
 	public static final String CYPHER_COMPARISON_OPERATOR_GREATER_EQUAL = ">=";

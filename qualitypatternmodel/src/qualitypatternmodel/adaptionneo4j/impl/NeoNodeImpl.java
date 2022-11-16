@@ -42,6 +42,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
+	private static final String A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S = "A Label can not contain Whitespace(s)";
 	private static final int CYPHER_RETURN_ID = 0;
 	/**
 	 * The default value of the '{@link #isIsVariableDistinctInUse() <em>Is Variable Distinct In Use</em>}' attribute.
@@ -99,10 +100,9 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 
 	@Override
 	public String generateCypher() throws InvalidityException {
-		//TODO --> Optimization --> Future Work
 		if (getIncomingMapping() == null) {
 			StringBuilder cypher = new StringBuilder();
-			cypher.append("(");
+			cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
 			cypher.append(CypherSpecificConstants.VARIABLE_NODE);
 			cypher.append(getOriginalID());
 			TextListParam labels = this.getNeoNodeLabels();
@@ -110,16 +110,14 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 				if (getNeoNodeLabels() != null) {
 					for (String label : labels.getValues()) {
 						if (!label.isEmpty()) { 
-							cypher.append(":");
+							cypher.append(CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_EQUAL_IN_GRAPH_MATCHING_LABELING);
 							cypher.append(label);
 						}
 					}
 				}
-				//Wie komme ich an die Operator List
-				//Graph g; 
 				translated = true;
 			}
-			cypher.append(")");
+			cypher.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
 			return cypher.toString();
 		}
 		return ((NeoNode) getOriginalNode()).generateCypher();
@@ -298,7 +296,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 		}
 		if (!this.neoNodeLabels.getValues().contains(label)) {
 			if (label.contains(" ")) {
-				throw new InvalidityException("Label can not contain Whitespace(s)");
+				throw new InvalidityException(A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S);
 			}
 			this.neoNodeLabels.addStringValue(label);
 		}
@@ -316,7 +314,7 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 			for (String value : newNeoNodeLabels.getValues()) { //Same has to be done for the other classes
 				if (value.contains(CypherSpecificConstants.ONE_WHITESPACE)) { //--> The redunancy check is done in the TextListParam
 					//However that would not be a problem in Neo4J (r:Action:Action) [multi times the same label]
-					throw new InvalidityException("A Label can not contain Whitespace(s)");
+					throw new InvalidityException(A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S);
 				}
 			}
 		}

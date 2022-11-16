@@ -200,6 +200,7 @@ public class CypherEvalExNEx {
 		return completePattern;
 	}
 	
+	//Need to be completed
 	private static CompletePattern getOldExNExCondConcrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
 		neoNode.addNeoLabel("Regesta");
@@ -209,7 +210,17 @@ public class CypherEvalExNEx {
 		
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		Graph g = quantifiedCondition.getGraph(); 
+		NeoNode neoNode2 = (NeoNode) g.getNodes().get(2);
+		neoNode2.addNeoLabel("Regesta");
+		NeoPropertyNode neoPropertyNode2 = (NeoPropertyNode) neoNode2.getOutgoing().get(0).getTarget();
+		NeoPropertyEdge neoPropertyEdge2 = (NeoPropertyEdge) neoPropertyNode2.getIncoming().get(0);
+		neoPropertyEdge2.getNeoPropertyPathParam().setNeoPropertyName("regid");
 		
+		NotCondition notCondition = (NotCondition) quantifiedCondition.getCondition();
+		QuantifiedCondition quantifiedCondition2 = (QuantifiedCondition) notCondition.getCondition();
+		g = quantifiedCondition2.getGraph(); 
+		NeoNode neoNode3 = (NeoNode) g.getNodes().get(4);
+		neoNode.addNeoLabel("Regesta");		
 		
 		return completePattern;
 	}
