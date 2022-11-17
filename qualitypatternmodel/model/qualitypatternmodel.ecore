@@ -1293,10 +1293,8 @@
         <eParameters name="isReturn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eOperations>
       <eOperations name="getNeoLastEdge" eType="#//adaptionneo4j/NeoPathPart" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="neoPathParam" eType="#//adaptionneo4j/NeoPathParam"
-          eOpposite="#//adaptionneo4j/NeoPathParam/neoPathPart"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="neoPropertyPathParam"
-          eType="#//adaptionneo4j/NeoPropertyPathParam" eOpposite="#//adaptionneo4j/NeoPropertyPathParam/neoPathPart"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="neoParam" eType="#//adaptionneo4j/NeoAbstractPathParam"
+          eOpposite="#//adaptionneo4j/NeoAbstractPathParam/neoPathPart"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoComplexEdge" eType="#//adaptionneo4j/NeoComplexEdge"
           eOpposite="#//adaptionneo4j/NeoComplexEdge/neoPathParts"/>
     </eClassifiers>
@@ -1313,8 +1311,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="NeoPathParam" eSuperTypes="#//adaptionneo4j/NeoAbstractPathParam">
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoEdge" eType="#//adaptionneo4j/NeoEdge"
           eOpposite="#//adaptionneo4j/NeoEdge/neoPathParam"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="neoPathPart" eType="#//adaptionneo4j/NeoPathPart"
-          containment="true" eOpposite="#//adaptionneo4j/NeoPathPart/neoPathParam"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="NeoDirection">
       <eLiterals name="IMPLICIT"/>
@@ -1329,8 +1325,6 @@
           eOpposite="#//adaptionneo4j/NeoPropertyEdge/neoPropertyPathParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoPropertyName" eType="#//parameters/TextLiteralParam"
           containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="neoPathPart" eType="#//adaptionneo4j/NeoPathPart"
-          containment="true" eOpposite="#//adaptionneo4j/NeoPathPart/neoPropertyPathParam"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoPropertyEdge" eSuperTypes="#//adaptionneo4j/NeoAbstractEdge">
       <eOperations name="generateCypherPropertyAddressing" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -1354,6 +1348,8 @@
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="getCypherReturnVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="neoPathPart" eType="#//adaptionneo4j/NeoPathPart"
+          eOpposite="#//adaptionneo4j/NeoPathPart/neoParam"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="NeoPlace">
       <eLiterals name="BEGINNING"/>
