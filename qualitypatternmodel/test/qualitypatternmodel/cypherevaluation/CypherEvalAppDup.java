@@ -14,48 +14,12 @@ import qualitypatternmodel.evaluation.EvalAppDup;
 //Sollten wir auch ratios vergleichen --> Wie viele gute und wie viele schlechte Daten?
 public class CypherEvalAppDup {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getAppDup2Abstract());
-		completePatterns.add(getAppDup2Concrete());
-		completePatterns.add(getAppDup3Abstract());
-		completePatterns.add(getAppDup3Concrete());
-		try {
-			CypherQueryPrinter.queryPrinterSys(completePatterns);
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-	}
-
-	public static CompletePattern getAppDup2Abstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = EvalAppDup.getAppDup2Generic();	
-		completePattern.createNeo4jAdaption();
-		//Set the beginning in the QuantifiedCond
-		return completePattern;		
-	}
+		//New Ones
+		
+		System.out.println();
+		System.out.println("---");
+		System.out.println();
+		//Old Ones filled with dummy data
 	
-	public static CompletePattern getAppDup2Concrete() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getAppDup2Abstract();
-		
-		List<Parameter> params = completePattern.getParameterList().getParameters();
-
-		//Insert the concrete version
-		
-		return completePattern;
-	}
-	
-	public static CompletePattern getAppDup3Abstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = EvalAppDup.getAppDup3Generic();
-		completePattern.createNeo4jAdaption();
-		//Set the beginning in the QuantifiedCond
-		return completePattern;
-	}
-	
-	public static CompletePattern getAppDup3Concrete() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getAppDup3Abstract();
-		List<Parameter> params = completePattern.getParameterList().getParameters();
-		
-		//Insert the concrete version
-		
-		return completePattern;
 	}
 }
