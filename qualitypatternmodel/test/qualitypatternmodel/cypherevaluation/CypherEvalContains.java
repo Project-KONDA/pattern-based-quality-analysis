@@ -19,7 +19,7 @@ import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 
 public class CypherEvalContains {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		//New Ones		
+		//New Ones - Valid for REGSTA-DB	
 		printExistsContainsWithTwoPrimitives();
 		
 		System.out.println();

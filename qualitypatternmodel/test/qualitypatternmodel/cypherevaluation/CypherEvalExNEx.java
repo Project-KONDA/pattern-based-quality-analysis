@@ -31,7 +31,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 //has to be checked if necessary since it is to similar to the MANDSTRUC
 public class CypherEvalExNEx {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		//New Ones		
+		//New Ones - Valid for REGSTA-DB		
 		
 		//Dummy-files for old ones
 		printExNEx();

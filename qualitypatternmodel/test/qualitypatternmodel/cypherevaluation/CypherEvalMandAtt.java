@@ -12,7 +12,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class CypherEvalMandAtt {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		//New Ones		
+		//New Ones - Valid for REGSTA-DB	
 		
 		//Dummy-files for old ones
 		printMandattGeneric();
