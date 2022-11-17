@@ -51,8 +51,8 @@ public class CypherEvalExNEx {
 	}
 
 	//New Ones
-
-		
+	
+	
 	//Old Ones
 	//BEGIN
 	private static void printExNEx() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
