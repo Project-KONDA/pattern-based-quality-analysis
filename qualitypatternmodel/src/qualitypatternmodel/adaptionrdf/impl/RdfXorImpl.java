@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
-import qualitypatternmodel.adaptionrdf.RdfPathPart;
+import qualitypatternmodel.adaptionrdf.RdfPath;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.adaptionrdf.RdfXor;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -36,7 +36,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
  *
  * @generated
  */
-public class RdfXorImpl extends RdfPathPartImpl implements RdfXor {
+public class RdfXorImpl extends RdfPathImpl implements RdfXor {
 	/**
 	 * The cached value of the '{@link #getItems() <em>Items</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -45,7 +45,7 @@ public class RdfXorImpl extends RdfPathPartImpl implements RdfXor {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<RdfPathPart> items;
+	protected EList<RdfPath> items;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -91,9 +91,9 @@ public class RdfXorImpl extends RdfPathPartImpl implements RdfXor {
 	 * @generated
 	 */
 	@Override
-	public EList<RdfPathPart> getItems() {
+	public EList<RdfPath> getItems() {
 		if (items == null) {
-			items = new EObjectContainmentEList<RdfPathPart>(RdfPathPart.class, this, AdaptionrdfPackage.RDF_XOR__ITEMS);
+			items = new EObjectContainmentEList<RdfPath>(RdfPath.class, this, AdaptionrdfPackage.RDF_XOR__ITEMS);
 		}
 		return items;
 	}
@@ -137,7 +137,7 @@ public class RdfXorImpl extends RdfPathPartImpl implements RdfXor {
 		switch (featureID) {
 			case AdaptionrdfPackage.RDF_XOR__ITEMS:
 				getItems().clear();
-				getItems().addAll((Collection<? extends RdfPathPart>)newValue);
+				getItems().addAll((Collection<? extends RdfPath>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -175,7 +175,7 @@ public class RdfXorImpl extends RdfPathPartImpl implements RdfXor {
 	@Override
 	public EList<RdfSinglePredicate> getRdfSinglePredicates() {
 		EList<RdfSinglePredicate> list = new BasicEList<RdfSinglePredicate>();
-		for(RdfPathPart item : getItems()) {
+		for(RdfPath item : getItems()) {
 			list.addAll(item.getRdfSinglePredicates());
 		}
 		return list;

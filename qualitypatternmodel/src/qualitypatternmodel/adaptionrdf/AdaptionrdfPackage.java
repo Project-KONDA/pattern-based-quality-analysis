@@ -1236,14 +1236,14 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_IRI_NODE_OPERATION_COUNT = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfPathPartImpl <em>Rdf Path Part</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfPathImpl <em>Rdf Path</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionrdf.impl.RdfPathPartImpl
-	 * @see qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl#getRdfPathPart()
+	 * @see qualitypatternmodel.adaptionrdf.impl.RdfPathImpl
+	 * @see qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl#getRdfPath()
 	 * @generated
 	 */
-	int RDF_PATH_PART = 2;
+	int RDF_PATH = 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1252,7 +1252,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
+	int RDF_PATH__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -1261,7 +1261,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART__INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__INTERNAL_ID;
+	int RDF_PATH__INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Invert</b></em>' attribute.
@@ -1270,7 +1270,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART__INVERT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
+	int RDF_PATH__INVERT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Quantifier</b></em>' attribute.
@@ -1279,7 +1279,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART__QUANTIFIER = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
+	int RDF_PATH__QUANTIFIER = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Rdf Path Param</b></em>' container reference.
@@ -1288,16 +1288,16 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART__RDF_PATH_PARAM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int RDF_PATH__RDF_PATH_PARAM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Rdf Path Part</em>' class.
+	 * The number of structural features of the '<em>Rdf Path</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
+	int RDF_PATH_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1306,7 +1306,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int RDF_PATH___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -1315,7 +1315,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART___IS_VALID__ABSTRACTIONLEVEL = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__ABSTRACTIONLEVEL;
+	int RDF_PATH___IS_VALID__ABSTRACTIONLEVEL = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1324,7 +1324,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+	int RDF_PATH___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -1333,7 +1333,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART___MY_TO_STRING = PatternstructurePackage.PATTERN_ELEMENT___MY_TO_STRING;
+	int RDF_PATH___MY_TO_STRING = PatternstructurePackage.PATTERN_ELEMENT___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Generate Cypher</em>' operation.
@@ -1342,7 +1342,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART___GENERATE_CYPHER = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_CYPHER;
+	int RDF_PATH___GENERATE_CYPHER = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_CYPHER;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -1351,7 +1351,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART___GENERATE_XQUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY;
+	int RDF_PATH___GENERATE_XQUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Generate Sparql</em>' operation.
@@ -1360,7 +1360,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART___GENERATE_SPARQL = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_SPARQL;
+	int RDF_PATH___GENERATE_SPARQL = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_SPARQL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1369,7 +1369,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART___GET_CONTAINER = PatternstructurePackage.PATTERN_ELEMENT___GET_CONTAINER;
+	int RDF_PATH___GET_CONTAINER = PatternstructurePackage.PATTERN_ELEMENT___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -1378,7 +1378,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART___GET_ANCESTOR__CLASS = PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
+	int RDF_PATH___GET_ANCESTOR__CLASS = PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Initialize Translation</em>' operation.
@@ -1387,7 +1387,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART___INITIALIZE_TRANSLATION = PatternstructurePackage.PATTERN_ELEMENT___INITIALIZE_TRANSLATION;
+	int RDF_PATH___INITIALIZE_TRANSLATION = PatternstructurePackage.PATTERN_ELEMENT___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1396,7 +1396,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART___PREPARE_TRANSLATION = PatternstructurePackage.PATTERN_ELEMENT___PREPARE_TRANSLATION;
+	int RDF_PATH___PREPARE_TRANSLATION = PatternstructurePackage.PATTERN_ELEMENT___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -1405,7 +1405,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART___GET_OPERATOR_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST;
+	int RDF_PATH___GET_OPERATOR_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -1414,7 +1414,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART___GET_PARAMETER_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST;
+	int RDF_PATH___GET_PARAMETER_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -1423,7 +1423,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART___GET_ALL_PARAMETERS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_PARAMETERS;
+	int RDF_PATH___GET_ALL_PARAMETERS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -1432,7 +1432,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART___PREPARE_PARAMETER_UPDATES = PatternstructurePackage.PATTERN_ELEMENT___PREPARE_PARAMETER_UPDATES;
+	int RDF_PATH___PREPARE_PARAMETER_UPDATES = PatternstructurePackage.PATTERN_ELEMENT___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -1441,7 +1441,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+	int RDF_PATH___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
 
 	/**
 	 * The operation id for the '<em>Update Parameters</em>' operation.
@@ -1450,7 +1450,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART___UPDATE_PARAMETERS__PARAMETERLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
+	int RDF_PATH___UPDATE_PARAMETERS__PARAMETERLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -1459,7 +1459,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+	int RDF_PATH___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -1468,7 +1468,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART___RECORD_VALUES__XMLDATADATABASE = PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
+	int RDF_PATH___RECORD_VALUES__XMLDATADATABASE = PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -1477,7 +1477,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART___RELATIONS_XML_ADAPTED = PatternstructurePackage.PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
+	int RDF_PATH___RELATIONS_XML_ADAPTED = PatternstructurePackage.PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
@@ -1486,7 +1486,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART___CREATE_XML_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_XML_ADAPTION;
+	int RDF_PATH___CREATE_XML_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
@@ -1495,7 +1495,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART___CREATE_RDF_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_RDF_ADAPTION;
+	int RDF_PATH___CREATE_RDF_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_RDF_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
@@ -1504,7 +1504,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART___CREATE_NEO4J_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+	int RDF_PATH___CREATE_NEO4J_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Get Rdf Single Predicates</em>' operation.
@@ -1513,16 +1513,16 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART___GET_RDF_SINGLE_PREDICATES = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
+	int RDF_PATH___GET_RDF_SINGLE_PREDICATES = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Rdf Path Part</em>' class.
+	 * The number of operations of the '<em>Rdf Path</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
+	int RDF_PATH_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfPathParamImpl <em>Rdf Path Param</em>}' class.
@@ -1551,7 +1551,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE__ID = RDF_PATH_PART__ID;
+	int RDF_SINGLE_PREDICATE__ID = RDF_PATH__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -1560,7 +1560,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE__INTERNAL_ID = RDF_PATH_PART__INTERNAL_ID;
+	int RDF_SINGLE_PREDICATE__INTERNAL_ID = RDF_PATH__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Invert</b></em>' attribute.
@@ -1569,7 +1569,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE__INVERT = RDF_PATH_PART__INVERT;
+	int RDF_SINGLE_PREDICATE__INVERT = RDF_PATH__INVERT;
 
 	/**
 	 * The feature id for the '<em><b>Quantifier</b></em>' attribute.
@@ -1578,7 +1578,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE__QUANTIFIER = RDF_PATH_PART__QUANTIFIER;
+	int RDF_SINGLE_PREDICATE__QUANTIFIER = RDF_PATH__QUANTIFIER;
 
 	/**
 	 * The feature id for the '<em><b>Rdf Path Param</b></em>' container reference.
@@ -1587,7 +1587,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE__RDF_PATH_PARAM = RDF_PATH_PART__RDF_PATH_PARAM;
+	int RDF_SINGLE_PREDICATE__RDF_PATH_PARAM = RDF_PATH__RDF_PATH_PARAM;
 
 	/**
 	 * The feature id for the '<em><b>Iri Param</b></em>' containment reference.
@@ -1596,7 +1596,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE__IRI_PARAM = RDF_PATH_PART_FEATURE_COUNT + 0;
+	int RDF_SINGLE_PREDICATE__IRI_PARAM = RDF_PATH_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Rdf Single Predicate</em>' class.
@@ -1605,7 +1605,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE_FEATURE_COUNT = RDF_PATH_PART_FEATURE_COUNT + 1;
+	int RDF_SINGLE_PREDICATE_FEATURE_COUNT = RDF_PATH_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1614,7 +1614,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE___VALIDATE__DIAGNOSTICCHAIN_MAP = RDF_PATH_PART___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int RDF_SINGLE_PREDICATE___VALIDATE__DIAGNOSTICCHAIN_MAP = RDF_PATH___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -1623,7 +1623,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE___IS_VALID__ABSTRACTIONLEVEL = RDF_PATH_PART___IS_VALID__ABSTRACTIONLEVEL;
+	int RDF_SINGLE_PREDICATE___IS_VALID__ABSTRACTIONLEVEL = RDF_PATH___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1632,7 +1632,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE___IS_VALID_LOCAL__ABSTRACTIONLEVEL = RDF_PATH_PART___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+	int RDF_SINGLE_PREDICATE___IS_VALID_LOCAL__ABSTRACTIONLEVEL = RDF_PATH___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -1641,7 +1641,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE___MY_TO_STRING = RDF_PATH_PART___MY_TO_STRING;
+	int RDF_SINGLE_PREDICATE___MY_TO_STRING = RDF_PATH___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Generate Cypher</em>' operation.
@@ -1650,7 +1650,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE___GENERATE_CYPHER = RDF_PATH_PART___GENERATE_CYPHER;
+	int RDF_SINGLE_PREDICATE___GENERATE_CYPHER = RDF_PATH___GENERATE_CYPHER;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -1659,7 +1659,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE___GENERATE_XQUERY = RDF_PATH_PART___GENERATE_XQUERY;
+	int RDF_SINGLE_PREDICATE___GENERATE_XQUERY = RDF_PATH___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Generate Sparql</em>' operation.
@@ -1668,7 +1668,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE___GENERATE_SPARQL = RDF_PATH_PART___GENERATE_SPARQL;
+	int RDF_SINGLE_PREDICATE___GENERATE_SPARQL = RDF_PATH___GENERATE_SPARQL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1677,7 +1677,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE___GET_CONTAINER = RDF_PATH_PART___GET_CONTAINER;
+	int RDF_SINGLE_PREDICATE___GET_CONTAINER = RDF_PATH___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -1686,7 +1686,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE___GET_ANCESTOR__CLASS = RDF_PATH_PART___GET_ANCESTOR__CLASS;
+	int RDF_SINGLE_PREDICATE___GET_ANCESTOR__CLASS = RDF_PATH___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Initialize Translation</em>' operation.
@@ -1695,7 +1695,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE___INITIALIZE_TRANSLATION = RDF_PATH_PART___INITIALIZE_TRANSLATION;
+	int RDF_SINGLE_PREDICATE___INITIALIZE_TRANSLATION = RDF_PATH___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1704,7 +1704,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE___PREPARE_TRANSLATION = RDF_PATH_PART___PREPARE_TRANSLATION;
+	int RDF_SINGLE_PREDICATE___PREPARE_TRANSLATION = RDF_PATH___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -1713,7 +1713,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE___GET_OPERATOR_LIST = RDF_PATH_PART___GET_OPERATOR_LIST;
+	int RDF_SINGLE_PREDICATE___GET_OPERATOR_LIST = RDF_PATH___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -1722,7 +1722,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE___GET_PARAMETER_LIST = RDF_PATH_PART___GET_PARAMETER_LIST;
+	int RDF_SINGLE_PREDICATE___GET_PARAMETER_LIST = RDF_PATH___GET_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -1731,7 +1731,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE___GET_ALL_PARAMETERS = RDF_PATH_PART___GET_ALL_PARAMETERS;
+	int RDF_SINGLE_PREDICATE___GET_ALL_PARAMETERS = RDF_PATH___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -1740,7 +1740,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE___PREPARE_PARAMETER_UPDATES = RDF_PATH_PART___PREPARE_PARAMETER_UPDATES;
+	int RDF_SINGLE_PREDICATE___PREPARE_PARAMETER_UPDATES = RDF_PATH___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -1749,7 +1749,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = RDF_PATH_PART___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+	int RDF_SINGLE_PREDICATE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = RDF_PATH___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
 
 	/**
 	 * The operation id for the '<em>Update Parameters</em>' operation.
@@ -1758,7 +1758,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE___UPDATE_PARAMETERS__PARAMETERLIST = RDF_PATH_PART___UPDATE_PARAMETERS__PARAMETERLIST;
+	int RDF_SINGLE_PREDICATE___UPDATE_PARAMETERS__PARAMETERLIST = RDF_PATH___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -1767,7 +1767,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = RDF_PATH_PART___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+	int RDF_SINGLE_PREDICATE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = RDF_PATH___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -1776,7 +1776,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE___RECORD_VALUES__XMLDATADATABASE = RDF_PATH_PART___RECORD_VALUES__XMLDATADATABASE;
+	int RDF_SINGLE_PREDICATE___RECORD_VALUES__XMLDATADATABASE = RDF_PATH___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -1785,7 +1785,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE___RELATIONS_XML_ADAPTED = RDF_PATH_PART___RELATIONS_XML_ADAPTED;
+	int RDF_SINGLE_PREDICATE___RELATIONS_XML_ADAPTED = RDF_PATH___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
@@ -1794,7 +1794,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE___CREATE_XML_ADAPTION = RDF_PATH_PART___CREATE_XML_ADAPTION;
+	int RDF_SINGLE_PREDICATE___CREATE_XML_ADAPTION = RDF_PATH___CREATE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
@@ -1803,7 +1803,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE___CREATE_RDF_ADAPTION = RDF_PATH_PART___CREATE_RDF_ADAPTION;
+	int RDF_SINGLE_PREDICATE___CREATE_RDF_ADAPTION = RDF_PATH___CREATE_RDF_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
@@ -1812,7 +1812,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE___CREATE_NEO4J_ADAPTION = RDF_PATH_PART___CREATE_NEO4J_ADAPTION;
+	int RDF_SINGLE_PREDICATE___CREATE_NEO4J_ADAPTION = RDF_PATH___CREATE_NEO4J_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Get Rdf Single Predicates</em>' operation.
@@ -1821,7 +1821,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE___GET_RDF_SINGLE_PREDICATES = RDF_PATH_PART___GET_RDF_SINGLE_PREDICATES;
+	int RDF_SINGLE_PREDICATE___GET_RDF_SINGLE_PREDICATES = RDF_PATH___GET_RDF_SINGLE_PREDICATES;
 
 	/**
 	 * The number of operations of the '<em>Rdf Single Predicate</em>' class.
@@ -1830,7 +1830,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE_OPERATION_COUNT = RDF_PATH_PART_OPERATION_COUNT + 0;
+	int RDF_SINGLE_PREDICATE_OPERATION_COUNT = RDF_PATH_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionrdf.RdfNode <em>Rdf Node</em>}' class.
@@ -3220,7 +3220,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR__ID = RDF_PATH_PART__ID;
+	int RDF_XOR__ID = RDF_PATH__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -3229,7 +3229,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR__INTERNAL_ID = RDF_PATH_PART__INTERNAL_ID;
+	int RDF_XOR__INTERNAL_ID = RDF_PATH__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Invert</b></em>' attribute.
@@ -3238,7 +3238,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR__INVERT = RDF_PATH_PART__INVERT;
+	int RDF_XOR__INVERT = RDF_PATH__INVERT;
 
 	/**
 	 * The feature id for the '<em><b>Quantifier</b></em>' attribute.
@@ -3247,7 +3247,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR__QUANTIFIER = RDF_PATH_PART__QUANTIFIER;
+	int RDF_XOR__QUANTIFIER = RDF_PATH__QUANTIFIER;
 
 	/**
 	 * The feature id for the '<em><b>Rdf Path Param</b></em>' container reference.
@@ -3256,7 +3256,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR__RDF_PATH_PARAM = RDF_PATH_PART__RDF_PATH_PARAM;
+	int RDF_XOR__RDF_PATH_PARAM = RDF_PATH__RDF_PATH_PARAM;
 
 	/**
 	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
@@ -3265,7 +3265,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR__ITEMS = RDF_PATH_PART_FEATURE_COUNT + 0;
+	int RDF_XOR__ITEMS = RDF_PATH_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Rdf Xor</em>' class.
@@ -3274,7 +3274,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR_FEATURE_COUNT = RDF_PATH_PART_FEATURE_COUNT + 1;
+	int RDF_XOR_FEATURE_COUNT = RDF_PATH_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3283,7 +3283,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR___VALIDATE__DIAGNOSTICCHAIN_MAP = RDF_PATH_PART___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int RDF_XOR___VALIDATE__DIAGNOSTICCHAIN_MAP = RDF_PATH___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -3292,7 +3292,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR___IS_VALID__ABSTRACTIONLEVEL = RDF_PATH_PART___IS_VALID__ABSTRACTIONLEVEL;
+	int RDF_XOR___IS_VALID__ABSTRACTIONLEVEL = RDF_PATH___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -3301,7 +3301,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL = RDF_PATH_PART___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+	int RDF_XOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL = RDF_PATH___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -3310,7 +3310,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR___MY_TO_STRING = RDF_PATH_PART___MY_TO_STRING;
+	int RDF_XOR___MY_TO_STRING = RDF_PATH___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Generate Cypher</em>' operation.
@@ -3319,7 +3319,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR___GENERATE_CYPHER = RDF_PATH_PART___GENERATE_CYPHER;
+	int RDF_XOR___GENERATE_CYPHER = RDF_PATH___GENERATE_CYPHER;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -3328,7 +3328,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR___GENERATE_XQUERY = RDF_PATH_PART___GENERATE_XQUERY;
+	int RDF_XOR___GENERATE_XQUERY = RDF_PATH___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Generate Sparql</em>' operation.
@@ -3337,7 +3337,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR___GENERATE_SPARQL = RDF_PATH_PART___GENERATE_SPARQL;
+	int RDF_XOR___GENERATE_SPARQL = RDF_PATH___GENERATE_SPARQL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -3346,7 +3346,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR___GET_CONTAINER = RDF_PATH_PART___GET_CONTAINER;
+	int RDF_XOR___GET_CONTAINER = RDF_PATH___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -3355,7 +3355,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR___GET_ANCESTOR__CLASS = RDF_PATH_PART___GET_ANCESTOR__CLASS;
+	int RDF_XOR___GET_ANCESTOR__CLASS = RDF_PATH___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Initialize Translation</em>' operation.
@@ -3364,7 +3364,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR___INITIALIZE_TRANSLATION = RDF_PATH_PART___INITIALIZE_TRANSLATION;
+	int RDF_XOR___INITIALIZE_TRANSLATION = RDF_PATH___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -3373,7 +3373,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR___PREPARE_TRANSLATION = RDF_PATH_PART___PREPARE_TRANSLATION;
+	int RDF_XOR___PREPARE_TRANSLATION = RDF_PATH___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -3382,7 +3382,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR___GET_OPERATOR_LIST = RDF_PATH_PART___GET_OPERATOR_LIST;
+	int RDF_XOR___GET_OPERATOR_LIST = RDF_PATH___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -3391,7 +3391,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR___GET_PARAMETER_LIST = RDF_PATH_PART___GET_PARAMETER_LIST;
+	int RDF_XOR___GET_PARAMETER_LIST = RDF_PATH___GET_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -3400,7 +3400,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR___GET_ALL_PARAMETERS = RDF_PATH_PART___GET_ALL_PARAMETERS;
+	int RDF_XOR___GET_ALL_PARAMETERS = RDF_PATH___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -3409,7 +3409,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR___PREPARE_PARAMETER_UPDATES = RDF_PATH_PART___PREPARE_PARAMETER_UPDATES;
+	int RDF_XOR___PREPARE_PARAMETER_UPDATES = RDF_PATH___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -3418,7 +3418,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = RDF_PATH_PART___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+	int RDF_XOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = RDF_PATH___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
 
 	/**
 	 * The operation id for the '<em>Update Parameters</em>' operation.
@@ -3427,7 +3427,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR___UPDATE_PARAMETERS__PARAMETERLIST = RDF_PATH_PART___UPDATE_PARAMETERS__PARAMETERLIST;
+	int RDF_XOR___UPDATE_PARAMETERS__PARAMETERLIST = RDF_PATH___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -3436,7 +3436,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = RDF_PATH_PART___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+	int RDF_XOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = RDF_PATH___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -3445,7 +3445,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR___RECORD_VALUES__XMLDATADATABASE = RDF_PATH_PART___RECORD_VALUES__XMLDATADATABASE;
+	int RDF_XOR___RECORD_VALUES__XMLDATADATABASE = RDF_PATH___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -3454,7 +3454,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR___RELATIONS_XML_ADAPTED = RDF_PATH_PART___RELATIONS_XML_ADAPTED;
+	int RDF_XOR___RELATIONS_XML_ADAPTED = RDF_PATH___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
@@ -3463,7 +3463,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR___CREATE_XML_ADAPTION = RDF_PATH_PART___CREATE_XML_ADAPTION;
+	int RDF_XOR___CREATE_XML_ADAPTION = RDF_PATH___CREATE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
@@ -3472,7 +3472,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR___CREATE_RDF_ADAPTION = RDF_PATH_PART___CREATE_RDF_ADAPTION;
+	int RDF_XOR___CREATE_RDF_ADAPTION = RDF_PATH___CREATE_RDF_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
@@ -3481,7 +3481,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR___CREATE_NEO4J_ADAPTION = RDF_PATH_PART___CREATE_NEO4J_ADAPTION;
+	int RDF_XOR___CREATE_NEO4J_ADAPTION = RDF_PATH___CREATE_NEO4J_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Get Rdf Single Predicates</em>' operation.
@@ -3490,7 +3490,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR___GET_RDF_SINGLE_PREDICATES = RDF_PATH_PART___GET_RDF_SINGLE_PREDICATES;
+	int RDF_XOR___GET_RDF_SINGLE_PREDICATES = RDF_PATH___GET_RDF_SINGLE_PREDICATES;
 
 	/**
 	 * The number of operations of the '<em>Rdf Xor</em>' class.
@@ -3499,7 +3499,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR_OPERATION_COUNT = RDF_PATH_PART_OPERATION_COUNT + 0;
+	int RDF_XOR_OPERATION_COUNT = RDF_PATH_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfSequenceImpl <em>Rdf Sequence</em>}' class.
@@ -3518,7 +3518,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE__ID = RDF_PATH_PART__ID;
+	int RDF_SEQUENCE__ID = RDF_PATH__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -3527,7 +3527,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE__INTERNAL_ID = RDF_PATH_PART__INTERNAL_ID;
+	int RDF_SEQUENCE__INTERNAL_ID = RDF_PATH__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Invert</b></em>' attribute.
@@ -3536,7 +3536,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE__INVERT = RDF_PATH_PART__INVERT;
+	int RDF_SEQUENCE__INVERT = RDF_PATH__INVERT;
 
 	/**
 	 * The feature id for the '<em><b>Quantifier</b></em>' attribute.
@@ -3545,7 +3545,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE__QUANTIFIER = RDF_PATH_PART__QUANTIFIER;
+	int RDF_SEQUENCE__QUANTIFIER = RDF_PATH__QUANTIFIER;
 
 	/**
 	 * The feature id for the '<em><b>Rdf Path Param</b></em>' container reference.
@@ -3554,7 +3554,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE__RDF_PATH_PARAM = RDF_PATH_PART__RDF_PATH_PARAM;
+	int RDF_SEQUENCE__RDF_PATH_PARAM = RDF_PATH__RDF_PATH_PARAM;
 
 	/**
 	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
@@ -3563,7 +3563,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE__ITEMS = RDF_PATH_PART_FEATURE_COUNT + 0;
+	int RDF_SEQUENCE__ITEMS = RDF_PATH_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Rdf Sequence</em>' class.
@@ -3572,7 +3572,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE_FEATURE_COUNT = RDF_PATH_PART_FEATURE_COUNT + 1;
+	int RDF_SEQUENCE_FEATURE_COUNT = RDF_PATH_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3581,7 +3581,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE___VALIDATE__DIAGNOSTICCHAIN_MAP = RDF_PATH_PART___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int RDF_SEQUENCE___VALIDATE__DIAGNOSTICCHAIN_MAP = RDF_PATH___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -3590,7 +3590,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE___IS_VALID__ABSTRACTIONLEVEL = RDF_PATH_PART___IS_VALID__ABSTRACTIONLEVEL;
+	int RDF_SEQUENCE___IS_VALID__ABSTRACTIONLEVEL = RDF_PATH___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -3599,7 +3599,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE___IS_VALID_LOCAL__ABSTRACTIONLEVEL = RDF_PATH_PART___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+	int RDF_SEQUENCE___IS_VALID_LOCAL__ABSTRACTIONLEVEL = RDF_PATH___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -3608,7 +3608,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE___MY_TO_STRING = RDF_PATH_PART___MY_TO_STRING;
+	int RDF_SEQUENCE___MY_TO_STRING = RDF_PATH___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Generate Cypher</em>' operation.
@@ -3617,7 +3617,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE___GENERATE_CYPHER = RDF_PATH_PART___GENERATE_CYPHER;
+	int RDF_SEQUENCE___GENERATE_CYPHER = RDF_PATH___GENERATE_CYPHER;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -3626,7 +3626,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE___GENERATE_XQUERY = RDF_PATH_PART___GENERATE_XQUERY;
+	int RDF_SEQUENCE___GENERATE_XQUERY = RDF_PATH___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Generate Sparql</em>' operation.
@@ -3635,7 +3635,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE___GENERATE_SPARQL = RDF_PATH_PART___GENERATE_SPARQL;
+	int RDF_SEQUENCE___GENERATE_SPARQL = RDF_PATH___GENERATE_SPARQL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -3644,7 +3644,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE___GET_CONTAINER = RDF_PATH_PART___GET_CONTAINER;
+	int RDF_SEQUENCE___GET_CONTAINER = RDF_PATH___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -3653,7 +3653,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE___GET_ANCESTOR__CLASS = RDF_PATH_PART___GET_ANCESTOR__CLASS;
+	int RDF_SEQUENCE___GET_ANCESTOR__CLASS = RDF_PATH___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Initialize Translation</em>' operation.
@@ -3662,7 +3662,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE___INITIALIZE_TRANSLATION = RDF_PATH_PART___INITIALIZE_TRANSLATION;
+	int RDF_SEQUENCE___INITIALIZE_TRANSLATION = RDF_PATH___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -3671,7 +3671,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE___PREPARE_TRANSLATION = RDF_PATH_PART___PREPARE_TRANSLATION;
+	int RDF_SEQUENCE___PREPARE_TRANSLATION = RDF_PATH___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -3680,7 +3680,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE___GET_OPERATOR_LIST = RDF_PATH_PART___GET_OPERATOR_LIST;
+	int RDF_SEQUENCE___GET_OPERATOR_LIST = RDF_PATH___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -3689,7 +3689,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE___GET_PARAMETER_LIST = RDF_PATH_PART___GET_PARAMETER_LIST;
+	int RDF_SEQUENCE___GET_PARAMETER_LIST = RDF_PATH___GET_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -3698,7 +3698,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE___GET_ALL_PARAMETERS = RDF_PATH_PART___GET_ALL_PARAMETERS;
+	int RDF_SEQUENCE___GET_ALL_PARAMETERS = RDF_PATH___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -3707,7 +3707,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE___PREPARE_PARAMETER_UPDATES = RDF_PATH_PART___PREPARE_PARAMETER_UPDATES;
+	int RDF_SEQUENCE___PREPARE_PARAMETER_UPDATES = RDF_PATH___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -3716,7 +3716,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = RDF_PATH_PART___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+	int RDF_SEQUENCE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = RDF_PATH___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
 
 	/**
 	 * The operation id for the '<em>Update Parameters</em>' operation.
@@ -3725,7 +3725,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE___UPDATE_PARAMETERS__PARAMETERLIST = RDF_PATH_PART___UPDATE_PARAMETERS__PARAMETERLIST;
+	int RDF_SEQUENCE___UPDATE_PARAMETERS__PARAMETERLIST = RDF_PATH___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -3734,7 +3734,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = RDF_PATH_PART___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+	int RDF_SEQUENCE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = RDF_PATH___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -3743,7 +3743,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE___RECORD_VALUES__XMLDATADATABASE = RDF_PATH_PART___RECORD_VALUES__XMLDATADATABASE;
+	int RDF_SEQUENCE___RECORD_VALUES__XMLDATADATABASE = RDF_PATH___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -3752,7 +3752,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE___RELATIONS_XML_ADAPTED = RDF_PATH_PART___RELATIONS_XML_ADAPTED;
+	int RDF_SEQUENCE___RELATIONS_XML_ADAPTED = RDF_PATH___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
@@ -3761,7 +3761,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE___CREATE_XML_ADAPTION = RDF_PATH_PART___CREATE_XML_ADAPTION;
+	int RDF_SEQUENCE___CREATE_XML_ADAPTION = RDF_PATH___CREATE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
@@ -3770,7 +3770,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE___CREATE_RDF_ADAPTION = RDF_PATH_PART___CREATE_RDF_ADAPTION;
+	int RDF_SEQUENCE___CREATE_RDF_ADAPTION = RDF_PATH___CREATE_RDF_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
@@ -3779,7 +3779,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE___CREATE_NEO4J_ADAPTION = RDF_PATH_PART___CREATE_NEO4J_ADAPTION;
+	int RDF_SEQUENCE___CREATE_NEO4J_ADAPTION = RDF_PATH___CREATE_NEO4J_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Get Rdf Single Predicates</em>' operation.
@@ -3788,7 +3788,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE___GET_RDF_SINGLE_PREDICATES = RDF_PATH_PART___GET_RDF_SINGLE_PREDICATES;
+	int RDF_SEQUENCE___GET_RDF_SINGLE_PREDICATES = RDF_PATH___GET_RDF_SINGLE_PREDICATES;
 
 	/**
 	 * The number of operations of the '<em>Rdf Sequence</em>' class.
@@ -3797,7 +3797,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE_OPERATION_COUNT = RDF_PATH_PART_OPERATION_COUNT + 0;
+	int RDF_SEQUENCE_OPERATION_COUNT = RDF_PATH_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionrdf.impl.IriListParamImpl <em>Iri List Param</em>}' class.
@@ -4798,57 +4798,57 @@ public interface AdaptionrdfPackage extends EPackage {
 	EReference getRdfIriNode_RdfIriNodeTypes();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionrdf.RdfPathPart <em>Rdf Path Part</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionrdf.RdfPath <em>Rdf Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Rdf Path Part</em>'.
-	 * @see qualitypatternmodel.adaptionrdf.RdfPathPart
+	 * @return the meta object for class '<em>Rdf Path</em>'.
+	 * @see qualitypatternmodel.adaptionrdf.RdfPath
 	 * @generated
 	 */
-	EClass getRdfPathPart();
+	EClass getRdfPath();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionrdf.RdfPathPart#isInvert <em>Invert</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionrdf.RdfPath#isInvert <em>Invert</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Invert</em>'.
-	 * @see qualitypatternmodel.adaptionrdf.RdfPathPart#isInvert()
-	 * @see #getRdfPathPart()
+	 * @see qualitypatternmodel.adaptionrdf.RdfPath#isInvert()
+	 * @see #getRdfPath()
 	 * @generated
 	 */
-	EAttribute getRdfPathPart_Invert();
+	EAttribute getRdfPath_Invert();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionrdf.RdfPathPart#getQuantifier <em>Quantifier</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionrdf.RdfPath#getQuantifier <em>Quantifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Quantifier</em>'.
-	 * @see qualitypatternmodel.adaptionrdf.RdfPathPart#getQuantifier()
-	 * @see #getRdfPathPart()
+	 * @see qualitypatternmodel.adaptionrdf.RdfPath#getQuantifier()
+	 * @see #getRdfPath()
 	 * @generated
 	 */
-	EAttribute getRdfPathPart_Quantifier();
+	EAttribute getRdfPath_Quantifier();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionrdf.RdfPathPart#getRdfPathParam <em>Rdf Path Param</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionrdf.RdfPath#getRdfPathParam <em>Rdf Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the container reference '<em>Rdf Path Param</em>'.
-	 * @see qualitypatternmodel.adaptionrdf.RdfPathPart#getRdfPathParam()
-	 * @see #getRdfPathPart()
+	 * @see qualitypatternmodel.adaptionrdf.RdfPath#getRdfPathParam()
+	 * @see #getRdfPath()
 	 * @generated
 	 */
-	EReference getRdfPathPart_RdfPathParam();
+	EReference getRdfPath_RdfPathParam();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionrdf.RdfPathPart#getRdfSinglePredicates() <em>Get Rdf Single Predicates</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionrdf.RdfPath#getRdfSinglePredicates() <em>Get Rdf Single Predicates</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Rdf Single Predicates</em>' operation.
-	 * @see qualitypatternmodel.adaptionrdf.RdfPathPart#getRdfSinglePredicates()
+	 * @see qualitypatternmodel.adaptionrdf.RdfPath#getRdfSinglePredicates()
 	 * @generated
 	 */
-	EOperation getRdfPathPart__GetRdfSinglePredicates();
+	EOperation getRdfPath__GetRdfSinglePredicates();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionrdf.RdfPathParam <em>Rdf Path Param</em>}'.
@@ -5152,14 +5152,14 @@ public interface AdaptionrdfPackage extends EPackage {
 		EReference RDF_IRI_NODE__RDF_IRI_NODE_TYPES = eINSTANCE.getRdfIriNode_RdfIriNodeTypes();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfPathPartImpl <em>Rdf Path Part</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfPathImpl <em>Rdf Path</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.adaptionrdf.impl.RdfPathPartImpl
-		 * @see qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl#getRdfPathPart()
+		 * @see qualitypatternmodel.adaptionrdf.impl.RdfPathImpl
+		 * @see qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl#getRdfPath()
 		 * @generated
 		 */
-		EClass RDF_PATH_PART = eINSTANCE.getRdfPathPart();
+		EClass RDF_PATH = eINSTANCE.getRdfPath();
 
 		/**
 		 * The meta object literal for the '<em><b>Invert</b></em>' attribute feature.
@@ -5167,7 +5167,7 @@ public interface AdaptionrdfPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute RDF_PATH_PART__INVERT = eINSTANCE.getRdfPathPart_Invert();
+		EAttribute RDF_PATH__INVERT = eINSTANCE.getRdfPath_Invert();
 
 		/**
 		 * The meta object literal for the '<em><b>Quantifier</b></em>' attribute feature.
@@ -5175,7 +5175,7 @@ public interface AdaptionrdfPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute RDF_PATH_PART__QUANTIFIER = eINSTANCE.getRdfPathPart_Quantifier();
+		EAttribute RDF_PATH__QUANTIFIER = eINSTANCE.getRdfPath_Quantifier();
 
 		/**
 		 * The meta object literal for the '<em><b>Rdf Path Param</b></em>' container reference feature.
@@ -5183,7 +5183,7 @@ public interface AdaptionrdfPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RDF_PATH_PART__RDF_PATH_PARAM = eINSTANCE.getRdfPathPart_RdfPathParam();
+		EReference RDF_PATH__RDF_PATH_PARAM = eINSTANCE.getRdfPath_RdfPathParam();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Rdf Single Predicates</b></em>' operation.
@@ -5191,7 +5191,7 @@ public interface AdaptionrdfPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RDF_PATH_PART___GET_RDF_SINGLE_PREDICATES = eINSTANCE.getRdfPathPart__GetRdfSinglePredicates();
+		EOperation RDF_PATH___GET_RDF_SINGLE_PREDICATES = eINSTANCE.getRdfPath__GetRdfSinglePredicates();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfPathParamImpl <em>Rdf Path Param</em>}' class.

@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionrdf.IriParam;
-import qualitypatternmodel.adaptionrdf.RdfPathPart;
+import qualitypatternmodel.adaptionrdf.RdfPath;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -321,9 +321,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		
 		EList<String> prefixes = new BasicEList<String>();		
 		for(Parameter p : getParameterList().getParameters()) {
-			if(p instanceof RdfPathPart) {
-				RdfPathPart rdfPathPart = (RdfPathPart) p;
-				for(RdfSinglePredicate rdfSinglePredicate : rdfPathPart.getRdfSinglePredicates()) {
+			if(p instanceof RdfPath) {
+				RdfPath rdfPath = (RdfPath) p;
+				for(RdfSinglePredicate rdfSinglePredicate : rdfPath.getRdfSinglePredicates()) {
 					if(rdfSinglePredicate.getIriParam() != null) {
 						IriParam iriParam = rdfSinglePredicate.getIriParam();
 						if(iriParam.getPrefix() != null) {

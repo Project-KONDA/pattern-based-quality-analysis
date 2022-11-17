@@ -24,7 +24,7 @@ import qualitypatternmodel.adaptionrdf.RdfXor;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RdfXorItemProvider extends RdfPathPartItemProvider {
+public class RdfXorItemProvider extends RdfPathItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

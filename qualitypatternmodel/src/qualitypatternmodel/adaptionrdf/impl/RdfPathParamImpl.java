@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
-import qualitypatternmodel.adaptionrdf.RdfPathPart;
+import qualitypatternmodel.adaptionrdf.RdfPath;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -56,7 +56,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 * @generated
 	 * @ordered
 	 */
-	protected RdfPathPart rdfPathPart;
+	protected RdfPath rdfPathPart;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -160,7 +160,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 * @generated
 	 */
 	@Override
-	public RdfPathPart getRdfPathPart() {
+	public RdfPath getRdfPathPart() {
 		return rdfPathPart;
 	}
 
@@ -169,8 +169,8 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRdfPathPart(RdfPathPart newRdfPathPart, NotificationChain msgs) {
-		RdfPathPart oldRdfPathPart = rdfPathPart;
+	public NotificationChain basicSetRdfPathPart(RdfPath newRdfPathPart, NotificationChain msgs) {
+		RdfPath oldRdfPathPart = rdfPathPart;
 		rdfPathPart = newRdfPathPart;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PART, oldRdfPathPart, newRdfPathPart);
@@ -185,13 +185,13 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 * @generated
 	 */
 	@Override
-	public void setRdfPathPart(RdfPathPart newRdfPathPart) {
+	public void setRdfPathPart(RdfPath newRdfPathPart) {
 		if (newRdfPathPart != rdfPathPart) {
 			NotificationChain msgs = null;
 			if (rdfPathPart != null)
-				msgs = ((InternalEObject)rdfPathPart).eInverseRemove(this, AdaptionrdfPackage.RDF_PATH_PART__RDF_PATH_PARAM, RdfPathPart.class, msgs);
+				msgs = ((InternalEObject)rdfPathPart).eInverseRemove(this, AdaptionrdfPackage.RDF_PATH__RDF_PATH_PARAM, RdfPath.class, msgs);
 			if (newRdfPathPart != null)
-				msgs = ((InternalEObject)newRdfPathPart).eInverseAdd(this, AdaptionrdfPackage.RDF_PATH_PART__RDF_PATH_PARAM, RdfPathPart.class, msgs);
+				msgs = ((InternalEObject)newRdfPathPart).eInverseAdd(this, AdaptionrdfPackage.RDF_PATH__RDF_PATH_PARAM, RdfPath.class, msgs);
 			msgs = basicSetRdfPathPart(newRdfPathPart, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -237,7 +237,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PART:
 				if (rdfPathPart != null)
 					msgs = ((InternalEObject)rdfPathPart).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PART, null, msgs);
-				return basicSetRdfPathPart((RdfPathPart)otherEnd, msgs);
+				return basicSetRdfPathPart((RdfPath)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -287,7 +287,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 				setRdfPredicate((RdfPredicate)newValue);
 				return;
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PART:
-				setRdfPathPart((RdfPathPart)newValue);
+				setRdfPathPart((RdfPath)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -305,7 +305,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 				setRdfPredicate((RdfPredicate)null);
 				return;
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PART:
-				setRdfPathPart((RdfPathPart)null);
+				setRdfPathPart((RdfPath)null);
 				return;
 		}
 		super.eUnset(featureID);

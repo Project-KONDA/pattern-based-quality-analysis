@@ -31,7 +31,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
  *
  * @generated
  */
-public class RdfSinglePredicateImpl extends RdfPathPartImpl implements RdfSinglePredicate {
+public class RdfSinglePredicateImpl extends RdfPathImpl implements RdfSinglePredicate {
 	/**
 	 * The cached value of the '{@link #getIriParam() <em>Iri Param</em>}' containment reference.
 	 * <!-- begin-user-doc -->

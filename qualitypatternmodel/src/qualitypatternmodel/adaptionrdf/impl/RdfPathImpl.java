@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
-import qualitypatternmodel.adaptionrdf.RdfPathPart;
+import qualitypatternmodel.adaptionrdf.RdfPath;
 import qualitypatternmodel.adaptionrdf.RdfQuantifier;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
@@ -25,14 +25,14 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionrdf.impl.RdfPathPartImpl#isInvert <em>Invert</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionrdf.impl.RdfPathPartImpl#getQuantifier <em>Quantifier</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionrdf.impl.RdfPathPartImpl#getRdfPathParam <em>Rdf Path Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.impl.RdfPathImpl#isInvert <em>Invert</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.impl.RdfPathImpl#getQuantifier <em>Quantifier</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.impl.RdfPathImpl#getRdfPathParam <em>Rdf Path Param</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class RdfPathPartImpl extends PatternElementImpl implements RdfPathPart {
+public abstract class RdfPathImpl extends PatternElementImpl implements RdfPath {
 	/**
 	 * The default value of the '{@link #isInvert() <em>Invert</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -74,7 +74,7 @@ public abstract class RdfPathPartImpl extends PatternElementImpl implements RdfP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RdfPathPartImpl() {
+	protected RdfPathImpl() {
 		super();
 	}
 		
@@ -85,7 +85,7 @@ public abstract class RdfPathPartImpl extends PatternElementImpl implements RdfP
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return AdaptionrdfPackage.Literals.RDF_PATH_PART;
+		return AdaptionrdfPackage.Literals.RDF_PATH;
 	}
 
 	/**
@@ -108,7 +108,7 @@ public abstract class RdfPathPartImpl extends PatternElementImpl implements RdfP
 		boolean oldInvert = invert;
 		invert = newInvert;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PATH_PART__INVERT, oldInvert, invert));
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PATH__INVERT, oldInvert, invert));
 	}
 
 	/**
@@ -131,7 +131,7 @@ public abstract class RdfPathPartImpl extends PatternElementImpl implements RdfP
 		RdfQuantifier oldQuantifier = quantifier;
 		quantifier = newQuantifier == null ? QUANTIFIER_EDEFAULT : newQuantifier;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PATH_PART__QUANTIFIER, oldQuantifier, quantifier));
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PATH__QUANTIFIER, oldQuantifier, quantifier));
 	}
 
 	/**
@@ -141,7 +141,7 @@ public abstract class RdfPathPartImpl extends PatternElementImpl implements RdfP
 	 */
 	@Override
 	public RdfPathParam getRdfPathParam() {
-		if (eContainerFeatureID() != AdaptionrdfPackage.RDF_PATH_PART__RDF_PATH_PARAM) return null;
+		if (eContainerFeatureID() != AdaptionrdfPackage.RDF_PATH__RDF_PATH_PARAM) return null;
 		return (RdfPathParam)eInternalContainer();
 	}
 
@@ -151,7 +151,7 @@ public abstract class RdfPathPartImpl extends PatternElementImpl implements RdfP
 	 * @generated
 	 */
 	public NotificationChain basicSetRdfPathParam(RdfPathParam newRdfPathParam, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newRdfPathParam, AdaptionrdfPackage.RDF_PATH_PART__RDF_PATH_PARAM, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newRdfPathParam, AdaptionrdfPackage.RDF_PATH__RDF_PATH_PARAM, msgs);
 		return msgs;
 	}
 
@@ -162,7 +162,7 @@ public abstract class RdfPathPartImpl extends PatternElementImpl implements RdfP
 	 */
 	@Override
 	public void setRdfPathParam(RdfPathParam newRdfPathParam) {
-		if (newRdfPathParam != eInternalContainer() || (eContainerFeatureID() != AdaptionrdfPackage.RDF_PATH_PART__RDF_PATH_PARAM && newRdfPathParam != null)) {
+		if (newRdfPathParam != eInternalContainer() || (eContainerFeatureID() != AdaptionrdfPackage.RDF_PATH__RDF_PATH_PARAM && newRdfPathParam != null)) {
 			if (EcoreUtil.isAncestor(this, newRdfPathParam))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -174,7 +174,7 @@ public abstract class RdfPathPartImpl extends PatternElementImpl implements RdfP
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PATH_PART__RDF_PATH_PARAM, newRdfPathParam, newRdfPathParam));
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PATH__RDF_PATH_PARAM, newRdfPathParam, newRdfPathParam));
 	}
 
 	/**
@@ -197,7 +197,7 @@ public abstract class RdfPathPartImpl extends PatternElementImpl implements RdfP
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionrdfPackage.RDF_PATH_PART__RDF_PATH_PARAM:
+			case AdaptionrdfPackage.RDF_PATH__RDF_PATH_PARAM:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetRdfPathParam((RdfPathParam)otherEnd, msgs);
@@ -213,7 +213,7 @@ public abstract class RdfPathPartImpl extends PatternElementImpl implements RdfP
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionrdfPackage.RDF_PATH_PART__RDF_PATH_PARAM:
+			case AdaptionrdfPackage.RDF_PATH__RDF_PATH_PARAM:
 				return basicSetRdfPathParam(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -227,7 +227,7 @@ public abstract class RdfPathPartImpl extends PatternElementImpl implements RdfP
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case AdaptionrdfPackage.RDF_PATH_PART__RDF_PATH_PARAM:
+			case AdaptionrdfPackage.RDF_PATH__RDF_PATH_PARAM:
 				return eInternalContainer().eInverseRemove(this, AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PART, RdfPathParam.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
@@ -241,11 +241,11 @@ public abstract class RdfPathPartImpl extends PatternElementImpl implements RdfP
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdaptionrdfPackage.RDF_PATH_PART__INVERT:
+			case AdaptionrdfPackage.RDF_PATH__INVERT:
 				return isInvert();
-			case AdaptionrdfPackage.RDF_PATH_PART__QUANTIFIER:
+			case AdaptionrdfPackage.RDF_PATH__QUANTIFIER:
 				return getQuantifier();
-			case AdaptionrdfPackage.RDF_PATH_PART__RDF_PATH_PARAM:
+			case AdaptionrdfPackage.RDF_PATH__RDF_PATH_PARAM:
 				return getRdfPathParam();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -259,13 +259,13 @@ public abstract class RdfPathPartImpl extends PatternElementImpl implements RdfP
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdaptionrdfPackage.RDF_PATH_PART__INVERT:
+			case AdaptionrdfPackage.RDF_PATH__INVERT:
 				setInvert((Boolean)newValue);
 				return;
-			case AdaptionrdfPackage.RDF_PATH_PART__QUANTIFIER:
+			case AdaptionrdfPackage.RDF_PATH__QUANTIFIER:
 				setQuantifier((RdfQuantifier)newValue);
 				return;
-			case AdaptionrdfPackage.RDF_PATH_PART__RDF_PATH_PARAM:
+			case AdaptionrdfPackage.RDF_PATH__RDF_PATH_PARAM:
 				setRdfPathParam((RdfPathParam)newValue);
 				return;
 		}
@@ -280,13 +280,13 @@ public abstract class RdfPathPartImpl extends PatternElementImpl implements RdfP
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdaptionrdfPackage.RDF_PATH_PART__INVERT:
+			case AdaptionrdfPackage.RDF_PATH__INVERT:
 				setInvert(INVERT_EDEFAULT);
 				return;
-			case AdaptionrdfPackage.RDF_PATH_PART__QUANTIFIER:
+			case AdaptionrdfPackage.RDF_PATH__QUANTIFIER:
 				setQuantifier(QUANTIFIER_EDEFAULT);
 				return;
-			case AdaptionrdfPackage.RDF_PATH_PART__RDF_PATH_PARAM:
+			case AdaptionrdfPackage.RDF_PATH__RDF_PATH_PARAM:
 				setRdfPathParam((RdfPathParam)null);
 				return;
 		}
@@ -301,11 +301,11 @@ public abstract class RdfPathPartImpl extends PatternElementImpl implements RdfP
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdaptionrdfPackage.RDF_PATH_PART__INVERT:
+			case AdaptionrdfPackage.RDF_PATH__INVERT:
 				return invert != INVERT_EDEFAULT;
-			case AdaptionrdfPackage.RDF_PATH_PART__QUANTIFIER:
+			case AdaptionrdfPackage.RDF_PATH__QUANTIFIER:
 				return quantifier != QUANTIFIER_EDEFAULT;
-			case AdaptionrdfPackage.RDF_PATH_PART__RDF_PATH_PARAM:
+			case AdaptionrdfPackage.RDF_PATH__RDF_PATH_PARAM:
 				return getRdfPathParam() != null;
 		}
 		return super.eIsSet(featureID);
@@ -319,7 +319,7 @@ public abstract class RdfPathPartImpl extends PatternElementImpl implements RdfP
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AdaptionrdfPackage.RDF_PATH_PART___GET_RDF_SINGLE_PREDICATES:
+			case AdaptionrdfPackage.RDF_PATH___GET_RDF_SINGLE_PREDICATES:
 				return getRdfSinglePredicates();
 		}
 		return super.eInvoke(operationID, arguments);

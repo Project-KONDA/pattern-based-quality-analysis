@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.adaptionrdf.tests;
 
-import qualitypatternmodel.adaptionrdf.RdfPathPart;
+import qualitypatternmodel.adaptionrdf.RdfPath;
 
 import qualitypatternmodel.patternstructure.tests.PatternElementTest;
 
@@ -13,39 +13,39 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathPart#getRdfSinglePredicates() <em>Get Rdf Single Predicates</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPath#getRdfSinglePredicates() <em>Get Rdf Single Predicates</em>}</li>
  * </ul>
  * </p>
  * @generated
  */
-public abstract class RdfPathPartTest extends PatternElementTest {
+public abstract class RdfPathTest extends PatternElementTest {
 
 	/**
-	 * Constructs a new Rdf Path Part test case with the given name.
+	 * Constructs a new Rdf Path test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RdfPathPartTest(String name) {
+	public RdfPathTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Rdf Path Part test case.
+	 * Returns the fixture for this Rdf Path test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected RdfPathPart getFixture() {
-		return (RdfPathPart)fixture;
+	protected RdfPath getFixture() {
+		return (RdfPath)fixture;
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionrdf.RdfPathPart#getRdfSinglePredicates() <em>Get Rdf Single Predicates</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionrdf.RdfPath#getRdfSinglePredicates() <em>Get Rdf Single Predicates</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionrdf.RdfPathPart#getRdfSinglePredicates()
+	 * @see qualitypatternmodel.adaptionrdf.RdfPath#getRdfSinglePredicates()
 	 * @generated
 	 */
 	public void testGetRdfSinglePredicates() {
@@ -54,4 +54,4 @@ public abstract class RdfPathPartTest extends PatternElementTest {
 		fail();
 	}
 
-} //RdfPathPartTest
+} //RdfPathTest
