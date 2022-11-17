@@ -8,6 +8,7 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.adaptionneo4j.NeoNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
+import qualitypatternmodel.cypherevaluation.utilis.DummyFiller;
 import qualitypatternmodel.evaluation.EvalContains;
 import qualitypatternmodel.evaluation.EvalExNEx;
 import qualitypatternmodel.exceptions.InvalidityException;

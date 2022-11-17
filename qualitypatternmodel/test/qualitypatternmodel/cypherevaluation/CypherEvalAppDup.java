@@ -8,6 +8,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.cypherevaluation.utilis.CypherQueryPrinter;
 import qualitypatternmodel.evaluation.EvalAppDup;
 
 //Sollten wir auch ratios vergleichen --> Wie viele gute und wie viele schlechte Daten?

@@ -1,4 +1,4 @@
-package qualitypatternmodel.cypherevaluation;
+package qualitypatternmodel.cypherevaluation.utilis;
 
 import org.eclipse.emf.common.util.EList;
 
