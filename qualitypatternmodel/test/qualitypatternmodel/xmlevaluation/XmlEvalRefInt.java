@@ -20,12 +20,7 @@ import qualitypatternmodel.evaluation.EvalRefInt;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.patternstructure.NotCondition;
-import qualitypatternmodel.patternstructure.PatternstructureFactory;
-import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.xmltranslationtests.Test00;
 
 public class XmlEvalRefInt {
