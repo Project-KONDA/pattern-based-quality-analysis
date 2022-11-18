@@ -183,7 +183,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			cypher += tempWith;
 			multi = true;
 		}
-		EList<String> myCounters = ((CountPatternImpl)getCountPattern()).generateCypherCounters();
+		final EList<String> myCounters = ((CountPatternImpl)getCountPattern()).generateCypherCounters();
 		
 		for (String entry : myCounters) {
 			if (multi) {

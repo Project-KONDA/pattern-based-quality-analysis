@@ -120,10 +120,25 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 			cypher.append(CypherSpecificConstants.CLAUSE_MATCH + CypherSpecificConstants.ONE_WHITESPACE);
 			cypher.append(temp);
 		}
-		String tempWhere = g.generateCypherWhere();
+		final String tempWhere = g.generateCypherWhere();
 		if (!tempWhere.isBlank()) {
 			cypher.append(CypherSpecificConstants.CLAUSE_WHERE + CypherSpecificConstants.ONE_WHITESPACE);
 			cypher.append(tempWhere);
+		}
+		if (!(getCondition() instanceof CountCondition)) {
+			final String tempConString = getCondition().generateCypher();
+			if (!tempConString.isEmpty()) {
+				if (!tempWhere.isEmpty()) {
+					cypher.append("\n" + CypherSpecificConstants.SIX_WHITESPACES);
+					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
+					cypher.append(tempConString);
+				} else {
+					cypher.append(CypherSpecificConstants.CLAUSE_WHERE + CypherSpecificConstants.ONE_WHITESPACE);
+					cypher.append(tempConString);
+				}
+			}			
+		} else {
+			throw new InvalidityException(CypherSpecificConstants.THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY);
 		}
 		return cypher.toString();		
 	}
@@ -234,6 +249,8 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 				cypher = cypherNodes;
 			}
 		}
+		cypher = addNodesToWithFromPreviewsGraph(cypher, g, lReturnNodes);
+		
 		
 		final EList<Relation> lReturnRelations = lReturnRelations();
 		if (lReturnRelations.size() > 0) {
@@ -243,6 +260,29 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 			}
 		}
 		allReturnElementsAreInWith(cypher, lReturnNodes, lReturnRelations);
+		return cypher;
+	}
+
+	private String addNodesToWithFromPreviewsGraph(String cypher, final Graph g, final EList<Node> lReturnNodes)
+			throws InvalidityException {
+		String[] tempNodeVar = null;
+		for (Node n : g.getNodes()) {
+			if (n.getOriginalNode() != n) {
+				n = n.getOriginalNode();
+				if (n.isReturnNode()) {
+					if (!lReturnNodes.contains(n)) {
+						tempNodeVar = ((NeoInterfaceNode) n).getCypherVariable().split(CypherSpecificConstants.SEPERATOR);
+						for (String s : tempNodeVar) {
+							if (!cypher.isEmpty()) {
+								cypher = s.trim() + CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE + cypher;
+							} else {
+								cypher = s.trim();
+							}
+						}
+					}
+				}
+			}
+		}
 		return cypher;
 	}
 	
@@ -280,6 +320,11 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 			neoAbstractEdge = (NeoAbstractEdge) r;
 			if (neoAbstractEdge.isReturnElement()) {
 				lReturnRelations.add(r);
+			} else if (neoAbstractEdge.getOriginalRelation() != r) {
+				neoAbstractEdge = (NeoAbstractEdge) neoAbstractEdge.getOriginalRelation();
+				if (neoAbstractEdge.isReturnElement() && !lReturnRelations.contains(neoAbstractEdge)) {
+					lReturnRelations.add(neoAbstractEdge);				
+				}
 			}
 		}
 		return lReturnRelations;

@@ -2,8 +2,6 @@ package qualitypatternmodel.evaluation;
 
 import java.util.ArrayList;
 
-import javax.swing.RowFilter.ComparisonType;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -183,7 +181,7 @@ public class EvalUnique {
 		quantifiedCondition.getGraph().addRelation(complexNode1, primitiveNode1);
 		
 		PrimitiveNode primitiveNode2 = quantifiedCondition.getGraph().addPrimitiveNode();
-		ComplexNode complexNode2 = (ComplexNode) quantifiedCondition.getGraph().getNodes().get(1);
+		ComplexNode complexNode2 = (ComplexNode) quantifiedCondition.getGraph().getNodes().get(0);
 		quantifiedCondition.getGraph().addRelation(complexNode2, primitiveNode2);
 		
 		ComparisonOptionParam comparisonOptionParam1 = new ComparisonOptionParamImpl();

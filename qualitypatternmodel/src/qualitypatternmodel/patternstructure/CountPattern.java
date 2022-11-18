@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.patternstructure;
 
+import qualitypatternmodel.adaptionneo4j.NeoInterfaceNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -55,4 +56,5 @@ public interface CountPattern extends Pattern, MorphismContainer, CountCondition
 
 	void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
 
+	public void addNeoCountElementNode(NeoInterfaceNode countElements);
 } // CountPattern
