@@ -61,7 +61,6 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  */
 public class QuantifiedConditionImpl extends ConditionImpl implements QuantifiedCondition {
 	private static final String NO_MATCH_IS_GIVEN = "No Match is given";
-	private static final String MODEL_HAS_TO_BUILD_A_PATTERN_STRUCTURE = "Model has to build a Pattern-Structure";
 	private static final String QUANTIFIED_COND_GRAPH_IS_EMPTY = "Graph is Empty";
 	private static final String INVALID_QUANTIFIER = "invalid quantifier";
 	private static final String QUANTIFIED_COND_NEEDS_INNER_CONDITION = "Needs innerCondition";
@@ -236,6 +235,104 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param cypher
+	 * @param cypherWhere
+	 * @return String
+	 * @throws InvalidityException
+	 * Generates the Exists-Match structure of Neo4J. EXISTS {MATCH.. WHERE...}, e.g. EXISTS {MATCH node5 WHERE node5.placeOfIssue = "Wien"
+	 * In concatenated the the different conditions with a AND-Operator from Cypher.
+	 * In the case that the conditions should be concatenated with an different operator use the formula condition.
+	 * <i> In cypher a forall does not exists in the way how other languages implements it. Therefore, a logical transformation is used. However, this requires a second quantified condition.
+	 * 	<b>A statement "For all X Y is valid" is logically equivalent to "There is no X for which Y is not valid".</b> </i>
+	 * In Cypher the forall just can be used for update functions and not in a WHERE-Clause
+	 * https://neo4j.com/docs/cypher-manual/current/clauses/foreach/
+	 */
+	private final String generateExistsMatch(StringBuilder cypher, StringBuilder cypherWhere)
+			throws InvalidityException {
+		String exists = CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_MATCH;
+		//INCLUDE THE GRAPH-PATTERN - Is needed for both cases
+		String cypherText = graph.generateCypher();
+		cypherText = CypherSpecificConstants.CLAUSE_MATCH + cypherText;
+		if (cypherText == null || cypherText.isEmpty() || cypherText.isEmpty()) {
+			throw new InvalidityException(NO_MATCH_IS_GIVEN);
+		} else {
+			final String[] temp = Arrays.stream(cypherText.split(CypherSpecificConstants.CLAUSE_MATCH)).filter(x -> !x.isBlank()).toArray(String[]::new); 
+			cypherText = null;
+			for (int i = 0; i < temp.length; i++) {
+				if (i == 0) {
+					cypherText = String.format(CypherSpecificConstants.CLAUSE_MATCH_INLUCE_W, CypherSpecificConstants.TWELVE_WHITESPACES) + CypherSpecificConstants.ONE_WHITESPACE + temp[i].trim();					
+				} else {
+					cypherText = CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE + temp[i].trim();					
+				}
+				cypher.append(cypherText);
+			}
+		}
+		
+		if (quantifier == Quantifier.EXISTS) {
+			//INCLUDE the WHERE			
+			appendCypherWhere(cypherWhere);
+			appendCypherWherePrefix(cypherWhere);
+			checkAndAppendCypherWhere(cypher, cypherWhere);
+			if (!isAPreviewsConditionNot(null)) {
+				appendExistsProperties(cypher);				
+			} else {
+				//Since Cypher interprets the where-clause first outside-in the inside-out
+				final Set<NeoPropertyNode> uniqueNeoPropertyNodes = new TreeSet<NeoPropertyNode>((NeoPropertyNode node1, NeoPropertyNode node2) -> (node1.getOriginalID() - node2.getOriginalID()));
+				getAllNeoPropertiesToAddress(new BasicEList<NeoPropertyEdge>(), new BasicEList<NeoPropertyEdge>(), uniqueNeoPropertyNodes);
+				for (NeoPropertyNode node : uniqueNeoPropertyNodes) {
+					addNeoPropertyToNotExists(cypher, node);
+				}
+			}
+			
+			if (!(getCondition() instanceof TrueElementImpl)) {
+				StringBuilder conditionWhere = new StringBuilder(condition.generateCypher());
+				addWhiteSpacesForPreviewsCondition(conditionWhere, CypherSpecificConstants.TWELVE_WHITESPACES);
+				if (!cypherWhere.isEmpty()) {
+					conditionWhere.insert(0, "\n" + CypherSpecificConstants.TWELVE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);					
+				} else {
+					conditionWhere.insert(0, String.format(CypherSpecificConstants.CLAUSE_WHERE_INLUCE_W, CypherSpecificConstants.TWELVE_WHITESPACES) + CypherSpecificConstants.ONE_WHITESPACE);
+				}
+				checkAndAppendCypherWhere(cypher, conditionWhere);
+			}
+			exists = String.format(exists, cypher.toString());
+		} else if (quantifier == Quantifier.FORALL) {
+			//USING INTERNALY THE EXISTS
+			appendCypherWhere(cypherWhere);
+			appendCypherWherePrefix(cypherWhere);
+			checkAndAppendCypherWhere(cypher, cypherWhere);
+			appendExistsProperties(cypher);
+			
+			//INCLUDE INNER EXPRESSION FOR FORALL	
+			if (!(getCondition() instanceof TrueElementImpl)) {
+				StringBuilder localCypher = new StringBuilder();
+				localCypher.setLength(0);
+				localCypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_NOT);
+				localCypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
+				localCypher.append(getCondition().generateCypher());
+				localCypher.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
+				addWhiteSpacesForPreviewsCondition(localCypher, CypherSpecificConstants.TWELVE_WHITESPACES);
+				if (!cypherWhere.isEmpty()) {
+					addWhiteSpacesForPreviewsCondition(localCypher, CypherSpecificConstants.SIX_WHITESPACES);
+					localCypher.insert(0, "\n" + CypherSpecificConstants.TWELVE_WHITESPACES + CypherSpecificConstants.SIX_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
+					checkAndAppendCypherWhere(cypher, localCypher);
+				} else {
+					addWhiteSpacesForPreviewsCondition(localCypher, CypherSpecificConstants.SIX_WHITESPACES);
+					appendCypherWherePrefix(localCypher);
+					checkAndAppendCypherWhere(cypher, localCypher);
+				}
+			} else {
+				throw new InvalidityException(QUANTIFIED_COND_NEEDS_INNER_CONDITION);
+			}
+			
+			exists = String.format(exists, cypher.toString());
+		} else {
+			throw new InvalidityException(INVALID_QUANTIFIER);
+		}
+		return exists;
+	}
+	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param cypher
 	 * @throws InvalidityException
 	 * Checks and generates all the properties which shall be represented with an Exists and not an Exists-Match structure.
 	 * A Comparison or Function call is an implicated exists check.
@@ -247,7 +344,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		getAllNeoPropertiesToAddress(neoPropertyEdges, neoVarPropertyEdges, uniqueNeoPropertyNodes);
 		
 		String result = new String();
-		if (quantifier == Quantifier.EXISTS && getNotCondition() == null) {
+		if (quantifier == Quantifier.EXISTS && !isAPreviewsConditionNot(null)) {
 			for (NeoPropertyEdge edge : neoPropertyEdges) {
 				addNeoPropertyToExists(cypher, edge);
 			}
@@ -260,7 +357,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			result = new String();
 			addGraphWhereToExistsProperty(cypher, result);
 			result = cypher.toString();
-		} else if (quantifier == Quantifier.EXISTS && getNotCondition() != null) {
+		} else if (quantifier == Quantifier.EXISTS && isAPreviewsConditionNot(null)) {
 			for (NeoPropertyNode node : uniqueNeoPropertyNodes) {
 				addNeoPropertyToNotExists(cypher, node);
 			}
@@ -273,23 +370,23 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 
 	private final void addNeoPropertyToNotExists(StringBuilder cypher, NeoPropertyNode node) throws InvalidityException {
-	String property = new String();
-	NeoPropertyEdge edge = null;
-	boolean isOnly = true;
-	StringBuilder localCypher = new StringBuilder();
-	for (Relation r : node.getIncoming()) {
-		if (!isOnly) {
-			localCypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
+		String property = new String();
+		NeoPropertyEdge edge = null;
+		boolean isOnly = true;
+		StringBuilder localCypher = new StringBuilder();
+		for (Relation r : node.getIncoming()) {
+			if (!isOnly) {
+				localCypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
+			}
+			isOnly = false;
+			edge = (NeoPropertyEdge) r;
+			property = edge.generateCypherPropertyAddressing();
+			localCypher.append(String.format(CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_PROPERTY, property));
 		}
-		isOnly = false;
-		edge = (NeoPropertyEdge) r;
-		property = edge.generateCypherPropertyAddressing();
-		localCypher.append(String.format(CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_PROPERTY, property));
-	}
-	if (localCypher.length() != 0 && cypher.length() != 0) {
-		cypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
-	}
-	cypher.append(localCypher.toString());
+		if (localCypher.length() != 0 && cypher.length() != 0) {
+			cypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
+		}
+		cypher.append(localCypher.toString());
 	}
 	
 	private final void addGraphWhereToExistsProperty(final StringBuilder cypher, String result) throws InvalidityException {
@@ -374,94 +471,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		cypher.append(property);
 	}
 	
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @param cypher
-	 * @param cypherWhere
-	 * @return String
-	 * @throws InvalidityException
-	 * Generates the Exists-Match structure of Neo4J. EXISTS {MATCH.. WHERE...}, e.g. EXISTS {MATCH node5 WHERE node5.placeOfIssue = "Wien"
-	 * In concatenated the the different conditions with a AND-Operator from Cypher.
-	 * In the case that the conditions should be concatenated with an different operator use the formula condition.
-	 * <i> In cypher a forall does not exists in the way how other languages implements it. Therefore, a logical transformation is used. However, this requires a second quantified condition.
-	 * 	<b>A statement "For all X Y is valid" is logically equivalent to "There is no X for which Y is not valid".</b> </i>
-	 * In Cypher the forall just can be used for update functions and not in a WHERE-Clause
-	 * https://neo4j.com/docs/cypher-manual/current/clauses/foreach/
-	 */
-	private final String generateExistsMatch(StringBuilder cypher, StringBuilder cypherWhere)
-			throws InvalidityException {
-		String exists = CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_MATCH;
-		//INCLUDE THE GRAPH-PATTERN - Is needed for both cases
-		String cypherText = graph.generateCypher();
-		cypherText = CypherSpecificConstants.CLAUSE_MATCH + cypherText;
-		if (cypherText == null || cypherText.isEmpty() || cypherText.isEmpty()) {
-			throw new InvalidityException(NO_MATCH_IS_GIVEN);
-		} else {
-			final String[] temp = Arrays.stream(cypherText.split(CypherSpecificConstants.CLAUSE_MATCH)).filter(x -> !x.isBlank()).toArray(String[]::new); 
-			cypherText = null;
-			for (int i = 0; i < temp.length; i++) {
-				if (i == 0) {
-					cypherText = String.format(CypherSpecificConstants.CLAUSE_MATCH_INLUCE_W, CypherSpecificConstants.TWELVE_WHITESPACES) + CypherSpecificConstants.ONE_WHITESPACE + temp[i].trim();					
-				} else {
-					cypherText = CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE + temp[i].trim();					
-				}
-				cypher.append(cypherText);
-			}
-		}
-		
-		if (quantifier == Quantifier.EXISTS) {
-			//INCLUDE the WHERE			
-			appendCypherWhere(cypherWhere);
-			appendCypherWherePrefix(cypherWhere);
-			checkAndAppendCypherWhere(cypher, cypherWhere);
-			appendExistsProperties(cypher);
-			
-			if (!(getCondition() instanceof TrueElementImpl)) {
-				StringBuilder conditionWhere = new StringBuilder(condition.generateCypher());
-				addWhiteSpacesForPreviewsCondition(conditionWhere, CypherSpecificConstants.TWELVE_WHITESPACES);
-				if (!cypherWhere.isEmpty()) {
-					conditionWhere.insert(0, "\n" + CypherSpecificConstants.TWELVE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);					
-				} else {
-					conditionWhere.insert(0, String.format(CypherSpecificConstants.CLAUSE_WHERE_INLUCE_W, CypherSpecificConstants.TWELVE_WHITESPACES) + CypherSpecificConstants.ONE_WHITESPACE);
-				}
-				checkAndAppendCypherWhere(cypher, conditionWhere);
-			}
-			exists = String.format(exists, cypher.toString());
-		} else if (quantifier == Quantifier.FORALL) {
-			//USING INTERNALY THE EXISTS
-			appendCypherWhere(cypherWhere);
-			appendCypherWherePrefix(cypherWhere);
-			checkAndAppendCypherWhere(cypher, cypherWhere);
-			appendExistsProperties(cypher);
-			
-			//INCLUDE INNER EXPRESSION FOR FORALL	
-			if (!(getCondition() instanceof TrueElementImpl)) {
-				StringBuilder localCypher = new StringBuilder();
-				localCypher.setLength(0);
-				localCypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_NOT);
-				localCypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
-				localCypher.append(getCondition().generateCypher());
-				localCypher.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
-				addWhiteSpacesForPreviewsCondition(localCypher, CypherSpecificConstants.TWELVE_WHITESPACES);
-				if (!cypherWhere.isEmpty()) {
-					addWhiteSpacesForPreviewsCondition(localCypher, CypherSpecificConstants.SIX_WHITESPACES);
-					localCypher.insert(0, "\n" + CypherSpecificConstants.TWELVE_WHITESPACES + CypherSpecificConstants.SIX_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
-					checkAndAppendCypherWhere(cypher, localCypher);
-				} else {
-					addWhiteSpacesForPreviewsCondition(localCypher, CypherSpecificConstants.SIX_WHITESPACES);
-					appendCypherWherePrefix(localCypher);
-					checkAndAppendCypherWhere(cypher, localCypher);
-				}
-			} else {
-				throw new InvalidityException(QUANTIFIED_COND_NEEDS_INNER_CONDITION);
-			}
-			
-			exists = String.format(exists, cypher.toString());
-		} else {
-			throw new InvalidityException(INVALID_QUANTIFIER);
-		}
-		return exists;
-	}
 
 	private final void appendExistsProperties(StringBuilder cypher) throws InvalidityException {
 		final StringBuilder cypherTemp = new StringBuilder();
@@ -472,6 +481,36 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			cypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
 			cypher.append(cypherPropertyExists);
 		}
+	}
+	
+	private final boolean isAPreviewsConditionNot(final Condition optionalStartCondition) {
+		Condition condition = null;
+		if (optionalStartCondition != null) {
+			condition = optionalStartCondition;
+		} else {
+			condition = getCondition();			
+		}
+		boolean isAPreviewsConditionNot = false;
+		while (condition != null && !isAPreviewsConditionNot) {
+			if (condition instanceof Formula) {
+				if (condition.getFormula1() != null) {
+					condition = condition.getFormula1();
+				}
+				if (condition.getFormula2() != null) {
+					isAPreviewsConditionNot = isAPreviewsConditionNot(condition.getFormula2());
+				}
+			} else if (condition.getFormula2() != null) {
+				condition = getFormula2();
+			} else if (condition instanceof QuantifiedCondition) {
+				condition = getQuantifiedCondition();
+			} else if (condition.getNotCondition() != null) {
+				condition = null;
+				isAPreviewsConditionNot = true;
+			} else {
+				condition = null;
+			}
+		}
+		return isAPreviewsConditionNot;
 	}
 
 	private final void createTheExistsPropertyForExistsMatch(StringBuilder cypher) throws InvalidityException {
