@@ -16,20 +16,20 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
-public class RdfTest01Predicates {
+public class RdfTest01_1Predicates {
 
 	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getSinglePredicateUriPattern());
-//		completePatterns.add(getSinglePredicateQuantifierPattern(RdfQuantifier.ONE));
-//		completePatterns.add(getSinglePredicateQuantifierPattern(RdfQuantifier.ZERO_OR_ONE));
-//		completePatterns.add(getSinglePredicateQuantifierPattern(RdfQuantifier.ZERO_PLUS));
-//		completePatterns.add(getSinglePredicateQuantifierPattern(RdfQuantifier.ONE_PLUS));
-//		completePatterns.add(getWildcardPattern());
-//		completePatterns.add(getSequenceQuantifierPattern(RdfQuantifier.ONE));
-//		completePatterns.add(getSequenceQuantifierPattern(RdfQuantifier.ZERO_OR_ONE));
-//		completePatterns.add(getXorPattern());
-//		completePatterns.add(getTwoIncomingPredicatesPattern());
+		completePatterns.add(getSinglePredicateQuantifierPattern(RdfQuantifier.ONE));
+		completePatterns.add(getSinglePredicateQuantifierPattern(RdfQuantifier.ZERO_OR_ONE));
+		completePatterns.add(getSinglePredicateQuantifierPattern(RdfQuantifier.ZERO_PLUS));
+		completePatterns.add(getSinglePredicateQuantifierPattern(RdfQuantifier.ONE_PLUS));
+		completePatterns.add(getWildcardPattern());
+		completePatterns.add(getSequenceQuantifierPattern(RdfQuantifier.ONE));
+		completePatterns.add(getSequenceQuantifierPattern(RdfQuantifier.ZERO_OR_ONE));
+		completePatterns.add(getXorPattern());
+		completePatterns.add(getTwoIncomingPredicatesPattern());
 		return completePatterns;
 	}
 	
