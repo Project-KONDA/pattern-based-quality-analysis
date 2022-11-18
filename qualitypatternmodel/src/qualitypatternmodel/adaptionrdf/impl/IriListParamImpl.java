@@ -359,8 +359,15 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
 
 	@Override
 	public String myToString() {
-		// TODO Auto-generated method stub
-		return null;
+		String result = "irilist [" + getInternalId() + "] ( ";
+		for (IriParam iri: getIriParams()) {
+			try {
+				result += iri.generateSparql() + " ";
+			} catch (InvalidityException e) {
+				result += "<?> ";
+			}
+		}
+		return result + ")";
 	}
 
 } //IriListParamImpl

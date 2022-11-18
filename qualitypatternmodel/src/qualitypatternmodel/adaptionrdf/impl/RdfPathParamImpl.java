@@ -398,10 +398,13 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	@Override
 	public String myToString() {
 		String result = "rdfpath [" + getInternalId() + "] ";
-		try {
-			result += " " + generateSparql();
-		} catch (InvalidityException e) {
-		} 
+		for (RdfPathPart part: getRdfPathParts()) {
+			result += "-";
+			try {
+				result += part.generateSparql() + " ";
+			} catch (InvalidityException e) {
+			}
+		}
 		return result;
 	}
 
