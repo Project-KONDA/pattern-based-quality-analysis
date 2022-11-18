@@ -8,6 +8,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.adaptionneo4j.NeoNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
+import qualitypatternmodel.cypherevaluation.utilis.DummyFiller;
 import qualitypatternmodel.evaluation.EvalContains;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -171,20 +172,20 @@ public class CypherEvalContains {
 	}
 	
 	private static CompletePattern getOldContainsConcrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.addNeoLabel("IndexEntry");
-		neoNode.addNeoLabel("IndexPerson");
-		
-		Graph g = ((QuantifiedCondition) completePattern.getCondition()).getGraph(); 
-		NeoPropertyNode neoPropertyNode = (NeoPropertyNode) g.getNodes().get(1);
-		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) neoPropertyNode.getIncoming().get(0);
-		neoPropertyEdge.getNeoPropertyPathParam().setNeoPropertyName("label");
-		Contains contains = (Contains) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getAllOperators().get(0); 
-		TextLiteralParam textLiteralParam = new TextLiteralParamImpl();
-		textLiteralParam.setValue(",");
-		contains.setContent(textLiteralParam);
-		
+		DummyFiller.replace(completePattern);
 		return completePattern;
+//		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
+//		neoNode.addNeoLabel("IndexEntry");
+//		neoNode.addNeoLabel("IndexPerson");
+//		
+//		Graph g = ((QuantifiedCondition) completePattern.getCondition()).getGraph(); 
+//		NeoPropertyNode neoPropertyNode = (NeoPropertyNode) g.getNodes().get(1);
+//		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) neoPropertyNode.getIncoming().get(0);
+//		neoPropertyEdge.getNeoPropertyPathParam().setNeoPropertyName("label");
+//		Contains contains = (Contains) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getAllOperators().get(0); 
+//		TextLiteralParam textLiteralParam = new TextLiteralParamImpl();
+//		textLiteralParam.setValue(",");
+//		contains.setContent(textLiteralParam);
 	}
 	//END 
 }

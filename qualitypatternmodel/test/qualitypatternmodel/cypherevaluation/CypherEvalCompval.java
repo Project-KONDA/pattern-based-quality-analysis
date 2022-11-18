@@ -20,13 +20,13 @@ public class CypherEvalCompval {
 		System.out.println();
 		
 		//Old Ones - Filled with Dummy Data
-		printOldOldCompval2GenericGeneric();
+		printOldCompval2GenericGeneric();
 		
 		System.out.println();
 		System.out.println("---");
 		System.out.println();
 
-		printOldgetCompval3Generic();
+		printOldCompval3Generic();
 		
 		System.out.println();
 		System.out.println("---");
@@ -46,7 +46,7 @@ public class CypherEvalCompval {
 	
 	//Old Ones
 	//BEGIN
-	private static void printOldOldCompval2GenericGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static void printOldCompval2GenericGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePatternOldCompval2GenericGeneric;
 		
 		//Generic
@@ -62,7 +62,7 @@ public class CypherEvalCompval {
 		//Generic --> Abstract 
 		start = Instant.now();
 		
-		completePatternOldCompval2GenericGeneric = getOldOldCompval2GenericGenericAbstract(completePatternOldCompval2GenericGeneric);
+		completePatternOldCompval2GenericGeneric = getOldCompval2GenericGenericAbstract(completePatternOldCompval2GenericGeneric);
 		
 		finish = Instant.now();
 		timeElapsed = Duration.between(start, finish).toMillis();
@@ -72,7 +72,7 @@ public class CypherEvalCompval {
 		//Abstract --> Concrete
 		start = Instant.now();
 		
-		completePatternOldCompval2GenericGeneric = getOldOldCompval2GenericGenericConcrete(completePatternOldCompval2GenericGeneric);
+		completePatternOldCompval2GenericGeneric = getOldCompval2GenericGenericConcrete(completePatternOldCompval2GenericGeneric);
 		
 		finish = Instant.now();
 		timeElapsed = Duration.between(start, finish).toMillis();
@@ -97,25 +97,25 @@ public class CypherEvalCompval {
 		return EvalCompval.getCompval2Generic();
 	}
 	
-	private static CompletePattern getOldOldCompval2GenericGenericAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getOldCompval2GenericGenericAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePattern.createNeo4jAdaption();
 		return completePattern;
 	}
 	
-	private static CompletePattern getOldOldCompval2GenericGenericConcrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getOldCompval2GenericGenericConcrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		DummyFiller.replace(completePattern);		
 		return completePattern;
 	}
 	//END 
 	
 	//BEGIN
-	private static void printOldgetCompval3Generic() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePatterngetCompval3Generic;
+	private static void printOldCompval3Generic() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePatternCompval3Generic;
 		
 		//Generic
 		Instant start = Instant.now();
 		
-		completePatterngetCompval3Generic = getOldgetCompval3GenericGeneric();
+		completePatternCompval3Generic = getOldCompval3GenericGeneric();
 		
 		Instant finish = Instant.now();
 		long timeElapsed = Duration.between(start, finish).toMillis();
@@ -125,7 +125,7 @@ public class CypherEvalCompval {
 		//Generic --> Abstract 
 		start = Instant.now();
 		
-		completePatterngetCompval3Generic = getOldgetCompval3GenericAbstract(completePatterngetCompval3Generic);
+		completePatternCompval3Generic = getOldCompval3GenericAbstract(completePatternCompval3Generic);
 		
 		finish = Instant.now();
 		timeElapsed = Duration.between(start, finish).toMillis();
@@ -135,7 +135,7 @@ public class CypherEvalCompval {
 		//Abstract --> Concrete
 		start = Instant.now();
 		
-		completePatterngetCompval3Generic = getOldgetCompval3GenericConcrete(completePatterngetCompval3Generic);
+		completePatternCompval3Generic = getOldCompval3GenericConcrete(completePatternCompval3Generic);
 		
 		finish = Instant.now();
 		timeElapsed = Duration.between(start, finish).toMillis();
@@ -146,7 +146,7 @@ public class CypherEvalCompval {
 		try {
 			start = Instant.now();
 			
-			System.out.println(completePatterngetCompval3Generic.generateCypher());
+			System.out.println(completePatternCompval3Generic.generateCypher());
 			
 			finish = Instant.now();
 			timeElapsed = Duration.between(start, finish).toMillis();
@@ -156,16 +156,16 @@ public class CypherEvalCompval {
 		}
 	}
 	
-	private static CompletePattern getOldgetCompval3GenericGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getOldCompval3GenericGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return EvalCompval.getCompval3CondGeneric();
 	}
 	
-	private static CompletePattern getOldgetCompval3GenericAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getOldCompval3GenericAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePattern.createNeo4jAdaption();
 		return completePattern;
 	}
 	
-	private static CompletePattern getOldgetCompval3GenericConcrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getOldCompval3GenericConcrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		DummyFiller.replace(completePattern);		
 		return completePattern;
 	}
@@ -236,12 +236,12 @@ public class CypherEvalCompval {
 	
 	//BEGIN
 	private static void printOldCompval3CondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePatternCompare;
+		CompletePattern completePatternCompval3CondGeneric;
 		
 		//Generic
 		Instant start = Instant.now();
 		
-		completePatternCompare = getOldCompval3CondGenericGeneric();
+		completePatternCompval3CondGeneric = getOldCompval3CondGenericGeneric();
 		
 		Instant finish = Instant.now();
 		long timeElapsed = Duration.between(start, finish).toMillis();
@@ -251,7 +251,7 @@ public class CypherEvalCompval {
 		//Generic --> Abstract 
 		start = Instant.now();
 		
-		completePatternCompare = getOldCompval3CondGenericAbstract(completePatternCompare);
+		completePatternCompval3CondGeneric = getOldCompval3CondGenericAbstract(completePatternCompval3CondGeneric);
 		
 		finish = Instant.now();
 		timeElapsed = Duration.between(start, finish).toMillis();
@@ -261,7 +261,7 @@ public class CypherEvalCompval {
 		//Abstract --> Concrete
 		start = Instant.now();
 		
-		completePatternCompare = getOldCompval3CondGenericConcrete(completePatternCompare);
+		completePatternCompval3CondGeneric = getOldCompval3CondGenericConcrete(completePatternCompval3CondGeneric);
 		
 		finish = Instant.now();
 		timeElapsed = Duration.between(start, finish).toMillis();
@@ -272,7 +272,7 @@ public class CypherEvalCompval {
 		try {
 			start = Instant.now();
 			
-			System.out.println(completePatternCompare.generateCypher());
+			System.out.println(completePatternCompval3CondGeneric.generateCypher());
 			
 			finish = Instant.now();
 			timeElapsed = Duration.between(start, finish).toMillis();
