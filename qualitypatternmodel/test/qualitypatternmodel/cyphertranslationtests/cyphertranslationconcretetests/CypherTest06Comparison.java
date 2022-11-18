@@ -369,4 +369,24 @@ public class CypherTest06Comparison extends CypherAbstractTranslation {
 	
 		return completePattern;	
 	}
+
+	@Override
+	public void buildToComplexQueryPatterns(ArrayList<CompletePattern> completePatterns)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void buildUnsupportedException(ArrayList<CompletePattern> completePatternsExceptions)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void buildOtherException(ArrayList<CompletePattern> completePatternsExceptions) throws InvalidityException {
+		// TODO Auto-generated method stub
+		
+	}
 }

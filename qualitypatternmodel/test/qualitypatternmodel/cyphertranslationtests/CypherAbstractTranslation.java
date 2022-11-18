@@ -172,6 +172,23 @@ public abstract class CypherAbstractTranslation implements CypherInterfaceTransl
 			System.out.println("");
 		}
 	}
+	
+	public void generalizedComplexTests()
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		ArrayList<CompletePattern> complexQueries = new ArrayList<CompletePattern>();
+		buildToComplexQueryPatterns(complexQueries);
+		if (complexQueries.size() != 0) {
+			System.out.println("");
+			System.out.println(CypherAbstractTranslation.BEGIN_TESTS);
+			try (Java2Neo4JConnector connector = new Java2Neo4JConnector()) {
+				for (CompletePattern comp : complexQueries) {
+						connector.queryTesterForToComplexQueries(comp.generateCypher(), comp.generateCypher().hashCode() + "", true);
+					}			
+				}
+			System.out.println(CypherAbstractTranslation.END_TESTS);
+			System.out.println("");
+		}
+	}
 
 	public void generalizedInvalidtyExceptionTests()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {

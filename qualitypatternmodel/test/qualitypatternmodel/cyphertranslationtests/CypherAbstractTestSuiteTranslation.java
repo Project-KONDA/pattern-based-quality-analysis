@@ -244,6 +244,9 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 	public void cypherTest07QuantifiedCondition() {	
 		assertDoesNotThrow(() -> {new CypherTest07QuantifiedCondition().buildPatterns(completePatterns); 
 		tester(completePatterns);});
+		completePatterns.clear();
+		assertDoesNotThrow(() -> {new CypherTest07QuantifiedCondition().buildToComplexQueryPatterns(completePatterns); 
+		testerForToComplexQueries(completePatterns);});
 	}
 
 	@Test
@@ -1320,4 +1323,5 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 	}
 	//End - String Comparison
 	protected abstract void tester(ArrayList<CompletePattern> completePatterns) throws Exception;
+	protected abstract void testerForToComplexQueries(ArrayList<CompletePattern> completePatterns) throws Exception;
 }

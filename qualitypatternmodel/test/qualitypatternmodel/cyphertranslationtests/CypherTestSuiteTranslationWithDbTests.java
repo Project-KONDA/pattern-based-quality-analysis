@@ -10,6 +10,7 @@ import org.junit.jupiter.api.extension.ExecutionCondition;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.ExtensionContext;
 
+import playground.Java2Neo4JConnector;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 @DisplayName("Systemtest with Neo4J-DB")
@@ -29,5 +30,14 @@ public class CypherTestSuiteTranslationWithDbTests extends  CypherAbstractTestSu
 			return ConditionEvaluationResult.enabled(TEST_ENABLED_ON_QA_ENVIRONMENT);
 		} 
 		return ConditionEvaluationResult.disabled(TEST_DISABLED_ON_QA_ENVIRONMENT);
+	}
+
+	@Override
+	protected void testerForToComplexQueries(ArrayList<CompletePattern> completePatterns) throws Exception {
+		for (CompletePattern comp : completePatterns) {
+			try (Java2Neo4JConnector connector = new Java2Neo4JConnector()) {
+				connector.queryTesterForToComplexQueries(comp.generateCypher(), comp.generateCypher().hashCode() + "", true);
+			}			
+		}
 	}
 }

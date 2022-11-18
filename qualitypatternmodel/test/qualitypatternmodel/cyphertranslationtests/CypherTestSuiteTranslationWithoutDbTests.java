@@ -24,10 +24,15 @@ public class CypherTestSuiteTranslationWithoutDbTests extends CypherAbstractTest
 	}
 	
 	@Override
+	protected void testerForToComplexQueries(ArrayList<CompletePattern> completePatterns) throws Exception {
+		tester(completePatterns);
+	}
+	@Override
 	public ConditionEvaluationResult evaluateExecutionCondition(ExtensionContext context) {
 		if (playground.Java2Neo4JConnector.verifyConnectivity()) {
             return ConditionEvaluationResult.disabled(TEST_DISABLED_ON_QA_ENVIRONMENT);
         } 
         return ConditionEvaluationResult.enabled(TEST_ENABLED_ON_QA_ENVIRONMENT);
 	}
+
 }

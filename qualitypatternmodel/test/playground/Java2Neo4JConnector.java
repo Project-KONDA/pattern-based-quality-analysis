@@ -1,10 +1,16 @@
 package playground;
 
+import static org.mockito.Mockito.calls;
+
+import java.time.Duration;
+
 import org.neo4j.driver.AuthTokens;
 import org.neo4j.driver.Driver;
 import org.neo4j.driver.GraphDatabase;
 import org.neo4j.driver.Result;
 import org.neo4j.driver.Session;
+import org.neo4j.driver.Transaction;
+import org.neo4j.driver.TransactionConfig;
 
 public class Java2Neo4JConnector implements AutoCloseable {
 	private static final String IS_VALID = " is valid!\n\t\t\t";
@@ -71,6 +77,31 @@ public class Java2Neo4JConnector implements AutoCloseable {
     	} catch (Exception e) {
 			System.out.println(e);
 		}
+    }
+    
+    public void queryTesterForToComplexQueries(final String query, final String queryID, boolean print) {
+    	try {
+    		TransactionConfig config = TransactionConfig.builder()
+    			    .withTimeout(Duration.ofSeconds(6))
+    			    .build();
+    		
+    		try (Session session = driver.session()) {
+    			try (Transaction tx = session.beginTransaction(config)){
+    				tx.run(query);    				
+    			} catch (org.neo4j.driver.exceptions.ClientException e) {
+					if (e.toString().contains("org.neo4j.driver.exceptions.ClientException: The transaction has been terminated. Retry your operation in a new transaction, and you should see a successful result. The transaction has not completed within the specified timeout (dbms.transaction.timeout). You may want to retry with a longer timeout.")) {
+						System.out.println("The transaction has been send, valited and terminated successfully.");						
+					} else {
+						throw e;
+					}
+				}
+                if (print) System.out.println(QUERY2 + queryID + IS_VALID);
+            } catch (Exception e) {
+    			throw (e);
+    		}
+    	} catch (Exception e) {
+    		System.out.println(e);
+    	}
     }
 	
 	public static void main(String[] args) {

@@ -2,6 +2,7 @@ package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetest
 
 import java.util.ArrayList;
 
+import playground.Java2Neo4JConnector;
 import qualitypatternmodel.adaptionneo4j.NeoNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
@@ -27,17 +28,18 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 		//In the notCond is also a lot of QuantifiedTesting inside. Thus it is also executed here to check the codecoverage for the QuantifiedCond
 		CypherTest03NotCondition notCond = new CypherTest03NotCondition();
 		try {
-//			quantifiedCond.generalizedTests();         
+			quantifiedCond.generalizedTests();  
+			quantifiedCond.generalizedComplexTests();
 			quantifiedCond.generalizedInvalidtyExceptionTests();
-//			quantifiedCond = null;
-//			notCond.generalizedTests();         
-//			notCond.generalizedInvalidtyExceptionTests(); 
+			quantifiedCond = null;
+			notCond.generalizedTests();         
+			notCond.generalizedInvalidtyExceptionTests(); 
 		} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Override
 	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -45,7 +47,6 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 		completePatterns.add(getNodesWhereExits(true));
 		completePatterns.add(getNodesWhereMultiplePropertyExistsChecks(false));
 		completePatterns.add(getNodesWhereMultiplePropertyExistsChecks(true));
-		completePatterns.add(getExistsMatchWithSamePropertyName(false));
 		completePatterns.add(getExistsMatchWithSamePropertyName(true));
 		completePatterns.add(getExistsMatchWithExistsProperty(true));
 		completePatterns.add(getExistsMatchWithExistsProperty(false));
@@ -53,7 +54,12 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 		//Build a check for NeoPropertyNode internal / external and with two quantified conds
 	}
 	
-
+	@Override
+	public void buildToComplexQueryPatterns(ArrayList<CompletePattern> completePatterns)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		completePatterns.add(getExistsMatchWithSamePropertyName(false));
+	}
+	
 	@Override
 	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
@@ -62,10 +68,12 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 		completePatternsExceptions.add(generateExistsPropertyWithSameNeoPropertyException(true));		
 	}
 	
+	@Override
 	public void buildUnsupportedException(ArrayList<CompletePattern> completePatternsExceptions) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatternsExceptions.add(generateQuantifiedCondContainsCountPatternException());
 	}
 	
+	@Override
 	public void buildOtherException(ArrayList<CompletePattern> completePatternsExceptions) throws InvalidityException {
 		completePatternsExceptions.add(generateNoNodesAreDefinedInTheGraphException());
 	}
