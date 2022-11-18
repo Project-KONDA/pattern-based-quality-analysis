@@ -25,12 +25,6 @@ public class CypherEvalMandStruc {
 			System.out.println("---");
 			System.out.println();
 			
-			printMandStruc1IndexEntryIsConnected();
-			
-			System.out.println();
-			System.out.println("---");
-			System.out.println();
-			
 			printMandStruc1UnconnectedNodes();
 			
 			System.out.println();
@@ -130,65 +124,6 @@ public class CypherEvalMandStruc {
 	//END 
 	
 	//BEGIN
-	private static void printMandStruc1IndexEntryIsConnected () throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePatternMandStruc1HasPlace;
-		
-		//Generic
-		Instant start = Instant.now();
-		
-		completePatternMandStruc1HasPlace = getMandStrucGeneric();
-		
-		Instant finish = Instant.now();
-		long timeElapsed = Duration.between(start, finish).toMillis();
-		System.out.println("Speed time of Generic: " + timeElapsed);
-		
-		
-		//Generic --> Abstract 
-		start = Instant.now();
-		
-		completePatternMandStruc1HasPlace = getMandStrucAbstract1(completePatternMandStruc1HasPlace);
-		
-		finish = Instant.now();
-		timeElapsed = Duration.between(start, finish).toMillis();
-		System.out.println("Speed time of Generic --> Abstract: " + timeElapsed);
-
-		
-		//Abstract --> Concrete
-		start = Instant.now();
-		
-		completePatternMandStruc1HasPlace = getMandStrucConcrete1HasPlace(completePatternMandStruc1HasPlace);
-		
-		finish = Instant.now();
-		timeElapsed = Duration.between(start, finish).toMillis();
-		System.out.println("Speed time of Abstract --> Concrete: " + timeElapsed);
-		
-		
-		//To Query
-		try {
-			start = Instant.now();
-			
-			System.out.println(completePatternMandStruc1HasPlace.generateCypher());
-			
-			finish = Instant.now();
-			timeElapsed = Duration.between(start, finish).toMillis();
-			System.out.println("Speed time of cypher generation: " + timeElapsed);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
-	private static CompletePattern getMandStrucConcrete1IndexEntryIsConnected (CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.addNeoLabel("IndexEntry");
-		
-		NeoNode neoNodeCond1 = (NeoNode) ((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph().getNodes().get(0);
-		neoNodeCond1.setNeoPlace(NeoPlace.BEGINNING);
-		
-		return completePattern;
-	}
-	//END 
-	
-	//BEGIN
 	private static void printMandStruc1UnconnectedNodes () throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePatternMandStruc1HasPlace;
 		
@@ -236,16 +171,10 @@ public class CypherEvalMandStruc {
 		}
 	}
 	
-	private static CompletePattern getMandStrucConcrete1Unconnected (CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		
-		NeoNode neoNodeCond1 = (NeoNode) ((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph().getNodes().get(0);
-		neoNodeCond1.setNeoPlace(NeoPlace.BEGINNING);
-		
+	private static CompletePattern getMandStrucConcrete1Unconnected (CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
 		return completePattern;
 	}
 	//END 
-	
-	
 	
 	//BEGIN -- Optinal
 	private static void printMandStruc2HasPlaceOrIndexPlace() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

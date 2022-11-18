@@ -498,9 +498,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				}
 				if (condition.getFormula2() != null) {
 					isAPreviewsConditionNot = isAPreviewsConditionNot(condition.getFormula2());
+				} else {
+					condition = null;
 				}
-			} else if (condition.getFormula2() != null) {
-				condition = getFormula2();
 			} else if (condition instanceof QuantifiedCondition) {
 				condition = getQuantifiedCondition();
 			} else if (condition.getNotCondition() != null) {

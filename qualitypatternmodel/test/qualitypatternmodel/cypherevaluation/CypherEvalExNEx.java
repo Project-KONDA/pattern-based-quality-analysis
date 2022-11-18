@@ -3,30 +3,12 @@ package qualitypatternmodel.cypherevaluation;
 import java.time.Duration;
 import java.time.Instant;
 
-import org.eclipse.emf.common.util.EList;
-
-import qualitypatternmodel.adaptionneo4j.NeoNode;
-import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
-import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.cypherevaluation.utilis.DummyFiller;
-import qualitypatternmodel.evaluation.EvalContains;
 import qualitypatternmodel.evaluation.EvalExNEx;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.operators.Comparison;
-import qualitypatternmodel.operators.ComparisonOperator;
-import qualitypatternmodel.operators.Contains;
-import qualitypatternmodel.parameters.ComparisonOptionParam;
-import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.UntypedParameterValue;
-import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
-import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.NotCondition;
-import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 //also called MANDSTRUC2
 //has to be checked if necessary since it is to similar to the MANDSTRUC

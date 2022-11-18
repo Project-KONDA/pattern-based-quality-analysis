@@ -2,18 +2,13 @@ package qualitypatternmodel.cypherevaluation;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.List;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.impl.CountConditionImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.adaptionneo4j.NeoInterfaceNode;
-import qualitypatternmodel.cypherevaluation.utilis.CypherQueryPrinter;
 import qualitypatternmodel.cypherevaluation.utilis.DummyFiller;
 import qualitypatternmodel.evaluation.EvalAppDup;
 import qualitypatternmodel.evaluation.EvalUnique;
@@ -35,6 +30,12 @@ public class CypherEvalAppDup {
 		System.out.println();
 		
 		printAppDup3Generic();	
+		
+		System.out.println();
+		System.out.println("---");
+		System.out.println();
+
+		printAppDup3CondGeneric();
 	}
 	
 	//Old ones

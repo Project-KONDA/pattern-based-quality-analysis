@@ -4,11 +4,9 @@ import java.time.Duration;
 import java.time.Instant;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
 import qualitypatternmodel.adaptionneo4j.NeoNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
-import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jFactoryImpl;
 import qualitypatternmodel.cypherevaluation.utilis.DummyFiller;
@@ -16,14 +14,10 @@ import qualitypatternmodel.evaluation.EvalComp;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
-import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
-import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 
 public class CypherEvalComp {
 	public static final Adaptionneo4jFactory NEO_FACTORY = new Adaptionneo4jFactoryImpl();

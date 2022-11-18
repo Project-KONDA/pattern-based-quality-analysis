@@ -4,7 +4,6 @@ import java.time.Duration;
 import java.time.Instant;
 
 import qualitypatternmodel.cypherevaluation.utilis.DummyFiller;
-import qualitypatternmodel.evaluation.EvalCompval;
 import qualitypatternmodel.evaluation.EvalContrel;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
