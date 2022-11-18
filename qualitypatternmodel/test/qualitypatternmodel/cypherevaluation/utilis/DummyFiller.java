@@ -13,6 +13,7 @@ import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -32,9 +33,11 @@ public class DummyFiller {
 			}
 			if (param instanceof TextLiteralParam) { //Is also the same for the Labels
 				TextLiteralParam text = (TextLiteralParam) param;
-				if(text.getValue() == null) {
-					text.setValue("something");
-				}
+				text.setValue("something");
+			}
+			if (param instanceof TextListParam) {
+				TextListParam text = (TextListParam) param;
+				text.addStringValue("someLabelName");
 			}
 			if (param instanceof BooleanParam) {
 				BooleanParam bool = (BooleanParam) param;

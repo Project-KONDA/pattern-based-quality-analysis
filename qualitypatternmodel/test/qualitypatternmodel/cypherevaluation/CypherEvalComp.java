@@ -11,6 +11,7 @@ import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jFactoryImpl;
+import qualitypatternmodel.cypherevaluation.utilis.DummyFiller;
 import qualitypatternmodel.evaluation.EvalComp;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -36,7 +37,7 @@ public class CypherEvalComp {
 		System.out.println("---");
 		System.out.println();
 		
-		//Old ones
+		//Old Ones - Filled with Dummy Data
 		printOldCompare();
 		
 		System.out.println();
@@ -205,18 +206,19 @@ public class CypherEvalComp {
 	}
 	
 	private static CompletePattern getOldCompareConcrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.addNeoLabel("Regesta");
-		
-		Graph g = ((QuantifiedCondition) completePattern.getCondition()).getGraph(); 
-
-		NeoPropertyNode neoPropertyNode = (NeoPropertyNode) g.getNodes().get(1);
-		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) neoPropertyNode.getIncoming().get(0);
-		neoPropertyEdge.getNeoPropertyPathParam().setNeoPropertyName("isoStartDate");
-		
-		neoPropertyNode = (NeoPropertyNode) g.getNodes().get(2);
-		neoPropertyEdge = (NeoPropertyEdge) neoPropertyNode.getIncoming().get(0);
-		neoPropertyEdge.getNeoPropertyPathParam().setNeoPropertyName("isoEndDat");
+		DummyFiller.replace(completePattern);
+//		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
+//		neoNode.addNeoLabel("Regesta");
+//		
+//		Graph g = ((QuantifiedCondition) completePattern.getCondition()).getGraph(); 
+//
+//		NeoPropertyNode neoPropertyNode = (NeoPropertyNode) g.getNodes().get(1);
+//		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) neoPropertyNode.getIncoming().get(0);
+//		neoPropertyEdge.getNeoPropertyPathParam().setNeoPropertyName("isoStartDate");
+//		
+//		neoPropertyNode = (NeoPropertyNode) g.getNodes().get(2);
+//		neoPropertyEdge = (NeoPropertyEdge) neoPropertyNode.getIncoming().get(0);
+//		neoPropertyEdge.getNeoPropertyPathParam().setNeoPropertyName("isoEndDat");
 		
 		return completePattern;
 	}
@@ -281,72 +283,72 @@ public class CypherEvalComp {
 	
 	//Has to be filled with correct concretization values
 	private static CompletePattern getOldCondCompConcrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		Graph g = completePattern.getGraph();
-		
-		NeoNode neoNode1 = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode1.addNeoLabel("Regesta");
-		NeoPropertyNode neoPropertyNode1 = (NeoPropertyNode) g.getNodes().get(1);
-		((NeoPropertyEdge) neoPropertyNode1.getIncoming().get(0)).getNeoPropertyPathParam().setNeoPropertyName("Place");
-		
-		Comparison comparison1 = (Comparison) neoPropertyNode1.getAllOperators().get(0);
-		ComparisonOptionParam comparisonOptionParam1 = new ComparisonOptionParamImpl();
-		comparisonOptionParam1.setValue(ComparisonOperator.EQUAL);
-		comparison1.setOption(comparisonOptionParam1);
-		TextLiteralParam tx1 = new TextLiteralParamImpl();
-		tx1.setValue("hello");
-		((UntypedParameterValue) comparison1.getArgument2()).replace(tx1);
-
-		//First QuantifiedCondition
-		g = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
-		
-		NeoNode neoNode2 = (NeoNode) g.getNodes().get(2);
-		neoNode2.addNeoLabel("Regesta");
-		
-		NeoPropertyNode neoPropertyNode2 = (NeoPropertyNode) g.getNodes().get(3);
-		NeoPropertyEdge neoPropertyEdge2 = (NeoPropertyEdge) neoPropertyNode2.getIncoming().get(0);
-		neoPropertyEdge2.getNeoPropertyPathParam().setNeoPropertyName("Place");
-		
-		Comparison comparison2 = (Comparison) neoPropertyNode2.getAllOperators().get(0);
-		ComparisonOptionParam comparisonOptionParam2 = new ComparisonOptionParamImpl();
-		comparisonOptionParam2.setValue(ComparisonOperator.EQUAL);
-		comparison2.setOption(comparisonOptionParam2);
-		TextLiteralParam tx2 = new TextLiteralParamImpl();
-		tx2.setValue("hello");
-		((UntypedParameterValue) comparison2.getArgument2()).replace(tx1);
-		
-		//Second QuantifiedCondition
-		g = ((QuantifiedCondition) ((QuantifiedCondition) completePattern.getCondition()).getCondition()).getGraph(); 
-		
-		NeoNode neoNode3 = (NeoNode) g.getNodes().get(4);
-		neoNode3.addNeoLabel("Regesta");
-		
-		NeoPropertyNode neoPropertyNode3 = (NeoPropertyNode) g.getNodes().get(5);
-		NeoPropertyEdge neoPropertyEdge3 = (NeoPropertyEdge) neoPropertyNode3.getIncoming().get(0);
-		neoPropertyEdge3.getNeoPropertyPathParam().setNeoPropertyName("Test");
-
-		NeoPropertyNode neoPropertyNode4 = (NeoPropertyNode) g.getNodes().get(6);
-		NeoPropertyEdge neoPropertyEdge4 = (NeoPropertyEdge) neoPropertyNode4.getIncoming().get(0);
-		neoPropertyEdge4.getNeoPropertyPathParam().setNeoPropertyName("Test");
-		
-		NeoPropertyNode neoPropertyNode5 = (NeoPropertyNode) g.getNodes().get(7);
-		NeoPropertyEdge neoPropertyEdge5 = (NeoPropertyEdge) neoPropertyNode5.getIncoming().get(0);
-		neoPropertyEdge5.getNeoPropertyPathParam().setNeoPropertyName("Test");
-		
-		
-		Comparison comparison3 = (Comparison) neoPropertyNode4.getAllOperators().get(0);
-		ComparisonOptionParam comparisonOptionParam3 = new ComparisonOptionParamImpl();
-		comparisonOptionParam3.setValue(ComparisonOperator.EQUAL);
-		comparison3.setOption(comparisonOptionParam2);
-		TextLiteralParam tx3 = new TextLiteralParamImpl();
-		tx3.setValue("hello");
-		((UntypedParameterValue) comparison3.getArgument2()).replace(tx1);
-
-		Comparison comparison4 = (Comparison) neoPropertyNode5.getAllOperators().get(0);
-		ComparisonOptionParam comparisonOptionParam4 = new ComparisonOptionParamImpl();
-		comparisonOptionParam4.setValue(ComparisonOperator.EQUAL);
-		comparison4.setOption(comparisonOptionParam2);
-		
+		DummyFiller.replace(completePattern);
 		return completePattern;
+//		Graph g = completePattern.getGraph();
+//		
+//		NeoNode neoNode1 = (NeoNode) completePattern.getGraph().getNodes().get(0);
+//		neoNode1.addNeoLabel("Regesta");
+//		NeoPropertyNode neoPropertyNode1 = (NeoPropertyNode) g.getNodes().get(1);
+//		((NeoPropertyEdge) neoPropertyNode1.getIncoming().get(0)).getNeoPropertyPathParam().setNeoPropertyName("Place");
+//		
+//		Comparison comparison1 = (Comparison) neoPropertyNode1.getAllOperators().get(0);
+//		ComparisonOptionParam comparisonOptionParam1 = new ComparisonOptionParamImpl();
+//		comparisonOptionParam1.setValue(ComparisonOperator.EQUAL);
+//		comparison1.setOption(comparisonOptionParam1);
+//		TextLiteralParam tx1 = new TextLiteralParamImpl();
+//		tx1.setValue("hello");
+//		((UntypedParameterValue) comparison1.getArgument2()).replace(tx1);
+//
+//		//First QuantifiedCondition
+//		g = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
+//		
+//		NeoNode neoNode2 = (NeoNode) g.getNodes().get(2);
+//		neoNode2.addNeoLabel("Regesta");
+//		
+//		NeoPropertyNode neoPropertyNode2 = (NeoPropertyNode) g.getNodes().get(3);
+//		NeoPropertyEdge neoPropertyEdge2 = (NeoPropertyEdge) neoPropertyNode2.getIncoming().get(0);
+//		neoPropertyEdge2.getNeoPropertyPathParam().setNeoPropertyName("Place");
+//		
+//		Comparison comparison2 = (Comparison) neoPropertyNode2.getAllOperators().get(0);
+//		ComparisonOptionParam comparisonOptionParam2 = new ComparisonOptionParamImpl();
+//		comparisonOptionParam2.setValue(ComparisonOperator.EQUAL);
+//		comparison2.setOption(comparisonOptionParam2);
+//		TextLiteralParam tx2 = new TextLiteralParamImpl();
+//		tx2.setValue("hello");
+//		((UntypedParameterValue) comparison2.getArgument2()).replace(tx1);
+//		
+//		//Second QuantifiedCondition
+//		g = ((QuantifiedCondition) ((QuantifiedCondition) completePattern.getCondition()).getCondition()).getGraph(); 
+//		
+//		NeoNode neoNode3 = (NeoNode) g.getNodes().get(4);
+//		neoNode3.addNeoLabel("Regesta");
+//		
+//		NeoPropertyNode neoPropertyNode3 = (NeoPropertyNode) g.getNodes().get(5);
+//		NeoPropertyEdge neoPropertyEdge3 = (NeoPropertyEdge) neoPropertyNode3.getIncoming().get(0);
+//		neoPropertyEdge3.getNeoPropertyPathParam().setNeoPropertyName("Test");
+//
+//		NeoPropertyNode neoPropertyNode4 = (NeoPropertyNode) g.getNodes().get(6);
+//		NeoPropertyEdge neoPropertyEdge4 = (NeoPropertyEdge) neoPropertyNode4.getIncoming().get(0);
+//		neoPropertyEdge4.getNeoPropertyPathParam().setNeoPropertyName("Test");
+//		
+//		NeoPropertyNode neoPropertyNode5 = (NeoPropertyNode) g.getNodes().get(7);
+//		NeoPropertyEdge neoPropertyEdge5 = (NeoPropertyEdge) neoPropertyNode5.getIncoming().get(0);
+//		neoPropertyEdge5.getNeoPropertyPathParam().setNeoPropertyName("Test");
+//		
+//		
+//		Comparison comparison3 = (Comparison) neoPropertyNode4.getAllOperators().get(0);
+//		ComparisonOptionParam comparisonOptionParam3 = new ComparisonOptionParamImpl();
+//		comparisonOptionParam3.setValue(ComparisonOperator.EQUAL);
+//		comparison3.setOption(comparisonOptionParam2);
+//		TextLiteralParam tx3 = new TextLiteralParamImpl();
+//		tx3.setValue("hello");
+//		((UntypedParameterValue) comparison3.getArgument2()).replace(tx1);
+//
+//		Comparison comparison4 = (Comparison) neoPropertyNode5.getAllOperators().get(0);
+//		ComparisonOptionParam comparisonOptionParam4 = new ComparisonOptionParamImpl();
+//		comparisonOptionParam4.setValue(ComparisonOperator.EQUAL);
+//		comparison4.setOption(comparisonOptionParam2);
 	}
 	//END 
 }
