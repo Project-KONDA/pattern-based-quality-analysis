@@ -267,7 +267,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			addGraphWhereToExistsProperty(cypher, result);
 			result = cypher.toString();
 		} else if (quantifier == Quantifier.FORALL) {
-			throw new InvalidityException(MODEL_HAS_TO_BUILD_A_PATTERN_STRUCTURE);
+			throw new InvalidityException(CypherSpecificConstants.THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY);
 		}
 		return result;
 	}

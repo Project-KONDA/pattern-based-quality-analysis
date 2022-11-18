@@ -120,27 +120,27 @@ public class CypherEvalExNEx {
 	 * @throws MissingPatternContainerException
 	 */
 	private static CompletePattern getOldExNExConcrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.addNeoLabel("Regesta");
-		NeoPropertyNode neoPropertyNode1 = (NeoPropertyNode) neoNode.getOutgoing().get(0).getTarget();
-		NeoPropertyEdge neoPropertyEdge1 = (NeoPropertyEdge) neoPropertyNode1.getIncoming().get(0);
-		neoPropertyEdge1.getNeoPropertyPathParam().setNeoPropertyName("regid");
-	
-		Graph g = ((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph(); 
-		NeoNode neoNode2 = (NeoNode) g.getNodes().get(2);
-		neoNode2.addNeoLabel("Place");
-		
-		EList<Parameter> params = completePattern.getParameterList().getParameters();
-		UntypedParameterValue p0 = ((UntypedParameterValue) params.get(0));
-		TextLiteralParam tx1 = new TextLiteralParamImpl();
-		tx1.setValue("");
-		p0. replace(tx1);
-		Comparison comparison1 = (Comparison) neoPropertyNode1.getAllOperators().get(0);
-		ComparisonOptionParam comparisonOptionParam = new ComparisonOptionParamImpl();
-		comparisonOptionParam.setValue(ComparisonOperator.NOTEQUAL);
-		comparison1.setOption(comparisonOptionParam);
-		
+		DummyFiller.replace(completePattern);
 		return completePattern;
+//		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
+//		neoNode.addNeoLabel("Regesta");
+//		NeoPropertyNode neoPropertyNode1 = (NeoPropertyNode) neoNode.getOutgoing().get(0).getTarget();
+//		NeoPropertyEdge neoPropertyEdge1 = (NeoPropertyEdge) neoPropertyNode1.getIncoming().get(0);
+//		neoPropertyEdge1.getNeoPropertyPathParam().setNeoPropertyName("regid");
+//	
+//		Graph g = ((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph(); 
+//		NeoNode neoNode2 = (NeoNode) g.getNodes().get(2);
+//		neoNode2.addNeoLabel("Place");
+//		
+//		EList<Parameter> params = completePattern.getParameterList().getParameters();
+//		UntypedParameterValue p0 = ((UntypedParameterValue) params.get(0));
+//		TextLiteralParam tx1 = new TextLiteralParamImpl();
+//		tx1.setValue("");
+//		p0. replace(tx1);
+//		Comparison comparison1 = (Comparison) neoPropertyNode1.getAllOperators().get(0);
+//		ComparisonOptionParam comparisonOptionParam = new ComparisonOptionParamImpl();
+//		comparisonOptionParam.setValue(ComparisonOperator.NOTEQUAL);
+//		comparison1.setOption(comparisonOptionParam);
 	}
 	//END 
 	
