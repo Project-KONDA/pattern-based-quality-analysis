@@ -79,6 +79,10 @@ public class Java2Neo4JConnector implements AutoCloseable {
 		}
     }
     
+    public void queryTesterThrows(final String query, final String queryID, boolean print) throws Exception {
+    	queryTesterWithException(query, queryID, print);
+    }
+    
     public void queryTesterForToComplexQueries(final String query, final String queryID, boolean print) {
     	try {
     		TransactionConfig config = TransactionConfig.builder()

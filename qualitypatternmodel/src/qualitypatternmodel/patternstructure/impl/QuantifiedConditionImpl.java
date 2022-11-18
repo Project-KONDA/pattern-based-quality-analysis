@@ -485,29 +485,46 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	
 	private final boolean isAPreviewsConditionNot(final Condition optionalStartCondition) {
 		Condition condition = null;
+		boolean isAPreviewsConditionNot = false;
 		if (optionalStartCondition != null) {
 			condition = optionalStartCondition;
 		} else {
-			condition = getCondition();			
+			if (getFormula1() != null) {
+				condition = getFormula1();
+			} 
+			if (getFormula2() != null) {
+				condition = getFormula2();
+				isAPreviewsConditionNot = isAPreviewsConditionNot(getFormula2());
+			} else if (getQuantifiedCondition() != null) {
+				condition = getQuantifiedCondition();
+			} else if (getNotCondition() != null) {
+				condition = getNotCondition();
+			} else {
+				condition = null;
+			}
 		}
-		boolean isAPreviewsConditionNot = false;
-		while (condition != null && !isAPreviewsConditionNot) {
-			if (condition instanceof Formula) {
-				if (condition.getFormula1() != null) {
-					condition = condition.getFormula1();
-				}
-				if (condition.getFormula2() != null) {
-					isAPreviewsConditionNot = isAPreviewsConditionNot(condition.getFormula2());
+		if (condition != null && !isAPreviewsConditionNot) {
+			while (condition != null && !isAPreviewsConditionNot) {
+				if (condition instanceof NotCondition) {
+					isAPreviewsConditionNot = true;
+					condition = null;
+				} else if (condition instanceof Formula) {
+					if (condition.getFormula1() != null) {
+						condition = condition.getFormula1();
+					}
+					if (condition.getFormula2() != null) {
+						isAPreviewsConditionNot = isAPreviewsConditionNot(condition.getFormula2());
+					} else {
+						condition = null;
+					}
+				} else if (condition instanceof QuantifiedCondition) {
+					condition = condition.getQuantifiedCondition();
+				} else if (condition.getNotCondition() != null) {
+					condition = null;
+					isAPreviewsConditionNot = true;
 				} else {
 					condition = null;
 				}
-			} else if (condition instanceof QuantifiedCondition) {
-				condition = getQuantifiedCondition();
-			} else if (condition.getNotCondition() != null) {
-				condition = null;
-				isAPreviewsConditionNot = true;
-			} else {
-				condition = null;
 			}
 		}
 		return isAPreviewsConditionNot;

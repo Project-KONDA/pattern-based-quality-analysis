@@ -27,7 +27,8 @@ public class CypherTest01NeoPropertyEdge extends CypherAbstractTranslation {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CypherTest01NeoPropertyEdge neoPropertyEdge = new CypherTest01NeoPropertyEdge();		
 		try {
-			neoPropertyEdge.generalizedTests();         
+			neoPropertyEdge.generalizedTests();  
+			neoPropertyEdge.generalizedInvalidtyExceptionTests();
 			neoPropertyEdge.generalizedInvalidtyExceptionTests();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -51,8 +52,14 @@ public class CypherTest01NeoPropertyEdge extends CypherAbstractTranslation {
 		completePatterns.add(getComplexEdgeWithLabels());
 		completePatterns.add(getComplexEdgeWithLabelsDiffrentDirections());
 		completePatterns.add(getComplexEdgeWithLabelsDiffrentDirectionsAndAllReturns());
-		completePatterns.add(getMultiEdgesToNeoPropertyNode());
+		
+	}
+	
+	@Override
+	public void buildToComplexQueryPatterns(ArrayList<CompletePattern> completePatterns)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(getMultiEdgesToNeoPropertyNodeWithConditon());
+		completePatterns.add(getMultiEdgesToNeoPropertyNode());
 	}
 	
 	@Override
@@ -62,6 +69,19 @@ public class CypherTest01NeoPropertyEdge extends CypherAbstractTranslation {
 		completePatternsExceptions.add(generateSimpleEdgeWithPropertyException());
 		completePatternsExceptions.add(generateSetComplexWithOutLastEdgeException());
 		completePatternsExceptions.add(generateNeoPathPartsWithOutNeoTargetException());
+	}
+
+	@Override
+	public void buildUnsupportedException(ArrayList<CompletePattern> completePatternsExceptions)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void buildOtherException(ArrayList<CompletePattern> completePatternsExceptions) throws InvalidityException {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	private CompletePattern getBasePatternMultiNeoPropertyEdge() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -464,25 +484,5 @@ public class CypherTest01NeoPropertyEdge extends CypherAbstractTranslation {
 		neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(2);
 		neoPropertyEdge.getNeoPropertyPathParam().createParameters();
 		((NeoSimpleEdge) neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart()).addNeoTargetNodeLabel("Regesta");
-	}
-
-	@Override
-	public void buildToComplexQueryPatterns(ArrayList<CompletePattern> completePatterns)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void buildUnsupportedException(ArrayList<CompletePattern> completePatternsExceptions)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void buildOtherException(ArrayList<CompletePattern> completePatternsExceptions) throws InvalidityException {
-		// TODO Auto-generated method stub
-		
 	}
 }

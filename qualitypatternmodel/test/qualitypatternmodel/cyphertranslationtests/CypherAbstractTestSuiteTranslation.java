@@ -52,12 +52,18 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 	
 	public static void testAllCompletePatterns(ArrayList<CompletePattern> completePatterns, boolean isDbOn) throws Exception {
 		if (isDbOn) {
-			try (Java2Neo4JConnector connector = new Java2Neo4JConnector()) {
-				CypherAbstractTranslation.innerTestAllCompletePatterns(completePatterns, connector);
-			}
+			testAllCompletePatternsThrow(completePatterns);
 		} else {
 			Java2Neo4JConnector connector = null;
 			CypherAbstractTranslation.innerTestAllCompletePatterns(completePatterns, connector);
+		}
+	}
+	
+	public static void testAllCompletePatternsThrow(ArrayList<CompletePattern> completePatterns) throws Exception {
+		try (Java2Neo4JConnector connector = new Java2Neo4JConnector()) {
+			CypherAbstractTranslation.innerTestAllCompletePatternsThrow(completePatterns, connector);
+		} catch (Exception e) {
+			throw e;
 		}
 	}
 
@@ -111,6 +117,9 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 	public void cypherTest01NeoPropertyEdge() {		
 		assertDoesNotThrow(() -> {new CypherTest01NeoPropertyEdge().buildPatterns(completePatterns); 
 			tester(completePatterns);});
+		completePatterns.clear();
+		assertDoesNotThrow(() -> {new CypherTest07QuantifiedCondition().buildToComplexQueryPatterns(completePatterns); 
+		testerForToComplexQueries(completePatterns);});
 	}
 
 	@Test
@@ -536,6 +545,7 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 	public void cypherTest01NeoPropertyEdgeQueryComp() {		
 		try {
 			new CypherTest01NeoPropertyEdge().buildPatterns(completePatterns);
+			new CypherTest01NeoPropertyEdge().buildToComplexQueryPatterns(completePatterns);
 			int i = 0;
 			
 			//getBlankSimpleEdge
@@ -1032,6 +1042,7 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 	public void cypherTest07QuantifiedConditionQueryComp() {		
 		try {
 			new CypherTest07QuantifiedCondition().buildPatterns(completePatterns);
+			new CypherTest07QuantifiedCondition().buildToComplexQueryPatterns(completePatterns);
 			int i = 0;
 			
 			//getNodesWhereExits (false)

@@ -143,6 +143,28 @@ public abstract class CypherAbstractTranslation implements CypherInterfaceTransl
 			}
 		}
 	}
+	
+	protected static void innerTestAllCompletePatternsThrow(ArrayList<CompletePattern> completePatterns, Java2Neo4JConnector connector) throws Exception {
+		for (CompletePattern completePattern : completePatterns) {
+			replace(completePattern);
+			System.out.println(PATTERN_VALID);
+			System.out.println(completePattern.myToString());
+			System.out.print(TRANSLATION);
+			String query = completePattern.generateCypher();
+			checkForNullInMatchAndReturn(query);
+			
+			//Depending on the test mode activated.
+			//If db is activeted or a connection can be established
+			if (connector != null) {
+				String hashCode = query.hashCode() + "";
+				connector.queryTesterThrows(query + " LIMIT 1", hashCode, true);
+				System.out.println("\n-- Original Query --");
+				System.out.println(query);
+			} else {
+				System.out.println(query);
+			}
+		}
+	}
 
 	protected static void checkForNullInMatchAndReturn(String query) throws InvalidityException {
 		//Test for null in MATCH

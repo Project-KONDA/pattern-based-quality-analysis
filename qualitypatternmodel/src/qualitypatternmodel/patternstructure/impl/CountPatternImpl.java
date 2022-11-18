@@ -266,12 +266,13 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	private String addNodesToWithFromPreviewsGraph(String cypher, final Graph g, final EList<Node> lReturnNodes)
 			throws InvalidityException {
 		String[] tempNodeVar = null;
+		Node original = null;
 		for (Node n : g.getNodes()) {
 			if (n.getOriginalNode() != n) {
-				n = n.getOriginalNode();
-				if (n.isReturnNode()) {
+				original = n.getOriginalNode();
+				if (original.isReturnNode()) {
 					if (!lReturnNodes.contains(n)) {
-						tempNodeVar = ((NeoInterfaceNode) n).getCypherVariable().split(CypherSpecificConstants.SEPERATOR);
+						tempNodeVar = ((NeoInterfaceNode) original).getCypherVariable().split(CypherSpecificConstants.SEPERATOR);
 						for (String s : tempNodeVar) {
 							if (!cypher.isEmpty()) {
 								cypher = s.trim() + CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE + cypher;
