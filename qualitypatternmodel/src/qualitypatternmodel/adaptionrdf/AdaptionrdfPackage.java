@@ -1282,22 +1282,13 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PATH__QUANTIFIER = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Rdf Path Param</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RDF_PATH__RDF_PATH_PARAM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
 	 * The number of structural features of the '<em>Rdf Path</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
+	int RDF_PATH_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1579,15 +1570,6 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @ordered
 	 */
 	int RDF_SINGLE_PREDICATE__QUANTIFIER = RDF_PATH__QUANTIFIER;
-
-	/**
-	 * The feature id for the '<em><b>Rdf Path Param</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RDF_SINGLE_PREDICATE__RDF_PATH_PARAM = RDF_PATH__RDF_PATH_PARAM;
 
 	/**
 	 * The feature id for the '<em><b>Iri Param</b></em>' containment reference.
@@ -3250,15 +3232,6 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_XOR__QUANTIFIER = RDF_PATH__QUANTIFIER;
 
 	/**
-	 * The feature id for the '<em><b>Rdf Path Param</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RDF_XOR__RDF_PATH_PARAM = RDF_PATH__RDF_PATH_PARAM;
-
-	/**
 	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3546,15 +3519,6 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @ordered
 	 */
 	int RDF_SEQUENCE__QUANTIFIER = RDF_PATH__QUANTIFIER;
-
-	/**
-	 * The feature id for the '<em><b>Rdf Path Param</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RDF_SEQUENCE__RDF_PATH_PARAM = RDF_PATH__RDF_PATH_PARAM;
 
 	/**
 	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
@@ -3909,13 +3873,22 @@ public interface AdaptionrdfPackage extends EPackage {
 	int IRI_LIST_PARAM__RDF_IRI_NODE = ParametersPackage.PARAMETER_VALUE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Rdf Path Part</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM__RDF_PATH_PART = ParametersPackage.PARAMETER_VALUE_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Iri List Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_LIST_PARAM_FEATURE_COUNT = ParametersPackage.PARAMETER_VALUE_FEATURE_COUNT + 2;
+	int IRI_LIST_PARAM_FEATURE_COUNT = ParametersPackage.PARAMETER_VALUE_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -4413,13 +4386,13 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PATH_PARAM__RDF_PREDICATE = ParametersPackage.PARAMETER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Rdf Path Part</b></em>' containment reference.
+	 * The feature id for the '<em><b>Rdf Path Parts</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PARAM__RDF_PATH_PART = ParametersPackage.PARAMETER_FEATURE_COUNT + 1;
+	int RDF_PATH_PARAM__RDF_PATH_PARTS = ParametersPackage.PARAMETER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Rdf Path Param</em>' class.
@@ -4737,13 +4710,320 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = ParametersPackage.PARAMETER_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Set Rdf Path Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PARAM___SET_RDF_PATH_PART__RDFPATHPART = ParametersPackage.PARAMETER_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Add Rdf Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PARAM___ADD_RDF_PART__RDFPATHPART = ParametersPackage.PARAMETER_OPERATION_COUNT + 3;
+
+	/**
 	 * The number of operations of the '<em>Rdf Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 2;
+	int RDF_PATH_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 4;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfPathPartImpl <em>Rdf Path Part</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionrdf.impl.RdfPathPartImpl
+	 * @see qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl#getRdfPathPart()
+	 * @generated
+	 */
+	int RDF_PATH_PART = 11;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART__INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Rdf Path Param</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART__RDF_PATH_PARAM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Rdf Path</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART__RDF_PATH = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Target Node Types</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART__TARGET_NODE_TYPES = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Rdf Path Part</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART___IS_VALID__ABSTRACTIONLEVEL = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART___MY_TO_STRING = PatternstructurePackage.PATTERN_ELEMENT___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART___GENERATE_CYPHER = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_CYPHER;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART___GENERATE_XQUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY;
+
+	/**
+	 * The operation id for the '<em>Generate Sparql</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART___GENERATE_SPARQL = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_SPARQL;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART___GET_CONTAINER = PatternstructurePackage.PATTERN_ELEMENT___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART___GET_ANCESTOR__CLASS = PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART___INITIALIZE_TRANSLATION = PatternstructurePackage.PATTERN_ELEMENT___INITIALIZE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART___PREPARE_TRANSLATION = PatternstructurePackage.PATTERN_ELEMENT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART___GET_OPERATOR_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART___GET_PARAMETER_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART___GET_ALL_PARAMETERS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART___PREPARE_PARAMETER_UPDATES = PatternstructurePackage.PATTERN_ELEMENT___PREPARE_PARAMETER_UPDATES;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART___UPDATE_PARAMETERS__PARAMETERLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART___RECORD_VALUES__XMLDATADATABASE = PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART___RELATIONS_XML_ADAPTED = PatternstructurePackage.PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART___CREATE_XML_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART___CREATE_RDF_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART___CREATE_NEO4J_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Generate Rdf Part Types</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART___GENERATE_RDF_PART_TYPES__STRING = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Rdf Path Part</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionrdf.RdfQuantifier <em>Rdf Quantifier</em>}' enum.
@@ -4753,7 +5033,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @see qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl#getRdfQuantifier()
 	 * @generated
 	 */
-	int RDF_QUANTIFIER = 11;
+	int RDF_QUANTIFIER = 12;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionrdf.RdfPredicate <em>Rdf Predicate</em>}'.
@@ -4830,17 +5110,6 @@ public interface AdaptionrdfPackage extends EPackage {
 	EAttribute getRdfPath_Quantifier();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionrdf.RdfPath#getRdfPathParam <em>Rdf Path Param</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Rdf Path Param</em>'.
-	 * @see qualitypatternmodel.adaptionrdf.RdfPath#getRdfPathParam()
-	 * @see #getRdfPath()
-	 * @generated
-	 */
-	EReference getRdfPath_RdfPathParam();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionrdf.RdfPath#getRdfSinglePredicates() <em>Get Rdf Single Predicates</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4872,15 +5141,88 @@ public interface AdaptionrdfPackage extends EPackage {
 	EReference getRdfPathParam_RdfPredicate();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfPathPart <em>Rdf Path Part</em>}'.
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfPathParts <em>Rdf Path Parts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Rdf Path Part</em>'.
-	 * @see qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfPathPart()
+	 * @return the meta object for the containment reference list '<em>Rdf Path Parts</em>'.
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfPathParts()
 	 * @see #getRdfPathParam()
 	 * @generated
 	 */
-	EReference getRdfPathParam_RdfPathPart();
+	EReference getRdfPathParam_RdfPathParts();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#setRdfPathPart(qualitypatternmodel.adaptionrdf.RdfPathPart) <em>Set Rdf Path Part</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Rdf Path Part</em>' operation.
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathParam#setRdfPathPart(qualitypatternmodel.adaptionrdf.RdfPathPart)
+	 * @generated
+	 */
+	EOperation getRdfPathParam__SetRdfPathPart__RdfPathPart();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#addRdfPart(qualitypatternmodel.adaptionrdf.RdfPathPart) <em>Add Rdf Part</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Rdf Part</em>' operation.
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathParam#addRdfPart(qualitypatternmodel.adaptionrdf.RdfPathPart)
+	 * @generated
+	 */
+	EOperation getRdfPathParam__AddRdfPart__RdfPathPart();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionrdf.RdfPathPart <em>Rdf Path Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rdf Path Part</em>'.
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathPart
+	 * @generated
+	 */
+	EClass getRdfPathPart();
+
+	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionrdf.RdfPathPart#getRdfPathParam <em>Rdf Path Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Rdf Path Param</em>'.
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathPart#getRdfPathParam()
+	 * @see #getRdfPathPart()
+	 * @generated
+	 */
+	EReference getRdfPathPart_RdfPathParam();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionrdf.RdfPathPart#getRdfPath <em>Rdf Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Rdf Path</em>'.
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathPart#getRdfPath()
+	 * @see #getRdfPathPart()
+	 * @generated
+	 */
+	EReference getRdfPathPart_RdfPath();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionrdf.RdfPathPart#getTargetNodeTypes <em>Target Node Types</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Target Node Types</em>'.
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathPart#getTargetNodeTypes()
+	 * @see #getRdfPathPart()
+	 * @generated
+	 */
+	EReference getRdfPathPart_TargetNodeTypes();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionrdf.RdfPathPart#generateRdfPartTypes(java.lang.String) <em>Generate Rdf Part Types</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Rdf Part Types</em>' operation.
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathPart#generateRdfPartTypes(java.lang.String)
+	 * @generated
+	 */
+	EOperation getRdfPathPart__GenerateRdfPartTypes__String();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionrdf.RdfSinglePredicate <em>Rdf Single Predicate</em>}'.
@@ -5083,6 +5425,17 @@ public interface AdaptionrdfPackage extends EPackage {
 	EReference getIriListParam_RdfIriNode();
 
 	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionrdf.IriListParam#getRdfPathPart <em>Rdf Path Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Rdf Path Part</em>'.
+	 * @see qualitypatternmodel.adaptionrdf.IriListParam#getRdfPathPart()
+	 * @see #getIriListParam()
+	 * @generated
+	 */
+	EReference getIriListParam_RdfPathPart();
+
+	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.adaptionrdf.RdfQuantifier <em>Rdf Quantifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5178,14 +5531,6 @@ public interface AdaptionrdfPackage extends EPackage {
 		EAttribute RDF_PATH__QUANTIFIER = eINSTANCE.getRdfPath_Quantifier();
 
 		/**
-		 * The meta object literal for the '<em><b>Rdf Path Param</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RDF_PATH__RDF_PATH_PARAM = eINSTANCE.getRdfPath_RdfPathParam();
-
-		/**
 		 * The meta object literal for the '<em><b>Get Rdf Single Predicates</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5212,12 +5557,70 @@ public interface AdaptionrdfPackage extends EPackage {
 		EReference RDF_PATH_PARAM__RDF_PREDICATE = eINSTANCE.getRdfPathParam_RdfPredicate();
 
 		/**
-		 * The meta object literal for the '<em><b>Rdf Path Part</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Rdf Path Parts</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RDF_PATH_PARAM__RDF_PATH_PART = eINSTANCE.getRdfPathParam_RdfPathPart();
+		EReference RDF_PATH_PARAM__RDF_PATH_PARTS = eINSTANCE.getRdfPathParam_RdfPathParts();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Rdf Path Part</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RDF_PATH_PARAM___SET_RDF_PATH_PART__RDFPATHPART = eINSTANCE.getRdfPathParam__SetRdfPathPart__RdfPathPart();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Rdf Part</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RDF_PATH_PARAM___ADD_RDF_PART__RDFPATHPART = eINSTANCE.getRdfPathParam__AddRdfPart__RdfPathPart();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfPathPartImpl <em>Rdf Path Part</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.adaptionrdf.impl.RdfPathPartImpl
+		 * @see qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl#getRdfPathPart()
+		 * @generated
+		 */
+		EClass RDF_PATH_PART = eINSTANCE.getRdfPathPart();
+
+		/**
+		 * The meta object literal for the '<em><b>Rdf Path Param</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RDF_PATH_PART__RDF_PATH_PARAM = eINSTANCE.getRdfPathPart_RdfPathParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Rdf Path</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RDF_PATH_PART__RDF_PATH = eINSTANCE.getRdfPathPart_RdfPath();
+
+		/**
+		 * The meta object literal for the '<em><b>Target Node Types</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RDF_PATH_PART__TARGET_NODE_TYPES = eINSTANCE.getRdfPathPart_TargetNodeTypes();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Rdf Part Types</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RDF_PATH_PART___GENERATE_RDF_PART_TYPES__STRING = eINSTANCE.getRdfPathPart__GenerateRdfPartTypes__String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfSinglePredicateImpl <em>Rdf Single Predicate</em>}' class.
@@ -5384,6 +5787,14 @@ public interface AdaptionrdfPackage extends EPackage {
 		 * @generated
 		 */
 		EReference IRI_LIST_PARAM__RDF_IRI_NODE = eINSTANCE.getIriListParam_RdfIriNode();
+
+		/**
+		 * The meta object literal for the '<em><b>Rdf Path Part</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IRI_LIST_PARAM__RDF_PATH_PART = eINSTANCE.getIriListParam_RdfPathPart();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionrdf.RdfQuantifier <em>Rdf Quantifier</em>}' enum.

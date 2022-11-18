@@ -17,6 +17,7 @@ import qualitypatternmodel.parameters.ParameterValue;
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionrdf.IriListParam#getIriParams <em>Iri Params</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionrdf.IriListParam#getRdfIriNode <em>Rdf Iri Node</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.IriListParam#getRdfPathPart <em>Rdf Path Part</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getIriListParam()
@@ -61,5 +62,29 @@ public interface IriListParam extends ParameterValue {
 	 * @generated
 	 */
 	void setRdfIriNode(RdfIriNode value);
+
+	/**
+	 * Returns the value of the '<em><b>Rdf Path Part</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.RdfPathPart#getTargetNodeTypes <em>Target Node Types</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Rdf Path Part</em>' container reference.
+	 * @see #setRdfPathPart(RdfPathPart)
+	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getIriListParam_RdfPathPart()
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathPart#getTargetNodeTypes
+	 * @model opposite="targetNodeTypes" transient="false"
+	 * @generated
+	 */
+	RdfPathPart getRdfPathPart();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.IriListParam#getRdfPathPart <em>Rdf Path Part</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Rdf Path Part</em>' container reference.
+	 * @see #getRdfPathPart()
+	 * @generated
+	 */
+	void setRdfPathPart(RdfPathPart value);
 
 } // IriListParam

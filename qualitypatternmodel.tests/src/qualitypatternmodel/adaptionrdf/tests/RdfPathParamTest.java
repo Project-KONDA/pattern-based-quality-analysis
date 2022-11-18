@@ -14,6 +14,8 @@ import qualitypatternmodel.parameters.tests.ParameterTest;
  * <p>
  * The following operations are tested:
  * <ul>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathParam#setRdfPathPart(qualitypatternmodel.adaptionrdf.RdfPathPart) <em>Set Rdf Path Part</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathParam#addRdfPart(qualitypatternmodel.adaptionrdf.RdfPathPart) <em>Add Rdf Part</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
  * </ul>
@@ -72,6 +74,32 @@ public class RdfPathParamTest extends ParameterTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#setRdfPathPart(qualitypatternmodel.adaptionrdf.RdfPathPart) <em>Set Rdf Path Part</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathParam#setRdfPathPart(qualitypatternmodel.adaptionrdf.RdfPathPart)
+	 * @generated
+	 */
+	public void testSetRdfPathPart__RdfPathPart() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#addRdfPart(qualitypatternmodel.adaptionrdf.RdfPathPart) <em>Add Rdf Part</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathParam#addRdfPart(qualitypatternmodel.adaptionrdf.RdfPathPart)
+	 * @generated
+	 */
+	public void testAddRdfPart__RdfPathPart() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 	/**

@@ -279,6 +279,29 @@ public class AdaptionrdfItemProviderAdapterFactory extends AdaptionrdfAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionrdf.RdfPathPart} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RdfPathPartItemProvider rdfPathPartItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionrdf.RdfPathPart}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRdfPathPartAdapter() {
+		if (rdfPathPartItemProvider == null) {
+			rdfPathPartItemProvider = new RdfPathPartItemProvider(this);
+		}
+
+		return rdfPathPartItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -392,6 +415,7 @@ public class AdaptionrdfItemProviderAdapterFactory extends AdaptionrdfAdapterFac
 		if (rdfSequenceItemProvider != null) rdfSequenceItemProvider.dispose();
 		if (iriListParamItemProvider != null) iriListParamItemProvider.dispose();
 		if (rdfPathParamItemProvider != null) rdfPathParamItemProvider.dispose();
+		if (rdfPathPartItemProvider != null) rdfPathPartItemProvider.dispose();
 	}
 
 }

@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.adaptionrdf;
 
+import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.parameters.Parameter;
 
@@ -15,7 +16,7 @@ import qualitypatternmodel.parameters.Parameter;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfPredicate <em>Rdf Predicate</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfPathPart <em>Rdf Path Part</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfPathParts <em>Rdf Path Parts</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathParam()
@@ -48,27 +49,33 @@ public interface RdfPathParam extends Parameter, Adaptable {
 	void setRdfPredicate(RdfPredicate value);
 
 	/**
-	 * Returns the value of the '<em><b>Rdf Path Part</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.RdfPath#getRdfPathParam <em>Rdf Path Param</em>}'.
+	 * Returns the value of the '<em><b>Rdf Path Parts</b></em>' containment reference list.
+	 * The list contents are of type {@link qualitypatternmodel.adaptionrdf.RdfPathPart}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.RdfPathPart#getRdfPathParam <em>Rdf Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rdf Path Part</em>' containment reference.
-	 * @see #setRdfPathPart(RdfPath)
-	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathParam_RdfPathPart()
-	 * @see qualitypatternmodel.adaptionrdf.RdfPath#getRdfPathParam
+	 * @return the value of the '<em>Rdf Path Parts</em>' containment reference list.
+	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathParam_RdfPathParts()
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathPart#getRdfPathParam
 	 * @model opposite="rdfPathParam" containment="true"
 	 * @generated
 	 */
-	RdfPath getRdfPathPart();
+	EList<RdfPathPart> getRdfPathParts();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfPathPart <em>Rdf Path Part</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rdf Path Part</em>' containment reference.
-	 * @see #getRdfPathPart()
+	 * @model
 	 * @generated
 	 */
-	void setRdfPathPart(RdfPath value);
+	void setRdfPathPart(RdfPathPart path);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addRdfPart(RdfPathPart path);
 
 } // RdfPathParam

@@ -60,14 +60,13 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 	
 	@Override
 	public String generateSparql() throws InvalidityException {
+		System.out.println(this);
+		System.out.println(this.myToString());
 		String query = "";
 		if(!translated) {
 			translated = true;
 			if(getIncomingMapping() == null) {
-				query = "\n" + getSource().generateSparql();
-				query += " " + getRdfPathParam().generateSparql();
-				query += " " + getTarget().generateSparql();
-				query += ".";
+				query = getRdfPathParam().generateSparql();
 			}
 			if(getTarget() instanceof ComplexNode) {
 				ComplexNode complexNode = (ComplexNode) getTarget();

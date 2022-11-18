@@ -10,29 +10,34 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
-import qualitypatternmodel.adaptionrdf.RdfPathParam;
-import qualitypatternmodel.parameters.provider.ParameterItemProvider;
+import qualitypatternmodel.adaptionrdf.RdfPathPart;
+
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
+import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
+
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionrdf.RdfPathParam} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionrdf.RdfPathPart} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class RdfPathParamItemProvider extends ParameterItemProvider {
+public class RdfPathPartItemProvider extends PatternElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RdfPathParamItemProvider(AdapterFactory adapterFactory) {
+	public RdfPathPartItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -63,7 +68,8 @@ public class RdfPathParamItemProvider extends ParameterItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(AdaptionrdfPackage.Literals.RDF_PATH_PARAM__RDF_PATH_PARTS);
+			childrenFeatures.add(AdaptionrdfPackage.Literals.RDF_PATH_PART__RDF_PATH);
+			childrenFeatures.add(AdaptionrdfPackage.Literals.RDF_PATH_PART__TARGET_NODE_TYPES);
 		}
 		return childrenFeatures;
 	}
@@ -82,14 +88,14 @@ public class RdfPathParamItemProvider extends ParameterItemProvider {
 	}
 
 	/**
-	 * This returns RdfPathParam.gif.
+	 * This returns RdfPathPart.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RdfPathParam"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RdfPathPart"));
 	}
 
 	/**
@@ -100,10 +106,10 @@ public class RdfPathParamItemProvider extends ParameterItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((RdfPathParam)object).getId();
+		String label = ((RdfPathPart)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RdfPathParam_type") :
-			getString("_UI_RdfPathParam_type") + " " + label;
+			getString("_UI_RdfPathPart_type") :
+			getString("_UI_RdfPathPart_type") + " " + label;
 	}
 
 
@@ -118,8 +124,9 @@ public class RdfPathParamItemProvider extends ParameterItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(RdfPathParam.class)) {
-			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PARTS:
+		switch (notification.getFeatureID(RdfPathPart.class)) {
+			case AdaptionrdfPackage.RDF_PATH_PART__RDF_PATH:
+			case AdaptionrdfPackage.RDF_PATH_PART__TARGET_NODE_TYPES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -139,8 +146,23 @@ public class RdfPathParamItemProvider extends ParameterItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AdaptionrdfPackage.Literals.RDF_PATH_PARAM__RDF_PATH_PARTS,
-				 AdaptionrdfFactory.eINSTANCE.createRdfPathPart()));
+				(AdaptionrdfPackage.Literals.RDF_PATH_PART__RDF_PATH,
+				 AdaptionrdfFactory.eINSTANCE.createRdfSinglePredicate()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AdaptionrdfPackage.Literals.RDF_PATH_PART__RDF_PATH,
+				 AdaptionrdfFactory.eINSTANCE.createRdfXor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AdaptionrdfPackage.Literals.RDF_PATH_PART__RDF_PATH,
+				 AdaptionrdfFactory.eINSTANCE.createRdfSequence()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AdaptionrdfPackage.Literals.RDF_PATH_PART__TARGET_NODE_TYPES,
+				 AdaptionrdfFactory.eINSTANCE.createIriListParam()));
 	}
 
 	/**

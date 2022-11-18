@@ -958,7 +958,6 @@
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfPath">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionrdf/RdfPath/invert"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionrdf/RdfPath/quantifier"/>
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfPath/rdfPathParam"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionrdf/RdfPath/getRdfSinglePredicates"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfSinglePredicate">
@@ -986,11 +985,25 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/IriListParam/iriParams"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/IriListParam/rdfIriNode"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/IriListParam/rdfPathPart"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam/rdfPredicate"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam/rdfPathPart"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam/rdfPathParts"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam/setRdfPathPart">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam/setRdfPathPart/path"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam/addRdfPart">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam/addRdfPart/path"/>
+        </genOperations>
+      </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfPathPart">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfPathPart/rdfPathParam"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfPathPart/rdfPath"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfPathPart/targetNodeTypes"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionrdf/RdfPathPart/generateRdfPartTypes">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionrdf/RdfPathPart/generateRdfPartTypes/variable"/>
+        </genOperations>
       </genClasses>
     </nestedGenPackages>
   </genPackages>
