@@ -46,7 +46,7 @@ public class RdfEvalCard {
 		p0.setValue(ComparisonOperator.GREATER);
 		p1.setValue(1.);
 
-		((RdfSinglePredicate) p2.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P22"));
+		((RdfSinglePredicate) p2.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P22"));
 		
 		return completePattern;
 	}
@@ -54,7 +54,7 @@ public class RdfEvalCard {
 	public static CompletePattern getCardWikiMother() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getCardWikiFather();
 
-		((RdfSinglePredicate)((RdfPathParam) completePattern.getParameterList().getParameters().get(2)).getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P25"));
+		((RdfSinglePredicate)((RdfPathParam) completePattern.getParameterList().getParameters().get(2)).getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P25"));
 		
 		return completePattern;
 	}

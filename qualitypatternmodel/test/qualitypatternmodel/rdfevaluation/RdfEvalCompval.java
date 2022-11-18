@@ -53,7 +53,7 @@ public class RdfEvalCompval {
 		IriParam p4iri = new IriParamImpl();
 		p4iri.setPrefix("wdt");
 		p4iri.setSuffix("P569");
-		((RdfSinglePredicate) p3.getRdfPathPart()).setIriParam(p4iri);
+		((RdfSinglePredicate) p3.getRdfPathParts().get(0).getRdfPath()).setIriParam(p4iri);
 								
 		return completePattern;
 	}

@@ -42,10 +42,10 @@ public class RdfEvalAppDup {
 		RdfPathParam p4 = ((RdfPathParam) params.get(4));
 		RdfPathParam p5 = ((RdfPathParam) params.get(5));
 		
-		((RdfSinglePredicate) p2.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P569")); // BIRTHDATE
-		((RdfSinglePredicate) p3.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P569")); // BIRTHDATE
-		((RdfSinglePredicate) p4.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P570")); // DEATHDATE
-		((RdfSinglePredicate) p5.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P570")); // DEATHDATE
+		((RdfSinglePredicate) p2.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P569")); // BIRTHDATE
+		((RdfSinglePredicate) p3.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P569")); // BIRTHDATE
+		((RdfSinglePredicate) p4.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P570")); // DEATHDATE
+		((RdfSinglePredicate) p5.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P570")); // DEATHDATE
 				
 		return completePattern;
 	}
@@ -69,14 +69,14 @@ public class RdfEvalAppDup {
 		RdfPathParam p6 = ((RdfPathParam) params.get(6));
 		RdfPathParam p7 = ((RdfPathParam) params.get(7));
 		
-		((RdfSinglePredicate) p2.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P2561"));
-		((RdfSinglePredicate) p3.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P2561"));
+		((RdfSinglePredicate) p2.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P2561"));
+		((RdfSinglePredicate) p3.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P2561"));
 		// = offizieller Name
-		((RdfSinglePredicate) p4.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P31"));
-		((RdfSinglePredicate) p5.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P31"));
+		((RdfSinglePredicate) p4.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P31"));
+		((RdfSinglePredicate) p5.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P31"));
 		// = Name
-		((RdfSinglePredicate) p6.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P1448"));
-		((RdfSinglePredicate) p7.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P1448"));
+		((RdfSinglePredicate) p6.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P1448"));
+		((RdfSinglePredicate) p7.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P1448"));
 		// = Typ von
 		
 		

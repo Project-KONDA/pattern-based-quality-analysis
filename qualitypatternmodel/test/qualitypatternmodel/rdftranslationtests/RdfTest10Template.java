@@ -2,8 +2,10 @@ package qualitypatternmodel.rdftranslationtests;
 
 import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
 import qualitypatternmodel.adaptionrdf.IriParam;
+import qualitypatternmodel.adaptionrdf.RdfPathPart;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
+import qualitypatternmodel.adaptionrdf.impl.RdfPathPartImpl;
 import qualitypatternmodel.adaptionrdf.impl.RdfSinglePredicateImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -52,14 +54,20 @@ public class RdfTest10Template {
 		
 		ParameterPredefinition paramPredef0 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();		
 		RdfPredicate rdfPredicate0 = (RdfPredicate) graph.getRelations().get(1);
+		
+		RdfPathPart part = new RdfPathPartImpl();
 		RdfSinglePredicate pred = new RdfSinglePredicateImpl();
-		rdfPredicate0.getRdfPathParam().setRdfPathPart(pred);
+		part.setRdfPath(pred);
+		rdfPredicate0.getRdfPathParam().setRdfPathPart(part);
 		paramPredef0.getParameter().add(rdfPredicate0.getRdfPathParam());
 		paramPredef0.setValue("^(p:P6/ps:P6)");
 		
 		ParameterPredefinition paramPredef1 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();		
 		RdfPredicate rdfPredicate1 = (RdfPredicate) graph.getRelations().get(0);
-		rdfPredicate1.getRdfPathParam().setRdfPathPart(new RdfSinglePredicateImpl());
+		
+		RdfPathPart part2 = new RdfPathPartImpl();		
+		rdfPredicate1.getRdfPathParam().setRdfPathPart(part2);
+		part2.setRdfPath(new RdfSinglePredicateImpl());
 		paramPredef1.getParameter().add(rdfPredicate1.getRdfPathParam());
 		paramPredef1.setValue("wdt:P26");
 		

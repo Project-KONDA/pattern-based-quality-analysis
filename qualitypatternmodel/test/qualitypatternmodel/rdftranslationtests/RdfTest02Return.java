@@ -29,7 +29,7 @@ public class RdfTest02Return {
 		completePattern.getGraph().getNodes().get(1).setReturnNode(true);
 		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
 		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
-		RdfSinglePredicate rdfSinglePredicate = (RdfSinglePredicate) relation.getRdfPathParam().getRdfPathPart();
+		RdfSinglePredicate rdfSinglePredicate = (RdfSinglePredicate) relation.getRdfPathParam().getRdfPathParts().get(0).getRdfPath();
 		rdfSinglePredicate.setIriParam(iriParam);
 		rdfSinglePredicate.setQuantifier(RdfQuantifier.ZERO_OR_ONE);
 		iriParam.setPrefix("wdt");

@@ -42,7 +42,7 @@ public class RdfEvalMatch {
 		p0.setValue(false);
 		p1.setValue("^(<http:\\\\/\\\\/www\\\\.wikidata\\\\.org\\\\/entity\\\\/Q[0-9]+> )?Point\\\\((-)?[0-9]+(\\\\.[0-9]+)? (-)?[0-9]+(\\\\.[0-9]+)?\\\\)$");
 //		p1.setValue("\\?");
-		((RdfSinglePredicate) p2.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P625"));
+		((RdfSinglePredicate) p2.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P625"));
 		
 		return completePattern;
 	}

@@ -45,8 +45,8 @@ public class RdfEvalExNEx {
 		
 		p0.replace(new IriParamImpl("wd:Q5")); 
 		
-		((RdfSinglePredicate) p3.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P31"));
-		((RdfSinglePredicate) p4.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P22"));
+		((RdfSinglePredicate) p3.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P31"));
+		((RdfSinglePredicate) p4.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P22"));
 		
 		return completePattern;
 	}
@@ -55,7 +55,7 @@ public class RdfEvalExNEx {
 		CompletePattern completePattern = getExNexFather();
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
 		RdfPathParam p4 = ((RdfPathParam) params.get(4));
-		((RdfSinglePredicate) p4.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P21"));
+		((RdfSinglePredicate) p4.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P21"));
 		return completePattern;
 	}
 	

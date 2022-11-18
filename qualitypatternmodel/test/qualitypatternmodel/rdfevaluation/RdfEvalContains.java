@@ -41,7 +41,7 @@ public class RdfEvalContains {
 		
 		p0.setValue(false);
 		p1.setValue("Point(");
-		((RdfSinglePredicate) p2.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P625"));
+		((RdfSinglePredicate) p2.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P625"));
 		
 		return completePattern;
 	}

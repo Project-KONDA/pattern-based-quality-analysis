@@ -56,12 +56,12 @@ public class RdfEvalComp {
 		IriParam p2iri = new IriParamImpl();
 		p2iri.setPrefix("wdt");
 		p2iri.setSuffix("P569");
-		((RdfSinglePredicate) p2.getRdfPathPart()).setIriParam(p2iri);
+		((RdfSinglePredicate) p2.getRdfPathParts().get(0).getRdfPath()).setIriParam(p2iri);
 		
 		IriParam p3iri = new IriParamImpl();
 		p3iri.setPrefix("wdt");
 		p3iri.setSuffix("P570");
-		((RdfSinglePredicate) p3.getRdfPathPart()).setIriParam(p3iri);
+		((RdfSinglePredicate) p3.getRdfPathParts().get(0).getRdfPath()).setIriParam(p3iri);
 		
 		return completePattern;
 	}
