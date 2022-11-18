@@ -5,48 +5,37 @@ import java.time.Instant;
 
 import qualitypatternmodel.cypherevaluation.utilis.DummyFiller;
 import qualitypatternmodel.evaluation.EvalMandAtt;
+import qualitypatternmodel.evaluation.EvalRefInt;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
-public class CypherEvalMandAtt {
+public class CypherEvalRefInt {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		//New Ones - Valid for REGSTA-DB	
 		
 		//Dummy-files for old ones
-		printMandattGeneric();
+		printRefintCondGeneric();
 		
 		System.out.println();
 		System.out.println("---");
 		System.out.println();
 		
-		printMandatt3();
-		
-		System.out.println();
-		System.out.println("---");
-		System.out.println();
-
-		printMandattCondGeneric();
-		
-		System.out.println();
-		System.out.println("---");
-		System.out.println();
-		
-		printMandatt3CondGeneric();
+		printRefintRunningExampleGeneric();
 	}
 
 	//New Ones
 	
 	//Old Ones dummy filed
 	//BEGIN
-		private static void printMandattGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-			CompletePattern completePatternOldMandatt;
+		private static void printRefintCondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+			CompletePattern completePatternOldRefintCondGeneric;
 
 			//Generic
 			Instant start = Instant.now();
 			
-			completePatternOldMandatt = getOldMandattGeneric();
+			completePatternOldRefintCondGeneric = getOldRefintCondGenericGeneric();
 			
 			Instant finish = Instant.now();
 			long timeElapsed = Duration.between(start, finish).toMillis();
@@ -56,7 +45,7 @@ public class CypherEvalMandAtt {
 			//Generic --> Abstract 
 			start = Instant.now();
 			
-			completePatternOldMandatt = getOldMandattAbstract(completePatternOldMandatt);
+			completePatternOldRefintCondGeneric = getOldRefintCondGenericAbstract(completePatternOldRefintCondGeneric);
 			
 			finish = Instant.now();
 			timeElapsed = Duration.between(start, finish).toMillis();
@@ -66,7 +55,7 @@ public class CypherEvalMandAtt {
 			//Abstract --> Concrete
 			start = Instant.now();
 			
-			completePatternOldMandatt = getOldMandattConcrete(completePatternOldMandatt);
+			completePatternOldRefintCondGeneric = getOldRefintCondGenericConcrete(completePatternOldRefintCondGeneric);
 			
 			finish = Instant.now();
 			timeElapsed = Duration.between(start, finish).toMillis();
@@ -77,7 +66,7 @@ public class CypherEvalMandAtt {
 			try {
 				start = Instant.now();
 				
-				System.out.println(completePatternOldMandatt.generateCypher());
+				System.out.println(completePatternOldRefintCondGeneric.generateCypher());
 				
 				finish = Instant.now();
 				timeElapsed = Duration.between(start, finish).toMillis();
@@ -87,29 +76,29 @@ public class CypherEvalMandAtt {
 			}
 		}
 		
-		private static CompletePattern getOldMandattGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-			return EvalMandAtt.getMandattGeneric();
+		private static CompletePattern getOldRefintCondGenericGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+			return EvalRefInt.getRefintCondGeneric();
 		}
 		
-		private static CompletePattern getOldMandattAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		private static CompletePattern getOldRefintCondGenericAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 			completePattern.createNeo4jAdaption();
 			return completePattern;
 		}
 		
-		private static CompletePattern getOldMandattConcrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		private static CompletePattern getOldRefintCondGenericConcrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 			DummyFiller.replace(completePattern);
 			return completePattern;
 		}
 		//END 
 		
 		//BEGIN
-		private static void printMandatt3() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-			CompletePattern completePatternOldMandatt3;
+		private static void printRefintRunningExampleGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+			CompletePattern completePatternOldRefintRunningExample;
 			
 			//Generic
 			Instant start = Instant.now();
 			
-			completePatternOldMandatt3 = getOldMandatt3Generic();
+			completePatternOldRefintRunningExample = getOldRefintRunningExampleGeneric();
 			
 			Instant finish = Instant.now();
 			long timeElapsed = Duration.between(start, finish).toMillis();
@@ -119,7 +108,7 @@ public class CypherEvalMandAtt {
 			//Generic --> Abstract 
 			start = Instant.now();
 			
-			completePatternOldMandatt3 = getOldMandatt3Abstract(completePatternOldMandatt3);
+			completePatternOldRefintRunningExample = getOldRefintRunningExampleAbstract(completePatternOldRefintRunningExample);
 			
 			finish = Instant.now();
 			timeElapsed = Duration.between(start, finish).toMillis();
@@ -129,7 +118,7 @@ public class CypherEvalMandAtt {
 			//Abstract --> Concrete
 			start = Instant.now();
 			
-			completePatternOldMandatt3 = getOldMandatt3Concrete(completePatternOldMandatt3);
+			completePatternOldRefintRunningExample = getOldRefintRunningExampleConcrete(completePatternOldRefintRunningExample);
 			
 			finish = Instant.now();
 			timeElapsed = Duration.between(start, finish).toMillis();
@@ -140,7 +129,7 @@ public class CypherEvalMandAtt {
 			try {
 				start = Instant.now();
 				
-				System.out.println(completePatternOldMandatt3.generateCypher());
+				System.out.println(completePatternOldRefintRunningExample.generateCypher());
 				
 				finish = Instant.now();
 				timeElapsed = Duration.between(start, finish).toMillis();
@@ -150,16 +139,16 @@ public class CypherEvalMandAtt {
 			}
 		}
 		
-		private static CompletePattern getOldMandatt3Generic() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-			return EvalMandAtt.getMandatt3Generic();
+		private static CompletePattern getOldRefintRunningExampleGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+			return EvalRefInt.getRefintRunningExampleGeneric();
 		}
 		
-		private static CompletePattern getOldMandatt3Abstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		private static CompletePattern getOldRefintRunningExampleAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 			completePattern.createNeo4jAdaption();
 			return completePattern;
 		}
 		
-		private static CompletePattern getOldMandatt3Concrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		private static CompletePattern getOldRefintRunningExampleConcrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 			DummyFiller.replace(completePattern);
 			return completePattern;
 		}

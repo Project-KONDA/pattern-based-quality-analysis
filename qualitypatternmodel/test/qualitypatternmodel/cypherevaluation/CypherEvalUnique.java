@@ -40,14 +40,14 @@ public class CypherEvalUnique {
 		System.out.println("---");
 		System.out.println();
 		
-		////Dummy-files for old ones --> The followings are not SUPPORTED
-//		printgetUniqueCondGeneric();
-//		
-//		System.out.println();
-//		System.out.println("---");
-//		System.out.println();
-//		
-//		printUniqueCondComplexGeneric();
+		//Dummy-files for old ones --> The followings are not SUPPORTED
+		printgetUniqueCondGeneric();
+		
+		System.out.println();
+		System.out.println("---");
+		System.out.println();
+		
+		printUniqueCondComplexGeneric();
 		
 	}
 
