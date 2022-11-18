@@ -34,13 +34,7 @@ public class CypherEvalAppDup {
 		System.out.println("---");
 		System.out.println();
 		
-		printAppDup3Generic();
-		
-//		System.out.println();
-//		System.out.println("---");
-//		System.out.println();
-//		
-//		printAppDup3CondGeneric();		
+		printAppDup3Generic();	
 	}
 	
 	//Old ones
