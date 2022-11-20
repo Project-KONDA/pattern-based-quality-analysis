@@ -1349,7 +1349,7 @@
       <eOperations name="getCypherReturnVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoPathPart" eType="#//adaptionneo4j/NeoPathPart"
-          eOpposite="#//adaptionneo4j/NeoPathPart/neoParam"/>
+          containment="true" eOpposite="#//adaptionneo4j/NeoPathPart/neoParam"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="NeoPlace">
       <eLiterals name="BEGINNING"/>

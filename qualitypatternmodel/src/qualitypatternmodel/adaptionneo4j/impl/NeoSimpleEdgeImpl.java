@@ -193,7 +193,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		cypher.append("[");
 		cypher.append(CypherSpecificConstants.VARIABLE_EGDE);
 		
-		NeoAbstractPathParamImpl param = (NeoAbstractPathParamImpl) getNeoAbstractPathParam();
+		NeoAbstractPathParamImpl param = (NeoAbstractPathParamImpl) getNeoParam();
 		int relationID = param.getRelationNumber();
 		cypher.append(relationID);
 		
@@ -211,7 +211,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	@Override
 	public String getCypherVariable() throws InvalidityException {
 		String cypher = null;
-		cypher = super.getCypherVariable() + ((NeoAbstractPathParamImpl) getNeoAbstractPathParam()).getRelationNumber();
+		cypher = super.getCypherVariable() + ((NeoAbstractPathParamImpl) (NeoAbstractPathParamImpl) getNeoParam()).getRelationNumber();
 		if (edgeNumber != 0) {
 			cypher += "_" + edgeNumber;
 		}
@@ -227,7 +227,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 */
 	@Override
 	public String getCypherInnerEdgeNodes(boolean isReturn) throws InvalidityException {
-		final NeoAbstractPathParamImpl neoAbstractPathParam = ((NeoAbstractPathParamImpl) getNeoAbstractPathParam());
+		final NeoAbstractPathParamImpl neoAbstractPathParam = (NeoAbstractPathParamImpl) getNeoParam();
 		String cypher = null;
 
 		if (getNeoTargetNodeLabels() == null) {

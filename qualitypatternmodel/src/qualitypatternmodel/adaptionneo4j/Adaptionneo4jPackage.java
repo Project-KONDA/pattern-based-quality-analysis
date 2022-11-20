@@ -1961,22 +1961,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PATH_PART__INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__INTERNAL_ID;
 
 	/**
-	 * The feature id for the '<em><b>Neo Path Param</b></em>' container reference.
+	 * The feature id for the '<em><b>Neo Param</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PART__NEO_PATH_PARAM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Neo Property Path Param</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PATH_PART__NEO_PROPERTY_PATH_PARAM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
+	int NEO_PATH_PART__NEO_PARAM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Neo Complex Edge</b></em>' container reference.
@@ -1985,7 +1976,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PART__NEO_COMPLEX_EDGE = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int NEO_PATH_PART__NEO_COMPLEX_EDGE = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Neo Path Part</em>' class.
@@ -1994,7 +1985,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PART_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
+	int NEO_PATH_PART_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2277,22 +2268,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_COMPLEX_EDGE__INTERNAL_ID = NEO_PATH_PART__INTERNAL_ID;
 
 	/**
-	 * The feature id for the '<em><b>Neo Path Param</b></em>' container reference.
+	 * The feature id for the '<em><b>Neo Param</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_COMPLEX_EDGE__NEO_PATH_PARAM = NEO_PATH_PART__NEO_PATH_PARAM;
-
-	/**
-	 * The feature id for the '<em><b>Neo Property Path Param</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_COMPLEX_EDGE__NEO_PROPERTY_PATH_PARAM = NEO_PATH_PART__NEO_PROPERTY_PATH_PARAM;
+	int NEO_COMPLEX_EDGE__NEO_PARAM = NEO_PATH_PART__NEO_PARAM;
 
 	/**
 	 * The feature id for the '<em><b>Neo Complex Edge</b></em>' container reference.
@@ -2620,22 +2602,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_SIMPLE_EDGE__INTERNAL_ID = NEO_PATH_PART__INTERNAL_ID;
 
 	/**
-	 * The feature id for the '<em><b>Neo Path Param</b></em>' container reference.
+	 * The feature id for the '<em><b>Neo Param</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE__NEO_PATH_PARAM = NEO_PATH_PART__NEO_PATH_PARAM;
-
-	/**
-	 * The feature id for the '<em><b>Neo Property Path Param</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_SIMPLE_EDGE__NEO_PROPERTY_PATH_PARAM = NEO_PATH_PART__NEO_PROPERTY_PATH_PARAM;
+	int NEO_SIMPLE_EDGE__NEO_PARAM = NEO_PATH_PART__NEO_PARAM;
 
 	/**
 	 * The feature id for the '<em><b>Neo Complex Edge</b></em>' container reference.
@@ -3891,13 +3864,22 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ABSTRACT_PATH_PARAM__DESCRIPTION = ParametersPackage.PARAMETER__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Neo Path Part</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ABSTRACT_PATH_PARAM__NEO_PATH_PART = ParametersPackage.PARAMETER_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Neo Abstract Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM_FEATURE_COUNT = ParametersPackage.PARAMETER_FEATURE_COUNT + 0;
+	int NEO_ABSTRACT_PATH_PARAM_FEATURE_COUNT = ParametersPackage.PARAMETER_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -4297,6 +4279,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PATH_PARAM__DESCRIPTION = NEO_ABSTRACT_PATH_PARAM__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Neo Path Part</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PARAM__NEO_PATH_PART = NEO_ABSTRACT_PATH_PARAM__NEO_PATH_PART;
+
+	/**
 	 * The feature id for the '<em><b>Neo Edge</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4306,22 +4297,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PATH_PARAM__NEO_EDGE = NEO_ABSTRACT_PATH_PARAM_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Neo Path Part</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PATH_PARAM__NEO_PATH_PART = NEO_ABSTRACT_PATH_PARAM_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Neo Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PARAM_FEATURE_COUNT = NEO_ABSTRACT_PATH_PARAM_FEATURE_COUNT + 2;
+	int NEO_PATH_PARAM_FEATURE_COUNT = NEO_ABSTRACT_PATH_PARAM_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -4721,6 +4703,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_PATH_PARAM__DESCRIPTION = NEO_ABSTRACT_PATH_PARAM__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Neo Path Part</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART = NEO_ABSTRACT_PATH_PARAM__NEO_PATH_PART;
+
+	/**
 	 * The feature id for the '<em><b>Neo Property Edge</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4730,7 +4721,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_EDGE = NEO_ABSTRACT_PATH_PARAM_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Neo Property Name</b></em>' reference.
+	 * The feature id for the '<em><b>Neo Property Name</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -4739,22 +4730,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_NAME = NEO_ABSTRACT_PATH_PARAM_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Neo Path Part</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART = NEO_ABSTRACT_PATH_PARAM_FEATURE_COUNT + 2;
-
-	/**
 	 * The number of structural features of the '<em>Neo Property Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM_FEATURE_COUNT = NEO_ABSTRACT_PATH_PARAM_FEATURE_COUNT + 3;
+	int NEO_PROPERTY_PATH_PARAM_FEATURE_COUNT = NEO_ABSTRACT_PATH_PARAM_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -5865,26 +5847,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	EClass getNeoPathPart();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoPathParam <em>Neo Path Param</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoParam <em>Neo Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Neo Path Param</em>'.
-	 * @see qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoPathParam()
+	 * @return the meta object for the container reference '<em>Neo Param</em>'.
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoParam()
 	 * @see #getNeoPathPart()
 	 * @generated
 	 */
-	EReference getNeoPathPart_NeoPathParam();
-
-	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoPropertyPathParam <em>Neo Property Path Param</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Neo Property Path Param</em>'.
-	 * @see qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoPropertyPathParam()
-	 * @see #getNeoPathPart()
-	 * @generated
-	 */
-	EReference getNeoPathPart_NeoPropertyPathParam();
+	EReference getNeoPathPart_NeoParam();
 
 	/**
 	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoComplexEdge <em>Neo Complex Edge</em>}'.
@@ -6010,17 +5981,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	EReference getNeoPathParam_NeoEdge();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionneo4j.NeoPathParam#getNeoPathPart <em>Neo Path Part</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Neo Path Part</em>'.
-	 * @see qualitypatternmodel.adaptionneo4j.NeoPathParam#getNeoPathPart()
-	 * @see #getNeoPathParam()
-	 * @generated
-	 */
-	EReference getNeoPathParam_NeoPathPart();
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam <em>Neo Property Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6042,26 +6002,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	EReference getNeoPropertyPathParam_NeoPropertyEdge();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam#getNeoPropertyName <em>Neo Property Name</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam#getNeoPropertyName <em>Neo Property Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Neo Property Name</em>'.
+	 * @return the meta object for the containment reference '<em>Neo Property Name</em>'.
 	 * @see qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam#getNeoPropertyName()
 	 * @see #getNeoPropertyPathParam()
 	 * @generated
 	 */
 	EReference getNeoPropertyPathParam_NeoPropertyName();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam#getNeoPathPart <em>Neo Path Part</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Neo Path Part</em>'.
-	 * @see qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam#getNeoPathPart()
-	 * @see #getNeoPropertyPathParam()
-	 * @generated
-	 */
-	EReference getNeoPropertyPathParam_NeoPathPart();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam#setNeoPropertyName(java.lang.String) <em>Set Neo Property Name</em>}' operation.
@@ -6164,6 +6113,17 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getNeoAbstractPathParam();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam#getNeoPathPart <em>Neo Path Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Neo Path Part</em>'.
+	 * @see qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam#getNeoPathPart()
+	 * @see #getNeoAbstractPathParam()
+	 * @generated
+	 */
+	EReference getNeoAbstractPathParam_NeoPathPart();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}' operation.
@@ -6445,20 +6405,12 @@ public interface Adaptionneo4jPackage extends EPackage {
 		EClass NEO_PATH_PART = eINSTANCE.getNeoPathPart();
 
 		/**
-		 * The meta object literal for the '<em><b>Neo Path Param</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Neo Param</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NEO_PATH_PART__NEO_PATH_PARAM = eINSTANCE.getNeoPathPart_NeoPathParam();
-
-		/**
-		 * The meta object literal for the '<em><b>Neo Property Path Param</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NEO_PATH_PART__NEO_PROPERTY_PATH_PARAM = eINSTANCE.getNeoPathPart_NeoPropertyPathParam();
+		EReference NEO_PATH_PART__NEO_PARAM = eINSTANCE.getNeoPathPart_NeoParam();
 
 		/**
 		 * The meta object literal for the '<em><b>Neo Complex Edge</b></em>' container reference feature.
@@ -6561,14 +6513,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 		EReference NEO_PATH_PARAM__NEO_EDGE = eINSTANCE.getNeoPathParam_NeoEdge();
 
 		/**
-		 * The meta object literal for the '<em><b>Neo Path Part</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NEO_PATH_PARAM__NEO_PATH_PART = eINSTANCE.getNeoPathParam_NeoPathPart();
-
-		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionneo4j.impl.NeoPropertyPathParamImpl <em>Neo Property Path Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6587,20 +6531,12 @@ public interface Adaptionneo4jPackage extends EPackage {
 		EReference NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_EDGE = eINSTANCE.getNeoPropertyPathParam_NeoPropertyEdge();
 
 		/**
-		 * The meta object literal for the '<em><b>Neo Property Name</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Neo Property Name</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_NAME = eINSTANCE.getNeoPropertyPathParam_NeoPropertyName();
-
-		/**
-		 * The meta object literal for the '<em><b>Neo Path Part</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART = eINSTANCE.getNeoPropertyPathParam_NeoPathPart();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Neo Property Name</b></em>' operation.
@@ -6687,6 +6623,14 @@ public interface Adaptionneo4jPackage extends EPackage {
 		 * @generated
 		 */
 		EClass NEO_ABSTRACT_PATH_PARAM = eINSTANCE.getNeoAbstractPathParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Neo Path Part</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NEO_ABSTRACT_PATH_PARAM__NEO_PATH_PART = eINSTANCE.getNeoAbstractPathParam_NeoPathPart();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Return Inner Edge Nodes</b></em>' operation.

@@ -33,7 +33,6 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionneo4j.impl.NeoPropertyPathParamImpl#getNeoPropertyEdge <em>Neo Property Edge</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionneo4j.impl.NeoPropertyPathParamImpl#getNeoPropertyName <em>Neo Property Name</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionneo4j.impl.NeoPropertyPathParamImpl#getNeoPathPart <em>Neo Path Part</em>}</li>
  * </ul>
  *
  * @generated
@@ -54,7 +53,7 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 	protected NeoPropertyEdge neoPropertyEdge;
 
 	/**
-	 * The cached value of the '{@link #getNeoPropertyName() <em>Neo Property Name</em>}' reference.
+	 * The cached value of the '{@link #getNeoPropertyName() <em>Neo Property Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getNeoPropertyName()
@@ -62,16 +61,6 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 	 * @ordered
 	 */
 	protected TextLiteralParam neoPropertyName;
-
-	/**
-	 * The cached value of the '{@link #getNeoPathPart() <em>Neo Path Part</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNeoPathPart()
-	 * @generated
-	 * @ordered
-	 */
-	protected NeoPathPart neoPathPart;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -90,51 +79,6 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 	@Override
 	protected EClass eStaticClass() {
 		return Adaptionneo4jPackage.Literals.NEO_PROPERTY_PATH_PARAM;
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NeoPathPart getNeoPathPart() {
-		return neoPathPart;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetNeoPathPart(NeoPathPart newNeoPathPart, NotificationChain msgs) {
-		NeoPathPart oldNeoPathPart = neoPathPart;
-		neoPathPart = newNeoPathPart;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART, oldNeoPathPart, newNeoPathPart);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setNeoPathPart(NeoPathPart newNeoPathPart) {
-		if (newNeoPathPart != neoPathPart) {
-			NotificationChain msgs = null;
-			if (neoPathPart != null)
-				msgs = ((InternalEObject)neoPathPart).eInverseRemove(this, Adaptionneo4jPackage.NEO_PATH_PART__NEO_PROPERTY_PATH_PARAM, NeoPathPart.class, msgs);
-			if (newNeoPathPart != null)
-				msgs = ((InternalEObject)newNeoPathPart).eInverseAdd(this, Adaptionneo4jPackage.NEO_PATH_PART__NEO_PROPERTY_PATH_PARAM, NeoPathPart.class, msgs);
-			msgs = basicSetNeoPathPart(newNeoPathPart, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART, newNeoPathPart, newNeoPathPart));
 	}
 
 	//Is it okay that I do the check here or shall I do the check in the Parts?
@@ -281,8 +225,14 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TextLiteralParam basicGetNeoPropertyName() {
-		return neoPropertyName;
+	public NotificationChain basicSetNeoPropertyName(TextLiteralParam newNeoPropertyName, NotificationChain msgs) {
+		TextLiteralParam oldNeoPropertyName = neoPropertyName;
+		neoPropertyName = newNeoPropertyName;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_NAME, oldNeoPropertyName, newNeoPropertyName);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -292,10 +242,17 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 	 */
 	@Override
 	public void setNeoPropertyName(TextLiteralParam newNeoPropertyName) {
-		TextLiteralParam oldNeoPropertyName = neoPropertyName;
-		neoPropertyName = newNeoPropertyName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_NAME, oldNeoPropertyName, neoPropertyName));
+		if (newNeoPropertyName != neoPropertyName) {
+			NotificationChain msgs = null;
+			if (neoPropertyName != null)
+				msgs = ((InternalEObject)neoPropertyName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_NAME, null, msgs);
+			if (newNeoPropertyName != null)
+				msgs = ((InternalEObject)newNeoPropertyName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_NAME, null, msgs);
+			msgs = basicSetNeoPropertyName(newNeoPropertyName, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_NAME, newNeoPropertyName, newNeoPropertyName));
 	}
 
 	/**
@@ -326,10 +283,6 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 				if (neoPropertyEdge != null)
 					msgs = ((InternalEObject)neoPropertyEdge).eInverseRemove(this, Adaptionneo4jPackage.NEO_PROPERTY_EDGE__NEO_PROPERTY_PATH_PARAM, NeoPropertyEdge.class, msgs);
 				return basicSetNeoPropertyEdge((NeoPropertyEdge)otherEnd, msgs);
-			case Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART:
-				if (neoPathPart != null)
-					msgs = ((InternalEObject)neoPathPart).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART, null, msgs);
-				return basicSetNeoPathPart((NeoPathPart)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -344,8 +297,8 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 		switch (featureID) {
 			case Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_EDGE:
 				return basicSetNeoPropertyEdge(null, msgs);
-			case Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART:
-				return basicSetNeoPathPart(null, msgs);
+			case Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_NAME:
+				return basicSetNeoPropertyName(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -362,10 +315,7 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 				if (resolve) return getNeoPropertyEdge();
 				return basicGetNeoPropertyEdge();
 			case Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_NAME:
-				if (resolve) return getNeoPropertyName();
-				return basicGetNeoPropertyName();
-			case Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART:
-				return getNeoPathPart();
+				return getNeoPropertyName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -385,9 +335,6 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 			case Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_NAME:
 				setNeoPropertyName((TextLiteralParam)newValue);
 				return;
-			case Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART:
-				setNeoPathPart((NeoPathPart)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -406,9 +353,6 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 			case Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_NAME:
 				setNeoPropertyName((TextLiteralParam)null);
 				return;
-			case Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART:
-				setNeoPathPart((NeoPathPart)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -425,8 +369,6 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 				return neoPropertyEdge != null;
 			case Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_NAME:
 				return neoPropertyName != null;
-			case Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART:
-				return neoPathPart != null;
 		}
 		return super.eIsSet(featureID);
 	}

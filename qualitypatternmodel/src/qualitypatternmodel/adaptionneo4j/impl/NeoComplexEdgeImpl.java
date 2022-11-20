@@ -412,6 +412,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	@Override
 	public void setNeoComplexEdge(NeoComplexEdge newNeoComplexEdge) {
 		super.setNeoComplexEdge(newNeoComplexEdge);
+		setNeoParam(getHighestComplexEdge().getNeoParam());
 		setCount(getHighestComplexEdge().getCount());
 		for (NeoPathPart part : getNeoPathParts()) {
 			((NeoPathPartImpl) part).setCount(getCount());

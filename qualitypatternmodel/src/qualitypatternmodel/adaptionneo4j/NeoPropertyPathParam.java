@@ -15,7 +15,6 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam#getNeoPropertyEdge <em>Neo Property Edge</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam#getNeoPropertyName <em>Neo Property Name</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam#getNeoPathPart <em>Neo Path Part</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoPropertyPathParam()
@@ -60,38 +59,14 @@ public interface NeoPropertyPathParam extends NeoAbstractPathParam {
 	String getNeoPropertyName();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam#getNeoPropertyName <em>Neo Property Name</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam#getNeoPropertyName <em>Neo Property Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Neo Property Name</em>' reference.
+	 * @param value the new value of the '<em>Neo Property Name</em>' containment reference.
 	 * @see #getNeoPropertyName()
 	 * @generated
 	 */
 	void setNeoPropertyName(TextLiteralParam value);
-
-	/**
-	 * Returns the value of the '<em><b>Neo Path Part</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoPropertyPathParam <em>Neo Property Path Param</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Neo Path Part</em>' containment reference.
-	 * @see #setNeoPathPart(NeoPathPart)
-	 * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoPropertyPathParam_NeoPathPart()
-	 * @see qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoPropertyPathParam
-	 * @model opposite="neoPropertyPathParam" containment="true"
-	 * @generated
-	 */
-	NeoPathPart getNeoPathPart();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam#getNeoPathPart <em>Neo Path Part</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Neo Path Part</em>' containment reference.
-	 * @see #getNeoPathPart()
-	 * @generated
-	 */
-	void setNeoPathPart(NeoPathPart value);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -24,7 +24,7 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CypherTest10Match match = new CypherTest10Match();
 		try {
-//			match.generalizedTests();         
+			match.generalizedTests();         
 			match.generalizedInvalidtyExceptionTests();
 		} catch (Exception e) {
 			System.out.println(e);
