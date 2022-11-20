@@ -312,13 +312,6 @@ public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 		return field;
 	}
 
-
-	@Override
-	public void getCypherInnerEdgeNodes(boolean isReturn) throws InvalidityException {
-		// TODO Auto-generated method stub
-		
-	}
-
 	@Test
 	@Override
 	public void getNeoLastEdge() throws InvalidityException {
@@ -351,10 +344,55 @@ public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 		//has not to be tested since it is a simple getter
 	}
 
+	/**
+	 * Partly also implicit test of generateInternalCypher + generateInternalCypherLabelGenerator
+	 */
+	@Test
 	@Override
 	public void generateCypher() {
-		// TODO Auto-generated method stub
-		
+		try {
+			neoSimpleEdge.setNeoParam(FACTORY.createNeoPathParam());
+			//IMPLICIT
+			neoSimpleEdge.setNeoDirection(NeoDirection.IMPLICIT);
+			assertTrue(neoSimpleEdge.generateCypher().compareTo("-[varEdge-1]-") == 0);
+			//LEFT
+			neoSimpleEdge.setNeoDirection(NeoDirection.RIGHT);
+			assertTrue(neoSimpleEdge.generateCypher().compareTo("-[varEdge-1]->") == 0);
+			
+			//RIGHT
+			neoSimpleEdge.setNeoDirection(NeoDirection.LEFT);
+			assertTrue(neoSimpleEdge.generateCypher().compareTo("<-[varEdge-1]-") == 0);
+			
+			//IMPLICIT - WITH LABEL
+			neoSimpleEdge.setNeoDirection(NeoDirection.IMPLICIT);
+			neoSimpleEdge.addNeoEdgeLabel("testLabel");
+			assertTrue(neoSimpleEdge.generateCypher().compareTo("-[varEdge-1:testLabel]-") == 0);
+			
+			//LEFT - WITH LABEL
+			neoSimpleEdge.setNeoDirection(NeoDirection.RIGHT);
+			assertTrue(neoSimpleEdge.generateCypher().compareTo("-[varEdge-1:testLabel]->") == 0);
+			
+			//RIGHT - WITH LABEL
+			neoSimpleEdge.setNeoDirection(NeoDirection.LEFT);
+			assertTrue(neoSimpleEdge.generateCypher().compareTo("<-[varEdge-1:testLabel]-") == 0);
+			
+			neoSimpleEdge.setNeoEdgeLabel(null);
+			
+			//WITH TARGET-Label
+			neoSimpleEdge.setNeoDirection(NeoDirection.IMPLICIT);
+			neoSimpleEdge.addNeoTargetNodeLabel("testLabel");
+			assertTrue(neoSimpleEdge.generateCypher().compareTo("-[varEdge-1]-(intEgNode-1:testLabel)") == 0);
+			
+			//WITH AN EMPTY STRING_LABEL
+			neoSimpleEdge.addNeoTargetNodeLabel(new String());
+			assertTrue(neoSimpleEdge.generateCypher().compareTo("-[varEdge-1]-(intEgNode-1:testLabel)") == 0);
+			
+			//WITH TARGET-Label AND EDGE-Label
+			neoSimpleEdge.addNeoEdgeLabel("testLabel");
+			assertTrue(neoSimpleEdge.generateCypher().compareTo("-[varEdge-1:testLabel]-(intEgNode-1:testLabel)") == 0);
+		} catch (Exception e) {
+			assertFalse(true);
+		}
 	}
 
 	@Override
@@ -362,10 +400,9 @@ public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 		// TODO Auto-generated method stub
 		
 	}
-
-	//Maybe not needed 
+	
 	@Override
-	public void isValidLocal() {
+	public void getCypherInnerEdgeNodes(boolean isReturn) throws InvalidityException {
 		// TODO Auto-generated method stub
 		
 	}
@@ -409,7 +446,14 @@ public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 		}
 	}
 
-	//REMOCE
+	//Maybe not needed 
+	@Override
+	public void isValidLocal() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	//REMOVE
 	@Override
 	public void setNeoComplexEdge() {
 		// TODO Auto-generated method stub

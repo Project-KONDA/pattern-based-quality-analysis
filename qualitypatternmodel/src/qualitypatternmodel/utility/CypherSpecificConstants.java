@@ -61,6 +61,13 @@ public class CypherSpecificConstants {
 	public static final String SIGNLE_OPENING_ROUND_BRACKET = "(";
 	public static final String SIGNLE_CLOSING_ROUND_BRACKET = ")";
 	
+	public static final String LOCAL_ID_SEPERATOR = "_";
+	public static final String EDGE_OPENING_BRACKET = "[";
+	public static final String EDGE_CLOSING_BRACKET = "]";
+	public static final String EDGE_CONNECTOR_LINE = "-";
+	public static final String EDGE_CONNECTOR_RIGHT = "->";
+	public static final String EDGE_CONNECTOR_LEFT = "<-";
+	
 	//Cypher Specific Exception Messages
 	public static final String THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY = "The current version does not support this functionality";
 	public static final String NO_VALID_PROPERTY_IS_ACCESSABLE = "No valid Property is accessable";
