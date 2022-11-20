@@ -32,13 +32,14 @@ public interface NeoPathPart extends PatternElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Neo Param</em>' container reference.
+	 * @throws InvalidityException 
 	 * @see #setNeoParam(NeoAbstractPathParam)
 	 * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoPathPart_NeoParam()
 	 * @see qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam#getNeoPathPart
 	 * @model opposite="neoPathPart" transient="false"
-	 * @generated
+	 * @generated NOT 
 	 */
-	NeoAbstractPathParam getNeoParam();
+	NeoAbstractPathParam getNeoParam() throws InvalidityException;
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoParam <em>Neo Param</em>}' container reference.

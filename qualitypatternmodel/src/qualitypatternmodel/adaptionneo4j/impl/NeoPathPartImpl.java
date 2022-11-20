@@ -37,8 +37,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  */
 public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoPathPart {
 	
-	private static final String NO_NEO_ABSTRACT_PATH_PARAM_IS_SET_AT_LAST_MIN_MAX_1_SHOULD_BE = "No NeoAbstractPathParam is set - at last min/max 1 should be";
-	private static final String AMBIGUOUS_NEO_ABSTRACT_PATH_PARAM_ONLY_ONE_CAN_BE_SET = "Ambiguous NeoAbstractPathParam - Only one can be set";
+	private static final String NO_NEO_ABSTRACT_PATH_PARAM_IS_SET = "No NeoAbstractPathParam is set";
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -62,10 +61,11 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
 	 * @generated
 	 */
 	@Override
-	public NeoAbstractPathParam getNeoParam() {
+	public NeoAbstractPathParam getNeoParam() throws InvalidityException {
 		NeoComplexEdge neoComplexEdge = null;
 		NeoComplexEdge nextNeoComplexEdge = getNeoComplexEdge();
 		if (nextNeoComplexEdge != null) {
@@ -75,7 +75,7 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 			} while (nextNeoComplexEdge != null);			
 		}
 		if (neoComplexEdge == null) {
-			if (eContainerFeatureID() != Adaptionneo4jPackage.NEO_PATH_PART__NEO_PARAM) return null;
+			if (eContainerFeatureID() != Adaptionneo4jPackage.NEO_PATH_PART__NEO_PARAM) throw new InvalidityException(NO_NEO_ABSTRACT_PATH_PARAM_IS_SET);
 			return (NeoAbstractPathParam)eInternalContainer();			
 		} else {
 			return neoComplexEdge.getNeoParam();
@@ -259,13 +259,17 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case Adaptionneo4jPackage.NEO_PATH_PART__NEO_PARAM:
-				return getNeoParam();
+				try {
+					return getNeoParam() != null;
+				} catch (Exception e) {
+					throw new RuntimeException(e.getCause());
+				}
 			case Adaptionneo4jPackage.NEO_PATH_PART__NEO_COMPLEX_EDGE:
 				return getNeoComplexEdge();
 		}
@@ -311,13 +315,17 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case Adaptionneo4jPackage.NEO_PATH_PART__NEO_PARAM:
-				return getNeoParam() != null;
+				try {
+					return getNeoParam() != null;
+				} catch (Exception e) {
+					throw new RuntimeException(e.getCause());
+				}
 			case Adaptionneo4jPackage.NEO_PATH_PART__NEO_COMPLEX_EDGE:
 				return getNeoComplexEdge() != null;
 		}
