@@ -495,7 +495,8 @@ public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 		//isLastEdge NeoPathParam
 		
 		//is not isLastEdge
-		
+		neoSimpleEdge.addNeoTargetNodeLabel("testLabel");
+		assertTrue(neoSimpleEdge.getCypherInnerEdgeNodes(isReturn).compareTo("intEgNode-1") == 0);			
 	}
 	
 	@Test
