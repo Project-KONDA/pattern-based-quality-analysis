@@ -22,6 +22,7 @@ import qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
+import qualitypatternmodel.adaptionneo4j.impl.NeoAbstractPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoComplexEdgeImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoNodeImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyEdgeImpl;
@@ -151,7 +152,7 @@ public class Cypher02NeoPropertyEdgeTest extends NeoAbstractEdgeTest {
 			
 			//Get the Exception
 			NeoPathPart mockNeoPathPart = Mockito.mock(NeoPathPart.class);
-			Field f = getNeoAbstractPathParamField(NeoPropertyPathParamImpl.class, "neoPathPart");
+			Field f = getNeoAbstractPathParamField(NeoAbstractPathParamImpl.class, "neoPathPart");
 			f.set(propertyName, mockNeoPathPart);
 			assertThrows(InvalidityException.class, () -> neoPropertyEdge.generateCypherNodeVariable());
 		} catch (Exception e) {

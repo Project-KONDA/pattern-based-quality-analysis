@@ -44,6 +44,7 @@ import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 	private static Method generateInternalCypherMethod = null;
 	private static Field isLastEdgeField = null;
+	private static Field edgeNumberField = null;
 	NeoSimpleEdge neoSimpleEdge;
 	
 	@BeforeAll
@@ -55,6 +56,8 @@ public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 		generateInternalCypherMethod.setAccessible(true);
 		isLastEdgeField = neoSimpleEdgeClass.getDeclaredField("isLastEdge");
 		isLastEdgeField.setAccessible(true);
+		edgeNumberField = neoSimpleEdgeClass.getDeclaredField("edgeNumber");
+		edgeNumberField.setAccessible(true);
     }
 	
 	@BeforeEach
@@ -268,7 +271,7 @@ public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 	@Override
 	public void getCypherVariable() {
 		try {
-			createMockingForNeoPathParam(neoSimpleEdge);
+			neoSimpleEdge = createMockingForNeoPathParam(neoSimpleEdge);
 			assertEquals("varEdge1", neoSimpleEdge.getCypherVariable());
 		} catch (Exception e) {
 			System.out.println(e);
@@ -279,9 +282,8 @@ public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 	@Test
 	public void getCypherVariableWithSubNumber() {
 		try {
-			createMockingForNeoPathParam(neoSimpleEdge);
-			Field field = getEdgeNumber();
-			field.set(neoSimpleEdge, 1);
+			neoSimpleEdge = createMockingForNeoPathParam(neoSimpleEdge);
+			edgeNumberField.set(neoSimpleEdge, 1);
 			assertEquals("varEdge1_1", neoSimpleEdge.getCypherVariable());
 		} catch (Exception e) {
 			System.out.println(e);
@@ -293,7 +295,7 @@ public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 	@Test
 	public void getCypherVariableNeoPropertyPathParam() {
 		try {
-			createMockingForNeoPropertyPathParam(neoSimpleEdge);
+			neoSimpleEdge = createMockingForNeoPropertyPathParam(neoSimpleEdge);
 			assertEquals("varEdge1", neoSimpleEdge.getCypherVariable());
 		} catch (Exception e) {
 			System.out.println(e);
@@ -306,22 +308,13 @@ public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 	@Test
 	public void getCypherVariableWithSubNumberPropertyPathParam() {
 		try {
-			createMockingForNeoPropertyPathParam(neoSimpleEdge);
-			Field field = getEdgeNumber();
-			field.set(neoSimpleEdge, 1);
+			neoSimpleEdge = createMockingForNeoPropertyPathParam(neoSimpleEdge);
+			edgeNumberField.set(neoSimpleEdge, 1);
 			assertEquals("varEdge1_1", neoSimpleEdge.getCypherVariable());
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true); // Introduce this in every catch
 		}
-	}
-
-	//Pull-Up?
-	private Field getEdgeNumber() throws NoSuchFieldException {
-		Class obj = NeoSimpleEdgeImpl.class;			
-		Field field = obj.getDeclaredField("edgeNumber");
-		field.setAccessible(true);
-		return field;
 	}
 
 	@Test
@@ -560,17 +553,19 @@ public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 	}
 	
 	//METHOD FACTORIES
-	private static void createMockingForNeoPathParam(NeoSimpleEdge neoSimpleEdge) {
+	private static NeoSimpleEdge createMockingForNeoPathParam(NeoSimpleEdge neoSimpleEdge) {
 		MyClassMockNeoPathParamImpl mockNeoPathParam = 
 				Mockito.mock(MyClassMockNeoPathParamImpl.class);
 		Mockito.when(mockNeoPathParam.getRelationNumber()).thenReturn(1); 
 		neoSimpleEdge.setNeoParam(mockNeoPathParam);
+		return neoSimpleEdge;
 	}
 	
-	private static void createMockingForNeoPropertyPathParam(NeoSimpleEdge neoSimpleEdge) {
+	private static NeoSimpleEdge createMockingForNeoPropertyPathParam(NeoSimpleEdge neoSimpleEdge) {
 		MyClassMockNeoPropertyPathParamImpl mockNeoPropertyPathParam = 
 				Mockito.mock(MyClassMockNeoPropertyPathParamImpl.class);
 		Mockito.when(mockNeoPropertyPathParam.getRelationNumber()).thenReturn(1); 
 		neoSimpleEdge.setNeoParam(mockNeoPropertyPathParam);
+		return neoSimpleEdge;
 	}
 }
