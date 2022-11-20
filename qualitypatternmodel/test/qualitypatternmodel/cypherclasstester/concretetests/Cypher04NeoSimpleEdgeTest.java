@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -41,11 +42,19 @@ import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 
 @DisplayName("NeoSimpleEdge Test")
 public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
+	private static Method generateInternalCypherMethod = null;
+	private static Field isLastEdgeField = null;
 	NeoSimpleEdge neoSimpleEdge;
 	
 	@BeforeAll
-    static void initAll() {
+    static void initAll() throws NoSuchMethodException, SecurityException, NoSuchFieldException {
+		Class<NeoSimpleEdgeImpl> neoSimpleEdgeClass = NeoSimpleEdgeImpl.class;
 		
+		Class<?>[] paramsStringBuilderBoolean = {StringBuilder.class, Boolean.class};
+		generateInternalCypherMethod = neoSimpleEdgeClass.getDeclaredMethod("generateInternalCypher", paramsStringBuilderBoolean);
+		generateInternalCypherMethod.setAccessible(true);
+		isLastEdgeField = neoSimpleEdgeClass.getDeclaredField("isLastEdge");
+		isLastEdgeField.setAccessible(true);
     }
 	
 	@BeforeEach
@@ -62,7 +71,10 @@ public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 	
 	@AfterAll
 	static void tearDownAll() {
-		
+		generateInternalCypherMethod.setAccessible(false);
+		generateInternalCypherMethod = null;
+		isLastEdgeField.setAccessible(false);
+		isLastEdgeField = null;
     }
 	
 	@Test
@@ -325,14 +337,11 @@ public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 	
 	@Test
 	public void isNotNeoLastEdge() throws InvalidityException {
-		try {
-			Class c = NeoSimpleEdgeImpl.class;
-			Field f = c.getDeclaredField("isLastEdge");
-			f.setAccessible(true);
-			f.set(neoPathPart, false);
+		try {			
+			isLastEdgeField.set(neoPathPart, false);
 			assertEquals(null, neoPathPart.getNeoLastEdge());
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 			assertFalse(true);
 		}
 	}
@@ -395,15 +404,97 @@ public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 		}
 	}
 
+	@Test
 	@Override
 	public void generateInternalCypher() {
-		// TODO Auto-generated method stub
-		
+		try {
+			String temp = null;
+			
+			StringBuilder localStringBuilder = new StringBuilder();
+			Object[] params = {localStringBuilder, false};
+			neoSimpleEdge.setNeoParam(FACTORY.createNeoPathParam());
+			
+			//IMPLICIT
+			neoSimpleEdge.setNeoDirection(NeoDirection.IMPLICIT);
+			generateInternalCypherMethod.invoke(neoSimpleEdge, params);
+			temp = localStringBuilder.toString();
+			localStringBuilder.setLength(0);
+			assertTrue(temp.compareTo("-[varEdge-1]-") == 0);
+			
+			//LEFT
+			neoSimpleEdge.setNeoDirection(NeoDirection.RIGHT);
+			generateInternalCypherMethod.invoke(neoSimpleEdge, params);
+			temp = localStringBuilder.toString();
+			localStringBuilder.setLength(0);
+			assertTrue(temp.compareTo("-[varEdge-1]->") == 0);
+			
+			//IMPLICIT - WITH LABEL BUT NOT PRINTED
+			neoSimpleEdge.setNeoDirection(NeoDirection.IMPLICIT);
+			neoSimpleEdge.addNeoEdgeLabel("testLabel");
+			generateInternalCypherMethod.invoke(neoSimpleEdge, params);
+			temp = localStringBuilder.toString();
+			localStringBuilder.setLength(0);
+			assertTrue(temp.compareTo("-[varEdge-1]-") == 0);
+			
+			//LEFT - WITH LABEL
+			neoSimpleEdge.setNeoDirection(NeoDirection.RIGHT);
+			generateInternalCypherMethod.invoke(neoSimpleEdge, params);
+			temp = localStringBuilder.toString();
+			localStringBuilder.setLength(0);
+			assertTrue(temp.compareTo("-[varEdge-1]->") == 0);
+			
+			//RIGHT - WITH LABEL
+			neoSimpleEdge.setNeoDirection(NeoDirection.LEFT);
+			generateInternalCypherMethod.invoke(neoSimpleEdge, params);
+			temp = localStringBuilder.toString();
+			localStringBuilder.setLength(0);
+			assertTrue(temp.compareTo("<-[varEdge-1]-") == 0);
+			
+			//Reset
+			neoSimpleEdge.setNeoEdgeLabel(null);
+			
+			//WITH TARGET-Label
+			neoSimpleEdge.setNeoDirection(NeoDirection.IMPLICIT);
+			neoSimpleEdge.addNeoTargetNodeLabel("testLabel");
+			generateInternalCypherMethod.invoke(neoSimpleEdge, params);
+			temp = localStringBuilder.toString();
+			localStringBuilder.setLength(0);
+			assertTrue(temp.compareTo("-[varEdge-1]-(intEgNode-1)") == 0);
+			
+			//WITH AN EMPTY STRING_LABEL
+			neoSimpleEdge.addNeoTargetNodeLabel(new String());
+			generateInternalCypherMethod.invoke(neoSimpleEdge, params);
+			temp = localStringBuilder.toString();
+			localStringBuilder.setLength(0);
+			assertTrue(temp.compareTo("-[varEdge-1]-(intEgNode-1)") == 0);
+			
+			//WITH TARGET-Label AND EDGE-Label
+			neoSimpleEdge.addNeoEdgeLabel("testLabel");
+			generateInternalCypherMethod.invoke(neoSimpleEdge, params);
+			temp = localStringBuilder.toString();
+			localStringBuilder.setLength(0);
+			assertTrue(temp.compareTo("-[varEdge-1]-(intEgNode-1)") == 0);
+			
+		} catch (Exception e) {
+			assertFalse(true);
+			e.printStackTrace();
+		}		
 	}
 	
 	@Override
+	@ParameterizedTest
+	@ValueSource(booleans =  {true, false})
 	public void getCypherInnerEdgeNodes(boolean isReturn) throws InvalidityException {
-		// TODO Auto-generated method stub
+		neoSimpleEdge.setNeoParam(FACTORY.createNeoPathParam());
+		
+		//No TargetNodeLabels
+		assertEquals(null, neoSimpleEdge.getCypherInnerEdgeNodes(isReturn));
+
+		//isLastEdge NeoPropertyPathParam
+
+		//isLastEdge NeoPathParam
+		
+		//is not isLastEdge
 		
 	}
 	
