@@ -47,10 +47,13 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  */
 
 public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge {
+	private static final String EDGE_TARGET_NODE_LABELS = "Edge-Target-Node-Labels";
+	private static final String EDGE_LABELS = "Edge-Labels:";
 	private static final String NEO_DIRECTION_CAN_NOT_BE_NULL = "NeoDirection can not be null";
 	private static final String SOMETHING_WENT_WRONG_IN_THE_SIMPLE_NEO_EDGE_DIRECTION_HAS_NOT_BEEN_SET_CORRECTLY = "Something went wrong in the SimpleNeoEdge - direction has not been set correctly";
 	private static final String A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S = "A Label can not contain Whitespace(s)";
-
+	private static final String NEO_SIMPLE_EDGE_S = "NeoSimpleEdge [%s] ";
+	
 	/**
 	 * The cached value of the '{@link #getKeyValueParam() <em>Key Value Param</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -217,11 +220,15 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	}
 	
 	
-	//Impove what happens is no NeoAbstractPathParam is set
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
+	 * @author Lukas Sebastian Hofmann
+	 * Returns the InnerEdge used. However, the NeoPropertyNode is a special inner edge. For that reason is the isReturn argument.
+	 * If the Method is used in the context of building the the string for the match clause all possible return elements will be returned.
+	 * In the case that it is used in the RETURN-CLAUSE the NeoPropertyNode will be build first and not listed with the other intEdgeNodes.
+	 * It has a higher significance as the other intEdgeNodes.
 	 */
 	@Override
 	public String getCypherInnerEdgeNodes(boolean isReturn) throws InvalidityException {
@@ -701,8 +708,28 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 
 	@Override
 	public String myToString() {
-		// TODO Auto-generated method stub
-				return null;
+		final String temp = NEO_SIMPLE_EDGE_S + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET;
+		final StringBuilder cypher = new StringBuilder(String.format(temp, getId()));
+		if (!neoEdgeLabel.getValueAsString().isEmpty()) {
+			cypher.append(EDGE_LABELS + CypherSpecificConstants.EDGE_OPENING_BRACKET + neoEdgeLabel.getValueAsString() + CypherSpecificConstants.EDGE_CLOSING_BRACKET);
+			cypher.append(CypherSpecificConstants.ONE_WHITESPACE);
+		}
+		boolean isFirst = true;
+		for (String label : getNeoTargetNodeLabels().getValues()) {
+			if (!isFirst) {
+				cypher.append(CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE);
+			} else {
+				cypher.append(EDGE_TARGET_NODE_LABELS + CypherSpecificConstants.EDGE_OPENING_BRACKET);
+			}
+			cypher.append(label);
+			isFirst = false;
+		}
+		if (cypher.toString().contains(EDGE_TARGET_NODE_LABELS)) {
+			cypher.append(CypherSpecificConstants.EDGE_CLOSING_BRACKET);
+		}
+			
+		cypher.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
+		return cypher.toString();
 	}
 
 	@Override 

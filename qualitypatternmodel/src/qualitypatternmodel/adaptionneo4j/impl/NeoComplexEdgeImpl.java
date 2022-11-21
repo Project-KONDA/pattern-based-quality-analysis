@@ -36,8 +36,6 @@ import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
 
 public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdge {
 	private static final String NOT_A_VALID_COMPLEX_EDGE = "Not a valid ComplexEdge";
-	private static final String CLOSING_BRACKET = ")";
-	private static final String OPENING_BRACKET = "(";
 	private static final String NEO_COMPLEX_EDGE_S = "NeoComplexEdge [%s] ";
 	private static final String CONTAINS_NOT_ENOUGH_NEO_PATH_PARTS = " contains not enough NeoPathParts";
 	private static final String NEO_COMPLEX_PATH = "NeoComplexPath ";
@@ -253,17 +251,17 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 
 	@Override
 	public String myToString() {
-		final String temp = NEO_COMPLEX_EDGE_S + OPENING_BRACKET;
+		final String temp = NEO_COMPLEX_EDGE_S + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET;
 		final StringBuilder result = new StringBuilder(String.format(temp, getId()));
 		boolean isFirst = true;
 		for (NeoPathPart part : getNeoPathParts()) {
-			if (!isFirst) { //|| result.length() != String.format(temp, getId()).length()
+			if (!isFirst) {
 				result.append(CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE);
 			}
 			result.append(part.myToString());
 			isFirst = false;
 		}
-		result.append(CLOSING_BRACKET);
+		result.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
 		return result.toString();
 	}
 	
