@@ -333,7 +333,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		if (!cypherWhere.isEmpty() && !cypherWhereStructurComps.isEmpty()) {
 			cypher = CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET;
 			cypher += cypherWhere;
-			cypher += CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.SIX_WHITESPACES 
+			cypher += CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX 
 					+ CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE;
 			cypher += cypherWhereStructurComps;
 			cypher += CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
@@ -351,7 +351,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		for (Operator operator : opList.getOperators()) {
 			if (operator.generateCypher() != null) {
 				if (cypherOperators.length() != 1) {
-					cypherOperators.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.SIX_WHITESPACES 
+					cypherOperators.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX 
 							+ CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
 				}
 				cypherOperators.append(operator.generateCypher());	
