@@ -3572,13 +3572,22 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___RESET_QUERY = PATTERN_OPERATION_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Generate Wikidata Sparql</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___GENERATE_WIKIDATA_SPARQL = PATTERN_OPERATION_COUNT + 5;
+
+	/**
 	 * The number of operations of the '<em>Complete Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 5;
+	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.NotConditionImpl <em>Not Condition</em>}' class.
@@ -6082,6 +6091,16 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getCompletePattern__ResetQuery();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#generateWikidataSparql() <em>Generate Wikidata Sparql</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Wikidata Sparql</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#generateWikidataSparql()
+	 * @generated
+	 */
+	EOperation getCompletePattern__GenerateWikidataSparql();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.PatternElement <em>Pattern Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7158,6 +7177,14 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation COMPLETE_PATTERN___RESET_QUERY = eINSTANCE.getCompletePattern__ResetQuery();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Wikidata Sparql</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPLETE_PATTERN___GENERATE_WIKIDATA_SPARQL = eINSTANCE.getCompletePattern__GenerateWikidataSparql();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.PatternElementImpl <em>Pattern Element</em>}' class.

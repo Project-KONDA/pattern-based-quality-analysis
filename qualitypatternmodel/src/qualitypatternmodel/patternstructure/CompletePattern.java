@@ -338,4 +338,12 @@ public interface CompletePattern extends Pattern {
 	 */
 	void resetQuery();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String generateWikidataSparql() throws InvalidityException;
+
 } // Pattern

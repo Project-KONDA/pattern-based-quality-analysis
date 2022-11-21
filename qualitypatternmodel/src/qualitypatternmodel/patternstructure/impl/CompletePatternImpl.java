@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfPath;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
+import qualitypatternmodel.adaptionrdf.impl.RdfIriNodeImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -476,6 +477,22 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		setXmlQuery(null);
 		setPartialXmlQuery(null);
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
+	 * @generated NOT
+	 */
+	@Override
+	public String generateWikidataSparql() throws InvalidityException {
+		String oldVariable = RdfIriNodeImpl.RDF_TYPE_PREDICATE;
+		RdfIriNodeImpl.RDF_TYPE_PREDICATE = "wdt:P31";
+		String result = generateSparql();
+		RdfIriNodeImpl.RDF_TYPE_PREDICATE = oldVariable;
+		return result;
+	}
+
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1072,6 +1089,13 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN___RESET_QUERY:
 				resetQuery();
 				return null;
+			case PatternstructurePackage.COMPLETE_PATTERN___GENERATE_WIKIDATA_SPARQL:
+				try {
+					return generateWikidataSparql();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}
