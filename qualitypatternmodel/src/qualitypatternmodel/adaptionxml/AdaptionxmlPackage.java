@@ -5475,13 +5475,22 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PATH_PARAM___SET_XML_AXIS__XMLAXISKIND_STRING_1 = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 13;
 
 	/**
+	 * The operation id for the '<em>Specify Axis</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PATH_PARAM___SPECIFY_AXIS__XMLAXISKIND_XMLPROPERTYKIND_STRING_STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 14;
+
+	/**
 	 * The number of operations of the '<em>Xml Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PATH_PARAM_OPERATION_COUNT = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 14;
+	int XML_PATH_PARAM_OPERATION_COUNT = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 15;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl <em>Xml Axis Part</em>}' class.
@@ -6293,6 +6302,16 @@ public interface AdaptionxmlPackage extends EPackage {
 	EOperation getXmlPathParam__SetXmlAxis__XmlAxisKind_String_1();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlPathParam#specifyAxis(qualitypatternmodel.adaptionxml.XmlAxisKind[], qualitypatternmodel.adaptionxml.XmlPropertyKind, java.lang.String, java.lang.String) <em>Specify Axis</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Specify Axis</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.XmlPathParam#specifyAxis(qualitypatternmodel.adaptionxml.XmlAxisKind[], qualitypatternmodel.adaptionxml.XmlPropertyKind, java.lang.String, java.lang.String)
+	 * @generated
+	 */
+	EOperation getXmlPathParam__SpecifyAxis__XmlAxisKind_XmlPropertyKind_String_String();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XmlAxisPart <em>Xml Axis Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6850,6 +6869,14 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation XML_PATH_PARAM___SET_XML_AXIS__XMLAXISKIND_STRING_1 = eINSTANCE.getXmlPathParam__SetXmlAxis__XmlAxisKind_String_1();
+
+		/**
+		 * The meta object literal for the '<em><b>Specify Axis</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_PATH_PARAM___SPECIFY_AXIS__XMLAXISKIND_XMLPROPERTYKIND_STRING_STRING = eINSTANCE.getXmlPathParam__SpecifyAxis__XmlAxisKind_XmlPropertyKind_String_String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl <em>Xml Axis Part</em>}' class.

@@ -609,6 +609,16 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
+	public EOperation getXmlPathParam__SpecifyAxis__XmlAxisKind_XmlPropertyKind_String_String() {
+		return xmlPathParamEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getXmlAxisPart() {
 		return xmlAxisPartEClass;
 	}
@@ -905,6 +915,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		createEOperation(xmlPathParamEClass, XML_PATH_PARAM___ADD_XML_AXIS__XMLAXISKIND_STRING);
 		createEOperation(xmlPathParamEClass, XML_PATH_PARAM___SET_XML_AXIS__XMLAXISKIND);
 		createEOperation(xmlPathParamEClass, XML_PATH_PARAM___SET_XML_AXIS__XMLAXISKIND_STRING_1);
+		createEOperation(xmlPathParamEClass, XML_PATH_PARAM___SPECIFY_AXIS__XMLAXISKIND_XMLPROPERTYKIND_STRING_STRING);
 
 		xmlAxisPartEClass = createEClass(XML_AXIS_PART);
 		createEReference(xmlAxisPartEClass, XML_AXIS_PART__TEXT_LITERAL_PARAM);
@@ -1054,6 +1065,13 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		op = initEOperation(getXmlPathParam__SetXmlAxis__XmlAxisKind_String_1(), null, "setXmlAxis", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getXmlAxisKindArray(), "axis", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "tag", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getXmlPathParam__SpecifyAxis__XmlAxisKind_XmlPropertyKind_String_String(), null, "specifyAxis", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getXmlAxisKindArray(), "axes", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getXmlPropertyKind(), "propertyKind", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "attributeName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(xmlAxisPartEClass, XmlAxisPart.class, "XmlAxisPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getXmlAxisPart_TextLiteralParam(), theParametersPackage.getTextLiteralParam(), theParametersPackage.getTextLiteralParam_XmlAxisPart(), "textLiteralParam", null, 1, 1, XmlAxisPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -650,6 +650,12 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/setXmlAxis.2/axis"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/setXmlAxis.2/tag"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/specifyAxis">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/specifyAxis/axes"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/specifyAxis/propertyKind"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/specifyAxis/attributeName"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/specifyAxis/name"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart/textLiteralParam"/>

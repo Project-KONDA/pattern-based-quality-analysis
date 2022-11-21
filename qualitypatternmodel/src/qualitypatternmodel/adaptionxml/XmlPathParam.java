@@ -4,6 +4,7 @@ package qualitypatternmodel.adaptionxml;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.parameters.Parameter;
 
@@ -119,5 +120,13 @@ public interface XmlPathParam extends Adaptable, Parameter {
 	 * @generated
 	 */
 	void setXmlAxis(XmlAxisKind[] axis, String tag);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" axesDataType="qualitypatternmodel.adaptionxml.XmlAxisKindArray"
+	 * @generated
+	 */
+	void specifyAxis(XmlAxisKind[] axes, XmlPropertyKind propertyKind, String attributeName, String name) throws InvalidityException;
 
 } // PathParam

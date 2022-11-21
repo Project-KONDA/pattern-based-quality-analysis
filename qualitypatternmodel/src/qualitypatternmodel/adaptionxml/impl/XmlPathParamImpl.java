@@ -22,6 +22,7 @@ import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlAxisOptionParam;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
@@ -490,6 +491,18 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 		}
 		
 		getXmlAxisParts().add(part);
+	}
+
+	@Override
+	public void specifyAxis(XmlAxisKind[] axes, XmlPropertyKind propertyKind, String attributeName, String name)
+			throws InvalidityException {
+		setXmlAxis(axes);
+		int index = axes.length-1;
+		getXmlAxisParts().get(index).getXmlPropertyOption().setValue(propertyKind);
+		if (attributeName != null && attributeName != "")
+			getXmlAxisParts().get(index).getXmlPropertyOption().getAttributeName().setValue(attributeName);
+		if (name != null && name != "")
+			getXmlAxisParts().get(index).getTextLiteralParam().setValue(name);
 	}
 
 	/**
