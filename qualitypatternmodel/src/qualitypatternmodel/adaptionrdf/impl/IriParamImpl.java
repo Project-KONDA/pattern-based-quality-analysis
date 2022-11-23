@@ -275,7 +275,7 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 				return;
 			}
 		}
-		throw new InvalidityException("Value not valid for IriParam");
+		throw new InvalidityException("Value \"" + value + "\" not valid for IriParam");
 	}
 
 	/**

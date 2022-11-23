@@ -60,8 +60,6 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 	
 	@Override
 	public String generateSparql() throws InvalidityException {
-		System.out.println(this);
-		System.out.println(this.myToString());
 		String query = "";
 		if(!translated) {
 			translated = true;
