@@ -455,9 +455,11 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	@Override
 	public void setXmlAxis(XmlAxisKind[] axis) {
 		getXmlAxisParts().clear();
-		for (XmlAxisKind a: axis) {
-			addXmlAxis(a, null);
-		}		
+		if (axis != null) {
+			for (XmlAxisKind a: axis) {
+				addXmlAxis(a, null);
+			}
+		}
 	}
 
 	@Override
@@ -496,13 +498,21 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	@Override
 	public void specifyAxis(XmlAxisKind[] axes, XmlPropertyKind propertyKind, String attributeName, String name)
 			throws InvalidityException {
-		setXmlAxis(axes);
-		int index = axes.length-1;
-		getXmlAxisParts().get(index).getXmlPropertyOption().setValue(propertyKind);
-		if (attributeName != null && attributeName != "")
-			getXmlAxisParts().get(index).getXmlPropertyOption().getAttributeName().setValue(attributeName);
-		if (name != null && name != "")
-			getXmlAxisParts().get(index).getTextLiteralParam().setValue(name);
+		if (axes == null || axes.length == 0) {
+			getXmlAxisParts().clear();
+		} else {
+			setXmlAxis(axes);
+			int index = axes.length-1;
+			if (propertyKind == null)
+				getXmlAxisParts().get(index).getXmlPropertyOption().setValue(XmlPropertyKind.TAG);
+			else 
+				getXmlAxisParts().get(index).getXmlPropertyOption().setValue(propertyKind);
+			if (attributeName != null && attributeName != "")
+				getXmlAxisParts().get(index).getXmlPropertyOption().getAttributeName().setValue(attributeName);
+			if (name != null && name != "")
+				getXmlAxisParts().get(index).getTextLiteralParam().setValue(name);
+		}
+		
 	}
 
 	/**
