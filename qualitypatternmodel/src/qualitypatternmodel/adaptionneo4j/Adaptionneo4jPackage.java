@@ -3773,22 +3773,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_NODE___GENERATE_CYPHER_PROPERTY_ADDRESSING = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Generate Cypher Node Variable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NODE___GENERATE_CYPHER_NODE_VARIABLE = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 3;
-
-	/**
 	 * The number of operations of the '<em>Neo Property Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE_OPERATION_COUNT = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 4;
+	int NEO_PROPERTY_NODE_OPERATION_COUNT = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionneo4j.impl.NeoPathParamImpl <em>Neo Path Param</em>}' class.
@@ -6013,16 +6004,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	EOperation getNeoPropertyNode__GenerateCypherPropertyAddressing();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyNode#generateCypherPropertyNodeVariable() <em>Generate Cypher Node Variable</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Generate Cypher Node Variable</em>' operation.
-	 * @see qualitypatternmodel.adaptionneo4j.NeoPropertyNode#generateCypherPropertyNodeVariable()
-	 * @generated
-	 */
-	EOperation getNeoPropertyNode__GenerateCypherNodeVariable();
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionneo4j.NeoElementPathParam <em>Neo Element Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6526,14 +6507,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NEO_PROPERTY_NODE___GENERATE_CYPHER_PROPERTY_ADDRESSING = eINSTANCE.getNeoPropertyNode__GenerateCypherPropertyAddressing();
-
-		/**
-		 * The meta object literal for the '<em><b>Generate Cypher Node Variable</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NEO_PROPERTY_NODE___GENERATE_CYPHER_NODE_VARIABLE = eINSTANCE.getNeoPropertyNode__GenerateCypherNodeVariable();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionneo4j.impl.NeoElementPathParamImpl <em>Neo Element Path Param</em>}' class.

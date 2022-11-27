@@ -1089,7 +1089,6 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyNode">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyNode/returnProperty"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyNode/generateCypherPropertyAddressing"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyNode/generateCypherNodeVariable"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoElementPathParam">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

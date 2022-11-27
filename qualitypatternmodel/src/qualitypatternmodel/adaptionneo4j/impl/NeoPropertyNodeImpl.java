@@ -104,11 +104,12 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 *This method should <b> primarily used internally <\b>. Since the return type in this Child is different to the other .generateCypher()-Methods in this Package.
 	 *However, if used then <b>split the String by the literal <i>";"<\i><\b>.
 	 *It also only returns the distinct String-Array 
+	 *Translated is here not used since the labels of a NeoPropertyNode are build in the NeoSimpleEdge
 	 */
 	@Override 
 	public String generateCypher() throws InvalidityException, UnsupportedOperationException {	
 		if (getIncomingMapping() == null) {
-			String[] temp = generateCypherPropertyNodeVariable().split(CypherSpecificConstants.SEPERATOR);
+			String[] temp = getCypherPropertyNodeVariable().split(CypherSpecificConstants.SEPERATOR);
 			temp = Arrays.stream(temp).distinct().toArray(String[]::new);
 			String cypher = new String();
 			if (temp != null) {
@@ -255,7 +256,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		return adressing;
 	}
 	
-	protected String generateCypherPropertyNodeVariable() throws InvalidityException {
+	private String getCypherPropertyNodeVariable() throws InvalidityException {
 		if (getIncomingMapping() == null) {
 			if (!checkForValidIncomings())
 				throw new InvalidityException(NO_INCOMING_NEO_PROPERTY_EDGE_SPECIFIED);
@@ -275,7 +276,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 			}
 			return cypher.toString();
 		}
-		return ((NeoPropertyNodeImpl) getOriginalNode()).generateCypherPropertyNodeVariable();
+		return ((NeoPropertyNodeImpl) getOriginalNode()).getCypherPropertyNodeVariable();
 	}
 
 	//Check if this check is in the other classes similar or need similar adaption
@@ -345,8 +346,8 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	}
 
 	private boolean isNodeReturnable(int ix) throws InvalidityException {
-		NeoPropertyEdge neoPropertyEdge;
-		NeoPropertyPathParam neoPropertyPathParam;
+		NeoPropertyEdge neoPropertyEdge = null;
+		NeoPropertyPathParam neoPropertyPathParam = null;
 		
 		if (!checkForValidIncomings()) {
 			throw new InvalidityException(NO_IMCOMING_EDGE_SPEZIFIED);
@@ -602,13 +603,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 			case Adaptionneo4jPackage.NEO_PROPERTY_NODE___GENERATE_CYPHER_PROPERTY_ADDRESSING:
 				try {
 					return generateCypherPropertyAddressing();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case Adaptionneo4jPackage.NEO_PROPERTY_NODE___GENERATE_CYPHER_NODE_VARIABLE:
-				try {
-					return generateCypherPropertyNodeVariable();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
