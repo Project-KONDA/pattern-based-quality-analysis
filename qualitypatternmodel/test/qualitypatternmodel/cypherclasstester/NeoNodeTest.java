@@ -10,7 +10,7 @@ import qualitypatternmodel.adaptionneo4j.NeoNode;
 import qualitypatternmodel.graphstructure.impl.NodeImpl;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 
-public abstract class NeoAbstractNodeTest implements InterfaceNeoAbstractNodeTest {
+public abstract class NeoNodeTest implements INeoNodeTest {
 	protected static final int GENERIC_NODE_ID = 1;
 	protected NeoNode neoAbstractNode;
 	
@@ -25,7 +25,7 @@ public abstract class NeoAbstractNodeTest implements InterfaceNeoAbstractNodeTes
 	protected void initGetCypherVariableTest(NeoNode node, int id)
 			throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
 //		node = super.neoAbstractNode;
-		Class obj = node.getClass();
+		Class<?> obj = node.getClass();
 		obj = obj.getSuperclass().getSuperclass().getSuperclass();
 		Method m = obj.getMethod("setInternalId", int.class);
 		m.setAccessible(true);
@@ -36,7 +36,7 @@ public abstract class NeoAbstractNodeTest implements InterfaceNeoAbstractNodeTes
 	protected void initGetCypherVariableTest(NeoEdge edge, int id)
 			throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
 //		node = super.neoAbstractNode;
-		Class obj = edge.getClass();
+		Class<?> obj = edge.getClass();
 		obj = obj.getSuperclass().getSuperclass().getSuperclass();
 		Method m = obj.getMethod("setInternalId", int.class);
 		m.setAccessible(true);

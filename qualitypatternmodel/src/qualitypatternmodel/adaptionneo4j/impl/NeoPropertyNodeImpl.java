@@ -108,7 +108,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override 
 	public String generateCypher() throws InvalidityException, UnsupportedOperationException {	
 		if (getIncomingMapping() == null) {
-			String[] temp = generateCypherNodeVariable().split(CypherSpecificConstants.SEPERATOR);
+			String[] temp = generateCypherPropertyNodeVariable().split(CypherSpecificConstants.SEPERATOR);
 			temp = Arrays.stream(temp).distinct().toArray(String[]::new);
 			String cypher = new String();
 			if (temp != null) {
@@ -255,13 +255,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		return adressing;
 	}
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public String generateCypherNodeVariable() throws InvalidityException {
+	protected String generateCypherPropertyNodeVariable() throws InvalidityException {
 		if (getIncomingMapping() == null) {
 			if (!checkForValidIncomings())
 				throw new InvalidityException(NO_INCOMING_NEO_PROPERTY_EDGE_SPECIFIED);
@@ -281,7 +275,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 			}
 			return cypher.toString();
 		}
-		return ((NeoPropertyNode) getOriginalNode()).generateCypherNodeVariable();
+		return ((NeoPropertyNodeImpl) getOriginalNode()).generateCypherPropertyNodeVariable();
 	}
 
 	//Check if this check is in the other classes similar or need similar adaption
@@ -614,7 +608,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 				}
 			case Adaptionneo4jPackage.NEO_PROPERTY_NODE___GENERATE_CYPHER_NODE_VARIABLE:
 				try {
-					return generateCypherNodeVariable();
+					return generateCypherPropertyNodeVariable();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

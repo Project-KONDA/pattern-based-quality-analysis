@@ -9,7 +9,7 @@ import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.impl.NeoPathPartImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 
-public abstract class NeoAbstractPathPartTest implements InterfaceNeoPathPartTest {
+public abstract class NeoPathPartTest implements INeoPathPartTest {
 	protected NeoPathPart neoPathPart;
 	
 	public void setUp(NeoPathPart neoPathPart) {

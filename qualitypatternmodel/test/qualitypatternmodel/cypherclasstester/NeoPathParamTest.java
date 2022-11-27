@@ -15,7 +15,7 @@ import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
-public abstract class NeoPathParamTest implements InterfaceNeoPathParamTest {
+public abstract class NeoPathParamTest implements INeoPathParamTest {
 	//Improve the Klammern this are not EDGE Klammern
 	
 	private static final int INTERNAL_ID_ONE = 1;

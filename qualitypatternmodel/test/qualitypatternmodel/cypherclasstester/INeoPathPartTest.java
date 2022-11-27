@@ -2,7 +2,7 @@ package qualitypatternmodel.cypherclasstester;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 
-public interface InterfaceNeoPathPartTest extends INeo4J {
+public interface INeoPathPartTest extends INeo4J {
 	void getNeoPathPartEdges();
 	void getCypherVariable();
 	void getCypherInnerEdgeNodes(boolean isReturn) throws InvalidityException;

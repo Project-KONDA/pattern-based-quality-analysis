@@ -33,7 +33,7 @@ import qualitypatternmodel.adaptionneo4j.impl.NeoPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoElementPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
-import qualitypatternmodel.cypherclasstester.NeoAbstractPathPartTest;
+import qualitypatternmodel.cypherclasstester.NeoPathPartTest;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
@@ -42,7 +42,7 @@ import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 @DisplayName("NeoSimpleEdge Test")
-public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
+public class Cypher04NeoSimpleEdgeTest extends NeoPathPartTest {
 	private static final String VAR_ELEMENT_EDGE_1_TEST_LABEL_INT_EG_NODE_1_TEST_LABEL = "-[varElementEdge-1:testLabel]-(intEgNode-1:testLabel)";
 	private static final String VAR_ELEMENT_EDGE_1_INT_EG_NODE_1_TEST_LABEL = "-[varElementEdge-1]-(intEgNode-1:testLabel)";
 	private static final String TEST_LABEL = "testLabel";

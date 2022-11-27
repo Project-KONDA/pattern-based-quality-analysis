@@ -1,23 +1,10 @@
 package qualitypatternmodel.cypherclasstester;
 
-import org.junit.jupiter.api.Test;
-
-interface InterfaceNeoPathParamTest extends INeo4J {
-	@Test
+interface INeoPathParamTest extends INeo4J {
 	void getReturnInnerEdgeNodes();
-	
-	@Test
 	void getCypherReturnVariable();	
-	
-	@Test
 	void createParameters();
-	
-	@Test
 	void inputIsValid();
-	
-	@Test
 	void myToString();
-	
-	@Test
 	void getRelationNumber();
 }

@@ -16,7 +16,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
-public abstract class NeoEdgeTest implements InterfaceNeoEdgeTest {
+public abstract class NeoEdgeTest implements INeoEdgeTest {
 	private static final int INTERNAL_ID_ONE = 1;
 	protected static final String VAR_ELEMENT_EDGE_X = "varElementEdge%s";
 	protected static final String VAR_EDGE1 = "varEdge1";

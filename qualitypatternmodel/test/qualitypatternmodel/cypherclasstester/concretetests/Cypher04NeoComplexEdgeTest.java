@@ -36,14 +36,14 @@ import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.adaptionneo4j.impl.NeoComplexEdgeImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
-import qualitypatternmodel.cypherclasstester.NeoAbstractPathPartTest;
+import qualitypatternmodel.cypherclasstester.NeoPathPartTest;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 @TestInstance(Lifecycle.PER_CLASS)
 @DisplayName("NeoComplexEdge Test")
-public class Cypher04NeoComplexEdgeTest extends NeoAbstractPathPartTest {
+public class Cypher04NeoComplexEdgeTest extends NeoPathPartTest {
 	private static final String VARIABLE_ELEMENT_EDGE_3 = CypherSpecificConstants.VARIABLE_ELEMENT_EGDE + "3";
 	private static final String VARIABLE_ELEMENT_EDGE_2 = CypherSpecificConstants.VARIABLE_ELEMENT_EGDE + "2";
 	private static final String VARIABLE_ELEMENT_EDGE_1 = CypherSpecificConstants.VARIABLE_ELEMENT_EGDE + "1";

@@ -30,7 +30,7 @@ import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyNodeImpl;
-import qualitypatternmodel.cypherclasstester.NeoAbstractNodeTest;
+import qualitypatternmodel.cypherclasstester.NeoNodeTest;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Relation;
@@ -40,13 +40,16 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
 
 
 @DisplayName("NeoPropertyNode Tests")
-public class Cypher01NeoPropertyNodeTest extends NeoAbstractNodeTest {
+public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 	NeoPropertyNode neoPropertyNode;
+	static Method generateCypherPropertyNodeVariable = null;
 	
 	@BeforeAll
-    static void initAll() {
-		
-    }
+    static void initAll() throws NoSuchMethodException, SecurityException {
+		Class<NeoPropertyNodeImpl> neoPropertyNodeImpl = NeoPropertyNodeImpl.class;
+		generateCypherPropertyNodeVariable = neoPropertyNodeImpl.getDeclaredMethod("generateCypherPropertyNodeVariable");
+		generateCypherPropertyNodeVariable.setAccessible(true);
+	}
 	
 	@BeforeEach
 	public void setUp() {
@@ -62,7 +65,8 @@ public class Cypher01NeoPropertyNodeTest extends NeoAbstractNodeTest {
 	
 	@AfterAll
 	static void tearDownAll() {
-		
+		generateCypherPropertyNodeVariable.setAccessible(false);
+		generateCypherPropertyNodeVariable = null;
     }
 	
 	@Test
@@ -193,46 +197,21 @@ public class Cypher01NeoPropertyNodeTest extends NeoAbstractNodeTest {
 			relations.add(mockNeoPropertyEdge);
 			field.set(neoPropertyNode, relations);
 			
-			String[] variable = neoPropertyNode.generateCypherNodeVariable().split(CypherSpecificConstants.SEPERATOR);
+			String[] variable = ((String) generateCypherPropertyNodeVariable.invoke(neoPropertyNode)).split(CypherSpecificConstants.SEPERATOR);
 		    assertTrue(variable[0].compareTo(CypherSpecificConstants.VARIABLE_PROPERTY_NODE + id) == 0);
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
 		}
 	}
-
-//	//Shall be changed to factory method
-//	private void buildNeoPropertyNode(int id) throws NoSuchMethodException, IllegalAccessException,
-//	InvocationTargetException, NoSuchFieldException, InvalidityException {
-//		initGetCypherVariableTest(neoPropertyNode, id);
-//		Field field = getIncomingField();
-//		EList<Relation> relations = new BasicEList<Relation>();
-//		NeoPropertyEdge mockNeoPropertyEdge = Mockito.mock(NeoPropertyEdge.class);
-//		Mockito.when(mockNeoPropertyEdge.generateCypherNodeVariable()).thenReturn(CypherSpecificConstants.VARIABLE_PROPERTY_NODE + id);
-//		relations.add(mockNeoPropertyEdge);
-//		field.set(neoPropertyNode, relations);
-//	}
-//	
-//	//Shall be changed to factory method
-//	private void buildNeoPropertyNodeForGetNodeVariable(int id) throws NoSuchMethodException, IllegalAccessException,
-//	InvocationTargetException, NoSuchFieldException, InvalidityException {
-//		initGetCypherVariableTest(neoPropertyNode, id);
-//		Field field = getIncomingField();
-//		EList<Relation> relations = new BasicEList<Relation>();
-//		NeoPropertyEdge mockNeoPropertyEdge = Mockito.mock(NeoPropertyEdge.class);
-//		Mockito.when(mockNeoPropertyEdge.generateCypherNodeVariable()).thenReturn(CypherSpecificConstants.VARIABLE_PROPERTY_NODE + id);
-//		relations.add(mockNeoPropertyEdge);
-//		field.set(neoPropertyNode, relations);
-//	}
 	
 	@Test
-	public void generateCypherNodeVariableNoIncomingEdge() {		
-		assertThrows(InvalidityException.class, () -> neoPropertyNode.generateCypherNodeVariable());
+	public void generateCypherNodeVariableNoIncomingEdgeException() {		
+		handleReflactionExceptionOfGenerateCypherPropertyNodeVariable();
 		try {
 			Field field = getIncomingField();
 			field.set(neoPropertyNode, (EList<?>) null);
-			//Something does not work here
-			assertThrows(InvalidityException.class, () -> neoPropertyNode.generateCypherNodeVariable());
+			handleReflactionExceptionOfGenerateCypherPropertyNodeVariable();
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
@@ -240,18 +219,30 @@ public class Cypher01NeoPropertyNodeTest extends NeoAbstractNodeTest {
 	}
 	
 	@Test
-	public void generateCypherNodeVariableWrongEdge() {		
-		assertThrows(InvalidityException.class, () -> neoPropertyNode.generateCypherNodeVariable());
+	public void generateCypherNodeVariableWrongEdgeException() {		
+		handleReflactionExceptionOfGenerateCypherPropertyNodeVariable();
 		try {
 			neoPropertyNode = FACTORY.createNeoPropertyNode();
 			Field field = getIncomingField();
 			EList<Relation> rList = new BasicEList<Relation>();
 			rList.add(new RelationImpl());
 			field.set(neoPropertyNode, (EList<Relation>) rList);
-			assertThrows(InvalidityException.class, () -> neoPropertyNode.generateCypherNodeVariable());
+			handleReflactionExceptionOfGenerateCypherPropertyNodeVariable();
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
+		}
+	}
+
+	private void handleReflactionExceptionOfGenerateCypherPropertyNodeVariable() {
+		try {
+			generateCypherPropertyNodeVariable.invoke(neoPropertyNode);
+		} catch (Exception e) {
+			if (e.getCause().getClass() == InvalidityException.class) {
+				assertTrue(true);
+			} else {
+				assertTrue(false);
+			}
 		}
 	}
 

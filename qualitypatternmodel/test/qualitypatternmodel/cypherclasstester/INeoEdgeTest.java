@@ -1,7 +1,7 @@
  package qualitypatternmodel.cypherclasstester;
 
 
-interface InterfaceNeoEdgeTest extends INeo4J, InterfaceNeoElementTest {
+interface INeoEdgeTest extends INeo4J, NeoElementTest {
 	void setIsReturnElement();
 	void getReturnInnerEdgeNodes();
 	void createParameters();

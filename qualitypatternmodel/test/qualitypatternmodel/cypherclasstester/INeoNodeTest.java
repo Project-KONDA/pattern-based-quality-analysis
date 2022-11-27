@@ -1,7 +1,7 @@
 package qualitypatternmodel.cypherclasstester;
 
 
-interface InterfaceNeoAbstractNodeTest extends INeo4J, InterfaceNeoElementTest {
+interface INeoNodeTest extends INeo4J, NeoElementTest {
 	void getCypherVariable(int number);
 	void getCypherVariableNotValidNumber(int number);
 }

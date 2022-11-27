@@ -26,7 +26,7 @@ import org.mockito.Mockito;
 import qualitypatternmodel.adaptionneo4j.NeoNode;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.impl.NeoElementNodeImpl;
-import qualitypatternmodel.cypherclasstester.NeoAbstractNodeTest;
+import qualitypatternmodel.cypherclasstester.NeoNodeTest;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
@@ -35,7 +35,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
 
 //Check for the Morphisem and test them too!
 @DisplayName("NeoNode Tests")
-public class Cypher01NeoElementNodeTest extends NeoAbstractNodeTest {
+public class Cypher01NeoElementNodeTest extends NeoNodeTest {
 	private static final String VAR_NODE1 = "(varElementNode1)";
 	private static final String VAR_NODE1_REGESTA_INDEX_PLACE = "(varElementNode1:Regesta:IndexPlace)";
 	NeoElementNode neoNode;
