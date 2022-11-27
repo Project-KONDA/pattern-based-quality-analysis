@@ -194,11 +194,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		cypher.append(CypherSpecificConstants.EDGE_OPENING_BRACKET);
 		cypher.append(getCypherVariable());
 		
-		NeoPathParamImpl param = (NeoPathParamImpl) getNeoPathParam();
-		int relationID = param.getRelationNumber();
-		cypher.append(relationID);
-		
-		if (edgeNumber != 0) {
+		if (edgeNumber > 0) {
 			cypher.append(CypherSpecificConstants.LOCAL_ID_SEPERATOR + getEdgeNumber());
 		}
 		

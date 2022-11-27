@@ -43,8 +43,8 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
 
 @DisplayName("NeoSimpleEdge Test")
 public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
-	private static final String VAR_ELEMENT_EDGE_1_TEST_LABEL_INT_EG_NODE_1_TEST_LABEL = "-[varEdge-1:testLabel]-(intEgNode-1:testLabel)";
-	private static final String VAR_ELEMENT_EDGE_1_INT_EG_NODE_1_TEST_LABEL = "-[varEdge-1]-(intEgNode-1:testLabel)";
+	private static final String VAR_ELEMENT_EDGE_1_TEST_LABEL_INT_EG_NODE_1_TEST_LABEL = "-[varElementEdge-1:testLabel]-(intEgNode-1:testLabel)";
+	private static final String VAR_ELEMENT_EDGE_1_INT_EG_NODE_1_TEST_LABEL = "-[varElementEdge-1]-(intEgNode-1:testLabel)";
 	private static final String TEST_LABEL = "testLabel";
 	private static final String VAR_ELEMENT_EDGE__RIGHT = "-[varElementEdge-1]->";
 	private static final String VAR_ELEMENT_EDGE_12_LEFT = "<-[varElementEdge-1]-";
