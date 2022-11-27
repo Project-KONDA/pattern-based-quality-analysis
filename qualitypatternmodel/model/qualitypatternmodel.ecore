@@ -1303,9 +1303,6 @@
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="generateCypherNodeVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="setIsReturnProperty">
-        <eParameters name="returnProperty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnProperty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoElementPathParam" eSuperTypes="#//adaptionneo4j/NeoPathParam">

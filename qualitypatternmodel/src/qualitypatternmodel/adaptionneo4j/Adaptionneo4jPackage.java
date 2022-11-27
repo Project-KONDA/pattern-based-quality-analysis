@@ -3782,22 +3782,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_NODE___GENERATE_CYPHER_NODE_VARIABLE = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Set Is Return Property</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NODE___SET_IS_RETURN_PROPERTY__BOOLEAN = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 4;
-
-	/**
 	 * The number of operations of the '<em>Neo Property Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE_OPERATION_COUNT = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 5;
+	int NEO_PROPERTY_NODE_OPERATION_COUNT = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionneo4j.impl.NeoPathParamImpl <em>Neo Path Param</em>}' class.
@@ -6032,16 +6023,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	EOperation getNeoPropertyNode__GenerateCypherNodeVariable();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyNode#setIsReturnProperty(boolean) <em>Set Is Return Property</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Set Is Return Property</em>' operation.
-	 * @see qualitypatternmodel.adaptionneo4j.NeoPropertyNode#setIsReturnProperty(boolean)
-	 * @generated
-	 */
-	EOperation getNeoPropertyNode__SetIsReturnProperty__boolean();
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionneo4j.NeoElementPathParam <em>Neo Element Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6553,14 +6534,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NEO_PROPERTY_NODE___GENERATE_CYPHER_NODE_VARIABLE = eINSTANCE.getNeoPropertyNode__GenerateCypherNodeVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Set Is Return Property</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NEO_PROPERTY_NODE___SET_IS_RETURN_PROPERTY__BOOLEAN = eINSTANCE.getNeoPropertyNode__SetIsReturnProperty__boolean();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionneo4j.impl.NeoElementPathParamImpl <em>Neo Element Path Param</em>}' class.

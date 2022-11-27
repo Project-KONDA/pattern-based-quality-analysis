@@ -40,7 +40,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropertyNode {
-	private static final String NO_CYPHER_PROPERTY_ADDRESSINGS_COULD_BE_GENERATED = "No Cypher-Property-Addressings could be generated";
+	//private static final String NO_CYPHER_PROPERTY_ADDRESSINGS_COULD_BE_GENERATED = "No Cypher-Property-Addressings could be generated";
 	private static final String NO_VALID_NEO_PROPERTY_EDGE = "No valid NeoPropertyEdge";
 	private static final String NO_PROPERTY_NAME_IS_SPECIFIED = "No Property-Name is specified";
 	private static final String NO_IMCOMING_EDGE_SPEZIFIED = "No imcoming edge spezified";
@@ -67,6 +67,8 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 * @ordered
 	 */
 	protected boolean isVariableDistinctInUse = IS_VARIABLE_DISTINCT_IN_USE_EDEFAULT;
+
+
 	/**
 	 * The default value of the '{@link #isReturnProperty() <em>Return Property</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -85,6 +87,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 * @ordered
 	 */
 	protected boolean returnProperty = RETURN_PROPERTY_EDEFAULT;
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -296,16 +299,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 			throw new InvalidityException(NeoPropertyNodeImpl.NO_VALID_NEO_PROPERTY_EDGE);
 		}
 		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public void setIsReturnProperty(boolean returnProperty) {
-		this.returnProperty = returnProperty;
 	}
 
 	/**
@@ -626,9 +619,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case Adaptionneo4jPackage.NEO_PROPERTY_NODE___SET_IS_RETURN_PROPERTY__BOOLEAN:
-				setIsReturnProperty((Boolean)arguments.get(0));
-				return null;
 			case Adaptionneo4jPackage.NEO_PROPERTY_NODE___GET_CYPHER_VARIABLE:
 				try {
 					return getCypherVariable();

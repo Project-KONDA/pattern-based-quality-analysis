@@ -683,16 +683,6 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 	 * @generated
 	 */
 	@Override
-	public EOperation getNeoPropertyNode__SetIsReturnProperty__boolean() {
-		return neoPropertyNodeEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getNeoElementPathParam() {
 		return neoElementPathParamEClass;
 	}
@@ -895,7 +885,6 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 		createEAttribute(neoPropertyNodeEClass, NEO_PROPERTY_NODE__RETURN_PROPERTY);
 		createEOperation(neoPropertyNodeEClass, NEO_PROPERTY_NODE___GENERATE_CYPHER_PROPERTY_ADDRESSING);
 		createEOperation(neoPropertyNodeEClass, NEO_PROPERTY_NODE___GENERATE_CYPHER_NODE_VARIABLE);
-		createEOperation(neoPropertyNodeEClass, NEO_PROPERTY_NODE___SET_IS_RETURN_PROPERTY__BOOLEAN);
 
 		neoElementPathParamEClass = createEClass(NEO_ELEMENT_PATH_PARAM);
 		createEReference(neoElementPathParamEClass, NEO_ELEMENT_PATH_PARAM__NEO_ELEMENT_EDGE);
@@ -1048,9 +1037,6 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 
 		op = initEOperation(getNeoPropertyNode__GenerateCypherNodeVariable(), ecorePackage.getEString(), "generateCypherNodeVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
-
-		op = initEOperation(getNeoPropertyNode__SetIsReturnProperty__boolean(), null, "setIsReturnProperty", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEBoolean(), "returnProperty", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(neoElementPathParamEClass, NeoElementPathParam.class, "NeoElementPathParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNeoElementPathParam_NeoElementEdge(), this.getNeoElementEdge(), this.getNeoElementEdge_NeoElementPathParam(), "neoElementEdge", null, 0, 1, NeoElementPathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

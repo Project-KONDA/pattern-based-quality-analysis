@@ -63,12 +63,4 @@ public interface NeoPropertyNode extends PrimitiveNode, NeoNode {
 	 */
 	String generateCypherNodeVariable() throws InvalidityException;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void setIsReturnProperty(boolean returnProperty);
-
 } // NeoPropertyNode
