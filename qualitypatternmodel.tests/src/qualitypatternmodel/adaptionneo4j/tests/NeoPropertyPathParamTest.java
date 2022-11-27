@@ -19,7 +19,7 @@ import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
  * </p>
  * @generated
  */
-public class NeoPropertyPathParamTest extends NeoAbstractPathParamTest {
+public class NeoPropertyPathParamTest extends NeoPathParamTest {
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -21,7 +21,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * @model
  * @generated
  */
-public interface NeoPropertyPathParam extends NeoAbstractPathParam {
+public interface NeoPropertyPathParam extends NeoPathParam {
 	/**
 	 * Returns the value of the '<em><b>Neo Property Edge</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyEdge#getNeoPropertyPathParam <em>Neo Property Path Param</em>}'.

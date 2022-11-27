@@ -17,30 +17,30 @@ import qualitypatternmodel.parameters.Parameter;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam#getNeoPathPart <em>Neo Path Part</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPathParam#getNeoPathPart <em>Neo Path Part</em>}</li>
  * </ul>
  *
- * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoAbstractPathParam()
+ * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoPathParam()
  * @model abstract="true"
  * @generated
  */
-public interface NeoAbstractPathParam extends Parameter, Adaptable {
+public interface NeoPathParam extends Parameter, Adaptable {
 	/**
 	 * Returns the value of the '<em><b>Neo Path Part</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoParam <em>Neo Param</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoPathParam <em>Neo Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Neo Path Part</em>' containment reference.
 	 * @see #setNeoPathPart(NeoPathPart)
-	 * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoAbstractPathParam_NeoPathPart()
-	 * @see qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoParam
-	 * @model opposite="neoParam" containment="true"
+	 * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoPathParam_NeoPathPart()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoPathParam
+	 * @model opposite="neoPathParam" containment="true"
 	 * @generated
 	 */
 	NeoPathPart getNeoPathPart();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam#getNeoPathPart <em>Neo Path Part</em>}' containment reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionneo4j.NeoPathParam#getNeoPathPart <em>Neo Path Part</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Neo Path Part</em>' containment reference.

@@ -35,9 +35,9 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
 
 //Check for the Morphisem and test them too!
 @DisplayName("NeoNode Tests")
-public class Cypher01NeoNodeTest extends NeoAbstractNodeTest {
-	private static final String VAR_NODE1 = "(varNode1)";
-	private static final String VAR_NODE1_REGESTA_INDEX_PLACE = "(varNode1:Regesta:IndexPlace)";
+public class Cypher01NeoElementNodeTest extends NeoAbstractNodeTest {
+	private static final String VAR_NODE1 = "(varElementNode1)";
+	private static final String VAR_NODE1_REGESTA_INDEX_PLACE = "(varElementNode1:Regesta:IndexPlace)";
 	NeoElementNode neoNode;
 	
 	@BeforeAll
@@ -143,7 +143,7 @@ public class Cypher01NeoNodeTest extends NeoAbstractNodeTest {
 			initGetCypherVariableTest(node, id);
 			String variable;
 			variable = assertDoesNotThrow(() -> {return node.getCypherVariable();});
-		    assertTrue(variable.matches(CypherSpecificConstants.VARIABLE_NODE + "[1-9][0-9]*")); //--> Checks if the first is the normal prefix + the last digitis are numbers 
+		    assertTrue(variable.matches(CypherSpecificConstants.VARIABLE_ELEMENT_NODE + "[1-9][0-9]*")); //--> Checks if the first is the normal prefix + the last digitis are numbers 
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
@@ -160,7 +160,7 @@ public class Cypher01NeoNodeTest extends NeoAbstractNodeTest {
 			initGetCypherVariableTest(node, id);
 			String variable;
 			variable = assertDoesNotThrow(() -> {return node.getCypherVariable();});
-		    assertFalse(variable.matches(CypherSpecificConstants.VARIABLE_NODE + "[1-9][0-9]*")); //--> Checks if the first is the normal prefix + the last digitis are numbers 
+		    assertFalse(variable.matches(CypherSpecificConstants.VARIABLE_ELEMENT_NODE + "[1-9][0-9]*")); //--> Checks if the first is the normal prefix + the last digitis are numbers 
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
@@ -192,9 +192,9 @@ public class Cypher01NeoNodeTest extends NeoAbstractNodeTest {
 			assumeTrue(variableMap.containsKey(0));
 			String variable = variableMap.get(0).getValue();
 			if (!isDistinct) {
-				assertTrue(variable.matches(CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_DISTINCT + " \\(" +CypherSpecificConstants.VARIABLE_NODE + "[1-9][0-9]*[)]+"));
+				assertTrue(variable.matches(CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_DISTINCT + " \\(" +CypherSpecificConstants.VARIABLE_ELEMENT_NODE + "[1-9][0-9]*[)]+"));
 			} else {
-				assertTrue(variable.matches(CypherSpecificConstants.VARIABLE_NODE + "[1-9][0-9]*"));
+				assertTrue(variable.matches(CypherSpecificConstants.VARIABLE_ELEMENT_NODE + "[1-9][0-9]*"));
 			}
 		} catch (Exception e) {
 			System.out.println(e);

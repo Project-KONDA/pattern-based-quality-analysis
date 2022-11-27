@@ -122,8 +122,8 @@ public class Adaptionneo4jAdapterFactory extends AdapterFactoryImpl {
 				return createNeoEdgeAdapter();
 			}
 			@Override
-			public Adapter caseNeoAbstractPathParam(NeoAbstractPathParam object) {
-				return createNeoAbstractPathParamAdapter();
+			public Adapter caseNeoPathParam(NeoPathParam object) {
+				return createNeoPathParamAdapter();
 			}
 			@Override
 			public Adapter caseNeoElement(NeoElement object) {
@@ -238,6 +238,20 @@ public class Adaptionneo4jAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionneo4j.NeoPathParam <em>Neo Path Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPathParam
+	 * @generated
+	 */
+	public Adapter createNeoPathParamAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionneo4j.NeoComplexEdge <em>Neo Complex Edge</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -332,20 +346,6 @@ public class Adaptionneo4jAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNeoPropertyEdgeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam <em>Neo Abstract Path Param</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam
-	 * @generated
-	 */
-	public Adapter createNeoAbstractPathParamAdapter() {
 		return null;
 	}
 

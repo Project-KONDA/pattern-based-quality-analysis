@@ -31,7 +31,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  *
  * @generated
  */
-public class NeoElementPathParamImpl extends NeoAbstractPathParamImpl implements NeoElementPathParam {
+public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElementPathParam {
 	private static final String WRONG_TYPE_OF_EDGE = "Wrong type of Edge";
 	private static final String NEO_PARTS_CAN_NOT_BE_EMPTY = "NeoParts can not be empty";
 	private static final String NEO_PATH_PARAM = "NeoPathParam [%s]";
@@ -307,5 +307,10 @@ public class NeoElementPathParamImpl extends NeoAbstractPathParamImpl implements
 				return neoElementEdge != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	@Override
+	protected String getEdgeNaming() {
+		return CypherSpecificConstants.VARIABLE_ELEMENT_EGDE;
 	}
 } //Neo4JPathParamImpl

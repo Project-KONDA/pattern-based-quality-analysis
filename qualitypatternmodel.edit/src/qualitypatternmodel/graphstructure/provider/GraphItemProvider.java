@@ -244,7 +244,7 @@ public class GraphItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(GraphstructurePackage.Literals.GRAPH__NODES,
-				 Adaptionneo4jFactory.eINSTANCE.createNeoNode()));
+				 Adaptionneo4jFactory.eINSTANCE.createNeoElementNode()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -284,7 +284,7 @@ public class GraphItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(GraphstructurePackage.Literals.GRAPH__RELATIONS,
-				 Adaptionneo4jFactory.eINSTANCE.createNeoEdge()));
+				 Adaptionneo4jFactory.eINSTANCE.createNeoElementEdge()));
 
 		newChildDescriptors.add
 			(createChildParameter

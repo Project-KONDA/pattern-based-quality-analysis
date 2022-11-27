@@ -192,9 +192,9 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	//e.g., in future versions multi-labels in a Edge are Possible or the properties as labels should be considered
 	private void generateInternalCypherLabelGenerator(StringBuilder cypher, Boolean withLabels) throws InvalidityException {
 		cypher.append(CypherSpecificConstants.EDGE_OPENING_BRACKET);
-		cypher.append(CypherSpecificConstants.VARIABLE_EGDE);
+		cypher.append(getCypherVariable());
 		
-		NeoAbstractPathParamImpl param = (NeoAbstractPathParamImpl) getNeoParam();
+		NeoPathParamImpl param = (NeoPathParamImpl) getNeoPathParam();
 		int relationID = param.getRelationNumber();
 		cypher.append(relationID);
 		
@@ -212,7 +212,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	@Override
 	public String getCypherVariable() throws InvalidityException {
 		String cypher = null;
-		cypher = super.getCypherVariable() + ((NeoAbstractPathParamImpl) (NeoAbstractPathParamImpl) getNeoParam()).getRelationNumber();
+		cypher = super.getCypherVariable() + ((NeoPathParamImpl) (NeoPathParamImpl) getNeoPathParam()).getRelationNumber();
 		if (edgeNumber != 0) {
 			cypher += CypherSpecificConstants.LOCAL_ID_SEPERATOR + edgeNumber;
 		}
@@ -232,7 +232,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 */
 	@Override
 	public String getCypherInnerEdgeNodes(boolean isReturn) throws InvalidityException {
-		final NeoAbstractPathParamImpl neoAbstractPathParam = (NeoAbstractPathParamImpl) getNeoParam();
+		final NeoPathParamImpl neoAbstractPathParam = (NeoPathParamImpl) getNeoPathParam();
 		String cypher = null;
 
 		if (getNeoTargetNodeLabels() == null) {
@@ -248,7 +248,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		return cypher;
 	}
 
-	protected String createInnerEdgeNumberingNames(final NeoAbstractPathParamImpl neoAbstractPathParam) {
+	protected String createInnerEdgeNumberingNames(final NeoPathParamImpl neoAbstractPathParam) {
 		String cypher = new String();
 		if (edgeNumber != 0) {
 			cypher = CypherSpecificConstants.INTERNAL_EDGE_NODE + neoAbstractPathParam.getRelationNumber() + CypherSpecificConstants.LOCAL_ID_SEPERATOR + getEdgeNumber();

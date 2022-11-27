@@ -22,6 +22,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,7 +38,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
  *
  * @generated
  */
-public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implements NeoPropertyPathParam {
+public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPropertyPathParam {
 	private static final String NEO_PROPERTY_EDGE_TARGET_NODES_CAN_NOT_BE_NULL = "TargetNodes can not be null";
 	private static final String NEO_PROPERTY_EDGE_LAST_EDGE_HAS_TO_BE_SET = "Last Edge has to be set";
 	private static final String NEO_PROPERTY_PATH_PARAM = "NeoPropertyPathParam [%s]";
@@ -426,5 +427,10 @@ public class NeoPropertyPathParamImpl extends NeoAbstractPathParamImpl implement
 			return -1;
 		}
 		return getNeoPropertyEdge().getOriginalID();
+	}
+
+	@Override
+	protected String getEdgeNaming() {
+		return CypherSpecificConstants.VARIABLE_PROPERTY_EGDE;
 	}
 } //NeoAttributePathParamImpl

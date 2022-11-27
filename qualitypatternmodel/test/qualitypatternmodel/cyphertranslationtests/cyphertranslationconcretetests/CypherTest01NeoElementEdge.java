@@ -24,9 +24,9 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 //Am Modeldiagramm die entscheidungen getroffen
 //Erklären welche Tests für das Metamodell gemacht habe
 //Erfolgreich Test ja/nein --> Cypher querys beschreiben
-public class CypherTest01NeoEdge extends CypherAbstractTranslation {
+public class CypherTest01NeoElementEdge extends CypherAbstractTranslation {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CypherTest01NeoEdge neoEdge = new CypherTest01NeoEdge();
+		CypherTest01NeoElementEdge neoEdge = new CypherTest01NeoElementEdge();
 		
 		try {
 			neoEdge.generalizedTests();         
@@ -39,9 +39,9 @@ public class CypherTest01NeoEdge extends CypherAbstractTranslation {
 			try {
 				//List here all exceptions which occure while build + Naming
 				System.out.println("Exception: Set NeoPathPart");
-				CypherTest01NeoEdge.generateBuildNeoNeoNeedsAPathParamException();
+				CypherTest01NeoElementEdge.generateBuildNeoNeoNeedsAPathParamException();
 				System.out.println("Exception: Setting the NeoDirection to null");
-				CypherTest01NeoEdge.generateToCreateNeoDirectionErrorShallNotWorkException();
+				CypherTest01NeoElementEdge.generateToCreateNeoDirectionErrorShallNotWorkException();
 				System.out.println("");
 			} catch (Exception e) {
 				System.out.println(e);
@@ -82,7 +82,7 @@ public class CypherTest01NeoEdge extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern getUnspecifiedEdge() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest01NeoEdge.getBasePatternNeoEdge();
+		CompletePattern completePattern = CypherTest01NeoElementEdge.getBasePatternNeoEdge();
 		NeoElementEdge	neoEdge	= (NeoElementEdge) completePattern.getGraph().getRelations().get(0);
 		NeoElementPathParam neoPathParam = neoEdge.getNeoElementPathParam();
 		neoPathParam.setNeoPathPart(null);
@@ -90,7 +90,7 @@ public class CypherTest01NeoEdge extends CypherAbstractTranslation {
 	}
 		
 	private CompletePattern getSimpleEdge() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest01NeoEdge.getBasePatternNeoEdge();
+		CompletePattern completePattern = CypherTest01NeoElementEdge.getBasePatternNeoEdge();
 		NeoElementEdge neoEdge = (NeoElementEdge) completePattern.getGraph().getRelations().get(0);	
 		neoEdge.setReturnElement(true);
 		NeoElementNode neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(1);
@@ -100,7 +100,7 @@ public class CypherTest01NeoEdge extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern getSimpleEdgeWithLabels() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest01NeoEdge.getBasePatternNeoEdge();
+		CompletePattern completePattern = CypherTest01NeoElementEdge.getBasePatternNeoEdge();
 		NeoElementEdge neoEdge = (NeoElementEdge) completePattern.getGraph().getRelations().get(0);
 		neoEdge.setReturnElement(true);
 		NeoElementPathParam neoPathParam = neoEdge.getNeoElementPathParam();
@@ -118,7 +118,7 @@ public class CypherTest01NeoEdge extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern getSimpleEdgeWithLabelsRight() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest01NeoEdge.getBasePatternNeoEdge();
+		CompletePattern completePattern = CypherTest01NeoElementEdge.getBasePatternNeoEdge();
 		NeoElementEdge neoEdge = (NeoElementEdge) completePattern.getGraph().getRelations().get(0);
 		neoEdge.setReturnElement(true);
 		NeoElementPathParam neoPathParam = neoEdge.getNeoElementPathParam();
@@ -137,7 +137,7 @@ public class CypherTest01NeoEdge extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern getSimpleEdgeWithLabelsLeft() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest01NeoEdge.getBasePatternNeoEdge();
+		CompletePattern completePattern = CypherTest01NeoElementEdge.getBasePatternNeoEdge();
 		NeoElementEdge neoEdge = (NeoElementEdge) completePattern.getGraph().getRelations().get(0);
 		neoEdge.setReturnElement(true);
 		NeoElementPathParam neoPathParam = neoEdge.getNeoElementPathParam();
@@ -157,7 +157,7 @@ public class CypherTest01NeoEdge extends CypherAbstractTranslation {
 	
 	
 	private CompletePattern getSimpleEdgeWithTargetNodeAndDopple() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest01NeoEdge.getBasePatternNeoEdge();
+		CompletePattern completePattern = CypherTest01NeoElementEdge.getBasePatternNeoEdge();
 		NeoElementEdge neoEdge = (NeoElementEdge) completePattern.getGraph().getRelations().get(0);
 		neoEdge.setReturnElement(true);
 		NeoElementPathParam neoPathParam = neoEdge.getNeoElementPathParam();
@@ -180,7 +180,7 @@ public class CypherTest01NeoEdge extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern getSimpleEdgeWithTargetNode() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest01NeoEdge.getBasePatternNeoEdge();
+		CompletePattern completePattern = CypherTest01NeoElementEdge.getBasePatternNeoEdge();
 		NeoElementEdge neoEdge = (NeoElementEdge) completePattern.getGraph().getRelations().get(0);
 		neoEdge.setReturnElement(true);
 		NeoElementPathParam neoPathParam = neoEdge.getNeoElementPathParam();
@@ -212,7 +212,7 @@ public class CypherTest01NeoEdge extends CypherAbstractTranslation {
 	
 	//Combine with NeoPropertyEdge
 	private CompletePattern getComplexEdge() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest01NeoEdge.getBasePatternNeoEdge();
+		CompletePattern completePattern = CypherTest01NeoElementEdge.getBasePatternNeoEdge();
 		NeoElementEdge neoEdge = (NeoElementEdge) completePattern.getGraph().getRelations().get(0);
 		neoEdge.setReturnElement(true);
 		NeoElementPathParam neoPathParam = neoEdge.getNeoElementPathParam();
@@ -242,7 +242,7 @@ public class CypherTest01NeoEdge extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern getComplexEdgeWithDoppleEnding() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest01NeoEdge.getBasePatternNeoEdge();
+		CompletePattern completePattern = CypherTest01NeoElementEdge.getBasePatternNeoEdge();
 		NeoElementEdge neoEdge = (NeoElementEdge) completePattern.getGraph().getRelations().get(0);
 		neoEdge.setReturnElement(true);
 		NeoElementPathParam neoPathParam = neoEdge.getNeoElementPathParam();
@@ -272,7 +272,7 @@ public class CypherTest01NeoEdge extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern getComplexEdgeWithTargeAtEndAndLabels() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest01NeoEdge.getBasePatternNeoEdge();
+		CompletePattern completePattern = CypherTest01NeoElementEdge.getBasePatternNeoEdge();
 		NeoElementEdge neoEdge = (NeoElementEdge) completePattern.getGraph().getRelations().get(0);
 		neoEdge.setReturnElement(true);
 		NeoElementPathParam neoPathParam = neoEdge.getNeoElementPathParam();
@@ -304,7 +304,7 @@ public class CypherTest01NeoEdge extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern getComplexEdgeWithLabelsDiffrentDirectionsAndLabels() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest01NeoEdge.getBasePatternNeoEdge();
+		CompletePattern completePattern = CypherTest01NeoElementEdge.getBasePatternNeoEdge();
 		NeoElementEdge neoEdge = (NeoElementEdge) completePattern.getGraph().getRelations().get(0);
 		neoEdge.setReturnElement(true);
 		NeoElementPathParam neoPathParam = neoEdge.getNeoElementPathParam();
@@ -374,7 +374,7 @@ public class CypherTest01NeoEdge extends CypherAbstractTranslation {
 	//Exception In the NeoNode
 	//ComplexNode can not be empty
 	private CompletePattern generateNeoNeoPathPartIsSetWithEmptyComplexEdgeException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest01NeoEdge.getBasePatternNeoEdge();
+		CompletePattern completePattern = CypherTest01NeoElementEdge.getBasePatternNeoEdge();
 		NeoElementEdge neoEdge = (NeoElementEdge) completePattern.getGraph().getRelations().get(0);
 		NeoElementPathParam neoPathParam = neoEdge.getNeoElementPathParam();
 		NeoComplexEdge neoComplexEdge = NEO_FACTORY.createNeoComplexEdge();
@@ -388,7 +388,7 @@ public class CypherTest01NeoEdge extends CypherAbstractTranslation {
 	//NeoEdge needs a NeoPathParam
 	//Doesn't work since the Framework does not allow to remove the NeoPathParam / to set a new One after once set
 	public static CompletePattern generateBuildNeoNeoNeedsAPathParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest01NeoEdge.getBasePatternNeoEdge();
+		CompletePattern completePattern = CypherTest01NeoElementEdge.getBasePatternNeoEdge();
 		NeoElementEdge neoEdge = (NeoElementEdge) completePattern.getGraph().getRelations().get(0);
 		neoEdge.setNeoElementPathParam(null);
 		
@@ -399,7 +399,7 @@ public class CypherTest01NeoEdge extends CypherAbstractTranslation {
 	//Something went wrong in the SimpleNeoEdge - direction has not been set correctly
 	//The setter catches null inputs and thus it leads not to an Exception.
 	public static CompletePattern generateToCreateNeoDirectionErrorShallNotWorkException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest01NeoEdge.getBasePatternNeoEdge();
+		CompletePattern completePattern = CypherTest01NeoElementEdge.getBasePatternNeoEdge();
 		NeoElementEdge	neoEdge	= (NeoElementEdge) completePattern.getGraph().getRelations().get(0);
 		NeoElementPathParam neoPathParam = neoEdge.getNeoElementPathParam();
 		NeoSimpleEdge neoSimpleEdge = (NeoSimpleEdge) neoPathParam.getNeoPathPart();

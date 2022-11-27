@@ -9,7 +9,7 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.mockito.Mockito;
 
-import qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
@@ -24,11 +24,11 @@ public abstract class NeoAbstractPathParamTest implements InterfaceNeoAbstractPa
 	protected static final String VARIABLE_EAGE_ONE_CLAMPED = "[" + VARIABLE_EDGE_ONE + "]";
 	protected static final String VARIABLE_EAGE_TWO_CLAMPED = "[" + VARIABLE_EDGE_TWO + "]";
 	protected static final String REGESTA = "REGESTA";
-	protected NeoAbstractPathParam neoAbstractPathParam;
+	protected NeoPathParam neoAbstractPathParam;
 	protected NeoSimpleEdgeImpl mockSimpleEdge;
 	protected Field internalId;
 	
-	public void setUp(NeoAbstractPathParam neoAbstractPathParam) {
+	public void setUp(NeoPathParam neoAbstractPathParam) {
 		try {
 			this.neoAbstractPathParam = neoAbstractPathParam;
 			if (internalId == null) {

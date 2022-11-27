@@ -7,9 +7,10 @@ package qualitypatternmodel.utility;
  */
 
 public class CypherSpecificConstants {
-	public static final String VARIABLE_NODE = "varNode";
+	public static final String VARIABLE_ELEMENT_NODE = "varElementNode";
 	public static final String VARIABLE_PROPERTY_NODE = "varPropertyNode";
-	public static final String VARIABLE_EGDE = "varEdge";
+	public static final String VARIABLE_ELEMENT_EGDE = "varElementEdge";
+	public static final String VARIABLE_PROPERTY_EGDE = "varPropertyEdge";
 	public static final String INTERNAL_EDGE_NODE = "intEgNode";
 	public static final String CONNECTION = "-";
 	public static final String CYPHER_SEPERATOR = ",";

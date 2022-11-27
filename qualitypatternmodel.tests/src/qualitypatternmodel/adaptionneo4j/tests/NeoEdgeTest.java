@@ -3,6 +3,7 @@
 package qualitypatternmodel.adaptionneo4j.tests;
 
 import qualitypatternmodel.adaptionneo4j.NeoEdge;
+
 import qualitypatternmodel.graphstructure.tests.RelationTest;
 
 /**

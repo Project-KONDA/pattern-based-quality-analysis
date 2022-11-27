@@ -1961,13 +1961,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PATH_PART__INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__INTERNAL_ID;
 
 	/**
-	 * The feature id for the '<em><b>Neo Param</b></em>' container reference.
+	 * The feature id for the '<em><b>Neo Path Param</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PART__NEO_PARAM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
+	int NEO_PATH_PART__NEO_PATH_PARAM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Neo Complex Edge</b></em>' container reference.
@@ -2268,13 +2268,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_COMPLEX_EDGE__INTERNAL_ID = NEO_PATH_PART__INTERNAL_ID;
 
 	/**
-	 * The feature id for the '<em><b>Neo Param</b></em>' container reference.
+	 * The feature id for the '<em><b>Neo Path Param</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_COMPLEX_EDGE__NEO_PARAM = NEO_PATH_PART__NEO_PARAM;
+	int NEO_COMPLEX_EDGE__NEO_PATH_PARAM = NEO_PATH_PART__NEO_PATH_PARAM;
 
 	/**
 	 * The feature id for the '<em><b>Neo Complex Edge</b></em>' container reference.
@@ -2602,13 +2602,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_SIMPLE_EDGE__INTERNAL_ID = NEO_PATH_PART__INTERNAL_ID;
 
 	/**
-	 * The feature id for the '<em><b>Neo Param</b></em>' container reference.
+	 * The feature id for the '<em><b>Neo Path Param</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE__NEO_PARAM = NEO_PATH_PART__NEO_PARAM;
+	int NEO_SIMPLE_EDGE__NEO_PATH_PARAM = NEO_PATH_PART__NEO_PATH_PARAM;
 
 	/**
 	 * The feature id for the '<em><b>Neo Complex Edge</b></em>' container reference.
@@ -3800,14 +3800,14 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_NODE_OPERATION_COUNT = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 5;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.adaptionneo4j.impl.NeoAbstractPathParamImpl <em>Neo Abstract Path Param</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionneo4j.impl.NeoPathParamImpl <em>Neo Path Param</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionneo4j.impl.NeoAbstractPathParamImpl
-	 * @see qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jPackageImpl#getNeoAbstractPathParam()
+	 * @see qualitypatternmodel.adaptionneo4j.impl.NeoPathParamImpl
+	 * @see qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jPackageImpl#getNeoPathParam()
 	 * @generated
 	 */
-	int NEO_ABSTRACT_PATH_PARAM = 11;
+	int NEO_PATH_PARAM = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3816,7 +3816,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM__ID = ParametersPackage.PARAMETER__ID;
+	int NEO_PATH_PARAM__ID = ParametersPackage.PARAMETER__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -3825,7 +3825,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM__INTERNAL_ID = ParametersPackage.PARAMETER__INTERNAL_ID;
+	int NEO_PATH_PARAM__INTERNAL_ID = ParametersPackage.PARAMETER__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
@@ -3834,7 +3834,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM__PARAMETER_LIST = ParametersPackage.PARAMETER__PARAMETER_LIST;
+	int NEO_PATH_PARAM__PARAMETER_LIST = ParametersPackage.PARAMETER__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
@@ -3843,7 +3843,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM__PREDEFINED = ParametersPackage.PARAMETER__PREDEFINED;
+	int NEO_PATH_PARAM__PREDEFINED = ParametersPackage.PARAMETER__PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
@@ -3852,7 +3852,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM__PARAMETER_REFERENCES = ParametersPackage.PARAMETER__PARAMETER_REFERENCES;
+	int NEO_PATH_PARAM__PARAMETER_REFERENCES = ParametersPackage.PARAMETER__PARAMETER_REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -3861,7 +3861,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM__DESCRIPTION = ParametersPackage.PARAMETER__DESCRIPTION;
+	int NEO_PATH_PARAM__DESCRIPTION = ParametersPackage.PARAMETER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Neo Path Part</b></em>' containment reference.
@@ -3870,16 +3870,16 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM__NEO_PATH_PART = ParametersPackage.PARAMETER_FEATURE_COUNT + 0;
+	int NEO_PATH_PARAM__NEO_PATH_PART = ParametersPackage.PARAMETER_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Neo Abstract Path Param</em>' class.
+	 * The number of structural features of the '<em>Neo Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM_FEATURE_COUNT = ParametersPackage.PARAMETER_FEATURE_COUNT + 1;
+	int NEO_PATH_PARAM_FEATURE_COUNT = ParametersPackage.PARAMETER_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -3888,7 +3888,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___IS_VALID__ABSTRACTIONLEVEL = ParametersPackage.PARAMETER___IS_VALID__ABSTRACTIONLEVEL;
+	int NEO_PATH_PARAM___IS_VALID__ABSTRACTIONLEVEL = ParametersPackage.PARAMETER___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -3897,7 +3897,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = ParametersPackage.PARAMETER___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+	int NEO_PATH_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = ParametersPackage.PARAMETER___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -3906,7 +3906,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___MY_TO_STRING = ParametersPackage.PARAMETER___MY_TO_STRING;
+	int NEO_PATH_PARAM___MY_TO_STRING = ParametersPackage.PARAMETER___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Generate Cypher</em>' operation.
@@ -3915,7 +3915,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___GENERATE_CYPHER = ParametersPackage.PARAMETER___GENERATE_CYPHER;
+	int NEO_PATH_PARAM___GENERATE_CYPHER = ParametersPackage.PARAMETER___GENERATE_CYPHER;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -3924,7 +3924,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___GENERATE_XQUERY = ParametersPackage.PARAMETER___GENERATE_XQUERY;
+	int NEO_PATH_PARAM___GENERATE_XQUERY = ParametersPackage.PARAMETER___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Generate Sparql</em>' operation.
@@ -3933,7 +3933,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___GENERATE_SPARQL = ParametersPackage.PARAMETER___GENERATE_SPARQL;
+	int NEO_PATH_PARAM___GENERATE_SPARQL = ParametersPackage.PARAMETER___GENERATE_SPARQL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -3942,7 +3942,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___GET_CONTAINER = ParametersPackage.PARAMETER___GET_CONTAINER;
+	int NEO_PATH_PARAM___GET_CONTAINER = ParametersPackage.PARAMETER___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -3951,7 +3951,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___GET_ANCESTOR__CLASS = ParametersPackage.PARAMETER___GET_ANCESTOR__CLASS;
+	int NEO_PATH_PARAM___GET_ANCESTOR__CLASS = ParametersPackage.PARAMETER___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Initialize Translation</em>' operation.
@@ -3960,7 +3960,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___INITIALIZE_TRANSLATION = ParametersPackage.PARAMETER___INITIALIZE_TRANSLATION;
+	int NEO_PATH_PARAM___INITIALIZE_TRANSLATION = ParametersPackage.PARAMETER___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -3969,7 +3969,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___PREPARE_TRANSLATION = ParametersPackage.PARAMETER___PREPARE_TRANSLATION;
+	int NEO_PATH_PARAM___PREPARE_TRANSLATION = ParametersPackage.PARAMETER___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -3978,7 +3978,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___GET_OPERATOR_LIST = ParametersPackage.PARAMETER___GET_OPERATOR_LIST;
+	int NEO_PATH_PARAM___GET_OPERATOR_LIST = ParametersPackage.PARAMETER___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -3987,7 +3987,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___GET_PARAMETER_LIST = ParametersPackage.PARAMETER___GET_PARAMETER_LIST;
+	int NEO_PATH_PARAM___GET_PARAMETER_LIST = ParametersPackage.PARAMETER___GET_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -3996,7 +3996,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___GET_ALL_PARAMETERS = ParametersPackage.PARAMETER___GET_ALL_PARAMETERS;
+	int NEO_PATH_PARAM___GET_ALL_PARAMETERS = ParametersPackage.PARAMETER___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -4005,7 +4005,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___PREPARE_PARAMETER_UPDATES = ParametersPackage.PARAMETER___PREPARE_PARAMETER_UPDATES;
+	int NEO_PATH_PARAM___PREPARE_PARAMETER_UPDATES = ParametersPackage.PARAMETER___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -4014,7 +4014,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = ParametersPackage.PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+	int NEO_PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = ParametersPackage.PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
 
 	/**
 	 * The operation id for the '<em>Update Parameters</em>' operation.
@@ -4023,7 +4023,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = ParametersPackage.PARAMETER___UPDATE_PARAMETERS__PARAMETERLIST;
+	int NEO_PATH_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = ParametersPackage.PARAMETER___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -4032,7 +4032,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = ParametersPackage.PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+	int NEO_PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = ParametersPackage.PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -4041,7 +4041,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___RECORD_VALUES__XMLDATADATABASE = ParametersPackage.PARAMETER___RECORD_VALUES__XMLDATADATABASE;
+	int NEO_PATH_PARAM___RECORD_VALUES__XMLDATADATABASE = ParametersPackage.PARAMETER___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -4050,7 +4050,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___RELATIONS_XML_ADAPTED = ParametersPackage.PARAMETER___RELATIONS_XML_ADAPTED;
+	int NEO_PATH_PARAM___RELATIONS_XML_ADAPTED = ParametersPackage.PARAMETER___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
@@ -4059,7 +4059,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___CREATE_XML_ADAPTION = ParametersPackage.PARAMETER___CREATE_XML_ADAPTION;
+	int NEO_PATH_PARAM___CREATE_XML_ADAPTION = ParametersPackage.PARAMETER___CREATE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
@@ -4068,7 +4068,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___CREATE_RDF_ADAPTION = ParametersPackage.PARAMETER___CREATE_RDF_ADAPTION;
+	int NEO_PATH_PARAM___CREATE_RDF_ADAPTION = ParametersPackage.PARAMETER___CREATE_RDF_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
@@ -4077,7 +4077,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___CREATE_NEO4J_ADAPTION = ParametersPackage.PARAMETER___CREATE_NEO4J_ADAPTION;
+	int NEO_PATH_PARAM___CREATE_NEO4J_ADAPTION = ParametersPackage.PARAMETER___CREATE_NEO4J_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -4086,7 +4086,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = ParametersPackage.PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int NEO_PATH_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = ParametersPackage.PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -4095,7 +4095,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___VALIDATE_AGAINST_SCHEMA = ParametersPackage.PARAMETER___VALIDATE_AGAINST_SCHEMA;
+	int NEO_PATH_PARAM___VALIDATE_AGAINST_SCHEMA = ParametersPackage.PARAMETER___VALIDATE_AGAINST_SCHEMA;
 
 	/**
 	 * The operation id for the '<em>Validate Example Value</em>' operation.
@@ -4104,7 +4104,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = ParametersPackage.PARAMETER___VALIDATE_EXAMPLE_VALUE__STRING;
+	int NEO_PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = ParametersPackage.PARAMETER___VALIDATE_EXAMPLE_VALUE__STRING;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -4113,7 +4113,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___INPUT_IS_VALID = ParametersPackage.PARAMETER___INPUT_IS_VALID;
+	int NEO_PATH_PARAM___INPUT_IS_VALID = ParametersPackage.PARAMETER___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Is Used</em>' operation.
@@ -4122,7 +4122,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___IS_USED = ParametersPackage.PARAMETER___IS_USED;
+	int NEO_PATH_PARAM___IS_USED = ParametersPackage.PARAMETER___IS_USED;
 
 	/**
 	 * The operation id for the '<em>Set Value From String</em>' operation.
@@ -4131,7 +4131,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___SET_VALUE_FROM_STRING__STRING = ParametersPackage.PARAMETER___SET_VALUE_FROM_STRING__STRING;
+	int NEO_PATH_PARAM___SET_VALUE_FROM_STRING__STRING = ParametersPackage.PARAMETER___SET_VALUE_FROM_STRING__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Value As String</em>' operation.
@@ -4140,7 +4140,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___GET_VALUE_AS_STRING = ParametersPackage.PARAMETER___GET_VALUE_AS_STRING;
+	int NEO_PATH_PARAM___GET_VALUE_AS_STRING = ParametersPackage.PARAMETER___GET_VALUE_AS_STRING;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -4149,7 +4149,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___CHECK_COMPARISON_CONSISTENCY = ParametersPackage.PARAMETER___CHECK_COMPARISON_CONSISTENCY;
+	int NEO_PATH_PARAM___CHECK_COMPARISON_CONSISTENCY = ParametersPackage.PARAMETER___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
 	 * The operation id for the '<em>Get Options As String List</em>' operation.
@@ -4158,7 +4158,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___GET_OPTIONS_AS_STRING_LIST = ParametersPackage.PARAMETER___GET_OPTIONS_AS_STRING_LIST;
+	int NEO_PATH_PARAM___GET_OPTIONS_AS_STRING_LIST = ParametersPackage.PARAMETER___GET_OPTIONS_AS_STRING_LIST;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -4167,7 +4167,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___GENERATE_DESCRIPTION = ParametersPackage.PARAMETER___GENERATE_DESCRIPTION;
+	int NEO_PATH_PARAM___GENERATE_DESCRIPTION = ParametersPackage.PARAMETER___GENERATE_DESCRIPTION;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -4176,7 +4176,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___CREATE_PARAMETERS = ParametersPackage.PARAMETER_OPERATION_COUNT + 0;
+	int NEO_PATH_PARAM___CREATE_PARAMETERS = ParametersPackage.PARAMETER_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
@@ -4185,7 +4185,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = ParametersPackage.PARAMETER_OPERATION_COUNT + 1;
+	int NEO_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = ParametersPackage.PARAMETER_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Return Inner Edge Nodes</em>' operation.
@@ -4194,7 +4194,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___GET_RETURN_INNER_EDGE_NODES = ParametersPackage.PARAMETER_OPERATION_COUNT + 2;
+	int NEO_PATH_PARAM___GET_RETURN_INNER_EDGE_NODES = ParametersPackage.PARAMETER_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Cypher Return Variable</em>' operation.
@@ -4203,16 +4203,16 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM___GET_CYPHER_RETURN_VARIABLE = ParametersPackage.PARAMETER_OPERATION_COUNT + 3;
+	int NEO_PATH_PARAM___GET_CYPHER_RETURN_VARIABLE = ParametersPackage.PARAMETER_OPERATION_COUNT + 3;
 
 	/**
-	 * The number of operations of the '<em>Neo Abstract Path Param</em>' class.
+	 * The number of operations of the '<em>Neo Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ABSTRACT_PATH_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 4;
+	int NEO_PATH_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionneo4j.impl.NeoElementPathParamImpl <em>Neo Element Path Param</em>}' class.
@@ -4231,7 +4231,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM__ID = NEO_ABSTRACT_PATH_PARAM__ID;
+	int NEO_ELEMENT_PATH_PARAM__ID = NEO_PATH_PARAM__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -4240,7 +4240,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM__INTERNAL_ID = NEO_ABSTRACT_PATH_PARAM__INTERNAL_ID;
+	int NEO_ELEMENT_PATH_PARAM__INTERNAL_ID = NEO_PATH_PARAM__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
@@ -4249,7 +4249,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM__PARAMETER_LIST = NEO_ABSTRACT_PATH_PARAM__PARAMETER_LIST;
+	int NEO_ELEMENT_PATH_PARAM__PARAMETER_LIST = NEO_PATH_PARAM__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
@@ -4258,7 +4258,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM__PREDEFINED = NEO_ABSTRACT_PATH_PARAM__PREDEFINED;
+	int NEO_ELEMENT_PATH_PARAM__PREDEFINED = NEO_PATH_PARAM__PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
@@ -4267,7 +4267,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM__PARAMETER_REFERENCES = NEO_ABSTRACT_PATH_PARAM__PARAMETER_REFERENCES;
+	int NEO_ELEMENT_PATH_PARAM__PARAMETER_REFERENCES = NEO_PATH_PARAM__PARAMETER_REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -4276,7 +4276,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM__DESCRIPTION = NEO_ABSTRACT_PATH_PARAM__DESCRIPTION;
+	int NEO_ELEMENT_PATH_PARAM__DESCRIPTION = NEO_PATH_PARAM__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Neo Path Part</b></em>' containment reference.
@@ -4285,7 +4285,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM__NEO_PATH_PART = NEO_ABSTRACT_PATH_PARAM__NEO_PATH_PART;
+	int NEO_ELEMENT_PATH_PARAM__NEO_PATH_PART = NEO_PATH_PARAM__NEO_PATH_PART;
 
 	/**
 	 * The feature id for the '<em><b>Neo Element Edge</b></em>' reference.
@@ -4294,7 +4294,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM__NEO_ELEMENT_EDGE = NEO_ABSTRACT_PATH_PARAM_FEATURE_COUNT + 0;
+	int NEO_ELEMENT_PATH_PARAM__NEO_ELEMENT_EDGE = NEO_PATH_PARAM_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Neo Element Path Param</em>' class.
@@ -4303,7 +4303,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM_FEATURE_COUNT = NEO_ABSTRACT_PATH_PARAM_FEATURE_COUNT + 1;
+	int NEO_ELEMENT_PATH_PARAM_FEATURE_COUNT = NEO_PATH_PARAM_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -4312,7 +4312,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___IS_VALID__ABSTRACTIONLEVEL = NEO_ABSTRACT_PATH_PARAM___IS_VALID__ABSTRACTIONLEVEL;
+	int NEO_ELEMENT_PATH_PARAM___IS_VALID__ABSTRACTIONLEVEL = NEO_PATH_PARAM___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -4321,7 +4321,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = NEO_ABSTRACT_PATH_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+	int NEO_ELEMENT_PATH_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = NEO_PATH_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -4330,7 +4330,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___MY_TO_STRING = NEO_ABSTRACT_PATH_PARAM___MY_TO_STRING;
+	int NEO_ELEMENT_PATH_PARAM___MY_TO_STRING = NEO_PATH_PARAM___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Generate Cypher</em>' operation.
@@ -4339,7 +4339,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___GENERATE_CYPHER = NEO_ABSTRACT_PATH_PARAM___GENERATE_CYPHER;
+	int NEO_ELEMENT_PATH_PARAM___GENERATE_CYPHER = NEO_PATH_PARAM___GENERATE_CYPHER;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -4348,7 +4348,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___GENERATE_XQUERY = NEO_ABSTRACT_PATH_PARAM___GENERATE_XQUERY;
+	int NEO_ELEMENT_PATH_PARAM___GENERATE_XQUERY = NEO_PATH_PARAM___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Generate Sparql</em>' operation.
@@ -4357,7 +4357,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___GENERATE_SPARQL = NEO_ABSTRACT_PATH_PARAM___GENERATE_SPARQL;
+	int NEO_ELEMENT_PATH_PARAM___GENERATE_SPARQL = NEO_PATH_PARAM___GENERATE_SPARQL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -4366,7 +4366,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___GET_CONTAINER = NEO_ABSTRACT_PATH_PARAM___GET_CONTAINER;
+	int NEO_ELEMENT_PATH_PARAM___GET_CONTAINER = NEO_PATH_PARAM___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -4375,7 +4375,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___GET_ANCESTOR__CLASS = NEO_ABSTRACT_PATH_PARAM___GET_ANCESTOR__CLASS;
+	int NEO_ELEMENT_PATH_PARAM___GET_ANCESTOR__CLASS = NEO_PATH_PARAM___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Initialize Translation</em>' operation.
@@ -4384,7 +4384,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___INITIALIZE_TRANSLATION = NEO_ABSTRACT_PATH_PARAM___INITIALIZE_TRANSLATION;
+	int NEO_ELEMENT_PATH_PARAM___INITIALIZE_TRANSLATION = NEO_PATH_PARAM___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -4393,7 +4393,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___PREPARE_TRANSLATION = NEO_ABSTRACT_PATH_PARAM___PREPARE_TRANSLATION;
+	int NEO_ELEMENT_PATH_PARAM___PREPARE_TRANSLATION = NEO_PATH_PARAM___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -4402,7 +4402,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___GET_OPERATOR_LIST = NEO_ABSTRACT_PATH_PARAM___GET_OPERATOR_LIST;
+	int NEO_ELEMENT_PATH_PARAM___GET_OPERATOR_LIST = NEO_PATH_PARAM___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -4411,7 +4411,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___GET_PARAMETER_LIST = NEO_ABSTRACT_PATH_PARAM___GET_PARAMETER_LIST;
+	int NEO_ELEMENT_PATH_PARAM___GET_PARAMETER_LIST = NEO_PATH_PARAM___GET_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -4420,7 +4420,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___GET_ALL_PARAMETERS = NEO_ABSTRACT_PATH_PARAM___GET_ALL_PARAMETERS;
+	int NEO_ELEMENT_PATH_PARAM___GET_ALL_PARAMETERS = NEO_PATH_PARAM___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -4429,7 +4429,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___PREPARE_PARAMETER_UPDATES = NEO_ABSTRACT_PATH_PARAM___PREPARE_PARAMETER_UPDATES;
+	int NEO_ELEMENT_PATH_PARAM___PREPARE_PARAMETER_UPDATES = NEO_PATH_PARAM___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -4438,7 +4438,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = NEO_ABSTRACT_PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+	int NEO_ELEMENT_PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = NEO_PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
 
 	/**
 	 * The operation id for the '<em>Update Parameters</em>' operation.
@@ -4447,7 +4447,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = NEO_ABSTRACT_PATH_PARAM___UPDATE_PARAMETERS__PARAMETERLIST;
+	int NEO_ELEMENT_PATH_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = NEO_PATH_PARAM___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -4456,7 +4456,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = NEO_ABSTRACT_PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+	int NEO_ELEMENT_PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = NEO_PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -4465,7 +4465,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___RECORD_VALUES__XMLDATADATABASE = NEO_ABSTRACT_PATH_PARAM___RECORD_VALUES__XMLDATADATABASE;
+	int NEO_ELEMENT_PATH_PARAM___RECORD_VALUES__XMLDATADATABASE = NEO_PATH_PARAM___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -4474,7 +4474,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___RELATIONS_XML_ADAPTED = NEO_ABSTRACT_PATH_PARAM___RELATIONS_XML_ADAPTED;
+	int NEO_ELEMENT_PATH_PARAM___RELATIONS_XML_ADAPTED = NEO_PATH_PARAM___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
@@ -4483,7 +4483,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___CREATE_XML_ADAPTION = NEO_ABSTRACT_PATH_PARAM___CREATE_XML_ADAPTION;
+	int NEO_ELEMENT_PATH_PARAM___CREATE_XML_ADAPTION = NEO_PATH_PARAM___CREATE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
@@ -4492,7 +4492,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___CREATE_RDF_ADAPTION = NEO_ABSTRACT_PATH_PARAM___CREATE_RDF_ADAPTION;
+	int NEO_ELEMENT_PATH_PARAM___CREATE_RDF_ADAPTION = NEO_PATH_PARAM___CREATE_RDF_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
@@ -4501,7 +4501,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___CREATE_NEO4J_ADAPTION = NEO_ABSTRACT_PATH_PARAM___CREATE_NEO4J_ADAPTION;
+	int NEO_ELEMENT_PATH_PARAM___CREATE_NEO4J_ADAPTION = NEO_PATH_PARAM___CREATE_NEO4J_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -4510,7 +4510,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = NEO_ABSTRACT_PATH_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int NEO_ELEMENT_PATH_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = NEO_PATH_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -4519,7 +4519,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___VALIDATE_AGAINST_SCHEMA = NEO_ABSTRACT_PATH_PARAM___VALIDATE_AGAINST_SCHEMA;
+	int NEO_ELEMENT_PATH_PARAM___VALIDATE_AGAINST_SCHEMA = NEO_PATH_PARAM___VALIDATE_AGAINST_SCHEMA;
 
 	/**
 	 * The operation id for the '<em>Validate Example Value</em>' operation.
@@ -4528,7 +4528,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = NEO_ABSTRACT_PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING;
+	int NEO_ELEMENT_PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = NEO_PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -4537,7 +4537,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___INPUT_IS_VALID = NEO_ABSTRACT_PATH_PARAM___INPUT_IS_VALID;
+	int NEO_ELEMENT_PATH_PARAM___INPUT_IS_VALID = NEO_PATH_PARAM___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Is Used</em>' operation.
@@ -4546,7 +4546,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___IS_USED = NEO_ABSTRACT_PATH_PARAM___IS_USED;
+	int NEO_ELEMENT_PATH_PARAM___IS_USED = NEO_PATH_PARAM___IS_USED;
 
 	/**
 	 * The operation id for the '<em>Set Value From String</em>' operation.
@@ -4555,7 +4555,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___SET_VALUE_FROM_STRING__STRING = NEO_ABSTRACT_PATH_PARAM___SET_VALUE_FROM_STRING__STRING;
+	int NEO_ELEMENT_PATH_PARAM___SET_VALUE_FROM_STRING__STRING = NEO_PATH_PARAM___SET_VALUE_FROM_STRING__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Value As String</em>' operation.
@@ -4564,7 +4564,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___GET_VALUE_AS_STRING = NEO_ABSTRACT_PATH_PARAM___GET_VALUE_AS_STRING;
+	int NEO_ELEMENT_PATH_PARAM___GET_VALUE_AS_STRING = NEO_PATH_PARAM___GET_VALUE_AS_STRING;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -4573,7 +4573,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___CHECK_COMPARISON_CONSISTENCY = NEO_ABSTRACT_PATH_PARAM___CHECK_COMPARISON_CONSISTENCY;
+	int NEO_ELEMENT_PATH_PARAM___CHECK_COMPARISON_CONSISTENCY = NEO_PATH_PARAM___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
 	 * The operation id for the '<em>Get Options As String List</em>' operation.
@@ -4582,7 +4582,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___GET_OPTIONS_AS_STRING_LIST = NEO_ABSTRACT_PATH_PARAM___GET_OPTIONS_AS_STRING_LIST;
+	int NEO_ELEMENT_PATH_PARAM___GET_OPTIONS_AS_STRING_LIST = NEO_PATH_PARAM___GET_OPTIONS_AS_STRING_LIST;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -4591,7 +4591,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___GENERATE_DESCRIPTION = NEO_ABSTRACT_PATH_PARAM___GENERATE_DESCRIPTION;
+	int NEO_ELEMENT_PATH_PARAM___GENERATE_DESCRIPTION = NEO_PATH_PARAM___GENERATE_DESCRIPTION;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -4600,7 +4600,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___CREATE_PARAMETERS = NEO_ABSTRACT_PATH_PARAM___CREATE_PARAMETERS;
+	int NEO_ELEMENT_PATH_PARAM___CREATE_PARAMETERS = NEO_PATH_PARAM___CREATE_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
@@ -4609,7 +4609,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = NEO_ABSTRACT_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
+	int NEO_ELEMENT_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = NEO_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Return Inner Edge Nodes</em>' operation.
@@ -4618,7 +4618,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___GET_RETURN_INNER_EDGE_NODES = NEO_ABSTRACT_PATH_PARAM___GET_RETURN_INNER_EDGE_NODES;
+	int NEO_ELEMENT_PATH_PARAM___GET_RETURN_INNER_EDGE_NODES = NEO_PATH_PARAM___GET_RETURN_INNER_EDGE_NODES;
 
 	/**
 	 * The operation id for the '<em>Get Cypher Return Variable</em>' operation.
@@ -4627,7 +4627,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___GET_CYPHER_RETURN_VARIABLE = NEO_ABSTRACT_PATH_PARAM___GET_CYPHER_RETURN_VARIABLE;
+	int NEO_ELEMENT_PATH_PARAM___GET_CYPHER_RETURN_VARIABLE = NEO_PATH_PARAM___GET_CYPHER_RETURN_VARIABLE;
 
 	/**
 	 * The number of operations of the '<em>Neo Element Path Param</em>' class.
@@ -4636,7 +4636,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM_OPERATION_COUNT = NEO_ABSTRACT_PATH_PARAM_OPERATION_COUNT + 0;
+	int NEO_ELEMENT_PATH_PARAM_OPERATION_COUNT = NEO_PATH_PARAM_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionneo4j.impl.NeoPropertyPathParamImpl <em>Neo Property Path Param</em>}' class.
@@ -4655,7 +4655,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM__ID = NEO_ABSTRACT_PATH_PARAM__ID;
+	int NEO_PROPERTY_PATH_PARAM__ID = NEO_PATH_PARAM__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -4664,7 +4664,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM__INTERNAL_ID = NEO_ABSTRACT_PATH_PARAM__INTERNAL_ID;
+	int NEO_PROPERTY_PATH_PARAM__INTERNAL_ID = NEO_PATH_PARAM__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
@@ -4673,7 +4673,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM__PARAMETER_LIST = NEO_ABSTRACT_PATH_PARAM__PARAMETER_LIST;
+	int NEO_PROPERTY_PATH_PARAM__PARAMETER_LIST = NEO_PATH_PARAM__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
@@ -4682,7 +4682,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM__PREDEFINED = NEO_ABSTRACT_PATH_PARAM__PREDEFINED;
+	int NEO_PROPERTY_PATH_PARAM__PREDEFINED = NEO_PATH_PARAM__PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
@@ -4691,7 +4691,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM__PARAMETER_REFERENCES = NEO_ABSTRACT_PATH_PARAM__PARAMETER_REFERENCES;
+	int NEO_PROPERTY_PATH_PARAM__PARAMETER_REFERENCES = NEO_PATH_PARAM__PARAMETER_REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -4700,7 +4700,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM__DESCRIPTION = NEO_ABSTRACT_PATH_PARAM__DESCRIPTION;
+	int NEO_PROPERTY_PATH_PARAM__DESCRIPTION = NEO_PATH_PARAM__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Neo Path Part</b></em>' containment reference.
@@ -4709,7 +4709,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART = NEO_ABSTRACT_PATH_PARAM__NEO_PATH_PART;
+	int NEO_PROPERTY_PATH_PARAM__NEO_PATH_PART = NEO_PATH_PARAM__NEO_PATH_PART;
 
 	/**
 	 * The feature id for the '<em><b>Neo Property Edge</b></em>' reference.
@@ -4718,7 +4718,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_EDGE = NEO_ABSTRACT_PATH_PARAM_FEATURE_COUNT + 0;
+	int NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_EDGE = NEO_PATH_PARAM_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Neo Property Name</b></em>' containment reference.
@@ -4727,7 +4727,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_NAME = NEO_ABSTRACT_PATH_PARAM_FEATURE_COUNT + 1;
+	int NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_NAME = NEO_PATH_PARAM_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Neo Property Path Param</em>' class.
@@ -4736,7 +4736,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM_FEATURE_COUNT = NEO_ABSTRACT_PATH_PARAM_FEATURE_COUNT + 2;
+	int NEO_PROPERTY_PATH_PARAM_FEATURE_COUNT = NEO_PATH_PARAM_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -4745,7 +4745,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___IS_VALID__ABSTRACTIONLEVEL = NEO_ABSTRACT_PATH_PARAM___IS_VALID__ABSTRACTIONLEVEL;
+	int NEO_PROPERTY_PATH_PARAM___IS_VALID__ABSTRACTIONLEVEL = NEO_PATH_PARAM___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -4754,7 +4754,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = NEO_ABSTRACT_PATH_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+	int NEO_PROPERTY_PATH_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = NEO_PATH_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -4763,7 +4763,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___MY_TO_STRING = NEO_ABSTRACT_PATH_PARAM___MY_TO_STRING;
+	int NEO_PROPERTY_PATH_PARAM___MY_TO_STRING = NEO_PATH_PARAM___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Generate Cypher</em>' operation.
@@ -4772,7 +4772,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___GENERATE_CYPHER = NEO_ABSTRACT_PATH_PARAM___GENERATE_CYPHER;
+	int NEO_PROPERTY_PATH_PARAM___GENERATE_CYPHER = NEO_PATH_PARAM___GENERATE_CYPHER;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -4781,7 +4781,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___GENERATE_XQUERY = NEO_ABSTRACT_PATH_PARAM___GENERATE_XQUERY;
+	int NEO_PROPERTY_PATH_PARAM___GENERATE_XQUERY = NEO_PATH_PARAM___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Generate Sparql</em>' operation.
@@ -4790,7 +4790,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___GENERATE_SPARQL = NEO_ABSTRACT_PATH_PARAM___GENERATE_SPARQL;
+	int NEO_PROPERTY_PATH_PARAM___GENERATE_SPARQL = NEO_PATH_PARAM___GENERATE_SPARQL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -4799,7 +4799,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___GET_CONTAINER = NEO_ABSTRACT_PATH_PARAM___GET_CONTAINER;
+	int NEO_PROPERTY_PATH_PARAM___GET_CONTAINER = NEO_PATH_PARAM___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -4808,7 +4808,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___GET_ANCESTOR__CLASS = NEO_ABSTRACT_PATH_PARAM___GET_ANCESTOR__CLASS;
+	int NEO_PROPERTY_PATH_PARAM___GET_ANCESTOR__CLASS = NEO_PATH_PARAM___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Initialize Translation</em>' operation.
@@ -4817,7 +4817,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___INITIALIZE_TRANSLATION = NEO_ABSTRACT_PATH_PARAM___INITIALIZE_TRANSLATION;
+	int NEO_PROPERTY_PATH_PARAM___INITIALIZE_TRANSLATION = NEO_PATH_PARAM___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -4826,7 +4826,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___PREPARE_TRANSLATION = NEO_ABSTRACT_PATH_PARAM___PREPARE_TRANSLATION;
+	int NEO_PROPERTY_PATH_PARAM___PREPARE_TRANSLATION = NEO_PATH_PARAM___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -4835,7 +4835,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___GET_OPERATOR_LIST = NEO_ABSTRACT_PATH_PARAM___GET_OPERATOR_LIST;
+	int NEO_PROPERTY_PATH_PARAM___GET_OPERATOR_LIST = NEO_PATH_PARAM___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -4844,7 +4844,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___GET_PARAMETER_LIST = NEO_ABSTRACT_PATH_PARAM___GET_PARAMETER_LIST;
+	int NEO_PROPERTY_PATH_PARAM___GET_PARAMETER_LIST = NEO_PATH_PARAM___GET_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -4853,7 +4853,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___GET_ALL_PARAMETERS = NEO_ABSTRACT_PATH_PARAM___GET_ALL_PARAMETERS;
+	int NEO_PROPERTY_PATH_PARAM___GET_ALL_PARAMETERS = NEO_PATH_PARAM___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -4862,7 +4862,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___PREPARE_PARAMETER_UPDATES = NEO_ABSTRACT_PATH_PARAM___PREPARE_PARAMETER_UPDATES;
+	int NEO_PROPERTY_PATH_PARAM___PREPARE_PARAMETER_UPDATES = NEO_PATH_PARAM___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -4871,7 +4871,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = NEO_ABSTRACT_PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+	int NEO_PROPERTY_PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = NEO_PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
 
 	/**
 	 * The operation id for the '<em>Update Parameters</em>' operation.
@@ -4880,7 +4880,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = NEO_ABSTRACT_PATH_PARAM___UPDATE_PARAMETERS__PARAMETERLIST;
+	int NEO_PROPERTY_PATH_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = NEO_PATH_PARAM___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -4889,7 +4889,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = NEO_ABSTRACT_PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+	int NEO_PROPERTY_PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = NEO_PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -4898,7 +4898,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___RECORD_VALUES__XMLDATADATABASE = NEO_ABSTRACT_PATH_PARAM___RECORD_VALUES__XMLDATADATABASE;
+	int NEO_PROPERTY_PATH_PARAM___RECORD_VALUES__XMLDATADATABASE = NEO_PATH_PARAM___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -4907,7 +4907,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___RELATIONS_XML_ADAPTED = NEO_ABSTRACT_PATH_PARAM___RELATIONS_XML_ADAPTED;
+	int NEO_PROPERTY_PATH_PARAM___RELATIONS_XML_ADAPTED = NEO_PATH_PARAM___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
@@ -4916,7 +4916,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___CREATE_XML_ADAPTION = NEO_ABSTRACT_PATH_PARAM___CREATE_XML_ADAPTION;
+	int NEO_PROPERTY_PATH_PARAM___CREATE_XML_ADAPTION = NEO_PATH_PARAM___CREATE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
@@ -4925,7 +4925,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___CREATE_RDF_ADAPTION = NEO_ABSTRACT_PATH_PARAM___CREATE_RDF_ADAPTION;
+	int NEO_PROPERTY_PATH_PARAM___CREATE_RDF_ADAPTION = NEO_PATH_PARAM___CREATE_RDF_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
@@ -4934,7 +4934,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___CREATE_NEO4J_ADAPTION = NEO_ABSTRACT_PATH_PARAM___CREATE_NEO4J_ADAPTION;
+	int NEO_PROPERTY_PATH_PARAM___CREATE_NEO4J_ADAPTION = NEO_PATH_PARAM___CREATE_NEO4J_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -4943,7 +4943,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = NEO_ABSTRACT_PATH_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int NEO_PROPERTY_PATH_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = NEO_PATH_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -4952,7 +4952,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___VALIDATE_AGAINST_SCHEMA = NEO_ABSTRACT_PATH_PARAM___VALIDATE_AGAINST_SCHEMA;
+	int NEO_PROPERTY_PATH_PARAM___VALIDATE_AGAINST_SCHEMA = NEO_PATH_PARAM___VALIDATE_AGAINST_SCHEMA;
 
 	/**
 	 * The operation id for the '<em>Validate Example Value</em>' operation.
@@ -4961,7 +4961,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = NEO_ABSTRACT_PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING;
+	int NEO_PROPERTY_PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = NEO_PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -4970,7 +4970,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___INPUT_IS_VALID = NEO_ABSTRACT_PATH_PARAM___INPUT_IS_VALID;
+	int NEO_PROPERTY_PATH_PARAM___INPUT_IS_VALID = NEO_PATH_PARAM___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Is Used</em>' operation.
@@ -4979,7 +4979,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___IS_USED = NEO_ABSTRACT_PATH_PARAM___IS_USED;
+	int NEO_PROPERTY_PATH_PARAM___IS_USED = NEO_PATH_PARAM___IS_USED;
 
 	/**
 	 * The operation id for the '<em>Set Value From String</em>' operation.
@@ -4988,7 +4988,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___SET_VALUE_FROM_STRING__STRING = NEO_ABSTRACT_PATH_PARAM___SET_VALUE_FROM_STRING__STRING;
+	int NEO_PROPERTY_PATH_PARAM___SET_VALUE_FROM_STRING__STRING = NEO_PATH_PARAM___SET_VALUE_FROM_STRING__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Value As String</em>' operation.
@@ -4997,7 +4997,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___GET_VALUE_AS_STRING = NEO_ABSTRACT_PATH_PARAM___GET_VALUE_AS_STRING;
+	int NEO_PROPERTY_PATH_PARAM___GET_VALUE_AS_STRING = NEO_PATH_PARAM___GET_VALUE_AS_STRING;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -5006,7 +5006,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___CHECK_COMPARISON_CONSISTENCY = NEO_ABSTRACT_PATH_PARAM___CHECK_COMPARISON_CONSISTENCY;
+	int NEO_PROPERTY_PATH_PARAM___CHECK_COMPARISON_CONSISTENCY = NEO_PATH_PARAM___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
 	 * The operation id for the '<em>Get Options As String List</em>' operation.
@@ -5015,7 +5015,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___GET_OPTIONS_AS_STRING_LIST = NEO_ABSTRACT_PATH_PARAM___GET_OPTIONS_AS_STRING_LIST;
+	int NEO_PROPERTY_PATH_PARAM___GET_OPTIONS_AS_STRING_LIST = NEO_PATH_PARAM___GET_OPTIONS_AS_STRING_LIST;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -5024,7 +5024,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___GENERATE_DESCRIPTION = NEO_ABSTRACT_PATH_PARAM___GENERATE_DESCRIPTION;
+	int NEO_PROPERTY_PATH_PARAM___GENERATE_DESCRIPTION = NEO_PATH_PARAM___GENERATE_DESCRIPTION;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -5033,7 +5033,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___CREATE_PARAMETERS = NEO_ABSTRACT_PATH_PARAM___CREATE_PARAMETERS;
+	int NEO_PROPERTY_PATH_PARAM___CREATE_PARAMETERS = NEO_PATH_PARAM___CREATE_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
@@ -5042,7 +5042,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = NEO_ABSTRACT_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
+	int NEO_PROPERTY_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = NEO_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Return Inner Edge Nodes</em>' operation.
@@ -5051,7 +5051,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___GET_RETURN_INNER_EDGE_NODES = NEO_ABSTRACT_PATH_PARAM___GET_RETURN_INNER_EDGE_NODES;
+	int NEO_PROPERTY_PATH_PARAM___GET_RETURN_INNER_EDGE_NODES = NEO_PATH_PARAM___GET_RETURN_INNER_EDGE_NODES;
 
 	/**
 	 * The operation id for the '<em>Get Cypher Return Variable</em>' operation.
@@ -5060,7 +5060,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___GET_CYPHER_RETURN_VARIABLE = NEO_ABSTRACT_PATH_PARAM___GET_CYPHER_RETURN_VARIABLE;
+	int NEO_PROPERTY_PATH_PARAM___GET_CYPHER_RETURN_VARIABLE = NEO_PATH_PARAM___GET_CYPHER_RETURN_VARIABLE;
 
 	/**
 	 * The operation id for the '<em>Set Neo Property Name</em>' operation.
@@ -5069,7 +5069,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___SET_NEO_PROPERTY_NAME__STRING = NEO_ABSTRACT_PATH_PARAM_OPERATION_COUNT + 0;
+	int NEO_PROPERTY_PATH_PARAM___SET_NEO_PROPERTY_NAME__STRING = NEO_PATH_PARAM_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Neo Property Path Param</em>' class.
@@ -5078,7 +5078,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM_OPERATION_COUNT = NEO_ABSTRACT_PATH_PARAM_OPERATION_COUNT + 1;
+	int NEO_PROPERTY_PATH_PARAM_OPERATION_COUNT = NEO_PATH_PARAM_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionneo4j.impl.NeoPropertyEdgeImpl <em>Neo Property Edge</em>}' class.
@@ -5742,6 +5742,47 @@ public interface Adaptionneo4jPackage extends EPackage {
 	EOperation getNeoEdge__GetReturnInnerEdgeNodes();
 
 	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionneo4j.NeoPathParam <em>Neo Path Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Neo Path Param</em>'.
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPathParam
+	 * @generated
+	 */
+	EClass getNeoPathParam();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionneo4j.NeoPathParam#getNeoPathPart <em>Neo Path Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Neo Path Part</em>'.
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPathParam#getNeoPathPart()
+	 * @see #getNeoPathParam()
+	 * @generated
+	 */
+	EReference getNeoPathParam_NeoPathPart();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionneo4j.NeoPathParam#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Return Inner Edge Nodes</em>' operation.
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPathParam#getReturnInnerEdgeNodes()
+	 * @generated
+	 */
+	EOperation getNeoPathParam__GetReturnInnerEdgeNodes();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionneo4j.NeoPathParam#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Cypher Return Variable</em>' operation.
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPathParam#getCypherReturnVariable()
+	 * @generated
+	 */
+	EOperation getNeoPathParam__GetCypherReturnVariable();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionneo4j.NeoComplexEdge <em>Neo Complex Edge</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5888,15 +5929,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	EClass getNeoPathPart();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoParam <em>Neo Param</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoPathParam <em>Neo Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Neo Param</em>'.
-	 * @see qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoParam()
+	 * @return the meta object for the container reference '<em>Neo Path Param</em>'.
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoPathParam()
 	 * @see #getNeoPathPart()
 	 * @generated
 	 */
-	EReference getNeoPathPart_NeoParam();
+	EReference getNeoPathPart_NeoPathParam();
 
 	/**
 	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoComplexEdge <em>Neo Complex Edge</em>}'.
@@ -6105,47 +6146,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	EOperation getNeoPropertyEdge__GenerateCypherNodeVariable();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam <em>Neo Abstract Path Param</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Neo Abstract Path Param</em>'.
-	 * @see qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam
-	 * @generated
-	 */
-	EClass getNeoAbstractPathParam();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam#getNeoPathPart <em>Neo Path Part</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Neo Path Part</em>'.
-	 * @see qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam#getNeoPathPart()
-	 * @see #getNeoAbstractPathParam()
-	 * @generated
-	 */
-	EReference getNeoAbstractPathParam_NeoPathPart();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Return Inner Edge Nodes</em>' operation.
-	 * @see qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam#getReturnInnerEdgeNodes()
-	 * @generated
-	 */
-	EOperation getNeoAbstractPathParam__GetReturnInnerEdgeNodes();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Cypher Return Variable</em>' operation.
-	 * @see qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam#getCypherReturnVariable()
-	 * @generated
-	 */
-	EOperation getNeoAbstractPathParam__GetCypherReturnVariable();
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionneo4j.NeoElement <em>Neo Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6321,6 +6321,40 @@ public interface Adaptionneo4jPackage extends EPackage {
 		EOperation NEO_EDGE___GET_RETURN_INNER_EDGE_NODES = eINSTANCE.getNeoEdge__GetReturnInnerEdgeNodes();
 
 		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionneo4j.impl.NeoPathParamImpl <em>Neo Path Param</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.adaptionneo4j.impl.NeoPathParamImpl
+		 * @see qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jPackageImpl#getNeoPathParam()
+		 * @generated
+		 */
+		EClass NEO_PATH_PARAM = eINSTANCE.getNeoPathParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Neo Path Part</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NEO_PATH_PARAM__NEO_PATH_PART = eINSTANCE.getNeoPathParam_NeoPathPart();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Return Inner Edge Nodes</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_PATH_PARAM___GET_RETURN_INNER_EDGE_NODES = eINSTANCE.getNeoPathParam__GetReturnInnerEdgeNodes();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Cypher Return Variable</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_PATH_PARAM___GET_CYPHER_RETURN_VARIABLE = eINSTANCE.getNeoPathParam__GetCypherReturnVariable();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionneo4j.impl.NeoComplexEdgeImpl <em>Neo Complex Edge</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6439,12 +6473,12 @@ public interface Adaptionneo4jPackage extends EPackage {
 		EClass NEO_PATH_PART = eINSTANCE.getNeoPathPart();
 
 		/**
-		 * The meta object literal for the '<em><b>Neo Param</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Neo Path Param</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NEO_PATH_PART__NEO_PARAM = eINSTANCE.getNeoPathPart_NeoParam();
+		EReference NEO_PATH_PART__NEO_PATH_PARAM = eINSTANCE.getNeoPathPart_NeoPathParam();
 
 		/**
 		 * The meta object literal for the '<em><b>Neo Complex Edge</b></em>' container reference feature.
@@ -6613,40 +6647,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NEO_PROPERTY_EDGE___GENERATE_CYPHER_NODE_VARIABLE = eINSTANCE.getNeoPropertyEdge__GenerateCypherNodeVariable();
-
-		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.adaptionneo4j.impl.NeoAbstractPathParamImpl <em>Neo Abstract Path Param</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.adaptionneo4j.impl.NeoAbstractPathParamImpl
-		 * @see qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jPackageImpl#getNeoAbstractPathParam()
-		 * @generated
-		 */
-		EClass NEO_ABSTRACT_PATH_PARAM = eINSTANCE.getNeoAbstractPathParam();
-
-		/**
-		 * The meta object literal for the '<em><b>Neo Path Part</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NEO_ABSTRACT_PATH_PARAM__NEO_PATH_PART = eINSTANCE.getNeoAbstractPathParam_NeoPathPart();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Return Inner Edge Nodes</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NEO_ABSTRACT_PATH_PARAM___GET_RETURN_INNER_EDGE_NODES = eINSTANCE.getNeoAbstractPathParam__GetReturnInnerEdgeNodes();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Cypher Return Variable</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NEO_ABSTRACT_PATH_PARAM___GET_CYPHER_RETURN_VARIABLE = eINSTANCE.getNeoAbstractPathParam__GetCypherReturnVariable();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionneo4j.NeoElement <em>Neo Element</em>}' class.

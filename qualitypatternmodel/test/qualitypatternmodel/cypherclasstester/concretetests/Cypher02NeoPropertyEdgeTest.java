@@ -18,17 +18,17 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mockito;
 
-import qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
-import qualitypatternmodel.adaptionneo4j.impl.NeoAbstractPathParamImpl;
+import qualitypatternmodel.adaptionneo4j.impl.NeoPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoComplexEdgeImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoElementNodeImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyEdgeImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
-import qualitypatternmodel.cypherclasstester.NeoAbstractEdgeTest;
+import qualitypatternmodel.cypherclasstester.NeoEdgeTest;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.impl.ParametersFactoryImpl;
@@ -36,7 +36,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
 
 
 @DisplayName("NeoPropertyEdge Test")
-public class Cypher02NeoPropertyEdgeTest extends NeoAbstractEdgeTest {
+public class Cypher02NeoPropertyEdgeTest extends NeoEdgeTest {
 	private static final String NEO_PROPERTY_NODE = CypherSpecificConstants.VARIABLE_PROPERTY_NODE + 2;
 	private static final String PLACE_OF_ISSUE = "placeOfIssue";
 	private static final String NEO_PROPERTY_EDGE_1 = "NeoPropertyEdgeImpl [1]";
@@ -152,7 +152,7 @@ public class Cypher02NeoPropertyEdgeTest extends NeoAbstractEdgeTest {
 			
 			//Get the Exception
 			NeoPathPart mockNeoPathPart = Mockito.mock(NeoPathPart.class);
-			Field f = getNeoAbstractPathParamField(NeoAbstractPathParamImpl.class, "neoPathPart");
+			Field f = getNeoAbstractPathParamField(NeoPathParamImpl.class, "neoPathPart");
 			f.set(propertyName, mockNeoPathPart);
 			assertThrows(InvalidityException.class, () -> neoPropertyEdge.generateCypherNodeVariable());
 		} catch (Exception e) {
@@ -279,7 +279,7 @@ public class Cypher02NeoPropertyEdgeTest extends NeoAbstractEdgeTest {
 	@ValueSource(ints = {1,10,100,1000})
 	public void getCypherReturnVariable(int number) {
 		try {
-			NeoAbstractPathParam neoAbstractPathParam = FACTORY.createNeoPropertyPathParam();
+			NeoPathParam neoAbstractPathParam = FACTORY.createNeoPropertyPathParam();
 			((NeoPropertyPathParam) neoAbstractPathParam).setNeoPathPart(null);
 			neoPropertyEdge.setNeoPropertyPathParam((NeoPropertyPathParam) neoAbstractPathParam);
 			assumeNotNull(neoPropertyEdge.getNeoPropertyPathParam());

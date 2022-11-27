@@ -21,7 +21,7 @@ import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NeoElementPathParamItemProvider extends NeoAbstractPathParamItemProvider {
+public class NeoElementPathParamItemProvider extends NeoPathParamItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

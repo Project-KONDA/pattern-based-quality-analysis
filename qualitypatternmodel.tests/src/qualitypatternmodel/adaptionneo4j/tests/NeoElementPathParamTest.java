@@ -13,7 +13,7 @@ import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NeoElementPathParamTest extends NeoAbstractPathParamTest {
+public class NeoElementPathParamTest extends NeoPathParamTest {
 
 	/**
 	 * <!-- begin-user-doc -->

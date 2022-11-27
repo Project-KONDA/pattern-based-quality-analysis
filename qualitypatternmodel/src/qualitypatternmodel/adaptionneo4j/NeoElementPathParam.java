@@ -19,7 +19,7 @@ package qualitypatternmodel.adaptionneo4j;
  * @model
  * @generated
  */
-public interface NeoElementPathParam extends NeoAbstractPathParam {
+public interface NeoElementPathParam extends NeoPathParam {
 	/**
 	 * Returns the value of the '<em><b>Neo Element Edge</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionneo4j.NeoElementEdge#getNeoElementPathParam <em>Neo Element Path Param</em>}'.

@@ -239,7 +239,7 @@ public class ParameterListItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
-				 Adaptionneo4jFactory.eINSTANCE.createNeoPathParam()));
+				 Adaptionneo4jFactory.eINSTANCE.createNeoElementPathParam()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -3,6 +3,7 @@
 package qualitypatternmodel.adaptionneo4j.tests;
 
 import junit.framework.TestCase;
+
 import qualitypatternmodel.adaptionneo4j.NeoNode;
 
 /**
@@ -54,7 +55,6 @@ public abstract class NeoNodeTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	protected NeoNode getFixture() {
 		return fixture;
 	}

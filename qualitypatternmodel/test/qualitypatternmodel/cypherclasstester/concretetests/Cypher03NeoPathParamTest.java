@@ -247,7 +247,7 @@ public class Cypher03NeoPathParamTest extends NeoAbstractPathParamTest {
 			buildMockSimpleEdge();
 			neoPathParam.setNeoPathPart(super.mockSimpleEdge);
 			assumeNotNull(neoPathParam.getNeoPathPart());
-			assertEquals("-[varEdge1]-", neoPathParam.generateCypher()); 
+			assertEquals("-[varElementEdge1]-", neoPathParam.generateCypher()); 
 			
 			//With a NeoComplexEdge	
 			NeoComplexEdge neoComplexEdge = FACTORY.createNeoComplexEdge();

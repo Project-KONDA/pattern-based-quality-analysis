@@ -105,7 +105,7 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 		if (getIncomingMapping() == null) {
 			StringBuilder cypher = new StringBuilder();
 			cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
-			cypher.append(CypherSpecificConstants.VARIABLE_NODE);
+			cypher.append(CypherSpecificConstants.VARIABLE_ELEMENT_NODE);
 			cypher.append(getOriginalID());
 			TextListParam labels = this.getNeoNodeLabels();
 			if((!translated)) { 
@@ -134,7 +134,7 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	public String getCypherVariable() throws InvalidityException {
 		if (getIncomingMapping() == null) {
 			String var;
-			var = CypherSpecificConstants.VARIABLE_NODE;
+			var = CypherSpecificConstants.VARIABLE_ELEMENT_NODE;
 			var += getOriginalID();
 			return var;
 		}

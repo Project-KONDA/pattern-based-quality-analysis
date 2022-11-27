@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoEdge;
-import qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
 import qualitypatternmodel.adaptionneo4j.NeoDirection;
 import qualitypatternmodel.adaptionneo4j.NeoElementEdge;
@@ -101,6 +101,13 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass neoPathParamEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass neoComplexEdgeEClass = null;
 
 	/**
@@ -144,13 +151,6 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 	 * @generated
 	 */
 	private EClass neoPropertyEdgeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass neoAbstractPathParamEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -403,6 +403,46 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 	 * @generated
 	 */
 	@Override
+	public EClass getNeoPathParam() {
+		return neoPathParamEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getNeoPathParam_NeoPathPart() {
+		return (EReference)neoPathParamEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNeoPathParam__GetReturnInnerEdgeNodes() {
+		return neoPathParamEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNeoPathParam__GetCypherReturnVariable() {
+		return neoPathParamEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getNeoComplexEdge() {
 		return neoComplexEdgeEClass;
 	}
@@ -543,7 +583,7 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 	 * @generated
 	 */
 	@Override
-	public EReference getNeoPathPart_NeoParam() {
+	public EReference getNeoPathPart_NeoPathParam() {
 		return (EReference)neoPathPartEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -753,46 +793,6 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 	 * @generated
 	 */
 	@Override
-	public EClass getNeoAbstractPathParam() {
-		return neoAbstractPathParamEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getNeoAbstractPathParam_NeoPathPart() {
-		return (EReference)neoAbstractPathParamEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getNeoAbstractPathParam__GetReturnInnerEdgeNodes() {
-		return neoAbstractPathParamEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getNeoAbstractPathParam__GetCypherReturnVariable() {
-		return neoAbstractPathParamEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getNeoElement() {
 		return neoElementEClass;
 	}
@@ -884,7 +884,7 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 		createEOperation(neoSimpleEdgeEClass, NEO_SIMPLE_EDGE___ADD_NEO_EDGE_LABEL__STRING);
 
 		neoPathPartEClass = createEClass(NEO_PATH_PART);
-		createEReference(neoPathPartEClass, NEO_PATH_PART__NEO_PARAM);
+		createEReference(neoPathPartEClass, NEO_PATH_PART__NEO_PATH_PARAM);
 		createEReference(neoPathPartEClass, NEO_PATH_PART__NEO_COMPLEX_EDGE);
 		createEOperation(neoPathPartEClass, NEO_PATH_PART___GET_NEO_PATH_PART_EDGE_LEAFS);
 		createEOperation(neoPathPartEClass, NEO_PATH_PART___GET_CYPHER_VARIABLE);
@@ -915,10 +915,10 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 		createEOperation(neoEdgeEClass, NEO_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN);
 		createEOperation(neoEdgeEClass, NEO_EDGE___GET_RETURN_INNER_EDGE_NODES);
 
-		neoAbstractPathParamEClass = createEClass(NEO_ABSTRACT_PATH_PARAM);
-		createEReference(neoAbstractPathParamEClass, NEO_ABSTRACT_PATH_PARAM__NEO_PATH_PART);
-		createEOperation(neoAbstractPathParamEClass, NEO_ABSTRACT_PATH_PARAM___GET_RETURN_INNER_EDGE_NODES);
-		createEOperation(neoAbstractPathParamEClass, NEO_ABSTRACT_PATH_PARAM___GET_CYPHER_RETURN_VARIABLE);
+		neoPathParamEClass = createEClass(NEO_PATH_PARAM);
+		createEReference(neoPathParamEClass, NEO_PATH_PARAM__NEO_PATH_PART);
+		createEOperation(neoPathParamEClass, NEO_PATH_PARAM___GET_RETURN_INNER_EDGE_NODES);
+		createEOperation(neoPathParamEClass, NEO_PATH_PARAM___GET_CYPHER_RETURN_VARIABLE);
 
 		neoElementEClass = createEClass(NEO_ELEMENT);
 		createEOperation(neoElementEClass, NEO_ELEMENT___GET_CYPHER_RETURN_VARIABLE);
@@ -970,13 +970,13 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 		neoPathPartEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 		neoPropertyNodeEClass.getESuperTypes().add(theGraphstructurePackage.getPrimitiveNode());
 		neoPropertyNodeEClass.getESuperTypes().add(this.getNeoNode());
-		neoElementPathParamEClass.getESuperTypes().add(this.getNeoAbstractPathParam());
-		neoPropertyPathParamEClass.getESuperTypes().add(this.getNeoAbstractPathParam());
+		neoElementPathParamEClass.getESuperTypes().add(this.getNeoPathParam());
+		neoPropertyPathParamEClass.getESuperTypes().add(this.getNeoPathParam());
 		neoPropertyEdgeEClass.getESuperTypes().add(this.getNeoEdge());
 		neoEdgeEClass.getESuperTypes().add(theGraphstructurePackage.getRelation());
 		neoEdgeEClass.getESuperTypes().add(this.getNeoElement());
-		neoAbstractPathParamEClass.getESuperTypes().add(theParametersPackage.getParameter());
-		neoAbstractPathParamEClass.getESuperTypes().add(theGraphstructurePackage.getAdaptable());
+		neoPathParamEClass.getESuperTypes().add(theParametersPackage.getParameter());
+		neoPathParamEClass.getESuperTypes().add(theGraphstructurePackage.getAdaptable());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(neoNodeEClass, NeoNode.class, "NeoNode", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1025,7 +1025,7 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(neoPathPartEClass, NeoPathPart.class, "NeoPathPart", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNeoPathPart_NeoParam(), this.getNeoAbstractPathParam(), this.getNeoAbstractPathParam_NeoPathPart(), "neoParam", null, 0, 1, NeoPathPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNeoPathPart_NeoPathParam(), this.getNeoPathParam(), this.getNeoPathParam_NeoPathPart(), "neoPathParam", null, 0, 1, NeoPathPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNeoPathPart_NeoComplexEdge(), this.getNeoComplexEdge(), this.getNeoComplexEdge_NeoPathParts(), "neoComplexEdge", null, 0, 1, NeoPathPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getNeoPathPart__GetNeoPathPartEdgeLeafs(), this.getNeoPathPart(), "getNeoPathPartEdgeLeafs", 0, -1, IS_UNIQUE, IS_ORDERED);
@@ -1080,13 +1080,13 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 		op = initEOperation(getNeoEdge__GetReturnInnerEdgeNodes(), ecorePackage.getEString(), "getReturnInnerEdgeNodes", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		initEClass(neoAbstractPathParamEClass, NeoAbstractPathParam.class, "NeoAbstractPathParam", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNeoAbstractPathParam_NeoPathPart(), this.getNeoPathPart(), this.getNeoPathPart_NeoParam(), "neoPathPart", null, 0, 1, NeoAbstractPathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(neoPathParamEClass, NeoPathParam.class, "NeoPathParam", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNeoPathParam_NeoPathPart(), this.getNeoPathPart(), this.getNeoPathPart_NeoPathParam(), "neoPathPart", null, 0, 1, NeoPathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getNeoAbstractPathParam__GetReturnInnerEdgeNodes(), ecorePackage.getEString(), "getReturnInnerEdgeNodes", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNeoPathParam__GetReturnInnerEdgeNodes(), ecorePackage.getEString(), "getReturnInnerEdgeNodes", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getNeoAbstractPathParam__GetCypherReturnVariable(), ecorePackage.getEString(), "getCypherReturnVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNeoPathParam__GetCypherReturnVariable(), ecorePackage.getEString(), "getCypherReturnVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(neoElementEClass, NeoElement.class, "NeoElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

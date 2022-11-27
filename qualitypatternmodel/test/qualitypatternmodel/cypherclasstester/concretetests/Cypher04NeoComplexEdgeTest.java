@@ -28,14 +28,13 @@ import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mockito;
 
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
-import qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
 import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.adaptionneo4j.impl.NeoComplexEdgeImpl;
-import qualitypatternmodel.adaptionneo4j.impl.NeoPathPartImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
 import qualitypatternmodel.cypherclasstester.NeoAbstractPathPartTest;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -494,38 +493,38 @@ public class Cypher04NeoComplexEdgeTest extends NeoAbstractPathPartTest {
 	//The NeoPathParam && NeoPropertyPathParam are handelt inside a EMF container which can not be easyly accessed. Inside the class the it should rather the getNeoAbstractPathParam be used
 	@Test
 	@Override
-	public void getNeoAbstractPathParam() {
+	public void getNeoPathParam() {
 		try {
 			//If nothing is set return null
 			assertNull(neoPathPart.getNeoComplexEdge());
 			
 			//If the NeoPathPart is set return it
-			NeoAbstractPathParam neoAbstractPathParam = FACTORY.createNeoElementPathParam();
-			neoPathPart.setNeoParam((NeoElementPathParam) neoAbstractPathParam);
-			assertEquals(neoAbstractPathParam, neoPathPart.getNeoParam());
-			neoPathPart.setNeoParam((NeoElementPathParam) null);
-			assertNull(neoPathPart.getNeoParam());
+			NeoPathParam neoAbstractPathParam = FACTORY.createNeoElementPathParam();
+			neoPathPart.setNeoPathParam((NeoElementPathParam) neoAbstractPathParam);
+			assertEquals(neoAbstractPathParam, neoPathPart.getNeoPathParam());
+			neoPathPart.setNeoPathParam((NeoElementPathParam) null);
+			assertNull(neoPathPart.getNeoPathParam());
 			
 			//If the NeoPropertyPathPart is set return it
 			neoAbstractPathParam = FACTORY.createNeoPropertyPathParam();
-			neoPathPart.setNeoParam((NeoPropertyPathParam) neoAbstractPathParam);
-			assertEquals(neoAbstractPathParam, neoPathPart.getNeoParam());
-			neoPathPart.setNeoParam((NeoElementPathParam) null);
-			assertNull(neoPathPart.getNeoParam());		
+			neoPathPart.setNeoPathParam((NeoPropertyPathParam) neoAbstractPathParam);
+			assertEquals(neoAbstractPathParam, neoPathPart.getNeoPathParam());
+			neoPathPart.setNeoPathParam((NeoElementPathParam) null);
+			assertNull(neoPathPart.getNeoPathParam());		
 			
 			//If a NeoComplexEdge is set then return the NeoAbstractPathParam from that (NeoPathParam)
 			NeoComplexEdge neoComplexEdge1 = FACTORY.createNeoComplexEdge();
 			neoAbstractPathParam = FACTORY.createNeoElementPathParam();
-			neoComplexEdge.setNeoParam((NeoElementPathParam) neoAbstractPathParam);
+			neoComplexEdge.setNeoPathParam((NeoElementPathParam) neoAbstractPathParam);
 			neoComplexEdge1.setNeoComplexEdge(neoComplexEdge);
-			assertEquals(neoAbstractPathParam, neoComplexEdge1.getNeoParam());
+			assertEquals(neoAbstractPathParam, neoComplexEdge1.getNeoPathParam());
 			assumeNotNull(neoComplexEdge1.getNeoComplexEdge());
 			
 			//If a NeoComplexEdge is set then return the NeoAbstractPathParam from that (NeoPropertyPathParam)
-			neoComplexEdge.setNeoParam(null);
+			neoComplexEdge.setNeoPathParam(null);
 			neoAbstractPathParam = FACTORY.createNeoPropertyPathParam();
-			neoComplexEdge.setNeoParam((NeoPropertyPathParam) neoAbstractPathParam);
-			assertEquals(neoAbstractPathParam, neoComplexEdge1.getNeoParam());
+			neoComplexEdge.setNeoPathParam((NeoPropertyPathParam) neoAbstractPathParam);
+			assertEquals(neoAbstractPathParam, neoComplexEdge1.getNeoPathParam());
 			assumeNotNull(neoComplexEdge1.getNeoComplexEdge());
 		} catch (Exception e) {
 			System.out.println(e);
@@ -535,8 +534,8 @@ public class Cypher04NeoComplexEdgeTest extends NeoAbstractPathPartTest {
 	
 	@Test
 	@Override
-	public void getNeoAbstractPathParamException() {
-		assertThrows(InvalidityException.class, () -> neoComplexEdge.getNeoParam());
+	public void getNeoPathParamException() {
+		assertThrows(InvalidityException.class, () -> neoComplexEdge.getNeoPathParam());
 	}
 	
 	@Test

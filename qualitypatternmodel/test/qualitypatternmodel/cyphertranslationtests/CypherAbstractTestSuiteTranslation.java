@@ -16,7 +16,7 @@ import org.junit.jupiter.api.extension.ExecutionCondition;
 
 import playground.Java2Neo4JConnector;
 import qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests.CypherTest00;
-import qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests.CypherTest01NeoEdge;
+import qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests.CypherTest01NeoElementEdge;
 import qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests.CypherTest01NeoPropertyEdge;
 import qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests.CypherTest02Return;
 import qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests.CypherTest03NotCondition;
@@ -83,22 +83,22 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 	}
 
 	@Test
-	public void cypherTest01NeoEdge() {		
-		assertDoesNotThrow(() -> {new CypherTest01NeoEdge().buildPatterns(completePatterns); 
+	public void cypherTest01NeoElementEdge() {		
+		assertDoesNotThrow(() -> {new CypherTest01NeoElementEdge().buildPatterns(completePatterns); 
 			tester(completePatterns);});
 	}
 
 	@Test
-	public void cypherTest01NeoEdgeExceptions() {		
-			assertDoesNotThrow(() -> new CypherTest01NeoEdge().buildInvalidityExceptionPatterns(completePatterns));
+	public void cypherTest01NeoElementEdgeExceptions() {		
+			assertDoesNotThrow(() -> new CypherTest01NeoElementEdge().buildInvalidityExceptionPatterns(completePatterns));
 			for (CompletePattern cp : completePatterns) {
 				assertThrows(InvalidityException.class, () -> {exceptionHandler(cp);},
 						EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
 			}
-			assertThrows(InvalidityException.class, () -> {CypherTest01NeoEdge.generateToCreateNeoDirectionErrorShallNotWorkException();},
+			assertThrows(InvalidityException.class, () -> {CypherTest01NeoElementEdge.generateToCreateNeoDirectionErrorShallNotWorkException();},
 					//Add additional Exceptions
 					EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-			assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoEdge.generateBuildNeoNeoNeedsAPathParamException();
+			assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoElementEdge.generateBuildNeoNeoNeedsAPathParamException();
 					//Add additional Exceptions,
 					}, 
 					EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
@@ -448,7 +448,7 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 	@Test
 	public void cypherTest01NeoEdgeQueryComp() {		
 		try {
-			new CypherTest01NeoEdge().buildPatterns(completePatterns);
+			new CypherTest01NeoElementEdge().buildPatterns(completePatterns);
 			int i = 0;
 			//getUnspecifiedEdge
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode3)--(varNode4)\n"

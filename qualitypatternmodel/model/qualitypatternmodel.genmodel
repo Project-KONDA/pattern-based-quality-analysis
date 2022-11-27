@@ -1077,7 +1077,7 @@
         </genOperations>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoPathPart">
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionneo4j/NeoPathPart/neoParam"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionneo4j/NeoPathPart/neoPathParam"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionneo4j/NeoPathPart/neoComplexEdge"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoPathPart/getNeoPathPartEdgeLeafs"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoPathPart/getCypherVariable"/>
@@ -1120,10 +1120,10 @@
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoEdge/getReturnInnerEdgeNodes"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoAbstractPathParam">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionneo4j/NeoAbstractPathParam/neoPathPart"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoAbstractPathParam/getReturnInnerEdgeNodes"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoAbstractPathParam/getCypherReturnVariable"/>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoPathParam">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionneo4j/NeoPathParam/neoPathPart"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoPathParam/getReturnInnerEdgeNodes"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoPathParam/getCypherReturnVariable"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoElement">
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoElement/getCypherReturnVariable"/>

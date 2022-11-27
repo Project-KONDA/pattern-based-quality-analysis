@@ -11,9 +11,9 @@ public interface InterfaceNeoPathPartTest extends INeo4J {
 	void generateCypher();
 	void generateInternalCypher();
 	void isValidLocal();
-	void getNeoAbstractPathParam();
+	void getNeoPathParam();
 	void setNeoComplexEdge();
 	void myToString();
 	void setCount();
-	void getNeoAbstractPathParamException();
+	void getNeoPathParamException();
 }
