@@ -44,12 +44,12 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
 @TestInstance(Lifecycle.PER_CLASS)
 @DisplayName("NeoComplexEdge Test")
 public class Cypher04NeoComplexEdgeTest extends NeoAbstractPathPartTest {
-	private static final String VARIABLE_EDGE_3 = CypherSpecificConstants.VARIABLE_EGDE + "3";
-	private static final String VARIABLE_EDGE_2 = CypherSpecificConstants.VARIABLE_EGDE + "2";
-	private static final String VARIABLE_EDGE_1 = CypherSpecificConstants.VARIABLE_EGDE + "1";
+	private static final String VARIABLE_ELEMENT_EDGE_3 = CypherSpecificConstants.VARIABLE_ELEMENT_EGDE + "3";
+	private static final String VARIABLE_ELEMENT_EDGE_2 = CypherSpecificConstants.VARIABLE_ELEMENT_EGDE + "2";
+	private static final String VARIABLE_ELEMENT_EDGE_1 = CypherSpecificConstants.VARIABLE_ELEMENT_EGDE + "1";
 	NeoComplexEdge neoComplexEdge;
-	private static final String INTERNAL_EDGE_NODE_ID_1 = "-" + CypherSpecificConstants.INTERNAL_EDGE_NODE + 1 + "-";
-	private static final String INTERNAL_EDGE_NODE_ID_2 = CypherSpecificConstants.INTERNAL_EDGE_NODE + 2 + "-";
+	private static final String INTERNAL_ELEMENT_EDGE_NODE_ID_1 = "-" + CypherSpecificConstants.INTERNAL_EDGE_NODE + 1 + "-";
+	private static final String INTERNAL_ELEMENT_EDGE_NODE_ID_2 = CypherSpecificConstants.INTERNAL_EDGE_NODE + 2 + "-";
 	private static final String VARIABLE_PROPERTY_NODE_ID_3 = CypherSpecificConstants.VARIABLE_PROPERTY_NODE + 3 + "-";
 	private static final Class<NeoComplexEdgeImpl> neoComplexEdgeImplclass = NeoComplexEdgeImpl.class;
 	private static Method validateComplexEdge;
@@ -336,9 +336,9 @@ public class Cypher04NeoComplexEdgeTest extends NeoAbstractPathPartTest {
 			NeoSimpleEdge mockNeoSimpleEdge1 = Mockito.mock(NeoSimpleEdgeImpl.class);
 			NeoSimpleEdge mockNeoSimpleEdge2 = Mockito.mock(NeoSimpleEdgeImpl.class);
 			NeoSimpleEdge mockNeoSimpleEdge3 = Mockito.mock(NeoSimpleEdgeImpl.class);
-			Mockito.when(mockNeoSimpleEdge1.getCypherVariable()).thenReturn(VARIABLE_EDGE_1);
-			Mockito.when(mockNeoSimpleEdge2.getCypherVariable()).thenReturn(VARIABLE_EDGE_2);
-			Mockito.when(mockNeoSimpleEdge3.getCypherVariable()).thenReturn(VARIABLE_EDGE_3);
+			Mockito.when(mockNeoSimpleEdge1.getCypherVariable()).thenReturn(VARIABLE_ELEMENT_EDGE_1);
+			Mockito.when(mockNeoSimpleEdge2.getCypherVariable()).thenReturn(VARIABLE_ELEMENT_EDGE_2);
+			Mockito.when(mockNeoSimpleEdge3.getCypherVariable()).thenReturn(VARIABLE_ELEMENT_EDGE_3);
 			EList<NeoPathPart> listNeoPathParts = new BasicEList<NeoPathPart>();
 			listNeoPathParts.add(mockNeoSimpleEdge1);
 			Mockito.when(mockNeoSimpleEdge1.getNeoPathPartEdgeLeafs()).thenReturn(listNeoPathParts);
@@ -352,7 +352,7 @@ public class Cypher04NeoComplexEdgeTest extends NeoAbstractPathPartTest {
 			neoComplexEdge.addNeoPathPart(mockNeoSimpleEdge2);
 			neoComplexEdge.addNeoPathPart(mockNeoSimpleEdge3);
 			
-			assertTrue(neoPathPart.getCypherVariable().compareTo(VARIABLE_EDGE_1 + ", " + VARIABLE_EDGE_2 + ", " + VARIABLE_EDGE_3) == 0);
+			assertTrue(neoPathPart.getCypherVariable().compareTo(VARIABLE_ELEMENT_EDGE_1 + ", " + VARIABLE_ELEMENT_EDGE_2 + ", " + VARIABLE_ELEMENT_EDGE_3) == 0);
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
@@ -424,9 +424,9 @@ public class Cypher04NeoComplexEdgeTest extends NeoAbstractPathPartTest {
 	@Override
 	public void generateCypher() {
 		try {
-			buildStructureForNeoSimpleEdgesStoredInComplexEdge(INTERNAL_EDGE_NODE_ID_1, INTERNAL_EDGE_NODE_ID_2, VARIABLE_PROPERTY_NODE_ID_3);
+			buildStructureForNeoSimpleEdgesStoredInComplexEdge(INTERNAL_ELEMENT_EDGE_NODE_ID_1, INTERNAL_ELEMENT_EDGE_NODE_ID_2, VARIABLE_PROPERTY_NODE_ID_3);
 			String temp = neoPathPart.generateCypher();
-			assertTrue(temp.compareTo(INTERNAL_EDGE_NODE_ID_1 + INTERNAL_EDGE_NODE_ID_2 + VARIABLE_PROPERTY_NODE_ID_3) == 0);
+			assertTrue(temp.compareTo(INTERNAL_ELEMENT_EDGE_NODE_ID_1 + INTERNAL_ELEMENT_EDGE_NODE_ID_2 + VARIABLE_PROPERTY_NODE_ID_3) == 0);
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
@@ -447,13 +447,13 @@ public class Cypher04NeoComplexEdgeTest extends NeoAbstractPathPartTest {
 	@Override
 	public void generateInternalCypher() {
 		try {
-			buildStructureForNeoSimpleEdgesStoredInComplexEdge(INTERNAL_EDGE_NODE_ID_1, INTERNAL_EDGE_NODE_ID_2, VARIABLE_PROPERTY_NODE_ID_3);
+			buildStructureForNeoSimpleEdgesStoredInComplexEdge(INTERNAL_ELEMENT_EDGE_NODE_ID_1, INTERNAL_ELEMENT_EDGE_NODE_ID_2, VARIABLE_PROPERTY_NODE_ID_3);
 			
 			Class<NeoComplexEdgeImpl> c = NeoComplexEdgeImpl.class;
 			Method m = c.getDeclaredMethod("generateInternalCypher");
 			m.setAccessible(true);
 			String temp = (String) m.invoke(neoComplexEdge);
-			assertTrue(temp.compareTo(INTERNAL_EDGE_NODE_ID_1 + INTERNAL_EDGE_NODE_ID_2 + VARIABLE_PROPERTY_NODE_ID_3) == 0);
+			assertTrue(temp.compareTo(INTERNAL_ELEMENT_EDGE_NODE_ID_1 + INTERNAL_ELEMENT_EDGE_NODE_ID_2 + VARIABLE_PROPERTY_NODE_ID_3) == 0);
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);

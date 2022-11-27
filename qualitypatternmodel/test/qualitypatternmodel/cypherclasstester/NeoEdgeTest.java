@@ -18,7 +18,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
 
 public abstract class NeoEdgeTest implements InterfaceNeoEdgeTest {
 	private static final int INTERNAL_ID_ONE = 1;
-	protected static final String VAR_EDGE_X = "varEdge%s";
+	protected static final String VAR_ELEMENT_EDGE_X = "varElementEdge%s";
 	protected static final String VAR_EDGE1 = "varEdge1";
 	protected static final String VAR_EDGE1_CLAMPED = "-[varEdge1]-";
 	protected static final String INTERNAL_EDGE_NODE_1 = CypherSpecificConstants.INTERNAL_EDGE_NODE + 1;
@@ -68,13 +68,13 @@ public abstract class NeoEdgeTest implements InterfaceNeoEdgeTest {
 	
 	protected NeoSimpleEdgeImpl prepaireMockObjNeoSimpleEdge(int number) throws InvalidityException {
 		NeoSimpleEdgeImpl mockNeoEdgeImpl = Mockito.mock(NeoSimpleEdgeImpl.class);
-		Mockito.when(mockNeoEdgeImpl.getCypherVariable()).thenReturn(String.format(VAR_EDGE_X, number));
+		Mockito.when(mockNeoEdgeImpl.getCypherVariable()).thenReturn(String.format(VAR_ELEMENT_EDGE_X, number));
 		return mockNeoEdgeImpl;
 	}
 
-	protected Field getNeoAbstractPathParamField(Class cl, String fieldName)
+	protected Field getNeoAbstractPathParamField(Class<?> cl, String fieldName)
 			throws NoSuchFieldException, SecurityException {
-				Class c = cl;
+				Class<?> c = cl;
 				Field f = c.getDeclaredField(fieldName);
 				f.setAccessible(true);
 				return f;

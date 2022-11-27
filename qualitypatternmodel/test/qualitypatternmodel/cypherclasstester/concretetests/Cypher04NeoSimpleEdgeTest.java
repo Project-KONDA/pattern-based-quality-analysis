@@ -52,11 +52,13 @@ public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 	private static final String VAR_ELEMENT_EDGE_1_TEST_LABEL_RIGHT = "-[varElementEdge-1:testLabel]->";
 	private static final String VAR_ELEMENT_EDGE_1_TEST_LABEL_LEFT = "<-[varElementEdge-1:testLabel]-";
 	private static final String VAR_ELEMENT_EDGE1_1 = "varElementEdge1_1";
+	private static final String VAR_PROPERTY_EDGE1_1 = "varPropertyEdge1_1";
 	private static final String VAR_ELEMENT_EDGE_1_INT_EG_NODE_1 = "-[varElementEdge-1]-(intEgNode-1)";
 	private static final String VAR_ELEMENT_EDGE_LEFT = VAR_ELEMENT_EDGE_12_LEFT;
 	private static final String VAR_ELEMENT_EDGE_1 = "-[varElementEdge-1]-";
 	private static final String VAR_ELEMENT_EDGE_RIGHT = VAR_ELEMENT_EDGE__RIGHT;
-	private static final String VAR_ELEMENT_EDGE1 = "varEdge1";
+	private static final String VAR_ELEMENT_EDGE1 = "varElementEdge1";
+	private static final String VAR_PROPERTY_EDGE1 = "varPropertyEdge1";	
 	private static Method generateInternalCypherMethod = null;
 	private static Field isLastEdgeField = null;
 	private static Field edgeNumberField = null;
@@ -267,7 +269,7 @@ public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 	}
 	
 	//Pull-Up?
-	protected class MyClassMockNeoPathParamImpl extends NeoElementPathParamImpl {
+	protected class MyClassMockNeoElementPathParamImpl extends NeoElementPathParamImpl {
 		@Override
 		protected int getRelationNumber() {
 			return 1;
@@ -284,15 +286,26 @@ public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 		protected int getRelationNumber() {
 			return 1;
 		}
+		
+		@Override
+		protected String getEdgeNaming() {
+			return CypherSpecificConstants.VARIABLE_PROPERTY_EGDE;
+		}
 	}
 	
 	@Test
 	@Override
 	public void getCypherVariable() {
 		try {
-			//Fix it and add also the same for NeoElement/NeoPropertyEdge
+			String temp = null;
+			
 			neoSimpleEdge = createMockingForNeoPathParam(neoSimpleEdge);
-			assertEquals(VAR_ELEMENT_EDGE1, neoSimpleEdge.getCypherVariable());
+			temp = neoSimpleEdge.getCypherVariable();
+			assertEquals(VAR_ELEMENT_EDGE1, temp);
+			
+			neoSimpleEdge = createMockingForNeoPropertyPathParam(neoSimpleEdge);
+			temp = neoSimpleEdge.getCypherVariable();
+			assertEquals(VAR_PROPERTY_EDGE1, temp);
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
@@ -313,24 +326,11 @@ public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 	
 	//Introduce into Interface?
 	@Test
-	public void getCypherVariableNeoPropertyPathParam() {
-		try {
-			neoSimpleEdge = createMockingForNeoPropertyPathParam(neoSimpleEdge);
-			assertEquals(VAR_ELEMENT_EDGE1, neoSimpleEdge.getCypherVariable());
-		} catch (Exception e) {
-			System.out.println(e);
-			assertFalse(true);
-		}
-		
-	}
-	
-	//Introduce into Interface?
-	@Test
 	public void getCypherVariableWithSubNumberPropertyPathParam() {
 		try {
 			neoSimpleEdge = createMockingForNeoPropertyPathParam(neoSimpleEdge);
 			edgeNumberField.set(neoSimpleEdge, 1);
-			assertEquals(VAR_ELEMENT_EDGE1_1, neoSimpleEdge.getCypherVariable());
+			assertEquals(VAR_PROPERTY_EDGE1_1, neoSimpleEdge.getCypherVariable());
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true); // Introduce this in every catch
@@ -574,10 +574,11 @@ public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 	
 	//METHOD FACTORIES
 	private static NeoSimpleEdge createMockingForNeoPathParam(NeoSimpleEdge neoSimpleEdge) {
-		MyClassMockNeoPathParamImpl mockNeoPathParam = 
-				Mockito.mock(MyClassMockNeoPathParamImpl.class);
-		Mockito.when(mockNeoPathParam.getRelationNumber()).thenReturn(1); 
-		neoSimpleEdge.setNeoPathParam(mockNeoPathParam);
+		MyClassMockNeoElementPathParamImpl mockNeoElementPathParam = 
+				Mockito.mock(MyClassMockNeoElementPathParamImpl.class);
+		Mockito.when(mockNeoElementPathParam.getRelationNumber()).thenReturn(1); 
+		Mockito.when(mockNeoElementPathParam.getEdgeNaming()).thenReturn(CypherSpecificConstants.VARIABLE_ELEMENT_EGDE); 
+		neoSimpleEdge.setNeoPathParam(mockNeoElementPathParam);
 		return neoSimpleEdge;
 	}
 	
@@ -585,6 +586,7 @@ public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 		MyClassMockNeoPropertyPathParamImpl mockNeoPropertyPathParam = 
 				Mockito.mock(MyClassMockNeoPropertyPathParamImpl.class);
 		Mockito.when(mockNeoPropertyPathParam.getRelationNumber()).thenReturn(1); 
+		Mockito.when(mockNeoPropertyPathParam.getEdgeNaming()).thenReturn(CypherSpecificConstants.VARIABLE_PROPERTY_EGDE);
 		neoSimpleEdge.setNeoPathParam(mockNeoPropertyPathParam);
 		return neoSimpleEdge;
 	}

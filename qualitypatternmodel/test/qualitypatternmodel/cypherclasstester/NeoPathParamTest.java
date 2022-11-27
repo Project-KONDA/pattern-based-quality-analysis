@@ -15,12 +15,12 @@ import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
-public abstract class NeoAbstractPathParamTest implements InterfaceNeoAbstractPathParamTest {
+public abstract class NeoPathParamTest implements InterfaceNeoPathParamTest {
 	//Improve the Klammern this are not EDGE Klammern
 	
 	private static final int INTERNAL_ID_ONE = 1;
-	protected static final String VARIABLE_EDGE_ONE = CypherSpecificConstants.VARIABLE_EGDE + 1;
-	protected static final String VARIABLE_EDGE_TWO = CypherSpecificConstants.VARIABLE_EGDE + 2;
+	protected static final String VARIABLE_EDGE_ONE = CypherSpecificConstants.VARIABLE_ELEMENT_EGDE + 1;
+	protected static final String VARIABLE_EDGE_TWO = CypherSpecificConstants.VARIABLE_ELEMENT_EGDE + 2;
 	protected static final String VARIABLE_EAGE_ONE_CLAMPED = "[" + VARIABLE_EDGE_ONE + "]";
 	protected static final String VARIABLE_EAGE_TWO_CLAMPED = "[" + VARIABLE_EDGE_TWO + "]";
 	protected static final String REGESTA = "REGESTA";

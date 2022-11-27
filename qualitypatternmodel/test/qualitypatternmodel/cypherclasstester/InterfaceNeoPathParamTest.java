@@ -2,7 +2,7 @@ package qualitypatternmodel.cypherclasstester;
 
 import org.junit.jupiter.api.Test;
 
-interface InterfaceNeoAbstractPathParamTest extends INeo4J {
+interface InterfaceNeoPathParamTest extends INeo4J {
 	@Test
 	void getReturnInnerEdgeNodes();
 	

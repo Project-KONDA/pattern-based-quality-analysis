@@ -28,15 +28,15 @@ import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyEdgeImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
-import qualitypatternmodel.cypherclasstester.NeoAbstractPathParamTest;
+import qualitypatternmodel.cypherclasstester.NeoPathParamTest;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
-@DisplayName("NeoPropertyPathParam Test")
-public class Cypher03CypherPropertyPathParamTest extends NeoAbstractPathParamTest {
+@DisplayName("NeoElementPropertyPathParam Test")
+public class Cypher03NeoPropertyPathParamTest extends NeoPathParamTest {
 	private static final String NEO_PROPERTY_PATH_PARAM_VARIABLE_EAGE_ONE_CLAMPED = "NeoPropertyPathParam [1] " + "-"+ VARIABLE_EAGE_ONE_CLAMPED + "-";
 	private static final String ORIGINAL_PLACE_OF_ISSUE = "originalPlaceOfIssue";
 	private static final String INDEXPLACE = "INDEXPLACE";
@@ -193,7 +193,7 @@ public class Cypher03CypherPropertyPathParamTest extends NeoAbstractPathParamTes
 		try {
 			buildMockSimpleEdge();
 			neoPropertyPathParam.setNeoPathPart((NeoPathPart) super.mockSimpleEdge);
-			assertEquals(NeoAbstractPathParamTest.VARIABLE_EDGE_ONE, neoPropertyPathParam.getCypherReturnVariable());
+			assertEquals(NeoPathParamTest.VARIABLE_EDGE_ONE, neoPropertyPathParam.getCypherReturnVariable());
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);

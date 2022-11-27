@@ -290,7 +290,7 @@ public class Cypher02NeoPropertyEdgeTest extends NeoEdgeTest {
 			
 			initGetCypherReturnVariableTest(neoAbstractEdge, number);
 			String variable = neoPropertyEdge.getCypherReturnVariable().get(0).getValue();
-			assertTrue(variable.matches(CypherSpecificConstants.VARIABLE_EGDE + "[1-9][0-9]*"));
+			assertTrue(variable.matches(CypherSpecificConstants.VARIABLE_ELEMENT_EGDE + "[1-9][0-9]*"));
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(false);

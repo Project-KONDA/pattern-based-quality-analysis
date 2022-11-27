@@ -28,14 +28,14 @@ import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.impl.NeoComplexEdgeImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoElementPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
-import qualitypatternmodel.cypherclasstester.NeoAbstractPathParamTest;
+import qualitypatternmodel.cypherclasstester.NeoPathParamTest;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 @DisplayName("NeoPathParamTest")
-public class Cypher03NeoPathParamTest extends NeoAbstractPathParamTest {
+public class Cypher03NeoElementPathParamTest extends NeoPathParamTest {
 	NeoElementPathParam neoPathParam;
 	
 	@BeforeAll
@@ -204,7 +204,7 @@ public class Cypher03NeoPathParamTest extends NeoAbstractPathParamTest {
 		try {
 			buildMockSimpleEdge();
 			neoPathParam.setNeoPathPart((NeoPathPart) super.mockSimpleEdge);
-			assertEquals(NeoAbstractPathParamTest.VARIABLE_EDGE_ONE, neoPathParam.getCypherReturnVariable());
+			assertEquals(NeoPathParamTest.VARIABLE_EDGE_ONE, neoPathParam.getCypherReturnVariable());
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
@@ -225,8 +225,7 @@ public class Cypher03NeoPathParamTest extends NeoAbstractPathParamTest {
 			EList<NeoPathPart> l = new BasicEList<NeoPathPart>();
 			l.add(mockNeoSimpleEdgeImplClass);
 			Mockito.when(mockNeoSimpleEdgeImplClass.getNeoPathPartEdgeLeafs()).thenReturn(l);
-			Mockito.when(mockNeoSimpleEdgeImplClass.generateCypher()).thenReturn("-"+ VARIABLE_EAGE_ONE_CLAMPED + "-")
-															.thenReturn("-"+VARIABLE_EAGE_TWO_CLAMPED + "-");
+			Mockito.when(mockNeoSimpleEdgeImplClass.generateCypher()).thenReturn("-"+ VARIABLE_EAGE_ONE_CLAMPED + "-");
 			
 		} catch (Exception e) {
 			System.out.println(e);
@@ -265,7 +264,7 @@ public class Cypher03NeoPathParamTest extends NeoAbstractPathParamTest {
 			neoPathParam.setNeoPathPart(neoComplexEdge);
 			assumeTrue(neoPathParam.getNeoPathPart().getNeoPathPartEdgeLeafs().size() == 2);
 			assumeNotNull(neoPathParam.getNeoPathPart());
-			assertEquals("-[varEdge1]--[varEdge2]-", neoPathParam.generateCypher());			
+			assertEquals("-[varElementEdge1]--[varElementEdge2]-", neoPathParam.generateCypher());			
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
