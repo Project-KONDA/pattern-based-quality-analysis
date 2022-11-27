@@ -20,7 +20,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface NeoInterfaceNode extends NeoInterfaceElement {
+public interface NeoInterfaceNode extends NeoElement {
 	/**
 	 * Returns the value of the '<em><b>Is Variable Distinct In Use</b></em>' attribute.
 	 * The default value is <code>"true"</code>.

@@ -194,7 +194,7 @@ public class Adaptionneo4jSwitch<T> extends Switch<T> {
 				return result;
 			}
 			case Adaptionneo4jPackage.NEO_INTERFACE_ELEMENT: {
-				NeoInterfaceElement neoInterfaceElement = (NeoInterfaceElement)theEObject;
+				NeoElement neoInterfaceElement = (NeoElement)theEObject;
 				T result = caseNeoInterfaceElement(neoInterfaceElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -394,7 +394,7 @@ public class Adaptionneo4jSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNeoInterfaceElement(NeoInterfaceElement object) {
+	public T caseNeoInterfaceElement(NeoElement object) {
 		return null;
 	}
 

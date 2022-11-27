@@ -20,7 +20,7 @@ import qualitypatternmodel.graphstructure.tests.PrimitiveNodeTest;
  *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPropertyNode#generateCypherNodeVariable() <em>Generate Cypher Node Variable</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPropertyNode#setIsReturnProperty(boolean) <em>Set Is Return Property</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoInterfaceNode#getCypherVariable() <em>Get Cypher Variable</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoInterfaceElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -132,10 +132,10 @@ public class NeoPropertyNodeTest extends PrimitiveNodeTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoInterfaceElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionneo4j.NeoInterfaceElement#getCypherReturnVariable()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoElement#getCypherReturnVariable()
 	 * @generated
 	 */
 	public void testGetCypherReturnVariable() {

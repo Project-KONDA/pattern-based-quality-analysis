@@ -123,11 +123,13 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 			}
 			
 			cypher = CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + CypherSpecificConstants.ONE_WHITESPACE;
-			final String temp = condition.generateCypher();
+			String temp = condition.generateCypher();
 			if (temp.isEmpty()) {
 				throw new InvalidityException(NO_VALID_QUERY_IS_GENERATED);
 			}
-			cypher += CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + temp + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
+			StringBuilder cypherSb = new StringBuilder(temp);
+			addWhiteSpacesForPreviewsCondition(cypherSb, CypherSpecificConstants.THREE_WHITESPACES + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.ONE_WHITESPACE);
+			cypher += CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + cypherSb.toString() + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
 			return cypher;	
 		}
 		throw new InvalidityException(INVALID_CONDITION);

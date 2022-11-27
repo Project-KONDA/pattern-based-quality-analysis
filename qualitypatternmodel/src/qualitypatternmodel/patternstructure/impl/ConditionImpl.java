@@ -654,5 +654,40 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 			throw new UnsupportedOperationException(CypherSpecificConstants.THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY);
 		}
 	}	
+	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * This Method adds extra formatting to the Conditions. Until now it supports:
+	 * 	- EXISTS-MATCH
+	 * 
+	 * Further Formatting are possible
+	 */
+	static final String afterCreationConditionFormatting(final String originalCypher) {
+		final StringBuilder cypher = new StringBuilder(originalCypher);
+		
+		return cypher.toString();
+	}
+	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param cypher
+	 * This adds extra whitespace to the query-parts from previews conditions. (PrettyPrinter)
+	 * @param whiteSpaces TODO
+	 */
+	final void addWhiteSpacesForPreviewsCondition(final StringBuilder cypher, final String whiteSpaces) {
+		boolean lineBreak = true;
+		int fromIndex = 0;
+		int currentIndex = 0;
+		while (lineBreak) {
+			currentIndex = cypher.indexOf("\n", fromIndex);
+			if (currentIndex == -1) {
+				lineBreak = false;
+			} else {
+				cypher.insert(currentIndex + 1, whiteSpaces); 
+				fromIndex = currentIndex + whiteSpaces.length();
+			}
+		}
+	}
+	
 	//END - Neo4J/Cypher
 } //ConditionImpl

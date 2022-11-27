@@ -17,7 +17,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface NeoInterfaceElement extends EObject {
+public interface NeoElement extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import qualitypatternmodel.adaptionneo4j.NeoAbstractEdge;
-import qualitypatternmodel.adaptionneo4j.NeoInterfaceElement;
+import qualitypatternmodel.adaptionneo4j.NeoElement;
 import qualitypatternmodel.adaptionneo4j.NeoInterfaceNode;
 import qualitypatternmodel.adaptionneo4j.NeoNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
@@ -298,9 +298,9 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 			}
 		}
 		if (lReturnRelations.size() > 0) {
-			NeoInterfaceElement neoEdge = null;
+			NeoElement neoEdge = null;
 			for (Relation r : lReturnRelations) {
-				neoEdge = (NeoInterfaceElement) r;
+				neoEdge = (NeoElement) r;
 				try {
 					if (!cypher.contains(neoEdge.getCypherReturnVariable().get(0).getValue())) {
 						throw new InvalidityException(NOT_ALL_RETURN_ELEMENTS_ARE_CONTAINED_IN_THE_WITH_CLAUSE);

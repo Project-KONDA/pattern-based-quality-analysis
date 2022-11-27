@@ -251,15 +251,15 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		String exists = CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_MATCH;
 		//INCLUDE THE GRAPH-PATTERN - Is needed for both cases
 		String cypherText = graph.generateCypher();
-		cypherText = CypherSpecificConstants.CLAUSE_MATCH + cypherText;
 		if (cypherText == null || cypherText.isEmpty() || cypherText.isEmpty()) {
 			throw new InvalidityException(NO_MATCH_IS_GIVEN);
 		} else {
+			cypherText = CypherSpecificConstants.CLAUSE_MATCH + cypherText;
 			final String[] temp = Arrays.stream(cypherText.split(CypherSpecificConstants.CLAUSE_MATCH)).filter(x -> !x.isBlank()).toArray(String[]::new); 
 			cypherText = null;
 			for (int i = 0; i < temp.length; i++) {
 				if (i == 0) {
-					cypherText = String.format(CypherSpecificConstants.CLAUSE_MATCH_INLUCE_W, CypherSpecificConstants.TWELVE_WHITESPACES) + CypherSpecificConstants.ONE_WHITESPACE + temp[i].trim();					
+					cypherText = String.format(CypherSpecificConstants.CLAUSE_MATCH_INLUCE_W, CypherSpecificConstants.TWELVE_WHITESPACES + CypherSpecificConstants.THREE_WHITESPACES) + CypherSpecificConstants.ONE_WHITESPACE + temp[i].trim();					
 				} else {
 					cypherText = CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE + temp[i].trim();					
 				}
@@ -287,9 +287,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				StringBuilder conditionWhere = new StringBuilder(condition.generateCypher());
 				addWhiteSpacesForPreviewsCondition(conditionWhere, CypherSpecificConstants.TWELVE_WHITESPACES);
 				if (!cypherWhere.isEmpty()) {
-					conditionWhere.insert(0, CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);					
+					conditionWhere.insert(0, CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.THREE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);					
 				} else {
-					conditionWhere.insert(0, String.format(CypherSpecificConstants.CLAUSE_WHERE_INLUCE_W, CypherSpecificConstants.TWELVE_WHITESPACES) + CypherSpecificConstants.ONE_WHITESPACE);
+					conditionWhere.insert(0, String.format(CypherSpecificConstants.CLAUSE_WHERE_INLUCE_W, CypherSpecificConstants.TWELVE_WHITESPACES + CypherSpecificConstants.THREE_WHITESPACES) + CypherSpecificConstants.ONE_WHITESPACE);
 				}
 				checkAndAppendCypherWhere(cypher, conditionWhere);
 			}
@@ -546,27 +546,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			}
 			if (!localCBuilder.isEmpty()) {
 				cypher.append(String.format(CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_PROPERTY, localCBuilder));
-			}
-		}
-	}
-	
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @param cypher
-	 * This adds extra whitespaces to the query-parts from previews conditions.
-	 * @param whiteSpaces TODO
-	 */
-	private final void addWhiteSpacesForPreviewsCondition(final StringBuilder cypher, final String whiteSpaces) {
-		boolean lineBreak = true;
-		int fromIndex = 0;
-		int currentIndex = 0;
-		while (lineBreak) {
-			currentIndex = cypher.indexOf("\n", fromIndex);
-			if (currentIndex == -1) {
-				lineBreak = false;
-			} else {
-				cypher.insert(currentIndex + 1, whiteSpaces); 
-				fromIndex = currentIndex + whiteSpaces.length();
 			}
 		}
 	}

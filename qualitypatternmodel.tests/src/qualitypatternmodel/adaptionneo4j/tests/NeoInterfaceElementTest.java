@@ -4,7 +4,7 @@ package qualitypatternmodel.adaptionneo4j.tests;
 
 import junit.framework.TestCase;
 
-import qualitypatternmodel.adaptionneo4j.NeoInterfaceElement;
+import qualitypatternmodel.adaptionneo4j.NeoElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,7 +13,7 @@ import qualitypatternmodel.adaptionneo4j.NeoInterfaceElement;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoInterfaceElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -26,7 +26,7 @@ public abstract class NeoInterfaceElementTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NeoInterfaceElement fixture = null;
+	protected NeoElement fixture = null;
 
 	/**
 	 * Constructs a new Neo Interface Element test case with the given name.
@@ -44,7 +44,7 @@ public abstract class NeoInterfaceElementTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(NeoInterfaceElement fixture) {
+	protected void setFixture(NeoElement fixture) {
 		this.fixture = fixture;
 	}
 
@@ -54,15 +54,15 @@ public abstract class NeoInterfaceElementTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NeoInterfaceElement getFixture() {
+	protected NeoElement getFixture() {
 		return fixture;
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoInterfaceElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionneo4j.NeoInterfaceElement#getCypherReturnVariable()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoElement#getCypherReturnVariable()
 	 * @generated
 	 */
 	public void testGetCypherReturnVariable() {
