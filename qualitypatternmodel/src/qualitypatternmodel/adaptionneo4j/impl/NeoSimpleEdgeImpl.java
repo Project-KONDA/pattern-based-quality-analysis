@@ -193,11 +193,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	private void generateInternalCypherLabelGenerator(StringBuilder cypher, Boolean withLabels) throws InvalidityException {
 		cypher.append(CypherSpecificConstants.EDGE_OPENING_BRACKET);
 		cypher.append(getCypherVariable());
-		
-		if (edgeNumber > 0) {
-			cypher.append(CypherSpecificConstants.LOCAL_ID_SEPERATOR + getEdgeNumber());
-		}
-		
+				
 		if (getNeoEdgeLabel() != null && withLabels) {
 			cypher.append(CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_EQUAL_IN_GRAPH_MATCHING + getNeoEdgeLabel().getValue());
 		}
@@ -210,7 +206,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		String cypher = null;
 		cypher = super.getCypherVariable() + ((NeoPathParamImpl) (NeoPathParamImpl) getNeoPathParam()).getRelationNumber();
 		if (edgeNumber != 0) {
-			cypher += CypherSpecificConstants.LOCAL_ID_SEPERATOR + edgeNumber;
+			cypher += CypherSpecificConstants.LOCAL_ID_SEPERATOR + getEdgeNumber();
 		}
 		return cypher;
 	}

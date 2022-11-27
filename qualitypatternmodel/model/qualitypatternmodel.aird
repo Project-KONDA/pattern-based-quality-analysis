@@ -4,7 +4,7 @@
     <semanticResources>qualitypatternmodel.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_A2WtQB2REeqrGqxc7qjo8A">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name=" class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="19406e6c-ae16-4ff6-b550-af16db0cf70c">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name=" class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="7af29bc6-d0c4-4c3f-af7c-3be15469a644">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="qualitypatternmodel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -3061,6 +3061,36 @@
               <styles xmi:type="notation:LineTypeStyle" xmi:id="_dsqN5GkREe2p9qtUV-rkGA"/>
               <element xsi:nil="true"/>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dsqN5WkREe2p9qtUV-rkGA" x="700" y="539" width="90"/>
+            </children>
+            <children xmi:type="notation:Shape" xmi:id="_kAUtcG55Ee2vGKfzzA4kvA" type="Note" fontName="Segoe UI" description="Look if the field and method to returnProperty is used" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kAUtcW55Ee2vGKfzzA4kvA" source="specificStyles">
+                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kAUtcm55Ee2vGKfzzA4kvA" key="verticalAlignment" value="8"/>
+              </eAnnotations>
+              <children xmi:type="notation:BasicDecorationNode" xmi:id="_kAV7kG55Ee2vGKfzzA4kvA" type="DiagramName">
+                <element xsi:nil="true"/>
+              </children>
+              <children xmi:type="notation:BasicDecorationNode" xmi:id="_kAV7kW55Ee2vGKfzzA4kvA" type="Description">
+                <element xsi:nil="true"/>
+              </children>
+              <styles xmi:type="notation:TextStyle" xmi:id="_kAUtc255Ee2vGKfzzA4kvA" textAlignment="Center"/>
+              <styles xmi:type="notation:LineTypeStyle" xmi:id="_kAUtdG55Ee2vGKfzzA4kvA"/>
+              <element xsi:nil="true"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kAUtdW55Ee2vGKfzzA4kvA" x="743" y="413"/>
+            </children>
+            <children xmi:type="notation:Shape" xmi:id="_neuG8G55Ee2vGKfzzA4kvA" type="Note" fontName="Segoe UI" description="Delet generateCypherNodeVariabel?" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_neuG8W55Ee2vGKfzzA4kvA" source="specificStyles">
+                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_neuG8m55Ee2vGKfzzA4kvA" key="verticalAlignment" value="8"/>
+              </eAnnotations>
+              <children xmi:type="notation:BasicDecorationNode" xmi:id="_neuuAG55Ee2vGKfzzA4kvA" type="DiagramName">
+                <element xsi:nil="true"/>
+              </children>
+              <children xmi:type="notation:BasicDecorationNode" xmi:id="_neuuAW55Ee2vGKfzzA4kvA" type="Description">
+                <element xsi:nil="true"/>
+              </children>
+              <styles xmi:type="notation:TextStyle" xmi:id="_neuG8255Ee2vGKfzzA4kvA" textAlignment="Center"/>
+              <styles xmi:type="notation:LineTypeStyle" xmi:id="_neuG9G55Ee2vGKfzzA4kvA"/>
+              <element xsi:nil="true"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_neuG9W55Ee2vGKfzzA4kvA" x="837" y="238"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_TKib4gLoEe2GF_6PqNgKEg"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_TKib4wLoEe2GF_6PqNgKEg"/>
