@@ -31,12 +31,12 @@ public class Adaptionneo4jTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new Adaptionneo4jTests("adaptionneo4j Tests");
-		suite.addTestSuite(NeoNodeTest.class);
-		suite.addTestSuite(NeoEdgeTest.class);
+		suite.addTestSuite(NeoElementNodeTest.class);
+		suite.addTestSuite(NeoElementEdgeTest.class);
 		suite.addTestSuite(NeoComplexEdgeTest.class);
 		suite.addTestSuite(NeoSimpleEdgeTest.class);
 		suite.addTestSuite(NeoPropertyNodeTest.class);
-		suite.addTestSuite(NeoPathParamTest.class);
+		suite.addTestSuite(NeoElementPathParamTest.class);
 		suite.addTestSuite(NeoPropertyPathParamTest.class);
 		suite.addTestSuite(NeoPropertyEdgeTest.class);
 		return suite;

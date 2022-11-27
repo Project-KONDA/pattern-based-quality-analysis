@@ -20,7 +20,7 @@ import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
  * </p>
  * @generated
  */
-public class NeoPropertyEdgeTest extends NeoAbstractEdgeTest {
+public class NeoPropertyEdgeTest extends NeoEdgeTest {
 
 	/**
 	 * <!-- begin-user-doc -->

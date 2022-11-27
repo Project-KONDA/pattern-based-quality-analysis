@@ -2,12 +2,8 @@
  */
 package qualitypatternmodel.adaptionneo4j.tests;
 
-import junit.textui.TestRunner;
-
-import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
+import junit.framework.TestCase;
 import qualitypatternmodel.adaptionneo4j.NeoNode;
-
-import qualitypatternmodel.graphstructure.tests.ComplexNodeTest;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,23 +12,21 @@ import qualitypatternmodel.graphstructure.tests.ComplexNodeTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoNode#addNeoLabel(java.lang.String) <em>Add Neo Label</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoInterfaceNode#getCypherVariable() <em>Get Cypher Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoNode#getCypherVariable() <em>Get Cypher Variable</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}</li>
  * </ul>
  * </p>
  * @generated
  */
-public class NeoNodeTest extends ComplexNodeTest {
+public abstract class NeoNodeTest extends TestCase {
 
 	/**
+	 * The fixture for this Neo Node test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static void main(String[] args) {
-		TestRunner.run(NeoNodeTest.class);
-	}
+	protected NeoNode fixture = null;
 
 	/**
 	 * Constructs a new Neo Node test case with the given name.
@@ -45,6 +39,16 @@ public class NeoNodeTest extends ComplexNodeTest {
 	}
 
 	/**
+	 * Sets the fixture for this Neo Node test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(NeoNode fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
 	 * Returns the fixture for this Neo Node test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -52,49 +56,14 @@ public class NeoNodeTest extends ComplexNodeTest {
 	 */
 	@Override
 	protected NeoNode getFixture() {
-		return (NeoNode)fixture;
+		return fixture;
 	}
 
 	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoNode#getCypherVariable() <em>Get Cypher Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(Adaptionneo4jFactory.eINSTANCE.createNeoNode());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoNode#addNeoLabel(java.lang.String) <em>Add Neo Label</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionneo4j.NeoNode#addNeoLabel(java.lang.String)
-	 * @generated
-	 */
-	public void testAddNeoLabel__String() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoInterfaceNode#getCypherVariable() <em>Get Cypher Variable</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionneo4j.NeoInterfaceNode#getCypherVariable()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoNode#getCypherVariable()
 	 * @generated
 	 */
 	public void testGetCypherVariable() {

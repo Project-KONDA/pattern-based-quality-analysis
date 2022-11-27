@@ -10,7 +10,7 @@ import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.util.EMap;
 import org.mockito.Mockito;
 
-import qualitypatternmodel.adaptionneo4j.NeoAbstractEdge;
+import qualitypatternmodel.adaptionneo4j.NeoEdge;
 import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
@@ -22,10 +22,10 @@ public abstract class NeoAbstractEdgeTest implements InterfaceNeoAbstractEdgeTes
 	protected static final String VAR_EDGE1 = "varEdge1";
 	protected static final String VAR_EDGE1_CLAMPED = "-[varEdge1]-";
 	protected static final String INTERNAL_EDGE_NODE_1 = CypherSpecificConstants.INTERNAL_EDGE_NODE + 1;
-	protected NeoAbstractEdge neoAbstractEdge;
+	protected NeoEdge neoAbstractEdge;
 	protected Field internalId;
 	
-	public void setUp(NeoAbstractEdge neoAbstractEdge) {
+	public void setUp(NeoEdge neoAbstractEdge) {
 		try {
 			this.neoAbstractEdge = neoAbstractEdge;
 			if (internalId == null) {
@@ -46,7 +46,7 @@ public abstract class NeoAbstractEdgeTest implements InterfaceNeoAbstractEdgeTes
 		neoAbstractEdge = null;
 	}
 
-	protected void initGetCypherReturnVariableTest(NeoAbstractEdge edge, int number) {
+	protected void initGetCypherReturnVariableTest(NeoEdge edge, int number) {
 		int id = number;
 		try {
 			initGetCypherVariableTest(edge, id);
@@ -60,7 +60,7 @@ public abstract class NeoAbstractEdgeTest implements InterfaceNeoAbstractEdgeTes
 		}
 	}
 
-	protected void initGetCypherVariableTest(NeoAbstractEdge edge, int id)
+	protected void initGetCypherVariableTest(NeoEdge edge, int id)
 			throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
 		this.internalId.set(edge, id);
 		assumeTrue( ((RelationImpl)edge).getOriginalID() == id);

@@ -5,7 +5,7 @@ package qualitypatternmodel.adaptionneo4j.tests;
 import junit.textui.TestRunner;
 
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
-import qualitypatternmodel.adaptionneo4j.NeoPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,8 +41,8 @@ public class NeoPathParamTest extends NeoAbstractPathParamTest {
 	 * @generated
 	 */
 	@Override
-	protected NeoPathParam getFixture() {
-		return (NeoPathParam)fixture;
+	protected NeoElementPathParam getFixture() {
+		return (NeoElementPathParam)fixture;
 	}
 
 	/**

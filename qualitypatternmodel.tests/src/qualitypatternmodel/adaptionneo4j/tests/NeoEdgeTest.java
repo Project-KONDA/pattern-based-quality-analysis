@@ -2,27 +2,24 @@
  */
 package qualitypatternmodel.adaptionneo4j.tests;
 
-import junit.textui.TestRunner;
-
-import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
 import qualitypatternmodel.adaptionneo4j.NeoEdge;
+import qualitypatternmodel.graphstructure.tests.RelationTest;
 
 /**
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Neo Edge</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoEdge#setIsReturnElement(boolean) <em>Set Is Return Element</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoEdge#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
-public class NeoEdgeTest extends NeoAbstractEdgeTest {
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static void main(String[] args) {
-		TestRunner.run(NeoEdgeTest.class);
-	}
+public abstract class NeoEdgeTest extends RelationTest {
 
 	/**
 	 * Constructs a new Neo Edge test case with the given name.
@@ -46,25 +43,42 @@ public class NeoEdgeTest extends NeoAbstractEdgeTest {
 	}
 
 	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoEdge#setIsReturnElement(boolean) <em>Set Is Return Element</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoEdge#setIsReturnElement(boolean)
 	 * @generated
 	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(Adaptionneo4jFactory.eINSTANCE.createNeoEdge());
+	public void testSetIsReturnElement__boolean() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoEdge#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoEdge#getReturnInnerEdgeNodes()
 	 * @generated
 	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
+	public void testGetReturnInnerEdgeNodes() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionneo4j.NeoElement#getCypherReturnVariable()
+	 * @generated
+	 */
+	public void testGetCypherReturnVariable() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //NeoEdgeTest

@@ -57,12 +57,12 @@ public class Adaptionneo4jFactoryImpl extends EFactoryImpl implements Adaptionne
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case Adaptionneo4jPackage.NEO_NODE: return createNeoNode();
-			case Adaptionneo4jPackage.NEO_EDGE: return createNeoEdge();
+			case Adaptionneo4jPackage.NEO_ELEMENT_NODE: return createNeoElementNode();
+			case Adaptionneo4jPackage.NEO_ELEMENT_EDGE: return createNeoElementEdge();
 			case Adaptionneo4jPackage.NEO_COMPLEX_EDGE: return createNeoComplexEdge();
 			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE: return createNeoSimpleEdge();
 			case Adaptionneo4jPackage.NEO_PROPERTY_NODE: return createNeoPropertyNode();
-			case Adaptionneo4jPackage.NEO_PATH_PARAM: return createNeoPathParam();
+			case Adaptionneo4jPackage.NEO_ELEMENT_PATH_PARAM: return createNeoElementPathParam();
 			case Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM: return createNeoPropertyPathParam();
 			case Adaptionneo4jPackage.NEO_PROPERTY_EDGE: return createNeoPropertyEdge();
 			default:
@@ -110,9 +110,9 @@ public class Adaptionneo4jFactoryImpl extends EFactoryImpl implements Adaptionne
 	 * @generated
 	 */
 	@Override
-	public NeoNode createNeoNode() {
-		NeoNodeImpl neoNode = new NeoNodeImpl();
-		return neoNode;
+	public NeoElementNode createNeoElementNode() {
+		NeoElementNodeImpl neoElementNode = new NeoElementNodeImpl();
+		return neoElementNode;
 	}
 
 	/**
@@ -121,9 +121,9 @@ public class Adaptionneo4jFactoryImpl extends EFactoryImpl implements Adaptionne
 	 * @generated
 	 */
 	@Override
-	public NeoEdge createNeoEdge() {
-		NeoEdgeImpl neoEdge = new NeoEdgeImpl();
-		return neoEdge;
+	public NeoElementEdge createNeoElementEdge() {
+		NeoElementEdgeImpl neoElementEdge = new NeoElementEdgeImpl();
+		return neoElementEdge;
 	}
 
 	/**
@@ -165,9 +165,9 @@ public class Adaptionneo4jFactoryImpl extends EFactoryImpl implements Adaptionne
 	 * @generated
 	 */
 	@Override
-	public NeoPathParam createNeoPathParam() {
-		NeoPathParamImpl neoPathParam = new NeoPathParamImpl();
-		return neoPathParam;
+	public NeoElementPathParam createNeoElementPathParam() {
+		NeoElementPathParamImpl neoElementPathParam = new NeoElementPathParamImpl();
+		return neoElementPathParam;
 	}
 
 	/**

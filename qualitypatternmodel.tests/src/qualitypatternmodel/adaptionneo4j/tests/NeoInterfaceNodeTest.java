@@ -4,7 +4,7 @@ package qualitypatternmodel.adaptionneo4j.tests;
 
 import junit.framework.TestCase;
 
-import qualitypatternmodel.adaptionneo4j.NeoInterfaceNode;
+import qualitypatternmodel.adaptionneo4j.NeoNode;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,7 +13,7 @@ import qualitypatternmodel.adaptionneo4j.NeoInterfaceNode;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoInterfaceNode#getCypherVariable() <em>Get Cypher Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoNode#getCypherVariable() <em>Get Cypher Variable</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}</li>
  * </ul>
  * </p>
@@ -27,7 +27,7 @@ public abstract class NeoInterfaceNodeTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NeoInterfaceNode fixture = null;
+	protected NeoNode fixture = null;
 
 	/**
 	 * Constructs a new Neo Interface Node test case with the given name.
@@ -45,7 +45,7 @@ public abstract class NeoInterfaceNodeTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(NeoInterfaceNode fixture) {
+	protected void setFixture(NeoNode fixture) {
 		this.fixture = fixture;
 	}
 
@@ -55,15 +55,15 @@ public abstract class NeoInterfaceNodeTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NeoInterfaceNode getFixture() {
+	protected NeoNode getFixture() {
 		return fixture;
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoInterfaceNode#getCypherVariable() <em>Get Cypher Variable</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoNode#getCypherVariable() <em>Get Cypher Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionneo4j.NeoInterfaceNode#getCypherVariable()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoNode#getCypherVariable()
 	 * @generated
 	 */
 	public void testGetCypherVariable() {

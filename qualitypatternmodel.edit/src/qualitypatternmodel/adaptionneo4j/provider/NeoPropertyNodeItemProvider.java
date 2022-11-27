@@ -68,9 +68,9 @@ public class NeoPropertyNodeItemProvider extends PrimitiveNodeItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NeoInterfaceNode_isVariableDistinctInUse_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NeoInterfaceNode_isVariableDistinctInUse_feature", "_UI_NeoInterfaceNode_type"),
-				 Adaptionneo4jPackage.Literals.NEO_INTERFACE_NODE__IS_VARIABLE_DISTINCT_IN_USE,
+				 getString("_UI_NeoNode_isVariableDistinctInUse_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NeoNode_isVariableDistinctInUse_feature", "_UI_NeoNode_type"),
+				 Adaptionneo4jPackage.Literals.NEO_NODE__IS_VARIABLE_DISTINCT_IN_USE,
 				 true,
 				 false,
 				 false,

@@ -21,7 +21,7 @@ import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NeoPropertyEdgeItemProvider extends NeoAbstractEdgeItemProvider {
+public class NeoPropertyEdgeItemProvider extends NeoEdgeItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

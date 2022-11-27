@@ -61,25 +61,12 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
 	 * @generated
 	 */
 	@Override
 	public NeoAbstractPathParam getNeoParam() throws InvalidityException {
-		NeoComplexEdge neoComplexEdge = null;
-		NeoComplexEdge nextNeoComplexEdge = getNeoComplexEdge();
-		if (nextNeoComplexEdge != null) {
-			do {
-				neoComplexEdge = nextNeoComplexEdge;
-				nextNeoComplexEdge = neoComplexEdge.getNeoComplexEdge();
-			} while (nextNeoComplexEdge != null);			
-		}
-		if (neoComplexEdge == null) {
-			if (eContainerFeatureID() != Adaptionneo4jPackage.NEO_PATH_PART__NEO_PARAM) throw new InvalidityException(NO_NEO_ABSTRACT_PATH_PARAM_IS_SET);
-			return (NeoAbstractPathParam)eInternalContainer();			
-		} else {
-			return neoComplexEdge.getNeoParam();
-		}
+		if (eContainerFeatureID() != Adaptionneo4jPackage.NEO_PATH_PART__NEO_PARAM) return null;
+		return (NeoAbstractPathParam)eInternalContainer();
 	}
 
 	/**

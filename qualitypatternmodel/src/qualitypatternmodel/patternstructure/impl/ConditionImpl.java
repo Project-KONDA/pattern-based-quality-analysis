@@ -12,8 +12,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
-import qualitypatternmodel.adaptionneo4j.NeoEdge;
-import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoElementEdge;
+import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPlace;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
@@ -521,10 +521,10 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	
 	//BEGIN - Neo4J/Cypher
 	protected final void setNeo4JBeginnings(Graph graph) throws InvalidityException {
-		final EList<EList<NeoNode>> neoGraphs = getAllNeoNodes(graph);
+		final EList<EList<NeoElementNode>> neoGraphs = getAllNeoNodes(graph);
 		setBeginningInSubGraph(neoGraphs);
 		neoGraphs.clear();
-		final EList<NeoNode> flattenNodes = getAllNeoNodesFlatten(graph);
+		final EList<NeoElementNode> flattenNodes = getAllNeoNodesFlatten(graph);
 		setBeginningInSubGraphForNeoPropertyNodes(getAllNeoPropertyNodesFlatten(graph));
 		flattenNodes.clear();
 	}
@@ -534,25 +534,25 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	* This setBeginning is focused on finding the correct incoming Node via the new created edge in the Condition
 	* If no incoming edge is new the newly created edge is taken as a starting point
 	*/
-	private final void setBeginningInSubGraph(EList<EList<NeoNode>> neoGraphs) {
+	private final void setBeginningInSubGraph(EList<EList<NeoElementNode>> neoGraphs) {
 		//Since JAVA works internally with points this is not increasing the needed space a lot
-		final EList<EList<NeoNode>> cyclicSubGraphsWithNoBeginnings = new BasicEList<EList<NeoNode>>(); 
-		EList<NeoNode> tempCyclicSubGraphsWithNoBeginnings = null;
-		NeoNode tempNeoNode = null;
-		NeoEdge tempNeoEdge = null;
+		final EList<EList<NeoElementNode>> cyclicSubGraphsWithNoBeginnings = new BasicEList<EList<NeoElementNode>>(); 
+		EList<NeoElementNode> tempCyclicSubGraphsWithNoBeginnings = null;
+		NeoElementNode tempNeoNode = null;
+		NeoElementEdge tempNeoEdge = null;
 		int i = -1;
-		for (EList<NeoNode> neoNodeList: neoGraphs) {
-			tempCyclicSubGraphsWithNoBeginnings = new BasicEList<NeoNode>();
-			for (NeoNode neoNode : neoNodeList) {
+		for (EList<NeoElementNode> neoNodeList: neoGraphs) {
+			tempCyclicSubGraphsWithNoBeginnings = new BasicEList<NeoElementNode>();
+			for (NeoElementNode neoNode : neoNodeList) {
 				if (neoNode.getIncomingMapping() == null) {
 					if (neoNode.getIncoming().size() == 0) {
 						neoNode.setNeoPlace(NeoPlace.BEGINNING);
 					} else {
 						i = neoNode.getIncoming().size();
 						for (Relation r : neoNode.getIncoming()) {
-							tempNeoEdge = (NeoEdge) r;
+							tempNeoEdge = (NeoElementEdge) r;
 							if (r.getIncomingMapping() == null) {
-								tempNeoNode = (NeoNode) tempNeoEdge.getSource();
+								tempNeoNode = (NeoElementNode) tempNeoEdge.getSource();
 								if (tempNeoNode.getIncomingMapping() != null) {
 									tempNeoNode.setNeoPlace(NeoPlace.BEGINNING);
 									i--;
@@ -574,7 +574,7 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 			}
 			tempCyclicSubGraphsWithNoBeginnings = null;
 		}
-		for (EList<NeoNode> cyclicSubGraph : cyclicSubGraphsWithNoBeginnings) {
+		for (EList<NeoElementNode> cyclicSubGraph : cyclicSubGraphsWithNoBeginnings) {
 			cyclicSubGraph.get(ConditionImpl.FIRST_NODE_IN_CYCLIC_SUB_GRAPH).setNeoPlace(NeoPlace.BEGINNING);
 		}
 	}
@@ -588,14 +588,14 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	 * No cycles are possible in the version from 10/11/2022. Due to this fact in this method no cycle check is done.
 	 */
 	private final void setBeginningInSubGraphForNeoPropertyNodes(EList<NeoPropertyNode> nodes) {
-		NeoNode neoNode = null;
+		NeoElementNode neoNode = null;
 		NeoPropertyEdge neoPropertyEdge = null;
 		for (NeoPropertyNode node : nodes) {
 			if (node.getIncomingMapping() == null) {
 				for (Relation r : node.getIncoming()) {
 					neoPropertyEdge = (NeoPropertyEdge) r;
 					if (neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart() != null) {
-						neoNode = (NeoNode) r.getSource();
+						neoNode = (NeoElementNode) r.getSource();
 						if (neoNode.getIncomingMapping() != null) {
 							neoNode.setNeoPlace(NeoPlace.BEGINNING);
 						}
@@ -605,15 +605,15 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 		}
 	}
 	
-	protected final EList<EList<NeoNode>> getAllNeoNodes(Graph graph) throws InvalidityException {
-		final EList<EList<NeoNode>> neoGraphs = new BasicEList<EList<NeoNode>>();
-		EList<NeoNode> neoGraph = null;
-		NeoNode neoNode = null;
+	protected final EList<EList<NeoElementNode>> getAllNeoNodes(Graph graph) throws InvalidityException {
+		final EList<EList<NeoElementNode>> neoGraphs = new BasicEList<EList<NeoElementNode>>();
+		EList<NeoElementNode> neoGraph = null;
+		NeoElementNode neoNode = null;
 		for (EList<Node> nodeList : graph.getAllSubGraphs()) {
-			neoGraph = new BasicEList<NeoNode>();
+			neoGraph = new BasicEList<NeoElementNode>();
 			for (Node node : nodeList) {
-				if (node instanceof NeoNode) {
-					neoNode = (NeoNode) node;
+				if (node instanceof NeoElementNode) {
+					neoNode = (NeoElementNode) node;
 					neoGraph.add(neoNode);
 				}
 			}
@@ -624,11 +624,11 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 		return neoGraphs;
 	}
 	
-	protected final EList<NeoNode> getAllNeoNodesFlatten(Graph graph) throws InvalidityException {
-		final EList<EList<NeoNode>> neoGraphs = getAllNeoNodes(graph);
-		final EList<NeoNode> neoNodes = new BasicEList<NeoNode>();
-		for (EList<NeoNode> list : neoGraphs) {
-			for (NeoNode neoNode : list) {
+	protected final EList<NeoElementNode> getAllNeoNodesFlatten(Graph graph) throws InvalidityException {
+		final EList<EList<NeoElementNode>> neoGraphs = getAllNeoNodes(graph);
+		final EList<NeoElementNode> neoNodes = new BasicEList<NeoElementNode>();
+		for (EList<NeoElementNode> list : neoGraphs) {
+			for (NeoElementNode neoNode : list) {
 				neoNodes.add(neoNode);
 			}
 		}

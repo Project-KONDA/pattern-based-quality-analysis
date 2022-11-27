@@ -23,9 +23,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mockito;
 
-import qualitypatternmodel.adaptionneo4j.NeoInterfaceNode;
 import qualitypatternmodel.adaptionneo4j.NeoNode;
-import qualitypatternmodel.adaptionneo4j.impl.NeoNodeImpl;
+import qualitypatternmodel.adaptionneo4j.NeoElementNode;
+import qualitypatternmodel.adaptionneo4j.impl.NeoElementNodeImpl;
 import qualitypatternmodel.cypherclasstester.NeoAbstractNodeTest;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.TextListParam;
@@ -38,7 +38,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
 public class Cypher01NeoNodeTest extends NeoAbstractNodeTest {
 	private static final String VAR_NODE1 = "(varNode1)";
 	private static final String VAR_NODE1_REGESTA_INDEX_PLACE = "(varNode1:Regesta:IndexPlace)";
-	NeoNode neoNode;
+	NeoElementNode neoNode;
 	
 	@BeforeAll
     static void initAll() {
@@ -47,8 +47,8 @@ public class Cypher01NeoNodeTest extends NeoAbstractNodeTest {
 	
 	@BeforeEach
 	public void setUp() {
-		super.setUp(FACTORY.createNeoNode());
-		neoNode = (NeoNode) super.neoAbstractNode;
+		super.setUp(FACTORY.createNeoElementNode());
+		neoNode = (NeoElementNode) super.neoAbstractNode;
 	}
 	
 	@AfterEach
@@ -139,7 +139,7 @@ public class Cypher01NeoNodeTest extends NeoAbstractNodeTest {
 	public void getCypherVariable(int number) {
 		int id = number;
 		try {
-			NeoInterfaceNode node = super.neoAbstractNode;
+			NeoNode node = super.neoAbstractNode;
 			initGetCypherVariableTest(node, id);
 			String variable;
 			variable = assertDoesNotThrow(() -> {return node.getCypherVariable();});
@@ -156,7 +156,7 @@ public class Cypher01NeoNodeTest extends NeoAbstractNodeTest {
 	public void getCypherVariableNotValidNumber(int number) {
 		int id = number;
 		try {
-			NeoInterfaceNode node = super.neoAbstractNode;
+			NeoNode node = super.neoAbstractNode;
 			initGetCypherVariableTest(node, id);
 			String variable;
 			variable = assertDoesNotThrow(() -> {return node.getCypherVariable();});
@@ -171,19 +171,19 @@ public class Cypher01NeoNodeTest extends NeoAbstractNodeTest {
 	@ParameterizedTest
 	@ValueSource(ints = {1,10,100,1000})
 	public void getCypherReturnVariable(int number) {
-		NeoInterfaceNode node = super.neoAbstractNode;
+		NeoNode node = super.neoAbstractNode;
 		initGetCypherReturnVariableTest(node, number, true);
 	}
 	
 	@ParameterizedTest
 	@ValueSource(ints = {1,10,100,1000})
 	public void generateCypherReturnVariableDistinct(int number) {
-		NeoInterfaceNode node = super.neoAbstractNode;
+		NeoNode node = super.neoAbstractNode;
 		node.setIsVariableDistinctInUse(false);
 		initGetCypherReturnVariableTest(node, number, false);
 	}
 	
-	private void initGetCypherReturnVariableTest(NeoInterfaceNode node, int number, boolean isDistinct) {
+	private void initGetCypherReturnVariableTest(NeoNode node, int number, boolean isDistinct) {
 		int id = number;
 		try {
 			initGetCypherVariableTest(node, id);
@@ -227,7 +227,7 @@ public class Cypher01NeoNodeTest extends NeoAbstractNodeTest {
 	@Override
 	@Test
 	public void generateCypher() {
-		NeoInterfaceNode node = super.neoAbstractNode;
+		NeoNode node = super.neoAbstractNode;
 		try {
 			initGetCypherVariableTest(node, GENERIC_NODE_ID);
 			TextListParam mockTextListParam = Mockito.mock(TextListParam.class);
@@ -236,11 +236,11 @@ public class Cypher01NeoNodeTest extends NeoAbstractNodeTest {
 			labelList.add("IndexPlace");
 			labelList.add("");
 			Mockito.when(mockTextListParam.getValues()).thenReturn(labelList);
-			((NeoNodeImpl) node).setNeoNodeLabels(mockTextListParam);
-			((NeoNodeImpl) node).setTranslated(false);
-			String cypher = ((NeoNodeImpl) node).generateCypher();
+			((NeoElementNodeImpl) node).setNeoNodeLabels(mockTextListParam);
+			((NeoElementNodeImpl) node).setTranslated(false);
+			String cypher = ((NeoElementNodeImpl) node).generateCypher();
 			assertTrue(cypher.compareTo(VAR_NODE1_REGESTA_INDEX_PLACE) == 0);
-			cypher = ((NeoNodeImpl) node).generateCypher();
+			cypher = ((NeoElementNodeImpl) node).generateCypher();
 			assertTrue(cypher.compareTo(VAR_NODE1) == 0);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -250,12 +250,12 @@ public class Cypher01NeoNodeTest extends NeoAbstractNodeTest {
 	
 	@Test
 	public void generateCypherWithNoLabels() {
-		NeoInterfaceNode node = super.neoAbstractNode;
+		NeoNode node = super.neoAbstractNode;
 		try {
 			initGetCypherVariableTest(node, GENERIC_NODE_ID);
-			((NeoNodeImpl) node).setNeoNodeLabels(null);
-			((NeoNodeImpl) node).setTranslated(false);
-			String cypher = ((NeoNodeImpl) node).generateCypher();
+			((NeoElementNodeImpl) node).setNeoNodeLabels(null);
+			((NeoElementNodeImpl) node).setTranslated(false);
+			String cypher = ((NeoElementNodeImpl) node).generateCypher();
 			assertTrue(cypher.compareTo(VAR_NODE1) == 0);
 		} catch (Exception e) {
 			System.out.println(e);

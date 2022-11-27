@@ -15,9 +15,9 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-import qualitypatternmodel.adaptionneo4j.NeoInterfaceNode;
-import qualitypatternmodel.adaptionneo4j.NeoEdge;
 import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoElementEdge;
+import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPlace;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
@@ -184,7 +184,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		
 		if (allNodesList != null && allNodesList.size() > 0) { 
 			final StringBuilder cypher = new StringBuilder();	
-			final EList<NeoInterfaceNode> beginningNodesList = new BasicEList<NeoInterfaceNode>();
+			final EList<NeoNode> beginningNodesList = new BasicEList<NeoNode>();
 			
 			//Finding ComplexNode which represent the beginning
 			//Since we have independent graphs we can have multiple beginnings
@@ -192,15 +192,15 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			//TODO: Consider that it also can start with a PrimitiveNode which has a more defined strucutre --> Not relevant any more since the model just starts with a complex edge
 			//Maybe change this in the future to generate OPTIONAL MATCH
 			for (Node n : allNodesList) {
-				if (n instanceof NeoNode && ((NeoNode) n).getNeoPlace() == NeoPlace.BEGINNING) {
-					beginningNodesList.add((NeoInterfaceNode) n);
-				} else if(! (n instanceof NeoInterfaceNode)) {
+				if (n instanceof NeoElementNode && ((NeoElementNode) n).getNeoPlace() == NeoPlace.BEGINNING) {
+					beginningNodesList.add((NeoNode) n);
+				} else if(! (n instanceof NeoNode)) {
 					throw new InvalidityException(NO_INSTANCE_OF_NEO_NODE);
 				}
 			}
 			
 			boolean isFirst = true;
-			for (NeoInterfaceNode n : beginningNodesList) {
+			for (NeoNode n : beginningNodesList) {
 				if (!isFirst) {
 					cypher.append(CypherSpecificConstants.CLAUSE_MATCH + CypherSpecificConstants.ONE_WHITESPACE);
 				} else {
@@ -213,7 +213,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		throw new InvalidityException(NO_NODES_ARE_GIVEN);
 	}
 
-	private final void buildNeoGraphPatternRecursively(StringBuilder cypher, NeoInterfaceNode n) throws InvalidityException {
+	private final void buildNeoGraphPatternRecursively(StringBuilder cypher, NeoNode n) throws InvalidityException {
 		//In this senario it has to be considert that of there are multiple edges between nodes the last one will be taken
 		//Since multiple edges between to nodes requieres a OPTIONAL MATCH the OPTIONAL MATCH can be implemented or a break added
 		//MULTIPLE EDGES HAVE TO BE HANDELT DIFFRENTLY BUT ARE ALSO NOT SUPPORTED BY THE FRAMEWORK
@@ -257,7 +257,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			innerCounterString++;
 			cypher = new StringBuilder();
 			cypher.append(node.generateCypher());
-			((NeoInterfaceNode) node).setIsVariableDistinctInUse(false);
+			((NeoNode) node).setIsVariableDistinctInUse(false);
 		} else {
 			preCypher = cyphers.get(innerCounterString);
 			cypher = new StringBuilder();
@@ -275,7 +275,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				cypherEdge = new StringBuilder();
 				cypherEdge.append(cypher.toString());
 				
-				if (innerEdges instanceof NeoEdge) {
+				if (innerEdges instanceof NeoElementEdge) {
 					cypherEdge.append(cypherText);
 					cyphers.add(cypherEdge);
 					innerCounterString = cyphers.size() - 1;
@@ -304,7 +304,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		for (Relation r : node.getOutgoing()) {
 			//--> Mapped Relations are not considered in Morphed Graphs 
 			if (r.getOriginalRelation() == r) { //r.getIncomingMapping() == null &&
-				if (r instanceof NeoEdge) {
+				if (r instanceof NeoElementEdge) {
 					i++;
 				} else {
 					neoPropertyEdge = (NeoPropertyEdge) r; 
@@ -315,7 +315,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			}
 		}
 		if (i + distinctNeoPropertyNode >= 2) {
-			((NeoInterfaceNode) node).setIsVariableDistinctInUse(false);
+			((NeoNode) node).setIsVariableDistinctInUse(false);
 		}
 		return i + distinctNeoPropertyNode >= 2;
 	}

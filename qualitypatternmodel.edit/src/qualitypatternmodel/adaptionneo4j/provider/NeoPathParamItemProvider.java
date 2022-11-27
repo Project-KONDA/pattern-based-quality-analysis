@@ -13,10 +13,10 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
-import qualitypatternmodel.adaptionneo4j.NeoPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoPathParam} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoElementPathParam} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -89,7 +89,7 @@ public class NeoPathParamItemProvider extends NeoAbstractPathParamItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((NeoPathParam)object).getId();
+		String label = ((NeoElementPathParam)object).getId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_NeoPathParam_type") :
 			getString("_UI_NeoPathParam_type") + " " + label;

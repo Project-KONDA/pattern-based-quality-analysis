@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import qualitypatternmodel.adaptionneo4j.NeoAbstractEdge;
+import qualitypatternmodel.adaptionneo4j.NeoEdge;
 import qualitypatternmodel.adaptionneo4j.NeoElement;
 import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -283,9 +283,9 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 				}
 			}
 		} else {
-			NeoAbstractEdge neoAbstractEdge;
+			NeoEdge neoAbstractEdge;
 			for (Relation r : graph.getRelations()) {
-				neoAbstractEdge = (NeoAbstractEdge) r;
+				neoAbstractEdge = (NeoEdge) r;
 				if (neoAbstractEdge.isReturnElement()) {
 					neoElement = (NeoElement) r;
 					generateCypherGenericMap(cypherReturn, neoElement);
@@ -326,15 +326,15 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	
 	protected String generateCypherSpecialEdgeString(String cypher) throws InvalidityException {
 		final StringBuilder cypherInnerEdgeNodes = new StringBuilder(cypher);
-		NeoAbstractEdge neoAbstractEdge = null;
+		NeoEdge neoAbstractEdge = null;
 		for (Relation r : graph.getRelations()) {
-			neoAbstractEdge = (NeoAbstractEdge) r;
+			neoAbstractEdge = (NeoEdge) r;
 			appendInnerEdgeNodes(cypherInnerEdgeNodes, neoAbstractEdge);
 		}
 		return cypherInnerEdgeNodes.toString();
 	}
 	
-	protected void appendInnerEdgeNodes(final StringBuilder cypherInnerEdgeNodes, NeoAbstractEdge neoAbstractEdge)
+	protected void appendInnerEdgeNodes(final StringBuilder cypherInnerEdgeNodes, NeoEdge neoAbstractEdge)
 			throws InvalidityException {
 		if (neoAbstractEdge.getReturnInnerEdgeNodes() != null) {
 			if (cypherInnerEdgeNodes.length() != 0) cypherInnerEdgeNodes.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE);

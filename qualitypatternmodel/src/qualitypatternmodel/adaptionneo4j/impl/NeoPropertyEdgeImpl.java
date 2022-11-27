@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
-import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
@@ -35,7 +35,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *
  * @generated
  */
-public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPropertyEdge {
+public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge {
 	private static final String NO_NEO_PROPERTY_NAME_WAS_SPECIFIED = "No NeoPropertyName was specified";
 	private static final String THE_SOURCE_NEEDS_TO_BE_SET = "The Source needs to be set";
 	private static final String NEO_PROPERTY_EDGE_NEEDS_A_NEO_PROPERTY_PATH_PARAM = "NeoPropertyEdge needs a NeoPropertyPathParam";
@@ -92,7 +92,7 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 			} else {
 				returnElement = super.getCypherReturnVariable();
 				String cypher = getNeoPropertyPathParam().getCypherReturnVariable();
-				returnElement.put(NeoAbstractEdgeImpl.CYPHER_RETURN_ID, cypher);
+				returnElement.put(NeoEdgeImpl.CYPHER_RETURN_ID, cypher);
 			}
 		} else {
 			throw new InvalidityException("No NeoPropertyPathParam need to be set"); 
@@ -133,7 +133,7 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 				String variable = null; 
 				if (neoPropertyPathParam.getNeoPathPart() == null) {
 					if (getSource() != null) {
-						NeoNode neoNode = (NeoNode) getSource();
+						NeoElementNode neoNode = (NeoElementNode) getSource();
 						variable = neoNode.getCypherVariable();
 					} else throw new InvalidityException(THE_SOURCE_NEEDS_TO_BE_SET);
 				} else {
@@ -167,7 +167,7 @@ public class NeoPropertyEdgeImpl extends NeoAbstractEdgeImpl implements NeoPrope
 			if (neoPropertyPathParam != null) {
 				String cypher;
 				if (neoPropertyPathParam.getNeoPathPart() == null) {
-					NeoNode neoNode = (NeoNode) getSource();
+					NeoElementNode neoNode = (NeoElementNode) getSource();
 					cypher = neoNode.getCypherVariable();
 				} else {
 					NeoPathPart neoLastEdge = neoPropertyPathParam.getNeoPathPart().getNeoLastEdge();

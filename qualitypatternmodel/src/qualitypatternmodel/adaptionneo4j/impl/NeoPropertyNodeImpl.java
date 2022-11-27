@@ -11,7 +11,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import qualitypatternmodel.adaptionneo4j.NeoInterfaceNode;
+import qualitypatternmodel.adaptionneo4j.NeoNode;
 import qualitypatternmodel.adaptionneo4j.NeoElement;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
@@ -455,9 +455,9 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 				default: return -1;
 			}
 		}
-		if (baseClass == NeoInterfaceNode.class) {
+		if (baseClass == NeoNode.class) {
 			switch (derivedFeatureID) {
-				case Adaptionneo4jPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE: return Adaptionneo4jPackage.NEO_INTERFACE_NODE__IS_VARIABLE_DISTINCT_IN_USE;
+				case Adaptionneo4jPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE: return Adaptionneo4jPackage.NEO_NODE__IS_VARIABLE_DISTINCT_IN_USE;
 				default: return -1;
 			}
 		}
@@ -476,9 +476,9 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 				default: return -1;
 			}
 		}
-		if (baseClass == NeoInterfaceNode.class) {
+		if (baseClass == NeoNode.class) {
 			switch (baseFeatureID) {
-				case Adaptionneo4jPackage.NEO_INTERFACE_NODE__IS_VARIABLE_DISTINCT_IN_USE: return Adaptionneo4jPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE;
+				case Adaptionneo4jPackage.NEO_NODE__IS_VARIABLE_DISTINCT_IN_USE: return Adaptionneo4jPackage.NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE;
 				default: return -1;
 			}
 		}
@@ -591,13 +591,13 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == NeoElement.class) {
 			switch (baseOperationID) {
-				case Adaptionneo4jPackage.NEO_INTERFACE_ELEMENT___GET_CYPHER_RETURN_VARIABLE: return Adaptionneo4jPackage.NEO_PROPERTY_NODE___GET_CYPHER_RETURN_VARIABLE;
+				case Adaptionneo4jPackage.NEO_ELEMENT___GET_CYPHER_RETURN_VARIABLE: return Adaptionneo4jPackage.NEO_PROPERTY_NODE___GET_CYPHER_RETURN_VARIABLE;
 				default: return -1;
 			}
 		}
-		if (baseClass == NeoInterfaceNode.class) {
+		if (baseClass == NeoNode.class) {
 			switch (baseOperationID) {
-				case Adaptionneo4jPackage.NEO_INTERFACE_NODE___GET_CYPHER_VARIABLE: return Adaptionneo4jPackage.NEO_PROPERTY_NODE___GET_CYPHER_VARIABLE;
+				case Adaptionneo4jPackage.NEO_NODE___GET_CYPHER_VARIABLE: return Adaptionneo4jPackage.NEO_PROPERTY_NODE___GET_CYPHER_VARIABLE;
 				default: return -1;
 			}
 		}

@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionxml.XmlElement;
@@ -402,9 +402,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	}
 
 	private final boolean checkForValidCypherNode() {
-		return (getArgument1() instanceof NeoNode && getArgument2() instanceof NeoNode) || 
-				((getArgument1() instanceof NeoNode && getArgument2() instanceof NeoPropertyNode && ((NeoPropertyEdge)((NeoPropertyNode) getArgument2()).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() != null)) ||
-				((getArgument1() instanceof NeoPropertyEdge && ((NeoPropertyEdge)((NeoPropertyNode) getArgument2()).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() != null) && getArgument2() instanceof NeoNode) ||
+		return (getArgument1() instanceof NeoElementNode && getArgument2() instanceof NeoElementNode) || 
+				((getArgument1() instanceof NeoElementNode && getArgument2() instanceof NeoPropertyNode && ((NeoPropertyEdge)((NeoPropertyNode) getArgument2()).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() != null)) ||
+				((getArgument1() instanceof NeoPropertyEdge && ((NeoPropertyEdge)((NeoPropertyNode) getArgument2()).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() != null) && getArgument2() instanceof NeoElementNode) ||
 				((getArgument1() instanceof NeoPropertyEdge && ((NeoPropertyEdge)((NeoPropertyNode) getArgument2()).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() != null) && 
 				getArgument2() instanceof NeoPropertyNode && ((NeoPropertyEdge)((NeoPropertyNode) getArgument2()).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() != null);
 	}
@@ -422,9 +422,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		} else if (!(getArgument1() instanceof NeoPropertyNode) && getArgument2() instanceof NeoPropertyNode) {
 			argument1Translation = getArgument1().generateCypher();
 			argument2Translation = (String) ((NeoPropertyNode) getArgument2()).generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
-		} else if (getArgument1() instanceof NeoNode && getArgument2() instanceof NeoNode) {
-			argument1Translation = ((NeoNode) getArgument1()).getCypherVariable(); 
-			argument2Translation = ((NeoNode) getArgument2()).getCypherVariable(); 
+		} else if (getArgument1() instanceof NeoElementNode && getArgument2() instanceof NeoElementNode) {
+			argument1Translation = ((NeoElementNode) getArgument1()).getCypherVariable(); 
+			argument2Translation = ((NeoElementNode) getArgument2()).getCypherVariable(); 
 		}
 		
 		if (argument1Translation.isEmpty() || argument2Translation.isEmpty()) {
@@ -466,7 +466,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				(getArgument1() instanceof ParameterValue && getArgument2() instanceof NeoPropertyNode)) 
 				&& option.getValue() == ComparisonOperator.EQUAL) {
 			if(option.getValue() == ComparisonOperator.EQUAL) result = false;
-		} else if (getArgument1() instanceof NeoNode || getArgument2() instanceof NeoNode) throw new InvalidityException("Args 1 oder 2 can not be a NeoNode");
+		} else if (getArgument1() instanceof NeoElementNode || getArgument2() instanceof NeoElementNode) throw new InvalidityException("Args 1 oder 2 can not be a NeoNode");
 		return result;
 	}
 	

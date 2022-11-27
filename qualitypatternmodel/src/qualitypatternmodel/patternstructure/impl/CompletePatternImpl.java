@@ -16,8 +16,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import qualitypatternmodel.adaptionneo4j.NeoInterfaceNode;
 import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPlace;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionrdf.IriParam;
@@ -538,27 +538,27 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	//BEGIN - AUTOMATIC SETTING OF THE BEGINNING
 	private final void setNeo4JBeginnings(PatternElement patternElement) throws InvalidityException {
 		final EList<EList<Node>> genericGraphs = this.getGraph().getAllSubGraphs(); 
-		final EList<EList<NeoInterfaceNode>> graphs = new BasicEList<EList<NeoInterfaceNode>>();
-		EList<NeoInterfaceNode> graphList = null;
+		final EList<EList<NeoNode>> graphs = new BasicEList<EList<NeoNode>>();
+		EList<NeoNode> graphList = null;
 		for (EList<Node> graph : genericGraphs) {
-			graphList = new BasicEList<NeoInterfaceNode>();
+			graphList = new BasicEList<NeoNode>();
 			for (Node n : graph) {
-				graphList.add((NeoInterfaceNode) n);
+				graphList.add((NeoNode) n);
 			}
 			graphs.add(graphList);
 		}
 		setBeginningInSubGraph(graphs);		
 	}
 	
-	private final void setBeginningInSubGraph(final EList<EList<NeoInterfaceNode>> graphs) {
+	private final void setBeginningInSubGraph(final EList<EList<NeoNode>> graphs) {
 		boolean hasBeginning = false;
 		Node node = null;
-		NeoNode neoNode = null;
-		for (EList<NeoInterfaceNode> graph : graphs) {
-			for (NeoInterfaceNode neoInterfaceNode : graph) {
+		NeoElementNode neoNode = null;
+		for (EList<NeoNode> graph : graphs) {
+			for (NeoNode neoInterfaceNode : graph) {
 				node = (Node) neoInterfaceNode;
-				if (node.getIncoming().size() == 0 && node instanceof NeoNode) {
-					neoNode = (NeoNode) node;
+				if (node.getIncoming().size() == 0 && node instanceof NeoElementNode) {
+					neoNode = (NeoElementNode) node;
 					neoNode.setNeoPlace(NeoPlace.BEGINNING);
 					hasBeginning = true;
 				}
@@ -566,8 +566,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			if (!hasBeginning) {
 				for (int i = 0; i < graph.size(); i++) {
 					node = (Node) graph.get(i);
-					if (node instanceof NeoNode) {
-						neoNode = (NeoNode) node;
+					if (node instanceof NeoElementNode) {
+						neoNode = (NeoElementNode) node;
 						neoNode.setNeoPlace(NeoPlace.BEGINNING);
 						hasBeginning = true;
 						i = graph.size();

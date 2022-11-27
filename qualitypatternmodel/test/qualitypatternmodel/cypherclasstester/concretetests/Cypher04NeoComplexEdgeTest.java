@@ -30,7 +30,7 @@ import org.mockito.Mockito;
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoAbstractPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
-import qualitypatternmodel.adaptionneo4j.NeoPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
@@ -500,23 +500,23 @@ public class Cypher04NeoComplexEdgeTest extends NeoAbstractPathPartTest {
 			assertNull(neoPathPart.getNeoComplexEdge());
 			
 			//If the NeoPathPart is set return it
-			NeoAbstractPathParam neoAbstractPathParam = FACTORY.createNeoPathParam();
-			neoPathPart.setNeoParam((NeoPathParam) neoAbstractPathParam);
+			NeoAbstractPathParam neoAbstractPathParam = FACTORY.createNeoElementPathParam();
+			neoPathPart.setNeoParam((NeoElementPathParam) neoAbstractPathParam);
 			assertEquals(neoAbstractPathParam, neoPathPart.getNeoParam());
-			neoPathPart.setNeoParam((NeoPathParam) null);
+			neoPathPart.setNeoParam((NeoElementPathParam) null);
 			assertNull(neoPathPart.getNeoParam());
 			
 			//If the NeoPropertyPathPart is set return it
 			neoAbstractPathParam = FACTORY.createNeoPropertyPathParam();
 			neoPathPart.setNeoParam((NeoPropertyPathParam) neoAbstractPathParam);
 			assertEquals(neoAbstractPathParam, neoPathPart.getNeoParam());
-			neoPathPart.setNeoParam((NeoPathParam) null);
+			neoPathPart.setNeoParam((NeoElementPathParam) null);
 			assertNull(neoPathPart.getNeoParam());		
 			
 			//If a NeoComplexEdge is set then return the NeoAbstractPathParam from that (NeoPathParam)
 			NeoComplexEdge neoComplexEdge1 = FACTORY.createNeoComplexEdge();
-			neoAbstractPathParam = FACTORY.createNeoPathParam();
-			neoComplexEdge.setNeoParam((NeoPathParam) neoAbstractPathParam);
+			neoAbstractPathParam = FACTORY.createNeoElementPathParam();
+			neoComplexEdge.setNeoParam((NeoElementPathParam) neoAbstractPathParam);
 			neoComplexEdge1.setNeoComplexEdge(neoComplexEdge);
 			assertEquals(neoAbstractPathParam, neoComplexEdge1.getNeoParam());
 			assumeNotNull(neoComplexEdge1.getNeoComplexEdge());

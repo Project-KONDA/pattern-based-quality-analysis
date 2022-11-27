@@ -22,11 +22,11 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
-import qualitypatternmodel.adaptionneo4j.NeoEdge;
-import qualitypatternmodel.adaptionneo4j.NeoPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoElementEdge;
+import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.impl.NeoComplexEdgeImpl;
-import qualitypatternmodel.adaptionneo4j.impl.NeoPathParamImpl;
+import qualitypatternmodel.adaptionneo4j.impl.NeoElementPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
 import qualitypatternmodel.cypherclasstester.NeoAbstractPathParamTest;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -36,7 +36,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
 
 @DisplayName("NeoPathParamTest")
 public class Cypher03NeoPathParamTest extends NeoAbstractPathParamTest {
-	NeoPathParam neoPathParam;
+	NeoElementPathParam neoPathParam;
 	
 	@BeforeAll
     static void initAll() {
@@ -46,8 +46,8 @@ public class Cypher03NeoPathParamTest extends NeoAbstractPathParamTest {
 	@BeforeEach
 	public void setUp() {
 		try {
-			super.setUp(FACTORY.createNeoPathParam());		
-			neoPathParam = (NeoPathParam) super.neoAbstractPathParam;
+			super.setUp(FACTORY.createNeoElementPathParam());		
+			neoPathParam = (NeoElementPathParam) super.neoAbstractPathParam;
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
@@ -141,7 +141,7 @@ public class Cypher03NeoPathParamTest extends NeoAbstractPathParamTest {
 	}
 	
 	private Method getGenerateMultiEdgecypher() throws Exception {
-		Class<NeoPathParamImpl> c = NeoPathParamImpl.class;
+		Class<NeoElementPathParamImpl> c = NeoElementPathParamImpl.class;
 		Method m = c.getDeclaredMethod("generateMultiEdgeCypher", StringBuilder.class);
 		m.setAccessible(true);
 		return m;
@@ -151,7 +151,7 @@ public class Cypher03NeoPathParamTest extends NeoAbstractPathParamTest {
 	public void generateSingeEdgeCypher() {
 		try {
 			//SimpleNeoEdge without Targets
-			Class<NeoPathParamImpl> c = NeoPathParamImpl.class;
+			Class<NeoElementPathParamImpl> c = NeoElementPathParamImpl.class;
 			Method m = c.getDeclaredMethod("generateSingeEdgeCypher", StringBuilder.class, EList.class);
 			m.setAccessible(true);
 			
@@ -318,7 +318,7 @@ public class Cypher03NeoPathParamTest extends NeoAbstractPathParamTest {
 	@Override
 	public void getRelationNumber() {
 		try {
-			NeoEdge neoEdge = FACTORY.createNeoEdge();
+			NeoElementEdge neoEdge = FACTORY.createNeoElementEdge();
 			Field f = super.getInternalIdField();
 			
 			Class obj = neoPathParam.getClass();
@@ -329,9 +329,9 @@ public class Cypher03NeoPathParamTest extends NeoAbstractPathParamTest {
 			assertEquals(-1, m.invoke(neoPathParam));
 			
 			//NeoEdge is set with the Id 1
-			neoPathParam.setNeoEdge(neoEdge);
+			neoPathParam.setNeoElementEdge(neoEdge);
 			f.set(neoEdge, 1);
-			assumeNotNull(neoPathParam.getNeoEdge());
+			assumeNotNull(neoPathParam.getNeoElementEdge());
 			assertEquals(1, m.invoke(neoPathParam));
 		} catch (Exception e) {
 			System.out.println(e);

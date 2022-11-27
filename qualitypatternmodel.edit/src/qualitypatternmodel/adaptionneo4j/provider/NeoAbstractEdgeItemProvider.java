@@ -17,14 +17,14 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
-import qualitypatternmodel.adaptionneo4j.NeoAbstractEdge;
+import qualitypatternmodel.adaptionneo4j.NeoEdge;
 
 import qualitypatternmodel.graphstructure.provider.RelationItemProvider;
 
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoAbstractEdge} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoEdge} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -86,7 +86,7 @@ public class NeoAbstractEdgeItemProvider extends RelationItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((NeoAbstractEdge)object).getName();
+		String label = ((NeoEdge)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_NeoAbstractEdge_type") :
 			getString("_UI_NeoAbstractEdge_type") + " " + label;
@@ -104,7 +104,7 @@ public class NeoAbstractEdgeItemProvider extends RelationItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(NeoAbstractEdge.class)) {
+		switch (notification.getFeatureID(NeoEdge.class)) {
 			case Adaptionneo4jPackage.NEO_ABSTRACT_EDGE__RETURN_ELEMENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

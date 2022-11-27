@@ -5,7 +5,7 @@ import java.time.Instant;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.cypherevaluation.utilis.DummyFiller;
@@ -90,7 +90,7 @@ public class CypherEvalContains {
 	}
 	
 	private static CompletePattern getExistsContainsWithTwoPrimitivesConcret(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
+		NeoElementNode neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(0);
 		neoNode.addNeoLabel("Regesta");
 		
 		Graph g = ((QuantifiedCondition) completePattern.getCondition()).getGraph(); 

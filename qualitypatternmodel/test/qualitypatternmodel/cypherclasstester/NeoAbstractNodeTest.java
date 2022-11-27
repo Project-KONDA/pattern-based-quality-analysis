@@ -5,16 +5,16 @@ import static org.junit.Assume.assumeTrue;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import qualitypatternmodel.adaptionneo4j.NeoAbstractEdge;
-import qualitypatternmodel.adaptionneo4j.NeoInterfaceNode;
+import qualitypatternmodel.adaptionneo4j.NeoEdge;
+import qualitypatternmodel.adaptionneo4j.NeoNode;
 import qualitypatternmodel.graphstructure.impl.NodeImpl;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 
 public abstract class NeoAbstractNodeTest implements InterfaceNeoAbstractNodeTest {
 	protected static final int GENERIC_NODE_ID = 1;
-	protected NeoInterfaceNode neoAbstractNode;
+	protected NeoNode neoAbstractNode;
 	
-	public void setUp(NeoInterfaceNode neoAbstractNode) {
+	public void setUp(NeoNode neoAbstractNode) {
 		this.neoAbstractNode = neoAbstractNode;
 	}
 	
@@ -22,7 +22,7 @@ public abstract class NeoAbstractNodeTest implements InterfaceNeoAbstractNodeTes
 		neoAbstractNode = null;
 	}
 
-	protected void initGetCypherVariableTest(NeoInterfaceNode node, int id)
+	protected void initGetCypherVariableTest(NeoNode node, int id)
 			throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
 //		node = super.neoAbstractNode;
 		Class obj = node.getClass();
@@ -33,7 +33,7 @@ public abstract class NeoAbstractNodeTest implements InterfaceNeoAbstractNodeTes
 		assumeTrue(((NodeImpl) node).getOriginalID() == id);
 	}
 	
-	protected void initGetCypherVariableTest(NeoAbstractEdge edge, int id)
+	protected void initGetCypherVariableTest(NeoEdge edge, int id)
 			throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
 //		node = super.neoAbstractNode;
 		Class obj = edge.getClass();

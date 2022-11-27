@@ -33,8 +33,8 @@ public abstract class NeoAbstractPathPartTest implements InterfaceNeoPathPartTes
 				}
 			}
 			try {
-				neoPathPart.setNeoParam(FACTORY.createNeoPathParam());
-				neoPathPart.setNeoParam(FACTORY.createNeoPathParam());
+				neoPathPart.setNeoParam(FACTORY.createNeoElementPathParam());
+				neoPathPart.setNeoParam(FACTORY.createNeoElementPathParam());
 				m.invoke(neoPathPart);
 			} catch (Exception e) {
 				if (e.getCause().getClass() == InvalidityException.class) {

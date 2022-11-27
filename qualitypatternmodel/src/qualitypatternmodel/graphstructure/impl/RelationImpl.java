@@ -16,8 +16,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-import qualitypatternmodel.adaptionneo4j.NeoEdge;
-import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoElementEdge;
+import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jFactoryImpl;
@@ -855,7 +855,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	
 	@Override
 	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		if (getTarget() instanceof NeoNode) {
+		if (getTarget() instanceof NeoElementNode) {
 			return adaptAsXmlPropertyNavigation();
 		} else {
 			return adaptAsXmlElementNavigation();
@@ -1213,13 +1213,13 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated NOT
 	 */
 	@Override
-	public NeoEdge adaptAsNeoEdge() throws InvalidityException {
+	public NeoElementEdge adaptAsNeoEdge() throws InvalidityException {
 		Graph graph = getGraph();
-		NeoEdge navOriginal = ((RelationImpl) getOriginalRelation()).adaptAsNeoEdgeRecursive();
+		NeoElementEdge navOriginal = ((RelationImpl) getOriginalRelation()).adaptAsNeoEdgeRecursive();
 		
 		for(Relation r: graph.getRelations()) {
-			if(r instanceof NeoEdge) {
-				NeoEdge nav = (NeoEdge) r;
+			if(r instanceof NeoElementEdge) {
+				NeoElementEdge nav = (NeoElementEdge) r;
 				Relation next = r;
 				while(next != null) {
 					if(!next.equals(navOriginal)) {
@@ -1237,9 +1237,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		throw new InvalidityException("correspondent relation not found");
 	}
 
-	private NeoEdge adaptAsNeoEdgeRecursive() throws InvalidityException {
-		if (!(this instanceof NeoEdge)) {
-			NeoEdge edge = (NeoEdge) Adaptionneo4jFactoryImpl.init().createNeoEdge();
+	private NeoElementEdge adaptAsNeoEdgeRecursive() throws InvalidityException {
+		if (!(this instanceof NeoElementEdge)) {
+			NeoElementEdge edge = (NeoElementEdge) Adaptionneo4jFactoryImpl.init().createNeoElementEdge();
 
 			edge.setName(getName());
 			edge.setGraphSimple(getGraph());
@@ -1277,7 +1277,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		for (RelationMapping mapping : getOutgoingMappings()) {
 			((RelationImpl) mapping.getTarget()).adaptAsNeoEdgeRecursive();
 		}
-		return (NeoEdge) this;
+		return (NeoElementEdge) this;
 	}
 
 	@Override

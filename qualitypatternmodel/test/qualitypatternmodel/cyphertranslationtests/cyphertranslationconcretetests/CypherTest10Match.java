@@ -3,7 +3,7 @@ package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetest
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
-import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPlace;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
@@ -86,7 +86,7 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 		match.getOption().setValue(invert);
 		
 		pattern.createNeo4jAdaption();
-		NeoNode neoNode = (NeoNode) pattern.getGraph().getNodes().get(0);
+		NeoElementNode neoNode = (NeoElementNode) pattern.getGraph().getNodes().get(0);
 		neoNode.setNeoPlace(NeoPlace.BEGINNING);
 		neoNode.addNeoLabel("Regesta");
 		
@@ -122,7 +122,7 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 		match.getOption().setValue(invert);
 		
 		pattern.createNeo4jAdaption();
-		NeoNode neoNode = (NeoNode) pattern.getGraph().getNodes().get(0);
+		NeoElementNode neoNode = (NeoElementNode) pattern.getGraph().getNodes().get(0);
 		neoNode.setNeoPlace(NeoPlace.BEGINNING);
 		neoNode.addNeoLabel("Regesta");
 		
@@ -155,7 +155,7 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 		match.getOption().setValue(invert);
 		
 		pattern.createNeo4jAdaption();
-		NeoNode neoNode = (NeoNode) pattern.getGraph().getNodes().get(0);
+		NeoElementNode neoNode = (NeoElementNode) pattern.getGraph().getNodes().get(0);
 		neoNode.setNeoPlace(NeoPlace.BEGINNING);
 		neoNode.addNeoLabel("Regesta");
 		
@@ -182,7 +182,7 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 		match.getOption().setValue(invert);
 		
 		pattern.createNeo4jAdaption();
-		NeoNode neoNode = (NeoNode) pattern.getGraph().getNodes().get(0);
+		NeoElementNode neoNode = (NeoElementNode) pattern.getGraph().getNodes().get(0);
 		neoNode.setNeoPlace(NeoPlace.BEGINNING);
 		neoNode.addNeoLabel("Regesta");
 		
@@ -218,7 +218,7 @@ public class CypherTest10Match extends CypherAbstractTranslation {
 	private static void makeConcrete(CompletePattern pattern)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		pattern.createNeo4jAdaption();
-		NeoNode neoNode = (NeoNode) pattern.getGraph().getNodes().get(0);
+		NeoElementNode neoNode = (NeoElementNode) pattern.getGraph().getNodes().get(0);
 		neoNode.setNeoPlace(NeoPlace.BEGINNING);
 		neoNode.addNeoLabel("Regesta");
 		

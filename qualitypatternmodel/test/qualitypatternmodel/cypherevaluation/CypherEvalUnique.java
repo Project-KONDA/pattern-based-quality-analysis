@@ -5,7 +5,7 @@ import java.time.Instant;
 
 import org.eclipse.emf.common.util.EList;
 
-import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPlace;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
@@ -106,7 +106,7 @@ public class CypherEvalUnique {
 	private static CompletePattern getUniqueAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePattern.createNeo4jAdaption();
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
-		NeoNode neoNode = (NeoNode) quantifiedCondition.getGraph().getNodes().get(1);
+		NeoElementNode neoNode = (NeoElementNode) quantifiedCondition.getGraph().getNodes().get(1);
 		neoNode.setNeoPlace(NeoPlace.BEGINNING);
 		
 		Comparison comp = neoNode.getComparison1().get(0);
@@ -118,10 +118,10 @@ public class CypherEvalUnique {
 	}
 	
 	private static CompletePattern getUniqueConcrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
+		NeoElementNode neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(0);
 		neoNode.addNeoLabel("Regesta");
 		
-		NeoNode neoNodeCond2 = (NeoNode) ((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph().getNodes().get(1);
+		NeoElementNode neoNodeCond2 = (NeoElementNode) ((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph().getNodes().get(1);
 		neoNodeCond2.addNeoLabel("Place");
 		
 		return completePattern;

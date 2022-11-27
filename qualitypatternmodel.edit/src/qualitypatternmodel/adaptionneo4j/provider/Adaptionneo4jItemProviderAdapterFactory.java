@@ -72,49 +72,49 @@ public class Adaptionneo4jItemProviderAdapterFactory extends Adaptionneo4jAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionneo4j.NeoNode} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionneo4j.NeoElementNode} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NeoNodeItemProvider neoNodeItemProvider;
+	protected NeoElementNodeItemProvider neoElementNodeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoNode}.
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoElementNode}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createNeoNodeAdapter() {
-		if (neoNodeItemProvider == null) {
-			neoNodeItemProvider = new NeoNodeItemProvider(this);
+	public Adapter createNeoElementNodeAdapter() {
+		if (neoElementNodeItemProvider == null) {
+			neoElementNodeItemProvider = new NeoElementNodeItemProvider(this);
 		}
 
-		return neoNodeItemProvider;
+		return neoElementNodeItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionneo4j.NeoEdge} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionneo4j.NeoElementEdge} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NeoEdgeItemProvider neoEdgeItemProvider;
+	protected NeoElementEdgeItemProvider neoElementEdgeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoEdge}.
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoElementEdge}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createNeoEdgeAdapter() {
-		if (neoEdgeItemProvider == null) {
-			neoEdgeItemProvider = new NeoEdgeItemProvider(this);
+	public Adapter createNeoElementEdgeAdapter() {
+		if (neoElementEdgeItemProvider == null) {
+			neoElementEdgeItemProvider = new NeoElementEdgeItemProvider(this);
 		}
 
-		return neoEdgeItemProvider;
+		return neoElementEdgeItemProvider;
 	}
 
 	/**
@@ -187,26 +187,26 @@ public class Adaptionneo4jItemProviderAdapterFactory extends Adaptionneo4jAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionneo4j.NeoPathParam} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionneo4j.NeoElementPathParam} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NeoPathParamItemProvider neoPathParamItemProvider;
+	protected NeoElementPathParamItemProvider neoElementPathParamItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoPathParam}.
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoElementPathParam}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createNeoPathParamAdapter() {
-		if (neoPathParamItemProvider == null) {
-			neoPathParamItemProvider = new NeoPathParamItemProvider(this);
+	public Adapter createNeoElementPathParamAdapter() {
+		if (neoElementPathParamItemProvider == null) {
+			neoElementPathParamItemProvider = new NeoElementPathParamItemProvider(this);
 		}
 
-		return neoPathParamItemProvider;
+		return neoElementPathParamItemProvider;
 	}
 
 	/**
@@ -360,12 +360,12 @@ public class Adaptionneo4jItemProviderAdapterFactory extends Adaptionneo4jAdapte
 	 */
 	@Override
 	public void dispose() {
-		if (neoNodeItemProvider != null) neoNodeItemProvider.dispose();
-		if (neoEdgeItemProvider != null) neoEdgeItemProvider.dispose();
+		if (neoElementNodeItemProvider != null) neoElementNodeItemProvider.dispose();
+		if (neoElementEdgeItemProvider != null) neoElementEdgeItemProvider.dispose();
 		if (neoComplexEdgeItemProvider != null) neoComplexEdgeItemProvider.dispose();
 		if (neoSimpleEdgeItemProvider != null) neoSimpleEdgeItemProvider.dispose();
 		if (neoPropertyNodeItemProvider != null) neoPropertyNodeItemProvider.dispose();
-		if (neoPathParamItemProvider != null) neoPathParamItemProvider.dispose();
+		if (neoElementPathParamItemProvider != null) neoElementPathParamItemProvider.dispose();
 		if (neoPropertyPathParamItemProvider != null) neoPropertyPathParamItemProvider.dispose();
 		if (neoPropertyEdgeItemProvider != null) neoPropertyEdgeItemProvider.dispose();
 	}

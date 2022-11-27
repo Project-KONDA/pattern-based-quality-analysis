@@ -2,46 +2,52 @@
  */
 package qualitypatternmodel.adaptionneo4j.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEMap;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
-import qualitypatternmodel.adaptionneo4j.NeoPathParam;
-import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.adaptionneo4j.NeoEdge;
-import qualitypatternmodel.parameters.ParameterList;
-import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.adaptionneo4j.NeoElement;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.graphstructure.impl.RelationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Neo Edge</b></em>'.
+ * An implementation of the model object '<em><b>Neo Abstract Edge</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionneo4j.impl.NeoEdgeImpl#getNeoPathParam <em>Neo Path Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.impl.NeoEdgeImpl#isReturnElement <em>Return Element</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
-	private static final String NEO_EDGE_NEEDS_A_NEO_PATH_PARAM = "NeoEdge needs a NeoPathParam";
-	private static final String NEO_PATH_PARAM_NEED_TO_BE_SET = "NeoPathParam need to be set";
+public abstract class NeoEdgeImpl extends RelationImpl implements NeoEdge {
+	protected static final int CYPHER_RETURN_ID = 0;
 	/**
-	 * The cached value of the '{@link #getNeoPathParam() <em>Neo Path Param</em>}' reference.
+	 * The default value of the '{@link #isReturnElement() <em>Return Element</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNeoPathParam()
+	 * @see #isReturnElement()
 	 * @generated
 	 * @ordered
 	 */
-	protected NeoPathParam neoPathParam;
+	protected static final boolean RETURN_ELEMENT_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isReturnElement() <em>Return Element</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReturnElement()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean returnElement = RETURN_ELEMENT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -51,85 +57,7 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 	protected NeoEdgeImpl() {
 		super();
 	}
-	
-	 @Override
-	 public PatternElement createNeo4jAdaption() throws InvalidityException {
-		 return this;
-	 }
-	
-	 @Override
-	 public NeoEdge adaptAsNeoEdge() throws InvalidityException {
-		 return this;
-	 }
-	
-	
-	@Override
-	public String generateCypher() throws InvalidityException {
-		String cypher = "";
-		if (getIncomingMapping() == null) {
-			if(!translated && getNeoPathParam() != null) {
-				cypher = getNeoPathParam().generateCypher();
-				this.translated = true;
-			} else if(getNeoPathParam() == null) {
-				throw new InvalidityException(NEO_EDGE_NEEDS_A_NEO_PATH_PARAM);
-			}
-		}
-		return cypher;
-	}
-	
-	@Override
-	public EMap<Integer, String> getCypherReturnVariable() throws InvalidityException {
-		EMap<Integer, String> returnElement;
-		if (getNeoPathParam() != null) {
-			if (getNeoPathParam().getNeoPathPart() == null) {
-				returnElement = null;
-			} else {
-				returnElement = super.getCypherReturnVariable();
-				String cypher = getNeoPathParam().getCypherReturnVariable();
-				returnElement.put(NeoAbstractEdgeImpl.CYPHER_RETURN_ID, cypher);
-			}
-		} else {
-			throw new InvalidityException(NEO_PATH_PARAM_NEED_TO_BE_SET);
-		}
-		return returnElement;
-	}
-	
-	@Override
-	public String getReturnInnerEdgeNodes() throws InvalidityException {
-		String cypher = null;
-		if (getNeoPathParam() != null) {
-			cypher = getNeoPathParam().getReturnInnerEdgeNodes();
-		}
-		return cypher;
-	}
-	
-	@Override 
-	public void createParameters() {
-		if (getIncomingMapping() == null) {
-			ParameterList pList = getParameterList();
-			if (pList != null) {
-				NeoPathParam neoPathParam = getNeoPathParam();
-				if (neoPathParam == null) {
-					neoPathParam = new NeoPathParamImpl();
-					setNeoPathParam(neoPathParam);
-					pList.add(neoPathParam);	
-				}
-				if (!pList.equals(neoPathParam.getParameterList())) {
-					pList.add(neoPathParam);
-				}
-			}
-		}
-	}	
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NeoPathParam basicGetNeoPathParam() {
-		return neoPathParam;
-	}
-	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -139,23 +67,15 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 	protected EClass eStaticClass() {
 		return Adaptionneo4jPackage.Literals.NEO_EDGE;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public NeoPathParam getNeoPathParam() {
-		if (neoPathParam != null && neoPathParam.eIsProxy()) {
-			InternalEObject oldNeoPathParam = (InternalEObject)neoPathParam;
-			neoPathParam = (NeoPathParam)eResolveProxy(oldNeoPathParam);
-			if (neoPathParam != oldNeoPathParam) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Adaptionneo4jPackage.NEO_EDGE__NEO_PATH_PARAM, oldNeoPathParam, neoPathParam));
-			}
-		}
-		return neoPathParam;
+	public boolean isReturnElement() {
+		return returnElement;
 	}
 
 	/**
@@ -164,50 +84,31 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 	 * @generated
 	 */
 	@Override
-	public void setNeoPathParam(NeoPathParam newNeoPathParam) {
-		if (newNeoPathParam != neoPathParam) {
-			NotificationChain msgs = null;
-			if (neoPathParam != null)
-				msgs = ((InternalEObject)neoPathParam).eInverseRemove(this, Adaptionneo4jPackage.NEO_PATH_PARAM__NEO_EDGE, NeoPathParam.class, msgs);
-			if (newNeoPathParam != null)
-				msgs = ((InternalEObject)newNeoPathParam).eInverseAdd(this, Adaptionneo4jPackage.NEO_PATH_PARAM__NEO_EDGE, NeoPathParam.class, msgs);
-			msgs = basicSetNeoPathParam(newNeoPathParam, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Adaptionneo4jPackage.NEO_EDGE__NEO_PATH_PARAM, newNeoPathParam, newNeoPathParam));
+	public void setReturnElement(boolean newReturnElement) {
+		boolean oldReturnElement = returnElement;
+		returnElement = newReturnElement;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Adaptionneo4jPackage.NEO_EDGE__RETURN_ELEMENT, oldReturnElement, returnElement));
 	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetNeoPathParam(NeoPathParam newNeoPathParam, NotificationChain msgs) {
-		NeoPathParam oldNeoPathParam = neoPathParam;
-		neoPathParam = newNeoPathParam;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, Adaptionneo4jPackage.NEO_EDGE__NEO_PATH_PARAM, oldNeoPathParam, newNeoPathParam);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case Adaptionneo4jPackage.NEO_EDGE__NEO_PATH_PARAM:
-				if (neoPathParam != null)
-					msgs = ((InternalEObject)neoPathParam).eInverseRemove(this, Adaptionneo4jPackage.NEO_PATH_PARAM__NEO_EDGE, NeoPathParam.class, msgs);
-				return basicSetNeoPathParam((NeoPathParam)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
+	public void setIsReturnElement(boolean returnElement) {
+		this.returnElement = returnElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EMap<Integer, String> getCypherReturnVariable() throws InvalidityException {
+		return new BasicEMap<Integer, String>();
 	}
 
 	/**
@@ -216,12 +117,10 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case Adaptionneo4jPackage.NEO_EDGE__NEO_PATH_PARAM:
-				return basicSetNeoPathParam(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+	public String getReturnInnerEdgeNodes() throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -232,9 +131,8 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case Adaptionneo4jPackage.NEO_EDGE__NEO_PATH_PARAM:
-				if (resolve) return getNeoPathParam();
-				return basicGetNeoPathParam();
+			case Adaptionneo4jPackage.NEO_EDGE__RETURN_ELEMENT:
+				return isReturnElement();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -247,8 +145,8 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case Adaptionneo4jPackage.NEO_EDGE__NEO_PATH_PARAM:
-				setNeoPathParam((NeoPathParam)newValue);
+			case Adaptionneo4jPackage.NEO_EDGE__RETURN_ELEMENT:
+				setReturnElement((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -262,8 +160,8 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case Adaptionneo4jPackage.NEO_EDGE__NEO_PATH_PARAM:
-				setNeoPathParam((NeoPathParam)null);
+			case Adaptionneo4jPackage.NEO_EDGE__RETURN_ELEMENT:
+				setReturnElement(RETURN_ELEMENT_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -277,17 +175,71 @@ public class NeoEdgeImpl extends NeoAbstractEdgeImpl implements NeoEdge {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case Adaptionneo4jPackage.NEO_EDGE__NEO_PATH_PARAM:
-				return neoPathParam != null;
+			case Adaptionneo4jPackage.NEO_EDGE__RETURN_ELEMENT:
+				return returnElement != RETURN_ELEMENT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
-	public String myToString() {
-		String result = super.myToString();
-		if (getNeoPathParam() != null) 
-			result += " " + getNeoPathParam().myToString(); 
-		return result;
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == NeoElement.class) {
+			switch (baseOperationID) {
+				case Adaptionneo4jPackage.NEO_ELEMENT___GET_CYPHER_RETURN_VARIABLE: return Adaptionneo4jPackage.NEO_EDGE___GET_CYPHER_RETURN_VARIABLE;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
 	}
-} //NeoEdgeImpl
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case Adaptionneo4jPackage.NEO_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN:
+				setIsReturnElement((Boolean)arguments.get(0));
+				return null;
+			case Adaptionneo4jPackage.NEO_EDGE___GET_RETURN_INNER_EDGE_NODES:
+				try {
+					return getReturnInnerEdgeNodes();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case Adaptionneo4jPackage.NEO_EDGE___GET_CYPHER_RETURN_VARIABLE:
+				try {
+					return getCypherReturnVariable();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (returnElement: ");
+		result.append(returnElement);
+		result.append(')');
+		return result.toString();
+	}
+
+} //NeoAbstractEdgeImpl

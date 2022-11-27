@@ -1,7 +1,7 @@
 package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
 import java.util.ArrayList;
-import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
@@ -92,7 +92,7 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 		quantifiedCond.getGraph().addRelation((ComplexNode) quantifiedCond.getGraph().getNodes().get(0), quantifiedCond.getGraph().addPrimitiveNode());
 		completePattern.createNeo4jAdaption();
 		
-		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
+		NeoElementNode neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(0);
 		neoNode.addNeoLabel("Regesta");
 		
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
@@ -255,7 +255,7 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 		
 		completePattern.createNeo4jAdaption();
 		
-		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
+		NeoElementNode neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(0);
 		neoNode.addNeoLabel("Regesta");
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) quantifiedCond.getGraph().getRelations().get(1);
 		neoPropertyEdge.getNeoPropertyPathParam().setNeoPropertyName("origPlaceOfIssue");

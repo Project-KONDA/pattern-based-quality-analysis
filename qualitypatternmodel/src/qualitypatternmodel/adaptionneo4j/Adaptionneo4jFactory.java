@@ -22,22 +22,22 @@ public interface Adaptionneo4jFactory extends EFactory {
 	Adaptionneo4jFactory eINSTANCE = qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Neo Node</em>'.
+	 * Returns a new object of class '<em>Neo Element Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Neo Node</em>'.
+	 * @return a new object of class '<em>Neo Element Node</em>'.
 	 * @generated
 	 */
-	NeoNode createNeoNode();
+	NeoElementNode createNeoElementNode();
 
 	/**
-	 * Returns a new object of class '<em>Neo Edge</em>'.
+	 * Returns a new object of class '<em>Neo Element Edge</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Neo Edge</em>'.
+	 * @return a new object of class '<em>Neo Element Edge</em>'.
 	 * @generated
 	 */
-	NeoEdge createNeoEdge();
+	NeoElementEdge createNeoElementEdge();
 
 	/**
 	 * Returns a new object of class '<em>Neo Complex Edge</em>'.
@@ -67,13 +67,13 @@ public interface Adaptionneo4jFactory extends EFactory {
 	NeoPropertyNode createNeoPropertyNode();
 
 	/**
-	 * Returns a new object of class '<em>Neo Path Param</em>'.
+	 * Returns a new object of class '<em>Neo Element Path Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Neo Path Param</em>'.
+	 * @return a new object of class '<em>Neo Element Path Param</em>'.
 	 * @generated
 	 */
-	NeoPathParam createNeoPathParam();
+	NeoElementPathParam createNeoElementPathParam();
 
 	/**
 	 * Returns a new object of class '<em>Neo Property Path Param</em>'.

@@ -3,7 +3,7 @@ package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetest
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
-import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
@@ -61,7 +61,7 @@ public class CypherTest12CheckNull extends CypherAbstractTranslation {
 	private void makeConcrete(CompletePattern pattern)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		pattern.createNeo4jAdaption();
-		NeoNode neoNode = (NeoNode) pattern.getGraph().getNodes().get(0);
+		NeoElementNode neoNode = (NeoElementNode) pattern.getGraph().getNodes().get(0);
 		neoNode.addNeoLabel("Regesta");
 		
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) pattern.getGraph().getRelations().get(0);

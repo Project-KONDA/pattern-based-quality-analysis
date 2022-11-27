@@ -2,7 +2,7 @@ package qualitypatternmodel.cypherevaluation.utilis;
 
 import org.eclipse.emf.common.util.EList;
 
-import qualitypatternmodel.adaptionneo4j.NeoPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.adaptionxml.XmlAxisPair;
@@ -55,8 +55,8 @@ public class DummyFiller {
 				NeoPropertyPathParam neoParam = (NeoPropertyPathParam) param;
 				neoParam.setNeoPropertyName("someProperty");
 			}
-			if (param instanceof NeoPathParam) {
-				NeoPathParam neoParam = (NeoPathParam) param;
+			if (param instanceof NeoElementPathParam) {
+				NeoElementPathParam neoParam = (NeoElementPathParam) param;
 				((NeoSimpleEdge) neoParam.getNeoPathPart()).addNeoEdgeLabel("someLabel");
 			}
 		}

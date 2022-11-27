@@ -13,7 +13,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
  * <!-- end-user-doc -->
  *
  *
- * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoInterfaceElement()
+ * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoElement()
  * @model interface="true" abstract="true"
  * @generated
  */

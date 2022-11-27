@@ -3,7 +3,7 @@
 package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.adaptionneo4j.NeoEdge;
+import qualitypatternmodel.adaptionneo4j.NeoElementEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
@@ -281,7 +281,7 @@ public interface Relation extends PatternElement, Adaptable {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	NeoEdge adaptAsNeoEdge() throws InvalidityException;
+	NeoElementEdge adaptAsNeoEdge() throws InvalidityException;
 	
 	//ADD to the .ecore-Model
 	NeoPropertyEdge adaptAsPropertyEdge() throws InvalidityException;

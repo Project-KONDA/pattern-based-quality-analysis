@@ -15,10 +15,10 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
-import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jFactoryImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyNodeImpl;
-import qualitypatternmodel.adaptionneo4j.impl.NeoNodeImpl;
+import qualitypatternmodel.adaptionneo4j.impl.NeoElementNodeImpl;
 import qualitypatternmodel.adaptionrdf.RdfIriNode;
 import qualitypatternmodel.adaptionrdf.RdfLiteralNode;
 import qualitypatternmodel.adaptionrdf.impl.RdfIriNodeImpl;
@@ -1557,14 +1557,14 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	@Override
-	public NeoNode adaptAsNeoNode() throws InvalidityException {
+	public NeoElementNode adaptAsNeoNode() throws InvalidityException {
 		Graph graph = getGraph();
-		NeoNode elementOriginal = ((NodeImpl) getOriginalNode()).adaptAsNeoNodeRecursive();
+		NeoElementNode elementOriginal = ((NodeImpl) getOriginalNode()).adaptAsNeoNodeRecursive();
 		elementOriginal.createParameters();
 		
 		for (Node n : graph.getNodes()) {
-			if(n instanceof NeoNode) {
-				NeoNode element = (NeoNode) n;
+			if(n instanceof NeoElementNode) {
+				NeoElementNode element = (NeoElementNode) n;
 				Node next = n;
 				while(next != null) {
 					if(!next.equals(elementOriginal)) {
@@ -1583,9 +1583,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	}
 
 	
-	private NeoNode adaptAsNeoNodeRecursive() throws InvalidityException {
-		if (!(this instanceof NeoNode)) {	
-			NeoNodeImpl neoNode = (NeoNodeImpl) Adaptionneo4jFactoryImpl.init().createNeoNode();
+	private NeoElementNode adaptAsNeoNodeRecursive() throws InvalidityException {
+		if (!(this instanceof NeoElementNode)) {	
+			NeoElementNodeImpl neoNode = (NeoElementNodeImpl) Adaptionneo4jFactoryImpl.init().createNeoElementNode();
 			neoNode.typeModifiable = true;
 			neoNode.setGraphSimple(getGraph());				
 					
@@ -1635,7 +1635,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			for (ElementMapping map: getOutgoingMappings()) {
 				((NodeImpl) map.getTarget()).adaptAsNeoNodeRecursive();
 			}
-			return (NeoNode) this;
+			return (NeoElementNode) this;
 		}
 	}
 
@@ -1713,7 +1713,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			setGraph(null);
 			
 			for (ElementMapping map: neoPropertyNode.getOutgoingMappings()) {
-				if (map instanceof NeoNode) {
+				if (map instanceof NeoElementNode) {
 					((NodeImpl) map.getTarget()).adaptAsNeoNodeRecursive();
 				} else {
 					((NodeImpl) map.getTarget()).adaptAsNeoPropertyRecursive();

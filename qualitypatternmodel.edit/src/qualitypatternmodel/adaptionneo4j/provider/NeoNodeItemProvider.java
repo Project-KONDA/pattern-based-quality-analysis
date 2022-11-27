@@ -17,14 +17,14 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
-import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 
 import qualitypatternmodel.graphstructure.provider.ComplexNodeItemProvider;
 
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoNode} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoElementNode} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -143,7 +143,7 @@ public class NeoNodeItemProvider extends ComplexNodeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((NeoNode)object).getName();
+		String label = ((NeoElementNode)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_NeoNode_type") :
 			getString("_UI_NeoNode_type") + " " + label;
@@ -161,7 +161,7 @@ public class NeoNodeItemProvider extends ComplexNodeItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(NeoNode.class)) {
+		switch (notification.getFeatureID(NeoElementNode.class)) {
 			case Adaptionneo4jPackage.NEO_NODE__IS_VARIABLE_DISTINCT_IN_USE:
 			case Adaptionneo4jPackage.NEO_NODE__NEO_PLACE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

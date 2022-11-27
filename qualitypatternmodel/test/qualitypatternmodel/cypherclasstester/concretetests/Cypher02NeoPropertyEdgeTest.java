@@ -24,7 +24,7 @@ import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.impl.NeoAbstractPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoComplexEdgeImpl;
-import qualitypatternmodel.adaptionneo4j.impl.NeoNodeImpl;
+import qualitypatternmodel.adaptionneo4j.impl.NeoElementNodeImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyEdgeImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
@@ -86,9 +86,9 @@ public class Cypher02NeoPropertyEdgeTest extends NeoAbstractEdgeTest {
 			//assertEquals(null, neoPropertyEdge.generateCypherPropertyAddressing());
 			
 			//Get the NodeName from source
-			NeoNodeImpl mockNeoNodeImpl = Mockito.mock(NeoNodeImpl.class);
+			NeoElementNodeImpl mockNeoNodeImpl = Mockito.mock(NeoElementNodeImpl.class);
 			Mockito.when(mockNeoNodeImpl.getCypherVariable()).thenReturn(NEO_PROPERTY_NODE);
-			neoPropertyEdge.setSource((NeoNodeImpl) mockNeoNodeImpl);
+			neoPropertyEdge.setSource((NeoElementNodeImpl) mockNeoNodeImpl);
 			assumeNotNull(neoPropertyEdge.getSource());
 			
 			assertTrue(neoPropertyEdge.generateCypherPropertyAddressing().compareTo(NEO_PROPERTY_NODE + "." + PLACE_OF_ISSUE) == 0);	
@@ -122,9 +122,9 @@ public class Cypher02NeoPropertyEdgeTest extends NeoAbstractEdgeTest {
 			assertEquals("", neoPropertyEdge.generateCypherNodeVariable());
 		
 			//Get the NodeName from source		
-			NeoNodeImpl mockNeoNodeImpl = Mockito.mock(NeoNodeImpl.class);
+			NeoElementNodeImpl mockNeoNodeImpl = Mockito.mock(NeoElementNodeImpl.class);
 			Mockito.when(mockNeoNodeImpl.getCypherVariable()).thenReturn(VAR_EDGE1);
-			neoPropertyEdge.setSource((NeoNodeImpl) mockNeoNodeImpl);
+			neoPropertyEdge.setSource((NeoElementNodeImpl) mockNeoNodeImpl);
 			assumeNotNull(neoPropertyEdge.getSource());
 			
 			NeoPropertyPathParamImpl propertyName = (NeoPropertyPathParamImpl) FACTORY.createNeoPropertyPathParam();

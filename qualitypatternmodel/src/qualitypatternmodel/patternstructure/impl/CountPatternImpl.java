@@ -15,10 +15,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
-import qualitypatternmodel.adaptionneo4j.NeoAbstractEdge;
+import qualitypatternmodel.adaptionneo4j.NeoEdge;
 import qualitypatternmodel.adaptionneo4j.NeoElement;
-import qualitypatternmodel.adaptionneo4j.NeoInterfaceNode;
 import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
@@ -93,13 +93,13 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	//Der folgende Abschnitt gehört zum Cypher COUNT
 	//Count ist für die anderen CONDITIONS als Unsuported makiert, da Cypher v4.4 und niedriger keine Verschachtelungen zulässt
 	//Nodes --> keine PATH/Edges implementiert
-	protected EList<NeoInterfaceNode> countElementNodes = null; 
+	protected EList<NeoNode> countElementNodes = null; 
 	
 	//Add to Ecore?
-	public void addNeoCountElementNode(NeoInterfaceNode countElements) {
+	public void addNeoCountElementNode(NeoNode countElements) {
 		if (countElements != null) {
 			if (this.countElementNodes == null) {
-				this.countElementNodes = new BasicEList<NeoInterfaceNode>(); //For sorted
+				this.countElementNodes = new BasicEList<NeoNode>(); //For sorted
 			}
 			if (!countElementNodes.contains(countElements)) { //Checks for duplicated
 				this.countElementNodes.add(countElements);
@@ -107,7 +107,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		}
 	}
 	
-	public void removeCountElementNode(NeoInterfaceNode countElements) {
+	public void removeCountElementNode(NeoNode countElements) {
 		this.countElementNodes.remove(countElements);
 	}
 	
@@ -149,7 +149,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 			final EList<String> myCounters = new BasicEList<String>();
 			String temp;
 			int i = 1;
-			for (NeoInterfaceNode n : countElementNodes) {
+			for (NeoNode n : countElementNodes) {
 				if (checkForNode(n)) {
 					temp = createMyCounterString(n, i);
 					myCounters.add(temp);
@@ -168,7 +168,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		throw new InvalidityException(CypherSpecificConstants.NO_COUNT_ELEMENTS_EXISTS);
 	}
 
-	private boolean checkForProperty(NeoInterfaceNode n) {
+	private boolean checkForProperty(NeoNode n) {
 		boolean t = false;
 		if (n instanceof NeoPropertyNode) {
 			NeoPropertyPathParam neoParam = ((NeoPropertyEdge)((Node) n).getIncoming().get(0)).getNeoPropertyPathParam();
@@ -181,9 +181,9 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		return t;
 	}
 
-	private boolean checkForNode(NeoInterfaceNode n) {
+	private boolean checkForNode(NeoNode n) {
 		boolean t = false;
-		if (n instanceof NeoNode) {
+		if (n instanceof NeoElementNode) {
 			t = true;
 		} else if (n instanceof NeoPropertyNode) {
 			NeoPropertyPathParam neoParam = ((NeoPropertyEdge)((Node) n).getIncoming().get(0)).getNeoPropertyPathParam();
@@ -197,7 +197,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	}
 	
 	//Node-Counter
-	private String createMyCounterString(NeoInterfaceNode countElement, int countCounter) throws InvalidityException {
+	private String createMyCounterString(NeoNode countElement, int countCounter) throws InvalidityException {
 		String cypherVariable = null;
 		if (checkForNeoPropertyNode(countElement)) {
 				NeoPropertyNode neoPropertyNode = (NeoPropertyNode) countElement;
@@ -228,7 +228,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		throw new InvalidityException(SOMETHING_WENT_WRONG_IN_ACCESSING_THE_CYPHER_VARIABLE);
 	}
 
-	private boolean checkForNeoPropertyNode(NeoInterfaceNode countElement) {
+	private boolean checkForNeoPropertyNode(NeoNode countElement) {
 		boolean result = false;
 		try {
 			result = countElement instanceof NeoPropertyNode && ((NeoPropertyEdge)((NeoPropertyNode) countElement).getIncoming().get(0)).getNeoPropertyPathParam() != null && ((NeoPropertyEdge)((NeoPropertyNode) countElement).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() == null;
@@ -272,7 +272,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 				original = n.getOriginalNode();
 				if (original.isReturnNode()) {
 					if (!lReturnNodes.contains(n)) {
-						tempNodeVar = ((NeoInterfaceNode) original).getCypherVariable().split(CypherSpecificConstants.SEPERATOR);
+						tempNodeVar = ((NeoNode) original).getCypherVariable().split(CypherSpecificConstants.SEPERATOR);
 						for (String s : tempNodeVar) {
 							if (!cypher.isEmpty()) {
 								cypher = s.trim() + CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE + cypher;
@@ -289,9 +289,9 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	
 	private void allReturnElementsAreInWith(final String cypher, final EList<Node> lReturnNodes, final EList<Relation> lReturnRelations) throws InvalidityException {
 		if (lReturnNodes.size() > 0) {
-			NeoInterfaceNode neoNode = null;
+			NeoNode neoNode = null;
 			for (Node n : lReturnNodes) {
-				neoNode = (NeoInterfaceNode) n;
+				neoNode = (NeoNode) n;
 				if (!cypher.contains(neoNode.getCypherVariable())) {
 					throw new InvalidityException(NOT_ALL_RETURN_ELEMENTS_ARE_CONTAINED_IN_THE_WITH_CLAUSE);
 				}
@@ -316,13 +316,13 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	private EList<Relation> lReturnRelations() {
 		final Graph g = getGraph();
 		final EList<Relation> lReturnRelations = new BasicEList<Relation>();
-		NeoAbstractEdge neoAbstractEdge = null;
+		NeoEdge neoAbstractEdge = null;
 		for (Relation r : g.getRelations()) {
-			neoAbstractEdge = (NeoAbstractEdge) r;
+			neoAbstractEdge = (NeoEdge) r;
 			if (neoAbstractEdge.isReturnElement()) {
 				lReturnRelations.add(r);
 			} else if (neoAbstractEdge.getOriginalRelation() != r) {
-				neoAbstractEdge = (NeoAbstractEdge) neoAbstractEdge.getOriginalRelation();
+				neoAbstractEdge = (NeoEdge) neoAbstractEdge.getOriginalRelation();
 				if (neoAbstractEdge.isReturnElement() && !lReturnRelations.contains(neoAbstractEdge)) {
 					lReturnRelations.add(neoAbstractEdge);				
 				}

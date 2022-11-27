@@ -20,7 +20,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
  * @model
  * @generated
  */
-public interface NeoPropertyEdge extends NeoAbstractEdge {
+public interface NeoPropertyEdge extends NeoEdge {
 	/**
 	 * Returns the value of the '<em><b>Neo Property Path Param</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam#getNeoPropertyEdge <em>Neo Property Edge</em>}'.

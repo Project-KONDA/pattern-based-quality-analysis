@@ -26,11 +26,11 @@ import org.mockito.Mockito;
 
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
 import qualitypatternmodel.adaptionneo4j.NeoDirection;
-import qualitypatternmodel.adaptionneo4j.NeoPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.adaptionneo4j.impl.NeoAbstractPathParamImpl;
-import qualitypatternmodel.adaptionneo4j.impl.NeoPathParamImpl;
+import qualitypatternmodel.adaptionneo4j.impl.NeoElementPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
 import qualitypatternmodel.cypherclasstester.NeoAbstractPathPartTest;
@@ -252,7 +252,7 @@ public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 	}
 	
 	//Pull-Up?
-	protected class MyClassMockNeoPathParamImpl extends NeoPathParamImpl {
+	protected class MyClassMockNeoPathParamImpl extends NeoElementPathParamImpl {
 		@Override
 		protected int getRelationNumber() {
 			return 1;
@@ -353,7 +353,7 @@ public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 	@Override
 	public void generateCypher() {
 		try {
-			neoSimpleEdge.setNeoParam(FACTORY.createNeoPathParam());
+			neoSimpleEdge.setNeoParam(FACTORY.createNeoElementPathParam());
 			//IMPLICIT
 			neoSimpleEdge.setNeoDirection(NeoDirection.IMPLICIT);
 			assertTrue(neoSimpleEdge.generateCypher().compareTo("-[varEdge-1]-") == 0);
@@ -405,7 +405,7 @@ public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 			
 			StringBuilder localStringBuilder = new StringBuilder();
 			Object[] params = {localStringBuilder, false};
-			neoSimpleEdge.setNeoParam(FACTORY.createNeoPathParam());
+			neoSimpleEdge.setNeoParam(FACTORY.createNeoElementPathParam());
 			
 			//IMPLICIT
 			neoSimpleEdge.setNeoDirection(NeoDirection.IMPLICIT);
@@ -478,7 +478,7 @@ public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 	@ParameterizedTest
 	@ValueSource(booleans =  {true, false})
 	public void getCypherInnerEdgeNodes(boolean isReturn) throws InvalidityException {
-		neoSimpleEdge.setNeoParam(FACTORY.createNeoPathParam());
+		neoSimpleEdge.setNeoParam(FACTORY.createNeoElementPathParam());
 		
 		//No TargetNodeLabels
 		assertEquals(null, neoSimpleEdge.getCypherInnerEdgeNodes(isReturn));
@@ -496,8 +496,8 @@ public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 	@Override
 	public void getNeoAbstractPathParam() {	
 		try {
-			NeoAbstractPathParamImpl neoAbstractPathParamImpl = (NeoAbstractPathParamImpl) FACTORY.createNeoPathParam();
-			neoPathPart.setNeoParam((NeoPathParam) neoAbstractPathParamImpl);
+			NeoAbstractPathParamImpl neoAbstractPathParamImpl = (NeoAbstractPathParamImpl) FACTORY.createNeoElementPathParam();
+			neoPathPart.setNeoParam((NeoElementPathParam) neoAbstractPathParamImpl);
 			assertEquals(neoAbstractPathParamImpl, neoPathPart.getNeoParam());
 			neoPathPart.setNeoParam(null);
 			
@@ -521,7 +521,7 @@ public class Cypher04NeoSimpleEdgeTest extends NeoAbstractPathPartTest {
 	public void getNeoAbstractPathParamFromNeoComplex() {
 		try {			
 			NeoComplexEdge neoComplexEdge = FACTORY.createNeoComplexEdge();
-			NeoPathParam neoPathParam = FACTORY.createNeoPathParam();
+			NeoElementPathParam neoPathParam = FACTORY.createNeoElementPathParam();
 			neoComplexEdge.setNeoParam(neoPathParam);
 			neoPathPart.setNeoComplexEdge(neoComplexEdge);
 			assertEquals(neoPathParam, neoPathPart.getNeoParam());

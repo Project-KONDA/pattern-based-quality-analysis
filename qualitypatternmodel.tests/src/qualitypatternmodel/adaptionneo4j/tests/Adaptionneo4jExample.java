@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
-import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,7 +60,7 @@ public class Adaptionneo4jExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.adaptionneo4j"));
-				NeoNode root = Adaptionneo4jFactory.eINSTANCE.createNeoNode();
+				NeoElementNode root = Adaptionneo4jFactory.eINSTANCE.createNeoElementNode();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

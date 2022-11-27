@@ -5,7 +5,7 @@ import java.time.Instant;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
-import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jFactoryImpl;
@@ -105,7 +105,7 @@ public class CypherEvalComp {
 	}
 	
 	private static CompletePattern getFundamentalConcret1(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
+		NeoElementNode neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(0);
 		neoNode.addNeoLabel("Regesta");
 		
 		NeoPropertyEdge neoPropertyEdge1 = (NeoPropertyEdge) neoNode.getOutgoing().get(0);
@@ -121,7 +121,7 @@ public class CypherEvalComp {
 	}
 	
 	private static CompletePattern getFundamentalConcret2(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
+		NeoElementNode neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(0);
 		neoNode.addNeoLabel("Regesta");
 		
 		NeoPropertyEdge neoPropertyEdge1 = (NeoPropertyEdge) neoNode.getOutgoing().get(0);

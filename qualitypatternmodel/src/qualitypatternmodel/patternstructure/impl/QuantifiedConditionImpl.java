@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPlace;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
@@ -197,9 +197,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		if (getGraph().getNodes().size() != 0) {
 			
 			String exists = new String();	
-			final EList<NeoNode> neoNodes = getAllNeoNodesFlatten(graph);
+			final EList<NeoElementNode> neoNodes = getAllNeoNodesFlatten(graph);
 			boolean hasBeginning = false;
-			for (NeoNode neoNode : neoNodes) {
+			for (NeoElementNode neoNode : neoNodes) {
 				if (neoNode.getNeoPlace() == NeoPlace.BEGINNING) {
 					hasBeginning = true;
 				}

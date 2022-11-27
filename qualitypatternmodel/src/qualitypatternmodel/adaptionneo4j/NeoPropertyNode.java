@@ -24,7 +24,7 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
  * @model
  * @generated
  */
-public interface NeoPropertyNode extends PrimitiveNode, NeoInterfaceNode {
+public interface NeoPropertyNode extends PrimitiveNode, NeoNode {
 	/**
 	 * Returns the value of the '<em><b>Return Property</b></em>' attribute.
 	 * <!-- begin-user-doc -->

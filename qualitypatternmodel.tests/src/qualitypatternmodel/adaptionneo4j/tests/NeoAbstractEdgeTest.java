@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.adaptionneo4j.tests;
 
-import qualitypatternmodel.adaptionneo4j.NeoAbstractEdge;
+import qualitypatternmodel.adaptionneo4j.NeoEdge;
 
 import qualitypatternmodel.graphstructure.tests.RelationTest;
 
@@ -13,8 +13,8 @@ import qualitypatternmodel.graphstructure.tests.RelationTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoAbstractEdge#setIsReturnElement(boolean) <em>Set Is Return Element</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoAbstractEdge#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoEdge#setIsReturnElement(boolean) <em>Set Is Return Element</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoEdge#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}</li>
  * </ul>
  * </p>
@@ -39,15 +39,15 @@ public abstract class NeoAbstractEdgeTest extends RelationTest {
 	 * @generated
 	 */
 	@Override
-	protected NeoAbstractEdge getFixture() {
-		return (NeoAbstractEdge)fixture;
+	protected NeoEdge getFixture() {
+		return (NeoEdge)fixture;
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoAbstractEdge#setIsReturnElement(boolean) <em>Set Is Return Element</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoEdge#setIsReturnElement(boolean) <em>Set Is Return Element</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionneo4j.NeoAbstractEdge#setIsReturnElement(boolean)
+	 * @see qualitypatternmodel.adaptionneo4j.NeoEdge#setIsReturnElement(boolean)
 	 * @generated
 	 */
 	public void testSetIsReturnElement__boolean() {
@@ -57,10 +57,10 @@ public abstract class NeoAbstractEdgeTest extends RelationTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoAbstractEdge#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoEdge#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionneo4j.NeoAbstractEdge#getReturnInnerEdgeNodes()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoEdge#getReturnInnerEdgeNodes()
 	 * @generated
 	 */
 	public void testGetReturnInnerEdgeNodes() {

@@ -4,82 +4,52 @@ package qualitypatternmodel.adaptionneo4j;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 
-import qualitypatternmodel.graphstructure.ComplexNode;
-
-import qualitypatternmodel.parameters.TextListParam;
-
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Neo Node</b></em>'.
+ * A representation of the model object '<em><b>Neo Interface Node</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoNode#getNeoNodeLabels <em>Neo Node Labels</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoNode#getNeoPlace <em>Neo Place</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoNode#isIsVariableDistinctInUse <em>Is Variable Distinct In Use</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoNode()
- * @model
+ * @model interface="true" abstract="true"
  * @generated
  */
-public interface NeoNode extends ComplexNode, NeoInterfaceNode {
+public interface NeoNode extends NeoElement {
 	/**
-	 * Returns the value of the '<em><b>Neo Node Labels</b></em>' reference.
+	 * Returns the value of the '<em><b>Is Variable Distinct In Use</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Neo Node Labels</em>' reference.
-	 * @see #setNeoNodeLabels(TextListParam)
-	 * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoNode_NeoNodeLabels()
-	 * @model
+	 * @return the value of the '<em>Is Variable Distinct In Use</em>' attribute.
+	 * @see #setIsVariableDistinctInUse(boolean)
+	 * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoNode_IsVariableDistinctInUse()
+	 * @model default="true"
 	 * @generated
 	 */
-	TextListParam getNeoNodeLabels();
+	boolean isIsVariableDistinctInUse();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionneo4j.NeoNode#getNeoNodeLabels <em>Neo Node Labels</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionneo4j.NeoNode#isIsVariableDistinctInUse <em>Is Variable Distinct In Use</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Neo Node Labels</em>' reference.
-	 * @see #getNeoNodeLabels()
+	 * @param value the new value of the '<em>Is Variable Distinct In Use</em>' attribute.
+	 * @see #isIsVariableDistinctInUse()
 	 * @generated
 	 */
-	void setNeoNodeLabels(TextListParam value) throws InvalidityException;
-
-	/**
-	 * Returns the value of the '<em><b>Neo Place</b></em>' attribute.
-	 * The default value is <code>"FOLLOWING"</code>.
-	 * The literals are from the enumeration {@link qualitypatternmodel.adaptionneo4j.NeoPlace}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Neo Place</em>' attribute.
-	 * @see qualitypatternmodel.adaptionneo4j.NeoPlace
-	 * @see #setNeoPlace(NeoPlace)
-	 * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoNode_NeoPlace()
-	 * @model default="FOLLOWING"
-	 * @generated
-	 */
-	NeoPlace getNeoPlace();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionneo4j.NeoNode#getNeoPlace <em>Neo Place</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Neo Place</em>' attribute.
-	 * @see qualitypatternmodel.adaptionneo4j.NeoPlace
-	 * @see #getNeoPlace()
-	 * @generated
-	 */
-	void setNeoPlace(NeoPlace value);
+	void setIsVariableDistinctInUse(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	void addNeoLabel(String label) throws InvalidityException;
+	String getCypherVariable() throws InvalidityException;
 
-} // NeoNode
+} // NeoInterfaceNode

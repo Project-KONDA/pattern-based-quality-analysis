@@ -3,8 +3,8 @@ package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetest
 import java.util.ArrayList;
 
 import org.mockito.Mockito;
-import qualitypatternmodel.adaptionneo4j.NeoEdge;
-import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoElementEdge;
+import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPlace;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
@@ -96,10 +96,10 @@ public class CypherTest06Comparison extends CypherAbstractTranslation {
 		prepaireGenericComparisonTwoNodes(comparisonOption, completePattern);
 		
 		completePattern.createNeo4jAdaption();
-		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
+		NeoElementNode neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(0);
 		neoNode.setNeoPlace(NeoPlace.BEGINNING); 
 		
-		neoNode = (NeoNode) completePattern.getGraph().getNodes().get(2);
+		neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(2);
 		neoNode.setNeoPlace(NeoPlace.BEGINNING);
 		
 		return completePattern;
@@ -148,9 +148,9 @@ public class CypherTest06Comparison extends CypherAbstractTranslation {
 	}
 
 	private void adaptTheNeo4JConstructsForProp(CompletePattern completePattern) throws InvalidityException {
-		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
+		NeoElementNode neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(0);
 		
-		neoNode = (NeoNode) completePattern.getGraph().getNodes().get(2);
+		neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(2);
 		
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
@@ -287,9 +287,9 @@ public class CypherTest06Comparison extends CypherAbstractTranslation {
 		comp.setOption(comparisonOptionParam);
 				
 		completePattern.createNeo4jAdaption();
-		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
+		NeoElementNode neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(0);
 		
-		neoNode = (NeoNode) completePattern.getGraph().getNodes().get(2);
+		neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(2);
 		
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
@@ -326,10 +326,10 @@ public class CypherTest06Comparison extends CypherAbstractTranslation {
 		comp.setOption(comparisonOptionParam);
 		
 		completePattern.createNeo4jAdaption();
-		NeoNode neoNode = (NeoNode) completePattern.getGraph().getNodes().get(0);
-		NeoEdge neoEdge = (NeoEdge) completePattern.getGraph().getRelations().get(0);
+		NeoElementNode neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(0);
+		NeoElementEdge neoEdge = (NeoElementEdge) completePattern.getGraph().getRelations().get(0);
 		
-		neoNode = (NeoNode) completePattern.getGraph().getNodes().get(2);
+		neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(2);
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(1);
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
 		NeoSimpleEdge neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();

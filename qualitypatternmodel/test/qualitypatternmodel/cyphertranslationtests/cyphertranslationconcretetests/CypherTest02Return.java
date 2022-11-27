@@ -3,9 +3,9 @@ package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetest
 import java.util.ArrayList;
 
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
-import qualitypatternmodel.adaptionneo4j.NeoEdge;
-import qualitypatternmodel.adaptionneo4j.NeoNode;
-import qualitypatternmodel.adaptionneo4j.NeoPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoElementEdge;
+import qualitypatternmodel.adaptionneo4j.NeoElementNode;
+import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
@@ -50,8 +50,8 @@ public class CypherTest02Return extends CypherAbstractTranslation {
 		CompletePattern compltePattern = CypherTest02Return.getBasePatternReturn();
 		compltePattern.createNeo4jAdaption();
 		//Nodes
-		NeoNode complexNode1 = (NeoNode) compltePattern.getGraph().getNodes().get(0);
-		NeoNode complexNode2 = (NeoNode) compltePattern.getGraph().getNodes().get(1);
+		NeoElementNode complexNode1 = (NeoElementNode) compltePattern.getGraph().getNodes().get(0);
+		NeoElementNode complexNode2 = (NeoElementNode) compltePattern.getGraph().getNodes().get(1);
 		NeoPropertyNode neoPropertyNode = (NeoPropertyNode) compltePattern.getGraph().getNodes().get(2);
 		
 		complexNode1.addNeoLabel("Regesta");
@@ -61,7 +61,7 @@ public class CypherTest02Return extends CypherAbstractTranslation {
 		neoPropertyNode.setReturnProperty(true);
 		
 		//Relations
-		NeoEdge neoEdge = (NeoEdge) compltePattern.getGraph().getRelations().get(0);
+		NeoElementEdge neoEdge = (NeoElementEdge) compltePattern.getGraph().getRelations().get(0);
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) compltePattern.getGraph().getRelations().get(1);
 		
 		neoEdge.setIsReturnElement(true);
@@ -75,7 +75,7 @@ public class CypherTest02Return extends CypherAbstractTranslation {
 		neoSimpleEdge1.addNeoTargetNodeLabel("IndexPlace");
 		neoSimpleEdge1.addNeoEdgeLabel("APPEARS_IN");
 		neoSimpleEdge2.addNeoEdgeLabel("APPEARS_IN");
-		NeoPathParam neoPathParam = neoEdge.getNeoPathParam();
+		NeoElementPathParam neoPathParam = neoEdge.getNeoElementPathParam();
 		neoComplexEdge1.addNeoPathPart(neoSimpleEdge1);
 		neoComplexEdge1.addNeoPathPart(neoSimpleEdge2);
 		neoPathParam.setNeoPathPart(neoComplexEdge1);
@@ -105,7 +105,7 @@ public class CypherTest02Return extends CypherAbstractTranslation {
 		compltePattern.createNeo4jAdaption();
 		
 		//Nodes
-		NeoNode complexNode1 = (NeoNode) compltePattern.getGraph().getNodes().get(0);
+		NeoElementNode complexNode1 = (NeoElementNode) compltePattern.getGraph().getNodes().get(0);
 		complexNode1.setReturnNode(false);
 		
 		return compltePattern;
@@ -115,7 +115,7 @@ public class CypherTest02Return extends CypherAbstractTranslation {
 	private CompletePattern generateThereIsNoNeoPropertyNodeException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern compltePattern = CypherTest02Return.getBasePatternReturn();
 		compltePattern.createNeo4jAdaption();
-		NeoNode complexNode1 = (NeoNode) compltePattern.getGraph().getNodes().get(0);
+		NeoElementNode complexNode1 = (NeoElementNode) compltePattern.getGraph().getNodes().get(0);
 		
 		NeoPropertyNode neoPropertyNode = (NeoPropertyNode) compltePattern.getGraph().getNodes().get(2);
 		neoPropertyNode.setReturnNode(true);
