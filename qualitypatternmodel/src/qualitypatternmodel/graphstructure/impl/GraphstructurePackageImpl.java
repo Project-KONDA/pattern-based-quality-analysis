@@ -1482,7 +1482,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		op = initEOperation(getRelation__AdaptAsRdfPredicate(), theAdaptionrdfPackage.getRdfPredicate(), "adaptAsRdfPredicate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getRelation__AdaptAsNeoEdge(), theAdaptionneo4jPackage.getNeoEdge(), "adaptAsNeoEdge", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getRelation__AdaptAsNeoEdge(), theAdaptionneo4jPackage.getNeoElementEdge(), "adaptAsNeoEdge", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getRelation__AdaptAsPropertyEdge(), theAdaptionneo4jPackage.getNeoPropertyEdge(), "adaptAsPropertyEdge", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1610,7 +1610,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		op = initEOperation(getNode__AdaptAsRdfLiteralNode(), theAdaptionrdfPackage.getRdfLiteralNode(), "adaptAsRdfLiteralNode", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getNode__AdaptAsNeoNode(), theAdaptionneo4jPackage.getNeoNode(), "adaptAsNeoNode", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNode__AdaptAsNeoNode(), theAdaptionneo4jPackage.getNeoElementNode(), "adaptAsNeoNode", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getNode__AdaptAsNeoPropertyNode(), theAdaptionneo4jPackage.getNeoPropertyNode(), "adaptAsNeoPropertyNode", 0, 1, IS_UNIQUE, IS_ORDERED);
