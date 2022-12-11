@@ -99,14 +99,14 @@ public class MultiListParamImpl extends AbstractListParamImpl implements MultiLi
 	
 	private boolean areValuesDate(String value) {
 		boolean areValuesInts = true;
-		String regex = "";
+		String regex = "\\d{4}-\\d{2}-\\d{2}";
 		areValuesInts = matching(value, areValuesInts, regex);
 		return areValuesInts;
 	}
 
 	private boolean areValuesDateTime(String value) {
 		boolean areValuesInts = true;
-		String regex = "";
+		String regex = "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}";
 		areValuesInts = matching(value, areValuesInts, regex);
 		return areValuesInts;
 	}
@@ -114,7 +114,7 @@ public class MultiListParamImpl extends AbstractListParamImpl implements MultiLi
 
 	private boolean areValuesTime(String value) {
 		boolean areValuesInts = true;
-		String regex = "";
+		String regex = "\\d{2}:\\d{2}:\\d{2}";
 		areValuesInts = matching(value, areValuesInts, regex);
 		return areValuesInts;
 	}
