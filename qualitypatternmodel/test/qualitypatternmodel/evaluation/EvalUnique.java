@@ -173,11 +173,12 @@ public class EvalUnique {
 		CompletePattern completePattern = factory.createCompletePattern();
 		
 		QuantifiedCondition quantifiedCondition = factory.createQuantifiedCondition();
+		completePattern.setCondition(quantifiedCondition);
 		quantifiedCondition.getGraph().addComplexNode();
 		quantifiedCondition.setQuantifier(Quantifier.EXISTS);
 		
 		PrimitiveNode primitiveNode1 = quantifiedCondition.getGraph().addPrimitiveNode();
-		ComplexNode complexNode1 = (ComplexNode) quantifiedCondition.getGraph().getNodes().get(0);
+		ComplexNode complexNode1 = (ComplexNode) quantifiedCondition.getGraph().getNodes().get(0).makeComplex();
 		quantifiedCondition.getGraph().addRelation(complexNode1, primitiveNode1);
 		
 		PrimitiveNode primitiveNode2 = quantifiedCondition.getGraph().addPrimitiveNode();
