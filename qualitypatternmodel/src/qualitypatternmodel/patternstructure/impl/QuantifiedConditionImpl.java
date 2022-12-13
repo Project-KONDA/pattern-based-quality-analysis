@@ -503,22 +503,42 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				condition = null;
 			}
 		}
+		
 		if (condition != null && !isAPreviewsConditionNot) {
 			while (condition != null && !isAPreviewsConditionNot) {
 				if (condition instanceof NotCondition) {
 					isAPreviewsConditionNot = true;
 					condition = null;
 				} else if (condition instanceof Formula) {
+					//FROMULA can also build a NOT with the Implices Operator
 					if (condition.getFormula1() != null) {
 						condition = condition.getFormula1();
+						if (checkForImpliesInFormula(condition)) {
+							isAPreviewsConditionNot = true;
+							condition = null;
+						} else {
+							isAPreviewsConditionNot = isAPreviewsConditionNot(condition.getFormula2());
+						}
 					}
 					if (condition.getFormula2() != null) {
-						isAPreviewsConditionNot = isAPreviewsConditionNot(condition.getFormula2());
+						condition = condition.getFormula2();
+						if (checkForImpliesInFormula(condition)) {
+							isAPreviewsConditionNot = true;
+							condition = null;
+						} else {
+							isAPreviewsConditionNot = isAPreviewsConditionNot(condition.getFormula2());
+						}
 					} else {
 						condition = null;
 					}
 				} else if (condition instanceof QuantifiedCondition) {
-					condition = condition.getQuantifiedCondition();
+					//Checks if in a QuantifiedCondition is a forall --> Then also a NOT is contained
+					if (((QuantifiedCondition) condition).getQuantifier() == Quantifier.FORALL) {
+						isAPreviewsConditionNot = true;
+						condition = null;
+					} else {
+						condition = condition.getQuantifiedCondition();						
+					}
 				} else if (condition.getNotCondition() != null) {
 					condition = null;
 					isAPreviewsConditionNot = true;
@@ -528,6 +548,10 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			}
 		}
 		return isAPreviewsConditionNot;
+	}
+
+	private boolean checkForImpliesInFormula(Condition condition) {
+		return ((Formula) condition).getOperator() == LogicalOperator.IMPLIES;
 	}
 
 	private final void createTheExistsPropertyForExistsMatch(StringBuilder cypher) throws InvalidityException {

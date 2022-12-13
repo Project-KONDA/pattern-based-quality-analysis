@@ -173,6 +173,7 @@ public class EvalUnique {
 		CompletePattern completePattern = factory.createCompletePattern();
 		
 		QuantifiedCondition quantifiedCondition = factory.createQuantifiedCondition();
+		completePattern.setCondition(quantifiedCondition);
 		quantifiedCondition.getGraph().addComplexNode();
 		quantifiedCondition.setQuantifier(Quantifier.EXISTS);
 		
