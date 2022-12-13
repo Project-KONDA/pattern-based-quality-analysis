@@ -107,23 +107,17 @@ public class CypherEvalUnique {
 		completePattern.createNeo4jAdaption();
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		NeoElementNode neoNode = (NeoElementNode) quantifiedCondition.getGraph().getNodes().get(1);
-		neoNode.setNeoPlace(NeoPlace.BEGINNING);
 		
-		Comparison comp = neoNode.getComparison1().get(0);
-		TypeOptionParam typeOptionParam = new TypeOptionParamImpl();
-		typeOptionParam.setValue(ReturnType.ELEMENTID);
-		comp.setTypeOption(typeOptionParam);
+		//Comparison comp = neoNode.getComparison1().get(0);
+		//TypeOptionParam typeOptionParam = new TypeOptionParamImpl();
+		//typeOptionParam.setValue(ReturnType.ELEMENTID);
+		//comp.setTypeOption(typeOptionParam);
 		
 		return completePattern;
 	}
 	
 	private static CompletePattern getUniqueConcrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		NeoElementNode neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.addNeoLabel("Regesta");
-		
-		NeoElementNode neoNodeCond2 = (NeoElementNode) ((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph().getNodes().get(1);
-		neoNodeCond2.addNeoLabel("Place");
-		
+		DummyFiller.replace(completePattern);
 		return completePattern;
 	}
 	//END 
