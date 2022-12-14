@@ -26,7 +26,7 @@ public class RdfTest00 {
 				System.out.println("\n\n___PATTERN_(VALID)___");
 				System.out.println(completePattern.myToString());
 				System.out.print("\n___TRANSLATION___");
-				System.out.println(completePattern.generateSparql());
+				System.out.println(completePattern.generateWikidataSparql());
 			} catch (Exception e) {
 				e.printStackTrace();
 				try {

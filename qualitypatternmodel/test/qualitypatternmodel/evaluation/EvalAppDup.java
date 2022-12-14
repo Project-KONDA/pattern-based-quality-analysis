@@ -12,9 +12,6 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.graphstructure.PrimitiveNode;
-import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 
@@ -23,9 +20,6 @@ import java.util.ArrayList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.parameters.ParametersFactory;
-import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.xmltranslationtests.Test00;
 
 public class EvalAppDup {
@@ -35,8 +29,6 @@ public class EvalAppDup {
 		
 		completePatterns.add(getAppDup2Generic());
 		completePatterns.add(getAppDup3Generic());
-		completePatterns.add(getAppDup2CondGeneric());
-		completePatterns.add(getAppDup3CondGeneric());
 		completePatterns.add(getAppDupCountGeneric());
 		
 		for (CompletePattern cp: completePatterns)
@@ -106,85 +98,6 @@ public class EvalAppDup {
 		other2.addOutgoing(n2);
 		
 		return completePattern;
-	}
-
-	public static CompletePattern getAppDup2CondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return getAppDupXCondGeneric(2);
-	}
-	public static CompletePattern getAppDup3CondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return getAppDupXCondGeneric(3);
-	}
-	
-
-	private static CompletePattern getAppDupXCondGeneric(int x) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		PatternstructurePackage.eINSTANCE.eClass();
-		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		ParametersPackage.eINSTANCE.eClass();
-		ParametersFactory paramFactory = ParametersFactory.eINSTANCE;
-		
-		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
-		
-		CountCondition cc = factory.createCountCondition();
-		completePattern.setCondition(cc);
-		CountPattern cp = factory.createCountPattern();
-		NumberElement ne = factory.createNumberElement();
-		cc.setArgument2(ne);
-		ne.getNumberParam().setValue(1.);
-		cc.getOption().setValue(ComparisonOperator.GREATER);
-		cc.setCountPattern(cp);
-		
-		QuantifiedCondition qc = factory.createQuantifiedCondition();
-		cp.setCondition(qc);
-		Graph g0 = completePattern.getGraph();
-		{
-			ComplexNode n01 = g0.getNodes().get(0).makeComplex();
-			n01.setName("OriginalDataSet");
-			Relation r01 = n01.addOutgoing();
-			Node n02 = r01.getTarget();
-			n02 = n02.makePrimitive();
-			n02.addPrimitiveComparison(paramFactory.createTextLiteralParam());			
-		}
-		
-		Graph g1 = ((CountCondition)completePattern.getCondition()).getCountPattern().getGraph();
-		{
-			g1.getReturnNodes().get(0).setReturnNode(false);
-			ComplexNode n13 = g1.addComplexNode();
-			n13.setName("ComparedDataset");
-			n13.setReturnNode(true);
-			Relation r12 = n13.addOutgoing();
-			Node n14 = r12.getTarget();
-			n14 = n14.makePrimitive();
-			n14.addPrimitiveComparison(paramFactory.createTextLiteralParam());	
-		}
-		
-		Graph g2 = ((QuantifiedCondition)((CountPattern) g1.getContainer()).getCondition()).getGraph();
-		{	
-			ComplexNode n21 = (ComplexNode) g2.getNodes().get(0);
-			ComplexNode n22 = (ComplexNode) g2.getNodes().get(2);
-			
-			for (int i = 0; i<x; i++) {
-				Relation r = n21.addOutgoing();
-				Relation r2 = n22.addOutgoing();
-				Node node1 = r.getTarget().makeComplex();
-				Node node2 = r2.getTarget().makeComplex();
-
-				Relation rel0 = node1.addOutgoing();
-				Relation rel1 = node2.addOutgoing();
-				PrimitiveNode value1 = rel0.getTarget().makePrimitive();
-				PrimitiveNode value2 = rel1.getTarget().makePrimitive();
-				
-				TextLiteralParamImpl rlp = (TextLiteralParamImpl) value1.addPrimitiveComparison(new TextLiteralParamImpl());
-				value2.addPrimitiveComparison(rlp);
-				
-				Relation rel2 = node1.addOutgoing();
-				Relation rel3 = node2.addOutgoing();
-				PrimitiveNode value3 = rel2.getTarget().makePrimitive();
-				PrimitiveNode value4 = rel3.getTarget().makePrimitive();
-				
-				value3.addComparison(value4).getTypeOption().setValue(ReturnType.STRING);
-			}			
-		}
-		return completePattern;	
 	}
 
 	public static CompletePattern getAppDupCountGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

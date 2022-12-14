@@ -18,7 +18,6 @@ public class EvalContains {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		
 		completePatterns.add(getContainsGeneric());
-		completePatterns.add(getContainsCondGeneric());
 		
 		for (CompletePattern cp: completePatterns)
 			Test00.printGenericPatternExampleXQuery(cp);
@@ -43,10 +42,10 @@ public class EvalContains {
 		return completePattern;	
 	}
 	
-	public static CompletePattern getContainsCondGeneric() throws InvalidityException {
-		CompletePattern completePattern = getContainsGeneric();
-		Node n1 = completePattern.getGraph().getNodes().get(0);
-		n1.addOutgoing().getTarget().addPrimitiveComparison();		
-		return completePattern;	
-	}
+//	public static CompletePattern getContainsCondGeneric() throws InvalidityException {
+//		CompletePattern completePattern = getContainsGeneric();
+//		Node n1 = completePattern.getGraph().getNodes().get(0);
+//		n1.addOutgoing().getTarget().addPrimitiveComparison();		
+//		return completePattern;	
+//	}
 }

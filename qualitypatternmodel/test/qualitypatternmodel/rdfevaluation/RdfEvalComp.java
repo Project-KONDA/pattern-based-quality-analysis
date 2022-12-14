@@ -6,17 +6,16 @@ import java.util.List;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.ComparisonOperator;
-import qualitypatternmodel.adaptionrdf.IriParam;
-import qualitypatternmodel.adaptionrdf.RdfPathParam;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.adaptionrdf.impl.IriParamImpl;
+import qualitypatternmodel.adaptionrdf.impl.RdfPathParamImpl;
 import qualitypatternmodel.evaluation.EvalComp;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.TypeOptionParam;
+import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
+import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
 import qualitypatternmodel.rdftranslationtests.RdfTest00;
 
 public class RdfEvalComp {
@@ -36,32 +35,22 @@ public class RdfEvalComp {
 	
 	public static CompletePattern getCompWiki() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getCompRdfAbstract();
-				
+		
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 		
-		int i=0;
-		for (Parameter p: completePattern.getParameterList().getParameters()){
-			System.out.println(p.getClass().getSimpleName() + " p" + i + " = ((" + p.getClass().getSimpleName() + ") params.get(" + i + "));");
-			i++;
-		}
 		
-		ComparisonOptionParam p0 = ((ComparisonOptionParam) params.get(0));
-		TypeOptionParam p1 = ((TypeOptionParam) params.get(1));
-		RdfPathParam p2 = ((RdfPathParam) params.get(2));
-		RdfPathParam p3 = ((RdfPathParam) params.get(3));
-
+		ComparisonOptionParamImpl p0 = ((ComparisonOptionParamImpl) params.get(0));
+		TypeOptionParamImpl p1 = ((TypeOptionParamImpl) params.get(1));
+//		IriListParamImpl p2 = ((IriListParamImpl) params.get(2));
+		RdfPathParamImpl p3 = ((RdfPathParamImpl) params.get(3));
+		RdfPathParamImpl p4 = ((RdfPathParamImpl) params.get(4));
+		
 		p0.setValue(ComparisonOperator.GREATER);
 		p1.setValue(ReturnType.DATE);
 
-		IriParam p2iri = new IriParamImpl();
-		p2iri.setPrefix("wdt");
-		p2iri.setSuffix("P569");
-		((RdfSinglePredicate) p2.getRdfPathParts().get(0).getRdfPath()).setIriParam(p2iri);
+		((RdfSinglePredicate) p3.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P569"));
 		
-		IriParam p3iri = new IriParamImpl();
-		p3iri.setPrefix("wdt");
-		p3iri.setSuffix("P570");
-		((RdfSinglePredicate) p3.getRdfPathParts().get(0).getRdfPath()).setIriParam(p3iri);
+		((RdfSinglePredicate) p4.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P570"));
 		
 		return completePattern;
 	}

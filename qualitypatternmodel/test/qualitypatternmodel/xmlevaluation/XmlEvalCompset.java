@@ -61,7 +61,7 @@ public class XmlEvalCompset {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
-		CompletePattern completePattern = XmlEvalCompval.getCompval2CondConcrete(returnElementType, returnElementAxis, attribute1Name, attribute1Kind, 
+		CompletePattern completePattern = XmlEvalCompval.getCompval2Concrete(returnElementType, returnElementAxis, attribute1Name, attribute1Kind, 
 				element2Type, element2Axis, attribute2Name, attribute2Kind, attribute3Name, attribute3Kind, "" );
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 
@@ -104,7 +104,7 @@ public class XmlEvalCompset {
 	}
 	
 	public static CompletePattern getCompsetLidoGenderActor() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {			
-		List<String> values = Arrays.asList("male","männlich","weiblich","female","unknown","not applicable");		
+		List<String> values = Arrays.asList("male","mï¿½nnlich","weiblich","female","unknown","not applicable");		
 		return getCompset2CondConcrete("lido:lido", new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD}, null, XmlPropertyKind.TAG, "lido:genderActor", 
 				new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, 
 				null, XmlPropertyKind.TAG, null, XmlPropertyKind.DATA, values);

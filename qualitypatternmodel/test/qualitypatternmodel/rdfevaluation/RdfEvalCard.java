@@ -38,23 +38,37 @@ public class RdfEvalCard {
 		CompletePattern completePattern = getCardRdfAbstract();
 				
 		List<Parameter> params = completePattern.getParameterList().getParameters();
-				
+		
 		ComparisonOptionParam p0 = ((ComparisonOptionParam) params.get(0));
 		NumberParam p1 = ((NumberParam) params.get(1));
-		RdfPathParam p2 = ((RdfPathParam) params.get(2));
-		
+//		IriListParam p2 = ((IriListParam) params.get(2));
+		RdfPathParam p3 = ((RdfPathParam) params.get(3));
+//		IriListParam p4 = ((IriListParam) params.get(4));
+				
 		p0.setValue(ComparisonOperator.GREATER);
 		p1.setValue(1.);
 
-		((RdfSinglePredicate) p2.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P22"));
+		((RdfSinglePredicate) p3.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P22"));
 		
 		return completePattern;
 	}
 	
 	public static CompletePattern getCardWikiMother() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getCardWikiFather();
+		CompletePattern completePattern = getCardRdfAbstract();
+				
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		
+		ComparisonOptionParam p0 = ((ComparisonOptionParam) params.get(0));
+		NumberParam p1 = ((NumberParam) params.get(1));
+//		IriListParam p2 = ((IriListParam) params.get(2));
+		RdfPathParam p3 = ((RdfPathParam) params.get(3));
+//		IriListParam p4 = ((IriListParam) params.get(4));
+		
+		
+		p0.setValue(ComparisonOperator.GREATER);
+		p1.setValue(1.);
 
-		((RdfSinglePredicate)((RdfPathParam) completePattern.getParameterList().getParameters().get(2)).getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P25"));
+		((RdfSinglePredicate) p3.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P25"));
 		
 		return completePattern;
 	}
