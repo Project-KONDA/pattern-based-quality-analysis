@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
-import qualitypatternmodel.adaptionrdf.RdfPath;
+import qualitypatternmodel.adaptionrdf.RdfPathComponent;
 import qualitypatternmodel.adaptionrdf.RdfQuantifier;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
@@ -21,13 +21,13 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionrdf.impl.RdfPathImpl#isInvert <em>Invert</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionrdf.impl.RdfPathImpl#getQuantifier <em>Quantifier</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.impl.RdfPathComponentImpl#isInvert <em>Invert</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.impl.RdfPathComponentImpl#getQuantifier <em>Quantifier</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class RdfPathImpl extends PatternElementImpl implements RdfPath {
+public abstract class RdfPathComponentImpl extends PatternElementImpl implements RdfPathComponent {
 	/**
 	 * The default value of the '{@link #isInvert() <em>Invert</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -69,7 +69,7 @@ public abstract class RdfPathImpl extends PatternElementImpl implements RdfPath 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RdfPathImpl() {
+	protected RdfPathComponentImpl() {
 		super();
 	}
 		
@@ -80,7 +80,7 @@ public abstract class RdfPathImpl extends PatternElementImpl implements RdfPath 
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return AdaptionrdfPackage.Literals.RDF_PATH;
+		return AdaptionrdfPackage.Literals.RDF_PATH_COMPONENT;
 	}
 
 	/**
@@ -103,7 +103,7 @@ public abstract class RdfPathImpl extends PatternElementImpl implements RdfPath 
 		boolean oldInvert = invert;
 		invert = newInvert;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PATH__INVERT, oldInvert, invert));
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PATH_COMPONENT__INVERT, oldInvert, invert));
 	}
 
 	/**
@@ -126,7 +126,7 @@ public abstract class RdfPathImpl extends PatternElementImpl implements RdfPath 
 		RdfQuantifier oldQuantifier = quantifier;
 		quantifier = newQuantifier == null ? QUANTIFIER_EDEFAULT : newQuantifier;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PATH__QUANTIFIER, oldQuantifier, quantifier));
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PATH_COMPONENT__QUANTIFIER, oldQuantifier, quantifier));
 	}
 
 	/**
@@ -149,9 +149,9 @@ public abstract class RdfPathImpl extends PatternElementImpl implements RdfPath 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdaptionrdfPackage.RDF_PATH__INVERT:
+			case AdaptionrdfPackage.RDF_PATH_COMPONENT__INVERT:
 				return isInvert();
-			case AdaptionrdfPackage.RDF_PATH__QUANTIFIER:
+			case AdaptionrdfPackage.RDF_PATH_COMPONENT__QUANTIFIER:
 				return getQuantifier();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -165,10 +165,10 @@ public abstract class RdfPathImpl extends PatternElementImpl implements RdfPath 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdaptionrdfPackage.RDF_PATH__INVERT:
+			case AdaptionrdfPackage.RDF_PATH_COMPONENT__INVERT:
 				setInvert((Boolean)newValue);
 				return;
-			case AdaptionrdfPackage.RDF_PATH__QUANTIFIER:
+			case AdaptionrdfPackage.RDF_PATH_COMPONENT__QUANTIFIER:
 				setQuantifier((RdfQuantifier)newValue);
 				return;
 		}
@@ -183,10 +183,10 @@ public abstract class RdfPathImpl extends PatternElementImpl implements RdfPath 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdaptionrdfPackage.RDF_PATH__INVERT:
+			case AdaptionrdfPackage.RDF_PATH_COMPONENT__INVERT:
 				setInvert(INVERT_EDEFAULT);
 				return;
-			case AdaptionrdfPackage.RDF_PATH__QUANTIFIER:
+			case AdaptionrdfPackage.RDF_PATH_COMPONENT__QUANTIFIER:
 				setQuantifier(QUANTIFIER_EDEFAULT);
 				return;
 		}
@@ -201,9 +201,9 @@ public abstract class RdfPathImpl extends PatternElementImpl implements RdfPath 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdaptionrdfPackage.RDF_PATH__INVERT:
+			case AdaptionrdfPackage.RDF_PATH_COMPONENT__INVERT:
 				return invert != INVERT_EDEFAULT;
-			case AdaptionrdfPackage.RDF_PATH__QUANTIFIER:
+			case AdaptionrdfPackage.RDF_PATH_COMPONENT__QUANTIFIER:
 				return quantifier != QUANTIFIER_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
@@ -217,7 +217,7 @@ public abstract class RdfPathImpl extends PatternElementImpl implements RdfPath 
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AdaptionrdfPackage.RDF_PATH___GET_RDF_SINGLE_PREDICATES:
+			case AdaptionrdfPackage.RDF_PATH_COMPONENT___GET_RDF_SINGLE_PREDICATES:
 				return getRdfSinglePredicates();
 		}
 		return super.eInvoke(operationID, arguments);

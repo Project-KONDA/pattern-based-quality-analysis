@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.IriListParam;
 import qualitypatternmodel.adaptionrdf.IriParam;
-import qualitypatternmodel.adaptionrdf.RdfPath;
+import qualitypatternmodel.adaptionrdf.RdfPathComponent;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
 import qualitypatternmodel.adaptionrdf.RdfPathPart;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -48,7 +48,7 @@ public class RdfPathPartImpl extends PatternElementImpl implements RdfPathPart {
 	 * @generated
 	 * @ordered
 	 */
-	protected RdfPath rdfPath;
+	protected RdfPathComponent rdfPath;
 
 	/**
 	 * The cached value of the '{@link #getTargetNodeTypes() <em>Target Node Types</em>}' containment reference.
@@ -149,7 +149,7 @@ public class RdfPathPartImpl extends PatternElementImpl implements RdfPathPart {
 	 * @generated
 	 */
 	@Override
-	public RdfPath getRdfPath() {
+	public RdfPathComponent getRdfPath() {
 		return rdfPath;
 	}
 
@@ -158,8 +158,8 @@ public class RdfPathPartImpl extends PatternElementImpl implements RdfPathPart {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRdfPath(RdfPath newRdfPath, NotificationChain msgs) {
-		RdfPath oldRdfPath = rdfPath;
+	public NotificationChain basicSetRdfPath(RdfPathComponent newRdfPath, NotificationChain msgs) {
+		RdfPathComponent oldRdfPath = rdfPath;
 		rdfPath = newRdfPath;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PATH_PART__RDF_PATH, oldRdfPath, newRdfPath);
@@ -174,7 +174,7 @@ public class RdfPathPartImpl extends PatternElementImpl implements RdfPathPart {
 	 * @generated
 	 */
 	@Override
-	public void setRdfPath(RdfPath newRdfPath) {
+	public void setRdfPath(RdfPathComponent newRdfPath) {
 		if (newRdfPath != rdfPath) {
 			NotificationChain msgs = null;
 			if (rdfPath != null)
@@ -318,7 +318,7 @@ public class RdfPathPartImpl extends PatternElementImpl implements RdfPathPart {
 				setRdfPathParam((RdfPathParam)newValue);
 				return;
 			case AdaptionrdfPackage.RDF_PATH_PART__RDF_PATH:
-				setRdfPath((RdfPath)newValue);
+				setRdfPath((RdfPathComponent)newValue);
 				return;
 			case AdaptionrdfPackage.RDF_PATH_PART__TARGET_NODE_TYPES:
 				setTargetNodeTypes((IriListParam)newValue);
@@ -339,7 +339,7 @@ public class RdfPathPartImpl extends PatternElementImpl implements RdfPathPart {
 				setRdfPathParam((RdfPathParam)null);
 				return;
 			case AdaptionrdfPackage.RDF_PATH_PART__RDF_PATH:
-				setRdfPath((RdfPath)null);
+				setRdfPath((RdfPathComponent)null);
 				return;
 			case AdaptionrdfPackage.RDF_PATH_PART__TARGET_NODE_TYPES:
 				setTargetNodeTypes((IriListParam)null);

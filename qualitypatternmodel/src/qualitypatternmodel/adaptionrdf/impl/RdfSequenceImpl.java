@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
-import qualitypatternmodel.adaptionrdf.RdfPath;
+import qualitypatternmodel.adaptionrdf.RdfPathComponent;
 import qualitypatternmodel.adaptionrdf.RdfSequence;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -36,7 +36,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
  *
  * @generated
  */
-public class RdfSequenceImpl extends RdfPathImpl implements RdfSequence {
+public class RdfSequenceImpl extends RdfPathComponentImpl implements RdfSequence {
 	/**
 	 * The cached value of the '{@link #getItems() <em>Items</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -45,7 +45,7 @@ public class RdfSequenceImpl extends RdfPathImpl implements RdfSequence {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<RdfPath> items;
+	protected EList<RdfPathComponent> items;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -94,9 +94,9 @@ public class RdfSequenceImpl extends RdfPathImpl implements RdfSequence {
 	 * @generated
 	 */
 	@Override
-	public EList<RdfPath> getItems() {
+	public EList<RdfPathComponent> getItems() {
 		if (items == null) {
-			items = new EObjectContainmentEList<RdfPath>(RdfPath.class, this, AdaptionrdfPackage.RDF_SEQUENCE__ITEMS);
+			items = new EObjectContainmentEList<RdfPathComponent>(RdfPathComponent.class, this, AdaptionrdfPackage.RDF_SEQUENCE__ITEMS);
 		}
 		return items;
 	}
@@ -140,7 +140,7 @@ public class RdfSequenceImpl extends RdfPathImpl implements RdfSequence {
 		switch (featureID) {
 			case AdaptionrdfPackage.RDF_SEQUENCE__ITEMS:
 				getItems().clear();
-				getItems().addAll((Collection<? extends RdfPath>)newValue);
+				getItems().addAll((Collection<? extends RdfPathComponent>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -178,7 +178,7 @@ public class RdfSequenceImpl extends RdfPathImpl implements RdfSequence {
 	@Override
 	public EList<RdfSinglePredicate> getRdfSinglePredicates() {
 		EList<RdfSinglePredicate> list = new BasicEList<RdfSinglePredicate>();
-		for(RdfPath item : getItems()) {
+		for(RdfPathComponent item : getItems()) {
 			list.addAll(item.getRdfSinglePredicates());
 		}
 		return list;

@@ -53,12 +53,12 @@ public interface RdfPathPart extends PatternElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Rdf Path</em>' containment reference.
-	 * @see #setRdfPath(RdfPath)
+	 * @see #setRdfPath(RdfPathComponent)
 	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathPart_RdfPath()
 	 * @model containment="true"
 	 * @generated
 	 */
-	RdfPath getRdfPath();
+	RdfPathComponent getRdfPath();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPathPart#getRdfPath <em>Rdf Path</em>}' containment reference.
@@ -68,7 +68,7 @@ public interface RdfPathPart extends PatternElement {
 	 * @see #getRdfPath()
 	 * @generated
 	 */
-	void setRdfPath(RdfPath value);
+	void setRdfPath(RdfPathComponent value);
 
 	/**
 	 * Returns the value of the '<em><b>Target Node Types</b></em>' containment reference.

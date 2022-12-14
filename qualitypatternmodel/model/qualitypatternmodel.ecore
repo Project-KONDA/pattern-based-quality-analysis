@@ -1156,7 +1156,8 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="rdfIriNodeTypes" eType="#//adaptionrdf/IriListParam"
           eOpposite="#//adaptionrdf/IriListParam/rdfIriNode"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RdfPath" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
+    <eClassifiers xsi:type="ecore:EClass" name="RdfPathComponent" abstract="true"
+        eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getRdfSinglePredicates" upperBound="-1" eType="#//adaptionrdf/RdfSinglePredicate"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="invert" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier" eType="#//adaptionrdf/RdfQuantifier"/>
@@ -1167,7 +1168,7 @@
       <eLiterals name="ONE_PLUS" value="2" literal="ONE_PLUS"/>
       <eLiterals name="ZERO_OR_ONE" value="3" literal="ZERO_OR_ONE"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RdfSinglePredicate" eSuperTypes="#//adaptionrdf/RdfPath">
+    <eClassifiers xsi:type="ecore:EClass" name="RdfSinglePredicate" eSuperTypes="#//adaptionrdf/RdfPathComponent">
       <eStructuralFeatures xsi:type="ecore:EReference" name="iriParam" eType="#//adaptionrdf/IriParam"
           containment="true" eOpposite="#//adaptionrdf/IriParam/rdfSinglePredicate"/>
     </eClassifiers>
@@ -1186,13 +1187,13 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="iriListParam" eType="#//adaptionrdf/IriListParam"
           eOpposite="#//adaptionrdf/IriListParam/iriParams"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RdfXor" eSuperTypes="#//adaptionrdf/RdfPath">
+    <eClassifiers xsi:type="ecore:EClass" name="RdfXor" eSuperTypes="#//adaptionrdf/RdfPathComponent">
       <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="2"
-          upperBound="-1" eType="#//adaptionrdf/RdfPath" containment="true"/>
+          upperBound="-1" eType="#//adaptionrdf/RdfPathComponent" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RdfSequence" eSuperTypes="#//adaptionrdf/RdfPath">
+    <eClassifiers xsi:type="ecore:EClass" name="RdfSequence" eSuperTypes="#//adaptionrdf/RdfPathComponent">
       <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="2"
-          upperBound="-1" eType="#//adaptionrdf/RdfPath" containment="true"/>
+          upperBound="-1" eType="#//adaptionrdf/RdfPathComponent" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IriListParam" eSuperTypes="#//parameters/ParameterValue">
       <eStructuralFeatures xsi:type="ecore:EReference" name="iriParams" upperBound="-1"
@@ -1221,7 +1222,7 @@
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rdfPathParam" eType="#//adaptionrdf/RdfPathParam"
           eOpposite="#//adaptionrdf/RdfPathParam/rdfPathParts"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfPath" eType="#//adaptionrdf/RdfPath"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfPath" eType="#//adaptionrdf/RdfPathComponent"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="targetNodeTypes" eType="#//adaptionrdf/IriListParam"
           containment="true" eOpposite="#//adaptionrdf/IriListParam/rdfPathPart"/>

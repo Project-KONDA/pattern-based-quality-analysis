@@ -14,29 +14,29 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPath#isInvert <em>Invert</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPath#getQuantifier <em>Quantifier</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathComponent#isInvert <em>Invert</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathComponent#getQuantifier <em>Quantifier</em>}</li>
  * </ul>
  *
- * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPath()
+ * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathComponent()
  * @model abstract="true"
  * @generated
  */
-public interface RdfPath extends PatternElement {
+public interface RdfPathComponent extends PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Invert</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Invert</em>' attribute.
 	 * @see #setInvert(boolean)
-	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPath_Invert()
+	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathComponent_Invert()
 	 * @model
 	 * @generated
 	 */
 	boolean isInvert();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPath#isInvert <em>Invert</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPathComponent#isInvert <em>Invert</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Invert</em>' attribute.
@@ -53,14 +53,14 @@ public interface RdfPath extends PatternElement {
 	 * @return the value of the '<em>Quantifier</em>' attribute.
 	 * @see qualitypatternmodel.adaptionrdf.RdfQuantifier
 	 * @see #setQuantifier(RdfQuantifier)
-	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPath_Quantifier()
+	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathComponent_Quantifier()
 	 * @model
 	 * @generated
 	 */
 	RdfQuantifier getQuantifier();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPath#getQuantifier <em>Quantifier</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPathComponent#getQuantifier <em>Quantifier</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Quantifier</em>' attribute.

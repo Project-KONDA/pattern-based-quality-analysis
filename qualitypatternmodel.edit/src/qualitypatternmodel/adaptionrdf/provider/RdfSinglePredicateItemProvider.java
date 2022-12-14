@@ -22,7 +22,7 @@ import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RdfSinglePredicateItemProvider extends RdfPathItemProvider {
+public class RdfSinglePredicateItemProvider extends RdfPathComponentItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

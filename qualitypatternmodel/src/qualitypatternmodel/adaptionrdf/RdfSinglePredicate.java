@@ -18,7 +18,7 @@ package qualitypatternmodel.adaptionrdf;
  * @model
  * @generated
  */
-public interface RdfSinglePredicate extends RdfPath {
+public interface RdfSinglePredicate extends RdfPathComponent {
 	/**
 	 * Returns the value of the '<em><b>Iri Param</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.IriParam#getRdfSinglePredicate <em>Rdf Single Predicate</em>}'.

@@ -29,14 +29,14 @@ import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RdfPathItemProvider extends PatternElementItemProvider {
+public class RdfPathComponentItemProvider extends PatternElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RdfPathItemProvider(AdapterFactory adapterFactory) {
+	public RdfPathComponentItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -68,8 +68,8 @@ public class RdfPathItemProvider extends PatternElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RdfPath_invert_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RdfPath_invert_feature", "_UI_RdfPath_type"),
+				 getString("_UI_RdfPathComponent_invert_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RdfPathComponent_invert_feature", "_UI_RdfPathComponent_type"),
 				 AdaptionrdfPackage.Literals.RDF_PATH_COMPONENT__INVERT,
 				 true,
 				 false,
@@ -90,8 +90,8 @@ public class RdfPathItemProvider extends PatternElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RdfPath_quantifier_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RdfPath_quantifier_feature", "_UI_RdfPath_type"),
+				 getString("_UI_RdfPathComponent_quantifier_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RdfPathComponent_quantifier_feature", "_UI_RdfPathComponent_type"),
 				 AdaptionrdfPackage.Literals.RDF_PATH_COMPONENT__QUANTIFIER,
 				 true,
 				 false,
@@ -111,8 +111,8 @@ public class RdfPathItemProvider extends PatternElementItemProvider {
 	public String getText(Object object) {
 		String label = ((RdfPathComponent)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RdfPath_type") :
-			getString("_UI_RdfPath_type") + " " + label;
+			getString("_UI_RdfPathComponent_type") :
+			getString("_UI_RdfPathComponent_type") + " " + label;
 	}
 
 

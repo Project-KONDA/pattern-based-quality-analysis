@@ -13,7 +13,7 @@ import qualitypatternmodel.adaptionrdf.RdfSequence;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RdfSequenceTest extends RdfPathTest {
+public class RdfSequenceTest extends RdfPathComponentTest {
 
 	/**
 	 * <!-- begin-user-doc -->
