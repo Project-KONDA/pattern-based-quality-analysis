@@ -15,14 +15,14 @@ import qualitypatternmodel.exceptions.InvalidityException;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.parameters.AbstractListParam#getValues <em>Values</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.ListParam#getValues <em>Values</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.parameters.ParametersPackage#getAbstractListParam()
  * @model abstract="true"
  * @generated
  */
-public interface AbstractListParam extends ParameterValue {
+public interface ListParam extends ParameterValue {
 	/**
 	 * Returns the value of the '<em><b>Values</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.String}.

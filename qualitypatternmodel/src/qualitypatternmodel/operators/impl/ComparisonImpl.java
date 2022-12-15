@@ -39,7 +39,7 @@ import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.NumberOperator;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorsPackage;
-import qualitypatternmodel.parameters.AbstractListParam;
+import qualitypatternmodel.parameters.ListParam;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
@@ -74,6 +74,8 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
+	private static final String NOT_ALLOWED_OPERATOR_FOR_LIST_COMPARISON = "Not allowed operator for List comparison";
+
 	private static final String THE_SECOND_ARGUMENT_HAS_TO_BE_A_LIST = "The second Argument has to be a List";
 
 	private static final String AT_LEAST_ONE_OF_TWO_ARGUMENTS_IS_NOT_VALID = "At least one of two arguments is not valid";
@@ -312,36 +314,37 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		throw new InvalidityException(Constants.INVALID_OPTION);
 	}
 
-	private void matchCypherOperators(StringBuilder cypher, final String argument1Translation,
+	private final void matchCypherOperators(StringBuilder cypher, final String argument1Translation,
 		final String argument2Translation) throws InvalidityException {
 		//Not all PATH are reachable since the option (ComparisonOptionParam) does not allow to set all boolean operators
 		switch(option.getValue()) {
 		case EQUAL:
-			generateCypherWithOptionalList(cypher, argument1Translation, argument2Translation, CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_EQUAL, false);
+			generateCypherDependingOnReturnType(cypher, argument1Translation, argument2Translation, CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_EQUAL);
 			break;
 		case NOTEQUAL:
-			generateCypherWithOptionalList(cypher, argument1Translation, argument2Translation, CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_NOTEQUAL, true);
+			generateCypherDependingOnReturnType(cypher, argument1Translation, argument2Translation, CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_NOTEQUAL);
 			break;
 		case GREATER:
-			generateGenericComp(cypher, argument1Translation, argument2Translation, CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_GREATER);
+			generateCypherDependingOnReturnType(cypher, argument1Translation, argument2Translation, CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_GREATER);
 			break;
 		case LESS:
-			generateGenericComp(cypher, argument1Translation, argument2Translation, CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_LESS);
+			generateCypherDependingOnReturnType(cypher, argument1Translation, argument2Translation, CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_LESS);
 			break;
 		case GREATEROREQUAL:
-			generateGenericComp(cypher, argument1Translation, argument2Translation, CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_GREATER_EQUAL);
+			generateCypherDependingOnReturnType(cypher, argument1Translation, argument2Translation, CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_GREATER_EQUAL);
 			break;
 		case LESSOREQUAL:
-			generateGenericComp(cypher, argument1Translation, argument2Translation, CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_LESS_EQUAL);
+			generateCypherDependingOnReturnType(cypher, argument1Translation, argument2Translation, CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_LESS_EQUAL);
 			break;
 		default:
 			throw new InvalidityException();
 		}
 	}
-
-	private void generateCypherWithOptionalList(StringBuilder cypher, final String argument1Translation,
-			final String argument2Translation, final String comp, final boolean negation) throws InvalidityException {
+	
+	private void generateCypherDependingOnReturnType(final StringBuilder cypher, final String argument1Translation,
+			final String argument2Translation, final String comp) throws InvalidityException {
 		if (getTypeOption().getValue() == ReturnType.LIST) {
+			final boolean negation = shallListOperatorBeANegation(comp);
 			generateCypherListComparison(cypher, argument1Translation, argument2Translation, negation);					
 		} else if (getTypeOption().getValue() == ReturnType.ELEMENTID) {
 			generateCypherIDComparison(cypher, argument1Translation, argument2Translation, comp);
@@ -350,13 +353,13 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}
 	}
 
-	private void generateGenericComp(StringBuilder cypher, final String argument1Translation,
-			final String argument2Translation, final String comp) {
-		if (getTypeOption().getValue() == ReturnType.ELEMENTID) {
-			generateCypherIDComparison(cypher, argument1Translation, argument2Translation, comp);
-		} else {
-			generateCypherStandardComp(cypher, argument1Translation, argument2Translation, comp);
+	private final boolean shallListOperatorBeANegation(final String comp) throws InvalidityException {
+		if (comp.compareTo(CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_NOTEQUAL) == 0) {
+			return true;
+		} else if (comp.compareTo(CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_EQUAL) == 0) {
+			return false;
 		}
+		throw new InvalidityException(NOT_ALLOWED_OPERATOR_FOR_LIST_COMPARISON);
 	}
 
 	private void generateCypherStandardComp(StringBuilder cypher, final String argument1Translation,
@@ -382,7 +385,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 	private void generateCypherListComparison(final StringBuilder cypher, final String argument1Translation,
 			final String argument2Translation, final boolean negation) throws InvalidityException {
-		if (!(getArgument2() instanceof AbstractListParam)) {
+		if (!(getArgument2() instanceof ListParam)) {
 			throw new InvalidityException(THE_SECOND_ARGUMENT_HAS_TO_BE_A_LIST);	
 		}
 		if (!negation) {

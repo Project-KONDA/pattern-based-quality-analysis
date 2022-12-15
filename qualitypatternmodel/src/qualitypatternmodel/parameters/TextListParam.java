@@ -17,7 +17,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
  * @model
  * @generated
  */
-public interface TextListParam extends AbstractListParam {
+public interface TextListParam extends ListParam {
 
 	void setValueIfValid(EList<String> newValue) throws InvalidityException;
 } // TextList

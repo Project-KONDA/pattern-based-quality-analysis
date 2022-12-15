@@ -28,7 +28,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TimeParam;
 import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
-import qualitypatternmodel.parameters.impl.AbstractListParamImpl;
+import qualitypatternmodel.parameters.impl.ListParamImpl;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.DateParamImpl;
 import qualitypatternmodel.parameters.impl.DateTimeParamImpl;
@@ -219,7 +219,7 @@ public class CypherTest05ParameterValues extends CypherAbstractTranslation {
 	}
 
 	protected Field getFieldValuesFromListParam() throws NoSuchFieldException {
-		Class<AbstractListParamImpl> c = AbstractListParamImpl.class;
+		Class<ListParamImpl> c = ListParamImpl.class;
 		Field f = c.getDeclaredField("values");
 		f.setAccessible(true);
 		return f;

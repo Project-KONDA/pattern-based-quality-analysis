@@ -16,7 +16,7 @@ import qualitypatternmodel.parameters.TextListParam;
  *
  * @generated
  */
-public class TextListParamImpl extends AbstractListParamImpl implements TextListParam {
+public class TextListParamImpl extends ListParamImpl implements TextListParam {
 	/**
 	 * <!-- begin-user-doc -->
 	 * Constructor.

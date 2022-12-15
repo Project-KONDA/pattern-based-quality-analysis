@@ -2253,10 +2253,10 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.AbstractListParamImpl <em>Abstract List Param</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.ListParamImpl <em>Abstract List Param</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.impl.AbstractListParamImpl
+	 * @see qualitypatternmodel.parameters.impl.ListParamImpl
 	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getAbstractListParam()
 	 * @generated
 	 */
@@ -8932,62 +8932,62 @@ public interface ParametersPackage extends EPackage {
 	EOperation getKeyValueParam__SetNewMap__Map();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.AbstractListParam <em>Abstract List Param</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.ListParam <em>Abstract List Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Abstract List Param</em>'.
-	 * @see qualitypatternmodel.parameters.AbstractListParam
+	 * @see qualitypatternmodel.parameters.ListParam
 	 * @generated
 	 */
 	EClass getAbstractListParam();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.parameters.AbstractListParam#getValues <em>Values</em>}'.
+	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.parameters.ListParam#getValues <em>Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Values</em>'.
-	 * @see qualitypatternmodel.parameters.AbstractListParam#getValues()
+	 * @see qualitypatternmodel.parameters.ListParam#getValues()
 	 * @see #getAbstractListParam()
 	 * @generated
 	 */
 	EAttribute getAbstractListParam_Values();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.AbstractListParam#setValueIfValid(org.eclipse.emf.common.util.EList) <em>Set Value If Valid</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ListParam#setValueIfValid(org.eclipse.emf.common.util.EList) <em>Set Value If Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Set Value If Valid</em>' operation.
-	 * @see qualitypatternmodel.parameters.AbstractListParam#setValueIfValid(org.eclipse.emf.common.util.EList)
+	 * @see qualitypatternmodel.parameters.ListParam#setValueIfValid(org.eclipse.emf.common.util.EList)
 	 * @generated
 	 */
 	EOperation getAbstractListParam__SetValueIfValid__EList();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.AbstractListParam#getListVar() <em>Get List Var</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ListParam#getListVar() <em>Get List Var</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get List Var</em>' operation.
-	 * @see qualitypatternmodel.parameters.AbstractListParam#getListVar()
+	 * @see qualitypatternmodel.parameters.ListParam#getListVar()
 	 * @generated
 	 */
 	EOperation getAbstractListParam__GetListVar();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.AbstractListParam#getListDeclaration() <em>Get List Declaration</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ListParam#getListDeclaration() <em>Get List Declaration</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get List Declaration</em>' operation.
-	 * @see qualitypatternmodel.parameters.AbstractListParam#getListDeclaration()
+	 * @see qualitypatternmodel.parameters.ListParam#getListDeclaration()
 	 * @generated
 	 */
 	EOperation getAbstractListParam__GetListDeclaration();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.AbstractListParam#addStringValue(java.lang.String) <em>Add String Value</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ListParam#addStringValue(java.lang.String) <em>Add String Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add String Value</em>' operation.
-	 * @see qualitypatternmodel.parameters.AbstractListParam#addStringValue(java.lang.String)
+	 * @see qualitypatternmodel.parameters.ListParam#addStringValue(java.lang.String)
 	 * @generated
 	 */
 	EOperation getAbstractListParam__AddStringValue__String();
@@ -9691,10 +9691,10 @@ public interface ParametersPackage extends EPackage {
 		EOperation KEY_VALUE_PARAM___SET_NEW_MAP__MAP = eINSTANCE.getKeyValueParam__SetNewMap__Map();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.AbstractListParamImpl <em>Abstract List Param</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.ListParamImpl <em>Abstract List Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.parameters.impl.AbstractListParamImpl
+		 * @see qualitypatternmodel.parameters.impl.ListParamImpl
 		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getAbstractListParam()
 		 * @generated
 		 */

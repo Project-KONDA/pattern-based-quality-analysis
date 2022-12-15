@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 
-import qualitypatternmodel.parameters.AbstractListParam;
+import qualitypatternmodel.parameters.ListParam;
 import qualitypatternmodel.parameters.ParametersPackage;
 
 /**
@@ -29,12 +29,12 @@ import qualitypatternmodel.parameters.ParametersPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.parameters.impl.AbstractListParamImpl#getValues <em>Values</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.ListParamImpl#getValues <em>Values</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class AbstractListParamImpl extends ParameterValueImpl implements AbstractListParam {
+public abstract class ListParamImpl extends ParameterValueImpl implements ListParam {
 	/**
 	 * The cached value of the '{@link #getValues() <em>Values</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -50,7 +50,7 @@ public abstract class AbstractListParamImpl extends ParameterValueImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AbstractListParamImpl() {
+	protected ListParamImpl() {
 		super();
 	}
 

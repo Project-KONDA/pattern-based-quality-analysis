@@ -18,7 +18,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  *
  * @generated
  */
-public class MultiListParamImpl extends AbstractListParamImpl implements MultiListParam {
+public class MultiListParamImpl extends ListParamImpl implements MultiListParam {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

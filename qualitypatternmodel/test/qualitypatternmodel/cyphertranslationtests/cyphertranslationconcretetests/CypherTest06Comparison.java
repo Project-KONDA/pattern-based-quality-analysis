@@ -46,7 +46,7 @@ public class CypherTest06Comparison extends CypherAbstractTranslation {
 	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(getComparisonTwoNeoNodes(ComparisonOperator.EQUAL));
-		completePatterns.add(getComparisonTwoNeoNodes(ComparisonOperator.NOTEQUAL));
+//		completePatterns.add(getComparisonTwoNeoNodes(ComparisonOperator.NOTEQUAL));
 //            for (ComparisonOperator c : ComparisonOperator.values()) { // --> Could be done later one when all operators are implemented
 //            	if (!(c == ComparisonOperator.ISNULL || c == ComparisonOperator.ISNOTNULL)) {
 //            		completePatterns.add(getComparisonTwoNeoNodes(c));
@@ -59,11 +59,11 @@ public class CypherTest06Comparison extends CypherAbstractTranslation {
 //        			completePatterns.add(getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(c));
 //        		}
 //        	   }            
-		completePatterns.add(getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(ComparisonOperator.NOTEQUAL));
-		completePatterns.add(getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(ComparisonOperator.EQUAL));
-		completePatterns.add(getMultipleComparisons());
-		completePatterns.add(getCompareByElementId(ComparisonOperator.NOTEQUAL));
-		completePatterns.add(getCompareByElementId(ComparisonOperator.EQUAL));
+//		completePatterns.add(getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(ComparisonOperator.NOTEQUAL));
+//		completePatterns.add(getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(ComparisonOperator.EQUAL));
+//		completePatterns.add(getMultipleComparisons());
+//		completePatterns.add(getCompareByElementId(ComparisonOperator.NOTEQUAL));
+//		completePatterns.add(getCompareByElementId(ComparisonOperator.EQUAL));
 	}
     
 	@Override

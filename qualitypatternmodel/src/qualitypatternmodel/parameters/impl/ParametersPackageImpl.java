@@ -25,7 +25,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.operators.impl.OperatorsPackageImpl;
-import qualitypatternmodel.parameters.AbstractListParam;
+import qualitypatternmodel.parameters.ListParam;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.DateParam;
@@ -1523,8 +1523,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		op = initEOperation(getKeyValueParam__SetNewMap__Map(), null, "setNewMap", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEMap(), "newKeyValueMap", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(abstractListParamEClass, AbstractListParam.class, "AbstractListParam", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAbstractListParam_Values(), ecorePackage.getEString(), "values", "", 0, -1, AbstractListParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(abstractListParamEClass, ListParam.class, "AbstractListParam", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAbstractListParam_Values(), ecorePackage.getEString(), "values", "", 0, -1, ListParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getAbstractListParam__SetValueIfValid__EList(), null, "setValueIfValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "newValue", 0, -1, IS_UNIQUE, IS_ORDERED);

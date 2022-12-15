@@ -76,7 +76,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="nullCheck" eType="#//operators/NullCheck"
           eOpposite="#//operators/NullCheck/option"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TextListParam" eSuperTypes="#//parameters/AbstractListParam"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TextListParam" eSuperTypes="#//parameters/ListParam"/>
     <eClassifiers xsi:type="ecore:EClass" name="TextLiteralParam" eSuperTypes="#//parameters/ParameterValue">
       <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="newValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -189,8 +189,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyValuePair" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"
           transient="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="AbstractListParam" abstract="true"
-        eSuperTypes="#//parameters/ParameterValue">
+    <eClassifiers xsi:type="ecore:EClass" name="ListParam" abstract="true" eSuperTypes="#//parameters/ParameterValue">
       <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="newValue" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
@@ -203,7 +202,7 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="MultiListParam" eSuperTypes="#//parameters/AbstractListParam"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MultiListParam" eSuperTypes="#//parameters/ListParam"/>
   </eSubpackages>
   <eSubpackages name="operators" nsURI="operators" nsPrefix="operators">
     <eClassifiers xsi:type="ecore:EClass" name="BooleanOperator" abstract="true" eSuperTypes="#//operators/Operator">

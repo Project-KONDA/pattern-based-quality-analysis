@@ -195,7 +195,7 @@ public class ParametersSwitch<T> extends Switch<T> {
 				return result;
 			}
 			case ParametersPackage.ABSTRACT_LIST_PARAM: {
-				AbstractListParam abstractListParam = (AbstractListParam)theEObject;
+				ListParam abstractListParam = (ListParam)theEObject;
 				T result = caseAbstractListParam(abstractListParam);
 				if (result == null) result = caseParameterValue(abstractListParam);
 				if (result == null) result = caseParameter(abstractListParam);
@@ -440,7 +440,7 @@ public class ParametersSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAbstractListParam(AbstractListParam object) {
+	public T caseAbstractListParam(ListParam object) {
 		return null;
 	}
 

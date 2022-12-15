@@ -141,7 +141,7 @@ public class ParametersValidator extends EObjectValidator {
 			case ParametersPackage.KEY_VALUE_PARAM:
 				return validateKeyValueParam((KeyValueParam)value, diagnostics, context);
 			case ParametersPackage.ABSTRACT_LIST_PARAM:
-				return validateAbstractListParam((AbstractListParam)value, diagnostics, context);
+				return validateAbstractListParam((ListParam)value, diagnostics, context);
 			case ParametersPackage.MULTI_LIST_PARAM:
 				return validateMultiListParam((MultiListParam)value, diagnostics, context);
 			case ParametersPackage.STRING_TO_INT_EMAP:
@@ -434,7 +434,7 @@ public class ParametersValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateAbstractListParam(AbstractListParam abstractListParam, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateAbstractListParam(ListParam abstractListParam, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		if (!validate_NoCircularContainment(abstractListParam, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(abstractListParam, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(abstractListParam, diagnostics, context);

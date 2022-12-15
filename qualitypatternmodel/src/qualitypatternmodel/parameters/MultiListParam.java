@@ -13,5 +13,5 @@ package qualitypatternmodel.parameters;
  * @model
  * @generated
  */
-public interface MultiListParam extends AbstractListParam {
+public interface MultiListParam extends ListParam {
 } // MultiListParam
