@@ -203,8 +203,12 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		
 		translated = true;
 		
-		query += getTarget().generateXQuery();
-		
+		String target = getTarget().generateXQuery();
+		query += target;
+
+		if (xPredicates == "" && xPathExpression == "" && target == "") {
+			return "";
+		}
 		return query;
 	}
 
