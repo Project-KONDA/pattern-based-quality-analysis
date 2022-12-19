@@ -79,9 +79,9 @@ public abstract class ListParamImpl extends ParameterValueImpl implements ListPa
 
 	@Override
 	public boolean inputIsValid() {
-		if (getValues() == null || getValues().isEmpty())
-			return false;
-
+		if (getValues() == null || getValues().isEmpty()) {
+			return false;	
+		}
 		return true;
 	}
 	

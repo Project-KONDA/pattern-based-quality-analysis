@@ -74,7 +74,7 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 	 */
 	@Override 
 	public String generateCypher() throws InvalidityException {
-		if(getValues().isEmpty()) {
+		if(super.inputIsValid()) {
 			return super.generateCypher();
 		} 
 		StringBuilder cypher = new StringBuilder();

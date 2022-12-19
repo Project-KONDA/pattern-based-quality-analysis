@@ -292,13 +292,13 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}
 	}
 	
-	//Die Comparisons/Contains/MATCHES sind mit einem AND verknüpft
-	//Durch ein Operator Container könnten weitere Logik zur Verknüpfung ergänzt werden
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
 	 * @throws InvalidityException
 	 * Generates the sub-query for Comparison.
+	 * The various operators are connected with an AND
+	 * If a container for the operators is implemented further logical connections between the operators are possible
 	 */
 	@Override 
 	public String generateCypher() throws InvalidityException {
@@ -314,6 +314,14 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		throw new InvalidityException(Constants.INVALID_OPTION);
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param cypher
+	 * @param argument1Translation
+	 * @param argument2Translation
+	 * @throws InvalidityException
+	 * It matches the arguments with the agruments for comparison. 
+	 */
 	private final void matchCypherOperators(StringBuilder cypher, final String argument1Translation,
 		final String argument2Translation) throws InvalidityException {
 		//Not all PATH are reachable since the option (ComparisonOptionParam) does not allow to set all boolean operators
@@ -341,6 +349,17 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param cypher
+	 * @param argument1Translation
+	 * @param argument2Translation
+	 * @param comp
+	 * @throws InvalidityException
+	 * Checks if a specific ReturnType is set (List or ElementID)
+	 * No further ReturnTypes are specified for Cypher. 
+	 * Otherwise the standard Comparison will be done.
+	 */
 	private void generateCypherDependingOnReturnType(final StringBuilder cypher, final String argument1Translation,
 			final String argument2Translation, final String comp) throws InvalidityException {
 		if (getTypeOption().getValue() == ReturnType.LIST) {
@@ -353,6 +372,13 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param comp
+	 * @return
+	 * @throws InvalidityException
+	 * Checks based on the comparison operator if the IN-list function of Cypher should be negated.
+	 */
 	private final boolean shallListOperatorBeANegation(final String comp) throws InvalidityException {
 		if (comp.compareTo(CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_NOTEQUAL) == 0) {
 			return true;
@@ -362,6 +388,14 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		throw new InvalidityException(NOT_ALLOWED_OPERATOR_FOR_LIST_COMPARISON);
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param cypher
+	 * @param argument1Translation
+	 * @param argument2Translation
+	 * @param comp
+	 * Executes the standard operation for the comparison operator to concatenate the arguments with the correct logical operator.
+	 */
 	private void generateCypherStandardComp(StringBuilder cypher, final String argument1Translation,
 			final String argument2Translation, final String comp) {
 		cypher.append(argument1Translation);
@@ -370,6 +404,14 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		cypher.append(argument2Translation);
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param cypher
+	 * @param argument1Translation
+	 * @param argument2Translation
+	 * @param comp
+	 * 
+	 */
 	private void generateCypherIDComparison(final StringBuilder cypher, final String argument1Translation,
 			final String argument2Translation, String comp) {
 		boolean b = checkForValidCypherNode();
@@ -382,7 +424,17 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			throw new UnsupportedOperationException();
 		}
 	}
-
+	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param cypher
+	 * @param argument1Translation
+	 * @param argument2Translation (ListParam)
+	 * @param negation
+	 * @throws InvalidityException
+	 * Creates the list comparision with IN-Function
+	 * Just allows as a second function an ListParam
+	 */
 	private void generateCypherListComparison(final StringBuilder cypher, final String argument1Translation,
 			final String argument2Translation, final boolean negation) throws InvalidityException {
 		if (!(getArgument2() instanceof ListParam)) {
@@ -404,6 +456,11 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return
+	 * Returns true if a Node is refered to. In the other case it returns false.  
+	 */
 	private final boolean checkForValidCypherNode() {
 		return (getArgument1() instanceof NeoElementNode && getArgument2() instanceof NeoElementNode) || 
 				((getArgument1() instanceof NeoElementNode && getArgument2() instanceof NeoPropertyNode && ((NeoPropertyEdge)((NeoPropertyNode) getArgument2()).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() != null)) ||
@@ -412,6 +469,15 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				getArgument2() instanceof NeoPropertyNode && ((NeoPropertyEdge)((NeoPropertyNode) getArgument2()).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() != null);
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return
+	 * @throws InvalidityException
+	 * Checks if at least one of both arguments is something to reference to.
+	 * If it is the case it converts it to the fitting string part for cypher.
+	 * The return type is a unmodifiable list with always just two entries.
+	 * The first entry is the first argument and the second entry is the second argument. 
+	 */
 	private final List<String> cypherArgumentCheckerAndConverter() throws InvalidityException {
 		String argument1Translation = null;
 		String argument2Translation = null; 
@@ -438,38 +504,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		result.add(argument1Translation);
 		result.add(argument2Translation);
 		result = Collections.unmodifiableList(result);
-		return result;
-	}
-	
-	//FUTURE WORK
-	@Deprecated
-	public String generateCypherInMatch() throws InvalidityException {
-//		if (!neoInWhereClause()) {
-//			String cypher;
-//			if (getArgument1() instanceof NeoPropertyNode) {
-//				//((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing()
-//				cypher = (NeoPropertyNode) getArgument1()).getIncoming().get(0))
-//						.getNeoPropertyPathParam().getNeoPropertyName().getValue();
-//				cypher += ": " + getArgument2().generateCypher();
-//			} else {
-//				cypher = ((NeoPropertyEdge)((NeoPropertyNode) getArgument2()).getIncoming().get(0))
-//						.getNeoPropertyPathParam().getNeoPropertyName().getValue();
-//				cypher += ": " + getArgument1().generateCypher();
-//			}
-//			return cypher;
-//		}
-		throw new UnsupportedOperationException();
-	}
-	
-	//FUTURE WORK
-	@Deprecated
-	public boolean neoInWhereClause() throws InvalidityException{
-		boolean result = true;
-		if (((getArgument1() instanceof NeoPropertyNode && getArgument2() instanceof ParameterValue) ||
-				(getArgument1() instanceof ParameterValue && getArgument2() instanceof NeoPropertyNode)) 
-				&& option.getValue() == ComparisonOperator.EQUAL) {
-			if(option.getValue() == ComparisonOperator.EQUAL) result = false;
-		} else if (getArgument1() instanceof NeoElementNode || getArgument2() instanceof NeoElementNode) throw new InvalidityException("Args 1 oder 2 can not be a NeoNode");
 		return result;
 	}
 	
@@ -1385,5 +1419,36 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			res += " -";
 		return res + ")";
 	}
-
+	
+	//FUTURE WORK
+	@Deprecated
+	public String generateCypherInMatch() throws InvalidityException {
+//		if (!neoInWhereClause()) {
+//			String cypher;
+//			if (getArgument1() instanceof NeoPropertyNode) {
+//				//((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing()
+//				cypher = (NeoPropertyNode) getArgument1()).getIncoming().get(0))
+//						.getNeoPropertyPathParam().getNeoPropertyName().getValue();
+//				cypher += ": " + getArgument2().generateCypher();
+//			} else {
+//				cypher = ((NeoPropertyEdge)((NeoPropertyNode) getArgument2()).getIncoming().get(0))
+//						.getNeoPropertyPathParam().getNeoPropertyName().getValue();
+//				cypher += ": " + getArgument1().generateCypher();
+//			}
+//			return cypher;
+//		}
+		throw new UnsupportedOperationException();
+	}
+	
+	//FUTURE WORK
+	@Deprecated
+	public boolean neoInWhereClause() throws InvalidityException{
+		boolean result = true;
+		if (((getArgument1() instanceof NeoPropertyNode && getArgument2() instanceof ParameterValue) ||
+				(getArgument1() instanceof ParameterValue && getArgument2() instanceof NeoPropertyNode)) 
+				&& option.getValue() == ComparisonOperator.EQUAL) {
+			if(option.getValue() == ComparisonOperator.EQUAL) result = false;
+		} else if (getArgument1() instanceof NeoElementNode || getArgument2() instanceof NeoElementNode) throw new InvalidityException("Args 1 oder 2 can not be a NeoNode");
+		return result;
+	}
 } // ComparisonImpl
