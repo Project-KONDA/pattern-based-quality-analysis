@@ -408,7 +408,8 @@
       <eOperations name="adaptAsRdfIriNode" eType="#//adaptionrdf/RdfIriNode" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="adaptAsRdfLiteralNode" eType="#//adaptionrdf/RdfLiteralNode"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="adaptAsNeoNode" eType="#//adaptionneo4j/NeoElementNode" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="adaptAsNeoElementNode" eType="#//adaptionneo4j/NeoElementNode"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="adaptAsNeoPropertyNode" eType="#//adaptionneo4j/NeoPropertyNode"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="addPrimitiveNullCheck" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>

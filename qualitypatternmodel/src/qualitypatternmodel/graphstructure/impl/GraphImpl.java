@@ -177,7 +177,11 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 	
 	//BEGIN - Neo4J	
-	//Returns the needed Graph-Pattern for Cypher
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @exception InvalidityException
+	 * Returns the needed Graph-Pattern for Cypher
+	 */
 	@Override
 	public String generateCypher() throws InvalidityException {	
 		final EList<Node> allNodesList = getNodes();
@@ -410,65 +414,86 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 	//END - Neo4J
 	
-	//BEGIN - Further graph-alg.
-		/**
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @throws InvalidityException 
-		 * @generated NOT
-		 */
-		@Override
-		public final EList<EList<Node>> getAllSubGraphs() throws InvalidityException {
-			final EList<Node> nodes = getNodes();
-			final EList<EList<Node>> graphs = new BasicEList<EList<Node>>();
-			EList<Node> graph = null;
-			for (Node node : nodes) {
-				if (!containedInSubGraphList(graphs, node)) {
-					graph = new BasicEList<Node>();
-					getAllSubGraphRecusrive(node, graph);
-					graphs.add(graph);
-				}
+	//BEGIN - Handling Subgraphs
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
+	 * @generated NOT
+	 * Loads all indipendend subgraphs in a graph
+	 */
+	@Override
+	public final EList<EList<Node>> getAllSubGraphs() throws InvalidityException {
+		final EList<Node> nodes = getNodes();
+		final EList<EList<Node>> graphs = new BasicEList<EList<Node>>();
+		EList<Node> graph = null;
+		for (Node node : nodes) {
+			if (!containedInSubGraphList(graphs, node)) {
+				graph = new BasicEList<Node>();
+				getAllSubGraphRecusrive(node, graph);
+				graphs.add(graph);
 			}
-			if (graphs.size() == 0) {
-				throw new InvalidityException(NO_SUB_GRAPH_S_HAVE_BEEN_IDENTIFIED);
+		}
+		if (graphs.size() == 0) {
+			throw new InvalidityException(NO_SUB_GRAPH_S_HAVE_BEEN_IDENTIFIED);
+		}
+		return graphs;
+	}
+	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param node
+	 * @param nodeList
+	 * Walks recusively over all subgraphs to collect them. 
+	 */
+	private final void getAllSubGraphRecusrive(final Node node, final EList<Node> nodeList) {
+		if (!containedInGraphList(nodeList, node)) {
+			nodeList.add(node);
+			if (node instanceof ComplexNode) {
+				final ComplexNode complexNode = (ComplexNode) node;
+				Node tempNode = null;
+				for (Relation r : complexNode.getOutgoing()) {
+					tempNode = (Node) r.getTarget();
+					getAllSubGraphRecusrive(tempNode, nodeList);
+				}				
 			}
-			return graphs;
-		}
+		}			
+	}
 		
-		
-		private final void getAllSubGraphRecusrive(final Node node, final EList<Node> nodeList) {
-			if (!containedInGraphList(nodeList, node)) {
-				nodeList.add(node);
-				if (node instanceof ComplexNode) {
-					final ComplexNode complexNode = (ComplexNode) node;
-					Node tempNode = null;
-					for (Relation r : complexNode.getOutgoing()) {
-						tempNode = (Node) r.getTarget();
-						getAllSubGraphRecusrive(tempNode, nodeList);
-					}				
-				}
-			}			
-		}
-		
-		private final boolean containedInSubGraphList(final EList<EList<Node>> graphs, Node node) {
-			boolean contained = false;
-			EList<Node> graph = null;
-			for (int i = 0; i < graphs.size(); i++) {
-				graph = graphs.get(i);
-				if (graph.contains(node)) {
-					contained = true;
-					i = graphs.size();
-				}
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param graphs
+	 * @param node
+	 * @return
+	 * Checks if a node is already contained in a list of subgraph.
+	 */
+	private final boolean containedInSubGraphList(final EList<EList<Node>> graphs, Node node) {
+		boolean contained = false;
+		EList<Node> graph = null;
+		for (int i = 0; i < graphs.size(); i++) {
+			graph = graphs.get(i);
+			if (graph.contains(node)) {
+				contained = true;
+				i = graphs.size();
 			}
-			return contained;
 		}
-		
-		private final boolean containedInGraphList(EList<Node> graph, Node node) {
-			final EList<EList<Node>> graphs = new BasicEList<EList<Node>>();
-			graphs.add(graph);
-			return this.containedInSubGraphList(graphs, node);
-		}
-		//END - Further graph-alg.
+		return contained;
+	}
+	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param graph
+	 * @param node
+	 * @return
+	 * Checks if a node is in a subgraph.
+	 */
+	private final boolean containedInGraphList(EList<Node> graph, Node node) {
+		final EList<EList<Node>> graphs = new BasicEList<EList<Node>>();
+		graphs.add(graph);
+		return this.containedInSubGraphList(graphs, node);
+	}
+	//END - Handling Subgraphs
 	
 	@Override
 	public void initializeTranslation() {

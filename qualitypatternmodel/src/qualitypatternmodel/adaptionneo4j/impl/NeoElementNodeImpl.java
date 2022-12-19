@@ -169,7 +169,7 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	}
 
 	@Override
-	public NeoElementNode adaptAsNeoNode() throws InvalidityException {
+	public NeoElementNode adaptAsNeoElementNode() throws InvalidityException {
 		return this;
 	}
 	

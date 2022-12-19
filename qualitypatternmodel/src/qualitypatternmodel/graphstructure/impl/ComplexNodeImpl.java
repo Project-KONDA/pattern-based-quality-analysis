@@ -71,7 +71,7 @@ public class ComplexNodeImpl extends NodeImpl implements ComplexNode {
 	
 	@Override 
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return adaptAsNeoNode();
+		return adaptAsNeoElementNode();
 	}
 	
 	

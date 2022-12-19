@@ -1191,11 +1191,11 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			}
 			
 			if(edge.getTarget() instanceof ComplexNode) {
-				edge.getTarget().adaptAsNeoNode();
+				edge.getTarget().adaptAsNeoElementNode();
 			} else if(edge.getTarget() instanceof PrimitiveNode) {
 				edge.getTarget().adaptAsNeoPropertyNode();
 			} else if(edge.getTarget() instanceof Node) {
-				edge.getTarget().adaptAsNeoNode();
+				edge.getTarget().adaptAsNeoElementNode();
 			}
 			
 			return edge;
@@ -1265,11 +1265,11 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			}
 			
 			if(edge.getTarget() instanceof ComplexNode) {
-				edge.getTarget().adaptAsNeoNode();
+				edge.getTarget().adaptAsNeoElementNode();
 			} else if(edge.getTarget() instanceof PrimitiveNode) {
 				edge.getTarget().adaptAsNeoPropertyNode();
 			} else if(edge.getTarget() instanceof Node) {
-				edge.getTarget().adaptAsNeoNode();
+				edge.getTarget().adaptAsNeoElementNode();
 			}
 			
 			return edge;

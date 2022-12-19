@@ -543,7 +543,7 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	NeoElementNode adaptAsNeoNode() throws InvalidityException;
+	NeoElementNode adaptAsNeoElementNode() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

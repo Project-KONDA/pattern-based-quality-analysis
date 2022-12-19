@@ -329,7 +329,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return adaptAsNeoNode();
+		return adaptAsNeoElementNode();
 	}
 	
 	@Override
@@ -1557,9 +1557,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	@Override
-	public NeoElementNode adaptAsNeoNode() throws InvalidityException {
+	public NeoElementNode adaptAsNeoElementNode() throws InvalidityException {
 		Graph graph = getGraph();
-		NeoElementNode elementOriginal = ((NodeImpl) getOriginalNode()).adaptAsNeoNodeRecursive();
+		NeoElementNode elementOriginal = ((NodeImpl) getOriginalNode()).adaptAsNeoElementNodeRecursive();
 		elementOriginal.createParameters();
 		
 		for (Node n : graph.getNodes()) {
@@ -1583,7 +1583,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	}
 
 	
-	private NeoElementNode adaptAsNeoNodeRecursive() throws InvalidityException {
+	private NeoElementNode adaptAsNeoElementNodeRecursive() throws InvalidityException {
 		if (!(this instanceof NeoElementNode)) {	
 			NeoElementNodeImpl neoNode = (NeoElementNodeImpl) Adaptionneo4jFactoryImpl.init().createNeoElementNode();
 			neoNode.typeModifiable = true;
@@ -1627,13 +1627,13 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			EList<ElementMapping> maps = new BasicEList<ElementMapping>();
 			maps.addAll(neoNode.getOutgoingMappings());
 			for (ElementMapping map: maps) {
-				((NodeImpl) map.getTarget()).adaptAsNeoNodeRecursive();
+				((NodeImpl) map.getTarget()).adaptAsNeoElementNodeRecursive();
 			}			
 			
 			return neoNode;			
 		} else {
 			for (ElementMapping map: getOutgoingMappings()) {
-				((NodeImpl) map.getTarget()).adaptAsNeoNodeRecursive();
+				((NodeImpl) map.getTarget()).adaptAsNeoElementNodeRecursive();
 			}
 			return (NeoElementNode) this;
 		}
@@ -1714,7 +1714,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			
 			for (ElementMapping map: neoPropertyNode.getOutgoingMappings()) {
 				if (map instanceof NeoElementNode) {
-					((NodeImpl) map.getTarget()).adaptAsNeoNodeRecursive();
+					((NodeImpl) map.getTarget()).adaptAsNeoElementNodeRecursive();
 				} else {
 					((NodeImpl) map.getTarget()).adaptAsNeoPropertyRecursive();
 				}
@@ -2287,7 +2287,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				}
 			case GraphstructurePackage.NODE___ADAPT_AS_NEO_NODE:
 				try {
-					return adaptAsNeoNode();
+					return adaptAsNeoElementNode();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
