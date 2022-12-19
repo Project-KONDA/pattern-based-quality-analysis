@@ -17,7 +17,7 @@ import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.PatternElement;
-import qualitypatternmodel.patternstructure.ElementMapping;
+import qualitypatternmodel.patternstructure.NodeMapping;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,17 +48,17 @@ import qualitypatternmodel.patternstructure.ElementMapping;
 public interface Node extends qualitypatternmodel.graphstructure.Comparable, PatternElement, Adaptable {
 	/**
 	 * Returns the value of the '<em><b>Incoming Mapping</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.ElementMapping#getTarget <em>Target</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.NodeMapping#getTarget <em>Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Incoming Mapping</em>' reference.
-	 * @see #setIncomingMapping(ElementMapping)
+	 * @see #setIncomingMapping(NodeMapping)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getNode_IncomingMapping()
-	 * @see qualitypatternmodel.patternstructure.ElementMapping#getTarget
+	 * @see qualitypatternmodel.patternstructure.NodeMapping#getTarget
 	 * @model opposite="target"
 	 * @generated
 	 */
-	ElementMapping getIncomingMapping();
+	NodeMapping getIncomingMapping();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Node#getIncomingMapping <em>Incoming Mapping</em>}' reference.
@@ -68,21 +68,21 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @see #getIncomingMapping()
 	 * @generated
 	 */
-	void setIncomingMapping(ElementMapping value);
+	void setIncomingMapping(NodeMapping value);
 
 	/**
 	 * Returns the value of the '<em><b>Outgoing Mappings</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.patternstructure.ElementMapping}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.ElementMapping#getSource <em>Source</em>}'.
+	 * The list contents are of type {@link qualitypatternmodel.patternstructure.NodeMapping}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.NodeMapping#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Outgoing Mappings</em>' reference list.
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getNode_OutgoingMappings()
-	 * @see qualitypatternmodel.patternstructure.ElementMapping#getSource
+	 * @see qualitypatternmodel.patternstructure.NodeMapping#getSource
 	 * @model opposite="source"
 	 * @generated
 	 */
-	EList<ElementMapping> getOutgoingMappings();
+	EList<NodeMapping> getOutgoingMappings();
 
 	/**
 	 * Returns the value of the '<em><b>Graph</b></em>' container reference.

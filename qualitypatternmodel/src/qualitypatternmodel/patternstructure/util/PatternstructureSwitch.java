@@ -96,11 +96,11 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PatternstructurePackage.ELEMENT_MAPPING: {
-				ElementMapping elementMapping = (ElementMapping)theEObject;
-				T result = caseElementMapping(elementMapping);
-				if (result == null) result = caseMapping(elementMapping);
-				if (result == null) result = casePatternElement(elementMapping);
+			case PatternstructurePackage.NODE_MAPPING: {
+				NodeMapping nodeMapping = (NodeMapping)theEObject;
+				T result = caseNodeMapping(nodeMapping);
+				if (result == null) result = caseMapping(nodeMapping);
+				if (result == null) result = casePatternElement(nodeMapping);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -261,17 +261,17 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Element Mapping</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Node Mapping</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Element Mapping</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Node Mapping</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseElementMapping(ElementMapping object) {
+	public T caseNodeMapping(NodeMapping object) {
 		return null;
 	}
 

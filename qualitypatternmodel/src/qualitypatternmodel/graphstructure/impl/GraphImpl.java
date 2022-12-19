@@ -46,7 +46,7 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CountPattern;
-import qualitypatternmodel.patternstructure.ElementMapping;
+import qualitypatternmodel.patternstructure.NodeMapping;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.Pattern;
@@ -54,7 +54,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.RelationMapping;
-import qualitypatternmodel.patternstructure.impl.ElementMappingImpl;
+import qualitypatternmodel.patternstructure.impl.NodeMappingImpl;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.patternstructure.impl.RelationMappingImpl;
 
@@ -335,8 +335,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 							previousXmlNavigation.setGraphSimple(this);
 							previousXmlNavigation.createParameters();	
 							previousXmlNavigation.setSource(root);
-							EList<ElementMapping> emaps = previousRelation.getTarget().getOutgoingMappings();
-							for (ElementMapping em : emaps) {
+							EList<NodeMapping> emaps = previousRelation.getTarget().getOutgoingMappings();
+							for (NodeMapping em : emaps) {
 								if (getNodes().contains(em.getTarget())) {
 									previousXmlNavigation.setTarget(em.getTarget());	
 								}
@@ -455,7 +455,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			
 			Node mappedSource;
 			if (source != null) {
-				for(ElementMapping mapping : source.getOutgoingMappings()) {
+				for(NodeMapping mapping : source.getOutgoingMappings()) {
 					if(mapping.getMorphism().equals(morphism)) {
 						mappedSource = mapping.getTarget();
 						newRelation.setSource(mappedSource);
@@ -465,7 +465,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			
 			Node mappedTarget;
 			if (target != null) {
-				for(ElementMapping mapping : target.getOutgoingMappings()) {
+				for(NodeMapping mapping : target.getOutgoingMappings()) {
 					if(mapping.getMorphism().equals(morphism)) {
 						mappedTarget = mapping.getTarget();
 						newRelation.setTarget(mappedTarget);
@@ -490,7 +490,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			if(node.isReturnNode()) {
 				newElement.setReturnNode(true);
 			}
-			ElementMapping newMapping = new ElementMappingImpl();
+			NodeMapping newMapping = new NodeMappingImpl();
 			if(targetGraph.getQuantifiedCondition() != null) {
 				targetGraph.getQuantifiedCondition().getMorphism().getMappings().add(newMapping);
 			} else if(targetGraph.getPattern() instanceof CountPattern) {

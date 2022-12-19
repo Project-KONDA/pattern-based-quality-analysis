@@ -41,7 +41,7 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.ElementMapping;
+import qualitypatternmodel.patternstructure.NodeMapping;
 import qualitypatternmodel.patternstructure.Mapping;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.MorphismContainer;
@@ -331,13 +331,13 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				newMapping.setTarget(newRelation);
 				
 				for(Mapping mapping : morphism.getMappings()) {
-					if(mapping instanceof ElementMapping) {
-						ElementMapping elementMapping = (ElementMapping) mapping;
-						if(elementMapping.getSource().equals(getSource())) {
-							newRelation.setSource(((ComplexNode) elementMapping.getTarget()));
+					if(mapping instanceof NodeMapping) {
+						NodeMapping nodeMapping = (NodeMapping) mapping;
+						if(nodeMapping.getSource().equals(getSource())) {
+							newRelation.setSource(((ComplexNode) nodeMapping.getTarget()));
 						}
-						if(elementMapping.getSource().equals(getTarget())) {
-							newRelation.setTarget(elementMapping.getTarget());
+						if(nodeMapping.getSource().equals(getTarget())) {
+							newRelation.setTarget(nodeMapping.getTarget());
 						}
 					}
 				}
@@ -482,10 +482,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		if(newSource != null) {
 			for(RelationMapping relationMapping : getOutgoingMappings()) {
 				for(Mapping mapping : relationMapping.getMorphism().getMappings()) {
-					if(mapping instanceof ElementMapping) {
-						ElementMapping elementMapping = (ElementMapping) mapping;
-						if(elementMapping.getSource().equals(newSource)) {
-							relationMapping.getTarget().setSource((ComplexNode) elementMapping.getTarget());
+					if(mapping instanceof NodeMapping) {
+						NodeMapping nodeMapping = (NodeMapping) mapping;
+						if(nodeMapping.getSource().equals(newSource)) {
+							relationMapping.getTarget().setSource((ComplexNode) nodeMapping.getTarget());
 						}						
 					}
 				}
@@ -543,10 +543,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		if(newTarget != null) {
 			for(RelationMapping relationMapping : getOutgoingMappings()) {
 				for(Mapping mapping : relationMapping.getMorphism().getMappings()) {
-					if(mapping instanceof ElementMapping) {
-						ElementMapping elementMapping = (ElementMapping) mapping;
-						if(elementMapping.getSource().equals(newTarget)) {
-							relationMapping.getTarget().setTarget(elementMapping.getTarget());
+					if(mapping instanceof NodeMapping) {
+						NodeMapping nodeMapping = (NodeMapping) mapping;
+						if(nodeMapping.getSource().equals(newTarget)) {
+							relationMapping.getTarget().setTarget(nodeMapping.getTarget());
 						}						
 					}
 				}

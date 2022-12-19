@@ -453,11 +453,11 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Morphism/checkRelationMappings"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Morphism/checkRelationMappingsUniqueness"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/ElementMapping">
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/NodeMapping">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/ElementMapping/source"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/NodeMapping/source"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/ElementMapping/target"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/NodeMapping/target"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//patternstructure/Mapping">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Mapping/morphism"/>

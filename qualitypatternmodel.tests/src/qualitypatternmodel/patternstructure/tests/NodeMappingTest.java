@@ -4,16 +4,16 @@ package qualitypatternmodel.patternstructure.tests;
 
 import junit.textui.TestRunner;
 
+import qualitypatternmodel.patternstructure.NodeMapping;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
-import qualitypatternmodel.patternstructure.ElementMapping;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Single Element Mapping</b></em>'.
+ * A test case for the model object '<em><b>Node Mapping</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class ElementMappingTest extends MappingTest {
+public class NodeMappingTest extends MappingTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +21,28 @@ public class ElementMappingTest extends MappingTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(ElementMappingTest.class);
+		TestRunner.run(NodeMappingTest.class);
 	}
 
 	/**
-	 * Constructs a new Element Mapping test case with the given name.
+	 * Constructs a new Node Mapping test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ElementMappingTest(String name) {
+	public NodeMappingTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Element Mapping test case.
+	 * Returns the fixture for this Node Mapping test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected ElementMapping getFixture() {
-		return (ElementMapping)fixture;
+	protected NodeMapping getFixture() {
+		return (NodeMapping)fixture;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class ElementMappingTest extends MappingTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(PatternstructureFactory.eINSTANCE.createElementMapping());
+		setFixture(PatternstructureFactory.eINSTANCE.createNodeMapping());
 	}
 
 	/**
@@ -67,4 +67,4 @@ public class ElementMappingTest extends MappingTest {
 		setFixture(null);
 	}
 
-} //SingleElementMappingTest
+} //NodeMappingTest

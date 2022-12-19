@@ -35,7 +35,7 @@ import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.patternstructure.ElementMapping;
+import qualitypatternmodel.patternstructure.NodeMapping;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -338,13 +338,13 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	@Override
 	public void checkElementMappings() throws InvalidityException {
 		for(Mapping mapping : getMappings()) {
-			if(mapping instanceof ElementMapping) {
-				ElementMapping elementMapping = (ElementMapping) mapping;
-				if(!getSource().getNodes().contains(elementMapping.getSource())) {
-					throw new InvalidityException("wrong ElementMapping from");
+			if(mapping instanceof NodeMapping) {
+				NodeMapping nodeMapping = (NodeMapping) mapping;
+				if(!getSource().getNodes().contains(nodeMapping.getSource())) {
+					throw new InvalidityException("wrong NodeMapping from");
 				}
-				if(!getTarget().getNodes().contains(elementMapping.getTarget())) {
-					throw new InvalidityException("wrong ElementMapping to");
+				if(!getTarget().getNodes().contains(nodeMapping.getTarget())) {
+					throw new InvalidityException("wrong NodeMapping to");
 				}
 			}
 		}
@@ -381,9 +381,9 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	public void checkElementMappingsUniqueness() throws InvalidityException {
 		List<Node> nodes = new ArrayList<Node>();
 		for(Mapping mapping : getMappings()) {
-			if(mapping instanceof ElementMapping) {
-				ElementMapping elementMapping = (ElementMapping) mapping;
-				nodes.add(elementMapping.getSource());
+			if(mapping instanceof NodeMapping) {
+				NodeMapping nodeMapping = (NodeMapping) mapping;
+				nodes.add(nodeMapping.getSource());
 			}
 		}
 		Set<Node> set = new HashSet<Node>(nodes);
@@ -402,8 +402,8 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 * @generated NOT
 	 */
 	@Override
-	public ElementMapping addMapping(Node from, Node to) {
-		ElementMapping em = new ElementMappingImpl();
+	public NodeMapping addMapping(Node from, Node to) {
+		NodeMapping em = new NodeMappingImpl();
 		getMappings().add(em);
 		em.setSource(from);
 		em.setTarget(to);
@@ -434,18 +434,18 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 		EList<Mapping> mappings = new BasicEList<Mapping>();
 		mappings.addAll(getMappings());
 		for(Mapping mapping : mappings) {
-			if(mapping instanceof ElementMapping) {
-				ElementMapping elementMapping = (ElementMapping) mapping;
-				if(elementMapping.getSource() == null && getSource() != null
-						|| elementMapping.getSource() != null && getSource() == null
-						|| elementMapping.getSource() != null && elementMapping.getSource().getGraph() == null
-						|| elementMapping.getSource() != null && !elementMapping.getSource().getGraph().equals(getSource())) {
-					getMappings().remove(elementMapping);
-				} else if(elementMapping.getTarget() == null && getTarget() != null
-						|| elementMapping.getTarget() != null && getTarget() == null
-						|| elementMapping.getTarget() != null && elementMapping.getTarget().getGraph() == null
-						|| elementMapping.getTarget() != null && !elementMapping.getTarget().getGraph().equals(getTarget())) {
-					getMappings().remove(elementMapping);
+			if(mapping instanceof NodeMapping) {
+				NodeMapping nodeMapping = (NodeMapping) mapping;
+				if(nodeMapping.getSource() == null && getSource() != null
+						|| nodeMapping.getSource() != null && getSource() == null
+						|| nodeMapping.getSource() != null && nodeMapping.getSource().getGraph() == null
+						|| nodeMapping.getSource() != null && !nodeMapping.getSource().getGraph().equals(getSource())) {
+					getMappings().remove(nodeMapping);
+				} else if(nodeMapping.getTarget() == null && getTarget() != null
+						|| nodeMapping.getTarget() != null && getTarget() == null
+						|| nodeMapping.getTarget() != null && nodeMapping.getTarget().getGraph() == null
+						|| nodeMapping.getTarget() != null && !nodeMapping.getTarget().getGraph().equals(getTarget())) {
+					getMappings().remove(nodeMapping);
 				}
 				
 			} else {
