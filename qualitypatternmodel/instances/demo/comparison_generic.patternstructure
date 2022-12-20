@@ -1,64 +1,26 @@
 <?xml version="1.0" encoding="ASCII"?>
-<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:operators="operators" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_mvACsIASEeya-rNCXluqEA" internalId="1" name="comparison_generic" counter="2" description="Allows detecting illegal values, i.e. allows detecting elements with a specific property which are related to other elements with two specific properties" abstractName="comparison_generic">
-  <graph id="_mvACsoASEeya-rNCXluqEA" returnElements="_mvACtIASEeya-rNCXluqEA" outgoingMorphisms="_mvApwIASEeya-rNCXluqEA">
-    <elements id="_mvACtIASEeya-rNCXluqEA" outgoingMappings="_mvApwoASEeya-rNCXluqEA" resultOf="_mvACsoASEeya-rNCXluqEA" name="Element0" predicates="_mvACtYASEeya-rNCXluqEA">
-      <properties id="_mvACtoASEeya-rNCXluqEA" comparison1="_mvACtYASEeya-rNCXluqEA"/>
-    </elements>
-    <operatorList id="_mvACs4ASEeya-rNCXluqEA">
-      <operators xsi:type="operators:Comparison" id="_mvACtYASEeya-rNCXluqEA" elements="_mvACtIASEeya-rNCXluqEA" argument1="_mvACtoASEeya-rNCXluqEA" argument2="_mvACt4ASEeya-rNCXluqEA" option="_mvACuIASEeya-rNCXluqEA" typeOption="_mvACuYASEeya-rNCXluqEA"/>
-    </operatorList>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphstructure="graphstructure" xmlns:operators="operators" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_1aE5kIB3Ee2usNr5oNQslg" internalId="1" name="comparison_generic" description="Allows detecting illegal values, i.e. allows detecting elements with a specific property which are related to other elements with two specific properties" abstractName="comparison_generic" counter="2" elementCounter="3">
+  <graph id="_1aE5koB3Ee2usNr5oNQslg" outgoingMorphisms="_1aE5moB3Ee2usNr5oNQslg">
+    <nodes xsi:type="graphstructure:ComplexNode" id="_1aE5loB3Ee2usNr5oNQslg" outgoingMappings="_1aE5noB3Ee2usNr5oNQslg" name="Element0" returnNode="true"/>
+    <operatorList id="_1aE5k4B3Ee2usNr5oNQslg"/>
   </graph>
-  <condition xsi:type="patternstructure:QuantifiedCondition" id="_mvACuoASEeya-rNCXluqEA">
-    <morphism id="_mvApwIASEeya-rNCXluqEA" source="_mvACsoASEeya-rNCXluqEA" target="_mvACu4ASEeya-rNCXluqEA">
-      <mappings xsi:type="patternstructure:ElementMapping" id="_mvApwoASEeya-rNCXluqEA" source="_mvACtIASEeya-rNCXluqEA" target="_mvApwYASEeya-rNCXluqEA"/>
+  <condition xsi:type="patternstructure:QuantifiedCondition" id="_1aE5l4B3Ee2usNr5oNQslg">
+    <morphism id="_1aE5moB3Ee2usNr5oNQslg" source="_1aE5koB3Ee2usNr5oNQslg" target="_1aE5mIB3Ee2usNr5oNQslg">
+      <mappings xsi:type="patternstructure:NodeMapping" id="_1aE5noB3Ee2usNr5oNQslg" source="_1aE5loB3Ee2usNr5oNQslg" target="_1aE5nYB3Ee2usNr5oNQslg"/>
     </morphism>
-    <graph id="_mvACu4ASEeya-rNCXluqEA" returnElements="_mvApwYASEeya-rNCXluqEA" incomingMorphism="_mvApwIASEeya-rNCXluqEA">
-      <elements id="_mvApwYASEeya-rNCXluqEA" incomingMapping="_mvApwoASEeya-rNCXluqEA" resultOf="_mvACu4ASEeya-rNCXluqEA" name="Element0" outgoing="_mvApxIASEeya-rNCXluqEA"/>
-      <elements id="_mvApw4ASEeya-rNCXluqEA" name="Element1" predicates="_mvApxYASEeya-rNCXluqEA _mvApyoASEeya-rNCXluqEA" incoming="_mvApxIASEeya-rNCXluqEA">
-        <properties id="_mvApxoASEeya-rNCXluqEA" comparison1="_mvApxYASEeya-rNCXluqEA"/>
-        <properties id="_mvApy4ASEeya-rNCXluqEA" comparison1="_mvApyoASEeya-rNCXluqEA"/>
-      </elements>
-      <operatorList id="_mvACvIASEeya-rNCXluqEA">
-        <operators xsi:type="operators:Comparison" id="_mvApxYASEeya-rNCXluqEA" elements="_mvApw4ASEeya-rNCXluqEA" argument1="_mvApxoASEeya-rNCXluqEA" argument2="_mvApx4ASEeya-rNCXluqEA" option="_mvApyIASEeya-rNCXluqEA" typeOption="_mvApyYASEeya-rNCXluqEA"/>
-        <operators xsi:type="operators:Comparison" id="_mvApyoASEeya-rNCXluqEA" elements="_mvApw4ASEeya-rNCXluqEA" argument1="_mvApy4ASEeya-rNCXluqEA" argument2="_mvApzIASEeya-rNCXluqEA" option="_mvApzYASEeya-rNCXluqEA" typeOption="_mvApzoASEeya-rNCXluqEA"/>
+    <graph id="_1aE5mIB3Ee2usNr5oNQslg" incomingMorphism="_1aE5moB3Ee2usNr5oNQslg">
+      <nodes xsi:type="graphstructure:ComplexNode" id="_1aE5nYB3Ee2usNr5oNQslg" incomingMapping="_1aE5noB3Ee2usNr5oNQslg" name="Element0" returnNode="true" outgoing="_1aE5oIB3Ee2usNr5oNQslg"/>
+      <nodes xsi:type="graphstructure:PrimitiveNode" id="_1aE5oYB3Ee2usNr5oNQslg" comparison1="_1aE5ooB3Ee2usNr5oNQslg" name="Element1" predicates="_1aE5ooB3Ee2usNr5oNQslg" incoming="_1aE5oIB3Ee2usNr5oNQslg" typeModifiable="false"/>
+      <operatorList id="_1aE5mYB3Ee2usNr5oNQslg">
+        <operators xsi:type="operators:Comparison" id="_1aE5ooB3Ee2usNr5oNQslg" nodes="_1aE5oYB3Ee2usNr5oNQslg" argument1="_1aE5oYB3Ee2usNr5oNQslg" argument2="_1aE5o4B3Ee2usNr5oNQslg" option="_1aE5pIB3Ee2usNr5oNQslg" typeOption="_1aE5pYB3Ee2usNr5oNQslg"/>
       </operatorList>
-      <relations id="_mvApxIASEeya-rNCXluqEA" source="_mvApwYASEeya-rNCXluqEA" target="_mvApw4ASEeya-rNCXluqEA"/>
+      <relations id="_1aE5oIB3Ee2usNr5oNQslg" source="_1aE5nYB3Ee2usNr5oNQslg" target="_1aE5oYB3Ee2usNr5oNQslg"/>
     </graph>
-    <condition xsi:type="patternstructure:TrueElement" id="_mvApz4ASEeya-rNCXluqEA"/>
+    <condition xsi:type="patternstructure:TrueElement" id="_1aE5m4B3Ee2usNr5oNQslg"/>
   </condition>
-  <parameterList id="_mvACsYASEeya-rNCXluqEA">
-    <parameters xsi:type="parameters:UntypedParameterValue" id="_mvACt4ASEeya-rNCXluqEA" comparison2="_mvACtYASEeya-rNCXluqEA" typeModifiable="true"/>
-    <parameters xsi:type="parameters:ComparisonOptionParam" id="_mvACuIASEeya-rNCXluqEA" predefined="true" comparisons="_mvACtYASEeya-rNCXluqEA">
-      <options>=</options>
-      <options>!=</options>
-    </parameters>
-    <parameters xsi:type="parameters:TypeOptionParam" id="_mvACuYASEeya-rNCXluqEA" typeComparisons="_mvACtYASEeya-rNCXluqEA">
-      <options>UNSPECIFIED</options>
-      <options>STRING</options>
-      <options>BOOLEAN</options>
-      <options>ELEMENT</options>
-      <options>DATE</options>
-      <options>TIME</options>
-      <options>NUMBER</options>
-      <options>DATETIME</options>
-    </parameters>
-    <parameters xsi:type="parameters:UntypedParameterValue" id="_mvApx4ASEeya-rNCXluqEA" comparison2="_mvApxYASEeya-rNCXluqEA" typeModifiable="true"/>
-    <parameters xsi:type="parameters:ComparisonOptionParam" id="_mvApyIASEeya-rNCXluqEA" predefined="true" comparisons="_mvApxYASEeya-rNCXluqEA">
-      <options>=</options>
-      <options>!=</options>
-    </parameters>
-    <parameters xsi:type="parameters:TypeOptionParam" id="_mvApyYASEeya-rNCXluqEA" typeComparisons="_mvApxYASEeya-rNCXluqEA">
-      <options>UNSPECIFIED</options>
-      <options>STRING</options>
-      <options>BOOLEAN</options>
-      <options>ELEMENT</options>
-      <options>DATE</options>
-      <options>TIME</options>
-      <options>NUMBER</options>
-      <options>DATETIME</options>
-    </parameters>
-    <parameters xsi:type="parameters:UntypedParameterValue" id="_mvApzIASEeya-rNCXluqEA" comparison2="_mvApyoASEeya-rNCXluqEA" typeModifiable="true"/>
-    <parameters xsi:type="parameters:ComparisonOptionParam" id="_mvApzYASEeya-rNCXluqEA" comparisons="_mvApyoASEeya-rNCXluqEA">
+  <parameterList id="_1aE5kYB3Ee2usNr5oNQslg">
+    <parameters xsi:type="parameters:UntypedParameterValue" id="_1aE5o4B3Ee2usNr5oNQslg" comparison2="_1aE5ooB3Ee2usNr5oNQslg" typeModifiable="true"/>
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_1aE5pIB3Ee2usNr5oNQslg" comparisons="_1aE5ooB3Ee2usNr5oNQslg">
       <options>=</options>
       <options>!=</options>
       <options>></options>
@@ -66,7 +28,7 @@
       <options>>=</options>
       <options>&lt;=</options>
     </parameters>
-    <parameters xsi:type="parameters:TypeOptionParam" id="_mvApzoASEeya-rNCXluqEA" typeComparisons="_mvApyoASEeya-rNCXluqEA">
+    <parameters xsi:type="parameters:TypeOptionParam" id="_1aE5pYB3Ee2usNr5oNQslg" typeComparisons="_1aE5ooB3Ee2usNr5oNQslg">
       <options>UNSPECIFIED</options>
       <options>STRING</options>
       <options>BOOLEAN</options>

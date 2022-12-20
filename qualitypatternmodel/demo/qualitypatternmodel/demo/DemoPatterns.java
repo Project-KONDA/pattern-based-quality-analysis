@@ -370,12 +370,13 @@ public class DemoPatterns {
 		completePattern.setDatabase(db);
 				
 		List<Parameter> params = completePattern.getParameterList().getParameters();
-		
+				
 		UntypedParameterValue p0 = ((UntypedParameterValue) params.get(0));
 		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
 //		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
-		RdfPathParam p3 = ((RdfPathParam) params.get(3));
-
+//		IriListParam p3 = ((IriListParam) params.get(3));
+		RdfPathParam p4 = ((RdfPathParam) params.get(4));
+		
 		DateParam dateValue = ParametersFactory.eINSTANCE.createDateParam();
 		dateValue.setValue("2022-12-31");
 		p0.replace(dateValue);
@@ -384,7 +385,7 @@ public class DemoPatterns {
 		IriParam p4iri = new IriParamImpl();
 		p4iri.setPrefix("wdt");
 		p4iri.setSuffix("P569");
-		((RdfSinglePredicate) p3.getRdfPathParts().get(0)).setIriParam(p4iri);
+		((RdfSinglePredicate) p4.getRdfPathParts().get(0).getRdfPath()).setIriParam(p4iri);
 								
 		return completePattern;
 	}

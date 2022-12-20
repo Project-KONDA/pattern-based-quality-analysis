@@ -1,49 +1,26 @@
 <?xml version="1.0" encoding="ASCII"?>
-<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:operators="operators" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_mvXPEIASEeya-rNCXluqEA" internalId="1" name="cardinality_generic" counter="2" description="Allows detecting violated cardinality constraints, i.e. allows detecting elements with a specific property which are related to a specific number of elements with a specific property" abstractName="cardinality_generic">
-  <graph id="_mvXPEoASEeya-rNCXluqEA" returnElements="_mvXPFIASEeya-rNCXluqEA" outgoingMorphisms="_mvXPHYASEeya-rNCXluqEA">
-    <elements id="_mvXPFIASEeya-rNCXluqEA" outgoingMappings="_mvXPIYASEeya-rNCXluqEA" resultOf="_mvXPEoASEeya-rNCXluqEA" name="Element0" predicates="_mvXPFYASEeya-rNCXluqEA">
-      <properties id="_mvXPFoASEeya-rNCXluqEA" comparison1="_mvXPFYASEeya-rNCXluqEA"/>
-    </elements>
-    <operatorList id="_mvXPE4ASEeya-rNCXluqEA">
-      <operators xsi:type="operators:Comparison" id="_mvXPFYASEeya-rNCXluqEA" elements="_mvXPFIASEeya-rNCXluqEA" argument1="_mvXPFoASEeya-rNCXluqEA" argument2="_mvXPF4ASEeya-rNCXluqEA" option="_mvXPGIASEeya-rNCXluqEA" typeOption="_mvXPGYASEeya-rNCXluqEA"/>
-    </operatorList>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphstructure="graphstructure" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_1aPRoIB3Ee2usNr5oNQslg" internalId="1" name="cardinality_generic" description="Allows detecting violated cardinality constraints, i.e. allows detecting elements with a specific property which are related to a specific number of elements with a specific property" abstractName="cardinality_generic" counter="2">
+  <graph id="_1aPRooB3Ee2usNr5oNQslg" outgoingMorphisms="_1aPRqoB3Ee2usNr5oNQslg">
+    <nodes xsi:type="graphstructure:ComplexNode" id="_1aPRtoB3Ee2usNr5oNQslg" outgoingMappings="_1aPRsIB3Ee2usNr5oNQslg" name="Element0" returnNode="true"/>
+    <operatorList id="_1aPRo4B3Ee2usNr5oNQslg"/>
   </graph>
-  <condition xsi:type="patternstructure:CountCondition" id="_mvXPGoASEeya-rNCXluqEA" option="_mvXPG4ASEeya-rNCXluqEA">
-    <countPattern id="_mvXPHIASEeya-rNCXluqEA">
-      <graph id="_mvXPHoASEeya-rNCXluqEA" returnElements="_mvXPIIASEeya-rNCXluqEA" incomingMorphism="_mvXPHYASEeya-rNCXluqEA">
-        <elements id="_mvXPIIASEeya-rNCXluqEA" incomingMapping="_mvXPIYASEeya-rNCXluqEA" resultOf="_mvXPHoASEeya-rNCXluqEA" name="Element0" outgoing="_mvX2JIASEeya-rNCXluqEA"/>
-        <elements id="_mvX2I4ASEeya-rNCXluqEA" name="Element1" predicates="_mvX2JYASEeya-rNCXluqEA" incoming="_mvX2JIASEeya-rNCXluqEA">
-          <properties id="_mvX2JoASEeya-rNCXluqEA" comparison1="_mvX2JYASEeya-rNCXluqEA"/>
-        </elements>
-        <operatorList id="_mvXPH4ASEeya-rNCXluqEA">
-          <operators xsi:type="operators:Comparison" id="_mvX2JYASEeya-rNCXluqEA" elements="_mvX2I4ASEeya-rNCXluqEA" argument1="_mvX2JoASEeya-rNCXluqEA" argument2="_mvX2J4ASEeya-rNCXluqEA" option="_mvX2KIASEeya-rNCXluqEA" typeOption="_mvX2KYASEeya-rNCXluqEA"/>
-        </operatorList>
-        <relations id="_mvX2JIASEeya-rNCXluqEA" source="_mvXPIIASEeya-rNCXluqEA" target="_mvX2I4ASEeya-rNCXluqEA"/>
+  <condition xsi:type="patternstructure:CountCondition" id="_1aPRpoB3Ee2usNr5oNQslg" option="_1aPRqIB3Ee2usNr5oNQslg">
+    <countPattern id="_1aPRqYB3Ee2usNr5oNQslg">
+      <graph id="_1aPRq4B3Ee2usNr5oNQslg" incomingMorphism="_1aPRqoB3Ee2usNr5oNQslg">
+        <nodes id="_1aPRtYB3Ee2usNr5oNQslg" name="Element1" incoming="_1aPRuIB3Ee2usNr5oNQslg"/>
+        <nodes xsi:type="graphstructure:ComplexNode" id="_1aPRt4B3Ee2usNr5oNQslg" incomingMapping="_1aPRsIB3Ee2usNr5oNQslg" name="Element0" returnNode="true" outgoing="_1aPRuIB3Ee2usNr5oNQslg"/>
+        <operatorList id="_1aPRrIB3Ee2usNr5oNQslg"/>
+        <relations id="_1aPRuIB3Ee2usNr5oNQslg" source="_1aPRt4B3Ee2usNr5oNQslg" target="_1aPRtYB3Ee2usNr5oNQslg"/>
       </graph>
-      <condition xsi:type="patternstructure:TrueElement" id="_mvXPIoASEeya-rNCXluqEA"/>
-      <morphism id="_mvXPHYASEeya-rNCXluqEA" source="_mvXPEoASEeya-rNCXluqEA" target="_mvXPHoASEeya-rNCXluqEA">
-        <mappings xsi:type="patternstructure:ElementMapping" id="_mvXPIYASEeya-rNCXluqEA" source="_mvXPFIASEeya-rNCXluqEA" target="_mvXPIIASEeya-rNCXluqEA"/>
+      <condition xsi:type="patternstructure:TrueElement" id="_1aPRsYB3Ee2usNr5oNQslg"/>
+      <morphism id="_1aPRqoB3Ee2usNr5oNQslg" source="_1aPRooB3Ee2usNr5oNQslg" target="_1aPRq4B3Ee2usNr5oNQslg">
+        <mappings xsi:type="patternstructure:NodeMapping" id="_1aPRsIB3Ee2usNr5oNQslg" source="_1aPRtoB3Ee2usNr5oNQslg" target="_1aPRt4B3Ee2usNr5oNQslg"/>
       </morphism>
     </countPattern>
-    <argument2 xsi:type="patternstructure:NumberElement" id="_mvX2IIASEeya-rNCXluqEA" numberParam="_mvX2IoASEeya-rNCXluqEA"/>
+    <argument2 xsi:type="patternstructure:NumberElement" id="_1aPRsoB3Ee2usNr5oNQslg" numberParam="_1aPRtIB3Ee2usNr5oNQslg"/>
   </condition>
-  <parameterList id="_mvXPEYASEeya-rNCXluqEA">
-    <parameters xsi:type="parameters:UntypedParameterValue" id="_mvXPF4ASEeya-rNCXluqEA" comparison2="_mvXPFYASEeya-rNCXluqEA" typeModifiable="true"/>
-    <parameters xsi:type="parameters:ComparisonOptionParam" id="_mvXPGIASEeya-rNCXluqEA" predefined="true" comparisons="_mvXPFYASEeya-rNCXluqEA">
-      <options>=</options>
-      <options>!=</options>
-    </parameters>
-    <parameters xsi:type="parameters:TypeOptionParam" id="_mvXPGYASEeya-rNCXluqEA" typeComparisons="_mvXPFYASEeya-rNCXluqEA">
-      <options>UNSPECIFIED</options>
-      <options>STRING</options>
-      <options>BOOLEAN</options>
-      <options>ELEMENT</options>
-      <options>DATE</options>
-      <options>TIME</options>
-      <options>NUMBER</options>
-      <options>DATETIME</options>
-    </parameters>
-    <parameters xsi:type="parameters:ComparisonOptionParam" id="_mvXPG4ASEeya-rNCXluqEA" countConditions="_mvXPGoASEeya-rNCXluqEA">
+  <parameterList id="_1aPRoYB3Ee2usNr5oNQslg">
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_1aPRqIB3Ee2usNr5oNQslg" countConditions="_1aPRpoB3Ee2usNr5oNQslg">
       <options>=</options>
       <options>></options>
       <options>&lt;</options>
@@ -51,21 +28,6 @@
       <options>&lt;=</options>
       <options>!=</options>
     </parameters>
-    <parameters xsi:type="parameters:NumberParam" id="_mvX2IoASEeya-rNCXluqEA" numberArgument="_mvX2IIASEeya-rNCXluqEA"/>
-    <parameters xsi:type="parameters:UntypedParameterValue" id="_mvX2J4ASEeya-rNCXluqEA" comparison2="_mvX2JYASEeya-rNCXluqEA" typeModifiable="true"/>
-    <parameters xsi:type="parameters:ComparisonOptionParam" id="_mvX2KIASEeya-rNCXluqEA" predefined="true" comparisons="_mvX2JYASEeya-rNCXluqEA">
-      <options>=</options>
-      <options>!=</options>
-    </parameters>
-    <parameters xsi:type="parameters:TypeOptionParam" id="_mvX2KYASEeya-rNCXluqEA" typeComparisons="_mvX2JYASEeya-rNCXluqEA">
-      <options>UNSPECIFIED</options>
-      <options>STRING</options>
-      <options>BOOLEAN</options>
-      <options>ELEMENT</options>
-      <options>DATE</options>
-      <options>TIME</options>
-      <options>NUMBER</options>
-      <options>DATETIME</options>
-    </parameters>
+    <parameters xsi:type="parameters:NumberParam" id="_1aPRtIB3Ee2usNr5oNQslg" numberArgument="_1aPRsoB3Ee2usNr5oNQslg"/>
   </parameterList>
 </patternstructure:CompletePattern>
