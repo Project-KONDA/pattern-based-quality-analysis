@@ -11,12 +11,14 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -152,6 +154,12 @@ public class Test00 {
 					if(pair.getTextLiteralParam().getValue() == null) {
 						pair.getTextLiteralParam().setValue("");
 					}
+				}
+			}
+			if (param instanceof TypeOptionParam) {
+				TypeOptionParam typeOptionParam = (TypeOptionParam) param;
+				if(typeOptionParam.getValue() == null || typeOptionParam.getValue() == ReturnType.UNSPECIFIED) {
+					typeOptionParam.setValue(ReturnType.STRING);
 				}
 			}
 		}
