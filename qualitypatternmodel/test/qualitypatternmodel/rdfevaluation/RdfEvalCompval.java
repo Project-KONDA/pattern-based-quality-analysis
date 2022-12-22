@@ -24,8 +24,9 @@ public class RdfEvalCompval {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getCompval2RdfAbstract());
 		completePatterns.add(getCompvalWiki());
-		RdfTest00.test(completePatterns);
 		
+//		RdfTest00.test(completePatterns);
+		RdfTest00.getQueries(completePatterns);
 	}
 	
 	public static CompletePattern getCompval2RdfAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

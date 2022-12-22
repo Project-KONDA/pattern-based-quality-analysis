@@ -39,11 +39,13 @@ public class Test00 {
 				System.out.println(completePattern.generateXQuery());
 			} catch (Exception e) {
 				System.out.print("\n####### PATTERN INVALID #######");
-				e.printStackTrace();
 				try {
 				  System.out.println(completePattern.myToString());
+					e.printStackTrace();
 				} catch (Exception e2) {
+					System.out.print("\n####### PATTERN PRINTING FAILED #######");
 					e2.printStackTrace();
+					e.printStackTrace();
 				}
 			}
 		}

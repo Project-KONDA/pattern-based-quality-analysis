@@ -12,6 +12,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.operators.Match;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -34,6 +35,20 @@ public class RdfTest00 {
 				} catch (Exception e2) {
 					e2.printStackTrace();
 				}
+			}
+		}
+	}
+	
+	public static void getQueries(ArrayList<CompletePattern> completePatterns) {
+		for (CompletePattern completePattern : completePatterns) {
+			replace(completePattern);
+			try {
+				completePattern.isValid(AbstractionLevel.CONCRETE);
+				System.out.println(completePattern.generateSparql());
+			} catch (Exception e) {
+				System.out.println("\n\n___PATTERN_(InVALID)___");
+				e.printStackTrace();
+				System.out.println(completePattern.myToString());
 			}
 		}
 	}

@@ -25,7 +25,8 @@ public class RdfEvalCard {
 		completePatterns.add(getCardWikiFather());
 		completePatterns.add(getCardWikiMother());
 		
-		RdfTest00.test(completePatterns);
+//		RdfTest00.test(completePatterns);
+		RdfTest00.getQueries(completePatterns);
 	}
 	
 	public static CompletePattern getCardRdfAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

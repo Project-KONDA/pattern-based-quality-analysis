@@ -21,7 +21,9 @@ public class RdfEvalContains {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getMatchRdfAbstract());
 		completePatterns.add(getMatchWiki());
-		RdfTest00.test(completePatterns);
+		
+//		RdfTest00.test(completePatterns);
+		RdfTest00.getQueries(completePatterns);
 	}
 	
 	public static CompletePattern getMatchRdfAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

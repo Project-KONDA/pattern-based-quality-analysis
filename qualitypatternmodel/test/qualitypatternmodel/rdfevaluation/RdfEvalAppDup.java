@@ -21,7 +21,9 @@ public class RdfEvalAppDup {
 		completePatterns.add(getAppDup2Concrete());
 		completePatterns.add(getAppDup3Abstract());
 		completePatterns.add(getAppDup3Concrete());
-		RdfTest00.test(completePatterns);
+		
+//		RdfTest00.test(completePatterns);
+		RdfTest00.getQueries(completePatterns);
 	}
 
 	public static CompletePattern getAppDup2Abstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
