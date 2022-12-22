@@ -23,6 +23,7 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.impl.ComplexNodeImpl;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -59,6 +60,7 @@ public class RdfIriNodeImpl extends ComplexNodeImpl implements RdfIriNode {
 	 */
 	public RdfIriNodeImpl() {
 		super();
+		createParameters();
 	}
 	
 	@Override
@@ -80,6 +82,14 @@ public class RdfIriNodeImpl extends ComplexNodeImpl implements RdfIriNode {
 			}
 		}
 		return result;
+	}
+	
+	@Override
+	public EList<Parameter> getAllParameters() throws InvalidityException {
+		EList<Parameter> res = super.getAllParameters();
+		if (this == getOriginalNode())
+			res.add(getRdfIriNodeTypes());
+		return res;
 	}
 	
 	@Override
@@ -207,6 +217,7 @@ public class RdfIriNodeImpl extends ComplexNodeImpl implements RdfIriNode {
 				getRdfIriNodeTypes().setParameterList(null);
 				setRdfIriNodeTypes(null);
 			}
+			getOriginalNode().createParameters();
 		}
 	}
 

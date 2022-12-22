@@ -231,10 +231,10 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		super.isValidLocal(abstractionLevel);
 		if (getIncomingMapping() == null && xmlPathParam == null) {
-			throw new InvalidityException("pathParam missing on " + this + " " + getName());
+			throw new InvalidityException("xmlPathParam missing on " + this + " " + getName());
 		}
 		if (getIncomingMapping() != null && xmlPathParam != null) { 
-			throw new InvalidityException("pathParam superflous");
+			throw new InvalidityException("xmlPathParam superflous");
 		}
 	}	
 	

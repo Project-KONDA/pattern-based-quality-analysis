@@ -165,7 +165,7 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException  {
 		super.isValid(abstractionLevel);
-		if(getAttributeName() != null)
+		if(getAttributeName() != null && getValue() == XmlPropertyKind.ATTRIBUTE)
 			getAttributeName().isValid(abstractionLevel);
 	}
 	
