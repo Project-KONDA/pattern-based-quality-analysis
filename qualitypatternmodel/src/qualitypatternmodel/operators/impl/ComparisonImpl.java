@@ -344,12 +344,12 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			throw new InvalidityException("input value type unspecified" + " (" + getInternalId() + ")");
 		}
 
-		if (argument1 instanceof Node && argument2 instanceof Node) {
-			if (option.getValue() != ComparisonOperator.EQUAL && option.getValue() != ComparisonOperator.NOTEQUAL) {
-				throw new InvalidityException(
-						"invalid comparison operator for arguments of type Element" + " (" + getInternalId() + ")");
-			}
-		}
+//		if (argument1 instanceof Node && argument2 instanceof Node) {
+//			if (option.getValue() != ComparisonOperator.EQUAL && option.getValue() != ComparisonOperator.NOTEQUAL) {
+//				throw new InvalidityException(
+//						"invalid comparison operator for arguments of type Element" + " (" + getInternalId() + ")");
+//			}
+//		}
 		super.isValidLocal(abstractionLevel);
 		isCycleFree();
 	}
