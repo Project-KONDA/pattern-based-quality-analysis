@@ -55,6 +55,11 @@ public class TextFragmentImpl extends FragmentImpl implements TextFragment {
 	protected TextFragmentImpl() {
 		super();
 	}
+
+	public TextFragmentImpl(String value) {
+		super();
+		setText(value);
+	}
 	
 	@Override
 	public String getPreview() {		
