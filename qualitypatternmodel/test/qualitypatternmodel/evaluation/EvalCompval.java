@@ -21,6 +21,8 @@ public class EvalCompval {
 
 		completePatterns.add(getCompval2Generic());
 		completePatterns.add(getCompval3Generic());
+		completePatterns.add(getCompval2GenericLong());
+		completePatterns.add(getCompval3GenericLong());
 		
 		for (CompletePattern cp: completePatterns)
 			Test00.printGenericPatternExampleXQuery(cp);
@@ -28,6 +30,46 @@ public class EvalCompval {
 	}
 	
 	public static CompletePattern getCompval2Generic() throws InvalidityException {
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		completePattern.setName("comparison_generic");
+		completePattern.setAbstractName("comparison_generic");
+		completePattern.setDescription("Allows detecting illegal values, i.e. allows detecting elements with a specific property which are related to other elements with two specific properties");
+		
+		// Context graph of pattern:
+		Node element0 = completePattern.getGraph().getReturnNodes().get(0).makeComplex();
+		
+		// First-order logic condition of pattern:
+		
+		// Graph of quantified condition:		
+		
+		Node element1 = element0.addOutgoing().getTarget().makePrimitive();
+		element1.setName("Element1");
+		
+		element1.addPrimitiveComparison();
+				
+		Comparison comp2 = (Comparison) completePattern.getGraph().getOperatorList().getOperators().get(0);
+		comp2.getOption().getOptions().add(ComparisonOperator.GREATER);
+		comp2.getOption().getOptions().add(ComparisonOperator.LESS);
+		comp2.getOption().getOptions().add(ComparisonOperator.GREATEROREQUAL);
+		comp2.getOption().getOptions().add(ComparisonOperator.LESSOREQUAL);
+		
+		return completePattern;	
+	}
+
+	public static CompletePattern getCompval3Generic() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+//		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);
+
+		Node element1 = completePattern.getGraph().getNodes().get(0).makeComplex();
+//		element1.addOutgoing().getTarget();
+
+		Node element2 = element1.addOutgoing().getTarget().makeComplex();
+		Node element3 = element2.addOutgoing().getTarget();
+		element3.addPrimitiveComparison();
+		return completePattern;
+	}
+	
+	public static CompletePattern getCompval2GenericLong() throws InvalidityException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setName("comparison_generic");
 		completePattern.setAbstractName("comparison_generic");
@@ -58,7 +100,7 @@ public class EvalCompval {
 		return completePattern;	
 	}
 
-	public static CompletePattern getCompval3Generic() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern getCompval3GenericLong() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 //		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);
 

@@ -16,8 +16,9 @@ public class EvalContains {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		
+
 		completePatterns.add(getContainsGeneric());
+		completePatterns.add(getContainsGenericLong());
 		
 		for (CompletePattern cp: completePatterns)
 			Test00.printGenericPatternExampleXQuery(cp);
@@ -25,6 +26,19 @@ public class EvalContains {
 	}
 	
 	public static CompletePattern getContainsGeneric() throws InvalidityException {
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		
+		// Context graph of pattern:
+				
+		Node element0 = completePattern.getGraph().getReturnNodes().get(0).makeComplex();
+		
+		Node element1 = element0.addOutgoing().getTarget().makePrimitive();
+		element1.addPrimitiveContains();
+		
+		return completePattern;	
+	}
+	
+	public static CompletePattern getContainsGenericLong() throws InvalidityException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		
 		// Context graph of pattern:
@@ -41,6 +55,7 @@ public class EvalContains {
 		
 		return completePattern;	
 	}
+	
 	
 //	public static CompletePattern getContainsCondGeneric() throws InvalidityException {
 //		CompletePattern completePattern = getContainsGeneric();

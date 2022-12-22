@@ -19,6 +19,7 @@ public class EvalComp {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		
+		completePatterns.add(getCompGenericLong());
 		completePatterns.add(getCompGeneric());
 		
 		for (CompletePattern cp: completePatterns) 
@@ -26,7 +27,7 @@ public class EvalComp {
 //			System.out.println(cp.myToString());
 	}
 	
-	public static CompletePattern getCompGeneric() throws InvalidityException {
+	public static CompletePattern getCompGenericLong() throws InvalidityException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 
 		completePattern.getGraph().getReturnNodes().get(0).makeComplex();
@@ -45,6 +46,30 @@ public class EvalComp {
 		element1.addComparison(element2);
 				
 		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(0);
+		comp2.getOption().getOptions().add(ComparisonOperator.GREATER);
+		comp2.getOption().getOptions().add(ComparisonOperator.LESS);
+		comp2.getOption().getOptions().add(ComparisonOperator.GREATEROREQUAL);
+		comp2.getOption().getOptions().add(ComparisonOperator.LESSOREQUAL);
+		
+		return completePattern;	
+	}
+	
+	public static CompletePattern getCompGeneric() throws InvalidityException {
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+
+		completePattern.getGraph().getReturnNodes().get(0).makeComplex();
+				
+		Node element0Copy = completePattern.getGraph().getReturnNodes().get(0);
+		
+		Node element1 = element0Copy.addOutgoing().getTarget().makePrimitive();
+		element1.setGraph(completePattern.getGraph());
+
+		Node element2 = element0Copy.addOutgoing().getTarget().makePrimitive();
+		element2.setGraph(completePattern.getGraph());
+		
+		element1.addComparison(element2);
+				
+		Comparison comp2 = (Comparison) completePattern.getGraph().getOperatorList().getOperators().get(0);
 		comp2.getOption().getOptions().add(ComparisonOperator.GREATER);
 		comp2.getOption().getOptions().add(ComparisonOperator.LESS);
 		comp2.getOption().getOptions().add(ComparisonOperator.GREATEROREQUAL);
