@@ -245,8 +245,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 			if (getNodes().get(0) instanceof XmlNode) {
 				for(Node node : getNodes()) {
-					if( !(node instanceof XmlNode)) {
-						throw new InvalidityException("XML-adapted pattern contains non-XML-Node (" + getInternalId() + ")");
+					if( !(node instanceof XmlNode || node instanceof XmlRoot)) {
+						throw new InvalidityException("XML-adapted pattern contains non-XML-Node (" + getInternalId() + ": " + node.getClass() + "(" +  + node.getInternalId() + "))");
 					}
 				}
 				

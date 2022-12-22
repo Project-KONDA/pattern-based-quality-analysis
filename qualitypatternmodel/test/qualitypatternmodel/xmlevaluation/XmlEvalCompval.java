@@ -67,12 +67,12 @@ public class XmlEvalCompval {
 		XmlPathParam p5 = ((XmlPathParam) params.get(5));
 		
 		p0.setValue(attribute4Value);
-		p3.specifyAxis(element1Axis, attribute1Kind, attribute1Name, attribute1Value);
-		p4.specifyAxis(element2Axis, attribute2Kind, attribute2Name, attribute2Value);
-		p5.specifyAxis(element3Axis, attribute3Kind, attribute3Name, attribute3Value);
-		p5.getXmlPropertyOptionParam().setValue(attribute4Kind);
+		p5.specifyAxis(element1Axis, attribute1Kind, attribute1Name, attribute1Value);
+		p3.specifyAxis(element2Axis, attribute2Kind, attribute2Name, attribute2Value);
+		p4.specifyAxis(element3Axis, attribute3Kind, attribute3Name, attribute3Value);
+		p4.getXmlPropertyOptionParam().setValue(attribute4Kind);
 		if (attribute4Kind == XmlPropertyKind.ATTRIBUTE)
-			p5.getXmlPropertyOptionParam().getAttributeName().setValue(attribute4Name);
+			p4.getXmlPropertyOptionParam().getAttributeName().setValue(attribute4Name);
 		
 		return completePattern;
 	}
@@ -92,11 +92,11 @@ public class XmlEvalCompval {
 		XmlPathParam p4 = ((XmlPathParam) params.get(4));
 
 		p0.setValue(value);
-		p3.specifyAxis(returnElementAxis, attribute1Kind, attribute1Name, returnElementType);
-		p4.specifyAxis(element2Axis, attribute2Kind, attribute2Name, element2Type);
-		p4.getXmlPropertyOptionParam().setValue(attribute3Kind);
+		p4.specifyAxis(returnElementAxis, attribute1Kind, attribute1Name, returnElementType);
+		p3.specifyAxis(element2Axis, attribute2Kind, attribute2Name, element2Type);
+		p3.getXmlPropertyOptionParam().setValue(attribute3Kind);
 		if (attribute3Kind == XmlPropertyKind.ATTRIBUTE)
-			p4.getXmlPropertyOptionParam().getAttributeName().setValue(attribute3Name);
+			p3.getXmlPropertyOptionParam().getAttributeName().setValue(attribute3Name);
 		
 		return completePattern;
 	}
@@ -114,8 +114,8 @@ public class XmlEvalCompval {
 		XmlPathParam p4 = ((XmlPathParam) params.get(4));
 		
 		p0.setValue(value);
-		p3.setXmlAxis(returnElementAxis, returnElementType);
-		p4.setXmlAxis(element2Axis, element2Type);
+		p4.setXmlAxis(returnElementAxis, returnElementType);
+		p3.setXmlAxis(element2Axis, element2Type);
 		
 		return completePattern;
 	}
