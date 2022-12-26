@@ -93,22 +93,22 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	//Der folgende Abschnitt gehört zum Cypher COUNT
 	//Count ist für die anderen CONDITIONS als Unsuported makiert, da Cypher v4.4 und niedriger keine Verschachtelungen zulässt
 	//Nodes --> keine PATH/Edges implementiert
-	protected EList<NeoNode> countElementNodes = null; 
+	protected EList<NeoNode> countNodes = null; 
 	
 	//Add to Ecore?
-	public void addNeoCountElementNode(NeoNode countElements) {
+	public void addNeoCountNode(NeoNode countElements) {
 		if (countElements != null) {
-			if (this.countElementNodes == null) {
-				this.countElementNodes = new BasicEList<NeoNode>(); //For sorted
+			if (this.countNodes == null) {
+				this.countNodes = new BasicEList<NeoNode>(); //For sorted
 			}
-			if (!countElementNodes.contains(countElements)) { //Checks for duplicated
-				this.countElementNodes.add(countElements);
+			if (!countNodes.contains(countElements)) { //Checks for duplicated
+				this.countNodes.add(countElements);
 			}
 		}
 	}
 	
 	public void removeCountElementNode(NeoNode countElements) {
-		this.countElementNodes.remove(countElements);
+		this.countNodes.remove(countElements);
 	}
 	
 	@Override 
@@ -145,11 +145,11 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	
 	//Just focused on Nodes... relations and path have to follow later (FUTURE WORK)
 	protected final EList<String> generateCypherCounters() throws InvalidityException {
-		if (countElementNodes != null && countElementNodes.size() > 0) {
+		if (countNodes != null && countNodes.size() > 0) {
 			final EList<String> myCounters = new BasicEList<String>();
-			String temp;
+			String temp = null;
 			int i = 1;
-			for (NeoNode n : countElementNodes) {
+			for (NeoNode n : countNodes) {
 				if (checkForNode(n)) {
 					temp = createMyCounterString(n, i);
 					myCounters.add(temp);

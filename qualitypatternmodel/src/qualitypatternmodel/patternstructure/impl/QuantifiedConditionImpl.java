@@ -65,7 +65,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	private static final String INVALID_QUANTIFIER = "invalid quantifier";
 	private static final String QUANTIFIED_COND_NEEDS_INNER_CONDITION = "Needs innerCondition";
 	private static final String NO_EXISTS_CAN_BE_BUILD = "No exists can be build";
-
+	private static final String EXISTS_PROPERTY_PRECLAUSE = "EXISTS {\n" + CypherSpecificConstants.THREE_WHITESPACES + CypherSpecificConstants.CLAUSE_MATCH + CypherSpecificConstants.ONE_WHITESPACE + "%s" + "\n" + CypherSpecificConstants.THREE_WHITESPACES  + CypherSpecificConstants.CLAUSE_WHERE + CypherSpecificConstants.ONE_WHITESPACE;
 	/**
 	 * The cached value of the '{@link #getMorphism() <em>Morphism</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -219,8 +219,19 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 					if (!(getCondition() instanceof CountConditionImpl || getCondition() instanceof TrueElement)) {
 						final StringBuilder localSb = new StringBuilder(getCondition().generateCypher());					
 						addWhiteSpacesForPreviewsCondition(localSb, CypherSpecificConstants.TWELVE_WHITESPACES);					
+						//Here maybe add an and if the in the exists is already some value
+						//Otherwise this can happen ()() in AppDup is an example which illustates the behviour
 						exists += localSb.toString();
 					}
+				}
+				//TODO 
+				if (!exists.isEmpty() && isPreForall()) {
+					String add = QuantifiedConditionImpl.EXISTS_PROPERTY_PRECLAUSE; 
+					//NEED TO DO WHITESPACES?
+					add += exists;
+					final StringBuilder match = new StringBuilder();
+					//TODO BUILD MATCH CLAUSE
+					//TODO ADD MATCH clause with String.format
 				}
 			}
 			if (exists.isEmpty()) {
@@ -232,6 +243,16 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		}		
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return
+	 * It shall determine if the next previews condition is a QuantifiedCondition with FORALL
+	 */
+	private final boolean isPreForall() {
+		// TODO
+		return false;
+	}
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param cypher

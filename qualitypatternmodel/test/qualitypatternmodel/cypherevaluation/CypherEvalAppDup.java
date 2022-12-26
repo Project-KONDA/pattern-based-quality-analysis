@@ -161,7 +161,7 @@ public class CypherEvalAppDup {
 	private static CompletePattern getOldAppDup3GenericConcrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		DummyFiller.replace(completePattern);
 		CountConditionImpl cc = (CountConditionImpl) completePattern.getCondition();
-		cc.getCountPattern().addNeoCountElementNode((NeoNode) cc.getCountPattern().getGraph().getReturnNodes().get(0));
+		cc.getCountPattern().addNeoCountNode((NeoNode) cc.getCountPattern().getGraph().getReturnNodes().get(0));
 		return completePattern;
 	}
 	//END 

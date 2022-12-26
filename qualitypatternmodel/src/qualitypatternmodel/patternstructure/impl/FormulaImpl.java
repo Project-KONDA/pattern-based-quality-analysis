@@ -220,7 +220,6 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	 * Implements all framework operators into existing or non existing Neo4J-Operators. Moreover, it considers if something should be clamped or not. 
 	 * <i>AND, OR, XOR, IMPLIES, EQUALS<\i>
 	 */
-	//HOW TO INTEGRATE THE PRIMITIVE/COMPLEX COMPARISONS? FOR CONNECTING WITH AND/OR/XOR --> Not Needed this Operations have to be done in the Parameter-Package
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		super.checkNextConditon(getCondition1());

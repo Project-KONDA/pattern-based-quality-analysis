@@ -43,7 +43,7 @@ public class TrueElementImpl extends ConditionImpl implements TrueElement {
 	
 	@Override 
 	public String generateCypher() throws InvalidityException {
-		return ""; 
+		return new String(); 
 	}
 	
 	@Override

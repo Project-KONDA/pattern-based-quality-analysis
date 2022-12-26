@@ -80,7 +80,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class GraphImpl extends PatternElementImpl implements Graph {
-	private static final String NO_INSTANCE_OF_NEO_NODE = "No instance of NeoNode";
+	private static final String NO_INSTANCE_OF_NEO_ELEMENT_NODE = "No instance of NeoElementNode";
 	private static final String NO_SUB_GRAPH_S_HAVE_BEEN_IDENTIFIED = "No (Sub-)Graph(-s) have been identified";
 	private static final String NO_NODES_ARE_GIVEN = "No nodes are given";
 
@@ -199,7 +199,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				if (n instanceof NeoElementNode && ((NeoElementNode) n).getNeoPlace() == NeoPlace.BEGINNING) {
 					beginningNodesList.add((NeoNode) n);
 				} else if(! (n instanceof NeoNode)) {
-					throw new InvalidityException(NO_INSTANCE_OF_NEO_NODE);
+					throw new InvalidityException(NO_INSTANCE_OF_NEO_ELEMENT_NODE);
 				}
 			}
 			
@@ -217,6 +217,12 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		throw new InvalidityException(NO_NODES_ARE_GIVEN);
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param cypher
+	 * @param n
+	 * @throws InvalidityException
+	 */
 	private final void buildNeoGraphPatternRecursively(StringBuilder cypher, NeoNode n) throws InvalidityException {
 		//In this senario it has to be considert that of there are multiple edges between nodes the last one will be taken
 		//Since multiple edges between to nodes requieres a OPTIONAL MATCH the OPTIONAL MATCH can be implemented or a break added
@@ -301,6 +307,11 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	//Rename this function
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param node
+	 * @return
+	 */
 	private final boolean checkIfVisibleFork(ComplexNode node) {
 		int i = 0;
 		int distinctNeoPropertyNode = 0; 
@@ -341,9 +352,11 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 					+ CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE;
 			cypher += cypherWhereStructurComps;
 			cypher += CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
+		//Check if the else is correct
+		} else {
+			cypher += cypherWhere;
+			cypher += cypherWhereStructurComps;			
 		}
-		cypher += cypherWhere;
-		cypher += cypherWhereStructurComps;
 		return cypher;
 	}
 
@@ -421,7 +434,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * <!-- end-user-doc -->
 	 * @throws InvalidityException 
 	 * @generated NOT
-	 * Loads all indipendend subgraphs in a graph
+	 * Loads all independent subgraphs in a graph
 	 */
 	@Override
 	public final EList<EList<Node>> getAllSubGraphs() throws InvalidityException {
@@ -629,6 +642,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		for(Node node : elementsCopy) {
 			node.createNeo4jAdaption();
 		}	
+		//No need for checking the distinguishing between if there are nodes or not
+		//Since Relations can just exists if at least two nodes exists which are connected. 
 		EList<Relation> relationsCopy = new BasicEList<Relation>();
 		relationsCopy.addAll(getRelations());
 		for(Relation relation : relationsCopy) {
