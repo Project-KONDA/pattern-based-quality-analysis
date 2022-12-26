@@ -330,7 +330,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		final EMap<Integer, String> returnElement = new BasicEMap<Integer, String>();
 		final String[] temp = getCypherVariable().split(CypherSpecificConstants.SEPERATOR);
 		final StringBuilder cypher = new StringBuilder();
-		//TODO if already printed then do not print the node twice
 		for (String s : temp) {
 			cypher.append(s + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.CYPHER_SEPERATOR);
 		}
