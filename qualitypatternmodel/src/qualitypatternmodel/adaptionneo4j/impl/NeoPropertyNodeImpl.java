@@ -331,7 +331,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		final String[] temp = getCypherVariable().split(CypherSpecificConstants.SEPERATOR);
 		final StringBuilder cypher = new StringBuilder();
 		for (String s : temp) {
-			cypher.append(s + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.CYPHER_SEPERATOR);
+			cypher.append(s + CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE);
 		}
 		//Removes the last CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.CYPHER_SEPERATOR
 		//Otherwise redundancy in separators can be produced

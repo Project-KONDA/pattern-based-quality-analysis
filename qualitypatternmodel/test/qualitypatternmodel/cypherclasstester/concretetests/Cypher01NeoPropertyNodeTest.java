@@ -145,7 +145,7 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 	}
 	
 	@Test
-	public void isNodeReturnableNot() {
+	public void isNodeReturnableNode() {
 		try {
 			NeoPropertyNode localNode = neoPropertyNode;
 			Class<NeoPropertyNodeImpl> obj = NeoPropertyNodeImpl.class;
