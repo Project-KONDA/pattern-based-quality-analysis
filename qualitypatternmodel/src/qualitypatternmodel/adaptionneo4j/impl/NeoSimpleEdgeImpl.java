@@ -142,6 +142,13 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		super();
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @throws InvalidityException
+	 * @returns String
+	 * This generateCypher generates the NeoSimpleEdge.
+	 * If a NeoTargetNode is specified it will also be generated here. 
+	 */
 	@Override
 	public String generateCypher() throws InvalidityException {
 		StringBuilder cypher = new StringBuilder();		
@@ -149,8 +156,15 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		return cypher.toString();
 	}
 	
-	//WITH Labels has been introduced if in future versions multiprinting should become a thing --> Further relation dev --> However can not be called from the outside
-	//Extract the Strings to constances into the Utili packages
+		
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param cypher
+	 * @param withLabels
+	 * @throws InvalidityException
+	 * Build the Edge depending one the direction. 
+	 * OPT: WITH Labels has been introduced if in future versions multiprinting should become a thing --> Further relation dev --> However can not be called from the outside
+	 */
 	private void generateInternalCypher(StringBuilder cypher, Boolean withLabels) throws InvalidityException {
 		switch (this.neoDirection) {
 		case IMPLICIT:
@@ -172,7 +186,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			throw new InvalidityException(SOMETHING_WENT_WRONG_IN_THE_SIMPLE_NEO_EDGE_DIRECTION_HAS_NOT_BEEN_SET_CORRECTLY);
 		}
 		
-		//Always when a List exists create the NeoPropertyNode
+		//Always when a TextListParam exists create the NeoPropertyNode
 		if (getNeoTargetNodeLabels() != null) {
 			cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
 			cypher.append(getCypherInnerEdgeNodes(false));
@@ -188,8 +202,16 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		}
 	}
 	
-	//Considering the SOLID-Principle: If this methods need change then extend from NeoSimpleEdge and Override it, 
-	//e.g., in future versions multi-labels in a Edge are Possible or the properties as labels should be considered
+
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param cypher
+	 * @param withLabels
+	 * @throws InvalidityException
+	 * It build the labels for an NeoSimpleEdge.
+	 * OPT: Considering the SOLID-Principle: If this methods need change then extend from NeoSimpleEdge and Override it,
+	 * e.g., in future versions multi-labels in a Edge are Possible or the properties as labels should be considered
+	 */
 	private void generateInternalCypherLabelGenerator(StringBuilder cypher, Boolean withLabels) throws InvalidityException {
 		cypher.append(CypherSpecificConstants.EDGE_OPENING_BRACKET);
 		cypher.append(getCypherVariable());
@@ -201,6 +223,13 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		cypher.append(CypherSpecificConstants.EDGE_CLOSING_BRACKET);
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return String
+	 * @throws InvalidityException
+	 * Returns the NeoSimpleEdge in the format of a Variable which can be used in Neo4J/Cypher.
+	 * If it is the first edge, besides the node edge no further edge numbering is needed.
+	 */
 	@Override
 	public String getCypherVariable() throws InvalidityException {
 		String cypher = null;
@@ -240,6 +269,14 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		return cypher;
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param neoAbstractPathParam
+	 * @return String
+	 * Creates the internal Edge numbering.
+	 * If the it is the first edge just the relation number will be added.
+	 * Else the relation number and the count of the edges will be added.
+	 */
 	protected String createInnerEdgeNumberingNames(final NeoPathParamImpl neoAbstractPathParam) {
 		String cypher = new String();
 		if (edgeNumber != 0) {
@@ -269,6 +306,12 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		}
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return NeoPathPart
+	 * Returns the null if the NeoPathPart is not the Last Edge.
+	 * If it is the last Edge it returns the instance it is called on.
+	 */
 	@Override
 	public NeoPathPart getNeoLastEdge() {
 		NeoPathPart lastEdge = null;
@@ -317,16 +360,13 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Fur future opts for detecting data quality problems in edges.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
 	public void setKeyValueParam(KeyValueParam newKeyValueParam) {
 		throw new UnsupportedOperationException();
-//		KeyValueParam oldKeyValueParam = keyValueParam;
-//		keyValueParam = newKeyValueParam;
-//		if (eNotificationRequired())
-//			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM, oldKeyValueParam, keyValueParam));
 	}
 
 	/**
@@ -519,12 +559,24 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		}
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param label
+	 * @throws InvalidityException
+	 * Checks if any whitespaces are in a Label.
+	 * In Neo4J/Cypher a Label has to be one a sequenz of visible chars.
+	 */
 	private void checkForWhitespaceInLabel(String label) throws InvalidityException {
 		if (label.contains(CypherSpecificConstants.ONE_WHITESPACE)) {
 			throw new InvalidityException(A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S);
 		}
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return EList<NeoPathPart>
+	 * Returns this instance.
+	 */
 	@Override 
 	public EList<NeoPathPart> getNeoPathPartEdgeLeafs() {
 		EList<NeoPathPart> l = new BasicEList<NeoPathPart>();
@@ -698,6 +750,11 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		return result.toString();
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return String
+	 * Builds myString of the instance called for the report.
+	 */
 	@Override
 	public String myToString() {
 		final String temp = NEO_SIMPLE_EDGE_S + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET;
@@ -730,6 +787,11 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		// TODO Auto-generated method stub
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param InternalCount
+	 * Given by the given InternalCount the edge count for this instance will be set.
+	 */
 	@Override
 	protected void setCount(InternalCount count) {
 		setEdgeNumber(count.getCount());		
