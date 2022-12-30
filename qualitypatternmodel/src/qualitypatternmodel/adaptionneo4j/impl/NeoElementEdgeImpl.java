@@ -16,6 +16,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.adaptionneo4j.NeoElementEdge;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
  * <!-- begin-user-doc -->
@@ -116,6 +117,13 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 		return returnElement;
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return String
+	 * @exception InvalidityException
+	 * Returns the internale Nodes used to build the Edge.
+	 * If nothing has build then it returns null.
+	 */
 	@Override
 	public String getReturnInnerEdgeNodes() throws InvalidityException {
 		String cypher = null;
@@ -125,6 +133,11 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 		return cypher;
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * Creates the parameters for the NeoElementEdge. 
+	 * Thus it crates the NeoElementPathParam and adds it to the ParameterList if it does not already exists.
+	 */
 	@Override 
 	public void createParameters() {
 		if (getIncomingMapping() == null) {
@@ -304,11 +317,17 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 		return super.eIsSet(featureID);
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return String
+	 * Creates the myString for the generation Report.
+	 * It creates it for the whole NeoElementEdge structure. 
+	 */
 	@Override
 	public String myToString() {
 		String result = super.myToString();
 		if (getNeoElementPathParam() != null) 
-			result += " " + getNeoElementPathParam().myToString(); 
+			result += CypherSpecificConstants.ONE_WHITESPACE + getNeoElementPathParam().myToString(); 
 		return result;
 	}
 } //NeoEdgeImpl
