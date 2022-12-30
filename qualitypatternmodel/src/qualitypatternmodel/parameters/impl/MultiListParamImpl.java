@@ -56,7 +56,7 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 	 */
 	@Override 
 	public String generateCypher() throws InvalidityException {
-		if(super.inputIsValid()) {
+		if(!super.inputIsValid()) {
 			return super.generateCypher();
 		} 
 		// I do not use an else Statement since either the if is correct and the methods end or the methods goes on

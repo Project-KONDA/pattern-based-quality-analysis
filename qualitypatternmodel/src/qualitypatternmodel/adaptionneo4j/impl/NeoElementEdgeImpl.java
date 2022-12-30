@@ -52,20 +52,35 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 		super();
 	}
 	
-	 @Override
-	 public PatternElement createNeo4jAdaption() throws InvalidityException {
-		 return this;
-	 }
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return PatternElement
+	 * Creates the adaption to Neo4J
+	 */
+	@Override
+	public PatternElement createNeo4jAdaption() throws InvalidityException {
+		return this;
+	}
 	
-	 @Override
-	 public NeoElementEdge adaptAsNeoEdge() throws InvalidityException {
-		 return this;
-	 }
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return PatternElement
+	 * Adapts to Neo4J
+	 */
+	@Override
+	public NeoElementEdge adaptAsNeoEdge() throws InvalidityException {
+		return this;
+	}
 	
-	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @exception InvalidityException
+	 * @return String
+	 * Builds the whole Path between to Neo4J-Nodes.
+	 */
 	@Override
 	public String generateCypher() throws InvalidityException {
-		String cypher = "";
+		String cypher = new String();
 		if (getIncomingMapping() == null) {
 			if(!translated && getNeoElementPathParam() != null) {
 				cypher = getNeoElementPathParam().generateCypher();
@@ -77,6 +92,13 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 		return cypher;
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return EMap<Integer, String>
+	 * @exception InvalidityException
+	 * Returns all edge-elements fur the return-clause.
+	 * The key is for referencing on which place this edge-elements shall be added.
+	 */
 	@Override
 	public EMap<Integer, String> getCypherReturnVariable() throws InvalidityException {
 		EMap<Integer, String> returnElement;
