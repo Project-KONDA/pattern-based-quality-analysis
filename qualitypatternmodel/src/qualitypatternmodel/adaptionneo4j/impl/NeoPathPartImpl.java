@@ -168,16 +168,17 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return String
+	 * @exception InvalidityException
+	 */
 	@Override
 	public String getCypherVariable() throws InvalidityException {
 		return ((NeoPathParamImpl) getNeoPathParam()).getEdgeNaming();
 	}
 
-	protected boolean isLastEdge() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+	protected abstract boolean isLastEdge();
 
 	/**
 	 * <!-- begin-user-doc -->
