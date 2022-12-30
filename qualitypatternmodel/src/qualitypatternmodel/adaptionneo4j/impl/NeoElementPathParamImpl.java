@@ -57,6 +57,13 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 	}
 
 	// --> Specific behaviour which can not be necessarily generalised
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @exception InvalidityException
+	 * @return String
+	 * Generates the NeoElementPath. 
+	 * If no NeoPathPart is specified for the NeoElementPathParam the Cypher equivalent "--" for a not specified edge shall be added.
+	 */
 	@Override
 	public String generateCypher() throws InvalidityException {
 		if (neoPathPart != null) {
@@ -76,6 +83,15 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 		return CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES;	
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param cypher
+	 * @param neoPathParts
+	 * @throws InvalidityException
+	 * Generates from the composites structure the Neo4J-Edge structure between two Neo4J-Nodes.
+	 * Just for one element in the Composite-structure.
+	 * If the element has a NeoTargetNode the unspecified edge between to Neo4J-Nodes will be set "--".
+	 */
 	private void generateSingeEdgeCypher(final StringBuilder cypher, final EList<NeoPathPart> neoPathParts)
 			throws InvalidityException {
 		if (!(neoPathParts.get(0) instanceof NeoSimpleEdgeImpl)) {
@@ -88,6 +104,14 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 		}
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param cypher
+	 * @throws InvalidityException
+	 * Generates from the composites structure the Neo4J-Edge structure between two Neo4J-Nodes.
+	 * Just for multiple element in the Composite-structure.
+	 * If the last element has a NeoTargetNode the unspecified edge between to Neo4J-Nodes will be set "--".
+	 */
 	private void generateMultiEdgeCypher(final StringBuilder cypher) throws InvalidityException {
 		final NeoPathPart neoPathPart = getNeoPathPart();
 		cypher.append(neoPathPart.generateCypher());
@@ -102,6 +126,7 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 	
 	/**
 	 * <!-- begin-user-doc -->
+	 * Creates a NeoSimpleEdge for the NeoPathPart. 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -111,6 +136,11 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 		setNeoPathPart(nse);
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return boolean.class
+	 * Checks if the abstraction level of an NeoPathPart is correct. 
+	 */
 	@Override
 	public boolean inputIsValid() {
 		try {
@@ -121,22 +151,36 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 		}
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * Creates the needed report description for the NeoElementPathParam. 
+	 * Equal to the RdfParam describtion. 
+	 */
 	@Override 
 	public String generateDescription() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return String
+	 * Returns the myString for the Composite-Structure hold by the NeoElementPathParam.
+	 */
 	@Override
 	public String myToString() {
 		String result = String.format(NEO_PATH_PARAM, getInternalId());
 		try {
-			result += " " + generateCypher();
+			result += CypherSpecificConstants.ONE_WHITESPACE + generateCypher();
 		} catch (InvalidityException e) {}
 		return result;
 	}
 
-	//
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return int.class
+	 * Returns the relation Id.
+	 */
 	@Override
 	protected int getRelationNumber() {
 		if (getNeoElementEdge() == null) {
@@ -309,6 +353,11 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 		return super.eIsSet(featureID);
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return String
+	 * Returns CypherSpecificConstants.VARIABLE_ELEMENT_EGDE.
+	 */
 	@Override
 	protected String getEdgeNaming() {
 		return CypherSpecificConstants.VARIABLE_ELEMENT_EGDE;
