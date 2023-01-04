@@ -70,7 +70,13 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 		return this;
 	}
 	
-	//Translation of the neoPropertyEdge
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @throws InvalidityException
+	 * @return String
+	 * Translation of the NeoPropertyEdge.
+	 * If it is a second time printed, it will be printed without any labels.
+	 */
 	@Override
 	public String generateCypher() throws InvalidityException {
 		String cypher = new String(); //Null will be returned because it is used as an indicator in the morphisems
@@ -85,6 +91,13 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 		return cypher;
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @throws InvalidityException
+	 * @return EMap<Integer, String> the integer is for the place in the Return-Clause and the String is the value which shall be added.
+	 * It is a prototype function for returning the Edges. FUTURE WORK is needed. 
+	 * It is for returning the Edge variables.
+	 */
 	@Override
 	public EMap<Integer, String> getCypherReturnVariable() throws InvalidityException {
 		EMap<Integer, String> returnElement = null;
@@ -102,6 +115,13 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 		return returnElement;
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @throws InvalidityException
+	 * @return String
+	 * It is a prototype function for returning the inner Edge Nodes. FUTURE WORK is needed. 
+	 * It is for returning the inner Edge Nodes variables.
+	 */
 	@Override
 	public String getReturnInnerEdgeNodes() throws InvalidityException {
 		String cypher = null;
@@ -111,6 +131,11 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 		return cypher;
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return String
+	 * Build the myString for the NeoPropertyEdge
+	 */
 	@Override
 	public String myToString() {
 		String result = super.myToString();
@@ -122,6 +147,7 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 	
 	/**
 	 * <!-- begin-user-doc -->
+	 * Generates the CypherProertyAddressing.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -158,6 +184,7 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 	
 	/**
 	 * <!-- begin-user-doc -->
+	 * Gets the Node in which the Property is stored. Can be used in FUTURE WORK.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -187,6 +214,11 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 		return neoPropertyEdge.generateCypherNodeVariable();
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * Creates the Parameter for the NeoPropertyEdge.
+	 * Thus it creates the NeoPropertyPathParam and adds it to the ParameterList.
+	 */
 	@Override 
 	public void createParameters() {
 		if (getIncomingMapping() == null) {
