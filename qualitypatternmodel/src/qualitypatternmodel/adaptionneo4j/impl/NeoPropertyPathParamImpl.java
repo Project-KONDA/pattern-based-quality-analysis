@@ -81,12 +81,20 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 	protected EClass eStaticClass() {
 		return Adaptionneo4jPackage.Literals.NEO_PROPERTY_PATH_PARAM;
 	}
-
-	//Is it okay that I do the check here or shall I do the check in the Parts?
-	//Checks the diffrent Componentes of the PARAM --> Composite
+	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return String
+	 * @exception InvalidityException
+	 * Checks if a NeoPathPart is set. There is no need for setting it.
+	 * If set then:
+	 * 	Checks the NeoPathParts for correctness.
+	 * 	If correct then the NeoPathPart will be build.
+	 * 	Else an Exception is thrown.
+	 */
 	@Override 
 	public String generateCypher() throws InvalidityException {
-		String cypher = "";
+		String cypher = new String();
 		if (getNeoPathPart() != null) {
 			validateNeoPropertyEdge();
 			cypher = getNeoPathPart().generateCypher();
@@ -94,7 +102,13 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 		return cypher;
 	}
 
-	//Check if the check for ComplexEdge // NeoSimpleEdge is necessary...
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return String
+	 * @throws InvalidityException
+	 * Check if the check for ComplexEdge. 
+	 * At least a NeoSimpleEdge is set.
+	 */
 	private void validateNeoPropertyEdge() throws InvalidityException {
 		final NeoPathPart neoPathPart = getNeoPathPart();
 		if (neoPathPart instanceof NeoComplexEdge) {
@@ -108,6 +122,12 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 		}
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param EList<NeoPathPart>
+	 * @return boolean.class
+	 * Checks if all innerEdges have a TargetNode specified.
+	 */
 	private boolean innerEdgesHaveTargets(final EList<NeoPathPart> parts)  {
 		boolean innerEdgesHaveTargets = true;
 		NeoSimpleEdge neoSimpleEdge = null;
@@ -125,13 +145,19 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 		}
 		return innerEdgesHaveTargets;
 	}
-		
+	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @throws InvalidityException
+	 * Throws a InvalidityException(NEO_PROPERTY_EDGE_TARGET_NODES_CAN_NOT_BE_NULL)
+	 */
 	private void targetNodesCanNotBeNull() throws InvalidityException {
 		throw new InvalidityException(NEO_PROPERTY_EDGE_TARGET_NODES_CAN_NOT_BE_NULL);
 	}
 	
 	/**
 	 * <!-- begin-user-doc -->
+	 * Sets a NeoSimpleEdge
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -389,7 +415,11 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 		return super.eInvoke(operationID, arguments);
 	}
 
-	//Speak with Arno
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return boolean.class
+	 * Checks the AbstractionLevel for this instance.
+	 */
 	@Override
 	public boolean inputIsValid() {
 		try{
@@ -407,20 +437,26 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 		return null;
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return String
+	 * Creates the myString for the NeoPropertyPathParam.
+	 */
 	@Override
 	public String myToString() {
 		String result = String.format(NEO_PROPERTY_PATH_PARAM, getInternalId());
 		try {
 			String temp = generateCypher();
 			if (!temp.isEmpty()) {
-				result += " " + generateCypher();
+				result += CypherSpecificConstants.ONE_WHITESPACE + generateCypher();
 			} else if (neoPropertyName != null) {
-				result += " " + getNeoPropertyEdge().generateCypherPropertyAddressing();
+				result += CypherSpecificConstants.ONE_WHITESPACE + getNeoPropertyEdge().generateCypherPropertyAddressing();
 			}
 		} catch (InvalidityException e) {} 
 		return result;
 	}
 
+	
 	@Override
 	protected int getRelationNumber() {
 		if (getNeoPropertyEdge() == null) {
