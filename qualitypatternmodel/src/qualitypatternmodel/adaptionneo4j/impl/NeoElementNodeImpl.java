@@ -44,6 +44,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNode {
+	private static final String PARAMETER_HAS_NOT_BEEN_CREATED_IN_NEO_ELEMENT_NODE = "Parameter has not been created in NeoElementNode";
 	private static final String A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S = "A Label can not contain Whitespace(s)";
 	private static final int CYPHER_RETURN_ID = 0;
 	/**
@@ -100,6 +101,15 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 		super();
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @throws InvalidityException
+	 * @returns String
+	 * Creates the NeoElementNode.
+	 * If not already printed it will add the label(s) to the Node.
+	 * If already printed it will not add the label(s) to the Node.
+	 * It returns the Node in the format for the MATCH-Clause in in a clamped version.
+	 */
 	@Override
 	public String generateCypher() throws InvalidityException {
 		if (getIncomingMapping() == null) {
@@ -127,6 +137,7 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns just the alias for the Variable.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -143,6 +154,8 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns the Variable in the format for the Return-Clause.
+	 * If the variable is not distinct in use it will add the DISTINCT function for the Variable.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -253,6 +266,10 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	}
 	
 	//Since NeoLabel should be a Parameter
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * 
+	 */
 	@Override
 	public void createParameters() {
 		if (getIncomingMapping() == null) {
@@ -264,8 +281,7 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 					try {
 						setNeoNodeLabels(labels);
 					} catch (InvalidityException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						throw new RuntimeException(PARAMETER_HAS_NOT_BEEN_CREATED_IN_NEO_ELEMENT_NODE, e);
 					}
 					pList.add(labels);	
 				}
@@ -353,6 +369,12 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 			eNotify(new ENotificationImpl(this, Notification.SET, Adaptionneo4jPackage.NEO_ELEMENT_NODE__NEO_NODE_LABELS, oldNeoNodeLabels, neoNodeLabels));
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param value
+	 * @throws InvalidityException
+	 * Checks if whitespace(s) are contained in the label.
+	 */
 	private void checkForWhiteSpacesInLabel(String value) throws InvalidityException {
 		if (value.contains(CypherSpecificConstants.ONE_WHITESPACE)) {
 			throw new InvalidityException(A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S);
@@ -547,6 +569,9 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Creates the myString for the NeoElementNode with:
+	 * 		- isVariableDistinctInUse
+	 * 		- neoPlace
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */

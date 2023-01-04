@@ -78,12 +78,12 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	
 	/**
 	 *@author Lukas Sebastian Hofmann
-	 *@return Returns a String with multiple NeoPropertyNodes which are seperated by ";". In comparison to the other genrateCyphers in the Adaption-Package
-	 *This method should <b> primarily used internally <\b>. Since the return type in this Child is different to the other .generateCypher()-Methods in this Package.
-	 *However, if used then <b>split the String by the literal <i>";"<\i><\b>.
-	 *It also only returns the distinct String-Array 
-	 *Translated is here not used since the labels of a NeoPropertyNode are build in the NeoSimpleEdge
-	 *Implemented to get the same behaviour as for the NeoElementNode.
+	 *@return Returns a String with multiple NeoPropertyNodes which are seperated by ";". In comparison to the other genrateCyphers in the Adaption-Package.
+	 * This method should <b> primarily be used internally <\b>. Since the return type in this Child is different to the other .generateCypher()-Methods in this Package.
+	 * However, if used then <b>split the String by the literal <i>";"<\i><\b>.
+	 * It also only returns the distinct String-Array. 
+	 * Translated is here not used since the labels of a NeoPropertyNode are build in the NeoSimpleEdge.
+	 * Implemented to get the same behaviour as for the NeoElementNode.
 	 */
 	@Override 
 	public String generateCypher() throws InvalidityException, UnsupportedOperationException {	
@@ -106,6 +106,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	
 	/**
 	 * <!-- begin-user-doc -->
+	 * Generates a EList of all properties which can be addressed. 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -125,6 +126,13 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		return cypherResult;
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param cypherResult
+	 * @throws InvalidityException
+	 * Checks if any Property can be addressed.
+	 * If not an InvalidityException is thrown.
+	 */
 	private void checkForExistenceOfPropertyAddressings(EList<String> cypherResult) throws InvalidityException {
 		if (getOutgoingMappings().size() == 0) {
 			if (cypherResult.size() == 0) {
@@ -133,6 +141,12 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		}
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return EList<String>
+	 * @throws InvalidityException
+	 * Creates internally the CypherPropertyAddressing.
+	 */
 	private EList<String> gatherCypherPropertyAddressings() throws InvalidityException {
 		final EList<String> cypherList = new BasicEList<String>();
 		EList<String> cypherResult;
@@ -154,6 +168,13 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		return cypherResult;
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return EList<String>
+	 * @throws InvalidityException
+	 * Gathers all NotMorphedPropertyAddressings.
+	 * Works similar to the private method CypherPropertyAddressing.
+	 */
 	private void gatherNotMorphedPropertyAddressings(final EList<String> currentEdgeList) throws InvalidityException {
 		NeoPropertyEdge neoPropertyEdge = null;
 		String cypher = null;
@@ -168,6 +189,14 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		}
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param currentEdgeList
+	 * @return EList<String>
+	 * @throws InvalidityException
+	 * Gathers recursively all Property-Addressings from the previews NeoPropertyNodes.
+	 * Adds just one Property-Addressing from the previews PrimitiveNodes to reduce the redundancy for multiple times checking is the value is the same. 
+	 */
 	private EList<String> gatherPropertyAddressingsFromMorphing(final EList<String> currentEdgeList) throws InvalidityException {
 		EList<String> cypherList = null;
 		EList<String> cypherResult = null;
@@ -183,7 +212,8 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 			//"It's easier to ask forgiveness than it is to get permission" & "Ask forgiveness, not permission" --> Grace Hopper
 			//https://medium.com/nerd-for-tech/look-before-you-leap-vs-easier-to-ask-for-forgiveness-than-permission-in-programming-85d17a5f48c8
 		}
-		if (cypherList.size() > 1) {
+		//Not in all cases the original NeoPropertyNode has a Property specified. Thus also other previews NeoPropertyNodes could contain a valid Property-Addressing.
+		if (cypherList.size() >= 1) {
 			final String adressing = cypherList.get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
 			cypherList.clear();
 			cypherList.add(adressing);
@@ -199,6 +229,13 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		return cypherResult;
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param cypherList
+	 * @param cypher
+	 * @return boolean.class
+	 * Checks if a Property-Addressing is already contained in a list.
+	 */
 	private boolean alreadyContainedInCypherPropertyAddressingList(EList<String> cypherList, String cypher) {
 		boolean isContained = false;
 		String temp = null;
@@ -213,6 +250,13 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	}
 
 	//Checking every previews Mapping in Case the original has no incoming relation
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return String
+	 * @throws InvalidityException
+	 * Gets the first Comparison Varaible a Preview Nodes. 
+	 * Until Now it is filled with the first Property-Addressing. 
+	 */
 	private String getCypherComparisonVariableFromPreviewsNodes() throws InvalidityException {
 		String adressing = null;
 		if (getIncomingMapping() != null && adressing == null) {
@@ -235,6 +279,13 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		return adressing;
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return
+	 * @throws InvalidityException
+	 * Gets all Property-Node-Variables.
+	 * The single Property-Node-Variables are separated by the CypherSpecificConstants.SEPERATOR.
+	 */
 	private String getCypherPropertyNodeVariable() throws InvalidityException {
 		if (getIncomingMapping() == null) {
 			if (!checkForValidIncomings())
@@ -258,7 +309,12 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		return ((NeoPropertyNodeImpl) getOriginalNode()).getCypherPropertyNodeVariable();
 	}
 
-	//Check if this check is in the other classes similar or need similar adaption
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return boolean.class
+	 * @throws InvalidityException
+	 * This method checks if all incoming relations are of the correct type.
+	 */
 	private boolean checkForValidIncomings() throws InvalidityException {
 		boolean result = !(getIncoming() == null || getIncoming().size() == 0);
 		if (result) {
@@ -277,6 +333,10 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns the correct Cypher-Node-Variable. The Cypher-Node-Variable are seperated by CypherSpecificConstants.SEPERATOR.
+	 * It has to be distinguished between the addressing which connects the Cypher-Node-Variable + Property-Name and just the Cypher-Node-Variable.
+	 * We choose to take the Cypher-Node-Variable(-s) as a return value fur further extensions to the adaption that not only the Property can be accessed vai the NeoPropertyNode. 
+	 * Moreover the Node shall be accessable, if it is needed in a Subquery statement and the Variable is not in the Scope of the Subquery.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -301,6 +361,8 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	
 	/**
 	 * <!-- begin-user-doc -->
+	 * This method returns the Property-Addressing of all NeoPropertyNode-Names.
+	 * The implicit Nodes have no further value for the NeoPropertyNode in the current stage of the approach.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -319,6 +381,13 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		return returnElement;
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param ix
+	 * @return boolea.class
+	 * @throws InvalidityException
+	 * Checks if a Node aka the NeoElementNode in which the NeoPropertyNode is stored can be returned.
+	 */
 	private boolean isNodeReturnable(int ix) throws InvalidityException {
 		NeoPropertyEdge neoPropertyEdge = null;
 		NeoPropertyPathParam neoPropertyPathParam = null;
@@ -568,6 +637,8 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Creates the myString for the NeoElementNode with:
+	 * 		- isVariableDistinctInUse
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
