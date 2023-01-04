@@ -181,7 +181,7 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 				
 				return cypher;
 			}
-			return "";
+			return new String();
 		}
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) getOriginalRelation();
 		return neoPropertyEdge.generateCypherNodeVariable();
