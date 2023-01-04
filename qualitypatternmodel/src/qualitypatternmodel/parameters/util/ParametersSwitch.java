@@ -101,7 +101,7 @@ public class ParametersSwitch<T> extends Switch<T> {
 			case ParametersPackage.TEXT_LIST_PARAM: {
 				TextListParam textListParam = (TextListParam)theEObject;
 				T result = caseTextListParam(textListParam);
-				if (result == null) result = caseAbstractListParam(textListParam);
+				if (result == null) result = caseListParam(textListParam);
 				if (result == null) result = caseParameterValue(textListParam);
 				if (result == null) result = caseParameter(textListParam);
 				if (result == null) result = caseComparable(textListParam);
@@ -194,20 +194,20 @@ public class ParametersSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ParametersPackage.ABSTRACT_LIST_PARAM: {
-				ListParam abstractListParam = (ListParam)theEObject;
-				T result = caseAbstractListParam(abstractListParam);
-				if (result == null) result = caseParameterValue(abstractListParam);
-				if (result == null) result = caseParameter(abstractListParam);
-				if (result == null) result = caseComparable(abstractListParam);
-				if (result == null) result = casePatternElement(abstractListParam);
+			case ParametersPackage.LIST_PARAM: {
+				ListParam listParam = (ListParam)theEObject;
+				T result = caseListParam(listParam);
+				if (result == null) result = caseParameterValue(listParam);
+				if (result == null) result = caseParameter(listParam);
+				if (result == null) result = caseComparable(listParam);
+				if (result == null) result = casePatternElement(listParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ParametersPackage.MULTI_LIST_PARAM: {
 				MultiListParam multiListParam = (MultiListParam)theEObject;
 				T result = caseMultiListParam(multiListParam);
-				if (result == null) result = caseAbstractListParam(multiListParam);
+				if (result == null) result = caseListParam(multiListParam);
 				if (result == null) result = caseParameterValue(multiListParam);
 				if (result == null) result = caseParameter(multiListParam);
 				if (result == null) result = caseComparable(multiListParam);
@@ -430,17 +430,17 @@ public class ParametersSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Abstract List Param</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>List Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Abstract List Param</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>List Param</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAbstractListParam(ListParam object) {
+	public T caseListParam(ListParam object) {
 		return null;
 	}
 

@@ -18,7 +18,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
  *   <li>{@link qualitypatternmodel.parameters.ListParam#getValues <em>Values</em>}</li>
  * </ul>
  *
- * @see qualitypatternmodel.parameters.ParametersPackage#getAbstractListParam()
+ * @see qualitypatternmodel.parameters.ParametersPackage#getListParam()
  * @model abstract="true"
  * @generated
  */
@@ -29,7 +29,7 @@ public interface ListParam extends ParameterValue {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Values</em>' attribute list.
-	 * @see qualitypatternmodel.parameters.ParametersPackage#getAbstractListParam_Values()
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getListParam_Values()
 	 * @model default=""
 	 * @generated
 	 */

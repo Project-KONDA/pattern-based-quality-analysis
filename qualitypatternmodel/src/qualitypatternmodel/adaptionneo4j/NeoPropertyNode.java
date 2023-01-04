@@ -13,12 +13,6 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
  * A representation of the model object '<em><b>Neo Property Node</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPropertyNode#isReturnProperty <em>Return Property</em>}</li>
- * </ul>
  *
  * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoPropertyNode()
  * @model

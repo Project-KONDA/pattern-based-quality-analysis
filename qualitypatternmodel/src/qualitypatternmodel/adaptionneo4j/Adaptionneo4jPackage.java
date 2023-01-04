@@ -896,13 +896,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_NODE___ADAPT_AS_RDF_LITERAL_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_RDF_LITERAL_NODE;
 
 	/**
-	 * The operation id for the '<em>Adapt As Neo Node</em>' operation.
+	 * The operation id for the '<em>Adapt As Neo Element Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_NODE___ADAPT_AS_NEO_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_NEO_NODE;
+	int NEO_ELEMENT_NODE___ADAPT_AS_NEO_ELEMENT_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_NEO_ELEMENT_NODE;
 
 	/**
 	 * The operation id for the '<em>Adapt As Neo Property Node</em>' operation.
@@ -3125,22 +3125,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_NODE__IS_VARIABLE_DISTINCT_IN_USE = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Return Property</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NODE__RETURN_PROPERTY = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Neo Property Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE_FEATURE_COUNT = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 2;
+	int NEO_PROPERTY_NODE_FEATURE_COUNT = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -3701,13 +3692,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_NODE___ADAPT_AS_RDF_LITERAL_NODE = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_RDF_LITERAL_NODE;
 
 	/**
-	 * The operation id for the '<em>Adapt As Neo Node</em>' operation.
+	 * The operation id for the '<em>Adapt As Neo Element Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE___ADAPT_AS_NEO_NODE = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_NEO_NODE;
+	int NEO_PROPERTY_NODE___ADAPT_AS_NEO_ELEMENT_NODE = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_NEO_ELEMENT_NODE;
 
 	/**
 	 * The operation id for the '<em>Adapt As Neo Property Node</em>' operation.
@@ -5983,17 +5974,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	EClass getNeoPropertyNode();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyNode#isReturnProperty <em>Return Property</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Return Property</em>'.
-	 * @see qualitypatternmodel.adaptionneo4j.NeoPropertyNode#isReturnProperty()
-	 * @see #getNeoPropertyNode()
-	 * @generated
-	 */
-	EAttribute getNeoPropertyNode_ReturnProperty();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyNode#generateCypherPropertyAddressing() <em>Generate Cypher Property Addressing</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6491,14 +6471,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 		 * @generated
 		 */
 		EClass NEO_PROPERTY_NODE = eINSTANCE.getNeoPropertyNode();
-
-		/**
-		 * The meta object literal for the '<em><b>Return Property</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NEO_PROPERTY_NODE__RETURN_PROPERTY = eINSTANCE.getNeoPropertyNode_ReturnProperty();
 
 		/**
 		 * The meta object literal for the '<em><b>Generate Cypher Property Addressing</b></em>' operation.

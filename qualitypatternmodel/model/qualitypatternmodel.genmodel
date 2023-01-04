@@ -150,15 +150,15 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/KeyValueParam/setNewMap/newKeyValueMap"/>
         </genOperations>
       </genClasses>
-      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//parameters/AbstractListParam">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/AbstractListParam/values"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/AbstractListParam/setValueIfValid">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/AbstractListParam/setValueIfValid/newValue"/>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//parameters/ListParam">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/ListParam/values"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ListParam/setValueIfValid">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/ListParam/setValueIfValid/newValue"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/AbstractListParam/getListVar"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/AbstractListParam/getListDeclaration"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/AbstractListParam/addStringValue">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/AbstractListParam/addStringValue/value"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ListParam/getListVar"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ListParam/getListDeclaration"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ListParam/addStringValue">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/ListParam/addStringValue/value"/>
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/MultiListParam"/>
@@ -368,7 +368,7 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/adaptAsXmlProperty"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/adaptAsRdfIriNode"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/adaptAsRdfLiteralNode"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/adaptAsNeoNode"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/adaptAsNeoElementNode"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/adaptAsNeoPropertyNode"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveNullCheck"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveNullCheck.1">
@@ -1087,7 +1087,6 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoPathPart/getNeoLastEdge"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyNode">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyNode/returnProperty"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyNode/generateCypherPropertyAddressing"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoElementPathParam">

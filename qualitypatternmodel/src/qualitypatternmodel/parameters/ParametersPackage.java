@@ -2253,14 +2253,14 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.ListParamImpl <em>Abstract List Param</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.ListParamImpl <em>List Param</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see qualitypatternmodel.parameters.impl.ListParamImpl
-	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getAbstractListParam()
+	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getListParam()
 	 * @generated
 	 */
-	int ABSTRACT_LIST_PARAM = 14;
+	int LIST_PARAM = 14;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2269,7 +2269,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM__ID = PARAMETER_VALUE__ID;
+	int LIST_PARAM__ID = PARAMETER_VALUE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -2278,7 +2278,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM__INTERNAL_ID = PARAMETER_VALUE__INTERNAL_ID;
+	int LIST_PARAM__INTERNAL_ID = PARAMETER_VALUE__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
@@ -2287,7 +2287,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM__PARAMETER_LIST = PARAMETER_VALUE__PARAMETER_LIST;
+	int LIST_PARAM__PARAMETER_LIST = PARAMETER_VALUE__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
@@ -2296,7 +2296,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM__PREDEFINED = PARAMETER_VALUE__PREDEFINED;
+	int LIST_PARAM__PREDEFINED = PARAMETER_VALUE__PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
@@ -2305,7 +2305,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM__PARAMETER_REFERENCES = PARAMETER_VALUE__PARAMETER_REFERENCES;
+	int LIST_PARAM__PARAMETER_REFERENCES = PARAMETER_VALUE__PARAMETER_REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2314,7 +2314,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM__DESCRIPTION = PARAMETER_VALUE__DESCRIPTION;
+	int LIST_PARAM__DESCRIPTION = PARAMETER_VALUE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -2323,7 +2323,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM__COMPARISON1 = PARAMETER_VALUE__COMPARISON1;
+	int LIST_PARAM__COMPARISON1 = PARAMETER_VALUE__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -2332,7 +2332,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM__COMPARISON2 = PARAMETER_VALUE__COMPARISON2;
+	int LIST_PARAM__COMPARISON2 = PARAMETER_VALUE__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Type Modifiable</b></em>' attribute.
@@ -2341,7 +2341,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM__TYPE_MODIFIABLE = PARAMETER_VALUE__TYPE_MODIFIABLE;
+	int LIST_PARAM__TYPE_MODIFIABLE = PARAMETER_VALUE__TYPE_MODIFIABLE;
 
 	/**
 	 * The feature id for the '<em><b>Values</b></em>' attribute list.
@@ -2350,16 +2350,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM__VALUES = PARAMETER_VALUE_FEATURE_COUNT + 0;
+	int LIST_PARAM__VALUES = PARAMETER_VALUE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Abstract List Param</em>' class.
+	 * The number of structural features of the '<em>List Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 1;
+	int LIST_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -2368,7 +2368,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___IS_VALID__ABSTRACTIONLEVEL = PARAMETER_VALUE___IS_VALID__ABSTRACTIONLEVEL;
+	int LIST_PARAM___IS_VALID__ABSTRACTIONLEVEL = PARAMETER_VALUE___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -2377,7 +2377,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PARAMETER_VALUE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+	int LIST_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PARAMETER_VALUE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -2386,7 +2386,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
+	int LIST_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Generate Cypher</em>' operation.
@@ -2395,7 +2395,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___GENERATE_CYPHER = PARAMETER_VALUE___GENERATE_CYPHER;
+	int LIST_PARAM___GENERATE_CYPHER = PARAMETER_VALUE___GENERATE_CYPHER;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -2404,7 +2404,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___GENERATE_XQUERY = PARAMETER_VALUE___GENERATE_XQUERY;
+	int LIST_PARAM___GENERATE_XQUERY = PARAMETER_VALUE___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Generate Sparql</em>' operation.
@@ -2413,7 +2413,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___GENERATE_SPARQL = PARAMETER_VALUE___GENERATE_SPARQL;
+	int LIST_PARAM___GENERATE_SPARQL = PARAMETER_VALUE___GENERATE_SPARQL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -2422,7 +2422,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___GET_CONTAINER = PARAMETER_VALUE___GET_CONTAINER;
+	int LIST_PARAM___GET_CONTAINER = PARAMETER_VALUE___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -2431,7 +2431,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___GET_ANCESTOR__CLASS = PARAMETER_VALUE___GET_ANCESTOR__CLASS;
+	int LIST_PARAM___GET_ANCESTOR__CLASS = PARAMETER_VALUE___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Initialize Translation</em>' operation.
@@ -2440,7 +2440,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___INITIALIZE_TRANSLATION = PARAMETER_VALUE___INITIALIZE_TRANSLATION;
+	int LIST_PARAM___INITIALIZE_TRANSLATION = PARAMETER_VALUE___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2449,7 +2449,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___PREPARE_TRANSLATION = PARAMETER_VALUE___PREPARE_TRANSLATION;
+	int LIST_PARAM___PREPARE_TRANSLATION = PARAMETER_VALUE___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -2458,7 +2458,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___GET_OPERATOR_LIST = PARAMETER_VALUE___GET_OPERATOR_LIST;
+	int LIST_PARAM___GET_OPERATOR_LIST = PARAMETER_VALUE___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -2467,7 +2467,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___GET_PARAMETER_LIST = PARAMETER_VALUE___GET_PARAMETER_LIST;
+	int LIST_PARAM___GET_PARAMETER_LIST = PARAMETER_VALUE___GET_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -2476,7 +2476,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___GET_ALL_PARAMETERS = PARAMETER_VALUE___GET_ALL_PARAMETERS;
+	int LIST_PARAM___GET_ALL_PARAMETERS = PARAMETER_VALUE___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -2485,7 +2485,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___PREPARE_PARAMETER_UPDATES = PARAMETER_VALUE___PREPARE_PARAMETER_UPDATES;
+	int LIST_PARAM___PREPARE_PARAMETER_UPDATES = PARAMETER_VALUE___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -2494,7 +2494,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+	int LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
 
 	/**
 	 * The operation id for the '<em>Update Parameters</em>' operation.
@@ -2503,7 +2503,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
+	int LIST_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -2512,7 +2512,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+	int LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -2521,7 +2521,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___RECORD_VALUES__XMLDATADATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATADATABASE;
+	int LIST_PARAM___RECORD_VALUES__XMLDATADATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -2530,7 +2530,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___RELATIONS_XML_ADAPTED = PARAMETER_VALUE___RELATIONS_XML_ADAPTED;
+	int LIST_PARAM___RELATIONS_XML_ADAPTED = PARAMETER_VALUE___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
@@ -2539,7 +2539,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___CREATE_XML_ADAPTION = PARAMETER_VALUE___CREATE_XML_ADAPTION;
+	int LIST_PARAM___CREATE_XML_ADAPTION = PARAMETER_VALUE___CREATE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
@@ -2548,7 +2548,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___CREATE_RDF_ADAPTION = PARAMETER_VALUE___CREATE_RDF_ADAPTION;
+	int LIST_PARAM___CREATE_RDF_ADAPTION = PARAMETER_VALUE___CREATE_RDF_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
@@ -2557,7 +2557,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___CREATE_NEO4J_ADAPTION = PARAMETER_VALUE___CREATE_NEO4J_ADAPTION;
+	int LIST_PARAM___CREATE_NEO4J_ADAPTION = PARAMETER_VALUE___CREATE_NEO4J_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -2566,7 +2566,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
+	int LIST_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
 
 	/**
 	 * The operation id for the '<em>Validate Example Value</em>' operation.
@@ -2575,7 +2575,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = PARAMETER_VALUE___VALIDATE_EXAMPLE_VALUE__STRING;
+	int LIST_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = PARAMETER_VALUE___VALIDATE_EXAMPLE_VALUE__STRING;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -2584,7 +2584,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___INPUT_IS_VALID = PARAMETER_VALUE___INPUT_IS_VALID;
+	int LIST_PARAM___INPUT_IS_VALID = PARAMETER_VALUE___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Is Used</em>' operation.
@@ -2593,7 +2593,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___IS_USED = PARAMETER_VALUE___IS_USED;
+	int LIST_PARAM___IS_USED = PARAMETER_VALUE___IS_USED;
 
 	/**
 	 * The operation id for the '<em>Set Value From String</em>' operation.
@@ -2602,7 +2602,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___SET_VALUE_FROM_STRING__STRING = PARAMETER_VALUE___SET_VALUE_FROM_STRING__STRING;
+	int LIST_PARAM___SET_VALUE_FROM_STRING__STRING = PARAMETER_VALUE___SET_VALUE_FROM_STRING__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Value As String</em>' operation.
@@ -2611,7 +2611,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___GET_VALUE_AS_STRING = PARAMETER_VALUE___GET_VALUE_AS_STRING;
+	int LIST_PARAM___GET_VALUE_AS_STRING = PARAMETER_VALUE___GET_VALUE_AS_STRING;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -2620,7 +2620,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___CHECK_COMPARISON_CONSISTENCY = PARAMETER_VALUE___CHECK_COMPARISON_CONSISTENCY;
+	int LIST_PARAM___CHECK_COMPARISON_CONSISTENCY = PARAMETER_VALUE___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
 	 * The operation id for the '<em>Get Options As String List</em>' operation.
@@ -2629,7 +2629,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
+	int LIST_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -2638,7 +2638,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___GENERATE_DESCRIPTION = PARAMETER_VALUE___GENERATE_DESCRIPTION;
+	int LIST_PARAM___GENERATE_DESCRIPTION = PARAMETER_VALUE___GENERATE_DESCRIPTION;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2647,7 +2647,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int LIST_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -2656,7 +2656,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___GET_RETURN_TYPE = PARAMETER_VALUE___GET_RETURN_TYPE;
+	int LIST_PARAM___GET_RETURN_TYPE = PARAMETER_VALUE___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -2665,7 +2665,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___IS_TRANSLATABLE = PARAMETER_VALUE___IS_TRANSLATABLE;
+	int LIST_PARAM___IS_TRANSLATABLE = PARAMETER_VALUE___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -2674,7 +2674,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
+	int LIST_PARAM___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Is Operator Argument</em>' operation.
@@ -2683,7 +2683,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___IS_OPERATOR_ARGUMENT = PARAMETER_VALUE___IS_OPERATOR_ARGUMENT;
+	int LIST_PARAM___IS_OPERATOR_ARGUMENT = PARAMETER_VALUE___IS_OPERATOR_ARGUMENT;
 
 	/**
 	 * The operation id for the '<em>Replace</em>' operation.
@@ -2692,7 +2692,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___REPLACE__PARAMETERVALUE = PARAMETER_VALUE___REPLACE__PARAMETERVALUE;
+	int LIST_PARAM___REPLACE__PARAMETERVALUE = PARAMETER_VALUE___REPLACE__PARAMETERVALUE;
 
 	/**
 	 * The operation id for the '<em>Replace Via Value</em>' operation.
@@ -2701,7 +2701,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
+	int LIST_PARAM___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Element Tags</em>' operation.
@@ -2710,7 +2710,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___GET_ELEMENT_TAGS = PARAMETER_VALUE___GET_ELEMENT_TAGS;
+	int LIST_PARAM___GET_ELEMENT_TAGS = PARAMETER_VALUE___GET_ELEMENT_TAGS;
 
 	/**
 	 * The operation id for the '<em>Get Data Values</em>' operation.
@@ -2719,7 +2719,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___GET_DATA_VALUES = PARAMETER_VALUE___GET_DATA_VALUES;
+	int LIST_PARAM___GET_DATA_VALUES = PARAMETER_VALUE___GET_DATA_VALUES;
 
 	/**
 	 * The operation id for the '<em>Is In Data Comparison</em>' operation.
@@ -2728,7 +2728,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___IS_IN_DATA_COMPARISON = PARAMETER_VALUE___IS_IN_DATA_COMPARISON;
+	int LIST_PARAM___IS_IN_DATA_COMPARISON = PARAMETER_VALUE___IS_IN_DATA_COMPARISON;
 
 	/**
 	 * The operation id for the '<em>Is In Tag Comparison</em>' operation.
@@ -2737,7 +2737,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___IS_IN_TAG_COMPARISON = PARAMETER_VALUE___IS_IN_TAG_COMPARISON;
+	int LIST_PARAM___IS_IN_TAG_COMPARISON = PARAMETER_VALUE___IS_IN_TAG_COMPARISON;
 
 	/**
 	 * The operation id for the '<em>Get Attribute Names</em>' operation.
@@ -2746,7 +2746,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___GET_ATTRIBUTE_NAMES = PARAMETER_VALUE___GET_ATTRIBUTE_NAMES;
+	int LIST_PARAM___GET_ATTRIBUTE_NAMES = PARAMETER_VALUE___GET_ATTRIBUTE_NAMES;
 
 	/**
 	 * The operation id for the '<em>Get Attribute Values</em>' operation.
@@ -2755,7 +2755,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___GET_ATTRIBUTE_VALUES = PARAMETER_VALUE___GET_ATTRIBUTE_VALUES;
+	int LIST_PARAM___GET_ATTRIBUTE_VALUES = PARAMETER_VALUE___GET_ATTRIBUTE_VALUES;
 
 	/**
 	 * The operation id for the '<em>Is In Attribute Comparison</em>' operation.
@@ -2764,7 +2764,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___IS_IN_ATTRIBUTE_COMPARISON = PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON;
+	int LIST_PARAM___IS_IN_ATTRIBUTE_COMPARISON = PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON;
 
 	/**
 	 * The operation id for the '<em>Get Suggestions</em>' operation.
@@ -2773,7 +2773,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
+	int LIST_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Infer Suggestions</em>' operation.
@@ -2782,7 +2782,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___INFER_SUGGESTIONS = PARAMETER_VALUE___INFER_SUGGESTIONS;
+	int LIST_PARAM___INFER_SUGGESTIONS = PARAMETER_VALUE___INFER_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Set Value If Valid</em>' operation.
@@ -2791,7 +2791,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___SET_VALUE_IF_VALID__ELIST = PARAMETER_VALUE_OPERATION_COUNT + 0;
+	int LIST_PARAM___SET_VALUE_IF_VALID__ELIST = PARAMETER_VALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get List Var</em>' operation.
@@ -2800,7 +2800,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___GET_LIST_VAR = PARAMETER_VALUE_OPERATION_COUNT + 1;
+	int LIST_PARAM___GET_LIST_VAR = PARAMETER_VALUE_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get List Declaration</em>' operation.
@@ -2809,7 +2809,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___GET_LIST_DECLARATION = PARAMETER_VALUE_OPERATION_COUNT + 2;
+	int LIST_PARAM___GET_LIST_DECLARATION = PARAMETER_VALUE_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Add String Value</em>' operation.
@@ -2818,16 +2818,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM___ADD_STRING_VALUE__STRING = PARAMETER_VALUE_OPERATION_COUNT + 3;
+	int LIST_PARAM___ADD_STRING_VALUE__STRING = PARAMETER_VALUE_OPERATION_COUNT + 3;
 
 	/**
-	 * The number of operations of the '<em>Abstract List Param</em>' class.
+	 * The number of operations of the '<em>List Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_LIST_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 4;
+	int LIST_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.TextListParamImpl <em>Text List Param</em>}' class.
@@ -2846,7 +2846,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM__ID = ABSTRACT_LIST_PARAM__ID;
+	int TEXT_LIST_PARAM__ID = LIST_PARAM__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -2855,7 +2855,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM__INTERNAL_ID = ABSTRACT_LIST_PARAM__INTERNAL_ID;
+	int TEXT_LIST_PARAM__INTERNAL_ID = LIST_PARAM__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
@@ -2864,7 +2864,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM__PARAMETER_LIST = ABSTRACT_LIST_PARAM__PARAMETER_LIST;
+	int TEXT_LIST_PARAM__PARAMETER_LIST = LIST_PARAM__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
@@ -2873,7 +2873,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM__PREDEFINED = ABSTRACT_LIST_PARAM__PREDEFINED;
+	int TEXT_LIST_PARAM__PREDEFINED = LIST_PARAM__PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
@@ -2882,7 +2882,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM__PARAMETER_REFERENCES = ABSTRACT_LIST_PARAM__PARAMETER_REFERENCES;
+	int TEXT_LIST_PARAM__PARAMETER_REFERENCES = LIST_PARAM__PARAMETER_REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2891,7 +2891,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM__DESCRIPTION = ABSTRACT_LIST_PARAM__DESCRIPTION;
+	int TEXT_LIST_PARAM__DESCRIPTION = LIST_PARAM__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -2900,7 +2900,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM__COMPARISON1 = ABSTRACT_LIST_PARAM__COMPARISON1;
+	int TEXT_LIST_PARAM__COMPARISON1 = LIST_PARAM__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -2909,7 +2909,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM__COMPARISON2 = ABSTRACT_LIST_PARAM__COMPARISON2;
+	int TEXT_LIST_PARAM__COMPARISON2 = LIST_PARAM__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Type Modifiable</b></em>' attribute.
@@ -2918,7 +2918,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM__TYPE_MODIFIABLE = ABSTRACT_LIST_PARAM__TYPE_MODIFIABLE;
+	int TEXT_LIST_PARAM__TYPE_MODIFIABLE = LIST_PARAM__TYPE_MODIFIABLE;
 
 	/**
 	 * The feature id for the '<em><b>Values</b></em>' attribute list.
@@ -2927,7 +2927,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM__VALUES = ABSTRACT_LIST_PARAM__VALUES;
+	int TEXT_LIST_PARAM__VALUES = LIST_PARAM__VALUES;
 
 	/**
 	 * The number of structural features of the '<em>Text List Param</em>' class.
@@ -2936,7 +2936,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM_FEATURE_COUNT = ABSTRACT_LIST_PARAM_FEATURE_COUNT + 0;
+	int TEXT_LIST_PARAM_FEATURE_COUNT = LIST_PARAM_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -2945,7 +2945,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___IS_VALID__ABSTRACTIONLEVEL = ABSTRACT_LIST_PARAM___IS_VALID__ABSTRACTIONLEVEL;
+	int TEXT_LIST_PARAM___IS_VALID__ABSTRACTIONLEVEL = LIST_PARAM___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -2954,7 +2954,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = ABSTRACT_LIST_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+	int TEXT_LIST_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = LIST_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -2963,7 +2963,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___MY_TO_STRING = ABSTRACT_LIST_PARAM___MY_TO_STRING;
+	int TEXT_LIST_PARAM___MY_TO_STRING = LIST_PARAM___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Generate Cypher</em>' operation.
@@ -2972,7 +2972,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___GENERATE_CYPHER = ABSTRACT_LIST_PARAM___GENERATE_CYPHER;
+	int TEXT_LIST_PARAM___GENERATE_CYPHER = LIST_PARAM___GENERATE_CYPHER;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -2981,7 +2981,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___GENERATE_XQUERY = ABSTRACT_LIST_PARAM___GENERATE_XQUERY;
+	int TEXT_LIST_PARAM___GENERATE_XQUERY = LIST_PARAM___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Generate Sparql</em>' operation.
@@ -2990,7 +2990,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___GENERATE_SPARQL = ABSTRACT_LIST_PARAM___GENERATE_SPARQL;
+	int TEXT_LIST_PARAM___GENERATE_SPARQL = LIST_PARAM___GENERATE_SPARQL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -2999,7 +2999,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___GET_CONTAINER = ABSTRACT_LIST_PARAM___GET_CONTAINER;
+	int TEXT_LIST_PARAM___GET_CONTAINER = LIST_PARAM___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -3008,7 +3008,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___GET_ANCESTOR__CLASS = ABSTRACT_LIST_PARAM___GET_ANCESTOR__CLASS;
+	int TEXT_LIST_PARAM___GET_ANCESTOR__CLASS = LIST_PARAM___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Initialize Translation</em>' operation.
@@ -3017,7 +3017,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___INITIALIZE_TRANSLATION = ABSTRACT_LIST_PARAM___INITIALIZE_TRANSLATION;
+	int TEXT_LIST_PARAM___INITIALIZE_TRANSLATION = LIST_PARAM___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -3026,7 +3026,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___PREPARE_TRANSLATION = ABSTRACT_LIST_PARAM___PREPARE_TRANSLATION;
+	int TEXT_LIST_PARAM___PREPARE_TRANSLATION = LIST_PARAM___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -3035,7 +3035,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___GET_OPERATOR_LIST = ABSTRACT_LIST_PARAM___GET_OPERATOR_LIST;
+	int TEXT_LIST_PARAM___GET_OPERATOR_LIST = LIST_PARAM___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -3044,7 +3044,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___GET_PARAMETER_LIST = ABSTRACT_LIST_PARAM___GET_PARAMETER_LIST;
+	int TEXT_LIST_PARAM___GET_PARAMETER_LIST = LIST_PARAM___GET_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -3053,7 +3053,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___GET_ALL_PARAMETERS = ABSTRACT_LIST_PARAM___GET_ALL_PARAMETERS;
+	int TEXT_LIST_PARAM___GET_ALL_PARAMETERS = LIST_PARAM___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -3062,7 +3062,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___PREPARE_PARAMETER_UPDATES = ABSTRACT_LIST_PARAM___PREPARE_PARAMETER_UPDATES;
+	int TEXT_LIST_PARAM___PREPARE_PARAMETER_UPDATES = LIST_PARAM___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -3071,7 +3071,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = ABSTRACT_LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+	int TEXT_LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
 
 	/**
 	 * The operation id for the '<em>Update Parameters</em>' operation.
@@ -3080,7 +3080,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = ABSTRACT_LIST_PARAM___UPDATE_PARAMETERS__PARAMETERLIST;
+	int TEXT_LIST_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = LIST_PARAM___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -3089,7 +3089,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = ABSTRACT_LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+	int TEXT_LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -3098,7 +3098,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___RECORD_VALUES__XMLDATADATABASE = ABSTRACT_LIST_PARAM___RECORD_VALUES__XMLDATADATABASE;
+	int TEXT_LIST_PARAM___RECORD_VALUES__XMLDATADATABASE = LIST_PARAM___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -3107,7 +3107,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___RELATIONS_XML_ADAPTED = ABSTRACT_LIST_PARAM___RELATIONS_XML_ADAPTED;
+	int TEXT_LIST_PARAM___RELATIONS_XML_ADAPTED = LIST_PARAM___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
@@ -3116,7 +3116,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___CREATE_XML_ADAPTION = ABSTRACT_LIST_PARAM___CREATE_XML_ADAPTION;
+	int TEXT_LIST_PARAM___CREATE_XML_ADAPTION = LIST_PARAM___CREATE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
@@ -3125,7 +3125,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___CREATE_RDF_ADAPTION = ABSTRACT_LIST_PARAM___CREATE_RDF_ADAPTION;
+	int TEXT_LIST_PARAM___CREATE_RDF_ADAPTION = LIST_PARAM___CREATE_RDF_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
@@ -3134,7 +3134,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___CREATE_NEO4J_ADAPTION = ABSTRACT_LIST_PARAM___CREATE_NEO4J_ADAPTION;
+	int TEXT_LIST_PARAM___CREATE_NEO4J_ADAPTION = LIST_PARAM___CREATE_NEO4J_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -3143,7 +3143,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___VALIDATE_AGAINST_SCHEMA = ABSTRACT_LIST_PARAM___VALIDATE_AGAINST_SCHEMA;
+	int TEXT_LIST_PARAM___VALIDATE_AGAINST_SCHEMA = LIST_PARAM___VALIDATE_AGAINST_SCHEMA;
 
 	/**
 	 * The operation id for the '<em>Validate Example Value</em>' operation.
@@ -3152,7 +3152,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = ABSTRACT_LIST_PARAM___VALIDATE_EXAMPLE_VALUE__STRING;
+	int TEXT_LIST_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = LIST_PARAM___VALIDATE_EXAMPLE_VALUE__STRING;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -3161,7 +3161,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___INPUT_IS_VALID = ABSTRACT_LIST_PARAM___INPUT_IS_VALID;
+	int TEXT_LIST_PARAM___INPUT_IS_VALID = LIST_PARAM___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Is Used</em>' operation.
@@ -3170,7 +3170,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___IS_USED = ABSTRACT_LIST_PARAM___IS_USED;
+	int TEXT_LIST_PARAM___IS_USED = LIST_PARAM___IS_USED;
 
 	/**
 	 * The operation id for the '<em>Set Value From String</em>' operation.
@@ -3179,7 +3179,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___SET_VALUE_FROM_STRING__STRING = ABSTRACT_LIST_PARAM___SET_VALUE_FROM_STRING__STRING;
+	int TEXT_LIST_PARAM___SET_VALUE_FROM_STRING__STRING = LIST_PARAM___SET_VALUE_FROM_STRING__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Value As String</em>' operation.
@@ -3188,7 +3188,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___GET_VALUE_AS_STRING = ABSTRACT_LIST_PARAM___GET_VALUE_AS_STRING;
+	int TEXT_LIST_PARAM___GET_VALUE_AS_STRING = LIST_PARAM___GET_VALUE_AS_STRING;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -3197,7 +3197,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___CHECK_COMPARISON_CONSISTENCY = ABSTRACT_LIST_PARAM___CHECK_COMPARISON_CONSISTENCY;
+	int TEXT_LIST_PARAM___CHECK_COMPARISON_CONSISTENCY = LIST_PARAM___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
 	 * The operation id for the '<em>Get Options As String List</em>' operation.
@@ -3206,7 +3206,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___GET_OPTIONS_AS_STRING_LIST = ABSTRACT_LIST_PARAM___GET_OPTIONS_AS_STRING_LIST;
+	int TEXT_LIST_PARAM___GET_OPTIONS_AS_STRING_LIST = LIST_PARAM___GET_OPTIONS_AS_STRING_LIST;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -3215,7 +3215,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___GENERATE_DESCRIPTION = ABSTRACT_LIST_PARAM___GENERATE_DESCRIPTION;
+	int TEXT_LIST_PARAM___GENERATE_DESCRIPTION = LIST_PARAM___GENERATE_DESCRIPTION;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3224,7 +3224,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = ABSTRACT_LIST_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int TEXT_LIST_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = LIST_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -3233,7 +3233,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___GET_RETURN_TYPE = ABSTRACT_LIST_PARAM___GET_RETURN_TYPE;
+	int TEXT_LIST_PARAM___GET_RETURN_TYPE = LIST_PARAM___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -3242,7 +3242,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___IS_TRANSLATABLE = ABSTRACT_LIST_PARAM___IS_TRANSLATABLE;
+	int TEXT_LIST_PARAM___IS_TRANSLATABLE = LIST_PARAM___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -3251,7 +3251,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___GET_ALL_ARGUMENT_ELEMENTS = ABSTRACT_LIST_PARAM___GET_ALL_ARGUMENT_ELEMENTS;
+	int TEXT_LIST_PARAM___GET_ALL_ARGUMENT_ELEMENTS = LIST_PARAM___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Is Operator Argument</em>' operation.
@@ -3260,7 +3260,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___IS_OPERATOR_ARGUMENT = ABSTRACT_LIST_PARAM___IS_OPERATOR_ARGUMENT;
+	int TEXT_LIST_PARAM___IS_OPERATOR_ARGUMENT = LIST_PARAM___IS_OPERATOR_ARGUMENT;
 
 	/**
 	 * The operation id for the '<em>Replace</em>' operation.
@@ -3269,7 +3269,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___REPLACE__PARAMETERVALUE = ABSTRACT_LIST_PARAM___REPLACE__PARAMETERVALUE;
+	int TEXT_LIST_PARAM___REPLACE__PARAMETERVALUE = LIST_PARAM___REPLACE__PARAMETERVALUE;
 
 	/**
 	 * The operation id for the '<em>Replace Via Value</em>' operation.
@@ -3278,7 +3278,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___REPLACE_VIA_VALUE__STRING_STRING = ABSTRACT_LIST_PARAM___REPLACE_VIA_VALUE__STRING_STRING;
+	int TEXT_LIST_PARAM___REPLACE_VIA_VALUE__STRING_STRING = LIST_PARAM___REPLACE_VIA_VALUE__STRING_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Element Tags</em>' operation.
@@ -3287,7 +3287,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___GET_ELEMENT_TAGS = ABSTRACT_LIST_PARAM___GET_ELEMENT_TAGS;
+	int TEXT_LIST_PARAM___GET_ELEMENT_TAGS = LIST_PARAM___GET_ELEMENT_TAGS;
 
 	/**
 	 * The operation id for the '<em>Get Data Values</em>' operation.
@@ -3296,7 +3296,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___GET_DATA_VALUES = ABSTRACT_LIST_PARAM___GET_DATA_VALUES;
+	int TEXT_LIST_PARAM___GET_DATA_VALUES = LIST_PARAM___GET_DATA_VALUES;
 
 	/**
 	 * The operation id for the '<em>Is In Data Comparison</em>' operation.
@@ -3305,7 +3305,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___IS_IN_DATA_COMPARISON = ABSTRACT_LIST_PARAM___IS_IN_DATA_COMPARISON;
+	int TEXT_LIST_PARAM___IS_IN_DATA_COMPARISON = LIST_PARAM___IS_IN_DATA_COMPARISON;
 
 	/**
 	 * The operation id for the '<em>Is In Tag Comparison</em>' operation.
@@ -3314,7 +3314,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___IS_IN_TAG_COMPARISON = ABSTRACT_LIST_PARAM___IS_IN_TAG_COMPARISON;
+	int TEXT_LIST_PARAM___IS_IN_TAG_COMPARISON = LIST_PARAM___IS_IN_TAG_COMPARISON;
 
 	/**
 	 * The operation id for the '<em>Get Attribute Names</em>' operation.
@@ -3323,7 +3323,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___GET_ATTRIBUTE_NAMES = ABSTRACT_LIST_PARAM___GET_ATTRIBUTE_NAMES;
+	int TEXT_LIST_PARAM___GET_ATTRIBUTE_NAMES = LIST_PARAM___GET_ATTRIBUTE_NAMES;
 
 	/**
 	 * The operation id for the '<em>Get Attribute Values</em>' operation.
@@ -3332,7 +3332,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___GET_ATTRIBUTE_VALUES = ABSTRACT_LIST_PARAM___GET_ATTRIBUTE_VALUES;
+	int TEXT_LIST_PARAM___GET_ATTRIBUTE_VALUES = LIST_PARAM___GET_ATTRIBUTE_VALUES;
 
 	/**
 	 * The operation id for the '<em>Is In Attribute Comparison</em>' operation.
@@ -3341,7 +3341,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___IS_IN_ATTRIBUTE_COMPARISON = ABSTRACT_LIST_PARAM___IS_IN_ATTRIBUTE_COMPARISON;
+	int TEXT_LIST_PARAM___IS_IN_ATTRIBUTE_COMPARISON = LIST_PARAM___IS_IN_ATTRIBUTE_COMPARISON;
 
 	/**
 	 * The operation id for the '<em>Get Suggestions</em>' operation.
@@ -3350,7 +3350,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___GET_SUGGESTIONS = ABSTRACT_LIST_PARAM___GET_SUGGESTIONS;
+	int TEXT_LIST_PARAM___GET_SUGGESTIONS = LIST_PARAM___GET_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Infer Suggestions</em>' operation.
@@ -3359,7 +3359,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___INFER_SUGGESTIONS = ABSTRACT_LIST_PARAM___INFER_SUGGESTIONS;
+	int TEXT_LIST_PARAM___INFER_SUGGESTIONS = LIST_PARAM___INFER_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Set Value If Valid</em>' operation.
@@ -3368,7 +3368,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___SET_VALUE_IF_VALID__ELIST = ABSTRACT_LIST_PARAM___SET_VALUE_IF_VALID__ELIST;
+	int TEXT_LIST_PARAM___SET_VALUE_IF_VALID__ELIST = LIST_PARAM___SET_VALUE_IF_VALID__ELIST;
 
 	/**
 	 * The operation id for the '<em>Get List Var</em>' operation.
@@ -3377,7 +3377,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___GET_LIST_VAR = ABSTRACT_LIST_PARAM___GET_LIST_VAR;
+	int TEXT_LIST_PARAM___GET_LIST_VAR = LIST_PARAM___GET_LIST_VAR;
 
 	/**
 	 * The operation id for the '<em>Get List Declaration</em>' operation.
@@ -3386,7 +3386,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___GET_LIST_DECLARATION = ABSTRACT_LIST_PARAM___GET_LIST_DECLARATION;
+	int TEXT_LIST_PARAM___GET_LIST_DECLARATION = LIST_PARAM___GET_LIST_DECLARATION;
 
 	/**
 	 * The operation id for the '<em>Add String Value</em>' operation.
@@ -3395,7 +3395,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___ADD_STRING_VALUE__STRING = ABSTRACT_LIST_PARAM___ADD_STRING_VALUE__STRING;
+	int TEXT_LIST_PARAM___ADD_STRING_VALUE__STRING = LIST_PARAM___ADD_STRING_VALUE__STRING;
 
 	/**
 	 * The number of operations of the '<em>Text List Param</em>' class.
@@ -3404,7 +3404,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM_OPERATION_COUNT = ABSTRACT_LIST_PARAM_OPERATION_COUNT + 0;
+	int TEXT_LIST_PARAM_OPERATION_COUNT = LIST_PARAM_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl <em>Text Literal Param</em>}' class.
@@ -7553,7 +7553,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM__ID = ABSTRACT_LIST_PARAM__ID;
+	int MULTI_LIST_PARAM__ID = LIST_PARAM__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -7562,7 +7562,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM__INTERNAL_ID = ABSTRACT_LIST_PARAM__INTERNAL_ID;
+	int MULTI_LIST_PARAM__INTERNAL_ID = LIST_PARAM__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
@@ -7571,7 +7571,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM__PARAMETER_LIST = ABSTRACT_LIST_PARAM__PARAMETER_LIST;
+	int MULTI_LIST_PARAM__PARAMETER_LIST = LIST_PARAM__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
@@ -7580,7 +7580,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM__PREDEFINED = ABSTRACT_LIST_PARAM__PREDEFINED;
+	int MULTI_LIST_PARAM__PREDEFINED = LIST_PARAM__PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
@@ -7589,7 +7589,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM__PARAMETER_REFERENCES = ABSTRACT_LIST_PARAM__PARAMETER_REFERENCES;
+	int MULTI_LIST_PARAM__PARAMETER_REFERENCES = LIST_PARAM__PARAMETER_REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -7598,7 +7598,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM__DESCRIPTION = ABSTRACT_LIST_PARAM__DESCRIPTION;
+	int MULTI_LIST_PARAM__DESCRIPTION = LIST_PARAM__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -7607,7 +7607,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM__COMPARISON1 = ABSTRACT_LIST_PARAM__COMPARISON1;
+	int MULTI_LIST_PARAM__COMPARISON1 = LIST_PARAM__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -7616,7 +7616,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM__COMPARISON2 = ABSTRACT_LIST_PARAM__COMPARISON2;
+	int MULTI_LIST_PARAM__COMPARISON2 = LIST_PARAM__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Type Modifiable</b></em>' attribute.
@@ -7625,7 +7625,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM__TYPE_MODIFIABLE = ABSTRACT_LIST_PARAM__TYPE_MODIFIABLE;
+	int MULTI_LIST_PARAM__TYPE_MODIFIABLE = LIST_PARAM__TYPE_MODIFIABLE;
 
 	/**
 	 * The feature id for the '<em><b>Values</b></em>' attribute list.
@@ -7634,7 +7634,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM__VALUES = ABSTRACT_LIST_PARAM__VALUES;
+	int MULTI_LIST_PARAM__VALUES = LIST_PARAM__VALUES;
 
 	/**
 	 * The number of structural features of the '<em>Multi List Param</em>' class.
@@ -7643,7 +7643,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM_FEATURE_COUNT = ABSTRACT_LIST_PARAM_FEATURE_COUNT + 0;
+	int MULTI_LIST_PARAM_FEATURE_COUNT = LIST_PARAM_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -7652,7 +7652,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___IS_VALID__ABSTRACTIONLEVEL = ABSTRACT_LIST_PARAM___IS_VALID__ABSTRACTIONLEVEL;
+	int MULTI_LIST_PARAM___IS_VALID__ABSTRACTIONLEVEL = LIST_PARAM___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -7661,7 +7661,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = ABSTRACT_LIST_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+	int MULTI_LIST_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = LIST_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -7670,7 +7670,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___MY_TO_STRING = ABSTRACT_LIST_PARAM___MY_TO_STRING;
+	int MULTI_LIST_PARAM___MY_TO_STRING = LIST_PARAM___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Generate Cypher</em>' operation.
@@ -7679,7 +7679,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___GENERATE_CYPHER = ABSTRACT_LIST_PARAM___GENERATE_CYPHER;
+	int MULTI_LIST_PARAM___GENERATE_CYPHER = LIST_PARAM___GENERATE_CYPHER;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -7688,7 +7688,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___GENERATE_XQUERY = ABSTRACT_LIST_PARAM___GENERATE_XQUERY;
+	int MULTI_LIST_PARAM___GENERATE_XQUERY = LIST_PARAM___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Generate Sparql</em>' operation.
@@ -7697,7 +7697,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___GENERATE_SPARQL = ABSTRACT_LIST_PARAM___GENERATE_SPARQL;
+	int MULTI_LIST_PARAM___GENERATE_SPARQL = LIST_PARAM___GENERATE_SPARQL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -7706,7 +7706,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___GET_CONTAINER = ABSTRACT_LIST_PARAM___GET_CONTAINER;
+	int MULTI_LIST_PARAM___GET_CONTAINER = LIST_PARAM___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -7715,7 +7715,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___GET_ANCESTOR__CLASS = ABSTRACT_LIST_PARAM___GET_ANCESTOR__CLASS;
+	int MULTI_LIST_PARAM___GET_ANCESTOR__CLASS = LIST_PARAM___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Initialize Translation</em>' operation.
@@ -7724,7 +7724,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___INITIALIZE_TRANSLATION = ABSTRACT_LIST_PARAM___INITIALIZE_TRANSLATION;
+	int MULTI_LIST_PARAM___INITIALIZE_TRANSLATION = LIST_PARAM___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -7733,7 +7733,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___PREPARE_TRANSLATION = ABSTRACT_LIST_PARAM___PREPARE_TRANSLATION;
+	int MULTI_LIST_PARAM___PREPARE_TRANSLATION = LIST_PARAM___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -7742,7 +7742,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___GET_OPERATOR_LIST = ABSTRACT_LIST_PARAM___GET_OPERATOR_LIST;
+	int MULTI_LIST_PARAM___GET_OPERATOR_LIST = LIST_PARAM___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -7751,7 +7751,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___GET_PARAMETER_LIST = ABSTRACT_LIST_PARAM___GET_PARAMETER_LIST;
+	int MULTI_LIST_PARAM___GET_PARAMETER_LIST = LIST_PARAM___GET_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -7760,7 +7760,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___GET_ALL_PARAMETERS = ABSTRACT_LIST_PARAM___GET_ALL_PARAMETERS;
+	int MULTI_LIST_PARAM___GET_ALL_PARAMETERS = LIST_PARAM___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -7769,7 +7769,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___PREPARE_PARAMETER_UPDATES = ABSTRACT_LIST_PARAM___PREPARE_PARAMETER_UPDATES;
+	int MULTI_LIST_PARAM___PREPARE_PARAMETER_UPDATES = LIST_PARAM___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -7778,7 +7778,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = ABSTRACT_LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+	int MULTI_LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
 
 	/**
 	 * The operation id for the '<em>Update Parameters</em>' operation.
@@ -7787,7 +7787,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = ABSTRACT_LIST_PARAM___UPDATE_PARAMETERS__PARAMETERLIST;
+	int MULTI_LIST_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = LIST_PARAM___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -7796,7 +7796,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = ABSTRACT_LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+	int MULTI_LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -7805,7 +7805,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___RECORD_VALUES__XMLDATADATABASE = ABSTRACT_LIST_PARAM___RECORD_VALUES__XMLDATADATABASE;
+	int MULTI_LIST_PARAM___RECORD_VALUES__XMLDATADATABASE = LIST_PARAM___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -7814,7 +7814,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___RELATIONS_XML_ADAPTED = ABSTRACT_LIST_PARAM___RELATIONS_XML_ADAPTED;
+	int MULTI_LIST_PARAM___RELATIONS_XML_ADAPTED = LIST_PARAM___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
@@ -7823,7 +7823,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___CREATE_XML_ADAPTION = ABSTRACT_LIST_PARAM___CREATE_XML_ADAPTION;
+	int MULTI_LIST_PARAM___CREATE_XML_ADAPTION = LIST_PARAM___CREATE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
@@ -7832,7 +7832,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___CREATE_RDF_ADAPTION = ABSTRACT_LIST_PARAM___CREATE_RDF_ADAPTION;
+	int MULTI_LIST_PARAM___CREATE_RDF_ADAPTION = LIST_PARAM___CREATE_RDF_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
@@ -7841,7 +7841,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___CREATE_NEO4J_ADAPTION = ABSTRACT_LIST_PARAM___CREATE_NEO4J_ADAPTION;
+	int MULTI_LIST_PARAM___CREATE_NEO4J_ADAPTION = LIST_PARAM___CREATE_NEO4J_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -7850,7 +7850,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___VALIDATE_AGAINST_SCHEMA = ABSTRACT_LIST_PARAM___VALIDATE_AGAINST_SCHEMA;
+	int MULTI_LIST_PARAM___VALIDATE_AGAINST_SCHEMA = LIST_PARAM___VALIDATE_AGAINST_SCHEMA;
 
 	/**
 	 * The operation id for the '<em>Validate Example Value</em>' operation.
@@ -7859,7 +7859,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = ABSTRACT_LIST_PARAM___VALIDATE_EXAMPLE_VALUE__STRING;
+	int MULTI_LIST_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = LIST_PARAM___VALIDATE_EXAMPLE_VALUE__STRING;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -7868,7 +7868,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___INPUT_IS_VALID = ABSTRACT_LIST_PARAM___INPUT_IS_VALID;
+	int MULTI_LIST_PARAM___INPUT_IS_VALID = LIST_PARAM___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Is Used</em>' operation.
@@ -7877,7 +7877,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___IS_USED = ABSTRACT_LIST_PARAM___IS_USED;
+	int MULTI_LIST_PARAM___IS_USED = LIST_PARAM___IS_USED;
 
 	/**
 	 * The operation id for the '<em>Set Value From String</em>' operation.
@@ -7886,7 +7886,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___SET_VALUE_FROM_STRING__STRING = ABSTRACT_LIST_PARAM___SET_VALUE_FROM_STRING__STRING;
+	int MULTI_LIST_PARAM___SET_VALUE_FROM_STRING__STRING = LIST_PARAM___SET_VALUE_FROM_STRING__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Value As String</em>' operation.
@@ -7895,7 +7895,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___GET_VALUE_AS_STRING = ABSTRACT_LIST_PARAM___GET_VALUE_AS_STRING;
+	int MULTI_LIST_PARAM___GET_VALUE_AS_STRING = LIST_PARAM___GET_VALUE_AS_STRING;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -7904,7 +7904,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___CHECK_COMPARISON_CONSISTENCY = ABSTRACT_LIST_PARAM___CHECK_COMPARISON_CONSISTENCY;
+	int MULTI_LIST_PARAM___CHECK_COMPARISON_CONSISTENCY = LIST_PARAM___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
 	 * The operation id for the '<em>Get Options As String List</em>' operation.
@@ -7913,7 +7913,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___GET_OPTIONS_AS_STRING_LIST = ABSTRACT_LIST_PARAM___GET_OPTIONS_AS_STRING_LIST;
+	int MULTI_LIST_PARAM___GET_OPTIONS_AS_STRING_LIST = LIST_PARAM___GET_OPTIONS_AS_STRING_LIST;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -7922,7 +7922,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___GENERATE_DESCRIPTION = ABSTRACT_LIST_PARAM___GENERATE_DESCRIPTION;
+	int MULTI_LIST_PARAM___GENERATE_DESCRIPTION = LIST_PARAM___GENERATE_DESCRIPTION;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -7931,7 +7931,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = ABSTRACT_LIST_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int MULTI_LIST_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = LIST_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -7940,7 +7940,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___GET_RETURN_TYPE = ABSTRACT_LIST_PARAM___GET_RETURN_TYPE;
+	int MULTI_LIST_PARAM___GET_RETURN_TYPE = LIST_PARAM___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -7949,7 +7949,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___IS_TRANSLATABLE = ABSTRACT_LIST_PARAM___IS_TRANSLATABLE;
+	int MULTI_LIST_PARAM___IS_TRANSLATABLE = LIST_PARAM___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -7958,7 +7958,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___GET_ALL_ARGUMENT_ELEMENTS = ABSTRACT_LIST_PARAM___GET_ALL_ARGUMENT_ELEMENTS;
+	int MULTI_LIST_PARAM___GET_ALL_ARGUMENT_ELEMENTS = LIST_PARAM___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Is Operator Argument</em>' operation.
@@ -7967,7 +7967,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___IS_OPERATOR_ARGUMENT = ABSTRACT_LIST_PARAM___IS_OPERATOR_ARGUMENT;
+	int MULTI_LIST_PARAM___IS_OPERATOR_ARGUMENT = LIST_PARAM___IS_OPERATOR_ARGUMENT;
 
 	/**
 	 * The operation id for the '<em>Replace</em>' operation.
@@ -7976,7 +7976,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___REPLACE__PARAMETERVALUE = ABSTRACT_LIST_PARAM___REPLACE__PARAMETERVALUE;
+	int MULTI_LIST_PARAM___REPLACE__PARAMETERVALUE = LIST_PARAM___REPLACE__PARAMETERVALUE;
 
 	/**
 	 * The operation id for the '<em>Replace Via Value</em>' operation.
@@ -7985,7 +7985,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___REPLACE_VIA_VALUE__STRING_STRING = ABSTRACT_LIST_PARAM___REPLACE_VIA_VALUE__STRING_STRING;
+	int MULTI_LIST_PARAM___REPLACE_VIA_VALUE__STRING_STRING = LIST_PARAM___REPLACE_VIA_VALUE__STRING_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Element Tags</em>' operation.
@@ -7994,7 +7994,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___GET_ELEMENT_TAGS = ABSTRACT_LIST_PARAM___GET_ELEMENT_TAGS;
+	int MULTI_LIST_PARAM___GET_ELEMENT_TAGS = LIST_PARAM___GET_ELEMENT_TAGS;
 
 	/**
 	 * The operation id for the '<em>Get Data Values</em>' operation.
@@ -8003,7 +8003,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___GET_DATA_VALUES = ABSTRACT_LIST_PARAM___GET_DATA_VALUES;
+	int MULTI_LIST_PARAM___GET_DATA_VALUES = LIST_PARAM___GET_DATA_VALUES;
 
 	/**
 	 * The operation id for the '<em>Is In Data Comparison</em>' operation.
@@ -8012,7 +8012,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___IS_IN_DATA_COMPARISON = ABSTRACT_LIST_PARAM___IS_IN_DATA_COMPARISON;
+	int MULTI_LIST_PARAM___IS_IN_DATA_COMPARISON = LIST_PARAM___IS_IN_DATA_COMPARISON;
 
 	/**
 	 * The operation id for the '<em>Is In Tag Comparison</em>' operation.
@@ -8021,7 +8021,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___IS_IN_TAG_COMPARISON = ABSTRACT_LIST_PARAM___IS_IN_TAG_COMPARISON;
+	int MULTI_LIST_PARAM___IS_IN_TAG_COMPARISON = LIST_PARAM___IS_IN_TAG_COMPARISON;
 
 	/**
 	 * The operation id for the '<em>Get Attribute Names</em>' operation.
@@ -8030,7 +8030,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___GET_ATTRIBUTE_NAMES = ABSTRACT_LIST_PARAM___GET_ATTRIBUTE_NAMES;
+	int MULTI_LIST_PARAM___GET_ATTRIBUTE_NAMES = LIST_PARAM___GET_ATTRIBUTE_NAMES;
 
 	/**
 	 * The operation id for the '<em>Get Attribute Values</em>' operation.
@@ -8039,7 +8039,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___GET_ATTRIBUTE_VALUES = ABSTRACT_LIST_PARAM___GET_ATTRIBUTE_VALUES;
+	int MULTI_LIST_PARAM___GET_ATTRIBUTE_VALUES = LIST_PARAM___GET_ATTRIBUTE_VALUES;
 
 	/**
 	 * The operation id for the '<em>Is In Attribute Comparison</em>' operation.
@@ -8048,7 +8048,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___IS_IN_ATTRIBUTE_COMPARISON = ABSTRACT_LIST_PARAM___IS_IN_ATTRIBUTE_COMPARISON;
+	int MULTI_LIST_PARAM___IS_IN_ATTRIBUTE_COMPARISON = LIST_PARAM___IS_IN_ATTRIBUTE_COMPARISON;
 
 	/**
 	 * The operation id for the '<em>Get Suggestions</em>' operation.
@@ -8057,7 +8057,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___GET_SUGGESTIONS = ABSTRACT_LIST_PARAM___GET_SUGGESTIONS;
+	int MULTI_LIST_PARAM___GET_SUGGESTIONS = LIST_PARAM___GET_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Infer Suggestions</em>' operation.
@@ -8066,7 +8066,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___INFER_SUGGESTIONS = ABSTRACT_LIST_PARAM___INFER_SUGGESTIONS;
+	int MULTI_LIST_PARAM___INFER_SUGGESTIONS = LIST_PARAM___INFER_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Set Value If Valid</em>' operation.
@@ -8075,7 +8075,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___SET_VALUE_IF_VALID__ELIST = ABSTRACT_LIST_PARAM___SET_VALUE_IF_VALID__ELIST;
+	int MULTI_LIST_PARAM___SET_VALUE_IF_VALID__ELIST = LIST_PARAM___SET_VALUE_IF_VALID__ELIST;
 
 	/**
 	 * The operation id for the '<em>Get List Var</em>' operation.
@@ -8084,7 +8084,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___GET_LIST_VAR = ABSTRACT_LIST_PARAM___GET_LIST_VAR;
+	int MULTI_LIST_PARAM___GET_LIST_VAR = LIST_PARAM___GET_LIST_VAR;
 
 	/**
 	 * The operation id for the '<em>Get List Declaration</em>' operation.
@@ -8093,7 +8093,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___GET_LIST_DECLARATION = ABSTRACT_LIST_PARAM___GET_LIST_DECLARATION;
+	int MULTI_LIST_PARAM___GET_LIST_DECLARATION = LIST_PARAM___GET_LIST_DECLARATION;
 
 	/**
 	 * The operation id for the '<em>Add String Value</em>' operation.
@@ -8102,7 +8102,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___ADD_STRING_VALUE__STRING = ABSTRACT_LIST_PARAM___ADD_STRING_VALUE__STRING;
+	int MULTI_LIST_PARAM___ADD_STRING_VALUE__STRING = LIST_PARAM___ADD_STRING_VALUE__STRING;
 
 	/**
 	 * The number of operations of the '<em>Multi List Param</em>' class.
@@ -8111,7 +8111,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM_OPERATION_COUNT = ABSTRACT_LIST_PARAM_OPERATION_COUNT + 0;
+	int MULTI_LIST_PARAM_OPERATION_COUNT = LIST_PARAM_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '<em>String To Int EMap</em>' data type.
@@ -8932,14 +8932,14 @@ public interface ParametersPackage extends EPackage {
 	EOperation getKeyValueParam__SetNewMap__Map();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.ListParam <em>Abstract List Param</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.ListParam <em>List Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Abstract List Param</em>'.
+	 * @return the meta object for class '<em>List Param</em>'.
 	 * @see qualitypatternmodel.parameters.ListParam
 	 * @generated
 	 */
-	EClass getAbstractListParam();
+	EClass getListParam();
 
 	/**
 	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.parameters.ListParam#getValues <em>Values</em>}'.
@@ -8947,10 +8947,10 @@ public interface ParametersPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Values</em>'.
 	 * @see qualitypatternmodel.parameters.ListParam#getValues()
-	 * @see #getAbstractListParam()
+	 * @see #getListParam()
 	 * @generated
 	 */
-	EAttribute getAbstractListParam_Values();
+	EAttribute getListParam_Values();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ListParam#setValueIfValid(org.eclipse.emf.common.util.EList) <em>Set Value If Valid</em>}' operation.
@@ -8960,7 +8960,7 @@ public interface ParametersPackage extends EPackage {
 	 * @see qualitypatternmodel.parameters.ListParam#setValueIfValid(org.eclipse.emf.common.util.EList)
 	 * @generated
 	 */
-	EOperation getAbstractListParam__SetValueIfValid__EList();
+	EOperation getListParam__SetValueIfValid__EList();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ListParam#getListVar() <em>Get List Var</em>}' operation.
@@ -8970,7 +8970,7 @@ public interface ParametersPackage extends EPackage {
 	 * @see qualitypatternmodel.parameters.ListParam#getListVar()
 	 * @generated
 	 */
-	EOperation getAbstractListParam__GetListVar();
+	EOperation getListParam__GetListVar();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ListParam#getListDeclaration() <em>Get List Declaration</em>}' operation.
@@ -8980,7 +8980,7 @@ public interface ParametersPackage extends EPackage {
 	 * @see qualitypatternmodel.parameters.ListParam#getListDeclaration()
 	 * @generated
 	 */
-	EOperation getAbstractListParam__GetListDeclaration();
+	EOperation getListParam__GetListDeclaration();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ListParam#addStringValue(java.lang.String) <em>Add String Value</em>}' operation.
@@ -8990,7 +8990,7 @@ public interface ParametersPackage extends EPackage {
 	 * @see qualitypatternmodel.parameters.ListParam#addStringValue(java.lang.String)
 	 * @generated
 	 */
-	EOperation getAbstractListParam__AddStringValue__String();
+	EOperation getListParam__AddStringValue__String();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.MultiListParam <em>Multi List Param</em>}'.
@@ -9691,14 +9691,14 @@ public interface ParametersPackage extends EPackage {
 		EOperation KEY_VALUE_PARAM___SET_NEW_MAP__MAP = eINSTANCE.getKeyValueParam__SetNewMap__Map();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.ListParamImpl <em>Abstract List Param</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.ListParamImpl <em>List Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see qualitypatternmodel.parameters.impl.ListParamImpl
-		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getAbstractListParam()
+		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getListParam()
 		 * @generated
 		 */
-		EClass ABSTRACT_LIST_PARAM = eINSTANCE.getAbstractListParam();
+		EClass LIST_PARAM = eINSTANCE.getListParam();
 
 		/**
 		 * The meta object literal for the '<em><b>Values</b></em>' attribute list feature.
@@ -9706,7 +9706,7 @@ public interface ParametersPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ABSTRACT_LIST_PARAM__VALUES = eINSTANCE.getAbstractListParam_Values();
+		EAttribute LIST_PARAM__VALUES = eINSTANCE.getListParam_Values();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Value If Valid</b></em>' operation.
@@ -9714,7 +9714,7 @@ public interface ParametersPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ABSTRACT_LIST_PARAM___SET_VALUE_IF_VALID__ELIST = eINSTANCE.getAbstractListParam__SetValueIfValid__EList();
+		EOperation LIST_PARAM___SET_VALUE_IF_VALID__ELIST = eINSTANCE.getListParam__SetValueIfValid__EList();
 
 		/**
 		 * The meta object literal for the '<em><b>Get List Var</b></em>' operation.
@@ -9722,7 +9722,7 @@ public interface ParametersPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ABSTRACT_LIST_PARAM___GET_LIST_VAR = eINSTANCE.getAbstractListParam__GetListVar();
+		EOperation LIST_PARAM___GET_LIST_VAR = eINSTANCE.getListParam__GetListVar();
 
 		/**
 		 * The meta object literal for the '<em><b>Get List Declaration</b></em>' operation.
@@ -9730,7 +9730,7 @@ public interface ParametersPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ABSTRACT_LIST_PARAM___GET_LIST_DECLARATION = eINSTANCE.getAbstractListParam__GetListDeclaration();
+		EOperation LIST_PARAM___GET_LIST_DECLARATION = eINSTANCE.getListParam__GetListDeclaration();
 
 		/**
 		 * The meta object literal for the '<em><b>Add String Value</b></em>' operation.
@@ -9738,7 +9738,7 @@ public interface ParametersPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ABSTRACT_LIST_PARAM___ADD_STRING_VALUE__STRING = eINSTANCE.getAbstractListParam__AddStringValue__String();
+		EOperation LIST_PARAM___ADD_STRING_VALUE__STRING = eINSTANCE.getListParam__AddStringValue__String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.MultiListParamImpl <em>Multi List Param</em>}' class.

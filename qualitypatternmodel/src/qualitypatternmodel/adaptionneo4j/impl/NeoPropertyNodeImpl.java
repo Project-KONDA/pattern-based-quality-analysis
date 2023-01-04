@@ -83,6 +83,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 *However, if used then <b>split the String by the literal <i>";"<\i><\b>.
 	 *It also only returns the distinct String-Array 
 	 *Translated is here not used since the labels of a NeoPropertyNode are build in the NeoSimpleEdge
+	 *Implemented to get the same behaviour as for the NeoElementNode.
 	 */
 	@Override 
 	public String generateCypher() throws InvalidityException, UnsupportedOperationException {	
@@ -578,7 +579,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		result.append(" (isVariableDistinctInUse: ");
 		result.append(isVariableDistinctInUse);
 		result.append(')');
-		
 		return result.toString();
 	}
 

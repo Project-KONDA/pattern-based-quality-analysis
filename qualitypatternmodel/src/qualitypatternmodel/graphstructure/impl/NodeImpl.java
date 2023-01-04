@@ -2285,7 +2285,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.NODE___ADAPT_AS_NEO_NODE:
+			case GraphstructurePackage.NODE___ADAPT_AS_NEO_ELEMENT_NODE:
 				try {
 					return adaptAsNeoElementNode();
 				}

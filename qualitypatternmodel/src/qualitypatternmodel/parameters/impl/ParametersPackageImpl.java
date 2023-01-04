@@ -160,7 +160,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass abstractListParamEClass = null;
+	private EClass listParamEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1064,8 +1064,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EClass getAbstractListParam() {
-		return abstractListParamEClass;
+	public EClass getListParam() {
+		return listParamEClass;
 	}
 
 	/**
@@ -1074,8 +1074,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getAbstractListParam_Values() {
-		return (EAttribute)abstractListParamEClass.getEStructuralFeatures().get(0);
+	public EAttribute getListParam_Values() {
+		return (EAttribute)listParamEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1084,8 +1084,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getAbstractListParam__SetValueIfValid__EList() {
-		return abstractListParamEClass.getEOperations().get(0);
+	public EOperation getListParam__SetValueIfValid__EList() {
+		return listParamEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1094,8 +1094,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getAbstractListParam__GetListVar() {
-		return abstractListParamEClass.getEOperations().get(1);
+	public EOperation getListParam__GetListVar() {
+		return listParamEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -1104,8 +1104,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getAbstractListParam__GetListDeclaration() {
-		return abstractListParamEClass.getEOperations().get(2);
+	public EOperation getListParam__GetListDeclaration() {
+		return listParamEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -1114,8 +1114,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getAbstractListParam__AddStringValue__String() {
-		return abstractListParamEClass.getEOperations().get(3);
+	public EOperation getListParam__AddStringValue__String() {
+		return listParamEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -1268,12 +1268,12 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEOperation(keyValueParamEClass, KEY_VALUE_PARAM___ADD_VALUE__STRING_STRING);
 		createEOperation(keyValueParamEClass, KEY_VALUE_PARAM___SET_NEW_MAP__MAP);
 
-		abstractListParamEClass = createEClass(ABSTRACT_LIST_PARAM);
-		createEAttribute(abstractListParamEClass, ABSTRACT_LIST_PARAM__VALUES);
-		createEOperation(abstractListParamEClass, ABSTRACT_LIST_PARAM___SET_VALUE_IF_VALID__ELIST);
-		createEOperation(abstractListParamEClass, ABSTRACT_LIST_PARAM___GET_LIST_VAR);
-		createEOperation(abstractListParamEClass, ABSTRACT_LIST_PARAM___GET_LIST_DECLARATION);
-		createEOperation(abstractListParamEClass, ABSTRACT_LIST_PARAM___ADD_STRING_VALUE__STRING);
+		listParamEClass = createEClass(LIST_PARAM);
+		createEAttribute(listParamEClass, LIST_PARAM__VALUES);
+		createEOperation(listParamEClass, LIST_PARAM___SET_VALUE_IF_VALID__ELIST);
+		createEOperation(listParamEClass, LIST_PARAM___GET_LIST_VAR);
+		createEOperation(listParamEClass, LIST_PARAM___GET_LIST_DECLARATION);
+		createEOperation(listParamEClass, LIST_PARAM___ADD_STRING_VALUE__STRING);
 
 		multiListParamEClass = createEClass(MULTI_LIST_PARAM);
 
@@ -1323,7 +1323,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		comparisonOptionParamEClass.getESuperTypes().add(this.getParameter());
 		parameterListEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 		booleanParamEClass.getESuperTypes().add(this.getParameterValue());
-		textListParamEClass.getESuperTypes().add(this.getAbstractListParam());
+		textListParamEClass.getESuperTypes().add(this.getListParam());
 		textLiteralParamEClass.getESuperTypes().add(this.getParameterValue());
 		numberParamEClass.getESuperTypes().add(this.getParameterValue());
 		parameterValueEClass.getESuperTypes().add(this.getParameter());
@@ -1334,8 +1334,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		dateTimeParamEClass.getESuperTypes().add(this.getParameterValue());
 		typeOptionParamEClass.getESuperTypes().add(this.getParameter());
 		keyValueParamEClass.getESuperTypes().add(this.getParameter());
-		abstractListParamEClass.getESuperTypes().add(this.getParameterValue());
-		multiListParamEClass.getESuperTypes().add(this.getAbstractListParam());
+		listParamEClass.getESuperTypes().add(this.getParameterValue());
+		multiListParamEClass.getESuperTypes().add(this.getListParam());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(parameterEClass, Parameter.class, "Parameter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1523,18 +1523,18 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		op = initEOperation(getKeyValueParam__SetNewMap__Map(), null, "setNewMap", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEMap(), "newKeyValueMap", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(abstractListParamEClass, ListParam.class, "AbstractListParam", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAbstractListParam_Values(), ecorePackage.getEString(), "values", "", 0, -1, ListParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(listParamEClass, ListParam.class, "ListParam", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getListParam_Values(), ecorePackage.getEString(), "values", "", 0, -1, ListParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getAbstractListParam__SetValueIfValid__EList(), null, "setValueIfValid", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getListParam__SetValueIfValid__EList(), null, "setValueIfValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "newValue", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		initEOperation(getAbstractListParam__GetListVar(), ecorePackage.getEString(), "getListVar", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getListParam__GetListVar(), ecorePackage.getEString(), "getListVar", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getAbstractListParam__GetListDeclaration(), ecorePackage.getEString(), "getListDeclaration", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getListParam__GetListDeclaration(), ecorePackage.getEString(), "getListDeclaration", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getAbstractListParam__AddStringValue__String(), null, "addStringValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getListParam__AddStringValue__String(), null, "addStringValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(multiListParamEClass, MultiListParam.class, "MultiListParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

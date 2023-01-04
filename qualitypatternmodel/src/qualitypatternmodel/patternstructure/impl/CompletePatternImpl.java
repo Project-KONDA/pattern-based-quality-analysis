@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionneo4j.NeoNode;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPlace;
-import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfPathPart;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;

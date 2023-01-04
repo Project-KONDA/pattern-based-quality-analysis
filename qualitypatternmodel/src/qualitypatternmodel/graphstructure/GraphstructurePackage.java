@@ -1512,13 +1512,13 @@ public interface GraphstructurePackage extends EPackage {
 	int NODE___ADAPT_AS_RDF_LITERAL_NODE = COMPARABLE_OPERATION_COUNT + 34;
 
 	/**
-	 * The operation id for the '<em>Adapt As Neo Node</em>' operation.
+	 * The operation id for the '<em>Adapt As Neo Element Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADAPT_AS_NEO_NODE = COMPARABLE_OPERATION_COUNT + 35;
+	int NODE___ADAPT_AS_NEO_ELEMENT_NODE = COMPARABLE_OPERATION_COUNT + 35;
 
 	/**
 	 * The operation id for the '<em>Adapt As Neo Property Node</em>' operation.
@@ -2287,13 +2287,13 @@ public interface GraphstructurePackage extends EPackage {
 	int PRIMITIVE_NODE___ADAPT_AS_RDF_LITERAL_NODE = NODE___ADAPT_AS_RDF_LITERAL_NODE;
 
 	/**
-	 * The operation id for the '<em>Adapt As Neo Node</em>' operation.
+	 * The operation id for the '<em>Adapt As Neo Element Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_NODE___ADAPT_AS_NEO_NODE = NODE___ADAPT_AS_NEO_NODE;
+	int PRIMITIVE_NODE___ADAPT_AS_NEO_ELEMENT_NODE = NODE___ADAPT_AS_NEO_ELEMENT_NODE;
 
 	/**
 	 * The operation id for the '<em>Adapt As Neo Property Node</em>' operation.
@@ -3730,13 +3730,13 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPLEX_NODE___ADAPT_AS_RDF_LITERAL_NODE = NODE___ADAPT_AS_RDF_LITERAL_NODE;
 
 	/**
-	 * The operation id for the '<em>Adapt As Neo Node</em>' operation.
+	 * The operation id for the '<em>Adapt As Neo Element Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLEX_NODE___ADAPT_AS_NEO_NODE = NODE___ADAPT_AS_NEO_NODE;
+	int COMPLEX_NODE___ADAPT_AS_NEO_ELEMENT_NODE = NODE___ADAPT_AS_NEO_ELEMENT_NODE;
 
 	/**
 	 * The operation id for the '<em>Adapt As Neo Property Node</em>' operation.
@@ -4467,6 +4467,16 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getNode__AdaptAsRdfLiteralNode();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#adaptAsNeoElementNode() <em>Adapt As Neo Element Node</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Adapt As Neo Element Node</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#adaptAsNeoElementNode()
+	 * @generated
+	 */
+	EOperation getNode__AdaptAsNeoElementNode();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#addComparison(qualitypatternmodel.graphstructure.Node) <em>Add Comparison</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4475,16 +4485,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getNode__AddComparison__Node();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#adaptAsNeoElementNode() <em>Adapt As Neo Node</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Adapt As Neo Node</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Node#adaptAsNeoElementNode()
-	 * @generated
-	 */
-	EOperation getNode__AdaptAsNeoNode();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#adaptAsNeoPropertyNode() <em>Adapt As Neo Property Node</em>}' operation.
@@ -5424,20 +5424,20 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation NODE___ADAPT_AS_RDF_LITERAL_NODE = eINSTANCE.getNode__AdaptAsRdfLiteralNode();
 
 		/**
+		 * The meta object literal for the '<em><b>Adapt As Neo Element Node</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NODE___ADAPT_AS_NEO_ELEMENT_NODE = eINSTANCE.getNode__AdaptAsNeoElementNode();
+
+		/**
 		 * The meta object literal for the '<em><b>Add Comparison</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation NODE___ADD_COMPARISON__NODE = eINSTANCE.getNode__AddComparison__Node();
-
-		/**
-		 * The meta object literal for the '<em><b>Adapt As Neo Node</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NODE___ADAPT_AS_NEO_NODE = eINSTANCE.getNode__AdaptAsNeoNode();
 
 		/**
 		 * The meta object literal for the '<em><b>Adapt As Neo Property Node</b></em>' operation.

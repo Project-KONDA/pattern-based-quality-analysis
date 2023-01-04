@@ -61,7 +61,7 @@ public abstract class ListParamImpl extends ParameterValueImpl implements ListPa
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ParametersPackage.Literals.ABSTRACT_LIST_PARAM;
+		return ParametersPackage.Literals.LIST_PARAM;
 	}
 
 	/**
@@ -72,7 +72,7 @@ public abstract class ListParamImpl extends ParameterValueImpl implements ListPa
 	@Override
 	public EList<String> getValues() {
 		if (values == null) {
-			values = new EDataTypeUniqueEList<String>(String.class, this, ParametersPackage.ABSTRACT_LIST_PARAM__VALUES);
+			values = new EDataTypeUniqueEList<String>(String.class, this, ParametersPackage.LIST_PARAM__VALUES);
 		}
 		return values;
 	}
@@ -152,7 +152,7 @@ public abstract class ListParamImpl extends ParameterValueImpl implements ListPa
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ParametersPackage.ABSTRACT_LIST_PARAM__VALUES:
+			case ParametersPackage.LIST_PARAM__VALUES:
 				return getValues();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -167,7 +167,7 @@ public abstract class ListParamImpl extends ParameterValueImpl implements ListPa
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ParametersPackage.ABSTRACT_LIST_PARAM__VALUES:
+			case ParametersPackage.LIST_PARAM__VALUES:
 				getValues().clear();
 				getValues().addAll((Collection<? extends String>)newValue);
 				return;
@@ -183,7 +183,7 @@ public abstract class ListParamImpl extends ParameterValueImpl implements ListPa
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ParametersPackage.ABSTRACT_LIST_PARAM__VALUES:
+			case ParametersPackage.LIST_PARAM__VALUES:
 				getValues().clear();
 				return;
 		}
@@ -198,7 +198,7 @@ public abstract class ListParamImpl extends ParameterValueImpl implements ListPa
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ParametersPackage.ABSTRACT_LIST_PARAM__VALUES:
+			case ParametersPackage.LIST_PARAM__VALUES:
 				return values != null && !values.isEmpty();
 		}
 		return super.eIsSet(featureID);
@@ -213,7 +213,7 @@ public abstract class ListParamImpl extends ParameterValueImpl implements ListPa
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ParametersPackage.ABSTRACT_LIST_PARAM___SET_VALUE_IF_VALID__ELIST:
+			case ParametersPackage.LIST_PARAM___SET_VALUE_IF_VALID__ELIST:
 				try {
 					setValueIfValid((EList<String>)arguments.get(0));
 					return null;
@@ -221,11 +221,11 @@ public abstract class ListParamImpl extends ParameterValueImpl implements ListPa
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case ParametersPackage.ABSTRACT_LIST_PARAM___GET_LIST_VAR:
+			case ParametersPackage.LIST_PARAM___GET_LIST_VAR:
 				return getListVar();
-			case ParametersPackage.ABSTRACT_LIST_PARAM___GET_LIST_DECLARATION:
+			case ParametersPackage.LIST_PARAM___GET_LIST_DECLARATION:
 				return getListDeclaration();
-			case ParametersPackage.ABSTRACT_LIST_PARAM___ADD_STRING_VALUE__STRING:
+			case ParametersPackage.LIST_PARAM___ADD_STRING_VALUE__STRING:
 				addStringValue((String)arguments.get(0));
 				return null;
 		}

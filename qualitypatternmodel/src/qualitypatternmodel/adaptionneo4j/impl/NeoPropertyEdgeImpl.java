@@ -21,6 +21,7 @@ import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,6 +37,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * @generated
  */
 public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge {
+	private static final String NO_NEO_PROPERTY_PATH_PARAM_NEED_TO_BE_SET = "No NeoPropertyPathParam need to be set";
 	private static final String NO_NEO_PROPERTY_NAME_WAS_SPECIFIED = "No NeoPropertyName was specified";
 	private static final String THE_SOURCE_NEEDS_TO_BE_SET = "The Source needs to be set";
 	private static final String NEO_PROPERTY_EDGE_NEEDS_A_NEO_PROPERTY_PATH_PARAM = "NeoPropertyEdge needs a NeoPropertyPathParam";
@@ -71,7 +73,7 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 	//Translation of the neoPropertyEdge
 	@Override
 	public String generateCypher() throws InvalidityException {
-		String cypher = ""; //Null will be returned because it is used as an indicator in the morphisems
+		String cypher = new String(); //Null will be returned because it is used as an indicator in the morphisems
 		if (getIncomingMapping() == null) {
 			if(!translated && getNeoPropertyPathParam() != null) {
 				cypher = getNeoPropertyPathParam().generateCypher();
@@ -95,7 +97,7 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 				returnElement.put(NeoEdgeImpl.CYPHER_RETURN_ID, cypher);
 			}
 		} else {
-			throw new InvalidityException("No NeoPropertyPathParam need to be set"); 
+			throw new InvalidityException(NO_NEO_PROPERTY_PATH_PARAM_NEED_TO_BE_SET); 
 		}
 		return returnElement;
 	}
@@ -113,7 +115,7 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 	public String myToString() {
 		String result = super.myToString();
 		if (getNeoPropertyPathParam() != null) {
-			result += " " + getNeoPropertyPathParam().myToString(); 
+			result += CypherSpecificConstants.ONE_WHITESPACE + getNeoPropertyPathParam().myToString(); 
 		}
 		return result;
 	}

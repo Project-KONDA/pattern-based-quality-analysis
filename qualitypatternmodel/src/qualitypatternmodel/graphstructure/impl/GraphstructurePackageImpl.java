@@ -873,8 +873,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getNode__AddComparison__Node() {
-		return nodeEClass.getEOperations().get(9);
+	public EOperation getNode__AdaptAsNeoElementNode() {
+		return nodeEClass.getEOperations().get(33);
 	}
 
 	/**
@@ -883,8 +883,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getNode__AdaptAsNeoNode() {
-		return nodeEClass.getEOperations().get(33);
+	public EOperation getNode__AddComparison__Node() {
+		return nodeEClass.getEOperations().get(9);
 	}
 
 	/**
@@ -1357,7 +1357,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(nodeEClass, NODE___ADAPT_AS_XML_PROPERTY);
 		createEOperation(nodeEClass, NODE___ADAPT_AS_RDF_IRI_NODE);
 		createEOperation(nodeEClass, NODE___ADAPT_AS_RDF_LITERAL_NODE);
-		createEOperation(nodeEClass, NODE___ADAPT_AS_NEO_NODE);
+		createEOperation(nodeEClass, NODE___ADAPT_AS_NEO_ELEMENT_NODE);
 		createEOperation(nodeEClass, NODE___ADAPT_AS_NEO_PROPERTY_NODE);
 		createEOperation(nodeEClass, NODE___ADD_PRIMITIVE_NULL_CHECK);
 		createEOperation(nodeEClass, NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN);
@@ -1610,7 +1610,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		op = initEOperation(getNode__AdaptAsRdfLiteralNode(), theAdaptionrdfPackage.getRdfLiteralNode(), "adaptAsRdfLiteralNode", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getNode__AdaptAsNeoNode(), theAdaptionneo4jPackage.getNeoElementNode(), "adaptAsNeoNode", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNode__AdaptAsNeoElementNode(), theAdaptionneo4jPackage.getNeoElementNode(), "adaptAsNeoElementNode", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getNode__AdaptAsNeoPropertyNode(), theAdaptionneo4jPackage.getNeoPropertyNode(), "adaptAsNeoPropertyNode", 0, 1, IS_UNIQUE, IS_ORDERED);

@@ -653,16 +653,6 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNeoPropertyNode_ReturnProperty() {
-		return (EAttribute)neoPropertyNodeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getNeoPropertyNode__GenerateCypherPropertyAddressing() {
 		return neoPropertyNodeEClass.getEOperations().get(0);
 	}
@@ -872,7 +862,6 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 		createEOperation(neoPathPartEClass, NEO_PATH_PART___GET_NEO_LAST_EDGE);
 
 		neoPropertyNodeEClass = createEClass(NEO_PROPERTY_NODE);
-		createEAttribute(neoPropertyNodeEClass, NEO_PROPERTY_NODE__RETURN_PROPERTY);
 		createEOperation(neoPropertyNodeEClass, NEO_PROPERTY_NODE___GENERATE_CYPHER_PROPERTY_ADDRESSING);
 
 		neoElementPathParamEClass = createEClass(NEO_ELEMENT_PATH_PARAM);
@@ -1019,7 +1008,6 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(neoPropertyNodeEClass, NeoPropertyNode.class, "NeoPropertyNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNeoPropertyNode_ReturnProperty(), ecorePackage.getEBoolean(), "returnProperty", null, 0, 1, NeoPropertyNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getNeoPropertyNode__GenerateCypherPropertyAddressing(), ecorePackage.getEEList(), "generateCypherPropertyAddressing", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
