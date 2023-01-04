@@ -106,14 +106,6 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 	}
 	
 	@Test
-	public void setIsReturnProperty() {
-		neoPropertyNode.setReturnProperty(true);
-		assertTrue(neoPropertyNode.isReturnProperty());
-		neoPropertyNode.setReturnProperty(false);
-		assertFalse(neoPropertyNode.isReturnProperty());
-	}
-	
-	@Test
 	public void isNodeReturnable() {
 		try {
 			NeoPropertyEdge neoPropertyEdge = prepaireValidPropertyEdgeStructure(GENERIC_NODE_ID);

@@ -61,7 +61,6 @@ public class CypherTest02Return extends CypherAbstractTranslation {
 		complexNode2.setReturnNode(true);
 		complexNode2.addNeoLabel("Regesta");
 		neoPropertyNode.setReturnNode(true);
-		neoPropertyNode.setReturnProperty(true);
 		
 		//Relations
 		NeoElementEdge neoElementEdge = (NeoElementEdge) compltePattern.getGraph().getRelations().get(0);
@@ -104,7 +103,6 @@ public class CypherTest02Return extends CypherAbstractTranslation {
 		complexNode2.setReturnNode(true);
 		complexNode2.addNeoLabel("Regesta");
 		neoPropertyNode.setReturnNode(true);
-		neoPropertyNode.setReturnProperty(true);
 		
 		//Relations
 		NeoElementEdge neoElementEdge = (NeoElementEdge) compltePattern.getGraph().getRelations().get(0);
@@ -177,7 +175,6 @@ public class CypherTest02Return extends CypherAbstractTranslation {
 		complexNode2.setReturnNode(true);
 		complexNode2.addNeoLabel("Regesta");
 		neoPropertyNode.setReturnNode(true);
-		neoPropertyNode.setReturnProperty(true);
 				
 		return completePattern;
 	}

@@ -26,28 +26,6 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
  */
 public interface NeoPropertyNode extends PrimitiveNode, NeoNode {
 	/**
-	 * Returns the value of the '<em><b>Return Property</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Return Property</em>' attribute.
-	 * @see #setReturnProperty(boolean)
-	 * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoPropertyNode_ReturnProperty()
-	 * @model
-	 * @generated
-	 */
-	boolean isReturnProperty();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyNode#isReturnProperty <em>Return Property</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Return Property</em>' attribute.
-	 * @see #isReturnProperty()
-	 * @generated
-	 */
-	void setReturnProperty(boolean value);
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model many="false" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"

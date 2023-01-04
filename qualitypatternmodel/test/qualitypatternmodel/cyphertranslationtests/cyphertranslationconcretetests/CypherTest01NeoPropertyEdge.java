@@ -111,7 +111,7 @@ public class CypherTest01NeoPropertyEdge extends CypherAbstractTranslation {
 		neoPropertyPathParam.setNeoPropertyName("identifier");
 		
 		NeoPropertyNode neoPropertyNode = (NeoPropertyNode) completePattern.getGraph().getNodes().get(1);
-		neoPropertyNode.setReturnProperty(true);
+		neoPropertyNode.setReturnNode(true);
 		
 		NeoElementNode neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(0);
 		neoNode.setReturnNode(false);
@@ -126,21 +126,21 @@ public class CypherTest01NeoPropertyEdge extends CypherAbstractTranslation {
 		neoPropertyPathParam.setNeoPropertyName("identifier");
 		
 		NeoPropertyNode neoPropertyNode = (NeoPropertyNode) completePattern.getGraph().getNodes().get(1);
-		neoPropertyNode.setReturnProperty(true);
+		neoPropertyNode.setReturnNode(true);
 		
 		neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(1);
 		neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
 		neoPropertyPathParam.setNeoPropertyName("date");
 		
 		neoPropertyNode = (NeoPropertyNode) completePattern.getGraph().getNodes().get(2);
-		neoPropertyNode.setReturnProperty(true);
+		neoPropertyNode.setReturnNode(true);
 		
 		neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(2);
 		neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
 		neoPropertyPathParam.setNeoPropertyName("placeOfIssue");
 		
 		neoPropertyNode = (NeoPropertyNode) completePattern.getGraph().getNodes().get(3);
-		neoPropertyNode.setReturnProperty(true);
+		neoPropertyNode.setReturnNode(true);
 		
 		NeoElementNode neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(0);
 		neoNode.setReturnNode(false);
@@ -225,7 +225,6 @@ public class CypherTest01NeoPropertyEdge extends CypherAbstractTranslation {
 		
 		NeoPropertyNode neoPropertyNode = (NeoPropertyNode) completePattern.getGraph().getNodes().get(1);
 		neoPropertyNode.setReturnNode(true);
-		neoPropertyNode.setReturnProperty(true);
 		
 		return completePattern;
 	}
@@ -247,7 +246,6 @@ public class CypherTest01NeoPropertyEdge extends CypherAbstractTranslation {
 		
 		NeoPropertyNode neoPropertyNode = (NeoPropertyNode) completePattern.getGraph().getNodes().get(1);
 		neoPropertyNode.setReturnNode(true);
-		neoPropertyNode.setReturnProperty(true);
 		
 		return completePattern;
 	}
@@ -329,7 +327,6 @@ public class CypherTest01NeoPropertyEdge extends CypherAbstractTranslation {
 		neoNode.addNeoLabel("Regesta");
 		NeoPropertyNode neoPropertyNode = (NeoPropertyNode) completePattern.getGraph().getNodes().get(1);
 		neoPropertyNode.setReturnNode(true);
-		neoPropertyNode.setReturnProperty(true);
 		
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
 		neoPropertyEdge.setReturnElement(true);

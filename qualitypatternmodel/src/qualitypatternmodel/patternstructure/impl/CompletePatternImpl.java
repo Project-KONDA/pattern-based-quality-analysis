@@ -385,19 +385,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	@Override
 	public String generateCypher() throws InvalidityException {		
 		initializeTranslation();
-		boolean returnProperties = false;
-		for (Node node : graph.getNodes()) {
-			if (node instanceof NeoPropertyNode) {
-				if (((NeoPropertyNode) node).isReturnProperty()) {
-					returnProperties = true;
-				}
-			}
-		}
 		
-		// I can not only return the complete Nodes... I also can Return the Properties
-		//NeoEdges are less significant from the meaning thus ignored but in future extensions also possible to just return
-		//Return of * also future feature
-		if (returnProperties) {} else if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
+		if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
 			throw new InvalidityException(RETURN_ELEMENT_S_MISSING);
 		}
 		
@@ -436,12 +425,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		if (graph.getNodes().size() != 0) {
 			//Building the generic Nodes for Return
 			final Map<Integer, String> cypherReturn = buildCypherReturnSortedMap(true);
+			//The implicit defined nodes for the NeoPropertyNodes will not be printed, except via the edge it they will be called.
 			cypher = formattingCypherReturnTypes(cypher, cypherReturn);
-			
-			//Adding the Addressing NodeX.PropertyY
-			cypher = buildCypherSpecialNodeString(cypher);
 		}
-		
 		return cypher;
 	}
 
@@ -480,41 +466,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		}
 		return cypher;
 	}
-
-	//For PopertyAddressing mainly
-	private final String buildCypherSpecialNodeString(String cypher) throws InvalidityException {
-		final StringBuilder cypherNeoProperties = new StringBuilder();
-		callCypherPropertyAddressingString(cypherNeoProperties);
-		if (cypherNeoProperties.length() != 0) {
-			if (cypher.length() != 0) {
-				cypher += CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE + "\n";
-				cypher += CypherSpecificConstants.SIX_WHITESPACES;
-			} else {
-				cypher = CypherSpecificConstants.ONE_WHITESPACE;
-			}
-			cypher += cypherNeoProperties.toString();
-		}
-		return cypher;
-	}
-	
-	private final void callCypherPropertyAddressingString(final StringBuilder cypherNeoProperties)
-			throws InvalidityException {
-		NeoPropertyNode neoPropertyNode;
-		for (Node n : graph.getNodes()) {
-			if (n instanceof NeoPropertyNode && ((NeoPropertyNode)n).isReturnProperty()) {
-				if (cypherNeoProperties.length() != 0) cypherNeoProperties.append(CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE);
-				neoPropertyNode = (NeoPropertyNode) n;
-				final EList<String> tempCypher = neoPropertyNode.generateCypherPropertyAddressing();
-				boolean multi = false;
-				for (String s : tempCypher) {
-					if (multi) cypherNeoProperties.append(CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE);
-					cypherNeoProperties.append(s);
-					multi = true;
-				}
-			}
-		}
-	}
-	
+		
 	private final String formattingCypherReturnTypes(String cypher, final Map<Integer, String> cypherReturn) {
 		for (Map.Entry<Integer, String> mapElement : cypherReturn.entrySet()) {	  
 		    if (cypher.length() != 0) {
