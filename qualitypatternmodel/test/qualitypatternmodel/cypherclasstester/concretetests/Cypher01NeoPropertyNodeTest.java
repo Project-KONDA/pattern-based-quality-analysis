@@ -297,11 +297,13 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 		int id = number;
 		try {
 			initGetCypherVariableTest(node, id);
+			final String propertyName = "summary";
+			((NeoPropertyEdge) neoPropertyNode.getIncoming().get(0)).getNeoPropertyPathParam().setNeoPropertyName(propertyName);
 			EMap<Integer, String> variableMap = node.getCypherReturnVariable();
 			assumeTrue(variableMap.keySet().stream().count() == 1);
 			assumeTrue(variableMap.containsKey(1));
 			String variable = variableMap.get(0).getValue();
-			assertTrue(variable.matches(CypherSpecificConstants.VARIABLE_PROPERTY_NODE + "[1-9][0-9]*" + "_" + "[1-9][0-9]*"));
+			assertTrue(variable.matches(CypherSpecificConstants.VARIABLE_PROPERTY_NODE + "[1-9][0-9]*" + "_" + "[1-9][0-9]*" + "." + propertyName));
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
