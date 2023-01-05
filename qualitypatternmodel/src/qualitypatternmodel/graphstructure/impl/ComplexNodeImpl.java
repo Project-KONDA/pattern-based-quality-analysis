@@ -69,6 +69,10 @@ public class ComplexNodeImpl extends NodeImpl implements ComplexNode {
 		return adaptAsRdfIriNode();
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * Adapts the ComplexNode to a NeoElementNode.
+	 */
 	@Override 
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return adaptAsNeoElementNode();
