@@ -126,6 +126,12 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 		return adaptAsRdfLiteralNode();
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return PatternElement
+	 * @throws InvalidityException
+	 * A PrimitiveNode will be converted to a NeoPropertyNode.
+	 */
 	@Override 
 	public PatternElement createNeo4jAdaption() throws InvalidityException {
 		return adaptAsNeoPropertyNode();

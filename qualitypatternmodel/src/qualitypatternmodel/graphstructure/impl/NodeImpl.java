@@ -327,6 +327,12 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		return adaptAsRdfIriNode();
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return PatternElement
+	 * @throws InvalidityException, OperatorCycleException, MissingPatternContainerException
+	 * If a Node is not converted into a ComplexNode or a PrimtiveNode it will be interpreted as a ComplexNode.
+	 */
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return adaptAsNeoElementNode();
@@ -1552,7 +1558,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	
 	//BEGIN - Adapt for Neo4J/Cypher
 	/**
+	 * @author Lukas Sebastian Hofmann
 	 * <!-- begin-user-doc -->
+	 * Adapts the Node as a NeoElementNode.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -1582,7 +1590,12 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		throw new InvalidityException("correspondet node not found");
 	}
 
-	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return NeoElementNode
+	 * @throws InvalidityException
+	 * Traverse over all connected elements to a NeoElementNode recursively and adapts them to the fitting type. 
+	 */
 	private NeoElementNode adaptAsNeoElementNodeRecursive() throws InvalidityException {
 		if (!(this instanceof NeoElementNode)) {	
 			NeoElementNodeImpl neoNode = (NeoElementNodeImpl) Adaptionneo4jFactoryImpl.init().createNeoElementNode();
@@ -1640,7 +1653,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	}
 
 	/**
+	 * @author Lukas Sebastian Hofmann
 	 * <!-- begin-user-doc -->
+	 * Adapts the Node as a NeoPropertyNode.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -1669,6 +1684,12 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		throw new InvalidityException(CORRESPONDING_NODE_NOT_FOUND);
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return NeoElementNode
+	 * @throws InvalidityException
+	 * Traverse over all incoming elements to a NeoElementNode recursively and adapts them that they fit to the NeoPropertyNode.
+	 */
 	private NeoPropertyNode adaptAsNeoPropertyRecursive() throws InvalidityException {
 		if (!(this instanceof NeoPropertyNode)) {
 			NeoPropertyNodeImpl neoPropertyNode = (NeoPropertyNodeImpl) Adaptionneo4jFactoryImpl.init().createNeoPropertyNode();	
