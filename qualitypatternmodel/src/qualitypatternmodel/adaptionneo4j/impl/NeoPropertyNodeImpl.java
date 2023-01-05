@@ -369,7 +369,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override
 	public EMap<Integer, String> getCypherReturnVariable() throws InvalidityException {
 		final EMap<Integer, String> returnElement = new BasicEMap<Integer, String>();
-		final String[] temp = (String[]) generateCypherPropertyAddressing().toArray(new String[0]);
+		final String[] temp = (String[]) generateCypherPropertyAddressing().toArray(String[]::new);
 		final StringBuilder cypher = new StringBuilder();
 		for (String s : temp) {
 			cypher.append(s + CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE);

@@ -77,15 +77,10 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  */
 public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	private static final String ARGUMENT1_IS_NOT_A_NODE_EITHER_A_NUMERICAL_VALUE_CONTEXT_ID_FUNCTION = "Argument1 is not a Node either a numerical value (Context: ID-Function)";
-
 	private static final String ARGUMENT2_IS_NOT_A_NODE_EITHER_A_NUMERICAL_VALUE_CONTEXT_ID_FUNCTION = "Argument2 is not a Node either a numerical value (Context: ID-Function)";
-
 	private static final String NOTHING_TO_ADDRESS = "Nothing to address";
-
 	private static final String NOT_ALLOWED_OPERATOR_FOR_LIST_COMPARISON = "Not allowed operator for List comparison";
-
 	private static final String THE_SECOND_ARGUMENT_HAS_TO_BE_A_LIST = "The second Argument has to be a List";
-
 	private static final String AT_LEAST_ONE_OF_TWO_ARGUMENTS_IS_NOT_VALID = "At least one of two arguments is not valid";
 
 	/**
@@ -305,8 +300,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * @return String
 	 * @throws InvalidityException
 	 * Generates the sub-query for Comparison.
-	 * The various operators are connected with an AND
-	 * If a container for the operators is implemented further logical connections between the operators are possible
+	 * The various operators are connected with an AND.
+	 * If a container for the operators is implemented further logical connections between the operators are possible.
 	 */
 	@Override 
 	public String generateCypher() throws InvalidityException {
@@ -322,13 +317,14 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		throw new InvalidityException(Constants.INVALID_OPTION);
 	}
 
+	//BEGIN - Neo4J/Cypher
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param cypher
 	 * @param argument1Translation
 	 * @param argument2Translation
 	 * @throws InvalidityException
-	 * It matches the arguments with the agruments for comparison. 
+	 * It matches the arguments with the arguments for comparison. 
 	 */
 	private final void matchCypherOperators(StringBuilder cypher, final String argument1Translation,
 		final String argument2Translation) throws InvalidityException {
@@ -419,7 +415,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * @param argument2Translation
 	 * @param comp
 	 * @throws InvalidityException 
-	 * It uses 
+	 * It uses two NeoElementNodes on which the ID function can be called. The ID could also be a numerical value. 
 	 */
 	private void generateCypherIDComparison(final StringBuilder cypher, String argument1Translation,
 			String argument2Translation, String comp) throws InvalidityException {
@@ -463,19 +459,20 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * @author Lukas Sebastian Hofmann
 	 * @return
 	 * @throws InvalidityException
-	 * Checks if an argument is not a instance of Node then it throws an Exception
+	 * Checks if an argument are instance of ComplexNode or an numerical value.
+	 * Otherwise it throws an InvalidityException.
 	 */
 	private final void checkForValidIdElement() throws InvalidityException {
 		final String regex = "[0-9]+";
 		final Pattern p = Pattern.compile(regex);
 		Matcher m = null;
-		if (!(getArgument1() instanceof Node)) {
+		if (!(getArgument1() instanceof ComplexNode)) {
 			m = p.matcher(getArgument1().generateCypher());
 			if(!m.find()) {
 				throw new InvalidityException(ARGUMENT1_IS_NOT_A_NODE_EITHER_A_NUMERICAL_VALUE_CONTEXT_ID_FUNCTION);
 			}
 		}
-		if (!(getArgument1() instanceof Node)) {
+		if (!(getArgument2() instanceof ComplexNode)) {
 			m = p.matcher(getArgument2().generateCypher());
 			if(!m.find()) {
 				throw new InvalidityException(ARGUMENT2_IS_NOT_A_NODE_EITHER_A_NUMERICAL_VALUE_CONTEXT_ID_FUNCTION);
@@ -489,7 +486,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * @param nodes
 	 * @return
 	 * @throws InvalidityException
-	 * This generates the equality for all NeoPropertyNodes
+	 * This generates the equality for all NeoPropertyNodes.
 	 */
 	private String concatenatePropertyNodes(final StringBuilder cypher, final String[] nodes, final boolean firstArgument) throws InvalidityException {
 		final StringBuilder tempCypher = new StringBuilder();		
@@ -636,6 +633,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		result = Collections.unmodifiableList(result);
 		return result;
 	}
+	//END - Neo4J/Cypher
 	
 	/**
 	 * <!-- begin-user-doc --> 
