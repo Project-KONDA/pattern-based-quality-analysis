@@ -475,13 +475,13 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___ADAPT_AS_RDF_PREDICATE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 10;
 
 	/**
-	 * The operation id for the '<em>Adapt As Neo Edge</em>' operation.
+	 * The operation id for the '<em>Adapt As Neo Element Edge</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION___ADAPT_AS_NEO_EDGE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 11;
+	int RELATION___ADAPT_AS_NEO_ELEMENT_EDGE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Adapt As Property Edge</em>' operation.
@@ -3944,14 +3944,14 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getRelation__AdaptAsRdfPredicate();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsNeoElementEdge() <em>Adapt As Neo Edge</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsNeoElementEdge() <em>Adapt As Neo Element Edge</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Adapt As Neo Edge</em>' operation.
+	 * @return the meta object for the '<em>Adapt As Neo Element Edge</em>' operation.
 	 * @see qualitypatternmodel.graphstructure.Relation#adaptAsNeoElementEdge()
 	 * @generated
 	 */
-	EOperation getRelation__AdaptAsNeoEdge();
+	EOperation getRelation__AdaptAsNeoElementEdge();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsPropertyEdge() <em>Adapt As Property Edge</em>}' operation.
@@ -5004,12 +5004,12 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation RELATION___ADAPT_AS_RDF_PREDICATE = eINSTANCE.getRelation__AdaptAsRdfPredicate();
 
 		/**
-		 * The meta object literal for the '<em><b>Adapt As Neo Edge</b></em>' operation.
+		 * The meta object literal for the '<em><b>Adapt As Neo Element Edge</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RELATION___ADAPT_AS_NEO_EDGE = eINSTANCE.getRelation__AdaptAsNeoEdge();
+		EOperation RELATION___ADAPT_AS_NEO_ELEMENT_EDGE = eINSTANCE.getRelation__AdaptAsNeoElementEdge();
 
 		/**
 		 * The meta object literal for the '<em><b>Adapt As Property Edge</b></em>' operation.

@@ -363,7 +363,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getRelation__AdaptAsNeoEdge() {
+	public EOperation getRelation__AdaptAsNeoElementEdge() {
 		return relationEClass.getEOperations().get(9);
 	}
 
@@ -1304,7 +1304,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(relationEClass, RELATION___ADAPT_AS_XML_PROPERTY_NAVIGATION);
 		createEOperation(relationEClass, RELATION___ADAPT_AS_XML_REFERENCE);
 		createEOperation(relationEClass, RELATION___ADAPT_AS_RDF_PREDICATE);
-		createEOperation(relationEClass, RELATION___ADAPT_AS_NEO_EDGE);
+		createEOperation(relationEClass, RELATION___ADAPT_AS_NEO_ELEMENT_EDGE);
 		createEOperation(relationEClass, RELATION___ADAPT_AS_PROPERTY_EDGE);
 
 		primitiveNodeEClass = createEClass(PRIMITIVE_NODE);
@@ -1482,7 +1482,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		op = initEOperation(getRelation__AdaptAsRdfPredicate(), theAdaptionrdfPackage.getRdfPredicate(), "adaptAsRdfPredicate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getRelation__AdaptAsNeoEdge(), theAdaptionneo4jPackage.getNeoElementEdge(), "adaptAsNeoEdge", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getRelation__AdaptAsNeoElementEdge(), theAdaptionneo4jPackage.getNeoElementEdge(), "adaptAsNeoElementEdge", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getRelation__AdaptAsPropertyEdge(), theAdaptionneo4jPackage.getNeoPropertyEdge(), "adaptAsPropertyEdge", 0, 1, IS_UNIQUE, IS_ORDERED);

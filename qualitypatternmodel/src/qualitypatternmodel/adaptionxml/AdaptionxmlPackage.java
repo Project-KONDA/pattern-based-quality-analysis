@@ -1387,13 +1387,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION___ADAPT_AS_RDF_PREDICATE = GraphstructurePackage.RELATION___ADAPT_AS_RDF_PREDICATE;
 
 	/**
-	 * The operation id for the '<em>Adapt As Neo Edge</em>' operation.
+	 * The operation id for the '<em>Adapt As Neo Element Edge</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION___ADAPT_AS_NEO_EDGE = GraphstructurePackage.RELATION___ADAPT_AS_NEO_EDGE;
+	int XML_NAVIGATION___ADAPT_AS_NEO_ELEMENT_EDGE = GraphstructurePackage.RELATION___ADAPT_AS_NEO_ELEMENT_EDGE;
 
 	/**
 	 * The operation id for the '<em>Adapt As Property Edge</em>' operation.
@@ -1846,13 +1846,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT_NAVIGATION___ADAPT_AS_RDF_PREDICATE = XML_NAVIGATION___ADAPT_AS_RDF_PREDICATE;
 
 	/**
-	 * The operation id for the '<em>Adapt As Neo Edge</em>' operation.
+	 * The operation id for the '<em>Adapt As Neo Element Edge</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___ADAPT_AS_NEO_EDGE = XML_NAVIGATION___ADAPT_AS_NEO_EDGE;
+	int XML_ELEMENT_NAVIGATION___ADAPT_AS_NEO_ELEMENT_EDGE = XML_NAVIGATION___ADAPT_AS_NEO_ELEMENT_EDGE;
 
 	/**
 	 * The operation id for the '<em>Adapt As Property Edge</em>' operation.
@@ -2296,13 +2296,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_REFERENCE___ADAPT_AS_RDF_PREDICATE = GraphstructurePackage.RELATION___ADAPT_AS_RDF_PREDICATE;
 
 	/**
-	 * The operation id for the '<em>Adapt As Neo Edge</em>' operation.
+	 * The operation id for the '<em>Adapt As Neo Element Edge</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE___ADAPT_AS_NEO_EDGE = GraphstructurePackage.RELATION___ADAPT_AS_NEO_EDGE;
+	int XML_REFERENCE___ADAPT_AS_NEO_ELEMENT_EDGE = GraphstructurePackage.RELATION___ADAPT_AS_NEO_ELEMENT_EDGE;
 
 	/**
 	 * The operation id for the '<em>Adapt As Property Edge</em>' operation.
@@ -4348,13 +4348,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_NAVIGATION___ADAPT_AS_RDF_PREDICATE = XML_NAVIGATION___ADAPT_AS_RDF_PREDICATE;
 
 	/**
-	 * The operation id for the '<em>Adapt As Neo Edge</em>' operation.
+	 * The operation id for the '<em>Adapt As Neo Element Edge</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___ADAPT_AS_NEO_EDGE = XML_NAVIGATION___ADAPT_AS_NEO_EDGE;
+	int XML_PROPERTY_NAVIGATION___ADAPT_AS_NEO_ELEMENT_EDGE = XML_NAVIGATION___ADAPT_AS_NEO_ELEMENT_EDGE;
 
 	/**
 	 * The operation id for the '<em>Adapt As Property Edge</em>' operation.

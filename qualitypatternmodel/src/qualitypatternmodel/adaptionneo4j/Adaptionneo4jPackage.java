@@ -1392,13 +1392,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_EDGE___ADAPT_AS_RDF_PREDICATE = GraphstructurePackage.RELATION___ADAPT_AS_RDF_PREDICATE;
 
 	/**
-	 * The operation id for the '<em>Adapt As Neo Edge</em>' operation.
+	 * The operation id for the '<em>Adapt As Neo Element Edge</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE___ADAPT_AS_NEO_EDGE = GraphstructurePackage.RELATION___ADAPT_AS_NEO_EDGE;
+	int NEO_EDGE___ADAPT_AS_NEO_ELEMENT_EDGE = GraphstructurePackage.RELATION___ADAPT_AS_NEO_ELEMENT_EDGE;
 
 	/**
 	 * The operation id for the '<em>Adapt As Property Edge</em>' operation.
@@ -1879,13 +1879,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_EDGE___ADAPT_AS_RDF_PREDICATE = NEO_EDGE___ADAPT_AS_RDF_PREDICATE;
 
 	/**
-	 * The operation id for the '<em>Adapt As Neo Edge</em>' operation.
+	 * The operation id for the '<em>Adapt As Neo Element Edge</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_EDGE___ADAPT_AS_NEO_EDGE = NEO_EDGE___ADAPT_AS_NEO_EDGE;
+	int NEO_ELEMENT_EDGE___ADAPT_AS_NEO_ELEMENT_EDGE = NEO_EDGE___ADAPT_AS_NEO_ELEMENT_EDGE;
 
 	/**
 	 * The operation id for the '<em>Adapt As Property Edge</em>' operation.
@@ -5487,13 +5487,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_EDGE___ADAPT_AS_RDF_PREDICATE = NEO_EDGE___ADAPT_AS_RDF_PREDICATE;
 
 	/**
-	 * The operation id for the '<em>Adapt As Neo Edge</em>' operation.
+	 * The operation id for the '<em>Adapt As Neo Element Edge</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_EDGE___ADAPT_AS_NEO_EDGE = NEO_EDGE___ADAPT_AS_NEO_EDGE;
+	int NEO_PROPERTY_EDGE___ADAPT_AS_NEO_ELEMENT_EDGE = NEO_EDGE___ADAPT_AS_NEO_ELEMENT_EDGE;
 
 	/**
 	 * The operation id for the '<em>Adapt As Property Edge</em>' operation.

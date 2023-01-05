@@ -283,7 +283,7 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/adaptAsXmlPropertyNavigation"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/adaptAsXmlReference"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/adaptAsRdfPredicate"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/adaptAsNeoEdge"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/adaptAsNeoElementEdge"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/adaptAsPropertyEdge"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode">

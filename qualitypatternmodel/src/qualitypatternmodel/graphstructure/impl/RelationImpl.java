@@ -1577,7 +1577,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.RELATION___ADAPT_AS_NEO_EDGE:
+			case GraphstructurePackage.RELATION___ADAPT_AS_NEO_ELEMENT_EDGE:
 				try {
 					return adaptAsNeoElementEdge();
 				}
