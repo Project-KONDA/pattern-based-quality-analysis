@@ -69,7 +69,7 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 	 * Adapts to Neo4J
 	 */
 	@Override
-	public NeoElementEdge adaptAsNeoEdge() throws InvalidityException {
+	public NeoElementEdge adaptAsNeoElementEdge() throws InvalidityException {
 		return this;
 	}
 	

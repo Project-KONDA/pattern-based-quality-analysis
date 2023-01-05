@@ -874,7 +874,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		if (getTarget() instanceof NeoPropertyNode) {
 			return adaptAsPropertyEdge();
 		} 
-		return adaptAsNeoEdge();
+		return adaptAsNeoElementEdge();
 	}
 	
 	/**
@@ -1131,9 +1131,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		return (RdfPredicate) this;
 	}
 	
-	
+	//BEGIN - Neo4J/Cypher
 	/**
 	 * <!-- begin-user-doc -->
+	 * A relation which connects from ComplexNode to a PrimitiveNode will be converted to a NeoPropertyEdge.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -1162,7 +1163,12 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		throw new InvalidityException("correspondent relation not found");
 	}
 	
-	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return NeoPropertyEdge
+	 * @throws InvalidityException
+	 * Traverses recursively over all connected elements of a relation. It converts and configures all elements to with the fitting values for the NeoPropertyEdge.
+	 */
 	private NeoPropertyEdge adaptAsNeoPropertyEdgeRecursive() throws InvalidityException {
 		if (!(this instanceof NeoPropertyEdge)) {
 			NeoPropertyEdge edge = (NeoPropertyEdge) Adaptionneo4jFactoryImpl.init().createNeoPropertyEdge();
@@ -1206,14 +1212,14 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		return (NeoPropertyEdge) this;
 	}
 	
-	//BEGIN - Neo4J
 	/**
 	 * <!-- begin-user-doc -->
+	 * A relation which connects two ComplexNodes will be converted to a NeoElementEdge.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
-	public NeoElementEdge adaptAsNeoEdge() throws InvalidityException {
+	public NeoElementEdge adaptAsNeoElementEdge() throws InvalidityException {
 		Graph graph = getGraph();
 		NeoElementEdge navOriginal = ((RelationImpl) getOriginalRelation()).adaptAsNeoEdgeRecursive();
 		
@@ -1237,6 +1243,12 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		throw new InvalidityException("correspondent relation not found");
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return NeoElementEdge
+	 * @throws InvalidityException
+	 * Traverses recursively over all connected elements of a relation. It converts and configures all elements to with the fitting values for the NeoElementEdge.
+	 */
 	private NeoElementEdge adaptAsNeoEdgeRecursive() throws InvalidityException {
 		if (!(this instanceof NeoElementEdge)) {
 			NeoElementEdge edge = (NeoElementEdge) Adaptionneo4jFactoryImpl.init().createNeoElementEdge();
@@ -1290,6 +1302,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			mapping.getMorphism().getMappings().remove(mapping);
 		}
 	}
+	//END - Neo4J/Cypher
 
 	@Override
 	public void removeRelationFromPreviousGraphs() {
@@ -1566,7 +1579,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				}
 			case GraphstructurePackage.RELATION___ADAPT_AS_NEO_EDGE:
 				try {
-					return adaptAsNeoEdge();
+					return adaptAsNeoElementEdge();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

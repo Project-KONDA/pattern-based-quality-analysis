@@ -281,7 +281,7 @@ public interface Relation extends PatternElement, Adaptable {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	NeoElementEdge adaptAsNeoEdge() throws InvalidityException;
+	NeoElementEdge adaptAsNeoElementEdge() throws InvalidityException;
 	
 	//ADD to the .ecore-Model
 	NeoPropertyEdge adaptAsPropertyEdge() throws InvalidityException;

@@ -3944,11 +3944,11 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getRelation__AdaptAsRdfPredicate();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsNeoEdge() <em>Adapt As Neo Edge</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsNeoElementEdge() <em>Adapt As Neo Edge</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Adapt As Neo Edge</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Relation#adaptAsNeoEdge()
+	 * @see qualitypatternmodel.graphstructure.Relation#adaptAsNeoElementEdge()
 	 * @generated
 	 */
 	EOperation getRelation__AdaptAsNeoEdge();

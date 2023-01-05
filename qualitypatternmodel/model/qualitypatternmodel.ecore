@@ -312,7 +312,8 @@
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="adaptAsRdfPredicate" eType="#//adaptionrdf/RdfPredicate"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="adaptAsNeoEdge" eType="#//adaptionneo4j/NeoElementEdge" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="adaptAsNeoElementEdge" eType="#//adaptionneo4j/NeoElementEdge"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="adaptAsPropertyEdge" eType="#//adaptionneo4j/NeoPropertyEdge"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMapping" eType="#//patternstructure/RelationMapping"
