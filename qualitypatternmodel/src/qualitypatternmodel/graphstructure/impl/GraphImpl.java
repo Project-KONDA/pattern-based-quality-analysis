@@ -222,13 +222,12 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * @param cypher
 	 * @param n
 	 * @throws InvalidityException
+	 * This method builds a linear or non-linear Graph-Pattern for Neo4J.
+	 * If independent graphs are contained they will be separated by an further MATCH.
+	 * Separation with a <p>,</p> would build a cross-product which leads to higher runtime; due to higher ressource needs.
+	 * Thus various path in a pattern matching can be defined.
 	 */
-	private final void buildNeoGraphPatternRecursively(StringBuilder cypher, NeoNode n) throws InvalidityException {
-		//In this senario it has to be considert that of there are multiple edges between nodes the last one will be taken
-		//Since multiple edges between to nodes requieres a OPTIONAL MATCH the OPTIONAL MATCH can be implemented or a break added
-		//MULTIPLE EDGES HAVE TO BE HANDELT DIFFRENTLY BUT ARE ALSO NOT SUPPORTED BY THE FRAMEWORK
-		//TODO BUILD THE NON-LINEAR PATH GENERATION
-		
+	private final void buildNeoGraphPatternRecursively(StringBuilder cypher, NeoNode n) throws InvalidityException {		
 		EList<StringBuilder> listCypher = new BasicEList<StringBuilder>();
 		listCypher = traverseOverPattern((ComplexNode) n, listCypher, 0);		
 		boolean localSeperationNeeded = false;
@@ -243,6 +242,15 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		listCypher = null;
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param node
+	 * @param cyphers
+	 * @param counterString
+	 * @return EList<StringBuilder>
+	 * @throws InvalidityException
+	 * This method traversals recursively over the graph by hopping from one node to an other via the edges. 
+	 */
 	private final EList<StringBuilder> traverseOverPattern(ComplexNode node, EList<StringBuilder> cyphers, int counterString) throws InvalidityException {
 		int innerCounterString = counterString;
 		StringBuilder cypher;
@@ -252,13 +260,13 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		if (cyphers.size() == 0) {
 			cypher = new StringBuilder();
 			cypher.append(node.generateCypher());
-			if (checkIfVisibleFork(node)) {
+			if (checkIfVisibleForks(node)) {
 				result.add(cypher);
 				cypher = new StringBuilder();
 				cypher.append(node.generateCypher());
 				innerCounterString++;
 			}
-		} else if (checkIfVisibleFork(node)) {
+		} else if (checkIfVisibleForks(node)) {
 			preCypher = cyphers.get(innerCounterString);
 			cypher = new StringBuilder();
 			cypher.append(preCypher.toString());
@@ -310,15 +318,18 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param node
-	 * @return
+	 * @return boolean
+	 * Checks a ComplexNode has multiple outgoing relations which are visible (printed) for the Pattern Matching.
+	 * If a ComplexNode has at last two outgoing relations which are visible the return value is true.
+	 * Else false.
 	 */
-	private final boolean checkIfVisibleFork(ComplexNode node) {
+	private final boolean checkIfVisibleForks(ComplexNode node) {
 		int i = 0;
 		int distinctNeoPropertyNode = 0; 
 		NeoPropertyEdge neoPropertyEdge;
 		for (Relation r : node.getOutgoing()) {
 			//--> Mapped Relations are not considered in Morphed Graphs 
-			if (r.getOriginalRelation() == r) { //r.getIncomingMapping() == null &&
+			if (r.getOriginalRelation() == r) {
 				if (r instanceof NeoElementEdge) {
 					i++;
 				} else {
@@ -337,6 +348,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	
 	/**
 	 * <!-- begin-user-doc -->
+	 * Creates the WHERE-Clause for Neo4J/Cypher.
+	 * The is different to the generateCypher due to the fact that the MATCH-Clause needed to be separated from the WHERE-Clause.
+	 * All Cypher-Clause are slightly different build. 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -360,6 +374,12 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		return cypher;
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return String
+	 * @throws InvalidityException
+	 * Generates internally the WHERE-Clause for the specified Operators.
+	 */
 	private final String generateCypherWhereOperators() throws InvalidityException {
 		final StringBuilder cypherOperators = new StringBuilder();
 		final OperatorList opList = this.getOperatorList();
@@ -384,6 +404,14 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		return cypherOperators.toString();
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return String
+	 * @throws InvalidityException
+	 * Generates internally the WHERE-Clause for the specified NeoPropertyNodes.
+	 * The model allows to have multiple incoming relations from the same or different NeoElementNode.
+	 * Thus the various Property-Addressings have to be checked if the contained value is the same. 
+	 */
 	private final String generateComparisonsOfSameNeoPropertyNodes() throws InvalidityException {
 		final StringBuilder cypher = new StringBuilder();
 		final StringBuilder tempCypher = new StringBuilder();
@@ -428,13 +456,14 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	//END - Neo4J
 	
 	//BEGIN - Handling Subgraphs
+	
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * <!-- begin-user-doc -->
+	 * Loads all independent subgraphs in a graph.
 	 * <!-- end-user-doc -->
 	 * @throws InvalidityException 
 	 * @generated NOT
-	 * Loads all independent subgraphs in a graph
 	 */
 	@Override
 	public final EList<EList<Node>> getAllSubGraphs() throws InvalidityException {
@@ -458,7 +487,10 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * @author Lukas Sebastian Hofmann
 	 * @param node
 	 * @param nodeList
-	 * Walks recusively over all subgraphs to collect them. 
+	 * Traverse recursively over one subgraph to collect all its nodes. 
+	 * The edges can be accessed via the stored node in the passed List.
+	 * Thus we see no need in defining two new lists which are pointing to the same values.
+	 * A list of nodes of a subgraph is enough. 
 	 */
 	private final void getAllSubGraphRecusrive(final Node node, final EList<Node> nodeList) {
 		if (!containedInGraphList(nodeList, node)) {
