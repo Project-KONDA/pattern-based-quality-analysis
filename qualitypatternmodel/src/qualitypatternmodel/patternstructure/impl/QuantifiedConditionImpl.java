@@ -197,7 +197,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		if (getGraph().getNodes().size() != 0) {
 			
 			String exists = new String();	
-			final EList<NeoElementNode> neoNodes = getAllNeoNodesFlatten(graph);
+			final EList<NeoElementNode> neoNodes = getAllNeoElementNodesFlatten(graph);
 			boolean hasBeginning = false;
 			for (NeoElementNode neoNode : neoNodes) {
 				if (neoNode.getNeoPlace() == NeoPlace.BEGINNING) {

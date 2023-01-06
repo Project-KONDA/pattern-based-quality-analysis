@@ -521,18 +521,19 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	
 	//BEGIN - Neo4J/Cypher
 	protected final void setNeo4JBeginnings(Graph graph) throws InvalidityException {
-		final EList<EList<NeoElementNode>> neoGraphs = getAllNeoNodes(graph);
+		final EList<EList<NeoElementNode>> neoGraphs = getAllNeoElementNodes(graph);
 		setBeginningInSubGraph(neoGraphs);
 		neoGraphs.clear();
-		final EList<NeoElementNode> flattenNodes = getAllNeoNodesFlatten(graph);
+		final EList<NeoElementNode> flattenNodes = getAllNeoElementNodesFlatten(graph);
 		setBeginningInSubGraphForNeoPropertyNodes(getAllNeoPropertyNodesFlatten(graph));
 		flattenNodes.clear();
 	}
 	
 	/**
 	* @author Lukas Sebastian Hofmann
-	* This setBeginning is focused on finding the correct incoming Node via the new created edge in the Condition
-	* If no incoming edge is new the newly created edge is taken as a starting point
+	* @param EList<EList<NeoElementNode>>
+	* This method is focused on finding the correct incoming Node via the new created edge in the Condition.
+	* If no incoming edge is new the newly created edge is taken as a starting point.
 	*/
 	private final void setBeginningInSubGraph(EList<EList<NeoElementNode>> neoGraphs) {
 		//Since JAVA works internally with points this is not increasing the needed space a lot
@@ -605,7 +606,16 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 		}
 	}
 	
-	protected final EList<EList<NeoElementNode>> getAllNeoNodes(Graph graph) throws InvalidityException {
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param graph
+	 * @return EList<EList<NeoElementNode>>
+	 * @throws InvalidityException
+	 * This method returns all NeoElementNodes in its regarding subgraph.
+	 * Each list inside the container list represents a subgraph. 
+	 * The container list represents the total graphstructure.
+	 */
+	protected final EList<EList<NeoElementNode>> getAllNeoElementNodes(final Graph graph) throws InvalidityException {
 		final EList<EList<NeoElementNode>> neoGraphs = new BasicEList<EList<NeoElementNode>>();
 		EList<NeoElementNode> neoGraph = null;
 		NeoElementNode neoNode = null;
@@ -624,17 +634,31 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 		return neoGraphs;
 	}
 	
-	protected final EList<NeoElementNode> getAllNeoNodesFlatten(Graph graph) throws InvalidityException {
-		final EList<EList<NeoElementNode>> neoGraphs = getAllNeoNodes(graph);
-		final EList<NeoElementNode> neoNodes = new BasicEList<NeoElementNode>();
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param graph
+	 * @return EList<NeoElementNode>
+	 * @throws InvalidityException
+	 * This method flattens all subgraphs and returns the NeoElementNodes.
+	 */
+	protected final EList<NeoElementNode> getAllNeoElementNodesFlatten(Graph graph) throws InvalidityException {
+		final EList<EList<NeoElementNode>> neoGraphs = getAllNeoElementNodes(graph);
+		final EList<NeoElementNode> neoElementNodes = new BasicEList<NeoElementNode>();
 		for (EList<NeoElementNode> list : neoGraphs) {
 			for (NeoElementNode neoNode : list) {
-				neoNodes.add(neoNode);
+				neoElementNodes.add(neoNode);
 			}
 		}
-		return neoNodes;
+		return neoElementNodes;
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param graph
+	 * @return EList<NeoPropertyNode>
+	 * @throws InvalidityException
+	 * This method flattens all subgraphs and returns the NeoPropertyNodes.
+	 */
 	protected final EList<NeoPropertyNode> getAllNeoPropertyNodesFlatten(Graph graph) throws InvalidityException {
 		final EList<EList<Node>> neoGraphs = graph.getAllSubGraphs();
 		final EList<NeoPropertyNode> neoPropertyNodes = new BasicEList<NeoPropertyNode>();
@@ -648,31 +672,38 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 		return neoPropertyNodes;
 	}
 	
-	//Neasted Structures of the COUNT is in Neo4J/Cypher not possible v4.4 and lower
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param condition
+	 * @throws UnsupportedOperationException
+	 * Nested Structures of the COUNT is in Neo4J/Cypher not possible v4.4 and lower.
+	 * For further Neo4J/Cypher maybe not anymore needed. 
+	 */
 	protected final void checkNextConditon(Condition condition) throws UnsupportedOperationException {
 		if (condition instanceof CountCondition) {
 			throw new UnsupportedOperationException(CypherSpecificConstants.THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY);
 		}
 	}	
 	
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * This Method adds extra formatting to the Conditions. Until now it supports:
-	 * 	- EXISTS-MATCH
-	 * 
-	 * Further Formatting are possible
-	 */
-	static final String afterCreationConditionFormatting(final String originalCypher) {
-		final StringBuilder cypher = new StringBuilder(originalCypher);
-		
-		return cypher.toString();
-	}
+//	/**
+//	 * @author Lukas Sebastian Hofmann
+//	 * This Method adds extra formatting to the Conditions. Until now it supports:
+//	 * 	- EXISTS-MATCH
+//	 * 
+//	 * Further Formatting are possible
+//	 */
+//	static final String afterCreationConditionFormatting(final String originalCypher) {
+//		final StringBuilder cypher = new StringBuilder(originalCypher);
+//		
+//		return cypher.toString();
+//	}
 	
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param cypher
-	 * This adds extra whitespace to the query-parts from previews conditions. (PrettyPrinter)
-	 * @param whiteSpaces TODO
+	 * @param whiteSpaces
+	 * This method adds extra whitespace to the query-parts from previews conditions.
+	 * Everywhere where a \n is contained the amount of whitespace(-s) will be added afterwards.
 	 */
 	final void addWhiteSpacesForPreviewsCondition(final StringBuilder cypher, final String whiteSpaces) {
 		boolean lineBreak = true;
@@ -688,6 +719,5 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 			}
 		}
 	}
-	
 	//END - Neo4J/Cypher
 } //ConditionImpl
