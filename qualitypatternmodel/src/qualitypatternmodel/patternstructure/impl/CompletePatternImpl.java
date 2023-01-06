@@ -379,7 +379,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
 	 * Return the complete Cypher-Read/Quality-Query.
-	 * At least on Return-Node has to be given.
+	 * <i>At least on Return-Node has to be given.</i>
 	 */
 	@Override
 	public String generateCypher() throws InvalidityException {		
@@ -393,8 +393,12 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		completeCyString = super.generateCypher();
 		 
 		String returnClause = this.generateCypherReturn();
-		if(returnClause.length() != 0) returnClause = CypherSpecificConstants.CLAUSE_RETURN + returnClause;
-		else throw new InvalidityException(A_CYPHER_QUERY_NEED_A_RETURN_CLAUSE);
+		if(returnClause.length() != 0) {
+			returnClause = CypherSpecificConstants.CLAUSE_RETURN + returnClause;
+		}
+		else {
+			throw new InvalidityException(A_CYPHER_QUERY_NEED_A_RETURN_CLAUSE);
+		}
 		completeCyString += returnClause;
 		
 		return completeCyString;
@@ -403,6 +407,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	
 	/**
 	 * <!-- begin-user-doc -->
+	 * Generates for the Nodes and the Edges the Return values. 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -466,11 +471,19 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		return cypher;
 	}
 		
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param cypher
+	 * @param cypherReturn
+	 * @return String
+	 * This method formats the Return-Clause String.
+	 * It does not add the <i>KEY-WORD</i> "<p>RETURN</p>". 
+	 */
 	private final String formattingCypherReturnTypes(String cypher, final Map<Integer, String> cypherReturn) {
 		for (Map.Entry<Integer, String> mapElement : cypherReturn.entrySet()) {	  
 		    if (cypher.length() != 0) {
 		    	cypher += CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE + "\n";
-		    	cypher += CypherSpecificConstants.SIX_WHITESPACES;
+		    	cypher += CypherSpecificConstants.THREE_WHITESPACES;
 		    } else {
 		    	cypher = CypherSpecificConstants.ONE_WHITESPACE;
 		    }
@@ -479,14 +492,16 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		return cypher;
 	}
 	
+	//BEGIN - AUTOMATIC SETTING OF THE BEGINNING
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param patternElement
 	 * @throws InvalidityException
 	 * This methods sets the beginning in each subgraph. It determines where later on the generating of the match clause shall start.
-	 * Furthermore, it reduces the time of cypher-query-generation 
+	 * Furthermore, it reduces the time of cypher-query-generation. 
+	 * We used this flagging automation for reducing the traversels during the abstraction and the concretization.
+	 * Hence no new Node instance can be added. 
 	 */
-	//BEGIN - AUTOMATIC SETTING OF THE BEGINNING
 	private final void setNeo4JBeginnings(PatternElement patternElement) throws InvalidityException {
 		final EList<EList<Node>> genericGraphs = this.getGraph().getAllSubGraphs(); 
 		final EList<EList<NeoNode>> graphs = new BasicEList<EList<NeoNode>>();
@@ -501,6 +516,13 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		setBeginningInSubGraph(graphs);		
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param graphs
+	 * Sets for subgraphs the BEGINNING.
+	 * If a subgraph is not cyclic the node which has no incoming relation is the starting point.
+	 * If a subgraph is cyclic the first NeoElementNode will be flagged as beginning. 
+	 */
 	private final void setBeginningInSubGraph(final EList<EList<NeoNode>> graphs) {
 		boolean hasBeginning = false;
 		Node node = null;
@@ -819,6 +841,13 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		return super.createRdfAdaption();
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @throws InvalidityException, OperatorCycleException, MissingPatternContainerException
+	 * @return PatternElement
+	 * This method adapts the Patternstructure to Neo4J/Cypher.
+	 * Furthermore, it sets the Beginnings for the graph traversal. 
+	 */
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValid(AbstractionLevel.GENERIC);
