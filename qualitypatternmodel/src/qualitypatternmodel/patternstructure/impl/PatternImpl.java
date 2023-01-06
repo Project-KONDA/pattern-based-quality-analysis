@@ -408,6 +408,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 					if (currentIndex == -1) {
 						lineBreak = false;
 					} else {
+						//With six whitespace(-s) more the condition has exactly three more whitespace(-s) as the operators.
 						localCypher.insert(currentIndex + 1, CypherSpecificConstants.SIX_WHITESPACES); 
 						fromIndex = currentIndex + CypherSpecificConstants.SIX_WHITESPACES.length();
 					}
