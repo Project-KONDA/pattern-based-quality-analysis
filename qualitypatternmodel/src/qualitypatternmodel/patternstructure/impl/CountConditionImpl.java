@@ -141,8 +141,8 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	}
 	
 	//BEGIN - CYPHER
-	//SIMPLE CYPHER COUNT --> has many restrictions, such as that it cannot be part of another condition
-	//The second argument can not be an other COUNT-PATTERN --> Implement that --> Would lead to diverse challenges
+	//SIMPLE CYPHER COUNT --> has many restrictions, such as that it cannot be part of another condition.
+	//The second argument can not be an other COUNT-PATTERN --> Implement that --> Would lead to diverse challenges.
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * Translates a simple count pattern. One or more count-elements can be compared to on numerical value.
@@ -172,7 +172,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
 	 * @throws InvalidityException
-	 * Creates the substring of WITH
+	 * Creates the substring of WITH-Clause.
 	 */
 	private final String generateCypherWith() throws InvalidityException {
 		String cypher = CypherSpecificConstants.CLAUSE_WITH + CypherSpecificConstants.ONE_WHITESPACE;
@@ -215,9 +215,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			tempCypher.append(CypherSpecificConstants.ONE_WHITESPACE + comp + CypherSpecificConstants.ONE_WHITESPACE);
 			tempCypher.append(getArgument2().generateCypher());
 		}
-//		if (tempCypher.length() != 0) {
-			cypher = CypherSpecificConstants.CLAUSE_WHERE + CypherSpecificConstants.ONE_WHITESPACE + tempCypher.toString();
-//		}
+		cypher = CypherSpecificConstants.CLAUSE_WHERE + CypherSpecificConstants.ONE_WHITESPACE + tempCypher.toString();
 		
 		return cypher;
 	}
