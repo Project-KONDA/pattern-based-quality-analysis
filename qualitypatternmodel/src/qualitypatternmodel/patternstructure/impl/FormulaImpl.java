@@ -217,8 +217,9 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	//BEGIN - Neo4J
 	/**
 	 * @author Lukas Sebastian Hofmann
+	 * @throws InvalidityException
 	 * Implements all framework operators into existing or non existing Neo4J-Operators. Moreover, it considers if something should be clamped or not. 
-	 * <i>AND, OR, XOR, IMPLIES, EQUALS<\i>
+	 * <i>AND, OR, XOR, IMPLIES, EQUALS<\i>.
 	 */
 	@Override 
 	public String generateCypher() throws InvalidityException {

@@ -74,13 +74,14 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 		return getNumberParam().generateSparql();
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @throws InvalidityException
+	 * Generates the NumberElement for the Conditions. 
+	 */
 	@Override
 	public String generateCypher() throws InvalidityException {
-		try {
-			return getNumberParam().generateCypher();
-		} catch (Exception e) {
-			throw new InvalidityException(e.getMessage());
-		}
+		return getNumberParam().generateCypher();
 	}
 	
 	@Override
