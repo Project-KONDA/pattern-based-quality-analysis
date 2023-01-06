@@ -346,7 +346,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		final Map<Integer, String> cypherReturn = buildCypherReturnSortedMap(false);
 		final StringBuilder cypherSb = new StringBuilder();
 		cypher = joiningReturnValues(cypher, cypherReturn, cypherSb);			
-		cypher = generateCypherSpecialEdgeString(cypher);
+		cypher = generateCypherSpecialInnerEdgeNodesString(cypher);
 		return cypher;
 	}
 

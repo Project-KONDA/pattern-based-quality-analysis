@@ -30,7 +30,7 @@ public class CypherSpecificConstants {
 	public static final String TWELVE_WHITESPACES = "            ";
 	public static final String PREDICATE_FUNCTION_EXISTS_MATCH = "EXISTS {%s}";
 	public static final String PREDICATE_FUNCTION_EXISTS_PROPERTY = "EXISTS (%s)";
-	public static final String BOOLEAN_OPERATOR_PREFIX = "\n" + SIX_WHITESPACES + SIX_WHITESPACES;
+	public static final String BOOLEAN_OPERATOR_PREFIX = "\n" + THREE_WHITESPACES;
 	public static final String BOOLEAN_OPERATOR_XOR = "XOR";
 	public static final String BOOLEAN_OPERATOR_NOT = "NOT";
 	public static final String BOOLEAN_OPERATOR_OR = "OR";

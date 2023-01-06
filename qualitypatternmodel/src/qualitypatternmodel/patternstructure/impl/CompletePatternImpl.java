@@ -448,7 +448,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			cypher = formattingCypherReturnTypes(cypher, cypherReturn);
 			
 			//Adding the Inner Edges to the Return
-			cypher = generateCypherSpecialEdgeString(cypher);
+			cypher = generateCypherSpecialInnerEdgeNodesString(cypher);
 		}
 		return cypher;
 	}
@@ -459,8 +459,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @return String
 	 * This methods generates the substring for all special return types which can not be handled in {@generateCypherReturnEdges} or {generateCypherReturnNodes}.
 	 */
-	protected final String generateCypherSpecialEdgeString(String cypher) throws InvalidityException {
-		final StringBuilder cypherInnerEdgeNodes = new StringBuilder(super.generateCypherSpecialEdgeString(""));
+	protected final String generateCypherSpecialInnerEdgeNodesString(String cypher) throws InvalidityException {
+		final StringBuilder cypherInnerEdgeNodes = new StringBuilder(super.generateCypherSpecialInnerEdgeNodesString(""));
 		if (cypherInnerEdgeNodes.length() != 0) {
 			if (cypher.length() != 0) {
 				cypher += CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE + "\n" + CypherSpecificConstants.SIX_WHITESPACES + cypherInnerEdgeNodes.toString();

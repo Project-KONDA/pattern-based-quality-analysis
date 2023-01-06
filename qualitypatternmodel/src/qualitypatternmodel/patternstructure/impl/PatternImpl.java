@@ -229,37 +229,56 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			whereClause = tempWhere;
 		}
 		
-		//In the current version this feature is not supported. Hence Cypher does not allow AGGREGATION-FUNCTIONS to be neasted
+		//In the current version this feature is not supported. Hence Cypher does not allow AGGREGATION-FUNCTIONS to be nested.
 		if (!(condition instanceof CountConditionImpl)) {
 			String cond = condition.generateCypher();
 			if (!cond.isEmpty()) {
 				cond = addWhiteSpacesForConditions(cond, whereClause);
 				if (!whereClause.isEmpty() && !cond.isEmpty()) 
-					whereClause +=  "\n" + CypherSpecificConstants.TWELVE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND 
+					whereClause +=  "\n" + CypherSpecificConstants.THREE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND 
 									+ CypherSpecificConstants.ONE_WHITESPACE;
 				whereClause += cond;
 			}
 		}
-		if (whereClause.length() != 0) whereClause = CypherSpecificConstants.CLAUSE_WHERE + CypherSpecificConstants.ONE_WHITESPACE + whereClause;
-		if (whereClause.length() == 0) whereClause = null;
+		if (whereClause.length() != 0) {
+			whereClause = CypherSpecificConstants.CLAUSE_WHERE + CypherSpecificConstants.ONE_WHITESPACE + whereClause;
+		}
+		if (whereClause.length() == 0) {
+			whereClause = null;
+		}
 		
 		String cypher = matchClause;
 		if (whereClause != null) {
 			cypher += whereClause;
 		}
 		
+		//The CountCondition will be added after the first MATCH-/Where-Structure is built.
 		if ((condition instanceof CountConditionImpl)) {
-			CountConditionImpl count = (CountConditionImpl) getCondition();
+			Condition count = getCondition();
 			cypher += count.generateCypher();
 		}
 		
 		return cypher;
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param cypher
+	 * @return String
+	 * @throws InvalidityException
+	 * This method has to be @Override in a child class.
+	 */
 	protected String generateCypherReturnNodes(String cypher) throws InvalidityException {
 		throw new UnsupportedOperationException();
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param cypher
+	 * @return String
+	 * @throws InvalidityException
+	 * This method has to be @Override in a child class.
+	 */
 	protected String generateCypherReturnEdges(String cypher) throws InvalidityException {
 		throw new UnsupportedOperationException();
 	}
@@ -273,7 +292,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	 */
 	protected final Map<Integer, String> buildCypherReturnSortedMap(boolean forNode) throws InvalidityException {
 		Map<Integer, StringBuilder> cypherReturn = new TreeMap<Integer, StringBuilder>();
-		NeoElement neoElement;
+		NeoElement neoElement = null;
 		
 		if (forNode) {
 			for (Node n : graph.getNodes()) {
@@ -293,8 +312,8 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			}
 		}
 		
-		//Turns the StringBuilds into Strings since the memory consumption of a string is less as from a StringBuilder
-		//Further on StringBuilders in a unmodifiable Map could be modified and Strings not. 
+		//Turns the StringBuilders into Strings since the memory consumption of a string is less as from a StringBuilder.
+		//Further on StringBuilders can be modified in a unmodifiable Map. However, a Strings not. 
 		Map<Integer, String> cypherReturnFixed = new TreeMap<Integer, String>();
 		for (Map.Entry<Integer, StringBuilder> entry : cypherReturn.entrySet()) {
 			cypherReturnFixed.put(entry.getKey(), entry.getValue().toString());
@@ -302,17 +321,26 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		return Collections.unmodifiableMap(cypherReturnFixed);
 	}
 	
-	protected void generateCypherGenericMap(Map<Integer, StringBuilder> cypherReturn, NeoElement neoElement)
-			throws InvalidityException {
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param cypherReturn
+	 * @param neoElement
+	 * @throws InvalidityException
+	 * Fills the @param cypherReturn with the ReturnValues of the @param neoElement.
+	 */
+	protected void generateCypherGenericMap(Map<Integer, StringBuilder> cypherReturn, NeoElement neoElement) throws InvalidityException {
 		EMap<Integer, String> tempMap = null;
 		StringBuilder tempSb = null;
 		Integer i = null;
 		tempMap = neoElement.getCypherReturnVariable();
 		
-		if (tempMap.keySet().stream().count() != 1)
-			throw new InvalidityException(A_MAP_FROM_RECHIVED_FROM_A_NEO4J_COMPONENT_SHOULD_ONLY_CONTAIN_ONE_ENTRY);
+		if (tempMap.keySet().stream().count() != 1) {
+			throw new InvalidityException(A_MAP_FROM_RECHIVED_FROM_A_NEO4J_COMPONENT_SHOULD_ONLY_CONTAIN_ONE_ENTRY);			
+		}
+		
 		for (Map.Entry<Integer, String> entry : tempMap.entrySet()) {
 		    i = entry.getKey();
+		    //if the regarding key does not exists in the to be filled Map. --> It will be created.
 		    if (cypherReturn.get(i) == null) {
 		    	tempSb = new StringBuilder();
 		    	tempSb.append(entry.getValue());
@@ -324,7 +352,16 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		}
 	}
 	
-	protected String generateCypherSpecialEdgeString(String cypher) throws InvalidityException {
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param cypher
+	 * @return String
+	 * @throws InvalidityException
+	 * This method generates the Returns for the inner edge nodes.
+	 * It considers the previews build String via the @param cypher.
+	 * Until now it is just a prototype method.  
+	 */
+	protected String generateCypherSpecialInnerEdgeNodesString(String cypher) throws InvalidityException {
 		final StringBuilder cypherInnerEdgeNodes = new StringBuilder(cypher);
 		NeoEdge neoAbstractEdge = null;
 		for (Relation r : graph.getRelations()) {
@@ -334,6 +371,14 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		return cypherInnerEdgeNodes.toString();
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param cypher
+	 * @return String
+	 * @throws InvalidityException
+	 * This method appends the inner edge nodes to the passed @param cypher.
+	 * Until now it is just a prototype method.  
+	 */
 	protected void appendInnerEdgeNodes(final StringBuilder cypherInnerEdgeNodes, NeoEdge neoAbstractEdge)
 			throws InvalidityException {
 		if (neoAbstractEdge.getReturnInnerEdgeNodes() != null) {
@@ -342,6 +387,15 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		}
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param cond
+	 * @param whereClause
+	 * @return String
+	 * Adds whitespace(-s) to the condition.
+	 * Conditions are a little bit further to the right as the rest.
+	 * Three whitespace(-s) will be added to every <i>\n</i> .
+	 */
 	private String addWhiteSpacesForConditions(String cond, String whereClause) {
 		if (!whereClause.isEmpty()) {
 			if (!cond.isEmpty()) {
@@ -354,8 +408,8 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 					if (currentIndex == -1) {
 						lineBreak = false;
 					} else {
-						localCypher.insert(currentIndex + 1, CypherSpecificConstants.TWELVE_WHITESPACES); 
-						fromIndex = currentIndex + CypherSpecificConstants.TWELVE_WHITESPACES.length();
+						localCypher.insert(currentIndex + 1, CypherSpecificConstants.THREE_WHITESPACES); 
+						fromIndex = currentIndex + CypherSpecificConstants.THREE_WHITESPACES.length();
 					}
 				}
 				cond = localCypher.toString();
