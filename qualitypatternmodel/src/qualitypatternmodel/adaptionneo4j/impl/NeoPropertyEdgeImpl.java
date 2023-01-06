@@ -134,7 +134,7 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
-	 * Build the myString for the NeoPropertyEdge
+	 * Build the myString for the NeoPropertyEdge.
 	 */
 	@Override
 	public String myToString() {

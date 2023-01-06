@@ -136,11 +136,17 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 		}
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @throws InvalidityException
+	 * @return String
+	 * In Neo4J upper- and lower-case are possible for boolean values. 
+	 * However, we use LowerCase since:
+	 * 		Neo4J follows partly the Java StyleGuide. Thus, we also use the way to write true/false lower-case.
+	 */
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		if (getValue() != null) {
-			//In Neo4j both is possible --> LowerCase as well as UpperCase ... however I use LowerCase since:
-			//Neo4J follows partly the java styleguides. Thus I also use the way to write true/false in java
 			return getValue().toString().toLowerCase();
 		}
 		return super.generateCypher();

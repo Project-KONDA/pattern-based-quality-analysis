@@ -51,6 +51,8 @@ import qualitypatternmodel.utility.Constants;
  * @generated
  */
 public class TextLiteralParamImpl extends ParameterValueImpl implements TextLiteralParam {
+	private static final String TEXT_CYPHER = "\"%s\"";
+
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -159,7 +161,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		if(inputIsValid()) {
-			return "\"" + getValue() + "\"";
+			return String.format(TextLiteralParamImpl.TEXT_CYPHER, getValue());
 		}
 		return super.generateCypher();
 	}

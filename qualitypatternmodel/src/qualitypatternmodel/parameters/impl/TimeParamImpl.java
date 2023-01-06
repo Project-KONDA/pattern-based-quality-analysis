@@ -30,6 +30,7 @@ import qualitypatternmodel.parameters.TimeParam;
  * @generated
  */
 public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
+	private static final String TIME_CYPHER = "time(\'%s\')";
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -88,7 +89,7 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		if (getValue() != null) {
-			return "time(\'" + getValue() + "\')";
+			return String.format(TimeParamImpl.TIME_CYPHER, getValue());
 		}
 		return super.generateCypher();
 	}

@@ -31,6 +31,7 @@ import qualitypatternmodel.parameters.ParametersPackage;
  * @generated
  */
 public class DateParamImpl extends ParameterValueImpl implements DateParam {
+	private static final String DATE_CYPHER = "date(\'%s\')";
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -93,12 +94,12 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
 	 * @throws InvalidityException
-	 * Generates the sub-query for DateParam
+	 * Generates the sub-query for DateParam.
 	 */
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		if (getValue() != null) {
-			return "date(\'" + getValue() + "\')";
+			return String.format(DateParamImpl.DATE_CYPHER, getValue());
 		}
 		return super.generateCypher();
 	}

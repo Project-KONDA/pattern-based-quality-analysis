@@ -33,6 +33,8 @@ import qualitypatternmodel.parameters.ParametersPackage;
  * @generated
  */
 public class DateTimeParamImpl extends ParameterValueImpl implements DateTimeParam {
+	private static final String DATETIME_CYPHER = "datetime(\'%s\')";
+
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -96,12 +98,12 @@ public class DateTimeParamImpl extends ParameterValueImpl implements DateTimePar
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
 	 * @throws InvalidityException
-	 * Generates the sub-query for DateTimeParam
+	 * Generates the sub-query for DateTimeParam.
 	 */
 	@Override
 	public String generateCypher() throws InvalidityException {
 		if (getValue() != null) {
-			return "datetime(\'" + getValue() + "\')";
+			return String.format(DateTimeParamImpl.DATETIME_CYPHER, getValue()); 
 		}
 		return super.generateCypher();
 	}

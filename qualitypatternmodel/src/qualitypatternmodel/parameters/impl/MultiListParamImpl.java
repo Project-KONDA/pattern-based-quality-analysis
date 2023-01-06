@@ -88,6 +88,14 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 		return cypher.toString();
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param value
+	 * @param areValuesInts
+	 * @param regex
+	 * @return boolean.class
+	 * Handles the matching of the Regex. 
+	 */
 	private boolean matching(String value, boolean areValuesInts, String regex) {
 		Pattern p = Pattern.compile(regex);
 		Matcher m = p.matcher(value);
@@ -97,6 +105,12 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 		return areValuesInts;
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param value
+	 * @return boolean.class
+	 * Matches for a Date-Value.
+	 */
 	private boolean areValuesDate(String value) {
 		boolean areValuesInts = true;
 		String regex = "\\d{4}-\\d{2}-\\d{2}";
@@ -104,6 +118,12 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 		return areValuesInts;
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param value
+	 * @return boolean.class
+	 * Matches for a DateTime-Value.
+	 */
 	private boolean areValuesDateTime(String value) {
 		boolean areValuesInts = true;
 		String regex = "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}";
@@ -111,14 +131,25 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 		return areValuesInts;
 	}
 
-
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param value
+	 * @return boolean.class
+	 * Matches for a Time-Value.
+	 */
 	private boolean areValuesTime(String value) {
 		boolean areValuesInts = true;
 		String regex = "\\d{2}:\\d{2}:\\d{2}";
 		areValuesInts = matching(value, areValuesInts, regex);
 		return areValuesInts;
 	}
-
+	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param value
+	 * @return boolean.class
+	 * Matches for a integer-Value.
+	 */
 	private boolean areValuesInts(String value) {
 		boolean areValuesInts = true;
 		String regex = "[+-]?[0-9]+";
@@ -126,13 +157,24 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 		return areValuesInts;
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param value
+	 * @return boolean.class
+	 * Matches for a float-Value.
+	 */
 	private boolean areValuesFloat(String value) {
 		boolean areValuesInts = true;
 		String regex = "[+-]?[0-9]+(\\.[0-9]+)?([Ee][+-]?[0-9]+)?";
 		areValuesInts = matching(value, areValuesInts, regex);
 		return areValuesInts;
 	}
-
+	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return String
+	 * Creates the myString for the MultiListParam.
+	 */
 	@Override 
 	public String myToString() {
 		String res = "MulitListParam: list [" + getInternalId() + "] (";

@@ -129,13 +129,18 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 		throw new InvalidityException("invalid parameter value in [" + getInternalId() + "]");
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @throws InvalidityException
+	 * @return String
+	 * This method is used to build a specific exception for all parameters.
+	 * It contains the exception message and the unique ID for the regarding parameter.
+	 */
 	@Override
 	public String generateCypher() throws InvalidityException {
 		if (!getParameterReferences().isEmpty()) {
-			//TODO
-			//return "";
+			//TODO if later on needed.
 		}
-		
 		throw new InvalidityException("invalid parameter value in [" + getInternalId() + "]");
 	}
 	
