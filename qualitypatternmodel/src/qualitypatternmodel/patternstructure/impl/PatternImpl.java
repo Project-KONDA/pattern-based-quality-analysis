@@ -408,8 +408,8 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 					if (currentIndex == -1) {
 						lineBreak = false;
 					} else {
-						localCypher.insert(currentIndex + 1, CypherSpecificConstants.THREE_WHITESPACES); 
-						fromIndex = currentIndex + CypherSpecificConstants.THREE_WHITESPACES.length();
+						localCypher.insert(currentIndex + 1, CypherSpecificConstants.SIX_WHITESPACES); 
+						fromIndex = currentIndex + CypherSpecificConstants.SIX_WHITESPACES.length();
 					}
 				}
 				cond = localCypher.toString();
