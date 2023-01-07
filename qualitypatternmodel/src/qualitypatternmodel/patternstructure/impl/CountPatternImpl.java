@@ -3,7 +3,11 @@
 package qualitypatternmodel.patternstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.regex.Pattern;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -93,22 +97,55 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	//Der folgende Abschnitt gehört zum Cypher COUNT
 	//Count ist für die anderen CONDITIONS als Unsuported makiert, da Cypher v4.4 und niedriger keine Verschachtelungen zulässt
 	//Nodes --> keine PATH/Edges implementiert
-	protected EList<NeoNode> countNodes = null; 
+	private EList<Node> countNodes = null; 
+
+	@Override 
+	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		PatternElement patternElement = super.createNeo4jAdaption();
+		final EList<Node> lNodes = getGraph().getReturnNodes();
+		if (lNodes.size() > 1) {
+			for(Node n : lNodes) {
+				if (n.getOriginalNode() != n) {
+					n.setReturnNode(false);				
+				}
+			}			
+		}
+		initCountSet();
+		return patternElement;
+	}
 	
-	//Add to Ecore?
-	public void addNeoCountNode(NeoNode countElements) {
-		if (countElements != null) {
-			if (this.countNodes == null) {
-				this.countNodes = new BasicEList<NeoNode>(); //For sorted
-			}
-			if (!countNodes.contains(countElements)) { //Checks for duplicated
-				this.countNodes.add(countElements);
-			}
+	private void initCountSet() {
+		// Select all count elements and put them into the set
+		final EList<Node> lNodes = getGraph().getReturnNodes();
+		for (Node n : lNodes) {
+			this.addNeoCountNode(n);							
 		}
 	}
 	
-	public void removeCountElementNode(NeoNode countElements) {
-		this.countNodes.remove(countElements);
+	private void refreshCountSet() {
+		final EList<Node> lNodes = getGraph().getNodes();
+		final EList<Node> tempSet = new BasicEList<Node>();
+		for (Node neoNode : lNodes) {
+			if (countNodes.contains(neoNode)) {
+				if (!neoNode.isReturnNode()) {
+					countNodes.remove(neoNode);
+				}
+			} else if (neoNode.isReturnNode()) {
+				tempSet.add((Node) neoNode);
+			}
+		}
+		countNodes.addAll(tempSet);
+	}
+	
+	private void addNeoCountNode(Node countElements) {
+		if (countElements != null) {
+			if (this.countNodes == null) {
+				this.countNodes = new BasicEList<Node>();
+			}
+			if (!countNodes.contains(countElements)) {
+				this.countNodes.add(countElements);
+			}
+		}
 	}
 	
 	@Override 
@@ -146,15 +183,16 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	//Just focused on Nodes... relations and path have to follow later (FUTURE WORK)
 	protected final EList<String> generateCypherCounters() throws InvalidityException {
 		if (countNodes != null && countNodes.size() > 0) {
+			refreshCountSet();
 			final EList<String> myCounters = new BasicEList<String>();
 			String temp = null;
 			int i = 1;
-			for (NeoNode n : countNodes) {
-				if (checkForNode(n)) {
-					temp = createMyCounterString(n, i);
+			for (Node n : countNodes) {
+				if (checkForNode((NeoNode) n)) {
+					temp = createMyCounterString((NeoNode) n, i);
 					myCounters.add(temp);
 					i++;
-				} else if (checkForProperty(n)) {
+				} else if (checkForProperty((NeoNode) n)) {
 					temp = createMyCounterString((NeoPropertyNode) n, i);
 					myCounters.add(temp);
 					i++;
@@ -171,12 +209,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	private boolean checkForProperty(NeoNode n) {
 		boolean t = false;
 		if (n instanceof NeoPropertyNode) {
-			NeoPropertyPathParam neoParam = ((NeoPropertyEdge)((Node) n).getIncoming().get(0)).getNeoPropertyPathParam();
-			if (neoParam != null) {
-				if (neoParam.getNeoPathPart() == null) {
-					t = true;
-				}
-			}
+			t = true;
 		}
 		return t;
 	}
@@ -238,44 +271,43 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		return result;
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return String
+	 * @throws InvalidityException
+	 */
 	protected String generateCypherWith() throws InvalidityException {
-		String cypher = new String();
+		final EList<Node> lReturnNodes = new BasicEList<>();
 		final Graph g = getGraph();
-		
-		final EList<Node> lReturnNodes = g.getReturnNodes();
-		if (lReturnNodes.size() > 0) {
-			String cypherNodes = generateCypherReturnNodes(cypher);
-			if (!cypherNodes.isBlank()) {
-				cypher = cypherNodes;
-			}
-		}
-		cypher = addNodesToWithFromPreviewsGraph(cypher, g, lReturnNodes);
-		
-		
+		//Adds just the Nodes from the previews Graph
+		//The model driven approach just requires the previews Nodes
+		String cypher = addNodesToWithFromPreviewsGraph(g, lReturnNodes);
+			
 		final EList<Relation> lReturnRelations = lReturnRelations();
 		if (lReturnRelations.size() > 0) {
+			//cypherEdges also contain after running the method also the previews cypher.
 			String cypherEdges = generateCypherReturnEdges(cypher);
 			if (!cypherEdges.isBlank()) {
 				cypher = cypherEdges;
 			}
 		}
-		allReturnElementsAreInWith(cypher, lReturnNodes, lReturnRelations);
+
 		return cypher;
 	}
 
-	private String addNodesToWithFromPreviewsGraph(String cypher, final Graph g, final EList<Node> lReturnNodes)
-			throws InvalidityException {
+	private String addNodesToWithFromPreviewsGraph(final Graph g, final EList<Node> lReturnNodes) throws InvalidityException {
+		String cypher = new String();
 		String[] tempNodeVar = null;
 		Node original = null;
 		for (Node n : g.getNodes()) {
 			if (n.getOriginalNode() != n) {
 				original = n.getOriginalNode();
 				if (original.isReturnNode()) {
-					if (!lReturnNodes.contains(n)) {
-						tempNodeVar = ((NeoNode) original).getCypherVariable().split(CypherSpecificConstants.SEPERATOR);
-						for (String s : tempNodeVar) {
+					tempNodeVar = ((NeoNode) original).getCypherVariable().split(CypherSpecificConstants.SEPERATOR);
+					for (String s : tempNodeVar) {
+						if (!cypher.contains(s)) {
 							if (!cypher.isEmpty()) {
-								cypher = s.trim() + CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE + cypher;
+								cypher = cypher + CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE + s.trim();
 							} else {
 								cypher = s.trim();
 							}
@@ -285,32 +317,6 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 			}
 		}
 		return cypher;
-	}
-	
-	private void allReturnElementsAreInWith(final String cypher, final EList<Node> lReturnNodes, final EList<Relation> lReturnRelations) throws InvalidityException {
-		if (lReturnNodes.size() > 0) {
-			NeoNode neoNode = null;
-			for (Node n : lReturnNodes) {
-				neoNode = (NeoNode) n;
-				if (!cypher.contains(neoNode.getCypherVariable())) {
-					throw new InvalidityException(NOT_ALL_RETURN_ELEMENTS_ARE_CONTAINED_IN_THE_WITH_CLAUSE);
-				}
-			}
-		}
-		if (lReturnRelations.size() > 0) {
-			NeoElement neoEdge = null;
-			for (Relation r : lReturnRelations) {
-				neoEdge = (NeoElement) r;
-				try {
-					if (!cypher.contains(neoEdge.getCypherReturnVariable().get(0).getValue())) {
-						throw new InvalidityException(NOT_ALL_RETURN_ELEMENTS_ARE_CONTAINED_IN_THE_WITH_CLAUSE);
-					}
-				} catch (Exception e) {
-					throw new InvalidityException(NOT_ALL_RETURN_ELEMENTS_ARE_CONTAINED_IN_THE_WITH_CLAUSE);
-				}
-				
-			}
-		}
 	}
 	
 	private EList<Relation> lReturnRelations() {
@@ -329,15 +335,6 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 			}
 		}
 		return lReturnRelations;
-	}
-	
-	@Override
-	protected String generateCypherReturnNodes(String cypher) throws InvalidityException {
-		//Building the generic Nodes for Return
-		final Map<Integer, String> cypherReturn = buildCypherReturnSortedMap(true);
-		final StringBuilder cypherSb = new StringBuilder();
-		cypher = joiningReturnValues(cypher, cypherReturn, cypherSb);
-		return cypher;
 	}
 	
 	@Override

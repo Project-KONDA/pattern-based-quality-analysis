@@ -55,6 +55,4 @@ public interface CountPattern extends Pattern, MorphismContainer, CountCondition
 	void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException;
 
 	void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
-
-	public void addNeoCountNode(NeoNode countElements);
 } // CountPattern
