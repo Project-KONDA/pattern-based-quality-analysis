@@ -94,16 +94,28 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	
 	
 	//BEGIN - CYPHER (Simples Count)
-	//Der folgende Abschnitt gehört zum Cypher COUNT
-	//Count ist für die anderen CONDITIONS als Unsuported makiert, da Cypher v4.4 und niedriger keine Verschachtelungen zulässt
-	//Nodes --> keine PATH/Edges implementiert
-	private EList<Node> countNodes = null; 
+	//Count is marked as Unsuported for the other CONDITIONS, because Cypher v4.4 and lower does not allow nesting.
+	//Nodes --> no PATH/Edges implemented
+	private EList<Node> countNodes = new BasicEList<Node>(); 
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return PatternElement
+	 * @throws InvalidityException, OperatorCycleException, MissingPatternContainerException
+	 * This method creates the Neo4J adaption. 
+	 * It is needed to collect initialise the counter list. 
+	 * The counter list is needed since we can not count over a substructure with MATCH-/RETURN-Clause like in other implemented languages.
+	 */
 	@Override 
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternElement patternElement = super.createNeo4jAdaption();
 		final EList<Node> lNodes = getGraph().getReturnNodes();
+		//If not further elements specified. It will be assumed that the return node from the CompletePattern shall be counted.
 		if (lNodes.size() > 1) {
+			//Resets all morphed node's returnNode field to false. Based on Cyphers pairing of elements which shall be returned in considering of the counter(-s).
+			//otherwise this would be printed: WITH varElementNodeX, COUNT (varElementNodeX) myCounter1, COUNT (varElementNodeY) myCounter2
+			//We want to achieve: WITH varElementNodeX, COUNT (varElementNodeY) myCounter2
+			//Since we assume that the user just wants to count the elements which are marked in a new graph as return node(-s).
 			for(Node n : lNodes) {
 				if (n.getOriginalNode() != n) {
 					n.setReturnNode(false);				
@@ -114,14 +126,22 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		return patternElement;
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * This method selects all count elements and put them into the List.
+	 */
 	private void initCountSet() {
-		// Select all count elements and put them into the set
 		final EList<Node> lNodes = getGraph().getReturnNodes();
 		for (Node n : lNodes) {
 			this.addNeoCountNode(n);							
 		}
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * This method refreshes the counter list if in the concretization the user has specified the concrete pattern differently to the generic pattern;
+	 * in regard of the returnNode(-s)
+	 */
 	private void refreshCountSet() {
 		final EList<Node> lNodes = getGraph().getNodes();
 		final EList<Node> tempSet = new BasicEList<Node>();
@@ -137,17 +157,23 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		countNodes.addAll(tempSet);
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param countElements
+	 * This method adds Nodes to the list of countElements.
+	 */
 	private void addNeoCountNode(Node countElements) {
-		if (countElements != null) {
-			if (this.countNodes == null) {
-				this.countNodes = new BasicEList<Node>();
-			}
-			if (!countNodes.contains(countElements)) {
-				this.countNodes.add(countElements);
-			}
+		if (countElements != null && !countNodes.contains(countElements)) {
+			this.countNodes.add(countElements);
 		}
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @throws InvalidityException
+	 * @return String
+	 * This method builds the MATCH-/WHERE-Clause for the stored Graph in the CountPattern.
+	 */
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		final Graph g = getGraph();	
@@ -166,7 +192,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 			final String tempConString = getCondition().generateCypher();
 			if (!tempConString.isEmpty()) {
 				if (!tempWhere.isEmpty()) {
-					cypher.append("\n" + CypherSpecificConstants.SIX_WHITESPACES);
+					cypher.append("\n" + CypherSpecificConstants.THREE_WHITESPACES);
 					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
 					cypher.append(tempConString);
 				} else {
@@ -175,12 +201,19 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 				}
 			}			
 		} else {
-			throw new InvalidityException(CypherSpecificConstants.THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY);
+			throw new InvalidityException(CypherSpecificConstants.THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY + " (Nested Counting)");
 		}
 		return cypher.toString();		
 	}
 	
-	//Just focused on Nodes... relations and path have to follow later (FUTURE WORK)
+	/**
+	 * @author Lukas Sebastian Hofmann 
+	 * @return EList<String>
+	 * @throws InvalidityException
+	 * This method generates the Counters for the CountCondition.
+	 * It just is focusing on Nodes.
+	 * Relations and path have to follow later.
+	 */
 	protected final EList<String> generateCypherCounters() throws InvalidityException {
 		if (countNodes != null && countNodes.size() > 0) {
 			refreshCountSet();
@@ -206,6 +239,12 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		throw new InvalidityException(CypherSpecificConstants.NO_COUNT_ELEMENTS_EXISTS);
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param n
+	 * @return boolean.class
+	 * This method checks for a NeoPropertyNode.
+	 */
 	private boolean checkForProperty(NeoNode n) {
 		boolean t = false;
 		if (n instanceof NeoPropertyNode) {
@@ -214,6 +253,12 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		return t;
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param n
+	 * @return boolean.class
+	 * This method checks for a NeoElementNode.
+	 */
 	private boolean checkForNode(NeoNode n) {
 		boolean t = false;
 		if (n instanceof NeoElementNode) {
@@ -229,7 +274,14 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		return t;
 	}
 	
-	//Node-Counter
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param countElement
+	 * @param countCounter
+	 * @return String
+	 * @throws InvalidityException
+	 * This method creates internally the myCounters with a matching numbering. 
+	 */
 	private String createMyCounterString(NeoNode countElement, int countCounter) throws InvalidityException {
 		String cypherVariable = null;
 		if (checkForNeoPropertyNode(countElement)) {
@@ -261,6 +313,12 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		throw new InvalidityException(SOMETHING_WENT_WRONG_IN_ACCESSING_THE_CYPHER_VARIABLE);
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param countElement
+	 * @return boolean.class
+	 * This method checks which addressing for a node shall be taken. 
+	 */
 	private boolean checkForNeoPropertyNode(NeoNode countElement) {
 		boolean result = false;
 		try {
@@ -275,6 +333,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
 	 * @throws InvalidityException
+	 * This method generates the With-Clause for the CountCondition.
 	 */
 	protected String generateCypherWith() throws InvalidityException {
 		final EList<Node> lReturnNodes = new BasicEList<>();
@@ -294,7 +353,15 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 
 		return cypher;
 	}
-
+	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param g
+	 * @param lReturnNodes
+	 * @return String
+	 * @throws InvalidityException
+	 * This method adds the Nodes which shall be returned in the RETURN-Clause for Cypher to the WITH-Clause String.
+	 */
 	private String addNodesToWithFromPreviewsGraph(final Graph g, final EList<Node> lReturnNodes) throws InvalidityException {
 		String cypher = new String();
 		String[] tempNodeVar = null;
@@ -319,6 +386,12 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		return cypher;
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return EList<Relation>
+	 * This method returns a list for all return relations.
+	 * Relation return is in prototyping and shall be further implemented in FUTURE WORK.
+	 */
 	private EList<Relation> lReturnRelations() {
 		final Graph g = getGraph();
 		final EList<Relation> lReturnRelations = new BasicEList<Relation>();
@@ -337,6 +410,13 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		return lReturnRelations;
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param cypher
+	 * @throws InvalidityException
+	 * This method build the return string for the Edges.
+	 * Relation return is in prototyping and shall be further implemented in FUTURE WORK.
+	 */
 	@Override
 	protected String generateCypherReturnEdges(String cypher) throws InvalidityException {
 		//Building the generic Relations for Return
@@ -347,6 +427,14 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		return cypher;
 	}
 
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param cypher
+	 * @param cypherReturn
+	 * @param cypherSb
+	 * @return String
+	 * This method joins the various return values.
+	 */
 	private String joiningReturnValues(String cypher, final Map<Integer, String> cypherReturn, final StringBuilder cypherSb) {
 		for (Map.Entry<Integer, String> mapElement : cypherReturn.entrySet()) {	  
 			if (cypherSb.length() != 0) {
