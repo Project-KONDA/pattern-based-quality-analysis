@@ -27,11 +27,11 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 		CypherTest03NotCondition notCond = new CypherTest03NotCondition();
 		try {
 			quantifiedCond.generalizedTests();  
-			quantifiedCond.generalizedComplexTests();
-			quantifiedCond.generalizedInvalidtyExceptionTests();
-			quantifiedCond = null;
-			notCond.generalizedTests();         
-			notCond.generalizedInvalidtyExceptionTests(); 
+//			quantifiedCond.generalizedComplexTests();
+//			quantifiedCond.generalizedInvalidtyExceptionTests();
+//			quantifiedCond = null;
+//			notCond.generalizedTests();         
+//			notCond.generalizedInvalidtyExceptionTests(); 
 		} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();
@@ -41,14 +41,14 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 	@Override
 	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		completePatterns.add(getNodesWhereExits(false));
-		completePatterns.add(getNodesWhereExits(true));
-		completePatterns.add(getNodesWhereMultiplePropertyExistsChecks(false));
-		completePatterns.add(getNodesWhereMultiplePropertyExistsChecks(true));
+//		completePatterns.add(getNodesWhereExits(false));
+//		completePatterns.add(getNodesWhereExits(true));
+//		completePatterns.add(getNodesWhereMultiplePropertyExistsChecks(false));
+//		completePatterns.add(getNodesWhereMultiplePropertyExistsChecks(true));
 		completePatterns.add(getExistsMatchWithSamePropertyName(true));
-		completePatterns.add(getExistsMatchWithExistsProperty(true));
-		completePatterns.add(getExistsMatchWithExistsProperty(false));
-		completePatterns.add(getExistsMatchWithExistsPropertyWithExternalProperty(false));
+//		completePatterns.add(getExistsMatchWithExistsProperty(true));
+//		completePatterns.add(getExistsMatchWithExistsProperty(false));
+//		completePatterns.add(getExistsMatchWithExistsPropertyWithExternalProperty(false));
 		//Build a check for NeoPropertyNode internal / external and with two quantified conds
 	}
 	

@@ -446,11 +446,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				if (tempList.size() > 1) {
 					startNeoPropertyNode = tempList.get(0);
 					for (int i = 1; i < tempList.size(); i++) {
-						if (cypher.length() != 0) {
-							tempCypher.append(CypherSpecificConstants.ONE_WHITESPACE);
-							tempCypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
-							tempCypher.append(CypherSpecificConstants.ONE_WHITESPACE);
-						}
 						tempCypher.append(startNeoPropertyNode);
 						tempCypher.append(CypherSpecificConstants.ONE_WHITESPACE);
 						tempCypher.append(CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_EQUAL);
@@ -476,23 +471,20 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * Thus each comparison which deals with one NeoPropertyNode comparison has its own line. 
 	 */
 	private final void seperateMultiPropertyComps(final StringBuilder cypher) {
-		String[] temp = cypher.toString().split(CypherSpecificConstants.SEPERATOR);
+		final String[] temp = cypher.toString().split(CypherSpecificConstants.SEPERATOR);
 		//For separating the same comparisons in there own lines. 
 		if (temp.length > 1) {
 			cypher.setLength(0);
 			boolean first = true;
 			for (String s : temp) {
 				if (!first) {
-					cypher.append("\n");
 					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX);						
 					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
 					cypher.append(CypherSpecificConstants.ONE_WHITESPACE);
 				} else {
 					first = false;
 				}
-				cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
 				cypher.append(s);
-				cypher.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
 			}				
 		}
 	}
