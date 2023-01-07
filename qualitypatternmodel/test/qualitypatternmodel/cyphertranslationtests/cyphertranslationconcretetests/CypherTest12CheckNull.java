@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
-import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
+import qualitypatternmodel.cyphertranslationtests.CypherTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -16,9 +16,9 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
-public class CypherTest12CheckNull extends CypherAbstractTranslation {
+public class CypherTest12CheckNull extends CypherTranslation {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-        CypherAbstractTranslation checkNull = new CypherTest12CheckNull();
+        CypherTranslation checkNull = new CypherTest12CheckNull();
         try {
         	checkNull.generalizedTests();         
             checkNull.generalizedInvalidtyExceptionTests();
@@ -111,9 +111,9 @@ public class CypherTest12CheckNull extends CypherAbstractTranslation {
 		buildInvalidityExceptionPatterns(completePatternsExceptions);
 		if (completePatternsExceptions.size() != 0) {
 			System.out.println("");
-			System.out.println(CypherAbstractTranslation.BEGIN_BUILD_PATTERN_EXCEPTIONS);		
+			System.out.println(CypherTranslation.BEGIN_BUILD_PATTERN_EXCEPTIONS);		
 			exceptionTestHandler(completePatternsExceptions);
-			System.out.println(CypherAbstractTranslation.END_BUILD_PATTERN_EXCEPTIONS);
+			System.out.println(CypherTranslation.END_BUILD_PATTERN_EXCEPTIONS);
 			System.out.println("");
 		}
 	}

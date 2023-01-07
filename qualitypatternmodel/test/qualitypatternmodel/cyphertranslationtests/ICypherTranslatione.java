@@ -7,7 +7,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
-public interface CypherInterfaceTranslatione {
+public interface ICypherTranslatione {
 	void buildPatterns(ArrayList<CompletePattern> completePatterns) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
 	/**
 	 * @author Lukas Sebastian Hofmann

@@ -9,7 +9,7 @@ import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
-import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
+import qualitypatternmodel.cyphertranslationtests.CypherTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -31,12 +31,12 @@ import qualitypatternmodel.patternstructure.Quantifier;
 
 //Think about to create a other test class just for the QuantifiedCond! --> Done
 //Specelly for the exceptiontests 
-public class CypherTest03NotCondition extends CypherAbstractTranslation {    
+public class CypherTest03NotCondition extends CypherTranslation {    
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-    	CypherAbstractTranslation not = new CypherTest03NotCondition();
+    	CypherTranslation not = new CypherTest03NotCondition();
     	try {
         	not.generalizedTests();         
-//        	not.generalizedInvalidtyExceptionTests();
+        	not.generalizedInvalidtyExceptionTests();
     	} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();
@@ -344,7 +344,7 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 	}	
 	
 	private CompletePattern getNotExistsExists() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherAbstractTranslation.getBasePattern();
+		CompletePattern completePattern = CypherTranslation.getBasePattern();
 		
 	    NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
 	    completePattern.setCondition(notCond);
@@ -585,7 +585,7 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern generateNotCondDoesNotContainConndititonException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern comp = CypherAbstractTranslation.getBasePattern();
+		CompletePattern comp = CypherTranslation.getBasePattern();
 		NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
 		notCond.setCondition(null);
 		comp.createNeo4jAdaption();
@@ -594,7 +594,7 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern generateNotCondContainsTrueElementException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern comp = CypherAbstractTranslation.getBasePattern();
+		CompletePattern comp = CypherTranslation.getBasePattern();
 		comp.setCondition(PatternstructureFactory.eINSTANCE.createNotCondition());
 		comp.createNeo4jAdaption();
 		return comp;
@@ -603,7 +603,7 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 	private CompletePattern generateNotCondContainsCountPatternException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = CypherTest03NotCondition.getNotCondBasePattern();
 		completePattern.setCondition(PatternstructureFactory.eINSTANCE.createNotCondition());
-		CypherAbstractTranslation.setCountCounditionInsideOfAnotherCondition(completePattern);		
+		CypherTranslation.setCountCounditionInsideOfAnotherCondition(completePattern);		
 		
 		completePattern.createNeo4jAdaption();
 	
@@ -612,7 +612,7 @@ public class CypherTest03NotCondition extends CypherAbstractTranslation {
 	
 	//FACTORY-METHODS
 	private static CompletePattern getNotCondBasePattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherAbstractTranslation.getBasePattern();
+		CompletePattern completePattern = CypherTranslation.getBasePattern();
 		
 	    NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
 	    completePattern.setCondition(notCond);

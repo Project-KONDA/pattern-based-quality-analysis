@@ -33,7 +33,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 //The Excption handler can do more then the for the suite case
-public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCondition {
+public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 
 	private static final String NOT_ALL_PATTERN_HAVE_BEEN_CHECK = "Not all Pattern have been check - rework test";
 	private static final String EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION = "NOT ALL INVALIDTIY EXCPECTED EXCEPTIONS HAVE BEEN THROWN";
@@ -53,10 +53,10 @@ public abstract class CypherAbstractTestSuiteTranslation implements ExecutionCon
 	public static void testAllCompletePatterns(ArrayList<CompletePattern> completePatterns, boolean isDbOn) throws Exception {
 		if (isDbOn) {
 			Java2Neo4JConnector connector = new Java2Neo4JConnector();
-			CypherAbstractTranslation.innerTestAllCompletePatterns(completePatterns, connector);
+			CypherTranslation.innerTestAllCompletePatterns(completePatterns, connector);
 		} else {
 			Java2Neo4JConnector connector = null;
-			CypherAbstractTranslation.innerTestAllCompletePatterns(completePatterns, connector);
+			CypherTranslation.innerTestAllCompletePatterns(completePatterns, connector);
 		}
 	}
 

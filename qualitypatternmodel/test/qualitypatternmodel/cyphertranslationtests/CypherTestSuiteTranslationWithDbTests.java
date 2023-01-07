@@ -16,12 +16,12 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 @DisplayName("Systemtest with Neo4J-DB")
 @TestInstance(Lifecycle.PER_CLASS)
 @ExtendWith(CypherTestSuiteTranslationWithDbTests.class)
-public class CypherTestSuiteTranslationWithDbTests extends  CypherAbstractTestSuiteTranslation implements ExecutionCondition {
+public class CypherTestSuiteTranslationWithDbTests extends  CypherTestSuiteTranslation implements ExecutionCondition {
 	@Override
 	protected void tester(ArrayList<CompletePattern> completePatterns) throws Exception {
-		System.out.println(CypherAbstractTranslation.BEGIN_TESTS);
+		System.out.println(CypherTranslation.BEGIN_TESTS);
 		testAllCompletePatterns(completePatterns, true);
-	    System.out.println(CypherAbstractTranslation.END_TESTS);
+	    System.out.println(CypherTranslation.END_TESTS);
 	}
 
 	@Override

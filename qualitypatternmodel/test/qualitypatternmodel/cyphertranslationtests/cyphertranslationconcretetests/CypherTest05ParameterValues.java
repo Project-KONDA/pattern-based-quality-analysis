@@ -7,7 +7,7 @@ import org.eclipse.emf.common.util.BasicEList;
 
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
-import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
+import qualitypatternmodel.cyphertranslationtests.CypherTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -40,13 +40,13 @@ import qualitypatternmodel.parameters.impl.TimeParamImpl;
 import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
-public class CypherTest05ParameterValues extends CypherAbstractTranslation {
+public class CypherTest05ParameterValues extends CypherTranslation {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		//Look in the NeoDoc to check the fitting syntax 
 		//The Dataset is not containing something else except date and string
 	    
 		try {
-			CypherAbstractTranslation parameterValues = new CypherTest05ParameterValues();
+			CypherTranslation parameterValues = new CypherTest05ParameterValues();
 			parameterValues.generalizedTests();         
 			parameterValues.generalizedInvalidtyExceptionTests();
 		} catch (Exception e) {
@@ -267,7 +267,7 @@ public class CypherTest05ParameterValues extends CypherAbstractTranslation {
 	
 	//FACTORY-METHOD
 	private static CompletePattern getConcreteBaseComparisonPattern(ParameterValue parameter) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherAbstractTranslation.getBasePattern();
+		CompletePattern completePattern = CypherTranslation.getBasePattern();
 		Node se = completePattern.getGraph().getNodes().get(1);
 		UntypedParameterValue p = se.addPrimitiveComparison();
 		p.replace(parameter);

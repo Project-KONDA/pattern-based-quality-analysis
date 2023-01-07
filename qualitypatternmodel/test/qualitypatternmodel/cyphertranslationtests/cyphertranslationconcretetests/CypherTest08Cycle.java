@@ -4,7 +4,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
 
-import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
+import qualitypatternmodel.cyphertranslationtests.CypherTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -20,7 +20,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 //Junit führt tests quasi parallel aus
 //Der Zeit messer kostet halt auch zeit
 //Sysout ist auch Zeitfresser
-public class CypherTest08Cycle extends CypherAbstractTranslation {
+public class CypherTest08Cycle extends CypherTranslation {
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
     	CypherTest08Cycle cycle = new CypherTest08Cycle();
     	
@@ -190,7 +190,7 @@ public class CypherTest08Cycle extends CypherAbstractTranslation {
 		//Generic + Abstract
 		Instant start = Instant.now();
 		
-		CompletePattern completePattern = CypherAbstractTranslation.getBasePattern();
+		CompletePattern completePattern = CypherTranslation.getBasePattern();
 		ComplexNode newNode0 = (ComplexNode) completePattern.getGraph().getNodes().get(0);
 		ComplexNode[] newNode = new ComplexNode[nodesInCycle];
 		for (int i = 0; i < nodesInCycle - 1; i++) {
@@ -219,7 +219,7 @@ public class CypherTest08Cycle extends CypherAbstractTranslation {
 		//Generic + Abstract
 		Instant start = Instant.now();
 		
-		CompletePattern completePattern = CypherAbstractTranslation.getBasePattern();
+		CompletePattern completePattern = CypherTranslation.getBasePattern();
 		ComplexNode newNode0 = (ComplexNode) completePattern.getGraph().getNodes().get(0);
 		ComplexNode[] newNode = new ComplexNode[nodesInCycle];
 		for (int i = 0; i < nodesInCycle; i++) {

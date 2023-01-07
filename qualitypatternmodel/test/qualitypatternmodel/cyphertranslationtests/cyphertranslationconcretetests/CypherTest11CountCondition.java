@@ -9,7 +9,7 @@ import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.adaptionneo4j.impl.NeoElementEdgeImpl;
-import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
+import qualitypatternmodel.cyphertranslationtests.CypherTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -24,7 +24,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.impl.CountPatternImpl;
 
 //Test also the COUNTING with NeoPropertyNodes
-public class CypherTest11CountCondition extends CypherAbstractTranslation {
+public class CypherTest11CountCondition extends CypherTranslation {
 		
 	public static void main(String[] args)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -132,7 +132,7 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern getCountAPropertyNode() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherAbstractTranslation.getBasePattern();
+		CompletePattern completePattern = CypherTranslation.getBasePattern();
 		CountCondition countCond = CypherTest11CountCondition.getBaseCountCoundition(completePattern);
 		
 		completePattern.createNeo4jAdaption();
@@ -267,9 +267,9 @@ public class CypherTest11CountCondition extends CypherAbstractTranslation {
 		buildInvalidityExceptionPatterns(completePatternsExceptions);
 		if (completePatternsExceptions.size() != 0) {
 			System.out.println("");
-			System.out.println(CypherAbstractTranslation.BEGIN_BUILD_PATTERN_EXCEPTIONS);		
+			System.out.println(CypherTranslation.BEGIN_BUILD_PATTERN_EXCEPTIONS);		
 			exceptionTestHandler(completePatternsExceptions);
-			System.out.println(CypherAbstractTranslation.END_BUILD_PATTERN_EXCEPTIONS);
+			System.out.println(CypherTranslation.END_BUILD_PATTERN_EXCEPTIONS);
 			System.out.println("");
 		}
 	}

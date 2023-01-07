@@ -9,7 +9,7 @@ import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoPlace;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
-import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
+import qualitypatternmodel.cyphertranslationtests.CypherTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -24,7 +24,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 //Am Modeldiagramm die entscheidungen getroffen
 //Erklären welche Tests für das Metamodell gemacht habe
 //Erfolgreich Test ja/nein --> Cypher querys beschreiben
-public class CypherTest01NeoElementEdge extends CypherAbstractTranslation {
+public class CypherTest01NeoElementEdge extends CypherTranslation {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CypherTest01NeoElementEdge neoEdge = new CypherTest01NeoElementEdge();
 		
@@ -340,7 +340,7 @@ public class CypherTest01NeoElementEdge extends CypherAbstractTranslation {
 	
 	//Multiple Graph-Patterns
 	private CompletePattern getMultipleGraphPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherAbstractTranslation.getBasePatternComplex();
+		CompletePattern completePattern = CypherTranslation.getBasePatternComplex();
 		completePattern.getGraph().addNode();
 		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(2).makeComplex();
 		completePattern.getGraph().addNode();
@@ -355,7 +355,7 @@ public class CypherTest01NeoElementEdge extends CypherAbstractTranslation {
 	//No adaption of the Graphstructure is done, thus an exception has to be thrown
 	//Error occures in Graph
 	private CompletePattern generateNoNeoAdaptionException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherAbstractTranslation.getBasePatternComplex();
+		CompletePattern completePattern = CypherTranslation.getBasePatternComplex();
 		return completePattern;
 	}
 	
@@ -363,7 +363,7 @@ public class CypherTest01NeoElementEdge extends CypherAbstractTranslation {
 	//Error occurs in PatternElement
 	//Has to be reworked since with the automatical setting of beginnings the Beginning will be set
 	private CompletePattern generateNoBeginningException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherAbstractTranslation.getBasePatternComplex();
+		CompletePattern completePattern = CypherTranslation.getBasePatternComplex();
 		completePattern.createNeo4jAdaption();
 		NeoElementNode neoNode  = (NeoElementNode) completePattern.getGraph().getNodes().get(0);
 		neoNode.setNeoPlace(NeoPlace.FOLLOWING);
@@ -410,7 +410,7 @@ public class CypherTest01NeoElementEdge extends CypherAbstractTranslation {
 	
 	//FACTORY-METHOD
 	private static CompletePattern getBasePatternNeoEdge() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherAbstractTranslation.getBasePatternComplex();
+		CompletePattern completePattern = CypherTranslation.getBasePatternComplex();
 		completePattern.createNeo4jAdaption();		
 		return completePattern;
 	}

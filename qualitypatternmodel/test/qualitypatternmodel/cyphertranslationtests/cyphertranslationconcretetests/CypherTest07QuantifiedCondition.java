@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
-import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
+import qualitypatternmodel.cyphertranslationtests.CypherTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -17,7 +17,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
 
-public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
+public class CypherTest07QuantifiedCondition extends CypherTranslation {
 	//Add BooleanOperators Test here
 	//Add more neasted tests
 	//Add a beginning in the morph which is not the end to thest the pattern-match generation alg
@@ -27,11 +27,11 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 		CypherTest03NotCondition notCond = new CypherTest03NotCondition();
 		try {
 			quantifiedCond.generalizedTests();  
-//			quantifiedCond.generalizedComplexTests();
-//			quantifiedCond.generalizedInvalidtyExceptionTests();
-//			quantifiedCond = null;
-//			notCond.generalizedTests();         
-//			notCond.generalizedInvalidtyExceptionTests(); 
+			quantifiedCond.generalizedComplexTests();
+			quantifiedCond.generalizedInvalidtyExceptionTests();
+			quantifiedCond = null;
+			notCond.generalizedTests();         
+			notCond.generalizedInvalidtyExceptionTests(); 
 		} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();
@@ -79,7 +79,7 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 	//Does not throw an Exception --> have a deeper look inside again what it does
 	//PATTERN where to identifie a missing element with exists
 	private CompletePattern getNodesWhereExits(boolean not) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherAbstractTranslation.getCompBasePattern();
+		CompletePattern completePattern = CypherTranslation.getCompBasePattern();
 		QuantifiedCondition quantifiedCond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		quantifiedCond.setQuantifier(Quantifier.EXISTS);
 		if (not) {
@@ -219,9 +219,9 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern generateQuantifiedCondContainsCountPatternException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherAbstractTranslation.getCompBasePattern();
+		CompletePattern completePattern = CypherTranslation.getCompBasePattern();
 		completePattern.setCondition(PatternstructureFactory.eINSTANCE.createQuantifiedCondition());
-		CypherAbstractTranslation.setCountCounditionInsideOfAnotherCondition(completePattern);		
+		CypherTranslation.setCountCounditionInsideOfAnotherCondition(completePattern);		
 		
 		completePattern.createNeo4jAdaption();
 	
@@ -230,7 +230,7 @@ public class CypherTest07QuantifiedCondition extends CypherAbstractTranslation {
 	
 	//FACTORY-METHODS 
 	private static CompletePattern generateNodesWhereMultiplePropertyExistsChecksException(boolean not) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherAbstractTranslation.getCompBasePattern();
+		CompletePattern completePattern = CypherTranslation.getCompBasePattern();
 		QuantifiedCondition quantifiedCond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		quantifiedCond.setQuantifier(Quantifier.EXISTS);
 		if (not) {

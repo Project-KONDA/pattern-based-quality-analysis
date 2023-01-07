@@ -43,7 +43,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * <\p> 
  */
 
-public abstract class CypherAbstractTranslation implements CypherInterfaceTranslatione {
+public abstract class CypherTranslation implements ICypherTranslatione {
 	private static final String TESTING_WITHOUT_DB = "Testing without DB";
 	private static final String TESTING_WITH_DB = "Testing with DB";
 	private static final String MODE = "Mode - ";
@@ -170,16 +170,16 @@ public abstract class CypherAbstractTranslation implements CypherInterfaceTransl
 
 	protected static void checkForNullInMatchAndReturn(String query) throws InvalidityException {
 		//Test for null in MATCH
-		String matchString = query.substring(query.indexOf(CypherSpecificConstants.CLAUSE_MATCH), query.indexOf(CypherAbstractTestSuiteTranslation.NEWLINE));
-		if (matchString.toLowerCase().contains(CypherAbstractTestSuiteTranslation.NULL)) {
-			throw new InvalidityException(CypherAbstractTestSuiteTranslation.THE_MATCH_CLAUSE_CONTAINS_NULL);
+		String matchString = query.substring(query.indexOf(CypherSpecificConstants.CLAUSE_MATCH), query.indexOf(CypherTestSuiteTranslation.NEWLINE));
+		if (matchString.toLowerCase().contains(CypherTestSuiteTranslation.NULL)) {
+			throw new InvalidityException(CypherTestSuiteTranslation.THE_MATCH_CLAUSE_CONTAINS_NULL);
 		}
 		matchString = null;						
 		
 		//Test for null in RETURN
 		String returnString = query.substring(query.indexOf(CypherSpecificConstants.CLAUSE_RETURN));
-		if (returnString.toLowerCase().contains(CypherAbstractTestSuiteTranslation.NULL)) {
-			throw new InvalidityException(CypherAbstractTestSuiteTranslation.THE_RETURN_CLAUSE_CONTAINS_NULL);
+		if (returnString.toLowerCase().contains(CypherTestSuiteTranslation.NULL)) {
+			throw new InvalidityException(CypherTestSuiteTranslation.THE_RETURN_CLAUSE_CONTAINS_NULL);
 		}
 		returnString  = null;
 	}
@@ -190,9 +190,9 @@ public abstract class CypherAbstractTranslation implements CypherInterfaceTransl
 		buildPatterns(completePatterns);
 		if (completePatterns.size() != 0) {
 			System.out.println("");
-			System.out.println(CypherAbstractTranslation.BEGIN_TESTS);
+			System.out.println(CypherTranslation.BEGIN_TESTS);
 			testAllCompletePatternsWithDbCheck(completePatterns);
-			System.out.println(CypherAbstractTranslation.END_TESTS);
+			System.out.println(CypherTranslation.END_TESTS);
 			System.out.println("");
 		}
 	}
@@ -204,7 +204,7 @@ public abstract class CypherAbstractTranslation implements CypherInterfaceTransl
 		buildToComplexQueryPatterns(complexQueries);
 		if (complexQueries.size() != 0) {
 			System.out.println("");
-			System.out.println(CypherAbstractTranslation.BEGIN_TESTS);
+			System.out.println(CypherTranslation.BEGIN_TESTS);
 			try {
 				try (Java2Neo4JConnector connector = new Java2Neo4JConnector()) {
 					if (connector.verifyConnectivity()) {
@@ -220,7 +220,7 @@ public abstract class CypherAbstractTranslation implements CypherInterfaceTransl
 			} catch (Exception e) {
 				e.printStackTrace();	
 			}
-			System.out.println(CypherAbstractTranslation.END_TESTS);
+			System.out.println(CypherTranslation.END_TESTS);
 			System.out.println("");
 		}
 	}
@@ -231,9 +231,9 @@ public abstract class CypherAbstractTranslation implements CypherInterfaceTransl
 		buildInvalidityExceptionPatterns(completePatternsExceptions);
 		if (completePatternsExceptions.size() != 0) {
 			System.out.println("");
-			System.out.println(CypherAbstractTranslation.BEGIN_BUILD_PATTERN_EXCEPTIONS);		
-			CypherAbstractTranslation.exceptionTestHandler(completePatternsExceptions);
-			System.out.println(CypherAbstractTranslation.END_BUILD_PATTERN_EXCEPTIONS);
+			System.out.println(CypherTranslation.BEGIN_BUILD_PATTERN_EXCEPTIONS);		
+			CypherTranslation.exceptionTestHandler(completePatternsExceptions);
+			System.out.println(CypherTranslation.END_BUILD_PATTERN_EXCEPTIONS);
 			System.out.println("");
 		}
 	}

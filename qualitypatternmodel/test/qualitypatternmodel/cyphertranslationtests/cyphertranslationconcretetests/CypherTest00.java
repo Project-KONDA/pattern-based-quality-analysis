@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
-import qualitypatternmodel.cyphertranslationtests.CypherAbstractTranslation;
+import qualitypatternmodel.cyphertranslationtests.CypherTranslation;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
@@ -23,7 +23,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 //--> Systemtest und kein Kompnententest
-public class CypherTest00 extends CypherAbstractTranslation {
+public class CypherTest00 extends CypherTranslation {
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CypherTest00 cypher00 = new CypherTest00();
@@ -65,7 +65,7 @@ public class CypherTest00 extends CypherAbstractTranslation {
 	 * @throws MissingPatternContainerException
 	 */
 	protected CompletePattern getBasePatternCypher() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherAbstractTranslation.getBasePattern();
+		CompletePattern completePattern = CypherTranslation.getBasePattern();
 		completePattern.createNeo4jAdaption();
 		return completePattern;
 	}
@@ -128,7 +128,7 @@ public class CypherTest00 extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern getBasePatternComplexFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherAbstractTranslation.getBasePatternComplex();
+		CompletePattern completePattern = CypherTranslation.getBasePatternComplex();
 		
 		completePattern.createNeo4jAdaption();
 		
@@ -154,7 +154,7 @@ public class CypherTest00 extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern getBasePatternCondDate(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherAbstractTranslation.getBasePattern();
+		CompletePattern completePattern = CypherTranslation.getBasePattern();
 		Node se = completePattern.getGraph().getNodes().get(1);
 		DateParamImpl dp = new DateParamImpl();
 		dp.setValue(comp);
@@ -183,7 +183,7 @@ public class CypherTest00 extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern getBasePatternCond(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherAbstractTranslation.getBasePattern();
+		CompletePattern completePattern = CypherTranslation.getBasePattern();
 		Node se = completePattern.getGraph().getNodes().get(1);
 		se.addPrimitiveComparison(comp);
 		completePattern.createNeo4jAdaption();
@@ -209,7 +209,7 @@ public class CypherTest00 extends CypherAbstractTranslation {
 	}
 	
 	private CompletePattern getBasePatternMatch(String regex) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherAbstractTranslation.getBasePattern();
+		CompletePattern completePattern = CypherTranslation.getBasePattern();
 		Node se = completePattern.getGraph().getNodes().get(1);
 		se.addPrimitiveMatch(regex);
 		completePattern.createNeo4jAdaption();
