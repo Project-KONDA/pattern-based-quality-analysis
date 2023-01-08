@@ -564,7 +564,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			}
 		}
 		if(!cypher.isEmpty()) {
-			query.insert(0, query.isEmpty() ? cypher.toString() : cypher.toString() + "\n" + CypherSpecificConstants.THREE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE); 			
+			query.insert(0, query.isEmpty() ? cypher.toString() : cypher.toString() + "\n" + CypherSpecificConstants.SIX_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE); 			
 		}
 	}
 	
