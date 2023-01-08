@@ -145,11 +145,11 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 			if (!tempCypherPropertyAddressing.isEmpty()) {
 				if (option.getValue()) {
 					return tempCypherPropertyAddressing + CypherSpecificConstants.ONE_WHITESPACE +
-							  CypherSpecificConstants.WHERE_OPERATOR_CONTAINS + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + CypherSpecificConstants.CYPHER_QUOTATION_MARK + content.getValue() +
+							  CypherSpecificConstants.OPERATOR_CONTAINS + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + CypherSpecificConstants.CYPHER_QUOTATION_MARK + content.getValue() +
 							  CypherSpecificConstants.CYPHER_QUOTATION_MARK + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
 				} 
 				return  CypherSpecificConstants.BOOLEAN_OPERATOR_NOT+ CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + tempCypherPropertyAddressing + CypherSpecificConstants.ONE_WHITESPACE +
-						  CypherSpecificConstants.WHERE_OPERATOR_CONTAINS + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET +  CypherSpecificConstants.CYPHER_QUOTATION_MARK + content.getValue() + 
+						  CypherSpecificConstants.OPERATOR_CONTAINS + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET +  CypherSpecificConstants.CYPHER_QUOTATION_MARK + content.getValue() + 
 						  CypherSpecificConstants.CYPHER_QUOTATION_MARK + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
 			}
 			throw new InvalidityException(CypherSpecificConstants.NO_VALID_PROPERTY_IS_ACCESSABLE);

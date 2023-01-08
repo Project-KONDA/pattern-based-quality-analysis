@@ -36,7 +36,7 @@ public class CypherSpecificConstants {
 	public static final String BOOLEAN_OPERATOR_OR = "OR";
 	public static final String BOOLEAN_OPERATOR_AND = "AND";
 	public static final String BOOLEAN_OPERATOR_IN = "IN";
-	public static final String WHERE_OPERATOR_CONTAINS = "CONTAINS";
+	public static final String OPERATOR_CONTAINS = "CONTAINS";
 	public static final String BOOLEAN_TRUE = "true";
 	public static final String BOOLEAN_FALSE = "false";
 	public static final String SPECIAL_CYPHER_MULTIPLE_EDGES_NODES = "--";
