@@ -276,9 +276,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				localCypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
 				localCypher.append(getCondition().generateCypher());
 				localCypher.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
-				addWhiteSpacesForPreviewsCondition(localCypher, CypherSpecificConstants.THREE_WHITESPACES);
+				addWhiteSpacesForPreviewsCondition(localCypher, CypherSpecificConstants.SIX_WHITESPACES);
 				if (!cypherWhere.isEmpty()) {
-					localCypher.insert(0, "\n" + CypherSpecificConstants.THREE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
+					localCypher.insert(0, "\n" + CypherSpecificConstants.SIX_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
 					checkAndAppendCypherWhere(cypher, localCypher);
 				} else {
 					appendCypherWherePrefix(localCypher);
