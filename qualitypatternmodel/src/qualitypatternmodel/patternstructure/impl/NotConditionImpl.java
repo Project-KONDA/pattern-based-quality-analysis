@@ -125,11 +125,14 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 			cypher = CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + CypherSpecificConstants.ONE_WHITESPACE;
 			String temp = condition.generateCypher();
 			if (temp.isEmpty()) {
-				throw new InvalidityException(NO_VALID_QUERY_IS_GENERATED);
+				if (condition instanceof TrueElementImpl) {
+					throw new InvalidityException(NO_VALID_QUERY_IS_GENERATED);					
+				}
+				//In some cases like in the case of QuantifiedCondition FORALL. It is possible that nothing is returned. 
+				//Since it will be assumed that all is true
+				temp = CypherSpecificConstants.BOOLEAN_TRUE;
 			}
-			StringBuilder cypherSb = new StringBuilder(temp);
-			addWhiteSpacesForPreviewsCondition(cypherSb, CypherSpecificConstants.THREE_WHITESPACES + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.ONE_WHITESPACE);
-			cypher += CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + cypherSb.toString() + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
+			cypher += CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + temp + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
 			return cypher;	
 		}
 		throw new InvalidityException(INVALID_CONDITION);
