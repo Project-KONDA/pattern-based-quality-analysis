@@ -241,13 +241,6 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 					condition2Query = CypherSpecificConstants.BOOLEAN_TRUE;
 				}
 				
-//				if (condition1Query.isEmpty()) {
-//					throw new InvalidityException(COND1_IS_NOT_GENERATING_A_VALID_QUERY);
-//				} 
-//				if (condition2Query.isEmpty()) {
-//					throw new InvalidityException(COND2_IS_NOT_GENERATING_A_VALID_QUERY);
-//				}
-				
 				//For cypher there are less Boolean Operators
 				switch (operator) {
 				case AND:
