@@ -3,11 +3,7 @@
 package qualitypatternmodel.patternstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
-import java.util.regex.Pattern;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -20,7 +16,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import qualitypatternmodel.adaptionneo4j.NeoEdge;
-import qualitypatternmodel.adaptionneo4j.NeoElement;
 import qualitypatternmodel.adaptionneo4j.NeoNode;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
@@ -60,7 +55,6 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * @generated
  */
 public class CountPatternImpl extends PatternImpl implements CountPattern {
-	private static final String NOT_ALL_RETURN_ELEMENTS_ARE_CONTAINED_IN_THE_WITH_CLAUSE = "Not all Return-Elements are contained in the WITH-Clause";
 	private static final String SOMETHING_WENT_WRONG_IN_ACCESSING_THE_CYPHER_VARIABLE = "Something went wrong in accessing the Cypher Variable";
 	
 	/**
