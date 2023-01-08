@@ -229,14 +229,24 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		if (this.operator != null) {
 			StringBuilder cypher = new StringBuilder();
 			if (this.condition1 != null && this.condition2 != null) {
-				final String condition1Query = condition1.generateCypher();
-				final String condition2Query = condition2.generateCypher();
-				if (condition1Query.isEmpty()) {
-					throw new InvalidityException(COND1_IS_NOT_GENERATING_A_VALID_QUERY);
-				} 
-				if (condition2Query.isEmpty()) {
-					throw new InvalidityException(COND2_IS_NOT_GENERATING_A_VALID_QUERY);
+				String condition1Query = condition1.generateCypher();
+				//If the generated Condition isBlank (Cases: TrueElement, FORALL [true])
+				if (condition1Query.isBlank()) {
+					condition1Query = CypherSpecificConstants.BOOLEAN_TRUE;
 				}
+				
+				//If the generated Condition isBlank (Cases: TrueElement, FORALL [true])
+				String condition2Query = condition2.generateCypher();
+				if (condition1Query.isBlank()) {
+					condition2Query = CypherSpecificConstants.BOOLEAN_TRUE;
+				}
+				
+//				if (condition1Query.isEmpty()) {
+//					throw new InvalidityException(COND1_IS_NOT_GENERATING_A_VALID_QUERY);
+//				} 
+//				if (condition2Query.isEmpty()) {
+//					throw new InvalidityException(COND2_IS_NOT_GENERATING_A_VALID_QUERY);
+//				}
 				
 				//For cypher there are less Boolean Operators
 				switch (operator) {
