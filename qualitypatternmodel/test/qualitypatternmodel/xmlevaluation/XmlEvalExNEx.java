@@ -22,7 +22,9 @@ public class XmlEvalExNEx {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getExNExMidas());
 		completePatterns.add(getExNExLidoWorkTypeWithoutConcept());
-		Test00.test(completePatterns);
+
+		Test00.getQueries(completePatterns);
+//		Test00.test(completePatterns);	
 	}
 	
 	public static CompletePattern getExNExAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

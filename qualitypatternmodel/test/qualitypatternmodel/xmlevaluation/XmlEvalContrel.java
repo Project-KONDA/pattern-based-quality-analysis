@@ -30,7 +30,6 @@ public class XmlEvalContrel {
 	public static CompletePattern getContrelAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
 		CompletePattern completePattern = EvalContrel.getContrelGeneric();
 		completePattern.createXmlAdaption();
-		System.out.println(completePattern.myToString());
 		return completePattern;
 	}
 	

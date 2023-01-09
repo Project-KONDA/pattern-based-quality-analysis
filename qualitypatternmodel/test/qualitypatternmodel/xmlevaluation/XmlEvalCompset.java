@@ -29,8 +29,8 @@ public class XmlEvalCompset {
 		
 		completePatterns.add(getCompsetLidoAppellationValue());
 
-//		Test00.getQueries(completePatterns);
-		Test00.test(completePatterns);		
+		Test00.getQueries(completePatterns);
+//		Test00.test(completePatterns);
 	}
 	
 	public static CompletePattern getCompset2Concrete(String returnElementType, XmlAxisKind[] returnElementAxis,
@@ -69,7 +69,7 @@ public class XmlEvalCompset {
 		for (String str : values) {
 			testlist.getValues().add(str);
 		}
-		((ParameterValue) params.get(6)).replace(testlist);
+		((ParameterValue) params.get(0)).replace(testlist);
 		
 		return completePattern;
 	}
