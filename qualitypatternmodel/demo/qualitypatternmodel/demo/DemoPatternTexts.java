@@ -63,10 +63,12 @@ public class DemoPatternTexts {
 		completePatterns.add(getConcreteCompPatternWithText());
 		completePatterns.add(getAbstractCompDatePatternWithText());
 		completePatterns.add(getAbstractCompBoolPatternWithText());
+		
 		completePatterns.add(getAbstractCardPatternWithText());
 		completePatterns.add(getConcreteCardPatternWithText());
 		completePatterns.add(getConcreteFinalizedCardPatternWithText());
 		completePatterns.add(getConcreteLidoCardPatternWithText());
+		
 		completePatterns.add(getAbstractFuncPatternWithText());
 		completePatterns.add(getConcreteFuncPatternWithText());
 		completePatterns.add(getConcreteLidoFuncPatternWithText());

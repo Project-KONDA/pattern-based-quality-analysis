@@ -16,10 +16,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+//import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 //import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyOptionParamImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlAxisOptionParamImpl;
+import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 //import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.parameters.Parameter;
@@ -272,6 +274,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
 	 * @generated NOT
 	 */
 	@Override
@@ -295,8 +298,12 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			return Constants.PARAMETER_TYPE_TEXT_LIST;
 		} else if (type.equals(UntypedParameterValueImpl.class)) {
 			return Constants.PARAMETER_TYPE_UNTYPED;
-		} else {
+		} else if (type.equals(ComparisonOptionParamImpl.class) || type.equals(TypeOptionParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_ENUMERATION;
+		} else if (type.equals(XmlPathParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_XML_PATH;
+		} else {
+			return null;
 		}		
 	}	
 

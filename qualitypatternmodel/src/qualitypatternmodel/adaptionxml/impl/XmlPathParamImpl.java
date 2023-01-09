@@ -911,13 +911,15 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getValueAsString() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		try {
+			return generateXQuery();
+		} catch (InvalidityException e) {
+			return null;
+		}
 	}
 
 	/**
