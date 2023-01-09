@@ -174,11 +174,8 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 //			returnClause += VARIABLE + returnElements.get(i).getOriginalID();			
 		}
 		if (returnElements.size()>1)
-			returnClause = "distinct-values(" + returnClause + ")";
-		// simple patterns without condition can generate duplicates in the output. to filter these out we have to use the distinct modifier here
-		// Pattern translation could be modified in a way, that nodes in the return graph, that translate to a condition, are translated inside a where clause  
-		
-		returnClause = RETURN + returnClause;
+			returnClause = "(" + returnClause + ")";
+		returnClause = RETURN + returnClause;	
 		
 		String query = forClauses + whereClause + returnClause;
 		setXmlQuery(query);
