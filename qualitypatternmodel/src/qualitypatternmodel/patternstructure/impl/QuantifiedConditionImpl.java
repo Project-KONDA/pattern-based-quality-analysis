@@ -1047,50 +1047,52 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				}
 			}
 			result = cypher.toString();
-		} else {
-			final String temp = getCondition().generateCypher();
-			if (temp.isBlank()) {
-				result = temp;
-			} else {
-				//Getting all nodes referencing
-				final StringBuilder tempMatch = new StringBuilder();
-				//all nodes have to be selected and not one the ones for the comp
-				if (uniqueNeoPropertyNodes.size() > 0) {
-					String tempMatchVar = null;
-					for (NeoPropertyNode npn : uniqueNeoPropertyNodes) {
-						tempMatchVar = npn.generateCypher();
-						tempMatchVar.replaceAll(CypherSpecificConstants.SEPERATOR, CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE);
-						tempMatch.append(tempMatchVar);
-					}
-				}
-				
-				//Getting the EXIST-Checks
-				final StringBuilder tempExistProperties = new StringBuilder();
-				for (NeoPropertyNode node : uniqueNeoPropertyNodes) {
-					addNeoPropertyToNotExists(tempExistProperties, node);
-				}
-				
-				final StringBuilder whereCypher = new StringBuilder(tempExistProperties);
-				addGraphWhereToExistsProperty(whereCypher, result);
-				tempExistProperties.setLength(0);
-				
-				final StringBuilder condCypher = new StringBuilder();
-				condCypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_NOT);
-				condCypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
-				condCypher.append(cond);
-				condCypher.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
-				
-				//Setting all together
-				cypher.append(CypherSpecificConstants.CLAUSE_MATCH + CypherSpecificConstants.ONE_WHITESPACE + tempMatch);
-				cypher.append("\n" + whereCypher.toString());
-				if (cypher.toString().contains(CypherSpecificConstants.CLAUSE_WHERE)) {
-					cypher.append("\n" + CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + condCypher.toString());
-				} else {
-					cypher.append("\n" + CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.CLAUSE_WHERE);
-					cypher.append(condCypher);
-				}
-				result = cypher.toString();
-			}
+		} else { //FORALL
+			//In future versions this shall be checked by the pattern on a higher level
+			throw new InvalidityException("Not valid forall structure; needs a new ComplexNode");
+//			final String temp = getCondition().generateCypher();
+//			if (temp.isBlank()) {
+//				result = temp;
+//			} else {
+//				//Getting all nodes referencing
+//				final StringBuilder tempMatch = new StringBuilder();
+//				//all nodes have to be selected and not one the ones for the comp
+//				if (uniqueNeoPropertyNodes.size() > 0) {
+//					String tempMatchVar = null;
+//					for (NeoPropertyNode npn : uniqueNeoPropertyNodes) {
+//						tempMatchVar = npn.generateCypher();
+//						tempMatchVar.replaceAll(CypherSpecificConstants.SEPERATOR, CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE);
+//						tempMatch.append(tempMatchVar);
+//					}
+//				}
+//				
+//				//Getting the EXIST-Checks
+//				final StringBuilder tempExistProperties = new StringBuilder();
+//				for (NeoPropertyNode node : uniqueNeoPropertyNodes) {
+//					addNeoPropertyToNotExists(tempExistProperties, node);
+//				}
+//				
+//				final StringBuilder whereCypher = new StringBuilder(tempExistProperties);
+//				addGraphWhereToExistsProperty(whereCypher, result);
+//				tempExistProperties.setLength(0);
+//				
+//				final StringBuilder condCypher = new StringBuilder();
+//				condCypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_NOT);
+//				condCypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
+//				condCypher.append(cond);
+//				condCypher.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
+//				
+//				//Setting all together
+//				cypher.append(CypherSpecificConstants.CLAUSE_MATCH + CypherSpecificConstants.ONE_WHITESPACE + tempMatch);
+//				cypher.append("\n" + whereCypher.toString());
+//				if (cypher.toString().contains(CypherSpecificConstants.CLAUSE_WHERE)) {
+//					cypher.append("\n" + CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + condCypher.toString());
+//				} else {
+//					cypher.append("\n" + CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.CLAUSE_WHERE);
+//					cypher.append(condCypher);
+//				}
+//				result = cypher.toString();
+//			}
 		}
 		return result;
 	}
