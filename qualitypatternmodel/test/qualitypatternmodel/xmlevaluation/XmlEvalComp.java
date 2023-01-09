@@ -51,13 +51,13 @@ public class XmlEvalComp {
 		XmlPathParam p4 = ((XmlPathParam) params.get(4));
 		
 		p1.setValue(ReturnType.STRING);
-		p4.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, XmlPropertyKind.ATTRIBUTE, "Type", "kue");
-		p2.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD}, XmlPropertyKind.ATTRIBUTE, "Type", "3100");
-		p2.getXmlPropertyOptionParam().setValue(XmlPropertyKind.ATTRIBUTE);
-		p2.getXmlPropertyOptionParam().getAttributeName().setValue("Value");
-		p3.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD}, XmlPropertyKind.ATTRIBUTE, "Type", "3105");
+		p2.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, XmlPropertyKind.ATTRIBUTE, "Type", "kue");
+		p3.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD}, XmlPropertyKind.ATTRIBUTE, "Type", "3100");
 		p3.getXmlPropertyOptionParam().setValue(XmlPropertyKind.ATTRIBUTE);
 		p3.getXmlPropertyOptionParam().getAttributeName().setValue("Value");
+		p4.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD}, XmlPropertyKind.ATTRIBUTE, "Type", "3105");
+		p4.getXmlPropertyOptionParam().setValue(XmlPropertyKind.ATTRIBUTE);
+		p4.getXmlPropertyOptionParam().getAttributeName().setValue("Value");
 		
 		return completePattern;
 	}
@@ -73,9 +73,9 @@ public class XmlEvalComp {
 		XmlPathParam p4 = ((XmlPathParam) params.get(4));
 
 		p1.setValue(ReturnType.STRING);
-		p4.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, "kue");
-		p2.setXmlAxis(XmlAxisKind.CHILD, "a3100");
-		p3.setXmlAxis(XmlAxisKind.CHILD, "a3105");
+		p2.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, "kue");
+		p3.setXmlAxis(XmlAxisKind.CHILD, "a3100");
+		p4.setXmlAxis(XmlAxisKind.CHILD, "a3105");
 		
 		return completePattern;
 	}

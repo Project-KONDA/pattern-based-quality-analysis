@@ -27,9 +27,8 @@ public class XmlEvalAppDup {
 
 		completePatterns.add(getAppdup3Midas());
 		completePatterns.add(getAppdup3MidasAPS());
-
-//		Test00.test(completePatterns);
-		Test00.getQueries(completePatterns);
+		
+		Test00.test(completePatterns);
 	}
 		
 	public static CompletePattern getAppdup2Abstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

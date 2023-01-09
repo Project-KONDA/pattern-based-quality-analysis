@@ -23,9 +23,9 @@ public class XmlEvalCard {
 		completePatterns.add(getCardMidasApsOb30());
 		completePatterns.add(getCardMidasHidaOb30());
 		completePatterns.add(getCardLidoActorName());
-
-//		Test00.test(completePatterns);
+		
 		Test00.getQueries(completePatterns);
+//		Test00.test(completePatterns);		
 	}
 	
 	public static CompletePattern getCardAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
