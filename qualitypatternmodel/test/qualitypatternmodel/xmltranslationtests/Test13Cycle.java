@@ -44,9 +44,11 @@ public class Test13Cycle {
 		
 		completePattern.createXmlAdaption();
 		
-		assertThrows(InvalidityException.class, () -> { completePattern.isValid(AbstractionLevel.CONCRETE);});
+		// the value is now set automatically during adaptation.
+//		assertThrows(InvalidityException.class, () -> { completePattern.isValid(AbstractionLevel.CONCRETE);});
+//		((XmlElement) graph2.getNodes().get(0)).setXQueryDeepEqual(false);
 		
-		((XmlElement) graph2.getNodes().get(0)).setXQueryDeepEqual(false);
+		System.out.println(completePattern.myToString());
 		
 		return completePattern;
 	}

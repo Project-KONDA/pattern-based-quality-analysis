@@ -1222,6 +1222,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				relation.adaptAsXmlElementNavigation();
 			}
 			
+			xmlElement.validateCycles(true);
 			return xmlElement;			
 		} else {
 			for (NodeMapping map: getOutgoingMappings()) {
