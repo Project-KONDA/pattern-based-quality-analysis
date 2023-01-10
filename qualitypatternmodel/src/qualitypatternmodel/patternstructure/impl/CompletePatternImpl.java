@@ -683,6 +683,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		isValid(AbstractionLevel.GENERIC);
 		PatternElement result = super.createXmlAdaption(); 
 		setLanguage(Language.XML);
+		isValid(AbstractionLevel.ABSTRACT);
 		return result;
 	}
 
@@ -691,6 +692,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		isValid(AbstractionLevel.GENERIC);
 		PatternElement result = super.createRdfAdaption(); 
 		setLanguage(Language.RDF);
+		isValid(AbstractionLevel.ABSTRACT);
 		return result;
 	}
 
@@ -699,6 +701,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		isValid(AbstractionLevel.GENERIC);
 		PatternElement result = super.createNeo4jAdaption(); 
 		setLanguage(Language.NEO4J);
+		isValid(AbstractionLevel.ABSTRACT);
 		return result;
 	}
 
