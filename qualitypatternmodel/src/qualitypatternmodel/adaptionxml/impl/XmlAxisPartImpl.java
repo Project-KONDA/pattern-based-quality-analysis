@@ -105,7 +105,7 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 		String query = getXmlAxisOptionParam().generateXQuery();
 		String condition = "/name()";
 		String literal = "";
-		if (getTextLiteralParam() != null) 
+		if (getTextLiteralParam() != null && getTextLiteralParam().getValue() != null) 
 			literal = getTextLiteralParam().generateXQuery();
 		if (xmlPropertyOption != null)
 			condition = getXmlPropertyOption().generateXQuery();
@@ -126,8 +126,8 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE)
 			throw new InvalidityException("non-generic class in generic pattern");
 		super.isValid(abstractionLevel);
-		if (textLiteralParam != null) 
-			textLiteralParam.isValid(abstractionLevel);
+//		if (textLiteralParam != null) 
+//			textLiteralParam.isValid(abstractionLevel);
 		if (xmlAxisOptionParam != null) 
 			xmlAxisOptionParam.isValid(abstractionLevel);
 	}

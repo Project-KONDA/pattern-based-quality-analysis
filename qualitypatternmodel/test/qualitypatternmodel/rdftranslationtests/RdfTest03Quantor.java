@@ -27,9 +27,9 @@ public class RdfTest03Quantor {
 		completePatterns.add(getQuantifierQuantifierPattern(Quantifier.EXISTS, Quantifier.EXISTS));
 		completePatterns.add(getQuantifierQuantifierPattern(Quantifier.FORALL, Quantifier.EXISTS));
 
-		completePatterns.add(getQuantifierQuantifierPattern(Quantifier.FORALL));
-		completePatterns.add(getQuantifierQuantifierPattern(Quantifier.EXISTS, Quantifier.FORALL));
-		completePatterns.add(getQuantifierQuantifierPattern(Quantifier.FORALL, Quantifier.FORALL));
+//		completePatterns.add(getQuantifierQuantifierPattern(Quantifier.FORALL));
+//		completePatterns.add(getQuantifierQuantifierPattern(Quantifier.EXISTS, Quantifier.FORALL));
+//		completePatterns.add(getQuantifierQuantifierPattern(Quantifier.FORALL, Quantifier.FORALL));
 		
 		return completePatterns;
 	}
