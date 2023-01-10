@@ -39,6 +39,7 @@ import qualitypatternmodel.parameters.impl.ParameterImpl;
 import qualitypatternmodel.parameters.impl.ParameterListImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.textrepresentation.PatternText;
@@ -62,6 +63,7 @@ import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getRelationCounter <em>Relation Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getOperatorCounter <em>Operator Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getParameterCounter <em>Parameter Counter</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getLanguage <em>Language</em>}</li>
  * </ul>
  *
  * @generated
@@ -268,6 +270,26 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @ordered
 	 */
 		protected Integer parameterCounter = PARAMETER_COUNTER_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLanguage() <em>Language</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLanguage()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Language LANGUAGE_EDEFAULT = Language.GENERIC;
+
+	/**
+	 * The cached value of the '{@link #getLanguage() <em>Language</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLanguage()
+	 * @generated
+	 * @ordered
+	 */
+	protected Language language = LANGUAGE_EDEFAULT;
 
 	//	protected int[] elementCounter = {1,1,1,1,1,1};
 
@@ -659,19 +681,25 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	@Override
 	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValid(AbstractionLevel.GENERIC);
-		return super.createXmlAdaption();
+		PatternElement result = super.createXmlAdaption(); 
+		setLanguage(Language.XML);
+		return result;
 	}
 
 	@Override
 	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValid(AbstractionLevel.GENERIC);
-		return super.createRdfAdaption();
+		PatternElement result = super.createRdfAdaption(); 
+		setLanguage(Language.RDF);
+		return result;
 	}
 
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValid(AbstractionLevel.GENERIC);
-		return super.createNeo4jAdaption();
+		PatternElement result = super.createNeo4jAdaption(); 
+		setLanguage(Language.NEO4J);
+		return result;
 	}
 
 	/**
@@ -746,6 +774,31 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		parameterCounter = newParameterCounter;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_COUNTER, oldParameterCounter, parameterCounter));
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Language getLanguage() {
+		return language;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setLanguage(Language newLanguage) {
+		Language oldLanguage = language;
+		language = newLanguage == null ? LANGUAGE_EDEFAULT : newLanguage;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__LANGUAGE, oldLanguage, language));
 	}
 
 
@@ -932,6 +985,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return getOperatorCounter();
 			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_COUNTER:
 				return getParameterCounter();
+			case PatternstructurePackage.COMPLETE_PATTERN__LANGUAGE:
+				return getLanguage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -978,6 +1033,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_COUNTER:
 				setParameterCounter((Integer)newValue);
 				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__LANGUAGE:
+				setLanguage((Language)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1022,6 +1080,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_COUNTER:
 				setParameterCounter(PARAMETER_COUNTER_EDEFAULT);
 				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__LANGUAGE:
+				setLanguage(LANGUAGE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1055,6 +1116,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return OPERATOR_COUNTER_EDEFAULT == null ? operatorCounter != null : !OPERATOR_COUNTER_EDEFAULT.equals(operatorCounter);
 			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_COUNTER:
 				return PARAMETER_COUNTER_EDEFAULT == null ? parameterCounter != null : !PARAMETER_COUNTER_EDEFAULT.equals(parameterCounter);
+			case PatternstructurePackage.COMPLETE_PATTERN__LANGUAGE:
+				return language != LANGUAGE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1125,6 +1188,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		result.append(operatorCounter);
 		result.append(", parameterCounter: ");
 		result.append(parameterCounter);
+		result.append(", language: ");
+		result.append(language);
 		result.append(')');
 		return result.toString();
 	}

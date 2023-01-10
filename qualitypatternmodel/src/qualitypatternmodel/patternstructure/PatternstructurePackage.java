@@ -3302,13 +3302,22 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN__PARAMETER_COUNTER = PATTERN_FEATURE_COUNT + 10;
 
 	/**
+	 * The feature id for the '<em><b>Language</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__LANGUAGE = PATTERN_FEATURE_COUNT + 11;
+
+	/**
 	 * The number of structural features of the '<em>Complete Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 11;
+	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -5480,6 +5489,16 @@ public interface PatternstructurePackage extends EPackage {
 	int ABSTRACTION_LEVEL = 19;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.Language <em>Language</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.Language
+	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getLanguage()
+	 * @generated
+	 */
+	int LANGUAGE = 20;
+
+	/**
 	 * The meta object id for the '<em>Invalidity Exception Wrapper</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5487,7 +5506,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getInvalidityExceptionWrapper()
 	 * @generated
 	 */
-	int INVALIDITY_EXCEPTION_WRAPPER = 20;
+	int INVALIDITY_EXCEPTION_WRAPPER = 21;
 
 	/**
 	 * The meta object id for the '<em>Class Wrapper</em>' data type.
@@ -5497,7 +5516,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getClassWrapper()
 	 * @generated
 	 */
-	int CLASS_WRAPPER = 21;
+	int CLASS_WRAPPER = 22;
 
 	/**
 	 * The meta object id for the '<em>Missing Pattern Container Exception</em>' data type.
@@ -5507,7 +5526,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getMissingPatternContainerException()
 	 * @generated
 	 */
-	int MISSING_PATTERN_CONTAINER_EXCEPTION = 22;
+	int MISSING_PATTERN_CONTAINER_EXCEPTION = 23;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.RelationMapping <em>Relation Mapping</em>}'.
@@ -5984,6 +6003,17 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCompletePattern_ParameterCounter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getLanguage <em>Language</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Language</em>'.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getLanguage()
+	 * @see #getCompletePattern()
+	 * @generated
+	 */
+	EAttribute getCompletePattern_Language();
 
 	/**
 	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getOperatorCounter <em>Operator Counter</em>}'.
@@ -6665,6 +6695,16 @@ public interface PatternstructurePackage extends EPackage {
 	EEnum getAbstractionLevel();
 
 	/**
+	 * Returns the meta object for enum '{@link qualitypatternmodel.patternstructure.Language <em>Language</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Language</em>'.
+	 * @see qualitypatternmodel.patternstructure.Language
+	 * @generated
+	 */
+	EEnum getLanguage();
+
+	/**
 	 * Returns the meta object for data type '{@link qualitypatternmodel.exceptions.InvalidityException <em>Invalidity Exception Wrapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7097,6 +7137,14 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COMPLETE_PATTERN__PARAMETER_COUNTER = eINSTANCE.getCompletePattern_ParameterCounter();
+
+		/**
+		 * The meta object literal for the '<em><b>Language</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPLETE_PATTERN__LANGUAGE = eINSTANCE.getCompletePattern_Language();
 
 		/**
 		 * The meta object literal for the '<em><b>Operator Counter</b></em>' attribute feature.
@@ -7647,6 +7695,16 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EEnum ABSTRACTION_LEVEL = eINSTANCE.getAbstractionLevel();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.Language <em>Language</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.patternstructure.Language
+		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getLanguage()
+		 * @generated
+		 */
+		EEnum LANGUAGE = eINSTANCE.getLanguage();
 
 		/**
 		 * The meta object literal for the '<em>Invalidity Exception Wrapper</em>' data type.

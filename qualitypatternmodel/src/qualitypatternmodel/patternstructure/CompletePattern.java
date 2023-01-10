@@ -32,6 +32,7 @@ import qualitypatternmodel.textrepresentation.PatternText;
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getRelationCounter <em>Relation Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getOperatorCounter <em>Operator Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getParameterCounter <em>Parameter Counter</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getLanguage <em>Language</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern()
@@ -178,6 +179,31 @@ public interface CompletePattern extends Pattern {
 	 * @generated
 	 */
 	void setParameterCounter(Integer value);
+
+	/**
+	 * Returns the value of the '<em><b>Language</b></em>' attribute.
+	 * The literals are from the enumeration {@link qualitypatternmodel.patternstructure.Language}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Language</em>' attribute.
+	 * @see qualitypatternmodel.patternstructure.Language
+	 * @see #setLanguage(Language)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_Language()
+	 * @model
+	 * @generated
+	 */
+	Language getLanguage();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#getLanguage <em>Language</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Language</em>' attribute.
+	 * @see qualitypatternmodel.patternstructure.Language
+	 * @see #getLanguage()
+	 * @generated
+	 */
+	void setLanguage(Language value);
 
 	/**
 	 * Returns the value of the '<em><b>Operator Counter</b></em>' attribute.

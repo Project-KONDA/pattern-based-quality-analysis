@@ -34,6 +34,7 @@ import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountConditionArgument;
 import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.Formula;
+import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.Mapping;
@@ -200,6 +201,13 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	private EEnum abstractionLevelEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum languageEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -771,6 +779,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	@Override
 	public EAttribute getCompletePattern_ParameterCounter() {
 		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCompletePattern_Language() {
+		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -1439,6 +1457,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EEnum getLanguage() {
+		return languageEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getInvalidityExceptionWrapper() {
 		return invalidityExceptionWrapperEDataType;
 	}
@@ -1550,6 +1578,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEAttribute(completePatternEClass, COMPLETE_PATTERN__RELATION_COUNTER);
 		createEAttribute(completePatternEClass, COMPLETE_PATTERN__OPERATOR_COUNTER);
 		createEAttribute(completePatternEClass, COMPLETE_PATTERN__PARAMETER_COUNTER);
+		createEAttribute(completePatternEClass, COMPLETE_PATTERN__LANGUAGE);
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___VALIDATE_AGAINST_SCHEMA);
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___GET_ABSTRACTION_LEVEL);
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___GET_NEW_REF_NO__CLASS);
@@ -1621,6 +1650,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		logicalOperatorEEnum = createEEnum(LOGICAL_OPERATOR);
 		quantifierEEnum = createEEnum(QUANTIFIER);
 		abstractionLevelEEnum = createEEnum(ABSTRACTION_LEVEL);
+		languageEEnum = createEEnum(LANGUAGE);
 
 		// Create data types
 		invalidityExceptionWrapperEDataType = createEDataType(INVALIDITY_EXCEPTION_WRAPPER);
@@ -1762,6 +1792,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEAttribute(getCompletePattern_RelationCounter(), ecorePackage.getEIntegerObject(), "relationCounter", "1", 1, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCompletePattern_OperatorCounter(), ecorePackage.getEIntegerObject(), "operatorCounter", "1", 1, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCompletePattern_ParameterCounter(), ecorePackage.getEIntegerObject(), "parameterCounter", "1", 1, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCompletePattern_Language(), this.getLanguage(), "language", null, 0, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getCompletePattern__ValidateAgainstSchema(), theParametersPackage.getParameter(), "validateAgainstSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
@@ -1926,6 +1957,12 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		addEEnumLiteral(abstractionLevelEEnum, AbstractionLevel.ABSTRACT);
 		addEEnumLiteral(abstractionLevelEEnum, AbstractionLevel.SEMI_CONCRETE);
 		addEEnumLiteral(abstractionLevelEEnum, AbstractionLevel.CONCRETE);
+
+		initEEnum(languageEEnum, Language.class, "Language");
+		addEEnumLiteral(languageEEnum, Language.GENERIC);
+		addEEnumLiteral(languageEEnum, Language.XML);
+		addEEnumLiteral(languageEEnum, Language.RDF);
+		addEEnumLiteral(languageEEnum, Language.NEO4J);
 
 		// Initialize data types
 		initEDataType(invalidityExceptionWrapperEDataType, InvalidityException.class, "InvalidityExceptionWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

@@ -584,6 +584,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterCounter" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
           defaultValueLiteral="1"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="language" eType="#//patternstructure/Language"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PatternElement" abstract="true">
       <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -701,6 +702,12 @@
       <eLiterals name="ABSTRACT" value="3"/>
       <eLiterals name="SEMI_CONCRETE" value="4"/>
       <eLiterals name="CONCRETE" value="5"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="Language">
+      <eLiterals name="GENERIC" literal="GENERIC"/>
+      <eLiterals name="XML" value="1" literal="XML"/>
+      <eLiterals name="RDF" value="2"/>
+      <eLiterals name="NEO4J" value="3"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="adaptionxml" nsURI="adaptionxml" nsPrefix="adaptionxml">

@@ -408,6 +408,12 @@
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/AbstractionLevel/SEMI_CONCRETE"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/AbstractionLevel/CONCRETE"/>
       </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//patternstructure/Language">
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/Language/GENERIC"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/Language/XML"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/Language/RDF"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/Language/NEO4J"/>
+      </genEnums>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//patternstructure/InvalidityExceptionWrapper"/>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//patternstructure/ClassWrapper"/>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//patternstructure/MissingPatternContainerException"/>
@@ -481,6 +487,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/relationCounter"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/operatorCounter"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/parameterCounter"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/language"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/validateAgainstSchema"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/getAbstractionLevel"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/getNewRefNo">

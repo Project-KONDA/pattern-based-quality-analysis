@@ -89,6 +89,8 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 				return createQuantifierFromString(eDataType, initialValue);
 			case PatternstructurePackage.ABSTRACTION_LEVEL:
 				return createAbstractionLevelFromString(eDataType, initialValue);
+			case PatternstructurePackage.LANGUAGE:
+				return createLanguageFromString(eDataType, initialValue);
 			case PatternstructurePackage.INVALIDITY_EXCEPTION_WRAPPER:
 				return createInvalidityExceptionWrapperFromString(eDataType, initialValue);
 			case PatternstructurePackage.CLASS_WRAPPER:
@@ -114,6 +116,8 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 				return convertQuantifierToString(eDataType, instanceValue);
 			case PatternstructurePackage.ABSTRACTION_LEVEL:
 				return convertAbstractionLevelToString(eDataType, instanceValue);
+			case PatternstructurePackage.LANGUAGE:
+				return convertLanguageToString(eDataType, instanceValue);
 			case PatternstructurePackage.INVALIDITY_EXCEPTION_WRAPPER:
 				return convertInvalidityExceptionWrapperToString(eDataType, instanceValue);
 			case PatternstructurePackage.CLASS_WRAPPER:
@@ -303,6 +307,26 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * @generated
 	 */
 	public String convertAbstractionLevelToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Language createLanguageFromString(EDataType eDataType, String initialValue) {
+		Language result = Language.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertLanguageToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
