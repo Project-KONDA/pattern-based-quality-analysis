@@ -335,6 +335,15 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 			
 		final EList<Relation> lReturnRelations = lReturnRelations();
 		if (lReturnRelations.size() > 0) {
+			Relation temp = null;
+			for (Relation r : getGraph().getRelations()) {
+				if (r.getIncomingMapping() != null) {
+					temp = r.getOriginalRelation();
+					if (lReturnRelations.contains(temp)) {
+						((NeoEdge) r).setIsReturnElement(true);
+					}
+				}
+			}
 			//cypherEdges also contain after running the method also the previews cypher.
 			String cypherEdges = generateCypherReturnEdges(cypher);
 			if (!cypherEdges.isBlank()) {
