@@ -81,7 +81,7 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 	 */
 	@Override
 	public String generateCypher() throws InvalidityException {
-		if (getOriginalRelation() == null) {
+		if (getIncomingMapping() == null) {
 			String cypher = new String();
 			if (getIncomingMapping() == null) {
 				if(!translated && getNeoElementPathParam() != null) {
@@ -105,7 +105,7 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 	 */
 	@Override
 	public EMap<Integer, String> getCypherReturn() throws InvalidityException {
-		if (getOriginalRelation() == null) {
+		if (getIncomingMapping() == null) {
 			EMap<Integer, String> returnElement;
 			if (getNeoElementPathParam() != null) {
 				if (getNeoElementPathParam().getNeoPathPart() == null) {
@@ -132,7 +132,7 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 	 */
 	@Override
 	public String getReturnInnerEdgeNodes() throws InvalidityException {
-		if (getOriginalRelation() == null) {
+		if (getIncomingMapping() == null) {
 			String cypher = null;
 			if (getNeoElementPathParam() != null) {
 				cypher = getNeoElementPathParam().getReturnInnerEdgeNodes();
