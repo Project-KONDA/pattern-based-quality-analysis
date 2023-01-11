@@ -187,7 +187,7 @@ public class Cypher01NeoElementNodeTest extends NeoNodeTest {
 		int id = number;
 		try {
 			initGetCypherVariableTest(node, id);
-			EMap<Integer, String> variableMap = node.getCypherReturnVariable();
+			EMap<Integer, String> variableMap = node.getCypherReturn();
 			assumeTrue(variableMap.keySet().stream().count() == 1);
 			assumeTrue(variableMap.containsKey(0));
 			String variable = variableMap.get(0).getValue();

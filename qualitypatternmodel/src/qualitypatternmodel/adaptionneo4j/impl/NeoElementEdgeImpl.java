@@ -81,16 +81,19 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 	 */
 	@Override
 	public String generateCypher() throws InvalidityException {
-		String cypher = new String();
-		if (getIncomingMapping() == null) {
-			if(!translated && getNeoElementPathParam() != null) {
-				cypher = getNeoElementPathParam().generateCypher();
-				this.translated = true;
-			} else if(getNeoElementPathParam() == null) {
-				throw new InvalidityException(NEO_EDGE_NEEDS_A_NEO_PATH_PARAM);
+		if (getOriginalRelation() == null) {
+			String cypher = new String();
+			if (getIncomingMapping() == null) {
+				if(!translated && getNeoElementPathParam() != null) {
+					cypher = getNeoElementPathParam().generateCypher();
+					this.translated = true;
+				} else if(getNeoElementPathParam() == null) {
+					throw new InvalidityException(NEO_EDGE_NEEDS_A_NEO_PATH_PARAM);
+				}
 			}
+			return cypher;
 		}
-		return cypher;
+		return getOriginalRelation().generateCypher();
 	}
 	
 	/**
@@ -101,20 +104,23 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 	 * The key is for referencing on which place this edge-elements shall be added.
 	 */
 	@Override
-	public EMap<Integer, String> getCypherReturnVariable() throws InvalidityException {
-		EMap<Integer, String> returnElement;
-		if (getNeoElementPathParam() != null) {
-			if (getNeoElementPathParam().getNeoPathPart() == null) {
-				returnElement = null;
+	public EMap<Integer, String> getCypherReturn() throws InvalidityException {
+		if (getOriginalRelation() == null) {
+			EMap<Integer, String> returnElement;
+			if (getNeoElementPathParam() != null) {
+				if (getNeoElementPathParam().getNeoPathPart() == null) {
+					returnElement = null;
+				} else {
+					returnElement = super.getCypherReturn();
+					String cypher = getNeoElementPathParam().getCypherReturnVariable();
+					returnElement.put(NeoEdgeImpl.CYPHER_RETURN_ID, cypher);
+				}
 			} else {
-				returnElement = super.getCypherReturnVariable();
-				String cypher = getNeoElementPathParam().getCypherReturnVariable();
-				returnElement.put(NeoEdgeImpl.CYPHER_RETURN_ID, cypher);
+				throw new InvalidityException(NEO_PATH_PARAM_NEED_TO_BE_SET);
 			}
-		} else {
-			throw new InvalidityException(NEO_PATH_PARAM_NEED_TO_BE_SET);
+			return returnElement;
 		}
-		return returnElement;
+		return ((NeoElementEdge) getOriginalRelation()).getCypherReturn();
 	}
 	
 	/**
@@ -126,11 +132,14 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 	 */
 	@Override
 	public String getReturnInnerEdgeNodes() throws InvalidityException {
-		String cypher = null;
-		if (getNeoElementPathParam() != null) {
-			cypher = getNeoElementPathParam().getReturnInnerEdgeNodes();
+		if (getOriginalRelation() == null) {
+			String cypher = null;
+			if (getNeoElementPathParam() != null) {
+				cypher = getNeoElementPathParam().getReturnInnerEdgeNodes();
+			}
+			return cypher;
 		}
-		return cypher;
+		return ((NeoElementEdge) getOriginalRelation()).getReturnInnerEdgeNodes();
 	}
 	
 	/**

@@ -283,13 +283,13 @@ public class Cypher02NeoPropertyEdgeTest extends NeoEdgeTest {
 			((NeoPropertyPathParam) neoAbstractPathParam).setNeoPathPart(null);
 			neoPropertyEdge.setNeoPropertyPathParam((NeoPropertyPathParam) neoAbstractPathParam);
 			assumeNotNull(neoPropertyEdge.getNeoPropertyPathParam());
-			assertEquals(null, neoPropertyEdge.getCypherReturnVariable());
+			assertEquals(null, neoPropertyEdge.getCypherReturn());
 			
 			NeoSimpleEdgeImpl mockNeoSimpleEdgeImpl = prepaireMockObjNeoSimpleEdge(number);
 			((NeoPropertyPathParam) neoAbstractPathParam).setNeoPathPart(mockNeoSimpleEdgeImpl);
 			
 			initGetCypherReturnVariableTest(neoAbstractEdge, number);
-			String variable = neoPropertyEdge.getCypherReturnVariable().get(0).getValue();
+			String variable = neoPropertyEdge.getCypherReturn().get(0).getValue();
 			assertTrue(variable.matches(CypherSpecificConstants.VARIABLE_ELEMENT_EGDE + "[1-9][0-9]*"));
 		} catch (Exception e) {
 			System.out.println(e);
@@ -301,7 +301,7 @@ public class Cypher02NeoPropertyEdgeTest extends NeoEdgeTest {
 	public void getCypherReturnVariableException() {
 		try {
 			assertNull(neoPropertyEdge.getNeoPropertyPathParam());
-			assertThrows(InvalidityException.class, () -> neoPropertyEdge.getCypherReturnVariable());			
+			assertThrows(InvalidityException.class, () -> neoPropertyEdge.getCypherReturn());			
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(false);

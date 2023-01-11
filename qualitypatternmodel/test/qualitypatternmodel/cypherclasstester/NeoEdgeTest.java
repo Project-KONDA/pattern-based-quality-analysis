@@ -50,7 +50,7 @@ public abstract class NeoEdgeTest implements INeoEdgeTest {
 		int id = number;
 		try {
 			initGetCypherVariableTest(edge, id);
-			EMap<Integer, String> variableMap = edge.getCypherReturnVariable();
+			EMap<Integer, String> variableMap = edge.getCypherReturn();
 			assumeTrue(variableMap.keySet().stream().count() == 1);
 			assumeTrue(variableMap.containsKey(0));
 			String variable = variableMap.get(0).getValue();

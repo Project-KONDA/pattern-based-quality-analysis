@@ -177,13 +177,13 @@ public class Cypher02NeoElementEdgeTest extends NeoEdgeTest {
 			((NeoElementPathParam) neotPathParam).setNeoPathPart(null);
 			neoEdge.setNeoElementPathParam((NeoElementPathParam) neotPathParam);
 			assumeNotNull(neoEdge.getNeoElementPathParam());
-			assertEquals(null, neoEdge.getCypherReturnVariable());
+			assertEquals(null, neoEdge.getCypherReturn());
 			
 			NeoSimpleEdgeImpl mockNeoEdgeImpl = prepaireMockObjNeoSimpleEdge(number);
 			((NeoElementPathParam) neotPathParam).setNeoPathPart(mockNeoEdgeImpl);
 			
 			initGetCypherReturnVariableTest(neoAbstractEdge, number);
-			String variable = neoEdge.getCypherReturnVariable().get(0).getValue();
+			String variable = neoEdge.getCypherReturn().get(0).getValue();
 			assertTrue(variable.matches(CypherSpecificConstants.VARIABLE_ELEMENT_EGDE + "[1-9][0-9]*"));
 		} catch (Exception e) {
 			System.out.println(e);
@@ -195,7 +195,7 @@ public class Cypher02NeoElementEdgeTest extends NeoEdgeTest {
 	public void getCypherReturnVariableException() {
 		try {
 			assertNull(neoEdge.getNeoElementPathParam());
-			assertThrows(InvalidityException.class, () -> neoEdge.getCypherReturnVariable());			
+			assertThrows(InvalidityException.class, () -> neoEdge.getCypherReturn());			
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(false);

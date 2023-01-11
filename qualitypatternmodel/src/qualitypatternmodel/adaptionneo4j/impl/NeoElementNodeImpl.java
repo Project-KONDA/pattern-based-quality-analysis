@@ -160,7 +160,7 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	 * @generated NOT
 	 */
 	@Override
-	public EMap<Integer, String> getCypherReturnVariable() throws InvalidityException {
+	public EMap<Integer, String> getCypherReturn() throws InvalidityException {
 		EMap<Integer, String> returnElement = new BasicEMap<Integer, String>();
 		String cypher;
 		if (getIncomingMapping() == null) {
@@ -171,7 +171,7 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 			}
 			returnElement.put(NeoElementNodeImpl.CYPHER_RETURN_ID, cypher);
 		} else {
-			returnElement = ((NeoElementNode) getOriginalNode()).getCypherReturnVariable();
+			returnElement = ((NeoElementNode) getOriginalNode()).getCypherReturn();
 		}
 		return returnElement;
 	}
@@ -558,7 +558,7 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 				}
 			case Adaptionneo4jPackage.NEO_ELEMENT_NODE___GET_CYPHER_RETURN_VARIABLE:
 				try {
-					return getCypherReturnVariable();
+					return getCypherReturn();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

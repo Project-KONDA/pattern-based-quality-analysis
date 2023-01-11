@@ -332,7 +332,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		EMap<Integer, String> tempMap = null;
 		StringBuilder tempSb = null;
 		Integer i = null;
-		tempMap = neoElement.getCypherReturnVariable();
+		tempMap = neoElement.getCypherReturn();
 		
 		if (tempMap.keySet().stream().count() != 1) {
 			throw new InvalidityException(A_MAP_FROM_RECHIVED_FROM_A_NEO4J_COMPONENT_SHOULD_ONLY_CONTAIN_ONE_ENTRY);			

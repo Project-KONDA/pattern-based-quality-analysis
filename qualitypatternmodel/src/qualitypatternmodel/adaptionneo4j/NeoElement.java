@@ -24,6 +24,6 @@ public interface NeoElement extends EObject {
 	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated NOT
 	 */
-	EMap<Integer, String> getCypherReturnVariable() throws InvalidityException;
+	EMap<Integer, String> getCypherReturn() throws InvalidityException;
 
 } // NeoInterfaceElement

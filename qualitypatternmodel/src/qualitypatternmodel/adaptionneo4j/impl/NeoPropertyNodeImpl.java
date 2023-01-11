@@ -368,7 +368,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 * @generated NOT
 	 */
 	@Override
-	public EMap<Integer, String> getCypherReturnVariable() throws InvalidityException {
+	public EMap<Integer, String> getCypherReturn() throws InvalidityException {
 		final EMap<Integer, String> returnElement = new BasicEMap<Integer, String>();
 		final String[] temp = (String[]) generateCypherPropertyAddressing().toArray(String[]::new);
 		final StringBuilder cypher = new StringBuilder();
@@ -628,7 +628,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 				}
 			case Adaptionneo4jPackage.NEO_PROPERTY_NODE___GET_CYPHER_RETURN_VARIABLE:
 				try {
-					return getCypherReturnVariable();
+					return getCypherReturn();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

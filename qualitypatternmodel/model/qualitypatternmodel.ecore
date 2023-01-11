@@ -1350,7 +1350,7 @@
       <eLiterals name="FOLLOWING" value="1"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoElement" abstract="true" interface="true">
-      <eOperations name="getCypherReturnVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"
+      <eOperations name="getCypherReturn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
     </eClassifiers>
   </eSubpackages>

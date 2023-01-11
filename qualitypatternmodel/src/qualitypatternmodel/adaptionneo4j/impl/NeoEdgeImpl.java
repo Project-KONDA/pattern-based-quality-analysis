@@ -107,7 +107,7 @@ public abstract class NeoEdgeImpl extends RelationImpl implements NeoEdge {
 	 * @generated NOT
 	 */
 	@Override
-	public EMap<Integer, String> getCypherReturnVariable() throws InvalidityException {
+	public EMap<Integer, String> getCypherReturn() throws InvalidityException {
 		return new BasicEMap<Integer, String>();
 	}
 
@@ -217,7 +217,7 @@ public abstract class NeoEdgeImpl extends RelationImpl implements NeoEdge {
 				}
 			case Adaptionneo4jPackage.NEO_EDGE___GET_CYPHER_RETURN_VARIABLE:
 				try {
-					return getCypherReturnVariable();
+					return getCypherReturn();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

@@ -6098,11 +6098,11 @@ public interface Adaptionneo4jPackage extends EPackage {
 	EClass getNeoElement();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionneo4j.NeoElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionneo4j.NeoElement#getCypherReturn() <em>Get Cypher Return Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Cypher Return Variable</em>' operation.
-	 * @see qualitypatternmodel.adaptionneo4j.NeoElement#getCypherReturnVariable()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoElement#getCypherReturn()
 	 * @generated
 	 */
 	EOperation getNeoElement__GetCypherReturnVariable();

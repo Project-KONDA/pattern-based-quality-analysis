@@ -299,7 +299,7 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 			initGetCypherVariableTest(node, id);
 			final String propertyName = "summary";
 			((NeoPropertyEdge) neoPropertyNode.getIncoming().get(0)).getNeoPropertyPathParam().setNeoPropertyName(propertyName);
-			EMap<Integer, String> variableMap = node.getCypherReturnVariable();
+			EMap<Integer, String> variableMap = node.getCypherReturn();
 			assumeTrue(variableMap.keySet().stream().count() == 1);
 			assumeTrue(variableMap.containsKey(1));
 			String variable = variableMap.get(0).getValue();
