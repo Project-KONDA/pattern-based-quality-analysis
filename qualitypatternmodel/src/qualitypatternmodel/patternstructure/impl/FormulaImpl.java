@@ -44,10 +44,6 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class FormulaImpl extends ConditionImpl implements Formula {
-	private static final String COND2_IS_NOT_GENERATING_A_VALID_QUERY = "Cond2 is not generating a valid query";
-	private static final String COND1_IS_NOT_GENERATING_A_VALID_QUERY = "Cond1 is not generating a valid query";
-	
-	
 
 	/**
 	 * The default value of the '{@link #getOperator() <em>Operator</em>}' attribute.
@@ -233,12 +229,20 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 				//If the generated Condition isBlank (Cases: TrueElement, FORALL [true])
 				if (condition1Query.isBlank()) {
 					condition1Query = CypherSpecificConstants.BOOLEAN_TRUE;
+				} else {
+					StringBuilder temp = new StringBuilder(condition1Query);
+					super.addWhiteSpacesForPreviewsCondition(temp, CypherSpecificConstants.THREE_WHITESPACES);
+					condition1Query = temp.toString();
 				}
 				
 				//If the generated Condition isBlank (Cases: TrueElement, FORALL [true])
 				String condition2Query = condition2.generateCypher();
 				if (condition1Query.isBlank()) {
 					condition2Query = CypherSpecificConstants.BOOLEAN_TRUE;
+				} else {
+					StringBuilder temp = new StringBuilder(condition2Query);
+					super.addWhiteSpacesForPreviewsCondition(temp, CypherSpecificConstants.THREE_WHITESPACES);
+					condition2Query = temp.toString();
 				}
 				
 				//For cypher there are less Boolean Operators
