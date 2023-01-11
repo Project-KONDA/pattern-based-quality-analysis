@@ -27,8 +27,8 @@ public class CypherTest01NeoPropertyEdge extends CypherTranslation {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CypherTest01NeoPropertyEdge neoPropertyEdge = new CypherTest01NeoPropertyEdge();		
 		try {
-//			neoPropertyEdge.generalizedTests(); 
-//			neoPropertyEdge.generalizedComplexTests();
+			neoPropertyEdge.generalizedTests(); 
+			neoPropertyEdge.generalizedComplexTests();
 			neoPropertyEdge.generalizedInvalidtyExceptionTests();
 		} catch (Exception e) {
 			System.out.println(e);

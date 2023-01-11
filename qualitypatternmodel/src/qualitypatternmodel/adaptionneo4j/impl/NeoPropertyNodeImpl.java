@@ -359,6 +359,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		return ((NeoPropertyNode) getOriginalNode()).getCypherVariable(); 
 	}
 	
+	//TODO use distinct here
 	/**
 	 * <!-- begin-user-doc -->
 	 * This method returns the Property-Addressing of all NeoPropertyNode-Names.
@@ -381,6 +382,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		return returnElement;
 	}
 
+	//TODO remove this method. In any case all nodes should be returned.
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param ix

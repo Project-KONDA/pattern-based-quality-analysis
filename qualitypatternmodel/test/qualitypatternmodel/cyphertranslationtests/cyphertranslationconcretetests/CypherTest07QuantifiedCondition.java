@@ -28,10 +28,10 @@ public class CypherTest07QuantifiedCondition extends CypherTranslation {
 		try {
 			quantifiedCond.generalizedTests();  
 			quantifiedCond.generalizedComplexTests();
-//			quantifiedCond.generalizedInvalidtyExceptionTests();
-//			quantifiedCond = null;
+			quantifiedCond.generalizedInvalidtyExceptionTests();
+			quantifiedCond = null;
 			notCond.generalizedTests();         
-//			notCond.generalizedInvalidtyExceptionTests(); 
+			notCond.generalizedInvalidtyExceptionTests(); 
 		} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();

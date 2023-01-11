@@ -4,7 +4,7 @@
     <semanticResources>qualitypatternmodel.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_A2WtQB2REeqrGqxc7qjo8A">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name=" class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="b337fe9a-f12f-41fd-bd74-7378151c132e">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name=" class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="5c270b72-cf75-4673-a1d6-122f6deaa70b">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="qualitypatternmodel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -3022,7 +3022,7 @@
                 <styles xmi:type="notation:FilteringStyle" xmi:id="_oOsjQkS0Ee2kztuV4T7hhA"/>
               </children>
               <styles xmi:type="notation:ShapeStyle" xmi:id="_oOquEUS0Ee2kztuV4T7hhA" fontName="Segoe UI" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oOquEkS0Ee2kztuV4T7hhA" x="442" y="6" width="228" height="73"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oOquEkS0Ee2kztuV4T7hhA" x="442" y="6" width="228" height="55"/>
             </children>
             <children xmi:type="notation:Shape" xmi:id="_dsqN4GkREe2p9qtUV-rkGA" type="Note" fontName="Segoe UI" description="neoNodeLabels will be added to the Params" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
               <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dsqN4WkREe2p9qtUV-rkGA" source="specificStyles">
@@ -4191,7 +4191,7 @@
           <children xmi:type="notation:Node" xmi:id="_G8sz8CLPEe23B9jt7anp1g" type="6003">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_G8sz8SLPEe23B9jt7anp1g" y="10"/>
           </children>
-          <styles xmi:type="notation:ConnectorStyle" xmi:id="_G8bHISLPEe23B9jt7anp1g" routing="Tree"/>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_G8bHISLPEe23B9jt7anp1g" routing="Tree" lineColor="1345869"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_G8bHIiLPEe23B9jt7anp1g" fontName="Segoe UI" fontHeight="8"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_G8bHIyLPEe23B9jt7anp1g" points="[17, -50, -676, 1896]$[693, -1946, 0, 0]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_G98xICLPEe23B9jt7anp1g" id="(0.44832826747720367,0.5847457627118644)"/>
@@ -5907,7 +5907,7 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_S1vMMkS1Ee2kztuV4T7hhA" fontName="Segoe UI" fontHeight="8"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_S1vMM0S1Ee2kztuV4T7hhA" points="[0, 0, 159, 60]$[-159, -60, 0, 0]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_S1vMOkS1Ee2kztuV4T7hhA" id="(0.5,0.0)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_S1vMO0S1Ee2kztuV4T7hhA" id="(0.5,0.647887323943662)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_S1vMO0S1Ee2kztuV4T7hhA" id="(0.5,0.8679245283018868)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_TK5BMALoEe2GF_6PqNgKEg" type="4001" element="_v6Ya2fh8EeyEAYheLQgtPA" source="_TKoigALoEe2GF_6PqNgKEg" target="_TKnUYALoEe2GF_6PqNgKEg">
           <children xmi:type="notation:Node" xmi:id="_TK5BNALoEe2GF_6PqNgKEg" type="6001">
@@ -6031,7 +6031,7 @@
           <children xmi:type="notation:Node" xmi:id="_24pTdykOEe2tHKzGTjieeg" type="6003">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_24pTeCkOEe2tHKzGTjieeg" x="-17" y="10"/>
           </children>
-          <styles xmi:type="notation:ConnectorStyle" xmi:id="_24pTcCkOEe2tHKzGTjieeg" routing="Tree" lineColor="10011046"/>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_24pTcCkOEe2tHKzGTjieeg" routing="Tree" lineColor="1345869"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_24pTcSkOEe2tHKzGTjieeg" fontColor="10011046" fontName="Segoe UI" fontHeight="8"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_24pTcikOEe2tHKzGTjieeg" points="[0, 49, -120, -121]$[0, 80, -120, -90]$[121, 80, 1, -90]$[121, 91, 1, -79]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_24p6gCkOEe2tHKzGTjieeg" id="(0.5,0.5)"/>
@@ -6063,7 +6063,7 @@
           <children xmi:type="notation:Node" xmi:id="_hvvnECkOEe2tHKzGTjieeg" type="6003">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hvvnESkOEe2tHKzGTjieeg" x="-16" y="10"/>
           </children>
-          <styles xmi:type="notation:ConnectorStyle" xmi:id="_hviywSkOEe2tHKzGTjieeg" routing="Tree" lineColor="10011046"/>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_hviywSkOEe2tHKzGTjieeg" routing="Tree" lineColor="1345869"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_hviywikOEe2tHKzGTjieeg" fontName="Segoe UI" fontHeight="8"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_hviywykOEe2tHKzGTjieeg" points="[0, 49, 115, -39]$[0, 66, 115, -22]$[-112, 66, 3, -22]$[-112, 81, 3, -7]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_hvz4gCkOEe2tHKzGTjieeg" id="(0.4220779220779221,0.5)"/>
@@ -6099,7 +6099,7 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_QG-f4kS1Ee2kztuV4T7hhA" fontName="Segoe UI" fontHeight="8"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QG-f40S1Ee2kztuV4T7hhA" points="[0, -69, -254, 45]$[0, -75, -254, 39]$[255, -75, 1, 39]$[255, -89, 1, 25]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QHakwES1Ee2kztuV4T7hhA" id="(0.44832826747720367,0.5847457627118644)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QHakwUS1Ee2kztuV4T7hhA" id="(0.5,0.647887323943662)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QHakwUS1Ee2kztuV4T7hhA" id="(0.5,0.8679245283018868)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_i4OgQGWiEe2R5st-wiLIvA" type="4001" element="_CKIlECkrEe2Wp4Cnfy4wfg" source="_TKtbAgLoEe2GF_6PqNgKEg" target="_bdRpcB8IEe20H_6KewSmww">
           <children xmi:type="notation:Node" xmi:id="_i4Q8gGWiEe2R5st-wiLIvA" type="6001">
@@ -13644,7 +13644,8 @@
       <decorations xmi:type="viewpoint:Decoration" uid="_G6w6RiLPEe23B9jt7anp1g">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_beXa30ATEe20BLrY6Ta8OQ" targetArrow="InputClosedArrow" routingStyle="tree">
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_beXa30ATEe20BLrY6Ta8OQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="77,137,20">
+        <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_beXa4EATEe20BLrY6Ta8OQ" showIcon="false">
           <labelFormat>italic</labelFormat>
@@ -13674,7 +13675,7 @@
       <decorations xmi:type="viewpoint:Decoration" uid="_htgLYykOEe2tHKzGTjieeg">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_hte9QCkOEe2tHKzGTjieeg" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_hte9QCkOEe2tHKzGTjieeg" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="77,137,20">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_hte9QSkOEe2tHKzGTjieeg" showIcon="false">
@@ -13705,7 +13706,7 @@
       <decorations xmi:type="viewpoint:Decoration" uid="_236TpikOEe2tHKzGTjieeg">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_84MKYikqEe2Wp4Cnfy4wfg" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_84MKYikqEe2Wp4Cnfy4wfg" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="77,137,20">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_84MKYykqEe2Wp4Cnfy4wfg" showIcon="false" labelColor="166,193,152">
