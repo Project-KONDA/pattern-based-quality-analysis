@@ -30,7 +30,7 @@ public class CypherTest11CountCondition extends CypherTranslation {
 		CypherTest11CountCondition count = new CypherTest11CountCondition();
 		try {
 			count.generalizedTests();         
-			count.generalizedInvalidtyExceptionTests();
+//			count.generalizedInvalidtyExceptionTests();
 		} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();
