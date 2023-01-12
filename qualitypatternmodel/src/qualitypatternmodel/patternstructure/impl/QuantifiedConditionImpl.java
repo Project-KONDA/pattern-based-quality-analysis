@@ -1040,7 +1040,14 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			cypher.setLength(0);
 			cypher.append(result);
 			result = new String();
-			addGraphWhereToExistsProperty(cypher, result);		
+			//This method appends Where
+			addGraphWhereToExistsProperty(cypher, result);	
+			//This removes the where since it is not needed. And removes unnecessary brackets
+			if (cypher.toString().contains(CypherSpecificConstants.CLAUSE_WHERE)) {
+				int lastIndex = cypher.toString().lastIndexOf(CypherSpecificConstants.CLAUSE_WHERE) + CypherSpecificConstants.CLAUSE_WHERE.length() + 2;
+				cypher.replace(0, lastIndex, new String());
+				cypher.replace(cypher.length() - 1, cypher.length(), new String());
+			}
 			if (!cond.toString().isBlank()) {
 				if (cypher.length() > 0) {
 					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + cond);

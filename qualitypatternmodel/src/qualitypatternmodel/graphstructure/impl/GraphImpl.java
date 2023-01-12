@@ -414,7 +414,12 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	private final String generateComparisonsOfSameNeoPropertyNodes() throws InvalidityException {
 		final StringBuilder cypher = new StringBuilder();
+		boolean first = true;
 		for (Node n : this.getNodes()) {
+			if (!first) {
+				cypher.append("\n" + CypherSpecificConstants.THREE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
+				first = false;
+			}
 			fillBuilderWithNeoPropertyNodeComps(cypher, n);
 		}
 		String resultCypher = new String(); 
@@ -440,12 +445,21 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		NeoPropertyNode property = null;
 		String startNeoPropertyNode = null;
 		try {
+			boolean first = true;
 			if (n instanceof NeoPropertyNode && n.getIncoming().size() > 1) {
 				property = (NeoPropertyNode) n;
 				tempList = property.generateCypherPropertyAddressing();
 				if (tempList.size() > 1) {
 					startNeoPropertyNode = tempList.get(0);
 					for (int i = 1; i < tempList.size(); i++) {
+						if (!first) {
+							tempCypher.append(CypherSpecificConstants.ONE_WHITESPACE);
+							tempCypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_AND);							
+							tempCypher.append(CypherSpecificConstants.ONE_WHITESPACE);
+						} else {
+							first = false;
+						}
+						
 						tempCypher.append(startNeoPropertyNode);
 						tempCypher.append(CypherSpecificConstants.ONE_WHITESPACE);
 						tempCypher.append(CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_EQUAL);
@@ -454,7 +468,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 						
 						//If everything worked until here fine do:
 						cypher.append(tempCypher.toString());
-						cypher.append(CypherSpecificConstants.SEPERATOR);
 						tempCypher.setLength(0);
 					}
 				}

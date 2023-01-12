@@ -210,12 +210,14 @@ public abstract class CypherTranslation implements ICypherTranslatione {
 					if (connector.verifyConnectivity()) {
 						String tempQuery = null;
 						for (CompletePattern comp : complexQueries) {
+							System.out.println("\n--- new Query ---");
 							tempQuery = comp.generateCypher();
 							System.out.println(tempQuery);
 							connector.queryTesterForToComplexQueries(tempQuery, comp.generateCypher().hashCode() + "", true);
 						}									
 					} else {
 						for (CompletePattern comp : complexQueries) {
+							System.out.println("\n--- new Query ---");
 							System.out.println(comp.generateCypher());
 						}
 					}

@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.ArrayList;
 
+import org.eclipse.ocl.xtext.oclinecorecs.SysMLCS;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -650,14 +651,22 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 		try {
 			new CypherTest02Return().buildPatterns(completePatterns);
 			int i = 0;
-			
+
 			//getAllPossibleReturnTypes
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4:Regesta)-[varEdge3:APPEARS_IN]-(intEgNode3:IndexEntry:IndexPlace)-[varEdge3_1:APPEARS_IN]-(varNode5:Regesta)-[varEdge4:APPEARS_IN]-(intEgNode4:IndexEntry:IndexPerson)-[varEdge4_1:APPEARS_IN]-(varPropertyNode6_4:Regesta)\n"
-					+ "RETURN varNode4, varNode5, \n"
-					+ "      varPropertyNode6_4, \n"
-					+ "      varPropertyNode6_4.summary, \n"
-					+ "      varEdge3, varEdge3_1, varEdge4, varEdge4_1, \n"
-					+ "      intEgNode3, intEgNode4");
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode4:Regesta)-[varElementEdge3:APPEARS_IN]-(intEgNode3:IndexEntry:IndexPlace)-[varElementEdge3_1:APPEARS_IN]-(varElementNode5:Regesta)-[varPropertyEdge4:APPEARS_IN]-(intEgNode4:IndexEntry:IndexPerson)-[varPropertyEdge4_1:APPEARS_IN]-(varPropertyNode6_4:Regesta)\n"
+					+ "RETURN varElementNode4, varElementNode5, \n"
+					+ "   varPropertyNode6_4.summary, \n"
+					+ "   varElementEdge3, varElementEdge3_1, varPropertyEdge4, varPropertyEdge4_1,\n"
+					+ "   intEgNode3, intEgNode4");
+			i++;
+		
+			//getAllPossibleReturnTypesWithTwoRelationsToNeoPropertyNode
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode4:Regesta)-[varElementEdge4:APPEARS_IN]-(intEgNode4:IndexEntry:IndexPlace)-[varElementEdge4_1:APPEARS_IN]-(varElementNode5:Regesta)-[varPropertyEdge5:APPEARS_IN]-(intEgNode5:IndexEntry:IndexPerson)-[varPropertyEdge5_1:APPEARS_IN]-(varPropertyNode6_5:Regesta)\n"
+					+ "WHERE (varPropertyNode6_5.summary = varElementNode5.title)\n"
+					+ "RETURN varElementNode4, varElementNode5, \n"
+					+ "   varPropertyNode6_5.summary, varElementNode5.title, \n"
+					+ "   varElementEdge4, varElementEdge4_1, varPropertyEdge5, varPropertyEdge5_1,\n"
+					+ "   intEgNode4, intEgNode5");
 			i++;
 			
 			assertTrue(NOT_ALL_PATTERN_HAVE_BEEN_CHECK, i == completePatterns.size());
@@ -1065,8 +1074,41 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode5)\n"
 					+ "WHERE NOT (EXISTS {\n"
 					+ "   MATCH (varElementNode6), (varElementNode7)\n"
-					+ "   WHERE (varElementNode5.date = varElementNode6.startDate\n"
-					+ "      AND varElementNode5.date = varElementNode7.isoStartDate)})\n"
+					+ "   WHERE (varElementNode5.date = varElementNode6.startDate AND varElementNode5.date = varElementNode7.isoStartDate)})\n"
+					+ "RETURN varElementNode5");
+			i++;
+			
+			//
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode6)\n"
+					+ "WHERE NOT (EXISTS {\n"
+					+ "   MATCH (varElementNode6)-[varElementEdge6]-(varElementNode7)\n"
+					+ "   WHERE EXISTS (varElementNode7.endDate)\n"
+					+ "      AND (varElementNode7.startDate CONTAINS (\"1613\"))})\n"
+					+ "RETURN varElementNode6");
+			i++;
+			
+			//
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode6)\n"
+					+ "WHERE EXISTS {\n"
+					+ "   MATCH (varElementNode6)-[varElementEdge6]-(varElementNode7)\n"
+					+ "   WHERE (varElementNode7.startDate CONTAINS (\"1613\"))}\n"
+					+ "RETURN varElementNode6");
+			i++;
+			
+			//
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode6)\n"
+					+ "WHERE EXISTS {\n"
+					+ "   MATCH (varElementNode6)-[varElementEdge6]-(varElementNode7), (varElementNode7)-[varPropertyEdge7]-(varPropertyNode8_7:DateNode), (varElementNode7)-[varPropertyEdge8]-(varPropertyNode9_8:DateNode)\n"
+					+ "   WHERE (varPropertyNode8_7.startDate CONTAINS (\"1613\")\n"
+					+ "      AND varPropertyNode9_8.endDate CONTAINS (\"1614\"))}\n"
+					+ "RETURN varElementNode6");
+			i++; 
+	
+			//
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode5)\n"
+					+ "WHERE EXISTS {\n"
+					+ "   MATCH (varElementNode6), (varElementNode7)\n"
+					+ "   WHERE (varElementNode5.date = varElementNode6.startDate AND varElementNode5.date = varElementNode7.isoStartDate)}\n"
 					+ "RETURN varElementNode5");
 			i++;
 			

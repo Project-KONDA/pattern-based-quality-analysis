@@ -306,7 +306,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		if (option != null && option.getValue() != null && argument1 != null && argument2 != null) {
-			StringBuilder cypher = new StringBuilder();
+			final StringBuilder cypher = new StringBuilder();
 			final List<String> arguments = cypherArgumentCheckerAndConverter();
 			final String argument1Translation = arguments.get(0);
 			final String argument2Translation = arguments.get(1); 
