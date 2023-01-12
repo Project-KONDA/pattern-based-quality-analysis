@@ -24,131 +24,131 @@ public class CypherTest08Cycle extends CypherTranslation {
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
     	CypherTest08Cycle cycle = new CypherTest08Cycle();
     	
-    	Instant start = null;
-    	Instant finish = null;
-    	long timeElapsed = -1;
-    	
-    	//Testing
-    	CompletePattern completePattern = null;
-    	completePattern = cycle.getCyclePattern(2);
-    	start = Instant.now();
-    	System.out.println(completePattern.generateCypher());
-    	finish = Instant.now();
-		timeElapsed = Duration.between(start, finish).toNanos();
-		System.out.println("Speed time of toCypher in Nanos: " + timeElapsed);
-		timeElapsed = Duration.between(start, finish).toMillis();
-		System.out.println("Speed time of toCypher in Millis: " + timeElapsed);
-		start = null;
-    	finish = null;
-    	timeElapsed = -1;
-    	
-    	System.out.println("\n\nSecond run -->");
-    	completePattern = cycle.getCyclePattern(2);
-    	start = Instant.now();
-    	System.out.println(completePattern.generateCypher());
-    	finish = Instant.now();
-    	timeElapsed = Duration.between(start, finish).toNanos();
-		System.out.println("Speed time of toCypher in Nanos: " + timeElapsed);
-		timeElapsed = Duration.between(start, finish).toMillis();
-		System.out.println("Speed time of toCypher in Millis: " + timeElapsed);
-    	start = null;
-    	finish = null;
-    	timeElapsed = -1;
-    	
-    	System.out.println("\n\n");
-    	completePattern = cycle.getCyclePattern(3);
-    	start = Instant.now();
-    	System.out.println(completePattern.generateCypher());
-    	finish = Instant.now();
-		timeElapsed = Duration.between(start, finish).toNanos();
-		timeElapsed = Duration.between(start, finish).toNanos();
-		System.out.println("Speed time of toCypher in Nanos: " + timeElapsed);
-		timeElapsed = Duration.between(start, finish).toMillis();
-		System.out.println("Speed time of toCypher in Millis: " + timeElapsed);
-		start = null;
-    	finish = null;
-    	timeElapsed = -1;
-
-    	System.out.println("\n\nSecond run -->");
-    	completePattern = cycle.getCyclePattern(3);
-    	start = Instant.now();
-    	System.out.println(completePattern.generateCypher());
-    	finish = Instant.now();
-    	timeElapsed = Duration.between(start, finish).toNanos();
-		timeElapsed = Duration.between(start, finish).toNanos();
-		System.out.println("Speed time of toCypher in Nanos: " + timeElapsed);
-		timeElapsed = Duration.between(start, finish).toMillis();
-		System.out.println("Speed time of toCypher in Millis: " + timeElapsed);
-    	start = null;
-    	finish = null;
-    	timeElapsed = -1;
-    	
-    	
-    	System.out.println("\n\n");
-    	completePattern = cycle.getCyclePatternComp(2);
-    	start = Instant.now();
-    	System.out.println(completePattern.generateCypher());
-    	finish = Instant.now();
-		timeElapsed = Duration.between(start, finish).toNanos();
-		timeElapsed = Duration.between(start, finish).toNanos();
-		System.out.println("Speed time of toCypher in Nanos: " + timeElapsed);
-		timeElapsed = Duration.between(start, finish).toMillis();
-		System.out.println("Speed time of toCypher in Millis: " + timeElapsed);
-		start = null;
-    	finish = null;
-    	timeElapsed = -1;
-
-    	System.out.println("\n\nSecond run -->");
-    	completePattern = cycle.getCyclePatternComp(2);
-    	start = Instant.now();
-    	System.out.println(completePattern.generateCypher());
-    	finish = Instant.now();
-    	timeElapsed = Duration.between(start, finish).toNanos();
-		timeElapsed = Duration.between(start, finish).toNanos();
-		System.out.println("Speed time of toCypher in Nanos: " + timeElapsed);
-		timeElapsed = Duration.between(start, finish).toMillis();
-		System.out.println("Speed time of toCypher in Millis: " + timeElapsed);
-    	start = null;
-    	finish = null;
-    	timeElapsed = -1;
-    	
-
-    	System.out.println("\n\n");
-    	completePattern = cycle.getCyclePatternComp(3);
-    	start = Instant.now();
-    	System.out.println(completePattern.generateCypher());
-    	finish = Instant.now();
-		timeElapsed = Duration.between(start, finish).toNanos();
-		timeElapsed = Duration.between(start, finish).toNanos();
-		System.out.println("Speed time of toCypher in Nanos: " + timeElapsed);
-		timeElapsed = Duration.between(start, finish).toMillis();
-		System.out.println("Speed time of toCypher in Millis: " + timeElapsed);
-		start = null;
-    	finish = null;
-    	timeElapsed = -1;
-
-    	System.out.println("\n\nSecond run -->");
-    	completePattern = cycle.getCyclePatternComp(3);
-    	start = Instant.now();
-    	System.out.println(completePattern.generateCypher());
-    	finish = Instant.now();
-    	timeElapsed = Duration.between(start, finish).toNanos();
-		timeElapsed = Duration.between(start, finish).toNanos();
-		System.out.println("Speed time of toCypher in Nanos: " + timeElapsed);
-		timeElapsed = Duration.between(start, finish).toMillis();
-		System.out.println("Speed time of toCypher in Millis: " + timeElapsed);
-    	start = null;
-    	finish = null;
-    	timeElapsed = -1;
+//    	Instant start = null;
+//    	Instant finish = null;
+//    	long timeElapsed = -1;
+//    	
+//    	//Testing
+//    	CompletePattern completePattern = null;
+//    	completePattern = cycle.getCyclePattern(2);
+//    	start = Instant.now();
+//    	System.out.println(completePattern.generateCypher());
+//    	finish = Instant.now();
+//		timeElapsed = Duration.between(start, finish).toNanos();
+//		System.out.println("Speed time of toCypher in Nanos: " + timeElapsed);
+//		timeElapsed = Duration.between(start, finish).toMillis();
+//		System.out.println("Speed time of toCypher in Millis: " + timeElapsed);
+//		start = null;
+//    	finish = null;
+//    	timeElapsed = -1;
+//    	
+//    	System.out.println("\n\nSecond run -->");
+//    	completePattern = cycle.getCyclePattern(2);
+//    	start = Instant.now();
+//    	System.out.println(completePattern.generateCypher());
+//    	finish = Instant.now();
+//    	timeElapsed = Duration.between(start, finish).toNanos();
+//		System.out.println("Speed time of toCypher in Nanos: " + timeElapsed);
+//		timeElapsed = Duration.between(start, finish).toMillis();
+//		System.out.println("Speed time of toCypher in Millis: " + timeElapsed);
+//    	start = null;
+//    	finish = null;
+//    	timeElapsed = -1;
+//    	
+//    	System.out.println("\n\n");
+//    	completePattern = cycle.getCyclePattern(3);
+//    	start = Instant.now();
+//    	System.out.println(completePattern.generateCypher());
+//    	finish = Instant.now();
+//		timeElapsed = Duration.between(start, finish).toNanos();
+//		timeElapsed = Duration.between(start, finish).toNanos();
+//		System.out.println("Speed time of toCypher in Nanos: " + timeElapsed);
+//		timeElapsed = Duration.between(start, finish).toMillis();
+//		System.out.println("Speed time of toCypher in Millis: " + timeElapsed);
+//		start = null;
+//    	finish = null;
+//    	timeElapsed = -1;
+//
+//    	System.out.println("\n\nSecond run -->");
+//    	completePattern = cycle.getCyclePattern(3);
+//    	start = Instant.now();
+//    	System.out.println(completePattern.generateCypher());
+//    	finish = Instant.now();
+//    	timeElapsed = Duration.between(start, finish).toNanos();
+//		timeElapsed = Duration.between(start, finish).toNanos();
+//		System.out.println("Speed time of toCypher in Nanos: " + timeElapsed);
+//		timeElapsed = Duration.between(start, finish).toMillis();
+//		System.out.println("Speed time of toCypher in Millis: " + timeElapsed);
+//    	start = null;
+//    	finish = null;
+//    	timeElapsed = -1;
+//    	
+//    	
+//    	System.out.println("\n\n");
+//    	completePattern = cycle.getCyclePatternComp(2);
+//    	start = Instant.now();
+//    	System.out.println(completePattern.generateCypher());
+//    	finish = Instant.now();
+//		timeElapsed = Duration.between(start, finish).toNanos();
+//		timeElapsed = Duration.between(start, finish).toNanos();
+//		System.out.println("Speed time of toCypher in Nanos: " + timeElapsed);
+//		timeElapsed = Duration.between(start, finish).toMillis();
+//		System.out.println("Speed time of toCypher in Millis: " + timeElapsed);
+//		start = null;
+//    	finish = null;
+//    	timeElapsed = -1;
+//
+//    	System.out.println("\n\nSecond run -->");
+//    	completePattern = cycle.getCyclePatternComp(2);
+//    	start = Instant.now();
+//    	System.out.println(completePattern.generateCypher());
+//    	finish = Instant.now();
+//    	timeElapsed = Duration.between(start, finish).toNanos();
+//		timeElapsed = Duration.between(start, finish).toNanos();
+//		System.out.println("Speed time of toCypher in Nanos: " + timeElapsed);
+//		timeElapsed = Duration.between(start, finish).toMillis();
+//		System.out.println("Speed time of toCypher in Millis: " + timeElapsed);
+//    	start = null;
+//    	finish = null;
+//    	timeElapsed = -1;
+//    	
+//
+//    	System.out.println("\n\n");
+//    	completePattern = cycle.getCyclePatternComp(3);
+//    	start = Instant.now();
+//    	System.out.println(completePattern.generateCypher());
+//    	finish = Instant.now();
+//		timeElapsed = Duration.between(start, finish).toNanos();
+//		timeElapsed = Duration.between(start, finish).toNanos();
+//		System.out.println("Speed time of toCypher in Nanos: " + timeElapsed);
+//		timeElapsed = Duration.between(start, finish).toMillis();
+//		System.out.println("Speed time of toCypher in Millis: " + timeElapsed);
+//		start = null;
+//    	finish = null;
+//    	timeElapsed = -1;
+//
+//    	System.out.println("\n\nSecond run -->");
+//    	completePattern = cycle.getCyclePatternComp(3);
+//    	start = Instant.now();
+//    	System.out.println(completePattern.generateCypher());
+//    	finish = Instant.now();
+//    	timeElapsed = Duration.between(start, finish).toNanos();
+//		timeElapsed = Duration.between(start, finish).toNanos();
+//		System.out.println("Speed time of toCypher in Nanos: " + timeElapsed);
+//		timeElapsed = Duration.between(start, finish).toMillis();
+//		System.out.println("Speed time of toCypher in Millis: " + timeElapsed);
+//    	start = null;
+//    	finish = null;
+//    	timeElapsed = -1;
     	
     	
 //    	Instant start = Instant.now();
-//    	try {
-//    		cycle.generalizedTests();         
-//    		cycle.generalizedInvalidtyExceptionTests();
-//    	} catch (Exception e) {
-//			System.out.println(e);
-//		}
+    	try {
+    		cycle.generalizedTests();         
+    		cycle.generalizedInvalidtyExceptionTests();
+    	} catch (Exception e) {
+			System.out.println(e);
+		}
 		       
 //		Instant finish = Instant.now();
 //		long timeElapsed = Duration.between(start, finish).toNanos();

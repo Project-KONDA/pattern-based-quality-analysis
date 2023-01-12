@@ -69,7 +69,7 @@ public class CypherTest06Comparison extends CypherTranslation {
 	@Override
 	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		//completePatternsExceptions.add(setWrongOptionParam());
+//		completePatternsExceptions.add(setWrongOptionParam());
 	}
 	
 	private CompletePattern getBasePatternList() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

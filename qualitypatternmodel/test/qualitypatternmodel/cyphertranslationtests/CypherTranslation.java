@@ -208,8 +208,11 @@ public abstract class CypherTranslation implements ICypherTranslatione {
 			try {
 				try (Java2Neo4JConnector connector = new Java2Neo4JConnector()) {
 					if (connector.verifyConnectivity()) {
+						String tempQuery = null;
 						for (CompletePattern comp : complexQueries) {
-							connector.queryTesterForToComplexQueries(comp.generateCypher(), comp.generateCypher().hashCode() + "", true);
+							tempQuery = comp.generateCypher();
+							System.out.println(tempQuery);
+							connector.queryTesterForToComplexQueries(tempQuery, comp.generateCypher().hashCode() + "", true);
 						}									
 					} else {
 						for (CompletePattern comp : complexQueries) {
