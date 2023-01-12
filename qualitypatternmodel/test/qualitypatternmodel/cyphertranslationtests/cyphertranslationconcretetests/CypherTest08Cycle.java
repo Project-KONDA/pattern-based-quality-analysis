@@ -24,6 +24,20 @@ public class CypherTest08Cycle extends CypherTranslation {
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
     	CypherTest08Cycle cycle = new CypherTest08Cycle();
     	
+//    	Instant start = Instant.now();
+    	try {
+    		cycle.generalizedTests();         
+    		cycle.generalizedInvalidtyExceptionTests();
+    	} catch (Exception e) {
+			System.out.println(e);
+		}
+		       
+//		Instant finish = Instant.now();
+//		long timeElapsed = Duration.between(start, finish).toNanos();
+//		System.out.println(timeElapsed);
+    	
+    	
+    	
 //    	Instant start = null;
 //    	Instant finish = null;
 //    	long timeElapsed = -1;
@@ -140,19 +154,6 @@ public class CypherTest08Cycle extends CypherTranslation {
 //    	start = null;
 //    	finish = null;
 //    	timeElapsed = -1;
-    	
-    	
-//    	Instant start = Instant.now();
-    	try {
-    		cycle.generalizedTests();         
-    		cycle.generalizedInvalidtyExceptionTests();
-    	} catch (Exception e) {
-			System.out.println(e);
-		}
-		       
-//		Instant finish = Instant.now();
-//		long timeElapsed = Duration.between(start, finish).toNanos();
-//		System.out.println(timeElapsed);
     }
 
 	public void buildPatterns(ArrayList<CompletePattern> completePatterns)

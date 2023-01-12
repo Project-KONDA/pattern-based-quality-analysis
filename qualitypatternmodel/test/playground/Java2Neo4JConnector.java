@@ -71,12 +71,8 @@ public class Java2Neo4JConnector implements AutoCloseable {
 		}
     }
     
-    public void queryTester(final String query, final String queryID, boolean print) {
-    	try {
-    		queryTesterWithException(query, queryID, print);
-    	} catch (Exception e) {
-			System.out.println(e);
-		}
+    public void queryTester(final String query, final String queryID, boolean print) throws Exception {
+    	queryTesterWithException(query, queryID, print);
     }
     
     public void queryTesterThrows(final String query, final String queryID, boolean print) throws Exception {
@@ -91,6 +87,7 @@ public class Java2Neo4JConnector implements AutoCloseable {
     		
     		try (Session session = driver.session()) {
     			try (Transaction tx = session.beginTransaction(config)){
+    				System.out.println(query);
     				tx.run(query);    				
     			} catch (org.neo4j.driver.exceptions.ClientException e) {
 					if (e.toString().contains("org.neo4j.driver.exceptions.ClientException: The transaction has been terminated. Retry your operation in a new transaction, and you should see a successful result. The transaction has not completed within the specified timeout (dbms.transaction.timeout). You may want to retry with a longer timeout.")) {
@@ -101,16 +98,21 @@ public class Java2Neo4JConnector implements AutoCloseable {
 				}
                 if (print) System.out.println(QUERY2 + queryID + IS_VALID);
             } catch (Exception e) {
-    			throw (e);
+    			throw e;
     		}
     	} catch (Exception e) {
-    		System.out.println(e);
+    		throw e;
     	}
     }
 	
 	public static void main(String[] args) {
 		try (Java2Neo4JConnector connector = new Java2Neo4JConnector(URI, USER, PASSWORD)) {
-			connector.queryTester(MATCH_R_REGESTA_RETURN_R, TEST_QUERY, true);
+			try {
+				connector.queryTester(MATCH_R_REGESTA_RETURN_R, TEST_QUERY, true);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 }
