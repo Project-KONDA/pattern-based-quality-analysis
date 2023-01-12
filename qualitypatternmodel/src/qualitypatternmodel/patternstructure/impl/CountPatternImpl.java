@@ -179,12 +179,18 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		}
 		final String tempWhere = g.generateCypherWhere();
 		if (!tempWhere.isBlank()) {
-			cypher.append(CypherSpecificConstants.CLAUSE_WHERE + CypherSpecificConstants.ONE_WHITESPACE);
+			if (cypher.isEmpty()) {
+				cypher.append(CypherSpecificConstants.CLAUSE_WHERE + CypherSpecificConstants.ONE_WHITESPACE);				
+			} else {
+				cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX);
+				cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
+			}
 			cypher.append(tempWhere);
 		}
 		if (!(getCondition() instanceof CountCondition)) {
-			final String tempConString = getCondition().generateCypher();
+			String tempConString = getCondition().generateCypher();
 			if (!tempConString.isEmpty()) {
+				tempConString = tempConString.replaceAll("\n", "\n" + CypherSpecificConstants.THREE_WHITESPACES);
 				if (!tempWhere.isEmpty()) {
 					cypher.append("\n" + CypherSpecificConstants.THREE_WHITESPACES);
 					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
