@@ -190,6 +190,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		if (!(getCondition() instanceof CountCondition)) {
 			String tempConString = getCondition().generateCypher();
 			if (!tempConString.isEmpty()) {
+				//TODO, just do it if in the CompletePattern are no Operators.
 				tempConString = tempConString.replaceAll("\n", "\n" + CypherSpecificConstants.THREE_WHITESPACES);
 				if (!tempWhere.isEmpty()) {
 					cypher.append("\n" + CypherSpecificConstants.THREE_WHITESPACES);
