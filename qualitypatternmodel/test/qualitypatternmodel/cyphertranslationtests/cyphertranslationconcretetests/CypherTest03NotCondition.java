@@ -48,7 +48,6 @@ public class CypherTest03NotCondition extends CypherTranslation {
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(getTestPattern1());
 		completePatterns.add(getTestPattern1WithConditions());
-//		completePatterns.add(testPatternQuery1());
 		completePatterns.add(getTestPattern2());
 		completePatterns.add(getTestPattern5());
 		completePatterns.add(getNotExistsExists());
@@ -495,8 +494,6 @@ public class CypherTest03NotCondition extends CypherTranslation {
 	    
 	    //Adapt to Neo4J
 	    completePattern.createNeo4jAdaption();	    
-	    NeoElementNode neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(0);
-	    Graph graph = quantifiedCond1.getGraph();
 	    
 		return completePattern;
 	}	
@@ -557,30 +554,6 @@ public class CypherTest03NotCondition extends CypherTranslation {
 		quantifiedCondGraph.setQuantifiedCondition(innerQuantifiedCond);
 		
 		notCond.setCondition(quantifiedCond);
-		return completePattern;		
-	}
-	
-	//Show Arno --> Dopple Edge with direction is not Possible in the Current Version
-	private CompletePattern testPatternQuery1() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = testPatternQuery1GenericPrepairCon();
-		//Make Abstract
-		completePattern.createNeo4jAdaption();
-		
-		//Make Concrete
-		NeoElementNode neoNode1 = (NeoElementNode) completePattern.getGraph().getNodes().get(0);
-		neoNode1.addNeoLabel("Literature");
-		NotCondition notCond = (NotCondition) completePattern.getCondition();
-		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) notCond.getCondition();
-		Graph graph1 = quantifiedCondition.getGraph();
-		
-		//Specified quantifiedCondition
-		NeoElementNode neoNode2 = (NeoElementNode) graph1.getNodes().get(1);
-		neoNode2.addNeoLabel("Reference");
-		
-		//SpecifiedInnerquantifiedCond
-		NeoElementNode neoNode3 = (NeoElementNode) graph1.getNodes().get(1);
-		neoNode3.addNeoLabel("Regesta");
-		
 		return completePattern;		
 	}
 	

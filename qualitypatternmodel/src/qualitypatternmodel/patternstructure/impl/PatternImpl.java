@@ -35,6 +35,7 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.MorphismContainer;
+import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -233,7 +234,9 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		if (!(condition instanceof CountConditionImpl)) {
 			String cond = condition.generateCypher();
 			if (!cond.isEmpty()) {
-				cond = addWhiteSpacesForConditions(cond, whereClause);
+//				if (!(getCondition() instanceof NotCondition)) {
+					cond = addWhiteSpacesForConditions(cond, whereClause);					
+//				}
 				if (!whereClause.isEmpty() && !cond.isEmpty()) 
 					whereClause +=  "\n" + CypherSpecificConstants.THREE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND 
 									+ CypherSpecificConstants.ONE_WHITESPACE;
@@ -408,9 +411,10 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 					if (currentIndex == -1) {
 						lineBreak = false;
 					} else {
+						//TODO maybe a problem
 						//With six whitespace(-s) more the condition has exactly three more whitespace(-s) as the operators.
-						localCypher.insert(currentIndex + 1, CypherSpecificConstants.SIX_WHITESPACES); 
-						fromIndex = currentIndex + CypherSpecificConstants.SIX_WHITESPACES.length();
+						localCypher.insert(currentIndex + 1, CypherSpecificConstants.THREE_WHITESPACES);
+						fromIndex = currentIndex + CypherSpecificConstants.THREE_WHITESPACES.length();
 					}
 				}
 				cond = localCypher.toString();

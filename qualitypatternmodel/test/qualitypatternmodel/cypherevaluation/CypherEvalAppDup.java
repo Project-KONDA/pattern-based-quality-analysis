@@ -4,11 +4,9 @@ import java.time.Duration;
 import java.time.Instant;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.impl.CountConditionImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.adaptionneo4j.NeoNode;
 import qualitypatternmodel.cypherevaluation.utilis.DummyFiller;
 import qualitypatternmodel.evaluation.EvalAppDup;
 import qualitypatternmodel.evaluation.EvalUnique;
