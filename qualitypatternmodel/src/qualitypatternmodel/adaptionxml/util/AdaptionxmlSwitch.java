@@ -169,6 +169,7 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 				XmlAxisPart xmlAxisPart = (XmlAxisPart)theEObject;
 				T result = caseXmlAxisPart(xmlAxisPart);
 				if (result == null) result = caseAdaptable(xmlAxisPart);
+				if (result == null) result = caseParameter(xmlAxisPart);
 				if (result == null) result = casePatternElement(xmlAxisPart);
 				if (result == null) result = defaultCase(theEObject);
 				return result;

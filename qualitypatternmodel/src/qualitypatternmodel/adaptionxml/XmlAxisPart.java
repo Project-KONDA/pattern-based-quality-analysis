@@ -4,8 +4,8 @@ package qualitypatternmodel.adaptionxml;
 
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.graphstructure.Adaptable;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,7 +26,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * @model
  * @generated
  */
-public interface XmlAxisPart extends PatternElement, Adaptable {
+public interface XmlAxisPart extends Adaptable, Parameter {
 	/**
 	 * Returns the value of the '<em><b>Text Literal Param</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.TextLiteralParam#getXmlAxisPart <em>Xml Axis Part</em>}'.

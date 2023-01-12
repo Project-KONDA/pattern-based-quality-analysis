@@ -806,7 +806,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlNavigation" eType="#//adaptionxml/XmlNavigation"
           eOpposite="#//adaptionxml/XmlNavigation/xmlPathParam"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="XmlAxisPart" eSuperTypes="#//patternstructure/PatternElement #//graphstructure/Adaptable">
+    <eClassifiers xsi:type="ecore:EClass" name="XmlAxisPart" eSuperTypes="#//graphstructure/Adaptable #//parameters/Parameter">
       <eOperations name="getNextXmlAxisPairs" upperBound="-1" eType="#//adaptionxml/XmlAxisPart"/>
       <eOperations name="getPreviousXmlAxisPairs" upperBound="-1" eType="#//adaptionxml/XmlAxisPart"/>
       <eOperations name="inferAxisSuggestions" upperBound="-1" eType="#//adaptionxml/XmlAxisKind"/>

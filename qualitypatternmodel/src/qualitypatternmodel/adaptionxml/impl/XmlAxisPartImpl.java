@@ -4,6 +4,7 @@ package qualitypatternmodel.adaptionxml.impl;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
 import org.basex.query.QueryException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -13,8 +14,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlAxisOptionParam;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
@@ -30,8 +33,6 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.XmlDataDatabase;
-import qualitypatternmodel.graphstructure.Adaptable;
-import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
@@ -43,6 +44,8 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
+import qualitypatternmodel.textrepresentation.ParameterReference;
+import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,6 +55,10 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl#getParameterList <em>Parameter List</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl#isPredefined <em>Predefined</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl#getParameterReferences <em>Parameter References</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl#getTextLiteralParam <em>Text Literal Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl#getXmlAxisOptionParam <em>Xml Axis Option Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl#getXmlPathParam <em>Xml Path Param</em>}</li>
@@ -61,6 +68,56 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  * @generated
  */
 public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
+	/**
+	 * The default value of the '{@link #isPredefined() <em>Predefined</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPredefined()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean PREDEFINED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isPredefined() <em>Predefined</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPredefined()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean predefined = PREDEFINED_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getParameterReferences() <em>Parameter References</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameterReferences()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ParameterReference> parameterReferences;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String description = DESCRIPTION_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getTextLiteralParam() <em>Text Literal Param</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -164,6 +221,108 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	@Override
 	protected EClass eStaticClass() {
 		return AdaptionxmlPackage.Literals.XML_AXIS_PART;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ParameterList getParameterList() {
+		if (eContainerFeatureID() != AdaptionxmlPackage.XML_AXIS_PART__PARAMETER_LIST) return null;
+		return (ParameterList)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetParameterList(ParameterList newParameterList, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newParameterList, AdaptionxmlPackage.XML_AXIS_PART__PARAMETER_LIST, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setParameterList(ParameterList newParameterList) {
+		if (newParameterList != eInternalContainer() || (eContainerFeatureID() != AdaptionxmlPackage.XML_AXIS_PART__PARAMETER_LIST && newParameterList != null)) {
+			if (EcoreUtil.isAncestor(this, newParameterList))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newParameterList != null)
+				msgs = ((InternalEObject)newParameterList).eInverseAdd(this, ParametersPackage.PARAMETER_LIST__PARAMETERS, ParameterList.class, msgs);
+			msgs = basicSetParameterList(newParameterList, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_AXIS_PART__PARAMETER_LIST, newParameterList, newParameterList));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isPredefined() {
+		return predefined;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPredefined(boolean newPredefined) {
+		boolean oldPredefined = predefined;
+		predefined = newPredefined;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_AXIS_PART__PREDEFINED, oldPredefined, predefined));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<ParameterReference> getParameterReferences() {
+		if (parameterReferences == null) {
+			parameterReferences = new EObjectWithInverseResolvingEList.ManyInverse<ParameterReference>(ParameterReference.class, this, AdaptionxmlPackage.XML_AXIS_PART__PARAMETER_REFERENCES, TextrepresentationPackage.PARAMETER_REFERENCE__PARAMETER);
+		}
+		return parameterReferences;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDescription(String newDescription) {
+		String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_AXIS_PART__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -486,6 +645,114 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Parameter> validateAgainstSchema() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void validateExampleValue(String val) throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean inputIsValid() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isUsed() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setValueFromString(String value) throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getValueAsString() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void checkComparisonConsistency() throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getOptionsAsStringList() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String generateDescription() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -636,9 +903,16 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case AdaptionxmlPackage.XML_AXIS_PART__PARAMETER_LIST:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetParameterList((ParameterList)otherEnd, msgs);
+			case AdaptionxmlPackage.XML_AXIS_PART__PARAMETER_REFERENCES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getParameterReferences()).basicAdd(otherEnd, msgs);
 			case AdaptionxmlPackage.XML_AXIS_PART__TEXT_LITERAL_PARAM:
 				if (textLiteralParam != null)
 					msgs = ((InternalEObject)textLiteralParam).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AdaptionxmlPackage.XML_AXIS_PART__TEXT_LITERAL_PARAM, null, msgs);
@@ -667,6 +941,10 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case AdaptionxmlPackage.XML_AXIS_PART__PARAMETER_LIST:
+				return basicSetParameterList(null, msgs);
+			case AdaptionxmlPackage.XML_AXIS_PART__PARAMETER_REFERENCES:
+				return ((InternalEList<?>)getParameterReferences()).basicRemove(otherEnd, msgs);
 			case AdaptionxmlPackage.XML_AXIS_PART__TEXT_LITERAL_PARAM:
 				return basicSetTextLiteralParam(null, msgs);
 			case AdaptionxmlPackage.XML_AXIS_PART__XML_AXIS_OPTION_PARAM:
@@ -687,6 +965,8 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
+			case AdaptionxmlPackage.XML_AXIS_PART__PARAMETER_LIST:
+				return eInternalContainer().eInverseRemove(this, ParametersPackage.PARAMETER_LIST__PARAMETERS, ParameterList.class, msgs);
 			case AdaptionxmlPackage.XML_AXIS_PART__XML_PATH_PARAM:
 				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.XML_PATH_PARAM__XML_AXIS_PARTS, XmlPathParam.class, msgs);
 		}
@@ -701,6 +981,14 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case AdaptionxmlPackage.XML_AXIS_PART__PARAMETER_LIST:
+				return getParameterList();
+			case AdaptionxmlPackage.XML_AXIS_PART__PREDEFINED:
+				return isPredefined();
+			case AdaptionxmlPackage.XML_AXIS_PART__PARAMETER_REFERENCES:
+				return getParameterReferences();
+			case AdaptionxmlPackage.XML_AXIS_PART__DESCRIPTION:
+				return getDescription();
 			case AdaptionxmlPackage.XML_AXIS_PART__TEXT_LITERAL_PARAM:
 				return getTextLiteralParam();
 			case AdaptionxmlPackage.XML_AXIS_PART__XML_AXIS_OPTION_PARAM:
@@ -718,9 +1006,23 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case AdaptionxmlPackage.XML_AXIS_PART__PARAMETER_LIST:
+				setParameterList((ParameterList)newValue);
+				return;
+			case AdaptionxmlPackage.XML_AXIS_PART__PREDEFINED:
+				setPredefined((Boolean)newValue);
+				return;
+			case AdaptionxmlPackage.XML_AXIS_PART__PARAMETER_REFERENCES:
+				getParameterReferences().clear();
+				getParameterReferences().addAll((Collection<? extends ParameterReference>)newValue);
+				return;
+			case AdaptionxmlPackage.XML_AXIS_PART__DESCRIPTION:
+				setDescription((String)newValue);
+				return;
 			case AdaptionxmlPackage.XML_AXIS_PART__TEXT_LITERAL_PARAM:
 				setTextLiteralParam((TextLiteralParam)newValue);
 				return;
@@ -745,6 +1047,18 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case AdaptionxmlPackage.XML_AXIS_PART__PARAMETER_LIST:
+				setParameterList((ParameterList)null);
+				return;
+			case AdaptionxmlPackage.XML_AXIS_PART__PREDEFINED:
+				setPredefined(PREDEFINED_EDEFAULT);
+				return;
+			case AdaptionxmlPackage.XML_AXIS_PART__PARAMETER_REFERENCES:
+				getParameterReferences().clear();
+				return;
+			case AdaptionxmlPackage.XML_AXIS_PART__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
 			case AdaptionxmlPackage.XML_AXIS_PART__TEXT_LITERAL_PARAM:
 				setTextLiteralParam((TextLiteralParam)null);
 				return;
@@ -769,6 +1083,14 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case AdaptionxmlPackage.XML_AXIS_PART__PARAMETER_LIST:
+				return getParameterList() != null;
+			case AdaptionxmlPackage.XML_AXIS_PART__PREDEFINED:
+				return predefined != PREDEFINED_EDEFAULT;
+			case AdaptionxmlPackage.XML_AXIS_PART__PARAMETER_REFERENCES:
+				return parameterReferences != null && !parameterReferences.isEmpty();
+			case AdaptionxmlPackage.XML_AXIS_PART__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case AdaptionxmlPackage.XML_AXIS_PART__TEXT_LITERAL_PARAM:
 				return textLiteralParam != null;
 			case AdaptionxmlPackage.XML_AXIS_PART__XML_AXIS_OPTION_PARAM:
@@ -787,11 +1109,57 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	 * @generated
 	 */
 	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == Parameter.class) {
+			switch (derivedFeatureID) {
+				case AdaptionxmlPackage.XML_AXIS_PART__PARAMETER_LIST: return ParametersPackage.PARAMETER__PARAMETER_LIST;
+				case AdaptionxmlPackage.XML_AXIS_PART__PREDEFINED: return ParametersPackage.PARAMETER__PREDEFINED;
+				case AdaptionxmlPackage.XML_AXIS_PART__PARAMETER_REFERENCES: return ParametersPackage.PARAMETER__PARAMETER_REFERENCES;
+				case AdaptionxmlPackage.XML_AXIS_PART__DESCRIPTION: return ParametersPackage.PARAMETER__DESCRIPTION;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == Parameter.class) {
+			switch (baseFeatureID) {
+				case ParametersPackage.PARAMETER__PARAMETER_LIST: return AdaptionxmlPackage.XML_AXIS_PART__PARAMETER_LIST;
+				case ParametersPackage.PARAMETER__PREDEFINED: return AdaptionxmlPackage.XML_AXIS_PART__PREDEFINED;
+				case ParametersPackage.PARAMETER__PARAMETER_REFERENCES: return AdaptionxmlPackage.XML_AXIS_PART__PARAMETER_REFERENCES;
+				case ParametersPackage.PARAMETER__DESCRIPTION: return AdaptionxmlPackage.XML_AXIS_PART__DESCRIPTION;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == Adaptable.class) {
+		if (baseClass == Parameter.class) {
 			switch (baseOperationID) {
-				case GraphstructurePackage.ADAPTABLE___CREATE_PARAMETERS: return AdaptionxmlPackage.XML_AXIS_PART___CREATE_PARAMETERS;
-				case GraphstructurePackage.ADAPTABLE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST: return AdaptionxmlPackage.XML_AXIS_PART___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
+				case ParametersPackage.PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP: return AdaptionxmlPackage.XML_AXIS_PART___VALIDATE__DIAGNOSTICCHAIN_MAP;
+				case ParametersPackage.PARAMETER___VALIDATE_AGAINST_SCHEMA: return AdaptionxmlPackage.XML_AXIS_PART___VALIDATE_AGAINST_SCHEMA;
+				case ParametersPackage.PARAMETER___VALIDATE_EXAMPLE_VALUE__STRING: return AdaptionxmlPackage.XML_AXIS_PART___VALIDATE_EXAMPLE_VALUE__STRING;
+				case ParametersPackage.PARAMETER___INPUT_IS_VALID: return AdaptionxmlPackage.XML_AXIS_PART___INPUT_IS_VALID;
+				case ParametersPackage.PARAMETER___IS_USED: return AdaptionxmlPackage.XML_AXIS_PART___IS_USED;
+				case ParametersPackage.PARAMETER___SET_VALUE_FROM_STRING__STRING: return AdaptionxmlPackage.XML_AXIS_PART___SET_VALUE_FROM_STRING__STRING;
+				case ParametersPackage.PARAMETER___GET_VALUE_AS_STRING: return AdaptionxmlPackage.XML_AXIS_PART___GET_VALUE_AS_STRING;
+				case ParametersPackage.PARAMETER___CHECK_COMPARISON_CONSISTENCY: return AdaptionxmlPackage.XML_AXIS_PART___CHECK_COMPARISON_CONSISTENCY;
+				case ParametersPackage.PARAMETER___GET_OPTIONS_AS_STRING_LIST: return AdaptionxmlPackage.XML_AXIS_PART___GET_OPTIONS_AS_STRING_LIST;
+				case ParametersPackage.PARAMETER___GENERATE_DESCRIPTION: return AdaptionxmlPackage.XML_AXIS_PART___GENERATE_DESCRIPTION;
 				default: return -1;
 			}
 		}
@@ -818,6 +1186,42 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 				return inferElementTagSuggestionsFromIncomingRelations();
 			case AdaptionxmlPackage.XML_AXIS_PART___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_OUTGOING_RELATIONS:
 				return inferElementTagSuggestionsFromOutgoingRelations();
+			case AdaptionxmlPackage.XML_AXIS_PART___VALIDATE_AGAINST_SCHEMA:
+				return validateAgainstSchema();
+			case AdaptionxmlPackage.XML_AXIS_PART___VALIDATE_EXAMPLE_VALUE__STRING:
+				try {
+					validateExampleValue((String)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case AdaptionxmlPackage.XML_AXIS_PART___INPUT_IS_VALID:
+				return inputIsValid();
+			case AdaptionxmlPackage.XML_AXIS_PART___IS_USED:
+				return isUsed();
+			case AdaptionxmlPackage.XML_AXIS_PART___SET_VALUE_FROM_STRING__STRING:
+				try {
+					setValueFromString((String)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case AdaptionxmlPackage.XML_AXIS_PART___GET_VALUE_AS_STRING:
+				return getValueAsString();
+			case AdaptionxmlPackage.XML_AXIS_PART___CHECK_COMPARISON_CONSISTENCY:
+				try {
+					checkComparisonConsistency();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case AdaptionxmlPackage.XML_AXIS_PART___GET_OPTIONS_AS_STRING_LIST:
+				return getOptionsAsStringList();
+			case AdaptionxmlPackage.XML_AXIS_PART___GENERATE_DESCRIPTION:
+				return generateDescription();
 			case AdaptionxmlPackage.XML_AXIS_PART___CREATE_PARAMETERS:
 				createParameters();
 				return null;
@@ -826,6 +1230,24 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (predefined: ");
+		result.append(predefined);
+		result.append(", description: ");
+		result.append(description);
+		result.append(')');
+		return result.toString();
 	}
 
 	@Override
