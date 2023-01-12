@@ -738,12 +738,12 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 					+ "   MATCH (varElementNode4)-[varElementEdge4]-(varElementNode5)}\n"
 					+ "RETURN varElementNode4");
 			i++;
-			System.out.println(completePatterns.get(i).generateCypher());
+		
 			//getNotNotNotNotNotPattern
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4)\n"
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode4)\n"
 					+ "WHERE NOT (EXISTS {\n"
-					+ "            MATCH (varNode4)-[varEdge4]-(varNode5)})\n"
-					+ "RETURN varNode4");
+					+ "   MATCH (varElementNode4)-[varElementEdge4]-(varElementNode5)})\n"
+					+ "RETURN varElementNode4");
 			i++;
 			
 			assertTrue(NOT_ALL_PATTERN_HAVE_BEEN_CHECK, i == completePatterns.size());
@@ -1036,34 +1036,38 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 			int i = 0;
 			
 			//getNodesWhereExits (false)
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4:Regesta)\n"
-					+ "WHERE EXISTS (varNode4.origPlaceOfIssue)\n"
-					+ "RETURN varNode4");
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode4:Regesta)\n"
+					+ "WHERE EXISTS (varElementNode4.origPlaceOfIssue)\n"
+					+ "RETURN varElementNode4");
 			i++;
-			
+		
 			//getNodesWhereExits (true)
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4:Regesta)\n"
-					+ "WHERE NOT (EXISTS (varNode4.origPlaceOfIssue))\n"
-					+ "RETURN varNode4");
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode4:Regesta)\n"
+					+ "WHERE NOT (EXISTS (varElementNode4.origPlaceOfIssue))\n"
+					+ "RETURN varElementNode4");
 			i++;
-			
+
 			//getNodesWhereMultiplePropertyExistsChecks (false)
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode6:Regesta)\n"
-					+ "WHERE EXISTS (varNode6.origPlaceOfIssue, varNode6.startDate, varNode6.endDate)\n"
-					+ "RETURN varNode6");
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode6:Regesta)\n"
+					+ "WHERE EXISTS (varElementNode6.origPlaceOfIssue, varElementNode6.startDate, varElementNode6.endDate)\n"
+					+ "RETURN varElementNode6");
 			i++;
 			
 			//getNodesWhereMultiplePropertyExistsChecks (true)
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode6:Regesta)\n"
-					+ "WHERE NOT (EXISTS (varNode6.origPlaceOfIssue) AND EXISTS (varNode6.startDate) AND EXISTS (varNode6.endDate))\n"
-					+ "RETURN varNode6");
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode6:Regesta)\n"
+					+ "WHERE NOT (EXISTS (varElementNode6.origPlaceOfIssue)\n"
+					+ "   AND EXISTS (varElementNode6.startDate)\n"
+					+ "   AND EXISTS (varElementNode6.endDate))\n"
+					+ "RETURN varElementNode6");
 			i++;
 			
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5)\n"
+			//
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode5)\n"
 					+ "WHERE NOT (EXISTS {\n"
-					+ "                        MATCH (varNode6), (varNode7)\n"
-					+ "                        WHERE (varNode5.date = varNode6.startDate AND varNode5.date = varNode7.isoStartDate)})\n"
-					+ "RETURN varNode5");
+					+ "   MATCH (varElementNode6), (varElementNode7)\n"
+					+ "   WHERE (varElementNode5.date = varElementNode6.startDate\n"
+					+ "      AND varElementNode5.date = varElementNode7.isoStartDate)})\n"
+					+ "RETURN varElementNode5");
 			i++;
 			
 			assertTrue(NOT_ALL_PATTERN_HAVE_BEEN_CHECK, i == completePatterns.size());
