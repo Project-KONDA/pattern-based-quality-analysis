@@ -936,7 +936,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				StringBuilder conditionWhere = new StringBuilder(condition.generateCypher());
 				addWhiteSpacesForPreviewsCondition(conditionWhere, CypherSpecificConstants.THREE_WHITESPACES);
 				if (!cypherWhere.isEmpty()) {
-					conditionWhere.insert(0, "\n" + CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);					
+					conditionWhere.insert(0, CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);					
 				} else {
 					conditionWhere.insert(0, String.format(CypherSpecificConstants.CLAUSE_WHERE_INLUCE_W, CypherSpecificConstants.THREE_WHITESPACES) + CypherSpecificConstants.ONE_WHITESPACE);
 				}
