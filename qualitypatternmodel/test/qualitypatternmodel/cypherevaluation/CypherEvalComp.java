@@ -85,6 +85,7 @@ public class CypherEvalComp {
 			start = Instant.now();
 			
 			System.out.println(completePatternFundamental1.generateCypher());
+			System.out.println("--- Variant2 ---");
 			System.out.println(completePatternFundamental2.generateCypher());
 			
 			finish = Instant.now();
