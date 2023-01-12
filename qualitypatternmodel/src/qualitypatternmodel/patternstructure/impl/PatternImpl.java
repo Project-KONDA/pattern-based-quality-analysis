@@ -234,9 +234,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		if (!(condition instanceof CountConditionImpl)) {
 			String cond = condition.generateCypher();
 			if (!cond.isEmpty()) {
-//				if (!(getCondition() instanceof NotCondition)) {
-					cond = addWhiteSpacesForConditions(cond, whereClause);					
-//				}
+				cond = addWhiteSpacesForConditions(cond, whereClause);					
 				if (!whereClause.isEmpty() && !cond.isEmpty()) 
 					whereClause +=  "\n" + CypherSpecificConstants.THREE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND 
 									+ CypherSpecificConstants.ONE_WHITESPACE;
