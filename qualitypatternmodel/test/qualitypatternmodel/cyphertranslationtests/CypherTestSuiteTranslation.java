@@ -672,72 +672,71 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 		try {
 			new CypherTest03NotCondition().buildPatterns(completePatterns);
 			int i = 0;
-			System.out.println(completePatterns.get(i).generateCypher());
+
 			//getTestPattern1
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4:Literature)\n"
-					+ "WHERE NOT (EXISTS {\n"
-					+ "            MATCH (varNode4)<-[varEdge2]-(varNode5:Regesta)\n"
-					+ "            WHERE NOT (EXISTS {\n"
-					+ "                              MATCH (varNode5)-[varEdge4]->(varNode6:Reference)})})\n"
-					+ "RETURN varNode4");
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode4:Literature)\n"
+					+ "WHERE NOT (NOT (EXISTS {\n"
+					+ "   MATCH (varElementNode4)<-[varElementEdge2]-(varElementNode5:Regesta)\n"
+					+ "   WHERE NOT (EXISTS {\n"
+					+ "      MATCH (varElementNode5)-[varElementEdge4]->(varElementNode6:Reference)})}))\n"
+					+ "RETURN varElementNode4");
 			i++;
-			System.out.println(completePatterns.get(i).generateCypher());
+			
 			//getTestPattern1WithConditions
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode8:Literature)\n"
-					+ "WHERE (varNode8.title = \"BATTENBERG\"\n"
-					+ "            AND varNode8.url = \"http://opac.regesta-imperii.de/lang_de/kurztitelsuche_r.php?kurztitel=battenberg,_solmser_urkunden_1\")\n"
-					+ "            AND NOT (EXISTS {\r\n"
-					+ "                        MATCH (varNode8)<-[varEdge6]-(varNode9:Regesta)\n"
-					+ "                        WHERE (varNode9.isoStartDate = date('1439-12-20'))\n"
-					+ "                              AND NOT (EXISTS {\r\n"
-					+ "                                          MATCH (varNode9)-[varEdge11]->(varNode10:Reference)\n"
-					+ "                                          WHERE (varNode10.title = \"Kulpis Documenta S. 181f.\")})})\n"
-					+ "RETURN varNode8");
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode8:Literature)\n"
+					+ "WHERE (varElementNode8.title = \"BATTENBERG\"\n"
+					+ "   AND varElementNode8.url = \"http://opac.regesta-imperii.de/lang_de/kurztitelsuche_r.php?kurztitel=battenberg,_solmser_urkunden_1\")\n"
+					+ "   AND NOT (NOT (EXISTS {\n"
+					+ "      MATCH (varElementNode8)<-[varElementEdge6]-(varElementNode9:Regesta)\n"
+					+ "      WHERE (varElementNode9.isoStartDate = date('1439-12-20'))\n"
+					+ "         AND NOT (EXISTS {\n"
+					+ "            MATCH (varElementNode9)-[varElementEdge11]->(varElementNode10:Reference)\n"
+					+ "            WHERE (varElementNode10.title = \"Kulpis Documenta S. 181f.\")})}))\n"
+					+ "RETURN varElementNode8");
 			i++;
-			System.out.println(completePatterns.get(i).generateCypher());
+	
 			//getTestPattern2
-			System.out.println(completePatterns.get(i).generateCypher());
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\n"
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode5:Regesta)\n"
 					+ "WHERE NOT (EXISTS {\n"
-					+ "            MATCH (varNode5), (varNode5)-[varEdge4:APPEARS_IN]-(varNode6:IndexPerson), (varNode5)-[varEdge5:ACTION]-(varNode7:Action), (varNode5)-[varEdge6:RECIPIENT_IN]-(varNode8:IndexPlace)})\n"
-					+ "RETURN varNode5");
+					+ "   MATCH (varElementNode5), (varElementNode5)-[varElementEdge4:APPEARS_IN]-(varElementNode6:IndexPerson), (varElementNode5)-[varElementEdge5:ACTION]-(varElementNode7:Action), (varElementNode5)-[varElementEdge6:RECIPIENT_IN]-(varElementNode8:IndexPlace)})\n"
+					+ "RETURN varElementNode5");
 			i++;
-			System.out.println(completePatterns.get(i).generateCypher());
+
 			//getTestPattern5
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4:Regesta)\n"
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode4:Regesta)\n"
 					+ "WHERE EXISTS {\n"
-					+ "            MATCH (varNode4), (varNode4)<-[varEdge4:APPEARS_IN]-(varNode5:IndexPerson)-[varEdge5:IS_SUB_OF]-(varNode6:IndexPlace), (varNode4)-[varEdge6:RECIPIENT_IN]-(varNode6)}\n"
-					+ "RETURN varNode4");
+					+ "   MATCH (varElementNode4), (varElementNode4)<-[varElementEdge4:APPEARS_IN]-(varElementNode5:IndexPerson)-[varElementEdge5:IS_SUB_OF]-(varElementNode6:IndexPlace), (varElementNode4)-[varElementEdge6:RECIPIENT_IN]-(varElementNode6)}\n"
+					+ "RETURN varElementNode4");
 			i++;
-			System.out.println(completePatterns.get(i).generateCypher());
+			
 			//getNotExistsExists
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode5:Regesta)\n"
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode5:Regesta)\n"
 					+ "WHERE NOT (EXISTS {\n"
-					+ "            MATCH (varNode5)-[varEdge4:APPEARS_IN]-(varNode6:IndexPerson)\n"
-					+ "            WHERE EXISTS {\n"
-					+ "                        MATCH (varNode6)-[varEdge6]-(varNode7:Regesta)}})\n"
-					+ "RETURN varNode5");
+					+ "   MATCH (varElementNode5)-[varElementEdge4:APPEARS_IN]-(varElementNode6:IndexPerson)\n"
+					+ "   WHERE EXISTS {\n"
+					+ "      MATCH (varElementNode6)-[varElementEdge6]-(varElementNode7:Regesta)}})\n"
+					+ "RETURN varElementNode5");
 			i++;
-			System.out.println(completePatterns.get(i).generateCypher());
+			
 			//getNotNotPattern
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4)\n"
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode4)\n"
 					+ "WHERE EXISTS {\n"
-					+ "            MATCH (varNode4)-[varEdge4]-(varNode5)}\n"
-					+ "RETURN varNode4");
+					+ "   MATCH (varElementNode4)-[varElementEdge4]-(varElementNode5)}\n"
+					+ "RETURN varElementNode4");
 			i++;
-			System.out.println(completePatterns.get(i).generateCypher());
+		
 			//getNotNotPattern
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4)\n"
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode4)\n"
 					+ "WHERE NOT (EXISTS {\n"
-					+ "            MATCH (varNode4)-[varEdge4]-(varNode5)})\n"
-					+ "RETURN varNode4");
+					+ "   MATCH (varElementNode4)-[varElementEdge4]-(varElementNode5)})\n"
+					+ "RETURN varElementNode4");
 			i++;
-			System.out.println(completePatterns.get(i).generateCypher());
+			
 			//getNotNotNotNotPattern
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varNode4)\n"
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode4)\n"
 					+ "WHERE EXISTS {\n"
-					+ "            MATCH (varNode4)-[varEdge4]-(varNode5)}\n"
-					+ "RETURN varNode4");
+					+ "   MATCH (varElementNode4)-[varElementEdge4]-(varElementNode5)}\n"
+					+ "RETURN varElementNode4");
 			i++;
 			System.out.println(completePatterns.get(i).generateCypher());
 			//getNotNotNotNotNotPattern
