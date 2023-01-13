@@ -16,7 +16,7 @@ import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
-import qualitypatternmodel.adaptionneo4j.impl.NeoComplexEdgeImpl.InternalCount;
+import qualitypatternmodel.adaptionneo4j.impl.NeoComplexEdgeImpl.InternalCounter;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -789,11 +789,11 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	
 	/**
 	 * @author Lukas Sebastian Hofmann
-	 * @param InternalCount
+	 * @param InternalCounter
 	 * Given by the given InternalCount the edge count for this instance will be set.
 	 */
 	@Override
-	protected void setCount(InternalCount count) {
+	protected void setCount(InternalCounter count) {
 		setEdgeNumber(count.getCount());		
 	}
 } //SimpleEdgeImpl

@@ -496,14 +496,14 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	}
 	
 	//BEGIN - For counting the inner Edges
-	protected InternalCount count = null;
+	protected InternalCounter count = null;
 	
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return InternalCount
 	 * Get the internal counter for the Counting of the Edges.
 	 */
-	protected InternalCount getCount() {
+	protected InternalCounter getCount() {
 		if (count == null) {
 			count = createInternalCounter();
 		}
@@ -514,7 +514,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	 * @author Lukas Sebastian Hofmann
 	 * Sets the counter for the Counting of the Edges.
 	 */
-	protected void setCount(InternalCount count) {
+	protected void setCount(InternalCounter count) {
 		this.count = count;
 	}
 	
@@ -522,7 +522,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	 * @author Lukas Sebastian Hofmann
 	 * Sets the counter for every element in a NeoComplexEdge for the Counting of the Edges.
 	 */
-	protected void setCount(InternalCount count, NeoComplexEdge neoComplexEdge) {
+	protected void setCount(InternalCounter count, NeoComplexEdge neoComplexEdge) {
 		this.count = count;
 		for (NeoPathPart part : getNeoPathParts()) {
 			if (part instanceof NeoComplexEdge) {
@@ -546,17 +546,17 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	 * @return InternalCount
 	 * Creates the internal Counter.
 	 */
-	private InternalCount createInternalCounter() {
-		return new InternalCount();
+	private InternalCounter createInternalCounter() {
+		return new InternalCounter();
 	}
 	
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 *	This inner class provides the functionalities for the innerEdge counting. 
 	 */
-	protected final class InternalCount {
+	protected final class InternalCounter {
 		int counter = -1; 
-		private InternalCount() {
+		private InternalCounter() {
 			super();
 		}
 		

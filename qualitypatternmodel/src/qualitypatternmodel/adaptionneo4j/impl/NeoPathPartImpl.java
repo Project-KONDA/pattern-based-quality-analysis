@@ -16,7 +16,7 @@ import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
-import qualitypatternmodel.adaptionneo4j.impl.NeoComplexEdgeImpl.InternalCount;
+import qualitypatternmodel.adaptionneo4j.impl.NeoComplexEdgeImpl.InternalCounter;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
@@ -369,5 +369,5 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	
 	
 	//for the counting
-	protected abstract void setCount(InternalCount count);
+	protected abstract void setCount(InternalCounter count);
 } //NeoPathPartImpl
