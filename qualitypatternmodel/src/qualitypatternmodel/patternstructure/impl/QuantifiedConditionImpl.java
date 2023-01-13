@@ -1043,11 +1043,11 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			//This method appends Where
 			addGraphWhereToExistsProperty(cypher, result);	
 			//This removes the where since it is not needed. And removes unnecessary brackets
-			if (cypher.toString().contains(CypherSpecificConstants.CLAUSE_WHERE)) {
-				int lastIndex = cypher.toString().lastIndexOf(CypherSpecificConstants.CLAUSE_WHERE) + CypherSpecificConstants.CLAUSE_WHERE.length() + 2;
-				cypher.replace(0, lastIndex, new String());
-				cypher.replace(cypher.length() - 1, cypher.length(), new String());
-			}
+//			if (cypher.toString().contains(CypherSpecificConstants.CLAUSE_WHERE)) {
+//				int lastIndex = cypher.toString().lastIndexOf(CypherSpecificConstants.CLAUSE_WHERE) + CypherSpecificConstants.CLAUSE_WHERE.length() + 2;
+//				cypher.replace(0, lastIndex, new String());
+//				cypher.replace(cypher.length() - 1, cypher.length(), new String());
+//			}
 			if (!cond.toString().isBlank()) {
 				if (cypher.length() > 0) {
 					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE + cond);
@@ -1236,10 +1236,11 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				result += where;
 				cypher.append(result);
 			}
-		} else {
-			cypher.append(CypherSpecificConstants.CLAUSE_WHERE + CypherSpecificConstants.ONE_WHITESPACE);
-			cypher.append(where);			
-		}
+		} 
+//		else {
+//			cypher.append(CypherSpecificConstants.CLAUSE_WHERE + CypherSpecificConstants.ONE_WHITESPACE);
+//			cypher.append(where);			
+//		}
 	}
 
 	/**
