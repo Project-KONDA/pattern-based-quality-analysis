@@ -616,7 +616,7 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 					+ "   varPropertyEdge2, varPropertyEdge2_1,\n"
 					+ "   intEgNode2");
 			i++;
-		
+			System.out.println(completePatterns.get(i).generateCypher());
 			//getComplexEdgeWithLabelsDiffrentDirectionsAndAllReturns
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode7)\n"
 					+ "MATCH (varElementNode8)\n"

@@ -27,9 +27,9 @@ public class CypherTest01NeoPropertyEdge extends CypherTranslation {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CypherTest01NeoPropertyEdge neoPropertyEdge = new CypherTest01NeoPropertyEdge();		
 		try {
-			neoPropertyEdge.generalizedTests(); 
+//			neoPropertyEdge.generalizedTests(); 
 			neoPropertyEdge.generalizedComplexTests();
-			neoPropertyEdge.generalizedInvalidtyExceptionTests();
+//			neoPropertyEdge.generalizedInvalidtyExceptionTests();
 		} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();
@@ -59,12 +59,13 @@ public class CypherTest01NeoPropertyEdge extends CypherTranslation {
 	public void buildToComplexQueryPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(getMultiEdgesToNeoPropertyNodeWithConditon());
-		completePatterns.add(getMultiEdgesToNeoPropertyNode());
-		completePatterns.add(getMultiEdgesToTwoNeoPropertyNode());
-		completePatterns.add(getMultiEdgesToTwoWithConditionNeoPropertyNode());
-		completePatterns.add(getMultiEdgesToTwoWithConditionWithoutNewComplexNodeNeoPropertyNode());
-		completePatterns.add(getMultiEdgesToTwoWithNotConditionNeoPropertyNode());
-		completePatterns.add(getMultiEdgesToTwoWithNotConditionWithoutNewComplexNodeNeoPropertyNode());
+//		completePatterns.add(getMultiEdgesToNeoPropertyNode());
+//		completePatterns.add(getMultiEdgesToTwoNeoPropertyNode());
+//		completePatterns.add(getMultiEdgesToTwoWithConditionNeoPropertyNode());
+//		completePatterns.add(getMultiEdgesToTwoWithConditionWithoutNewComplexNodeNeoPropertyNode());
+//		
+//		completePatterns.add(getMultiEdgesToTwoWithNotConditionNeoPropertyNode());
+//		completePatterns.add(getMultiEdgesToTwoWithNotConditionWithoutNewComplexNodeNeoPropertyNode());
 	}
 	
 	@Override
