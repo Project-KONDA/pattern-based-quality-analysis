@@ -35,7 +35,8 @@ public class CypherTest03NotCondition extends CypherTranslation {
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
     	CypherTranslation not = new CypherTest03NotCondition();
     	try {
-        	not.generalizedTests();         
+        	not.generalizedTests();  
+        	not.generalizedComplexTests();
         	not.generalizedInvalidtyExceptionTests();
     	} catch (Exception e) {
 			System.out.println(e);
@@ -55,6 +56,13 @@ public class CypherTest03NotCondition extends CypherTranslation {
 		completePatterns.add(getNotNotNotPattern());
 		completePatterns.add(getNotNotNotNotPattern());
 		completePatterns.add(getNotNotNotNotNotPattern());
+	}
+    
+	@Override
+	public void buildToComplexQueryPatterns(ArrayList<CompletePattern> completePatterns)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		completePatterns.add(getMultiEdgesToTwoWithNotConditionNeoPropertyNode());
+		completePatterns.add(getMultiEdgesToTwoWithNotConditionWithoutNewComplexNodeNeoPropertyNode());
 	}
     
 	@Override
@@ -583,6 +591,87 @@ public class CypherTest03NotCondition extends CypherTranslation {
 		return completePattern;
 	}
 	
+	//Build on
+	//	- CypherTest01NeoPropertyEdge.buildMultiEdgesToNeoPropertyNode()
+	//	- CypherTest01NeoPropertyEdge.concretizesMultiEdgesToNeoPropertyNode(completePattern);
+
+	private CompletePattern getMultiEdgesToTwoWithNotConditionNeoPropertyNode() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = CypherTest01NeoPropertyEdge.buildMultiEdgesToNeoPropertyNode();
+		
+		Graph g = completePattern.getGraph();
+		PrimitiveNode primitiveNode = g.addPrimitiveNode();
+		ComplexNode complexNode1 = (ComplexNode) g.getNodes().get(0);
+		g.addRelation(complexNode1, primitiveNode);
+		ComplexNode complexNode2 = (ComplexNode) g.getNodes().get(0);
+		g.addRelation(complexNode2, primitiveNode);
+		ComplexNode complexNode3 = (ComplexNode) g.getNodes().get(2);
+		g.addRelation(complexNode3, primitiveNode);
+		
+		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		completePattern.setCondition(quantifiedCondition);
+		PrimitiveNode innerPrimitiveNode = (PrimitiveNode) quantifiedCondition.getGraph().getNodes().get(1);
+		ComplexNode innerComplexNode1 = quantifiedCondition.getGraph().addComplexNode();
+		quantifiedCondition.getGraph().addRelation(innerComplexNode1, innerPrimitiveNode);
+		
+		completePattern.createNeo4jAdaption();
+		
+		CypherTest01NeoPropertyEdge.concretizesMultiEdgesToNeoPropertyNode(completePattern);
+		
+		g = completePattern.getGraph();
+		NeoPropertyEdge npe = (NeoPropertyEdge) g.getRelations().get(g.getRelations().size() - 3);
+		npe.getNeoPropertyPathParam().setNeoPropertyName("TestValue1");
+		npe = (NeoPropertyEdge) g.getRelations().get(g.getRelations().size() - 2);
+		npe.getNeoPropertyPathParam().setNeoPropertyName("TestValue2");
+		npe = (NeoPropertyEdge) g.getRelations().get(g.getRelations().size() - 1);
+		npe.getNeoPropertyPathParam().setNeoPropertyName("TestValue3");
+		
+		g = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
+		npe = (NeoPropertyEdge) g.getRelations().get(g.getRelations().size() - 1);
+		npe.getNeoPropertyPathParam().setNeoPropertyName("TestValue4");
+		
+		return completePattern;
+	}
+	
+	//Build on
+	//	- CypherTest01NeoPropertyEdge.buildMultiEdgesToNeoPropertyNode()
+	//	- CypherTest01NeoPropertyEdge.concretizesMultiEdgesToNeoPropertyNode(completePattern);
+	private CompletePattern getMultiEdgesToTwoWithNotConditionWithoutNewComplexNodeNeoPropertyNode() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = CypherTest01NeoPropertyEdge.buildMultiEdgesToNeoPropertyNode();
+		
+		Graph g = completePattern.getGraph();
+		PrimitiveNode primitiveNode = g.addPrimitiveNode();
+		ComplexNode complexNode1 = (ComplexNode) g.getNodes().get(0);
+		g.addRelation(complexNode1, primitiveNode);
+		ComplexNode complexNode2 = (ComplexNode) g.getNodes().get(0);
+		g.addRelation(complexNode2, primitiveNode);
+		ComplexNode complexNode3 = (ComplexNode) g.getNodes().get(2);
+		g.addRelation(complexNode3, primitiveNode);
+		
+		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		completePattern.setCondition(quantifiedCondition);
+		PrimitiveNode innerPrimitiveNode = (PrimitiveNode) quantifiedCondition.getGraph().getNodes().get(1);
+		ComplexNode innerComplexNode1 = (ComplexNode) quantifiedCondition.getGraph().getNodes().get(0);
+		quantifiedCondition.getGraph().addRelation(innerComplexNode1, innerPrimitiveNode);
+		
+		completePattern.createNeo4jAdaption();
+		
+		CypherTest01NeoPropertyEdge.concretizesMultiEdgesToNeoPropertyNode(completePattern);
+		
+		g = completePattern.getGraph();
+		NeoPropertyEdge npe = (NeoPropertyEdge) g.getRelations().get(g.getRelations().size() - 3);
+		npe.getNeoPropertyPathParam().setNeoPropertyName("TestValue1");
+		npe = (NeoPropertyEdge) g.getRelations().get(g.getRelations().size() - 2);
+		npe.getNeoPropertyPathParam().setNeoPropertyName("TestValue2");
+		npe = (NeoPropertyEdge) g.getRelations().get(g.getRelations().size() - 1);
+		npe.getNeoPropertyPathParam().setNeoPropertyName("TestValue3");
+		
+		g = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
+		npe = (NeoPropertyEdge) g.getRelations().get(g.getRelations().size() - 1);
+		npe.getNeoPropertyPathParam().setNeoPropertyName("TestValue4");
+		
+		return completePattern;
+	}
+	
 	//FACTORY-METHODS
 	private static CompletePattern getNotCondBasePattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = CypherTranslation.getBasePattern();
@@ -591,13 +680,6 @@ public class CypherTest03NotCondition extends CypherTranslation {
 	    completePattern.setCondition(notCond);
 	    
 	    return completePattern;
-	}
-
-	@Override
-	public void buildToComplexQueryPatterns(ArrayList<CompletePattern> completePatterns)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

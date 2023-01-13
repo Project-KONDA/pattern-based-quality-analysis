@@ -163,6 +163,9 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 	public void cypherTest03NotCondition() {		
 		assertDoesNotThrow(() -> {new CypherTest03NotCondition().buildPatterns(completePatterns); 
 		tester(completePatterns);});
+		completePatterns.clear();
+		assertDoesNotThrow(() -> {new CypherTest01NeoPropertyEdge().buildToComplexQueryPatterns(completePatterns); 
+		testerForToComplexQueries(completePatterns);});
 	}
 
 	public void cypherTest03NotConditionExceptions() {		
@@ -616,14 +619,14 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 					+ "   varPropertyEdge2, varPropertyEdge2_1,\n"
 					+ "   intEgNode2");
 			i++;
-			System.out.println(completePatterns.get(i).generateCypher());
+			
 			//getComplexEdgeWithLabelsDiffrentDirectionsAndAllReturns
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode7)\n"
 					+ "MATCH (varElementNode8)\n"
 					+ "MATCH (varElementNode9)-[varPropertyEdge6]-(varPropertyNode10_6:Regesta)\n"
 					+ "MATCH (varElementNode11)-[varPropertyEdge8]-(varPropertyNode10_8:Regesta)\n"
 					+ "WHERE (varElementNode7.placeOfIssue = varElementNode8.placeOfIssue AND varElementNode7.placeOfIssue = varPropertyNode10_6.placeOfIssue AND varElementNode7.placeOfIssue = varPropertyNode10_8.placeOfIssue)\n"
-					+ "   AND NOT (varElementNode7.placeOfIssue = varElementNode8.placeOfIssue)\n"
+					+ "   AND NOT ((varElementNode7.placeOfIssue = varElementNode8.placeOfIssue))\n"
 					+ "RETURN varElementNode7");
 			i++;
 		
@@ -635,16 +638,42 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 					+ "WHERE (varElementNode6.placeOfIssue = varElementNode7.placeOfIssue AND varElementNode6.placeOfIssue = varPropertyNode9_5.placeOfIssue AND varElementNode6.placeOfIssue = varPropertyNode9_6.placeOfIssue)\n"
 					+ "RETURN varElementNode6");
 			i++;	
-			System.out.println(completePatterns.get(i).generateCypher());
+		
 			//getMultiEdgesToTwoNeoPropertyNode
-			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode6)\n"
-					+ "MATCH (varElementNode7)\n"
-					+ "MATCH (varElementNode8)-[varPropertyEdge5]-(varPropertyNode9_5:Regesta)\n"
-					+ "MATCH (varElementNode10)-[varPropertyEdge6]-(varPropertyNode9_6:Regesta)\n"
-					+ "WHERE (varElementNode6.placeOfIssue = varElementNode7.placeOfIssue AND varElementNode6.placeOfIssue = varPropertyNode9_5.placeOfIssue AND varElementNode6.placeOfIssue = varPropertyNode9_6.placeOfIssue)\n"
-					+ "RETURN varElementNode6");
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode7)\n"
+					+ "MATCH (varElementNode8)-[varPropertyEdge8]-(varPropertyNode9_8:Regesta)\n"
+					+ "MATCH (varElementNode10)-[varPropertyEdge9]-(varPropertyNode11_9:Regesta)\n"
+					+ "MATCH (varElementNode12)\n"
+					+ "WHERE (varElementNode7.placeOfIssue = varElementNode8.placeOfIssue AND varElementNode7.placeOfIssue = varPropertyNode11_9.placeOfIssue AND varElementNode7.placeOfIssue = varElementNode12.placeOfIssue\n"
+					+ "   AND varElementNode7.TestValue1 = varElementNode7.TestValue2 AND varElementNode7.TestValue1 = varPropertyNode9_8.TestValue3)\n"
+					+ "RETURN varElementNode7");
 			i++;			
-//			assertTrue(NOT_ALL_PATTERN_HAVE_BEEN_CHECK, i == completePatterns.size());
+		
+			//getMultiEdgesToTwoNeoPropertyNode
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode8)\n"
+					+ "MATCH (varElementNode9)-[varPropertyEdge14]-(varPropertyNode10_14:Regesta)\n"
+					+ "MATCH (varElementNode11)-[varPropertyEdge6]-(varPropertyNode12_6:Regesta)\n"
+					+ "MATCH (varElementNode13)\n"
+					+ "WHERE (varElementNode8.placeOfIssue = varElementNode9.placeOfIssue AND varElementNode8.placeOfIssue = varPropertyNode12_6.placeOfIssue AND varElementNode8.placeOfIssue = varElementNode13.placeOfIssue\n"
+					+ "   AND varElementNode8.TestValue1 = varElementNode8.TestValue2 AND varElementNode8.TestValue1 = varPropertyNode10_14.TestValue3)\n"
+					+ "   AND EXISTS {\n"
+					+ "      MATCH (varElementNode14)\n"
+					+ "      WHERE (varElementNode8.placeOfIssue = varElementNode14.TestValue4)}\n"
+					+ "RETURN varElementNode8");
+			i++;			
+	
+			//getMultiEdgesToTwoNeoPropertyNode
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode7)\n"
+					+ "MATCH (varElementNode8)-[varPropertyEdge14]-(varPropertyNode9_14:Regesta)\n"
+					+ "MATCH (varElementNode10)-[varPropertyEdge6]-(varPropertyNode11_6:Regesta)\n"
+					+ "MATCH (varElementNode12)\n"
+					+ "WHERE (varElementNode7.placeOfIssue = varElementNode8.placeOfIssue AND varElementNode7.placeOfIssue = varPropertyNode11_6.placeOfIssue AND varElementNode7.placeOfIssue = varElementNode12.placeOfIssue\n"
+					+ "   AND varElementNode7.TestValue1 = varElementNode7.TestValue2 AND varElementNode7.TestValue1 = varPropertyNode9_14.TestValue3)\n"
+					+ "   AND (varElementNode7.placeOfIssue = varElementNode7.TestValue4)\n"
+					+ "RETURN varElementNode7");
+			i++;
+					
+			assertTrue(NOT_ALL_PATTERN_HAVE_BEEN_CHECK, i == completePatterns.size());
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
@@ -685,6 +714,7 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 	public void cypherTest03NotConditionQueryComp() {		
 		try {
 			new CypherTest03NotCondition().buildPatterns(completePatterns);
+			new CypherTest03NotCondition().buildToComplexQueryPatterns(completePatterns);
 			int i = 0;
 
 			//getTestPattern1
@@ -758,6 +788,30 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 					+ "WHERE NOT (EXISTS {\n"
 					+ "   MATCH (varElementNode4)-[varElementEdge4]-(varElementNode5)})\n"
 					+ "RETURN varElementNode4");
+			i++;			
+			
+			//getMultiEdgesToTwoWithNotConditionNeoPropertyNode
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode8)\n"
+					+ "MATCH (varElementNode9)-[varPropertyEdge14]-(varPropertyNode10_14:Regesta)\n"
+					+ "MATCH (varElementNode11)-[varPropertyEdge6]-(varPropertyNode12_6:Regesta)\n"
+					+ "MATCH (varElementNode13)\n"
+					+ "WHERE (varElementNode8.placeOfIssue = varElementNode9.placeOfIssue AND varElementNode8.placeOfIssue = varPropertyNode12_6.placeOfIssue AND varElementNode8.placeOfIssue = varElementNode13.placeOfIssue\n"
+					+ "   AND varElementNode8.TestValue1 = varElementNode8.TestValue2 AND varElementNode8.TestValue1 = varPropertyNode10_14.TestValue3)\n"
+					+ "   AND EXISTS {\n"
+					+ "      MATCH (varElementNode14)\n"
+					+ "      WHERE (varElementNode8.placeOfIssue = varElementNode14.TestValue4)}\n"
+					+ "RETURN varElementNode8");
+			i++;
+	
+			//getMultiEdgesToTwoWithNotConditionWithoutNewComplexNodeNeoPropertyNode
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode7)\n"
+					+ "MATCH (varElementNode8)-[varPropertyEdge14]-(varPropertyNode9_14:Regesta)\n"
+					+ "MATCH (varElementNode10)-[varPropertyEdge6]-(varPropertyNode11_6:Regesta)\n"
+					+ "MATCH (varElementNode12)\n"
+					+ "WHERE (varElementNode7.placeOfIssue = varElementNode8.placeOfIssue AND varElementNode7.placeOfIssue = varPropertyNode11_6.placeOfIssue AND varElementNode7.placeOfIssue = varElementNode12.placeOfIssue\n"
+					+ "   AND varElementNode7.TestValue1 = varElementNode7.TestValue2 AND varElementNode7.TestValue1 = varPropertyNode9_14.TestValue3)\n"
+					+ "   AND (varElementNode7.placeOfIssue = varElementNode7.TestValue4)\n"
+					+ "RETURN varElementNode7");
 			i++;
 			
 			assertTrue(NOT_ALL_PATTERN_HAVE_BEEN_CHECK, i == completePatterns.size());

@@ -1230,7 +1230,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				result += where;
 				cypher.append(result);
 			}
-		} 
+		} else {
+			cypher.append(where);
+		}
 	}
 
 	/**
