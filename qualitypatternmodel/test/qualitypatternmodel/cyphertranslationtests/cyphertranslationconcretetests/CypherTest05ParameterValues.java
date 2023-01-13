@@ -96,18 +96,17 @@ public class CypherTest05ParameterValues extends CypherTranslation {
 		completePatterns.add(completePattern);
 	}
 	
-	//Warum werden einige Fälle nicht grün hervorgehoben --> Obwohl es abgetestet wird?
 	@Override
 	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
-		completePatternsExceptions.add(textLiteralParamException());
-		completePatternsExceptions.add(textListParamException());
-		completePatternsExceptions.add(multiListParamException());
-		completePatternsExceptions.add(numberParamException());
-		completePatternsExceptions.add(booleanParamException());
-		completePatternsExceptions.add(dateParamException());
-		completePatternsExceptions.add(timeParamException());
-		completePatternsExceptions.add(dateTimeParamException());
+		completePatternsExceptions.add(generateTextLiteralParamException());
+		completePatternsExceptions.add(generateTextListParamException());
+		completePatternsExceptions.add(generateMultiListParamException());
+		completePatternsExceptions.add(generateNumberParamException());
+		completePatternsExceptions.add(generateBooleanParamException());
+		completePatternsExceptions.add(generateDateParamException());
+		completePatternsExceptions.add(generateTimeParamException());
+		completePatternsExceptions.add(generateDateTimeParamException());
 	}
 	
 	private CompletePattern getConcreteComparisonPattern(ParameterValue parameter, String propertyName) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -190,7 +189,7 @@ public class CypherTest05ParameterValues extends CypherTranslation {
 	}
 	
 	//Exceptions
-	private CompletePattern textLiteralParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private CompletePattern generateTextLiteralParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		TextLiteralParam textParam = new TextLiteralParamImpl();
 		textParam.setValue(null);
 		CompletePattern completePattern = getConcreteComparisonPattern(textParam, "countryName");
@@ -200,7 +199,7 @@ public class CypherTest05ParameterValues extends CypherTranslation {
 	
 
 	
-	private CompletePattern textListParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
+	private CompletePattern generateTextListParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
 		TextListParam listParam = new TextListParamImpl();
 		Field f = getFieldValuesFromListParam();
 		f.set(listParam, new BasicEList<String>());	
@@ -209,7 +208,7 @@ public class CypherTest05ParameterValues extends CypherTranslation {
 		return completePattern;
 	}
 	
-	private CompletePattern multiListParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException {
+	private CompletePattern generateMultiListParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException {
 		MultiListParam multiListParam = new MultiListParamImpl();
 		Field f = getFieldValuesFromListParam();
 		f.set(multiListParam, new BasicEList<String>());
@@ -225,7 +224,7 @@ public class CypherTest05ParameterValues extends CypherTranslation {
 		return f;
 	}
 	
-	private CompletePattern numberParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private CompletePattern generateNumberParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		NumberParam numberParam = new NumberParamImpl();
 		numberParam.setValue(null);	
 		CompletePattern completePattern = getConcreteComparisonPattern(numberParam, "countryId");
@@ -233,7 +232,7 @@ public class CypherTest05ParameterValues extends CypherTranslation {
 		return completePattern;
 	}
 		
-	private CompletePattern booleanParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private CompletePattern generateBooleanParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		BooleanParam booleanParam = new BooleanParamImpl();
 		booleanParam.setValue(null);
 		CompletePattern completePattern = getConcreteComparisonPattern(booleanParam, "isCountry");
@@ -241,7 +240,7 @@ public class CypherTest05ParameterValues extends CypherTranslation {
 		return completePattern;
 	}
 	
-	private CompletePattern dateParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private CompletePattern generateDateParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		DateParam dateParam = new DateParamImpl();
 		dateParam.setValue(null);	
 		CompletePattern completePattern = getConcreteComparisonPattern(dateParam, "bornOn");
@@ -249,7 +248,7 @@ public class CypherTest05ParameterValues extends CypherTranslation {
 		return completePattern;
 	}
 	
-	private CompletePattern timeParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private CompletePattern generateTimeParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		TimeParam timeParam = new TimeParamImpl();
 		timeParam.setValue(null);		
 		CompletePattern completePattern = getConcreteComparisonPattern(timeParam, "bornOn");
@@ -257,7 +256,7 @@ public class CypherTest05ParameterValues extends CypherTranslation {
 		return completePattern;
 	}
 	
-	private CompletePattern dateTimeParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private CompletePattern generateDateTimeParamException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		DateTimeParam dateTimeParam = new DateTimeParamImpl();
 		dateTimeParam.setValue(null);	
 		CompletePattern completePattern = getConcreteComparisonPattern(dateTimeParam, "bornOn");

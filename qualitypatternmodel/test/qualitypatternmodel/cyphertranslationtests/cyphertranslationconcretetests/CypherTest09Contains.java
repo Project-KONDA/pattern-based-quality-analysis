@@ -49,10 +49,10 @@ public class CypherTest09Contains extends CypherTranslation {
 	@Override
 	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
-		completePatternsExceptions.add(optionIsNull());
-		completePatternsExceptions.add(contentIsNull());
-		completePatternsExceptions.add(contentValueIsNull());
-		completePatternsExceptions.add(primitiveNodeIsNull());
+		completePatternsExceptions.add(generateOptionIsNullException());
+		completePatternsExceptions.add(generateContentIsNullException());
+		completePatternsExceptions.add(generateContentValueIsNullException());
+		completePatternsExceptions.add(generatePrimitiveNodeIsNullException());
 	}
     
     private void makeConcrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -126,21 +126,21 @@ public class CypherTest09Contains extends CypherTranslation {
 	
 	//Exceptions
     
-    private CompletePattern optionIsNull() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+    private CompletePattern generateOptionIsNullException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
     	CompletePattern completePattern = getPatternContains(true, CypherTest09Contains.LINK);
     	Contains contains = (Contains) completePattern.getGraph().getAllOperators().get(0);
     	contains.setOption(null);
     	return completePattern;
     }
     
-    private CompletePattern contentIsNull() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+    private CompletePattern generateContentIsNullException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
     	CompletePattern completePattern = getPatternContains(true, CypherTest09Contains.LINK);
     	Contains contains = (Contains) completePattern.getGraph().getAllOperators().get(0);
     	contains.setContent(null);
     	return completePattern;
     }
     
-    private CompletePattern contentValueIsNull() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+    private CompletePattern generateContentValueIsNullException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
     	CompletePattern completePattern = getPatternContains(true, CypherTest09Contains.LINK);
     	Contains contains = (Contains) completePattern.getGraph().getAllOperators().get(0);
     	TextLiteralParam tp = new TextLiteralParamImpl();
@@ -148,7 +148,7 @@ public class CypherTest09Contains extends CypherTranslation {
     	return completePattern;
     }
     
-    private CompletePattern primitiveNodeIsNull() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+    private CompletePattern generatePrimitiveNodeIsNullException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
     	CompletePattern completePattern = getPatternContains(true, CypherTest09Contains.LINK);
     	Contains contains = (Contains) completePattern.getGraph().getAllOperators().get(0);
     	Class<ContainsImpl> c = ContainsImpl.class;

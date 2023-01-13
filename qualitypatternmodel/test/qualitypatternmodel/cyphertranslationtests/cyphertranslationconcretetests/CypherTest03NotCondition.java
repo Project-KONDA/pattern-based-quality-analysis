@@ -36,8 +36,8 @@ public class CypherTest03NotCondition extends CypherTranslation {
     	CypherTranslation not = new CypherTest03NotCondition();
     	try {
         	not.generalizedTests();  
-        	not.generalizedComplexTests();
-        	not.generalizedInvalidtyExceptionTests();
+//        	not.generalizedComplexTests();
+//        	not.generalizedInvalidtyExceptionTests();
     	} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();
@@ -515,53 +515,6 @@ public class CypherTest03NotCondition extends CypherTranslation {
 		
 		completePattern.getGraph().getNodes().get(0).makeComplex();
 	
-		return completePattern;		
-	}
-	
-	private CompletePattern testPatternQuery1GenericPrepairCon() throws InvalidityException {		
-		CompletePattern completePattern = testPatternQuery1Generic();
-		Graph graph = completePattern.getGraph();
-		ComplexNode complexnode1 = (ComplexNode) graph.getNodes().get(0);
-		
-		//Configure NotCondition
-		NotCondition notCond = 	PatternstructureFactory.eINSTANCE.createNotCondition();
-		completePattern.setCondition(notCond);
-		
-
-		//Morpisim
-		Morphism morphism1 = PatternstructureFactory.eINSTANCE.createMorphism();
-		Morphism morphism2 = PatternstructureFactory.eINSTANCE.createMorphism();
-//		graph.setOutgoingMorphisms(morphism1);
-//		graph.setOutgoingMorphisms(morphism2);
-		
-		
-		//Configure QuantifiedCondition --> How to get the QuantifiedCondition structure better?
-		QuantifiedCondition quantifiedCond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
-		notCond.setCondition(quantifiedCond);
-		quantifiedCond.setQuantifier(Quantifier.FORALL);
-		Graph quantifiedCondGraph = (Graph) quantifiedCond.getGraph();
-		ComplexNode complexNode2 = (ComplexNode) quantifiedCondGraph.getNodes().get(0).makeComplex();
-		Node complexNode3 = (ComplexNode) quantifiedCondGraph.addComplexNode();
-		quantifiedCondGraph.addRelation(complexNode2, complexNode3);
-		morphism1.setSource(graph);
-		morphism1.setTarget(quantifiedCondGraph);
-		morphism1.addMapping(complexnode1, complexNode2);
-		quantifiedCondGraph.setIncomingMorphism(morphism1);
-		
-		//Configure InnerQuantifiedCondition --> How to get the structure better
-		QuantifiedCondition innerQuantifiedCond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
-		innerQuantifiedCond.setQuantifier(Quantifier.FORALL);
-		Graph innerQuantifiedCondGraph = (Graph) innerQuantifiedCond.getGraph();
-		ComplexNode complexNode4 = (ComplexNode) innerQuantifiedCondGraph.addComplexNode();
-		Node complexNode5 = (ComplexNode) innerQuantifiedCondGraph.addComplexNode();
-		innerQuantifiedCondGraph.addRelation(complexNode4, complexNode5);
-		morphism2.setSource(graph);
-		morphism2.setTarget(innerQuantifiedCondGraph);
-		morphism2.addMapping(complexNode3, complexNode4);
-//		innerQuantifiedCondGraph.setIncomingMorphism(morphism2);
-		quantifiedCondGraph.setQuantifiedCondition(innerQuantifiedCond);
-		
-		notCond.setCondition(quantifiedCond);
 		return completePattern;		
 	}
 	

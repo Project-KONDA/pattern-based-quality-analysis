@@ -42,13 +42,11 @@ public class CypherTest02Return extends CypherTranslation {
 	}
 	
 	@Override
-	public  void buildPatterns(ArrayList<CompletePattern> completePatterns)
+	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(getAllPossibleReturnTypes());		
 		completePatterns.add(getAllPossibleReturnTypesWithTwoRelationsToNeoPropertyNode());
 	}
-	
-
 	
 	private CompletePattern getAllPossibleReturnTypes() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
 		CompletePattern compltePattern = CypherTest02Return.getBasePatternReturn();
