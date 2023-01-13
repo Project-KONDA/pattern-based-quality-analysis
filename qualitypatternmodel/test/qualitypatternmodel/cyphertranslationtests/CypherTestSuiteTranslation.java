@@ -634,6 +634,15 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 					+ "MATCH (varElementNode10)-[varPropertyEdge6]-(varPropertyNode9_6:Regesta)\n"
 					+ "WHERE (varElementNode6.placeOfIssue = varElementNode7.placeOfIssue AND varElementNode6.placeOfIssue = varPropertyNode9_5.placeOfIssue AND varElementNode6.placeOfIssue = varPropertyNode9_6.placeOfIssue)\n"
 					+ "RETURN varElementNode6");
+			i++;	
+			System.out.println(completePatterns.get(i).generateCypher());
+			//getMultiEdgesToTwoNeoPropertyNode
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode6)\n"
+					+ "MATCH (varElementNode7)\n"
+					+ "MATCH (varElementNode8)-[varPropertyEdge5]-(varPropertyNode9_5:Regesta)\n"
+					+ "MATCH (varElementNode10)-[varPropertyEdge6]-(varPropertyNode9_6:Regesta)\n"
+					+ "WHERE (varElementNode6.placeOfIssue = varElementNode7.placeOfIssue AND varElementNode6.placeOfIssue = varPropertyNode9_5.placeOfIssue AND varElementNode6.placeOfIssue = varPropertyNode9_6.placeOfIssue)\n"
+					+ "RETURN varElementNode6");
 			i++;			
 			assertTrue(NOT_ALL_PATTERN_HAVE_BEEN_CHECK, i == completePatterns.size());
 		} catch (Exception e) {

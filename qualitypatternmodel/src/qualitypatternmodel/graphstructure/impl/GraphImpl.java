@@ -414,13 +414,13 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	private final String generateComparisonsOfSameNeoPropertyNodes() throws InvalidityException {
 		final StringBuilder cypher = new StringBuilder();
-		boolean first = true;
 		for (Node n : this.getNodes()) {
-			if (!first) {
-				cypher.append("\n" + CypherSpecificConstants.THREE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
-				first = false;
+			if (n instanceof NeoPropertyNode) {
+				if (!cypher.isEmpty()) {
+					cypher.append("\n" + CypherSpecificConstants.THREE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
+				} 
+				fillBuilderWithNeoPropertyNodeComps(cypher, n);
 			}
-			fillBuilderWithNeoPropertyNodeComps(cypher, n);
 		}
 		String resultCypher = new String(); 
 		if (!(cypher.length() == 0)) {
