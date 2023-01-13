@@ -4,7 +4,7 @@
     <semanticResources>qualitypatternmodel.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_A2WtQB2REeqrGqxc7qjo8A">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name=" class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="daf363ec-eb6e-4c6f-a2d8-52b9d516d387">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name=" class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="ae56bf34-4177-4bcc-bbe1-bc7a3f6192b2">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="qualitypatternmodel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -4631,10 +4631,10 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ot3XFcrTEeysRuROHE0Ryg" x="10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_Ot3XFsrTEeysRuROHE0Ryg" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ot3XF8rTEeysRuROHE0Ryg" x="-10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ot3XF8rTEeysRuROHE0Ryg" x="2" y="87"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_Ot3XGMrTEeysRuROHE0Ryg" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ot3XGcrTEeysRuROHE0Ryg" x="-2" y="47"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ot3XGcrTEeysRuROHE0Ryg" x="2" y="56"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_Ot3XEcrTEeysRuROHE0Ryg" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_Ot3XEsrTEeysRuROHE0Ryg" fontName="Segoe UI" fontHeight="8"/>

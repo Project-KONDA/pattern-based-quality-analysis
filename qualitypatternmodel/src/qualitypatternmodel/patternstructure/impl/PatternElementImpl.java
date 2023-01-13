@@ -642,7 +642,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String toString() {
@@ -652,7 +652,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 		result.append(" (id: ");
 		result.append(id);
 		result.append(", internalId: ");
-		result.append(internalId);
+		result.append(getInternalId());
 		result.append(')');
 		return result.toString();
 	}

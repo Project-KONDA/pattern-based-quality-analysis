@@ -683,7 +683,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	@Override
 	public void replace(ParameterValue concreteValue) {
 		
-		if(isTypeModifiable()) {		
+		if(isTypeModifiable()) {
 			
 			int index = getParameterList().getParameters().indexOf(this);
 			if (concreteValue.getParameterList() != getParameterList())
@@ -705,8 +705,8 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 			EList<ParameterReference> fragmentCopy = new BasicEList<ParameterReference>();
 			fragmentCopy.addAll(getParameterReferences());
 			for(ParameterReference fragment : fragmentCopy) {
-				fragment.getParameter().add(concreteValue);
 				fragment.getParameter().remove(this);
+				fragment.getParameter().add(concreteValue);
 			}
 			
 			concreteValue.setTypeModifiable(true);

@@ -117,11 +117,34 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 	
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
+		XmlPropertyKind result = null;
+		String attName = "";
 		for(XmlPropertyKind kind : XmlPropertyKind.values()) {
-			if(kind.getName().equals(value)) {			
-				setValueIfValid(kind);
+			if(kind.getName().equals(value)) {	
+				result = kind;
+				break;
 			}
-		}		
+		}
+		if (result == null) {
+			if (value == "data()")
+				result = XmlPropertyKind.DATA;
+			else if (value == "name()")
+				result = XmlPropertyKind.TAG;
+			else if (value.startsWith("@")) {
+				attName = value.substring(1);
+				if (!attName.matches("[a-zA-Z0-9]+"))
+					throw new InvalidityException("new property kind value invalid in " + myToString() + ": " + value);
+				result = XmlPropertyKind.ATTRIBUTE;
+			}
+		}
+		
+		if (result != null) {
+			setValueIfValid(result);
+			if (result == XmlPropertyKind.ATTRIBUTE) {
+				getAttributeName().setValue(attName);
+			}
+		} else 
+			throw new InvalidityException("new property kind value invalid in " + myToString() + ": " + value);
 	}
 	
 	@Override

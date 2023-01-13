@@ -104,7 +104,7 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 		if (getParameterList() == null)
 			throw new InvalidityException("variableList null" + " (" + getInternalId() + ")");
 		if ((abstractionLevel == AbstractionLevel.CONCRETE && !inputIsValid()))
-			throw new InvalidityException("input missing or invalid" + " (" + getInternalId() + ")");
+			throw new InvalidityException("input missing or invalid " + myToString()); // " (" + getInternalId() + ")");
 		if(isPredefined() && !inputIsValid()) {
 			throw new InvalidityException("predefined input invalid" + " (" + getInternalId() + ")");
 		}
