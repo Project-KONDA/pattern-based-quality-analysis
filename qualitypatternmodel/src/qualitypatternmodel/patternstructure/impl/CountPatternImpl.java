@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import qualitypatternmodel.adaptionneo4j.NeoEdge;
 import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoPlace;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
@@ -177,9 +178,14 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 			cypher.append(CypherSpecificConstants.CLAUSE_MATCH + CypherSpecificConstants.ONE_WHITESPACE);
 			cypher.append(temp);
 		}
+		//Just works with a SimpleCount 
+		//If CompPattern has a Where has to be handled differently as if it has no Where
+		//In the case when the CountPattern does not has any Match-Clause
 		final String tempWhere = g.generateCypherWhere();
+		final boolean hasBeginning = hasBeginning();
+		final boolean cpWhere = cpHasWhere();
 		if (!tempWhere.isBlank()) {
-			if (cypher.isEmpty()) {
+			if (!cypher.isEmpty() || !cpWhere) {
 				cypher.append(CypherSpecificConstants.CLAUSE_WHERE + CypherSpecificConstants.ONE_WHITESPACE);				
 			} else {
 				cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX);
@@ -190,12 +196,13 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		if (!(getCondition() instanceof CountCondition)) {
 			String tempConString = getCondition().generateCypher();
 			if (!tempConString.isEmpty()) {
-				//TODO, just do it if in the CompletePattern are no Operators.
 				tempConString = tempConString.replaceAll("\n", "\n" + CypherSpecificConstants.THREE_WHITESPACES);
 				if (!tempWhere.isEmpty()) {
-					cypher.append("\n" + CypherSpecificConstants.THREE_WHITESPACES);
-					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
-					cypher.append(tempConString);
+					if (!hasBeginning && !cpWhere) {
+						cypher.append("\n" + CypherSpecificConstants.THREE_WHITESPACES);
+						cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
+						cypher.append(tempConString);
+					} 
 				} else {
 					cypher.append(CypherSpecificConstants.CLAUSE_WHERE + CypherSpecificConstants.ONE_WHITESPACE);
 					cypher.append(tempConString);
@@ -207,6 +214,39 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		return cypher.toString();		
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return boolean.class
+	 * This method  checks if the CompletPattern has any operators to build a WHERE-Clause.
+	 * For simple count only the getCountCondition() has to be called and checked
+	 */
+	private boolean cpHasWhere() {
+		CompletePattern cp = (CompletePattern) getCountCondition().getPattern();
+		if (cp.getOperatorCounter() > 0) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return boolean.class
+	 * This checks if any NeoElementNode has a beginning.
+	 */
+	private final boolean hasBeginning() {
+		final EList<Node> nodes = graph.getNodes();
+		NeoElementNode neoElementNode = null;
+		for (Node n : nodes) {
+			if (n instanceof NeoElementNode) {
+				neoElementNode = (NeoElementNode) n;
+				if (neoElementNode.getNeoPlace() == NeoPlace.BEGINNING) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
 	/**
 	 * @author Lukas Sebastian Hofmann 
 	 * @return EList<String>

@@ -3,14 +3,12 @@ package qualitypatternmodel.cypherevaluation;
 import java.time.Duration;
 import java.time.Instant;
 
-import qualitypatternmodel.adaptionneo4j.NeoNode;
 import qualitypatternmodel.cypherevaluation.utilis.DummyFiller;
 import qualitypatternmodel.evaluation.EvalCard;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.impl.CountConditionImpl;
 
 public class CypherEvalCard {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

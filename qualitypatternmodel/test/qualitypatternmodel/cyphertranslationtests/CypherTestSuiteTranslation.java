@@ -1304,7 +1304,7 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 					+ "WHERE myCounter1 = 1.0 AND myCounter2 = 1.0\n"
 					+ "RETURN varElementNode3");
 			i++;
-
+			System.out.println(completePatterns.get(i).generateCypher());
 			//getCountConditionWithWhereClause
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode4)\n"
 					+ "WHERE (varElementNode4.placeOfIssue = \"Wien\")\n"

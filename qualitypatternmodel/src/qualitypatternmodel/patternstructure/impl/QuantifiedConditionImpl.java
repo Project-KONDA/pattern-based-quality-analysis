@@ -1050,7 +1050,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			}
 			if (!cond.toString().isBlank()) {
 				if (cypher.length() > 0) {
-					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + cond);
+					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE + cond);
 				} else {
 					cypher.append(cond);
 				}
@@ -1237,7 +1237,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				cypher.append(result);
 			}
 		} else {
-			cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.CLAUSE_WHERE + CypherSpecificConstants.ONE_WHITESPACE);
+			cypher.append(CypherSpecificConstants.CLAUSE_WHERE + CypherSpecificConstants.ONE_WHITESPACE);
 			cypher.append(where);			
 		}
 	}
