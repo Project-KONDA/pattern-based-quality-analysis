@@ -28,7 +28,7 @@ public class PatternExecution {
 		// MIDAS database
 		String databaseNameMidas = "MIDAS";		
 		
-		execute(XmlEvalMatch.getMatchMidasOb30Child(), databaseNameMidas); // 4.1.1 Wrong Datatype
+		execute(XmlEvalMatch.getMatch3MidasOb30Child(), databaseNameMidas); // 4.1.1 Wrong Datatype
 		execute(XmlEvalCompset.getCompsetMIDAS3140(), databaseNameMidas); // 4.1.2 Domain Violation
 		execute(XmlEvalMandAtt.getMandattMidasHida(), databaseNameMidas); // 4.2.1 Missing Values
 		execute(XmlEvalMandStruc.getMandstruc3MidasHida(), databaseNameMidas); // 4.2.2 Missing References

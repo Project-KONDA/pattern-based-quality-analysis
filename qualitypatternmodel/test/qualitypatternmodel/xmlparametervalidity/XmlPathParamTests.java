@@ -2,8 +2,6 @@ package qualitypatternmodel.xmlparametervalidity;
 
 import java.io.IOException;
 
-import org.basex.core.Text;
-
 import qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
 import qualitypatternmodel.exceptions.InvalidityException;

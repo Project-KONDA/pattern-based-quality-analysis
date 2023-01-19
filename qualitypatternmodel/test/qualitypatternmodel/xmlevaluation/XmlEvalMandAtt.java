@@ -28,6 +28,7 @@ public class XmlEvalMandAtt {
 		completePatterns.add(getMandattLido());
 		completePatterns.add(getMandattMidasHida());
 		completePatterns.add(getMandattCondLido());
+		
 		completePatterns.add(getMandatt3Abstract());
 		completePatterns.add(getMandatt3Lido());
 		completePatterns.add(getMandatt3CondLido());

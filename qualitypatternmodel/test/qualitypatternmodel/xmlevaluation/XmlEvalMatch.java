@@ -31,7 +31,7 @@ public class XmlEvalMatch {
 		completePatterns.add(getMatchLidoNamePlaceSet());
 		completePatterns.add(getMatchLidoAppellationValue());
 //		
-		completePatterns.add(getMatchMidasOb30Child());
+		completePatterns.add(getMatch3MidasOb30Child());
 				
 		Test00.getQueries(completePatterns);
 //		Test00.test(completePatterns);
@@ -147,7 +147,7 @@ public class XmlEvalMatch {
 				new XmlAxisKind[] {XmlAxisKind.CHILD}, "Type", XmlPropertyKind.ATTRIBUTE, "Value", XmlPropertyKind.ATTRIBUTE, "^[0-9/]+$");
 	}
 
-	public static CompletePattern getMatchMidasOb30Child() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern getMatch3MidasOb30Child() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return getMatch3Concrete("obj", new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, "Type", XmlPropertyKind.ATTRIBUTE,
 				"ob30", new XmlAxisKind[] {XmlAxisKind.CHILD}, "Type", XmlPropertyKind.ATTRIBUTE, new XmlAxisKind[] {XmlAxisKind.CHILD}, "Type",
 				XmlPropertyKind.ATTRIBUTE, "^[12456789]");
