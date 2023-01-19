@@ -116,7 +116,7 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	public String generateCypher() throws InvalidityException {
 		super.checkNextConditon(getCondition());
 		
-		if (!(condition == null || condition instanceof TrueElement)) {
+		if (!(condition == null)) {
 			String cypher = new String();
 			if (condition instanceof NotCondition) {
 				return ((NotCondition) condition).getCondition().generateCypher();
@@ -125,12 +125,7 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 			cypher = CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + CypherSpecificConstants.ONE_WHITESPACE;
 			String temp = condition.generateCypher();
 			if (temp.isEmpty()) {
-				if (condition instanceof TrueElementImpl) {
-					throw new InvalidityException(NO_VALID_QUERY_IS_GENERATED);					
-				}
-				//In some cases like in the case of QuantifiedCondition FORALL. It is possible that nothing is returned. 
-				//Since it will be assumed that all is true
-				temp = CypherSpecificConstants.BOOLEAN_TRUE;
+				return new String();
 			}
 			cypher += CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + temp + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
 			return cypher;	
