@@ -126,9 +126,9 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 			}
 		}
 		if (result == null) {
-			if (value == "data()")
-				result = XmlPropertyKind.DATA;
-			else if (value == "name()")
+			if (value.equals("data()"))
+				result = XmlPropertyKind.DATA;	
+			else if (value.equals("name()"))
 				result = XmlPropertyKind.TAG;
 			else if (value.startsWith("@")) {
 				attName = value.substring(1);
@@ -136,6 +136,7 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 					throw new InvalidityException("new property kind value invalid in " + myToString() + ": " + value);
 				result = XmlPropertyKind.ATTRIBUTE;
 			}
+			else throw new InvalidityException("new property kind value invalid in " + myToString() + ": " + value);
 		}
 		
 		if (result != null) {
@@ -143,8 +144,7 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 			if (result == XmlPropertyKind.ATTRIBUTE) {
 				getAttributeName().setValue(attName);
 			}
-		} else 
-			throw new InvalidityException("new property kind value invalid in " + myToString() + ": " + value);
+		} 
 	}
 	
 	@Override
@@ -155,7 +155,8 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 	
 	@Override
 	public void checkComparisonConsistency() throws InvalidityException {
-		getXmlPathParam().getXmlNavigation().getTarget().checkComparisonConsistency();
+		if (getXmlPathParam() != null)
+			getXmlPathParam().getXmlNavigation().getTarget().checkComparisonConsistency();
 	}
 	
 	@Override
@@ -696,11 +697,11 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 	
 	@Override 
 	public String myToString() {
-		try {
-			return generateXQuery();
-		} catch (InvalidityException e) {
-			return "[invalid property option " + getInternalId() + "]]"; 
-		}
+		String result = "{";
+		result += getValueAsString();
+		if (getAttributeName() != null)
+			result += ", " + getAttributeName().myToString();
+		return result += "}";
 	}
 
 	@Override

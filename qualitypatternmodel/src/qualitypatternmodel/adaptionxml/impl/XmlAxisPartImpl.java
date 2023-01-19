@@ -14,7 +14,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -33,6 +32,7 @@ import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlAxisOptionParam;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
@@ -44,16 +44,10 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.XmlDataDatabase;
-import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.operators.Comparison;
-import qualitypatternmodel.operators.Contains;
-import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
-import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
@@ -170,9 +164,9 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected XmlAxisPartImpl() {
+	public XmlAxisPartImpl() {
 		super();
 	}
 	
@@ -716,54 +710,83 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	 */
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
-		String PROPERTY_PART_REGEX = "((data\\(\\))|(name\\(\\))|(@[A-Za-z0-9]+))";
-
-		String[] parts = new String[XmlAxisKind.values().length];
-		for (int i = 0; i < XmlAxisKind.values().length; i++) {
-			String part = XmlAxisKind.values()[i].toString().replace("/", "").replace("::*", "");
-			parts[i] = "(" + part + ")";
-		}
-		String axes = String.join("|", parts);
-		String PATH_PART_REGEX = axes + "::\\*" // axes
-			+ "(\\[" + PROPERTY_PART_REGEX + "(=(([0-9.]+)|(\".*\")))?" // optional comparison of the property 
-			+ "\\])?";
-//		((child)|(descendant))::\*(\[((data\(\))|(name\(\))|(@[A-Za-z0-9]+))(=((".*")))?\])?
-//		https://regex101.com/r/6gWGzd
-		
-		
-		if (!value.matches(PATH_PART_REGEX)) 
-			throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
-		
-		// 1. split: axis, (property? (attribute name)? (value)
-		String[] split = value.split("::*", 2);
-		
-		if(getXmlAxisOptionParam() == null)
+		String[] valueparts = value.trim().substring(1).split("::\\*", 2);
+		if (getXmlAxisOptionParam() == null)
 			setXmlAxisOptionParam(new XmlAxisOptionParamImpl());
-		getXmlAxisOptionParam().setValueFromString(split[0]);
+		getXmlAxisOptionParam().setValueFromString(valueparts[0]);
 		
-		if (split.length >1) {
-			String property = String.join("", split).replace(split[0] + "::*", "");
-			if (! (property.startsWith("[") && property.endsWith("]")))
-				throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
-			property = property.substring(1, property.length() - 1);
-			String[] propertySplit = property.split("=", 2);
-			if (!propertySplit[0].matches(PROPERTY_PART_REGEX))
-				throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
-			if(getXmlPropertyOption() == null)
-				setXmlPropertyOption(new XmlPropertyOptionParamImpl());
-			else getXmlPropertyOption().setValueFromString(propertySplit[0]);
-			
-			if (propertySplit.length>1) {
-				if (!propertySplit[1].startsWith("\"") || !propertySplit[1].endsWith("\""))
-					throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
-				String propertyvalue = propertySplit[1].substring(1, property.length() - 1);
-				if(getTextLiteralParam() == null)
-					setTextLiteralParam(new TextLiteralParamImpl(propertyvalue));
-				else getTextLiteralParam().setValue(propertyvalue);
-			}
+		if (valueparts.length>1) {
+			String bracketpart = valueparts[1].trim(); 
+			if (bracketpart.matches("[ ]*\\[.*\\][ ]*")) {
+				int indexOpeningBracket = bracketpart.indexOf('[');
+				int indexClosingBracket =  bracketpart.lastIndexOf(']');
+				String bracket = bracketpart.substring(indexOpeningBracket+1, indexClosingBracket);
 				
+				String[] bracketparts = bracket.split("=", 2);
+				if (getXmlPropertyOption() == null)
+					setXmlPropertyOption(new XmlPropertyOptionParamImpl());
+				getXmlPropertyOption().setValueFromString(bracketparts[0].trim());
+				if (bracketparts.length >1) {
+					String newValue = bracketparts[1].trim();
+					if (!(newValue.startsWith("\"") && newValue.endsWith("\"")))
+						throw new InvalidityException("invalid value :" + newValue);
+					getTextLiteralParam().setValue(newValue.substring(1, newValue.length()-1));
+				}
+			}
 		}
 	}
+		
+		
+		
+		
+//		String PROPERTY_PART_REGEX = "((data\\(\\))|(name\\(\\))|(@[A-Za-z0-9]+))";
+//
+//		String[] parts = new String[XmlAxisKind.values().length];
+//		for (int i = 0; i < XmlAxisKind.values().length; i++) {
+//			String part = XmlAxisKind.values()[i].toString().replace("/", "").replace("::*", "");
+//			parts[i] = "(" + part + ")";
+//		}
+//		String axes = "(" + String.join("|", parts) + ")";
+//		String PATH_PART_REGEX = axes + "::\\*" // axes
+//			+ "(\\[" + PROPERTY_PART_REGEX + "(=(([0-9.]+)|(\".*\")))?" // optional comparison of the property 
+//			+ "\\])?";
+////		((child)|(descendant))::\*(\[((data\(\))|(name\(\))|(@[A-Za-z0-9]+))(=((".*")))?\])?
+////		https://regex101.com/r/6gWGzd
+//		
+//		
+//		if (!value.matches(PATH_PART_REGEX)) 
+//			throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
+//		
+//		// 1. split: axis, (property? (attribute name)? (value)
+//		String[] split = value.split("::*", 2);
+//		
+//		if(getXmlAxisOptionParam() == null)
+//			setXmlAxisOptionParam(new XmlAxisOptionParamImpl());
+//		getXmlAxisOptionParam().setValueFromString(split[0]);
+//		
+//		if (split.length >1) {
+//			String property = String.join("", split).replace(split[0] + "::*", "");
+//			if (! (property.startsWith("[") && property.endsWith("]")))
+//				throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
+//			property = property.substring(1, property.length() - 1);
+//			String[] propertySplit = property.split("=", 2);
+//			if (!propertySplit[0].matches(PROPERTY_PART_REGEX))
+//				throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
+//			if(getXmlPropertyOption() == null)
+//				setXmlPropertyOption(new XmlPropertyOptionParamImpl());
+//			else getXmlPropertyOption().setValueFromString(propertySplit[0]);
+//			
+//			if (propertySplit.length>1) {
+//				if (!propertySplit[1].startsWith("\"") || !propertySplit[1].endsWith("\""))
+//					throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
+//				String propertyvalue = propertySplit[1].substring(1, property.length() - 1);
+//				if(getTextLiteralParam() == null)
+//					setTextLiteralParam(new TextLiteralParamImpl(propertyvalue));
+//				else getTextLiteralParam().setValue(propertyvalue);
+//			}
+//				
+//		}
+//	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1316,9 +1339,16 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	@Override
 	public String myToString() {
 		try {
-			return this.generateXQuery();
-		} catch (InvalidityException e) {
-			return "[invalid axis pair " + getInternalId() + "]]"; 
+			String result = "[";
+			result += getXmlAxisOptionParam().myToString();
+			if (getXmlPropertyOption() != null) {
+				result += ", " + getXmlPropertyOption().myToString();
+			} 
+			if (getTextLiteralParam() != null && getTextLiteralParam().getValue() != null)
+				result += ", " + getTextLiteralParam().myToString();
+			return result + "]";
+		} catch(NullPointerException e) {
+			return "[invalid axis pair: no axis" + getInternalId() + "]";
 		}
 	}
 

@@ -109,11 +109,14 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
+		XmlAxisKind result = null;
 		for(XmlAxisKind kind : XmlAxisKind.values()) {
-			if(kind.getName().equals(value)) {			
-				setValueIfValid(kind);
+			if(kind.getName().equals(value) || kind.getLiteral().equals(value) || kind.getLiteral().equals("/" + value + "::*")) {
+				result = kind;
+				break;
 			}
-		}		
+		}
+		setValueIfValid(result);
 	}
 	
 	@Override
@@ -301,9 +304,11 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	@Override
 	public void checkComparisonConsistency() throws InvalidityException {
 		Relation relation = getXmlAxisPart().getXmlPathParam().getXmlNavigation();
-		Node target = relation.getTarget();
-		if(target instanceof PrimitiveNode){
-			((PrimitiveNode) target).checkComparisonConsistency();	
+		if (relation != null) {
+			Node target = relation.getTarget();
+			if(target instanceof PrimitiveNode){
+				((PrimitiveNode) target).checkComparisonConsistency();	
+			}
 		}
 	}
 

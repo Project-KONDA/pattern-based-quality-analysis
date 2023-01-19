@@ -17,6 +17,7 @@ import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
+import qualitypatternmodel.demo.texts.DemoPatternTextsComp;
 //import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -59,19 +60,24 @@ public class DemoPatternTexts {
 	
 	public static void testDemoPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IOException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getAbstractCompPatternWithText());
-		completePatterns.add(getConcreteCompPatternWithText());
-		completePatterns.add(getAbstractCompDatePatternWithText());
-		completePatterns.add(getAbstractCompBoolPatternWithText());
+		completePatterns.addAll(DemoPatternTextsComp.getPatterns());
+//		completePatterns.addAll(DemoPatternTextsCard.getPatterns());
+//		completePatterns.addAll(DemoPatternTextsFunc.getPatterns());
+//		completePatterns.addAll(DemoPatternTextsAppDup.getPatterns());
 		
-		completePatterns.add(getAbstractCardPatternWithText());
-		completePatterns.add(getConcreteCardPatternWithText());
-		completePatterns.add(getConcreteFinalizedCardPatternWithText());
-		completePatterns.add(getConcreteLidoCardPatternWithText());
-		
-		completePatterns.add(getAbstractFuncPatternWithText());
-		completePatterns.add(getConcreteFuncPatternWithText());
-		completePatterns.add(getConcreteLidoFuncPatternWithText());
+//		completePatterns.add(getAbstractCompPatternWithText());
+//		completePatterns.add(getConcreteCompPatternWithText());
+//		completePatterns.add(getAbstractCompDatePatternWithText());
+//		completePatterns.add(getAbstractCompBoolPatternWithText());
+//		
+//		completePatterns.add(getAbstractCardPatternWithText());
+//		completePatterns.add(getConcreteCardPatternWithText());
+//		completePatterns.add(getConcreteFinalizedCardPatternWithText());
+//		completePatterns.add(getConcreteLidoCardPatternWithText());
+//		
+//		completePatterns.add(getAbstractFuncPatternWithText());
+//		completePatterns.add(getConcreteFuncPatternWithText());
+//		completePatterns.add(getConcreteLidoFuncPatternWithText());
 		
 		Test00.test(completePatterns);
 	}
