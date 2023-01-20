@@ -1,4 +1,4 @@
-package qualitypatternmodel.cypherclasstester.concretetests;
+package qualitypatternmodel.cypherclasstests.concretetests;
 
 import static org.junit.Assume.assumeNotNull;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -35,7 +35,7 @@ import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.adaptionneo4j.impl.NeoComplexEdgeImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
-import qualitypatternmodel.cypherclasstester.NeoPathPartTest;
+import qualitypatternmodel.cypherclasstests.NeoPathPartTest;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;

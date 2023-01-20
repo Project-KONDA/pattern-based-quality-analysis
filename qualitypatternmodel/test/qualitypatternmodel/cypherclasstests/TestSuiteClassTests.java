@@ -1,4 +1,4 @@
-package qualitypatternmodel.cypherclasstester;
+package qualitypatternmodel.cypherclasstests;
 
 import org.junit.platform.suite.api.SelectPackages;
 import org.junit.platform.suite.api.Suite;

@@ -1,4 +1,4 @@
-package qualitypatternmodel.cypherclasstester;
+package qualitypatternmodel.cypherclasstests;
 
 interface INeoPathParamTest extends INeo4J {
 	void getReturnInnerEdgeNodes();

@@ -1,4 +1,4 @@
-package qualitypatternmodel.cypherclasstester;
+package qualitypatternmodel.cypherclasstests;
 
 
 import static org.junit.Assume.assumeTrue;

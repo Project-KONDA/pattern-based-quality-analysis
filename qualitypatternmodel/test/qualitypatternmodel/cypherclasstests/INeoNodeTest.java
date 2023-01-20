@@ -1,4 +1,4 @@
-package qualitypatternmodel.cypherclasstester;
+package qualitypatternmodel.cypherclasstests;
 
 
 interface INeoNodeTest extends INeo4J, INeoElementTest {

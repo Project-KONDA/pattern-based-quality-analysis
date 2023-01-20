@@ -1,4 +1,4 @@
-package qualitypatternmodel.cypherclasstester.concretetests;
+package qualitypatternmodel.cypherclasstests.concretetests;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -28,7 +28,7 @@ import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.impl.NeoComplexEdgeImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoElementPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
-import qualitypatternmodel.cypherclasstester.NeoPathParamTest;
+import qualitypatternmodel.cypherclasstests.NeoPathParamTest;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;

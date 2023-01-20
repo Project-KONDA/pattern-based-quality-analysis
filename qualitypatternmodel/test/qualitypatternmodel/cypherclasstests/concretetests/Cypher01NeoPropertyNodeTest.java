@@ -1,4 +1,4 @@
-package qualitypatternmodel.cypherclasstester.concretetests;
+package qualitypatternmodel.cypherclasstests.concretetests;
 
 import static org.junit.Assume.assumeTrue;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -30,7 +30,7 @@ import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyNodeImpl;
-import qualitypatternmodel.cypherclasstester.NeoNodeTest;
+import qualitypatternmodel.cypherclasstests.NeoNodeTest;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Relation;
