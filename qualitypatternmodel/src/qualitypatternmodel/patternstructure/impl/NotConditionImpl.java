@@ -116,17 +116,20 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	public String generateCypher() throws InvalidityException {
 		super.checkNextConditon(getCondition());
 		
-		if (!(condition == null)) {
+		if (!(condition == null)) {			
 			String cypher = new String();
 			if (condition instanceof NotCondition) {
 				return ((NotCondition) condition).getCondition().generateCypher();
 			}
 			
-			cypher = CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + CypherSpecificConstants.ONE_WHITESPACE;
+			//In future Versions this should be reduced
+			//Until now we have one the options that FORALL gets true or the TrueElement is there
+			//The framework misses constrains
 			String temp = condition.generateCypher();
 			if (temp.isEmpty()) {
-				return new String();
+				return CypherSpecificConstants.BOOLEAN_FALSE;
 			}
+			cypher = CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + CypherSpecificConstants.ONE_WHITESPACE;
 			cypher += CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + temp + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
 			return cypher;	
 		}
