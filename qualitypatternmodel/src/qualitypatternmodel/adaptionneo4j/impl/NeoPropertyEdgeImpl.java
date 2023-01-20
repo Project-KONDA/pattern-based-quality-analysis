@@ -81,14 +81,12 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 	public String generateCypher() throws InvalidityException {
 		if (getIncomingMapping() == null) {
 			String cypher = new String(); //Null will be returned because it is used as an indicator in the morphisems
-			if (getIncomingMapping() == null) {
 				if(!translated && getNeoPropertyPathParam() != null) {
 					cypher = getNeoPropertyPathParam().generateCypher();
 					this.translated = true;
 				} else if (getNeoPropertyPathParam() == null){
 					throw new InvalidityException(NEO_PROPERTY_EDGE_NEEDS_A_NEO_PROPERTY_PATH_PARAM);
 				}
-			} 
 			return cypher;
 		}
 		return getOriginalRelation().generateCypher();

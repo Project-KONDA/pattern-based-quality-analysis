@@ -104,25 +104,6 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 			assertFalse(true);
 		} 
 	}
-	
-	@Test
-	public void isNodeReturnable() {
-		try {
-			NeoPropertyEdge neoPropertyEdge = prepaireValidPropertyEdgeStructure(GENERIC_NODE_ID);
-			Field field = getIncomingField();
-			EList<Relation> rList = new BasicEList<Relation>();
-			rList.add(neoPropertyEdge);
-			field.set(neoPropertyNode, rList);
-			
-			Class<NeoPropertyNodeImpl> obj = NeoPropertyNodeImpl.class;
-			Method m = obj.getDeclaredMethod("isNodeReturnable", int.class);
-			m.setAccessible(true);
-			assertDoesNotThrow(() -> m.invoke(neoPropertyNode, 0));
-		} catch (Exception e) {
-			System.out.println(e);
-			assertFalse(true);
-		}
-	}
 
 	private NeoPropertyEdge prepaireValidPropertyEdgeStructure(int id) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, NoSuchMethodException, InvocationTargetException, InvalidityException {
 		NeoPropertyEdge neoPropertyEdge = FACTORY.createNeoPropertyEdge();
@@ -134,35 +115,6 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
 		neoPropertyEdge.setTarget((Node)neoPropertyNode);
 		return neoPropertyEdge;
-	}
-	
-	@Test
-	public void isNodeReturnableNode() {
-		try {
-			NeoPropertyNode localNode = neoPropertyNode;
-			Class<NeoPropertyNodeImpl> obj = NeoPropertyNodeImpl.class;
-			Method m = obj.getDeclaredMethod("isNodeReturnable", int.class);
-			m.setAccessible(true);
-			Field field = getIncomingField();
-			field.set(localNode, (EList<?>) null);
-			EList<Relation> rList = new BasicEList<Relation>();
-			rList.add(FACTORY.createNeoPropertyEdge());
-			rList.add(FACTORY.createNeoPropertyEdge());
-			field.set(localNode, rList);
-			assertFalse(Boolean.parseBoolean(m.invoke(localNode, 0).toString()));
-			rList.clear();
-			rList.add((Relation) null);
-			checkForInvalidityExceptionInReflation(localNode, m);
-			
-			EList<Relation> relations = new BasicEList<Relation>();
-			relations.add(FACTORY.createNeoPropertyEdge());
-			((NeoPropertyEdge) relations.get(0)).setNeoPropertyPathParam(FACTORY.createNeoPropertyPathParam());
-			field.set(neoPropertyNode, relations);
-			assertFalse(Boolean.parseBoolean(m.invoke(localNode, 0).toString()));
-		} catch (Exception e) {
-			System.out.println(e);
-			assertFalse(true);
-		}
 	}
 
 	private void checkForInvalidityExceptionInReflation(NeoPropertyNode localNode, Method m) {
@@ -315,6 +267,7 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 	public void generateCypher() {
 		int id = 1;
 		try {
+			//Add here a test for the case that a NeoElementNode and that both are returned.
 			NeoPropertyEdge neoPropertyEdge = prepaireValidPropertyEdgeStructure(GENERIC_NODE_ID);
 			initGetCypherVariableTest(neoPropertyNode, GENERIC_NODE_ID);
 			Field field = getIncomingField();

@@ -288,21 +288,14 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 */
 	private String getCypherPropertyNodeVariable() throws InvalidityException {
 		if (getIncomingMapping() == null) {
-			if (!checkForValidIncomings())
-				throw new InvalidityException(NO_INCOMING_NEO_PROPERTY_EDGE_SPECIFIED);
-			final StringBuilder cypher = new StringBuilder();
-			int countReturnables = 0;
-			for (int i = 0; i < getIncoming().size(); i++) {
-				if (isNodeReturnable(i)) {					
-					NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) getIncoming().get(i);
-					cypher.append(neoPropertyEdge.generateCypherNodeVariable());
-					cypher.append(CypherSpecificConstants.SEPERATOR);
-				} else {
-					countReturnables++;
-				}
+			if (!checkForValidIncomings()) {
+				throw new InvalidityException(NO_INCOMING_NEO_PROPERTY_EDGE_SPECIFIED);				
 			}
-			if (countReturnables == getIncoming().size()) {
-				throw new InvalidityException(NeoPropertyNodeImpl.THIS_NODE_IS_NOT_SUITED_TO_BE_A_RETURN_NODE);
+			final StringBuilder cypher = new StringBuilder();
+			for (int i = 0; i < getIncoming().size(); i++) {					
+				NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) getIncoming().get(i);
+				cypher.append(neoPropertyEdge.generateCypherNodeVariable());
+				cypher.append(CypherSpecificConstants.SEPERATOR);
 			}
 			return cypher.toString();
 		}
@@ -380,32 +373,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		cypher.replace(cypher.length() - 2, cypher.length(), new String());
 		returnElement.put(NeoPropertyNodeImpl.CYPHER_RETURN_ID, cypher.toString());
 		return returnElement;
-	}
-
-	//TODO remove this method. In any case all nodes should be returned.
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @param ix
-	 * @return boolea.class
-	 * @throws InvalidityException
-	 * Checks if a Node aka the NeoElementNode in which the NeoPropertyNode is stored can be returned.
-	 */
-	private boolean isNodeReturnable(int ix) throws InvalidityException {
-		NeoPropertyEdge neoPropertyEdge = null;
-		NeoPropertyPathParam neoPropertyPathParam = null;
-		
-		if (!checkForValidIncomings()) {
-			throw new InvalidityException(NO_IMCOMING_EDGE_SPEZIFIED);
-		} else if (getIncoming().get(ix) == null) {
-			throw new InvalidityException(WRONG_INCOMING_NEO_PROPERTY_EDGE_SPECIFIED);
-		}
-		boolean result = true;
-		neoPropertyEdge = (NeoPropertyEdge) getIncoming().get(ix);
-		neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
-		if (neoPropertyPathParam == null || neoPropertyPathParam.getNeoPathPart() == null) {
-			result = false;
-		}
-		return result;
 	}
 
 	/**
