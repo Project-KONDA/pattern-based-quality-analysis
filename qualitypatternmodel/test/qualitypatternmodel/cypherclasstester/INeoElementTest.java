@@ -1,5 +1,5 @@
 package qualitypatternmodel.cypherclasstester;
 
-interface NeoElementTest {
+interface INeoElementTest {
 	void getCypherReturnVariable(int number);
 }
