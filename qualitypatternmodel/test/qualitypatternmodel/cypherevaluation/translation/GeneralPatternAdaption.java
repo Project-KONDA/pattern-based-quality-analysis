@@ -5,6 +5,8 @@ import java.time.Instant;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.evaluationtranslation.GeneralPattern;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -13,7 +15,10 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class GeneralPatternAdaption {
@@ -51,15 +56,29 @@ public class GeneralPatternAdaption {
 		
 		//Abstract --> Concrete
 				
-		EList<Parameter> paramters = neo4JConcreteMatch1DateFormatCheck.getAllParameters();
-		TextLiteralParam textLiteralParam = (TextLiteralParam) paramters.get(0);
+		ParameterList paramters = neo4JConcreteMatch1DateFormatCheck.getParameterList();
+		TextListParam textListParam = (TextListParam) paramters.getParameters().get(3);
+		textListParam.addStringValue("Place");
 		
+		textListParam = (TextListParam) paramters.getParameters().get(4);
+		textListParam.addStringValue("Regesta");
 		
+		TextLiteralParam textLiteralParam = (TextLiteralParam) paramters.getParameters().get(2);
+		textLiteralParam.setValue("\\\\d{4}\\s[A-Z]{1}[a-zäöü]*\\s\\\\d{1,2}");
 		
-		textLiteralParam = (TextLiteralParam) paramters.get(2);
+		BooleanParam booleanParam = (BooleanParam) paramters.getParameters().get(0);
+		booleanParam.setValue(false);
+		booleanParam = (BooleanParam) paramters.getParameters().get(1);
+		booleanParam.setValue(false);
 		
-		BooleanParam booleanParam = (BooleanParam) paramters.get(1);
-		booleanParam = (BooleanParam) paramters.get(3);
+		NeoElementPathParam neoElementPathParam = (NeoElementPathParam) paramters.getParameters().get(6);
+		((NeoSimpleEdge) neoElementPathParam.getNeoPathPart()).addNeoEdgeLabel("PLACE_OF_ISSUE");
+		
+		NeoPropertyPathParam neoPropertyPathParam = (NeoPropertyPathParam) paramters.getParameters().get(5);
+		neoPropertyPathParam.setNeoPropertyName("normalizedGerman");
+		
+		neoPropertyPathParam = (NeoPropertyPathParam) paramters.getParameters().get(7);
+		neoPropertyPathParam.setNeoPropertyName("date");
 		
 		System.out.println(neo4JConcreteMatch1DateFormatCheck.generateCypher());
 	}

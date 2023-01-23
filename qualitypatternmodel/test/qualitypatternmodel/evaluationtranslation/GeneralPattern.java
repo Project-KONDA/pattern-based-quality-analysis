@@ -3,6 +3,7 @@ package qualitypatternmodel.evaluationtranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
@@ -23,10 +24,12 @@ public class GeneralPattern {
 		completePattern.getGraph().getReturnNodes().get(0).makeComplex();
 		completePattern.getGraph().getReturnNodes().get(0).setName("Root");
 		PrimitiveNode primitiveNode = completePattern.getGraph().addPrimitiveNode();
-		primitiveNode.addPrimitiveMatch();
+		primitiveNode.addPrimitiveNullCheck();
 		completePattern.getGraph().getReturnNodes().get(0).addOutgoing(primitiveNode);
 		completePattern.getGraph().getReturnNodes().get(0).setReturnNode(false);
-		completePattern.getGraph().addComplexNode().setReturnNode(true);
+		ComplexNode complexNode = completePattern.getGraph().addComplexNode();
+		completePattern.getGraph().addRelation((ComplexNode) completePattern.getGraph().getNodes().get(0), complexNode);
+		complexNode.setReturnNode(true);
 		
 		QuantifiedCondition qc1 = factory.createQuantifiedCondition();
 		completePattern.setCondition(qc1);
