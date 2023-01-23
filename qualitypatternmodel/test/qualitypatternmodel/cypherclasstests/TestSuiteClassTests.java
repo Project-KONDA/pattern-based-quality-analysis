@@ -6,7 +6,7 @@ import org.junit.platform.suite.api.SuiteDisplayName;
 
 @Suite
 @SuiteDisplayName("Neo4J/Cypher Component-TestSuite")
-@SelectPackages({"qualitypatternmodel.cypherclasstester.concretetests"})
+@SelectPackages({"qualitypatternmodel.cypherclasstests.concretetests"})
 public class TestSuiteClassTests {
 	
 }

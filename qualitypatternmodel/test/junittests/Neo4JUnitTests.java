@@ -15,6 +15,6 @@ import qualitypatternmodel.cyphertranslationtests.CypherTestSuiteTranslationWith
 				CypherTestSuiteTranslationWithDbTests.class,
 				CypherTestSuiteTranslationWithoutDbTests.class
 			})
-public class Neo4jJUnitTests {
+public class Neo4JUnitTests {
 	
 }

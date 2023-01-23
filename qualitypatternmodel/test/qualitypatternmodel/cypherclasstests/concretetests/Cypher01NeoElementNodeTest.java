@@ -34,7 +34,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
 
 
 //Check for the Morphisem and test them too!
-@DisplayName("NeoNode Tests")
+@DisplayName("NeoElementNode Tests")
 public class Cypher01NeoElementNodeTest extends NeoNodeTest {
 	private static final String VAR_NODE1 = "(varElementNode1)";
 	private static final String VAR_NODE1_REGESTA_INDEX_PLACE = "(varElementNode1:Regesta:IndexPlace)";
