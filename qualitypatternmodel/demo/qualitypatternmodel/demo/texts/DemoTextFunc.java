@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.adaptionxml.XmlPathParam;
+import qualitypatternmodel.demo.DemoPatternTexts;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
 import qualitypatternmodel.textrepresentation.PatternText;
@@ -51,7 +50,7 @@ public class DemoTextFunc {
 		XmlPathParam p9 = ((XmlPathParam) params.get(9));
 		
 		PatternText patternText = TextrepresentationFactory.eINSTANCE.createPatternText();
-		patternText.setName("Card");
+		patternText.setName(DemoPatternTexts.FUNC_NAME);
 		completePattern.getText().add(patternText);
 
 		ParameterFragment path1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.adaptionxml.XmlPathParam;
+import qualitypatternmodel.demo.DemoPatternTexts;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -46,7 +47,7 @@ public class DemoTextCompval {
 		XmlPathParam p4 = ((XmlPathParam) params.get(4));
 		
 		PatternText patternText = TextrepresentationFactory.eINSTANCE.createPatternText();
-		patternText.setName("Card");
+		patternText.setName(DemoPatternTexts.CARD_NAME);
 		completePattern.getText().add(patternText);
 
 		ParameterFragment path1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();

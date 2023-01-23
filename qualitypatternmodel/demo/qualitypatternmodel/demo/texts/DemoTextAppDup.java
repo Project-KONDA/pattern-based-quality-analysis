@@ -4,16 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.adaptionxml.XmlPathParam;
+import qualitypatternmodel.demo.DemoPatternTexts;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.operators.ComparisonOperator;
-import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
-import qualitypatternmodel.textrepresentation.ParameterPredefinition;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
 import qualitypatternmodel.textrepresentation.impl.TextFragmentImpl;
@@ -52,7 +49,7 @@ public class DemoTextAppDup {
 		XmlPathParam p9 = ((XmlPathParam) params.get(9));
 		
 		PatternText patternText = TextrepresentationFactory.eINSTANCE.createPatternText();
-		patternText.setName("AppDup");
+		patternText.setName(DemoPatternTexts.APPDUP_NAME);
 		completePattern.getText().add(patternText);
 
 		ParameterFragment path1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();

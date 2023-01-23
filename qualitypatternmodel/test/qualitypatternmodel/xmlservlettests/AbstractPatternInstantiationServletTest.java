@@ -25,7 +25,7 @@ public class AbstractPatternInstantiationServletTest {
 
 	@Test
 	public void doPostTest() throws IOException, JSONException {		
-		ServletTestsUtil.createConcretePattern("card_abstract", DemoPatternTexts.CARD_FLEXIBLE, PATTERN_NAME);
+		ServletTestsUtil.createConcretePattern("card_abstract", DemoPatternTexts.CARD_NAME, PATTERN_NAME);
 	}
 	
 }
