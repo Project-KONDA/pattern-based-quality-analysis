@@ -7,7 +7,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.adaptionrdf.impl.IriParamImpl;
-import qualitypatternmodel.evaluation.EvalContains;
+import qualitypatternmodel.cyphertranslationtests.EvalContains;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;

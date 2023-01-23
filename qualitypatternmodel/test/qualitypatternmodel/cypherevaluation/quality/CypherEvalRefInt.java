@@ -1,11 +1,11 @@
-package qualitypatternmodel.cypherevaluation;
+package qualitypatternmodel.cypherevaluation.quality;
 
 import java.time.Duration;
 import java.time.Instant;
 
 import qualitypatternmodel.cypherevaluation.utilis.DummyFiller;
-import qualitypatternmodel.evaluation.EvalMandAtt;
-import qualitypatternmodel.evaluation.EvalRefInt;
+import qualitypatternmodel.cyphertranslationtests.EvalMandAtt;
+import qualitypatternmodel.cyphertranslationtests.EvalRefInt;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;

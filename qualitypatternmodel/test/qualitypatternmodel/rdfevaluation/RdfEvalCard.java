@@ -8,7 +8,7 @@ import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.adaptionrdf.impl.IriParamImpl;
-import qualitypatternmodel.evaluation.EvalCard;
+import qualitypatternmodel.cyphertranslationtests.EvalCard;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;

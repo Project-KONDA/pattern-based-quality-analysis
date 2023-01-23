@@ -7,12 +7,12 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.adaptionrdf.impl.IriParamImpl;
+import qualitypatternmodel.cyphertranslationtests.EvalAppDup;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.rdftranslationtests.RdfTest00;
-import qualitypatternmodel.evaluation.EvalAppDup;
 
 public class RdfEvalAppDup {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

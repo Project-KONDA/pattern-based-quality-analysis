@@ -7,7 +7,7 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.adaptionrdf.impl.IriParamImpl;
-import qualitypatternmodel.evaluation.EvalExNEx;
+import qualitypatternmodel.cyphertranslationtests.EvalExNEx;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;

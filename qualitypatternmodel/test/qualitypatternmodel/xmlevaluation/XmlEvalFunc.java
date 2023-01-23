@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
+import qualitypatternmodel.cyphertranslationtests.EvalFunc;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
-import qualitypatternmodel.evaluation.EvalFunc;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;

@@ -1,4 +1,4 @@
-package qualitypatternmodel.cypherevaluation;
+package qualitypatternmodel.cypherevaluation.quality;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -10,7 +10,7 @@ import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jFactoryImpl;
 import qualitypatternmodel.cypherevaluation.utilis.DummyFiller;
-import qualitypatternmodel.evaluation.EvalComp;
+import qualitypatternmodel.cyphertranslationtests.EvalComp;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
