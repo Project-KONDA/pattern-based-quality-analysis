@@ -3,15 +3,22 @@ package qualitypatternmodel.demo.texts;
 import java.util.ArrayList;
 import java.util.List;
 
+import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
+import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
+import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
+import qualitypatternmodel.demo.DemoPatternTexts;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
+import qualitypatternmodel.textrepresentation.ParameterPredefinition;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
 import qualitypatternmodel.textrepresentation.impl.TextFragmentImpl;
@@ -36,7 +43,7 @@ public class DemoTextCard {
 		return completePattern;
 	}
 	
-//	Is there an element reached by <path1> that has more than 1 child element?
+//	Is there an element reached by <path1> that has more than one child element?
 	private static void addSimpleText(CompletePattern completePattern) {
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 		
@@ -45,7 +52,42 @@ public class DemoTextCard {
 		XmlPathParam p2 = ((XmlPathParam) params.get(2));
 		XmlPathParam p3 = ((XmlPathParam) params.get(3));
 		
+		PatternText patternText = TextrepresentationFactory.eINSTANCE.createPatternText();
+		patternText.setName(DemoPatternTexts.CARD_SIMPLE);
+		completePattern.getText().add(patternText);
+
+		ParameterFragment path1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+		path1.getParameter().add(p2);
+		path1.setName("path1");
 		
+
+//		Is there an element reached by <path1> that has more than one child element?
+		patternText.addFragment(new TextFragmentImpl("Is there an element reached by "));
+		patternText.addFragment(path1);
+		patternText.addFragment(new TextFragmentImpl(" that has more than one child element?"));		
+
+		ParameterPredefinition comp = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();
+		comp.getParameter().add(p0);
+		comp.setValue(ComparisonOperator.GREATER.getName());
+
+		ParameterPredefinition number = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();
+		number.getParameter().add(p1);
+		number.setValue("1");
+		
+		ParameterPredefinition path2 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();
+		number.getParameter().add(p3);
+		number.setValue("/child::*");
+
+		patternText.getParameterPredefinitions().add(comp);
+		patternText.getParameterPredefinitions().add(number);
+		patternText.getParameterPredefinitions().add(path2);
+		
+		try {
+			patternText.isValid(null);
+		} catch (InvalidityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 //	Is there an element reached by <path1> that has <comp> <number> elements reached by <path2>?
@@ -59,7 +101,7 @@ public class DemoTextCard {
 		XmlPathParam p3 = ((XmlPathParam) params.get(3));
 		
 		PatternText patternText = TextrepresentationFactory.eINSTANCE.createPatternText();
-		patternText.setName("Card");
+		patternText.setName(DemoPatternTexts.CARD_NAME);
 		completePattern.getText().add(patternText);
 
 		ParameterFragment path1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();

@@ -18,10 +18,11 @@ import qualitypatternmodel.xmltranslationtests.Test00;
 
 public class DemoPatternTexts {
 	
-//	private static final String FUNC_PARENT_WITH_TWO_ELEMENTS_WITH_ONE_PROPERTY_EQUAL_ONE_PROPERTY_UNEQUAL = "parent_with_two_elements_with_one_property_equal_one_property_unequal";
-//	public static final String COMP_PARENT_WITH_CHILD_WITH_PROPERTY = "parent_with_child_with_propery";
-//	public static final String CARD_FLEXIBLE = "flexible";
-//	public static final String CARD_PARENT_WITH_MORE_THAN_ONE_CHILD = "parent_with_more_than_one_child";
+	public static final String FUNC_NAME = "func";
+	public static final String COMP_NAME = "func";
+	public static final String CARD_NAME = "card";
+	public static final String CARD_SIMPLE = "card_simple";
+	public static final String APPDUP_NAME = "appdup";
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IOException {
 		testDemoPatterns();
