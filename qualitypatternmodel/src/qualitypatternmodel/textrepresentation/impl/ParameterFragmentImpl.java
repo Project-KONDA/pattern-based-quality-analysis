@@ -357,7 +357,11 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			String value = p.getValueAsString();
 			
 			if(value != null && !value.equals(firstValue) || value == null && firstValue != null) {
-				throw new InvalidityException("Referenced parameters have different values");
+				String types = "";
+				for (Parameter p2 : getParameter()) {
+					types += ", " + p2.getClass().getSimpleName() + ":" + p2.getValueAsString();
+				}
+				throw new InvalidityException("Referenced parameters have different values: " + types);
 			}
 			
 			if(!p.eClass().equals(firstEClass)) {

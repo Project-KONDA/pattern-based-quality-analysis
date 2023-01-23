@@ -60,10 +60,15 @@ public class EvalFunc {
 		
 		Comparison c1 = fieldA1.addComparison(fieldB1);
 		c1.getTypeOption().setValue(ReturnType.STRING);
+		c1.getTypeOption().setPredefined(true);
+		c1.getOption().setValue(ComparisonOperator.EQUAL);
+		c1.getOption().setPredefined(true);
 
 		Comparison c2 = fieldA2.addComparison(fieldB2);
 		c2.getTypeOption().setValue(ReturnType.STRING);
+		c2.getTypeOption().setPredefined(true);
 		c2.getOption().setValue(ComparisonOperator.NOTEQUAL);
+		c2.getOption().setPredefined(true);
 		return completePattern;
 	}
 	

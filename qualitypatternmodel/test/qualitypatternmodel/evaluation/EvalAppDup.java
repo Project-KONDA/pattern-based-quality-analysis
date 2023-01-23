@@ -61,6 +61,7 @@ public class EvalAppDup {
 		Node other1 = g1.getNodes().get(1);
 		
 		c.getOption().setValue(ComparisonOperator.NOTEQUAL);
+		c.getOption().setPredefined(true);
 		
 		Node n1 = main1.addOutgoing().getTarget().makePrimitive();
 		other1.addOutgoing(n1);

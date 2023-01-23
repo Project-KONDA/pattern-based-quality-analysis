@@ -93,7 +93,6 @@ public class DemoPatterns {
 		exportAllDemoPatterns();
 		printAllDemoPatternQueries();
 		executeAllDemoPatterns();
-		
 	}
 	
 	private static void executeAllDemoPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, QueryException, IOException {
