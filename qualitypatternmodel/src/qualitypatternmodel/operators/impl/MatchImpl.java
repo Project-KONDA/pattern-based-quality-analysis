@@ -51,6 +51,9 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class MatchImpl extends BooleanOperatorImpl implements Match {
+	private final static String CYPHER_REGEX = "%1$s" + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SPECIAL_CYPHER_REGEX_EXPRESSION + CypherSpecificConstants.ONE_WHITESPACE + "%2$s";
+	private final static String CYPHER_NOT_REGEX = CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + "%1$s" + CypherSpecificConstants.ONE_WHITESPACE +	CypherSpecificConstants.SPECIAL_CYPHER_REGEX_EXPRESSION + CypherSpecificConstants.ONE_WHITESPACE + "%2$s" + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
+	
 	/**
 	 * The cached value of the '{@link #getPrimitiveNode() <em>Primitive Node</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -119,6 +122,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		}
 	}
 	
+	
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @throws InvalidityException
@@ -126,15 +130,13 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 */
 	@Override 
 	public String generateCypher() throws InvalidityException {
-		if(option != null && regularExpression != null && regularExpression.getValue() != null && primitiveNode != null) {
+		if (option != null && regularExpression != null && regularExpression.getValue() != null && primitiveNode != null) {
 			String tempCypherPropertyAddressing = (String) ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
 			if (!tempCypherPropertyAddressing.isEmpty()) {				
 				if (option.getValue()) {
-					return tempCypherPropertyAddressing + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SPECIAL_CYPHER_REGEX_EXPRESSION 
-							+ CypherSpecificConstants.ONE_WHITESPACE + regularExpression.generateCypher();
+					return String.format(CYPHER_REGEX, tempCypherPropertyAddressing, regularExpression.generateCypher());
 				} 
-				return CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " (" + tempCypherPropertyAddressing
-						+ CypherSpecificConstants.ONE_WHITESPACE +	CypherSpecificConstants.SPECIAL_CYPHER_REGEX_EXPRESSION + CypherSpecificConstants.ONE_WHITESPACE + regularExpression.generateCypher() + ")";
+				return  String.format(CYPHER_NOT_REGEX, tempCypherPropertyAddressing, regularExpression.generateCypher());
 			}
 			throw new InvalidityException(CypherSpecificConstants.NO_VALID_PROPERTY_IS_ACCESSABLE);
 		}
