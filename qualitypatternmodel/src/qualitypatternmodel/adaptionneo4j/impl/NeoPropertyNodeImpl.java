@@ -54,22 +54,24 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 * Implemented to get the same behaviour as for the NeoElementNode.
 	 */
 	@Override 
-	public String generateCypher() throws InvalidityException, UnsupportedOperationException {	
-		if (getIncomingMapping() == null) {
-			String[] temp = getCypherPropertyNodeVariable().split(CypherSpecificConstants.SEPERATOR);
-			temp = Arrays.stream(temp).distinct().toArray(String[]::new);
-			String cypher = new String();
-			if (temp != null) {
-				boolean multi = false;
-				for (String s : temp) {
-					if (multi) cypher += CypherSpecificConstants.SEPERATOR;
-					cypher += CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + s + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;		
-				}
-				return cypher;
-			}
-			return cypher;
-		}
-		return ((NeoPropertyNode) getOriginalNode()).generateCypher();
+	public String generateCypher() {
+		return new String();
+	//throws InvalidityException, UnsupportedOperationException {	
+//		if (getIncomingMapping() == null) {
+//			String[] temp = getCypherPropertyNodeVariable().split(CypherSpecificConstants.SEPERATOR);
+//			temp = Arrays.stream(temp).distinct().toArray(String[]::new);
+//			String cypher = new String();
+//			if (temp != null) {
+//				boolean multi = false;
+//				for (String s : temp) {
+//					if (multi) cypher += CypherSpecificConstants.SEPERATOR;
+//					cypher += CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + s + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;		
+//				}
+//				return cypher;
+//			}
+//			return cypher;
+//		}
+//		return ((NeoPropertyNode) getOriginalNode()).generateCypher();
 	}	
 	
 	/**
