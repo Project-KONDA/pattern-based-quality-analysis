@@ -61,7 +61,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
 /**
  * <!-- begin-user-doc --> 
  * An implementation of the model object '<em><b>Comparison</b></em>'. 
- * Compariso between two <code>PatternElement</code>s.
+ * Comparison between two <code>PatternElement</code>s.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
@@ -623,7 +623,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			argument2Translation = ((NeoElementNode) getArgument2()).getCypherVariable(); 
 		}
 		
-		if (argument1Translation.isEmpty() || argument2Translation.isEmpty()) {
+		if (argument1Translation == null || argument2Translation == null ||argument1Translation.isEmpty() || argument2Translation.isEmpty()) {
 			throw new InvalidityException(AT_LEAST_ONE_OF_TWO_ARGUMENTS_IS_NOT_VALID);
 		}
 			
