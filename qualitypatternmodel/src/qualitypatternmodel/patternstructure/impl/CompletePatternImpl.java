@@ -497,7 +497,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * We used this flagging automation for reducing the traversels during the abstraction and the concretization.
 	 * Hence no new Node instance can be added. 
 	 */
-	private final void setNeo4JBeginnings(PatternElement patternElement) throws InvalidityException {
+	private final void setNeo4jBeginnings(PatternElement patternElement) throws InvalidityException {
 		final EList<EList<Node>> genericGraphs = this.getGraph().getAllSubGraphs(); 
 		final EList<EList<NeoNode>> graphs = new BasicEList<EList<NeoNode>>();
 		EList<NeoNode> graphList = null;
@@ -508,7 +508,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			}
 			graphs.add(graphList);
 		}
-		setBeginningInSubGraph(graphs);		
+		setNeo4jBeginningsInSubGraph(graphs);		
 	}
 	
 	/**
@@ -518,16 +518,16 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * If a subgraph is not cyclic the node which has no incoming relation is the starting point.
 	 * If a subgraph is cyclic the first NeoElementNode will be flagged as beginning. 
 	 */
-	private final void setBeginningInSubGraph(final EList<EList<NeoNode>> graphs) {
+	private final void setNeo4jBeginningsInSubGraph(final EList<EList<NeoNode>> graphs) {
 		boolean hasBeginning = false;
 		Node node = null;
-		NeoElementNode neoNode = null;
+		NeoElementNode tempNeoNode = null;
 		for (EList<NeoNode> graph : graphs) {
-			for (NeoNode neoInterfaceNode : graph) {
-				node = (Node) neoInterfaceNode;
+			for (NeoNode neoNode : graph) {
+				node = (Node) neoNode;
 				if (node.getIncoming().size() == 0 && node instanceof NeoElementNode) {
-					neoNode = (NeoElementNode) node;
-					neoNode.setNeoPlace(NeoPlace.BEGINNING);
+					tempNeoNode = (NeoElementNode) node;
+					tempNeoNode.setNeoPlace(NeoPlace.BEGINNING);
 					hasBeginning = true;
 				}
 			}
@@ -535,8 +535,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				for (int i = 0; i < graph.size(); i++) {
 					node = (Node) graph.get(i);
 					if (node instanceof NeoElementNode) {
-						neoNode = (NeoElementNode) node;
-						neoNode.setNeoPlace(NeoPlace.BEGINNING);
+						tempNeoNode = (NeoElementNode) node;
+						tempNeoNode.setNeoPlace(NeoPlace.BEGINNING);
 						hasBeginning = true;
 						i = graph.size();
 					}
@@ -848,7 +848,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		isValid(AbstractionLevel.GENERIC);
 		
 		PatternElement patternElement = super.createNeo4jAdaption();
-		setNeo4JBeginnings(patternElement);
+		setNeo4jBeginnings(patternElement);
 		
 		return patternElement;
 	}
