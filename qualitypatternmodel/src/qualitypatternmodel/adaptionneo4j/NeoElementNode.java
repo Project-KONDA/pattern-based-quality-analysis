@@ -19,6 +19,7 @@ import qualitypatternmodel.parameters.TextListParam;
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoElementNode#getNeoNodeLabels <em>Neo Node Labels</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoElementNode#getNeoPlace <em>Neo Place</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoElementNode#isIsVariableDistinctInUse <em>Is Variable Distinct In Use</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoElementNode()
@@ -73,6 +74,29 @@ public interface NeoElementNode extends ComplexNode, NeoNode {
 	 * @generated
 	 */
 	void setNeoPlace(NeoPlace value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Variable Distinct In Use</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Variable Distinct In Use</em>' attribute.
+	 * @see #setIsVariableDistinctInUse(boolean)
+	 * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoElementNode_IsVariableDistinctInUse()
+	 * @model default="true"
+	 * @generated
+	 */
+	boolean isIsVariableDistinctInUse();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionneo4j.NeoElementNode#isIsVariableDistinctInUse <em>Is Variable Distinct In Use</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Variable Distinct In Use</em>' attribute.
+	 * @see #isIsVariableDistinctInUse()
+	 * @generated
+	 */
+	void setIsVariableDistinctInUse(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -275,7 +275,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			innerCounterString++;
 			cypher = new StringBuilder();
 			cypher.append(node.generateCypher());
-			((NeoNode) node).setIsVariableDistinctInUse(false);
+			if (node instanceof NeoElementNode) {
+				((NeoElementNode) node).setIsVariableDistinctInUse(false);				
+			}
 		} else {
 			preCypher = cyphers.get(innerCounterString);
 			cypher = new StringBuilder();
@@ -341,7 +343,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			}
 		}
 		if (i + distinctNeoPropertyNode >= 2) {
-			((NeoNode) node).setIsVariableDistinctInUse(false);
+			if (node instanceof NeoElementNode) {
+				((NeoElementNode) node).setIsVariableDistinctInUse(false);				
+			}
 		}
 		return i + distinctNeoPropertyNode >= 2;
 	}

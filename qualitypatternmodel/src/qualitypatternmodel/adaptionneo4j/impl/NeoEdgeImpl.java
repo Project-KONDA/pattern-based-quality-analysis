@@ -190,7 +190,7 @@ public abstract class NeoEdgeImpl extends RelationImpl implements NeoEdge {
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == NeoElement.class) {
 			switch (baseOperationID) {
-				case Adaptionneo4jPackage.NEO_ELEMENT___GET_CYPHER_RETURN_VARIABLE: return Adaptionneo4jPackage.NEO_EDGE___GET_CYPHER_RETURN_VARIABLE;
+				case Adaptionneo4jPackage.NEO_ELEMENT___GET_CYPHER_RETURN: return Adaptionneo4jPackage.NEO_EDGE___GET_CYPHER_RETURN;
 				default: return -1;
 			}
 		}
@@ -215,7 +215,7 @@ public abstract class NeoEdgeImpl extends RelationImpl implements NeoEdge {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case Adaptionneo4jPackage.NEO_EDGE___GET_CYPHER_RETURN_VARIABLE:
+			case Adaptionneo4jPackage.NEO_EDGE___GET_CYPHER_RETURN:
 				try {
 					return getCypherReturn();
 				}

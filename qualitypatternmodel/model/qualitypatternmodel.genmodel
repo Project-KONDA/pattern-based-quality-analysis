@@ -1033,13 +1033,13 @@
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionneo4j/NeoPlace/FOLLOWING"/>
       </genEnums>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoNode">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionneo4j/NeoNode/isVariableDistinctInUse"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoNode/getCypherVariable"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoElementNode">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionneo4j/NeoElementNode/neoNodeLabels"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionneo4j/NeoElementNode/neoPlace"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionneo4j/NeoElementNode/isVariableDistinctInUse"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoElementNode/addNeoLabel">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionneo4j/NeoElementNode/addNeoLabel/label"/>
         </genOperations>
@@ -1121,7 +1121,7 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoPathParam/getCypherReturnVariable"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoElement">
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoElement/getCypherReturnVariable"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoElement/getCypherReturn"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

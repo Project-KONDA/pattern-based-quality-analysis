@@ -36,9 +36,9 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionneo4j.impl.NeoElementNodeImpl#isIsVariableDistinctInUse <em>Is Variable Distinct In Use</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionneo4j.impl.NeoElementNodeImpl#getNeoNodeLabels <em>Neo Node Labels</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionneo4j.impl.NeoElementNodeImpl#getNeoPlace <em>Neo Place</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.impl.NeoElementNodeImpl#isIsVariableDistinctInUse <em>Is Variable Distinct In Use</em>}</li>
  * </ul>
  *
  * @generated
@@ -47,24 +47,6 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	private static final String PARAMETER_HAS_NOT_BEEN_CREATED_IN_NEO_ELEMENT_NODE = "Parameter has not been created in NeoElementNode";
 	private static final String A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S = "A Label can not contain Whitespace(s)";
 	private static final int CYPHER_RETURN_ID = 0;
-	/**
-	 * The default value of the '{@link #isIsVariableDistinctInUse() <em>Is Variable Distinct In Use</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isIsVariableDistinctInUse()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean IS_VARIABLE_DISTINCT_IN_USE_EDEFAULT = true;
-	/**
-	 * The cached value of the '{@link #isIsVariableDistinctInUse() <em>Is Variable Distinct In Use</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isIsVariableDistinctInUse()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean isVariableDistinctInUse = IS_VARIABLE_DISTINCT_IN_USE_EDEFAULT;
 	/**
 	 * The cached value of the '{@link #getNeoNodeLabels() <em>Neo Node Labels</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -92,6 +74,24 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	 * @ordered
 	 */
 	protected NeoPlace neoPlace = NEO_PLACE_EDEFAULT;
+	/**
+	 * The default value of the '{@link #isIsVariableDistinctInUse() <em>Is Variable Distinct In Use</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsVariableDistinctInUse()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IS_VARIABLE_DISTINCT_IN_USE_EDEFAULT = true;
+	/**
+	 * The cached value of the '{@link #isIsVariableDistinctInUse() <em>Is Variable Distinct In Use</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsVariableDistinctInUse()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean isVariableDistinctInUse = IS_VARIABLE_DISTINCT_IN_USE_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -389,13 +389,13 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case Adaptionneo4jPackage.NEO_ELEMENT_NODE__IS_VARIABLE_DISTINCT_IN_USE:
-				return isIsVariableDistinctInUse();
 			case Adaptionneo4jPackage.NEO_ELEMENT_NODE__NEO_NODE_LABELS:
 				if (resolve) return getNeoNodeLabels();
 				return basicGetNeoNodeLabels();
 			case Adaptionneo4jPackage.NEO_ELEMENT_NODE__NEO_PLACE:
 				return getNeoPlace();
+			case Adaptionneo4jPackage.NEO_ELEMENT_NODE__IS_VARIABLE_DISTINCT_IN_USE:
+				return isIsVariableDistinctInUse();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -459,56 +459,14 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case Adaptionneo4jPackage.NEO_ELEMENT_NODE__IS_VARIABLE_DISTINCT_IN_USE:
-				return isVariableDistinctInUse != IS_VARIABLE_DISTINCT_IN_USE_EDEFAULT;
 			case Adaptionneo4jPackage.NEO_ELEMENT_NODE__NEO_NODE_LABELS:
 				return neoNodeLabels != null;
 			case Adaptionneo4jPackage.NEO_ELEMENT_NODE__NEO_PLACE:
 				return neoPlace != NEO_PLACE_EDEFAULT;
+			case Adaptionneo4jPackage.NEO_ELEMENT_NODE__IS_VARIABLE_DISTINCT_IN_USE:
+				return isVariableDistinctInUse != IS_VARIABLE_DISTINCT_IN_USE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == NeoElement.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == NeoNode.class) {
-			switch (derivedFeatureID) {
-				case Adaptionneo4jPackage.NEO_ELEMENT_NODE__IS_VARIABLE_DISTINCT_IN_USE: return Adaptionneo4jPackage.NEO_NODE__IS_VARIABLE_DISTINCT_IN_USE;
-				default: return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == NeoElement.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == NeoNode.class) {
-			switch (baseFeatureID) {
-				case Adaptionneo4jPackage.NEO_NODE__IS_VARIABLE_DISTINCT_IN_USE: return Adaptionneo4jPackage.NEO_ELEMENT_NODE__IS_VARIABLE_DISTINCT_IN_USE;
-				default: return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**
@@ -520,7 +478,7 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == NeoElement.class) {
 			switch (baseOperationID) {
-				case Adaptionneo4jPackage.NEO_ELEMENT___GET_CYPHER_RETURN_VARIABLE: return Adaptionneo4jPackage.NEO_ELEMENT_NODE___GET_CYPHER_RETURN_VARIABLE;
+				case Adaptionneo4jPackage.NEO_ELEMENT___GET_CYPHER_RETURN: return Adaptionneo4jPackage.NEO_ELEMENT_NODE___GET_CYPHER_RETURN;
 				default: return -1;
 			}
 		}
@@ -556,7 +514,7 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case Adaptionneo4jPackage.NEO_ELEMENT_NODE___GET_CYPHER_RETURN_VARIABLE:
+			case Adaptionneo4jPackage.NEO_ELEMENT_NODE___GET_CYPHER_RETURN:
 				try {
 					return getCypherReturn();
 				}
@@ -580,10 +538,10 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (isVariableDistinctInUse: ");
-		result.append(isVariableDistinctInUse);
-		result.append(", neoPlace: ");
+		result.append(" (neoPlace: ");
 		result.append(neoPlace);
+		result.append(", isVariableDistinctInUse: ");
+		result.append(isVariableDistinctInUse);
 		result.append(')');
 		return result.toString();
 	}

@@ -283,16 +283,6 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNeoNode_IsVariableDistinctInUse() {
-		return (EAttribute)neoNodeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getNeoNode__GetCypherVariable() {
 		return neoNodeEClass.getEOperations().get(0);
 	}
@@ -325,6 +315,16 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 	@Override
 	public EAttribute getNeoElementNode_NeoPlace() {
 		return (EAttribute)neoElementNodeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNeoElementNode_IsVariableDistinctInUse() {
+		return (EAttribute)neoElementNodeEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -773,7 +773,7 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 	 * @generated
 	 */
 	@Override
-	public EOperation getNeoElement__GetCypherReturnVariable() {
+	public EOperation getNeoElement__GetCypherReturn() {
 		return neoElementEClass.getEOperations().get(0);
 	}
 
@@ -827,12 +827,12 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 
 		// Create classes and their features
 		neoNodeEClass = createEClass(NEO_NODE);
-		createEAttribute(neoNodeEClass, NEO_NODE__IS_VARIABLE_DISTINCT_IN_USE);
 		createEOperation(neoNodeEClass, NEO_NODE___GET_CYPHER_VARIABLE);
 
 		neoElementNodeEClass = createEClass(NEO_ELEMENT_NODE);
 		createEReference(neoElementNodeEClass, NEO_ELEMENT_NODE__NEO_NODE_LABELS);
 		createEAttribute(neoElementNodeEClass, NEO_ELEMENT_NODE__NEO_PLACE);
+		createEAttribute(neoElementNodeEClass, NEO_ELEMENT_NODE__IS_VARIABLE_DISTINCT_IN_USE);
 		createEOperation(neoElementNodeEClass, NEO_ELEMENT_NODE___ADD_NEO_LABEL__STRING);
 
 		neoElementEdgeEClass = createEClass(NEO_ELEMENT_EDGE);
@@ -888,7 +888,7 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 		createEOperation(neoPathParamEClass, NEO_PATH_PARAM___GET_CYPHER_RETURN_VARIABLE);
 
 		neoElementEClass = createEClass(NEO_ELEMENT);
-		createEOperation(neoElementEClass, NEO_ELEMENT___GET_CYPHER_RETURN_VARIABLE);
+		createEOperation(neoElementEClass, NEO_ELEMENT___GET_CYPHER_RETURN);
 
 		// Create enums
 		neoDirectionEEnum = createEEnum(NEO_DIRECTION);
@@ -947,7 +947,6 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(neoNodeEClass, NeoNode.class, "NeoNode", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNeoNode_IsVariableDistinctInUse(), ecorePackage.getEBoolean(), "isVariableDistinctInUse", "true", 0, 1, NeoNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getNeoNode__GetCypherVariable(), ecorePackage.getEString(), "getCypherVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
@@ -955,6 +954,7 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 		initEClass(neoElementNodeEClass, NeoElementNode.class, "NeoElementNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNeoElementNode_NeoNodeLabels(), theParametersPackage.getTextListParam(), null, "neoNodeLabels", null, 0, 1, NeoElementNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNeoElementNode_NeoPlace(), this.getNeoPlace(), "neoPlace", "FOLLOWING", 0, 1, NeoElementNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNeoElementNode_IsVariableDistinctInUse(), ecorePackage.getEBoolean(), "isVariableDistinctInUse", "true", 0, 1, NeoElementNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getNeoElementNode__AddNeoLabel__String(), null, "addNeoLabel", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "label", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1051,7 +1051,7 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 
 		initEClass(neoElementEClass, NeoElement.class, "NeoElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getNeoElement__GetCypherReturnVariable(), ecorePackage.getEMap(), "getCypherReturnVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNeoElement__GetCypherReturn(), ecorePackage.getEMap(), "getCypherReturn", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		// Initialize enums and add enum literals

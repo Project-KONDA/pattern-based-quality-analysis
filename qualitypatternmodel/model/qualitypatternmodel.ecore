@@ -1239,9 +1239,6 @@
         eSuperTypes="#//adaptionneo4j/NeoElement">
       <eOperations name="getCypherVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isVariableDistinctInUse"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-          defaultValueLiteral="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoElementNode" eSuperTypes="#//graphstructure/ComplexNode #//adaptionneo4j/NeoNode">
       <eOperations name="addNeoLabel" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
@@ -1250,6 +1247,9 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoNodeLabels" eType="#//parameters/TextListParam"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="neoPlace" eType="#//adaptionneo4j/NeoPlace"
           defaultValueLiteral="FOLLOWING"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isVariableDistinctInUse"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoElementEdge" eSuperTypes="#//adaptionneo4j/NeoEdge">
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoElementPathParam"

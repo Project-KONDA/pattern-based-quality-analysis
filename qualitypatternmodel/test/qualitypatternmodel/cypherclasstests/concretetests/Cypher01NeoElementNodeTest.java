@@ -179,7 +179,7 @@ public class Cypher01NeoElementNodeTest extends NeoNodeTest {
 	@ValueSource(ints = {1,10,100,1000})
 	public void generateCypherReturnVariableDistinct(int number) {
 		NeoNode node = super.neoAbstractNode;
-		node.setIsVariableDistinctInUse(false);
+		((NeoElementNode) node).setIsVariableDistinctInUse(false);
 		initGetCypherReturnVariableTest(node, number, false);
 	}
 	
