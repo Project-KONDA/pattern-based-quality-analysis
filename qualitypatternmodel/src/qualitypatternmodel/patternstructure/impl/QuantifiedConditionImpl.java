@@ -275,6 +275,14 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		return this;
 	}
 	
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @throws InvalidityException, OperatorCycleException, MissingPatternContainerException
+	 * Adapts the QuantifiedCondition.
+	 * 	- The Graph
+	 * 	- The next Condition
+	 * 	- Sets the Beginning for the Graph
+	 */
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
 		getGraph().createNeo4jAdaption();		

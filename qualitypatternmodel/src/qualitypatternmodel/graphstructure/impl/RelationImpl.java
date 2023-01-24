@@ -868,7 +868,12 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		return adaptAsRdfPredicate();
 	}	
 
-
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return {@link PatternElement}
+	 * @exception InvalidityException, OperatorCycleException, MissingPatternContainerException
+	 * 
+	 */
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		if (getTarget() instanceof NeoPropertyNode) {

@@ -726,6 +726,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * @author Lukas Sebastian Hofmann
 	 * @return PatternElement
 	 * @throws InvalidityException, OperatorCycleException, MissingPatternContainerException
+	 * Adapts Nodes and Relations to the equivalent Types of Neo4J.
 	 */
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

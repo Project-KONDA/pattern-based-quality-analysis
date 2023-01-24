@@ -393,12 +393,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		completeCyString = super.generateCypher();
 		 
 		String returnClause = this.generateCypherReturn();
-		if(returnClause.length() != 0) {
-			returnClause = CypherSpecificConstants.CLAUSE_RETURN + returnClause;
-		}
-		else {
-			throw new InvalidityException(A_CYPHER_QUERY_NEED_A_RETURN_CLAUSE);
-		}
+		returnClause = CypherSpecificConstants.CLAUSE_RETURN + returnClause;
 		completeCyString += returnClause;
 		
 		return completeCyString;
@@ -844,7 +839,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @throws InvalidityException, OperatorCycleException, MissingPatternContainerException
-	 * @return PatternElement
+	 * @return {@link PatternElement}
 	 * This method adapts the Patternstructure to Neo4J/Cypher.
 	 * Furthermore, it sets the Beginnings for the graph traversal. 
 	 */
