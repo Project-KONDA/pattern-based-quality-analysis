@@ -171,17 +171,8 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		EList<String> cypherList = null;
 		EList<String> cypherResult = null;
 		cypherList = new BasicEList<String>();
-		try {
-			cypherList = ((NeoPropertyNodeImpl) getOriginalNode()).generateCypherPropertyAddressing();
-		} catch (Exception e) {
-			//DO NOTHING --> SINCE NO EXCEPTION WILL BE THROWN --> SEE  IN generateCypherPropertyAddressing THE CONDTION WHEN SOMETHING WILL BE THROWEN
-			//Always a list will be returned. Thus there is no need for creating one. --> Could also be solved with an annotation to suppress the warning
-			//Do nothing --> need of less checks, since an exception is thrown. The structure has not to be iterated twice in the worst case --> Check of valid and if valid then generat it
-			//Actually if configured everything correctly there should be no exception
-			//generateCypherPropertyAddressing() is throwing an Exception since in the case of direct addressings in the Operators at least one Element has to exists
-			//"It's easier to ask forgiveness than it is to get permission" & "Ask forgiveness, not permission" --> Grace Hopper
-			//https://medium.com/nerd-for-tech/look-before-you-leap-vs-easier-to-ask-for-forgiveness-than-permission-in-programming-85d17a5f48c8
-		}
+		cypherList = ((NeoPropertyNodeImpl) getOriginalNode()).generateCypherPropertyAddressing();
+		
 		//Not in all cases the original NeoPropertyNode has a Property specified. Thus also other previews NeoPropertyNodes could contain a valid Property-Addressing.
 		if (cypherList.size() >= 1) {
 			final String adressing = cypherList.get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
@@ -322,7 +313,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		return ((NeoPropertyNode) getOriginalNode()).getCypherVariable(); 
 	}
 	
-	//TODO use distinct here
 	/**
 	 * <!-- begin-user-doc -->
 	 * This method returns the Property-Addressing of all NeoPropertyNode-Names.
