@@ -41,9 +41,6 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
 public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropertyNode {
 	private static final String NO_VALID_NEO_PROPERTY_EDGE = "No valid NeoPropertyEdge";
 	private static final String NO_PROPERTY_NAME_IS_SPECIFIED = "No Property-Name is specified";
-	private static final String NO_IMCOMING_EDGE_SPEZIFIED = "No imcoming edge spezified";
-	private static final String THIS_NODE_IS_NOT_SUITED_TO_BE_A_RETURN_NODE = "This Node is not suited to be a Return Node";
-	private static final String WRONG_INCOMING_NEO_PROPERTY_EDGE_SPECIFIED = "Wrong incoming NeoPropertyEdge specified";
 	private static final String NO_INCOMING_NEO_PROPERTY_EDGE_SPECIFIED = "No incoming NeoPropertyEdge specified";
 	private static final int CYPHER_RETURN_ID = 1;
 
