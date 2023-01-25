@@ -14,14 +14,17 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoEdge;
+import qualitypatternmodel.adaptionneo4j.NeoEdgeLabelParam;
 import qualitypatternmodel.adaptionneo4j.NeoPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
 import qualitypatternmodel.adaptionneo4j.NeoDirection;
 import qualitypatternmodel.adaptionneo4j.NeoElementEdge;
 import qualitypatternmodel.adaptionneo4j.NeoElement;
 import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoLabel;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.NeoPlace;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
@@ -158,6 +161,27 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 	 * @generated
 	 */
 	private EClass neoElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass neoNodeLabelsParamEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass neoEdgeLabelParamEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass neoLabelEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -783,6 +807,36 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 	 * @generated
 	 */
 	@Override
+	public EClass getNeoNodeLabelsParam() {
+		return neoNodeLabelsParamEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getNeoEdgeLabelParam() {
+		return neoEdgeLabelParamEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getNeoLabel() {
+		return neoLabelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getNeoDirection() {
 		return neoDirectionEEnum;
 	}
@@ -890,6 +944,12 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 		neoElementEClass = createEClass(NEO_ELEMENT);
 		createEOperation(neoElementEClass, NEO_ELEMENT___GET_CYPHER_RETURN);
 
+		neoNodeLabelsParamEClass = createEClass(NEO_NODE_LABELS_PARAM);
+
+		neoEdgeLabelParamEClass = createEClass(NEO_EDGE_LABEL_PARAM);
+
+		neoLabelEClass = createEClass(NEO_LABEL);
+
 		// Create enums
 		neoDirectionEEnum = createEEnum(NEO_DIRECTION);
 		neoPlaceEEnum = createEEnum(NEO_PLACE);
@@ -944,6 +1004,10 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 		neoEdgeEClass.getESuperTypes().add(this.getNeoElement());
 		neoPathParamEClass.getESuperTypes().add(theParametersPackage.getParameter());
 		neoPathParamEClass.getESuperTypes().add(theGraphstructurePackage.getAdaptable());
+		neoNodeLabelsParamEClass.getESuperTypes().add(theParametersPackage.getTextListParam());
+		neoNodeLabelsParamEClass.getESuperTypes().add(this.getNeoLabel());
+		neoEdgeLabelParamEClass.getESuperTypes().add(theParametersPackage.getTextLiteralParam());
+		neoEdgeLabelParamEClass.getESuperTypes().add(this.getNeoLabel());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(neoNodeEClass, NeoNode.class, "NeoNode", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -952,7 +1016,7 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(neoElementNodeEClass, NeoElementNode.class, "NeoElementNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNeoElementNode_NeoNodeLabels(), theParametersPackage.getTextListParam(), null, "neoNodeLabels", null, 0, 1, NeoElementNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNeoElementNode_NeoNodeLabels(), this.getNeoNodeLabelsParam(), null, "neoNodeLabels", null, 0, 1, NeoElementNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNeoElementNode_NeoPlace(), this.getNeoPlace(), "neoPlace", "FOLLOWING", 0, 1, NeoElementNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNeoElementNode_IsVariableDistinctInUse(), ecorePackage.getEBoolean(), "isVariableDistinctInUse", "true", 0, 1, NeoElementNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -975,8 +1039,8 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 		initEClass(neoSimpleEdgeEClass, NeoSimpleEdge.class, "NeoSimpleEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNeoSimpleEdge_KeyValueParam(), theParametersPackage.getKeyValueParam(), null, "keyValueParam", null, 0, 1, NeoSimpleEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNeoSimpleEdge_NeoDirection(), this.getNeoDirection(), "neoDirection", null, 0, 1, NeoSimpleEdge.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNeoSimpleEdge_NeoTargetNodeLabels(), theParametersPackage.getTextListParam(), null, "neoTargetNodeLabels", null, 0, 1, NeoSimpleEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNeoSimpleEdge_NeoEdgeLabel(), theParametersPackage.getTextLiteralParam(), null, "neoEdgeLabel", null, 0, 1, NeoSimpleEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNeoSimpleEdge_NeoTargetNodeLabels(), this.getNeoNodeLabelsParam(), null, "neoTargetNodeLabels", null, 0, 1, NeoSimpleEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNeoSimpleEdge_NeoEdgeLabel(), this.getNeoEdgeLabelParam(), null, "neoEdgeLabel", null, 0, 1, NeoSimpleEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNeoSimpleEdge_EdgeNumber(), ecorePackage.getEInt(), "edgeNumber", null, 0, 1, NeoSimpleEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getNeoSimpleEdge__SetNeoDirection__NeoDirection(), null, "setNeoDirection", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1053,6 +1117,12 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 
 		op = initEOperation(getNeoElement__GetCypherReturn(), ecorePackage.getEMap(), "getCypherReturn", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		initEClass(neoNodeLabelsParamEClass, NeoNodeLabelsParam.class, "NeoNodeLabelsParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(neoEdgeLabelParamEClass, NeoEdgeLabelParam.class, "NeoEdgeLabelParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(neoLabelEClass, NeoLabel.class, "NeoLabel", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(neoDirectionEEnum, NeoDirection.class, "NeoDirection");

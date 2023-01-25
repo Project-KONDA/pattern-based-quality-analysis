@@ -1534,8 +1534,9 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		initEOperation(getListParam__GetListDeclaration(), ecorePackage.getEString(), "getListDeclaration", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getListParam__AddStringValue__String(), null, "addStringValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getListParam__AddStringValue__String(), ecorePackage.getEString(), "addStringValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(multiListParamEClass, MultiListParam.class, "MultiListParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

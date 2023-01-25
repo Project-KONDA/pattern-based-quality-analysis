@@ -15,8 +15,12 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 
+import qualitypatternmodel.parameters.ListParam;
 import qualitypatternmodel.parameters.Parameter;
 
+import qualitypatternmodel.parameters.ParameterValue;
+import qualitypatternmodel.parameters.TextListParam;
+import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -196,6 +200,37 @@ public class Adaptionneo4jSwitch<T> extends Switch<T> {
 			case Adaptionneo4jPackage.NEO_ELEMENT: {
 				NeoElement neoElement = (NeoElement)theEObject;
 				T result = caseNeoElement(neoElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case Adaptionneo4jPackage.NEO_NODE_LABELS_PARAM: {
+				NeoNodeLabelsParam neoNodeLabelsParam = (NeoNodeLabelsParam)theEObject;
+				T result = caseNeoNodeLabelsParam(neoNodeLabelsParam);
+				if (result == null) result = caseTextListParam(neoNodeLabelsParam);
+				if (result == null) result = caseNeoLabel(neoNodeLabelsParam);
+				if (result == null) result = caseListParam(neoNodeLabelsParam);
+				if (result == null) result = caseParameterValue(neoNodeLabelsParam);
+				if (result == null) result = caseParameter(neoNodeLabelsParam);
+				if (result == null) result = caseComparable(neoNodeLabelsParam);
+				if (result == null) result = casePatternElement(neoNodeLabelsParam);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case Adaptionneo4jPackage.NEO_EDGE_LABEL_PARAM: {
+				NeoEdgeLabelParam neoEdgeLabelParam = (NeoEdgeLabelParam)theEObject;
+				T result = caseNeoEdgeLabelParam(neoEdgeLabelParam);
+				if (result == null) result = caseTextLiteralParam(neoEdgeLabelParam);
+				if (result == null) result = caseNeoLabel(neoEdgeLabelParam);
+				if (result == null) result = caseParameterValue(neoEdgeLabelParam);
+				if (result == null) result = caseParameter(neoEdgeLabelParam);
+				if (result == null) result = caseComparable(neoEdgeLabelParam);
+				if (result == null) result = casePatternElement(neoEdgeLabelParam);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case Adaptionneo4jPackage.NEO_LABEL: {
+				NeoLabel neoLabel = (NeoLabel)theEObject;
+				T result = caseNeoLabel(neoLabel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -399,6 +434,51 @@ public class Adaptionneo4jSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Neo Node Labels Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Neo Node Labels Param</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNeoNodeLabelsParam(NeoNodeLabelsParam object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Neo Edge Label Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Neo Edge Label Param</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNeoEdgeLabelParam(NeoEdgeLabelParam object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Neo Label</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Neo Label</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNeoLabel(NeoLabel object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Pattern Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -515,6 +595,66 @@ public class Adaptionneo4jSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseParameter(Parameter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterValue(ParameterValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>List Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>List Param</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseListParam(ListParam object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Text List Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Text List Param</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTextListParam(TextListParam object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Text Literal Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Text Literal Param</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTextLiteralParam(TextLiteralParam object) {
 		return null;
 	}
 

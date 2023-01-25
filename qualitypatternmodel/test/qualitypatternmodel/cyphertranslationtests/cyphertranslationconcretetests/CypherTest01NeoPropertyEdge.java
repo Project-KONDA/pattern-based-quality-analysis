@@ -156,7 +156,7 @@ public class CypherTest01NeoPropertyEdge extends CypherTranslation {
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
 		NeoSimpleEdge neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
-		neoSimpleEdge.setNeoTargetNodeLabels(new TextListParamImpl());
+		neoSimpleEdge.setNeoTargetNodeLabels(NEO_FACTORY.createNeoNodeLabelsParam());
 		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
 		
 		return completePattern;
@@ -260,9 +260,9 @@ public class CypherTest01NeoPropertyEdge extends CypherTranslation {
 		neoPropertyPathParam.setNeoPropertyName("path");
 		NeoComplexEdge neoComplexEdge = NEO_FACTORY.createNeoComplexEdge();
 		NeoSimpleEdge neoSimpleEdge1 = NEO_FACTORY.createNeoSimpleEdge();
-		neoSimpleEdge1.setNeoTargetNodeLabels(new TextListParamImpl());
+		neoSimpleEdge1.setNeoTargetNodeLabels(NEO_FACTORY.createNeoNodeLabelsParam());
 		NeoSimpleEdge neoSimpleEdge2 = NEO_FACTORY.createNeoSimpleEdge();
-		neoSimpleEdge2.setNeoTargetNodeLabels(new TextListParamImpl());
+		neoSimpleEdge2.setNeoTargetNodeLabels(NEO_FACTORY.createNeoNodeLabelsParam());
 		
 		neoComplexEdge.addNeoPathPart(neoSimpleEdge1);
 		neoComplexEdge.addNeoPathPart(neoSimpleEdge2);

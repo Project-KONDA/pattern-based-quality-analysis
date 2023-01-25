@@ -12,7 +12,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoDirection;
+import qualitypatternmodel.adaptionneo4j.NeoEdgeLabelParam;
 import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
@@ -23,8 +25,6 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.KeyValueParam;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.impl.TextListParamImpl;
-import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
@@ -47,6 +47,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  */
 
 public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge {
+	private static final String AN_EDGE_JUST_CAN_HAVE_ONE_LABEL_IF_A_NEW_ONE_SHALL_BE_USE_THE_SET_METHOD = "An Edge just can have one label. If a new one shall be use the set method";
 	private static final String EDGE_TARGET_NODE_LABELS = "Edge-Target-Node-Labels";
 	private static final String EDGE_LABELS = "Edge-Labels:";
 	private static final String NEO_DIRECTION_CAN_NOT_BE_NULL = "NeoDirection can not be null";
@@ -90,7 +91,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 * @generated
 	 * @ordered
 	 */
-	protected TextListParam neoTargetNodeLabels;
+	protected NeoNodeLabelsParam neoTargetNodeLabels;
 
 	/**
 	 * The cached value of the '{@link #getNeoEdgeLabel() <em>Neo Edge Label</em>}' reference.
@@ -100,7 +101,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 * @generated
 	 * @ordered
 	 */
-	protected TextLiteralParam neoEdgeLabel;
+	protected NeoEdgeLabelParam neoEdgeLabel;
 	/**
 	 * The default value of the '{@link #getEdgeNumber() <em>Edge Number</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -191,12 +192,8 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
 			cypher.append(getCypherInnerEdgeNodes(false));
 			if (withLabels) {
-				EList<String> labels = getNeoTargetNodeLabels().getValues();
-				for (String label : labels) {
-					if (!label.isEmpty()) {
-						cypher.append(CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_EQUAL_IN_GRAPH_MATCHING_LABELING + label);
-					}
-				}
+				final String tempLabels = getNeoTargetNodeLabels().generateCypher();
+				cypher.append(tempLabels);
 			}
 			cypher.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
 		}
@@ -217,7 +214,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		cypher.append(getCypherVariable());
 				
 		if (getNeoEdgeLabel() != null && withLabels) {
-			cypher.append(CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_EQUAL_IN_GRAPH_MATCHING + getNeoEdgeLabel().getValue());
+			cypher.append(getNeoEdgeLabel().generateCypher());
 		}
 		
 		cypher.append(CypherSpecificConstants.EDGE_CLOSING_BRACKET);
@@ -295,15 +292,107 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 */
 	@Override
 	public void addNeoEdgeLabel(String label) throws InvalidityException {
-		if (label == null)
-			return;		
 		if (this.neoEdgeLabel == null) {
-			this.neoEdgeLabel = new TextLiteralParamImpl();
+			this.neoEdgeLabel = new NeoEdgeLabelParamImpl();
+		} else if (this.neoEdgeLabel.getValue() != null) {
+			throw new InvalidityException(AN_EDGE_JUST_CAN_HAVE_ONE_LABEL_IF_A_NEW_ONE_SHALL_BE_USE_THE_SET_METHOD);
 		}
-		if (this.neoEdgeLabel.getValue() == null || this.neoEdgeLabel.getValue().compareTo(label) != 0) {
-			checkForWhitespaceInLabel(label);
-			this.neoEdgeLabel.setValue(label);
+		this.neoEdgeLabel.setValue(label);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM:
+				if (resolve) return getKeyValueParam();
+				return basicGetKeyValueParam();
+			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_DIRECTION:
+				return getNeoDirection();
+			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS:
+				if (resolve) return getNeoTargetNodeLabels();
+				return basicGetNeoTargetNodeLabels();
+			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL:
+				if (resolve) return getNeoEdgeLabel();
+				return basicGetNeoEdgeLabel();
+			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
+				return getEdgeNumber();
 		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM:
+				setKeyValueParam((KeyValueParam)newValue);
+				return;
+			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS:
+				setNeoTargetNodeLabels((NeoNodeLabelsParam)newValue);
+				return;
+			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL:
+				setNeoEdgeLabel((NeoEdgeLabelParam)newValue);
+				return;
+			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
+				setEdgeNumber((Integer)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM:
+				setKeyValueParam((KeyValueParam)null);
+				return;
+			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS:
+				setNeoTargetNodeLabels((NeoNodeLabelsParam)null);
+				return;
+			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL:
+				setNeoEdgeLabel((NeoEdgeLabelParam)null);
+				return;
+			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
+				unsetEdgeNumber();
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM:
+				return keyValueParam != null;
+			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_DIRECTION:
+				return neoDirection != NEO_DIRECTION_EDEFAULT;
+			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS:
+				return neoTargetNodeLabels != null;
+			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL:
+				return neoEdgeLabel != null;
+			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
+				return isSetEdgeNumber();
+		}
+		return super.eIsSet(featureID);
 	}
 
 	/**
@@ -375,10 +464,10 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 * @generated
 	 */
 	@Override
-	public TextLiteralParam getNeoEdgeLabel() {
+	public NeoEdgeLabelParam getNeoEdgeLabel() {
 		if (neoEdgeLabel != null && neoEdgeLabel.eIsProxy()) {
 			InternalEObject oldNeoEdgeLabel = (InternalEObject)neoEdgeLabel;
-			neoEdgeLabel = (TextLiteralParam)eResolveProxy(oldNeoEdgeLabel);
+			neoEdgeLabel = (NeoEdgeLabelParam)eResolveProxy(oldNeoEdgeLabel);
 			if (neoEdgeLabel != oldNeoEdgeLabel) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL, oldNeoEdgeLabel, neoEdgeLabel));
@@ -392,24 +481,18 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TextLiteralParam basicGetNeoEdgeLabel() {
+	public NeoEdgeLabelParam basicGetNeoEdgeLabel() {
 		return neoEdgeLabel;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
-	public void setNeoEdgeLabel(TextLiteralParam newNeoEdgeLabel) throws InvalidityException {
-		if (newNeoEdgeLabel != null) {
-			if (newNeoEdgeLabel.getValue() != null) {
-				checkForWhitespaceInLabel(newNeoEdgeLabel.getValue());
-			}
-		}
-		TextLiteralParam oldNeoEdgeLabel = neoEdgeLabel;
+	public void setNeoEdgeLabel(NeoEdgeLabelParam newNeoEdgeLabel) {
+		NeoEdgeLabelParam oldNeoEdgeLabel = neoEdgeLabel;
 		neoEdgeLabel = newNeoEdgeLabel;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL, oldNeoEdgeLabel, neoEdgeLabel));
@@ -485,15 +568,24 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 * @generated
 	 */
 	@Override
-	public TextListParam getNeoTargetNodeLabels() {
+	public NeoNodeLabelsParam getNeoTargetNodeLabels() {
 		if (neoTargetNodeLabels != null && neoTargetNodeLabels.eIsProxy()) {
 			InternalEObject oldNeoTargetNodeLabels = (InternalEObject)neoTargetNodeLabels;
-			neoTargetNodeLabels = (TextListParam)eResolveProxy(oldNeoTargetNodeLabels);
+			neoTargetNodeLabels = (NeoNodeLabelsParam)eResolveProxy(oldNeoTargetNodeLabels);
 			if (neoTargetNodeLabels != oldNeoTargetNodeLabels) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS, oldNeoTargetNodeLabels, neoTargetNodeLabels));
 			}
 		}
+		return neoTargetNodeLabels;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NeoNodeLabelsParam basicGetNeoTargetNodeLabels() {
 		return neoTargetNodeLabels;
 	}
 
@@ -502,23 +594,9 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TextListParam basicGetNeoTargetNodeLabels() {
-		return neoTargetNodeLabels;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
 	@Override
-	public void setNeoTargetNodeLabels(TextListParam newNeoTargetNodeLabels) throws InvalidityException {
-		if (newNeoTargetNodeLabels != null) {
-			for (String s : newNeoTargetNodeLabels.getValues()) {
-				checkForWhitespaceInLabel(s);
-			}
-		}
-		TextListParam oldNeoTargetNodeLabels = neoTargetNodeLabels;
+	public void setNeoTargetNodeLabels(NeoNodeLabelsParam newNeoTargetNodeLabels) {
+		NeoNodeLabelsParam oldNeoTargetNodeLabels = neoTargetNodeLabels;
 		neoTargetNodeLabels = newNeoTargetNodeLabels;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS, oldNeoTargetNodeLabels, neoTargetNodeLabels));
@@ -550,7 +628,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	@Override
 	public void addNeoTargetNodeLabel(String label) throws InvalidityException {
 		if (this.neoTargetNodeLabels == null) {
-			this.neoTargetNodeLabels = new TextListParamImpl();
+			this.neoTargetNodeLabels = new NeoNodeLabelsParamImpl();
 		}
 		
 		if (!this.neoTargetNodeLabels.getValues().contains(label)) {
@@ -583,120 +661,17 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		l.add(this);
 		return  l;
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM:
-				if (resolve) return getKeyValueParam();
-				return basicGetKeyValueParam();
-			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_DIRECTION:
-				return getNeoDirection();
-			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS:
-				if (resolve) return getNeoTargetNodeLabels();
-				return basicGetNeoTargetNodeLabels();
-			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL:
-				if (resolve) return getNeoEdgeLabel();
-				return basicGetNeoEdgeLabel();
-			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
-				return getEdgeNumber();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM:
-				setKeyValueParam((KeyValueParam)newValue);
-				return;
-			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS:
-				try {
-					setNeoTargetNodeLabels((TextListParam)newValue);
-				} catch (InvalidityException e) {
-					throw new RuntimeException(e.getCause());
-				}
-				return;
-			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL:
-				try {
-					setNeoEdgeLabel((TextLiteralParam)newValue);
-				} catch (InvalidityException e) {
-					throw new RuntimeException(e.getCause());
-				}
-				return;
-			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
-				setEdgeNumber((Integer)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+
+//	try {
+//		setNeoEdgeLabel((TextLiteralParam)null);
+//	} catch (InvalidityException e) {
+//		throw new RuntimeException(e.getCause());
+//	}
+//	return;
+
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM:
-				setKeyValueParam((KeyValueParam)null);
-				return;
-			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS:
-				try {
-					setNeoTargetNodeLabels((TextListParam)null);
-				} catch (InvalidityException e) {
-					throw new RuntimeException(e.getCause());
-				}
-				return;
-			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL:
-				try {
-					setNeoEdgeLabel((TextLiteralParam)null);
-				} catch (InvalidityException e) {
-					throw new RuntimeException(e.getCause());
-				}
-				return;
-			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
-				unsetEdgeNumber();
-				return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM:
-				return keyValueParam != null;
-			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_DIRECTION:
-				return neoDirection != NEO_DIRECTION_EDEFAULT;
-			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS:
-				return neoTargetNodeLabels != null;
-			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL:
-				return neoEdgeLabel != null;
-			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
-				return isSetEdgeNumber();
-		}
-		return super.eIsSet(featureID);
-	}
-
-/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

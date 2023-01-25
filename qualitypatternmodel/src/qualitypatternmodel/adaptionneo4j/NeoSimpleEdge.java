@@ -69,12 +69,12 @@ public interface NeoSimpleEdge extends NeoPathPart {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Neo Target Node Labels</em>' reference.
-	 * @see #setNeoTargetNodeLabels(TextListParam)
+	 * @see #setNeoTargetNodeLabels(NeoNodeLabelsParam)
 	 * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoSimpleEdge_NeoTargetNodeLabels()
 	 * @model
 	 * @generated
 	 */
-	TextListParam getNeoTargetNodeLabels();
+	NeoNodeLabelsParam getNeoTargetNodeLabels();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#getNeoTargetNodeLabels <em>Neo Target Node Labels</em>}' reference.
@@ -82,21 +82,21 @@ public interface NeoSimpleEdge extends NeoPathPart {
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Neo Target Node Labels</em>' reference.
 	 * @see #getNeoTargetNodeLabels()
-	 * @generated NOT
+	 * @generated
 	 */
-	void setNeoTargetNodeLabels(TextListParam value) throws InvalidityException;
+	void setNeoTargetNodeLabels(NeoNodeLabelsParam value);
 
 	/**
 	 * Returns the value of the '<em><b>Neo Edge Label</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Neo Edge Label</em>' reference.
-	 * @see #setNeoEdgeLabel(TextLiteralParam)
+	 * @see #setNeoEdgeLabel(NeoEdgeLabelParam)
 	 * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoSimpleEdge_NeoEdgeLabel()
 	 * @model
 	 * @generated
 	 */
-	TextLiteralParam getNeoEdgeLabel();
+	NeoEdgeLabelParam getNeoEdgeLabel();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#getNeoEdgeLabel <em>Neo Edge Label</em>}' reference.
@@ -104,9 +104,9 @@ public interface NeoSimpleEdge extends NeoPathPart {
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Neo Edge Label</em>' reference.
 	 * @see #getNeoEdgeLabel()
-	 * @generated NOT
+	 * @generated
 	 */
-	void setNeoEdgeLabel(TextLiteralParam value) throws InvalidityException;
+	void setNeoEdgeLabel(NeoEdgeLabelParam value);
 
 	/**
 	 * Returns the value of the '<em><b>Edge Number</b></em>' attribute.

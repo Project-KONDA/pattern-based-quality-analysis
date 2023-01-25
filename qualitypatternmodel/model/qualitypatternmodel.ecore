@@ -195,7 +195,8 @@
       </eOperations>
       <eOperations name="getListVar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="getListDeclaration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eOperations name="addStringValue">
+      <eOperations name="addStringValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" upperBound="-1"
@@ -1353,7 +1354,8 @@
       <eOperations name="getCypherReturn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoNodeLabelsParam" eSuperTypes="#//parameters/TextListParam"/>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoEdgeLabelParam" eSuperTypes="#//parameters/TextLiteralParam"/>
+    <eClassifiers xsi:type="ecore:EClass" name="NeoNodeLabelsParam" eSuperTypes="#//parameters/TextListParam #//adaptionneo4j/NeoLabel"/>
+    <eClassifiers xsi:type="ecore:EClass" name="NeoEdgeLabelParam" eSuperTypes="#//parameters/TextLiteralParam #//adaptionneo4j/NeoLabel"/>
+    <eClassifiers xsi:type="ecore:EClass" name="NeoLabel" abstract="true" interface="true"/>
   </eSubpackages>
 </ecore:EPackage>

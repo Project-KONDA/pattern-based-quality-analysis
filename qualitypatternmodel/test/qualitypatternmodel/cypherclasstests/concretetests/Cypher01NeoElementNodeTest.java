@@ -126,7 +126,7 @@ public class Cypher01NeoElementNodeTest extends NeoNodeTest {
 	}
 	
 	@Test
-	public void resetAndSetTestListparam() {
+	public void resetAndSetTextListparam() {
 		assertDoesNotThrow(() -> {neoNode.setNeoNodeLabels(null);});
 		assertNull(neoNode.getNeoNodeLabels());
 		assertDoesNotThrow(() -> {neoNode.setNeoNodeLabels(new TextListParamImpl());});

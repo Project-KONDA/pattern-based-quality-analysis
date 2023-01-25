@@ -4,9 +4,11 @@ import java.util.ArrayList;
 
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
 import qualitypatternmodel.adaptionneo4j.NeoDirection;
+import qualitypatternmodel.adaptionneo4j.NeoEdgeLabelParam;
 import qualitypatternmodel.adaptionneo4j.NeoElementEdge;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
 import qualitypatternmodel.adaptionneo4j.NeoPlace;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.cyphertranslationtests.CypherTranslation;
@@ -162,7 +164,7 @@ public class CypherTest01NeoElementEdge extends CypherTranslation {
 		neoEdge.setReturnElement(true);
 		NeoElementPathParam neoPathParam = neoEdge.getNeoElementPathParam();
 		NeoSimpleEdge neoSimpleEdge = (NeoSimpleEdge) neoPathParam.getNeoPathPart();
-		TextListParam labels = new TextListParamImpl();
+		NeoNodeLabelsParam labels = NEO_FACTORY.createNeoNodeLabelsParam();
 		labels.addStringValue("Place");
 		neoSimpleEdge.setNeoTargetNodeLabels(labels);
 		neoSimpleEdge.addNeoEdgeLabel("PLACE_OF_ISSUE");
@@ -185,7 +187,7 @@ public class CypherTest01NeoElementEdge extends CypherTranslation {
 		neoEdge.setReturnElement(true);
 		NeoElementPathParam neoPathParam = neoEdge.getNeoElementPathParam();
 		NeoSimpleEdge neoSimpleEdge = (NeoSimpleEdge) neoPathParam.getNeoPathPart();
-		TextListParam labels = new TextListParamImpl();
+		NeoNodeLabelsParam labels = NEO_FACTORY.createNeoNodeLabelsParam();
 		labels.addStringValue("Place");
 		neoSimpleEdge.setNeoTargetNodeLabels(labels);
 		neoSimpleEdge.addNeoEdgeLabel("PLACE_OF_ISSUE");

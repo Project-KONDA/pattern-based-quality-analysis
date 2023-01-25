@@ -5541,6 +5541,1197 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_EDGE_OPERATION_COUNT = NEO_EDGE_OPERATION_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionneo4j.impl.NeoNodeLabelsParamImpl <em>Neo Node Labels Param</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionneo4j.impl.NeoNodeLabelsParamImpl
+	 * @see qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jPackageImpl#getNeoNodeLabelsParam()
+	 * @generated
+	 */
+	int NEO_NODE_LABELS_PARAM = 13;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM__ID = ParametersPackage.TEXT_LIST_PARAM__ID;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM__INTERNAL_ID = ParametersPackage.TEXT_LIST_PARAM__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM__PARAMETER_LIST = ParametersPackage.TEXT_LIST_PARAM__PARAMETER_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM__PREDEFINED = ParametersPackage.TEXT_LIST_PARAM__PREDEFINED;
+
+	/**
+	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM__PARAMETER_REFERENCES = ParametersPackage.TEXT_LIST_PARAM__PARAMETER_REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM__DESCRIPTION = ParametersPackage.TEXT_LIST_PARAM__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM__COMPARISON1 = ParametersPackage.TEXT_LIST_PARAM__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM__COMPARISON2 = ParametersPackage.TEXT_LIST_PARAM__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Type Modifiable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM__TYPE_MODIFIABLE = ParametersPackage.TEXT_LIST_PARAM__TYPE_MODIFIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Values</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM__VALUES = ParametersPackage.TEXT_LIST_PARAM__VALUES;
+
+	/**
+	 * The number of structural features of the '<em>Neo Node Labels Param</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM_FEATURE_COUNT = ParametersPackage.TEXT_LIST_PARAM_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___IS_VALID__ABSTRACTIONLEVEL = ParametersPackage.TEXT_LIST_PARAM___IS_VALID__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = ParametersPackage.TEXT_LIST_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___MY_TO_STRING = ParametersPackage.TEXT_LIST_PARAM___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___GENERATE_CYPHER = ParametersPackage.TEXT_LIST_PARAM___GENERATE_CYPHER;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___GENERATE_XQUERY = ParametersPackage.TEXT_LIST_PARAM___GENERATE_XQUERY;
+
+	/**
+	 * The operation id for the '<em>Generate Sparql</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___GENERATE_SPARQL = ParametersPackage.TEXT_LIST_PARAM___GENERATE_SPARQL;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___GET_CONTAINER = ParametersPackage.TEXT_LIST_PARAM___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___GET_ANCESTOR__CLASS = ParametersPackage.TEXT_LIST_PARAM___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___INITIALIZE_TRANSLATION = ParametersPackage.TEXT_LIST_PARAM___INITIALIZE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___PREPARE_TRANSLATION = ParametersPackage.TEXT_LIST_PARAM___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___GET_OPERATOR_LIST = ParametersPackage.TEXT_LIST_PARAM___GET_OPERATOR_LIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___GET_PARAMETER_LIST = ParametersPackage.TEXT_LIST_PARAM___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___GET_ALL_PARAMETERS = ParametersPackage.TEXT_LIST_PARAM___GET_ALL_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___PREPARE_PARAMETER_UPDATES = ParametersPackage.TEXT_LIST_PARAM___PREPARE_PARAMETER_UPDATES;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = ParametersPackage.TEXT_LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = ParametersPackage.TEXT_LIST_PARAM___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = ParametersPackage.TEXT_LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___RECORD_VALUES__XMLDATADATABASE = ParametersPackage.TEXT_LIST_PARAM___RECORD_VALUES__XMLDATADATABASE;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___RELATIONS_XML_ADAPTED = ParametersPackage.TEXT_LIST_PARAM___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___CREATE_XML_ADAPTION = ParametersPackage.TEXT_LIST_PARAM___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___CREATE_RDF_ADAPTION = ParametersPackage.TEXT_LIST_PARAM___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___CREATE_NEO4J_ADAPTION = ParametersPackage.TEXT_LIST_PARAM___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Validate Against Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___VALIDATE_AGAINST_SCHEMA = ParametersPackage.TEXT_LIST_PARAM___VALIDATE_AGAINST_SCHEMA;
+
+	/**
+	 * The operation id for the '<em>Validate Example Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = ParametersPackage.TEXT_LIST_PARAM___VALIDATE_EXAMPLE_VALUE__STRING;
+
+	/**
+	 * The operation id for the '<em>Input Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___INPUT_IS_VALID = ParametersPackage.TEXT_LIST_PARAM___INPUT_IS_VALID;
+
+	/**
+	 * The operation id for the '<em>Is Used</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___IS_USED = ParametersPackage.TEXT_LIST_PARAM___IS_USED;
+
+	/**
+	 * The operation id for the '<em>Set Value From String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___SET_VALUE_FROM_STRING__STRING = ParametersPackage.TEXT_LIST_PARAM___SET_VALUE_FROM_STRING__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___GET_VALUE_AS_STRING = ParametersPackage.TEXT_LIST_PARAM___GET_VALUE_AS_STRING;
+
+	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___CHECK_COMPARISON_CONSISTENCY = ParametersPackage.TEXT_LIST_PARAM___CHECK_COMPARISON_CONSISTENCY;
+
+	/**
+	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___GET_OPTIONS_AS_STRING_LIST = ParametersPackage.TEXT_LIST_PARAM___GET_OPTIONS_AS_STRING_LIST;
+
+	/**
+	 * The operation id for the '<em>Generate Description</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___GENERATE_DESCRIPTION = ParametersPackage.TEXT_LIST_PARAM___GENERATE_DESCRIPTION;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = ParametersPackage.TEXT_LIST_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Return Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___GET_RETURN_TYPE = ParametersPackage.TEXT_LIST_PARAM___GET_RETURN_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___IS_TRANSLATABLE = ParametersPackage.TEXT_LIST_PARAM___IS_TRANSLATABLE;
+
+	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___GET_ALL_ARGUMENT_ELEMENTS = ParametersPackage.TEXT_LIST_PARAM___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___IS_OPERATOR_ARGUMENT = ParametersPackage.TEXT_LIST_PARAM___IS_OPERATOR_ARGUMENT;
+
+	/**
+	 * The operation id for the '<em>Replace</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___REPLACE__PARAMETERVALUE = ParametersPackage.TEXT_LIST_PARAM___REPLACE__PARAMETERVALUE;
+
+	/**
+	 * The operation id for the '<em>Replace Via Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___REPLACE_VIA_VALUE__STRING_STRING = ParametersPackage.TEXT_LIST_PARAM___REPLACE_VIA_VALUE__STRING_STRING;
+
+	/**
+	 * The operation id for the '<em>Get Element Tags</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___GET_ELEMENT_TAGS = ParametersPackage.TEXT_LIST_PARAM___GET_ELEMENT_TAGS;
+
+	/**
+	 * The operation id for the '<em>Get Data Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___GET_DATA_VALUES = ParametersPackage.TEXT_LIST_PARAM___GET_DATA_VALUES;
+
+	/**
+	 * The operation id for the '<em>Is In Data Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___IS_IN_DATA_COMPARISON = ParametersPackage.TEXT_LIST_PARAM___IS_IN_DATA_COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Is In Tag Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___IS_IN_TAG_COMPARISON = ParametersPackage.TEXT_LIST_PARAM___IS_IN_TAG_COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___GET_ATTRIBUTE_NAMES = ParametersPackage.TEXT_LIST_PARAM___GET_ATTRIBUTE_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___GET_ATTRIBUTE_VALUES = ParametersPackage.TEXT_LIST_PARAM___GET_ATTRIBUTE_VALUES;
+
+	/**
+	 * The operation id for the '<em>Is In Attribute Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___IS_IN_ATTRIBUTE_COMPARISON = ParametersPackage.TEXT_LIST_PARAM___IS_IN_ATTRIBUTE_COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Get Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___GET_SUGGESTIONS = ParametersPackage.TEXT_LIST_PARAM___GET_SUGGESTIONS;
+
+	/**
+	 * The operation id for the '<em>Infer Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___INFER_SUGGESTIONS = ParametersPackage.TEXT_LIST_PARAM___INFER_SUGGESTIONS;
+
+	/**
+	 * The operation id for the '<em>Set Value If Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___SET_VALUE_IF_VALID__ELIST = ParametersPackage.TEXT_LIST_PARAM___SET_VALUE_IF_VALID__ELIST;
+
+	/**
+	 * The operation id for the '<em>Get List Var</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___GET_LIST_VAR = ParametersPackage.TEXT_LIST_PARAM___GET_LIST_VAR;
+
+	/**
+	 * The operation id for the '<em>Get List Declaration</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___GET_LIST_DECLARATION = ParametersPackage.TEXT_LIST_PARAM___GET_LIST_DECLARATION;
+
+	/**
+	 * The operation id for the '<em>Add String Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___ADD_STRING_VALUE__STRING = ParametersPackage.TEXT_LIST_PARAM___ADD_STRING_VALUE__STRING;
+
+	/**
+	 * The number of operations of the '<em>Neo Node Labels Param</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM_OPERATION_COUNT = ParametersPackage.TEXT_LIST_PARAM_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionneo4j.impl.NeoEdgeLabelParamImpl <em>Neo Edge Label Param</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionneo4j.impl.NeoEdgeLabelParamImpl
+	 * @see qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jPackageImpl#getNeoEdgeLabelParam()
+	 * @generated
+	 */
+	int NEO_EDGE_LABEL_PARAM = 14;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM__ID = ParametersPackage.TEXT_LITERAL_PARAM__ID;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM__INTERNAL_ID = ParametersPackage.TEXT_LITERAL_PARAM__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM__PARAMETER_LIST = ParametersPackage.TEXT_LITERAL_PARAM__PARAMETER_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM__PREDEFINED = ParametersPackage.TEXT_LITERAL_PARAM__PREDEFINED;
+
+	/**
+	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM__PARAMETER_REFERENCES = ParametersPackage.TEXT_LITERAL_PARAM__PARAMETER_REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM__DESCRIPTION = ParametersPackage.TEXT_LITERAL_PARAM__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM__COMPARISON1 = ParametersPackage.TEXT_LITERAL_PARAM__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM__COMPARISON2 = ParametersPackage.TEXT_LITERAL_PARAM__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Type Modifiable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM__TYPE_MODIFIABLE = ParametersPackage.TEXT_LITERAL_PARAM__TYPE_MODIFIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM__VALUE = ParametersPackage.TEXT_LITERAL_PARAM__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Matches</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM__MATCHES = ParametersPackage.TEXT_LITERAL_PARAM__MATCHES;
+
+	/**
+	 * The feature id for the '<em><b>Xml Property Option Param</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM__XML_PROPERTY_OPTION_PARAM = ParametersPackage.TEXT_LITERAL_PARAM__XML_PROPERTY_OPTION_PARAM;
+
+	/**
+	 * The feature id for the '<em><b>Xml Axis Pair</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM__XML_AXIS_PAIR = ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR;
+
+	/**
+	 * The feature id for the '<em><b>Contains</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM__CONTAINS = ParametersPackage.TEXT_LITERAL_PARAM__CONTAINS;
+
+	/**
+	 * The number of structural features of the '<em>Neo Edge Label Param</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM_FEATURE_COUNT = ParametersPackage.TEXT_LITERAL_PARAM_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___IS_VALID__ABSTRACTIONLEVEL = ParametersPackage.TEXT_LITERAL_PARAM___IS_VALID__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = ParametersPackage.TEXT_LITERAL_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___MY_TO_STRING = ParametersPackage.TEXT_LITERAL_PARAM___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___GENERATE_CYPHER = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_CYPHER;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___GENERATE_XQUERY = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_XQUERY;
+
+	/**
+	 * The operation id for the '<em>Generate Sparql</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___GENERATE_SPARQL = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_SPARQL;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___GET_CONTAINER = ParametersPackage.TEXT_LITERAL_PARAM___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___GET_ANCESTOR__CLASS = ParametersPackage.TEXT_LITERAL_PARAM___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___INITIALIZE_TRANSLATION = ParametersPackage.TEXT_LITERAL_PARAM___INITIALIZE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___PREPARE_TRANSLATION = ParametersPackage.TEXT_LITERAL_PARAM___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___GET_OPERATOR_LIST = ParametersPackage.TEXT_LITERAL_PARAM___GET_OPERATOR_LIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___GET_PARAMETER_LIST = ParametersPackage.TEXT_LITERAL_PARAM___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___GET_ALL_PARAMETERS = ParametersPackage.TEXT_LITERAL_PARAM___GET_ALL_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___PREPARE_PARAMETER_UPDATES = ParametersPackage.TEXT_LITERAL_PARAM___PREPARE_PARAMETER_UPDATES;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = ParametersPackage.TEXT_LITERAL_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = ParametersPackage.TEXT_LITERAL_PARAM___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = ParametersPackage.TEXT_LITERAL_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___RECORD_VALUES__XMLDATADATABASE = ParametersPackage.TEXT_LITERAL_PARAM___RECORD_VALUES__XMLDATADATABASE;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___RELATIONS_XML_ADAPTED = ParametersPackage.TEXT_LITERAL_PARAM___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___CREATE_XML_ADAPTION = ParametersPackage.TEXT_LITERAL_PARAM___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___CREATE_RDF_ADAPTION = ParametersPackage.TEXT_LITERAL_PARAM___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___CREATE_NEO4J_ADAPTION = ParametersPackage.TEXT_LITERAL_PARAM___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Validate Against Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___VALIDATE_AGAINST_SCHEMA = ParametersPackage.TEXT_LITERAL_PARAM___VALIDATE_AGAINST_SCHEMA;
+
+	/**
+	 * The operation id for the '<em>Validate Example Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = ParametersPackage.TEXT_LITERAL_PARAM___VALIDATE_EXAMPLE_VALUE__STRING;
+
+	/**
+	 * The operation id for the '<em>Input Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___INPUT_IS_VALID = ParametersPackage.TEXT_LITERAL_PARAM___INPUT_IS_VALID;
+
+	/**
+	 * The operation id for the '<em>Is Used</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___IS_USED = ParametersPackage.TEXT_LITERAL_PARAM___IS_USED;
+
+	/**
+	 * The operation id for the '<em>Set Value From String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___SET_VALUE_FROM_STRING__STRING = ParametersPackage.TEXT_LITERAL_PARAM___SET_VALUE_FROM_STRING__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___GET_VALUE_AS_STRING = ParametersPackage.TEXT_LITERAL_PARAM___GET_VALUE_AS_STRING;
+
+	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___CHECK_COMPARISON_CONSISTENCY = ParametersPackage.TEXT_LITERAL_PARAM___CHECK_COMPARISON_CONSISTENCY;
+
+	/**
+	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___GET_OPTIONS_AS_STRING_LIST = ParametersPackage.TEXT_LITERAL_PARAM___GET_OPTIONS_AS_STRING_LIST;
+
+	/**
+	 * The operation id for the '<em>Generate Description</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___GENERATE_DESCRIPTION = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_DESCRIPTION;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = ParametersPackage.TEXT_LITERAL_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Return Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___GET_RETURN_TYPE = ParametersPackage.TEXT_LITERAL_PARAM___GET_RETURN_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___IS_TRANSLATABLE = ParametersPackage.TEXT_LITERAL_PARAM___IS_TRANSLATABLE;
+
+	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___GET_ALL_ARGUMENT_ELEMENTS = ParametersPackage.TEXT_LITERAL_PARAM___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___IS_OPERATOR_ARGUMENT = ParametersPackage.TEXT_LITERAL_PARAM___IS_OPERATOR_ARGUMENT;
+
+	/**
+	 * The operation id for the '<em>Replace</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___REPLACE__PARAMETERVALUE = ParametersPackage.TEXT_LITERAL_PARAM___REPLACE__PARAMETERVALUE;
+
+	/**
+	 * The operation id for the '<em>Replace Via Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___REPLACE_VIA_VALUE__STRING_STRING = ParametersPackage.TEXT_LITERAL_PARAM___REPLACE_VIA_VALUE__STRING_STRING;
+
+	/**
+	 * The operation id for the '<em>Get Element Tags</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___GET_ELEMENT_TAGS = ParametersPackage.TEXT_LITERAL_PARAM___GET_ELEMENT_TAGS;
+
+	/**
+	 * The operation id for the '<em>Get Data Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___GET_DATA_VALUES = ParametersPackage.TEXT_LITERAL_PARAM___GET_DATA_VALUES;
+
+	/**
+	 * The operation id for the '<em>Is In Data Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___IS_IN_DATA_COMPARISON = ParametersPackage.TEXT_LITERAL_PARAM___IS_IN_DATA_COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Is In Tag Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___IS_IN_TAG_COMPARISON = ParametersPackage.TEXT_LITERAL_PARAM___IS_IN_TAG_COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___GET_ATTRIBUTE_NAMES = ParametersPackage.TEXT_LITERAL_PARAM___GET_ATTRIBUTE_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___GET_ATTRIBUTE_VALUES = ParametersPackage.TEXT_LITERAL_PARAM___GET_ATTRIBUTE_VALUES;
+
+	/**
+	 * The operation id for the '<em>Is In Attribute Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___IS_IN_ATTRIBUTE_COMPARISON = ParametersPackage.TEXT_LITERAL_PARAM___IS_IN_ATTRIBUTE_COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Get Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___GET_SUGGESTIONS = ParametersPackage.TEXT_LITERAL_PARAM___GET_SUGGESTIONS;
+
+	/**
+	 * The operation id for the '<em>Infer Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___INFER_SUGGESTIONS = ParametersPackage.TEXT_LITERAL_PARAM___INFER_SUGGESTIONS;
+
+	/**
+	 * The operation id for the '<em>Set Value If Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___SET_VALUE_IF_VALID__STRING = ParametersPackage.TEXT_LITERAL_PARAM___SET_VALUE_IF_VALID__STRING;
+
+	/**
+	 * The number of operations of the '<em>Neo Edge Label Param</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM_OPERATION_COUNT = ParametersPackage.TEXT_LITERAL_PARAM_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionneo4j.NeoLabel <em>Neo Label</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionneo4j.NeoLabel
+	 * @see qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jPackageImpl#getNeoLabel()
+	 * @generated
+	 */
+	int NEO_LABEL = 15;
+
+	/**
+	 * The number of structural features of the '<em>Neo Label</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Neo Label</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionneo4j.NeoDirection <em>Neo Direction</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5548,7 +6739,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @see qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jPackageImpl#getNeoDirection()
 	 * @generated
 	 */
-	int NEO_DIRECTION = 13;
+	int NEO_DIRECTION = 16;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionneo4j.NeoPlace <em>Neo Place</em>}' enum.
@@ -5558,7 +6749,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @see qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jPackageImpl#getNeoPlace()
 	 * @generated
 	 */
-	int NEO_PLACE = 14;
+	int NEO_PLACE = 17;
 
 
 	/**
@@ -6090,6 +7281,36 @@ public interface Adaptionneo4jPackage extends EPackage {
 	EOperation getNeoElement__GetCypherReturn();
 
 	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam <em>Neo Node Labels Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Neo Node Labels Param</em>'.
+	 * @see qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam
+	 * @generated
+	 */
+	EClass getNeoNodeLabelsParam();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionneo4j.NeoEdgeLabelParam <em>Neo Edge Label Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Neo Edge Label Param</em>'.
+	 * @see qualitypatternmodel.adaptionneo4j.NeoEdgeLabelParam
+	 * @generated
+	 */
+	EClass getNeoEdgeLabelParam();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionneo4j.NeoLabel <em>Neo Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Neo Label</em>'.
+	 * @see qualitypatternmodel.adaptionneo4j.NeoLabel
+	 * @generated
+	 */
+	EClass getNeoLabel();
+
+	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.adaptionneo4j.NeoDirection <em>Neo Direction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6565,6 +7786,36 @@ public interface Adaptionneo4jPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NEO_ELEMENT___GET_CYPHER_RETURN = eINSTANCE.getNeoElement__GetCypherReturn();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionneo4j.impl.NeoNodeLabelsParamImpl <em>Neo Node Labels Param</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.adaptionneo4j.impl.NeoNodeLabelsParamImpl
+		 * @see qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jPackageImpl#getNeoNodeLabelsParam()
+		 * @generated
+		 */
+		EClass NEO_NODE_LABELS_PARAM = eINSTANCE.getNeoNodeLabelsParam();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionneo4j.impl.NeoEdgeLabelParamImpl <em>Neo Edge Label Param</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.adaptionneo4j.impl.NeoEdgeLabelParamImpl
+		 * @see qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jPackageImpl#getNeoEdgeLabelParam()
+		 * @generated
+		 */
+		EClass NEO_EDGE_LABEL_PARAM = eINSTANCE.getNeoEdgeLabelParam();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionneo4j.NeoLabel <em>Neo Label</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.adaptionneo4j.NeoLabel
+		 * @see qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jPackageImpl#getNeoLabel()
+		 * @generated
+		 */
+		EClass NEO_LABEL = eINSTANCE.getNeoLabel();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionneo4j.NeoDirection <em>Neo Direction</em>}' enum.

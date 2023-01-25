@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
 import qualitypatternmodel.adaptionneo4j.NeoElement;
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
@@ -24,7 +25,6 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.impl.ComplexNodeImpl;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.TextListParam;
-import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
@@ -44,8 +44,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNode {
-	private static final String PARAMETER_HAS_NOT_BEEN_CREATED_IN_NEO_ELEMENT_NODE = "Parameter has not been created in NeoElementNode";
-	private static final String A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S = "A Label can not contain Whitespace(s)";
+	
 	private static final int CYPHER_RETURN_ID = 0;
 	/**
 	 * The cached value of the '{@link #getNeoNodeLabels() <em>Neo Node Labels</em>}' reference.
@@ -55,7 +54,7 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	 * @generated
 	 * @ordered
 	 */
-	protected TextListParam neoNodeLabels;
+	protected NeoNodeLabelsParam neoNodeLabels;
 	/**
 	 * The default value of the '{@link #getNeoPlace() <em>Neo Place</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -117,16 +116,9 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 			cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
 			cypher.append(CypherSpecificConstants.VARIABLE_ELEMENT_NODE);
 			cypher.append(getOriginalID());
-			TextListParam labels = this.getNeoNodeLabels();
 			if((!translated)) { 
-				if (getNeoNodeLabels() != null) {
-					for (String label : labels.getValues()) {
-						if (!label.isEmpty()) { 
-							cypher.append(CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_EQUAL_IN_GRAPH_MATCHING_LABELING);
-							cypher.append(label);
-						}
-					}
-				}
+				final String labels = getNeoNodeLabels().generateCypher();
+				cypher.append(labels);
 				translated = true;
 			}
 			cypher.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
@@ -265,24 +257,20 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 		createParameters();
 	}
 	
-	//Since NeoLabel should be a Parameter
 	/**
 	 * @author Lukas Sebastian Hofmann
-	 * 
+	 * Creates the Paramters for the NeoElementNode
+	 * 	- Labels
 	 */
 	@Override
 	public void createParameters() {
 		if (getIncomingMapping() == null) {
 			ParameterList pList = getParameterList();
 			if (pList != null) {
-				TextListParam labels = getNeoNodeLabels();
+				NeoNodeLabelsParam labels = getNeoNodeLabels();
 				if (labels == null) {
-					labels = new TextListParamImpl();
-					try {
-						setNeoNodeLabels(labels);
-					} catch (InvalidityException e) {
-						throw new RuntimeException(PARAMETER_HAS_NOT_BEEN_CREATED_IN_NEO_ELEMENT_NODE, e);
-					}
+					labels = new NeoNodeLabelsParamImpl();
+					setNeoNodeLabels(labels);
 					pList.add(labels);	
 				}
 				if (!pList.equals(labels.getParameterList())) {
@@ -311,10 +299,10 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	 * @generated
 	 */
 	@Override
-	public TextListParam getNeoNodeLabels() {
+	public NeoNodeLabelsParam getNeoNodeLabels() {
 		if (neoNodeLabels != null && neoNodeLabels.eIsProxy()) {
 			InternalEObject oldNeoNodeLabels = (InternalEObject)neoNodeLabels;
-			neoNodeLabels = (TextListParam)eResolveProxy(oldNeoNodeLabels);
+			neoNodeLabels = (NeoNodeLabelsParam)eResolveProxy(oldNeoNodeLabels);
 			if (neoNodeLabels != oldNeoNodeLabels) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Adaptionneo4jPackage.NEO_ELEMENT_NODE__NEO_NODE_LABELS, oldNeoNodeLabels, neoNodeLabels));
@@ -328,8 +316,21 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TextListParam basicGetNeoNodeLabels() {
+	public NeoNodeLabelsParam basicGetNeoNodeLabels() {
 		return neoNodeLabels;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setNeoNodeLabels(NeoNodeLabelsParam newNeoNodeLabels) {
+		NeoNodeLabelsParam oldNeoNodeLabels = neoNodeLabels;
+		neoNodeLabels = newNeoNodeLabels;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Adaptionneo4jPackage.NEO_ELEMENT_NODE__NEO_NODE_LABELS, oldNeoNodeLabels, neoNodeLabels));
 	}
 
 	/**
@@ -340,45 +341,9 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	@Override
 	public void addNeoLabel(String label) throws InvalidityException {
 		if (this.neoNodeLabels == null) {
-			this.neoNodeLabels = new TextListParamImpl();
+			this.neoNodeLabels = new NeoNodeLabelsParamImpl();
 		}
-		if (!this.neoNodeLabels.getValues().contains(label)) {
-			if (label.contains(CypherSpecificConstants.ONE_WHITESPACE)) {
-				throw new InvalidityException(A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S);
-			}
-			this.neoNodeLabels.addStringValue(label);
-		}
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public void setNeoNodeLabels(TextListParam newNeoNodeLabels) throws InvalidityException {
-		if (newNeoNodeLabels != null) {
-			for (String value : newNeoNodeLabels.getValues()) { 
-				checkForWhiteSpacesInLabel(value);
-			}
-		}
-		
-		TextListParam oldNeoNodeLabels = neoNodeLabels;
-		neoNodeLabels = newNeoNodeLabels;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Adaptionneo4jPackage.NEO_ELEMENT_NODE__NEO_NODE_LABELS, oldNeoNodeLabels, neoNodeLabels));
-	}
-
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @param value
-	 * @throws InvalidityException
-	 * Checks if whitespace(s) are contained in the label.
-	 */
-	private void checkForWhiteSpacesInLabel(String value) throws InvalidityException {
-		if (value.contains(CypherSpecificConstants.ONE_WHITESPACE)) {
-			throw new InvalidityException(A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S);
-		}
+		getNeoNodeLabels().addStringValue(label);
 	}
 
 	/**
@@ -400,27 +365,24 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 		return super.eGet(featureID, resolve, coreType);
 	}
 
+	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case Adaptionneo4jPackage.NEO_ELEMENT_NODE__IS_VARIABLE_DISTINCT_IN_USE:
-				setIsVariableDistinctInUse((Boolean)newValue);
-				return;
 			case Adaptionneo4jPackage.NEO_ELEMENT_NODE__NEO_NODE_LABELS:
-				try {
-					setNeoNodeLabels((TextListParam)newValue);
-				} catch (InvalidityException e) {
-					throw new RuntimeException(e.getCause());
-				}
+				setNeoNodeLabels((NeoNodeLabelsParam)newValue);
 				return;
 			case Adaptionneo4jPackage.NEO_ELEMENT_NODE__NEO_PLACE:
 				setNeoPlace((NeoPlace)newValue);
+				return;
+			case Adaptionneo4jPackage.NEO_ELEMENT_NODE__IS_VARIABLE_DISTINCT_IN_USE:
+				setIsVariableDistinctInUse((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -429,23 +391,19 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case Adaptionneo4jPackage.NEO_ELEMENT_NODE__IS_VARIABLE_DISTINCT_IN_USE:
-				setIsVariableDistinctInUse(IS_VARIABLE_DISTINCT_IN_USE_EDEFAULT);
-				return;
 			case Adaptionneo4jPackage.NEO_ELEMENT_NODE__NEO_NODE_LABELS:
-				try {
-					setNeoNodeLabels((TextListParam) null);
-				} catch (InvalidityException e) {
-					throw new RuntimeException(e.getCause());
-				}
+				setNeoNodeLabels((NeoNodeLabelsParam)null);
 				return;
 			case Adaptionneo4jPackage.NEO_ELEMENT_NODE__NEO_PLACE:
 				setNeoPlace(NEO_PLACE_EDEFAULT);
+				return;
+			case Adaptionneo4jPackage.NEO_ELEMENT_NODE__IS_VARIABLE_DISTINCT_IN_USE:
+				setIsVariableDistinctInUse(IS_VARIABLE_DISTINCT_IN_USE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);

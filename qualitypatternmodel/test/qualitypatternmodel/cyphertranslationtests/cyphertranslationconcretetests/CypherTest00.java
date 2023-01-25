@@ -7,6 +7,7 @@ import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.cyphertranslationtests.CypherTranslation;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
+import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -15,9 +16,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.operators.Match;
-import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.impl.DateParamImpl;
-import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -144,7 +143,7 @@ public class CypherTest00 extends CypherTranslation {
 		relation.setNeoPropertyPathParam(nppp);
 		
 		NeoElementNode node = (NeoElementNode) completePattern.getGraph().getNodes().get(0);
-		TextListParam labels = new TextListParamImpl();
+		NeoNodeLabelsParam labels = NEO_FACTORY.createNeoNodeLabelsParam();
 		EList<String> textLabels = new BasicEList<String>();
 		textLabels.add("Regesta");
 		labels.setValueIfValid(textLabels);
@@ -173,7 +172,7 @@ public class CypherTest00 extends CypherTranslation {
 		relation.setNeoPropertyPathParam(nppp);
 		
 		NeoElementNode node = (NeoElementNode) completePattern.getGraph().getNodes().get(0);
-		TextListParam labels = new TextListParamImpl();
+		NeoNodeLabelsParam labels = NEO_FACTORY.createNeoNodeLabelsParam();
 		EList<String> textLabels = new BasicEList<String>();
 		textLabels.add("Regesta");
 		labels.setValueIfValid(textLabels);
@@ -199,7 +198,7 @@ public class CypherTest00 extends CypherTranslation {
 		relation.setNeoPropertyPathParam(neoPropertyPathParam);
 		
 		NeoElementNode node = (NeoElementNode) completePattern.getGraph().getNodes().get(0);
-		TextListParam labels = new TextListParamImpl();
+		NeoNodeLabelsParam labels = NEO_FACTORY.createNeoNodeLabelsParam();
 		EList<String> textLabels = new BasicEList<String>();
 		textLabels.add("Regesta");
 		labels.setValueIfValid(textLabels);
@@ -226,7 +225,7 @@ public class CypherTest00 extends CypherTranslation {
 		relation.setNeoPropertyPathParam(neoPropertyPathParam);
 		
 		NeoElementNode node = (NeoElementNode) completePattern.getGraph().getNodes().get(0);
-		TextListParam labels = new TextListParamImpl();
+		NeoNodeLabelsParam labels = NEO_FACTORY.createNeoNodeLabelsParam();
 		EList<String> textLabels = new BasicEList<String>();
 		textLabels.add("Regesta");
 		labels.setValueIfValid(textLabels);

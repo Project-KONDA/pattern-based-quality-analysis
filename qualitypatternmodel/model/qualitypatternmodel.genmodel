@@ -1123,6 +1123,9 @@
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoElement">
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoElement/getCypherReturn"/>
       </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoNodeLabelsParam"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoEdgeLabelParam"/>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoLabel"/>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

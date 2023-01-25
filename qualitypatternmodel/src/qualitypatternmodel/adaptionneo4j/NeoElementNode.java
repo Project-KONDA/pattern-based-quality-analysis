@@ -6,8 +6,6 @@ import qualitypatternmodel.exceptions.InvalidityException;
 
 import qualitypatternmodel.graphstructure.ComplexNode;
 
-import qualitypatternmodel.parameters.TextListParam;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Neo Node</b></em>'.
@@ -32,12 +30,12 @@ public interface NeoElementNode extends ComplexNode, NeoNode {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Neo Node Labels</em>' reference.
-	 * @see #setNeoNodeLabels(TextListParam)
+	 * @see #setNeoNodeLabels(NeoNodeLabelsParam)
 	 * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoElementNode_NeoNodeLabels()
 	 * @model
 	 * @generated
 	 */
-	TextListParam getNeoNodeLabels();
+	NeoNodeLabelsParam getNeoNodeLabels();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.adaptionneo4j.NeoElementNode#getNeoNodeLabels <em>Neo Node Labels</em>}' reference.
@@ -47,7 +45,7 @@ public interface NeoElementNode extends ComplexNode, NeoNode {
 	 * @see #getNeoNodeLabels()
 	 * @generated
 	 */
-	void setNeoNodeLabels(TextListParam value) throws InvalidityException;
+	void setNeoNodeLabels(NeoNodeLabelsParam value);
 
 	/**
 	 * Returns the value of the '<em><b>Neo Place</b></em>' attribute.

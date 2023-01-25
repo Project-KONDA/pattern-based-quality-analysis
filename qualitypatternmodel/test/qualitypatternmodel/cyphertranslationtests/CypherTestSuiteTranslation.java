@@ -482,7 +482,7 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 					+ "RETURN varElementNode3, varElementNode4, \n"
 					+ "   varElementEdge2");
 			i++;
-			
+
 			//getSimpleEdgeWithTargetNode
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode3:Regesta)-[varElementEdge2:PLACE_OF_ISSUE]->(intEgNode2:Place)--(varElementNode4:Regesta)\n"
 					+ "RETURN varElementNode3, varElementNode4, \n"

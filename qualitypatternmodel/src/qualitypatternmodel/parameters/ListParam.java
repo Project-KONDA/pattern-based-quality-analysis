@@ -62,9 +62,10 @@ public interface ListParam extends ParameterValue {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
 	 * @model
 	 * @generated
 	 */
-	void addStringValue(String value);
+	void addStringValue(String value) throws InvalidityException;
 
 } // AbstractListParam

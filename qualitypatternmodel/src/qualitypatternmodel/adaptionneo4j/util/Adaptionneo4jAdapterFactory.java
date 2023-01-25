@@ -17,8 +17,12 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 
+import qualitypatternmodel.parameters.ListParam;
 import qualitypatternmodel.parameters.Parameter;
 
+import qualitypatternmodel.parameters.ParameterValue;
+import qualitypatternmodel.parameters.TextListParam;
+import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -130,6 +134,18 @@ public class Adaptionneo4jAdapterFactory extends AdapterFactoryImpl {
 				return createNeoElementAdapter();
 			}
 			@Override
+			public Adapter caseNeoNodeLabelsParam(NeoNodeLabelsParam object) {
+				return createNeoNodeLabelsParamAdapter();
+			}
+			@Override
+			public Adapter caseNeoEdgeLabelParam(NeoEdgeLabelParam object) {
+				return createNeoEdgeLabelParamAdapter();
+			}
+			@Override
+			public Adapter caseNeoLabel(NeoLabel object) {
+				return createNeoLabelAdapter();
+			}
+			@Override
 			public Adapter casePatternElement(PatternElement object) {
 				return createPatternElementAdapter();
 			}
@@ -160,6 +176,22 @@ public class Adaptionneo4jAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseParameter(Parameter object) {
 				return createParameterAdapter();
+			}
+			@Override
+			public Adapter caseParameterValue(ParameterValue object) {
+				return createParameterValueAdapter();
+			}
+			@Override
+			public Adapter caseListParam(ListParam object) {
+				return createListParamAdapter();
+			}
+			@Override
+			public Adapter caseTextListParam(TextListParam object) {
+				return createTextListParamAdapter();
+			}
+			@Override
+			public Adapter caseTextLiteralParam(TextLiteralParam object) {
+				return createTextLiteralParamAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -364,6 +396,48 @@ public class Adaptionneo4jAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam <em>Neo Node Labels Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam
+	 * @generated
+	 */
+	public Adapter createNeoNodeLabelsParamAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionneo4j.NeoEdgeLabelParam <em>Neo Edge Label Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.adaptionneo4j.NeoEdgeLabelParam
+	 * @generated
+	 */
+	public Adapter createNeoEdgeLabelParamAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionneo4j.NeoLabel <em>Neo Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.adaptionneo4j.NeoLabel
+	 * @generated
+	 */
+	public Adapter createNeoLabelAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.PatternElement <em>Pattern Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -472,6 +546,62 @@ public class Adaptionneo4jAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.ParameterValue <em>Parameter Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.parameters.ParameterValue
+	 * @generated
+	 */
+	public Adapter createParameterValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.ListParam <em>List Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.parameters.ListParam
+	 * @generated
+	 */
+	public Adapter createListParamAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.TextListParam <em>Text List Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.parameters.TextListParam
+	 * @generated
+	 */
+	public Adapter createTextListParamAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.TextLiteralParam <em>Text Literal Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.parameters.TextLiteralParam
+	 * @generated
+	 */
+	public Adapter createTextLiteralParamAdapter() {
 		return null;
 	}
 

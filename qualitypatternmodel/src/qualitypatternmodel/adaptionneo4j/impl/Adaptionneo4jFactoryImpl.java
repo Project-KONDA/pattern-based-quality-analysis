@@ -65,6 +65,8 @@ public class Adaptionneo4jFactoryImpl extends EFactoryImpl implements Adaptionne
 			case Adaptionneo4jPackage.NEO_ELEMENT_PATH_PARAM: return createNeoElementPathParam();
 			case Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM: return createNeoPropertyPathParam();
 			case Adaptionneo4jPackage.NEO_PROPERTY_EDGE: return createNeoPropertyEdge();
+			case Adaptionneo4jPackage.NEO_NODE_LABELS_PARAM: return createNeoNodeLabelsParam();
+			case Adaptionneo4jPackage.NEO_EDGE_LABEL_PARAM: return createNeoEdgeLabelParam();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -190,6 +192,28 @@ public class Adaptionneo4jFactoryImpl extends EFactoryImpl implements Adaptionne
 	public NeoPropertyEdge createNeoPropertyEdge() {
 		NeoPropertyEdgeImpl neoPropertyEdge = new NeoPropertyEdgeImpl();
 		return neoPropertyEdge;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NeoNodeLabelsParam createNeoNodeLabelsParam() {
+		NeoNodeLabelsParamImpl neoNodeLabelsParam = new NeoNodeLabelsParamImpl();
+		return neoNodeLabelsParam;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NeoEdgeLabelParam createNeoEdgeLabelParam() {
+		NeoEdgeLabelParamImpl neoEdgeLabelParam = new NeoEdgeLabelParamImpl();
+		return neoEdgeLabelParam;
 	}
 
 	/**

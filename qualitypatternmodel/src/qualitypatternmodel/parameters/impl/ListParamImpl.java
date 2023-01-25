@@ -132,10 +132,11 @@ public abstract class ListParamImpl extends ParameterValueImpl implements ListPa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
 	 * @generated NOT
 	 */
 	@Override
-	public void addStringValue(String value) {
+	public void addStringValue(String value) throws InvalidityException {
 		if (this.values == null) {
 			this.values = new BasicEList<String>();
 		}
@@ -226,7 +227,11 @@ public abstract class ListParamImpl extends ParameterValueImpl implements ListPa
 			case ParametersPackage.LIST_PARAM___GET_LIST_DECLARATION:
 				return getListDeclaration();
 			case ParametersPackage.LIST_PARAM___ADD_STRING_VALUE__STRING:
-				addStringValue((String)arguments.get(0));
+				try {
+					addStringValue((String)arguments.get(0));
+				} catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
