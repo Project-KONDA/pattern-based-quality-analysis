@@ -42,6 +42,7 @@ import qualitypatternmodel.operators.NumberOperator;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.ListParam;
+import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
@@ -76,6 +77,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
+	private static final String THE_GIVEN_ARGUMENTS_ARE_NOT_VALID_FOR_NEO4J_POSSIBLIE_ARE_2X_PROPERTIES_2X_NODES_1X_PROPERTY_1X_PARAM = "The given Arguments are not valid for Neo4J \n Possiblie are: \n\t 2xProperties \n\t 2xNodes \n\t 1xProperty+1xParam \n\t 1xNeoElementNode+NumberParam";
 	private static final String ARGUMENT1_IS_NOT_A_NODE_EITHER_A_NUMERICAL_VALUE_CONTEXT_ID_FUNCTION = "Argument1 is not a Node either a numerical value (Context: ID-Function)";
 	private static final String ARGUMENT2_IS_NOT_A_NODE_EITHER_A_NUMERICAL_VALUE_CONTEXT_ID_FUNCTION = "Argument2 is not a Node either a numerical value (Context: ID-Function)";
 	private static final String NOTHING_TO_ADDRESS = "Nothing to address";
@@ -702,24 +704,35 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}
 		
 		if (abstractionLevel == AbstractionLevel.ABSTRACT) {
-			
+			isAbstractNeo4jValid();
 		}
 		
 		super.isValidLocal(abstractionLevel);
 		isCycleFree();
 	}
 	
-	private final void isAbstractNeo4jValid() {
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @throws InvalidityException
+	 * Checks if correct arguments are set for a comparison of Neo4J
+	 */
+	private final void isAbstractNeo4jValid() throws InvalidityException {
 		if (getArgument1() instanceof NeoPropertyNode && getArgument2() instanceof NeoPropertyNode) {
-			
+			return;
 		} else if (getArgument1() instanceof NeoPropertyNode && !(getArgument2() instanceof NeoPropertyNode)) {
-			
+			return;
 		} else if (!(getArgument1() instanceof NeoPropertyNode) && getArgument2() instanceof NeoPropertyNode) {
-			
+			return;
 		} else if (getArgument1() instanceof NeoElementNode && getArgument2() instanceof NeoElementNode) {
- 
+			return;
+		} else if (getArgument1() instanceof NeoElementNode && getArgument2() instanceof NeoElementNode) {
+			return;
+		} else if (getArgument1() instanceof NeoElementNode && getArgument2() instanceof NumberParam) {
+			return;
+		} else if (getArgument1() instanceof NumberParam && getArgument2() instanceof NeoElementNode) {
+			return;
 		}
-		
+		throw new InvalidityException(THE_GIVEN_ARGUMENTS_ARE_NOT_VALID_FOR_NEO4J_POSSIBLIE_ARE_2X_PROPERTIES_2X_NODES_1X_PROPERTY_1X_PARAM);
 	}
 
 	/**
@@ -1569,20 +1582,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	//FUTURE WORK
 	@Deprecated
 	public String generateCypherInMatch() throws InvalidityException {
-//		if (!neoInWhereClause()) {
-//			String cypher;
-//			if (getArgument1() instanceof NeoPropertyNode) {
-//				//((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing()
-//				cypher = (NeoPropertyNode) getArgument1()).getIncoming().get(0))
-//						.getNeoPropertyPathParam().getNeoPropertyName().getValue();
-//				cypher += ": " + getArgument2().generateCypher();
-//			} else {
-//				cypher = ((NeoPropertyEdge)((NeoPropertyNode) getArgument2()).getIncoming().get(0))
-//						.getNeoPropertyPathParam().getNeoPropertyName().getValue();
-//				cypher += ": " + getArgument1().generateCypher();
-//			}
-//			return cypher;
-//		}
 		throw new UnsupportedOperationException();
 	}
 	
