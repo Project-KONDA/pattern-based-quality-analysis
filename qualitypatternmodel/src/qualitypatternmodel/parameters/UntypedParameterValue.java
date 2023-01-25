@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.parameters;
 
+import qualitypatternmodel.exceptions.InvalidityException;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Unknown Input Value</b></em>'.
@@ -21,8 +23,8 @@ public interface UntypedParameterValue extends ParameterValue {
 	 * 
 	 * @param val the value of the new <code>TextLiteralParam</code> that replaces <code>this</code>
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	void setValue(String val);
+	void setValue(String val) throws InvalidityException;
 } // UnknownInputValue

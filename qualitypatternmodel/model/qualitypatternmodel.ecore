@@ -101,7 +101,7 @@
           eOpposite="#//patternstructure/NumberElement/numberParam"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParameterValue" abstract="true" eSuperTypes="#//parameters/Parameter #//graphstructure/Comparable">
-      <eOperations name="replace">
+      <eOperations name="replace" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="concreteValue" eType="#//parameters/ParameterValue"/>
       </eOperations>
       <eOperations name="replaceViaValue" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
@@ -154,7 +154,7 @@
           defaultValueLiteral=""/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UntypedParameterValue" eSuperTypes="#//parameters/ParameterValue">
-      <eOperations name="setValue">
+      <eOperations name="setValue" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="val" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
     </eClassifiers>
@@ -195,8 +195,7 @@
       </eOperations>
       <eOperations name="getListVar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="getListDeclaration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eOperations name="addStringValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+      <eOperations name="addStringValue" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" upperBound="-1"

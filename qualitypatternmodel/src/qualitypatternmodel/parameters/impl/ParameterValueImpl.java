@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoLabel;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
@@ -508,8 +509,13 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case ParametersPackage.PARAMETER_VALUE___REPLACE__PARAMETERVALUE:
-				replace((ParameterValue)arguments.get(0));
-				return null;
+				try {
+					replace((ParameterValue)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case ParametersPackage.PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING:
 				try {
 					replaceViaValue((String[])arguments.get(0), (String)arguments.get(1));
@@ -681,8 +687,10 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	 * @generated NOT
 	 */
 	@Override
-	public void replace(ParameterValue concreteValue) {
-		
+	public void replace(ParameterValue concreteValue) throws InvalidityException {
+		if (concreteValue instanceof NeoLabel) {
+			throw new InvalidityException();
+		}
 		if(isTypeModifiable()) {		
 			
 			int index = getParameterList().getParameters().indexOf(this);

@@ -2448,7 +2448,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	@Override
-	public ParameterValue addPrimitiveComparison(ParameterValue parameter) {
+	public ParameterValue addPrimitiveComparison(ParameterValue parameter) throws InvalidityException {
 		addPrimitiveComparison().replace(parameter);
 		return parameter;
 	}

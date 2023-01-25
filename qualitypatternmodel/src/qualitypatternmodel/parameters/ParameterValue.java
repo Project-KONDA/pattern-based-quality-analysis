@@ -148,10 +148,10 @@ public interface ParameterValue extends Parameter, qualitypatternmodel.graphstru
 	 * 
 	 * @param concreteValue the <code>ParameterValue</code> that <code>this</code> gets replaced by
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	void replace(ParameterValue concreteValue);
+	void replace(ParameterValue concreteValue) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

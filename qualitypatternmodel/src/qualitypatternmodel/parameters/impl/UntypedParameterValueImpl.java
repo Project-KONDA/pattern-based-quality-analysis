@@ -5,6 +5,8 @@ package qualitypatternmodel.parameters.impl;
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.UntypedParameterValue;
@@ -66,7 +68,7 @@ public class UntypedParameterValueImpl extends ParameterValueImpl implements Unt
 	 * @generated NOT
 	 */
 	@Override
-	public void setValue(String val) {
+	public void setValue(String val) throws InvalidityException {
 		replace(new TextLiteralParamImpl(val));	
 	}
 
@@ -79,8 +81,13 @@ public class UntypedParameterValueImpl extends ParameterValueImpl implements Unt
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case ParametersPackage.UNTYPED_PARAMETER_VALUE___SET_VALUE__STRING:
-				setValue((String)arguments.get(0));
-				return null;
+				try {
+					setValue((String)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

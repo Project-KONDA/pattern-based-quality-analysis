@@ -229,10 +229,11 @@ public abstract class ListParamImpl extends ParameterValueImpl implements ListPa
 			case ParametersPackage.LIST_PARAM___ADD_STRING_VALUE__STRING:
 				try {
 					addStringValue((String)arguments.get(0));
-				} catch (Throwable throwable) {
+					return null;
+				}
+				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
