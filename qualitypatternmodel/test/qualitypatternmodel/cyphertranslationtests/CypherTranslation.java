@@ -244,7 +244,7 @@ public abstract class CypherTranslation implements ICypherTranslatione {
 	}
 
 	//This method should be overwritten if there are other constrains
-	public final static CompletePattern replace(CompletePattern pattern) {
+	public final static CompletePattern replace(CompletePattern pattern) throws InvalidityException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		

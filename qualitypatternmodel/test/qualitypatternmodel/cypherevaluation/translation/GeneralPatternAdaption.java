@@ -3,8 +3,6 @@ package qualitypatternmodel.cypherevaluation.translation;
 import java.time.Duration;
 import java.time.Instant;
 
-import org.eclipse.emf.common.util.EList;
-
 import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
@@ -12,13 +10,10 @@ import qualitypatternmodel.evaluationtranslation.GeneralPattern;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.parameters.BooleanParam;
-import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class GeneralPatternAdaption {
