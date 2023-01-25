@@ -115,7 +115,7 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 			cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
 			cypher.append(CypherSpecificConstants.VARIABLE_ELEMENT_NODE);
 			cypher.append(getOriginalID());
-			if((!translated)) { 
+			if((!translated) && getNeoNodeLabels() != null) { 
 				final String labels = getNeoNodeLabels().generateCypher();
 				cypher.append(labels);
 				translated = true;

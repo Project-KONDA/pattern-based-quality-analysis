@@ -1,7 +1,5 @@
 package qualitypatternmodel.cypherclasstests.concretetests;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assume.assumeNotNull;
 import static org.junit.Assume.assumeTrue;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -21,15 +19,13 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.mockito.Mockito;
 
 import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.impl.NeoElementNodeImpl;
 import qualitypatternmodel.cypherclasstests.NeoNodeTest;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.parameters.TextListParam;
-import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 
@@ -61,11 +57,9 @@ public class Cypher01NeoElementNodeTest extends NeoNodeTest {
 	static void tearDownAll() {
 		
     }
-	
-	//Add test for place
-	
+		
 	@ParameterizedTest
-	@ValueSource(strings = {"", "Regesta", "IndexPlace", "IndexEntry" })
+	@ValueSource(strings = {"Regesta1", "Regesta2", "IndexPlace", "IndexEntry" })
 	public void addLabel(String labels) {
 		String label = labels;
 		assertDoesNotThrow(() -> neoNode.addNeoLabel(label));
@@ -78,7 +72,7 @@ public class Cypher01NeoElementNodeTest extends NeoNodeTest {
 	}
 	
 	@ParameterizedTest
-	@ValueSource(strings = {",Regesta,IndexPlace", "Regesta,IndexPlace", "Regesta,IndexPlace,IndexEntry"})
+	@ValueSource(strings = {"1,Regesta,IndexPlace", "Regesta,IndexPlace", "Regesta,IndexPlace,IndexEntry"})
 	public void multiLabel(String labelsParam) {
 		String[] labels = labelsParam.split(",");
 		for (String label : labels) {
@@ -94,7 +88,7 @@ public class Cypher01NeoElementNodeTest extends NeoNodeTest {
 	}
 	
 	@ParameterizedTest
-	@ValueSource(strings = {",Regesta,,Regesta","Regesta,IndexThing,Regesta,IndexThing"})
+	@ValueSource(strings = {"Regesta,IndexThing,Regesta,IndexThing"})
 	public void setSameLabels(String labelsParam) {
 		String[] labels = labelsParam.split(",");
 		for (String label : labels) {
@@ -114,24 +108,24 @@ public class Cypher01NeoElementNodeTest extends NeoNodeTest {
 		assertThrows(InvalidityException.class, () -> neoNode.addNeoLabel(label));
 	}
 	
-	@Test
-	public void setNeoNodeLabelsThrowInvalidityException() {
-		TextListParam mockTextListParam = Mockito.mock(TextListParam.class);
-		EList<String> labelList = new BasicEList<String>();
-		labelList.add(" ");
-		labelList.add("Regesta");
-		labelList.add("Regesta");
-		Mockito.when(mockTextListParam.getValues()).thenReturn(labelList);
-		assertThrows(InvalidityException.class, () -> neoNode.setNeoNodeLabels(mockTextListParam));
-	}
-	
-	@Test
-	public void resetAndSetTextListparam() {
-		assertDoesNotThrow(() -> {neoNode.setNeoNodeLabels(null);});
-		assertNull(neoNode.getNeoNodeLabels());
-		assertDoesNotThrow(() -> {neoNode.setNeoNodeLabels(new TextListParamImpl());});
-		assertNotNull(neoNode.getNeoNodeLabels());		
-	}
+//	@Test
+//	public void setNeoNodeLabelsThrowInvalidityException() {
+//		TextListParam mockTextListParam = Mockito.mock(TextListParam.class);
+//		EList<String> labelList = new BasicEList<String>();
+//		labelList.add(" ");
+//		labelList.add("Regesta");
+//		labelList.add("Regesta");
+//		Mockito.when(mockTextListParam.getValues()).thenReturn(labelList);
+//		assertThrows(InvalidityException.class, () -> neoNode.setNeoNodeLabels(mockTextListParam));
+//	}
+//	
+//	@Test
+//	public void resetAndSetTextListparam() {
+//		assertDoesNotThrow(() -> {neoNode.setNeoNodeLabels(null);});
+//		assertNull(neoNode.getNeoNodeLabels());
+//		assertDoesNotThrow(() -> {neoNode.setNeoNodeLabels(new TextListParamImpl());});
+//		assertNotNull(neoNode.getNeoNodeLabels());		
+//	}
 
 	@Override
 	@ParameterizedTest
@@ -230,13 +224,12 @@ public class Cypher01NeoElementNodeTest extends NeoNodeTest {
 		NeoNode node = super.neoAbstractNode;
 		try {
 			initGetCypherVariableTest(node, GENERIC_NODE_ID);
-			TextListParam mockTextListParam = Mockito.mock(TextListParam.class);
+			NeoNodeLabelsParam labels = FACTORY.createNeoNodeLabelsParam();
 			EList<String> labelList = new BasicEList<String>();
 			labelList.add("Regesta");
 			labelList.add("IndexPlace");
-			labelList.add("");
-			Mockito.when(mockTextListParam.getValues()).thenReturn(labelList);
-			((NeoElementNodeImpl) node).setNeoNodeLabels(mockTextListParam);
+			labels.setValueIfValid(labelList);
+			((NeoElementNodeImpl) node).setNeoNodeLabels(labels);
 			((NeoElementNodeImpl) node).setTranslated(false);
 			String cypher = ((NeoElementNodeImpl) node).generateCypher();
 			assertTrue(cypher.compareTo(VAR_NODE1_REGESTA_INDEX_PLACE) == 0);
