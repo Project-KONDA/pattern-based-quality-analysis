@@ -180,7 +180,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @exception InvalidityException
-	 * Returns the needed Graph-Pattern for Cypher
+	 * Returns the needed Graph-Pattern-Matching for the Match-Clause in Cypher.
 	 */
 	@Override
 	public String generateCypher() throws InvalidityException {	
@@ -253,9 +253,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	private final EList<StringBuilder> traverseOverPattern(ComplexNode node, EList<StringBuilder> cyphers, int counterString) throws InvalidityException {
 		int innerCounterString = counterString;
-		StringBuilder cypher;
-		StringBuilder cypherEdge;
-		StringBuilder preCypher;
+		StringBuilder cypher = null;
+		StringBuilder cypherEdge = null;
+		StringBuilder preCypher = null;
 		EList<StringBuilder> result = new BasicEList<StringBuilder>();
 		if (cyphers.size() == 0) {
 			cypher = new StringBuilder();
@@ -316,7 +316,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		return result;
 	}
 
-	//Rename this function
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param node

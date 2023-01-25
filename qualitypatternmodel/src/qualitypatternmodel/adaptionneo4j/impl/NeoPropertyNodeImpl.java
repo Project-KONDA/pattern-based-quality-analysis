@@ -55,23 +55,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 */
 	@Override 
 	public String generateCypher() {
-		return new String();
-	//throws InvalidityException, UnsupportedOperationException {	
-//		if (getIncomingMapping() == null) {
-//			String[] temp = getCypherPropertyNodeVariable().split(CypherSpecificConstants.SEPERATOR);
-//			temp = Arrays.stream(temp).distinct().toArray(String[]::new);
-//			String cypher = new String();
-//			if (temp != null) {
-//				boolean multi = false;
-//				for (String s : temp) {
-//					if (multi) cypher += CypherSpecificConstants.SEPERATOR;
-//					cypher += CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + s + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;		
-//				}
-//				return cypher;
-//			}
-//			return cypher;
-//		}
-//		return ((NeoPropertyNode) getOriginalNode()).generateCypher();
+		throw new UnsupportedOperationException();
 	}	
 	
 	/**
@@ -312,6 +296,22 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		}
 		return ((NeoPropertyNode) getOriginalNode()).getCypherVariable(); 
 	}
+	//throws InvalidityException, UnsupportedOperationException {	
+//	if (getIncomingMapping() == null) {
+//		String[] temp = getCypherPropertyNodeVariable().split(CypherSpecificConstants.SEPERATOR);
+//		temp = Arrays.stream(temp).distinct().toArray(String[]::new);
+//		String cypher = new String();
+//		if (temp != null) {
+//			boolean multi = false;
+//			for (String s : temp) {
+//				if (multi) cypher += CypherSpecificConstants.SEPERATOR;
+//				cypher += CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + s + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;		
+//			}
+//			return cypher;
+//		}
+//		return cypher;
+//	}
+//	return ((NeoPropertyNode) getOriginalNode()).generateCypher();
 	
 	/**
 	 * <!-- begin-user-doc -->

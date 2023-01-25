@@ -700,8 +700,26 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 						"invalid comparison operator for arguments of type Element" + " (" + getInternalId() + ")");
 			}
 		}
+		
+		if (abstractionLevel == AbstractionLevel.ABSTRACT) {
+			
+		}
+		
 		super.isValidLocal(abstractionLevel);
 		isCycleFree();
+	}
+	
+	private final void isAbstractNeo4jValid() {
+		if (getArgument1() instanceof NeoPropertyNode && getArgument2() instanceof NeoPropertyNode) {
+			
+		} else if (getArgument1() instanceof NeoPropertyNode && !(getArgument2() instanceof NeoPropertyNode)) {
+			
+		} else if (!(getArgument1() instanceof NeoPropertyNode) && getArgument2() instanceof NeoPropertyNode) {
+			
+		} else if (getArgument1() instanceof NeoElementNode && getArgument2() instanceof NeoElementNode) {
+ 
+		}
+		
 	}
 
 	/**
