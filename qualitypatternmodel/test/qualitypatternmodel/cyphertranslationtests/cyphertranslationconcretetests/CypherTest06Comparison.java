@@ -133,11 +133,7 @@ public class CypherTest06Comparison extends CypherTranslation {
 		return completePattern;
 	}
 
-	private void adaptTheNeo4JConstructsForProp(CompletePattern completePattern) throws InvalidityException {
-		NeoElementNode neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(0);
-		
-		neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(2);
-		
+	private void adaptTheNeo4JConstructsForProp(CompletePattern completePattern) throws InvalidityException {		
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
 		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
 		NeoSimpleEdge neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
@@ -183,8 +179,6 @@ public class CypherTest06Comparison extends CypherTranslation {
 		comparisonOptionParam.setValue(comparisonOption);
 		comp.setOption(comparisonOptionParam);
 	}
-	
-	 
 	
 	//Include also multiple comparions
 	private CompletePattern getMultipleComparisons() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
