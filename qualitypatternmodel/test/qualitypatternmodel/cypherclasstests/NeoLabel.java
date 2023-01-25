@@ -1,5 +1,5 @@
 package qualitypatternmodel.cypherclasstests;
 
-public class NeoLabel {
+public abstract class NeoLabel implements INeoLabel{
 
 }
