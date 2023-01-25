@@ -1,5 +1,5 @@
 package qualitypatternmodel.cypherclasstests.concretetests;
 
-public class NeoEdgeLabelParam {
+public class NeoEdgeLabelParamTest {
 
 }
