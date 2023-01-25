@@ -18,7 +18,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import static qualitypatternmodel.xmltranslationtests.Test00.*;
 
 public class RdfTest00 {
-	public static void test(ArrayList<CompletePattern> completePatterns) {
+	public static void test(ArrayList<CompletePattern> completePatterns) throws InvalidityException {
 		for (CompletePattern completePattern : completePatterns) {
 			replace(completePattern);
 			try {

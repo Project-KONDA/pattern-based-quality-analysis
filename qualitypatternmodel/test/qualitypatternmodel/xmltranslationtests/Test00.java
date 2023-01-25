@@ -24,7 +24,7 @@ import qualitypatternmodel.parameters.UntypedParameterValue;
 
 public class Test00 {
 	
-	public static void test(ArrayList<CompletePattern> completePatterns) {
+	public static void test(ArrayList<CompletePattern> completePatterns) throws InvalidityException {
 		for (CompletePattern completePattern : completePatterns) {
 			replace(completePattern);
 			try {
@@ -45,7 +45,7 @@ public class Test00 {
 		}
 	}
 	
-	public static void getQueries(ArrayList<CompletePattern> completePatterns) {
+	public static void getQueries(ArrayList<CompletePattern> completePatterns) throws InvalidityException {
 		for (CompletePattern completePattern : completePatterns) {
 			replace(completePattern);
 			try {
@@ -114,7 +114,7 @@ public class Test00 {
 		return testPairs;		
 	}
 	
-	public static CompletePattern replace(CompletePattern pattern) {
+	public static CompletePattern replace(CompletePattern pattern) throws InvalidityException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
