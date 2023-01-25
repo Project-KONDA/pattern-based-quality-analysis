@@ -24,7 +24,6 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.impl.ComplexNodeImpl;
 import qualitypatternmodel.parameters.ParameterList;
-import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 

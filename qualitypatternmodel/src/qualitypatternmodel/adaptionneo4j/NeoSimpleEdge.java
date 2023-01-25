@@ -5,8 +5,6 @@ package qualitypatternmodel.adaptionneo4j;
 import qualitypatternmodel.exceptions.InvalidityException;
 
 import qualitypatternmodel.parameters.KeyValueParam;
-import qualitypatternmodel.parameters.TextListParam;
-import qualitypatternmodel.parameters.TextLiteralParam;
 
 /**
  * <!-- begin-user-doc -->
