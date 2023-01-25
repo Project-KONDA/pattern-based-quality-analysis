@@ -1,7 +1,6 @@
 package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
 import java.util.ArrayList;
-
 import org.mockito.Mockito;
 import qualitypatternmodel.adaptionneo4j.NeoElementEdge;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
@@ -26,6 +25,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
+//Add test with Mocking for the other Operators
 public class CypherTest06Comparison extends CypherTranslation {
     //All in the CompletePattern beginning will be set automatical in the condtions it is diffrent. 
     //The morphings for the relation --> Do nothing if a morphed relation is reached (set at least a boolean for more flexiblity)
@@ -71,25 +71,11 @@ public class CypherTest06Comparison extends CypherTranslation {
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 //		completePatternsExceptions.add(setWrongOptionParam());
 	}
-	
-	private CompletePattern getBasePatternList() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		PatternstructurePackage.eINSTANCE.eClass();
-		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		
-		CompletePattern completePattern = factory.createCompletePattern();
-		completePattern.setName("MyPattern");
-		
-		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
-		PrimitiveNode primitiveNode1 = completePattern.getGraph().addPrimitiveNode();
-		completePattern.getGraph().addRelation(complexNode1, primitiveNode1);
-		
-		ComplexNode complexNode2 = completePattern.getGraph().addComplexNode();
-		PrimitiveNode primitiveNode2 = completePattern.getGraph().addPrimitiveNode();
-		completePattern.getGraph().addRelation(complexNode2, primitiveNode2);
-	
-		return completePattern;	
-	}
     
+	@Override
+	public void buildOtherException(ArrayList<CompletePattern> completePatternsExceptions) throws InvalidityException {
+//		completePatternsExceptions.add(falseCompValues());		
+	}
     
 	private CompletePattern getComparisonTwoNeoNodes(ComparisonOperator comparisonOption) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = CypherTest06Comparison.getCompBasePatternWithReverse();
@@ -351,7 +337,30 @@ public class CypherTest06Comparison extends CypherTranslation {
 		return completePattern;
 	}
 	
+	public CompletePattern falseCompValues() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		
+		return null;
+	}
+	
 	//FACTORY-METHODS 
+	private CompletePattern getBasePatternList() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		
+		CompletePattern completePattern = factory.createCompletePattern();
+		completePattern.setName("MyPattern");
+		
+		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
+		PrimitiveNode primitiveNode1 = completePattern.getGraph().addPrimitiveNode();
+		completePattern.getGraph().addRelation(complexNode1, primitiveNode1);
+		
+		ComplexNode complexNode2 = completePattern.getGraph().addComplexNode();
+		PrimitiveNode primitiveNode2 = completePattern.getGraph().addPrimitiveNode();
+		completePattern.getGraph().addRelation(complexNode2, primitiveNode2);
+	
+		return completePattern;	
+	}
+	
 	protected static CompletePattern getCompBasePatternWithReverse() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
@@ -380,12 +389,6 @@ public class CypherTest06Comparison extends CypherTranslation {
 	@Override
 	public void buildUnsupportedException(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void buildOtherException(ArrayList<CompletePattern> completePatternsExceptions) throws InvalidityException {
 		// TODO Auto-generated method stub
 		
 	}
