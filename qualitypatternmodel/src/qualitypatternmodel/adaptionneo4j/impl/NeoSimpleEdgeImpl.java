@@ -295,7 +295,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		} else if (this.neoEdgeLabel.getValue() != null) {
 			throw new InvalidityException(AN_EDGE_JUST_CAN_HAVE_ONE_LABEL_IF_A_NEW_ONE_SHALL_BE_USE_THE_SET_METHOD);
 		}
-		this.neoEdgeLabel.setValue(label);
+		this.neoEdgeLabel.setValueIfValid(label);
 	}
 
 	/**
@@ -630,21 +630,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		}
 		
 		if (!this.neoTargetNodeLabels.getValues().contains(label)) {
-			checkForWhitespaceInLabel(label);
 			this.neoTargetNodeLabels.addStringValue(label);
-		}
-	}
-
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @param label
-	 * @throws InvalidityException
-	 * Checks if any whitespaces are in a Label.
-	 * In Neo4J/Cypher a Label has to be one a sequenz of visible chars.
-	 */
-	private void checkForWhitespaceInLabel(String label) throws InvalidityException {
-		if (label.contains(CypherSpecificConstants.ONE_WHITESPACE)) {
-			throw new InvalidityException(A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S);
 		}
 	}
 
@@ -659,15 +645,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		l.add(this);
 		return  l;
 	}
-	
-
-//	try {
-//		setNeoEdgeLabel((TextLiteralParam)null);
-//	} catch (InvalidityException e) {
-//		throw new RuntimeException(e.getCause());
-//	}
-//	return;
-
 
 	/**
 	 * <!-- begin-user-doc -->

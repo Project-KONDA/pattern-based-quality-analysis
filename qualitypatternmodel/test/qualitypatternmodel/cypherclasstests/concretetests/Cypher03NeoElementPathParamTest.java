@@ -24,14 +24,13 @@ import org.mockito.Mockito;
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
 import qualitypatternmodel.adaptionneo4j.NeoElementEdge;
 import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.impl.NeoComplexEdgeImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoElementPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
 import qualitypatternmodel.cypherclasstests.NeoPathParamTest;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.parameters.TextListParam;
-import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 @DisplayName("NeoElementPathParamTest")
@@ -94,7 +93,7 @@ public class Cypher03NeoElementPathParamTest extends NeoPathParamTest {
 			String varEdge2WithTarget = "-[varEdge2]-(varNode3)";
 			Mockito.when(neoSimpl2.generateCypher()).thenReturn(varEdge2WithTarget);
 			Mockito.when(neoSimpl2.getNeoLastEdge()).thenReturn(neoSimpl2);
-			TextListParam t = new TextListParamImpl();
+			NeoNodeLabelsParam t = FACTORY.createNeoNodeLabelsParam();
 			Mockito.when(neoSimpl2.getNeoLastEdge()).thenReturn(neoSimpl2);
 			Mockito.when(neoSimpl2.getNeoTargetNodeLabels()).thenReturn(t);
 			EList<NeoPathPart> l1 = new BasicEList<NeoPathPart>();
@@ -164,7 +163,7 @@ public class Cypher03NeoElementPathParamTest extends NeoPathParamTest {
 			assertTrue(sb.toString().compareTo("-"+ VARIABLE_EAGE_ONE_CLAMPED + "-") == 0);
 			
 			//SimpleNeoEdgeWith a Target
-			TextListParam t = new TextListParamImpl();
+			NeoNodeLabelsParam t = FACTORY.createNeoNodeLabelsParam();
 			t.addStringValue("testvalue");
 			Mockito.when(super.mockSimpleEdge.getNeoTargetNodeLabels()).thenReturn(null);
 			l.clear();

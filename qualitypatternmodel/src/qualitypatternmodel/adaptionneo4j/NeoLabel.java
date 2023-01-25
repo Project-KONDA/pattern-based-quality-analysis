@@ -31,15 +31,13 @@ public interface NeoLabel extends EObject {
 	 * @generated NOT
 	 */
 	default void checkLabel(String value) throws InvalidityException {
-		if (value.length() == 0) {
-			throw new InvalidityException(A_LABEL_CAN_NOT_BE_EMPTY);
+		if (value != null && !(value.isEmpty())) {
+			if (value.contains(CypherSpecificConstants.ONE_WHITESPACE)) {
+				throw new InvalidityException(A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S);
+			}
+			if (!value.matches("[A-Za-z_0-9]+")) {
+				throw new InvalidityException(A_LABEL_CAN_ONLY_CONSIST_OF_NUMERIC_AND_ALPHANUMERIC_VALUES_AND_UNDERSCORES);
+			}			
 		}
-		if (value.contains(CypherSpecificConstants.ONE_WHITESPACE)) {
-			throw new InvalidityException(A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S);
-		}
-		if (!value.matches("[A-Za-z_0-9]+")) {
-			throw new InvalidityException(A_LABEL_CAN_ONLY_CONSIST_OF_NUMERIC_AND_ALPHANUMERIC_VALUES_AND_UNDERSCORES);
-		}
-		
 	}
 } // NeoLabel

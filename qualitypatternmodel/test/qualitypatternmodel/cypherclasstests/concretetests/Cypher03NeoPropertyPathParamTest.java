@@ -21,6 +21,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
+import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
@@ -30,8 +31,6 @@ import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
 import qualitypatternmodel.cypherclasstests.NeoPathParamTest;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.parameters.TextListParam;
-import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
@@ -209,7 +208,7 @@ public class Cypher03NeoPropertyPathParamTest extends NeoPathParamTest {
 			
 			//If NeoPathParts are set
 			buildMockSimpleEdge();
-			TextListParam tL = new TextListParamImpl();
+			NeoNodeLabelsParam tL = FACTORY.createNeoNodeLabelsParam();
 			tL.addStringValue(PLACE);
 			tL.addStringValue(REGESTA);
 			Mockito.when(mockSimpleEdge.getNeoTargetNodeLabels()).thenReturn(tL);
@@ -244,7 +243,7 @@ public class Cypher03NeoPropertyPathParamTest extends NeoPathParamTest {
 			
 			//If an visibile Edge is set
 			buildMockSimpleEdge();
-			TextListParam l = new TextListParamImpl();
+			NeoNodeLabelsParam l = FACTORY.createNeoNodeLabelsParam();
 			l.addStringValue(REGESTA);
 			Mockito.when(super.mockSimpleEdge.getNeoTargetNodeLabels()).thenReturn(l);
 			neoPropertyPathParam.setNeoPathPart(super.mockSimpleEdge);
