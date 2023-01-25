@@ -8,8 +8,8 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.cypherevaluation.utilis.DummyFiller;
-import qualitypatternmodel.cyphertranslationtests.EvalAppDup;
-import qualitypatternmodel.cyphertranslationtests.EvalUnique;
+import qualitypatternmodel.evaluationquality.EvalAppDup;
+import qualitypatternmodel.evaluationquality.EvalUnique;
 
 //Sollten wir auch ratios vergleichen --> Wie viele gute und wie viele schlechte Daten?
 public class CypherEvalAppDup {

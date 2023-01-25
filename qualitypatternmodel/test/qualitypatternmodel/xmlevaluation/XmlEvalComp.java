@@ -7,7 +7,7 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
-import qualitypatternmodel.cyphertranslationtests.EvalComp;
+import qualitypatternmodel.evaluationquality.EvalComp;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;

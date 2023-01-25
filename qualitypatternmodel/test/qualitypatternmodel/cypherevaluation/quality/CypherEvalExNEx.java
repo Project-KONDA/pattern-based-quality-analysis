@@ -4,7 +4,7 @@ import java.time.Duration;
 import java.time.Instant;
 
 import qualitypatternmodel.cypherevaluation.utilis.DummyFiller;
-import qualitypatternmodel.cyphertranslationtests.EvalExNEx;
+import qualitypatternmodel.evaluationquality.EvalExNEx;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;

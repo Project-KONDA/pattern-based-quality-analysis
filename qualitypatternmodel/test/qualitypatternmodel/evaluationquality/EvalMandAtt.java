@@ -1,4 +1,4 @@
-package qualitypatternmodel.cyphertranslationtests;
+package qualitypatternmodel.evaluationquality;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package qualitypatternmodel.cyphertranslationtests;
+package qualitypatternmodel.evaluationquality;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;

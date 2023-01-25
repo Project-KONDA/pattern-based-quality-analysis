@@ -14,7 +14,7 @@ import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
-import qualitypatternmodel.cyphertranslationtests.EvalRefInt;
+import qualitypatternmodel.evaluationquality.EvalRefInt;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
