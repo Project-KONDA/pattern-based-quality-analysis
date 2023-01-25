@@ -44,13 +44,10 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	}
 	
 	/**
-	 *@author Lukas Sebastian Hofmann
-	 *@return Returns a String with multiple NeoPropertyNodes which are seperated by ";". In comparison to the other genrateCyphers in the Adaption-Package.
-	 * This method should <b> primarily be used internally <\b>. Since the return type in this Child is different to the other .generateCypher()-Methods in this Package.
-	 * However, if used then <b>split the String by the literal <i>";"<\i><\b>.
-	 * It also only returns the distinct String-Array. 
-	 * Translated is here not used since the labels of a NeoPropertyNode are build in the NeoSimpleEdge.
-	 * Implemented to get the same behaviour as for the NeoElementNode.
+	 * @author Lukas Sebastian Hofmann
+	 * @throws 
+	 * This method should not be called for the Pattern Matching of the MATCH-Clause.
+	 * The query part is generated via the NeoPropertyEdge.
 	 */
 	@Override 
 	public String generateCypher() {
@@ -279,38 +276,17 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 */
 	@Override
 	public String getCypherVariable() throws InvalidityException {
-		if (getIncomingMapping() == null) {	
-			final String[] temp = generateCypher().split(CypherSpecificConstants.SEPERATOR);
-			String cypher = new String();
-			if (temp != null) {
-				for (String s : temp) {
-					cypher += s;
-					cypher = cypher.replace(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET, "");
-					cypher = cypher.replace(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET, "");
-					cypher += CypherSpecificConstants.SEPERATOR;
-				}
-				
+		final StringBuilder cypher = new StringBuilder();
+		NeoPropertyEdgeImpl neoPropertyEdge = null;
+		for (Relation r : getIncoming()) {
+			neoPropertyEdge = (NeoPropertyEdgeImpl) r;
+			if (cypher.length() != 0) {
+				cypher.append(CypherSpecificConstants.SEPERATOR);
 			}
-			return cypher;
+			cypher.append(neoPropertyEdge.generateCypherNodeVariable());
 		}
-		return ((NeoPropertyNode) getOriginalNode()).getCypherVariable(); 
+		return cypher.toString();
 	}
-	//throws InvalidityException, UnsupportedOperationException {	
-//	if (getIncomingMapping() == null) {
-//		String[] temp = getCypherPropertyNodeVariable().split(CypherSpecificConstants.SEPERATOR);
-//		temp = Arrays.stream(temp).distinct().toArray(String[]::new);
-//		String cypher = new String();
-//		if (temp != null) {
-//			boolean multi = false;
-//			for (String s : temp) {
-//				if (multi) cypher += CypherSpecificConstants.SEPERATOR;
-//				cypher += CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + s + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;		
-//			}
-//			return cypher;
-//		}
-//		return cypher;
-//	}
-//	return ((NeoPropertyNode) getOriginalNode()).generateCypher();
 	
 	/**
 	 * <!-- begin-user-doc -->

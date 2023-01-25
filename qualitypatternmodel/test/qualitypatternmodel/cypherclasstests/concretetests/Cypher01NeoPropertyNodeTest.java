@@ -1,7 +1,6 @@
 package qualitypatternmodel.cypherclasstests.concretetests;
 
 import static org.junit.Assume.assumeTrue;
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -265,21 +264,6 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 	@Test
 	@Override
 	public void generateCypher() {
-		int id = 1;
-		try {
-			//Add here a test for the case that a NeoElementNode and that both are returned.
-			NeoPropertyEdge neoPropertyEdge = prepaireValidPropertyEdgeStructure(GENERIC_NODE_ID);
-			initGetCypherVariableTest(neoPropertyNode, GENERIC_NODE_ID);
-			Field field = getIncomingField();
-			EList<Relation> rList = new BasicEList<Relation>();
-			rList.add(neoPropertyEdge);
-			field.set(neoPropertyNode, rList);
-			
-			String[] variable = neoPropertyNode.generateCypher().split(CypherSpecificConstants.SEPERATOR);
-		    assertTrue(variable[0].compareTo("(" + CypherSpecificConstants.VARIABLE_PROPERTY_NODE + id + "_" + "1" + ")") == 0);
-		} catch (Exception e) {
-			System.out.println(e);
-			assertFalse(true);
-		}
+		assertThrows(UnsupportedOperationException.class, () -> neoPropertyNode.generateCypher());
 	}
 }
