@@ -64,6 +64,9 @@ public class NeoNodeLabelsParamImpl extends TextListParamImpl implements NeoNode
 	 */
 	@Override
 	public void addStringValue(String value) throws InvalidityException {
+		if (value == null) {
+			return;
+		}
 		if (this.values == null) {
 			this.values = new BasicEList<String>();
 		}
@@ -80,6 +83,10 @@ public class NeoNodeLabelsParamImpl extends TextListParamImpl implements NeoNode
 	 */
 	@Override
 	public void setValueIfValid(EList<String> newValue) throws InvalidityException {
+		if (newValue == null) {
+			getValues().clear();
+			return;
+		}
 		for (String tempValue : newValue) {
 			try {
 				checkLabel(tempValue);

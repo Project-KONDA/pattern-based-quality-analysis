@@ -35,7 +35,7 @@ public interface NeoLabel extends EObject {
 			if (value.contains(CypherSpecificConstants.ONE_WHITESPACE)) {
 				throw new InvalidityException(A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S);
 			}
-			if (!value.matches("[A-Za-z_0-9]+")) {
+			if (!value.matches("[A-Za-zäöüß_0-9]+")) {
 				throw new InvalidityException(A_LABEL_CAN_ONLY_CONSIST_OF_NUMERIC_AND_ALPHANUMERIC_VALUES_AND_UNDERSCORES);
 			}			
 		}

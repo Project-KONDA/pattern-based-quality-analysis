@@ -70,13 +70,13 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 			}
 			if (areValuesInts(s)) {
 				cypher.append(s); 	
-			} else if (areValuesFloat(s)) {
+			} else if (areValueFloat(s)) {
 				cypher.append(s); 
-			} else if (areValuesTime(s)) {
+			} else if (areValueTime(s)) {
 				cypher.append("time(\'" + s + "\')"); 
-			} else if (areValuesDateTime(s)) {
+			} else if (areValueDateTime(s)) {
 				cypher.append("datetime(\'" + s + "\')"); 
-			} else if (areValuesDate(s)) {
+			} else if (areValueDate(s)) {
 				cypher.append("date(\'" + s + "\')"); 
 			} else {
 				cypher.append("\"" + s +"\""); 
@@ -111,7 +111,7 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 	 * @return boolean.class
 	 * Matches for a Date-Value.
 	 */
-	private boolean areValuesDate(String value) {
+	private boolean areValueDate(String value) {
 		boolean areValuesInts = true;
 		String regex = "\\d{4}-\\d{2}-\\d{2}";
 		areValuesInts = matching(value, areValuesInts, regex);
@@ -124,7 +124,7 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 	 * @return boolean.class
 	 * Matches for a DateTime-Value.
 	 */
-	private boolean areValuesDateTime(String value) {
+	private boolean areValueDateTime(String value) {
 		boolean areValuesInts = true;
 		String regex = "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}";
 		areValuesInts = matching(value, areValuesInts, regex);
@@ -137,7 +137,7 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 	 * @return boolean.class
 	 * Matches for a Time-Value.
 	 */
-	private boolean areValuesTime(String value) {
+	private boolean areValueTime(String value) {
 		boolean areValuesInts = true;
 		String regex = "\\d{2}:\\d{2}:\\d{2}";
 		areValuesInts = matching(value, areValuesInts, regex);
@@ -163,7 +163,7 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 	 * @return boolean.class
 	 * Matches for a float-Value.
 	 */
-	private boolean areValuesFloat(String value) {
+	private boolean areValueFloat(String value) {
 		boolean areValuesInts = true;
 		String regex = "[+-]?[0-9]+(\\.[0-9]+)?([Ee][+-]?[0-9]+)?";
 		areValuesInts = matching(value, areValuesInts, regex);

@@ -52,6 +52,9 @@ public class NeoEdgeLabelParamImpl extends TextLiteralParamImpl implements NeoEd
 	
 	@Override
 	public void setValue(String newValue) {
+		if (newValue.isEmpty()) {
+			return;
+		}
 		try {
 			checkLabel(newValue);
 		} catch (InvalidityException e) {

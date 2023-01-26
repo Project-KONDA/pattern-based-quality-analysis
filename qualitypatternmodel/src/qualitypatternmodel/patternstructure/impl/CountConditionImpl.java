@@ -157,11 +157,11 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		if(getOption() != null && getOption().getValue() != null) {
 			final StringBuilder cypher = new StringBuilder();
 			cypher.append(getCountPattern().generateCypher());
-			String tempWhere;
-			tempWhere = generateCypherWith();
-			cypher.append(tempWhere);
-			tempWhere = generateCypherCountWhere();
-			cypher.append(tempWhere);
+			String tempCypher = null;
+			tempCypher = generateCypherWith();
+			cypher.append(tempCypher);
+			tempCypher = generateCypherCountWhere();
+			cypher.append(tempCypher);
 			
 			return cypher.toString();
 		}

@@ -1077,21 +1077,21 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 * However, this produces a cross-product by every node. Which increases the runtime. 
 	 */
 	private void buildMatchClauseForExistsMatch(final StringBuilder cypher) throws InvalidityException {
-		String cypherText = graph.generateCypher();
-		if (cypherText == null || cypherText.isEmpty()) {
+		String cypherPart = graph.generateCypher();
+		if (cypherPart == null || cypherPart.isEmpty()) {
 			throw new InvalidityException(NO_MATCH_IS_GIVEN);
 		} else {
-			cypherText = CypherSpecificConstants.CLAUSE_MATCH + cypherText;
-			final String[] temp = Arrays.stream(cypherText.split(CypherSpecificConstants.CLAUSE_MATCH)).filter(x -> !x.isBlank()).toArray(String[]::new); 
-			cypherText = null;
+			cypherPart = CypherSpecificConstants.CLAUSE_MATCH + cypherPart;
+			final String[] temp = Arrays.stream(cypherPart.split(CypherSpecificConstants.CLAUSE_MATCH)).filter(x -> !x.isBlank()).toArray(String[]::new); 
+			cypherPart = null;
 			//No multiple MATCHE-CLAUSES in EXISTS-MATCH can be build. Reduce it to one MATCH-CLAUSE.
 			for (int i = 0; i < temp.length; i++) {
 				if (i == 0) {
-					cypherText = String.format(CypherSpecificConstants.CLAUSE_MATCH_INLUCE_W, CypherSpecificConstants.THREE_WHITESPACES) + CypherSpecificConstants.ONE_WHITESPACE + temp[i].trim();					
+					cypherPart = String.format(CypherSpecificConstants.CLAUSE_MATCH_INLUCE_W, CypherSpecificConstants.THREE_WHITESPACES) + CypherSpecificConstants.ONE_WHITESPACE + temp[i].trim();					
 				} else {
-					cypherText = CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE + temp[i].trim();					
+					cypherPart = CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE + temp[i].trim();					
 				}
-				cypher.append(cypherText);
+				cypher.append(cypherPart);
 			}
 		}
 	}
@@ -1343,7 +1343,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 * @return boolean.class
 	 * A not can be contained in Formula if <i> IMPLIES, XOR, EQUALS</i> is specified in as option in the Formula.
 	 */
-	private final boolean checkForImpliesInFormula(Condition condition) {
+	private final boolean checkForNotInFormula(Condition condition) {
 		return ((Formula) condition).getOperator() == LogicalOperator.IMPLIES || ((Formula) condition).getOperator() == LogicalOperator.EQUAL
 				|| ((Formula) condition).getOperator() == LogicalOperator.XOR;
 	}
@@ -1384,7 +1384,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 					//FROMULA can also build a NOT with the Implices or 
 					if (condition.getFormula1() != null) {
 						condition = condition.getFormula1();
-						if (checkForImpliesInFormula(condition)) {
+						if (checkForNotInFormula(condition)) {
 							isAPreviewsConditionNot = true;
 							condition = null;
 						} else {
@@ -1393,7 +1393,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 					}
 					if (condition.getFormula2() != null) {
 						condition = condition.getFormula2();
-						if (checkForImpliesInFormula(condition)) {
+						if (checkForNotInFormula(condition)) {
 							isAPreviewsConditionNot = true;
 							condition = null;
 						} else {

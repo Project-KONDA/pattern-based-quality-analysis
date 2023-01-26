@@ -624,10 +624,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			argument1Translation = ((NeoElementNode) getArgument1()).getCypherVariable(); 
 			argument2Translation = ((NeoElementNode) getArgument2()).getCypherVariable(); 
 		}
-		
-		if (argument1Translation == null || argument2Translation == null ||argument1Translation.isEmpty() || argument2Translation.isEmpty()) {
-			throw new InvalidityException(AT_LEAST_ONE_OF_TWO_ARGUMENTS_IS_NOT_VALID);
-		}
 			
 		List<String> result = new ArrayList<String>();
 		result.add(argument1Translation);
