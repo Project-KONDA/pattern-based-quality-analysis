@@ -68,7 +68,7 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 			if (i > 0) {
 				cypher.append(CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE);
 			}
-			if (areValuesInts(s)) {
+			if (areValuesInt(s)) {
 				cypher.append(s); 	
 			} else if (areValueFloat(s)) {
 				cypher.append(s); 
@@ -112,10 +112,10 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 	 * Matches for a Date-Value.
 	 */
 	private boolean areValueDate(String value) {
-		boolean areValuesInts = true;
+		boolean areValuesDate = true;
 		String regex = "\\d{4}-\\d{2}-\\d{2}";
-		areValuesInts = matching(value, areValuesInts, regex);
-		return areValuesInts;
+		areValuesDate = matching(value, areValuesDate, regex);
+		return areValuesDate;
 	}
 
 	/**
@@ -125,10 +125,10 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 	 * Matches for a DateTime-Value.
 	 */
 	private boolean areValueDateTime(String value) {
-		boolean areValuesInts = true;
+		boolean areValuesDateTime = true;
 		String regex = "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}";
-		areValuesInts = matching(value, areValuesInts, regex);
-		return areValuesInts;
+		areValuesDateTime = matching(value, areValuesDateTime, regex);
+		return areValuesDateTime;
 	}
 
 	/**
@@ -138,10 +138,10 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 	 * Matches for a Time-Value.
 	 */
 	private boolean areValueTime(String value) {
-		boolean areValuesInts = true;
+		boolean areValuesTime = true;
 		String regex = "\\d{2}:\\d{2}:\\d{2}";
-		areValuesInts = matching(value, areValuesInts, regex);
-		return areValuesInts;
+		areValuesTime = matching(value, areValuesTime, regex);
+		return areValuesTime;
 	}
 	
 	/**
@@ -150,11 +150,11 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 	 * @return boolean.class
 	 * Matches for a integer-Value.
 	 */
-	private boolean areValuesInts(String value) {
-		boolean areValuesInts = true;
+	private boolean areValuesInt(String value) {
+		boolean isValuesInt = true;
 		String regex = "[+-]?[0-9]+";
-		areValuesInts = matching(value, areValuesInts, regex);
-		return areValuesInts;
+		isValuesInt = matching(value, isValuesInt, regex);
+		return isValuesInt;
 	}
 	
 	/**
@@ -164,10 +164,10 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 	 * Matches for a float-Value.
 	 */
 	private boolean areValueFloat(String value) {
-		boolean areValuesInts = true;
+		boolean isValueFloat = true;
 		String regex = "[+-]?[0-9]+(\\.[0-9]+)?([Ee][+-]?[0-9]+)?";
-		areValuesInts = matching(value, areValuesInts, regex);
-		return areValuesInts;
+		isValueFloat = matching(value, isValueFloat, regex);
+		return isValueFloat;
 	}
 	
 	/**
