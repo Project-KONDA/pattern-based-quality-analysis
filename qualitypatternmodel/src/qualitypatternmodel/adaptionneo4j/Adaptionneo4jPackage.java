@@ -7251,11 +7251,11 @@ public interface Adaptionneo4jPackage extends EPackage {
 	EOperation getNeoPropertyEdge__GenerateCypherPropertyAddressing();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyEdge#generateCypherNodeVariable() <em>Generate Cypher Node Variable</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyEdge#getCypherNodeVariable() <em>Generate Cypher Node Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Generate Cypher Node Variable</em>' operation.
-	 * @see qualitypatternmodel.adaptionneo4j.NeoPropertyEdge#generateCypherNodeVariable()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPropertyEdge#getCypherNodeVariable()
 	 * @generated
 	 */
 	EOperation getNeoPropertyEdge__GenerateCypherNodeVariable();

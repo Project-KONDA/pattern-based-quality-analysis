@@ -60,7 +60,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public EList<String> generateCypherPropertyAddressing() throws InvalidityException {
 		EList<String> cypherResult = new BasicEList<String>();
@@ -235,7 +234,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 			final StringBuilder cypher = new StringBuilder();
 			for (int i = 0; i < getIncoming().size(); i++) {					
 				NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) getIncoming().get(i);
-				cypher.append(neoPropertyEdge.generateCypherNodeVariable());
+				cypher.append(neoPropertyEdge.getCypherNodeVariable());
 				cypher.append(CypherSpecificConstants.SEPERATOR);
 			}
 			return cypher.toString();
@@ -283,7 +282,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 			if (cypher.length() != 0) {
 				cypher.append(CypherSpecificConstants.SEPERATOR);
 			}
-			cypher.append(neoPropertyEdge.generateCypherNodeVariable());
+			cypher.append(neoPropertyEdge.getCypherNodeVariable());
 		}
 		return cypher.toString();
 	}

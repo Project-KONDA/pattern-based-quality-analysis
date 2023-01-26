@@ -59,6 +59,6 @@ public interface NeoPropertyEdge extends NeoEdge {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	String generateCypherNodeVariable() throws InvalidityException;
+	String getCypherNodeVariable() throws InvalidityException;
 
 } // NeoPropertyEdge

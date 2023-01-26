@@ -389,8 +389,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			throw new InvalidityException(RETURN_ELEMENT_S_MISSING);
 		}
 		
-		String completeCyString = new String(); 
-		completeCyString = super.generateCypher();
+		String completeCyString = super.generateCypher(); 
 		 
 		String returnClause = this.generateCypherReturn();
 		returnClause = CypherSpecificConstants.CLAUSE_RETURN + returnClause;

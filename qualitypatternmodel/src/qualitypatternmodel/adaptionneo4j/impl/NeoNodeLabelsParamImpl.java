@@ -43,11 +43,11 @@ public class NeoNodeLabelsParamImpl extends TextListParamImpl implements NeoNode
 	
 	@Override
 	public String generateCypher() {
-		final StringBuilder cypher = new StringBuilder();
 		if (getValues() != null) {
+			final StringBuilder cypher = new StringBuilder();
 			for (String label : getValues()) {
 				if (!label.isEmpty()) { 
-					cypher.append(CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_EQUAL_IN_GRAPH_MATCHING_LABELING);
+					cypher.append(CypherSpecificConstants.CYPHER_EQUAL_IN_GRAPH_MATCHING_LABELING);
 					cypher.append(label);
 				}
 			}

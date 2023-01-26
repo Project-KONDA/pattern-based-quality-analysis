@@ -133,7 +133,7 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 			Field field = getIncomingField();
 			EList<Relation> relations = new BasicEList<Relation>();
 			NeoPropertyEdge mockNeoPropertyEdge = Mockito.mock(NeoPropertyEdge.class);
-			Mockito.when(mockNeoPropertyEdge.generateCypherNodeVariable()).thenReturn(CypherSpecificConstants.VARIABLE_PROPERTY_NODE + id);
+			Mockito.when(mockNeoPropertyEdge.getCypherNodeVariable()).thenReturn(CypherSpecificConstants.VARIABLE_PROPERTY_NODE + id);
 			NeoPropertyPathParam mockParam = Mockito.mock(NeoPropertyPathParam.class);
 			Mockito.when(mockNeoPropertyEdge.getNeoPropertyPathParam()).thenReturn(mockParam);
 			Mockito.when(mockParam.getNeoPathPart()).thenReturn(Mockito.mock(NeoPathPart.class));

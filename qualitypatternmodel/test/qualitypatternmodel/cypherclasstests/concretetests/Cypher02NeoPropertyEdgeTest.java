@@ -119,7 +119,7 @@ public class Cypher02NeoPropertyEdgeTest extends NeoEdgeTest {
 	public void generateCypherNodeVariable() {
 		try {
 			//if no neoPropertyPathParam is set return null
-			assertEquals("", neoPropertyEdge.generateCypherNodeVariable());
+			assertEquals("", neoPropertyEdge.getCypherNodeVariable());
 		
 			//Get the NodeName from source		
 			NeoElementNodeImpl mockNeoNodeImpl = Mockito.mock(NeoElementNodeImpl.class);
@@ -131,7 +131,7 @@ public class Cypher02NeoPropertyEdgeTest extends NeoEdgeTest {
 			propertyName.setNeoPropertyName(PLACE_OF_ISSUE);
 			neoPropertyEdge.setNeoPropertyPathParam(propertyName);
 			
-			assertTrue(neoPropertyEdge.generateCypherNodeVariable().compareTo(VAR_EDGE1) == 0);	
+			assertTrue(neoPropertyEdge.getCypherNodeVariable().compareTo(VAR_EDGE1) == 0);	
 			neoPropertyEdge.setSource(null);
 			
 			//Get the NodeName from NeoSimpleEdge Node
@@ -140,21 +140,21 @@ public class Cypher02NeoPropertyEdgeTest extends NeoEdgeTest {
 			Mockito.when(mockNeoSimpleEdgeImpl.getCypherInnerEdgeNodes(Mockito.anyBoolean())).thenReturn(NEO_PROPERTY_NODE);
 			Mockito.when(mockNeoSimpleEdgeImpl.getNeoLastEdge()).thenReturn(mockNeoSimpleEdgeImpl);
 			propertyName.setNeoPathPart(mockNeoSimpleEdgeImpl);
-			String temp = neoPropertyEdge.generateCypherNodeVariable();
+			String temp = neoPropertyEdge.getCypherNodeVariable();
 			assertTrue(temp.compareTo(NEO_PROPERTY_NODE) == 0);
 			
 			//Get the NodeName from ComplexEdge
 			NeoComplexEdgeImpl mockNeoComplexEdgeImpl = Mockito.mock(NeoComplexEdgeImpl.class);
 			Mockito.when(mockNeoComplexEdgeImpl.getNeoLastEdge()).thenReturn(mockNeoSimpleEdgeImpl);
 			propertyName.setNeoPathPart(mockNeoComplexEdgeImpl);
-			temp = neoPropertyEdge.generateCypherNodeVariable();
+			temp = neoPropertyEdge.getCypherNodeVariable();
 			assertTrue(temp.compareTo(NEO_PROPERTY_NODE) == 0);	
 			
 			//Get the Exception
 			NeoPathPart mockNeoPathPart = Mockito.mock(NeoPathPart.class);
 			Field f = getNeoAbstractPathParamField(NeoPathParamImpl.class, "neoPathPart");
 			f.set(propertyName, mockNeoPathPart);
-			assertThrows(InvalidityException.class, () -> neoPropertyEdge.generateCypherNodeVariable());
+			assertThrows(InvalidityException.class, () -> neoPropertyEdge.getCypherNodeVariable());
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);

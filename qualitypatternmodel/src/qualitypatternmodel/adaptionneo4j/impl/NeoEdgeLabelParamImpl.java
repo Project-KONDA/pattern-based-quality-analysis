@@ -52,6 +52,10 @@ public class NeoEdgeLabelParamImpl extends TextLiteralParamImpl implements NeoEd
 	
 	@Override
 	public void setValue(String newValue) {
+		if (newValue == null) {
+			value = newValue;
+			return;
+		}
 		if (newValue.isEmpty()) {
 			return;
 		}
@@ -70,9 +74,7 @@ public class NeoEdgeLabelParamImpl extends TextLiteralParamImpl implements NeoEd
 	public String generateCypher() {
 		String cypher = new String();
 		if (getValue() != null) {
-			if (!getValue().isEmpty()) {
-				cypher = CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_EQUAL_IN_GRAPH_MATCHING + getValue();				
-			}
+			cypher = CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_EQUAL_IN_GRAPH_MATCHING + getValue();				
 		}
 		return cypher;
 	}
