@@ -8,6 +8,7 @@ import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNameParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,7 +18,7 @@ import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
  * @generated
  */
 public class NeoPropertyNameParamImpl extends TextLiteralParamImpl implements NeoPropertyNameParam {
-	private static final String A_PROPERTY_NAME_HAS_TO_BUILD_FROM_NUMERICAL_ALPHANUMERICAL_VALUES_AND_UNDERSCORE = "A Property Name has to build from numerical, alphanumerical values and Underscore";
+	private static final String A_PROPERTY_NAME_CAN_NOT_BE_EMPTY = "A Property Name can not be empty";
 	private static final String NULL_IS_NOT_A_VALID_PROPERTY_NAME = "Null is not a valid Property Name";
 
 	/**
@@ -51,17 +52,24 @@ public class NeoPropertyNameParamImpl extends TextLiteralParamImpl implements Ne
 			value = null;
 			return;
 		}
-		checkLabel(newValue);
+		checkPropertyName(newValue);
 		setValue(newValue);
 	}
 	
-	private void checkLabel(String value) throws InvalidityException {
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param value
+	 * @throws InvalidityException
+	 *  Checks for if a Property Name is valid. 
+	 *  Null is not handled.
+	 */
+	private void checkPropertyName(String value) throws InvalidityException {
 		if (value.isBlank()) {
-			throw new InvalidityException();
+			throw new InvalidityException(A_PROPERTY_NAME_CAN_NOT_BE_EMPTY);
 		}
 		value = value.trim();
 		if (!value.matches("[A-Za-zäöüß_0-9]+")) {
-			throw new InvalidityException(A_PROPERTY_NAME_HAS_TO_BUILD_FROM_NUMERICAL_ALPHANUMERICAL_VALUES_AND_UNDERSCORE);
+			throw new InvalidityException(CypherSpecificConstants.ONLY_ALPHANUMERICAL_VALUES_AND_UNDERSCORE);
 		}			
 	}
 	

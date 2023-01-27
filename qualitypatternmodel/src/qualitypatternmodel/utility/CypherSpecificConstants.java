@@ -80,4 +80,8 @@ public class CypherSpecificConstants {
 	//Special Constants for addressing
 	public static final int FIRST_CYPHER_PROPERTY_ADDRESSING = 0;
 	public static final String SEPERATOR = ";";
+	
+	
+	//EXCEPTIONS
+	public static final String ONLY_ALPHANUMERICAL_VALUES_AND_UNDERSCORE = "Only numerical, alphanumerical values and underscore are allowed";
 }
