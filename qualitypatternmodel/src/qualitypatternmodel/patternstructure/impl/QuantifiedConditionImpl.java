@@ -1231,7 +1231,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 */
 	private final void addGraphWhereToExistsProperty(final StringBuilder cypher, String result) throws InvalidityException {
 		String where = graph.generateCypherWhere();
-		where = where.replaceAll("\n", "\n" + CypherSpecificConstants.THREE_WHITESPACES); //That it has a deeper level as the previews OPERATORS. --> adds three whitespaces
+		if (!cypher.isEmpty()) {
+			where = where.replaceAll("\n", "\n" + CypherSpecificConstants.THREE_WHITESPACES); //That it has a deeper level as the previews OPERATORS. --> adds three whitespaces
+		}
 		if (cypher.length() != 0) {
 			if (!where.isEmpty()) {
 				result += "\n" + CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE;

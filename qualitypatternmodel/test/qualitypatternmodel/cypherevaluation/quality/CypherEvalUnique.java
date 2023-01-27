@@ -3,32 +3,14 @@ package qualitypatternmodel.cypherevaluation.quality;
 import java.time.Duration;
 import java.time.Instant;
 
-import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
-import qualitypatternmodel.adaptionneo4j.NeoPlace;
-import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
-import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.cypherevaluation.utilis.DummyFiller;
-import qualitypatternmodel.evaluationquality.EvalExNEx;
 import qualitypatternmodel.evaluationquality.EvalUnique;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.operators.Comparison;
-import qualitypatternmodel.operators.ComparisonOperator;
-import qualitypatternmodel.parameters.ComparisonOptionParam;
-import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.TypeOptionParam;
-import qualitypatternmodel.parameters.UntypedParameterValue;
-import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
-import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
-import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class CypherEvalUnique {
