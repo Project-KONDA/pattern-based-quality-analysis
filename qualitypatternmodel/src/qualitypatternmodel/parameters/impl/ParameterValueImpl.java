@@ -20,6 +20,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoLabel;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyNameParam;
+import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyNameParamImpl;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
@@ -68,6 +70,7 @@ import qualitypatternmodel.graphstructure.Comparable;
  * @generated
  */
 public abstract class ParameterValueImpl extends ParameterImpl implements ParameterValue {
+	private static final String A_UNTYPED_PARAMTER_CAN_NOT_REPLACED_BY_A_NEO_PARAMETER = "A UntypedParamter can not replaced by a NeoParameter";
 	/**
 	 * The cached value of the '{@link #getComparison1() <em>Comparison1</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -688,8 +691,8 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	 */
 	@Override
 	public void replace(ParameterValue concreteValue) throws InvalidityException {
-		if (concreteValue instanceof NeoLabel) {
-			throw new InvalidityException();
+		if (isNeoParam(concreteValue)) {
+			throw new InvalidityException(A_UNTYPED_PARAMTER_CAN_NOT_REPLACED_BY_A_NEO_PARAMETER);
 		}
 		if(isTypeModifiable()) {		
 			
@@ -719,6 +722,16 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 			
 			concreteValue.setTypeModifiable(true);
 		}
+	}
+
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param concreteValue
+	 * @return boolean 
+	 * This method checks if a NeoParam shall be replacing a UntypedParamter
+	 */
+	private boolean isNeoParam(ParameterValue concreteValue) {
+		return concreteValue instanceof NeoLabel || concreteValue instanceof NeoPropertyNameParam;
 	}
 
 	/**
