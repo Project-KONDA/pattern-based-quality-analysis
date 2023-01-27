@@ -56,6 +56,8 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * @generated
  */
 public class CountPatternImpl extends PatternImpl implements CountPattern {
+	private static final String NO_COUNT_ELEMENTS_CAN_BE_SET = "No count elements can be set";
+
 	private static final String SOMETHING_WENT_WRONG_IN_ACCESSING_THE_CYPHER_VARIABLE = "Something went wrong in accessing the Cypher Variable";
 	
 	/**
@@ -115,7 +117,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 				if (n.getOriginalNode() != n) {
 					n.setReturnNode(false);				
 				}
-			}			
+			}							
 		}
 		initCountSet();
 		return patternElement;
