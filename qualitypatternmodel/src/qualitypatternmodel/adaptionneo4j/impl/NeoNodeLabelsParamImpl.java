@@ -5,7 +5,6 @@ package qualitypatternmodel.adaptionneo4j.impl;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -97,5 +96,15 @@ public class NeoNodeLabelsParamImpl extends TextListParamImpl implements NeoNode
 		EList<String> oldValue = getValues();
 		oldValue.clear();	
 		oldValue.addAll(newValue);
+	}
+	
+	@Override
+	public String generateXQuery() throws InvalidityException {
+		throw new UnsupportedOperationException();
+	}
+	
+	@Override
+	public String generateSparql() throws InvalidityException {
+		throw new UnsupportedOperationException();
 	}
 } //NeoNodeLabelsParamImpl

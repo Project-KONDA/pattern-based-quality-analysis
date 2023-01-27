@@ -15,7 +15,7 @@ import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPropertyEdge#generateCypherPropertyAddressing() <em>Generate Cypher Property Addressing</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPropertyEdge#generateCypherNodeVariable() <em>Generate Cypher Node Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPropertyEdge#getCypherNodeVariable() <em>Get Cypher Node Variable</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -88,13 +88,13 @@ public class NeoPropertyEdgeTest extends NeoEdgeTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyEdge#generateCypherNodeVariable() <em>Generate Cypher Node Variable</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyEdge#getCypherNodeVariable() <em>Get Cypher Node Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionneo4j.NeoPropertyEdge#generateCypherNodeVariable()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPropertyEdge#getCypherNodeVariable()
 	 * @generated
 	 */
-	public void testGenerateCypherNodeVariable() {
+	public void testGetCypherNodeVariable() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

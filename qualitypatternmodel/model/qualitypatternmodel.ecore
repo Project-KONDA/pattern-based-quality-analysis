@@ -1318,7 +1318,7 @@
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoPropertyEdge" eType="#//adaptionneo4j/NeoPropertyEdge"
           eOpposite="#//adaptionneo4j/NeoPropertyEdge/neoPropertyPathParam"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="neoPropertyName" eType="#//parameters/TextLiteralParam"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="neoPropertyName" eType="#//adaptionneo4j/NeoPropertyNameParam"
           containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoPropertyEdge" eSuperTypes="#//adaptionneo4j/NeoEdge">
@@ -1356,5 +1356,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="NeoNodeLabelsParam" eSuperTypes="#//parameters/TextListParam #//adaptionneo4j/NeoLabel"/>
     <eClassifiers xsi:type="ecore:EClass" name="NeoEdgeLabelParam" eSuperTypes="#//parameters/TextLiteralParam #//adaptionneo4j/NeoLabel"/>
     <eClassifiers xsi:type="ecore:EClass" name="NeoLabel" abstract="true" interface="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="NeoPropertyNameParam" eSuperTypes="#//parameters/TextLiteralParam"/>
   </eSubpackages>
 </ecore:EPackage>

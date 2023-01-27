@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyNameParam;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
@@ -61,7 +62,7 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 	 * @generated
 	 * @ordered
 	 */
-	protected TextLiteralParam neoPropertyName;
+	protected NeoPropertyNameParam neoPropertyName;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -238,7 +239,7 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 	public String getNeoPropertyName() {
 		if (neoPropertyName != null && neoPropertyName.eIsProxy()) {
 			InternalEObject oldNeoPropertyName = (InternalEObject)neoPropertyName;
-			neoPropertyName = (TextLiteralParam)eResolveProxy(oldNeoPropertyName);
+			neoPropertyName = (NeoPropertyNameParam)eResolveProxy(oldNeoPropertyName);
 			if (neoPropertyName != oldNeoPropertyName) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_NAME, oldNeoPropertyName, neoPropertyName));
@@ -252,8 +253,8 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNeoPropertyName(TextLiteralParam newNeoPropertyName, NotificationChain msgs) {
-		TextLiteralParam oldNeoPropertyName = neoPropertyName;
+	public NotificationChain basicSetNeoPropertyName(NeoPropertyNameParam newNeoPropertyName, NotificationChain msgs) {
+		NeoPropertyNameParam oldNeoPropertyName = neoPropertyName;
 		neoPropertyName = newNeoPropertyName;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_NAME, oldNeoPropertyName, newNeoPropertyName);
@@ -268,7 +269,7 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 	 * @generated
 	 */
 	@Override
-	public void setNeoPropertyName(TextLiteralParam newNeoPropertyName) {
+	public void setNeoPropertyName(NeoPropertyNameParam newNeoPropertyName) {
 		if (newNeoPropertyName != neoPropertyName) {
 			NotificationChain msgs = null;
 			if (neoPropertyName != null)
@@ -285,15 +286,17 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
 	 * @generated NOT
 	 */
 	@Override
-	public void setNeoPropertyName(String neoPropertyName) {
+	public void setNeoPropertyName(String neoPropertyName) throws InvalidityException {
 		if (neoPropertyName != null  && neoPropertyName.length() != 0) {
-			TextLiteralParam literalNeoPropertyName = new TextLiteralParamImpl(neoPropertyName);
+			NeoPropertyNameParam literalNeoPropertyName = new NeoPropertyNameParamImpl();
+			literalNeoPropertyName.setValueIfValid(neoPropertyName);
 			this.neoPropertyName = literalNeoPropertyName;
 		} else if (neoPropertyName == null) {
-			setNeoPropertyName((TextLiteralParam) null);
+			setNeoPropertyName((NeoPropertyNameParam) null);
 		}
 	}
 
@@ -360,7 +363,7 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 				setNeoPropertyEdge((NeoPropertyEdge)newValue);
 				return;
 			case Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_NAME:
-				setNeoPropertyName((TextLiteralParam)newValue);
+				setNeoPropertyName((NeoPropertyNameParam)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -378,7 +381,7 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 				setNeoPropertyEdge((NeoPropertyEdge)null);
 				return;
 			case Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_NAME:
-				setNeoPropertyName((TextLiteralParam)null);
+				setNeoPropertyName((NeoPropertyNameParam)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -403,13 +406,17 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM___SET_NEO_PROPERTY_NAME__STRING:
-				setNeoPropertyName((String)arguments.get(0));
+				try {
+					setNeoPropertyName((String)arguments.get(0));
+				} catch (InvalidityException e) {
+					throw new RuntimeException(e.getMessage());
+				}
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

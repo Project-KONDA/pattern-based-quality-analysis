@@ -146,6 +146,10 @@ public class Adaptionneo4jAdapterFactory extends AdapterFactoryImpl {
 				return createNeoLabelAdapter();
 			}
 			@Override
+			public Adapter caseNeoPropertyNameParam(NeoPropertyNameParam object) {
+				return createNeoPropertyNameParamAdapter();
+			}
+			@Override
 			public Adapter casePatternElement(PatternElement object) {
 				return createPatternElementAdapter();
 			}
@@ -434,6 +438,20 @@ public class Adaptionneo4jAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNeoLabelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyNameParam <em>Neo Property Name Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPropertyNameParam
+	 * @generated
+	 */
+	public Adapter createNeoPropertyNameParamAdapter() {
 		return null;
 	}
 

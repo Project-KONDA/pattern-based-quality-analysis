@@ -51,9 +51,9 @@ public class NeoElementNodeItemProvider extends ComplexNodeItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIsVariableDistinctInUsePropertyDescriptor(object);
 			addNeoNodeLabelsPropertyDescriptor(object);
 			addNeoPlacePropertyDescriptor(object);
+			addIsVariableDistinctInUsePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -69,9 +69,9 @@ public class NeoElementNodeItemProvider extends ComplexNodeItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NeoNode_isVariableDistinctInUse_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NeoNode_isVariableDistinctInUse_feature", "_UI_NeoNode_type"),
-				 Adaptionneo4jPackage.Literals.NEO_NODE__IS_VARIABLE_DISTINCT_IN_USE,
+				 getString("_UI_NeoElementNode_isVariableDistinctInUse_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NeoElementNode_isVariableDistinctInUse_feature", "_UI_NeoElementNode_type"),
+				 Adaptionneo4jPackage.Literals.NEO_ELEMENT_NODE__IS_VARIABLE_DISTINCT_IN_USE,
 				 true,
 				 false,
 				 false,
@@ -162,8 +162,8 @@ public class NeoElementNodeItemProvider extends ComplexNodeItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(NeoElementNode.class)) {
-			case Adaptionneo4jPackage.NEO_ELEMENT_NODE__IS_VARIABLE_DISTINCT_IN_USE:
 			case Adaptionneo4jPackage.NEO_ELEMENT_NODE__NEO_PLACE:
+			case Adaptionneo4jPackage.NEO_ELEMENT_NODE__IS_VARIABLE_DISTINCT_IN_USE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

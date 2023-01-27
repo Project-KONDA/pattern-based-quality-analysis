@@ -13,7 +13,7 @@ import qualitypatternmodel.adaptionneo4j.NeoElement;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoElement#getCypherReturn() <em>Get Cypher Return</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -59,13 +59,13 @@ public abstract class NeoElementTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoElement#getCypherReturn() <em>Get Cypher Return</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionneo4j.NeoElement#getCypherReturnVariable()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoElement#getCypherReturn()
 	 * @generated
 	 */
-	public void testGetCypherReturnVariable() {
+	public void testGetCypherReturn() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

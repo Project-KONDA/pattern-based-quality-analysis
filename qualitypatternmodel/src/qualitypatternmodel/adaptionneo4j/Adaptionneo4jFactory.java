@@ -112,6 +112,15 @@ public interface Adaptionneo4jFactory extends EFactory {
 	NeoEdgeLabelParam createNeoEdgeLabelParam();
 
 	/**
+	 * Returns a new object of class '<em>Neo Property Name Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Neo Property Name Param</em>'.
+	 * @generated
+	 */
+	NeoPropertyNameParam createNeoPropertyNameParam();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

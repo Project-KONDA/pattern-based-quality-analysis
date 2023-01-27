@@ -18,7 +18,7 @@ import qualitypatternmodel.graphstructure.tests.PrimitiveNodeTest;
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPropertyNode#generateCypherPropertyAddressing() <em>Generate Cypher Property Addressing</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoNode#getCypherVariable() <em>Get Cypher Variable</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoElement#getCypherReturn() <em>Get Cypher Return</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -104,13 +104,13 @@ public class NeoPropertyNodeTest extends PrimitiveNodeTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoElement#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoElement#getCypherReturn() <em>Get Cypher Return</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionneo4j.NeoElement#getCypherReturnVariable()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoElement#getCypherReturn()
 	 * @generated
 	 */
-	public void testGetCypherReturnVariable() {
+	public void testGetCypherReturn() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

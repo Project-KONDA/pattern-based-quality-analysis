@@ -1106,7 +1106,7 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyEdge/neoPropertyPathParam"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyEdge/generateCypherPropertyAddressing"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyEdge/generateCypherNodeVariable"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyEdge/getCypherNodeVariable"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoEdge">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionneo4j/NeoEdge/returnElement"/>
@@ -1126,6 +1126,7 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoNodeLabelsParam"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoEdgeLabelParam"/>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoLabel"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyNameParam"/>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

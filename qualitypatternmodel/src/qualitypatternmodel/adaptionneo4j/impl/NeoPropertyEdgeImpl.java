@@ -420,7 +420,7 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case Adaptionneo4jPackage.NEO_PROPERTY_EDGE___GENERATE_CYPHER_NODE_VARIABLE:
+			case Adaptionneo4jPackage.NEO_PROPERTY_EDGE___GET_CYPHER_NODE_VARIABLE:
 				try {
 					return getCypherNodeVariable();
 				}

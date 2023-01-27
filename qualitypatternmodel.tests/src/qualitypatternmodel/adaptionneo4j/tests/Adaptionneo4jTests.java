@@ -39,6 +39,9 @@ public class Adaptionneo4jTests extends TestSuite {
 		suite.addTestSuite(NeoElementPathParamTest.class);
 		suite.addTestSuite(NeoPropertyPathParamTest.class);
 		suite.addTestSuite(NeoPropertyEdgeTest.class);
+		suite.addTestSuite(NeoNodeLabelsParamTest.class);
+		suite.addTestSuite(NeoEdgeLabelParamTest.class);
+		suite.addTestSuite(NeoPropertyNameParamTest.class);
 		return suite;
 	}
 

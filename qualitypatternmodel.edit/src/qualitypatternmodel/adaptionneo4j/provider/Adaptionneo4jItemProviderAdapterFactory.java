@@ -256,6 +256,75 @@ public class Adaptionneo4jItemProviderAdapterFactory extends Adaptionneo4jAdapte
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NeoNodeLabelsParamItemProvider neoNodeLabelsParamItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNeoNodeLabelsParamAdapter() {
+		if (neoNodeLabelsParamItemProvider == null) {
+			neoNodeLabelsParamItemProvider = new NeoNodeLabelsParamItemProvider(this);
+		}
+
+		return neoNodeLabelsParamItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionneo4j.NeoEdgeLabelParam} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NeoEdgeLabelParamItemProvider neoEdgeLabelParamItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoEdgeLabelParam}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNeoEdgeLabelParamAdapter() {
+		if (neoEdgeLabelParamItemProvider == null) {
+			neoEdgeLabelParamItemProvider = new NeoEdgeLabelParamItemProvider(this);
+		}
+
+		return neoEdgeLabelParamItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionneo4j.NeoPropertyNameParam} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NeoPropertyNameParamItemProvider neoPropertyNameParamItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionneo4j.NeoPropertyNameParam}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNeoPropertyNameParamAdapter() {
+		if (neoPropertyNameParamItemProvider == null) {
+			neoPropertyNameParamItemProvider = new NeoPropertyNameParamItemProvider(this);
+		}
+
+		return neoPropertyNameParamItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -368,6 +437,9 @@ public class Adaptionneo4jItemProviderAdapterFactory extends Adaptionneo4jAdapte
 		if (neoElementPathParamItemProvider != null) neoElementPathParamItemProvider.dispose();
 		if (neoPropertyPathParamItemProvider != null) neoPropertyPathParamItemProvider.dispose();
 		if (neoPropertyEdgeItemProvider != null) neoPropertyEdgeItemProvider.dispose();
+		if (neoNodeLabelsParamItemProvider != null) neoNodeLabelsParamItemProvider.dispose();
+		if (neoEdgeLabelParamItemProvider != null) neoEdgeLabelParamItemProvider.dispose();
+		if (neoPropertyNameParamItemProvider != null) neoPropertyNameParamItemProvider.dispose();
 	}
 
 }

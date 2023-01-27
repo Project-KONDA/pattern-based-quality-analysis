@@ -846,8 +846,8 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 
 			//IMPLIES
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode5:Regesta)\n"
-					+ "WHERE NOT EXISTS {\n"
-					+ "      MATCH (varElementNode5)-[varElementEdge5:PLACE_OF_ISSUE]-(varElementNode6:Place)}\n"
+					+ "WHERE NOT (EXISTS {\n"
+					+ "      MATCH (varElementNode5)-[varElementEdge5:PLACE_OF_ISSUE]-(varElementNode6:Place)})\n"
 					+ "   AND EXISTS {\n"
 					+ "      MATCH (varElementNode5)-[varElementEdge6:APPEARS_IN]-(varElementNode7:IndexEntry:IndexPlace)}\n"
 					+ "RETURN varElementNode5");
@@ -857,10 +857,10 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode5:Regesta)\n"
 					+ "WHERE (EXISTS {\n"
 					+ "      MATCH (varElementNode5)-[varElementEdge5:PLACE_OF_ISSUE]-(varElementNode6:Place)}\n"
-					+ "   AND NOT EXISTS {\n"
-					+ "      MATCH (varElementNode5)-[varElementEdge6:APPEARS_IN]-(varElementNode7:IndexEntry:IndexPlace)})\n"
-					+ "   OR (NOT EXISTS {\n"
-					+ "      MATCH (varElementNode5)-[varElementEdge5:PLACE_OF_ISSUE]-(varElementNode6:Place)}\n"
+					+ "   AND NOT (EXISTS {\n"
+					+ "      MATCH (varElementNode5)-[varElementEdge6:APPEARS_IN]-(varElementNode7:IndexEntry:IndexPlace)}))\n"
+					+ "   OR (NOT (EXISTS {\n"
+					+ "      MATCH (varElementNode5)-[varElementEdge5:PLACE_OF_ISSUE]-(varElementNode6:Place)})\n"
 					+ "   AND EXISTS {\n"
 					+ "      MATCH (varElementNode5)-[varElementEdge6:APPEARS_IN]-(varElementNode7:IndexEntry:IndexPlace)})\n"
 					+ "RETURN varElementNode5");
@@ -899,8 +899,8 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 			
 			//
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode5:Regesta)\n"
-					+ "WHERE (NOT EXISTS {\n"
-					+ "      MATCH (varElementNode5)-[varElementEdge5:PLACE_OF_ISSUE]-(varElementNode6:Place)}\n"
+					+ "WHERE (NOT (EXISTS {\n"
+					+ "      MATCH (varElementNode5)-[varElementEdge5:PLACE_OF_ISSUE]-(varElementNode6:Place)})\n"
 					+ "   AND EXISTS {\n"
 					+ "      MATCH (varElementNode5)-[varElementEdge6:APPEARS_IN]-(varElementNode7:IndexEntry:IndexPlace)})\n"
 					+ "RETURN varElementNode5");
@@ -911,10 +911,10 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode5:Regesta)\n"
 					+ "WHERE ((EXISTS {\n"
 					+ "      MATCH (varElementNode5)-[varElementEdge5:PLACE_OF_ISSUE]-(varElementNode6:Place)}\n"
-					+ "   AND NOT EXISTS {\n"
-					+ "      MATCH (varElementNode5)-[varElementEdge6:APPEARS_IN]-(varElementNode7:IndexEntry:IndexPlace)})\n"
-					+ "   OR (NOT EXISTS {\n"
-					+ "      MATCH (varElementNode5)-[varElementEdge5:PLACE_OF_ISSUE]-(varElementNode6:Place)}\n"
+					+ "   AND NOT (EXISTS {\n"
+					+ "      MATCH (varElementNode5)-[varElementEdge6:APPEARS_IN]-(varElementNode7:IndexEntry:IndexPlace)}))\n"
+					+ "   OR (NOT (EXISTS {\n"
+					+ "      MATCH (varElementNode5)-[varElementEdge5:PLACE_OF_ISSUE]-(varElementNode6:Place)})\n"
 					+ "   AND EXISTS {\n"
 					+ "      MATCH (varElementNode5)-[varElementEdge6:APPEARS_IN]-(varElementNode7:IndexEntry:IndexPlace)}))\n"
 					+ "RETURN varElementNode5");
@@ -981,7 +981,7 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 			
 			//DateParam
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode3)\n"
-					+ "WHERE (varElementNode3.isoStartDate  = date('1439-12-20'))\n"
+					+ "WHERE (varElementNode3.isoStartDate = date('1439-12-20'))\n"
 					+ "RETURN varElementNode3");
 			i++;
 			

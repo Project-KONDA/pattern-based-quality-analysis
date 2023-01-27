@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.adaptionneo4j;
 
-import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.exceptions.InvalidityException;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,13 +47,13 @@ public interface NeoPropertyPathParam extends NeoPathParam {
 	void setNeoPropertyEdge(NeoPropertyEdge value);
 
 	/**
-	 * Returns the value of the '<em><b>Neo Property Name</b></em>' reference.
+	 * Returns the value of the '<em><b>Neo Property Name</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Neo Property Name</em>' reference.
-	 * @see #setNeoPropertyName(TextLiteralParam)
+	 * @return the value of the '<em>Neo Property Name</em>' containment reference.
+	 * @see #setNeoPropertyName(NeoPropertyNameParam)
 	 * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoPropertyPathParam_NeoPropertyName()
-	 * @model
+	 * @model containment="true"
 	 * @generated NOT
 	 */
 	String getNeoPropertyName();
@@ -66,14 +66,15 @@ public interface NeoPropertyPathParam extends NeoPathParam {
 	 * @see #getNeoPropertyName()
 	 * @generated
 	 */
-	void setNeoPropertyName(TextLiteralParam value);
+	void setNeoPropertyName(NeoPropertyNameParam value);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
 	 * @model
-	 * @generated
+	 * @generated NOT
 	 */
-	void setNeoPropertyName(String neoPropertyName);
+	void setNeoPropertyName(String neoPropertyName) throws InvalidityException;
 
 } // NeoPropertyPathParam

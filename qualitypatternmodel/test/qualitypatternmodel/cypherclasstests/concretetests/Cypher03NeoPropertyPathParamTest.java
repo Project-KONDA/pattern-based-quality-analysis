@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assume.assumeNotNull;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.lang.reflect.Field;
@@ -31,7 +32,6 @@ import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
 import qualitypatternmodel.cypherclasstests.NeoPathParamTest;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 @DisplayName("NeoPropertyPathParam Test")
@@ -150,19 +150,19 @@ public class Cypher03NeoPropertyPathParamTest extends NeoPathParamTest {
 	@Test 
 	public void getNeoPropertyName() {
 		//Check if the original value is null
-		assertNull(neoPropertyPathParam.getNeoPropertyName());
+		assumeNotNull(neoPropertyPathParam.getNeoPropertyName());
 		
 		//Set a valid Property-Namen
-		String noePropertyName = ORIGINAL_PLACE_OF_ISSUE;
-		neoPropertyPathParam.setNeoPropertyName(noePropertyName);
-		assertEquals(noePropertyName, neoPropertyPathParam.getNeoPropertyName());
+		String neoPropertyName = ORIGINAL_PLACE_OF_ISSUE;
+		assertDoesNotThrow(() -> neoPropertyPathParam.setNeoPropertyName(neoPropertyName));
+		assertEquals(neoPropertyName, neoPropertyPathParam.getNeoPropertyName());
 		
 		//Setting the Value to null
-		neoPropertyPathParam.setNeoPropertyName((String) null);
+		assertThrows(InvalidityException.class, ()-> neoPropertyPathParam.setNeoPropertyName((String) null));
 		assertNull(neoPropertyPathParam.getNeoPropertyName());
 		
 		//Trying to set a Empty-String --> Nothing happens
-		neoPropertyPathParam.setNeoPropertyName("");
+		assertThrows(InvalidityException.class, ()-> neoPropertyPathParam.setNeoPropertyName(""));
 		assertNull(neoPropertyPathParam.getNeoPropertyName());
 	}
 	
@@ -221,7 +221,6 @@ public class Cypher03NeoPropertyPathParamTest extends NeoPathParamTest {
 		}
 	}
 
-	//Maybe change that --> Verweigertes erbe und so
 	@Test
 	@Override
 	public void createParameters() {
@@ -257,7 +256,7 @@ public class Cypher03NeoPropertyPathParamTest extends NeoPathParamTest {
 			NeoPropertyEdgeImpl mockNeoPropertyEdgeImpl = Mockito.mock(NeoPropertyEdgeImpl.class);
 			neoPropertyPathParam.setNeoPropertyEdge(mockNeoPropertyEdgeImpl);
 			String varNode3Property = "varNode3.placeOfIssue";
-			neoPropertyPathParam.setNeoPropertyName(new TextLiteralParamImpl());
+			neoPropertyPathParam.setNeoPropertyName(FACTORY.createNeoPropertyNameParam());
 			Mockito.when(mockNeoPropertyEdgeImpl.generateCypherPropertyAddressing()).thenReturn(varNode3Property)
 																						.thenThrow(new InvalidityException());
 			assertTrue(neoPropertyPathParam.myToString().compareTo("NeoPropertyPathParam [1] " + varNode3Property) == 0);

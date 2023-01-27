@@ -58,9 +58,10 @@ public class CypherTest05ParameterValues extends CypherTranslation {
 	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<ParameterValue> values = getTestParameters();
+		CompletePattern completePattern = null;
 		
 		//TextLiteralParam
-		CompletePattern completePattern = getConcreteComparisonPattern(values.get(0), "date");
+		completePattern = getConcreteComparisonPattern(values.get(0), "date");
 		completePatterns.add(completePattern);	
 		
 		//TextListParam
@@ -76,7 +77,7 @@ public class CypherTest05ParameterValues extends CypherTranslation {
 		completePatterns.add(completePattern);			
 		
 		//DateParam
-		completePattern = getConcreteComparisonPattern(values.get(4), "isoStartDate ");
+		completePattern = getConcreteComparisonPattern(values.get(4), "isoStartDate");
 		completePatterns.add(completePattern);
 				
 		//TimeParam

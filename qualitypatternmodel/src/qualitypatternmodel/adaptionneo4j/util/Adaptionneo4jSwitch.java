@@ -234,6 +234,17 @@ public class Adaptionneo4jSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case Adaptionneo4jPackage.NEO_PROPERTY_NAME_PARAM: {
+				NeoPropertyNameParam neoPropertyNameParam = (NeoPropertyNameParam)theEObject;
+				T result = caseNeoPropertyNameParam(neoPropertyNameParam);
+				if (result == null) result = caseTextLiteralParam(neoPropertyNameParam);
+				if (result == null) result = caseParameterValue(neoPropertyNameParam);
+				if (result == null) result = caseParameter(neoPropertyNameParam);
+				if (result == null) result = caseComparable(neoPropertyNameParam);
+				if (result == null) result = casePatternElement(neoPropertyNameParam);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -475,6 +486,21 @@ public class Adaptionneo4jSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNeoLabel(NeoLabel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Neo Property Name Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Neo Property Name Param</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNeoPropertyNameParam(NeoPropertyNameParam object) {
 		return null;
 	}
 
