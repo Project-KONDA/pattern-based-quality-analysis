@@ -262,11 +262,11 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 			String temp = null;
 			int i = 1;
 			for (Node n : countNodes) {
-				if (checkForNode((NeoNode) n)) {
+				if (!checkForProperty((NeoNode) n)) {
 					temp = createMyCounterString((NeoNode) n, i);
 					myCounters.add(temp);
 					i++;
-				} else if (checkForProperty((NeoNode) n)) {
+				} else {
 					temp = createMyCounterString((NeoPropertyNode) n, i);
 					myCounters.add(temp);
 					i++;
@@ -290,27 +290,6 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		}
 		return t;
 	}
-
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @param n
-	 * @return boolean.class
-	 * This method checks for a NeoElementNode.
-	 */
-	private boolean checkForNode(NeoNode n) {
-		boolean t = false;
-		if (n instanceof NeoElementNode) {
-			t = true;
-		} else if (n instanceof NeoPropertyNode) {
-			NeoPropertyPathParam neoParam = ((NeoPropertyEdge)((Node) n).getIncoming().get(0)).getNeoPropertyPathParam();
-			if (neoParam != null) {
-				if (neoParam.getNeoPathPart() != null) {
-					t = true;
-				}
-			}
-		}
-		return t;
-	}
 	
 	/**
 	 * @author Lukas Sebastian Hofmann
@@ -322,7 +301,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	 */
 	private String createMyCounterString(NeoNode countElement, int countCounter) throws InvalidityException {
 		String cypherVariable = null;
-		if (checkForNeoPropertyNode(countElement)) {
+		if (checkForProperty(countElement)) {
 				NeoPropertyNode neoPropertyNode = (NeoPropertyNode) countElement;
 				cypherVariable = (String) neoPropertyNode.generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
 		} else {
@@ -331,9 +310,8 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		if (cypherVariable != null) {
 			String temp;
 			temp = CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT;
-			if (checkForNeoPropertyNode(countElement)) {
-				NeoPropertyNode neoPropertyNode = (NeoPropertyNode) countElement;
-				temp = String.format(temp, neoPropertyNode.generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING));
+			if (checkForProperty(countElement)) {
+				temp = String.format(temp, cypherVariable);
 			} else {
 				final String[] elements = countElement.getCypherVariable().split(CypherSpecificConstants.SEPERATOR);
 				final StringBuilder localSb = new StringBuilder();
@@ -349,22 +327,6 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 			return temp;
 		}
 		throw new InvalidityException(SOMETHING_WENT_WRONG_IN_ACCESSING_THE_CYPHER_VARIABLE);
-	}
-
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @param countElement
-	 * @return boolean.class
-	 * This method checks which addressing for a node shall be taken. 
-	 */
-	private boolean checkForNeoPropertyNode(NeoNode countElement) {
-		boolean result = false;
-		try {
-			result = countElement instanceof NeoPropertyNode && ((NeoPropertyEdge)((NeoPropertyNode) countElement).getIncoming().get(0)).getNeoPropertyPathParam() != null && ((NeoPropertyEdge)((NeoPropertyNode) countElement).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() == null;
-		} catch (Exception e) {
-			result = false;
-		}
-		return result;
 	}
 	
 	/**
