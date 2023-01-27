@@ -184,6 +184,17 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			throw new InvalidityException(SOMETHING_WENT_WRONG_IN_THE_SIMPLE_NEO_EDGE_DIRECTION_HAS_NOT_BEEN_SET_CORRECTLY);
 		}
 		
+		generateTargetNode(cypher, withLabels);
+	}
+
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @param cypher
+	 * @param withLabels
+	 * @throws InvalidityException
+	 * Generates the NeoTargetNode.
+	 */
+	private void generateTargetNode(StringBuilder cypher, Boolean withLabels) throws InvalidityException {
 		//Always when a TextListParam exists create the NeoPropertyNode
 		if (getNeoTargetNodeLabels() != null) {
 			cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);

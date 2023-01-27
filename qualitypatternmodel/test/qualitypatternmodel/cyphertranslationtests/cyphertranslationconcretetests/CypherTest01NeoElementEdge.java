@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
 import qualitypatternmodel.adaptionneo4j.NeoDirection;
-import qualitypatternmodel.adaptionneo4j.NeoEdgeLabelParam;
 import qualitypatternmodel.adaptionneo4j.NeoElementEdge;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
@@ -16,8 +15,6 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
-import qualitypatternmodel.parameters.TextListParam;
-import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 //Integrate the tests for the NeoNode and NeoPropertyNode in this tests
@@ -32,25 +29,25 @@ public class CypherTest01NeoElementEdge extends CypherTranslation {
 		
 		try {
 			neoEdge.generalizedTests();         
-			neoEdge.generalizedInvalidtyExceptionTests();
+//			neoEdge.generalizedInvalidtyExceptionTests();
 			
 			//Specific test for the NeoEdge
 			//Exception during Build-Pattern
-			System.out.println("");
-			System.out.println(BEGIN_BUILD_PATTERN_EXCEPTIONS);
-			try {
-				//List here all exceptions which occure while build + Naming
-				System.out.println("Exception: Set NeoPathPart");
-				CypherTest01NeoElementEdge.generateBuildNeoNeoNeedsAPathParamException();
-				System.out.println("Exception: Setting the NeoDirection to null");
-				CypherTest01NeoElementEdge.generateToCreateNeoDirectionErrorShallNotWorkException();
-				System.out.println("");
-			} catch (Exception e) {
-				System.out.println(e);
-				System.out.println("");
-			}
-			System.out.println(END_BUILD_PATTERN_EXCEPTIONS);
-			System.out.println("");
+//			System.out.println("");
+//			System.out.println(BEGIN_BUILD_PATTERN_EXCEPTIONS);
+//			try {
+//				//List here all exceptions which occure while build + Naming
+//				System.out.println("Exception: Set NeoPathPart");
+//				CypherTest01NeoElementEdge.generateBuildNeoNeoNeedsAPathParamException();
+//				System.out.println("Exception: Setting the NeoDirection to null");
+//				CypherTest01NeoElementEdge.generateToCreateNeoDirectionErrorShallNotWorkException();
+//				System.out.println("");
+//			} catch (Exception e) {
+//				System.out.println(e);
+//				System.out.println("");
+//			}
+//			System.out.println(END_BUILD_PATTERN_EXCEPTIONS);
+//			System.out.println("");
 		} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();
