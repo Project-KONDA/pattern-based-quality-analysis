@@ -18,6 +18,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public interface NeoLabel extends EObject {
+	public static final String LABEL_REGEX = "[A-Za-zäöüß_0-9]+";
 	public static final String A_LABEL_CAN_NOT_BE_EMPTY = "A Label can not be empty";
 	static final String A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S = "A Label can not contain Whitespace(s)";
 	
@@ -32,7 +33,7 @@ public interface NeoLabel extends EObject {
 			if (value.contains(CypherSpecificConstants.ONE_WHITESPACE)) {
 				throw new InvalidityException(A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S);
 			}
-			if (!value.matches("[A-Za-zäöüß_0-9]+")) {
+			if (!value.matches(LABEL_REGEX)) {
 				throw new InvalidityException(CypherSpecificConstants.ONLY_ALPHANUMERICAL_VALUES_AND_UNDERSCORE);
 			}			
 		}

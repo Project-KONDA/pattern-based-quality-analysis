@@ -153,12 +153,12 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	@Override
 	public EMap<Integer, String> getCypherReturn() throws InvalidityException {
 		EMap<Integer, String> returnElement = new BasicEMap<Integer, String>();
-		String cypher;
+		String cypher = null;
 		if (getIncomingMapping() == null) {
 			if (isVariableDistinctInUse) {
 				cypher = this.getCypherVariable();
 			} else {
-				cypher = CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_DISTINCT + " (" + this.getCypherVariable() + ")";
+				cypher = CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_DISTINCT + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + this.getCypherVariable() + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
 			}
 			returnElement.put(NeoElementNodeImpl.CYPHER_RETURN_ID, cypher);
 		} else {

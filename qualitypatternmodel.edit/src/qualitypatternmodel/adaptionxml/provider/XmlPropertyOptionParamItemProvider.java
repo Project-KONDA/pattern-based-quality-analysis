@@ -18,6 +18,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
 
@@ -198,6 +199,16 @@ public class XmlPropertyOptionParamItemProvider extends ParameterItemProvider {
 			(createChildParameter
 				(AdaptionxmlPackage.Literals.XML_PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME,
 				 ParametersFactory.eINSTANCE.createTextLiteralParam()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AdaptionxmlPackage.Literals.XML_PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME,
+				 Adaptionneo4jFactory.eINSTANCE.createNeoEdgeLabelParam()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AdaptionxmlPackage.Literals.XML_PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME,
+				 Adaptionneo4jFactory.eINSTANCE.createNeoPropertyNameParam()));
 	}
 
 	/**

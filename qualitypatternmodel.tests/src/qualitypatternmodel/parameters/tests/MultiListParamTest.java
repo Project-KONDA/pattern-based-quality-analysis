@@ -13,7 +13,7 @@ import qualitypatternmodel.parameters.ParametersFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MultiListParamTest extends AbstractListParamTest {
+public class MultiListParamTest extends ListParamTest {
 
 	/**
 	 * <!-- begin-user-doc -->

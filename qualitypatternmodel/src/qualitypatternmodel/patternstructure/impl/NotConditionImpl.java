@@ -25,7 +25,6 @@ import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
-import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**

@@ -19,7 +19,7 @@ import qualitypatternmodel.parameters.MultiListParam;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MultiListParamItemProvider extends AbstractListParamItemProvider {
+public class MultiListParamItemProvider extends ListParamItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

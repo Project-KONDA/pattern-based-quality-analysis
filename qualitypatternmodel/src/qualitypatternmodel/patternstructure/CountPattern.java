@@ -2,7 +2,6 @@
  */
 package qualitypatternmodel.patternstructure;
 
-import qualitypatternmodel.adaptionneo4j.NeoNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;

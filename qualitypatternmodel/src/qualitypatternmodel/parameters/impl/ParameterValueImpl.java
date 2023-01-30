@@ -21,7 +21,6 @@ import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoLabel;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNameParam;
-import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyNameParamImpl;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;

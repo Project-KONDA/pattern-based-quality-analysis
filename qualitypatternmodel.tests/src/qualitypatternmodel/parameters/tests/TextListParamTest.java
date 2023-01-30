@@ -13,7 +13,7 @@ import qualitypatternmodel.parameters.TextListParam;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TextListParamTest extends AbstractListParamTest {
+public class TextListParamTest extends ListParamTest {
 
 	/**
 	 * <!-- begin-user-doc -->

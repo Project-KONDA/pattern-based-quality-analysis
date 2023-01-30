@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlAxisPair;
@@ -150,6 +151,16 @@ public class XmlAxisPairItemProvider extends PatternElementItemProvider {
 			(createChildParameter
 				(AdaptionxmlPackage.Literals.XML_AXIS_PAIR__TEXT_LITERAL_PARAM,
 				 ParametersFactory.eINSTANCE.createTextLiteralParam()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AdaptionxmlPackage.Literals.XML_AXIS_PAIR__TEXT_LITERAL_PARAM,
+				 Adaptionneo4jFactory.eINSTANCE.createNeoEdgeLabelParam()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AdaptionxmlPackage.Literals.XML_AXIS_PAIR__TEXT_LITERAL_PARAM,
+				 Adaptionneo4jFactory.eINSTANCE.createNeoPropertyNameParam()));
 
 		newChildDescriptors.add
 			(createChildParameter

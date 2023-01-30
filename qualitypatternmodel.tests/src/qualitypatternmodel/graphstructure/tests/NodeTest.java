@@ -49,7 +49,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Node#adaptAsXmlProperty() <em>Adapt As Xml Property</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#adaptAsRdfIriNode() <em>Adapt As Rdf Iri Node</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#adaptAsRdfLiteralNode() <em>Adapt As Rdf Literal Node</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Node#adaptAsNeoNode() <em>Adapt As Neo Node</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#adaptAsNeoElementNode() <em>Adapt As Neo Element Node</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#adaptAsNeoPropertyNode() <em>Adapt As Neo Property Node</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveNullCheck() <em>Add Primitive Null Check</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveNullCheck(boolean) <em>Add Primitive Null Check</em>}</li>
@@ -547,13 +547,13 @@ public class NodeTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#adaptAsNeoNode() <em>Adapt As Neo Node</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#adaptAsNeoElementNode() <em>Adapt As Neo Element Node</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Node#adaptAsNeoNode()
+	 * @see qualitypatternmodel.graphstructure.Node#adaptAsNeoElementNode()
 	 * @generated
 	 */
-	public void testAdaptAsNeoNode() {
+	public void testAdaptAsNeoElementNode() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
