@@ -28,22 +28,22 @@ import qualitypatternmodel.parameters.KeyValueParam;
  */
 public interface NeoSimpleEdge extends NeoPathPart {
 	/**
-	 * Returns the value of the '<em><b>Key Value Param</b></em>' reference.
+	 * Returns the value of the '<em><b>Key Value Param</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Key Value Param</em>' reference.
+	 * @return the value of the '<em>Key Value Param</em>' containment reference.
 	 * @see #setKeyValueParam(KeyValueParam)
 	 * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoSimpleEdge_KeyValueParam()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	KeyValueParam getKeyValueParam();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#getKeyValueParam <em>Key Value Param</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#getKeyValueParam <em>Key Value Param</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Key Value Param</em>' reference.
+	 * @param value the new value of the '<em>Key Value Param</em>' containment reference.
 	 * @see #getKeyValueParam()
 	 * @generated
 	 */
@@ -63,44 +63,44 @@ public interface NeoSimpleEdge extends NeoPathPart {
 	NeoDirection getNeoDirection();
 
 	/**
-	 * Returns the value of the '<em><b>Neo Target Node Labels</b></em>' reference.
+	 * Returns the value of the '<em><b>Neo Target Node Labels</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Neo Target Node Labels</em>' reference.
+	 * @return the value of the '<em>Neo Target Node Labels</em>' containment reference.
 	 * @see #setNeoTargetNodeLabels(NeoNodeLabelsParam)
 	 * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoSimpleEdge_NeoTargetNodeLabels()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	NeoNodeLabelsParam getNeoTargetNodeLabels();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#getNeoTargetNodeLabels <em>Neo Target Node Labels</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#getNeoTargetNodeLabels <em>Neo Target Node Labels</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Neo Target Node Labels</em>' reference.
+	 * @param value the new value of the '<em>Neo Target Node Labels</em>' containment reference.
 	 * @see #getNeoTargetNodeLabels()
 	 * @generated
 	 */
 	void setNeoTargetNodeLabels(NeoNodeLabelsParam value);
 
 	/**
-	 * Returns the value of the '<em><b>Neo Edge Label</b></em>' reference.
+	 * Returns the value of the '<em><b>Neo Edge Label</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Neo Edge Label</em>' reference.
+	 * @return the value of the '<em>Neo Edge Label</em>' containment reference.
 	 * @see #setNeoEdgeLabel(NeoEdgeLabelParam)
 	 * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoSimpleEdge_NeoEdgeLabel()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	NeoEdgeLabelParam getNeoEdgeLabel();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#getNeoEdgeLabel <em>Neo Edge Label</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#getNeoEdgeLabel <em>Neo Edge Label</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Neo Edge Label</em>' reference.
+	 * @param value the new value of the '<em>Neo Edge Label</em>' containment reference.
 	 * @see #getNeoEdgeLabel()
 	 * @generated
 	 */

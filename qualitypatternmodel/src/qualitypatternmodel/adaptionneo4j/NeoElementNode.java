@@ -26,22 +26,22 @@ import qualitypatternmodel.graphstructure.ComplexNode;
  */
 public interface NeoElementNode extends ComplexNode, NeoNode {
 	/**
-	 * Returns the value of the '<em><b>Neo Node Labels</b></em>' reference.
+	 * Returns the value of the '<em><b>Neo Node Labels</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Neo Node Labels</em>' reference.
+	 * @return the value of the '<em>Neo Node Labels</em>' containment reference.
 	 * @see #setNeoNodeLabels(NeoNodeLabelsParam)
 	 * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoElementNode_NeoNodeLabels()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	NeoNodeLabelsParam getNeoNodeLabels();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionneo4j.NeoElementNode#getNeoNodeLabels <em>Neo Node Labels</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionneo4j.NeoElementNode#getNeoNodeLabels <em>Neo Node Labels</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Neo Node Labels</em>' reference.
+	 * @param value the new value of the '<em>Neo Node Labels</em>' containment reference.
 	 * @see #getNeoNodeLabels()
 	 * @generated
 	 */

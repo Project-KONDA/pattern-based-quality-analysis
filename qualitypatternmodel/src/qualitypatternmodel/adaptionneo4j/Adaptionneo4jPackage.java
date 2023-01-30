@@ -293,7 +293,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_NODE__OUTGOING = GraphstructurePackage.COMPLEX_NODE__OUTGOING;
 
 	/**
-	 * The feature id for the '<em><b>Neo Node Labels</b></em>' reference.
+	 * The feature id for the '<em><b>Neo Node Labels</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2611,7 +2611,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_SIMPLE_EDGE__NEO_COMPLEX_EDGE = NEO_PATH_PART__NEO_COMPLEX_EDGE;
 
 	/**
-	 * The feature id for the '<em><b>Key Value Param</b></em>' reference.
+	 * The feature id for the '<em><b>Key Value Param</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2629,7 +2629,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_SIMPLE_EDGE__NEO_DIRECTION = NEO_PATH_PART_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Neo Target Node Labels</b></em>' reference.
+	 * The feature id for the '<em><b>Neo Target Node Labels</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2638,7 +2638,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS = NEO_PATH_PART_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Neo Edge Label</b></em>' reference.
+	 * The feature id for the '<em><b>Neo Edge Label</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -7369,10 +7369,10 @@ public interface Adaptionneo4jPackage extends EPackage {
 	EClass getNeoElementNode();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionneo4j.NeoElementNode#getNeoNodeLabels <em>Neo Node Labels</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionneo4j.NeoElementNode#getNeoNodeLabels <em>Neo Node Labels</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Neo Node Labels</em>'.
+	 * @return the meta object for the containment reference '<em>Neo Node Labels</em>'.
 	 * @see qualitypatternmodel.adaptionneo4j.NeoElementNode#getNeoNodeLabels()
 	 * @see #getNeoElementNode()
 	 * @generated
@@ -7566,10 +7566,10 @@ public interface Adaptionneo4jPackage extends EPackage {
 	EClass getNeoSimpleEdge();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#getKeyValueParam <em>Key Value Param</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#getKeyValueParam <em>Key Value Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Key Value Param</em>'.
+	 * @return the meta object for the containment reference '<em>Key Value Param</em>'.
 	 * @see qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#getKeyValueParam()
 	 * @see #getNeoSimpleEdge()
 	 * @generated
@@ -7588,10 +7588,10 @@ public interface Adaptionneo4jPackage extends EPackage {
 	EAttribute getNeoSimpleEdge_NeoDirection();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#getNeoTargetNodeLabels <em>Neo Target Node Labels</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#getNeoTargetNodeLabels <em>Neo Target Node Labels</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Neo Target Node Labels</em>'.
+	 * @return the meta object for the containment reference '<em>Neo Target Node Labels</em>'.
 	 * @see qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#getNeoTargetNodeLabels()
 	 * @see #getNeoSimpleEdge()
 	 * @generated
@@ -7599,10 +7599,10 @@ public interface Adaptionneo4jPackage extends EPackage {
 	EReference getNeoSimpleEdge_NeoTargetNodeLabels();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#getNeoEdgeLabel <em>Neo Edge Label</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#getNeoEdgeLabel <em>Neo Edge Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Neo Edge Label</em>'.
+	 * @return the meta object for the containment reference '<em>Neo Edge Label</em>'.
 	 * @see qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#getNeoEdgeLabel()
 	 * @see #getNeoSimpleEdge()
 	 * @generated
@@ -7978,7 +7978,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 		EClass NEO_ELEMENT_NODE = eINSTANCE.getNeoElementNode();
 
 		/**
-		 * The meta object literal for the '<em><b>Neo Node Labels</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Neo Node Labels</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -8140,7 +8140,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 		EClass NEO_SIMPLE_EDGE = eINSTANCE.getNeoSimpleEdge();
 
 		/**
-		 * The meta object literal for the '<em><b>Key Value Param</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Key Value Param</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -8156,7 +8156,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 		EAttribute NEO_SIMPLE_EDGE__NEO_DIRECTION = eINSTANCE.getNeoSimpleEdge_NeoDirection();
 
 		/**
-		 * The meta object literal for the '<em><b>Neo Target Node Labels</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Neo Target Node Labels</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -8164,7 +8164,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 		EReference NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS = eINSTANCE.getNeoSimpleEdge_NeoTargetNodeLabels();
 
 		/**
-		 * The meta object literal for the '<em><b>Neo Edge Label</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Neo Edge Label</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
