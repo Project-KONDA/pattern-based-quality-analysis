@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.parameters.tests;
 
-import qualitypatternmodel.parameters.AbstractListParam;
+import qualitypatternmodel.parameters.ListParam;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,17 +29,6 @@ public abstract class AbstractListParamTest extends ParameterValueTest {
 	 */
 	public AbstractListParamTest(String name) {
 		super(name);
-	}
-
-	/**
-	 * Returns the fixture for this Abstract List Param test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected AbstractListParam getFixture() {
-		return (AbstractListParam)fixture;
 	}
 
 	/**
