@@ -4,7 +4,7 @@
     <semanticResources>qualitypatternmodel.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_A2WtQB2REeqrGqxc7qjo8A">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name=" class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="d93efe87-b113-415d-ad57-bc971b616914">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name=" class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="ea82143b-0757-4bd8-a1e3-bc0ace232e7f">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="qualitypatternmodel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -6091,14 +6091,14 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lAdZxZylEe2ibZnWAsK9tw" x="11" y="-10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_lAdZxpylEe2ibZnWAsK9tw" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lAdZx5ylEe2ibZnWAsK9tw" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lAdZx5ylEe2ibZnWAsK9tw" x="-10" y="10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_lAdZyJylEe2ibZnWAsK9tw" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lAdZyZylEe2ibZnWAsK9tw" x="-106" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lAdZyZylEe2ibZnWAsK9tw" x="-117" y="10"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_lAdZwZylEe2ibZnWAsK9tw" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_lAdZwpylEe2ibZnWAsK9tw" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_lAdZw5ylEe2ibZnWAsK9tw" points="[20, 151, -512, 163]$[20, 236, -512, 248]$[418, 236, -114, 248]$[418, -11, -114, 1]$[473, -11, -59, 1]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_lAdZw5ylEe2ibZnWAsK9tw" points="[20, 151, -512, 163]$[20, 221, -512, 233]$[412, 221, -120, 233]$[412, -11, -120, 1]$[443, -11, -89, 1]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lAdZypylEe2ibZnWAsK9tw" id="(0.3561643835616438,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_17LOcJylEe2ibZnWAsK9tw" id="(0.6013513513513513,0.5)"/>
         </edges>
