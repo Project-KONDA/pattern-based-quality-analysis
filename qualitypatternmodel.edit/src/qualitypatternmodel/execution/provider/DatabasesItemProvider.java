@@ -3,7 +3,6 @@
 package qualitypatternmodel.execution.provider;
 
 
-import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 
@@ -163,15 +162,10 @@ public class DatabasesItemProvider
 				(ExecutionPackage.Literals.DATABASES__XML_DATABASES,
 				 ExecutionFactory.eINSTANCE.createLocalXmlDataDatabase()));
 
-		try {
-			newChildDescriptors.add
-				(createChildParameter
-					(ExecutionPackage.Literals.DATABASES__XML_DATABASES,
-					 ExecutionFactory.eINSTANCE.createServerXmlDataDatabase()));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		newChildDescriptors.add
+			(createChildParameter
+				(ExecutionPackage.Literals.DATABASES__XML_DATABASES,
+				 ExecutionFactory.eINSTANCE.createServerXmlDataDatabase()));
 
 		newChildDescriptors.add
 			(createChildParameter
