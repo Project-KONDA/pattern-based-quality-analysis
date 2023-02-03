@@ -1,8 +1,8 @@
 package qualitypatternmodel.cypherclasstests.concretetests;
 
-import qualitypatternmodel.cypherclasstests.NeoPropertyNameParam;
+import qualitypatternmodel.cypherclasstests.NeoPropertyNameParamTest;
 
-public class Cypher05NeoPropertyName extends NeoPropertyNameParam {
+public class Cypher05NeoPropertyName extends NeoPropertyNameParamTest {
 
 	@Override
 	public void setValueIfValid() {

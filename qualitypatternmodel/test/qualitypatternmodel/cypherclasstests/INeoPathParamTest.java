@@ -1,6 +1,6 @@
 package qualitypatternmodel.cypherclasstests;
 
-interface INeoPathParamTest extends INeo4J {
+interface INeoPathParamTest extends INeo4JTest {
 	void getReturnInnerEdgeNodes();
 	void getCypherReturnVariable();	
 	void createParameters();

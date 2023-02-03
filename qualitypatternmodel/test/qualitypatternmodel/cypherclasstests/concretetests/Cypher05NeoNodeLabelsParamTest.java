@@ -1,8 +1,8 @@
 package qualitypatternmodel.cypherclasstests.concretetests;
 
-import qualitypatternmodel.cypherclasstests.NeoLabel;
+import qualitypatternmodel.cypherclasstests.NeoLabelTest;
 
-public class Cypher05NeoNodeLabelsParamTest extends NeoLabel {
+public class Cypher05NeoNodeLabelsParamTest extends NeoLabelTest {
 
 	@Override
 	public void setValueIfValid(String label) {

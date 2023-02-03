@@ -218,13 +218,6 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 		}
 	}
 
-//	@Override
-//	@ParameterizedTest
-//	@ValueSource(ints = {0,-1,-10,-100,-1000})
-	public void getCypherVariableNotValidNumber(int number) {
-		//Is not needed since the counting happens automaticlly
-	}
-
 	@Override
 	@ParameterizedTest
 	@ValueSource(ints = {1,10,100,1000})
@@ -243,7 +236,6 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 		}
 	}
 	
-	//PULL-UP ???
 	private void initGetCypherReturnVariableTest(NeoNode node, int number) {
 		int id = number;
 		try {
@@ -265,5 +257,11 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 	@Override
 	public void generateCypher() {
 		assertThrows(UnsupportedOperationException.class, () -> neoPropertyNode.generateCypher());
+	}
+
+	@Override
+	public void getCypherVariableNotValidNumber(int number) {
+		// TODO Auto-generated method stub
+		
 	}
 }
