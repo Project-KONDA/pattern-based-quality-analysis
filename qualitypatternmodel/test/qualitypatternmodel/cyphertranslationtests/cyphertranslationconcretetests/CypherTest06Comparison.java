@@ -25,11 +25,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
-//Add test with Mocking for the other Operators
 public class CypherTest06Comparison extends CypherTranslation {
-    //All in the CompletePattern beginning will be set automatical in the condtions it is diffrent. 
-    //The morphings for the relation --> Do nothing if a morphed relation is reached (set at least a boolean for more flexiblity)
-    //Relation variables can be only used once
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
     	CypherTest06Comparison comparison = new CypherTest06Comparison();
     	try {

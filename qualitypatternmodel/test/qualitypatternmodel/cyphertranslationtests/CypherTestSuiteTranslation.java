@@ -393,8 +393,6 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 	
 	
 	//BEGIN - String Comparison
-	//Sometime the node number is diffrent ... do not now why... but it is...
-	//Dieser Umstand führt in den Fehlschlagenden Tests zu Problemen...
 	@Test
 	public void cypherTest00QueryComp() {	
 		try {

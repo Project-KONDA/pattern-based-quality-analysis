@@ -28,7 +28,7 @@ public class CypherTest01NeoPropertyEdge extends CypherTranslation {
 		try {
 			neoPropertyEdge.generalizedTests(); 
 			neoPropertyEdge.generalizedComplexTests();
-//			neoPropertyEdge.generalizedInvalidtyExceptionTests();
+			neoPropertyEdge.generalizedInvalidtyExceptionTests();
 		} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();

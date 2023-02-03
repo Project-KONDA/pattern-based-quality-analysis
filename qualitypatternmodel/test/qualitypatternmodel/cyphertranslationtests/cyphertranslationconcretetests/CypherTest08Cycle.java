@@ -11,15 +11,6 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
-//Warum dauert der test so lange?
-//--> Ich könnte nun anfangen einen durchschnitt von 10.000 durchläufen zu nehmen...
-//Vorher halt tausend male die gleiche funktion aufrufen, dass der JIT-Compiler los legt
-//Tausend mal die gleiche Query zu generieren oder ähnliche macht halt auch wenig Sinn, außer wenn sich der Nutzer einmal verklickt sollte er die nur einmal generieren
-//https://stackoverflow.com/questions/20655963/java-benchmarking-why-is-the-second-loop-faster
-//Weiterhin hat man durch die Tests bzw. durch den automatisierten Check ob die DB an ist ein overhead
-//Junit führt tests quasi parallel aus
-//Der Zeit messer kostet halt auch zeit
-//Sysout ist auch Zeitfresser
 public class CypherTest08Cycle extends CypherTranslation {
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
     	CypherTest08Cycle cycle = new CypherTest08Cycle();

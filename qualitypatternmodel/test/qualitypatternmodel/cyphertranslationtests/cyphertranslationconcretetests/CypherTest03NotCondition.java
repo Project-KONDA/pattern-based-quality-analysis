@@ -21,7 +21,6 @@ import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.DateParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -29,15 +28,13 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
 
 
-//Think about to create a other test class just for the QuantifiedCond! --> Done
-//Specelly for the exceptiontests 
 public class CypherTest03NotCondition extends CypherTranslation {    
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
     	CypherTranslation not = new CypherTest03NotCondition();
     	try {
         	not.generalizedTests();  
-//        	not.generalizedComplexTests();
-//        	not.generalizedInvalidtyExceptionTests();
+        	not.generalizedComplexTests();
+        	not.generalizedInvalidtyExceptionTests();
     	} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();

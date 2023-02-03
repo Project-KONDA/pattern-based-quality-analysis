@@ -17,37 +17,31 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
-//Integrate the tests for the NeoNode and NeoPropertyNode in this tests
-//Codeabedeckung checken
-//PATH abdeckung --> Beschreiben
-//Am Modeldiagramm die entscheidungen getroffen
-//Erklären welche Tests für das Metamodell gemacht habe
-//Erfolgreich Test ja/nein --> Cypher querys beschreiben
 public class CypherTest01NeoElementEdge extends CypherTranslation {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CypherTest01NeoElementEdge neoEdge = new CypherTest01NeoElementEdge();
 		
 		try {
 			neoEdge.generalizedTests();         
-//			neoEdge.generalizedInvalidtyExceptionTests();
+			neoEdge.generalizedInvalidtyExceptionTests();
 			
 			//Specific test for the NeoEdge
 			//Exception during Build-Pattern
-//			System.out.println("");
-//			System.out.println(BEGIN_BUILD_PATTERN_EXCEPTIONS);
-//			try {
-//				//List here all exceptions which occure while build + Naming
-//				System.out.println("Exception: Set NeoPathPart");
-//				CypherTest01NeoElementEdge.generateBuildNeoNeoNeedsAPathParamException();
-//				System.out.println("Exception: Setting the NeoDirection to null");
-//				CypherTest01NeoElementEdge.generateToCreateNeoDirectionErrorShallNotWorkException();
-//				System.out.println("");
-//			} catch (Exception e) {
-//				System.out.println(e);
-//				System.out.println("");
-//			}
-//			System.out.println(END_BUILD_PATTERN_EXCEPTIONS);
-//			System.out.println("");
+			System.out.println("");
+			System.out.println(BEGIN_BUILD_PATTERN_EXCEPTIONS);
+			try {
+				//List here all exceptions which occure while build + Naming
+				System.out.println("Exception: Set NeoPathPart");
+				CypherTest01NeoElementEdge.generateBuildNeoNeoNeedsAPathParamException();
+				System.out.println("Exception: Setting the NeoDirection to null");
+				CypherTest01NeoElementEdge.generateToCreateNeoDirectionErrorShallNotWorkException();
+				System.out.println("");
+			} catch (Exception e) {
+				System.out.println(e);
+				System.out.println("");
+			}
+			System.out.println(END_BUILD_PATTERN_EXCEPTIONS);
+			System.out.println("");
 		} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();

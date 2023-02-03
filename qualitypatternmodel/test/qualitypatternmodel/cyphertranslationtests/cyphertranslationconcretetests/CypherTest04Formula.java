@@ -26,7 +26,6 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.impl.FormulaImpl;
 
-//The tests of the othercomponents are integrated in the systemtests since the componenttests for the framework do not exists
 public class CypherTest04Formula extends CypherTranslation {    
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
     	CypherTest04Formula formula = new CypherTest04Formula();

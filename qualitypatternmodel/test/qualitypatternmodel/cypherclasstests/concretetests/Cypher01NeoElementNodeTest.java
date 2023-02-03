@@ -255,10 +255,4 @@ public class Cypher01NeoElementNodeTest extends NeoNodeTest {
 			assertFalse(true);
 		}
 	}
-	
-//	//Pull Up
-//	@Test
-//	public void generateCypherIncomingMapping() {
-//		//How to do this???
-//	}
 }
