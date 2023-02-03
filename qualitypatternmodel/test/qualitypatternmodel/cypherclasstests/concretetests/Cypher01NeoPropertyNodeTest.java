@@ -28,7 +28,6 @@ import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
-import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyNodeImpl;
 import qualitypatternmodel.cypherclasstests.NeoNodeTest;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Node;
@@ -41,13 +40,11 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
 @DisplayName("NeoPropertyNode Tests")
 public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 	NeoPropertyNode neoPropertyNode;
-	static Method getCypherPropertyNodeVariable = null;
+
 	
 	@BeforeAll
     static void initAll() throws NoSuchMethodException, SecurityException {
-		Class<NeoPropertyNodeImpl> neoPropertyNodeImpl = NeoPropertyNodeImpl.class;
-		getCypherPropertyNodeVariable = neoPropertyNodeImpl.getDeclaredMethod("getCypherPropertyNodeVariable");
-		getCypherPropertyNodeVariable.setAccessible(true);
+
 	}
 	
 	@BeforeEach
@@ -64,8 +61,7 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 	
 	@AfterAll
 	static void tearDownAll() {
-		getCypherPropertyNodeVariable.setAccessible(false);
-		getCypherPropertyNodeVariable = null;
+
     }
 	
 	@Test
@@ -140,7 +136,7 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 			relations.add(mockNeoPropertyEdge);
 			field.set(neoPropertyNode, relations);
 			
-			String[] variable = ((String) getCypherPropertyNodeVariable.invoke(neoPropertyNode)).split(CypherSpecificConstants.SEPERATOR);
+			String[] variable = neoPropertyNode.getCypherVariable().split(CypherSpecificConstants.SEPERATOR);
 		    assertTrue(variable[0].compareTo(CypherSpecificConstants.VARIABLE_PROPERTY_NODE + id) == 0);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -179,7 +175,7 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 
 	private void handleReflactionExceptionOfGetCypherPropertyNodeVariable() {
 		try {
-			getCypherPropertyNodeVariable.invoke(neoPropertyNode);
+			neoPropertyNode.getCypherVariable();
 		} catch (Exception e) {
 			if (e.getCause().getClass() == InvalidityException.class) {
 				assertTrue(true);

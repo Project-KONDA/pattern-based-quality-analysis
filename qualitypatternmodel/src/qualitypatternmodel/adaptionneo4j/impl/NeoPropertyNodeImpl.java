@@ -29,9 +29,6 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropertyNode {
-	private static final String NO_VALID_NEO_PROPERTY_EDGE = "No valid NeoPropertyEdge";
-	private static final String NO_PROPERTY_NAME_IS_SPECIFIED = "No Property-Name is specified";
-	private static final String NO_INCOMING_NEO_PROPERTY_EDGE_SPECIFIED = "No incoming NeoPropertyEdge specified";
 	private static final int CYPHER_RETURN_ID = 1;
 
 	/**
@@ -56,212 +53,25 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	
 	/**
 	 * <!-- begin-user-doc -->
-	 * Generates a EList of all properties which can be addressed. 
+	 * Generates a EList of all properties which can be addressed. Gets the first Property Address from morphed graph NeoPropertyEdge.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
 	public EList<String> generateCypherPropertyAddressing() throws InvalidityException {
-		EList<String> cypherResult = new BasicEList<String>();
-		if (getIncomingMapping() == null) {
-			cypherResult.addAll(gatherCypherPropertyAddressings());
-		} else {
-			final EList<String> currentEdgeList = new BasicEList<String>();
-			gatherNotMorphedPropertyAddressings(currentEdgeList);
-			cypherResult = gatherPropertyAddressingsFromMorphing(currentEdgeList);
-			currentEdgeList.clear();
-		}
-		checkForExistenceOfPropertyAddressings(cypherResult);
-		return cypherResult;
-	}
-
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @param cypherResult
-	 * @throws InvalidityException
-	 * Checks if any Property can be addressed.
-	 * If not an InvalidityException is thrown.
-	 */
-	private void checkForExistenceOfPropertyAddressings(EList<String> cypherResult) throws InvalidityException {
-		if (getOutgoingMappings().size() == 0) {
-			if (cypherResult.size() == 0) {
-				throw new InvalidityException(NO_PROPERTY_NAME_IS_SPECIFIED);
-			}
-		}
-	}
-
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @return EList<String>
-	 * @throws InvalidityException
-	 * Creates internally the CypherPropertyAddressing.
-	 */
-	private EList<String> gatherCypherPropertyAddressings() throws InvalidityException {
-		final EList<String> cypherList = new BasicEList<String>();
-		EList<String> cypherResult;
-		NeoPropertyEdge edge = null;
-		String cypher = new String();
-		for (int i = 0; i < getIncoming().size(); i++) {
-			if (checkForValidIncomings()) {
-				edge = (NeoPropertyEdge) getIncoming().get(i);
-				if (edge.getNeoPropertyPathParam() == null || edge.getNeoPropertyPathParam().getNeoPropertyName() == null) {
-					throw new InvalidityException(NO_PROPERTY_NAME_IS_SPECIFIED);
-				}
-				cypher = edge.generateCypherPropertyAddressing();
-				if (!alreadyContainedInCypherPropertyAddressingList(cypherList, cypher)) {						
-					cypherList.add(cypher);
-				}
-			}
-		}
-		cypherResult = cypherList;
-		return cypherResult;
-	}
-
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @return EList<String>
-	 * @throws InvalidityException
-	 * Gathers all NotMorphedPropertyAddressings.
-	 * Works similar to the private method CypherPropertyAddressing.
-	 */
-	private void gatherNotMorphedPropertyAddressings(final EList<String> currentEdgeList) throws InvalidityException {
+		final EList<String> cypherResult = new BasicEList<String>();
 		NeoPropertyEdge neoPropertyEdge = null;
-		String cypher = null;
+		boolean hasPrevProperty = false;
 		for (Relation r : getIncoming()) {
 			neoPropertyEdge = (NeoPropertyEdge) r;
-			if (neoPropertyEdge.getIncomingMapping() == null) {
-				cypher = neoPropertyEdge.generateCypherPropertyAddressing();
-				if (!alreadyContainedInCypherPropertyAddressingList(currentEdgeList, cypher)) {						
-					currentEdgeList.add(cypher);
-				}
+			if (neoPropertyEdge.getOriginalRelation() == neoPropertyEdge) {
+				cypherResult.add(neoPropertyEdge.generateCypherPropertyAddressing());
+			} else if (!hasPrevProperty) {
+				hasPrevProperty = true;
+				cypherResult.add(neoPropertyEdge.generateCypherPropertyAddressing());
 			}
 		}
-	}
-
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @param currentEdgeList
-	 * @return EList<String>
-	 * @throws InvalidityException
-	 * Gathers recursively all Property-Addressings from the previews NeoPropertyNodes.
-	 * Adds just one Property-Addressing from the previews PrimitiveNodes to reduce the redundancy for multiple times checking is the value is the same. 
-	 */
-	private EList<String> gatherPropertyAddressingsFromMorphing(final EList<String> currentEdgeList) throws InvalidityException {
-		EList<String> cypherList = null;
-		EList<String> cypherResult = null;
-		cypherList = new BasicEList<String>();
-		cypherList = ((NeoPropertyNodeImpl) getOriginalNode()).generateCypherPropertyAddressing();
-		
-		//Not in all cases the original NeoPropertyNode has a Property specified. Thus also other previews NeoPropertyNodes could contain a valid Property-Addressing.
-		if (cypherList.size() >= 1) {
-			final String adressing = cypherList.get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
-			cypherList.clear();
-			cypherList.add(adressing);
-		} else if (getIncomingMapping() != null) {
-			final Node node = (Node) getIncomingMapping().getSource();
-			final String adressing = ((NeoPropertyNodeImpl) node).getCypherComparisonVariableFromPreviewsNodes();
-			if (adressing != null) {
-				cypherList.add(adressing);
-			}
-		}
-		cypherResult = cypherList;
-		cypherResult.addAll(currentEdgeList);
 		return cypherResult;
-	}
-	
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @param cypherList
-	 * @param cypher
-	 * @return boolean.class
-	 * Checks if a Property-Addressing is already contained in a list.
-	 */
-	private boolean alreadyContainedInCypherPropertyAddressingList(EList<String> cypherList, String cypher) {
-		boolean isContained = false;
-		String temp = null;
-		for (int i = 0; i < cypherList.size(); i++) {
-			temp = cypherList.get(i);
-			if (temp.compareTo(cypher) == 0) {
-				isContained = true;
-				i = cypherList.size();
-			}
-		}
-		return isContained;
-	}
-
-	//Checking every previews Mapping in Case the original has no incoming relation
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @return String
-	 * @throws InvalidityException
-	 * Gets the first Comparison Varaible a Preview Nodes. 
-	 * Until Now it is filled with the first Property-Addressing. 
-	 */
-	private String getCypherComparisonVariableFromPreviewsNodes() throws InvalidityException {
-		String adressing = null;
-		if (getIncomingMapping() != null && adressing == null) {
-			NeoPropertyEdge edge = null;
-			String temp = null;
-			for (Relation r : getIncoming()) {
-				edge = (NeoPropertyEdge) r;
-				if (edge.getOriginalRelation() == null) {
-					temp = edge.generateCypherPropertyAddressing();
-					if (!temp.isEmpty()) {
-						adressing = temp;
-						break;
-					}					
-				}
-			}
-			if (adressing == null) {
-				adressing = getCypherComparisonVariableFromPreviewsNodes();
-			}
-		}
-		return adressing;
-	}
-	
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @return
-	 * @throws InvalidityException
-	 * Gets all Property-Node-Variables.
-	 * The single Property-Node-Variables are separated by the CypherSpecificConstants.SEPERATOR.
-	 */
-	private String getCypherPropertyNodeVariable() throws InvalidityException {
-		if (getIncomingMapping() == null) {
-			if (!checkForValidIncomings()) {
-				throw new InvalidityException(NO_INCOMING_NEO_PROPERTY_EDGE_SPECIFIED);				
-			}
-			final StringBuilder cypher = new StringBuilder();
-			for (int i = 0; i < getIncoming().size(); i++) {					
-				NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) getIncoming().get(i);
-				cypher.append(neoPropertyEdge.getCypherNodeVariable());
-				cypher.append(CypherSpecificConstants.SEPERATOR);
-			}
-			return cypher.toString();
-		}
-		return ((NeoPropertyNodeImpl) getOriginalNode()).getCypherPropertyNodeVariable();
-	}
-
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @return boolean.class
-	 * @throws InvalidityException
-	 * This method checks if all incoming relations are of the correct type.
-	 */
-	private boolean checkForValidIncomings() throws InvalidityException {
-		boolean result = !(getIncoming() == null || getIncoming().size() == 0);
-		if (result) {
-			for (Relation r : getIncoming()) {
-				if (!(r instanceof NeoPropertyEdge)) {
-					result = false;
-					break;
-				}
-			}			
-		}
-		if (!result) {
-			throw new InvalidityException(NeoPropertyNodeImpl.NO_VALID_NEO_PROPERTY_EDGE);
-		}
-		return result;
 	}
 
 	/**
