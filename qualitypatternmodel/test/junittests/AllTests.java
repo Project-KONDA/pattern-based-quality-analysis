@@ -7,7 +7,7 @@ import org.junit.platform.suite.api.Suite;
 @SelectClasses({
 	XmlJUnitTests.class,
 	RdfJUnitTests.class,
-	Neo4JUnitTests.class
+	Neo4jJUnitTests.class
 })
 public class AllTests {
 	
