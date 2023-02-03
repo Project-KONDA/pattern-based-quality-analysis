@@ -25,4 +25,10 @@ public class Cypher05NeoNodeLabelsParamTest extends NeoLabelTest {
 	public void addStringValue() {
 		
 	}
+
+	@Override
+	public void myToString(String args) {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -547,7 +547,7 @@ public class Cypher04NeoSimpleEdgeTest extends NeoPathPartTest {
 
 	//REMOVE?
 	@Override
-	public void myToString() {
+	public void myToString(String args) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -19,6 +19,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mockito;
 
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
@@ -233,9 +235,10 @@ public class Cypher03NeoPropertyPathParamTest extends NeoPathParamTest {
 		// TODO Auto-generated method stub
 	}
 
-	@Test
 	@Override
-	public void myToString() {		
+	@ParameterizedTest
+	@ValueSource(strings = {""})
+	public void myToString(String args) {		
 		try {
 			//Just Print the internalId
 			assertTrue(neoPropertyPathParam.myToString().compareTo("NeoPropertyPathParam [1]") == 0);

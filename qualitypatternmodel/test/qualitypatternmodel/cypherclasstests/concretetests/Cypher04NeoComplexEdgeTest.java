@@ -250,8 +250,10 @@ public class Cypher04NeoComplexEdgeTest extends NeoPathPartTest {
 		}
 	}
 	
-	@Test 
-	public void myToString() {
+	@Override
+	@ParameterizedTest
+	@ValueSource(strings = {""})
+	public void myToString(String args) {
 		try {
 			String myToStringRef = "NeoComplexEdge [1] (NeoSimpleEdge1, NeoComplexEdge [2] (NeoSimpleEdge2))";
 			NeoSimpleEdgeImpl mockNeoSimpleEdge1 = Mockito.mock(NeoSimpleEdgeImpl.class);

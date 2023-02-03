@@ -160,12 +160,6 @@ public class Cypher02NeoPropertyEdgeTest extends NeoEdgeTest {
 			assertFalse(true);
 		}
 	}
-	
-	//has not to be tested && stuff like adaptAsNeoEdge are also not tested since they are simple getters (setters)
-	@Override
-	public void setIsReturnElement() {
-		// TODO Auto-generated method stub
-	}
 		
 
 	@Test
@@ -217,9 +211,10 @@ public class Cypher02NeoPropertyEdgeTest extends NeoEdgeTest {
 		}
 	}
 
-	@Test
 	@Override
-	public void myToString() {
+	@ParameterizedTest
+	@ValueSource(strings = {""})
+	public void myToString(String args) {
 		try {
 			assertEquals(NEO_PROPERTY_EDGE_1, neoAbstractEdge.myToString());
 			

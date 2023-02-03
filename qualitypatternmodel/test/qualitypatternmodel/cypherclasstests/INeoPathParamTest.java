@@ -5,6 +5,5 @@ interface INeoPathParamTest extends INeo4JTest {
 	void getCypherReturnVariable();	
 	void createParameters();
 	void inputIsValid();
-	void myToString();
 	void getRelationNumber();
 }

@@ -58,12 +58,6 @@ public class Cypher02NeoElementEdgeTest extends NeoEdgeTest {
 		super.tearDown();
 		neoEdge = null;
 	}
-	
-	//has not to be tested && stuff like adaptAsNeoEdge are also not tested since they are simple getters (setters)
-	@Override
-	public void setIsReturnElement() {
-		// TODO Auto-generated method stub
-	}
 
 	@Test
 	@Override
@@ -114,9 +108,10 @@ public class Cypher02NeoElementEdgeTest extends NeoEdgeTest {
 		}
 	}
 
-	@Test
 	@Override
-	public void myToString() {
+	@ParameterizedTest
+	@ValueSource(strings = {""})
+	public void myToString(String args) {
 		try {
 			assertEquals(NEO_ELEMENT_EDGE_IMPL_1, neoAbstractEdge.myToString());
 			
@@ -149,12 +144,6 @@ public class Cypher02NeoElementEdgeTest extends NeoEdgeTest {
 			assertTrue(list.getParameters().size() == 1);
 			assertTrue(list.getParameters().get(0) instanceof NeoElementPathParamImpl);
 			Mockito.when(mockNeoEdgeImpl.getNeoElementPathParam()).thenReturn((NeoElementPathParam) list.getParameters().get(0));
-//			Mockito.doCallRealMethod().when(mockNeoEdgeImpl);
-			//EMF interne logic zur bidirektionalem setzen der Werte wird nicht getriggert, daher manuelle einfügung
-//			((NeoPathParam) list.getParameters().get(0)).setNeoEdge(mockNeoEdgeImpl);
-			
-//			assertEquals(mockNeoEdgeImpl, ((NeoPathParamImpl) list.getParameters().get(0)).getNeoEdge());
-			
 			mockNeoEdgeImpl.createParameters();
 			assertTrue(list.getParameters().size() == 1);
 			

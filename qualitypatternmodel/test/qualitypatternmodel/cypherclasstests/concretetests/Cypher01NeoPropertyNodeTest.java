@@ -260,4 +260,10 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void myToString(String args) {
+		// TODO Auto-generated method stub
+		
+	}
 }

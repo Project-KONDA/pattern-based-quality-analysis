@@ -19,6 +19,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mockito;
 
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
@@ -146,55 +148,55 @@ public class Cypher03NeoElementPathParamTest extends NeoPathParamTest {
 		return m;
 	}
 	
-//	@Test
-//	public void generateSingeEdgeCypher() {
-//		try {
-//			//SimpleNeoEdge without Targets
-//			Class<NeoElementPathParamImpl> c = NeoElementPathParamImpl.class;
-//			Method m = c.getDeclaredMethod("generateSingeEdgeCypher", StringBuilder.class, EList.class);
-//			m.setAccessible(true);
-//			
-//			EList<NeoPathPart> l = new BasicEList<NeoPathPart>();
-//			buildMockSimpleEdge();
-//			l.add(super.mockSimpleEdge);
-//			
-//			StringBuilder sb = new StringBuilder();
-//			m.invoke(neoPathParam, sb, l);
-//			assertTrue(sb.toString().compareTo("-"+ VARIABLE_EAGE_ONE_CLAMPED + "-") == 0);
-//			
-//			//SimpleNeoEdgeWith a Target
-//			NeoNodeLabelsParam t = FACTORY.createNeoNodeLabelsParam();
-//			t.addStringValue("testvalue");
-//			Mockito.when(super.mockSimpleEdge.getNeoTargetNodeLabels()).thenReturn(null);
-//			l.clear();
-//			l.add(mockSimpleEdge);
-//			sb.setLength(0);
-//			m.invoke(neoPathParam, sb, l);
-//			assertTrue(sb.toString().compareTo("-"+ VARIABLE_EAGE_TWO_CLAMPED + "-") == 0);
-//			sb.setLength(0);
-//			NeoSimpleEdgeImpl mockSimplEdgeImpl2 = Mockito.mock(NeoSimpleEdgeImpl.class);
-//			String tempComp = "-"+ VARIABLE_EAGE_TWO_CLAMPED + "-" + "[varNode1]";
-//			Mockito.when(mockSimplEdgeImpl2.generateCypher()).thenReturn(tempComp);
-//			Mockito.when(mockSimplEdgeImpl2.getNeoTargetNodeLabels()).thenReturn(t);
-//			l.clear();
-//			l.add(mockSimplEdgeImpl2);
-//			m.invoke(neoPathParam, sb, l);
-//			assertTrue(sb.toString().compareTo(tempComp + "--") == 0);
-//			
-//			sb.setLength(0);
-//			l.clear();
-//			l.add(null);
-//			m.invoke(neoPathParam, sb, l);
-//		} catch (Exception e) {
-//			if (e.getCause().getClass() == InvalidityException.class) {
-//				assertTrue(true);
-//			} else {
-//				System.out.println(e);
-//				assertFalse(true);
-//			}
-//		}
-//	}
-//	
+	@Test
+	public void generateSingleEdgeCypher() {
+		try {
+			//SimpleNeoEdge without Targets
+			Class<NeoElementPathParamImpl> c = NeoElementPathParamImpl.class;
+			Method m = c.getDeclaredMethod("generateSingleEdgeCypher", StringBuilder.class, EList.class);
+			m.setAccessible(true);
+			
+			EList<NeoPathPart> l = new BasicEList<NeoPathPart>();
+			buildMockSimpleEdge();
+			l.add(super.mockSimpleEdge);
+			
+			StringBuilder sb = new StringBuilder();
+			m.invoke(neoPathParam, sb, l);
+			assertTrue(sb.toString().compareTo("-"+ VARIABLE_EAGE_ONE_CLAMPED + "-") == 0);
+			
+			//SimpleNeoEdgeWith a Target
+			NeoNodeLabelsParam t = FACTORY.createNeoNodeLabelsParam();
+			t.addStringValue("testvalue");
+			Mockito.when(super.mockSimpleEdge.getNeoTargetNodeLabels()).thenReturn(null);
+			l.clear();
+			l.add(mockSimpleEdge);
+			sb.setLength(0);
+			m.invoke(neoPathParam, sb, l);
+			assertTrue(sb.toString().compareTo("-"+ VARIABLE_EAGE_TWO_CLAMPED + "-") == 0);
+			sb.setLength(0);
+			NeoSimpleEdgeImpl mockSimplEdgeImpl2 = Mockito.mock(NeoSimpleEdgeImpl.class);
+			String tempComp = "-"+ VARIABLE_EAGE_TWO_CLAMPED + "-" + "[varNode1]";
+			Mockito.when(mockSimplEdgeImpl2.generateCypher()).thenReturn(tempComp);
+			Mockito.when(mockSimplEdgeImpl2.getNeoTargetNodeLabels()).thenReturn(t);
+			l.clear();
+			l.add(mockSimplEdgeImpl2);
+			m.invoke(neoPathParam, sb, l);
+			assertTrue(sb.toString().compareTo(tempComp + "--") == 0);
+			
+			sb.setLength(0);
+			l.clear();
+			l.add(null);
+			m.invoke(neoPathParam, sb, l);
+		} catch (Exception e) {
+			if (e.getCause().getClass() == InvalidityException.class) {
+				assertTrue(true);
+			} else {
+				System.out.println(e);
+				assertFalse(true);
+			}
+		}
+	}
+	
 
 	
 	@Test
@@ -208,29 +210,6 @@ public class Cypher03NeoElementPathParamTest extends NeoPathParamTest {
 			System.out.println(e);
 			assertFalse(true);
 		}
-	}
-	
-	private abstract class MockNeoSimpleEdgeImplClass extends NeoSimpleEdgeImpl {
-		@Override
-		protected abstract boolean isLastEdge();
-	}
-	
-	private MockNeoSimpleEdgeImplClass buildTheMockNeoSimpleEdgeImplClass() {
-		MockNeoSimpleEdgeImplClass mockNeoSimpleEdgeImplClass = null;
-		try {
-			mockNeoSimpleEdgeImplClass = Mockito.mock(MockNeoSimpleEdgeImplClass.class);
-			String variableEdgeOne = VARIABLE_EDGE_ONE;
-			Mockito.when(mockNeoSimpleEdgeImplClass.getCypherVariable()).thenReturn(variableEdgeOne);
-			EList<NeoPathPart> l = new BasicEList<NeoPathPart>();
-			l.add(mockNeoSimpleEdgeImplClass);
-			Mockito.when(mockNeoSimpleEdgeImplClass.getNeoPathPartEdgeLeafs()).thenReturn(l);
-			Mockito.when(mockNeoSimpleEdgeImplClass.generateCypher()).thenReturn("-"+ VARIABLE_EAGE_ONE_CLAMPED + "-");
-			
-		} catch (Exception e) {
-			System.out.println(e);
-			assertFalse(true);
-		}
-		return mockNeoSimpleEdgeImplClass;
 	}
 	
 	@Test
@@ -303,9 +282,10 @@ public class Cypher03NeoElementPathParamTest extends NeoPathParamTest {
 		
 	}
 
-	@Test
 	@Override
-	public void myToString() {
+	@ParameterizedTest
+	@ValueSource(strings = {""})
+	public void myToString(String args) {
 		buildMockSimpleEdge();		
 		neoPathParam.setNeoPathPart(super.mockSimpleEdge);
 		assertTrue(neoPathParam.myToString().compareTo("NeoPathParam [1] " + "-" + VARIABLE_EAGE_ONE_CLAMPED  + "-") == 0);	
@@ -334,5 +314,29 @@ public class Cypher03NeoElementPathParamTest extends NeoPathParamTest {
 			System.out.println(e);
 			assertFalse(true);
 		}
+	}
+	
+	//FACTORY and HELPERS
+	private abstract class MockNeoSimpleEdgeImplClass extends NeoSimpleEdgeImpl {
+		@Override
+		protected abstract boolean isLastEdge();
+	}
+	
+	private MockNeoSimpleEdgeImplClass buildTheMockNeoSimpleEdgeImplClass() {
+		MockNeoSimpleEdgeImplClass mockNeoSimpleEdgeImplClass = null;
+		try {
+			mockNeoSimpleEdgeImplClass = Mockito.mock(MockNeoSimpleEdgeImplClass.class);
+			String variableEdgeOne = VARIABLE_EDGE_ONE;
+			Mockito.when(mockNeoSimpleEdgeImplClass.getCypherVariable()).thenReturn(variableEdgeOne);
+			EList<NeoPathPart> l = new BasicEList<NeoPathPart>();
+			l.add(mockNeoSimpleEdgeImplClass);
+			Mockito.when(mockNeoSimpleEdgeImplClass.getNeoPathPartEdgeLeafs()).thenReturn(l);
+			Mockito.when(mockNeoSimpleEdgeImplClass.generateCypher()).thenReturn("-"+ VARIABLE_EAGE_ONE_CLAMPED + "-");
+			
+		} catch (Exception e) {
+			System.out.println(e);
+			assertFalse(true);
+		}
+		return mockNeoSimpleEdgeImplClass;
 	}
 }

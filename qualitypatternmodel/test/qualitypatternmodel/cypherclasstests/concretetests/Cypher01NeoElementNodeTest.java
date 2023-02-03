@@ -22,14 +22,13 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import qualitypatternmodel.adaptionneo4j.NeoNode;
 import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
+import qualitypatternmodel.adaptionneo4j.NeoPlace;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.impl.NeoElementNodeImpl;
 import qualitypatternmodel.cypherclasstests.NeoNodeTest;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
-
-//Check for the Morphisem and test them too!
 @DisplayName("NeoElementNode Tests")
 public class Cypher01NeoElementNodeTest extends NeoNodeTest {
 	private static final String VAR_NODE1 = "(varElementNode1)";
@@ -213,5 +212,32 @@ public class Cypher01NeoElementNodeTest extends NeoNodeTest {
 			System.out.println(e);
 			assertFalse(true);
 		}
+	}
+
+	//Has to be reworked
+	@Override
+	@ParameterizedTest
+	@ValueSource(strings = {"false;beginning","false;following","true;beginning","false;following"})
+	public void myToString(String args) {
+		final String[] params = args.split(";");
+		final boolean isDistinct = Boolean.parseBoolean(params[0]);
+		NeoPlace neoPlace = null;
+		if (params[1].compareTo("beginning") == 0) {
+			neoPlace = NeoPlace.BEGINNING;
+		} else {
+			neoPlace = NeoPlace.FOLLOWING;
+		}
+		NeoElementNode node = (NeoElementNode) super.neoAbstractNode;
+		node.setIsVariableDistinctInUse(isDistinct);
+		node.setNeoPlace(neoPlace);
+		//Build String for comp
+		final StringBuilder result = new StringBuilder();
+		result.append(" (neoPlace: ");
+		result.append(neoPlace);
+		result.append(", isVariableDistinctInUse: ");
+		result.append(isDistinct);
+		result.append(')');
+		System.out.println(node.myToString());
+		assertTrue(result.toString().compareTo(node.myToString()) == 0);
 	}
 }

@@ -22,4 +22,10 @@ public class Cypher05NeoPropertyName extends NeoPropertyNameParamTest {
 		
 	}
 
+	@Override
+	public void myToString(String args) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

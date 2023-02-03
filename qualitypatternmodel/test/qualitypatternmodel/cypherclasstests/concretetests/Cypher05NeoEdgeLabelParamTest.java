@@ -29,4 +29,10 @@ public class Cypher05NeoEdgeLabelParamTest extends NeoLabelTest {
     public void setValueException() {
 		
 	}
+
+	@Override
+	public void myToString(String args) {
+		// TODO Auto-generated method stub
+		
+	}
 }

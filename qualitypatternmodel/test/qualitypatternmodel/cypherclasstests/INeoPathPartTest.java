@@ -12,7 +12,6 @@ public interface INeoPathPartTest extends INeo4JTest {
 	void isValidLocal();
 	void getNeoPathParam();
 	void setNeoComplexEdge();
-	void myToString();
 	void setCount();
 	void getNeoPathParamException();
 }

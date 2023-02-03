@@ -521,4 +521,13 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 		result.append(')');
 		return result.toString();
 	}
+	
+	@Override 
+	public String myToString() {
+		final StringBuilder result = new StringBuilder(super.toString() + "\n");
+		result.append(toString());
+		return result.toString();		
+	}
+	
+	
 } //NeoNodeImpl
