@@ -2,7 +2,7 @@ package qualitypatternmodel.cypherclasstests.concretetests;
 
 import qualitypatternmodel.cypherclasstests.NeoLabel;
 
-public class NeoEdgeLabelParamTest extends NeoLabel {
+public class Cypher05NeoNodeLabelsParamTest extends NeoLabel {
 
 	@Override
 	public void setValueIfValid(String label) {
@@ -22,11 +22,7 @@ public class NeoEdgeLabelParamTest extends NeoLabel {
 		
 	}
 
-	public void setValue() {
-		
-	}
-	
-    public void setValueException() {
+	public void addStringValue() {
 		
 	}
 }
