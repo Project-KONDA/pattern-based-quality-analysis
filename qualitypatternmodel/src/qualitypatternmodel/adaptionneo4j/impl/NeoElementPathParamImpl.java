@@ -76,7 +76,7 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 			if (neoPathParts.size() > 1) {
 					generateMultiEdgeCypher(cypher);
 			} else {
-				generateSingelEdgeCypher(cypher, neoPathParts);
+				generateSingleEdgeCypher(cypher, neoPathParts);
 			} 
 			return cypher.toString();
 		}
@@ -92,7 +92,7 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 	 * Just for one element in the Composite-structure.
 	 * If the element has a NeoTargetNode the unspecified edge between to Neo4J-Nodes will be set "--".
 	 */
-	private void generateSingelEdgeCypher(final StringBuilder cypher, final EList<NeoPathPart> neoPathParts)
+	private void generateSingleEdgeCypher(final StringBuilder cypher, final EList<NeoPathPart> neoPathParts)
 			throws InvalidityException {
 		if (!(neoPathParts.get(0) instanceof NeoSimpleEdgeImpl)) {
 			throw new InvalidityException(WRONG_TYPE_OF_EDGE);
