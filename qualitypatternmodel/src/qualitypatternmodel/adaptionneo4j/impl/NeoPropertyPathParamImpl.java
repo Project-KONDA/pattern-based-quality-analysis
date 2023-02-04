@@ -289,7 +289,7 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 	 */
 	@Override
 	public void setNeoPropertyName(String neoPropertyName) throws InvalidityException {
-		if (neoPropertyName != null  && neoPropertyName.length() != 0) {
+		if (neoPropertyName != null) {
 			NeoPropertyNameParam literalNeoPropertyName = new NeoPropertyNameParamImpl();
 			literalNeoPropertyName.setValueIfValid(neoPropertyName);
 			this.neoPropertyName = literalNeoPropertyName;
