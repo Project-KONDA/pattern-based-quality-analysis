@@ -83,13 +83,11 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 	public String generateCypher() throws InvalidityException {
 		if (getIncomingMapping() == null) {
 			String cypher = new String();
-			if (getIncomingMapping() == null) {
-				if(!translated && getNeoElementPathParam() != null) {
-					cypher = getNeoElementPathParam().generateCypher();
-					this.translated = true;
-				} else if(getNeoElementPathParam() == null) {
-					throw new InvalidityException(NEO_EDGE_NEEDS_A_NEO_PATH_PARAM);
-				}
+			if(!translated && getNeoElementPathParam() != null) {
+				cypher = getNeoElementPathParam().generateCypher();
+				this.translated = true;
+			} else if(getNeoElementPathParam() == null) {
+				throw new InvalidityException(NEO_EDGE_NEEDS_A_NEO_PATH_PARAM);
 			}
 			return cypher;
 		}

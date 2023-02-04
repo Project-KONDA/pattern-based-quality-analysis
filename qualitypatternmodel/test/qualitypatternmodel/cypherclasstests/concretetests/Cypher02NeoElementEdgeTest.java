@@ -145,7 +145,7 @@ public class Cypher02NeoElementEdgeTest extends NeoEdgeTest {
 			mockNeoEdgeImpl.createParameters();
 			assertTrue(list.getParameters().size() == 1);
 			
-			//Not a valid structure just for testing correct
+			//To elements in the list
 			Mockito.when(mockNeoEdgeImpl.getNeoElementPathParam()).thenReturn(FACTORY.createNeoElementPathParam());
 			mockNeoEdgeImpl.createParameters();
 			assertTrue(list.getParameters().size() == 2);

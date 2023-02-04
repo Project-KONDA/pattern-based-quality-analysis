@@ -1,5 +1,6 @@
 package qualitypatternmodel.cypherclasstests.concretetests;
 
+import static org.junit.Assert.assertNull;
 import static org.junit.Assume.assumeTrue;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -38,7 +39,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
 
 @DisplayName("NeoPropertyNode Tests")
 public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
-	NeoPropertyNode neoPropertyNode;
+	NeoPropertyNode neoPropertyNode = null;
 
 	
 	@BeforeAll
@@ -97,18 +98,6 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 			assertFalse(true);
 		} 
 	}
-
-	private NeoPropertyEdge prepaireValidPropertyEdgeStructure(int id) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, NoSuchMethodException, InvocationTargetException, InvalidityException {
-		NeoPropertyEdge neoPropertyEdge = FACTORY.createNeoPropertyEdge();
-		initGetCypherVariableTest(neoPropertyEdge, GENERIC_NODE_ID);
-		NeoPropertyPathParam neoPropertyPathParam = FACTORY.createNeoPropertyPathParam();
-		NeoSimpleEdge neoSimpleEdge = FACTORY.createNeoSimpleEdge();
-		neoSimpleEdge.addNeoTargetNodeLabel("Regesta");
-		neoPropertyEdge.setNeoPropertyPathParam(neoPropertyPathParam);
-		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
-		neoPropertyEdge.setTarget((Node)neoPropertyNode);
-		return neoPropertyEdge;
-	}
 	
 	@Test
 	public void generateCypherNodeVariable() {
@@ -131,26 +120,6 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 			System.out.println(e);
 			assertFalse(true);
 		}
-	}
-	
-	@Test
-	public void generateCypherNodeVariableNoIncomingEdgeException() {		
-		handleReflactionExceptionOfGetCypherPropertyNodeVariable();
-		try {
-			Field field = getIncomingField();
-			field.set(neoPropertyNode, (EList<?>) null);
-			handleReflactionExceptionOfGetCypherPropertyNodeVariable();
-		} catch (Exception e) {
-			System.out.println(e);
-			assertFalse(true);
-		}
-	}
-
-	private Field getIncomingField() throws NoSuchFieldException {
-		Class<NodeImpl> obj = NodeImpl.class;			
-		Field field = obj.getDeclaredField("incoming");
-		field.setAccessible(true);
-		return field;
 	}
 
 	@Override
@@ -194,6 +163,16 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 		}
 	}
 
+	@Test
+	private void getCypherPropertyNodeVariableEmpty() {
+		assertDoesNotThrow(() -> neoPropertyNode.getCypherVariable());
+		try {
+			assertNull(neoPropertyNode.getCypherVariable());
+		} catch (InvalidityException e) {
+			assertFalse(true);
+		}
+	}
+	
 	@Override
 	@ParameterizedTest
 	@ValueSource(ints = {1,10,100,1000})
@@ -254,15 +233,23 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 		}
 	}
 	
-	private void handleReflactionExceptionOfGetCypherPropertyNodeVariable() {
-		try {
-			neoPropertyNode.getCypherVariable();
-		} catch (Exception e) {
-			if (e.getCause().getClass() == InvalidityException.class) {
-				assertTrue(true);
-			} else {
-				assertTrue(false);
-			}
-		}
+	//FACTORIES- and HELPER methods
+	private NeoPropertyEdge prepaireValidPropertyEdgeStructure(int id) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, NoSuchMethodException, InvocationTargetException, InvalidityException {
+		NeoPropertyEdge neoPropertyEdge = FACTORY.createNeoPropertyEdge();
+		initGetCypherVariableTest(neoPropertyEdge, GENERIC_NODE_ID);
+		NeoPropertyPathParam neoPropertyPathParam = FACTORY.createNeoPropertyPathParam();
+		NeoSimpleEdge neoSimpleEdge = FACTORY.createNeoSimpleEdge();
+		neoSimpleEdge.addNeoTargetNodeLabel("Regesta");
+		neoPropertyEdge.setNeoPropertyPathParam(neoPropertyPathParam);
+		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
+		neoPropertyEdge.setTarget((Node)neoPropertyNode);
+		return neoPropertyEdge;
+	}
+	
+	private Field getIncomingField() throws NoSuchFieldException {
+		Class<NodeImpl> obj = NodeImpl.class;			
+		Field field = obj.getDeclaredField("incoming");
+		field.setAccessible(true);
+		return field;
 	}
 }
