@@ -18,6 +18,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class NeoPropertyNameParamImpl extends TextLiteralParamImpl implements NeoPropertyNameParam {
+	private static final String REGEX = "[A-Za-zäöüß_0-9]+";
 	private static final String A_PROPERTY_NAME_CAN_NOT_BE_EMPTY = "A Property Name can not be empty";
 	private static final String NULL_IS_NOT_A_VALID_PROPERTY_NAME = "Null is not a valid Property Name";
 
@@ -68,7 +69,7 @@ public class NeoPropertyNameParamImpl extends TextLiteralParamImpl implements Ne
 			throw new InvalidityException(A_PROPERTY_NAME_CAN_NOT_BE_EMPTY);
 		}
 		value = value.trim();
-		if (!value.matches("[A-Za-zäöüß_0-9]+")) {
+		if (!value.matches(REGEX)) {
 			throw new InvalidityException(CypherSpecificConstants.ONLY_ALPHANUMERICAL_VALUES_AND_UNDERSCORE);
 		}			
 	}
@@ -77,6 +78,7 @@ public class NeoPropertyNameParamImpl extends TextLiteralParamImpl implements Ne
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
 	 * @throws InvalidityException
+	 * Generates the property name.
 	 */
 	@Override 
 	public String generateCypher() throws InvalidityException {
@@ -86,6 +88,17 @@ public class NeoPropertyNameParamImpl extends TextLiteralParamImpl implements Ne
 		return getValue();
 	}
 	
+	@Override
+	public String myToString() {
+		final String result = super.myToString().replace("text", "property name");
+		return result;		
+	}
+	
+	@Override
+	public String toString() {
+		final String result = super.toString().replace("value", "property name");
+		return result;
+	}
 	
 	@Override
 	public String generateXQuery() throws InvalidityException {

@@ -1,6 +1,6 @@
 package qualitypatternmodel.cypherclasstests;
 
 public interface INeoPropertyNameParamTest extends INeo4JTest {
-	public void setValueIfValid();
+	void setValueIfValid(String property);
 	void setValueIfValidException(String property);
 }
