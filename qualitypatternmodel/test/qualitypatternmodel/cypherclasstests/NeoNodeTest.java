@@ -24,7 +24,6 @@ public abstract class NeoNodeTest implements INeoNodeTest {
 
 	protected void initGetCypherVariableTest(NeoNode node, int id)
 			throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
-//		node = super.neoAbstractNode;
 		Class<?> obj = node.getClass();
 		obj = obj.getSuperclass().getSuperclass().getSuperclass();
 		Method m = obj.getMethod("setInternalId", int.class);
@@ -35,7 +34,6 @@ public abstract class NeoNodeTest implements INeoNodeTest {
 	
 	protected void initGetCypherVariableTest(NeoEdge edge, int id)
 			throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
-//		node = super.neoAbstractNode;
 		Class<?> obj = edge.getClass();
 		obj = obj.getSuperclass().getSuperclass().getSuperclass();
 		Method m = obj.getMethod("setInternalId", int.class);

@@ -1,13 +1,13 @@
 package qualitypatternmodel.cypherclasstests.concretetests;
 
 import static org.junit.Assume.assumeTrue;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -28,14 +28,13 @@ import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
+import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyEdgeImpl;
 import qualitypatternmodel.cypherclasstests.NeoNodeTest;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.NodeImpl;
-import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
-
 
 @DisplayName("NeoPropertyNode Tests")
 public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
@@ -91,9 +90,8 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 		try {
 			Field field = getIncomingField();
 			EList<Relation> relations = new BasicEList<Relation>();
-			relations.add(null);
 			field.set(neoPropertyNode, relations);
-			assertThrows(InvalidityException.class, () -> neoPropertyNode.generateCypherPropertyAddressing());
+			assertTrue(neoPropertyNode.generateCypherPropertyAddressing().size() == 0);
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
@@ -119,7 +117,7 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 			initGetCypherVariableTest(neoPropertyNode, id);
 			Field field = getIncomingField();
 			EList<Relation> relations = new BasicEList<Relation>();
-			NeoPropertyEdge mockNeoPropertyEdge = Mockito.mock(NeoPropertyEdge.class);
+			NeoPropertyEdgeImpl mockNeoPropertyEdge = Mockito.mock(NeoPropertyEdgeImpl.class);
 			Mockito.when(mockNeoPropertyEdge.getCypherNodeVariable()).thenReturn(CypherSpecificConstants.VARIABLE_PROPERTY_NODE + id);
 			NeoPropertyPathParam mockParam = Mockito.mock(NeoPropertyPathParam.class);
 			Mockito.when(mockNeoPropertyEdge.getNeoPropertyPathParam()).thenReturn(mockParam);
@@ -147,34 +145,6 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 			assertFalse(true);
 		}
 	}
-	
-	@Test
-	public void generateCypherNodeVariableWrongEdgeException() {		
-		handleReflactionExceptionOfGetCypherPropertyNodeVariable();
-		try {
-			neoPropertyNode = FACTORY.createNeoPropertyNode();
-			Field field = getIncomingField();
-			EList<Relation> rList = new BasicEList<Relation>();
-			rList.add(new RelationImpl());
-			field.set(neoPropertyNode, (EList<Relation>) rList);
-			handleReflactionExceptionOfGetCypherPropertyNodeVariable();
-		} catch (Exception e) {
-			System.out.println(e);
-			assertFalse(true);
-		}
-	}
-
-	private void handleReflactionExceptionOfGetCypherPropertyNodeVariable() {
-		try {
-			neoPropertyNode.getCypherVariable();
-		} catch (Exception e) {
-			if (e.getCause().getClass() == InvalidityException.class) {
-				assertTrue(true);
-			} else {
-				assertTrue(false);
-			}
-		}
-	}
 
 	private Field getIncomingField() throws NoSuchFieldException {
 		Class<NodeImpl> obj = NodeImpl.class;			
@@ -189,6 +159,8 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 	public void getCypherVariable(int number) {
 		int id = number;
 		try {
+			//Change hier the Variable
+			//Just One
 			neoPropertyNode = FACTORY.createNeoPropertyNode();
 			NeoPropertyEdge neoPropertyEdge = prepaireValidPropertyEdgeStructure(id);
 			initGetCypherVariableTest(neoPropertyNode, id);
@@ -199,6 +171,23 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 			
 			String[] variable = neoPropertyNode.getCypherVariable().split(CypherSpecificConstants.SEPERATOR);
 		    assertTrue(variable[0].compareTo(CypherSpecificConstants.VARIABLE_PROPERTY_NODE + id + "_1") == 0);
+		    
+		    //With multiple incomings
+		    neoPropertyNode = FACTORY.createNeoPropertyNode();
+		    neoPropertyEdge = prepaireValidPropertyEdgeStructure(id);
+		    NeoPropertyEdge neoPropertyEdge2 = prepaireValidPropertyEdgeStructure(id+1);
+		    initGetCypherVariableTest(neoPropertyNode, id);
+		    initGetCypherVariableTest(neoPropertyEdge2, id+1);
+		    field = getIncomingField();
+		    rList.clear();;
+		    rList.add(neoPropertyEdge);
+		    rList.add(neoPropertyEdge2);
+		    field.set(neoPropertyNode, rList);
+		    
+		    variable = neoPropertyNode.getCypherVariable().split(CypherSpecificConstants.SEPERATOR);
+		    assertTrue(variable[0].compareTo(CypherSpecificConstants.VARIABLE_PROPERTY_NODE + id + "_1") == 0);
+		    int suffix = (id + 1);
+		    assertTrue(variable[1].compareTo(CypherSpecificConstants.VARIABLE_PROPERTY_NODE + id + "_" + suffix) == 0);
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
@@ -223,6 +212,31 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 		}
 	}
 	
+	@Test
+	@Override
+	public void generateCypher() {
+		assertThrows(UnsupportedOperationException.class, () -> neoPropertyNode.generateCypher());
+	}
+
+	@Test
+	@Override
+	public void myToString() {
+		final String string = "NeoPropertyNodeImpl Property 1 [1]";
+		assertDoesNotThrow(() -> initGetCypherVariableTest(neoPropertyNode, 1));
+		assertTrue(neoPropertyNode.myToString().compareTo(string) == 0);
+	}
+
+	@Test
+	@Override
+	public void toStringT() {
+		assertDoesNotThrow(() -> initGetCypherVariableTest(neoPropertyNode, 1));
+		final String prefix = "qualitypatternmodel.adaptionneo4j.impl.NeoPropertyNodeImpl@";
+		assertTrue(neoPropertyNode.toString().startsWith(prefix));
+		final String suffix = ", internalId: 1) (name: null, returnNode: false, typeModifiable: true, translated: false, predicatesAreBeingTranslated: false)";
+		assertTrue(neoPropertyNode.toString().endsWith(suffix));
+	}
+	
+	//FACTORIES- and HELPER-methods
 	private void initGetCypherReturnVariableTest(NeoNode node, int number) {
 		int id = number;
 		try {
@@ -240,20 +254,15 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 		}
 	}
 	
-	@Test
-	@Override
-	public void generateCypher() {
-		assertThrows(UnsupportedOperationException.class, () -> neoPropertyNode.generateCypher());
-	}
-
-	@Override
-	public void getCypherVariableNotValidNumber(int number) {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public void myToString() {
-		// TODO Auto-generated method stub
-		
+	private void handleReflactionExceptionOfGetCypherPropertyNodeVariable() {
+		try {
+			neoPropertyNode.getCypherVariable();
+		} catch (Exception e) {
+			if (e.getCause().getClass() == InvalidityException.class) {
+				assertTrue(true);
+			} else {
+				assertTrue(false);
+			}
+		}
 	}
 }

@@ -126,7 +126,6 @@ public class Cypher01NeoElementNodeTest extends NeoNodeTest {
 		}
 	}
 	
-	@Override
 	@ParameterizedTest
 	@ValueSource(ints = {0,-1,-10,-100,-1000})
 	public void getCypherVariableNotValidNumber(int number) {
@@ -136,7 +135,7 @@ public class Cypher01NeoElementNodeTest extends NeoNodeTest {
 			initGetCypherVariableTest(node, id);
 			String variable;
 			variable = assertDoesNotThrow(() -> {return node.getCypherVariable();});
-		    assertFalse(variable.matches(CypherSpecificConstants.VARIABLE_ELEMENT_NODE + "[1-9][0-9]*")); //--> Checks if the first is the normal prefix + the last digitis are numbers 
+		    assertFalse(variable.matches(CypherSpecificConstants.VARIABLE_ELEMENT_NODE + "[1-9][0-9]*")); 
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
