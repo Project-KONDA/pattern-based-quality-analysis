@@ -319,7 +319,7 @@ public class Cypher04NeoSimpleEdgeTest extends NeoPathPartTest {
 
 	@Test
 	@Override
-	public void getNeoLastEdge() throws InvalidityException {
+	public void getNeoLastEdge() {
 		try {
 			assertEquals(neoPathPart, neoPathPart.getNeoLastEdge());	
 		} catch (Exception e) {
@@ -470,19 +470,23 @@ public class Cypher04NeoSimpleEdgeTest extends NeoPathPartTest {
 	@Override
 	@ParameterizedTest
 	@ValueSource(booleans =  {true, false})
-	public void getCypherInnerEdgeNodes(boolean isReturn) throws InvalidityException {
+	public void getCypherInnerEdgeNodes(boolean isReturn) {
 		neoSimpleEdge.setNeoPathParam(FACTORY.createNeoElementPathParam());
-		
-		//No TargetNodeLabels
-		assertEquals(null, neoSimpleEdge.getCypherInnerEdgeNodes(isReturn));
-
-		//isLastEdge NeoPropertyPathParam
-
-		//isLastEdge NeoPathParam
-		
-		//is not isLastEdge
-		neoSimpleEdge.addNeoTargetNodeLabel(TEST_LABEL);
-		assertTrue(neoSimpleEdge.getCypherInnerEdgeNodes(isReturn).compareTo("intEgNode-1") == 0);			
+		try {
+			//No TargetNodeLabels
+			assertEquals(null, neoSimpleEdge.getCypherInnerEdgeNodes(isReturn));
+			
+			//isLastEdge NeoPropertyPathParam
+			
+			//isLastEdge NeoPathParam
+			
+			//is not isLastEdge
+			neoSimpleEdge.addNeoTargetNodeLabel(TEST_LABEL);
+			assertTrue(neoSimpleEdge.getCypherInnerEdgeNodes(isReturn).compareTo("intEgNode-1") == 0);						
+		} catch (Exception e) {
+			System.out.println(e);
+			assertFalse(true);
+		}
 	}
 	
 	@Test
