@@ -1,5 +1,6 @@
 package qualitypatternmodel.cypherclasstests.concretetests;
 
+import static org.junit.Assert.assertNull;
 import static org.junit.Assume.assumeNotNull;
 import static org.junit.Assume.assumeTrue;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -19,14 +20,19 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.mockito.Mockito;
 
 import qualitypatternmodel.adaptionneo4j.NeoNode;
 import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
-import qualitypatternmodel.adaptionneo4j.NeoPlace;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.impl.NeoElementNodeImpl;
 import qualitypatternmodel.cypherclasstests.NeoNodeTest;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.parameters.impl.ParameterListImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 @DisplayName("NeoElementNode Tests")
@@ -214,30 +220,69 @@ public class Cypher01NeoElementNodeTest extends NeoNodeTest {
 		}
 	}
 
-	//Has to be reworked
+	@Test
 	@Override
-	@ParameterizedTest
-	@ValueSource(strings = {"false;beginning","false;following","true;beginning","false;following"})
-	public void myToString(String args) {
-		final String[] params = args.split(";");
-		final boolean isDistinct = Boolean.parseBoolean(params[0]);
-		NeoPlace neoPlace = null;
-		if (params[1].compareTo("beginning") == 0) {
-			neoPlace = NeoPlace.BEGINNING;
-		} else {
-			neoPlace = NeoPlace.FOLLOWING;
+	public void myToString() {
+		assertDoesNotThrow(() -> initGetCypherVariableTest(neoNode, 1));
+		final String temp = neoNode.myToString();
+		assertTrue(temp.toString().compareTo("NeoElementNodeImpl Element 1 [1]") == 0);			
+	}
+	
+	@Test
+	@Override
+	public void toStringT() {
+		final String suffix = "(name: testNode, returnNode: false, typeModifiable: true, translated: false, predicatesAreBeingTranslated: false)"
+				+ " " + "(neoPlace: FOLLOWING, isVariableDistinctInUse: true)";
+		assertDoesNotThrow(() -> initGetCypherVariableTest(neoNode, 1));
+		neoNode.setIsVariableDistinctInUse(true);
+		neoNode.setName("testNode");
+		assertDoesNotThrow(() -> neoNode.addNeoLabel("REGESTA"));
+		final String temp = neoNode.toString();
+		assertTrue(temp.endsWith(suffix));
+	}
+	
+	@Test
+	public void createParamters() {
+		final ParameterListImpl list = new ParameterListImpl(null);
+		NeoElementNodeImpl mockNeoElementNode = Mockito.mock(NeoElementNodeImpl.class);
+		Mockito.doCallRealMethod().when(mockNeoElementNode).createParameters();
+		Mockito.doCallRealMethod().when(mockNeoElementNode).getNeoNodeLabels();
+		Mockito.when(mockNeoElementNode.getNeoNodeLabels()).thenCallRealMethod();
+		Mockito.when(mockNeoElementNode.getParameterList()).thenReturn(null).
+									thenReturn(list);
+		
+		//Try to fill empty list
+		mockNeoElementNode.createParameters();
+		assertNull(mockNeoElementNode.getNeoNodeLabels());
+		
+		//List has the gets the label instance
+		assertNull(mockNeoElementNode.getNeoNodeLabels());
+		mockNeoElementNode.createParameters();
+		NeoNodeLabelsParam neoNodeLabelsParam = null;
+		try {
+			assertTrue(list.getParameters().get(0) != null);
+			neoNodeLabelsParam = (NeoNodeLabelsParam) list.getParameters().get(0);
+		} catch (Exception e) {
+			assertFalse(true);
 		}
-		NeoElementNode node = (NeoElementNode) super.neoAbstractNode;
-		node.setIsVariableDistinctInUse(isDistinct);
-		node.setNeoPlace(neoPlace);
-		//Build String for comp
-		final StringBuilder result = new StringBuilder();
-		result.append(" (neoPlace: ");
-		result.append(neoPlace);
-		result.append(", isVariableDistinctInUse: ");
-		result.append(isDistinct);
-		result.append(')');
-		System.out.println(node.myToString());
-		assertTrue(result.toString().compareTo(node.myToString()) == 0);
+		
+		//Do it again --> No changes
+		Mockito.when(mockNeoElementNode.getNeoNodeLabels()).thenReturn((NeoNodeLabelsParam) list.getParameters().get(0));
+		mockNeoElementNode.createParameters();
+		assumeNotNull(list.getParameters().get(0));
+		
+		assertEquals(neoNodeLabelsParam, list.getParameters().get(0));
+		
+		//A label is already set 
+		final NeoNodeLabelsParam labels = FACTORY.createNeoNodeLabelsParam();
+		Mockito.when(mockNeoElementNode.getNeoNodeLabels()).thenReturn(labels);
+		mockNeoElementNode.createParameters();
+		try {
+			assertTrue(list.getParameters().get(0) != null);
+			neoNodeLabelsParam = (NeoNodeLabelsParam) list.getParameters().get(1);
+		} catch (Exception e) {
+			assertFalse(true);
+		}
+		assertEquals(labels, neoNodeLabelsParam);
 	}
 }

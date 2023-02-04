@@ -258,11 +258,10 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 	@Override
 	public void getCypherVariableNotValidNumber(int number) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
-	public void myToString(String args) {
+	public void myToString() {
 		// TODO Auto-generated method stub
 		
 	}

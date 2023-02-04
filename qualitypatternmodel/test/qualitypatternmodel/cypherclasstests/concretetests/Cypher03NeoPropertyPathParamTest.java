@@ -235,10 +235,9 @@ public class Cypher03NeoPropertyPathParamTest extends NeoPathParamTest {
 		// TODO Auto-generated method stub
 	}
 
+	@Test
 	@Override
-	@ParameterizedTest
-	@ValueSource(strings = {""})
-	public void myToString(String args) {		
+	public void myToString() {		
 		try {
 			//Just Print the internalId
 			assertTrue(neoPropertyPathParam.myToString().compareTo("NeoPropertyPathParam [1]") == 0);

@@ -31,7 +31,7 @@ public class Cypher05NeoEdgeLabelParamTest extends NeoLabelTest {
 	}
 
 	@Override
-	public void myToString(String args) {
+	public void myToString() {
 		// TODO Auto-generated method stub
 		
 	}

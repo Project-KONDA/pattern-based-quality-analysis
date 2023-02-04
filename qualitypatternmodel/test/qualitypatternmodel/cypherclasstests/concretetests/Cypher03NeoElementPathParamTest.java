@@ -282,10 +282,9 @@ public class Cypher03NeoElementPathParamTest extends NeoPathParamTest {
 		
 	}
 
+	@Test
 	@Override
-	@ParameterizedTest
-	@ValueSource(strings = {""})
-	public void myToString(String args) {
+	public void myToString() {
 		buildMockSimpleEdge();		
 		neoPathParam.setNeoPathPart(super.mockSimpleEdge);
 		assertTrue(neoPathParam.myToString().compareTo("NeoPathParam [1] " + "-" + VARIABLE_EAGE_ONE_CLAMPED  + "-") == 0);	

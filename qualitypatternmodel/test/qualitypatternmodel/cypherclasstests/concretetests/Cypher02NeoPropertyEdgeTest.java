@@ -211,10 +211,9 @@ public class Cypher02NeoPropertyEdgeTest extends NeoEdgeTest {
 		}
 	}
 
+	@Test
 	@Override
-	@ParameterizedTest
-	@ValueSource(strings = {""})
-	public void myToString(String args) {
+	public void myToString() {
 		try {
 			assertEquals(NEO_PROPERTY_EDGE_1, neoAbstractEdge.myToString());
 			
@@ -223,7 +222,6 @@ public class Cypher02NeoPropertyEdgeTest extends NeoEdgeTest {
 			Field f = getNeoAbstractPathParamField(NeoPropertyEdgeImpl.class, "neoPropertyPathParam");
 			f.set(neoPropertyEdge, mockNeoPropertyPathParam);
 			
-//			neoEdge.setNeoPathParam(FACTORY.createNeoPathParam()); //DUE TO EMF I CAN NOT SET IT
 			assertEquals(NEO_PROPERTY_EDGE_1 + " " + NEO_PROPERTY_PATH_PARAM_1, neoAbstractEdge.myToString());
 		} catch (Exception e) {
 			System.out.println(e);
