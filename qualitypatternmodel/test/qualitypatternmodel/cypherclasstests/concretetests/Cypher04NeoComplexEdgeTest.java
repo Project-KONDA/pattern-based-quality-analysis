@@ -83,7 +83,6 @@ public class Cypher04NeoComplexEdgeTest extends NeoPathPartTest {
 		validateComplexEdge = null;
     }
 	
-	//Maybe bundle this methods
 	@Test
 	public void validateComplexEdge() {
 		try {
@@ -176,10 +175,9 @@ public class Cypher04NeoComplexEdgeTest extends NeoPathPartTest {
 		}
 	}
 
-	@Test //Due to ecore this tests needed to be extracted --> Unset of the NeoComplexEdge is via a EMF-CONTAINER
+	@Test
 	public void validateStructureWithJustTwoComplexEdgesException() {
 		//WITH TWO NEASTED NEOCCOMPLEXEDGES
-
 		NeoComplexEdge neoComplexEdge1 = FACTORY.createNeoComplexEdge();
 		NeoComplexEdge neoComplexEdge2 = FACTORY.createNeoComplexEdge();
 		neoComplexEdge2.setNeoComplexEdge(neoComplexEdge1);
@@ -190,8 +188,7 @@ public class Cypher04NeoComplexEdgeTest extends NeoPathPartTest {
 		unsetNeoPathPartInComplexEdge();
 	}
 
-	//Check this and think how to prevent the commented version
-	@Test //Due to ecore this tests needed to be extracted --> Unset of the NeoComplexEdge is via a EMF-CONTAINER
+	@Test
 	public void ComplexEdgeInAComplexEdgeException() {
 		NeoComplexEdge neoComplexEdge1 = FACTORY.createNeoComplexEdge();
 		neoComplexEdge1.setNeoComplexEdge(neoComplexEdge);
@@ -207,21 +204,22 @@ public class Cypher04NeoComplexEdgeTest extends NeoPathPartTest {
 		return f;
 	}
 	
-	//Addaitions to this test have to follow since not all possiblities are tested
-	@SuppressWarnings("unchecked")
 	@Test
+	@SuppressWarnings("unchecked")
 	public void addNeoPathPart() {
 		try {
 			//No null value can be added to the List
 			neoComplexEdge.addNeoPathPart(null);
-			assumeTrue(neoComplexEdge.getNeoPathPartEdgeLeafs().size() == 0);
+			assertTrue(neoComplexEdge.getNeoPathPartEdgeLeafs().size() == 0);
 			
+			//Two Leafs
 			assertTrue(neoPathPart.getNeoPathPartEdgeLeafs().size() == 0);
 			NeoSimpleEdge neoSimpleEdge1 = FACTORY.createNeoSimpleEdge();
 			neoComplexEdge.addNeoPathPart(neoSimpleEdge1);
 			assumeTrue(neoComplexEdge.getNeoPathPartEdgeLeafs().size() == 1);
 			assertEquals(neoSimpleEdge1, neoPathPart.getNeoPathPartEdgeLeafs().get(0));
 			
+			//Complex Structure
 			NeoComplexEdge neoComplexEdge1 = FACTORY.createNeoComplexEdge();
 			neoComplexEdge.addNeoPathPart(neoComplexEdge1);
 			Class<NeoComplexEdgeImpl> c = NeoComplexEdgeImpl.class;
@@ -302,7 +300,6 @@ public class Cypher04NeoComplexEdgeTest extends NeoPathPartTest {
 			neoComplexEdge.addNeoPathPart(neoComplexEdge1);
 			neoComplexEdge.addNeoPathPart(neoComplexEdge2);
 			
-
 			assertEquals(neoSimpleEdge2, neoPathPart.getNeoLastEdge());
 		} catch (Exception e) {
 			System.out.println(e);
@@ -463,6 +460,7 @@ public class Cypher04NeoComplexEdgeTest extends NeoPathPartTest {
 		Mockito.when(mockNeoSimpleEdge2.generateCypher()).thenReturn(s2);
 		Mockito.when(mockNeoSimpleEdge3.generateCypher()).thenReturn(s3);
 		BasicEList<NeoPathPart> listNeoPathParts = new BasicEList<NeoPathPart>();
+		
 		//Redundancy maybe something can be extracted
 		listNeoPathParts.add(mockNeoSimpleEdge1);
 		Mockito.when(mockNeoSimpleEdge1.getNeoPathPartEdgeLeafs()).thenReturn(listNeoPathParts);

@@ -27,6 +27,7 @@ import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
+import qualitypatternmodel.adaptionneo4j.impl.NeoPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyEdgeImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
@@ -89,6 +90,7 @@ public class Cypher03NeoPropertyPathParamTest extends NeoPathParamTest {
 		try {
 			Method m = getValidateNeoPropertyEdgeMethod();
 			NeoComplexEdge neoComplexEdge1 = FACTORY.createNeoComplexEdge();
+			//First Case with NeoComplexEdge
 			neoPropertyPathParam.setNeoPathPart(neoComplexEdge1);
 			try {
 				m.invoke(neoPropertyPathParam);
@@ -96,6 +98,7 @@ public class Cypher03NeoPropertyPathParamTest extends NeoPathParamTest {
 				assertEquals(InvalidityException.class, e.getCause().getClass());
 			}
 			
+			//Second Case with NeoSimpleEdge
 			neoPropertyPathParam.setNeoPathPart(FACTORY.createNeoSimpleEdge());
 			try {
 				m.invoke(neoPropertyPathParam);
@@ -106,13 +109,6 @@ public class Cypher03NeoPropertyPathParamTest extends NeoPathParamTest {
 			System.out.println(e);
 			assertFalse(true);
 		}
-	}
-	
-	private Method getValidateNeoPropertyEdgeMethod() throws NoSuchMethodException, SecurityException {
-		Class<NeoPropertyPathParamImpl> obj = NeoPropertyPathParamImpl.class;
-		Method m = obj.getDeclaredMethod("validateNeoPropertyEdge");
-		m.setAccessible(true);
-		return m;
 	}
 	
 	@Test 
@@ -287,11 +283,35 @@ public class Cypher03NeoPropertyPathParamTest extends NeoPathParamTest {
 			assertFalse(true);
 		}
 	}
+	
+	@Test
+	public void noLastEdge() {
+		try {
+			NeoComplexEdge mockComplexEdge = Mockito.mock(NeoComplexEdge.class);
+			Mockito.when(mockComplexEdge.getNeoLastEdge()).thenReturn(null);
+			Class<NeoPathParamImpl> obj = NeoPathParamImpl.class;
+			Field f = obj.getDeclaredField("neoPathPart");
+			f.setAccessible(true);
+			f.set(neoPropertyPathParam, mockComplexEdge);
+			assertThrows(InvalidityException.class, () -> neoPropertyPathParam.generateCypher());
+		} catch (Exception e) {
+			assertFalse(true);
+		}
+		
+	}
 
 	@Test
 	@Override
 	public void toStringT() {
 		final String string = "(predefined: false, description: )";
 		assertTrue(neoAbstractPathParam.toString().endsWith(string));
+	}
+	
+	//FACTORY- and HELPERS
+	private Method getValidateNeoPropertyEdgeMethod() throws NoSuchMethodException, SecurityException {
+		Class<NeoPropertyPathParamImpl> obj = NeoPropertyPathParamImpl.class;
+		Method m = obj.getDeclaredMethod("validateNeoPropertyEdge");
+		m.setAccessible(true);
+		return m;
 	}
 }

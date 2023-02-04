@@ -100,11 +100,16 @@ public class Cypher04NeoSimpleEdgeTest extends NeoPathPartTest {
 	@Test
 	public void setNeoDirection() {
 		try {
+			//IMPLICIT
 			neoSimpleEdge.setNeoDirection(NeoDirection.IMPLICIT);
 			assertEquals(NeoDirection.IMPLICIT,neoSimpleEdge.getNeoDirection());
+			
+			//LEFT
 			neoSimpleEdge.setNeoDirection(NeoDirection.LEFT);
 			assertEquals(NeoDirection.LEFT,neoSimpleEdge.getNeoDirection());
 			neoSimpleEdge.setNeoDirection(NeoDirection.RIGHT);
+			
+			//RIGHT
 			assertEquals(NeoDirection.RIGHT, neoSimpleEdge.getNeoDirection());
 		} catch (Exception e) {
 			System.out.println(e);
@@ -176,8 +181,6 @@ public class Cypher04NeoSimpleEdgeTest extends NeoPathPartTest {
 		}
 	}
 	
-	
-	
 	@Test
 	public void setNeoTargetNodeLabels() {
 		assertDoesNotThrow(()  -> neoSimpleEdge.setNeoTargetNodeLabels((NeoNodeLabelsParam) null));
@@ -196,10 +199,14 @@ public class Cypher04NeoSimpleEdgeTest extends NeoPathPartTest {
 	
 	@Test
 	public void addNeoEdgeLabel() {
+		//ADD NULL
 		assertDoesNotThrow(() -> neoSimpleEdge.addNeoEdgeLabel(null));
-		assertDoesNotThrow(() -> neoSimpleEdge.setNeoEdgeLabel(null));
+		
+		//ADD LABEL 
 		assertDoesNotThrow(() -> neoSimpleEdge.addNeoEdgeLabel("Regesta"));
-		assertThrows(InvalidityException.class ,() -> neoSimpleEdge.addNeoEdgeLabel("Regesta"));
+		
+		//Already set
+		assertThrows(InvalidityException.class, () -> neoSimpleEdge.addNeoEdgeLabel("Regesta"));
 	}
 	
 	@ParameterizedTest
@@ -248,31 +255,6 @@ public class Cypher04NeoSimpleEdgeTest extends NeoPathPartTest {
 		assertEquals(neoSimpleEdge, neoSimpleEdge.getNeoPathPartEdgeLeafs().get(0));
 	}
 	
-	//Pull-Up?
-	protected class MyClassMockNeoElementPathParamImpl extends NeoElementPathParamImpl {
-		@Override
-		protected int getRelationNumber() {
-			return 1;
-		}
-		@Override
-		protected String getEdgeNaming() {
-			return CypherSpecificConstants.VARIABLE_ELEMENT_EGDE;
-		}
-	}
-	
-	//Pull-Up?
-	protected class MyClassMockNeoPropertyPathParamImpl extends NeoPropertyPathParamImpl {
-		@Override
-		protected int getRelationNumber() {
-			return 1;
-		}
-		
-		@Override
-		protected String getEdgeNaming() {
-			return CypherSpecificConstants.VARIABLE_PROPERTY_EGDE;
-		}
-	}
-	
 	@Test
 	@Override
 	public void getCypherVariable() {
@@ -304,7 +286,6 @@ public class Cypher04NeoSimpleEdgeTest extends NeoPathPartTest {
 		}
 	}
 	
-	//Introduce into Interface?
 	@Test
 	public void getCypherVariableWithSubNumberPropertyPathParam() {
 		try {
@@ -313,7 +294,7 @@ public class Cypher04NeoSimpleEdgeTest extends NeoPathPartTest {
 			assertEquals(VAR_PROPERTY_EDGE1_1, neoSimpleEdge.getCypherVariable());
 		} catch (Exception e) {
 			System.out.println(e);
-			assertFalse(true); // Introduce this in every catch
+			assertFalse(true);
 		}
 	}
 
@@ -339,9 +320,8 @@ public class Cypher04NeoSimpleEdgeTest extends NeoPathPartTest {
 		}
 	}
 
-	/**
-	 * Partly also implicit test of generateInternalCypher + generateInternalCypherLabelGenerator
-	 */
+
+	 //Partly also implicit test of generateInternalCypher + generateInternalCypherLabelGenerator
 	@Test
 	@Override
 	public void generateCypher() {
@@ -476,10 +456,6 @@ public class Cypher04NeoSimpleEdgeTest extends NeoPathPartTest {
 			//No TargetNodeLabels
 			assertEquals(null, neoSimpleEdge.getCypherInnerEdgeNodes(isReturn));
 			
-			//isLastEdge NeoPropertyPathParam
-			
-			//isLastEdge NeoPathParam
-			
 			//is not isLastEdge
 			neoSimpleEdge.addNeoTargetNodeLabel(TEST_LABEL);
 			assertTrue(neoSimpleEdge.getCypherInnerEdgeNodes(isReturn).compareTo("intEgNode-1") == 0);						
@@ -493,11 +469,13 @@ public class Cypher04NeoSimpleEdgeTest extends NeoPathPartTest {
 	@Override
 	public void getNeoPathParam() {	
 		try {
+			//ElementParam
 			NeoPathParamImpl neoAbstractPathParamImpl = (NeoPathParamImpl) FACTORY.createNeoElementPathParam();
 			neoPathPart.setNeoPathParam((NeoElementPathParam) neoAbstractPathParamImpl);
 			assertEquals(neoAbstractPathParamImpl, neoPathPart.getNeoPathParam());
 			neoPathPart.setNeoPathParam(null);
 			
+			//PropertyParam
 			neoAbstractPathParamImpl = (NeoPathParamImpl) FACTORY.createNeoPropertyPathParam();
 			neoPathPart.setNeoPathParam((NeoPropertyPathParam) neoAbstractPathParamImpl);
 			assertEquals(neoAbstractPathParamImpl, neoPathPart.getNeoPathParam());
@@ -513,7 +491,6 @@ public class Cypher04NeoSimpleEdgeTest extends NeoPathPartTest {
 		assertThrows(InvalidityException.class, () -> neoSimpleEdge.getNeoPathParam());
 	}
 	
-	//Pull-Up?
 	@Test
 	public void getNeoAbstractPathParamFromNeoComplex() {
 		try {			
@@ -531,11 +508,15 @@ public class Cypher04NeoSimpleEdgeTest extends NeoPathPartTest {
 	@Test
 	@Override
 	public void myToString() {
+		//Simple myToString
 		final String prefix = "NeoSimpleEdge [";
 		assertTrue(neoSimpleEdge.myToString().startsWith(prefix));
 		assertTrue(neoSimpleEdge.myToString().endsWith("]"));
 		
+		//myToString with Label
 		assertDoesNotThrow(() -> neoSimpleEdge.addNeoEdgeLabel(TEST_LABEL));
+		
+		//Add one label which will not be added and one extra one
 		assertDoesNotThrow(() -> neoSimpleEdge.addNeoTargetNodeLabel(TEST_LABEL));
 		assertDoesNotThrow(() -> neoSimpleEdge.addNeoTargetNodeLabel(TEST_LABEL+1));
 		assertTrue(neoSimpleEdge.myToString().startsWith(prefix));
@@ -570,5 +551,29 @@ public class Cypher04NeoSimpleEdgeTest extends NeoPathPartTest {
 		Mockito.when(mockNeoPropertyPathParam.getEdgeNaming()).thenReturn(CypherSpecificConstants.VARIABLE_PROPERTY_EGDE);
 		neoSimpleEdge.setNeoPathParam(mockNeoPropertyPathParam);
 		return neoSimpleEdge;
+	}
+	
+	//FACTORIES and HELPERS
+	protected class MyClassMockNeoElementPathParamImpl extends NeoElementPathParamImpl {
+		@Override
+		protected int getRelationNumber() {
+			return 1;
+		}
+		@Override
+		protected String getEdgeNaming() {
+			return CypherSpecificConstants.VARIABLE_ELEMENT_EGDE;
+		}
+	}
+	
+	protected class MyClassMockNeoPropertyPathParamImpl extends NeoPropertyPathParamImpl {
+		@Override
+		protected int getRelationNumber() {
+			return 1;
+		}
+		
+		@Override
+		protected String getEdgeNaming() {
+			return CypherSpecificConstants.VARIABLE_PROPERTY_EGDE;
+		}
 	}
 }
