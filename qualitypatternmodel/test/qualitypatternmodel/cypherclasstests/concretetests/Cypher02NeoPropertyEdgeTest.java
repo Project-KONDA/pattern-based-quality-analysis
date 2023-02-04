@@ -300,4 +300,13 @@ public class Cypher02NeoPropertyEdgeTest extends NeoEdgeTest {
 			assertFalse(false);
 		}
 	}
+
+	@Test
+	@Override
+	public void toStringT() {
+		final String name = "TestName";
+		final String string = "(name: " + name + ", translated: false, predicatesAreBeingTranslated: false) (returnElement: false)";
+		neoPropertyEdge.setName(name);
+		assertTrue(neoPropertyEdge.toString().endsWith(string));
+	}
 }

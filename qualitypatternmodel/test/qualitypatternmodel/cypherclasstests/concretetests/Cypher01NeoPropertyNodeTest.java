@@ -111,15 +111,6 @@ public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
 		neoPropertyEdge.setTarget((Node)neoPropertyNode);
 		return neoPropertyEdge;
 	}
-
-	private void checkForInvalidityExceptionInReflation(NeoPropertyNode localNode, Method m) {
-		try {
-			m.invoke(localNode, 0);
-			assertFalse(true);
-		} catch (Exception e) {
-			assertTrue(e.getCause().getClass().equals(InvalidityException.class));
-		}
-	}
 	
 	@Test
 	public void generateCypherNodeVariable() {

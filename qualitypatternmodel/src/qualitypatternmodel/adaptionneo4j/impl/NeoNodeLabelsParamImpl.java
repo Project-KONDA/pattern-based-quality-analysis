@@ -99,6 +99,12 @@ public class NeoNodeLabelsParamImpl extends TextListParamImpl implements NeoNode
 	}
 	
 	@Override
+	public String myToString() {
+		final String result = super.myToString().replace("TextListParam", "NeoNodeLabels");
+		return result;		
+	}
+	
+	@Override
 	public String generateXQuery() throws InvalidityException {
 		throw new UnsupportedOperationException();
 	}

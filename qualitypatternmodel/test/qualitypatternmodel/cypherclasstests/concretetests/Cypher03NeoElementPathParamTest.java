@@ -338,4 +338,12 @@ public class Cypher03NeoElementPathParamTest extends NeoPathParamTest {
 		}
 		return mockNeoSimpleEdgeImplClass;
 	}
+
+	@Test
+	@Override
+	public void toStringT() {
+		System.out.println(neoAbstractPathParam.toString());
+		final String string = "(predefined: false, description: )";
+		assertTrue(neoAbstractPathParam.toString().endsWith(string));
+	}
 }

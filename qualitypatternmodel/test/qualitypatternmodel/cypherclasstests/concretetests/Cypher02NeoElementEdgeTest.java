@@ -188,4 +188,13 @@ public class Cypher02NeoElementEdgeTest extends NeoEdgeTest {
 			assertFalse(false);
 		}
 	}
+
+	@Test
+	@Override
+	public void toStringT() {
+		final String name = "TestName";
+		final String string = "(name: " + name + ", translated: false, predicatesAreBeingTranslated: false) (returnElement: false)";
+		neoEdge.setName(name);
+		assertTrue(neoEdge.toString().endsWith(string));
+	}
 }

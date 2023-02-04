@@ -19,8 +19,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mockito;
 
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
@@ -278,7 +276,7 @@ public class Cypher03NeoPropertyPathParamTest extends NeoPathParamTest {
 			NeoPropertyEdge neoPropertyEdge = FACTORY.createNeoPropertyEdge();
 			Field f = super.getInternalIdField();
 			
-			Class obj = neoPropertyPathParam.getClass();
+			Class<? extends NeoPropertyPathParam> obj = neoPropertyPathParam.getClass();
 			Method m = super.getMethodGetRelationNumber(obj);
 			
 			//If No NeoEdge is set return -1
@@ -293,5 +291,13 @@ public class Cypher03NeoPropertyPathParamTest extends NeoPathParamTest {
 			System.out.println(e);
 			assertFalse(true);
 		}
+	}
+
+	@Test
+	@Override
+	public void toStringT() {
+		System.out.println(neoAbstractPathParam.toString());
+		final String string = "(predefined: false, description: )";
+		assertTrue(neoAbstractPathParam.toString().endsWith(string));
 	}
 }

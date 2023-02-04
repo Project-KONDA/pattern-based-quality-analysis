@@ -24,14 +24,10 @@ import org.mockito.Mockito;
 
 import qualitypatternmodel.adaptionneo4j.NeoNode;
 import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
-import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
-import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.impl.NeoElementNodeImpl;
 import qualitypatternmodel.cypherclasstests.NeoNodeTest;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.impl.ParameterListImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 

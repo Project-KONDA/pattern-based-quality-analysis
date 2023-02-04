@@ -339,13 +339,6 @@ public class Cypher04NeoSimpleEdgeTest extends NeoPathPartTest {
 		}
 	}
 
-	//Can be removed since it is generated automaticlly 
-	@Override
-	public void isLastEdge() {
-		// TODO Auto-generated method stub
-		//has not to be tested since it is a simple getter
-	}
-
 	/**
 	 * Partly also implicit test of generateInternalCypher + generateInternalCypherLabelGenerator
 	 */
@@ -569,10 +562,13 @@ public class Cypher04NeoSimpleEdgeTest extends NeoPathPartTest {
 		neoSimpleEdge.setNeoPathParam(mockNeoPropertyPathParam);
 		return neoSimpleEdge;
 	}
-
+	
+	@Test
 	@Override
-	public void setCount() {
-		// TODO Auto-generated method stub
-		
+	public void toStringT() {
+		System.out.println(neoPathPart.toString());
+		assertTrue(neoPathPart.toString().endsWith(", internalId: -1)" 
+				+ " (neoDirection: IMPLICIT, edgeNumber: <unset>)"));
+		assertTrue(neoPathPart.toString().startsWith("qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl@"));
 	}
 }

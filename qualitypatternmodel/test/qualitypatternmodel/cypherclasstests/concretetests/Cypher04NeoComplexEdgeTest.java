@@ -416,12 +416,6 @@ public class Cypher04NeoComplexEdgeTest extends NeoPathPartTest {
 
 	@Test
 	@Override
-	public void isLastEdge() {
-//		assertThrows(UnsupportedOperationException.class, () -> neoPathPart.isLastEdge());
-	}
-
-	@Test
-	@Override
 	public void generateCypher() {
 		try {
 			buildStructureForNeoSimpleEdgesStoredInComplexEdge(INTERNAL_ELEMENT_EDGE_NODE_ID_1, INTERNAL_ELEMENT_EDGE_NODE_ID_2, VARIABLE_PROPERTY_NODE_ID_3);
@@ -548,7 +542,6 @@ public class Cypher04NeoComplexEdgeTest extends NeoPathPartTest {
 		assertEquals(neoComplexEdge0, neoComplexEdge.getNeoComplexEdge());
 	}
 
-	//Something is wrong
 	//Add that previews neoComplexEdge is not to set NeoComplexEdge
 	@Test
 	@Override
@@ -580,30 +573,10 @@ public class Cypher04NeoComplexEdgeTest extends NeoPathPartTest {
 		}
 	}
 
+	@Test
 	@Override
-	public void setCount() {
-		// TODO Auto-generated method stub
-		
+	public void toStringT() {
+		assertTrue(neoPathPart.toString().endsWith(", internalId: -1)"));
+		assertTrue(neoPathPart.toString().startsWith("qualitypatternmodel.adaptionneo4j.impl.NeoComplexEdgeImpl@"));
 	}
-	
-	//InternalCount --> Can be tested indirectly
-	//Has to be reworked --> Think about it
-//	volatile NeoComplexEdge threadNeoComplexEdge;
-//	@Test
-//	public void internalCountThrosException() {
-//		threadNeoComplexEdge = FACTORY.createNeoComplexEdge();
-//		class threaty implements Runnable {  
-//			public void run(){  
-//				AdaptionNeo4JFactory f = new AdaptionNeo4JFactoryImpl();
-//				for (int i = 0; i < Integer.MAX_VALUE; i++) {
-//					threadNeoComplexEdge.addNeoPathPart(f.createNeoSimpleEdge());
-//				} 
-//				
-//			}
-//		}
-//		threaty m1 = new threaty();  
-//		Thread t1 = new Thread(m1); 
-//		t1.start();
-//		assertThrows(IndexOutOfBoundsException.class, () -> threadNeoComplexEdge.addNeoPathPart(FACTORY.createNeoSimpleEdge()));
-//	}
 }

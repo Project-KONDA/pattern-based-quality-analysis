@@ -78,4 +78,21 @@ public class NeoEdgeLabelParamImpl extends TextLiteralParamImpl implements NeoEd
 		}
 		return cypher;
 	}
+	
+	@Override
+	public String myToString() {
+		final String result = super.myToString().replace("text", "label");
+		return result;		
+	}
+	
+	@Override
+	public String toString() {
+		final String result = super.toString().replace("value", "label");
+		return result;
+	}
+	
+	@Override
+	public String generateXQuery() throws InvalidityException {
+		throw new UnsupportedOperationException();
+	}
 } //NeoEdgeLabelParamImpl
