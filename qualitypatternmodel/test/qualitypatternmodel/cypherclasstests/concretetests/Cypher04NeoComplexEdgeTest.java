@@ -477,12 +477,6 @@ public class Cypher04NeoComplexEdgeTest extends NeoPathPartTest {
 		neoComplexEdge.addNeoPathPart((NeoPathPart) mockNeoSimpleEdge3);
 	}
 
-	@Override
-	public void isValidLocal() {
-		// TODO Auto-generated method stub
-		
-	}
-
 	//Inidectly tested: getHighestComplexEdge
 	//The NeoPathParam && NeoPropertyPathParam are handelt inside a EMF container which can not be easyly accessed. Inside the class the it should rather the getNeoAbstractPathParam be used
 	@Test
@@ -544,7 +538,6 @@ public class Cypher04NeoComplexEdgeTest extends NeoPathPartTest {
 
 	//Add that previews neoComplexEdge is not to set NeoComplexEdge
 	@Test
-	@Override
 	public void setNeoComplexEdge() {
 		//A NeoComplexEdge will be set with a NeoComplexEdge and NeoSimpleEdge inside
 		try {			

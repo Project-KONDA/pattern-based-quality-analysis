@@ -524,24 +524,29 @@ public class Cypher04NeoSimpleEdgeTest extends NeoPathPartTest {
 		}
 	}
 
-	//Maybe not needed 
-	@Override
-	public void isValidLocal() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	//REMOVE
-	@Override
-	public void setNeoComplexEdge() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	//REMOVE?
+	@Test
 	@Override
 	public void myToString() {
-		// TODO Auto-generated method stub
+		final String prefix = "NeoSimpleEdge [";
+		assertTrue(neoSimpleEdge.myToString().startsWith(prefix));
+		assertTrue(neoSimpleEdge.myToString().endsWith("]"));
+		
+		assertDoesNotThrow(() -> neoSimpleEdge.addNeoEdgeLabel(TEST_LABEL));
+		assertDoesNotThrow(() -> neoSimpleEdge.addNeoTargetNodeLabel(TEST_LABEL));
+		assertDoesNotThrow(() -> neoSimpleEdge.addNeoTargetNodeLabel(TEST_LABEL+1));
+		assertTrue(neoSimpleEdge.myToString().startsWith(prefix));
+		final String suffix = "] (Edge-Labels:[testLabel] Edge-Target-Node-Labels[testLabel, testLabel1])";
+		assertTrue(neoSimpleEdge.myToString().endsWith(suffix));
+	}
+	
+	@Test
+	@Override
+	public void toStringT() {
+		final String suffix = ", internalId: -1)" 
+				+ " (neoDirection: IMPLICIT, edgeNumber: <unset>)";
+		assertTrue(neoPathPart.toString().endsWith(suffix));
+		final String prefix = "qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl@";
+		assertTrue(neoPathPart.toString().startsWith(prefix));
 	}
 	
 	//METHOD FACTORIES
@@ -561,14 +566,5 @@ public class Cypher04NeoSimpleEdgeTest extends NeoPathPartTest {
 		Mockito.when(mockNeoPropertyPathParam.getEdgeNaming()).thenReturn(CypherSpecificConstants.VARIABLE_PROPERTY_EGDE);
 		neoSimpleEdge.setNeoPathParam(mockNeoPropertyPathParam);
 		return neoSimpleEdge;
-	}
-	
-	@Test
-	@Override
-	public void toStringT() {
-		System.out.println(neoPathPart.toString());
-		assertTrue(neoPathPart.toString().endsWith(", internalId: -1)" 
-				+ " (neoDirection: IMPLICIT, edgeNumber: <unset>)"));
-		assertTrue(neoPathPart.toString().startsWith("qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl@"));
 	}
 }

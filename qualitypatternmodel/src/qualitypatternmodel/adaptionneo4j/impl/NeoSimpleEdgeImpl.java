@@ -51,7 +51,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	private static final String EDGE_LABELS = "Edge-Labels:";
 	private static final String NEO_DIRECTION_CAN_NOT_BE_NULL = "NeoDirection can not be null";
 	private static final String SOMETHING_WENT_WRONG_IN_THE_SIMPLE_NEO_EDGE_DIRECTION_HAS_NOT_BEEN_SET_CORRECTLY = "Something went wrong in the SimpleNeoEdge - direction has not been set correctly";
-	private static final String NEO_SIMPLE_EDGE_S = "NeoSimpleEdge [%s] ";
+	private static final String NEO_SIMPLE_EDGE = "NeoSimpleEdge [%s] ";
 	
 	/**
 	 * The cached value of the '{@link #getKeyValueParam() <em>Key Value Param</em>}' containment reference.
@@ -741,27 +741,35 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 */
 	@Override
 	public String myToString() {
-		final String temp = NEO_SIMPLE_EDGE_S + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET;
+		final String temp = NEO_SIMPLE_EDGE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET;
 		final StringBuilder cypher = new StringBuilder(String.format(temp, getId()));
-		if (!neoEdgeLabel.getValueAsString().isEmpty()) {
-			cypher.append(EDGE_LABELS + CypherSpecificConstants.EDGE_OPENING_BRACKET + neoEdgeLabel.getValueAsString() + CypherSpecificConstants.EDGE_CLOSING_BRACKET);
-			cypher.append(CypherSpecificConstants.ONE_WHITESPACE);
+		if (neoEdgeLabel != null) {
+			if (!neoEdgeLabel.getValueAsString().isEmpty()) {
+				cypher.append(EDGE_LABELS + CypherSpecificConstants.EDGE_OPENING_BRACKET + neoEdgeLabel.getValueAsString() + CypherSpecificConstants.EDGE_CLOSING_BRACKET);
+				cypher.append(CypherSpecificConstants.ONE_WHITESPACE);
+			}			
 		}
-		boolean isFirst = true;
-		for (String label : getNeoTargetNodeLabels().getValues()) {
-			if (!isFirst) {
-				cypher.append(CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE);
-			} else {
-				cypher.append(EDGE_TARGET_NODE_LABELS + CypherSpecificConstants.EDGE_OPENING_BRACKET);
+		if (getNeoTargetNodeLabels() != null) {
+			boolean isFirst = true;
+			for (String label : getNeoTargetNodeLabels().getValues()) {
+				if (!isFirst) {
+					cypher.append(CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE);
+				} else {
+					cypher.append(EDGE_TARGET_NODE_LABELS + CypherSpecificConstants.EDGE_OPENING_BRACKET);
+				}
+				cypher.append(label);
+				isFirst = false;
 			}
-			cypher.append(label);
-			isFirst = false;
+			if (cypher.toString().contains(EDGE_TARGET_NODE_LABELS)) {
+				cypher.append(CypherSpecificConstants.EDGE_CLOSING_BRACKET);
+			}			
 		}
-		if (cypher.toString().contains(EDGE_TARGET_NODE_LABELS)) {
-			cypher.append(CypherSpecificConstants.EDGE_CLOSING_BRACKET);
-		}
-			
 		cypher.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
+		
+		final String emptyBrackets = "()";
+		if(cypher.toString().endsWith(emptyBrackets)) {
+			cypher.replace(cypher.length() - 3 , cypher.length(), new String());
+		}
 		return cypher.toString();
 	}
 

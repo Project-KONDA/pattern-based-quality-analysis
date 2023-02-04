@@ -8,8 +8,6 @@ public interface INeoPathPartTest extends INeo4JTest {
 	void getCypherInnerEdgeNodes(boolean isReturn) throws InvalidityException;
 	void getNeoLastEdge() throws InvalidityException;
 	void generateInternalCypher();
-	void isValidLocal();
 	void getNeoPathParam();
-	void setNeoComplexEdge();
 	void getNeoPathParamException();
 }
