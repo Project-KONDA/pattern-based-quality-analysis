@@ -148,9 +148,9 @@ public class Cypher03NeoPropertyPathParamTest extends NeoPathParamTest {
 	}
 	
 	@Test 
-	public void getNeoPropertyName() {
+	public void neoPropertyName() {
 		//Check if the original value is null
-		assumeNotNull(neoPropertyPathParam.getNeoPropertyName());
+		assertNull(neoPropertyPathParam.getNeoPropertyName());
 		
 		//Set a valid Property-Namen
 		String neoPropertyName = ORIGINAL_PLACE_OF_ISSUE;
@@ -158,7 +158,7 @@ public class Cypher03NeoPropertyPathParamTest extends NeoPathParamTest {
 		assertEquals(neoPropertyName, neoPropertyPathParam.getNeoPropertyName());
 		
 		//Setting the Value to null
-		assertThrows(InvalidityException.class, ()-> neoPropertyPathParam.setNeoPropertyName((String) null));
+		assertDoesNotThrow(()-> neoPropertyPathParam.setNeoPropertyName((String) null));
 		assertNull(neoPropertyPathParam.getNeoPropertyName());
 		
 		//Trying to set a Empty-String --> Nothing happens

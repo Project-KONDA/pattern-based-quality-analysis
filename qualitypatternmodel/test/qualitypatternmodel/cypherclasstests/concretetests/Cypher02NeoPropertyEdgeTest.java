@@ -67,8 +67,6 @@ public class Cypher02NeoPropertyEdgeTest extends NeoEdgeTest {
 		neoPropertyEdge = null;
 	}
 	
-	
-	//Morphisen in the systemtests?
 	@Test
 	public void generateCypherPropertyAddressing() {
 		try {
@@ -210,6 +208,14 @@ public class Cypher02NeoPropertyEdgeTest extends NeoEdgeTest {
 			assertFalse(true);
 		}
 	}
+	
+	@Test
+	public void noPropertyName() {
+		NeoPropertyPathParam neoPropertyPathParam = FACTORY.createNeoPropertyPathParam();
+		neoPropertyEdge.setNeoPropertyPathParam(neoPropertyPathParam);
+		assumeNotNull(neoPropertyEdge.getNeoPropertyPathParam());
+		assertThrows(InvalidityException.class, () -> neoPropertyEdge.generateCypherPropertyAddressing());
+	}
 
 	@Test
 	@Override
@@ -245,14 +251,6 @@ public class Cypher02NeoPropertyEdgeTest extends NeoEdgeTest {
 			assertTrue(list.getParameters().size() == 1);
 			assertTrue(list.getParameters().get(0) instanceof NeoPropertyPathParam);
 
-			//For setting the NeoPropertyEdge in the NeoPropertyPathParam
-//			Mockito.doCallRealMethod().when(mockNeoEdgeImpl);
-			//EMF interne logic zur bidirektionalem setzen der Werte wird nicht getriggert, daher manuelle einfügung
-//			((NeoPathParam) list.getParameters().get(0)).setNeoEdge(mockNeoEdgeImpl);
-			
-//			assertEquals(mockNeoEdgeImpl, ((NeoPathParamImpl) list.getParameters().get(0)).getNeoEdge());
-			
-			
 			Mockito.when(mockNeoPropertyEdgeImpl.getNeoPropertyPathParam()).thenReturn((NeoPropertyPathParam) list.getParameters().get(0));
 			mockNeoPropertyEdgeImpl.createParameters();
 			assertTrue(list.getParameters().size() == 1);

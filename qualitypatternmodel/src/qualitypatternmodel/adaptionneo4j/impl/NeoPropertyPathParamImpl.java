@@ -294,7 +294,7 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 			literalNeoPropertyName.setValueIfValid(neoPropertyName);
 			this.neoPropertyName = literalNeoPropertyName;
 		} else if (neoPropertyName == null) {
-			setNeoPropertyName((NeoPropertyNameParam) null);
+			this.neoPropertyName = null;
 		}
 	}
 
@@ -435,13 +435,6 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 		}
 	}
 
-	//Speak with Arno
-	@Override
-	public String generateDescription() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
@@ -473,5 +466,11 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 	@Override
 	protected String getEdgeNaming() {
 		return CypherSpecificConstants.VARIABLE_PROPERTY_EGDE;
+	}
+	
+	@Override
+	public String generateDescription() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 } //NeoAttributePathParamImpl
