@@ -46,12 +46,6 @@ public class CypherTest00 extends CypherTranslation {
 		completePatterns.add(getBasePatternMatchNotConcrete("1439.*"));
 	}
 	
-	@Override
-	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		//Add Exception-Tests
-	}
-	
 	/**
 	 *@author Lukas
 	 *<p> This is a simple base Pattern which contains a NeoNode and a NeoPropertyNode
@@ -234,22 +228,25 @@ public class CypherTest00 extends CypherTranslation {
 	}
 
 	@Override
+	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		//Add Exception-Tests
+	}
+	
+	@Override
 	public void buildToComplexQueryPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void buildUnsupportedException(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void buildOtherException(ArrayList<CompletePattern> completePatternsExceptions) throws InvalidityException {
 		// TODO Auto-generated method stub
-		
 	}
 }
