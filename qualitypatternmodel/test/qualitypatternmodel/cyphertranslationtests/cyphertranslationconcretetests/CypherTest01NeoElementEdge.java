@@ -22,8 +22,8 @@ public class CypherTest01NeoElementEdge extends CypherTranslation {
 		CypherTest01NeoElementEdge neoEdge = new CypherTest01NeoElementEdge();
 		
 		try {
-			neoEdge.generalizedTests();         
-			neoEdge.generalizedInvalidtyExceptionTests();
+			neoEdge.tester();         
+			neoEdge.invalidtyExceptionTester();
 			
 			//Specific test for the NeoEdge
 			//Exception during Build-Pattern

@@ -23,12 +23,14 @@ public class CypherTest07QuantifiedCondition extends CypherTranslation {
 		//In the notCond is also a lot of QuantifiedTesting inside. Thus it is also executed here to check the codecoverage for the QuantifiedCond
 		CypherTest03NotCondition notCond = new CypherTest03NotCondition();
 		try {
-			quantifiedCond.generalizedTests();  
-			quantifiedCond.generalizedComplexTests();
-			quantifiedCond.generalizedInvalidtyExceptionTests();
+			quantifiedCond.tester();  
+			quantifiedCond.complexTester();
+			quantifiedCond.invalidtyExceptionTester();
+			quantifiedCond.unsupportedExceptionTester();
+			quantifiedCond.otherExceptionTester();
 			quantifiedCond = null;
-			notCond.generalizedTests();         
-			notCond.generalizedInvalidtyExceptionTests(); 
+			notCond.tester();         
+			notCond.invalidtyExceptionTester(); 
 		} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();

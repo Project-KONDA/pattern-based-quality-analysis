@@ -32,9 +32,9 @@ public class CypherTest03NotCondition extends CypherTranslation {
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
     	CypherTranslation not = new CypherTest03NotCondition();
     	try {
-        	not.generalizedTests();  
-        	not.generalizedComplexTests();
-        	not.generalizedInvalidtyExceptionTests();
+        	not.tester();  
+        	not.complexTester();
+        	not.invalidtyExceptionTester();
     	} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();

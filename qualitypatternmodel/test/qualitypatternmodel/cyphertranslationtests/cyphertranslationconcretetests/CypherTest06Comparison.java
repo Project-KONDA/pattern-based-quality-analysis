@@ -29,8 +29,8 @@ public class CypherTest06Comparison extends CypherTranslation {
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
     	CypherTest06Comparison comparison = new CypherTest06Comparison();
     	try {
-    		comparison.generalizedTests();         
-        	comparison.generalizedInvalidtyExceptionTests();
+    		comparison.tester();         
+        	comparison.invalidtyExceptionTester();
     	} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();

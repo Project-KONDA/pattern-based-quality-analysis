@@ -17,8 +17,8 @@ public class CypherTest08Cycle extends CypherTranslation {
     	
 //    	Instant start = Instant.now();
     	try {
-    		cycle.generalizedTests();         
-    		cycle.generalizedInvalidtyExceptionTests();
+    		cycle.tester();         
+    		cycle.invalidtyExceptionTester();
     	} catch (Exception e) {
 			System.out.println(e);
 		}

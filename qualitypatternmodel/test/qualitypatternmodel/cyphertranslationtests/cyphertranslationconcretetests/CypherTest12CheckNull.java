@@ -20,8 +20,8 @@ public class CypherTest12CheckNull extends CypherTranslation {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
         CypherTranslation checkNull = new CypherTest12CheckNull();
         try {
-        	checkNull.generalizedTests();         
-            checkNull.generalizedInvalidtyExceptionTests();
+        	checkNull.tester();         
+            checkNull.invalidtyExceptionTester();
         } catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();
@@ -105,7 +105,7 @@ public class CypherTest12CheckNull extends CypherTranslation {
 	}
 	
     @Override
-	public void generalizedInvalidtyExceptionTests()
+	public void invalidtyExceptionTester()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
 		ArrayList<CompletePattern> completePatternsExceptions = new ArrayList<CompletePattern>();
 		buildInvalidityExceptionPatterns(completePatternsExceptions);

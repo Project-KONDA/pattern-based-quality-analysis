@@ -44,8 +44,8 @@ public class CypherTest05ParameterValues extends CypherTranslation {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {    
 		try {
 			CypherTranslation parameterValues = new CypherTest05ParameterValues();
-			parameterValues.generalizedTests();         
-			parameterValues.generalizedInvalidtyExceptionTests();
+			parameterValues.tester();         
+			parameterValues.invalidtyExceptionTester();
 		} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();

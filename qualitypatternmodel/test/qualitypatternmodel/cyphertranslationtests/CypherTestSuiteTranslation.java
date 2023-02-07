@@ -32,7 +32,7 @@ import qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
-//The Excption handler can do more then the for the suite case
+//The Exception handler can do more then the for the single case
 public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 
 	private static final String NOT_ALL_PATTERN_HAVE_BEEN_CHECK = "Not all Pattern have been check - rework test";
@@ -46,19 +46,6 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 	protected static final String TEST_ENABLED_ON_QA_ENVIRONMENT = "Test enabled on QA environment";
 	protected ArrayList<CompletePattern> completePatterns;
 	
-	protected static void exceptionHandler(CompletePattern completePattern) throws InvalidityException {
-		completePattern.generateCypher();
-	}
-	
-	public static void testAllCompletePatterns(ArrayList<CompletePattern> completePatterns, boolean isDbOn) throws Exception {
-		if (isDbOn) {
-			Java2Neo4JConnector connector = new Java2Neo4JConnector();
-			CypherTranslation.innerTestAllCompletePatterns(completePatterns, connector);
-		} else {
-			Java2Neo4JConnector connector = null;
-			CypherTranslation.innerTestAllCompletePatterns(completePatterns, connector);
-		}
-	}
 
 	@BeforeAll
 	public void beforeClassFunction() {
@@ -188,6 +175,7 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 		tester(completePatterns);});
 	}
 
+	@Test
 	public void cypherTest04FormulaExceptions() {		
 			assertThrows(InvalidityException.class, () -> {//Add additional Exceptions
 					},
@@ -209,6 +197,7 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 		tester(completePatterns);});
 	}
 
+	@Test
 	public void cypherTest05ParameterValuesExceptions() {		
 			assertThrows(InvalidityException.class, () -> {//Add additional Exceptions
 					},
@@ -230,6 +219,7 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 		tester(completePatterns);});
 	}
 
+	@Test
 	public void cypherTest06ComparisonExceptions() {		
 			assertThrows(InvalidityException.class, () -> {//Add additional Exceptions
 					},
@@ -285,6 +275,7 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 		tester(completePatterns);});
 	}
 
+	@Test
 	public void cypherTest08CycleExceptions() {		
 			assertThrows(InvalidityException.class, () -> {//Add additonal Exceptions
 					},
@@ -306,6 +297,7 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 		tester(completePatterns);});
 	}
 
+	@Test
 	public void cypherTest09ContainsExceptions() {		
 			assertThrows(InvalidityException.class, () -> {//Add additional Exceptions
 					},
@@ -351,6 +343,7 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 		tester(completePatterns);});
 	}
 
+	@Test
 	public void cypherTest11CountConditionExceptions() {	
 			assertDoesNotThrow(() -> new CypherTest11CountCondition().buildInvalidityExceptionPatterns(completePatterns));
 			for (CompletePattern cp : completePatterns) {
@@ -374,6 +367,7 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 			tester(completePatterns);});
 	}
 	
+	@Test
 	public void cypherTest12CheckNullExceptions() {		
 			assertThrows(InvalidityException.class, () -> {//Add additional Exceptions
 					},
@@ -1434,4 +1428,17 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 	//End - String Comparison
 	protected abstract void tester(ArrayList<CompletePattern> completePatterns) throws Exception;
 	protected abstract void testerForToComplexQueries(ArrayList<CompletePattern> completePatterns) throws Exception;
+	protected static void exceptionHandler(CompletePattern completePattern) throws InvalidityException {
+		completePattern.generateCypher();
+	}
+	
+	public static void testAllCompletePatterns(ArrayList<CompletePattern> completePatterns, boolean isDbOn) throws Exception {
+		if (isDbOn) {
+			Java2Neo4JConnector connector = new Java2Neo4JConnector();
+			CypherTranslation.innerTestAllCompletePatterns(completePatterns, connector);
+		} else {
+			Java2Neo4JConnector connector = null;
+			CypherTranslation.innerTestAllCompletePatterns(completePatterns, connector);
+		}
+	}
 }

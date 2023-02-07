@@ -1,7 +1,5 @@
 package playground;
 
-import static org.mockito.Mockito.calls;
-
 import java.time.Duration;
 
 import org.neo4j.driver.AuthTokens;

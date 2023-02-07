@@ -20,5 +20,5 @@ public interface ICypherTranslatione {
 	void buildToComplexQueryPatterns(ArrayList<CompletePattern> completePatterns) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;	
 	void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException;
 	void buildUnsupportedException(ArrayList<CompletePattern> completePatternsExceptions) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
-	public void buildOtherException(ArrayList<CompletePattern> completePatternsExceptions) throws InvalidityException;
+	void buildOtherException(ArrayList<CompletePattern> completePatternsExceptions) throws InvalidityException;
 }

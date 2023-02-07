@@ -26,8 +26,8 @@ public class CypherTest00 extends CypherTranslation {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CypherTest00 cypher00 = new CypherTest00();
 		try {
-			cypher00.generalizedTests();         
-			cypher00.generalizedInvalidtyExceptionTests();
+			cypher00.tester();         
+			cypher00.invalidtyExceptionTester();
 		} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();

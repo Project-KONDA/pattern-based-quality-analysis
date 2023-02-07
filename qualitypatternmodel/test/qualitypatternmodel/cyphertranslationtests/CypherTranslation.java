@@ -70,7 +70,7 @@ public abstract class CypherTranslation implements ICypherTranslatione {
 				try {
 					System.out.println(completePattern.myToString());
 				} catch (Exception e) {
-					// TODO: handle exception
+					throw e;
 				}
 				System.out.print(TRANSLATION);
 				System.out.println(completePattern.generateCypher());
@@ -89,7 +89,7 @@ public abstract class CypherTranslation implements ICypherTranslatione {
 		}
 	}
 
-	public static void testAllCompletePatternsWithDbCheck(ArrayList<CompletePattern> completePatterns) throws Exception {
+	public static void testCompletePatterns(ArrayList<CompletePattern> completePatterns) throws Exception {
 		boolean isDbOn = playground.Java2Neo4JConnector.verifyConnectivity();
 		if (isDbOn) {
 			System.out.print(MODE + TESTING_WITH_DB);
@@ -184,21 +184,21 @@ public abstract class CypherTranslation implements ICypherTranslatione {
 		returnString  = null;
 	}
 	
-	public void generalizedTests()
+	public void tester()
 			throws Exception {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		buildPatterns(completePatterns);
 		if (completePatterns.size() != 0) {
 			System.out.println("");
 			System.out.println(CypherTranslation.BEGIN_TESTS);
-			testAllCompletePatternsWithDbCheck(completePatterns);
+			testCompletePatterns(completePatterns);
 			System.out.println(CypherTranslation.END_TESTS);
 			System.out.println("");
 		}
 	}
 	
 	@SuppressWarnings("static-access")
-	public void generalizedComplexTests()
+	public void complexTester()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> complexQueries = new ArrayList<CompletePattern>();
 		buildToComplexQueryPatterns(complexQueries);
@@ -230,10 +230,36 @@ public abstract class CypherTranslation implements ICypherTranslatione {
 		}
 	}
 
-	public void generalizedInvalidtyExceptionTests()
+	public void invalidtyExceptionTester()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
 		ArrayList<CompletePattern> completePatternsExceptions = new ArrayList<CompletePattern>();
 		buildInvalidityExceptionPatterns(completePatternsExceptions);
+		if (completePatternsExceptions.size() != 0) {
+			System.out.println("");
+			System.out.println(CypherTranslation.BEGIN_BUILD_PATTERN_EXCEPTIONS);		
+			CypherTranslation.exceptionTestHandler(completePatternsExceptions);
+			System.out.println(CypherTranslation.END_BUILD_PATTERN_EXCEPTIONS);
+			System.out.println("");
+		}
+	}
+	
+	public void unsupportedExceptionTester()
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
+		ArrayList<CompletePattern> completePatternsExceptions = new ArrayList<CompletePattern>();
+		buildUnsupportedException(completePatternsExceptions);
+		if (completePatternsExceptions.size() != 0) {
+			System.out.println("");
+			System.out.println(CypherTranslation.BEGIN_BUILD_PATTERN_EXCEPTIONS);		
+			CypherTranslation.exceptionTestHandler(completePatternsExceptions);
+			System.out.println(CypherTranslation.END_BUILD_PATTERN_EXCEPTIONS);
+			System.out.println("");
+		}
+	}
+	
+	public void otherExceptionTester()
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
+		ArrayList<CompletePattern> completePatternsExceptions = new ArrayList<CompletePattern>();
+		buildOtherException(completePatternsExceptions);
 		if (completePatternsExceptions.size() != 0) {
 			System.out.println("");
 			System.out.println(CypherTranslation.BEGIN_BUILD_PATTERN_EXCEPTIONS);		

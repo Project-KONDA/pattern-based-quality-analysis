@@ -30,8 +30,8 @@ public class CypherTest04Formula extends CypherTranslation {
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
     	CypherTest04Formula formula = new CypherTest04Formula();
     	try {
-    		formula.generalizedTests();         
-        	formula.generalizedInvalidtyExceptionTests();	
+    		formula.tester();         
+        	formula.invalidtyExceptionTester();	
     	} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();

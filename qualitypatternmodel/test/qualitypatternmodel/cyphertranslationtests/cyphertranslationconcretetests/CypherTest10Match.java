@@ -24,8 +24,8 @@ public class CypherTest10Match extends CypherTranslation {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CypherTest10Match match = new CypherTest10Match();
 		try {
-			match.generalizedTests();         
-			match.generalizedInvalidtyExceptionTests();
+			match.tester();         
+			match.invalidtyExceptionTester();
 		} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();
@@ -201,7 +201,7 @@ public class CypherTest10Match extends CypherTranslation {
 	
 	
     @Override
-	public void generalizedInvalidtyExceptionTests()
+	public void invalidtyExceptionTester()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
 		ArrayList<CompletePattern> completePatternsExceptions = new ArrayList<CompletePattern>();
 		buildInvalidityExceptionPatterns(completePatternsExceptions);
