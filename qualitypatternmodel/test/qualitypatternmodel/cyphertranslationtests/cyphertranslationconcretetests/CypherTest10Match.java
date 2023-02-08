@@ -144,33 +144,6 @@ public class CypherTest10Match extends CypherTranslation {
 		return pattern;
 	}
 	
-	private CompletePattern generateMatchInvalidOptionDiffrent3Exception(boolean invert)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
-		PatternstructurePackage.eINSTANCE.eClass();
-		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		
-		CompletePattern pattern = factory.createCompletePattern();
-		pattern.getGraph().getNodes().get(0).addOutgoing().getTarget().addPrimitiveMatch("");
-		Match match = ((Match) pattern.getGraph().getOperatorList().getOperators().get(0));
-		match.getOption().setValue(invert);
-		
-		pattern.createNeo4jAdaption();
-		NeoElementNode neoNode = (NeoElementNode) pattern.getGraph().getNodes().get(0);
-		neoNode.setNeoPlace(NeoPlace.BEGINNING);
-		neoNode.addNeoLabel("Regesta");
-		
-		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) pattern.getGraph().getRelations().get(0);
-		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
-		neoPropertyPathParam.setNeoPropertyName("summary");
-		
-		match = (Match) pattern.getGraph().getOperatorList().getOperators().get(0);
-			    
-	    Field regularExpression = match.getClass().getDeclaredField("regularExpression");
-		regularExpression.setAccessible(true);
-		regularExpression.set(match, null);		
-		return pattern;
-	}
-	
 	private CompletePattern generateMatchInvalidOptionDiffrent4Exception(boolean invert)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException {
 		PatternstructurePackage.eINSTANCE.eClass();

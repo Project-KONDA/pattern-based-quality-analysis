@@ -77,21 +77,19 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 
 	@Test
 	public void cypherTest01NeoElementEdgeExceptions() {		
-			assertDoesNotThrow(() -> new CypherTest01NeoElementEdge().buildInvalidityExceptionPatterns(completePatterns));
-			for (CompletePattern cp : completePatterns) {
-				assertThrows(InvalidityException.class, () -> {exceptionHandler(cp);},
-						EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-			}
-			assertThrows(InvalidityException.class, () -> {CypherTest01NeoElementEdge.generateToCreateNeoDirectionErrorShallNotWorkException();},
-					//Add additional Exceptions
+		assertDoesNotThrow(() -> new CypherTest01NeoElementEdge().buildInvalidityExceptionPatterns(completePatterns));
+		for (CompletePattern cp : completePatterns) {
+			assertThrows(InvalidityException.class, () -> {exceptionHandler(cp);},
 					EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-			assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoElementEdge.generateBuildNeoNeoNeedsAPathParamException();
-					//Add additional Exceptions,
-					}, 
-					EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
-	//		assertThrows(Exception.class, () -> {//Add additional Exceptions
-	//			}, DIFFRENT_OTHER_EXCEPTIONS);
 		}
+		assertThrows(InvalidityException.class, () -> {CypherTest01NeoElementEdge.generateToCreateNeoDirectionErrorShallNotWorkException();},
+				//Add additional Exceptions
+				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
+		assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoElementEdge.generateBuildNeoNeoNeedsAPathParamException();
+				//Add additional Exceptions,
+				}, 
+				EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
+	}
 
 	@Test
 	public void cypherTest01NeoPropertyEdge() {		
@@ -104,21 +102,12 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 
 	@Test
 	public void cypherTest01NeoPropertyEdgeExceptions() {	
-			assertDoesNotThrow(() -> new CypherTest01NeoPropertyEdge().buildInvalidityExceptionPatterns(completePatterns));
-			for (CompletePattern cp : completePatterns) {
-				assertThrows(InvalidityException.class, () -> {exceptionHandler(cp);},
-						EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-			}
-	//		assertThrows(OperatorCycleException.class, () -> {CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
-	//					//Add additional Exceptions
-	//					EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-	//		assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoEdge.tryBuildNeoNeoNeedsAPathParam();
-	//					//Add additional Exceptions,
-	//					}, 
-	//					EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
-	//		assertThrows(Exception.class, () -> {//Add additional Exceptions
-	//					}, DIFFRENT_OTHER_EXCEPTIONS);
+		assertDoesNotThrow(() -> new CypherTest01NeoPropertyEdge().buildInvalidityExceptionPatterns(completePatterns));
+		for (CompletePattern cp : completePatterns) {
+			assertThrows(InvalidityException.class, () -> {exceptionHandler(cp);},
+					EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
 		}
+	}
 
 	@Test
 	public void cypherTest02Return() {		
@@ -128,22 +117,13 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 
 	@Test
 	public void cypherTest02ReturnExceptions() {
-			assertDoesNotThrow(() -> new CypherTest02Return().buildInvalidityExceptionPatterns(completePatterns));
-			for (CompletePattern cp : completePatterns) {
-				assertThrows(InvalidityException.class, () -> {exceptionHandler(cp);
-						},
-						EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-			}
-	//		assertThrows(OperatorCycleException.class, () -> {CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
-	//				//Add additional Exceptions
-	//				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-	//		assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoEdge.tryBuildNeoNeoNeedsAPathParam();
-	//			//Add additional Exceptions,
-	//			}, 
-	//			EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
-	//		assertThrows(Exception.class, () -> {//Add additional Exceptions
-	//			}, DIFFRENT_OTHER_EXCEPTIONS);
+		assertDoesNotThrow(() -> new CypherTest02Return().buildInvalidityExceptionPatterns(completePatterns));
+		for (CompletePattern cp : completePatterns) {
+			assertThrows(InvalidityException.class, () -> {exceptionHandler(cp);
+					},
+					EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
 		}
+	}
 
 	@Test
 	public void cypherTest03NotCondition() {		
@@ -155,19 +135,13 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 	}
 
 	public void cypherTest03NotConditionExceptions() {		
-			assertThrows(InvalidityException.class, () -> {//Add additional Exceptions
-					},
-					EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-	//		assertThrows(OperatorCycleException.class, () -> {CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
-	//				//Add additional Exceptions
-	//				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-	//		assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoEdge.tryBuildNeoNeoNeedsAPathParam();
-	//			//Add additional Exceptions,
-	//			}, 
-	//			EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
-	//		assertThrows(Exception.class, () -> {//Add additional Exceptions
-	//			}, DIFFRENT_OTHER_EXCEPTIONS);
+		assertDoesNotThrow(() -> new CypherTest03NotCondition().buildInvalidityExceptionPatterns(completePatterns));
+		for (CompletePattern cp : completePatterns) {
+			assertThrows(InvalidityException.class, () -> {exceptionHandler(cp);
+						},
+						EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
 		}
+	}
 
 	@Test
 	public void cypherTest04Formula() {		
@@ -177,19 +151,13 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 
 	@Test
 	public void cypherTest04FormulaExceptions() {		
-			assertThrows(InvalidityException.class, () -> {//Add additional Exceptions
-					},
-					EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-	//		assertThrows(OperatorCycleException.class, () -> {CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
-	//				//Add additional Exceptions
-	//				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-	//		assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoEdge.tryBuildNeoNeoNeedsAPathParam();
-	//			//Add additional Exceptions,
-	//			}, 
-	//			EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
-	//		assertThrows(Exception.class, () -> {//Add additional Exceptions
-	//			}, DIFFRENT_OTHER_EXCEPTIONS);
+		assertDoesNotThrow(() -> new CypherTest04Formula().buildInvalidityExceptionPatterns(completePatterns));
+		for (CompletePattern cp : completePatterns) {
+			assertThrows(InvalidityException.class, () -> {exceptionHandler(cp);
+						},
+						EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
 		}
+	}
 
 	@Test
 	public void cypherTest05ParameterValues() {		
@@ -199,19 +167,13 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 
 	@Test
 	public void cypherTest05ParameterValuesExceptions() {		
-			assertThrows(InvalidityException.class, () -> {//Add additional Exceptions
-					},
-					EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-	//		assertThrows(OperatorCycleException.class, () -> {CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
-	//				//Add additional Exceptions
-	//				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-	//		assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoEdge.tryBuildNeoNeoNeedsAPathParam();
-	//			//Add additional Exceptions,
-	//			}, 
-	//			EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
-	//		assertThrows(Exception.class, () -> {//Add additional Exceptions
-	//			}, DIFFRENT_OTHER_EXCEPTIONS);
+		assertDoesNotThrow(() -> new CypherTest05ParameterValues().buildInvalidityExceptionPatterns(completePatterns));
+		for (CompletePattern cp : completePatterns) {
+			assertThrows(InvalidityException.class, () -> {exceptionHandler(cp);
+						},
+						EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
 		}
+	}
 
 	@Test
 	public void cypherTest06Comparison() {	
@@ -221,19 +183,13 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 
 	@Test
 	public void cypherTest06ComparisonExceptions() {		
-			assertThrows(InvalidityException.class, () -> {//Add additional Exceptions
-					},
-					EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-	//		assertThrows(OperatorCycleException.class, () -> {CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
-	//				//Add additional Exceptions
-	//				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-	//		assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoEdge.tryBuildNeoNeoNeedsAPathParam();
-	//			//Add additional Exceptions,
-	//			}, 
-	//			EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
-	//		assertThrows(Exception.class, () -> {//Add additional Exceptions
-	//			}, DIFFRENT_OTHER_EXCEPTIONS);
+		assertDoesNotThrow(() -> new CypherTest06Comparison().buildInvalidityExceptionPatterns(completePatterns));
+		for (CompletePattern cp : completePatterns) {
+			assertThrows(InvalidityException.class, () -> {exceptionHandler(cp);
+						},
+						EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
 		}
+	}
 
 	@Test
 	public void cypherTest07QuantifiedCondition() {	
@@ -252,15 +208,14 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 							},
 							EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
 			}
-	//		assertThrows(OperatorCycleException.class, () -> {CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
-	//				//Add additional Exceptions
-	//				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
+			
 			completePatterns.clear();
 			assertDoesNotThrow(() -> new CypherTest07QuantifiedCondition().buildUnsupportedException(completePatterns));
 			for (CompletePattern cp : completePatterns) {
 				assertThrows(Exception.class, () -> {exceptionHandler(cp);},
 				EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
 			}
+			
 			completePatterns.clear();
 			assertDoesNotThrow(() -> new CypherTest07QuantifiedCondition().buildOtherException(completePatterns));
 			for (CompletePattern cp : completePatterns) {
@@ -275,21 +230,13 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 		tester(completePatterns);});
 	}
 
-	@Test
+//	No Cycle Exceptions are defined
+//	@Test
 	public void cypherTest08CycleExceptions() {		
 			assertThrows(InvalidityException.class, () -> {//Add additonal Exceptions
 					},
 					EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-	//		assertThrows(OperatorCycleException.class, () -> {CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
-	//				//Add additional Exceptions
-	//				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-	//		assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoEdge.tryBuildNeoNeoNeedsAPathParam();
-	//			//Add additional Exceptions,
-	//			}, 
-	//			EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
-	//		assertThrows(Exception.class, () -> {//Add additional Exceptions
-	//			}, DIFFRENT_OTHER_EXCEPTIONS);
-		}
+	}
 
 	@Test
 	public void cypherTest09Contains() {	
@@ -299,19 +246,12 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 
 	@Test
 	public void cypherTest09ContainsExceptions() {		
-			assertThrows(InvalidityException.class, () -> {//Add additional Exceptions
-					},
+		assertDoesNotThrow(() -> new CypherTest09Contains().buildInvalidityExceptionPatterns(completePatterns));
+		for (CompletePattern cp : completePatterns) {
+			assertThrows(InvalidityException.class, () -> {exceptionHandler(cp);},
 					EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-	//		assertThrows(OperatorCycleException.class, () -> {CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
-	//				//Add additional Exceptions
-	//				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-	//		assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoEdge.tryBuildNeoNeoNeedsAPathParam();
-	//			//Add additional Exceptions,
-	//			}, 
-	//				EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
-	//		assertThrows(Exception.class, () -> {//Add additional Exceptions
-	//			}, DIFFRENT_OTHER_EXCEPTIONS);
 		}
+	}
 
 	@Test
 	public void cypherTest10Match() {	
@@ -326,15 +266,6 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 				assertThrows(InvalidityException.class, () -> {exceptionHandler(cp);},
 						EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
 			}
-	//		assertThrows(InvalidityException.class, () -> {CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
-	//				//Add additional Exceptions
-	//				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-	//		assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoEdge.tryBuildNeoNeoNeedsAPathParam();
-	//				//Add additional Exceptions,
-	//				}, 
-	//				EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
-	//		assertThrows(Exception.class, () -> {//Add additional Exceptions
-	//				}, DIFFRENT_OTHER_EXCEPTIONS);
 		}
 
 	@Test
@@ -350,15 +281,6 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 				assertThrows(InvalidityException.class, () -> {exceptionHandler(cp);},
 						EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
 			}
-	//		assertThrows(OperatorCycleException.class, () -> {CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
-	//				//Add additional Exceptions
-	//				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-	//		assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoEdge.tryBuildNeoNeoNeedsAPathParam();
-	//				//Add additional Exceptions,
-	//				}, 
-	//				EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
-	//		assertThrows(Exception.class, () -> {//Add additional Exceptions
-	//				}, DIFFRENT_OTHER_EXCEPTIONS);
 		}
 
 	@Test
@@ -369,19 +291,12 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 	
 	@Test
 	public void cypherTest12CheckNullExceptions() {		
-			assertThrows(InvalidityException.class, () -> {//Add additional Exceptions
-					},
-					EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-	//		assertThrows(OperatorCycleException.class, () -> {CypherTest01NeoEdge.tryToCreateNeoDirectionErrorShallNotWork();},
-	//				//Add additional Exceptions
-	//				EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
-	//		assertThrows(UnsupportedOperationException.class, () -> {CypherTest01NeoEdge.tryBuildNeoNeoNeedsAPathParam();
-	//				//Add additional Exceptions,
-	//				}, 
-	//				EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
-	//		assertThrows(Exception.class, () -> {//Add additional Exceptions
-	//				}, DIFFRENT_OTHER_EXCEPTIONS);
-		}
+		assertDoesNotThrow(() -> new CypherTest12CheckNull().buildInvalidityExceptionPatterns(completePatterns));
+			for (CompletePattern cp : completePatterns) {
+				assertThrows(InvalidityException.class, () -> {exceptionHandler(cp);},
+						EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
+			}
+	}
 //	//END - Syntax Validation
 
 	
@@ -539,6 +454,7 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 			
 			//getBlankSimpleEdge
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode3)\n"
+					+ "WHERE EXISTS (varElementNode3.title)\n"
 					+ "RETURN varElementNode3");
 			i++;
 	
@@ -781,6 +697,11 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 					+ "RETURN varElementNode4");
 			i++;			
 			
+			//
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode3)\n"
+					+ "RETURN varElementNode3");
+			i++;
+			
 			//getMultiEdgesToTwoWithNotConditionNeoPropertyNode
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode8)\n"
 					+ "MATCH (varElementNode9)-[varPropertyEdge14]-(varPropertyNode10_14:Regesta)\n"
@@ -934,6 +855,7 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 					+ "RETURN varElementNode5");
 			i++;
 			
+			
 			assertTrue(NOT_ALL_PATTERN_HAVE_BEEN_CHECK, i == completePatterns.size());
 		} catch (Exception e) {
 			System.out.println(e);
@@ -949,13 +871,13 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 			
 			//TextLiteralParam
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode3)\n"
-					+ "WHERE (varElementNode3.date = \"1439 Dezember 20\")\n"
+					+ "WHERE (varElementNode3.title = \"Friedrich III.\")\n"
 					+ "RETURN varElementNode3");
 			i++;
 			
 			//TextListParam
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode3)\n"
-					+ "WHERE (varElementNode3.origPlaceOfIssue = [\"unknown\", \"USA\", \"17\", \"17.0\", \"-17\", \"-17.0\", \"-17.0+\"])\n"
+					+ "WHERE (varElementNode3.origPlaceOfIssue = [\"Graz\", \"Korneuburg\", \"1461 August 25\", \"1462\", \"-17\", \"-17.0\", \"-17.0+\"])\n"
 					+ "RETURN varElementNode3");
 			i++;
 			
@@ -973,7 +895,7 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 			
 			//DateParam
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode3)\n"
-					+ "WHERE (varElementNode3.isoStartDate = date('1439-12-20'))\n"
+					+ "WHERE (varElementNode3.isoStartDate = date('1461-08-25'))\n"
 					+ "RETURN varElementNode3");
 			i++;
 			
@@ -985,7 +907,7 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 			
 			//DateTimeParam
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode3)\n"
-					+ "WHERE (varElementNode3.isoStartDate = datetime('2020-10-03T09:00:00'))\n"
+					+ "WHERE (varElementNode3.isoStartDate = datetime('1462-12-07T09:00:00'))\n"
 					+ "RETURN varElementNode3");
 			i++;
 			

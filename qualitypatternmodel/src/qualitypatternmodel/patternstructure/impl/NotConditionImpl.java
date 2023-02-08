@@ -40,7 +40,6 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class NotConditionImpl extends ConditionImpl implements NotCondition {
-	private static final String NO_VALID_QUERY_IS_GENERATED = "No valid query is generated";
 	private static final String INVALID_CONDITION = "Invalid condition";
 	/**
 	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
@@ -107,7 +106,7 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	
 	/**
 	 * @author Lukas Sebastian Hofmann
-	 * Negates a Condition.
+	 * Negates a Condition and negates it.
 	 * <b>No support</b> for <b>nested COUNT</b> Cypher v4.4 and below.
 	 */
 	//BEGIN - NEO4J

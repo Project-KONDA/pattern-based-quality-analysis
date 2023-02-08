@@ -20,7 +20,9 @@ import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
+import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
+import qualitypatternmodel.patternstructure.Quantifier;
 
 public class CypherTest01NeoPropertyEdge extends CypherTranslation {	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -98,9 +100,26 @@ public class CypherTest01NeoPropertyEdge extends CypherTranslation {
 	}
 	
 	private CompletePattern getBlankSimpleEdge() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest01NeoPropertyEdge.getBasePatternNeoPropertyEdge();
-		//Warum oder Wie wird hier schon die NeoPropertyPathParam gesetzt?
-		//NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		
+		CompletePattern completePattern = factory.createCompletePattern();
+		completePattern.setName("MyPattern");
+		
+		completePattern.getGraph().getNodes().get(0).makeComplex();
+		
+		QuantifiedCondition quantifiedCond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		quantifiedCond.setQuantifier(Quantifier.EXISTS);
+		completePattern.setCondition(quantifiedCond);
+		
+		PrimitiveNode pn = quantifiedCond.getGraph().addPrimitiveNode();
+		quantifiedCond.getGraph().addRelation((ComplexNode) quantifiedCond.getGraph().getNodes().get(0), pn);
+		
+		completePattern.createNeo4jAdaption();
+		
+		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) quantifiedCond.getGraph().getRelations().get(0);
+		neoPropertyEdge.getNeoPropertyPathParam().setNeoPropertyName("title");
+		
 		return completePattern;
 	}
 	

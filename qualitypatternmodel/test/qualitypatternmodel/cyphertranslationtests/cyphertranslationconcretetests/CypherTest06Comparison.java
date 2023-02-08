@@ -2,7 +2,6 @@ package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetest
 
 import java.util.ArrayList;
 import org.mockito.Mockito;
-import qualitypatternmodel.adaptionneo4j.NeoElementEdge;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPlace;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
@@ -202,118 +201,7 @@ public class CypherTest06Comparison extends CypherTranslation {
 		return completePattern;
 	}
 	
-	//Exceptions 
-	//TargetNodes can not be null check if that is tested as well!
-	private CompletePattern getComparisonNeoNodeAndNonSpecifiedNeoPropertyNodes() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		
-		return null;
-	}
-		
-	
-	private CompletePattern getComparisonTwoNonSpecifiedNeoPropertyNodes() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		
-		return null;
-	}
-
-	//Alle bisher implementierten boolischen Operatoren müssen getestet werden
-	//Verschiedene aneinanderreihungen müssen getestet werden
-	//WENN IMPLEMENTIERT: im Match ausgedrückte Comparisons müssen gecheckt werden
-	//Equivalente ausdrücke müssen nicht getestet werden
-	
-	//Should throw an exception
-	private CompletePattern getComparisonTwoNeoPropertyNodesWithVariableName(ComparisonOptionParam comparisonOptionParam) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		
-		return null;
-	}
-	
-	//Sollte eine Exception werfen... Nochmals in Cypher testen
-	private CompletePattern getComparisonNeoNodeAndNeoPropertyNodesWithoutNeoPart(ComparisonOptionParam comparisonOptionParam) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		
-		return null;
-	}
-	
-	private CompletePattern getComparisonTwoNeoPropertiesWithoutNeoParts(ComparisonOperator comparisonOption) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		
-		return null;
-	}
-	//If a NeoNode compares to a NeoProperty without path 
-	//NeoPropertyWith
-	
-//	To Build something like this should throw an exception
-//	MATCH (r:Regesta), (r2:Regesta)
-//	WHERE r = r2.identifier
-//	RETURN r
-	//Also exceptionTest
-	private CompletePattern getComparisonTwoNeoPropertiesWithNeoParts(ComparisonOperator comparisonOption) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest06Comparison.getCompBasePatternWithReverse();
-		PrimitiveNode primitiveNode1 = (PrimitiveNode) completePattern.getGraph().getNodes().get(1);
-		PrimitiveNode primitiveNode2 = (PrimitiveNode) completePattern.getGraph().getNodes().get(3);
-		Comparison comp;
-		ComparisonOptionParam comparisonOptionParam;
-		
-		primitiveNode1.addComparison(primitiveNode2);
-		comp = primitiveNode1.getComparison1().get(0);
-		comparisonOptionParam = new ComparisonOptionParamImpl();
-		comparisonOptionParam.setValue(comparisonOption);
-		comp.setOption(comparisonOptionParam);
-		primitiveNode2.addComparison(primitiveNode1);
-		comp = primitiveNode2.getComparison1().get(0);
-		comparisonOptionParam = new ComparisonOptionParamImpl();
-		comparisonOptionParam.setValue(comparisonOption);
-		comp.setOption(comparisonOptionParam);
-				
-		completePattern.createNeo4jAdaption();
-		NeoElementNode neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(0);
-		
-		neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(2);
-		
-		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(0);
-		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
-		NeoSimpleEdge neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
-		neoSimpleEdge.addNeoTargetNodeLabel("");
-		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
-		
-		neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(1);
-		neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
-		neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
-		neoSimpleEdge.addNeoTargetNodeLabel("");
-		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
-		
-		return completePattern;
-	}
-	
-	//Include this exception: Adding Condition Failed: Nodes not of same type ComplexNodeImpl PrimitiveNodeImpl
-	private CompletePattern getComparisonNeoNodeAndNeoPropertyNodesWithNeoPart(ComparisonOperator comparisonOption) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest06Comparison.getCompBasePatternWithReverse();
-		ComplexNode complexNode = (ComplexNode) completePattern.getGraph().getNodes().get(0);
-		PrimitiveNode primitiveNode = (PrimitiveNode) completePattern.getGraph().getNodes().get(3);
-		Comparison comp;
-		ComparisonOptionParam comparisonOptionParam;
-		
-		complexNode.addComparison(primitiveNode);
-		comp = complexNode.getComparison1().get(0);
-		comparisonOptionParam = new ComparisonOptionParamImpl();
-		comparisonOptionParam.setValue(comparisonOption);
-		comp.setOption(comparisonOptionParam);
-		primitiveNode.addComparison(complexNode);
-		comp = primitiveNode.getComparison1().get(0);
-		comparisonOptionParam = new ComparisonOptionParamImpl();
-		comparisonOptionParam.setValue(comparisonOption);
-		comp.setOption(comparisonOptionParam);
-		
-		completePattern.createNeo4jAdaption();
-		NeoElementNode neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(0);
-		NeoElementEdge neoEdge = (NeoElementEdge) completePattern.getGraph().getRelations().get(0);
-		
-		neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(2);
-		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) completePattern.getGraph().getRelations().get(1);
-		NeoPropertyPathParam neoPropertyPathParam = neoPropertyEdge.getNeoPropertyPathParam();
-		NeoSimpleEdge neoSimpleEdge = NEO_FACTORY.createNeoSimpleEdge();
-		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
-		
-		return completePattern;
-	}
-	
+	//Exceptions 	
 	//has to be fixed
 	private CompletePattern setWrongOptionParam() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = CypherTest06Comparison.getCompBasePatternWithReverse();
@@ -326,11 +214,7 @@ public class CypherTest06Comparison extends CypherTranslation {
 		
 		return completePattern;
 	}
-	
-	public CompletePattern falseCompValues() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		
-		return null;
-	}
+
 	
 	//FACTORY-METHODS 
 	private CompletePattern getBasePatternList() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

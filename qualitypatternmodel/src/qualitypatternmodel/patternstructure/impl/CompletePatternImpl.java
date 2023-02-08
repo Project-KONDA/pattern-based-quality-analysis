@@ -72,7 +72,6 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  */
 public class CompletePatternImpl extends PatternImpl implements CompletePattern {
 	private static final String RETURN_ELEMENT_S_MISSING = "return element(s) missing";
-	private static final String A_CYPHER_QUERY_NEED_A_RETURN_CLAUSE = "A cypher query need a Return-Clause";
 
 	/**
 	 * The cached value of the '{@link #getParameterList() <em>Parameter List</em>}' containment reference.

@@ -48,7 +48,6 @@ public class CypherTest07QuantifiedCondition extends CypherTranslation {
 		completePatterns.add(getExistsMatchWithExistsProperty(true));
 		completePatterns.add(getExistsMatchWithExistsProperty(false));
 		completePatterns.add(getExistsMatchWithExistsPropertyWithExternalProperty(false));
-		//Build a check for NeoPropertyNode internal / external and with two quantified conds
 	}
 	
 	@Override

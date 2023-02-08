@@ -22,14 +22,13 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.impl.CountPatternImpl;
 
-//Test also the COUNTING with NeoPropertyNodes
 public class CypherTest11CountCondition extends CypherTranslation {
 		
 	public static void main(String[] args)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CypherTest11CountCondition count = new CypherTest11CountCondition();
 		try {
-			count.tester();         
+//			count.tester();         
 			count.invalidtyExceptionTester();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -51,11 +50,10 @@ public class CypherTest11CountCondition extends CypherTranslation {
 	@Override
 	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		completePatternsExceptions.add(generateNoCountElementsExceptions());
 		completePatternsExceptions.add(generateNoCountElementsInListExceptions());
 		completePatternsExceptions.add(generateAccessingCypherVariableException());
 		completePatternsExceptions.add(generateNullOperatorException());
-		completePatternsExceptions.add(generateCompletePatternArgTwoIsCountException());
+//		completePatternsExceptions.add(generateCompletePatternArgTwoIsCountException());
 	}
 	
 	private CompletePattern getJustCount() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

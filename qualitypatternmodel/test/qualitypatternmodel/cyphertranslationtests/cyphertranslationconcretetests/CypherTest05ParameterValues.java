@@ -58,7 +58,7 @@ public class CypherTest05ParameterValues extends CypherTranslation {
 		CompletePattern completePattern = null;
 		
 		//TextLiteralParam
-		completePattern = getConcreteComparisonPattern(values.get(0), "date");
+		completePattern = getConcreteComparisonPattern(values.get(0), "title");
 		completePatterns.add(completePattern);	
 		
 		//TextListParam
@@ -139,12 +139,12 @@ public class CypherTest05ParameterValues extends CypherTranslation {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory inputFactory = ParametersFactory.eINSTANCE;
 		TextLiteralParam input1 = inputFactory.createTextLiteralParam();
-		input1.setValue("1439 Dezember 20");
+		input1.setValue("Friedrich III.");
 		TextListParam input2 = inputFactory.createTextListParam();
-		input2.getValues().add("unknown");
-		input2.getValues().add("USA");
-		input2.getValues().add("17");
-		input2.getValues().add("17.0");
+		input2.getValues().add("Graz");
+		input2.getValues().add("Korneuburg");
+		input2.getValues().add("1461 August 25");
+		input2.getValues().add("1462");
 		input2.getValues().add("-17");
 		input2.getValues().add("-17.0");
 		input2.getValues().add("-17.0+");
@@ -153,11 +153,11 @@ public class CypherTest05ParameterValues extends CypherTranslation {
 		BooleanParam input4 = inputFactory.createBooleanParam(); //--> Get fitting Values & Property
 		input4.setValue(true);
 		DateParam input5 = inputFactory.createDateParam();
-		input5.setValue("1439-12-20");
+		input5.setValue("1461-08-25");
 		TimeParam input6 = inputFactory.createTimeParam(); //--> Get fitting Values & Property
 		input6.setValue("09:00:00");
 		DateTimeParam input7 = inputFactory.createDateTimeParam(); //--> Get fitting Values & Property
-		input7.setValue("2020-10-03T09:00:00");
+		input7.setValue("1462-12-07T09:00:00");
 //		KeyValueParamImpl input8; //--> Implement (TODO as a Refecrence what has to be done in the Future)
 //		DateTimeParam inpu87 = inputFactory.createDateTimeParam(); //--> Get fitting Values & Property
 //		input8.setValue("2020-10-03T09:00:00");

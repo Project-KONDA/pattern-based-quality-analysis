@@ -26,6 +26,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
+import qualitypatternmodel.patternstructure.TrueElement;
 
 
 public class CypherTest03NotCondition extends CypherTranslation {    
@@ -53,6 +54,7 @@ public class CypherTest03NotCondition extends CypherTranslation {
 		completePatterns.add(getNotNotNotPattern());
 		completePatterns.add(getNotNotNotNotPattern());
 		completePatterns.add(getNotNotNotNotNotPattern());
+		completePatterns.add(getNotTrueElement());
 	}
     
 	@Override
@@ -421,6 +423,19 @@ public class CypherTest03NotCondition extends CypherTranslation {
 	    
 	    //Adapt to Neo4J
 	    completePattern.createNeo4jAdaption();	    
+	    
+		return completePattern;
+	}
+	
+	private CompletePattern getNotTrueElement() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = CypherTest03NotCondition.getNotCondBasePattern();
+		
+	    NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition(); 
+	    ((NotCondition) completePattern.getCondition()).setCondition(notCond);
+	   
+	    //Adapt to Neo4J
+	    completePattern.createNeo4jAdaption();	    
+	    TrueElement trueElement = (TrueElement) notCond.getCondition();
 	    
 		return completePattern;
 	}

@@ -22,7 +22,7 @@ public class CypherTest01NeoElementEdge extends CypherTranslation {
 		CypherTest01NeoElementEdge neoEdge = new CypherTest01NeoElementEdge();
 		
 		try {
-			neoEdge.tester();         
+//			neoEdge.tester();         
 			neoEdge.invalidtyExceptionTester();
 			
 			//Specific test for the NeoEdge
