@@ -55,16 +55,21 @@ public class CypherTest04Formula extends CypherTranslation {
 	@Override
 	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		completePatternsExceptions.add(generateOperatorIsNullException());
-//		completePatternsExceptions.add(generateNotExistingOperatorException());
-//		completePatternsExceptions.add(generateCond1IsNullException());
-//		completePatternsExceptions.add(generateCond2IsNullException());
-//		completePatternsExceptions.add(generatecond1Andcond2IsNullException());
-//		completePatternsExceptions.add(generateFormulaCondContainsCountPatternExceptionInArg1());
-//		completePatternsExceptions.add(generateFormulaCondContainsCountPatternExceptionInArg2());
-		completePatternsExceptions.add(generateFormulaCondContainsCountPatternExceptionInArg1And2());
+		completePatternsExceptions.add(generateOperatorIsNullException());
+		completePatternsExceptions.add(generateNotExistingOperatorException());
+		completePatternsExceptions.add(generateCond1IsNullException());
+		completePatternsExceptions.add(generateCond2IsNullException());
+		completePatternsExceptions.add(generatecond1Andcond2IsNullException());
 	}
     
+	@Override
+	public void buildUnsupportedException(ArrayList<CompletePattern> completePatternsExceptions)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		completePatternsExceptions.add(generateFormulaCondContainsCountPatternExceptionInArg1());
+		completePatternsExceptions.add(generateFormulaCondContainsCountPatternExceptionInArg2());
+		completePatternsExceptions.add(generateFormulaCondContainsCountPatternExceptionInArg1And2());
+	}
+	
 	private CompletePattern getFormulaPattern(LogicalOperator lo, boolean clamped) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		CompletePattern completePattern = CypherTranslation.getBasePattern();
@@ -299,14 +304,7 @@ public class CypherTest04Formula extends CypherTranslation {
 	}
 
 	@Override
-	public void buildToComplexQueryPatterns(ArrayList<CompletePattern> completePatterns)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void buildUnsupportedException(ArrayList<CompletePattern> completePatternsExceptions)
+	public void buildTooComplexQueryPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		// TODO Auto-generated method stub
 		

@@ -57,7 +57,7 @@ public class CypherTest01NeoPropertyEdge extends CypherTranslation {
 	}
 	
 	@Override
-	public void buildToComplexQueryPatterns(ArrayList<CompletePattern> completePatterns)
+	public void buildTooComplexQueryPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(getMultiEdgesToNeoPropertyNodeWithConditon());
 		completePatterns.add(getMultiEdgesToNeoPropertyNode());

@@ -96,7 +96,7 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 		assertDoesNotThrow(() -> {new CypherTest01NeoPropertyEdge().buildPatterns(completePatterns); 
 			tester(completePatterns);});
 		completePatterns.clear();
-		assertDoesNotThrow(() -> {new CypherTest01NeoPropertyEdge().buildToComplexQueryPatterns(completePatterns); 
+		assertDoesNotThrow(() -> {new CypherTest01NeoPropertyEdge().buildTooComplexQueryPatterns(completePatterns); 
 		testerForToComplexQueries(completePatterns);});
 	}
 
@@ -130,7 +130,7 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 		assertDoesNotThrow(() -> {new CypherTest03NotCondition().buildPatterns(completePatterns); 
 		tester(completePatterns);});
 		completePatterns.clear();
-		assertDoesNotThrow(() -> {new CypherTest01NeoPropertyEdge().buildToComplexQueryPatterns(completePatterns); 
+		assertDoesNotThrow(() -> {new CypherTest01NeoPropertyEdge().buildTooComplexQueryPatterns(completePatterns); 
 		testerForToComplexQueries(completePatterns);});
 	}
 
@@ -154,6 +154,13 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 		assertDoesNotThrow(() -> new CypherTest04Formula().buildInvalidityExceptionPatterns(completePatterns));
 		for (CompletePattern cp : completePatterns) {
 			assertThrows(InvalidityException.class, () -> {exceptionHandler(cp);
+						},
+						EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
+		}
+		completePatterns.clear();
+		assertDoesNotThrow(() -> new CypherTest04Formula().buildUnsupportedException(completePatterns));
+		for (CompletePattern cp : completePatterns) {
+			assertThrows(UnsupportedOperationException.class, () -> {exceptionHandler(cp);
 						},
 						EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
 		}
@@ -196,7 +203,7 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 		assertDoesNotThrow(() -> {new CypherTest07QuantifiedCondition().buildPatterns(completePatterns); 
 		tester(completePatterns);});
 		completePatterns.clear();
-		assertDoesNotThrow(() -> {new CypherTest07QuantifiedCondition().buildToComplexQueryPatterns(completePatterns); 
+		assertDoesNotThrow(() -> {new CypherTest07QuantifiedCondition().buildTooComplexQueryPatterns(completePatterns); 
 		testerForToComplexQueries(completePatterns);});
 	}
 
@@ -449,7 +456,7 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 	public void cypherTest01NeoPropertyEdgeQueryComp() {		
 		try {
 			new CypherTest01NeoPropertyEdge().buildPatterns(completePatterns);
-			new CypherTest01NeoPropertyEdge().buildToComplexQueryPatterns(completePatterns);
+			new CypherTest01NeoPropertyEdge().buildTooComplexQueryPatterns(completePatterns);
 			int i = 0;
 			
 			//getBlankSimpleEdge
@@ -621,7 +628,7 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 	public void cypherTest03NotConditionQueryComp() {		
 		try {
 			new CypherTest03NotCondition().buildPatterns(completePatterns);
-			new CypherTest03NotCondition().buildToComplexQueryPatterns(completePatterns);
+			new CypherTest03NotCondition().buildTooComplexQueryPatterns(completePatterns);
 			int i = 0;
 
 			//getTestPattern1
@@ -697,7 +704,13 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 					+ "RETURN varElementNode4");
 			i++;			
 			
-			//
+			//NotTrueElement
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode3)\n"
+					+ "WHERE false\n"
+					+ "RETURN varElementNode3");
+			i++;
+			
+			//NotNotTrueElement
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varElementNode3)\n"
 					+ "RETURN varElementNode3");
 			i++;
@@ -1013,7 +1026,7 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 	public void cypherTest07QuantifiedConditionQueryComp() {		
 		try {
 			new CypherTest07QuantifiedCondition().buildPatterns(completePatterns);
-			new CypherTest07QuantifiedCondition().buildToComplexQueryPatterns(completePatterns);
+			new CypherTest07QuantifiedCondition().buildTooComplexQueryPatterns(completePatterns);
 			int i = 0;
 			
 			//getNodesWhereExits (false)

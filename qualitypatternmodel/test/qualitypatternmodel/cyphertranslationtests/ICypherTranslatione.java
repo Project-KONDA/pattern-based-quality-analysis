@@ -17,7 +17,7 @@ public interface ICypherTranslatione {
 	 * @throws MissingPatternContainerException
 	 * This method should just be filled with Methods which have a hugh processing time. This have to be checked against the DB differently
 	 */
-	void buildToComplexQueryPatterns(ArrayList<CompletePattern> completePatterns) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;	
+	void buildTooComplexQueryPatterns(ArrayList<CompletePattern> completePatterns) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;	
 	void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException;
 	void buildUnsupportedException(ArrayList<CompletePattern> completePatternsExceptions) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
 	void buildOtherException(ArrayList<CompletePattern> completePatternsExceptions) throws InvalidityException;

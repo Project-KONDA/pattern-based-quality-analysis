@@ -213,7 +213,7 @@ public class CypherTest02Return extends CypherTranslation {
 
 	//NOT NEEDED IN THIS TEST
 	@Override
-	public void buildToComplexQueryPatterns(ArrayList<CompletePattern> completePatterns) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {}
+	public void buildTooComplexQueryPatterns(ArrayList<CompletePattern> completePatterns) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {}
 	
 	//NOT NEEDED IN THIS TEST
 	@Override

@@ -51,7 +51,7 @@ public class CypherTest07QuantifiedCondition extends CypherTranslation {
 	}
 	
 	@Override
-	public void buildToComplexQueryPatterns(ArrayList<CompletePattern> completePatterns)
+	public void buildTooComplexQueryPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(getExistsMatchWithSamePropertyName(false));
 	}

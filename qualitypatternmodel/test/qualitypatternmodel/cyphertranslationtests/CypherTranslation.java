@@ -201,7 +201,7 @@ public abstract class CypherTranslation implements ICypherTranslatione {
 	public void complexTester()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> complexQueries = new ArrayList<CompletePattern>();
-		buildToComplexQueryPatterns(complexQueries);
+		buildTooComplexQueryPatterns(complexQueries);
 		if (complexQueries.size() != 0) {
 			System.out.println("");
 			System.out.println(CypherTranslation.BEGIN_TESTS);

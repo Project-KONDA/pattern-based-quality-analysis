@@ -26,15 +26,13 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
-import qualitypatternmodel.patternstructure.TrueElement;
-
 
 public class CypherTest03NotCondition extends CypherTranslation {    
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
     	CypherTranslation not = new CypherTest03NotCondition();
     	try {
-        	not.tester();  
-        	not.complexTester();
+//        	not.tester();  
+//        	not.complexTester();
         	not.invalidtyExceptionTester();
     	} catch (Exception e) {
 			System.out.println(e);
@@ -55,10 +53,11 @@ public class CypherTest03NotCondition extends CypherTranslation {
 		completePatterns.add(getNotNotNotNotPattern());
 		completePatterns.add(getNotNotNotNotNotPattern());
 		completePatterns.add(getNotTrueElement());
+		completePatterns.add(getNotNotTrueElement());
 	}
     
 	@Override
-	public void buildToComplexQueryPatterns(ArrayList<CompletePattern> completePatterns)
+	public void buildTooComplexQueryPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatterns.add(getMultiEdgesToTwoWithNotConditionNeoPropertyNode());
 		completePatterns.add(getMultiEdgesToTwoWithNotConditionWithoutNewComplexNodeNeoPropertyNode());
@@ -68,7 +67,6 @@ public class CypherTest03NotCondition extends CypherTranslation {
 	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePatternsExceptions.add(generateNotCondDoesNotContainConndititonException());
-		completePatternsExceptions.add(generateNotCondContainsTrueElementException());
 		completePatternsExceptions.add(generateNotCondContainsCountPatternException());
 	}
 
@@ -428,16 +426,21 @@ public class CypherTest03NotCondition extends CypherTranslation {
 	}
 	
 	private CompletePattern getNotTrueElement() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest03NotCondition.getNotCondBasePattern();
-		
-	    NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition(); 
-	    ((NotCondition) completePattern.getCondition()).setCondition(notCond);
-	   
-	    //Adapt to Neo4J
-	    completePattern.createNeo4jAdaption();	    
-	    TrueElement trueElement = (TrueElement) notCond.getCondition();
+		CompletePattern comp = CypherTranslation.getBasePattern();
+		comp.setCondition(PatternstructureFactory.eINSTANCE.createNotCondition());
+		comp.createNeo4jAdaption();
 	    
-		return completePattern;
+		return comp;
+	}
+	
+	private CompletePattern getNotNotTrueElement() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern comp = CypherTranslation.getBasePattern();
+		NotCondition not = PatternstructureFactory.eINSTANCE.createNotCondition();
+		not.setCondition(PatternstructureFactory.eINSTANCE.createNotCondition());
+		comp.setCondition(not);
+		comp.createNeo4jAdaption();
+	    
+		return comp;
 	}
 	
 	private CompletePattern getNotNotNotPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -536,13 +539,6 @@ public class CypherTest03NotCondition extends CypherTranslation {
 		notCond.setCondition(null);
 		comp.createNeo4jAdaption();
 		comp.setCondition(notCond);
-		return comp;
-	}
-	
-	private CompletePattern generateNotCondContainsTrueElementException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern comp = CypherTranslation.getBasePattern();
-		comp.setCondition(PatternstructureFactory.eINSTANCE.createNotCondition());
-		comp.createNeo4jAdaption();
 		return comp;
 	}
 	

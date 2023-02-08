@@ -119,7 +119,7 @@ public class CypherTest12CheckNull extends CypherTranslation {
 	}
 
 	@Override
-	public void buildToComplexQueryPatterns(ArrayList<CompletePattern> completePatterns)
+	public void buildTooComplexQueryPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		// TODO Auto-generated method stub
 		
