@@ -39,9 +39,10 @@ public class CypherTest06Comparison extends CypherTranslation {
 
     @Override
 	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		completePatterns.add(getComparisonTwoNeoNodes(ComparisonOperator.EQUAL));
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException { 	
+ 		completePatterns.add(getComparisonTwoNeoNodes(ComparisonOperator.EQUAL));
 		completePatterns.add(getComparisonTwoNeoNodes(ComparisonOperator.NOTEQUAL));
+
 //            for (ComparisonOperator c : ComparisonOperator.values()) { // --> Could be done later one when all operators are implemented
 //            	if (!(c == ComparisonOperator.ISNULL || c == ComparisonOperator.ISNOTNULL)) {
 //            		completePatterns.add(getComparisonTwoNeoNodes(c));
@@ -53,7 +54,8 @@ public class CypherTest06Comparison extends CypherTranslation {
 //        		if (!(c == ComparisonOperator.ISNULL || c == ComparisonOperator.ISNOTNULL)) {
 //        			completePatterns.add(getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(c));
 //        		}
-//        	   }            
+//        	   }
+		
 		completePatterns.add(getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(ComparisonOperator.NOTEQUAL));
 		completePatterns.add(getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(ComparisonOperator.EQUAL));
 		completePatterns.add(getMultipleComparisons());
@@ -93,16 +95,30 @@ public class CypherTest06Comparison extends CypherTranslation {
 		Comparison comp;
 		ComparisonOptionParam comparisonOptionParam;
 		
-		complexNode1.addComparison(complexNode2);
-		comp = complexNode1.getComparison1().get(0);
-		comparisonOptionParam = new ComparisonOptionParamImpl();
-		comparisonOptionParam.setValue(comparisonOption);
-		comp.setOption(comparisonOptionParam);
-		complexNode2.addComparison(complexNode1);
-		comp = complexNode2.getComparison1().get(0);
-		comparisonOptionParam = new ComparisonOptionParamImpl();
-		comparisonOptionParam.setValue(comparisonOption);
-		comp.setOption(comparisonOptionParam);
+		if (comparisonOption.getValue() == ComparisonOperator.EQUAL_VALUE || comparisonOption.getValue() == ComparisonOperator.NOTEQUAL_VALUE) {
+			complexNode1.addComparison(complexNode2);
+			comp = complexNode1.getComparison1().get(0);
+			comparisonOptionParam = new ComparisonOptionParamImpl();
+			comparisonOptionParam.setValue(comparisonOption);
+			comp.setOption(comparisonOptionParam);
+			complexNode2.addComparison(complexNode1);
+			comp = complexNode2.getComparison1().get(0);
+			comparisonOptionParam = new ComparisonOptionParamImpl();
+			comparisonOptionParam.setValue(comparisonOption);
+			comp.setOption(comparisonOptionParam);			
+		} else {			
+			complexNode1.addComparison(complexNode2);
+			comp = complexNode1.getComparison1().get(0);
+			ComparisonOptionParamImpl comparisonOptionParam1 = Mockito.mock(ComparisonOptionParamImpl.class);
+			Mockito.when(comparisonOptionParam1.getValue()).thenReturn(comparisonOption);
+			comp.setOption(comparisonOptionParam1);
+			complexNode2.addComparison(complexNode1);
+			comp = complexNode2.getComparison1().get(0);
+			ComparisonOptionParamImpl comparisonOptionParam2 = Mockito.mock(ComparisonOptionParamImpl.class);
+			Mockito.when(comparisonOptionParam2.getValue()).thenReturn(comparisonOption);
+			comp.setOption(comparisonOptionParam2);	
+			
+		}
 	}
 	
 	private void prepaireGenericComparisonTwoNodesById(ComparisonOperator comparisonOption,
