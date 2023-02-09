@@ -23,7 +23,7 @@ public class Neo4JConditions {
 		System.out.println();
 		
 		neo4JConcreteMandetoryFields();
-}
+	}
 
 	private static void neo4JConcreteDuplicatedNeighbour() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern neo4JConcreteDuplicatedNeighbour = null;

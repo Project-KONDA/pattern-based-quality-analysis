@@ -83,7 +83,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	private static final String NOTHING_TO_ADDRESS = "Nothing to address";
 	private static final String NOT_ALLOWED_OPERATOR_FOR_LIST_COMPARISON = "Not allowed operator for List comparison";
 	private static final String THE_SECOND_ARGUMENT_HAS_TO_BE_A_LIST = "The second Argument has to be a List";
-	private static final String AT_LEAST_ONE_OF_TWO_ARGUMENTS_IS_NOT_VALID = "At least one of two arguments is not valid";
 
 	/**
 	 * The cached value of the '{@link #getArgument1() <em>Argument1</em>}' reference.
@@ -575,12 +574,12 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 					+ CypherSpecificConstants.ONE_WHITESPACE);
 			cypher.append(argument2Translation);
 		} else {
-			cypher.append("( " + CypherSpecificConstants.BOOLEAN_OPERATOR_NOT);
+			cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " (");
 			cypher.append(argument1Translation);
 			cypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_IN
 					+ CypherSpecificConstants.ONE_WHITESPACE);
 			cypher.append(argument2Translation);
-			cypher.append(" )");
+			cypher.append(")");
 		}
 		
 	}
