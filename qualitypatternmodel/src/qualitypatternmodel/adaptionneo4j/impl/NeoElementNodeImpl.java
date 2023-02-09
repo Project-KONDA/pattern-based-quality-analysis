@@ -284,7 +284,7 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 				NeoNodeLabelsParam labels = getNeoNodeLabels();
 				if (labels == null) {
 					labels = new NeoNodeLabelsParamImpl();
-					setNeoNodeLabels(labels);
+					neoNodeLabels = labels;
 					pList.add(labels);	
 				}
 				if (!pList.equals(labels.getParameterList())) {
