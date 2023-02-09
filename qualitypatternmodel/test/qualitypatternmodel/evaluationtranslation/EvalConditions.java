@@ -5,6 +5,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.NotCondition;
@@ -12,7 +13,8 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
-public class Conditions {
+//Missing Count Beispiel
+public class EvalConditions {
 	//For the first example - Generic DuplicatedNeighbour
 	public static CompletePattern genericDuplicatedNeighbour() throws InvalidityException {
 		GraphstructurePackage.eINSTANCE.eClass();
@@ -45,5 +47,35 @@ public class Conditions {
 	//For the first example - Neo4J-Abstrakt DuplicatedNeighbour
 	public static CompletePattern abstractDuplicatedNeighbour() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return (CompletePattern) genericDuplicatedNeighbour().createNeo4jAdaption();
+	}
+	
+	public static CompletePattern genericMandetoryFields() throws InvalidityException {
+		GraphstructurePackage.eINSTANCE.eClass();
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		
+		CompletePattern completePattern = factory.createCompletePattern();
+		completePattern.getGraph().getReturnNodes().get(0).makeComplex();
+		completePattern.getGraph().getReturnNodes().get(0).setName("InitNode");
+		
+		NotCondition not = factory.createNotCondition();
+		completePattern.setCondition(not);
+		
+		QuantifiedCondition qc1 = factory.createQuantifiedCondition();
+		not.setCondition(qc1);
+		ComplexNode innerComplexNode = (ComplexNode) qc1.getGraph().getNodes().get(0);
+		PrimitiveNode primitiveNode1 = qc1.getGraph().addPrimitiveNode();
+		qc1.getGraph().addRelation(innerComplexNode, primitiveNode1);
+		PrimitiveNode primitiveNode2 = qc1.getGraph().addPrimitiveNode();
+		qc1.getGraph().addRelation(innerComplexNode, primitiveNode2);
+		PrimitiveNode primitiveNode3 = qc1.getGraph().addPrimitiveNode();
+		qc1.getGraph().addRelation(innerComplexNode, primitiveNode3);
+		
+		return completePattern;
+	}
+		
+	//For the first example - Neo4J-Abstrakt DuplicatedNeighbour
+	public static CompletePattern abstractMandetoryFields() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		return (CompletePattern) genericMandetoryFields().createNeo4jAdaption();
 	}
 }

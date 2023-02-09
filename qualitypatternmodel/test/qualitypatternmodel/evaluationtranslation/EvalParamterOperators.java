@@ -1,5 +1,5 @@
 package qualitypatternmodel.evaluationtranslation;
 
-public class ParamterOperators {
+public class EvalParamterOperators {
 
 }
