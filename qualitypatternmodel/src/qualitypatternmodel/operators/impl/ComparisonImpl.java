@@ -420,7 +420,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 */
 	private void generateCypherIDComparison(final StringBuilder cypher, String argument1Translation,
 			String argument2Translation, String comp) throws InvalidityException {
-		boolean b = checkForValidCypherNode();
+		boolean isValid = checkForValidCypherNode();
 		checkForValidIdElement();
 		//Check for correct addressing if a NeoPropertyNode is selected as a first argument
 		boolean firstAIsProperty = false;
@@ -436,7 +436,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			argument2Translation = concatenatePropertyNodes(cypher, nodes, false);
 			secondAIsProperty = true;
 		}
-		if (b) {
+		if (isValid) {
 			//Checks if the id function has to be added.
 			if (firstAIsProperty) {
 				cypher.append(argument1Translation);
