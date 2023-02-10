@@ -64,16 +64,21 @@ public class Neo4JStructure {
 		NeoNodeLabelsParam neoNodeLabelsParam1 = (NeoNodeLabelsParam) paramters.getParameters().get(1);
 		neoNodeLabelsParam1.addStringValue("Place");
 		NeoNodeLabelsParam neoNodeLabelsParam2 = (NeoNodeLabelsParam) paramters.getParameters().get(2);
-		neoNodeLabelsParam2.addStringValue("Literature");
+		neoNodeLabelsParam2.addStringValue("IndexPerson");
 		NeoNodeLabelsParam neoNodeLabelsParam3 = (NeoNodeLabelsParam) paramters.getParameters().get(3);
-		neoNodeLabelsParam3.addStringValue("Reference");
+		neoNodeLabelsParam3.addStringValue("Literature");
+		NeoNodeLabelsParam neoNodeLabelsParam4 = (NeoNodeLabelsParam) paramters.getParameters().get(4);
+		neoNodeLabelsParam4.addStringValue("Reference");
 		
-		NeoElementPathParam neoElementPathParam1 = (NeoElementPathParam) paramters.getParameters().get(4);
+		NeoElementPathParam neoElementPathParam1 = (NeoElementPathParam) paramters.getParameters().get(5);
 		((NeoSimpleEdge) neoElementPathParam1.getNeoPathPart()).addNeoEdgeLabel("PLACE_OF_ISSUE");
 		((NeoSimpleEdge) neoElementPathParam1.getNeoPathPart()).setNeoDirection(NeoDirection.RIGHT);
-		NeoElementPathParam neoElementPathParam2 = (NeoElementPathParam) paramters.getParameters().get(5);
-		((NeoSimpleEdge) neoElementPathParam2.getNeoPathPart()).addNeoEdgeLabel("LITERATURE");
+		NeoElementPathParam neoElementPathParam2 = (NeoElementPathParam) paramters.getParameters().get(6);
+		((NeoSimpleEdge) neoElementPathParam2.getNeoPathPart()).addNeoEdgeLabel("APPEARS_IN");
 		((NeoSimpleEdge) neoElementPathParam2.getNeoPathPart()).setNeoDirection(NeoDirection.LEFT);
+		NeoElementPathParam neoElementPathParam3 =(NeoElementPathParam) paramters.getParameters().get(7);
+		((NeoSimpleEdge) neoElementPathParam3.getNeoPathPart()).addNeoEdgeLabel("LITERATURE");
+		((NeoSimpleEdge) neoElementPathParam3.getNeoPathPart()).setNeoDirection(NeoDirection.LEFT);
 		
 		System.out.println(neo4JConcreteDistinctGraphs.generateCypher());
 	}

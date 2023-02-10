@@ -7,6 +7,9 @@ import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.CountCondition;
+import qualitypatternmodel.patternstructure.CountPattern;
+import qualitypatternmodel.patternstructure.NumberElement;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
@@ -47,14 +50,17 @@ public class EvalGraphstructure {
 		ComplexNode complexNode2 = completePattern.getGraph().addComplexNode();
 		complexNode2.setName("Neighbour1");
 		completePattern.getGraph().addRelation(complexNode1, complexNode2);
+		ComplexNode complexNode3 = completePattern.getGraph().addComplexNode();
+		complexNode3.setName("Neighbour2");
+		completePattern.getGraph().addRelation(complexNode1, complexNode3);
 		
 		//Next Subgraph
-		ComplexNode complexNode3 = completePattern.getGraph().addComplexNode();
-		complexNode3.setName("InitNode2");
-		complexNode3.setReturnNode(true);
 		ComplexNode complexNode4 = completePattern.getGraph().addComplexNode();
-		complexNode4.setName("Neighbour2");
-		completePattern.getGraph().addRelation(complexNode3, complexNode4);
+		complexNode4.setName("Return2");
+		complexNode4.setReturnNode(true);
+		ComplexNode complexNode5 = completePattern.getGraph().addComplexNode();
+		complexNode5.setName("Neighbour3");
+		completePattern.getGraph().addRelation(complexNode4, complexNode5);
 		
 		return completePattern;
 	}

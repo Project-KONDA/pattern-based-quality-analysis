@@ -1,5 +1,8 @@
 package qualitypatternmodel.cypherevaluation.translation;
 
+import javax.naming.directory.DirContext;
+
+import qualitypatternmodel.adaptionneo4j.NeoDirection;
 import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
@@ -8,6 +11,8 @@ import qualitypatternmodel.evaluationtranslation.EvalConditions;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Formula;
@@ -23,6 +28,13 @@ public class Neo4JConditions {
 		System.out.println();
 		
 		neo4JConcreteMandetoryFields();
+		
+
+		System.out.println();
+		System.out.println("---");
+		System.out.println();
+		
+		neo4JConcreteMyNbCount();
 	}
 
 	private static void neo4JConcreteDuplicatedNeighbour() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -74,5 +86,25 @@ public class Neo4JConditions {
 		neoParam.setNeoPropertyName("regesterId");
 		
 		System.out.println(neo4JConcreteMandetoryFields.generateCypher());
+	}
+	
+	private static void neo4JConcreteMyNbCount() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern neo4JConcreteMyNbCount = null;
+		
+		
+		neo4JConcreteMyNbCount = EvalConditions.abstractMyNbCount();
+		
+		ParameterList paramters = neo4JConcreteMyNbCount.getParameterList();
+				
+		NeoNodeLabelsParam neoNodeLabelsParam0 = (NeoNodeLabelsParam) paramters.getParameters().get(2);
+		neoNodeLabelsParam0.addStringValue("Reference");
+		NeoNodeLabelsParam neoNodeLabelsParam1 = (NeoNodeLabelsParam) paramters.getParameters().get(3);
+		neoNodeLabelsParam1.addStringValue("Literature");
+		
+		NeoElementPathParam neoElementPathParam1 = (NeoElementPathParam) paramters.getParameters().get(4);
+		((NeoSimpleEdge) neoElementPathParam1.getNeoPathPart()).addNeoEdgeLabel("LITERATURE");
+		((NeoSimpleEdge) neoElementPathParam1.getNeoPathPart()).setNeoDirection(NeoDirection.RIGHT);
+		
+		System.out.println(neo4JConcreteMyNbCount.generateCypher());
 	}
 }
