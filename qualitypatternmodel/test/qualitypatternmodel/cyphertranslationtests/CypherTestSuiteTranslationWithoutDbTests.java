@@ -29,7 +29,7 @@ public class CypherTestSuiteTranslationWithoutDbTests extends CypherTestSuiteTra
 	}
 	@Override
 	public ConditionEvaluationResult evaluateExecutionCondition(ExtensionContext context) {
-		if (playground.Java2Neo4JConnector.verifyConnectivity()) {
+		if (utilis.Java2Neo4JConnector.verifyConnectivity()) {
             return ConditionEvaluationResult.disabled(TEST_DISABLED_ON_QA_ENVIRONMENT);
         } 
         return ConditionEvaluationResult.enabled(TEST_ENABLED_ON_QA_ENVIRONMENT);

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import org.eclipse.emf.common.util.EList;
 
-import playground.Java2Neo4JConnector;
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
 import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jFactoryImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -31,6 +30,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.utility.CypherSpecificConstants;
+import utilis.Java2Neo4JConnector;
 
 /**
  * <p> 
@@ -90,7 +90,7 @@ public abstract class CypherTranslation implements ICypherTranslatione {
 	}
 
 	public static void testCompletePatterns(ArrayList<CompletePattern> completePatterns) throws Exception {
-		boolean isDbOn = playground.Java2Neo4JConnector.verifyConnectivity();
+		boolean isDbOn = utilis.Java2Neo4JConnector.verifyConnectivity();
 		if (isDbOn) {
 			System.out.print(MODE + TESTING_WITH_DB);
 		} else {

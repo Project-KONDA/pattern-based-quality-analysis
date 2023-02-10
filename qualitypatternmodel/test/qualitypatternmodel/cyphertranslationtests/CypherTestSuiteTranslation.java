@@ -14,7 +14,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExecutionCondition;
 
-import playground.Java2Neo4JConnector;
 import qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests.CypherTest00;
 import qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests.CypherTest01NeoElementEdge;
 import qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests.CypherTest01NeoPropertyEdge;
@@ -31,6 +30,7 @@ import qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests
 import qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests.CypherTest12CheckNull;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import utilis.Java2Neo4JConnector;
 
 //The Exception handler can do more then the for the single case
 public abstract class CypherTestSuiteTranslation implements ExecutionCondition {

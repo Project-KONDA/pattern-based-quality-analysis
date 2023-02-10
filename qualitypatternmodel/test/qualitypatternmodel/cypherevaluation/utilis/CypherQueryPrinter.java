@@ -3,9 +3,9 @@ package qualitypatternmodel.cypherevaluation.utilis;
 import java.util.ArrayList;
 import java.util.List;
 
-import playground.Java2Neo4JConnector;
 import qualitypatternmodel.cyphertranslationtests.CypherTestSuiteTranslation;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import utilis.Java2Neo4JConnector;
 
 public class CypherQueryPrinter {
 		public static void queryPrinterSys(ArrayList<CompletePattern> completePatterns) throws Exception {
