@@ -6,16 +6,9 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
-import qualitypatternmodel.operators.Comparison;
-import qualitypatternmodel.parameters.TextListParam;
-import qualitypatternmodel.parameters.impl.MultiListParamImpl;
-import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.Formula;
-import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class EvalParamterOperators {
 	//For the first example - Generic Load Duplicated Tree
@@ -40,7 +33,7 @@ public class EvalParamterOperators {
 		completePattern.getGraph().addRelation(complexNode, primitiveNode3);
 		
 		PrimitiveNode primitiveNode4 = completePattern.getGraph().addPrimitiveNode();
-		primitiveNode3.addPrimitiveContains();
+		primitiveNode4.addPrimitiveContains();
 		completePattern.getGraph().addRelation(complexNode, primitiveNode4);
 		
 		return completePattern;
