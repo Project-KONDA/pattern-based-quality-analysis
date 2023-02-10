@@ -100,10 +100,15 @@ public class Neo4JConditions {
 		neoNodeLabelsParam0.addStringValue("Reference");
 		NeoNodeLabelsParam neoNodeLabelsParam1 = (NeoNodeLabelsParam) paramters.getParameters().get(3);
 		neoNodeLabelsParam1.addStringValue("Literature");
+		NeoNodeLabelsParam neoNodeLabelsParam2 = (NeoNodeLabelsParam) paramters.getParameters().get(4);
+		neoNodeLabelsParam2.addStringValue("Regesta");
 		
-		NeoElementPathParam neoElementPathParam1 = (NeoElementPathParam) paramters.getParameters().get(4);
+		NeoElementPathParam neoElementPathParam1 = (NeoElementPathParam) paramters.getParameters().get(5);
 		((NeoSimpleEdge) neoElementPathParam1.getNeoPathPart()).addNeoEdgeLabel("LITERATURE");
 		((NeoSimpleEdge) neoElementPathParam1.getNeoPathPart()).setNeoDirection(NeoDirection.RIGHT);
+		NeoElementPathParam neoElementPathParam2 = (NeoElementPathParam) paramters.getParameters().get(6);
+		((NeoSimpleEdge) neoElementPathParam2.getNeoPathPart()).addNeoEdgeLabel("CITED_PAGE");
+		((NeoSimpleEdge) neoElementPathParam2.getNeoPathPart()).setNeoDirection(NeoDirection.LEFT);
 		
 		System.out.println(neo4JConcreteMyNbCount.generateCypher());
 	}
