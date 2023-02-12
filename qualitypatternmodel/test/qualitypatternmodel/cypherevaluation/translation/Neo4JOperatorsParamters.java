@@ -27,6 +27,12 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 public class Neo4JOperatorsParamters {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		neo4JConcreteNotValidEntries();
+		
+		System.out.println();
+		System.out.println("---");
+		System.out.println();
+		
+		neo4JConcreteAppDup();
 	}
 	
 	private static void neo4JConcreteNotValidEntries() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -83,5 +89,39 @@ public class Neo4JOperatorsParamters {
 		contains.setValue("[-]");
 		
 		System.out.println(neo4JConcreteValidEntries.generateCypher());
+	}
+	
+	private static void neo4JConcreteAppDup() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern neo4JConcreteAppDup = null;
+		
+		
+		neo4JConcreteAppDup = EvalParamterOperators.abstractAppDup();
+				
+		//Abstract --> Concrete
+				
+		ParameterList paramters = neo4JConcreteAppDup.getParameterList();
+		
+		NeoNodeLabelsParam neoNodeLabelsParam0 = (NeoNodeLabelsParam) paramters.getParameters().get(6);
+		neoNodeLabelsParam0.addStringValue("Regesta");
+		NeoNodeLabelsParam neoNodeLabelsParam1 = (NeoNodeLabelsParam) paramters.getParameters().get(7);
+		neoNodeLabelsParam1.addStringValue("Regesta");
+		
+		NeoPropertyPathParam neoPathParam2 = (NeoPropertyPathParam) paramters.getParameters().get(8);
+		neoPathParam2.setNeoPropertyName("title");
+		NeoPropertyPathParam neoPathParam2_2 = (NeoPropertyPathParam) paramters.getParameters().get(9);
+		neoPathParam2_2.setNeoPropertyName("summary");
+		
+		NeoPropertyPathParam neoPathParam3 = (NeoPropertyPathParam) paramters.getParameters().get(10);
+		neoPathParam3.setNeoPropertyName("title");
+		NeoPropertyPathParam neoPathParam3_3 = (NeoPropertyPathParam) paramters.getParameters().get(11);
+		neoPathParam3_3.setNeoPropertyName("summary");
+		
+		ComparisonOptionParam optioncomp =  (ComparisonOptionParam) paramters.getParameters().get(0);
+		optioncomp.setValue(ComparisonOperator.NOTEQUAL);
+		TypeOptionParam typeOptionParam = (TypeOptionParam) paramters.getParameters().get(1);
+		typeOptionParam.setValue(ReturnType.ELEMENTID);
+
+		
+		System.out.println(neo4JConcreteAppDup.generateCypher());
 	}
 }

@@ -1,7 +1,5 @@
 package qualitypatternmodel.cypherevaluation.translation;
 
-import javax.naming.directory.DirContext;
-
 import qualitypatternmodel.adaptionneo4j.NeoDirection;
 import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
@@ -11,8 +9,6 @@ import qualitypatternmodel.evaluationtranslation.EvalConditions;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.operators.ComparisonOperator;
-import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Formula;
