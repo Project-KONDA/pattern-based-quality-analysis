@@ -14,11 +14,21 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 
 public class CypherEvalMatch {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-				
+		//new
+		
+		getCypherMatchWrongFormat();
+		
+		System.out.println();
+		System.out.println("---");
+		System.out.println();
+		
+		//Old ones
 		getCypherForMatch();
 		
 		System.out.println();
@@ -47,7 +57,38 @@ public class CypherEvalMatch {
 		printMatch3CondGeneric();
 	}
 	
-	//BEGIN
+	
+	
+	//NEW
+	private static void getCypherMatchWrongFormat() 
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePatternMatchDateFormat;
+
+		//Generic --> Abstract 
+		
+		completePatternMatchDateFormat = getMatchWrongFormatAbstract();
+		ParameterList paramters = completePatternMatchDateFormat.getParameterList();
+		
+		TextListParam textListParam = (TextListParam) paramters.getParameters().get(2);
+		textListParam.addStringValue("Regesta");
+		((NeoPropertyPathParam) paramters.getParameters().get(3)).setNeoPropertyName("date");
+		TextLiteralParam textLiteralParam = (TextLiteralParam) paramters.getParameters().get(1);
+		textLiteralParam.setValue("\\\\d{4}\\s[A-Z]{1}[a-zäöü]*\\s\\\\d{1,2}");		
+		//To Query
+		try {			
+			System.out.println(completePatternMatchDateFormat.generateCypher());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static CompletePattern getMatchWrongFormatAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = EvalMatch.getGenericWrongFormat();		
+		completePattern.createNeo4jAdaption();
+		return completePattern;		
+	}
+	
+	//BEGIN - OLD
 	private static void getCypherForMatch()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePatternMatchDateFormat;

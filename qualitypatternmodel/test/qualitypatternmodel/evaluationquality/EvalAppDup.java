@@ -216,4 +216,36 @@ public class EvalAppDup {
 		
 		return completePattern;		
 	}
+	
+	public static CompletePattern getUniVio() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		
+		CompletePattern completePattern = factory.createCompletePattern();
+		completePattern.getGraph().getReturnNodes().get(0).makeComplex();
+		completePattern.getGraph().getReturnNodes().get(0).setName("main");
+		
+		ComplexNode main = (ComplexNode) completePattern.getGraph().getReturnNodes().get(0);
+				
+		QuantifiedCondition qc1 = factory.createQuantifiedCondition();
+		completePattern.setCondition(qc1);
+		
+		ComplexNode other = qc1.getGraph().addComplexNode();
+		other.setName("Entry");
+		
+		Graph g1 = qc1.getGraph();
+		Node main1 = g1.getNodes().get(0);
+		Node other1 = g1.getNodes().get(1);
+		
+		Comparison c = main1.addComparison(other);
+
+		c.getOption().setValue(ComparisonOperator.NOTEQUAL);
+		
+		PrimitiveNode n1 = main1.addOutgoing().getTarget().makePrimitive();
+		PrimitiveNode n2 = other1.addOutgoing().getTarget().makePrimitive();
+		
+		n1.addComparison(n2);
+		
+		return completePattern;
+	}
 }

@@ -7,6 +7,8 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.xmltranslationtests.Test00;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.parameters.BooleanParam;
+import qualitypatternmodel.parameters.ParameterList;
 
 import java.util.ArrayList;
 
@@ -86,6 +88,14 @@ public class EvalMatch {
 		node2.addOutgoing().getTarget().addPrimitiveComparison();
 		node2.addOutgoing().getTarget().addPrimitiveMatch();
 
+		return completePattern;
+	}
+	
+	public static CompletePattern getGenericWrongFormat() throws InvalidityException {
+		CompletePattern completePattern = getMatchGeneric();
+		ParameterList paramters = completePattern.getParameterList();
+		BooleanParam booleanParam = (BooleanParam) paramters.getParameters().get(0);
+		booleanParam.setValue(false);
 		return completePattern;
 	}
 }

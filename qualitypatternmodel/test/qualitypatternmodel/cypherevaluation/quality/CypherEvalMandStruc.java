@@ -17,43 +17,107 @@ import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class CypherEvalMandStruc {
-	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-			//New Ones - Valid for REGSTA-DB
-			printMandStruc1HasPlace();
-			
-			System.out.println();
-			System.out.println("---");
-			System.out.println();
-			
-			printMandStruc1UnconnectedNodes();
-			
-			System.out.println();
-			System.out.println("---");
-			System.out.println();
-			
-			printMandStruc2HasPlaceOrIndexPlace();
-			
-			//Old ones with dummy data
-			System.out.println();
-			System.out.println("---");
-			System.out.println();
-			
-			printMandstrucGeneric();
-			
-			System.out.println();
-			System.out.println("---");
-			System.out.println();
-			
-			printMandstruc3Generic();
-			
-			System.out.println();
-			System.out.println("---");
-			System.out.println();
-			
-			printMandstruc3CondGeneric();
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
+		//New Ones Based on Old Owns- Valid for REGSTA-DB
+		printNotExistingNeigbour();
+	
+		System.out.println();
+		System.out.println("---");
+		System.out.println();
+	
+		printMandStruc1HasPlace(); // --> Neo4J-Concrete NOT EXISTING NEIGHBOUR: Place
+		
+		System.out.println();
+		System.out.println("---");
+		System.out.println();
+		
+		printMandStruc1UnconnectedNodes();
+		
+		System.out.println();
+		System.out.println("---");
+		System.out.println();
+		
+		printMandStruc2HasPlaceOrIndexPlace();
+		
+		//Old ones with dummy data
+		System.out.println();
+		System.out.println("---");
+		System.out.println();
+		
+		printMandstrucGeneric();
+		
+		System.out.println();
+		System.out.println("---");
+		System.out.println();
+		
+		printMandstruc3Generic();
+		
+		System.out.println();
+		System.out.println("---");
+		System.out.println();
+		
+		printMandstruc3CondGeneric();
 	}
 	
 	//BEGIN
+	private static void printNotExistingNeigbour() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePatternNotExistingNeigbour;
+		
+		//Generic
+		Instant start = Instant.now();
+		
+		completePatternNotExistingNeigbour = getNotExistingNeigbourGeneric();
+		
+		Instant finish = Instant.now();
+		long timeElapsed = Duration.between(start, finish).toMillis();
+		System.out.println("Speed time of Generic: " + timeElapsed);
+		
+		
+		//Generic --> Abstract 
+		start = Instant.now();
+		
+		completePatternNotExistingNeigbour = getNotExistingNeigbourAbstract(completePatternNotExistingNeigbour);
+		
+		finish = Instant.now();
+		timeElapsed = Duration.between(start, finish).toMillis();
+		System.out.println("Speed time of Generic --> Abstract: " + timeElapsed);
+
+		
+		//Abstract --> Concrete
+		start = Instant.now();
+		
+		NeoElementNode neoNode = (NeoElementNode) completePatternNotExistingNeigbour.getGraph().getNodes().get(0);
+		neoNode.addNeoLabel("Regesta");
+		
+		finish = Instant.now();
+		timeElapsed = Duration.between(start, finish).toMillis();
+		System.out.println("Speed time of Abstract --> Concrete: " + timeElapsed);
+		
+		
+		//To Query
+		try {
+			start = Instant.now();
+			
+			System.out.println(completePatternNotExistingNeigbour.generateCypher());
+			
+			finish = Instant.now();
+			timeElapsed = Duration.between(start, finish).toMillis();
+			System.out.println("Speed time of cypher generation: " + timeElapsed);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private static CompletePattern getNotExistingNeigbourGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		return EvalMandStruc.getMandstrucGeneric();
+	}
+	
+	private static CompletePattern getNotExistingNeigbourAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		completePattern.createNeo4jAdaption();
+		return completePattern;
+	}
+	
+	
 	private static void printMandStruc1HasPlace() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePatternMandStruc1HasPlace;
 		
@@ -115,7 +179,6 @@ public class CypherEvalMandStruc {
 		neoNode.addNeoLabel("Regesta");
 		
 		NeoElementNode neoNodeCond1 = (NeoElementNode) ((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph().getNodes().get(0);
-		neoNodeCond1.setNeoPlace(NeoPlace.BEGINNING);
 		NeoElementNode neoNodeCond2 = (NeoElementNode) ((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph().getNodes().get(1);
 		neoNodeCond2.addNeoLabel("Place");
 		

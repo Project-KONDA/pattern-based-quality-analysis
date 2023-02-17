@@ -30,7 +30,7 @@ public class CypherEvalUnique {
 		System.out.println();
 		
 		printUniqueCondComplexGeneric();
-		
+				
 	}
 
 	//BEGIN

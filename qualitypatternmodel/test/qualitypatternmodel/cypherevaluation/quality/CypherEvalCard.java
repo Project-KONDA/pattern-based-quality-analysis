@@ -3,16 +3,20 @@ package qualitypatternmodel.cypherevaluation.quality;
 import java.time.Duration;
 import java.time.Instant;
 
+import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.cypherevaluation.utilis.DummyFiller;
 import qualitypatternmodel.evaluationquality.EvalCard;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class CypherEvalCard {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		//New Ones
+		printCard1Generic();
 		
 		System.out.println();
 		System.out.println("---");
@@ -38,6 +42,57 @@ public class CypherEvalCard {
 		System.out.println();
 
 		printCard2CondPlusGeneric();
+	}
+	
+	
+	private static void printCard1Generic() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePatternCard1;
+		
+		//Generic
+		Instant start = Instant.now();
+		
+		completePatternCard1 = EvalCard.getCARD1();
+		
+		Instant finish = Instant.now();
+		long timeElapsed = Duration.between(start, finish).toMillis();
+		System.out.println("Speed time of Generic: " + timeElapsed);
+		
+		//Generic --> Abstract 
+		start = Instant.now();
+		
+		completePatternCard1 = (CompletePattern) completePatternCard1.createNeo4jAdaption();
+		
+		finish = Instant.now();
+		timeElapsed = Duration.between(start, finish).toMillis();
+		System.out.println("Speed time of Generic --> Abstract: " + timeElapsed);
+		
+		
+		//Abstract --> Concrete
+		start = Instant.now();
+		
+		ParameterList paramters = completePatternCard1.getParameterList();
+		TextListParam textListParam = (TextListParam) paramters.getParameters().get(2);
+		textListParam.addStringValue("Regesta");
+		NeoPropertyPathParam neoPathParam = (NeoPropertyPathParam) paramters.getParameters().get(3);
+		neoPathParam.setNeoPropertyName("url");
+		
+		finish = Instant.now();
+		timeElapsed = Duration.between(start, finish).toMillis();
+		System.out.println("Speed time of Abstract --> Concrete: " + timeElapsed);
+		
+		
+		//To Query
+		try {
+			start = Instant.now();
+			
+			System.out.println(completePatternCard1.generateCypher());
+			
+			finish = Instant.now();
+			timeElapsed = Duration.between(start, finish).toMillis();
+			System.out.println("Speed time of cypher generation: " + timeElapsed);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	private static void printCard2Generic() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

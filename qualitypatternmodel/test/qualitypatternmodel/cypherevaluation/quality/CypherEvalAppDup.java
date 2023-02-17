@@ -7,33 +7,69 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.parameters.TextListParam;
+import qualitypatternmodel.parameters.TypeOptionParam;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.cypherevaluation.utilis.DummyFiller;
 import qualitypatternmodel.evaluationquality.EvalAppDup;
 import qualitypatternmodel.evaluationquality.EvalUnique;
 
-//Sollten wir auch ratios vergleichen --> Wie viele gute und wie viele schlechte Daten?
 public class CypherEvalAppDup {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		//New Ones
+		//New
+		getUniVio();
 		
 		System.out.println();
 		System.out.println("---");
 		System.out.println();
 		
 		//Old Ones filled with dummy data
-		printAppDup2Generic();
+//		printAppDup2Generic();
+//		
+//		System.out.println();
+//		System.out.println("---");
+//		System.out.println();
+//		
+//		printAppDup3Generic();	
+//		
+//		System.out.println();
+//		System.out.println("---");
+//		System.out.println();
+//
+//		printAppDup3CondGeneric();
+	}
+	
+	private static void getUniVio() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePatterngetUniVio;
 		
-		System.out.println();
-		System.out.println("---");
-		System.out.println();
+		//Generic		
+		completePatterngetUniVio = EvalAppDup.getUniVio();
 		
-		printAppDup3Generic();	
+		//Generic --> Abstract 		
+		completePatterngetUniVio = (CompletePattern) completePatterngetUniVio.createNeo4jAdaption();
 		
-		System.out.println();
-		System.out.println("---");
-		System.out.println();
+		//Abstract --> Concrete
+		
+		ParameterList paramters = completePatterngetUniVio.getParameterList();
+		TextListParam textListParam = (TextListParam) paramters.getParameters().get(4);
+		textListParam.addStringValue("Regesta");
+		TextListParam textListParam2 = (TextListParam) paramters.getParameters().get(5);
+		textListParam2.addStringValue("Regesta");
+		NeoPropertyPathParam neoPropertyPathParam1 = (NeoPropertyPathParam) paramters.getParameters().get(6);
+		neoPropertyPathParam1.setNeoPropertyName("summary");
+		NeoPropertyPathParam neoPropertyPathParam2 = (NeoPropertyPathParam) paramters.getParameters().get(7);
+		neoPropertyPathParam2.setNeoPropertyName("summary");
+		TypeOptionParam typeOptionParam = (TypeOptionParam) paramters.getParameters().get(1);
+		typeOptionParam.setValue(ReturnType.ELEMENTID);
 
-		printAppDup3CondGeneric();
+		//To Query
+		try {	
+			System.out.println(completePatterngetUniVio.generateCypher());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	//Old ones
