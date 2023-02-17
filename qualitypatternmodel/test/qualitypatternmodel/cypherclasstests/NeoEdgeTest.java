@@ -18,7 +18,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
 
 public abstract class NeoEdgeTest implements INeoEdgeTest {
 	private static final int INTERNAL_ID_ONE = 1;
-	protected static final String VAR_ELEMENT_EDGE_X = "varElementEdge%s";
+	protected static final String VAR_ELEMENT_EDGE_X = "varEEdge%s";
 	protected static final String VAR_EDGE1 = "varEdge1";
 	protected static final String VAR_EDGE1_CLAMPED = "-[varEdge1]-";
 	protected static final String INTERNAL_EDGE_NODE_1 = CypherSpecificConstants.INTERNAL_EDGE_NODE + 1;

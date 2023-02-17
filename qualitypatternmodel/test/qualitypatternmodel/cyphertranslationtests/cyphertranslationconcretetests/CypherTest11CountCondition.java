@@ -29,7 +29,7 @@ public class CypherTest11CountCondition extends CypherTranslation {
 		CypherTest11CountCondition count = new CypherTest11CountCondition();
 		try {
 			count.tester();         
-//			count.invalidtyExceptionTester();
+			count.invalidtyExceptionTester();
 		} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();
@@ -37,14 +37,14 @@ public class CypherTest11CountCondition extends CypherTranslation {
 	}
 	
 	public void buildPatterns(ArrayList<CompletePattern> completePatterns) throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
-//		completePatterns.add(getJustCount());
+		completePatterns.add(getJustCount());
 		completePatterns.add(getCountInPattern());
-//		completePatterns.add(getCountInPatternWithRemoveAElement());
-//		completePatterns.add(getMultiCountsInPattern());
-//		completePatterns.add(getCountConditionWithWhereClause());
-//		completePatterns.add(getCountAPropertyNode());
-//		completePatterns.add(getCountAProperty());
-//		completePatterns.add(getCountWithRelations());
+		completePatterns.add(getCountInPatternWithRemoveAElement());
+		completePatterns.add(getMultiCountsInPattern());
+		completePatterns.add(getCountConditionWithWhereClause());
+		completePatterns.add(getCountAPropertyNode());
+		completePatterns.add(getCountAProperty());
+		completePatterns.add(getCountWithRelations());
 	}
 	
 	@Override

@@ -33,8 +33,8 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
 
 @DisplayName("NeoElementNode Tests")
 public class Cypher01NeoElementNodeTest extends NeoNodeTest {
-	private static final String VAR_NODE1 = "(varElementNode1)";
-	private static final String VAR_NODE1_REGESTA_INDEX_PLACE = "(varElementNode1:Regesta:IndexPlace)";
+	private static final String VAR_NODE1 = "(varENode1)";
+	private static final String VAR_NODE1_REGESTA_INDEX_PLACE = "(varENode1:Regesta:IndexPlace)";
 	NeoElementNode neoNode;
 	
 	@BeforeAll

@@ -43,22 +43,22 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
 
 @DisplayName("NeoSimpleEdge Test")
 public class Cypher04NeoSimpleEdgeTest extends NeoPathPartTest {
-	private static final String VAR_ELEMENT_EDGE_1_TEST_LABEL_INT_EG_NODE_1_TEST_LABEL = "-[varElementEdge-1:testLabel]-(intEgNode-1:testLabel)";
-	private static final String VAR_ELEMENT_EDGE_1_INT_EG_NODE_1_TEST_LABEL = "-[varElementEdge-1]-(intEgNode-1:testLabel)";
+	private static final String VAR_ELEMENT_EDGE_1_TEST_LABEL_INT_EG_NODE_1_TEST_LABEL = "-[varEEdge-1:testLabel]-(intEgNode-1:testLabel)";
+	private static final String VAR_ELEMENT_EDGE_1_INT_EG_NODE_1_TEST_LABEL = "-[varEEdge-1]-(intEgNode-1:testLabel)";
 	private static final String TEST_LABEL = "testLabel";
-	private static final String VAR_ELEMENT_EDGE__RIGHT = "-[varElementEdge-1]->";
-	private static final String VAR_ELEMENT_EDGE_12_LEFT = "<-[varElementEdge-1]-";
-	private static final String VAR_ELEMENT_EDGE_1_TEST_LABEL = "-[varElementEdge-1:testLabel]-";
-	private static final String VAR_ELEMENT_EDGE_1_TEST_LABEL_RIGHT = "-[varElementEdge-1:testLabel]->";
-	private static final String VAR_ELEMENT_EDGE_1_TEST_LABEL_LEFT = "<-[varElementEdge-1:testLabel]-";
-	private static final String VAR_ELEMENT_EDGE1_1 = "varElementEdge1_1";
-	private static final String VAR_PROPERTY_EDGE1_1 = "varPropertyEdge1_1";
-	private static final String VAR_ELEMENT_EDGE_1_INT_EG_NODE_1 = "-[varElementEdge-1]-(intEgNode-1)";
+	private static final String VAR_ELEMENT_EDGE__RIGHT = "-[varEEdge-1]->";
+	private static final String VAR_ELEMENT_EDGE_12_LEFT = "<-[varEEdge-1]-";
+	private static final String VAR_ELEMENT_EDGE_1_TEST_LABEL = "-[varEEdge-1:testLabel]-";
+	private static final String VAR_ELEMENT_EDGE_1_TEST_LABEL_RIGHT = "-[varEEdge-1:testLabel]->";
+	private static final String VAR_ELEMENT_EDGE_1_TEST_LABEL_LEFT = "<-[varEEdge-1:testLabel]-";
+	private static final String VAR_ELEMENT_EDGE1_1 = "varEEdge1_1";
+	private static final String VAR_PROPERTY_EDGE1_1 = "varPEdge1_1";
+	private static final String VAR_ELEMENT_EDGE_1_INT_EG_NODE_1 = "-[varEEdge-1]-(intEgNode-1)";
 	private static final String VAR_ELEMENT_EDGE_LEFT = VAR_ELEMENT_EDGE_12_LEFT;
-	private static final String VAR_ELEMENT_EDGE_1 = "-[varElementEdge-1]-";
+	private static final String VAR_ELEMENT_EDGE_1 = "-[varEEdge-1]-";
 	private static final String VAR_ELEMENT_EDGE_RIGHT = VAR_ELEMENT_EDGE__RIGHT;
-	private static final String VAR_ELEMENT_EDGE1 = "varElementEdge1";
-	private static final String VAR_PROPERTY_EDGE1 = "varPropertyEdge1";	
+	private static final String VAR_ELEMENT_EDGE1 = "varEEdge1";
+	private static final String VAR_PROPERTY_EDGE1 = "varPEdge1";	
 	private static Method generateInternalCypherMethod = null;
 	private static Field isLastEdgeField = null;
 	private static Field edgeNumberField = null;

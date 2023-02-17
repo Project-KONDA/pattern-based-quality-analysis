@@ -222,7 +222,7 @@ public class Cypher03NeoElementPathParamTest extends NeoPathParamTest {
 			buildMockSimpleEdge();
 			neoPathParam.setNeoPathPart(super.mockSimpleEdge);
 			assumeNotNull(neoPathParam.getNeoPathPart());
-			assertEquals("-[varElementEdge1]-", neoPathParam.generateCypher()); 
+			assertEquals("-[varEEdge1]-", neoPathParam.generateCypher()); 
 			
 			//With a NeoComplexEdge	
 			NeoComplexEdge neoComplexEdge = FACTORY.createNeoComplexEdge();
@@ -240,7 +240,7 @@ public class Cypher03NeoElementPathParamTest extends NeoPathParamTest {
 			neoPathParam.setNeoPathPart(neoComplexEdge);
 			assumeTrue(neoPathParam.getNeoPathPart().getNeoPathPartEdgeLeafs().size() == 2);
 			assumeNotNull(neoPathParam.getNeoPathPart());
-			assertEquals("-[varElementEdge1]--[varElementEdge2]-", neoPathParam.generateCypher());			
+			assertEquals("-[varEEdge1]--[varEEdge2]-", neoPathParam.generateCypher());			
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
