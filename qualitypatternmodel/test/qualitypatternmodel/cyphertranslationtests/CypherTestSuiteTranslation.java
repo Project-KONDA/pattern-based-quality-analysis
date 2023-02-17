@@ -1335,6 +1335,16 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 					+ "   varEEdge2");
 			i++;
 			
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varENode5)\n"
+					+ "MATCH (varENode5)-[varEEdge2]-(varENode6)\n"
+					+ "WHERE NOT (EXISTS {\n"
+					+ "         MATCH (varENode5)-[varEEdge5]-(varENode7)}\n"
+					+ "      AND EXISTS (varENode5.normalizedGerman))\n"
+					+ "WITH varENode5, COUNT(varENode6) AS myCounter1\n"
+					+ "WHERE myCounter1 = 1.0\n"
+					+ "RETURN varENode5");
+			i++;
+			
 			assertTrue(NOT_ALL_PATTERN_HAVE_BEEN_CHECK, i == completePatterns.size());
 		} catch (Exception e) {
 			System.out.println(e);

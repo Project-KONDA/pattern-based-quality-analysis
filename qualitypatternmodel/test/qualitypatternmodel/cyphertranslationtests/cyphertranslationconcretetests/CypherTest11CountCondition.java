@@ -1,7 +1,6 @@
 package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
 import java.util.ArrayList;
-
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
@@ -15,12 +14,16 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountPattern;
+import qualitypatternmodel.patternstructure.Formula;
+import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.NumberElement;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.impl.CountPatternImpl;
 
 public class CypherTest11CountCondition extends CypherTranslation {
@@ -47,6 +50,7 @@ public class CypherTest11CountCondition extends CypherTranslation {
 		completePatterns.add(getCountAPropertyNode());
 		completePatterns.add(getCountAProperty());
 		completePatterns.add(getCountWithRelations());
+		completePatterns.add(getMultiCountsWithNotExistsInPattern());
 	}
 	
 	@Override
@@ -100,6 +104,7 @@ public class CypherTest11CountCondition extends CypherTranslation {
 		return completePattern;
 	}
 	
+	
 	private CompletePattern getMultiCountsInPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = CypherTest11CountCondition.getComplexBasePattern();
 		CountCondition countCond = CypherTest11CountCondition.getBaseCountCoundition(completePattern);
@@ -109,6 +114,37 @@ public class CypherTest11CountCondition extends CypherTranslation {
 		CountPatternImpl countPatternImpl = (CountPatternImpl) countCond.getCountPattern();
 		countPatternImpl.getGraph().getNodes().get(0).setReturnNode(true);
 		countPatternImpl.getGraph().getNodes().get(1).setReturnNode(true);
+		
+		return completePattern;
+	}
+	
+	private CompletePattern getMultiCountsWithNotExistsInPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = CypherTest11CountCondition.getComplexBasePattern();
+		CountCondition countCond = CypherTest11CountCondition.getBaseCountCoundition(completePattern);
+		
+		CountPattern countPattern = countCond.getCountPattern();
+		NotCondition notCondition = PatternstructureFactory.eINSTANCE.createNotCondition();
+		Formula formula = PatternstructureFactory.eINSTANCE.createFormula();
+		QuantifiedCondition quantifiedCondition1 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		QuantifiedCondition quantifiedCondition2 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		
+		countPattern.setCondition(notCondition);
+		notCondition.setCondition(formula);
+		formula.setCondition1(quantifiedCondition1);
+		formula.setCondition2(quantifiedCondition2);
+		
+		quantifiedCondition1.getGraph().getNodes().get(0).addOutgoing().getTarget().makeComplex();
+		quantifiedCondition2.getGraph().getNodes().get(0).addOutgoing().getTarget().makePrimitive();
+		
+		completePattern.createNeo4jAdaption();
+		
+		CountPatternImpl countPatternImpl = (CountPatternImpl) countCond.getCountPattern();
+		countPatternImpl.getGraph().getNodes().get(0).setReturnNode(false);
+		countPatternImpl.getGraph().getNodes().get(1).setReturnNode(true);
+		
+		ParameterList paramters = completePattern.getParameterList();
+		NeoPropertyPathParam neoPropertyPathParam = (NeoPropertyPathParam) paramters.getParameters().get(7);
+		neoPropertyPathParam.setNeoPropertyName("normalizedGerman");
 		
 		return completePattern;
 	}
