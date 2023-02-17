@@ -288,6 +288,12 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 				assertThrows(InvalidityException.class, () -> {exceptionHandler(cp);},
 						EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
 			}
+			completePatterns.clear();
+			assertDoesNotThrow(() -> new CypherTest11CountCondition().buildUnsupportedException(completePatterns));
+			for (CompletePattern cp : completePatterns) {
+				assertThrows(Exception.class, () -> {exceptionHandler(cp);},
+				EXCEPTION_MESSAGE_UNSUPPORTED_MESSAGE_EXCEPTION);
+			}
 		}
 
 	@Test
