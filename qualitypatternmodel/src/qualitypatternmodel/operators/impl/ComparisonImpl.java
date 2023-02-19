@@ -422,111 +422,17 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			String argument2Translation, String comp) throws InvalidityException {
 		boolean isValid = checkForValidCypherNode();
 //		checkForValidIdElement(); // --> There is no comparison between ComplexNode and PatamterValue
-		//Check for correct addressing if a NeoPropertyNode is selected as a first argument
-		boolean firstAIsProperty = false;
-		if (getArgument1() instanceof NeoPropertyNode) {
-			final String[] nodes = ((NeoPropertyNode) getArgument1()).generateCypher().split(CypherSpecificConstants.SEPERATOR);
-			argument1Translation = concatenatePropertyNodes(cypher, nodes, true);
-			firstAIsProperty = true;
-		}
-		//Check for correct addressing if a NeoPropertyNode is selected as a second argument
-		boolean secondAIsProperty = false;
-		if (getArgument2() instanceof NeoPropertyNode) {
-			final String[] nodes = ((NeoPropertyNode) getArgument1()).generateCypher().split(CypherSpecificConstants.SEPERATOR);
-			argument2Translation = concatenatePropertyNodes(cypher, nodes, false);
-			secondAIsProperty = true;
-		}
 		if (isValid) {
-			//Checks if the id function has to be added.
-			if (firstAIsProperty) {
-				cypher.append(argument1Translation);
-			} else {
-				cypher.append(String.format(CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_ID, argument1Translation));				
-			}
+			cypher.append(String.format(CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_ID, argument1Translation));
 			cypher.append(CypherSpecificConstants.ONE_WHITESPACE + comp
 					+ CypherSpecificConstants.ONE_WHITESPACE);
-			//Checks if the id function has to be added.
-			if (secondAIsProperty) {
-				cypher.append(argument2Translation);
-			} else {
-				cypher.append(String.format(CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_ID, argument2Translation));
-			}
+			cypher.append(String.format(CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_ID, argument2Translation));
 		} else {
 			throw new UnsupportedOperationException();
 		}
 	}
 	
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @param cypher
-	 * @param nodes
-	 * @return
-	 * @throws InvalidityException
-	 * This generates the equality for all NeoPropertyNodes.
-	 */
-	private String concatenatePropertyNodes(final StringBuilder cypher, final String[] nodes, final boolean firstArgument) throws InvalidityException {
-		final StringBuilder tempCypher = new StringBuilder();		
-		if (firstArgument) {
-			getNeoPropertyIdAsFirstArgument(cypher, nodes, tempCypher);
-		} else {
-			getNeoPropertyIdAsSecondArgument(cypher, nodes, tempCypher);			
-		}
-		if (tempCypher.isEmpty()) {
-			throw new InvalidityException(NOTHING_TO_ADDRESS);
-		}
-		return tempCypher.toString();
-	}
 
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @param cypher
-	 * @param nodes
-	 * @param tempCypher
-	 * Builds the agrument1 String as a equivalent for the comparisons for all nodes for a NeoPropertyNode. Just needed for the ID()-Function of Cypher.
-	 */
-	private final void getNeoPropertyIdAsFirstArgument(final StringBuilder cypher, final String[] nodes,
-			final StringBuilder tempCypher) {
-		final String first = nodes[0];
-		if (nodes.length >= 2) {
-			for (int ix = 1; ix < nodes.length; ix++) {
-				tempCypher.append(String.format(CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_ID, first));
-				cypher.append(CypherSpecificConstants.ONE_WHITESPACE + ComparisonOperator.EQUAL_VALUE + CypherSpecificConstants.ONE_WHITESPACE);
-				tempCypher.append(String.format(CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_ID, nodes[ix]));
-				tempCypher.append(CypherSpecificConstants.ONE_WHITESPACE);
-				tempCypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
-				tempCypher.append(CypherSpecificConstants.ONE_WHITESPACE);
-			}
-			tempCypher.append(CypherSpecificConstants.ONE_WHITESPACE);
-		}
-		tempCypher.append(String.format(CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_ID, first));
-	}
-
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @param cypher
-	 * @param nodes
-	 * @param tempCypher
-	 * Builds the agrument2 String as a equivalent for the comparisons for all nodes for a NeoPropertyNode. Just needed for the ID()-Function of Cypher.
-	 */
-	private final void getNeoPropertyIdAsSecondArgument(final StringBuilder cypher, final String[] nodes,
-			final StringBuilder tempCypher) {
-		int i = 0;
-		String first = null;
-		for (String s : nodes) {
-			i = i + 1;
-			if (!tempCypher.isEmpty() && first != null) {
-				tempCypher.append(CypherSpecificConstants.ONE_WHITESPACE);
-				tempCypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
-				tempCypher.append(CypherSpecificConstants.ONE_WHITESPACE);
-				tempCypher.append(String.format(CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_ID, first));
-				cypher.append(CypherSpecificConstants.ONE_WHITESPACE + ComparisonOperator.EQUAL_VALUE + CypherSpecificConstants.ONE_WHITESPACE);
-				tempCypher.append(String.format(CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_ID, s));					
-			} else {
-				tempCypher.append(String.format(CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_ID, s));
-				first = s;
-			}
-		}
-	}
 	
 	/**
 	 * @author Lukas Sebastian Hofmann
