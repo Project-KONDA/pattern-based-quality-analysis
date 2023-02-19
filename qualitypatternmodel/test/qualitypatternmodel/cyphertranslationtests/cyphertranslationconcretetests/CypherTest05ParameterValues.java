@@ -105,6 +105,7 @@ public class CypherTest05ParameterValues extends CypherTranslation {
 		completePatternsExceptions.add(generateDateParamException());
 		completePatternsExceptions.add(generateTimeParamException());
 		completePatternsExceptions.add(generateDateTimeParamException());
+		completePatternsExceptions.add(generateUntypedParamterException());
 	}
 	
 	private CompletePattern getConcreteComparisonPattern(ParameterValue parameter, String propertyName) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -258,6 +259,16 @@ public class CypherTest05ParameterValues extends CypherTranslation {
 		DateTimeParam dateTimeParam = new DateTimeParamImpl();
 		dateTimeParam.setValue(null);	
 		CompletePattern completePattern = getConcreteComparisonPattern(dateTimeParam, "bornOn");
+		
+		return completePattern;
+	}
+	
+	private CompletePattern generateUntypedParamterException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = CypherTranslation.getBasePattern();
+		Node se = completePattern.getGraph().getNodes().get(1);
+		UntypedParameterValue p = se.addPrimitiveComparison();
+		
+		completePattern.createNeo4jAdaption();
 		
 		return completePattern;
 	}
