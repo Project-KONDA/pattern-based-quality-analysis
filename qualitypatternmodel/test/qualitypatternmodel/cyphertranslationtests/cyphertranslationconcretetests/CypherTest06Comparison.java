@@ -264,6 +264,19 @@ public class CypherTest06Comparison extends CypherTranslation {
 		return completePattern1;
 	}
 	
+//	private CompletePattern generateInNoList()
+//			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern completePattern1 = getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(ComparisonOperator.GREATER);
+//				
+//		PrimitiveNode primitiveNode = (PrimitiveNode) completePattern1.getGraph().getNodes().get(1);
+//		Comparison comp = primitiveNode.getComparison1().get(0);
+//		TypeOptionParam typeOptionParam = new TypeOptionParamImpl();
+//		typeOptionParam.setValue(Re);
+//		comp.setTypeOption(typeOptionParam);
+//		
+//		return completePattern1;
+//	}
+	
 	//ComplexNode / PrimitiveNode can not be compared
 	public static void generateComparisonTypeException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();

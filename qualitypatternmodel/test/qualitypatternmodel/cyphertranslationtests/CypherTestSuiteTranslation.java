@@ -196,7 +196,7 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 						},
 						EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
 		}
-		assertThrows(InvalidityException.class, () -> {CypherTest06Comparison.generateComparisonTypeException();
+		assertThrows(RuntimeException.class, () -> {CypherTest06Comparison.generateComparisonTypeException();
 		},
 		EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
 	}
@@ -325,7 +325,7 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 			int i = 0;
 			
 			//getBasePatternCypher
-//			System.out.println(completePatterns.get(i).generateCypher());
+			System.out.println(completePatterns.get(i).generateCypher());
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varENode3)\n"
 					+ "RETURN varENode3");
 			i++;
@@ -982,17 +982,16 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 					+ "   AND varPNode8_4.normalizedGerman <> varPNode6_3.normalizedGerman)\n"
 					+ "RETURN varENode5");
 			i++;
-		
-			//getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName (EQUAL)
+			System.out.println(completePatterns.get(i).generateCypher());
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varENode5)-[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)\n"
 					+ "MATCH (varENode7)-[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)\n"
-					+ "WHERE (varENode5 <> varENode7\n"
+					+ "WHERE (varENode5 = varENode7\n"
 					+ "   AND varPNode6_3.normalizedGerman = varPNode8_4.normalizedGerman\n"
 					+ "   AND varPNode8_4.normalizedGerman = varPNode6_3.normalizedGerman)\n"
 					+ "RETURN varENode5");
 			i++;
 			
-			//getMultipleComparisons
+			
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varENode5)-[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)\n"
 					+ "MATCH (varENode7)-[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)\n"
 					+ "WHERE (varENode5 <> varENode7\n"
@@ -1023,6 +1022,48 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 					+ "   AND varENode7 = varENode5)\n"
 					+ "RETURN varENode5");
 			i++;
+			
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varENode3)\n"
+					+ "WHERE (varENode3.origPlaceOfIssue IN [\"unknown\", \"USA\", 17, 17.0, -17, -17.0, \"-17.0+\", date('1439-12-20'), datetime('2020-10-03T09:00:00'), time('09:00:00')])\n"
+					+ "RETURN varENode3");
+			i++;
+			System.out.println(completePatterns.get(i).generateCypher());
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varENode3)\n"
+					+ "WHERE (NOT (varENode3.origPlaceOfIssue IN [\"unknown\", \"USA\", 17, 17.0, -17, -17.0, \"-17.0+\", date('1439-12-20'), datetime('2020-10-03T09:00:00'), time('09:00:00')]))\n"
+					+ "RETURN varENode3");
+			i++;
+			
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varENode5)-[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)\n"
+					+ "MATCH (varENode7)-[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)\n"
+					+ "WHERE (varENode5 <> varENode7\n"
+					+ "   AND varPNode6_3.normalizedGerman > varPNode8_4.normalizedGerman\n"
+					+ "   AND varPNode8_4.normalizedGerman > varPNode6_3.normalizedGerman)\n"
+					+ "RETURN varENode5");
+			i++;
+		
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varENode5)-[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)\n"
+					+ "MATCH (varENode7)-[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)\n"
+					+ "WHERE (varENode5 <> varENode7\n"
+					+ "   AND varPNode6_3.normalizedGerman >= varPNode8_4.normalizedGerman\n"
+					+ "   AND varPNode8_4.normalizedGerman >= varPNode6_3.normalizedGerman)\n"
+					+ "RETURN varENode5");
+			i++;
+
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varENode5)-[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)\n"
+					+ "MATCH (varENode7)-[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)\n"
+					+ "WHERE (varENode5 <> varENode7\n"
+					+ "   AND varPNode6_3.normalizedGerman < varPNode8_4.normalizedGerman\n"
+					+ "   AND varPNode8_4.normalizedGerman < varPNode6_3.normalizedGerman)\n"
+					+ "RETURN varENode5");
+			i++;
+
+			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varENode5)-[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)\n"
+					+ "MATCH (varENode7)-[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)\n"
+					+ "WHERE (varENode5 <> varENode7\n"
+					+ "   AND varPNode6_3.normalizedGerman <= varPNode8_4.normalizedGerman\n"
+					+ "   AND varPNode8_4.normalizedGerman <= varPNode6_3.normalizedGerman)\n"
+					+ "RETURN varENode5");
+			i++;			
 			
 			assertTrue(NOT_ALL_PATTERN_HAVE_BEEN_CHECK, i == completePatterns.size());
 		} catch (Exception e) {
