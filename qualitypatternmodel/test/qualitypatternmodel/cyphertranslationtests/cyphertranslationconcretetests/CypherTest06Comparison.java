@@ -1,9 +1,7 @@
 package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
 import java.util.ArrayList;
-import org.mockito.Mockito;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
-import qualitypatternmodel.adaptionneo4j.NeoPlace;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
@@ -17,6 +15,8 @@ import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
+import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
@@ -43,30 +43,36 @@ public class CypherTest06Comparison extends CypherTranslation {
  		completePatterns.add(getComparisonTwoNeoNodes(ComparisonOperator.EQUAL));
 		completePatterns.add(getComparisonTwoNeoNodes(ComparisonOperator.NOTEQUAL));
 
-//            for (ComparisonOperator c : ComparisonOperator.values()) { // --> Could be done later one when all operators are implemented
-//            	if (!(c == ComparisonOperator.ISNULL || c == ComparisonOperator.ISNOTNULL)) {
-//            		completePatterns.add(getComparisonTwoNeoNodes(c));
-//            	}
-//            }
-//            completePatterns.add(getComparisonTwoNeoNodes(null)); //--> Why is doing this bullshit ???
-
-//            for (ComparisonOperator c : ComparisonOperator.values()) { // --> Could be done later one when all operators are implemented
-//        		if (!(c == ComparisonOperator.ISNULL || c == ComparisonOperator.ISNOTNULL)) {
-//        			completePatterns.add(getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(c));
-//        		}
-//        	   }
-		
+		//Defaults
 		completePatterns.add(getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(ComparisonOperator.NOTEQUAL));
 		completePatterns.add(getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(ComparisonOperator.EQUAL));
+		
+		//ID-Function
 		completePatterns.add(getMultipleComparisons());
 		completePatterns.add(getCompareByElementId(ComparisonOperator.NOTEQUAL));
 		completePatterns.add(getCompareByElementId(ComparisonOperator.EQUAL));
+		
+		//IN
+		ArrayList<ParameterValue> values = new CypherTest05ParameterValues().getTestParameters();
+		CompletePattern completePattern1 = CypherTest05ParameterValues.getConcreteComparisonPatternWithIn(values.get(7), "origPlaceOfIssue");
+		completePatterns.add(completePattern1);
+		
+		//NOT IN
+		completePattern1 = getInFunctionNeg(values);
+		completePatterns.add(completePattern1);
+		
+		//Mocked
+		completePatterns.add(getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(ComparisonOperator.GREATER));
+		completePatterns.add(getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(ComparisonOperator.GREATEROREQUAL));
+		completePatterns.add(getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(ComparisonOperator.LESS));
+		completePatterns.add(getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(ComparisonOperator.LESSOREQUAL));
 	}
     
 	@Override
 	public void buildInvalidityExceptionPatterns(ArrayList<CompletePattern> completePatternsExceptions)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		completePatternsExceptions.add(setWrongOptionParam());
+		completePatternsExceptions.add(generateInFunctionException());
+		completePatternsExceptions.add(generateInFunctionNoListException());
 	}
     
 	@Override
@@ -80,10 +86,8 @@ public class CypherTest06Comparison extends CypherTranslation {
 		
 		completePattern.createNeo4jAdaption();
 		NeoElementNode neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(0);
-		neoNode.setNeoPlace(NeoPlace.BEGINNING); 
 		
 		neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(2);
-		neoNode.setNeoPlace(NeoPlace.BEGINNING);
 		
 		return completePattern;
 	}
@@ -95,30 +99,17 @@ public class CypherTest06Comparison extends CypherTranslation {
 		Comparison comp;
 		ComparisonOptionParam comparisonOptionParam;
 		
-		if (comparisonOption.getValue() == ComparisonOperator.EQUAL_VALUE || comparisonOption.getValue() == ComparisonOperator.NOTEQUAL_VALUE) {
-			complexNode1.addComparison(complexNode2);
-			comp = complexNode1.getComparison1().get(0);
-			comparisonOptionParam = new ComparisonOptionParamImpl();
-			comparisonOptionParam.setValue(comparisonOption);
-			comp.setOption(comparisonOptionParam);
-			complexNode2.addComparison(complexNode1);
-			comp = complexNode2.getComparison1().get(0);
-			comparisonOptionParam = new ComparisonOptionParamImpl();
-			comparisonOptionParam.setValue(comparisonOption);
-			comp.setOption(comparisonOptionParam);			
-		} else {			
-			complexNode1.addComparison(complexNode2);
-			comp = complexNode1.getComparison1().get(0);
-			ComparisonOptionParamImpl comparisonOptionParam1 = Mockito.mock(ComparisonOptionParamImpl.class);
-			Mockito.when(comparisonOptionParam1.getValue()).thenReturn(comparisonOption);
-			comp.setOption(comparisonOptionParam1);
-			complexNode2.addComparison(complexNode1);
-			comp = complexNode2.getComparison1().get(0);
-			ComparisonOptionParamImpl comparisonOptionParam2 = Mockito.mock(ComparisonOptionParamImpl.class);
-			Mockito.when(comparisonOptionParam2.getValue()).thenReturn(comparisonOption);
-			comp.setOption(comparisonOptionParam2);	
-			
-		}
+		
+		complexNode1.addComparison(complexNode2);
+		comp = complexNode1.getComparison1().get(0);
+		comparisonOptionParam = new ComparisonOptionParamImpl();
+		comparisonOptionParam.setValue(comparisonOption);
+		comp.setOption(comparisonOptionParam);
+		complexNode2.addComparison(complexNode1);
+		comp = complexNode2.getComparison1().get(0);
+		comparisonOptionParam = new ComparisonOptionParamImpl();
+		comparisonOptionParam.setValue(comparisonOption);
+		comp.setOption(comparisonOptionParam);			
 	}
 	
 	private void prepaireGenericComparisonTwoNodesById(ComparisonOperator comparisonOption,
@@ -139,6 +130,16 @@ public class CypherTest06Comparison extends CypherTranslation {
 		prepaireGenericComparisonTwoNeoPropertiesWithNeoPathParm(comparisonOption, completePattern);
 				
 		completePattern.createNeo4jAdaption();
+		
+		if ((comparisonOption.getValue() == ComparisonOperator.EQUAL_VALUE || comparisonOption.getValue() == ComparisonOperator.NOTEQUAL_VALUE)) {			
+			ParameterList paramter = completePattern.getParameterList();
+			ComparisonOptionParam comparisonOptionParam1 = (ComparisonOptionParam) paramter.getParameters().get(1);
+			comparisonOptionParam1.setValue(comparisonOption);
+			
+			ComparisonOptionParam comparisonOptionParam2 = (ComparisonOptionParam) paramter.getParameters().get(3);
+			comparisonOptionParam2.setValue(comparisonOption);
+		}
+		
 		adaptTheNeo4JConstructsForProp(completePattern);
 		
 		return completePattern;
@@ -209,48 +210,79 @@ public class CypherTest06Comparison extends CypherTranslation {
 	private CompletePattern getCompareByElementId(ComparisonOperator comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = CypherTest06Comparison.getCompBasePatternWithReverse();
 		prepaireGenericComparisonTwoNodesById(comp, completePattern);
-//		prepaireGenericComparisonTwoNeoPropertiesWithNeoPathParm(ComparisonOperator.EQUAL, completePattern);
-//		prepaireGenericComparisonTwoNeoPropertiesWithNeoPathParm(ComparisonOperator.NOTEQUAL, completePattern); 
 		
 		adaptTheNeo4JConstructsForProp(completePattern);
 		
 		return completePattern;
 	}
 	
+	private CompletePattern getInFunctionNeg(ArrayList<ParameterValue> values)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern1;
+		
+		completePattern1 = CypherTest05ParameterValues.getConcreteComparisonPatternWithIn(values.get(7), "origPlaceOfIssue");
+		
+		ParameterList paramter = completePattern1.getParameterList();
+		ComparisonOptionParam comparisonOptionParam1 = (ComparisonOptionParam) paramter.getParameters().get(1);
+		comparisonOptionParam1.setValue(ComparisonOperator.NOTEQUAL);
+		
+		return completePattern1;
+	}
+	
 	//Exceptions 	
-	//has to be fixed
-	private CompletePattern setWrongOptionParam() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTest06Comparison.getCompBasePatternWithReverse();
+	private CompletePattern generateInFunctionException()
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern1;
+		ArrayList<ParameterValue> values = new CypherTest05ParameterValues().getTestParameters();
+		completePattern1 = CypherTest05ParameterValues.getConcreteComparisonPatternWithIn(values.get(7), "origPlaceOfIssue");
 		
-		ComparisonOperator mockLogicalOperator = Mockito.mock(ComparisonOperator.class);
-		Mockito.when(mockLogicalOperator.ordinal()).thenReturn(-1);
-
-		prepaireGenericComparisonTwoNodes(mockLogicalOperator, completePattern);
-		completePattern.createNeo4jAdaption();		
+		ParameterList paramter = completePattern1.getParameterList();
+		ComparisonOptionParam comparisonOptionParam1 = (ComparisonOptionParam) paramter.getParameters().get(1);
+		comparisonOptionParam1.setValue(ComparisonOperator.LESS);
 		
-		return completePattern;
-	}
-
-	
-	//FACTORY-METHODS 
-	private CompletePattern getBasePatternList() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		PatternstructurePackage.eINSTANCE.eClass();
-		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		
-		CompletePattern completePattern = factory.createCompletePattern();
-		completePattern.setName("MyPattern");
-		
-		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
-		PrimitiveNode primitiveNode1 = completePattern.getGraph().addPrimitiveNode();
-		completePattern.getGraph().addRelation(complexNode1, primitiveNode1);
-		
-		ComplexNode complexNode2 = completePattern.getGraph().addComplexNode();
-		PrimitiveNode primitiveNode2 = completePattern.getGraph().addPrimitiveNode();
-		completePattern.getGraph().addRelation(complexNode2, primitiveNode2);
-	
-		return completePattern;	
+		return completePattern1;
 	}
 	
+	private CompletePattern generateInFunctionNoListException()
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern1 = getComparisonTwoNeoPropertiesWithNeoPartsAndPropertyName(ComparisonOperator.GREATER);
+				
+		PrimitiveNode primitiveNode = (PrimitiveNode) completePattern1.getGraph().getNodes().get(1);
+		Comparison comp = primitiveNode.getComparison1().get(0);
+		TypeOptionParam typeOptionParam = new TypeOptionParamImpl();
+		typeOptionParam.setValue(ReturnType.LIST);
+		comp.setTypeOption(typeOptionParam);
+		
+		return completePattern1;
+	}
+	
+	
+	
+//	private CompletePattern generateElementIdException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		PatternstructurePackage.eINSTANCE.eClass();
+//		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+//		
+//		CompletePattern completePattern = factory.createCompletePattern();
+//		completePattern.setName("MyPattern");
+//		
+//		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
+//		TextLiteralParam textLiteralParam = new TextLiteralParamImpl();
+//		complexNode1.add
+//		//addPrimitiveComparison(textLiteralParam);
+//		
+//		Comparison comp = complexNode1.getComparison1().get(0);
+//		TypeOptionParam typeOptionParam = new TypeOptionParamImpl();
+//		typeOptionParam.setValue(ReturnType.ELEMENTID);
+//		
+//		completePattern.createNeo4jAdaption();
+//		
+//		//A Alpha numerical value is not valid
+//		textLiteralParam.setValue("NOTVALIDHASH");
+//		
+//		return completePattern;
+//	}
+	
+	//FACTORY-METHODS 	
 	protected static CompletePattern getCompBasePatternWithReverse() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;

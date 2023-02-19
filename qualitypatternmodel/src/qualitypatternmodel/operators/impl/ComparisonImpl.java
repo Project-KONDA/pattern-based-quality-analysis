@@ -329,7 +329,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 */
 	private final void matchCypherOperators(StringBuilder cypher, final String argument1Translation,
 		final String argument2Translation) throws InvalidityException {
-		//Not all PATH are reachable since the option (ComparisonOptionParam) does not allow to set all boolean operators
+		
 		switch(option.getValue()) {
 		case EQUAL:
 			generateCypherDependingOnReturnType(cypher, argument1Translation, argument2Translation, CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_EQUAL);
@@ -421,7 +421,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	private void generateCypherIDComparison(final StringBuilder cypher, String argument1Translation,
 			String argument2Translation, String comp) throws InvalidityException {
 		boolean isValid = checkForValidCypherNode();
-		checkForValidIdElement();
+//		checkForValidIdElement(); // --> There is no comparison between ComplexNode and PatamterValue
 		//Check for correct addressing if a NeoPropertyNode is selected as a first argument
 		boolean firstAIsProperty = false;
 		if (getArgument1() instanceof NeoPropertyNode) {
@@ -453,31 +453,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			}
 		} else {
 			throw new UnsupportedOperationException();
-		}
-	}
-
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @return
-	 * @throws InvalidityException
-	 * Checks if an argument are instance of ComplexNode or an numerical value.
-	 * Otherwise it throws an InvalidityException.
-	 */
-	private final void checkForValidIdElement() throws InvalidityException {
-		final String regex = "[0-9]+";
-		final Pattern p = Pattern.compile(regex);
-		Matcher m = null;
-		if (!(getArgument1() instanceof ComplexNode)) {
-			m = p.matcher(getArgument1().generateCypher());
-			if(!m.find()) {
-				throw new InvalidityException(ARGUMENT1_IS_NOT_A_NODE_EITHER_A_NUMERICAL_VALUE_CONTEXT_ID_FUNCTION);
-			}
-		}
-		if (!(getArgument2() instanceof ComplexNode)) {
-			m = p.matcher(getArgument2().generateCypher());
-			if(!m.find()) {
-				throw new InvalidityException(ARGUMENT2_IS_NOT_A_NODE_EITHER_A_NUMERICAL_VALUE_CONTEXT_ID_FUNCTION);
-			}
 		}
 	}
 	
@@ -590,11 +565,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * Returns true if a Node is referred to. In the other case it returns false.  
 	 */
 	private final boolean checkForValidCypherNode() {
-		return (getArgument1() instanceof NeoElementNode && getArgument2() instanceof NeoElementNode) || 
-				((getArgument1() instanceof NeoElementNode && getArgument2() instanceof NeoPropertyNode && ((NeoPropertyEdge)((NeoPropertyNode) getArgument2()).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() != null)) ||
-				((getArgument1() instanceof NeoPropertyEdge && ((NeoPropertyEdge)((NeoPropertyNode) getArgument2()).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() != null) && getArgument2() instanceof NeoElementNode) ||
-				((getArgument1() instanceof NeoPropertyEdge && ((NeoPropertyEdge)((NeoPropertyNode) getArgument2()).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() != null) && 
-				getArgument2() instanceof NeoPropertyNode && ((NeoPropertyEdge)((NeoPropertyNode) getArgument2()).getIncoming().get(0)).getNeoPropertyPathParam().getNeoPathPart() != null);
+		return (getArgument1() instanceof NeoElementNode && getArgument2() instanceof NeoElementNode);
 	}
 	
 	/**
@@ -698,7 +669,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			}
 		}
 		
-		if (abstractionLevel == AbstractionLevel.ABSTRACT) {
+		if (abstractionLevel == AbstractionLevel.GENERIC) {
 			isAbstractNeo4jValid();
 		}
 		
@@ -712,19 +683,17 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * Checks if correct arguments are set for a comparison of Neo4J
 	 */
 	private final void isAbstractNeo4jValid() throws InvalidityException {
-		if (getArgument1() instanceof NeoPropertyNode && getArgument2() instanceof NeoPropertyNode) {
+		if (getArgument1() instanceof PrimitiveNode && getArgument2() instanceof PrimitiveNode) {
 			return;
-		} else if (getArgument1() instanceof NeoPropertyNode && !(getArgument2() instanceof NeoPropertyNode)) {
+		} else if (getArgument1() instanceof PrimitiveNode && !(getArgument2() instanceof ComplexNode)) {
 			return;
-		} else if (!(getArgument1() instanceof NeoPropertyNode) && getArgument2() instanceof NeoPropertyNode) {
+		} else if (!(getArgument1() instanceof ComplexNode) && getArgument2() instanceof PrimitiveNode) {
 			return;
-		} else if (getArgument1() instanceof NeoElementNode && getArgument2() instanceof NeoElementNode) {
+		} else if (getArgument1() instanceof ComplexNode && getArgument2() instanceof ComplexNode) {
 			return;
-		} else if (getArgument1() instanceof NeoElementNode && getArgument2() instanceof NeoElementNode) {
+		} else if (getArgument1() instanceof ComplexNode && getArgument2() instanceof NumberParam) {
 			return;
-		} else if (getArgument1() instanceof NeoElementNode && getArgument2() instanceof NumberParam) {
-			return;
-		} else if (getArgument1() instanceof NumberParam && getArgument2() instanceof NeoElementNode) {
+		} else if (getArgument1() instanceof NumberParam && getArgument2() instanceof ComplexNode) {
 			return;
 		}
 		throw new InvalidityException(THE_GIVEN_ARGUMENTS_ARE_NOT_VALID_FOR_NEO4J_POSSIBLIE_ARE_2X_PROPERTIES_2X_NODES_1X_PROPERTY_1X_PARAM);

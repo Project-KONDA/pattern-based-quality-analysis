@@ -117,7 +117,7 @@ public class CypherTest05ParameterValues extends CypherTranslation {
 		return completePattern;
 	}
 	
-	private static CompletePattern getConcreteComparisonPatternWithIn(ParameterValue parameter, String propertyName) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	static CompletePattern getConcreteComparisonPatternWithIn(ParameterValue parameter, String propertyName) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getConcreteBaseComparisonPattern(parameter);
 		
 		PrimitiveNode primitiveNode = (PrimitiveNode) completePattern.getGraph().getNodes().get(1);
@@ -133,7 +133,7 @@ public class CypherTest05ParameterValues extends CypherTranslation {
 		return completePattern;
 	}
 	
-	private ArrayList<ParameterValue> getTestParameters() {
+	ArrayList<ParameterValue> getTestParameters() {
 		ArrayList<ParameterValue> parameters = new ArrayList<ParameterValue>();
 
 		ParametersPackage.eINSTANCE.eClass();
