@@ -197,8 +197,8 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 						EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
 		}
 		assertThrows(RuntimeException.class, () -> {CypherTest06Comparison.generateComparisonTypeException();
-		},
-		EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
+			},
+			EXCEPTION_MESSAGE_INVALIDTIY_EXCEPTION);
 	}
 
 	@Test
