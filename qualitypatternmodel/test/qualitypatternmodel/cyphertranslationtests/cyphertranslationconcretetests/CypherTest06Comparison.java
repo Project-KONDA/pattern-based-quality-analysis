@@ -30,6 +30,14 @@ public class CypherTest06Comparison extends CypherTranslation {
     	try {
     		comparison.tester();         
         	comparison.invalidtyExceptionTester();
+        	try {
+        		//Adaption Exception Test
+        		System.out.println("Start Exception Test:");
+        		generateComparisonTypeException();
+        		System.out.println("Test faild");
+        	} catch (RuntimeException e) {
+        		System.out.println("Test successfull");
+			}
     	} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();
@@ -256,31 +264,21 @@ public class CypherTest06Comparison extends CypherTranslation {
 		return completePattern1;
 	}
 	
+	//ComplexNode / PrimitiveNode can not be compared
+	public static void generateComparisonTypeException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		
+		CompletePattern completePattern = factory.createCompletePattern();
+		completePattern.setName("MyPattern");
+		
+		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
+		PrimitiveNode pn = completePattern.getGraph().addPrimitiveNode();
+		
+		complexNode1.addComparison(pn);
 	
-	
-//	private CompletePattern generateElementIdException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		PatternstructurePackage.eINSTANCE.eClass();
-//		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-//		
-//		CompletePattern completePattern = factory.createCompletePattern();
-//		completePattern.setName("MyPattern");
-//		
-//		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
-//		TextLiteralParam textLiteralParam = new TextLiteralParamImpl();
-//		complexNode1.add
-//		//addPrimitiveComparison(textLiteralParam);
-//		
-//		Comparison comp = complexNode1.getComparison1().get(0);
-//		TypeOptionParam typeOptionParam = new TypeOptionParamImpl();
-//		typeOptionParam.setValue(ReturnType.ELEMENTID);
-//		
-//		completePattern.createNeo4jAdaption();
-//		
-//		//A Alpha numerical value is not valid
-//		textLiteralParam.setValue("NOTVALIDHASH");
-//		
-//		return completePattern;
-//	}
+		completePattern.createNeo4jAdaption();
+	}
 	
 	//FACTORY-METHODS 	
 	protected static CompletePattern getCompBasePatternWithReverse() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

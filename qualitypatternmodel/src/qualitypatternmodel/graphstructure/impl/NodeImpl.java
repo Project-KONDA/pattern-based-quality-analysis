@@ -1491,9 +1491,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				System.out.println("Adding Condition Failed: " + e.getMessage());		
 				e.printStackTrace();
 			}			
-		}
-		System.out.println("Adding Condition Failed: Nodes not of same type " + this.getClass().getSimpleName() + " " + node.getClass().getSimpleName() + "\n");		
-		return null;
+		}		
+		throw new RuntimeException("Adding Condition Failed: Nodes not of same type " + this.getClass().getSimpleName() + " " + node.getClass().getSimpleName() + "\n");
 	}
 
 	private RdfLiteralNode adaptAsRdfLiteralNodeRecursive() throws InvalidityException {		
