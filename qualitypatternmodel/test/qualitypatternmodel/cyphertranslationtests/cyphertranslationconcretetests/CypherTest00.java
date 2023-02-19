@@ -1,5 +1,7 @@
 package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 
 import org.eclipse.emf.common.util.BasicEList;
@@ -26,8 +28,26 @@ public class CypherTest00 extends CypherTranslation {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CypherTest00 cypher00 = new CypherTest00();
 		try {
-			cypher00.tester();         
+			long timeElapsedNanos = 0;
+			long timeElapsedMillis =  0;
+			
+			for (int i = 0; i <= 9; i++) {
+				Instant start = Instant.now();
+				
+				cypher00.tester();   
+				
+				Instant finish = Instant.now();
+				timeElapsedNanos += Duration.between(start, finish).toNanos();
+				timeElapsedMillis += Duration.between(start, finish).toMillisPart();
+			}			
+			
 			cypher00.invalidtyExceptionTester();
+			
+			System.out.println("--- Average Run ---");
+			long timeElapsedNanosAvg = timeElapsedNanos / 10;
+			System.out.println(timeElapsedNanosAvg);
+			long timeElapsedSecAvg = timeElapsedMillis / 10;
+			System.out.println(timeElapsedSecAvg);
 		} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();
