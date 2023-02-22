@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.xmltranslationtests.Test01Axis;
 import qualitypatternmodel.xmltranslationtests.Test01Reference;
@@ -111,13 +114,8 @@ public class XmlJUnitTests {
 	}
 	
 	@Test
-	public void test09() {
-		try {
-			ArrayList<CompletePattern> testpairs = Test09ComplexComparison.getPatterns();
-		} catch (Exception e) {
-			assert(false);
-		}
-		assert(true);
+	public void test09() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		ArrayList<CompletePattern> testpairs = Test09ComplexComparison.getPatterns();
 	}
 	
 	@Test

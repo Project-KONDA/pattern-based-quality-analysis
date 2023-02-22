@@ -78,9 +78,6 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  */
 public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	private static final String THE_GIVEN_ARGUMENTS_ARE_NOT_VALID_FOR_NEO4J_POSSIBLIE_ARE_2X_PROPERTIES_2X_NODES_1X_PROPERTY_1X_PARAM = "The given Arguments are not valid for Neo4J \n Possiblie are: \n\t 2xProperties \n\t 2xNodes \n\t 1xProperty+1xParam \n\t 1xNeoElementNode+NumberParam";
-	private static final String ARGUMENT1_IS_NOT_A_NODE_EITHER_A_NUMERICAL_VALUE_CONTEXT_ID_FUNCTION = "Argument1 is not a Node either a numerical value (Context: ID-Function)";
-	private static final String ARGUMENT2_IS_NOT_A_NODE_EITHER_A_NUMERICAL_VALUE_CONTEXT_ID_FUNCTION = "Argument2 is not a Node either a numerical value (Context: ID-Function)";
-	private static final String NOTHING_TO_ADDRESS = "Nothing to address";
 	private static final String NOT_ALLOWED_OPERATOR_FOR_LIST_COMPARISON = "Not allowed operator for List comparison";
 	private static final String THE_SECOND_ARGUMENT_HAS_TO_BE_A_LIST = "The second Argument has to be a List";
 
@@ -575,35 +572,35 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			}
 		}
 		
-		if (abstractionLevel == AbstractionLevel.GENERIC) {
-			isAbstractNeo4jValid();
-		}
+//		if (abstractionLevel == AbstractionLevel.GENERIC) {
+//			isAbstractNeo4jValid();
+//		}
 		
 		super.isValidLocal(abstractionLevel);
 		isCycleFree();
 	}
 	
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @throws InvalidityException
-	 * Checks if correct arguments are set for a comparison of Neo4J
-	 */
-	private final void isAbstractNeo4jValid() throws InvalidityException {
-		if (getArgument1() instanceof PrimitiveNode && getArgument2() instanceof PrimitiveNode) {
-			return;
-		} else if (getArgument1() instanceof PrimitiveNode && !(getArgument2() instanceof ComplexNode)) {
-			return;
-		} else if (!(getArgument1() instanceof ComplexNode) && getArgument2() instanceof PrimitiveNode) {
-			return;
-		} else if (getArgument1() instanceof ComplexNode && getArgument2() instanceof ComplexNode) {
-			return;
-		} else if (getArgument1() instanceof ComplexNode && getArgument2() instanceof NumberParam) {
-			return;
-		} else if (getArgument1() instanceof NumberParam && getArgument2() instanceof ComplexNode) {
-			return;
-		}
-		throw new InvalidityException(THE_GIVEN_ARGUMENTS_ARE_NOT_VALID_FOR_NEO4J_POSSIBLIE_ARE_2X_PROPERTIES_2X_NODES_1X_PROPERTY_1X_PARAM);
-	}
+//	/**
+//	 * @author Lukas Sebastian Hofmann
+//	 * @throws InvalidityException
+//	 * Checks if correct arguments are set for a comparison of Neo4J
+//	 */
+//	private final void isAbstractNeo4jValid() throws InvalidityException {
+//		if (getArgument1() instanceof PrimitiveNode && getArgument2() instanceof PrimitiveNode) {
+//			return;
+//		} else if (getArgument1() instanceof PrimitiveNode && !(getArgument2() instanceof ComplexNode)) {
+//			return;
+//		} else if (!(getArgument1() instanceof ComplexNode) && getArgument2() instanceof PrimitiveNode) {
+//			return;
+//		} else if (getArgument1() instanceof ComplexNode && getArgument2() instanceof ComplexNode) {
+//			return;
+//		} else if (getArgument1() instanceof ComplexNode && getArgument2() instanceof NumberParam) {
+//			return;
+//		} else if (getArgument1() instanceof NumberParam && getArgument2() instanceof ComplexNode) {
+//			return;
+//		}
+//		throw new InvalidityException(THE_GIVEN_ARGUMENTS_ARE_NOT_VALID_FOR_NEO4J_POSSIBLIE_ARE_2X_PROPERTIES_2X_NODES_1X_PROPERTY_1X_PARAM);
+//	}
 
 	/**
 	 * <!-- begin-user-doc --> 
