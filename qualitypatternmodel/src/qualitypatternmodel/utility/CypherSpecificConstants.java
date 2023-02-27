@@ -11,7 +11,7 @@ public class CypherSpecificConstants {
 	public static final String VARIABLE_PROPERTY_NODE = "varPNode";
 	public static final String VARIABLE_ELEMENT_EGDE = "varEEdge";
 	public static final String VARIABLE_PROPERTY_EGDE = "varPEdge";
-	public static final String INTERNAL_EDGE_NODE = "intEgNode";
+	public static final String INTERNAL_EDGE_NODE = "varEgNode";
 	public static final String CONNECTION = "-";
 	public static final String CYPHER_SEPERATOR = ",";
 	public static final String CYPHER_SEPERATOR_WITH_ONE_WITHESPACE = ", ";

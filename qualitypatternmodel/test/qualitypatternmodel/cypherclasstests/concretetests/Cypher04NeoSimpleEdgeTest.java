@@ -43,8 +43,8 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
 
 @DisplayName("NeoSimpleEdge Test")
 public class Cypher04NeoSimpleEdgeTest extends NeoPathPartTest {
-	private static final String VAR_ELEMENT_EDGE_1_TEST_LABEL_INT_EG_NODE_1_TEST_LABEL = "-[varEEdge-1:testLabel]-(intEgNode-1:testLabel)";
-	private static final String VAR_ELEMENT_EDGE_1_INT_EG_NODE_1_TEST_LABEL = "-[varEEdge-1]-(intEgNode-1:testLabel)";
+	private static final String VAR_ELEMENT_EDGE_1_TEST_LABEL_INT_EG_NODE_1_TEST_LABEL = "-[varEEdge-1:testLabel]-(varEgNode-1:testLabel)";
+	private static final String VAR_ELEMENT_EDGE_1_INT_EG_NODE_1_TEST_LABEL = "-[varEEdge-1]-(varEgNode-1:testLabel)";
 	private static final String TEST_LABEL = "testLabel";
 	private static final String VAR_ELEMENT_EDGE__RIGHT = "-[varEEdge-1]->";
 	private static final String VAR_ELEMENT_EDGE_12_LEFT = "<-[varEEdge-1]-";
@@ -53,7 +53,7 @@ public class Cypher04NeoSimpleEdgeTest extends NeoPathPartTest {
 	private static final String VAR_ELEMENT_EDGE_1_TEST_LABEL_LEFT = "<-[varEEdge-1:testLabel]-";
 	private static final String VAR_ELEMENT_EDGE1_1 = "varEEdge1_1";
 	private static final String VAR_PROPERTY_EDGE1_1 = "varPEdge1_1";
-	private static final String VAR_ELEMENT_EDGE_1_INT_EG_NODE_1 = "-[varEEdge-1]-(intEgNode-1)";
+	private static final String VAR_ELEMENT_EDGE_1_INT_EG_NODE_1 = "-[varEEdge-1]-(varEgNode-1)";
 	private static final String VAR_ELEMENT_EDGE_LEFT = VAR_ELEMENT_EDGE_12_LEFT;
 	private static final String VAR_ELEMENT_EDGE_1 = "-[varEEdge-1]-";
 	private static final String VAR_ELEMENT_EDGE_RIGHT = VAR_ELEMENT_EDGE__RIGHT;
@@ -458,7 +458,7 @@ public class Cypher04NeoSimpleEdgeTest extends NeoPathPartTest {
 			
 			//is not isLastEdge
 			neoSimpleEdge.addNeoTargetNodeLabel(TEST_LABEL);
-			assertTrue(neoSimpleEdge.getCypherInnerEdgeNodes(isReturn).compareTo("intEgNode-1") == 0);						
+			assertTrue(neoSimpleEdge.getCypherInnerEdgeNodes(isReturn).compareTo("varEgNode-1") == 0);						
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
