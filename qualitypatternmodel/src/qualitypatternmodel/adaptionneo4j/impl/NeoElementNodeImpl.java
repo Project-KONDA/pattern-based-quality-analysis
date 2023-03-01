@@ -112,7 +112,7 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	@Override
 	public String generateCypher() throws InvalidityException {
 		if (getIncomingMapping() == null) {
-			StringBuilder cypher = new StringBuilder();
+			final StringBuilder cypher = new StringBuilder();
 			cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
 			cypher.append(CypherSpecificConstants.VARIABLE_ELEMENT_NODE);
 			cypher.append(getOriginalID());
