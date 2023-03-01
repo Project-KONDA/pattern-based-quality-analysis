@@ -77,7 +77,7 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 		if(!super.inputIsValid()) {
 			return super.generateCypher();
 		} 
-		StringBuilder cypher = new StringBuilder();
+		final StringBuilder cypher = new StringBuilder();
 		int i = 0;
 		cypher.append("[");
 		for(String s : getValues()) {
