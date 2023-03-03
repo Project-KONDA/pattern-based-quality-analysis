@@ -117,7 +117,7 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 	 * @return boolean.class
 	 * Matches for a Date-Value.
 	 */
-	private boolean isValueDate(String value) {
+	private boolean isValueDate(final String value) {
 		boolean isValuesDate = true;
 		final String regex = REGEX_DATE;
 		isValuesDate = matching(value, regex);
@@ -130,9 +130,9 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 	 * @return boolean.class
 	 * Matches for a DateTime-Value.
 	 */
-	private boolean isValueDateTime(String value) {
+	private boolean isValueDateTime(final String value) {
 		boolean isValuesDateTime = true;
-		final String regex = REGEX_DATATIME;
+		final String regex = MultiListParamImpl.REGEX_DATATIME;
 		isValuesDateTime = matching(value, regex);
 		return isValuesDateTime;
 	}
@@ -143,9 +143,9 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 	 * @return boolean.class
 	 * Matches for a Time-Value.
 	 */
-	private boolean isValueTime(String value) {
+	private boolean isValueTime(final String value) {
 		boolean isValuesTime = true;
-		final String regex = REGEX_TIME;
+		final String regex = MultiListParamImpl.REGEX_TIME;
 		isValuesTime = matching(value, regex);
 		return isValuesTime;
 	}
@@ -156,9 +156,9 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 	 * @return boolean.class
 	 * Matches for a integer-Value.
 	 */
-	private boolean isValueInt(String value) {
+	private boolean isValueInt(final String value) {
 		boolean isValuesInt = true;
-		final String regex = REGEX_INT;
+		final String regex = MultiListParamImpl.REGEX_INT;
 		isValuesInt = matching(value, regex);
 		return isValuesInt;
 	}
@@ -169,9 +169,9 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 	 * @return boolean.class
 	 * Matches for a float-Value.
 	 */
-	private boolean isValueFloat(String value) {
+	private boolean isValueFloat(final String value) {
 		boolean isValueFloat = true;
-		final String regex = REGEX_FLOAT;
+		final String regex = MultiListParamImpl.REGEX_FLOAT;
 		isValueFloat = matching(value, regex);
 		return isValueFloat;
 	}
