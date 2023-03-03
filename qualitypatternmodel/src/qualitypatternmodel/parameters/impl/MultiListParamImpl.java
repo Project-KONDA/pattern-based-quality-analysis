@@ -19,6 +19,12 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class MultiListParamImpl extends ListParamImpl implements MultiListParam {
+	private static final String REGEX_DATE = "\\d{4}-\\d{2}-\\d{2}";
+	private static final String REGEX_TIME = "\\d{2}:\\d{2}:\\d{2}";
+	private static final String REGEX_INT = "[+-]?[0-9]+";
+	private static final String REGEX_FLOAT = "[+-]?[0-9]+(\\.[0-9]+)?([Ee][+-]?[0-9]+)?";
+	private static final String REGEX_DATATIME = "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}";
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -91,18 +97,18 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param value
-	 * @param areValuesInts
 	 * @param regex
 	 * @return boolean.class
 	 * Handles the matching of the Regex. 
 	 */
-	private boolean matching(String value, boolean areValuesInts, String regex) {
+	private boolean matching(final String value, final String regex) {
+		boolean isValuesInts = true; 
 		Pattern p = Pattern.compile(regex);
 		Matcher m = p.matcher(value);
 		if (!(m.find() && m.group().equals(value))) {
-			areValuesInts = false;
+			isValuesInts = false;
 		}
-		return areValuesInts;
+		return isValuesInts;
 	}
 	
 	/**
@@ -113,8 +119,8 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 	 */
 	private boolean isValueDate(String value) {
 		boolean isValuesDate = true;
-		String regex = "\\d{4}-\\d{2}-\\d{2}";
-		isValuesDate = matching(value, isValuesDate, regex);
+		final String regex = REGEX_DATE;
+		isValuesDate = matching(value, regex);
 		return isValuesDate;
 	}
 
@@ -126,8 +132,8 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 	 */
 	private boolean isValueDateTime(String value) {
 		boolean isValuesDateTime = true;
-		String regex = "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}";
-		isValuesDateTime = matching(value, isValuesDateTime, regex);
+		final String regex = REGEX_DATATIME;
+		isValuesDateTime = matching(value, regex);
 		return isValuesDateTime;
 	}
 
@@ -138,10 +144,10 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 	 * Matches for a Time-Value.
 	 */
 	private boolean isValueTime(String value) {
-		boolean areValuesTime = true;
-		String regex = "\\d{2}:\\d{2}:\\d{2}";
-		areValuesTime = matching(value, areValuesTime, regex);
-		return areValuesTime;
+		boolean isValuesTime = true;
+		final String regex = REGEX_TIME;
+		isValuesTime = matching(value, regex);
+		return isValuesTime;
 	}
 	
 	/**
@@ -152,8 +158,8 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 	 */
 	private boolean isValueInt(String value) {
 		boolean isValuesInt = true;
-		String regex = "[+-]?[0-9]+";
-		isValuesInt = matching(value, isValuesInt, regex);
+		final String regex = REGEX_INT;
+		isValuesInt = matching(value, regex);
 		return isValuesInt;
 	}
 	
@@ -165,8 +171,8 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 	 */
 	private boolean isValueFloat(String value) {
 		boolean isValueFloat = true;
-		String regex = "[+-]?[0-9]+(\\.[0-9]+)?([Ee][+-]?[0-9]+)?";
-		isValueFloat = matching(value, isValueFloat, regex);
+		final String regex = REGEX_FLOAT;
+		isValueFloat = matching(value, regex);
 		return isValueFloat;
 	}
 	
