@@ -45,6 +45,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  */
 public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNode {
 	
+	private static final String CYPHER_RETURN_QUERY_PART = CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_DISTINCT + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + "%s" + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
 	private static final int CYPHER_RETURN_ID = 0;
 	/**
 	 * The cached value of the '{@link #getNeoNodeLabels() <em>Neo Node Labels</em>}' containment reference.
@@ -159,7 +160,7 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 			if (isVariableDistinctInUse) {
 				cypher = this.getCypherVariable();
 			} else {
-				cypher = CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_DISTINCT + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + this.getCypherVariable() + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
+				cypher = String.format(CYPHER_RETURN_QUERY_PART, this.getCypherVariable());
 			}
 			returnElement.put(NeoElementNodeImpl.CYPHER_RETURN_ID, cypher);
 		} else {
