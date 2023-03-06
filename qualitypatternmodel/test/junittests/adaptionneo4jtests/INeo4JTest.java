@@ -1,4 +1,4 @@
-package qualitypatternmodel.adaptionneo4jtests;
+package junittests.adaptionneo4jtests;
 
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
 import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jFactoryImpl;

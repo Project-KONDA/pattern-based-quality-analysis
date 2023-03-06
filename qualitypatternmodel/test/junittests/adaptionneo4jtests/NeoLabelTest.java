@@ -1,4 +1,4 @@
-package qualitypatternmodel.adaptionneo4jtests;
+package junittests.adaptionneo4jtests;
 
 import qualitypatternmodel.adaptionneo4j.NeoLabel;
 

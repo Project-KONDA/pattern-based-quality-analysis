@@ -1,4 +1,4 @@
-package qualitypatternmodel.adaptionneo4jtests.concretetests;
+package junittests.adaptionneo4jtests.concretetests;
 
 import static org.junit.Assert.assertNull;
 import static org.junit.Assume.assumeNotNull;
@@ -22,11 +22,11 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mockito;
 
+import junittests.adaptionneo4jtests.NeoNodeTest;
 import qualitypatternmodel.adaptionneo4j.NeoNode;
 import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.impl.NeoElementNodeImpl;
-import qualitypatternmodel.adaptionneo4jtests.NeoNodeTest;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.impl.ParameterListImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;

@@ -1,4 +1,4 @@
-package qualitypatternmodel.adaptionneo4jtests;
+package junittests.adaptionneo4jtests;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;

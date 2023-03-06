@@ -1,4 +1,4 @@
-package qualitypatternmodel.adaptionneo4jtests;
+package junittests.adaptionneo4jtests;
 
 interface INeoPathParamTest extends INeo4JTest {
 	void getReturnInnerEdgeNodes();

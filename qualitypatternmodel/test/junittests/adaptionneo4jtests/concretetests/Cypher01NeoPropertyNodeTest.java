@@ -1,4 +1,4 @@
-package qualitypatternmodel.adaptionneo4jtests.concretetests;
+package junittests.adaptionneo4jtests.concretetests;
 
 import static org.junit.Assert.assertNull;
 import static org.junit.Assume.assumeTrue;
@@ -23,6 +23,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mockito;
 
+import junittests.adaptionneo4jtests.NeoNodeTest;
 import qualitypatternmodel.adaptionneo4j.NeoNode;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
@@ -30,7 +31,6 @@ import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyEdgeImpl;
-import qualitypatternmodel.adaptionneo4jtests.NeoNodeTest;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Relation;

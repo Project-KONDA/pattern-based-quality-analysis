@@ -1,4 +1,4 @@
-package qualitypatternmodel.adaptionneo4jtests;
+package junittests.adaptionneo4jtests;
 
 public interface INeoPathPartTest extends INeo4JTest {
 	void getNeoPathPartEdges();

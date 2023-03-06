@@ -1,4 +1,4 @@
-package qualitypatternmodel.adaptionneo4jtests.concretetests;
+package junittests.adaptionneo4jtests.concretetests;
 
 
 import static org.junit.Assert.assertFalse;
@@ -25,6 +25,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mockito;
 
+import junittests.adaptionneo4jtests.NeoPathPartTest;
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
 import qualitypatternmodel.adaptionneo4j.NeoDirection;
 import qualitypatternmodel.adaptionneo4j.NeoEdgeLabelParam;
@@ -36,7 +37,6 @@ import qualitypatternmodel.adaptionneo4j.impl.NeoPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoElementPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
-import qualitypatternmodel.adaptionneo4jtests.NeoPathPartTest;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.utility.CypherSpecificConstants;

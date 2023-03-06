@@ -1,4 +1,4 @@
-package qualitypatternmodel.adaptionneo4jtests;
+package junittests.adaptionneo4jtests;
 
 public abstract class NeoPropertyNameParamTest implements INeoPropertyNameParamTest {
 

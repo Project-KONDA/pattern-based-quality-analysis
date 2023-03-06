@@ -1,4 +1,4 @@
-package qualitypatternmodel.adaptionneo4jtests;
+package junittests.adaptionneo4jtests;
 
 
 interface INeoNodeTest extends INeo4JTest, INeoElementTest {
