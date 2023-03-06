@@ -30,7 +30,6 @@ public class NeoEdgeLabelParamImpl extends TextLiteralParamImpl implements NeoEd
 		super();
 	}
 
-	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

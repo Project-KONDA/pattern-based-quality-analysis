@@ -37,6 +37,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge {
+	private static final String VARIABLE_PROPERTY_SEPERATOR = ".";
 	private static final String NO_NEO_PROPERTY_PATH_PARAM_NEED_TO_BE_SET = "No NeoPropertyPathParam need to be set";
 	private static final String NO_NEO_PROPERTY_NAME_WAS_SPECIFIED = "No NeoPropertyName was specified";
 	private static final String THE_SOURCE_NEEDS_TO_BE_SET = "The Source needs to be set";
@@ -180,7 +181,7 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 				if (getNeoPropertyPathParam().getNeoPropertyName() == null) {
 					throw new InvalidityException(NO_NEO_PROPERTY_NAME_WAS_SPECIFIED);
 				}
-				cypher = variable + "." + getNeoPropertyPathParam().getNeoPropertyName();
+				cypher = variable + VARIABLE_PROPERTY_SEPERATOR + getNeoPropertyPathParam().getNeoPropertyName();
 				result = cypher;
 			}
 		} else {

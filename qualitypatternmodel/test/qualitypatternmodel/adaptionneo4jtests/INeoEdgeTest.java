@@ -1,4 +1,4 @@
- package qualitypatternmodel.cypherclasstests;
+ package qualitypatternmodel.adaptionneo4jtests;
 
 
 interface INeoEdgeTest extends INeo4JTest, INeoElementTest {

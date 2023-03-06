@@ -73,11 +73,13 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 			if (neoPathParts == null || neoPathParts.size() == 0) {
 				throw new InvalidityException(NEO_PARTS_CAN_NOT_BE_EMPTY);
 			}
+			
 			if (neoPathParts.size() > 1) {
 					generateMultiEdgeCypher(cypher);
 			} else {
 				generateSingleEdgeCypher(cypher, neoPathParts);
 			} 
+			
 			return cypher.toString();
 		}
 		return CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES;	

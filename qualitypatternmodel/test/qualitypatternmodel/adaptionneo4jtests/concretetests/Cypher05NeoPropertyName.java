@@ -1,4 +1,4 @@
-package qualitypatternmodel.cypherclasstests.concretetests;
+package qualitypatternmodel.adaptionneo4jtests.concretetests;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -13,7 +13,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNameParam;
-import qualitypatternmodel.cypherclasstests.NeoPropertyNameParamTest;
+import qualitypatternmodel.adaptionneo4jtests.NeoPropertyNameParamTest;
 import qualitypatternmodel.exceptions.InvalidityException;
 
 public class Cypher05NeoPropertyName extends NeoPropertyNameParamTest {

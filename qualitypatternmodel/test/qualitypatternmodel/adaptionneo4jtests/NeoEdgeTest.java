@@ -1,4 +1,4 @@
-package qualitypatternmodel.cypherclasstests;
+package qualitypatternmodel.adaptionneo4jtests;
 
 
 import static org.junit.Assume.assumeTrue;

@@ -1,4 +1,4 @@
-package qualitypatternmodel.cypherclasstests.concretetests;
+package qualitypatternmodel.adaptionneo4jtests.concretetests;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -12,7 +12,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import qualitypatternmodel.adaptionneo4j.NeoEdgeLabelParam;
-import qualitypatternmodel.cypherclasstests.NeoLabelTest;
+import qualitypatternmodel.adaptionneo4jtests.NeoLabelTest;
 import qualitypatternmodel.exceptions.InvalidityException;
 
 public class Cypher05NeoEdgeLabelParamTest extends NeoLabelTest {

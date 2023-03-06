@@ -1,4 +1,4 @@
-package qualitypatternmodel.cypherclasstests;
+package qualitypatternmodel.adaptionneo4jtests;
 
 import org.junit.platform.suite.api.SelectPackages;
 import org.junit.platform.suite.api.Suite;

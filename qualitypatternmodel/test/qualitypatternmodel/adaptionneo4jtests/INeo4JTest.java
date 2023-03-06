@@ -1,4 +1,4 @@
-package qualitypatternmodel.cypherclasstests;
+package qualitypatternmodel.adaptionneo4jtests;
 
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
 import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jFactoryImpl;

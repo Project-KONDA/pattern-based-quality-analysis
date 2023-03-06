@@ -4,7 +4,7 @@ import org.junit.platform.suite.api.SelectClasses;
 import org.junit.platform.suite.api.Suite;
 import org.junit.platform.suite.api.SuiteDisplayName;
 
-import qualitypatternmodel.cypherclasstests.TestSuiteClassTests;
+import qualitypatternmodel.adaptionneo4jtests.TestSuiteClassTests;
 import qualitypatternmodel.cyphertranslationtests.CypherTestSuiteTranslationWithDbTests;
 import qualitypatternmodel.cyphertranslationtests.CypherTestSuiteTranslationWithoutDbTests;
 
