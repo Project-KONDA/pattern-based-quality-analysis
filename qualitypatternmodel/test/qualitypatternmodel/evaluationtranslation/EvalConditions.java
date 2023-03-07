@@ -94,10 +94,7 @@ public class EvalConditions {
 			ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
 			completePattern.setName("MyNbCount");
 			ComplexNode complexNode2 = completePattern.getGraph().addComplexNode();
-			completePattern.getGraph().addRelation(complexNode1, complexNode2);
-			ComplexNode complexNode3 = completePattern.getGraph().addComplexNode();
-			completePattern.getGraph().addRelation(complexNode1, complexNode3);
-			
+			completePattern.getGraph().addRelation(complexNode1, complexNode2);			
 			
 			CountCondition countCond = PatternstructureFactory.eINSTANCE.createCountCondition();
 			countCond.setPattern(completePattern);
@@ -120,8 +117,6 @@ public class EvalConditions {
 		public static CompletePattern abstractMyNbCount() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 			final CompletePattern completePattern = (CompletePattern) genericMyNbCount().createNeo4jAdaption();
 			
-			final CountPattern countPattern = ((CountCondition) completePattern.getCondition()).getCountPattern();
-			countPattern.getGraph().getNodes().get(2).setReturnNode(true);
 			return completePattern;
 		}
 }
