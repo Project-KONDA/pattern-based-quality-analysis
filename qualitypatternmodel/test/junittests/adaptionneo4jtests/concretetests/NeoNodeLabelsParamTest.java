@@ -18,7 +18,7 @@ import junittests.adaptionneo4jtests.NeoLabelTest;
 import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 
-public class Cypher05NeoNodeLabelsParamTest extends NeoLabelTest {
+public class NeoNodeLabelsParamTest extends NeoLabelTest {
 
 	NeoNodeLabelsParam nodeLabel = null;
 	

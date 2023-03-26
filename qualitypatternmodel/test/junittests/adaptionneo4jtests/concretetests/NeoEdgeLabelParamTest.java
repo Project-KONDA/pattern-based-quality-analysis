@@ -15,7 +15,7 @@ import junittests.adaptionneo4jtests.NeoLabelTest;
 import qualitypatternmodel.adaptionneo4j.NeoEdgeLabelParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 
-public class Cypher05NeoEdgeLabelParamTest extends NeoLabelTest {
+public class NeoEdgeLabelParamTest extends NeoLabelTest {
 	NeoEdgeLabelParam edgeLabel = null;
 	
 	@BeforeEach
