@@ -8,15 +8,17 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import junittests.adaptionneo4jtests.NeoPropertyNameParamTest;
+import junittests.adaptionneo4jtests.INeoPropertyNameParamTest;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNameParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 
-public class NeoPropertyName extends NeoPropertyNameParamTest {
+@DisplayName("NeoPropertyNameParam Test")
+public class NeoPropertyNameParamTest implements INeoPropertyNameParamTest {
 
 	NeoPropertyNameParam propertyName = null;
 	
