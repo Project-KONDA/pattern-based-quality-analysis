@@ -36,7 +36,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 @DisplayName("NeoPropertyPathParam Test")
-public class Cypher03NeoPropertyPathParamTest extends NeoPathParamTest {
+public class NeoPropertyPathParamTest extends NeoPathParamTest {
 	private static final String NEO_PROPERTY_PATH_PARAM_VARIABLE_EAGE_ONE_CLAMPED = "NeoPropertyPathParam [1] " + "-"+ VARIABLE_EAGE_ONE_CLAMPED + "-";
 	private static final String ORIGINAL_PLACE_OF_ISSUE = "originalPlaceOfIssue";
 	private static final String INDEXPLACE = "INDEXPLACE";

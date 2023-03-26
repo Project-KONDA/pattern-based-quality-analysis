@@ -34,7 +34,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 @DisplayName("NeoElementPathParamTest")
-public class Cypher03NeoElementPathParamTest extends NeoPathParamTest {
+public class NeoElementPathParamTest extends NeoPathParamTest {
 	NeoElementPathParam neoPathParam = null;
 	
 	@BeforeAll

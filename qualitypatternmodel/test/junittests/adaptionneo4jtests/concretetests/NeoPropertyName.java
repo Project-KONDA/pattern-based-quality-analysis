@@ -16,7 +16,7 @@ import junittests.adaptionneo4jtests.NeoPropertyNameParamTest;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNameParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 
-public class Cypher05NeoPropertyName extends NeoPropertyNameParamTest {
+public class NeoPropertyName extends NeoPropertyNameParamTest {
 
 	NeoPropertyNameParam propertyName = null;
 	

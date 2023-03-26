@@ -42,7 +42,7 @@ import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 @DisplayName("NeoSimpleEdge Test")
-public class Cypher04NeoSimpleEdgeTest extends NeoPathPartTest {
+public class NeoSimpleEdgeTest extends NeoPathPartTest {
 	private static final String VAR_ELEMENT_EDGE_1_TEST_LABEL_INT_EG_NODE_1_TEST_LABEL = "-[varEEdge-1:testLabel]-(varEgNode-1:testLabel)";
 	private static final String VAR_ELEMENT_EDGE_1_INT_EG_NODE_1_TEST_LABEL = "-[varEEdge-1]-(varEgNode-1:testLabel)";
 	private static final String TEST_LABEL = "testLabel";

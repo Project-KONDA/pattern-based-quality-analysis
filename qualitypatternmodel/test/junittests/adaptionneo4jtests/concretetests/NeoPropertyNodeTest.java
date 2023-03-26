@@ -38,7 +38,7 @@ import qualitypatternmodel.graphstructure.impl.NodeImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 @DisplayName("NeoPropertyNode Tests")
-public class Cypher01NeoPropertyNodeTest extends NeoNodeTest {
+public class NeoPropertyNodeTest extends NeoNodeTest {
 	NeoPropertyNode neoPropertyNode = null;
 
 	

@@ -36,7 +36,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
 
 
 @DisplayName("NeoPropertyEdge Test")
-public class Cypher02NeoPropertyEdgeTest extends NeoEdgeTest {
+public class NeoPropertyEdgeTest extends NeoEdgeTest {
 	private static final String NEO_PROPERTY_NODE = CypherSpecificConstants.VARIABLE_PROPERTY_NODE + 2;
 	private static final String PLACE_OF_ISSUE = "placeOfIssue";
 	private static final String NEO_PROPERTY_EDGE_1 = "NeoPropertyEdgeImpl [1]";

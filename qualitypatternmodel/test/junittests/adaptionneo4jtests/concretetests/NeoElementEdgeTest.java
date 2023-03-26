@@ -31,7 +31,7 @@ import qualitypatternmodel.parameters.impl.ParametersFactoryImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 @DisplayName("NeoElementEdge Test")
-public class Cypher02NeoElementEdgeTest extends NeoEdgeTest {
+public class NeoElementEdgeTest extends NeoEdgeTest {
 	private static final String NEO_PATH_PARAM_1 = "NeoPathParam [1] ";
 	private static final String NEO_ELEMENT_EDGE_IMPL_1 = "NeoElementEdgeImpl [1]";
 	NeoElementEdge neoEdge;
