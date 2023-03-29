@@ -257,7 +257,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	@Override
 	public void addNeoPathPart(NeoPathPart neoPathPart) {
 		if (neoPathPart != null) {
-			if (neoPathPart != null) {
+//			if (neoPathPart != null) {
 				getNeoPathParts().add(neoPathPart);
 				if (getNeoComplexEdge() != null) {
 					((NeoPathPartImpl) neoPathPart).setCount(this.getHighestComplexEdge().getCount());
@@ -267,8 +267,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 					((NeoPathPartImpl) neoPathPart).setCount(getCount());
 					checkAndSetIfIsLastEdge(neoPathPart);
 				}
-			}
-			
+//			}
 		}
 	}
 	
