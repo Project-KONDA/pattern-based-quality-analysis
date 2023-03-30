@@ -17,7 +17,7 @@ public class CypherEvalExNEx {
 		//New Ones - Valid for REGSTA-DB		
 		
 		//Dummy-files for old ones
-//		printExNEx();
+		printExNEx();
 		
 		System.out.println();
 		System.out.println("---");
