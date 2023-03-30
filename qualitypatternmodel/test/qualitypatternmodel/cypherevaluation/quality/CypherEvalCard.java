@@ -24,25 +24,25 @@ public class CypherEvalCard {
 		System.out.println();
 		
 		//Old Ones filled with dummy data
-//		printCard2Generic();
-//		
-//		System.out.println();
-//		System.out.println("---");
-//		System.out.println();
-//		
-//		printCard2PlusGeneric();
-//		
-//		System.out.println();
-//		System.out.println("---");
-//		System.out.println();
-//		
-//		printCard2CondGeneric();
-//		
-//		System.out.println();
-//		System.out.println("---");
-//		System.out.println();
-//
-//		printCard2CondPlusGeneric();
+		printCard2Generic();
+		
+		System.out.println();
+		System.out.println("---");
+		System.out.println();
+		
+		printCard2PlusGeneric();
+		
+		System.out.println();
+		System.out.println("---");
+		System.out.println();
+		
+		printCard2CondGeneric();
+		
+		System.out.println();
+		System.out.println("---");
+		System.out.println();
+
+		printCard2CondPlusGeneric();
 	}
 	
 	
