@@ -3,7 +3,9 @@ package qualitypatternmodel.cypherevaluation.quality;
 import java.time.Duration;
 import java.time.Instant;
 
+import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.cypherevaluation.utilis.DummyFiller;
 import qualitypatternmodel.evaluationquality.EvalCard;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -11,6 +13,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.TextListParam;
+import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class CypherEvalCard {
@@ -23,25 +26,25 @@ public class CypherEvalCard {
 		System.out.println();
 		
 		//Old Ones filled with dummy data
-		printCard2Generic();
-		
-		System.out.println();
-		System.out.println("---");
-		System.out.println();
-		
-		printCard2PlusGeneric();
-		
-		System.out.println();
-		System.out.println("---");
-		System.out.println();
-		
-		printCard2CondGeneric();
-		
-		System.out.println();
-		System.out.println("---");
-		System.out.println();
-
-		printCard2CondPlusGeneric();
+//		printCard2Generic();
+//		
+//		System.out.println();
+//		System.out.println("---");
+//		System.out.println();
+//		
+//		printCard2PlusGeneric();
+//		
+//		System.out.println();
+//		System.out.println("---");
+//		System.out.println();
+//		
+//		printCard2CondGeneric();
+//		
+//		System.out.println();
+//		System.out.println("---");
+//		System.out.println();
+//
+//		printCard2CondPlusGeneric();
 	}
 	
 	
@@ -73,8 +76,8 @@ public class CypherEvalCard {
 		ParameterList paramters = completePatternCard1.getParameterList();
 		TextListParam textListParam = (TextListParam) paramters.getParameters().get(2);
 		textListParam.addStringValue("Regesta");
-		NeoPropertyPathParam neoPathParam = (NeoPropertyPathParam) paramters.getParameters().get(3);
-		neoPathParam.setNeoPropertyName("url");
+		NeoElementPathParam neoElementPathParam = (NeoElementPathParam) paramters.getParameters().get(4);
+		((NeoSimpleEdge) neoElementPathParam.getNeoPathPart()).addNeoEdgeLabel("PLACE_OF_ISSUE");
 		
 		finish = Instant.now();
 		timeElapsed = Duration.between(start, finish).toMillis();
