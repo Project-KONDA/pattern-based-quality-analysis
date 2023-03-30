@@ -26,19 +26,19 @@ public class CypherEvalAppDup {
 		System.out.println();
 		
 		//Old Ones filled with dummy data
-//		printAppDup2Generic();
-//		
-//		System.out.println();
-//		System.out.println("---");
-//		System.out.println();
-//		
-//		printAppDup3Generic();	
-//		
-//		System.out.println();
-//		System.out.println("---");
-//		System.out.println();
-//
-//		printAppDup3CondGeneric();
+		printAppDup2Generic();
+		
+		System.out.println();
+		System.out.println("---");
+		System.out.println();
+		
+		printAppDup3Generic();	
+		
+		System.out.println();
+		System.out.println("---");
+		System.out.println();
+
+		printAppDup3CondGeneric();
 	}
 	
 	private static void getUniVio() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
