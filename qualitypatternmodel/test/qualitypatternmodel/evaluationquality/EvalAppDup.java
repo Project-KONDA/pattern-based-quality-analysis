@@ -224,6 +224,7 @@ public class EvalAppDup {
 		CompletePattern completePattern = factory.createCompletePattern();
 		completePattern.getGraph().getReturnNodes().get(0).makeComplex();
 		completePattern.getGraph().getReturnNodes().get(0).setName("main");
+		completePattern.setName("UNIQUENESS VIOLATION");
 		
 		ComplexNode main = (ComplexNode) completePattern.getGraph().getReturnNodes().get(0);
 				
