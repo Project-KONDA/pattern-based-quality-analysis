@@ -4,7 +4,6 @@ import java.time.Duration;
 import java.time.Instant;
 
 import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
-import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.cypherevaluation.utilis.DummyFiller;
 import qualitypatternmodel.evaluationquality.EvalCard;
@@ -13,7 +12,6 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.TextListParam;
-import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class CypherEvalCard {
