@@ -181,10 +181,10 @@ public class EvalCard {
 		
 		NumberElement numberElement = PatternstructureFactory.eINSTANCE.createNumberElement();
 		countCond.setArgument2(numberElement);
-		numberElement.getNumberParam().setValue(2.);
+		numberElement.getNumberParam().setValue(1.);
 		
 		ComparisonOptionParam comparisonOperator = countCond.getOption();
-		comparisonOperator.setValue(ComparisonOperator.GREATEROREQUAL);
+		comparisonOperator.setValue(ComparisonOperator.GREATER);
 		
 		return completePattern;
 	}
