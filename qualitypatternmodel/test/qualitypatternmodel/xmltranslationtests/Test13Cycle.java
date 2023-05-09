@@ -44,7 +44,7 @@ public class Test13Cycle {
 //		assertThrows(InvalidityException.class, () -> { completePattern.isValid(AbstractionLevel.CONCRETE);});
 //		((XmlElement) graph2.getNodes().get(0)).setXQueryDeepEqual(false);
 		
-		System.out.println(completePattern.myToString());
+//		System.out.println(completePattern.myToString());
 		
 		return completePattern;
 	}
