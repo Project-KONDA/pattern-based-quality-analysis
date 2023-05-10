@@ -13,14 +13,19 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
 
 import qualitypatternmodel.parameters.ParametersFactory;
+import qualitypatternmodel.parameters.ParametersPackage;
 
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
@@ -54,8 +59,100 @@ public class XmlAxisPartItemProvider extends PatternElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addPredefinedPropertyDescriptor(object);
+			addParameterReferencesPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
+			addXmlPropertyOptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Predefined feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPredefinedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Parameter_predefined_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_predefined_feature", "_UI_Parameter_type"),
+				 ParametersPackage.Literals.PARAMETER__PREDEFINED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Parameter References feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addParameterReferencesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Parameter_parameterReferences_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_parameterReferences_feature", "_UI_Parameter_type"),
+				 ParametersPackage.Literals.PARAMETER__PARAMETER_REFERENCES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Parameter_description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_description_feature", "_UI_Parameter_type"),
+				 ParametersPackage.Literals.PARAMETER__DESCRIPTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Xml Property Option feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addXmlPropertyOptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XmlAxisPart_xmlPropertyOption_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XmlAxisPart_xmlPropertyOption_feature", "_UI_XmlAxisPart_type"),
+				 AdaptionxmlPackage.Literals.XML_AXIS_PART__XML_PROPERTY_OPTION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -72,7 +169,6 @@ public class XmlAxisPartItemProvider extends PatternElementItemProvider {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(AdaptionxmlPackage.Literals.XML_AXIS_PART__TEXT_LITERAL_PARAM);
 			childrenFeatures.add(AdaptionxmlPackage.Literals.XML_AXIS_PART__XML_AXIS_OPTION_PARAM);
-			childrenFeatures.add(AdaptionxmlPackage.Literals.XML_AXIS_PART__XML_PROPERTY_OPTION);
 		}
 		return childrenFeatures;
 	}
@@ -128,9 +224,12 @@ public class XmlAxisPartItemProvider extends PatternElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(XmlAxisPart.class)) {
+			case AdaptionxmlPackage.XML_AXIS_PART__PREDEFINED:
+			case AdaptionxmlPackage.XML_AXIS_PART__DESCRIPTION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case AdaptionxmlPackage.XML_AXIS_PART__TEXT_LITERAL_PARAM:
 			case AdaptionxmlPackage.XML_AXIS_PART__XML_AXIS_OPTION_PARAM:
-			case AdaptionxmlPackage.XML_AXIS_PART__XML_PROPERTY_OPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -155,13 +254,18 @@ public class XmlAxisPartItemProvider extends PatternElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AdaptionxmlPackage.Literals.XML_AXIS_PART__XML_AXIS_OPTION_PARAM,
-				 AdaptionxmlFactory.eINSTANCE.createXmlAxisOptionParam()));
+				(AdaptionxmlPackage.Literals.XML_AXIS_PART__TEXT_LITERAL_PARAM,
+				 Adaptionneo4jFactory.eINSTANCE.createNeoEdgeLabelParam()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AdaptionxmlPackage.Literals.XML_AXIS_PART__XML_PROPERTY_OPTION,
-				 AdaptionxmlFactory.eINSTANCE.createXmlPropertyOptionParam()));
+				(AdaptionxmlPackage.Literals.XML_AXIS_PART__TEXT_LITERAL_PARAM,
+				 Adaptionneo4jFactory.eINSTANCE.createNeoPropertyNameParam()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AdaptionxmlPackage.Literals.XML_AXIS_PART__XML_AXIS_OPTION_PARAM,
+				 AdaptionxmlFactory.eINSTANCE.createXmlAxisOptionParam()));
 	}
 
 	/**

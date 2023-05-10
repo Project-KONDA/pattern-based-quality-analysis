@@ -9,7 +9,7 @@ import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 //import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
-import qualitypatternmodel.evaluation.EvalComp;
+import qualitypatternmodel.evaluationquality.EvalComp;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;

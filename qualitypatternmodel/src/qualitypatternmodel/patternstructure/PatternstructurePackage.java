@@ -7274,6 +7274,14 @@ public interface PatternstructurePackage extends EPackage {
 		EOperation COMPLETE_PATTERN___RESET_QUERY = eINSTANCE.getCompletePattern__ResetQuery();
 
 		/**
+		 * The meta object literal for the '<em><b>Generate Cypher Return</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPLETE_PATTERN___GENERATE_CYPHER_RETURN = eINSTANCE.getCompletePattern__GenerateCypherReturn();
+
+		/**
 		 * The meta object literal for the '<em><b>Generate Wikidata Sparql</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

@@ -6236,13 +6236,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_EDGE_LABEL_PARAM__XML_PROPERTY_OPTION_PARAM = ParametersPackage.TEXT_LITERAL_PARAM__XML_PROPERTY_OPTION_PARAM;
 
 	/**
-	 * The feature id for the '<em><b>Xml Axis Pair</b></em>' container reference.
+	 * The feature id for the '<em><b>Xml Axis Part</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE_LABEL_PARAM__XML_AXIS_PAIR = ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR;
+	int NEO_EDGE_LABEL_PARAM__XML_AXIS_PART = ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART;
 
 	/**
 	 * The feature id for the '<em><b>Contains</b></em>' reference list.
@@ -6850,13 +6850,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_NAME_PARAM__XML_PROPERTY_OPTION_PARAM = ParametersPackage.TEXT_LITERAL_PARAM__XML_PROPERTY_OPTION_PARAM;
 
 	/**
-	 * The feature id for the '<em><b>Xml Axis Pair</b></em>' container reference.
+	 * The feature id for the '<em><b>Xml Axis Part</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NAME_PARAM__XML_AXIS_PAIR = ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR;
+	int NEO_PROPERTY_NAME_PARAM__XML_AXIS_PART = ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART;
 
 	/**
 	 * The feature id for the '<em><b>Contains</b></em>' reference list.
@@ -7433,88 +7433,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	EReference getNeoElementEdge_NeoElementPathParam();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionneo4j.NeoEdge <em>Neo Edge</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Neo Edge</em>'.
-	 * @see qualitypatternmodel.adaptionneo4j.NeoEdge
-	 * @generated
-	 */
-	EClass getNeoEdge();
-
-	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionneo4j.NeoEdge#isReturnElement <em>Return Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Return Element</em>'.
-	 * @see qualitypatternmodel.adaptionneo4j.NeoEdge#isReturnElement()
-	 * @see #getNeoEdge()
-	 * @generated
-	 */
-	EAttribute getNeoEdge_ReturnElement();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionneo4j.NeoEdge#setIsReturnElement(boolean) <em>Set Is Return Element</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Set Is Return Element</em>' operation.
-	 * @see qualitypatternmodel.adaptionneo4j.NeoEdge#setIsReturnElement(boolean)
-	 * @generated
-	 */
-	EOperation getNeoEdge__SetIsReturnElement__boolean();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionneo4j.NeoEdge#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Return Inner Edge Nodes</em>' operation.
-	 * @see qualitypatternmodel.adaptionneo4j.NeoEdge#getReturnInnerEdgeNodes()
-	 * @generated
-	 */
-	EOperation getNeoEdge__GetReturnInnerEdgeNodes();
-
-	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionneo4j.NeoPathParam <em>Neo Path Param</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Neo Path Param</em>'.
-	 * @see qualitypatternmodel.adaptionneo4j.NeoPathParam
-	 * @generated
-	 */
-	EClass getNeoPathParam();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionneo4j.NeoPathParam#getNeoPathPart <em>Neo Path Part</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Neo Path Part</em>'.
-	 * @see qualitypatternmodel.adaptionneo4j.NeoPathParam#getNeoPathPart()
-	 * @see #getNeoPathParam()
-	 * @generated
-	 */
-	EReference getNeoPathParam_NeoPathPart();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionneo4j.NeoPathParam#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Return Inner Edge Nodes</em>' operation.
-	 * @see qualitypatternmodel.adaptionneo4j.NeoPathParam#getReturnInnerEdgeNodes()
-	 * @generated
-	 */
-	EOperation getNeoPathParam__GetReturnInnerEdgeNodes();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionneo4j.NeoPathParam#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Cypher Return Variable</em>' operation.
-	 * @see qualitypatternmodel.adaptionneo4j.NeoPathParam#getCypherReturnVariable()
-	 * @generated
-	 */
-	EOperation getNeoPathParam__GetCypherReturnVariable();
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionneo4j.NeoComplexEdge <em>Neo Complex Edge</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7847,6 +7765,88 @@ public interface Adaptionneo4jPackage extends EPackage {
 	EOperation getNeoPropertyEdge__GetCypherNodeVariable();
 
 	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionneo4j.NeoEdge <em>Neo Edge</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Neo Edge</em>'.
+	 * @see qualitypatternmodel.adaptionneo4j.NeoEdge
+	 * @generated
+	 */
+	EClass getNeoEdge();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionneo4j.NeoEdge#isReturnElement <em>Return Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Return Element</em>'.
+	 * @see qualitypatternmodel.adaptionneo4j.NeoEdge#isReturnElement()
+	 * @see #getNeoEdge()
+	 * @generated
+	 */
+	EAttribute getNeoEdge_ReturnElement();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionneo4j.NeoEdge#setIsReturnElement(boolean) <em>Set Is Return Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Is Return Element</em>' operation.
+	 * @see qualitypatternmodel.adaptionneo4j.NeoEdge#setIsReturnElement(boolean)
+	 * @generated
+	 */
+	EOperation getNeoEdge__SetIsReturnElement__boolean();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionneo4j.NeoEdge#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Return Inner Edge Nodes</em>' operation.
+	 * @see qualitypatternmodel.adaptionneo4j.NeoEdge#getReturnInnerEdgeNodes()
+	 * @generated
+	 */
+	EOperation getNeoEdge__GetReturnInnerEdgeNodes();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionneo4j.NeoPathParam <em>Neo Path Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Neo Path Param</em>'.
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPathParam
+	 * @generated
+	 */
+	EClass getNeoPathParam();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionneo4j.NeoPathParam#getNeoPathPart <em>Neo Path Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Neo Path Part</em>'.
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPathParam#getNeoPathPart()
+	 * @see #getNeoPathParam()
+	 * @generated
+	 */
+	EReference getNeoPathParam_NeoPathPart();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionneo4j.NeoPathParam#getReturnInnerEdgeNodes() <em>Get Return Inner Edge Nodes</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Return Inner Edge Nodes</em>' operation.
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPathParam#getReturnInnerEdgeNodes()
+	 * @generated
+	 */
+	EOperation getNeoPathParam__GetReturnInnerEdgeNodes();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionneo4j.NeoPathParam#getCypherReturnVariable() <em>Get Cypher Return Variable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Cypher Return Variable</em>' operation.
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPathParam#getCypherReturnVariable()
+	 * @generated
+	 */
+	EOperation getNeoPathParam__GetCypherReturnVariable();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionneo4j.NeoElement <em>Neo Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8026,74 +8026,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 		 * @generated
 		 */
 		EReference NEO_ELEMENT_EDGE__NEO_ELEMENT_PATH_PARAM = eINSTANCE.getNeoElementEdge_NeoElementPathParam();
-
-		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.adaptionneo4j.impl.NeoEdgeImpl <em>Neo Edge</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.adaptionneo4j.impl.NeoEdgeImpl
-		 * @see qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jPackageImpl#getNeoEdge()
-		 * @generated
-		 */
-		EClass NEO_EDGE = eINSTANCE.getNeoEdge();
-
-		/**
-		 * The meta object literal for the '<em><b>Return Element</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NEO_EDGE__RETURN_ELEMENT = eINSTANCE.getNeoEdge_ReturnElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Set Is Return Element</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NEO_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN = eINSTANCE.getNeoEdge__SetIsReturnElement__boolean();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Return Inner Edge Nodes</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NEO_EDGE___GET_RETURN_INNER_EDGE_NODES = eINSTANCE.getNeoEdge__GetReturnInnerEdgeNodes();
-
-		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.adaptionneo4j.impl.NeoPathParamImpl <em>Neo Path Param</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.adaptionneo4j.impl.NeoPathParamImpl
-		 * @see qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jPackageImpl#getNeoPathParam()
-		 * @generated
-		 */
-		EClass NEO_PATH_PARAM = eINSTANCE.getNeoPathParam();
-
-		/**
-		 * The meta object literal for the '<em><b>Neo Path Part</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NEO_PATH_PARAM__NEO_PATH_PART = eINSTANCE.getNeoPathParam_NeoPathPart();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Return Inner Edge Nodes</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NEO_PATH_PARAM___GET_RETURN_INNER_EDGE_NODES = eINSTANCE.getNeoPathParam__GetReturnInnerEdgeNodes();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Cypher Return Variable</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NEO_PATH_PARAM___GET_CYPHER_RETURN_VARIABLE = eINSTANCE.getNeoPathParam__GetCypherReturnVariable();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionneo4j.impl.NeoComplexEdgeImpl <em>Neo Complex Edge</em>}' class.
@@ -8364,6 +8296,74 @@ public interface Adaptionneo4jPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NEO_PROPERTY_EDGE___GET_CYPHER_NODE_VARIABLE = eINSTANCE.getNeoPropertyEdge__GetCypherNodeVariable();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionneo4j.impl.NeoEdgeImpl <em>Neo Edge</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.adaptionneo4j.impl.NeoEdgeImpl
+		 * @see qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jPackageImpl#getNeoEdge()
+		 * @generated
+		 */
+		EClass NEO_EDGE = eINSTANCE.getNeoEdge();
+
+		/**
+		 * The meta object literal for the '<em><b>Return Element</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NEO_EDGE__RETURN_ELEMENT = eINSTANCE.getNeoEdge_ReturnElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Is Return Element</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_EDGE___SET_IS_RETURN_ELEMENT__BOOLEAN = eINSTANCE.getNeoEdge__SetIsReturnElement__boolean();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Return Inner Edge Nodes</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_EDGE___GET_RETURN_INNER_EDGE_NODES = eINSTANCE.getNeoEdge__GetReturnInnerEdgeNodes();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionneo4j.impl.NeoPathParamImpl <em>Neo Path Param</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.adaptionneo4j.impl.NeoPathParamImpl
+		 * @see qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jPackageImpl#getNeoPathParam()
+		 * @generated
+		 */
+		EClass NEO_PATH_PARAM = eINSTANCE.getNeoPathParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Neo Path Part</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NEO_PATH_PARAM__NEO_PATH_PART = eINSTANCE.getNeoPathParam_NeoPathPart();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Return Inner Edge Nodes</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_PATH_PARAM___GET_RETURN_INNER_EDGE_NODES = eINSTANCE.getNeoPathParam__GetReturnInnerEdgeNodes();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Cypher Return Variable</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_PATH_PARAM___GET_CYPHER_RETURN_VARIABLE = eINSTANCE.getNeoPathParam__GetCypherReturnVariable();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionneo4j.NeoElement <em>Neo Element</em>}' class.

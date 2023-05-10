@@ -77,7 +77,7 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextLiteralParam/matches"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextLiteralParam/xmlPropertyOptionParam"/>
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextLiteralParam/xmlAxisPair"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextLiteralParam/xmlAxisPart"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextLiteralParam/contains"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/TextLiteralParam/setValueIfValid">
@@ -445,6 +445,12 @@
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/AbstractionLevel/SEMI_CONCRETE"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/AbstractionLevel/CONCRETE"/>
       </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//patternstructure/Language">
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/Language/GENERIC"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/Language/XML"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/Language/RDF"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/Language/NEO4J"/>
+      </genEnums>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//patternstructure/InvalidityExceptionWrapper"/>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//patternstructure/ClassWrapper"/>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//patternstructure/MissingPatternContainerException"/>
@@ -490,11 +496,11 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Morphism/checkRelationMappings"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Morphism/checkRelationMappingsUniqueness"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/ElementMapping">
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/NodeMapping">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/ElementMapping/source"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/NodeMapping/source"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/ElementMapping/target"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/NodeMapping/target"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//patternstructure/Mapping">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Mapping/morphism"/>
@@ -519,6 +525,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/relationCounter"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/operatorCounter"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/parameterCounter"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/language"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/validateAgainstSchema"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/getAbstractionLevel"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/getNewRefNo">
@@ -527,6 +534,7 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/recordValues"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/resetQuery"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/generateCypherReturn"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/generateWikidataSparql"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//patternstructure/PatternElement">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/PatternElement/id"/>
@@ -652,7 +660,7 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlAxisOptionParam">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/XmlAxisOptionParam/options"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/XmlAxisOptionParam/value"/>
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlAxisOptionParam/xmlAxisPair"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlAxisOptionParam/xmlAxisPart"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlAxisOptionParam/setValueIfValid">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XmlAxisOptionParam/setValueIfValid/newValue"/>
         </genOperations>
@@ -663,13 +671,15 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/XmlPropertyOptionParam/value"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlPropertyOptionParam/xmlPathParam"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlPropertyOptionParam/attributeName"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlPropertyOptionParam/xmlAxisPart"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlPropertyOptionParam/setValueIfValid">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XmlPropertyOptionParam/setValueIfValid/newValue"/>
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/xmlPropertyOptionParam"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/xmlAxisPairs"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/xmlAxisParts"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/xmlNavigation"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/setXmlAxis">
@@ -687,17 +697,25 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/setXmlAxis.2/axis"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/setXmlAxis.2/tag"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/specifyAxis">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/specifyAxis/axes"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/specifyAxis/propertyKind"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/specifyAxis/attributeName"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/specifyAxis/name"/>
+        </genOperations>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPair">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlAxisPair/textLiteralParam"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlAxisPair/xmlAxisOptionParam"/>
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlAxisPair/xmlPathParam"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPair/getNextXmlAxisPairs"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPair/getPreviousXmlAxisPairs"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPair/inferAxisSuggestions"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPair/inferElementTagSuggestions"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPair/inferElementTagSuggestionsFromIncomingRelations"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPair/inferElementTagSuggestionsFromOutgoingRelations"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart/textLiteralParam"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart/xmlAxisOptionParam"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart/xmlPathParam"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart/xmlPropertyOption"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart/getNextXmlAxisPairs"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart/getPreviousXmlAxisPairs"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart/inferAxisSuggestions"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart/inferElementTagSuggestions"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart/inferElementTagSuggestionsFromIncomingRelations"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart/inferElementTagSuggestionsFromOutgoingRelations"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlNavigation">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -988,16 +1006,21 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfPredicate">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfPredicate/rdfPathParam"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfIriNode"/>
-      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfPathPart">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionrdf/RdfPathPart/invert"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionrdf/RdfPathPart/quantifier"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionrdf/RdfPathPart/getRdfSinglePredicates"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfIriNode">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfIriNode/rdfIriNodeTypes"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfPathComponent">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionrdf/RdfPathComponent/invert"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionrdf/RdfPathComponent/quantifier"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionrdf/RdfPathComponent/getRdfSinglePredicates"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfSinglePredicate">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfSinglePredicate/iriParam"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfNode"/>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfNode">
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionrdf/RdfNode/generateRdfTypes"/>
+      </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfLiteralNode"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/IriParam">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/IriParam/rdfSinglePredicate"/>
@@ -1014,12 +1037,31 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfSequence/items"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/IriListParam">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/IriListParam/iriParam"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/IriListParam/iriParams"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/IriListParam/rdfIriNode"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/IriListParam/rdfPathPart"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam/rdfPredicate"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam/rdfPathParts"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam/setRdfPathPart">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam/setRdfPathPart/path"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam/addRdfPart">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam/addRdfPart/part"/>
+        </genOperations>
+      </genClasses>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfPathPart">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfPathPart/rdfPathParam"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam/rdfPathPart"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfPathPart/rdfPath"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfPathPart/targetNodeTypes"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionrdf/RdfPathPart/generateRdfPartTypes">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionrdf/RdfPathPart/generateRdfPartTypes/variable"/>
+        </genOperations>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Adaptionneo4j" disposableProviderFactory="true" ecorePackage="qualitypatternmodel.ecore#//adaptionneo4j">

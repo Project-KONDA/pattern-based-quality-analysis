@@ -34,11 +34,11 @@ public class CypherEvalAppDup {
 		
 		printAppDup3Generic();	
 		
-		System.out.println();
-		System.out.println("---");
-		System.out.println();
-
-		printAppDup3CondGeneric();
+//		System.out.println();
+//		System.out.println("---");
+//		System.out.println();
+//
+//		printAppDup3CondGeneric();
 	}
 	
 	private static void getUniVio() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -184,7 +184,7 @@ public class CypherEvalAppDup {
 	}
 	
 	private static CompletePattern getOldAppDup3GenericGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return EvalAppDup.getAppDup3CondGeneric();
+		return EvalAppDup.getAppDup3Generic();
 	}
 	
 	private static CompletePattern getOldAppDup3GenericAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -199,56 +199,56 @@ public class CypherEvalAppDup {
 	//END 
 	
 	//BEGIN
-	private static void printAppDup3CondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePatternOldgetAppDup3CondGeneric;
-		
-		//Generic
-		Instant start = Instant.now();
-		
-		completePatternOldgetAppDup3CondGeneric = getOldAppDup3CondGenericGeneric();
-		
-		Instant finish = Instant.now();
-		long timeElapsed = Duration.between(start, finish).toMillis();
-		System.out.println("Speed time of Generic: " + timeElapsed);
-		
-		
-		//Generic --> Abstract 
-		start = Instant.now();
-		
-		completePatternOldgetAppDup3CondGeneric = getOldAppDup3CondGenericAbstract(completePatternOldgetAppDup3CondGeneric);
-		
-		finish = Instant.now();
-		timeElapsed = Duration.between(start, finish).toMillis();
-		System.out.println("Speed time of Generic --> Abstract: " + timeElapsed);
-		
-		
-		//Abstract --> Concrete
-		start = Instant.now();
-		
-		completePatternOldgetAppDup3CondGeneric = getOldUniqueCondGenericConcrete(completePatternOldgetAppDup3CondGeneric);
-		
-		finish = Instant.now();
-		timeElapsed = Duration.between(start, finish).toMillis();
-		System.out.println("Speed time of Abstract --> Concrete: " + timeElapsed);
-		
-		
-		//To Query
-		try {
-			start = Instant.now();
-			
-			System.out.println(completePatternOldgetAppDup3CondGeneric.generateCypher());
-			
-			finish = Instant.now();
-			timeElapsed = Duration.between(start, finish).toMillis();
-			System.out.println("Speed time of cypher generation: " + timeElapsed);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+//	private static void printAppDup3CondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern completePatternOldgetAppDup3CondGeneric;
+//		
+//		//Generic
+//		Instant start = Instant.now();
+//		
+//		completePatternOldgetAppDup3CondGeneric = getOldAppDup3CondGenericGeneric();
+//		
+//		Instant finish = Instant.now();
+//		long timeElapsed = Duration.between(start, finish).toMillis();
+//		System.out.println("Speed time of Generic: " + timeElapsed);
+//		
+//		
+//		//Generic --> Abstract 
+//		start = Instant.now();
+//		
+//		completePatternOldgetAppDup3CondGeneric = getOldAppDup3CondGenericAbstract(completePatternOldgetAppDup3CondGeneric);
+//		
+//		finish = Instant.now();
+//		timeElapsed = Duration.between(start, finish).toMillis();
+//		System.out.println("Speed time of Generic --> Abstract: " + timeElapsed);
+//		
+//		
+//		//Abstract --> Concrete
+//		start = Instant.now();
+//		
+//		completePatternOldgetAppDup3CondGeneric = getOldUniqueCondGenericConcrete(completePatternOldgetAppDup3CondGeneric);
+//		
+//		finish = Instant.now();
+//		timeElapsed = Duration.between(start, finish).toMillis();
+//		System.out.println("Speed time of Abstract --> Concrete: " + timeElapsed);
+//		
+//		
+//		//To Query
+//		try {
+//			start = Instant.now();
+//			
+//			System.out.println(completePatternOldgetAppDup3CondGeneric.generateCypher());
+//			
+//			finish = Instant.now();
+//			timeElapsed = Duration.between(start, finish).toMillis();
+//			System.out.println("Speed time of cypher generation: " + timeElapsed);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
 	
-	private static CompletePattern getOldAppDup3CondGenericGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return EvalUnique.getUniqueCondGeneric();
-	}
+//	private static CompletePattern getOldAppDup3CondGenericGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		return EvalUnique.getUniqueCondGeneric();
+//	}
 	
 	private static CompletePattern getOldAppDup3CondGenericAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePattern.createNeo4jAdaption();

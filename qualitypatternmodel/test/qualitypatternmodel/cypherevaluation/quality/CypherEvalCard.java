@@ -144,7 +144,7 @@ public class CypherEvalCard {
 	}
 	
 	private static CompletePattern getOldCard2GenericGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return EvalCard.getCard2Generic();
+		return EvalCard.getCardGeneric();
 	}
 	
 	private static CompletePattern getOldCard2GenericAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -207,7 +207,7 @@ public class CypherEvalCard {
 	}
 	
 	private static CompletePattern getOldCard2PlusGenericGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return EvalCard.getCard2PlusGeneric();
+		return EvalCard.getCardGeneric();
 	}
 	
 	private static CompletePattern getOldCard2PlusGenericAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -270,7 +270,7 @@ public class CypherEvalCard {
 	}
 	
 	private static CompletePattern getOldCard2CondGenericGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return EvalCard.getCard2CondGeneric();
+		return EvalCard.getCardGeneric();
 	}
 	
 	private static CompletePattern getOldCard2CondGenericAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -333,7 +333,7 @@ public class CypherEvalCard {
 	}
 	
 	private static CompletePattern getOldCard2CondPlusGenericGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return EvalCard.getCard2CondPlusGeneric();
+		return EvalCard.getCardGeneric();
 	}
 	
 	private static CompletePattern getOldCard2CondPlusGenericAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

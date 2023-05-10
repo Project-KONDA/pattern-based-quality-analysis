@@ -153,7 +153,7 @@ public class CypherEvalUnique {
 	}
 	
 	private static CompletePattern getOldUniqueCondGenericGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return EvalUnique.getUniqueCondGeneric();
+		return EvalUnique.getUniqueGeneric();
 	}
 	
 	private static CompletePattern getOldUniqueCondGenericAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -216,7 +216,7 @@ public class CypherEvalUnique {
 	}
 	
 	private static CompletePattern getOldUniqueCondComplexGenericGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return EvalUnique.getUniqueCondComplexGeneric();
+		return EvalUnique.getUniqueGeneric();
 	}
 	
 	private static CompletePattern getOldUniqueCondComplexGenericAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

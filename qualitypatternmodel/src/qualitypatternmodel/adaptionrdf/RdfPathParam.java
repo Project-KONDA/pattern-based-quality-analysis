@@ -76,6 +76,6 @@ public interface RdfPathParam extends Parameter, Adaptable {
 	 * @model
 	 * @generated
 	 */
-	void addRdfPart(RdfPathPart path);
+	void addRdfPart(RdfPathPart part);
 
 } // RdfPathParam

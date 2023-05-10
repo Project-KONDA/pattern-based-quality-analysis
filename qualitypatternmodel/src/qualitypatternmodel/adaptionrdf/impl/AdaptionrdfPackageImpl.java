@@ -11,6 +11,8 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
+import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jPackageImpl;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.IriListParam;
@@ -214,6 +216,8 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 		ExecutionPackageImpl theExecutionPackage = (ExecutionPackageImpl)(registeredPackage instanceof ExecutionPackageImpl ? registeredPackage : ExecutionPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TextrepresentationPackage.eNS_URI);
 		TextrepresentationPackageImpl theTextrepresentationPackage = (TextrepresentationPackageImpl)(registeredPackage instanceof TextrepresentationPackageImpl ? registeredPackage : TextrepresentationPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(Adaptionneo4jPackage.eNS_URI);
+		Adaptionneo4jPackageImpl theAdaptionneo4jPackage = (Adaptionneo4jPackageImpl)(registeredPackage instanceof Adaptionneo4jPackageImpl ? registeredPackage : Adaptionneo4jPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theAdaptionrdfPackage.createPackageContents();
@@ -224,6 +228,7 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 		theAdaptionxmlPackage.createPackageContents();
 		theExecutionPackage.createPackageContents();
 		theTextrepresentationPackage.createPackageContents();
+		theAdaptionneo4jPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theAdaptionrdfPackage.initializePackageContents();
@@ -234,6 +239,7 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 		theAdaptionxmlPackage.initializePackageContents();
 		theExecutionPackage.initializePackageContents();
 		theTextrepresentationPackage.initializePackageContents();
+		theAdaptionneo4jPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theAdaptionrdfPackage.freeze();
@@ -815,7 +821,7 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 		addEParameter(op, this.getRdfPathPart(), "path", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getRdfPathParam__AddRdfPart__RdfPathPart(), null, "addRdfPart", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getRdfPathPart(), "path", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getRdfPathPart(), "part", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(rdfPathPartEClass, RdfPathPart.class, "RdfPathPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRdfPathPart_RdfPathParam(), this.getRdfPathParam(), this.getRdfPathParam_RdfPathParts(), "rdfPathParam", null, 0, 1, RdfPathPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

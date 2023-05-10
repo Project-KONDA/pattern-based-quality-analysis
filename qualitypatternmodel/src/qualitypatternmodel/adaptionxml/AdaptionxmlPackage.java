@@ -873,6 +873,42 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___ADAPT_AS_RDF_LITERAL_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_RDF_LITERAL_NODE;
 
 	/**
+	 * The operation id for the '<em>Adapt As Neo Element Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___ADAPT_AS_NEO_ELEMENT_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_NEO_ELEMENT_NODE;
+
+	/**
+	 * The operation id for the '<em>Adapt As Neo Property Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___ADAPT_AS_NEO_PROPERTY_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_NEO_PROPERTY_NODE;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Null Check</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___ADD_PRIMITIVE_NULL_CHECK = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_NULL_CHECK;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Null Check</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN;
+
+	/**
 	 * The operation id for the '<em>Translate Predicates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1350,6 +1386,24 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION___ADAPT_AS_RDF_PREDICATE = GraphstructurePackage.RELATION___ADAPT_AS_RDF_PREDICATE;
 
 	/**
+	 * The operation id for the '<em>Adapt As Neo Element Edge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___ADAPT_AS_NEO_ELEMENT_EDGE = GraphstructurePackage.RELATION___ADAPT_AS_NEO_ELEMENT_EDGE;
+
+	/**
+	 * The operation id for the '<em>Adapt As Property Edge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___ADAPT_AS_PROPERTY_EDGE = GraphstructurePackage.RELATION___ADAPT_AS_PROPERTY_EDGE;
+
+	/**
 	 * The number of operations of the '<em>Xml Navigation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1791,6 +1845,24 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT_NAVIGATION___ADAPT_AS_RDF_PREDICATE = XML_NAVIGATION___ADAPT_AS_RDF_PREDICATE;
 
 	/**
+	 * The operation id for the '<em>Adapt As Neo Element Edge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT_NAVIGATION___ADAPT_AS_NEO_ELEMENT_EDGE = XML_NAVIGATION___ADAPT_AS_NEO_ELEMENT_EDGE;
+
+	/**
+	 * The operation id for the '<em>Adapt As Property Edge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT_NAVIGATION___ADAPT_AS_PROPERTY_EDGE = XML_NAVIGATION___ADAPT_AS_PROPERTY_EDGE;
+
+	/**
 	 * The number of operations of the '<em>Xml Element Navigation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2223,6 +2295,24 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_REFERENCE___ADAPT_AS_RDF_PREDICATE = GraphstructurePackage.RELATION___ADAPT_AS_RDF_PREDICATE;
 
 	/**
+	 * The operation id for the '<em>Adapt As Neo Element Edge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_REFERENCE___ADAPT_AS_NEO_ELEMENT_EDGE = GraphstructurePackage.RELATION___ADAPT_AS_NEO_ELEMENT_EDGE;
+
+	/**
+	 * The operation id for the '<em>Adapt As Property Edge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_REFERENCE___ADAPT_AS_PROPERTY_EDGE = GraphstructurePackage.RELATION___ADAPT_AS_PROPERTY_EDGE;
+
+	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2401,6 +2491,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PROPERTY__CONTAINS = GraphstructurePackage.PRIMITIVE_NODE__CONTAINS;
+
+	/**
+	 * The feature id for the '<em><b>Null Check</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY__NULL_CHECK = GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK;
 
 	/**
 	 * The feature id for the '<em><b>Variables</b></em>' attribute list.
@@ -2986,6 +3085,42 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PROPERTY___ADAPT_AS_RDF_LITERAL_NODE = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_RDF_LITERAL_NODE;
+
+	/**
+	 * The operation id for the '<em>Adapt As Neo Element Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___ADAPT_AS_NEO_ELEMENT_NODE = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_NEO_ELEMENT_NODE;
+
+	/**
+	 * The operation id for the '<em>Adapt As Neo Property Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___ADAPT_AS_NEO_PROPERTY_NODE = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_NEO_PROPERTY_NODE;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Null Check</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___ADD_PRIMITIVE_NULL_CHECK = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_NULL_CHECK;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Null Check</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -3735,6 +3870,42 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ROOT___ADAPT_AS_RDF_LITERAL_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_RDF_LITERAL_NODE;
 
 	/**
+	 * The operation id for the '<em>Adapt As Neo Element Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___ADAPT_AS_NEO_ELEMENT_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_NEO_ELEMENT_NODE;
+
+	/**
+	 * The operation id for the '<em>Adapt As Neo Property Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___ADAPT_AS_NEO_PROPERTY_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_NEO_PROPERTY_NODE;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Null Check</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___ADD_PRIMITIVE_NULL_CHECK = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_NULL_CHECK;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Null Check</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN;
+
+	/**
 	 * The number of operations of the '<em>Xml Root</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4174,6 +4345,24 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PROPERTY_NAVIGATION___ADAPT_AS_RDF_PREDICATE = XML_NAVIGATION___ADAPT_AS_RDF_PREDICATE;
+
+	/**
+	 * The operation id for the '<em>Adapt As Neo Element Edge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY_NAVIGATION___ADAPT_AS_NEO_ELEMENT_EDGE = XML_NAVIGATION___ADAPT_AS_NEO_ELEMENT_EDGE;
+
+	/**
+	 * The operation id for the '<em>Adapt As Property Edge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY_NAVIGATION___ADAPT_AS_PROPERTY_EDGE = XML_NAVIGATION___ADAPT_AS_PROPERTY_EDGE;
 
 	/**
 	 * The number of operations of the '<em>Xml Property Navigation</em>' class.
@@ -4700,7 +4889,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME = ParametersPackage.PARAMETER_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Xml Axis Part</b></em>' container reference.
+	 * The feature id for the '<em><b>Xml Axis Part</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -5583,7 +5772,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_AXIS_PART__XML_PATH_PARAM = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Xml Property Option</b></em>' containment reference.
+	 * The feature id for the '<em><b>Xml Property Option</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -6314,10 +6503,10 @@ public interface AdaptionxmlPackage extends EPackage {
 	EReference getXmlPropertyOptionParam_AttributeName();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getXmlAxisPart <em>Xml Axis Part</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getXmlAxisPart <em>Xml Axis Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Xml Axis Part</em>'.
+	 * @return the meta object for the reference '<em>Xml Axis Part</em>'.
 	 * @see qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getXmlAxisPart()
 	 * @see #getXmlPropertyOptionParam()
 	 * @generated
@@ -6471,10 +6660,10 @@ public interface AdaptionxmlPackage extends EPackage {
 	EReference getXmlAxisPart_XmlPathParam();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlPropertyOption <em>Xml Property Option</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlPropertyOption <em>Xml Property Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Xml Property Option</em>'.
+	 * @return the meta object for the reference '<em>Xml Property Option</em>'.
 	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlPropertyOption()
 	 * @see #getXmlAxisPart()
 	 * @generated
@@ -6905,7 +7094,7 @@ public interface AdaptionxmlPackage extends EPackage {
 		EReference XML_PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME = eINSTANCE.getXmlPropertyOptionParam_AttributeName();
 
 		/**
-		 * The meta object literal for the '<em><b>Xml Axis Part</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Xml Axis Part</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7029,7 +7218,7 @@ public interface AdaptionxmlPackage extends EPackage {
 		EReference XML_AXIS_PART__XML_PATH_PARAM = eINSTANCE.getXmlAxisPart_XmlPathParam();
 
 		/**
-		 * The meta object literal for the '<em><b>Xml Property Option</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Xml Property Option</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

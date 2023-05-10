@@ -3,7 +3,7 @@ package qualitypatternmodel.xmlevaluation;
 import java.util.ArrayList;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.evaluation.EvalContains;
+import qualitypatternmodel.evaluationquality.EvalContains;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;

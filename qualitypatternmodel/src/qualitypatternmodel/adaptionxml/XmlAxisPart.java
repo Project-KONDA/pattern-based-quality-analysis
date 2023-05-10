@@ -100,24 +100,24 @@ public interface XmlAxisPart extends Adaptable, Parameter {
 	void setXmlPathParam(XmlPathParam value);
 
 	/**
-	 * Returns the value of the '<em><b>Xml Property Option</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Xml Property Option</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getXmlAxisPart <em>Xml Axis Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Xml Property Option</em>' containment reference.
+	 * @return the value of the '<em>Xml Property Option</em>' reference.
 	 * @see #setXmlPropertyOption(XmlPropertyOptionParam)
 	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlAxisPart_XmlPropertyOption()
 	 * @see qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getXmlAxisPart
-	 * @model opposite="xmlAxisPart" containment="true"
+	 * @model opposite="xmlAxisPart"
 	 * @generated
 	 */
 	XmlPropertyOptionParam getXmlPropertyOption();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlPropertyOption <em>Xml Property Option</em>}' containment reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlPropertyOption <em>Xml Property Option</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Xml Property Option</em>' containment reference.
+	 * @param value the new value of the '<em>Xml Property Option</em>' reference.
 	 * @see #getXmlPropertyOption()
 	 * @generated
 	 */

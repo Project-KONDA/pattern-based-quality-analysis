@@ -6,7 +6,7 @@ import java.util.List;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
-import qualitypatternmodel.evaluation.EvalCompval;
+import qualitypatternmodel.evaluationquality.EvalCompval;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;

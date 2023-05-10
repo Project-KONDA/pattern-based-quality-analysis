@@ -76,7 +76,7 @@ public class CypherEvalRefInt {
 		}
 		
 		private static CompletePattern getOldRefintCondGenericGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-			return EvalRefInt.getRefintCondGeneric();
+			return EvalRefInt.getRefintGeneric();
 		}
 		
 		private static CompletePattern getOldRefintCondGenericAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

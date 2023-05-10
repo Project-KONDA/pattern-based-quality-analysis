@@ -1,4 +1,4 @@
-package qualitypatternmodel.evaluation;
+package qualitypatternmodel.evaluationquality;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
@@ -7,6 +7,8 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.xmltranslationtests.Test00;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.parameters.BooleanParam;
+import qualitypatternmodel.parameters.ParameterList;
 
 import java.util.ArrayList;
 
@@ -88,6 +90,13 @@ public class EvalMatch {
 		return completePattern;
 	}
 	
+	public static CompletePattern getGenericWrongFormat() throws InvalidityException {
+		CompletePattern completePattern = getMatchGeneric();
+		ParameterList paramters = completePattern.getParameterList();
+		BooleanParam booleanParam = (BooleanParam) paramters.getParameters().get(0);
+		booleanParam.setValue(false);
+		return completePattern;
+	}
 //	public static CompletePattern getMatch3CondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 //		PatternstructurePackage.eINSTANCE.eClass();
 //		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;

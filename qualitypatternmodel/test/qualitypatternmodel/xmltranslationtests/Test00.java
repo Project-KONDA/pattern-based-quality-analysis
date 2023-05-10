@@ -130,7 +130,12 @@ public class Test00 {
 			if (param instanceof UntypedParameterValue) {
 				TextLiteralParam text = parametersFactory.createTextLiteralParam();
 				text.setValue("unknown");
-				((UntypedParameterValue) param).replace(text);
+				try {
+					((UntypedParameterValue) param).replace(text);
+				} catch (InvalidityException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 			if (param instanceof TextLiteralParam) {
 				TextLiteralParam text = (TextLiteralParam) param;

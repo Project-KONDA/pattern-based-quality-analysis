@@ -156,7 +156,7 @@ public class CypherEvalCompval {
 	}
 	
 	private static CompletePattern getOldCompval3GenericGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return EvalCompval.getCompval3CondGeneric();
+		return EvalCompval.getCompval3Generic();
 	}
 	
 	private static CompletePattern getOldCompval3GenericAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -219,7 +219,7 @@ public class CypherEvalCompval {
 	}
 	
 	private static CompletePattern getOldCompval2CondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return EvalCompval.getCompval2CondGeneric();
+		return EvalCompval.getCompval2Generic();
 	}
 	
 	private static CompletePattern getOldCompval2CondGenericAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -282,7 +282,7 @@ public class CypherEvalCompval {
 	}
 	
 	private static CompletePattern getOldCompval3CondGenericGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return EvalCompval.getCompval3CondGeneric();
+		return EvalCompval.getCompval3Generic();
 	}
 	
 	private static CompletePattern getOldCompval3CondGenericAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

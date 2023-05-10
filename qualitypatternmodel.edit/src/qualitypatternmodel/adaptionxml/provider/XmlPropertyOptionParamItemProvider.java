@@ -19,6 +19,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
+
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
 
@@ -57,6 +58,7 @@ public class XmlPropertyOptionParamItemProvider extends ParameterItemProvider {
 
 			addOptionsPropertyDescriptor(object);
 			addValuePropertyDescriptor(object);
+			addXmlAxisPartPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -101,6 +103,28 @@ public class XmlPropertyOptionParamItemProvider extends ParameterItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Xml Axis Part feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addXmlAxisPartPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XmlPropertyOptionParam_xmlAxisPart_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XmlPropertyOptionParam_xmlAxisPart_feature", "_UI_XmlPropertyOptionParam_type"),
+				 AdaptionxmlPackage.Literals.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

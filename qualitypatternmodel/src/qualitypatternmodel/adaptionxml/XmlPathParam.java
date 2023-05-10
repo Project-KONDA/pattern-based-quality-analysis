@@ -124,7 +124,7 @@ public interface XmlPathParam extends Adaptable, Parameter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" axesDataType="qualitypatternmodel.adaptionxml.XmlAxisKindArray"
+	 * @model axesDataType="qualitypatternmodel.adaptionxml.XmlAxisKindArray"
 	 * @generated
 	 */
 	void specifyAxis(XmlAxisKind[] axes, XmlPropertyKind propertyKind, String attributeName, String name) throws InvalidityException;

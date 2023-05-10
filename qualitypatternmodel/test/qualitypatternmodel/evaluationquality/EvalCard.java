@@ -113,4 +113,28 @@ public class EvalCard {
 				
 		return completePattern;
 	}
+	
+	public static CompletePattern getCARD1() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = CypherTest11CountCondition.getComplexBasePattern();
+		completePattern.setName("CARD1");
+		completePattern.getGraph().getReturnNodes().get(0).setName("Return");
+		
+		ComplexNode complexNode = completePattern.getGraph().addComplexNode();
+		complexNode.setName("Nb");
+		completePattern.getGraph().addRelation((ComplexNode) completePattern.getGraph().getNodes().get(0), (Node) complexNode);
+
+		CountCondition countCond = PatternstructureFactory.eINSTANCE.createCountCondition();
+		countCond.setPattern(completePattern);
+		countCond.getCountPattern().getGraph().getNodes().get(0).setReturnNode(false);
+		countCond.getCountPattern().getGraph().getNodes().get(1).setReturnNode(true);
+		
+		NumberElement numberElement = PatternstructureFactory.eINSTANCE.createNumberElement();
+		countCond.setArgument2(numberElement);
+		numberElement.getNumberParam().setValue(1.);
+		
+		ComparisonOptionParam comparisonOperator = countCond.getOption();
+		comparisonOperator.setValue(ComparisonOperator.GREATER);
+		
+		return completePattern;
+	}
 }

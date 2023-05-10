@@ -224,6 +224,11 @@ public class ParameterListItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
+				 AdaptionxmlFactory.eINSTANCE.createXmlAxisPart()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
 				 AdaptionrdfFactory.eINSTANCE.createIriParam()));
 
 		newChildDescriptors.add

@@ -3525,13 +3525,13 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM__XML_PROPERTY_OPTION_PARAM = PARAMETER_VALUE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Xml Axis Pair</b></em>' container reference.
+	 * The feature id for the '<em><b>Xml Axis Part</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM__XML_AXIS_PAIR = PARAMETER_VALUE_FEATURE_COUNT + 3;
+	int TEXT_LITERAL_PARAM__XML_AXIS_PART = PARAMETER_VALUE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Contains</b></em>' reference list.

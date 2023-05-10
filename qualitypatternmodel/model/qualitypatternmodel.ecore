@@ -87,7 +87,7 @@
           eType="#//operators/Match" eOpposite="#//operators/Match/regularExpression"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlPropertyOptionParam"
           eType="#//adaptionxml/XmlPropertyOptionParam" eOpposite="#//adaptionxml/XmlPropertyOptionParam/attributeName"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="xmlAxisPair" eType="#//adaptionxml/XmlAxisPart"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="xmlAxisPart" eType="#//adaptionxml/XmlAxisPart"
           eOpposite="#//adaptionxml/XmlAxisPart/textLiteralParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="contains" upperBound="-1"
           eType="#//operators/Contains" eOpposite="#//operators/Contains/content"/>
@@ -863,7 +863,7 @@
       <eOperations name="inferElementTagSuggestionsFromOutgoingRelations" upperBound="-1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="textLiteralParam" lowerBound="1"
-          eType="#//parameters/TextLiteralParam" containment="true" eOpposite="#//parameters/TextLiteralParam/xmlAxisPair"/>
+          eType="#//parameters/TextLiteralParam" containment="true" eOpposite="#//parameters/TextLiteralParam/xmlAxisPart"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlAxisOptionParam" lowerBound="1"
           eType="#//adaptionxml/XmlAxisOptionParam" containment="true" eOpposite="#//adaptionxml/XmlAxisOptionParam/xmlAxisPart"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlPathParam" lowerBound="1"
@@ -1258,20 +1258,28 @@
           eOpposite="#//adaptionrdf/RdfPathPart/targetNodeTypes"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RdfPathParam" eSuperTypes="#//parameters/Parameter #//graphstructure/Adaptable">
+      <eOperations name="setRdfPathPart">
+        <eParameters name="path" eType="#//adaptionrdf/RdfPathPart"/>
+      </eOperations>
+      <eOperations name="addRdfPart">
+        <eParameters name="part" eType="#//adaptionrdf/RdfPathPart"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rdfPredicate" eType="#//adaptionrdf/RdfPredicate"
           eOpposite="#//adaptionrdf/RdfPredicate/rdfPathParam"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfPathPart" upperBound="-1"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfPathParts" upperBound="-1"
           eType="#//adaptionrdf/RdfPathPart" containment="true" eOpposite="#//adaptionrdf/RdfPathPart/rdfPathParam"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RdfPathPart" eSuperTypes="#//patternstructure/PatternElement">
-      <eOperations name="generateRdfPartTypes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eOperations name="generateRdfPartTypes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="variable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rdfPathParam" eType="#//adaptionrdf/RdfPathParam"
-          eOpposite="#//adaptionrdf/RdfPathParam/rdfPathPart"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfPath" eType="#//adaptionrdf/RdfPathComponent"/>
+          eOpposite="#//adaptionrdf/RdfPathParam/rdfPathParts"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfPath" eType="#//adaptionrdf/RdfPathComponent"
+          containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="targetNodeTypes" eType="#//adaptionrdf/IriListParam"
-          eOpposite="#//adaptionrdf/IriListParam/rdfPathPart"/>
+          containment="true" eOpposite="#//adaptionrdf/IriListParam/rdfPathPart"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="adaptionneo4j" nsURI="adaptionneo4j" nsPrefix="adaptionneo4j">

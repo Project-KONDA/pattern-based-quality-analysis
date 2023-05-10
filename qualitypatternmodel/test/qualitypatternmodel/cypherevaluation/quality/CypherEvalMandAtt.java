@@ -213,7 +213,7 @@ public class CypherEvalMandAtt {
 		}
 		
 		private static CompletePattern getOldMandattCondGenericGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-			return EvalMandAtt.getMandattCondGeneric();
+			return EvalMandAtt.getMandattGeneric();
 		}
 		
 		private static CompletePattern getOldMandattCondGenericAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -275,7 +275,7 @@ public class CypherEvalMandAtt {
 		}
 		
 		private static CompletePattern getOldMandatt3CondGenericGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-			return EvalMandAtt.getMandatt3CondGeneric();
+			return EvalMandAtt.getMandatt3Generic();
 		}
 		
 		private static CompletePattern getOldMandatt3CondGenericAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

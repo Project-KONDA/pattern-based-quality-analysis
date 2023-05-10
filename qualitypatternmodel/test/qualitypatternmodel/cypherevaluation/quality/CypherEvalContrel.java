@@ -144,7 +144,7 @@ public class CypherEvalContrel {
 	}
 	
 	private static CompletePattern getOldContrelCondGenericGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return EvalContrel.getContrelCondGeneric();
+		return EvalContrel.getContrelGeneric();
 	}
 	
 	private static CompletePattern getOldContrelCondGenericAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

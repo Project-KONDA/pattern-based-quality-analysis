@@ -80,7 +80,7 @@ public interface XmlPropertyOptionParam extends Parameter, Adaptable {
 	 * @see #setXmlPathParam(XmlPathParam)
 	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlPropertyOptionParam_XmlPathParam()
 	 * @see qualitypatternmodel.adaptionxml.XmlPathParam#getXmlPropertyOptionParam
-	 * @model opposite="xmlPropertyOptionParam" transient="false"
+	 * @model opposite="xmlPropertyOptionParam" required="true" transient="false"
 	 * @generated
 	 */
 	XmlPathParam getXmlPathParam();
@@ -120,24 +120,24 @@ public interface XmlPropertyOptionParam extends Parameter, Adaptable {
 	void setAttributeName(TextLiteralParam value);
 
 	/**
-	 * Returns the value of the '<em><b>Xml Axis Part</b></em>' container reference.
+	 * Returns the value of the '<em><b>Xml Axis Part</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlPropertyOption <em>Xml Property Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Xml Axis Part</em>' container reference.
+	 * @return the value of the '<em>Xml Axis Part</em>' reference.
 	 * @see #setXmlAxisPart(XmlAxisPart)
 	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlPropertyOptionParam_XmlAxisPart()
 	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlPropertyOption
-	 * @model opposite="xmlPropertyOption" transient="false"
+	 * @model opposite="xmlPropertyOption"
 	 * @generated
 	 */
 	XmlAxisPart getXmlAxisPart();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getXmlAxisPart <em>Xml Axis Part</em>}' container reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getXmlAxisPart <em>Xml Axis Part</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Xml Axis Part</em>' container reference.
+	 * @param value the new value of the '<em>Xml Axis Part</em>' reference.
 	 * @see #getXmlAxisPart()
 	 * @generated
 	 */

@@ -37,9 +37,8 @@ public class UntypedParameterValueImpl extends ParameterValueImpl implements Unt
 	}
 	
 	@Override
-	public void setValueFromString(String value) {
+	public void setValueFromString(String value) throws InvalidityException {
 		setValue(value);
-		// TODO
 	}
 
 	@Override

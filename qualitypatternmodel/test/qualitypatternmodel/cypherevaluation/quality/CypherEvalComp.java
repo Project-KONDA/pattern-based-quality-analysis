@@ -268,7 +268,7 @@ public class CypherEvalComp {
 	}
 	
 	private static CompletePattern getOldCondCompGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return EvalComp.getCompCondGeneric();
+		return EvalComp.getCompGeneric();
 	}
 	
 	private static CompletePattern getOldCondCompAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

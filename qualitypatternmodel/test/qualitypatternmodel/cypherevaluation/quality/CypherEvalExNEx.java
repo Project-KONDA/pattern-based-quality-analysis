@@ -175,7 +175,7 @@ public class CypherEvalExNEx {
 	}
 	
 	private static CompletePattern getOldExNExCondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return EvalExNEx.getExNExCondGeneric();
+		return EvalExNEx.getExNExGeneric();
 	}
 	
 	private static CompletePattern getOldExNExCondAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -238,7 +238,7 @@ public class CypherEvalExNEx {
 	}
 	
 	private static CompletePattern getOldExNExCond2CondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return EvalExNEx.getExNExCond2Generic();
+		return EvalExNEx.getExNEx2Generic();
 	}
 	
 	private static CompletePattern getOldExNExCond2CondAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
