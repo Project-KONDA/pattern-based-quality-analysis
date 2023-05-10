@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.adaptionrdf.tests;
 
-import qualitypatternmodel.adaptionrdf.RdfPathPart;
+import qualitypatternmodel.adaptionrdf.RdfPathComponent;
 
 import qualitypatternmodel.patternstructure.tests.PatternElementTest;
 
@@ -13,7 +13,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathPart#getRdfSinglePredicates() <em>Get Rdf Single Predicates</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathComponent#getRdfSinglePredicates() <em>Get Rdf Single Predicates</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -37,15 +37,15 @@ public abstract class RdfPathPartTest extends PatternElementTest {
 	 * @generated
 	 */
 	@Override
-	protected RdfPathPart getFixture() {
-		return (RdfPathPart)fixture;
+	protected RdfPathComponent getFixture() {
+		return (RdfPathComponent)fixture;
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionrdf.RdfPathPart#getRdfSinglePredicates() <em>Get Rdf Single Predicates</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionrdf.RdfPathComponent#getRdfSinglePredicates() <em>Get Rdf Single Predicates</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionrdf.RdfPathPart#getRdfSinglePredicates()
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathComponent#getRdfSinglePredicates()
 	 * @generated
 	 */
 	public void testGetRdfSinglePredicates() {

@@ -20,10 +20,10 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface RdfXor extends RdfPathPart {
+public interface RdfXor extends RdfPathComponent {
 	/**
 	 * Returns the value of the '<em><b>Items</b></em>' containment reference list.
-	 * The list contents are of type {@link qualitypatternmodel.adaptionrdf.RdfPathPart}.
+	 * The list contents are of type {@link qualitypatternmodel.adaptionrdf.RdfPathComponent}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Items</em>' containment reference list.
@@ -31,6 +31,6 @@ public interface RdfXor extends RdfPathPart {
 	 * @model containment="true" lower="2"
 	 * @generated
 	 */
-	EList<RdfPathPart> getItems();
+	EList<RdfPathComponent> getItems();
 
 } // RdfXor

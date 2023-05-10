@@ -14,15 +14,15 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathPart#isInvert <em>Invert</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathPart#getQuantifier <em>Quantifier</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathComponent#isInvert <em>Invert</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathComponent#getQuantifier <em>Quantifier</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathPart()
  * @model abstract="true"
  * @generated
  */
-public interface RdfPathPart extends PatternElement {
+public interface RdfPathComponent extends PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Invert</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -36,7 +36,7 @@ public interface RdfPathPart extends PatternElement {
 	boolean isInvert();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPathPart#isInvert <em>Invert</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPathComponent#isInvert <em>Invert</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Invert</em>' attribute.
@@ -60,7 +60,7 @@ public interface RdfPathPart extends PatternElement {
 	RdfQuantifier getQuantifier();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPathPart#getQuantifier <em>Quantifier</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPathComponent#getQuantifier <em>Quantifier</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Quantifier</em>' attribute.

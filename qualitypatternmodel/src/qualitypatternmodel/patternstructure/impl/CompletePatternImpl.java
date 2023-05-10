@@ -20,7 +20,7 @@ import qualitypatternmodel.adaptionneo4j.NeoNode;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPlace;
 import qualitypatternmodel.adaptionrdf.IriParam;
-import qualitypatternmodel.adaptionrdf.RdfPathPart;
+import qualitypatternmodel.adaptionrdf.RdfPathComponent;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -327,8 +327,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		
 		EList<String> prefixes = new BasicEList<String>();		
 		for(Parameter p : getParameterList().getParameters()) {
-			if(p instanceof RdfPathPart) {
-				RdfPathPart rdfPathPart = (RdfPathPart) p;
+			if(p instanceof RdfPathComponent) {
+				RdfPathComponent rdfPathPart = (RdfPathComponent) p;
 				for(RdfSinglePredicate rdfSinglePredicate : rdfPathPart.getRdfSinglePredicates()) {
 					if(rdfSinglePredicate.getIriParam() != null) {
 						IriParam iriParam = rdfSinglePredicate.getIriParam();
@@ -396,7 +396,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		
 		return completeCyString;
 	}
-	//PROTOTYP: in Zukünftigen Versionen müsste man noch das SET/REMOVE für das COUNT-Pattern integrieren --> Ist aber in dem Modell nicht vorgesehen
+	//PROTOTYP: in Zukï¿½nftigen Versionen mï¿½sste man noch das SET/REMOVE fï¿½r das COUNT-Pattern integrieren --> Ist aber in dem Modell nicht vorgesehen
 	
 	/**
 	 * <!-- begin-user-doc -->

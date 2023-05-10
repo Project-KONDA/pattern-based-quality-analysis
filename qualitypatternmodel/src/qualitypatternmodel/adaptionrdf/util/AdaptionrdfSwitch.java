@@ -98,7 +98,7 @@ public class AdaptionrdfSwitch<T> extends Switch<T> {
 				return result;
 			}
 			case AdaptionrdfPackage.RDF_PATH_PART: {
-				RdfPathPart rdfPathPart = (RdfPathPart)theEObject;
+				RdfPathComponent rdfPathPart = (RdfPathComponent)theEObject;
 				T result = caseRdfPathPart(rdfPathPart);
 				if (result == null) result = casePatternElement(rdfPathPart);
 				if (result == null) result = defaultCase(theEObject);
@@ -220,7 +220,7 @@ public class AdaptionrdfSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRdfPathPart(RdfPathPart object) {
+	public T caseRdfPathPart(RdfPathComponent object) {
 		return null;
 	}
 

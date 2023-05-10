@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
-import qualitypatternmodel.adaptionrdf.RdfPathPart;
+import qualitypatternmodel.adaptionrdf.RdfPathComponent;
 import qualitypatternmodel.adaptionrdf.RdfQuantifier;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
@@ -21,13 +21,13 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionrdf.impl.RdfPathPartImpl#isInvert <em>Invert</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionrdf.impl.RdfPathPartImpl#getQuantifier <em>Quantifier</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.impl.RdfPathComponentImpl#isInvert <em>Invert</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.impl.RdfPathComponentImpl#getQuantifier <em>Quantifier</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class RdfPathPartImpl extends PatternElementImpl implements RdfPathPart {
+public abstract class RdfPathComponentImpl extends PatternElementImpl implements RdfPathComponent {
 	/**
 	 * The default value of the '{@link #isInvert() <em>Invert</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -69,7 +69,7 @@ public abstract class RdfPathPartImpl extends PatternElementImpl implements RdfP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RdfPathPartImpl() {
+	protected RdfPathComponentImpl() {
 		super();
 	}
 		

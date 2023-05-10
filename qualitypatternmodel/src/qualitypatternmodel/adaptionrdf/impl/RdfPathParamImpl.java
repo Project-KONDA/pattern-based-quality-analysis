@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
-import qualitypatternmodel.adaptionrdf.RdfPathPart;
+import qualitypatternmodel.adaptionrdf.RdfPathComponent;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -56,7 +56,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 * @generated
 	 * @ordered
 	 */
-	protected RdfPathPart rdfPathPart;
+	protected RdfPathComponent rdfPathPart;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -160,10 +160,10 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 * @generated
 	 */
 	@Override
-	public RdfPathPart getRdfPathPart() {
+	public RdfPathComponent getRdfPathPart() {
 		if (rdfPathPart != null && rdfPathPart.eIsProxy()) {
 			InternalEObject oldRdfPathPart = (InternalEObject)rdfPathPart;
-			rdfPathPart = (RdfPathPart)eResolveProxy(oldRdfPathPart);
+			rdfPathPart = (RdfPathComponent)eResolveProxy(oldRdfPathPart);
 			if (rdfPathPart != oldRdfPathPart) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PART, oldRdfPathPart, rdfPathPart));
@@ -177,7 +177,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RdfPathPart basicGetRdfPathPart() {
+	public RdfPathComponent basicGetRdfPathPart() {
 		return rdfPathPart;
 	}
 
@@ -187,8 +187,8 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 * @generated
 	 */
 	@Override
-	public void setRdfPathPart(RdfPathPart newRdfPathPart) {
-		RdfPathPart oldRdfPathPart = rdfPathPart;
+	public void setRdfPathPart(RdfPathComponent newRdfPathPart) {
+		RdfPathComponent oldRdfPathPart = rdfPathPart;
 		rdfPathPart = newRdfPathPart;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PART, oldRdfPathPart, rdfPathPart));
@@ -277,7 +277,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 				setRdfPredicate((RdfPredicate)newValue);
 				return;
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PART:
-				setRdfPathPart((RdfPathPart)newValue);
+				setRdfPathPart((RdfPathComponent)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -295,7 +295,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 				setRdfPredicate((RdfPredicate)null);
 				return;
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PART:
-				setRdfPathPart((RdfPathPart)null);
+				setRdfPathPart((RdfPathComponent)null);
 				return;
 		}
 		super.eUnset(featureID);

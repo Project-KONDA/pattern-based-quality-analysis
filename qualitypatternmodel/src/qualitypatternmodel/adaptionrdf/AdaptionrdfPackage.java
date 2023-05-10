@@ -1272,10 +1272,10 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_IRI_NODE_OPERATION_COUNT = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfPathPartImpl <em>Rdf Path Part</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfPathComponentImpl <em>Rdf Path Part</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionrdf.impl.RdfPathPartImpl
+	 * @see qualitypatternmodel.adaptionrdf.impl.RdfPathComponentImpl
 	 * @see qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl#getRdfPathPart()
 	 * @generated
 	 */
@@ -4805,43 +4805,43 @@ public interface AdaptionrdfPackage extends EPackage {
 	EClass getRdfIriNode();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionrdf.RdfPathPart <em>Rdf Path Part</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionrdf.RdfPathComponent <em>Rdf Path Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Rdf Path Part</em>'.
-	 * @see qualitypatternmodel.adaptionrdf.RdfPathPart
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathComponent
 	 * @generated
 	 */
 	EClass getRdfPathPart();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionrdf.RdfPathPart#isInvert <em>Invert</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionrdf.RdfPathComponent#isInvert <em>Invert</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Invert</em>'.
-	 * @see qualitypatternmodel.adaptionrdf.RdfPathPart#isInvert()
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathComponent#isInvert()
 	 * @see #getRdfPathPart()
 	 * @generated
 	 */
 	EAttribute getRdfPathPart_Invert();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionrdf.RdfPathPart#getQuantifier <em>Quantifier</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionrdf.RdfPathComponent#getQuantifier <em>Quantifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Quantifier</em>'.
-	 * @see qualitypatternmodel.adaptionrdf.RdfPathPart#getQuantifier()
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathComponent#getQuantifier()
 	 * @see #getRdfPathPart()
 	 * @generated
 	 */
 	EAttribute getRdfPathPart_Quantifier();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionrdf.RdfPathPart#getRdfSinglePredicates() <em>Get Rdf Single Predicates</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionrdf.RdfPathComponent#getRdfSinglePredicates() <em>Get Rdf Single Predicates</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Rdf Single Predicates</em>' operation.
-	 * @see qualitypatternmodel.adaptionrdf.RdfPathPart#getRdfSinglePredicates()
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathComponent#getRdfSinglePredicates()
 	 * @generated
 	 */
 	EOperation getRdfPathPart__GetRdfSinglePredicates();
@@ -5119,10 +5119,10 @@ public interface AdaptionrdfPackage extends EPackage {
 		EClass RDF_IRI_NODE = eINSTANCE.getRdfIriNode();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfPathPartImpl <em>Rdf Path Part</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfPathComponentImpl <em>Rdf Path Part</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.adaptionrdf.impl.RdfPathPartImpl
+		 * @see qualitypatternmodel.adaptionrdf.impl.RdfPathComponentImpl
 		 * @see qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl#getRdfPathPart()
 		 * @generated
 		 */

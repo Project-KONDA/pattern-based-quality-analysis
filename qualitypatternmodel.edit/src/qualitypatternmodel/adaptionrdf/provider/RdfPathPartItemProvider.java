@@ -17,14 +17,14 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
-import qualitypatternmodel.adaptionrdf.RdfPathPart;
+import qualitypatternmodel.adaptionrdf.RdfPathComponent;
 
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionrdf.RdfPathPart} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionrdf.RdfPathComponent} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -109,7 +109,7 @@ public class RdfPathPartItemProvider extends PatternElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((RdfPathPart)object).getId();
+		String label = ((RdfPathComponent)object).getId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_RdfPathPart_type") :
 			getString("_UI_RdfPathPart_type") + " " + label;
@@ -127,7 +127,7 @@ public class RdfPathPartItemProvider extends PatternElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(RdfPathPart.class)) {
+		switch (notification.getFeatureID(RdfPathComponent.class)) {
 			case AdaptionrdfPackage.RDF_PATH_PART__INVERT:
 			case AdaptionrdfPackage.RDF_PATH_PART__QUANTIFIER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

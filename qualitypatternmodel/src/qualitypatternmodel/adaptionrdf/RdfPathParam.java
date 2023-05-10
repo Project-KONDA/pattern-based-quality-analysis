@@ -52,12 +52,12 @@ public interface RdfPathParam extends Parameter, Adaptable {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Rdf Path Part</em>' reference.
-	 * @see #setRdfPathPart(RdfPathPart)
+	 * @see #setRdfPathPart(RdfPathComponent)
 	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathParam_RdfPathPart()
 	 * @model
 	 * @generated
 	 */
-	RdfPathPart getRdfPathPart();
+	RdfPathComponent getRdfPathPart();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfPathPart <em>Rdf Path Part</em>}' reference.
@@ -67,6 +67,6 @@ public interface RdfPathParam extends Parameter, Adaptable {
 	 * @see #getRdfPathPart()
 	 * @generated
 	 */
-	void setRdfPathPart(RdfPathPart value);
+	void setRdfPathPart(RdfPathComponent value);
 
 } // RdfPathParam

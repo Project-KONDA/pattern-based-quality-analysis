@@ -21,7 +21,7 @@ import qualitypatternmodel.adaptionrdf.RdfIriNode;
 import qualitypatternmodel.adaptionrdf.RdfLiteralNode;
 import qualitypatternmodel.adaptionrdf.RdfNode;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
-import qualitypatternmodel.adaptionrdf.RdfPathPart;
+import qualitypatternmodel.adaptionrdf.RdfPathComponent;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.adaptionrdf.RdfQuantifier;
 import qualitypatternmodel.adaptionrdf.RdfSequence;
@@ -644,9 +644,9 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 
 		initEClass(rdfIriNodeEClass, RdfIriNode.class, "RdfIriNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(rdfPathPartEClass, RdfPathPart.class, "RdfPathPart", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRdfPathPart_Invert(), ecorePackage.getEBoolean(), "invert", null, 0, 1, RdfPathPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRdfPathPart_Quantifier(), this.getRdfQuantifier(), "quantifier", null, 0, 1, RdfPathPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(rdfPathPartEClass, RdfPathComponent.class, "RdfPathPart", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRdfPathPart_Invert(), ecorePackage.getEBoolean(), "invert", null, 0, 1, RdfPathComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRdfPathPart_Quantifier(), this.getRdfQuantifier(), "quantifier", null, 0, 1, RdfPathComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getRdfPathPart__GetRdfSinglePredicates(), this.getRdfSinglePredicate(), "getRdfSinglePredicates", 0, -1, IS_UNIQUE, IS_ORDERED);
 
