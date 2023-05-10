@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlAxisOptionParam;
-import qualitypatternmodel.adaptionxml.XmlAxisPair;
+import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.Node;
@@ -230,9 +230,9 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	 * @generated
 	 */
 	@Override
-	public XmlAxisPair getXmlAxisPair() {
+	public XmlAxisPart getXmlAxisPair() {
 		if (eContainerFeatureID() != AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PAIR) return null;
-		return (XmlAxisPair)eInternalContainer();
+		return (XmlAxisPart)eInternalContainer();
 	}
 
 	/**
@@ -240,7 +240,7 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetXmlAxisPair(XmlAxisPair newXmlAxisPair, NotificationChain msgs) {
+	public NotificationChain basicSetXmlAxisPair(XmlAxisPart newXmlAxisPair, NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject)newXmlAxisPair, AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PAIR, msgs);
 		return msgs;
 	}
@@ -251,7 +251,7 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	 * @generated
 	 */
 	@Override
-	public void setXmlAxisPair(XmlAxisPair newXmlAxisPair) {
+	public void setXmlAxisPair(XmlAxisPart newXmlAxisPair) {
 		if (newXmlAxisPair != eInternalContainer() || (eContainerFeatureID() != AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PAIR && newXmlAxisPair != null)) {
 			if (EcoreUtil.isAncestor(this, newXmlAxisPair))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -259,7 +259,7 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newXmlAxisPair != null)
-				msgs = ((InternalEObject)newXmlAxisPair).eInverseAdd(this, AdaptionxmlPackage.XML_AXIS_PAIR__XML_AXIS_OPTION_PARAM, XmlAxisPair.class, msgs);
+				msgs = ((InternalEObject)newXmlAxisPair).eInverseAdd(this, AdaptionxmlPackage.XML_AXIS_PAIR__XML_AXIS_OPTION_PARAM, XmlAxisPart.class, msgs);
 			msgs = basicSetXmlAxisPair(newXmlAxisPair, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -318,7 +318,7 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 			case AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PAIR:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetXmlAxisPair((XmlAxisPair)otherEnd, msgs);
+				return basicSetXmlAxisPair((XmlAxisPart)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -345,7 +345,7 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PAIR:
-				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.XML_AXIS_PAIR__XML_AXIS_OPTION_PARAM, XmlAxisPair.class, msgs);
+				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.XML_AXIS_PAIR__XML_AXIS_OPTION_PARAM, XmlAxisPart.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -383,7 +383,7 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 				setValue((XmlAxisKind)newValue);
 				return;
 			case AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PAIR:
-				setXmlAxisPair((XmlAxisPair)newValue);
+				setXmlAxisPair((XmlAxisPart)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -403,7 +403,7 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 				setValue(VALUE_EDEFAULT);
 				return;
 			case AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PAIR:
-				setXmlAxisPair((XmlAxisPair)null);
+				setXmlAxisPair((XmlAxisPart)null);
 				return;
 		}
 		super.eUnset(featureID);

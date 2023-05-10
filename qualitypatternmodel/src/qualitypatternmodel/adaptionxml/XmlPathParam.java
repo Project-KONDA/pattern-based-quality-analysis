@@ -52,17 +52,17 @@ public interface XmlPathParam extends Adaptable, Parameter {
 
 	/**
 	 * Returns the value of the '<em><b>Xml Axis Pairs</b></em>' containment reference list.
-	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.XmlAxisPair}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlAxisPair#getXmlPathParam <em>Xml Path Param</em>}'.
+	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.XmlAxisPart}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlPathParam <em>Xml Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Xml Axis Pairs</em>' containment reference list.
 	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlPathParam_XmlAxisPairs()
-	 * @see qualitypatternmodel.adaptionxml.XmlAxisPair#getXmlPathParam
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlPathParam
 	 * @model opposite="xmlPathParam" containment="true"
 	 * @generated
 	 */
-	EList<XmlAxisPair> getXmlAxisPairs();
+	EList<XmlAxisPart> getXmlAxisPairs();
 
 	/**
 	 * Returns the value of the '<em><b>Xml Navigation</b></em>' reference.

@@ -279,7 +279,7 @@ public class AdaptionxmlItemProviderAdapterFactory extends AdaptionxmlAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.XmlAxisPair} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.XmlAxisPart} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -287,7 +287,7 @@ public class AdaptionxmlItemProviderAdapterFactory extends AdaptionxmlAdapterFac
 	protected XmlAxisPairItemProvider xmlAxisPairItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.XmlAxisPair}.
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.XmlAxisPart}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

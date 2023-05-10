@@ -13,7 +13,7 @@ import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlAxisOptionParam;
-import qualitypatternmodel.adaptionxml.XmlAxisPair;
+import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
@@ -194,7 +194,7 @@ public class DemoPatternTexts {
 		XmlElementNavigation navigation0 = (XmlElementNavigation) completePattern.getGraph().getRelations().get(1);
 		XmlPathParam xmlPathParam = navigation0.getXmlPathParam();
 		
-		XmlAxisPair axisPair = AdaptionxmlFactory.eINSTANCE.createXmlAxisPair();
+		XmlAxisPart axisPair = AdaptionxmlFactory.eINSTANCE.createXmlAxisPair();
 		xmlPathParam.getXmlAxisPairs().add(axisPair);
 		XmlAxisOptionParam xmlAxisOptionParam = axisPair.getXmlAxisOptionParam();		
 		paramPredefAxis0.setValue(XmlAxisKind.DESCENDANT.getName());
@@ -220,7 +220,7 @@ public class DemoPatternTexts {
 		XmlNavigation navigation1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
 		XmlPathParam xmlPathParam1 = navigation1.getXmlPathParam();
 		
-		XmlAxisPair axisPair1 = AdaptionxmlFactory.eINSTANCE.createXmlAxisPair();
+		XmlAxisPart axisPair1 = AdaptionxmlFactory.eINSTANCE.createXmlAxisPair();
 		xmlPathParam1.getXmlAxisPairs().add(axisPair1);
 		XmlAxisOptionParam xmlAxisOptionParam2 = axisPair1.getXmlAxisOptionParam();		
 		paramPredefAxis1.setValue(XmlAxisKind.CHILD.getName());

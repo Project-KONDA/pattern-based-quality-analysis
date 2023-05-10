@@ -19,7 +19,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.XmlAxisPair;
+import qualitypatternmodel.adaptionxml.XmlAxisPart;
 
 import qualitypatternmodel.parameters.ParametersFactory;
 
@@ -28,7 +28,7 @@ import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionxml.XmlAxisPair} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionxml.XmlAxisPart} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -109,7 +109,7 @@ public class XmlAxisPairItemProvider extends PatternElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((XmlAxisPair)object).getId();
+		String label = ((XmlAxisPart)object).getId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_XmlAxisPair_type") :
 			getString("_UI_XmlAxisPair_type") + " " + label;
@@ -127,7 +127,7 @@ public class XmlAxisPairItemProvider extends PatternElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(XmlAxisPair.class)) {
+		switch (notification.getFeatureID(XmlAxisPart.class)) {
 			case AdaptionxmlPackage.XML_AXIS_PAIR__TEXT_LITERAL_PARAM:
 			case AdaptionxmlPackage.XML_AXIS_PAIR__XML_AXIS_OPTION_PARAM:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

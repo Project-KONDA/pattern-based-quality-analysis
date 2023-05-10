@@ -14,10 +14,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.ocl.pivot.internal.ParameterImpl;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlAxisOptionParam;
-import qualitypatternmodel.adaptionxml.XmlAxisPair;
+import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
@@ -51,14 +52,14 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPairImpl#getTextLiteralParam <em>Text Literal Param</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPairImpl#getXmlAxisOptionParam <em>Xml Axis Option Param</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPairImpl#getXmlPathParam <em>Xml Path Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl#getTextLiteralParam <em>Text Literal Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl#getXmlAxisOptionParam <em>Xml Axis Option Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl#getXmlPathParam <em>Xml Path Param</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class XmlAxisPairImpl extends PatternElementImpl implements XmlAxisPair {
+public class XmlAxisPartImpl extends ParameterImpl implements XmlAxisPart {
 	/**
 	 * The cached value of the '{@link #getTextLiteralParam() <em>Text Literal Param</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -84,7 +85,7 @@ public class XmlAxisPairImpl extends PatternElementImpl implements XmlAxisPair {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected XmlAxisPairImpl() {
+	protected XmlAxisPartImpl() {
 		super();
 	}
 	
@@ -293,9 +294,9 @@ public class XmlAxisPairImpl extends PatternElementImpl implements XmlAxisPair {
 	 * @generated NOT
 	 */
 	@Override
-	public EList<XmlAxisPair> getNextXmlAxisPairs() {
+	public EList<XmlAxisPart> getNextXmlAxisPairs() {
 		int index = getXmlPathParam().getXmlAxisPairs().indexOf(this);
-		EList<XmlAxisPair> xmlAxisPairs = new BasicEList<XmlAxisPair>();
+		EList<XmlAxisPart> xmlAxisPairs = new BasicEList<XmlAxisPart>();
 		if(index < getXmlPathParam().getXmlAxisPairs().size()-1) {
 			xmlAxisPairs.add(getXmlPathParam().getXmlAxisPairs().get(index+1));
 		} else if(getXmlPathParam().getXmlPropertyOptionParam() == null && getXmlPathParam().getXmlNavigation() instanceof XmlElementNavigation) {
@@ -307,7 +308,7 @@ public class XmlAxisPairImpl extends PatternElementImpl implements XmlAxisPair {
 				}
 				if(r instanceof XmlPropertyNavigation) {
 					XmlPropertyNavigation nav = (XmlPropertyNavigation) r;
-					EList<XmlAxisPair> pairs = nav.getXmlPathParam().getXmlAxisPairs();
+					EList<XmlAxisPart> pairs = nav.getXmlPathParam().getXmlAxisPairs();
 					if (pairs.size() > 0)
 						xmlAxisPairs.add(pairs.get(0));
 				}
@@ -322,9 +323,9 @@ public class XmlAxisPairImpl extends PatternElementImpl implements XmlAxisPair {
 	 * @generated NOT
 	 */
 	@Override
-	public EList<XmlAxisPair> getPreviousXmlAxisPairs() {
+	public EList<XmlAxisPart> getPreviousXmlAxisPairs() {
 		int index = getXmlPathParam().getXmlAxisPairs().indexOf(this);
-		EList<XmlAxisPair> xmlAxisPairs = new BasicEList<XmlAxisPair>();
+		EList<XmlAxisPart> xmlAxisPairs = new BasicEList<XmlAxisPart>();
 		if(index > 0) {
 			xmlAxisPairs.add(getXmlPathParam().getXmlAxisPairs().get(index-1));
 		} else if(index == 0 && getXmlPathParam().getXmlNavigation() != null && getXmlPathParam().getXmlNavigation().getSource() != null) {
@@ -374,8 +375,8 @@ public class XmlAxisPairImpl extends PatternElementImpl implements XmlAxisPair {
 	@Override
 	public EList<String> inferElementTagSuggestionsFromOutgoingRelations() {
 		EList<String> suggestions = new BasicEList<String>();
-		EList<XmlAxisPair> nextAxisPairs = getNextXmlAxisPairs();
-		for(XmlAxisPair next : nextAxisPairs) {		
+		EList<XmlAxisPart> nextAxisPairs = getNextXmlAxisPairs();
+		for(XmlAxisPart next : nextAxisPairs) {		
 			if(next != null && next.getXmlAxisOptionParam() != null && next.getXmlAxisOptionParam().getValue() != null
 					&& next.getTextLiteralParam() != null && next.getTextLiteralParam().getValue() != null) {
 	
@@ -443,8 +444,8 @@ public class XmlAxisPairImpl extends PatternElementImpl implements XmlAxisPair {
 			
 		} else {
 			EList<String> suggestions = new BasicEList<String>();
-			EList<XmlAxisPair> previousAxisPairs = getPreviousXmlAxisPairs();
-			for(XmlAxisPair previous : previousAxisPairs) {
+			EList<XmlAxisPart> previousAxisPairs = getPreviousXmlAxisPairs();
+			for(XmlAxisPart previous : previousAxisPairs) {
 			
 				if(previous != null && previous.getTextLiteralParam() != null && previous.getTextLiteralParam().getValue() != null) {
 					String previousTag = null;
@@ -502,8 +503,8 @@ public class XmlAxisPairImpl extends PatternElementImpl implements XmlAxisPair {
 		String targetTag = getTextLiteralParam().getValue();
 		
 		
-		EList<XmlAxisPair> previousAxisPairs = getPreviousXmlAxisPairs();
-		for (XmlAxisPair previous : previousAxisPairs) {
+		EList<XmlAxisPart> previousAxisPairs = getPreviousXmlAxisPairs();
+		for (XmlAxisPart previous : previousAxisPairs) {
 			if(previous != null && previous.getTextLiteralParam() != null && previous.getTextLiteralParam().getValue() != null) {
 				String sourceTag = null;
 				if(previous.getTextLiteralParam().getValue().equals("") || previous.getTextLiteralParam().getValue().equals("*")) {

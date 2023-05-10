@@ -16,16 +16,16 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPair#getTextLiteralParam <em>Text Literal Param</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPair#getXmlAxisOptionParam <em>Xml Axis Option Param</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPair#getXmlPathParam <em>Xml Path Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getTextLiteralParam <em>Text Literal Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlAxisOptionParam <em>Xml Axis Option Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlPathParam <em>Xml Path Param</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlAxisPair()
  * @model
  * @generated
  */
-public interface XmlAxisPair extends PatternElement, Adaptable {
+public interface XmlAxisPart extends PatternElement, Adaptable {
 	/**
 	 * Returns the value of the '<em><b>Text Literal Param</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.TextLiteralParam#getXmlAxisPair <em>Xml Axis Pair</em>}'.
@@ -41,7 +41,7 @@ public interface XmlAxisPair extends PatternElement, Adaptable {
 	TextLiteralParam getTextLiteralParam();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlAxisPair#getTextLiteralParam <em>Text Literal Param</em>}' containment reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getTextLiteralParam <em>Text Literal Param</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Text Literal Param</em>' containment reference.
@@ -65,7 +65,7 @@ public interface XmlAxisPair extends PatternElement, Adaptable {
 	XmlAxisOptionParam getXmlAxisOptionParam();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlAxisPair#getXmlAxisOptionParam <em>Xml Axis Option Param</em>}' containment reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlAxisOptionParam <em>Xml Axis Option Param</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Xml Axis Option Param</em>' containment reference.
@@ -89,7 +89,7 @@ public interface XmlAxisPair extends PatternElement, Adaptable {
 	XmlPathParam getXmlPathParam();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlAxisPair#getXmlPathParam <em>Xml Path Param</em>}' container reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlPathParam <em>Xml Path Param</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Xml Path Param</em>' container reference.
@@ -104,7 +104,7 @@ public interface XmlAxisPair extends PatternElement, Adaptable {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	EList<XmlAxisPair> getNextXmlAxisPairs();
+	EList<XmlAxisPart> getNextXmlAxisPairs();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -112,7 +112,7 @@ public interface XmlAxisPair extends PatternElement, Adaptable {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	EList<XmlAxisPair> getPreviousXmlAxisPairs();
+	EList<XmlAxisPart> getPreviousXmlAxisPairs();
 
 	/**
 	 * <!-- begin-user-doc -->

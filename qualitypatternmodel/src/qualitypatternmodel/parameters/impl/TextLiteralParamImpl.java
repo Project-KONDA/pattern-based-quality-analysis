@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.XmlAxisPair;
+import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -193,7 +193,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	@Override
 	public EList<String> inferSuggestions() {
 		EList<String> suggestions = super.inferSuggestions();
-		XmlAxisPair pair = getXmlAxisPair();
+		XmlAxisPart pair = getXmlAxisPair();
 		EList<String> suggestionsFromPath = pair.inferElementTagSuggestions();
 
 		if(suggestions.isEmpty() || suggestionsFromPath.isEmpty()) {
@@ -327,9 +327,9 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	 * @generated
 	 */
 	@Override
-	public XmlAxisPair getXmlAxisPair() {
+	public XmlAxisPart getXmlAxisPair() {
 		if (eContainerFeatureID() != ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR) return null;
-		return (XmlAxisPair)eInternalContainer();
+		return (XmlAxisPart)eInternalContainer();
 	}
 
 	/**
@@ -337,7 +337,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetXmlAxisPair(XmlAxisPair newXmlAxisPair, NotificationChain msgs) {
+	public NotificationChain basicSetXmlAxisPair(XmlAxisPart newXmlAxisPair, NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject)newXmlAxisPair, ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR, msgs);
 		return msgs;
 	}
@@ -348,7 +348,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	 * @generated
 	 */
 	@Override
-	public void setXmlAxisPair(XmlAxisPair newXmlAxisPair) {
+	public void setXmlAxisPair(XmlAxisPart newXmlAxisPair) {
 		if (newXmlAxisPair != eInternalContainer() || (eContainerFeatureID() != ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR && newXmlAxisPair != null)) {
 			if (EcoreUtil.isAncestor(this, newXmlAxisPair))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -356,7 +356,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newXmlAxisPair != null)
-				msgs = ((InternalEObject)newXmlAxisPair).eInverseAdd(this, AdaptionxmlPackage.XML_AXIS_PAIR__TEXT_LITERAL_PARAM, XmlAxisPair.class, msgs);
+				msgs = ((InternalEObject)newXmlAxisPair).eInverseAdd(this, AdaptionxmlPackage.XML_AXIS_PAIR__TEXT_LITERAL_PARAM, XmlAxisPart.class, msgs);
 			msgs = basicSetXmlAxisPair(newXmlAxisPair, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -412,7 +412,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetXmlAxisPair((XmlAxisPair)otherEnd, msgs);
+				return basicSetXmlAxisPair((XmlAxisPart)otherEnd, msgs);
 			case ParametersPackage.TEXT_LITERAL_PARAM__CONTAINS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContains()).basicAdd(otherEnd, msgs);
 		}
@@ -450,7 +450,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_PROPERTY_OPTION_PARAM:
 				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME, XmlPropertyOptionParam.class, msgs);
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR:
-				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.XML_AXIS_PAIR__TEXT_LITERAL_PARAM, XmlAxisPair.class, msgs);
+				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.XML_AXIS_PAIR__TEXT_LITERAL_PARAM, XmlAxisPart.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -497,7 +497,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				setXmlPropertyOptionParam((XmlPropertyOptionParam)newValue);
 				return;
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR:
-				setXmlAxisPair((XmlAxisPair)newValue);
+				setXmlAxisPair((XmlAxisPart)newValue);
 				return;
 			case ParametersPackage.TEXT_LITERAL_PARAM__CONTAINS:
 				getContains().clear();
@@ -525,7 +525,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				setXmlPropertyOptionParam((XmlPropertyOptionParam)null);
 				return;
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR:
-				setXmlAxisPair((XmlAxisPair)null);
+				setXmlAxisPair((XmlAxisPart)null);
 				return;
 			case ParametersPackage.TEXT_LITERAL_PARAM__CONTAINS:
 				getContains().clear();

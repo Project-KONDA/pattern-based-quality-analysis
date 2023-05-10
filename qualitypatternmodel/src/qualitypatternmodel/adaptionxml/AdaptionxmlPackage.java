@@ -5664,10 +5664,10 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PATH_PARAM_OPERATION_COUNT = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 14;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPairImpl <em>Xml Axis Pair</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl <em>Xml Axis Pair</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.impl.XmlAxisPairImpl
+	 * @see qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl
 	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getXmlAxisPair()
 	 * @generated
 	 */
@@ -6453,104 +6453,104 @@ public interface AdaptionxmlPackage extends EPackage {
 	EOperation getXmlPathParam__SetXmlAxis__XmlAxisKind_String_1();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XmlAxisPair <em>Xml Axis Pair</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XmlAxisPart <em>Xml Axis Pair</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Xml Axis Pair</em>'.
-	 * @see qualitypatternmodel.adaptionxml.XmlAxisPair
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart
 	 * @generated
 	 */
 	EClass getXmlAxisPair();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionxml.XmlAxisPair#getTextLiteralParam <em>Text Literal Param</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getTextLiteralParam <em>Text Literal Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Text Literal Param</em>'.
-	 * @see qualitypatternmodel.adaptionxml.XmlAxisPair#getTextLiteralParam()
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#getTextLiteralParam()
 	 * @see #getXmlAxisPair()
 	 * @generated
 	 */
 	EReference getXmlAxisPair_TextLiteralParam();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionxml.XmlAxisPair#getXmlAxisOptionParam <em>Xml Axis Option Param</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlAxisOptionParam <em>Xml Axis Option Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Xml Axis Option Param</em>'.
-	 * @see qualitypatternmodel.adaptionxml.XmlAxisPair#getXmlAxisOptionParam()
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlAxisOptionParam()
 	 * @see #getXmlAxisPair()
 	 * @generated
 	 */
 	EReference getXmlAxisPair_XmlAxisOptionParam();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionxml.XmlAxisPair#getXmlPathParam <em>Xml Path Param</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlPathParam <em>Xml Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the container reference '<em>Xml Path Param</em>'.
-	 * @see qualitypatternmodel.adaptionxml.XmlAxisPair#getXmlPathParam()
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlPathParam()
 	 * @see #getXmlAxisPair()
 	 * @generated
 	 */
 	EReference getXmlAxisPair_XmlPathParam();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlAxisPair#getNextXmlAxisPairs() <em>Get Next Xml Axis Pairs</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getNextXmlAxisPairs() <em>Get Next Xml Axis Pairs</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Next Xml Axis Pairs</em>' operation.
-	 * @see qualitypatternmodel.adaptionxml.XmlAxisPair#getNextXmlAxisPairs()
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#getNextXmlAxisPairs()
 	 * @generated
 	 */
 	EOperation getXmlAxisPair__GetNextXmlAxisPairs();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlAxisPair#getPreviousXmlAxisPairs() <em>Get Previous Xml Axis Pairs</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getPreviousXmlAxisPairs() <em>Get Previous Xml Axis Pairs</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Previous Xml Axis Pairs</em>' operation.
-	 * @see qualitypatternmodel.adaptionxml.XmlAxisPair#getPreviousXmlAxisPairs()
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#getPreviousXmlAxisPairs()
 	 * @generated
 	 */
 	EOperation getXmlAxisPair__GetPreviousXmlAxisPairs();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlAxisPair#inferAxisSuggestions() <em>Infer Axis Suggestions</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#inferAxisSuggestions() <em>Infer Axis Suggestions</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Infer Axis Suggestions</em>' operation.
-	 * @see qualitypatternmodel.adaptionxml.XmlAxisPair#inferAxisSuggestions()
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#inferAxisSuggestions()
 	 * @generated
 	 */
 	EOperation getXmlAxisPair__InferAxisSuggestions();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlAxisPair#inferElementTagSuggestions() <em>Infer Element Tag Suggestions</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#inferElementTagSuggestions() <em>Infer Element Tag Suggestions</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Infer Element Tag Suggestions</em>' operation.
-	 * @see qualitypatternmodel.adaptionxml.XmlAxisPair#inferElementTagSuggestions()
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#inferElementTagSuggestions()
 	 * @generated
 	 */
 	EOperation getXmlAxisPair__InferElementTagSuggestions();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlAxisPair#inferElementTagSuggestionsFromIncomingRelations() <em>Infer Element Tag Suggestions From Incoming Relations</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#inferElementTagSuggestionsFromIncomingRelations() <em>Infer Element Tag Suggestions From Incoming Relations</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Infer Element Tag Suggestions From Incoming Relations</em>' operation.
-	 * @see qualitypatternmodel.adaptionxml.XmlAxisPair#inferElementTagSuggestionsFromIncomingRelations()
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#inferElementTagSuggestionsFromIncomingRelations()
 	 * @generated
 	 */
 	EOperation getXmlAxisPair__InferElementTagSuggestionsFromIncomingRelations();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlAxisPair#inferElementTagSuggestionsFromOutgoingRelations() <em>Infer Element Tag Suggestions From Outgoing Relations</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#inferElementTagSuggestionsFromOutgoingRelations() <em>Infer Element Tag Suggestions From Outgoing Relations</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Infer Element Tag Suggestions From Outgoing Relations</em>' operation.
-	 * @see qualitypatternmodel.adaptionxml.XmlAxisPair#inferElementTagSuggestionsFromOutgoingRelations()
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#inferElementTagSuggestionsFromOutgoingRelations()
 	 * @generated
 	 */
 	EOperation getXmlAxisPair__InferElementTagSuggestionsFromOutgoingRelations();
@@ -6993,10 +6993,10 @@ public interface AdaptionxmlPackage extends EPackage {
 		EOperation XML_PATH_PARAM___SET_XML_AXIS__XMLAXISKIND_STRING_1 = eINSTANCE.getXmlPathParam__SetXmlAxis__XmlAxisKind_String_1();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPairImpl <em>Xml Axis Pair</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl <em>Xml Axis Pair</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.adaptionxml.impl.XmlAxisPairImpl
+		 * @see qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl
 		 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getXmlAxisPair()
 		 * @generated
 		 */

@@ -69,17 +69,17 @@ public interface XmlAxisOptionParam extends Parameter {
 
 	/**
 	 * Returns the value of the '<em><b>Xml Axis Pair</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlAxisPair#getXmlAxisOptionParam <em>Xml Axis Option Param</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlAxisOptionParam <em>Xml Axis Option Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Xml Axis Pair</em>' container reference.
-	 * @see #setXmlAxisPair(XmlAxisPair)
+	 * @see #setXmlAxisPair(XmlAxisPart)
 	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlAxisOptionParam_XmlAxisPair()
-	 * @see qualitypatternmodel.adaptionxml.XmlAxisPair#getXmlAxisOptionParam
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlAxisOptionParam
 	 * @model opposite="xmlAxisOptionParam" required="true" transient="false"
 	 * @generated
 	 */
-	XmlAxisPair getXmlAxisPair();
+	XmlAxisPart getXmlAxisPair();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlAxisOptionParam#getXmlAxisPair <em>Xml Axis Pair</em>}' container reference.
@@ -89,7 +89,7 @@ public interface XmlAxisOptionParam extends Parameter {
 	 * @see #getXmlAxisPair()
 	 * @generated
 	 */
-	void setXmlAxisPair(XmlAxisPair value);
+	void setXmlAxisPair(XmlAxisPart value);
 
 	/**
 	 * <!-- begin-user-doc -->

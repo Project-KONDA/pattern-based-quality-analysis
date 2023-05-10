@@ -215,8 +215,8 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	 * @generated
 	 */
 	@Override
-	public XmlAxisPair createXmlAxisPair() {
-		XmlAxisPairImpl xmlAxisPair = new XmlAxisPairImpl();
+	public XmlAxisPart createXmlAxisPair() {
+		XmlAxisPartImpl xmlAxisPair = new XmlAxisPartImpl();
 		return xmlAxisPair;
 	}
 

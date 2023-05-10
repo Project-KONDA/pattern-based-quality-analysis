@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionxml.XmlAxisOptionParam;
-import qualitypatternmodel.adaptionxml.XmlAxisPair;
+import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -322,7 +322,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 						patternParametersNonPredefined.add(pathParam.getXmlPropertyOptionParam().getAttributeName());
 					}
 				}
-				for(XmlAxisPair axisPair : pathParam.getXmlAxisPairs()) {
+				for(XmlAxisPart axisPair : pathParam.getXmlAxisPairs()) {
 					if(axisPair.getXmlAxisOptionParam() != null && !axisPair.getXmlAxisOptionParam().isPredefined()) {
 						patternParametersNonPredefined.add(axisPair.getXmlAxisOptionParam());						
 						boolean rootRelation = true;

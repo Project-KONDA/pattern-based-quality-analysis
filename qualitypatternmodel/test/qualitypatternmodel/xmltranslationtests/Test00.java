@@ -8,7 +8,7 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
-import qualitypatternmodel.adaptionxml.XmlAxisPair;
+import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
@@ -146,7 +146,7 @@ public class Test00 {
 			}
 			if (param instanceof XmlPathParam) {
 				XmlPathParam xmlPathParam = (XmlPathParam) param;
-				for(XmlAxisPair pair : xmlPathParam.getXmlAxisPairs()) {
+				for(XmlAxisPart pair : xmlPathParam.getXmlAxisPairs()) {
 					if(pair.getTextLiteralParam().getValue() == null) {
 						pair.getTextLiteralParam().setValue("");
 					}

@@ -166,7 +166,7 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 				return result;
 			}
 			case AdaptionxmlPackage.XML_AXIS_PAIR: {
-				XmlAxisPair xmlAxisPair = (XmlAxisPair)theEObject;
+				XmlAxisPart xmlAxisPair = (XmlAxisPart)theEObject;
 				T result = caseXmlAxisPair(xmlAxisPair);
 				if (result == null) result = caseAdaptable(xmlAxisPair);
 				if (result == null) result = casePatternElement(xmlAxisPair);
@@ -338,7 +338,7 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseXmlAxisPair(XmlAxisPair object) {
+	public T caseXmlAxisPair(XmlAxisPart object) {
 		return null;
 	}
 

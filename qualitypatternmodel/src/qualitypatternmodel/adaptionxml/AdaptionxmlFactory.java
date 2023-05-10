@@ -109,7 +109,7 @@ public interface AdaptionxmlFactory extends EFactory {
 	 * @return a new object of class '<em>Xml Axis Pair</em>'.
 	 * @generated
 	 */
-	XmlAxisPair createXmlAxisPair();
+	XmlAxisPart createXmlAxisPair();
 
 	/**
 	 * Returns the package supported by this factory.
