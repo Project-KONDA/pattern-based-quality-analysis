@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ASCII"?>
+<execution:Databases xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:execution="execution">
+  <xmlDatabases xsi:type="execution:LocalXmlDataDatabase" name="demo_database" namespace="demo:" patterns="_1ZBwsIB3Ee2usNr5oNQslg _1ZYWCIB3Ee2usNr5oNQslg _1ZZkJIB3Ee2usNr5oNQslg _1Zaya4B3Ee2usNr5oNQslg _1ZcAYIB3Ee2usNr5oNQslg _1ZcAmIB3Ee2usNr5oNQslg _1ZdOm4B3Ee2usNr5oNQslg _1Zd1uYB3Ee2usNr5oNQslg" xmlSchema="//@xmlSchemata.0" dataPath="demo.data/demo_database.xml">
+    <elementNames key="data" value="0"/>
+    <elementNames key="building" value="0"/>
+    <elementNames key="painting" value="0"/>
+    <elementNames key="architect" value="0"/>
+    <elementNames key="artist" value="0"/>
+    <elementNames key="name" value="0"/>
+    <elementNames key="city" value="0"/>
+    <elementNames key="country" value="0"/>
+    <elementNames key="creator" value="0"/>
+    <elementNames key="address" value="0"/>
+    <elementNames key="title" value="0"/>
+    <elementNames key="startwork" value="0"/>
+    <elementNames key="endwork" value="0"/>
+    <elementNames key="birthyear" value="0"/>
+    <elementNames key="deathyear" value="0"/>
+    <attributeNames key="ref" value="0"/>
+    <attributeNames key="last-modified-date" value="0"/>
+    <attributeNames key="id" value="0"/>
+    <attributeNames key="recorded" value="0"/>
+    <attributeNames key="modified" value="0"/>
+    <attributeNames key="last-modified-time" value="0"/>
+    <attributeNames key="lang" value="0"/>
+  </xmlDatabases>
+  <xmlSchemata xsi:type="execution:LocalXmlSchemaDatabase" name="demo_database_schema" namespace="demo:" xmlDatabases="//@xmlDatabases.0" prefix="xs" schemaPath="demo.data/demo_database_schema.xsd">
+    <elementNames>data</elementNames>
+    <elementNames>building</elementNames>
+    <elementNames>painting</elementNames>
+    <elementNames>architect</elementNames>
+    <elementNames>artist</elementNames>
+    <elementNames>name</elementNames>
+    <elementNames>city</elementNames>
+    <elementNames>country</elementNames>
+    <elementNames>creator</elementNames>
+    <elementNames>address</elementNames>
+    <elementNames>title</elementNames>
+    <elementNames>startwork</elementNames>
+    <elementNames>endwork</elementNames>
+    <elementNames>birthyear</elementNames>
+    <elementNames>deathyear</elementNames>
+    <attributeNames>ref</attributeNames>
+    <attributeNames>last-modified-date</attributeNames>
+    <attributeNames>id</attributeNames>
+    <attributeNames>recorded</attributeNames>
+    <attributeNames>modified</attributeNames>
+    <attributeNames>last-modified-time</attributeNames>
+    <attributeNames>lang</attributeNames>
+    <rootElementNames>data</rootElementNames>
+  </xmlSchemata>
+</execution:Databases>

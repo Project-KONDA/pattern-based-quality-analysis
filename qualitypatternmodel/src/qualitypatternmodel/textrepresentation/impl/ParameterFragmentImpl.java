@@ -16,12 +16,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+//import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
-import qualitypatternmodel.adaptionxml.XmlProperty;
+//import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyOptionParamImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlAxisOptionParamImpl;
+import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.graphstructure.Node;
+//import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -249,8 +251,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		}
 		if(parameter instanceof XmlPropertyOptionParamImpl) {
 			XmlPropertyOptionParamImpl propertyOption = (XmlPropertyOptionParamImpl) parameter;
-			Node node = propertyOption.getXmlPathParam().getXmlNavigation().getTarget();
-			XmlProperty xmlProperty = (XmlProperty) node;
+//			Node node = propertyOption.getXmlPathParam().getXmlNavigation().getTarget();
+//			XmlProperty xmlProperty = (XmlProperty) node;
 			TextLiteralParam textLiteral = propertyOption.getAttributeName();
 			if(textLiteral.getMatches().isEmpty() && textLiteral.getComparison1().isEmpty() && textLiteral.getComparison2().isEmpty()) {
 				int dependentParameterID = getPatternText().getPattern().getParameterList().getParameters().indexOf(textLiteral);
@@ -272,13 +274,14 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
 	 * @generated NOT
 	 */
 	@Override
 	public String getType() {
 //		return getParameter().getClass().toString();
 		
-		Class type = getParameter().get(0).getClass();
+		Class<?> type = getParameter().get(0).getClass();
 		if (type.equals(DateParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_DATE;			
 		} else if(type.equals(TimeParamImpl.class)) {
@@ -295,8 +298,12 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			return Constants.PARAMETER_TYPE_TEXT_LIST;
 		} else if (type.equals(UntypedParameterValueImpl.class)) {
 			return Constants.PARAMETER_TYPE_UNTYPED;
-		} else {
+		} else if (type.equals(ComparisonOptionParamImpl.class) || type.equals(TypeOptionParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_ENUMERATION;
+		} else if (type.equals(XmlPathParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_XML_PATH;
+		} else {
+			return null;
 		}		
 	}	
 
@@ -307,7 +314,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 */
 	@Override
 	public String getRole() {
-		Class type = getParameter().get(0).getClass();
+		Class<?> type = getParameter().get(0).getClass();
 		if (type.equals(DateParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_DATE;			
 		} else if(type.equals(TimeParamImpl.class)) {
@@ -350,7 +357,11 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			String value = p.getValueAsString();
 			
 			if(value != null && !value.equals(firstValue) || value == null && firstValue != null) {
-				throw new InvalidityException("Referenced parameters have different values");
+				String types = "";
+				for (Parameter p2 : getParameter()) {
+					types += ", " + p2.getClass().getSimpleName() + ":" + p2.getValueAsString();
+				}
+				throw new InvalidityException("Referenced parameters have different values: " + types);
 			}
 			
 			if(!p.eClass().equals(firstEClass)) {

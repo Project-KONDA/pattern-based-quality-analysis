@@ -28,7 +28,7 @@ public class Test01Reference {
 		
 		Node n1 = g.getNodes().get(0);
 		Node n2 = g.addComplexNode();
-		Relation r = n1.addOutgoing(n2);
+		n1.addOutgoing(n2);
 		
 		return completePattern;
 	}
@@ -47,7 +47,7 @@ public class Test01Reference {
 		QuantifiedCondition qc = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		
 		completePattern.setCondition(qc);
-		Graph g = qc.getGraph();
+//		Graph g = qc.getGraph();
 		
 		
 		completePattern.createXmlAdaption();

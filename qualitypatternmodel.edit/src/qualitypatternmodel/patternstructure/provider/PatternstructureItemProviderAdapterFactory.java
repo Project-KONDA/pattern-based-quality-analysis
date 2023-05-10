@@ -146,7 +146,7 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ElementMappingItemProvider elementMappingItemProvider;
+	protected NodeMappingItemProvider nodeMappingItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.NodeMapping}.
@@ -155,12 +155,12 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 	 * @generated
 	 */
 	@Override
-	public Adapter createElementMappingAdapter() {
-		if (elementMappingItemProvider == null) {
-			elementMappingItemProvider = new ElementMappingItemProvider(this);
+	public Adapter createNodeMappingAdapter() {
+		if (nodeMappingItemProvider == null) {
+			nodeMappingItemProvider = new NodeMappingItemProvider(this);
 		}
 
-		return elementMappingItemProvider;
+		return nodeMappingItemProvider;
 	}
 
 	/**
@@ -432,7 +432,7 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 		if (relationMappingItemProvider != null) relationMappingItemProvider.dispose();
 		if (quantifiedConditionItemProvider != null) quantifiedConditionItemProvider.dispose();
 		if (morphismItemProvider != null) morphismItemProvider.dispose();
-		if (elementMappingItemProvider != null) elementMappingItemProvider.dispose();
+		if (nodeMappingItemProvider != null) nodeMappingItemProvider.dispose();
 		if (formulaItemProvider != null) formulaItemProvider.dispose();
 		if (trueElementItemProvider != null) trueElementItemProvider.dispose();
 		if (completePatternItemProvider != null) completePatternItemProvider.dispose();

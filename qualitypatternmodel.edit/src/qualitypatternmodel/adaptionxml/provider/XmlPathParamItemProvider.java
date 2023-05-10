@@ -165,7 +165,7 @@ public class XmlPathParamItemProvider extends PatternElementItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(AdaptionxmlPackage.Literals.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM);
-			childrenFeatures.add(AdaptionxmlPackage.Literals.XML_PATH_PARAM__XML_AXIS_PAIRS);
+			childrenFeatures.add(AdaptionxmlPackage.Literals.XML_PATH_PARAM__XML_AXIS_PARTS);
 		}
 		return childrenFeatures;
 	}
@@ -226,7 +226,7 @@ public class XmlPathParamItemProvider extends PatternElementItemProvider {
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM:
-			case AdaptionxmlPackage.XML_PATH_PARAM__XML_AXIS_PAIRS:
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_AXIS_PARTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -251,8 +251,8 @@ public class XmlPathParamItemProvider extends PatternElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AdaptionxmlPackage.Literals.XML_PATH_PARAM__XML_AXIS_PAIRS,
-				 AdaptionxmlFactory.eINSTANCE.createXmlAxisPair()));
+				(AdaptionxmlPackage.Literals.XML_PATH_PARAM__XML_AXIS_PARTS,
+				 AdaptionxmlFactory.eINSTANCE.createXmlAxisPart()));
 	}
 
 	/**

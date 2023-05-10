@@ -2,7 +2,10 @@
  */
 package qualitypatternmodel.adaptionrdf.tests;
 
-import qualitypatternmodel.adaptionrdf.RdfPathComponent;
+import junit.textui.TestRunner;
+
+import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
+import qualitypatternmodel.adaptionrdf.RdfPathPart;
 
 import qualitypatternmodel.patternstructure.tests.PatternElementTest;
 
@@ -13,12 +16,21 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathComponent#getRdfSinglePredicates() <em>Get Rdf Single Predicates</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathPart#generateRdfPartTypes(java.lang.String) <em>Generate Rdf Part Types</em>}</li>
  * </ul>
  * </p>
  * @generated
  */
-public abstract class RdfPathPartTest extends PatternElementTest {
+public class RdfPathPartTest extends PatternElementTest {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static void main(String[] args) {
+		TestRunner.run(RdfPathPartTest.class);
+	}
 
 	/**
 	 * Constructs a new Rdf Path Part test case with the given name.
@@ -37,18 +49,40 @@ public abstract class RdfPathPartTest extends PatternElementTest {
 	 * @generated
 	 */
 	@Override
-	protected RdfPathComponent getFixture() {
-		return (RdfPathComponent)fixture;
+	protected RdfPathPart getFixture() {
+		return (RdfPathPart)fixture;
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionrdf.RdfPathComponent#getRdfSinglePredicates() <em>Get Rdf Single Predicates</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionrdf.RdfPathComponent#getRdfSinglePredicates()
+	 * @see junit.framework.TestCase#setUp()
 	 * @generated
 	 */
-	public void testGetRdfSinglePredicates() {
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(AdaptionrdfFactory.eINSTANCE.createRdfPathPart());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionrdf.RdfPathPart#generateRdfPartTypes(java.lang.String) <em>Generate Rdf Part Types</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathPart#generateRdfPartTypes(java.lang.String)
+	 * @generated
+	 */
+	public void testGenerateRdfPartTypes__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

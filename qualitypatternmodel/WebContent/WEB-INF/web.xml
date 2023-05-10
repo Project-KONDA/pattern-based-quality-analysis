@@ -12,7 +12,7 @@
 
 	<servlet-mapping>
 		<servlet-name>AbstractPatternListServlet</servlet-name>
-		<url-pattern>/abstract-patterns</url-pattern>
+		<url-pattern>/xml/abstract-patterns</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -22,7 +22,7 @@
 
 	<servlet-mapping>
 		<servlet-name>ConcretePatternListServlet</servlet-name>
-		<url-pattern>/concrete-patterns</url-pattern>
+		<url-pattern>/xml/concrete-patterns</url-pattern>
 	</servlet-mapping>	
 	
 	<servlet>
@@ -32,7 +32,7 @@
 
 	<servlet-mapping>
 		<servlet-name>AbstractPatternInstantiationServlet</servlet-name>
-		<url-pattern>/abstract-patterns/instantiation/*</url-pattern>
+		<url-pattern>/xml/abstract-patterns/instantiation/*</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -42,7 +42,7 @@
 
 	<servlet-mapping>
 		<servlet-name>ConcretePatternDeletionServlet</servlet-name>
-		<url-pattern>/concrete-patterns/deletion/*</url-pattern>
+		<url-pattern>/xml/concrete-patterns/deletion/*</url-pattern>
 	</servlet-mapping>	
 	
 	<servlet>
@@ -52,7 +52,7 @@
 
 	<servlet-mapping>
 		<servlet-name>ConcretePatternTextServlet</servlet-name>
-		<url-pattern>/concrete-patterns/text/*</url-pattern>
+		<url-pattern>/xml/concrete-patterns/text/*</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -62,7 +62,7 @@
 
 	<servlet-mapping>
 		<servlet-name>AbstractPatternTextDeletionServlet</servlet-name>
-		<url-pattern>/abstract-patterns/text/deletion/*</url-pattern>
+		<url-pattern>/xml/abstract-patterns/text/deletion/*</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -72,7 +72,7 @@
 
 	<servlet-mapping>
 		<servlet-name>ConcretisationServlet</servlet-name>
-		<url-pattern>/concrete-patterns/parameter/*</url-pattern>
+		<url-pattern>/xml/concrete-patterns/parameter/*</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -82,7 +82,7 @@
 
 	<servlet-mapping>
 		<servlet-name>AbstractPatternTextListServlet</servlet-name>
-		<url-pattern>/abstract-patterns/text-list/*</url-pattern>
+		<url-pattern>/xml/abstract-patterns/text-list/*</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -92,7 +92,7 @@
 
 	<servlet-mapping>
 		<servlet-name>ConcretePatternTextListServlet</servlet-name>
-		<url-pattern>/concrete-patterns/text-list/*</url-pattern>
+		<url-pattern>/xml/concrete-patterns/text-list/*</url-pattern>
 	</servlet-mapping>
 	
 	
@@ -103,7 +103,7 @@
 
 	<servlet-mapping>
 		<servlet-name>ConcretisationFinalizationServlet</servlet-name>
-		<url-pattern>/concrete-patterns/finalization/*</url-pattern>
+		<url-pattern>/xml/concrete-patterns/finalization/*</url-pattern>
 	</servlet-mapping>
 	
 	
@@ -114,7 +114,7 @@
 
 	<servlet-mapping>
 		<servlet-name>QueryServlet</servlet-name>
-		<url-pattern>/concrete-patterns/query/*</url-pattern>
+		<url-pattern>/xml/concrete-patterns/query/*</url-pattern>
 	</servlet-mapping>
 	
 	
@@ -125,7 +125,7 @@
 
 	<servlet-mapping>
 		<servlet-name>FinalizedPatternListServlet</servlet-name>
-		<url-pattern>/finalized-patterns</url-pattern>
+		<url-pattern>/xml/finalized-patterns</url-pattern>
 	</servlet-mapping>
 	
 	
@@ -136,7 +136,7 @@
 
 	<servlet-mapping>
 		<servlet-name>FinalizedPatternDatabaseServlet</servlet-name>
-		<url-pattern>/finalized-patterns/database/*</url-pattern>
+		<url-pattern>/xml/finalized-patterns/database/*</url-pattern>
 	</servlet-mapping>
 	
 	
@@ -158,7 +158,7 @@
 
 	<servlet-mapping>
 		<servlet-name>ConcretePatternDescriptionServlet</servlet-name>
-		<url-pattern>/concrete-patterns/description/*</url-pattern>
+		<url-pattern>/xml/concrete-patterns/description/*</url-pattern>
 	</servlet-mapping>
 	
 	
@@ -169,7 +169,7 @@
 
 	<servlet-mapping>
 		<servlet-name>DatabasesListServlet</servlet-name>
-		<url-pattern>/databases</url-pattern>
+		<url-pattern>/xml/databases</url-pattern>
 	</servlet-mapping>
 	
 	
@@ -180,7 +180,7 @@
 
 	<servlet-mapping>
 		<servlet-name>DatabasesRegistrationServlet</servlet-name>
-		<url-pattern>/databases/registration/*</url-pattern>
+		<url-pattern>/xml/databases/registration/*</url-pattern>
 	</servlet-mapping>
 	
 	
@@ -191,7 +191,7 @@
 
 	<servlet-mapping>
 		<servlet-name>DatabaseDeletionServlet</servlet-name>
-		<url-pattern>/databases/deletion/*</url-pattern>
+		<url-pattern>/xml/databases/deletion/*</url-pattern>
 	</servlet-mapping>
 	
 	
@@ -202,7 +202,7 @@
 
 	<servlet-mapping>
 		<servlet-name>DatabaseSettingServlet</servlet-name>
-		<url-pattern>/databases/set/*</url-pattern>
+		<url-pattern>/xml/databases/set/*</url-pattern>
 	</servlet-mapping>
 	
 	
@@ -213,7 +213,7 @@
 
 	<servlet-mapping>
 		<servlet-name>DatabaseGettingServlet</servlet-name>
-		<url-pattern>/databases/get/*</url-pattern>
+		<url-pattern>/xml/databases/get/*</url-pattern>
 	</servlet-mapping>
 	
 	
@@ -224,7 +224,7 @@
 
 	<servlet-mapping>
 		<servlet-name>SchemaValidationServlet</servlet-name>
-		<url-pattern>/concrete-patterns/schema-validation/*</url-pattern>
+		<url-pattern>/xml/concrete-patterns/schema-validation/*</url-pattern>
 	</servlet-mapping>
 	
 	
@@ -235,7 +235,7 @@
 
 	<servlet-mapping>
 		<servlet-name>PatternApplicationServlet</servlet-name>
-		<url-pattern>/finalized-patterns/application</url-pattern>
+		<url-pattern>/xml/finalized-patterns/application</url-pattern>
 	</servlet-mapping>
 	
 	<filter>

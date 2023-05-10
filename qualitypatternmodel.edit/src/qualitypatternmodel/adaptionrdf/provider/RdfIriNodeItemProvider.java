@@ -11,8 +11,10 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfIriNode;
 
 import qualitypatternmodel.graphstructure.provider.ComplexNodeItemProvider;
@@ -47,8 +49,31 @@ public class RdfIriNodeItemProvider extends ComplexNodeItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addRdfIriNodeTypesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Rdf Iri Node Types feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRdfIriNodeTypesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RdfIriNode_rdfIriNodeTypes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RdfIriNode_rdfIriNodeTypes_feature", "_UI_RdfIriNode_type"),
+				 AdaptionrdfPackage.Literals.RDF_IRI_NODE__RDF_IRI_NODE_TYPES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**

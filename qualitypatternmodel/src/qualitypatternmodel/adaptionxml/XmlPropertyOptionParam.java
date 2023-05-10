@@ -23,6 +23,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getValue <em>Value</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getXmlPathParam <em>Xml Path Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getAttributeName <em>Attribute Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getXmlAxisPart <em>Xml Axis Part</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlPropertyOptionParam()
@@ -79,7 +80,7 @@ public interface XmlPropertyOptionParam extends Parameter, Adaptable {
 	 * @see #setXmlPathParam(XmlPathParam)
 	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlPropertyOptionParam_XmlPathParam()
 	 * @see qualitypatternmodel.adaptionxml.XmlPathParam#getXmlPropertyOptionParam
-	 * @model opposite="xmlPropertyOptionParam" required="true" transient="false"
+	 * @model opposite="xmlPropertyOptionParam" transient="false"
 	 * @generated
 	 */
 	XmlPathParam getXmlPathParam();
@@ -117,6 +118,30 @@ public interface XmlPropertyOptionParam extends Parameter, Adaptable {
 	 * @generated
 	 */
 	void setAttributeName(TextLiteralParam value);
+
+	/**
+	 * Returns the value of the '<em><b>Xml Axis Part</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlPropertyOption <em>Xml Property Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Xml Axis Part</em>' container reference.
+	 * @see #setXmlAxisPart(XmlAxisPart)
+	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlPropertyOptionParam_XmlAxisPart()
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlPropertyOption
+	 * @model opposite="xmlPropertyOption" transient="false"
+	 * @generated
+	 */
+	XmlAxisPart getXmlAxisPart();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getXmlAxisPart <em>Xml Axis Part</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Xml Axis Part</em>' container reference.
+	 * @see #getXmlAxisPart()
+	 * @generated
+	 */
+	void setXmlAxisPart(XmlAxisPart value);
 
 	/**
 	 * <!-- begin-user-doc -->

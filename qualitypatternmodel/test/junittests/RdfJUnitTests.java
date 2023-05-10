@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.rdftranslationtests.RdfTest01Predicates;
+import qualitypatternmodel.rdftranslationtests.RdfTest01_1Predicates;
+import qualitypatternmodel.rdftranslationtests.RdfTest01_2Types;
+import qualitypatternmodel.rdftranslationtests.RdfTest01_3PredicateTypes;
 import qualitypatternmodel.rdftranslationtests.RdfTest02Return;
 import qualitypatternmodel.rdftranslationtests.RdfTest03Quantor;
 import qualitypatternmodel.rdftranslationtests.RdfTest04NotElement;
@@ -22,7 +24,30 @@ public class RdfJUnitTests {
 	@Test
 	public void test01() {
 		try {
-			ArrayList<CompletePattern> testpairs = RdfTest01Predicates.getPatterns();
+			ArrayList<CompletePattern> testpairs = RdfTest01_1Predicates.getPatterns();
+			assert(!testpairs.isEmpty());
+		} catch (Exception e) {
+			assert(false);
+		}
+		assert(true);
+	}
+	
+	@Test
+	public void test01_2() {
+		try {
+			ArrayList<CompletePattern> testpairs = RdfTest01_2Types.getPatterns();
+			assert(!testpairs.isEmpty());
+		} catch (Exception e) {
+			assert(false);
+		}
+		assert(true);
+	}
+	
+	@Test
+	public void test01_3() {
+		try {
+			ArrayList<CompletePattern> testpairs = RdfTest01_3PredicateTypes.getPatterns();
+			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
 			assert(false);
 		}
@@ -33,6 +58,7 @@ public class RdfJUnitTests {
 	public void test02() {
 		try {
 			ArrayList<CompletePattern> testpairs = RdfTest02Return.getPatterns();
+			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
 			assert(false);
 		}
@@ -43,6 +69,7 @@ public class RdfJUnitTests {
 	public void test03() {
 		try {
 			ArrayList<CompletePattern> testpairs = RdfTest03Quantor.getPatterns();
+			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
 			assert(false);
 		}
@@ -53,6 +80,7 @@ public class RdfJUnitTests {
 	public void test04() {
 		try {
 			ArrayList<CompletePattern> testpairs = RdfTest04NotElement.getPatterns();
+			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
 			assert(false);
 		}
@@ -62,6 +90,7 @@ public class RdfJUnitTests {
 	public void test05() {
 		try {
 			ArrayList<CompletePattern> testpairs = RdfTest05Formula.getPatterns();
+			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
 			assert(false);
 		}
@@ -71,6 +100,7 @@ public class RdfJUnitTests {
 	public void test06() {
 		try {
 			ArrayList<CompletePattern> testpairs = RdfTest06ParameterValues.getPatterns();
+			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
 			assert(false);
 		}
@@ -80,6 +110,7 @@ public class RdfJUnitTests {
 	public void test07() {
 		try {
 			ArrayList<CompletePattern> testpairs = RdfTest07ComplexComparisons.getPatterns();
+			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
 			assert(false);
 		}
@@ -90,6 +121,7 @@ public class RdfJUnitTests {
 	public void test08() {
 		try {
 			ArrayList<CompletePattern> testpairs = RdfTest08Count.getPatterns();
+			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
 			assert(false);
 		}
@@ -100,6 +132,7 @@ public class RdfJUnitTests {
 	public void test09() {
 		try {
 			ArrayList<CompletePattern> testpairs = RdfTest09Cycle.getPatterns();
+			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
 			assert(false);
 		}
@@ -110,6 +143,7 @@ public class RdfJUnitTests {
 	public void test11() {
 		try {
 			ArrayList<CompletePattern> testpairs = RdfTest11Contains.getPatterns();
+			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
 			assert(false);
 		}
@@ -120,6 +154,7 @@ public class RdfJUnitTests {
 	public void test11m() {
 		try {
 			ArrayList<CompletePattern> testpairs = RdfTest11Match.getPatterns();
+			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
 			assert(false);
 		}

@@ -166,10 +166,10 @@ public interface Morphism extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Creates a new <code>ElementMapping</code> with <code>from</code> as <code>source</code> and <code>to</code>
+	 * Creates a new <code>NodeMapping</code> with <code>from</code> as <code>source</code> and <code>to</code>
 	 * as <code>target</code> and adds it to <code>mappings</code>. 
 	 * 
-	 * @return the created <code>ElementMapping</code> with <code>from</code> as <code>source</code> and <code>to</code> as <code>target</code>
+	 * @return the created <code>NodeMapping</code> with <code>from</code> as <code>source</code> and <code>to</code> as <code>target</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated

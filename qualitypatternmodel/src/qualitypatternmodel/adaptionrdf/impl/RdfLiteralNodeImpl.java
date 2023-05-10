@@ -2,11 +2,14 @@
  */
 package qualitypatternmodel.adaptionrdf.impl;
 
+import java.lang.reflect.InvocationTargetException;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfLiteralNode;
+import qualitypatternmodel.adaptionrdf.RdfNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Node;
@@ -44,6 +47,16 @@ public class RdfLiteralNodeImpl extends PrimitiveNodeImpl implements RdfLiteralN
 			}
 		}
 		return "?var" + getOriginalID();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String generateRdfTypes() throws InvalidityException {
+		return "";
 	}
 	
 	
@@ -91,6 +104,41 @@ public class RdfLiteralNodeImpl extends PrimitiveNodeImpl implements RdfLiteralN
 	@Override
 	protected EClass eStaticClass() {
 		return AdaptionrdfPackage.Literals.RDF_LITERAL_NODE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == RdfNode.class) {
+			switch (baseOperationID) {
+				case AdaptionrdfPackage.RDF_NODE___GENERATE_RDF_TYPES: return AdaptionrdfPackage.RDF_LITERAL_NODE___GENERATE_RDF_TYPES;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case AdaptionrdfPackage.RDF_LITERAL_NODE___GENERATE_RDF_TYPES:
+				try {
+					return generateRdfTypes();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //RdfLiteralNodeImpl

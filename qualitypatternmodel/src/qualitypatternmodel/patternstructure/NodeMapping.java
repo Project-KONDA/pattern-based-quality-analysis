@@ -18,7 +18,7 @@ import qualitypatternmodel.graphstructure.Node;
  *   <li>{@link qualitypatternmodel.patternstructure.NodeMapping#getTarget <em>Target</em>}</li>
  * </ul>
  *
- * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getElementMapping()
+ * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getNodeMapping()
  * @model
  * @generated
  */
@@ -30,7 +30,7 @@ public interface NodeMapping extends Mapping {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source</em>' reference.
 	 * @see #setSource(Node)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getElementMapping_Source()
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getNodeMapping_Source()
 	 * @see qualitypatternmodel.graphstructure.Node#getOutgoingMappings
 	 * @model opposite="outgoingMappings" required="true"
 	 * @generated
@@ -54,7 +54,7 @@ public interface NodeMapping extends Mapping {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target</em>' reference.
 	 * @see #setTarget(Node)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getElementMapping_Target()
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getNodeMapping_Target()
 	 * @see qualitypatternmodel.graphstructure.Node#getIncomingMapping
 	 * @model opposite="incomingMapping" required="true"
 	 * @generated

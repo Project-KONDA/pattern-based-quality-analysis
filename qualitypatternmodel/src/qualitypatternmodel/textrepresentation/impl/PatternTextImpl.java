@@ -23,16 +23,10 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import qualitypatternmodel.adaptionxml.XmlAxisOptionParam;
-import qualitypatternmodel.adaptionxml.XmlAxisPart;
-import qualitypatternmodel.adaptionxml.XmlPathParam;
-import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
-import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.TypeOptionParam;
@@ -275,6 +269,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 */
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException {
+		
+		// get all referenced parameters
 		List<Parameter> referencedParameters = new ArrayList<Parameter>();
 		for(Fragment f : getFragments()) {
 			if(f instanceof ParameterFragment) {
@@ -287,89 +283,111 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			referencedParameters.addAll(p.getParameter());			
 		}
 		
-		List<Parameter> patternParametersNonPredefinedNotAutomaticTypeNotRootRelation = new ArrayList<Parameter>();
+		// get all parameters from the pattern, that needs to be specified
+//		List<Parameter> patternParametersNonPredefinedNotAutomaticTypeNotRootRelation = new ArrayList<Parameter>();
 		List<Parameter> patternParametersNonPredefined = new ArrayList<Parameter>();
 		for(Parameter p : getPattern().getParameterList().getParameters()){
 			if(!p.isPredefined()) {
-				patternParametersNonPredefined.add(p);
-				if(!(p instanceof TypeOptionParam)) {					
-					if(p instanceof XmlAxisOptionParam) {
-						XmlAxisOptionParam r = (XmlAxisOptionParam) p;
-						boolean rootRelation = true;
-						Relation relation = r.getXmlAxisPair().getXmlPathParam().getXmlNavigation();
-						rootRelation &= relation.getSource() instanceof XmlRoot;						
-						if(!rootRelation) {
-							patternParametersNonPredefinedNotAutomaticTypeNotRootRelation.add(p);
-						}
-					}					
-					
-				} else {					
+				if(!(p instanceof TypeOptionParam)) {
+					patternParametersNonPredefined.add(p);
+				} else {
 					TypeOptionParam t = (TypeOptionParam) p;
 					boolean automaticType = true;
 					for(Comparison c : t.getTypeComparisons()) {
 						automaticType &= !(c.getArgument1() instanceof PrimitiveNode && c.getArgument2() instanceof PrimitiveNode);
 					}
 					if(!automaticType) {
-						patternParametersNonPredefinedNotAutomaticTypeNotRootRelation.add(p);
-					}					
-				}				
-			}
-			if(p instanceof XmlPathParam) {
-				XmlPathParam pathParam = (XmlPathParam) p;
-				if(pathParam.getXmlPropertyOptionParam() != null && !pathParam.getXmlPropertyOptionParam().isPredefined()) {
-					patternParametersNonPredefined.add(pathParam.getXmlPropertyOptionParam());
-					if(pathParam.getXmlPropertyOptionParam().getAttributeName() != null && !pathParam.getXmlPropertyOptionParam().getAttributeName().isPredefined()) {
-						patternParametersNonPredefined.add(pathParam.getXmlPropertyOptionParam().getAttributeName());
-					}
-				}
-				for(XmlAxisPart axisPair : pathParam.getXmlAxisPairs()) {
-					if(axisPair.getXmlAxisOptionParam() != null && !axisPair.getXmlAxisOptionParam().isPredefined()) {
-						patternParametersNonPredefined.add(axisPair.getXmlAxisOptionParam());						
-						boolean rootRelation = true;
-						Relation relation = axisPair.getXmlAxisOptionParam().getXmlAxisPair().getXmlPathParam().getXmlNavigation();
-						rootRelation &= relation.getSource() instanceof XmlRoot;						
-						if(!rootRelation) {
-							patternParametersNonPredefinedNotAutomaticTypeNotRootRelation.add(axisPair.getXmlAxisOptionParam());
-						}
-					}
-					if(axisPair.getTextLiteralParam() != null && !axisPair.getTextLiteralParam().isPredefined()) {
-						patternParametersNonPredefined.add(axisPair.getTextLiteralParam());						
+						patternParametersNonPredefined.add(p);
 					}
 				}
 			}
+//			if(!p.isPredefined()) {
+//				patternParametersNonPredefined.add(p);
+//				if(!(p instanceof TypeOptionParam)) {
+//					if(p instanceof XmlAxisOptionParam) {
+//						XmlAxisOptionParam r = (XmlAxisOptionParam) p;
+//						boolean rootRelation = true;
+//						Relation relation = r.getXmlAxisPart().getXmlPathParam().getXmlNavigation();
+//						rootRelation &= relation.getSource() instanceof XmlRoot;						
+//						if(!rootRelation) {
+//							patternParametersNonPredefinedNotAutomaticTypeNotRootRelation.add(p);
+//						}
+//					}					
+//					
+//				} else {
+//					TypeOptionParam t = (TypeOptionParam) p;
+//					boolean automaticType = true;
+//					for(Comparison c : t.getTypeComparisons()) {
+//						automaticType &= !(c.getArgument1() instanceof PrimitiveNode && c.getArgument2() instanceof PrimitiveNode);
+//					}
+//					if(!automaticType) {
+//						patternParametersNonPredefinedNotAutomaticTypeNotRootRelation.add(p);
+//					}
+//				}
+//			}
+//			if(p instanceof XmlPathParam) {
+//				XmlPathParam pathParam = (XmlPathParam) p;
+//				if(pathParam.getXmlPropertyOptionParam() != null && !pathParam.getXmlPropertyOptionParam().isPredefined()) {
+//					patternParametersNonPredefined.add(pathParam.getXmlPropertyOptionParam());
+//					if(pathParam.getXmlPropertyOptionParam().getAttributeName() != null && !pathParam.getXmlPropertyOptionParam().getAttributeName().isPredefined()) {
+//						patternParametersNonPredefined.add(pathParam.getXmlPropertyOptionParam().getAttributeName());
+//					}
+//				}
+//				for(XmlAxisPart axisPair : pathParam.getXmlAxisParts()) {
+//					if(axisPair.getXmlAxisOptionParam() != null && !axisPair.getXmlAxisOptionParam().isPredefined()) {
+//						patternParametersNonPredefined.add(axisPair.getXmlAxisOptionParam());						
+//						boolean rootRelation = true;
+//						Relation relation = axisPair.getXmlAxisOptionParam().getXmlAxisPart().getXmlPathParam().getXmlNavigation();
+//						rootRelation &= relation.getSource() instanceof XmlRoot;						
+//						if(!rootRelation) {
+//							patternParametersNonPredefinedNotAutomaticTypeNotRootRelation.add(axisPair.getXmlAxisOptionParam());
+//						}
+//					}
+//					if(axisPair.getTextLiteralParam() != null && !axisPair.getTextLiteralParam().isPredefined()) {
+//						patternParametersNonPredefined.add(axisPair.getTextLiteralParam());						
+//					}
+//				}
+//			}
 		}
-		if(!referencedParameters.containsAll(patternParametersNonPredefinedNotAutomaticTypeNotRootRelation)) {
-			for(Parameter p : patternParametersNonPredefinedNotAutomaticTypeNotRootRelation) {
+		if(!referencedParameters.containsAll(patternParametersNonPredefined)) {
+			String remaining = "";
+			for(Parameter p : patternParametersNonPredefined) {
 				if(!referencedParameters.contains(p)) {
-					System.out.println(p);
+					remaining += "\n  - " + p.myToString() + ", ";
 				}
 			}
-			throw new InvalidityException("pattern text does not reference all parameters");
+			throw new InvalidityException("pattern text does not reference all parameters: " + remaining);
 		}
 		if(!patternParametersNonPredefined.containsAll(referencedParameters)) {
-			throw new InvalidityException("pattern text references invalid parameters");
+			String remaining = "";
+			for(Parameter p : referencedParameters) {
+				if(!patternParametersNonPredefined.contains(p)) {
+					remaining += "\n  - " + p.myToString() + ", ";
+				}
+			}
+			throw new InvalidityException("pattern text references invalid parameters: " + remaining);
 		}
-		
+
+		// Check Parameters not referenced multiple times
 		Set<Parameter> referencedParametersSet = new HashSet<>(referencedParameters);
 		if(referencedParameters.size() != referencedParametersSet.size()) {
 			throw new InvalidityException("pattern text references parameters multiple times");
 		}
 		
+		
+		// Check Parameter Fragment names unique
 		List<String> names = new BasicEList<String>();
 		for(Fragment f : getFragments()) {
 			if(f instanceof ParameterFragment) {
 				ParameterFragment frag = (ParameterFragment) f;
 				for(String n : names) {
 					if(n.equals(frag.getName())) {
-						throw new InvalidityException("Parameter fragment names not unique");
+						throw new InvalidityException("Parameter fragment name not unique: " + frag.getName());
 					}
 				}					
 				names.add(frag.getName());
 			}
 		}
-		
-		
-		
 	}
 
 	/**

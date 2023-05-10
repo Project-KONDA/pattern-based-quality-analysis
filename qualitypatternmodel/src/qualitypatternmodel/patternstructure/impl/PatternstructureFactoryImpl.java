@@ -62,7 +62,7 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 			case PatternstructurePackage.RELATION_MAPPING: return createRelationMapping();
 			case PatternstructurePackage.QUANTIFIED_CONDITION: return createQuantifiedCondition();
 			case PatternstructurePackage.MORPHISM: return createMorphism();
-			case PatternstructurePackage.ELEMENT_MAPPING: return createElementMapping();
+			case PatternstructurePackage.NODE_MAPPING: return createNodeMapping();
 			case PatternstructurePackage.FORMULA: return createFormula();
 			case PatternstructurePackage.TRUE_ELEMENT: return createTrueElement();
 			case PatternstructurePackage.COMPLETE_PATTERN: return createCompletePattern();
@@ -89,6 +89,8 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 				return createQuantifierFromString(eDataType, initialValue);
 			case PatternstructurePackage.ABSTRACTION_LEVEL:
 				return createAbstractionLevelFromString(eDataType, initialValue);
+			case PatternstructurePackage.LANGUAGE:
+				return createLanguageFromString(eDataType, initialValue);
 			case PatternstructurePackage.INVALIDITY_EXCEPTION_WRAPPER:
 				return createInvalidityExceptionWrapperFromString(eDataType, initialValue);
 			case PatternstructurePackage.CLASS_WRAPPER:
@@ -114,6 +116,8 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 				return convertQuantifierToString(eDataType, instanceValue);
 			case PatternstructurePackage.ABSTRACTION_LEVEL:
 				return convertAbstractionLevelToString(eDataType, instanceValue);
+			case PatternstructurePackage.LANGUAGE:
+				return convertLanguageToString(eDataType, instanceValue);
 			case PatternstructurePackage.INVALIDITY_EXCEPTION_WRAPPER:
 				return convertInvalidityExceptionWrapperToString(eDataType, instanceValue);
 			case PatternstructurePackage.CLASS_WRAPPER:
@@ -164,9 +168,9 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public NodeMapping createElementMapping() {
-		NodeMappingImpl elementMapping = new NodeMappingImpl();
-		return elementMapping;
+	public NodeMapping createNodeMapping() {
+		NodeMappingImpl nodeMapping = new NodeMappingImpl();
+		return nodeMapping;
 	}
 
 	/**
@@ -311,6 +315,26 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Language createLanguageFromString(EDataType eDataType, String initialValue) {
+		Language result = Language.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertLanguageToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public InvalidityException createInvalidityExceptionWrapperFromString(EDataType eDataType, String initialValue) {
 		return (InvalidityException)super.createFromString(eDataType, initialValue);
 	}
@@ -329,6 +353,7 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("rawtypes")
 	public Class createClassWrapperFromString(EDataType eDataType, String initialValue) {
 		return (Class)super.createFromString(eDataType, initialValue);
 	}

@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -51,8 +52,31 @@ public class IriListParamItemProvider extends ParameterValueItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addRdfIriNodePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Rdf Iri Node feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRdfIriNodePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_IriListParam_rdfIriNode_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IriListParam_rdfIriNode_feature", "_UI_IriListParam_type"),
+				 AdaptionrdfPackage.Literals.IRI_LIST_PARAM__RDF_IRI_NODE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -67,7 +91,7 @@ public class IriListParamItemProvider extends ParameterValueItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(AdaptionrdfPackage.Literals.IRI_LIST_PARAM__IRI_PARAM);
+			childrenFeatures.add(AdaptionrdfPackage.Literals.IRI_LIST_PARAM__IRI_PARAMS);
 		}
 		return childrenFeatures;
 	}
@@ -123,7 +147,7 @@ public class IriListParamItemProvider extends ParameterValueItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(IriListParam.class)) {
-			case AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAM:
+			case AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAMS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -143,7 +167,7 @@ public class IriListParamItemProvider extends ParameterValueItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AdaptionrdfPackage.Literals.IRI_LIST_PARAM__IRI_PARAM,
+				(AdaptionrdfPackage.Literals.IRI_LIST_PARAM__IRI_PARAMS,
 				 AdaptionrdfFactory.eINSTANCE.createIriParam()));
 	}
 

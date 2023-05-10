@@ -31,7 +31,7 @@ public class PatternApplicationServletTest {
 		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.APPLICATION_ENDPOINT).openConnection();
 		connection.setRequestMethod("POST");
 		
-		String patternNameEncoded = URLEncoder.encode(patternName);
+		String patternNameEncoded = URLEncoder.encode(patternName, "UTF-8");
 		String parameters = "pattern-names=" + patternNameEncoded;
 		
 		connection.setDoOutput(true);

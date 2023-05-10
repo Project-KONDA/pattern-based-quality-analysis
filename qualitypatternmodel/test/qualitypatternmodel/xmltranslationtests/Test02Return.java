@@ -30,11 +30,11 @@ public class Test02Return {
 
 	public static CompletePattern getPatternMultipleReturnNavigation() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
+//		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 			
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		
-		Graph graph = completePattern.getGraph();
+//		Graph graph = completePattern.getGraph();
 		Node element1 = completePattern.getGraph().getNodes().get(0);
 		Node element2 = element1.addOutgoing().getTarget();
 		element2.setReturnNode(true);
@@ -46,11 +46,11 @@ public class Test02Return {
 
 	public static CompletePattern getPatternMultipleReturnReference() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
+//		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		
-		Graph graph = completePattern.getGraph();
+//		Graph graph = completePattern.getGraph();
 		Node element1 = completePattern.getGraph().getNodes().get(0);
 		Node element2 = element1.addOutgoing().getTarget();		
 		element2.setReturnNode(true);

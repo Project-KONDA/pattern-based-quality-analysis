@@ -5,20 +5,13 @@ import java.util.List;
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
-import qualitypatternmodel.operators.Comparison;
-import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
-import qualitypatternmodel.adaptionxml.XmlElement;
-import qualitypatternmodel.adaptionxml.XmlAxisKind;
-import qualitypatternmodel.adaptionxml.XmlElementNavigation;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
-import qualitypatternmodel.adaptionxml.impl.XmlElementNavigationImpl;
 import qualitypatternmodel.exceptions.*;
 
 public class Test04QuantorCombinations {
@@ -79,7 +72,7 @@ public class Test04QuantorCombinations {
 		
 		Node e1q1 = qcond.getGraph().getNodes().get(0);
 		Node e2q1 = qcond.getGraph().getNodes().get(1);
-		Relation relation2 = e1q1.addOutgoing(e2q1);
+		e1q1.addOutgoing(e2q1);
 		
 		Node se3 = graphFactory.createNode();
 		qcond2.getGraph().getNodes().add(se3);

@@ -337,12 +337,12 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				
 				for(Mapping mapping : morphism.getMappings()) {
 					if(mapping instanceof NodeMapping) {
-						NodeMapping elementMapping = (NodeMapping) mapping;
-						if(elementMapping.getSource().equals(getSource())) {
-							newRelation.setSource(((ComplexNode) elementMapping.getTarget()));
+						NodeMapping nodeMapping = (NodeMapping) mapping;
+						if(nodeMapping.getSource().equals(getSource())) {
+							newRelation.setSource(((ComplexNode) nodeMapping.getTarget()));
 						}
-						if(elementMapping.getSource().equals(getTarget())) {
-							newRelation.setTarget(elementMapping.getTarget());
+						if(nodeMapping.getSource().equals(getTarget())) {
+							newRelation.setTarget(nodeMapping.getTarget());
 						}
 					}
 				}
@@ -488,9 +488,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			for(RelationMapping relationMapping : getOutgoingMappings()) {
 				for(Mapping mapping : relationMapping.getMorphism().getMappings()) {
 					if(mapping instanceof NodeMapping) {
-						NodeMapping elementMapping = (NodeMapping) mapping;
-						if(elementMapping.getSource().equals(newSource)) {
-							relationMapping.getTarget().setSource((ComplexNode) elementMapping.getTarget());
+						NodeMapping nodeMapping = (NodeMapping) mapping;
+						if(nodeMapping.getSource().equals(newSource)) {
+							relationMapping.getTarget().setSource((ComplexNode) nodeMapping.getTarget());
 						}						
 					}
 				}
@@ -549,9 +549,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			for(RelationMapping relationMapping : getOutgoingMappings()) {
 				for(Mapping mapping : relationMapping.getMorphism().getMappings()) {
 					if(mapping instanceof NodeMapping) {
-						NodeMapping elementMapping = (NodeMapping) mapping;
-						if(elementMapping.getSource().equals(newTarget)) {
-							relationMapping.getTarget().setTarget(elementMapping.getTarget());
+						NodeMapping nodeMapping = (NodeMapping) mapping;
+						if(nodeMapping.getSource().equals(newTarget)) {
+							relationMapping.getTarget().setTarget(nodeMapping.getTarget());
 						}						
 					}
 				}

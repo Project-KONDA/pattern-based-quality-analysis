@@ -5,9 +5,6 @@ import java.util.ArrayList;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
 import qualitypatternmodel.adaptionrdf.IriListParam;
 import qualitypatternmodel.adaptionrdf.IriParam;
-import qualitypatternmodel.adaptionrdf.RdfPredicate;
-import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
-import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -57,8 +54,8 @@ public class RdfTest06ParameterValues {
 		completePattern.getParameterList().add(input9);
 		
 		IriListParam input10 = AdaptionrdfFactory.eINSTANCE.createIriListParam();
-		input10.getIriParam().add(input8);
-		input10.getIriParam().add(input9);
+		input10.getIriParams().add(input8);
+		input10.getIriParams().add(input9);
 		
 		p.replace(input10);
 		completePattern.createRdfAdaption();

@@ -51,7 +51,7 @@ public class Test12Count {
 	public static CompletePattern getPatternCountInPatternFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getPatternCountInPattern();
 		completePattern.createXmlAdaption();
-		CountPattern countPattern = ((CountCondition) completePattern.getCondition()).getCountPattern();
+//		CountPattern countPattern = ((CountCondition) completePattern.getCondition()).getCountPattern();
 				
 		UntypedParameterValue untypedParameterValue = (UntypedParameterValue) completePattern.getParameterList().getParameters().get(0);
 		untypedParameterValue.setValue("demo:data");
@@ -234,7 +234,7 @@ public class Test12Count {
 		Node nextToElement2InCPattern = r.getTarget();
 		Relation r2 = nextToElement2InCPattern.addOutgoing();
 		nextToElement2InCPattern = r2.getSource();
-		Node element3 = r2.getTarget();
+//		Node element3 = r2.getTarget();
 		nextToElement2InCPattern.setReturnNode(true);
 		
 		Node returnInQC = quantifiedCondition2.getGraph().getReturnNodes().get(0);
@@ -410,7 +410,7 @@ public class Test12Count {
 		relation0.setTarget(nextToElement2InCPattern);
 		
 		nextToElement2InCPattern = nextToElement2InCPattern.makeComplex();
-		Relation relation1 = countPattern.getGraph().addRelation((ComplexNode) nextToElement2InCPattern, element3);
+		countPattern.getGraph().addRelation((ComplexNode) nextToElement2InCPattern, element3);
 		System.out.println("EE" + (nextToElement2InCPattern.getGraph() == element3.getGraph()));
 
 		countPattern.getGraph().getReturnNodes().get(0).setReturnNode(false);

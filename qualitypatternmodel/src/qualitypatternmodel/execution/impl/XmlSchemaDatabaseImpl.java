@@ -831,6 +831,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@SuppressWarnings("unused")
 	@Override
 	public void checkKeyRefInSchema(String elementName1, String elementName2) {
 		// TODO: create/open schema database

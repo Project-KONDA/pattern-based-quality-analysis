@@ -2,10 +2,10 @@ package qualitypatternmodel.servlets;
 
 import java.io.IOException;
 import java.net.URL;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import qualitypatternmodel.execution.Databases;
 import qualitypatternmodel.execution.ServerXmlDataDatabase;
@@ -13,6 +13,7 @@ import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.execution.impl.DatabasesImpl;
 import qualitypatternmodel.utility.EMFModelLoad;
 
+@SuppressWarnings("serial")
 public class DatabasesListServlet extends HttpServlet {
 
 	@Override

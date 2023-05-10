@@ -135,7 +135,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	/**
 	 * The cached value of the '{@link #getIncomingMapping() <em>Incoming Mapping</em>}' reference.
 	 * <!-- begin-user-doc -->
-	 * The <code>ElementMapping</code> that has <code>this</code> as its <code>target</code>.
+	 * The <code>NodeMapping</code> that has <code>this</code> as its <code>target</code>.
 	 * It declares the equivalence between <code>this</code> and another <code>Element</code> contained in the previous <code>Graph</code> in the condition hierarchy.
 	 * <!-- end-user-doc -->
 	 * @see #getIncomingMapping()
@@ -309,7 +309,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {	
 		if (getGraph().getPattern() != null && getGraph().getPattern() instanceof CompletePattern && incomingMapping != null)
-			throw new InvalidityException("invalid ElementMapping to returnGraph: " + incomingMapping + " "
+			throw new InvalidityException("invalid NodeMapping to returnGraph: " + incomingMapping + " "
 					+ incomingMapping.getId() + " - (" + outgoingMappings + ")");
 		
 		for (BooleanOperator predicate : getPredicates())
@@ -451,9 +451,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		if (newIncomingMapping != incomingMapping) {
 			NotificationChain msgs = null;
 			if (incomingMapping != null)
-				msgs = ((InternalEObject)incomingMapping).eInverseRemove(this, PatternstructurePackage.ELEMENT_MAPPING__TARGET, NodeMapping.class, msgs);
+				msgs = ((InternalEObject)incomingMapping).eInverseRemove(this, PatternstructurePackage.NODE_MAPPING__TARGET, NodeMapping.class, msgs);
 			if (newIncomingMapping != null)
-				msgs = ((InternalEObject)newIncomingMapping).eInverseAdd(this, PatternstructurePackage.ELEMENT_MAPPING__TARGET, NodeMapping.class, msgs);
+				msgs = ((InternalEObject)newIncomingMapping).eInverseAdd(this, PatternstructurePackage.NODE_MAPPING__TARGET, NodeMapping.class, msgs);
 			msgs = basicSetIncomingMapping(newIncomingMapping, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -468,7 +468,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	@Override
 	public EList<NodeMapping> getOutgoingMappings() {
 		if (outgoingMappings == null) {
-			outgoingMappings = new EObjectWithInverseResolvingEList<NodeMapping>(NodeMapping.class, this, GraphstructurePackage.NODE__OUTGOING_MAPPINGS, PatternstructurePackage.ELEMENT_MAPPING__SOURCE);
+			outgoingMappings = new EObjectWithInverseResolvingEList<NodeMapping>(NodeMapping.class, this, GraphstructurePackage.NODE__OUTGOING_MAPPINGS, PatternstructurePackage.NODE_MAPPING__SOURCE);
 		}
 		return outgoingMappings;
 	}
@@ -704,6 +704,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private void setGraphForCorrespondingElements(Graph newGraph) {
 		for (NodeMapping mapping : getOutgoingMappings()) {
 			if (!( mapping.getMorphism().getMorphismContainer() instanceof CountPattern)) {
@@ -1238,6 +1239,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				relation.adaptAsXmlElementNavigation();
 			}
 			
+			xmlElement.validateCycles(true);
 			return xmlElement;			
 		} else {
 			for (NodeMapping map: getOutgoingMappings()) {
@@ -1351,6 +1353,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	public RdfIriNode adaptAsRdfIriNode() throws InvalidityException {
 		Graph graph = getGraph();
 		RdfIriNode elementOriginal = ((NodeImpl) getOriginalNode()).adaptAsRdfIriNodeRecursive();
+		elementOriginal.createParameters();
 				
 		for(Node n: graph.getNodes()) {
 			if(n instanceof RdfIriNode) {
@@ -1474,24 +1477,23 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		if (this.getClass() == node.getClass() && this.getClass() != NodeImpl.class) {
 			try {
 				Comparison comparison = new ComparisonImpl();
-				CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
+//				CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
 				Graph graph = (Graph) getAncestor(Graph.class);
 				OperatorList oplist = graph.getOperatorList();
 					
 				oplist.add(comparison);	
 				comparison.createParameters();
-				PrimitiveNode p = null;
 				comparison.setArgument1(this);
 				comparison.setArgument2(node);
 				comparison.createParameters();
 				
 				return comparison;
 				
-			} catch (Exception e) {
+			} catch (Exception e) {	
 				throw new RuntimeException("Adding Condition Failed: " + e.getMessage());
-			}
+			}	
 		}
-		throw new RuntimeException("Adding Condition Failed: Nodes not of same type " + this.getClass().getSimpleName() + " " + node.getClass().getSimpleName() + "\n");
+		throw new RuntimeException("Adding Condition Failed: Nodes not of same type " + this.getClass().getSimpleName() + " " + node.getClass().getSimpleName());
 	}
 
 	private RdfLiteralNode adaptAsRdfLiteralNodeRecursive() throws InvalidityException {		
@@ -1870,7 +1872,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOutgoingMappings()).basicAdd(otherEnd, msgs);
 			case GraphstructurePackage.NODE__INCOMING_MAPPING:
 				if (incomingMapping != null)
-					msgs = ((InternalEObject)incomingMapping).eInverseRemove(this, PatternstructurePackage.ELEMENT_MAPPING__TARGET, NodeMapping.class, msgs);
+					msgs = ((InternalEObject)incomingMapping).eInverseRemove(this, PatternstructurePackage.NODE_MAPPING__TARGET, NodeMapping.class, msgs);
 				return basicSetIncomingMapping((NodeMapping)otherEnd, msgs);
 			case GraphstructurePackage.NODE__GRAPH:
 				if (eInternalContainer() != null)
@@ -2426,7 +2428,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public TextLiteralParam addPrimitiveComparison(String value) {
-		Comparison comparison = new ComparisonImpl();		
+//		Comparison comparison = new ComparisonImpl();		
 		try {
 			TextLiteralParam textlit = new TextLiteralParamImpl(value);
 			addPrimitiveComparison(textlit);

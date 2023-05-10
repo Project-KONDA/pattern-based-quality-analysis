@@ -21,7 +21,9 @@ public class RdfEvalContains {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getMatchRdfAbstract());
 		completePatterns.add(getMatchWiki());
-		RdfTest00.test(completePatterns);
+		
+//		RdfTest00.test(completePatterns);
+		RdfTest00.getQueries(completePatterns);
 	}
 	
 	public static CompletePattern getMatchRdfAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -37,11 +39,12 @@ public class RdfEvalContains {
 		
 		BooleanParam p0 = ((BooleanParam) params.get(0));
 		TextLiteralParam p1 = ((TextLiteralParam) params.get(1));
-		RdfPathParam p2 = ((RdfPathParam) params.get(2));
+//		IriListParamImpl p2 = ((IriListParamImpl) params.get(2));
+		RdfPathParam p3 = ((RdfPathParam) params.get(3));
 		
 		p0.setValue(false);
 		p1.setValue("Point(");
-		((RdfSinglePredicate) p2.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P625"));
+		((RdfSinglePredicate) p3.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P625"));
 		
 		return completePattern;
 	}

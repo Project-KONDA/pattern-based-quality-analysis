@@ -518,7 +518,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 */
 	@Override
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP:
@@ -636,7 +636,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String toString() {
@@ -646,7 +646,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 		result.append(" (id: ");
 		result.append(id);
 		result.append(", internalId: ");
-		result.append(internalId);
+		result.append(getInternalId());
 		result.append(')');
 		return result.toString();
 	}

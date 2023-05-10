@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="ASCII"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adaptionxml="adaptionxml" xmlns:execution="execution" xmlns:operators="operators" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_1aeiMIB3Ee2usNr5oNQslg" internalId="1" name="functional_dependency_lido_concrete" description="Allows detecting a violated functional dependency between a conceptID and term indicating the culture" abstractName="functional_dependency_abstract" counter="2" elementCounter="5" relationCounter="5">
+  <graph id="_1aeiMoB3Ee2usNr5oNQslg" outgoingMorphisms="_1aeiOoB3Ee2usNr5oNQslg">
+    <nodes xsi:type="adaptionxml:XmlElement" id="_1afJSoB3Ee2usNr5oNQslg" outgoingMappings="_1aeiPoB3Ee2usNr5oNQslg" name="Element0" incoming="_1afJTYB3Ee2usNr5oNQslg" returnNode="true" typeModifiable="false"/>
+    <nodes xsi:type="adaptionxml:XmlRoot" id="_1afJTIB3Ee2usNr5oNQslg" outgoingMappings="_1afJZoB3Ee2usNr5oNQslg" name="Root" outgoing="_1afJTYB3Ee2usNr5oNQslg"/>
+    <operatorList id="_1aeiM4B3Ee2usNr5oNQslg"/>
+    <relations xsi:type="adaptionxml:XmlElementNavigation" id="_1afJTYB3Ee2usNr5oNQslg" outgoingMappings="_1afJbIB3Ee2usNr5oNQslg" source="_1afJTIB3Ee2usNr5oNQslg" target="_1afJSoB3Ee2usNr5oNQslg" xmlPathParam="_1afJToB3Ee2usNr5oNQslg"/>
+  </graph>
+  <condition xsi:type="patternstructure:QuantifiedCondition" id="_1aeiN4B3Ee2usNr5oNQslg">
+    <morphism id="_1aeiOoB3Ee2usNr5oNQslg" source="_1aeiMoB3Ee2usNr5oNQslg" target="_1aeiOIB3Ee2usNr5oNQslg">
+      <mappings xsi:type="patternstructure:NodeMapping" id="_1aeiPoB3Ee2usNr5oNQslg" source="_1afJSoB3Ee2usNr5oNQslg" target="_1afJS4B3Ee2usNr5oNQslg"/>
+      <mappings xsi:type="patternstructure:NodeMapping" id="_1afJZoB3Ee2usNr5oNQslg" source="_1afJTIB3Ee2usNr5oNQslg" target="_1afJZYB3Ee2usNr5oNQslg"/>
+      <mappings xsi:type="patternstructure:RelationMapping" id="_1afJbIB3Ee2usNr5oNQslg" target="_1afJZ4B3Ee2usNr5oNQslg" source="_1afJTYB3Ee2usNr5oNQslg"/>
+    </morphism>
+    <graph id="_1aeiOIB3Ee2usNr5oNQslg" incomingMorphism="_1aeiOoB3Ee2usNr5oNQslg">
+      <nodes xsi:type="adaptionxml:XmlElement" id="_1afJS4B3Ee2usNr5oNQslg" incomingMapping="_1aeiPoB3Ee2usNr5oNQslg" name="Element0" incoming="_1afJZ4B3Ee2usNr5oNQslg" returnNode="true" outgoing="_1afJVoB3Ee2usNr5oNQslg _1afJXYB3Ee2usNr5oNQslg"/>
+      <nodes xsi:type="adaptionxml:XmlProperty" id="_1afJVYB3Ee2usNr5oNQslg" name="Element0A" incoming="_1afJVoB3Ee2usNr5oNQslg _1afJWYB3Ee2usNr5oNQslg" typeModifiable="false"/>
+      <nodes xsi:type="adaptionxml:XmlProperty" id="_1afJXIB3Ee2usNr5oNQslg" comparison1="_1afJR4B3Ee2usNr5oNQslg" name="Element0B" predicates="_1afJR4B3Ee2usNr5oNQslg" incoming="_1afJXYB3Ee2usNr5oNQslg" typeModifiable="false"/>
+      <nodes xsi:type="adaptionxml:XmlElement" id="_1afJYIB3Ee2usNr5oNQslg" name="Element1" incoming="_1afJbYB3Ee2usNr5oNQslg" typeModifiable="false" outgoing="_1afJWYB3Ee2usNr5oNQslg _1afJYoB3Ee2usNr5oNQslg"/>
+      <nodes xsi:type="adaptionxml:XmlProperty" id="_1afJYYB3Ee2usNr5oNQslg" comparison2="_1afJR4B3Ee2usNr5oNQslg" name="Element1B" predicates="_1afJR4B3Ee2usNr5oNQslg" incoming="_1afJYoB3Ee2usNr5oNQslg" typeModifiable="false"/>
+      <nodes xsi:type="adaptionxml:XmlRoot" id="_1afJZYB3Ee2usNr5oNQslg" incomingMapping="_1afJZoB3Ee2usNr5oNQslg" name="Root" outgoing="_1afJZ4B3Ee2usNr5oNQslg _1afJbYB3Ee2usNr5oNQslg"/>
+      <operatorList id="_1aeiOYB3Ee2usNr5oNQslg">
+        <operators xsi:type="operators:Comparison" id="_1afJR4B3Ee2usNr5oNQslg" nodes="_1afJXIB3Ee2usNr5oNQslg _1afJYYB3Ee2usNr5oNQslg" argument1="_1afJXIB3Ee2usNr5oNQslg" argument2="_1afJYYB3Ee2usNr5oNQslg" option="_1afJSIB3Ee2usNr5oNQslg" typeOption="_1afJSYB3Ee2usNr5oNQslg"/>
+      </operatorList>
+      <relations xsi:type="adaptionxml:XmlPropertyNavigation" id="_1afJVoB3Ee2usNr5oNQslg" source="_1afJS4B3Ee2usNr5oNQslg" target="_1afJVYB3Ee2usNr5oNQslg" name="XmlPropertyNavigation 1" xmlPathParam="_1afJV4B3Ee2usNr5oNQslg"/>
+      <relations xsi:type="adaptionxml:XmlPropertyNavigation" id="_1afJWYB3Ee2usNr5oNQslg" source="_1afJYIB3Ee2usNr5oNQslg" target="_1afJVYB3Ee2usNr5oNQslg" name="XmlPropertyNavigation 2" xmlPathParam="_1afJWoB3Ee2usNr5oNQslg"/>
+      <relations xsi:type="adaptionxml:XmlPropertyNavigation" id="_1afJXYB3Ee2usNr5oNQslg" source="_1afJS4B3Ee2usNr5oNQslg" target="_1afJXIB3Ee2usNr5oNQslg" name="XmlPropertyNavigation 3" xmlPathParam="_1afJXoB3Ee2usNr5oNQslg"/>
+      <relations xsi:type="adaptionxml:XmlPropertyNavigation" id="_1afJYoB3Ee2usNr5oNQslg" source="_1afJYIB3Ee2usNr5oNQslg" target="_1afJYYB3Ee2usNr5oNQslg" name="XmlPropertyNavigation 4" xmlPathParam="_1afJY4B3Ee2usNr5oNQslg"/>
+      <relations xsi:type="adaptionxml:XmlElementNavigation" id="_1afJZ4B3Ee2usNr5oNQslg" incomingMapping="_1afJbIB3Ee2usNr5oNQslg" source="_1afJZYB3Ee2usNr5oNQslg" target="_1afJS4B3Ee2usNr5oNQslg"/>
+      <relations xsi:type="adaptionxml:XmlElementNavigation" id="_1afJbYB3Ee2usNr5oNQslg" source="_1afJZYB3Ee2usNr5oNQslg" target="_1afJYIB3Ee2usNr5oNQslg" xmlPathParam="_1afJboB3Ee2usNr5oNQslg"/>
+    </graph>
+    <condition xsi:type="patternstructure:TrueElement" id="_1aeiO4B3Ee2usNr5oNQslg"/>
+  </condition>
+  <parameterList id="_1aeiMYB3Ee2usNr5oNQslg">
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_1afJSIB3Ee2usNr5oNQslg" predefined="true" value="!=" comparisons="_1afJR4B3Ee2usNr5oNQslg">
+      <options>=</options>
+      <options>!=</options>
+    </parameters>
+    <parameters xsi:type="parameters:TypeOptionParam" id="_1afJSYB3Ee2usNr5oNQslg" value="STRING" typeComparisons="_1afJR4B3Ee2usNr5oNQslg">
+      <options>UNSPECIFIED</options>
+      <options>STRING</options>
+      <options>BOOLEAN</options>
+      <options>ELEMENT</options>
+      <options>DATE</options>
+      <options>TIME</options>
+      <options>NUMBER</options>
+      <options>DATETIME</options>
+    </parameters>
+    <parameters xsi:type="adaptionxml:XmlPathParam" id="_1afJToB3Ee2usNr5oNQslg" xmlNavigation="_1afJTYB3Ee2usNr5oNQslg">
+      <xmlAxisParts id="_1afJdYB3Ee2usNr5oNQslg">
+        <textLiteralParam id="_1afJd4B3Ee2usNr5oNQslg" value="lido:culture"/>
+        <xmlAxisOptionParam id="_1afJdoB3Ee2usNr5oNQslg" value="/descendant::*">
+          <options>/child::*</options>
+          <options>/descendant::*</options>
+          <options>/parent::*</options>
+          <options>/ancestor::*</options>
+          <options>/following::*</options>
+          <options>/following-sibling::*</options>
+          <options>/preceding::*</options>
+          <options>/preceding-sibling::*</options>
+          <options>/ancestor-or-self::*</options>
+          <options>/descendant-or-self::*</options>
+          <options>/self::*</options>
+        </xmlAxisOptionParam>
+      </xmlAxisParts>
+    </parameters>
+    <parameters xsi:type="adaptionxml:XmlPathParam" id="_1afJV4B3Ee2usNr5oNQslg" xmlNavigation="_1afJVoB3Ee2usNr5oNQslg">
+      <xmlPropertyOptionParam id="_1afJWIB3Ee2usNr5oNQslg">
+        <options>TAG</options>
+        <options>DATA</options>
+        <options>ATTRIBUTE</options>
+      </xmlPropertyOptionParam>
+      <xmlAxisParts id="_1afJeIB3Ee2usNr5oNQslg">
+        <textLiteralParam id="_1afJeoB3Ee2usNr5oNQslg" value="lido:conceptID"/>
+        <xmlAxisOptionParam id="_1afJeYB3Ee2usNr5oNQslg">
+          <options>/child::*</options>
+          <options>/descendant::*</options>
+          <options>/parent::*</options>
+          <options>/ancestor::*</options>
+          <options>/following::*</options>
+          <options>/following-sibling::*</options>
+          <options>/preceding::*</options>
+          <options>/preceding-sibling::*</options>
+          <options>/ancestor-or-self::*</options>
+          <options>/descendant-or-self::*</options>
+          <options>/self::*</options>
+        </xmlAxisOptionParam>
+      </xmlAxisParts>
+    </parameters>
+    <parameters xsi:type="adaptionxml:XmlPathParam" id="_1afJWoB3Ee2usNr5oNQslg" xmlNavigation="_1afJWYB3Ee2usNr5oNQslg">
+      <xmlPropertyOptionParam id="_1afJW4B3Ee2usNr5oNQslg">
+        <options>TAG</options>
+        <options>DATA</options>
+        <options>ATTRIBUTE</options>
+      </xmlPropertyOptionParam>
+      <xmlAxisParts id="_1afJe4B3Ee2usNr5oNQslg">
+        <textLiteralParam id="_1afJfYB3Ee2usNr5oNQslg" value="lido:conceptID"/>
+        <xmlAxisOptionParam id="_1afJfIB3Ee2usNr5oNQslg">
+          <options>/child::*</options>
+          <options>/descendant::*</options>
+          <options>/parent::*</options>
+          <options>/ancestor::*</options>
+          <options>/following::*</options>
+          <options>/following-sibling::*</options>
+          <options>/preceding::*</options>
+          <options>/preceding-sibling::*</options>
+          <options>/ancestor-or-self::*</options>
+          <options>/descendant-or-self::*</options>
+          <options>/self::*</options>
+        </xmlAxisOptionParam>
+      </xmlAxisParts>
+    </parameters>
+    <parameters xsi:type="adaptionxml:XmlPathParam" id="_1afJXoB3Ee2usNr5oNQslg" xmlNavigation="_1afJXYB3Ee2usNr5oNQslg">
+      <xmlPropertyOptionParam id="_1afJX4B3Ee2usNr5oNQslg">
+        <options>TAG</options>
+        <options>DATA</options>
+        <options>ATTRIBUTE</options>
+      </xmlPropertyOptionParam>
+      <xmlAxisParts id="_1afJfoB3Ee2usNr5oNQslg">
+        <textLiteralParam id="_1afJgIB3Ee2usNr5oNQslg" value="lido:term"/>
+        <xmlAxisOptionParam id="_1afJf4B3Ee2usNr5oNQslg">
+          <options>/child::*</options>
+          <options>/descendant::*</options>
+          <options>/parent::*</options>
+          <options>/ancestor::*</options>
+          <options>/following::*</options>
+          <options>/following-sibling::*</options>
+          <options>/preceding::*</options>
+          <options>/preceding-sibling::*</options>
+          <options>/ancestor-or-self::*</options>
+          <options>/descendant-or-self::*</options>
+          <options>/self::*</options>
+        </xmlAxisOptionParam>
+      </xmlAxisParts>
+    </parameters>
+    <parameters xsi:type="adaptionxml:XmlPathParam" id="_1afJY4B3Ee2usNr5oNQslg" xmlNavigation="_1afJYoB3Ee2usNr5oNQslg">
+      <xmlPropertyOptionParam id="_1afJZIB3Ee2usNr5oNQslg">
+        <options>TAG</options>
+        <options>DATA</options>
+        <options>ATTRIBUTE</options>
+      </xmlPropertyOptionParam>
+      <xmlAxisParts id="_1afJgYB3Ee2usNr5oNQslg">
+        <textLiteralParam id="_1afJg4B3Ee2usNr5oNQslg" value="lido:term"/>
+        <xmlAxisOptionParam id="_1afJgoB3Ee2usNr5oNQslg">
+          <options>/child::*</options>
+          <options>/descendant::*</options>
+          <options>/parent::*</options>
+          <options>/ancestor::*</options>
+          <options>/following::*</options>
+          <options>/following-sibling::*</options>
+          <options>/preceding::*</options>
+          <options>/preceding-sibling::*</options>
+          <options>/ancestor-or-self::*</options>
+          <options>/descendant-or-self::*</options>
+          <options>/self::*</options>
+        </xmlAxisOptionParam>
+      </xmlAxisParts>
+    </parameters>
+    <parameters xsi:type="adaptionxml:XmlPathParam" id="_1afJboB3Ee2usNr5oNQslg" xmlNavigation="_1afJbYB3Ee2usNr5oNQslg">
+      <xmlAxisParts id="_1afJhIB3Ee2usNr5oNQslg">
+        <textLiteralParam id="_1afJhoB3Ee2usNr5oNQslg" value="lido:culture"/>
+        <xmlAxisOptionParam id="_1afJhYB3Ee2usNr5oNQslg" value="/descendant::*">
+          <options>/child::*</options>
+          <options>/descendant::*</options>
+          <options>/parent::*</options>
+          <options>/ancestor::*</options>
+          <options>/following::*</options>
+          <options>/following-sibling::*</options>
+          <options>/preceding::*</options>
+          <options>/preceding-sibling::*</options>
+          <options>/ancestor-or-self::*</options>
+          <options>/descendant-or-self::*</options>
+          <options>/self::*</options>
+        </xmlAxisOptionParam>
+      </xmlAxisParts>
+    </parameters>
+  </parameterList>
+  <database xsi:type="execution:LocalXmlDataDatabase" href="instances/demo/databases.execution#//@xmlDatabases.0"/>
+</patternstructure:CompletePattern>

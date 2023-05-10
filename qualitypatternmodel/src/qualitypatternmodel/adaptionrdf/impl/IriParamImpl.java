@@ -101,13 +101,15 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 	public static Map<String, String> standardIris;
 	static {
 		standardIris = new HashMap<>();
+		standardIris.put("rdf"		, "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
+		standardIris.put("rdfs"		, "http://www.w3.org/2000/01/rdf-schema#");
+		standardIris.put("xsd"		, "http://www.w3.org/2001/XMLSchema#");
+		standardIris.put("wikibase"	, "http://wikiba.se/ontology#");
 		standardIris.put("wd"		, "http://www.wikidata.org/entity/");
 		standardIris.put("wdt"		, "http://www.wikidata.org/prop/direct/");
-		standardIris.put("wikibase", "http://wikiba.se/ontology#");
 		standardIris.put("p"		, "http://www.wikidata.org/prop/>");
 		standardIris.put("ps"		, "http://www.wikidata.org/prop/statement/");
 		standardIris.put("pq"		, "http://www.wikidata.org/prop/qualifier/");
-		standardIris.put("rdfs"	, "http://www.w3.org/2000/01/rdf-schema#");
 		standardIris.put("bd"		, "http://www.bigdata.com/rdf#");
 	}
 
@@ -130,7 +132,7 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 	}
 	
 	@Override
-	public void isValid (AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(abstractionLevel);
 	}
 
@@ -273,7 +275,7 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 				return;
 			}
 		}
-		throw new InvalidityException("Value not valid for IriParam");
+		throw new InvalidityException("Value \"" + value + "\" not valid for IriParam");
 	}
 
 	/**
@@ -334,7 +336,7 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newIriListParam != null)
-				msgs = ((InternalEObject)newIriListParam).eInverseAdd(this, AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAM, IriListParam.class, msgs);
+				msgs = ((InternalEObject)newIriListParam).eInverseAdd(this, AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAMS, IriListParam.class, msgs);
 			msgs = basicSetIriListParam(newIriListParam, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -399,7 +401,7 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 			case AdaptionrdfPackage.IRI_PARAM__RDF_SINGLE_PREDICATE:
 				return eInternalContainer().eInverseRemove(this, AdaptionrdfPackage.RDF_SINGLE_PREDICATE__IRI_PARAM, RdfSinglePredicate.class, msgs);
 			case AdaptionrdfPackage.IRI_PARAM__IRI_LIST_PARAM:
-				return eInternalContainer().eInverseRemove(this, AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAM, IriListParam.class, msgs);
+				return eInternalContainer().eInverseRemove(this, AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAMS, IriListParam.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -544,8 +546,11 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 
 	@Override
 	public String myToString() {
-		// TODO Auto-generated method stub
-		return null;
+		String result = "iri [" + getInternalId() + "] ";
+		try {
+			result += generateSparql();
+		} catch (InvalidityException e) {}
+		return result;
 	}
 
 	@Override

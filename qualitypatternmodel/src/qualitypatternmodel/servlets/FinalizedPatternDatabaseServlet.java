@@ -5,10 +5,10 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.List;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.ServerXmlDataDatabase;
@@ -16,6 +16,7 @@ import qualitypatternmodel.execution.impl.DatabasesImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.EMFModelLoad;
 
+@SuppressWarnings("serial")
 public class FinalizedPatternDatabaseServlet extends HttpServlet {
 	
 	@Override

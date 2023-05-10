@@ -5,7 +5,6 @@ import java.util.List;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.operators.ComparisonOperator;
-import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.adaptionrdf.impl.IriParamImpl;
@@ -25,8 +24,9 @@ public class RdfEvalCompval {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getCompval2RdfAbstract());
 		completePatterns.add(getCompvalWiki());
-		RdfTest00.test(completePatterns);
 		
+//		RdfTest00.test(completePatterns);
+		RdfTest00.getQueries(completePatterns);
 	}
 	
 	public static CompletePattern getCompval2RdfAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -43,17 +43,14 @@ public class RdfEvalCompval {
 		UntypedParameterValue p0 = ((UntypedParameterValue) params.get(0));
 		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
 //		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
-		RdfPathParam p3 = ((RdfPathParam) params.get(3));
+//		IriListParam p3 = ((IriListParam) params.get(3));
+		RdfPathParam p4 = ((RdfPathParam) params.get(4));
 
 		DateParam dateValue = ParametersFactory.eINSTANCE.createDateParam();
 		dateValue.setValue("2022-12-31");
 		p0.replace(dateValue);
 		p1.setValue(ComparisonOperator.GREATER);
-		
-		IriParam p4iri = new IriParamImpl();
-		p4iri.setPrefix("wdt");
-		p4iri.setSuffix("P569");
-		((RdfSinglePredicate) p3.getRdfPathPart()).setIriParam(p4iri);
+		((RdfSinglePredicate) p4.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P569"));
 								
 		return completePattern;
 	}

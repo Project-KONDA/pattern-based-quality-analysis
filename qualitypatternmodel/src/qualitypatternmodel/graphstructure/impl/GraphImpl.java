@@ -24,6 +24,8 @@ import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
@@ -31,6 +33,7 @@ import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.adaptionxml.impl.XmlElementNavigationImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyNavigationImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlRootImpl;
+import qualitypatternmodel.adaptionrdf.RdfNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -160,6 +163,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public String generateSparql() throws InvalidityException {
 		String result = "";
+		for(Node node : getNodes())
+			result += ((RdfNode) node).generateRdfTypes();
+		
 		for(Node node : getNodes()) {
 			if(node instanceof ComplexNode) {
 				ComplexNode c = (ComplexNode) node;
@@ -640,7 +646,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			}
 		}
 		
-		if ( abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE ) {
+		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE ) {
 			// SEMI_GENERIC or GENERIC 
 			for(Node node : getNodes()) {
 				if(!node.getClass().equals(NodeImpl.class) && !node.getClass().equals(ComplexNodeImpl.class) && !node.getClass().equals(PrimitiveNodeImpl.class)) {
@@ -655,19 +661,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		} 
 		
 
-		if ( abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE ) {	
-			// ABSTRACT, SEMI_CONCRETE or CONCRETE 		
-			int noRoot = 0;		
-			for(Node node : getNodes()) {
-				if(node instanceof XmlRoot) {
-					noRoot++;
-				}
-			}
-
-			if (noRoot == 0)
-				throw new InvalidityException("no XMLRoot (" + getInternalId() + ")");
-			if (noRoot > 1)
-				throw new InvalidityException("too many XMLRoots (" + getInternalId() + ")");
+		if (abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE ) {	
 			for(Node node : getNodes()) {
 				if(node.getClass().equals(NodeImpl.class) || node.getClass().equals(ComplexNodeImpl.class) || node.getClass().equals(PrimitiveNodeImpl.class)) {
 					throw new InvalidityException("Non-generic pattern contains generic Element (" + getInternalId() + ")");
@@ -677,6 +671,34 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				if(relation.getClass().equals(RelationImpl.class)) {
 					throw new InvalidityException("Non-generic pattern contains generic Relation (" + getInternalId() + ")");
 				}				
+			}
+
+			if (getNodes().get(0) instanceof XmlNode) {
+				for(Node node : getNodes()) {
+					if( !(node instanceof XmlNode || node instanceof XmlRoot)) {
+						throw new InvalidityException("XML-adapted pattern contains non-XML-Node (" + getInternalId() + ": " + node.getClass() + "(" +  + node.getInternalId() + "))");
+					}
+				}
+				
+				for(Relation relation : getRelations()) {
+					if( !(relation instanceof XmlNavigation) && !(relation instanceof XmlReference)) {
+						throw new InvalidityException("XML-adapted pattern contains non-XML-Relation (" + getInternalId() + ")");
+					}				
+				}
+				
+				// ABSTRACT, SEMI_CONCRETE or CONCRETE 		
+				int noRoot = 0;		
+				for(Node node : getNodes()) {
+					if(node instanceof XmlRoot) {
+						noRoot++;
+					}
+				}
+
+				if (noRoot == 0)
+					throw new InvalidityException("XML-adapted pattern is missing a XMLRoot (" + getInternalId() + ")");
+				
+				if (noRoot > 1)
+					throw new InvalidityException("XML-adapted pattern has too many XMLRoots (" + getInternalId() + ")");
 			}
 		}
 		
@@ -925,8 +947,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			Class<? extends Node> clazz = node.getClass();
 			Node newElement = new NodeImpl();
 			try {
-				newElement = clazz.newInstance();
-			} catch (InstantiationException | IllegalAccessException e) {
+				newElement = clazz.getDeclaredConstructor().newInstance();
+			} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
 				e.printStackTrace();
 				// should never happen
 			}

@@ -3,23 +3,26 @@ package qualitypatternmodel.xmltranslationtests;
 import java.util.ArrayList;
 import java.util.List;
 
-import qualitypatternmodel.patternstructure.*;
-import qualitypatternmodel.patternstructure.impl.*;
-import qualitypatternmodel.xmltestutility.PatternTestPair;
-import qualitypatternmodel.graphstructure.*;
-import qualitypatternmodel.graphstructure.impl.*;
-import qualitypatternmodel.operators.*;
-import qualitypatternmodel.operators.impl.*;
-import qualitypatternmodel.adaptionxml.XmlPropertyKind;
-import qualitypatternmodel.adaptionxml.XmlAxisKind;
-import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.parameters.*;
-import qualitypatternmodel.parameters.impl.*;
+import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.parameters.BooleanParam;
+import qualitypatternmodel.parameters.DateParam;
+import qualitypatternmodel.parameters.DateTimeParam;
+import qualitypatternmodel.parameters.NumberParam;
+import qualitypatternmodel.parameters.ParameterValue;
+import qualitypatternmodel.parameters.ParametersFactory;
+import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.TextListParam;
+import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.TimeParam;
+import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.PatternstructureFactory;
+import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test08ParameterValues {
 	

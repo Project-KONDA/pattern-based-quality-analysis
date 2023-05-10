@@ -113,8 +113,8 @@ public class AdaptionxmlAdapterFactory extends AdapterFactoryImpl {
 				return createXmlPathParamAdapter();
 			}
 			@Override
-			public Adapter caseXmlAxisPair(XmlAxisPart object) {
-				return createXmlAxisPairAdapter();
+			public Adapter caseXmlAxisPart(XmlAxisPart object) {
+				return createXmlAxisPartAdapter();
 			}
 			@Override
 			public Adapter caseXmlNavigation(XmlNavigation object) {
@@ -303,7 +303,7 @@ public class AdaptionxmlAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionxml.XmlAxisPart <em>Xml Axis Pair</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionxml.XmlAxisPart <em>Xml Axis Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -312,7 +312,7 @@ public class AdaptionxmlAdapterFactory extends AdapterFactoryImpl {
 	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart
 	 * @generated
 	 */
-	public Adapter createXmlAxisPairAdapter() {
+	public Adapter createXmlAxisPartAdapter() {
 		return null;
 	}
 

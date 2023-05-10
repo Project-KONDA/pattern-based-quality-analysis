@@ -1,12 +1,8 @@
 package qualitypatternmodel.xmltranslationtests;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import qualitypatternmodel.adaptionxml.XmlAxisKind;
-import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -14,7 +10,6 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
@@ -45,9 +40,11 @@ public class Test13Cycle {
 		
 		completePattern.createXmlAdaption();
 		
-		assertThrows(InvalidityException.class, () -> { completePattern.isValid(AbstractionLevel.CONCRETE);});
+		// the value is now set automatically during adaptation.
+//		assertThrows(InvalidityException.class, () -> { completePattern.isValid(AbstractionLevel.CONCRETE);});
+//		((XmlElement) graph2.getNodes().get(0)).setXQueryDeepEqual(false);
 		
-		((XmlElement) graph2.getNodes().get(0)).setXQueryDeepEqual(false);
+//		System.out.println(completePattern.myToString());
 		
 		return completePattern;
 	}
@@ -55,9 +52,9 @@ public class Test13Cycle {
 	public static List<PatternTestPair> getTestPairs() {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 
-		for (XmlAxisKind ax : XmlAxisKind.VALUES) {
+//		for (XmlAxisKind ax : XmlAxisKind.VALUES) {
 //			testPairs.add(new PatternTestPair(<name>, <completePattern>, <query>));
-		}
+//		}
 		return testPairs;
 	}
 }

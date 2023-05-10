@@ -41,7 +41,7 @@ import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlAxisOptionParamImpl#getOptions <em>Options</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlAxisOptionParamImpl#getValue <em>Value</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlAxisOptionParamImpl#getXmlAxisPair <em>Xml Axis Pair</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlAxisOptionParamImpl#getXmlAxisPart <em>Xml Axis Part</em>}</li>
  * </ul>
  *
  * @generated
@@ -109,11 +109,14 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
+		XmlAxisKind result = null;
 		for(XmlAxisKind kind : XmlAxisKind.values()) {
-			if(kind.getName().equals(value)) {			
-				setValueIfValid(kind);
+			if(kind.getName().equals(value) || kind.getLiteral().equals(value) || kind.getLiteral().equals("/" + value + "::*")) {
+				result = kind;
+				break;
 			}
-		}		
+		}
+		setValueIfValid(result);
 	}
 	
 	@Override
@@ -133,7 +136,7 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 			throw new InvalidityException("not enough options");
 		
 		if(getParameterList() != null) {
-			throw new InvalidityException("AxisOptionParam contained in ParameterList instead of AxisPair");
+			throw new InvalidityException("AxisOptionParam contained in ParameterList instead of AxisPart");
 		}
 		if ((abstractionLevel == AbstractionLevel.CONCRETE && !inputIsValid()))
 			throw new InvalidityException("input missing or invalid" + " (" + getInternalId() + ")");
@@ -155,12 +158,12 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	@Override
 	public boolean isUsed() {
 		
-		if (getXmlAxisPair() == null)
+		if (getXmlAxisPart() == null)
 			return false;
-		else if (getXmlAxisPair().getXmlPathParam() == null) 
+		else if (getXmlAxisPart().getXmlPathParam() == null) 
 			return false;
 		else 
-			return getXmlAxisPair().getXmlPathParam().getXmlNavigation() != null;
+			return getXmlAxisPart().getXmlPathParam().getXmlNavigation() != null;
 	}
 
 	/**
@@ -230,8 +233,8 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	 * @generated
 	 */
 	@Override
-	public XmlAxisPart getXmlAxisPair() {
-		if (eContainerFeatureID() != AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PAIR) return null;
+	public XmlAxisPart getXmlAxisPart() {
+		if (eContainerFeatureID() != AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PART) return null;
 		return (XmlAxisPart)eInternalContainer();
 	}
 
@@ -240,8 +243,8 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetXmlAxisPair(XmlAxisPart newXmlAxisPair, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newXmlAxisPair, AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PAIR, msgs);
+	public NotificationChain basicSetXmlAxisPart(XmlAxisPart newXmlAxisPart, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newXmlAxisPart, AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PART, msgs);
 		return msgs;
 	}
 
@@ -251,20 +254,20 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	 * @generated
 	 */
 	@Override
-	public void setXmlAxisPair(XmlAxisPart newXmlAxisPair) {
-		if (newXmlAxisPair != eInternalContainer() || (eContainerFeatureID() != AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PAIR && newXmlAxisPair != null)) {
-			if (EcoreUtil.isAncestor(this, newXmlAxisPair))
+	public void setXmlAxisPart(XmlAxisPart newXmlAxisPart) {
+		if (newXmlAxisPart != eInternalContainer() || (eContainerFeatureID() != AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PART && newXmlAxisPart != null)) {
+			if (EcoreUtil.isAncestor(this, newXmlAxisPart))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newXmlAxisPair != null)
-				msgs = ((InternalEObject)newXmlAxisPair).eInverseAdd(this, AdaptionxmlPackage.XML_AXIS_PAIR__XML_AXIS_OPTION_PARAM, XmlAxisPart.class, msgs);
-			msgs = basicSetXmlAxisPair(newXmlAxisPair, msgs);
+			if (newXmlAxisPart != null)
+				msgs = ((InternalEObject)newXmlAxisPart).eInverseAdd(this, AdaptionxmlPackage.XML_AXIS_PART__XML_AXIS_OPTION_PARAM, XmlAxisPart.class, msgs);
+			msgs = basicSetXmlAxisPart(newXmlAxisPart, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PAIR, newXmlAxisPair, newXmlAxisPair));
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PART, newXmlAxisPart, newXmlAxisPart));
 	}
 
 	/**
@@ -274,7 +277,7 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	 */
 	@Override
 	public EList<XmlAxisKind> inferSuggestions() {
-		return getXmlAxisPair().inferAxisSuggestions();
+		return getXmlAxisPart().inferAxisSuggestions();
 	}
 
 	/**
@@ -300,10 +303,12 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	
 	@Override
 	public void checkComparisonConsistency() throws InvalidityException {
-		Relation relation = getXmlAxisPair().getXmlPathParam().getXmlNavigation();
-		Node target = relation.getTarget();
-		if(target instanceof PrimitiveNode){
-			((PrimitiveNode) target).checkComparisonConsistency();	
+		Relation relation = getXmlAxisPart().getXmlPathParam().getXmlNavigation();
+		if (relation != null) {
+			Node target = relation.getTarget();
+			if(target instanceof PrimitiveNode){
+				((PrimitiveNode) target).checkComparisonConsistency();	
+			}
 		}
 	}
 
@@ -315,10 +320,10 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PAIR:
+			case AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PART:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetXmlAxisPair((XmlAxisPart)otherEnd, msgs);
+				return basicSetXmlAxisPart((XmlAxisPart)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -330,8 +335,8 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PAIR:
-				return basicSetXmlAxisPair(null, msgs);
+			case AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PART:
+				return basicSetXmlAxisPart(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -344,8 +349,8 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PAIR:
-				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.XML_AXIS_PAIR__XML_AXIS_OPTION_PARAM, XmlAxisPart.class, msgs);
+			case AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PART:
+				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.XML_AXIS_PART__XML_AXIS_OPTION_PARAM, XmlAxisPart.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -361,8 +366,8 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 				return getOptions();
 			case AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__VALUE:
 				return getValue();
-			case AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PAIR:
-				return getXmlAxisPair();
+			case AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PART:
+				return getXmlAxisPart();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -382,8 +387,8 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 			case AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__VALUE:
 				setValue((XmlAxisKind)newValue);
 				return;
-			case AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PAIR:
-				setXmlAxisPair((XmlAxisPart)newValue);
+			case AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PART:
+				setXmlAxisPart((XmlAxisPart)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -402,8 +407,8 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 			case AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
-			case AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PAIR:
-				setXmlAxisPair((XmlAxisPart)null);
+			case AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PART:
+				setXmlAxisPart((XmlAxisPart)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -420,8 +425,8 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 				return options != null && !options.isEmpty();
 			case AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__VALUE:
 				return value != VALUE_EDEFAULT;
-			case AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PAIR:
-				return getXmlAxisPair() != null;
+			case AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__XML_AXIS_PART:
+				return getXmlAxisPart() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -474,7 +479,7 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	public String generateDescription() {
 		String res = "Beziehung: XPath-Achse";
 		try {			
-			Relation relation = getXmlAxisPair().getXmlPathParam().getXmlNavigation();
+			Relation relation = getXmlAxisPart().getXmlPathParam().getXmlNavigation();
 			Node to = relation.getTarget();
 			Node from = relation.getSource();
 			res += " zur Navigation von " + from.getName() + " zu " + to.getName();		

@@ -4,9 +4,6 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
-import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.exceptions.MissingPatternContainerException;
-import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.xmltranslationtests.Test01Axis;
 import qualitypatternmodel.xmltranslationtests.Test01Reference;
@@ -30,6 +27,7 @@ public class XmlJUnitTests {
 	public void test01() {
 		try {
 			ArrayList<CompletePattern> testpairs = Test01Axis.getPatterns();
+			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
 			assert(false);
 		}
@@ -40,6 +38,7 @@ public class XmlJUnitTests {
 	public void test01R() {
 		try {
 			ArrayList<CompletePattern> testpairs = Test01Reference.getPatterns();
+			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
 			assert(false);
 		}
@@ -50,6 +49,7 @@ public class XmlJUnitTests {
 	public void test02() {
 		try {
 			ArrayList<CompletePattern> testpairs = Test02Return.getPatterns();
+			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
 			assert(false);
 		}
@@ -60,6 +60,7 @@ public class XmlJUnitTests {
 	public void test03() {
 		try {
 			ArrayList<CompletePattern> testpairs = Test03Quantor.getPatterns();
+			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
 			assert(false);
 		}
@@ -70,6 +71,7 @@ public class XmlJUnitTests {
 	public void test04() {
 		try {
 			ArrayList<CompletePattern> testpairs = Test04QuantorCombinations.getPatterns();
+			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
 			assert(false);
 		}
@@ -79,6 +81,7 @@ public class XmlJUnitTests {
 	public void test05() {
 		try {
 			ArrayList<CompletePattern> testpairs = Test05QuantorCombinationsCond.getPatterns();
+			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
 			assert(false);
 		}
@@ -88,6 +91,7 @@ public class XmlJUnitTests {
 	public void test06() {
 		try {
 			ArrayList<CompletePattern> testpairs = Test06NotElement.getPatterns();
+			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
 			assert(false);
 		}
@@ -97,6 +101,7 @@ public class XmlJUnitTests {
 	public void test07() {
 		try {
 			ArrayList<CompletePattern> testpairs = Test07Formula.getPatterns();
+			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
 			assert(false);
 		}
@@ -107,6 +112,7 @@ public class XmlJUnitTests {
 	public void test08() {
 		try {
 			ArrayList<CompletePattern> testpairs = Test08ParameterValues.getPatterns();
+			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
 			assert(false);
 		}
@@ -114,14 +120,21 @@ public class XmlJUnitTests {
 	}
 	
 	@Test
-	public void test09() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		ArrayList<CompletePattern> testpairs = Test09ComplexComparison.getPatterns();
+	public void test09() {
+		try {
+			ArrayList<CompletePattern> testpairs = Test09ComplexComparison.getPatterns();
+			assert(!testpairs.isEmpty());
+		} catch (Exception e) {
+			assert(false);
+		}
+		assert(true);
 	}
 	
 	@Test
 	public void test10() {
 		try {
 			ArrayList<CompletePattern> testpairs = Test10Reference.getPatterns();
+			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
 			assert(false);
 		}
@@ -132,6 +145,7 @@ public class XmlJUnitTests {
 	public void test11() {
 		try {
 			ArrayList<CompletePattern> testpairs = Test11Contains.getPatterns();
+			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
 			assert(false);
 		}
@@ -142,6 +156,7 @@ public class XmlJUnitTests {
 	public void test11m() {
 		try {
 			ArrayList<CompletePattern> testpairs = Test11Match.getPatterns();
+			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
 			assert(false);
 		}
@@ -152,6 +167,7 @@ public class XmlJUnitTests {
 	public void test12() {
 		try {
 			ArrayList<CompletePattern> testpairs = Test12Count.getPatterns();
+			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
 			assert(false);
 		}
@@ -161,6 +177,7 @@ public class XmlJUnitTests {
 	public void test13() {
 		try {
 			ArrayList<CompletePattern> testpairs = Test13Cycle.getPatterns();
+			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
 			assert(false);
 		}

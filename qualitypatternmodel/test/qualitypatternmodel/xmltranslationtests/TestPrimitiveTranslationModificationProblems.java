@@ -1,9 +1,20 @@
 package qualitypatternmodel.xmltranslationtests;
 
 import java.util.ArrayList;
-import qualitypatternmodel.patternstructure.*;
-import qualitypatternmodel.graphstructure.*;
-import qualitypatternmodel.exceptions.*;
+
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.ComplexNode;
+import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.GraphstructureFactory;
+import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.Node;
+//import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.PatternstructureFactory;
+import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class TestPrimitiveTranslationModificationProblems {
 
@@ -22,7 +33,7 @@ public class TestPrimitiveTranslationModificationProblems {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
+//		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
 		CompletePattern completePattern = factory.createCompletePattern();
 		
@@ -52,7 +63,8 @@ public class TestPrimitiveTranslationModificationProblems {
 		nodeA.setGraph(g);
 		Node nodeB = graphFactory.createNode();
 		nodeB.setGraph(g);
-		Relation r = nodeA.addOutgoing(nodeB);
+//		Relation r = 
+		nodeA.addOutgoing(nodeB);
 		
 		completePattern.createXmlAdaption();
 		

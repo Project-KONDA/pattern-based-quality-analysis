@@ -4,6 +4,8 @@ package qualitypatternmodel.adaptionrdf.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -17,6 +19,7 @@ import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.PatternElement;
 
@@ -64,10 +67,7 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 		if(!translated) {
 			translated = true;
 			if(getIncomingMapping() == null) {
-				query = "\n" + getSource().generateSparql();
-				query += " " + getRdfPathParam().generateSparql();
-				query += " " + getTarget().generateSparql();
-				query += ".";
+				query = getRdfPathParam().generateSparql();
 			}
 			if(getTarget() instanceof ComplexNode) {
 				ComplexNode complexNode = (ComplexNode) getTarget();
@@ -96,6 +96,17 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 			}
 		}
 	}
+	
+	@Override
+	public EList<Parameter> getAllParameters() throws InvalidityException {
+		EList<Parameter> res = new BasicEList<Parameter>();		
+		if (rdfPathParam != null) {
+			res.addAll(rdfPathParam.getAllParameters());
+		} else if (getIncomingMapping() == null) {
+			throw new InvalidityException("rdfPathParam missing on " + this + " " + getName());
+		}
+		return res;
+	}	
 	
 	@Override
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {		
@@ -186,7 +197,6 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -232,7 +242,6 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {

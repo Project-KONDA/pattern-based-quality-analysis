@@ -18,7 +18,7 @@ public class ConcretePatternDescriptionServletTest {
 		String pattern = "card_concrete";
 		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.DESCRIPTION_ENDPOINT + pattern).openConnection();
 		connection.setRequestMethod("POST");
-		String valueEncoded = URLEncoder.encode("This is a test description");
+		String valueEncoded = URLEncoder.encode("This is a test description", "UTF-8");
 		String parameters = "description=" + valueEncoded;
 		
 		connection.setDoOutput(true);

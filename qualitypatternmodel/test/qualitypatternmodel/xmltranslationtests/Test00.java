@@ -5,26 +5,30 @@ import java.util.List;
 import org.eclipse.emf.common.util.EList;
 //import org.graalvm.graphio.GraphStructure;
 
-import qualitypatternmodel.patternstructure.*;
-import qualitypatternmodel.xmltestutility.PatternTestPair;
-import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
-import qualitypatternmodel.adaptionxml.XmlElementNavigation;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
-import qualitypatternmodel.exceptions.*;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.PatternstructureFactory;
+import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test00 {
 	
-	public static void test(ArrayList<CompletePattern> completePatterns) throws InvalidityException {
+	public static void test(ArrayList<CompletePattern> completePatterns) {
 		for (CompletePattern completePattern : completePatterns) {
 			replace(completePattern);
 			try {
@@ -35,17 +39,19 @@ public class Test00 {
 				System.out.println(completePattern.generateXQuery());
 			} catch (Exception e) {
 				System.out.print("\n####### PATTERN INVALID #######");
-				e.printStackTrace();
 				try {
 				  System.out.println(completePattern.myToString());
+					e.printStackTrace();
 				} catch (Exception e2) {
+					System.out.print("\n####### PATTERN PRINTING FAILED #######");
 					e2.printStackTrace();
+					e.printStackTrace();
 				}
 			}
 		}
 	}
 	
-	public static void getQueries(ArrayList<CompletePattern> completePatterns) throws InvalidityException {
+	public static void getQueries(ArrayList<CompletePattern> completePatterns) {
 		for (CompletePattern completePattern : completePatterns) {
 			replace(completePattern);
 			try {
@@ -70,7 +76,7 @@ public class Test00 {
 	}
 
 	public static CompletePattern getBasePatternFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		completePattern.createXmlAdaption();
 		return completePattern;
 	}
@@ -114,7 +120,7 @@ public class Test00 {
 		return testPairs;		
 	}
 	
-	public static CompletePattern replace(CompletePattern pattern) throws InvalidityException {
+	public static CompletePattern replace(CompletePattern pattern) {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
@@ -146,10 +152,16 @@ public class Test00 {
 			}
 			if (param instanceof XmlPathParam) {
 				XmlPathParam xmlPathParam = (XmlPathParam) param;
-				for(XmlAxisPart pair : xmlPathParam.getXmlAxisPairs()) {
+				for(XmlAxisPart pair : xmlPathParam.getXmlAxisParts()) {
 					if(pair.getTextLiteralParam().getValue() == null) {
 						pair.getTextLiteralParam().setValue("");
 					}
+				}
+			}
+			if (param instanceof TypeOptionParam) {
+				TypeOptionParam typeOptionParam = (TypeOptionParam) param;
+				if(typeOptionParam.getValue() == null || typeOptionParam.getValue() == ReturnType.UNSPECIFIED) {
+					typeOptionParam.setValue(ReturnType.STRING);
 				}
 			}
 		}

@@ -3,6 +3,7 @@
 package qualitypatternmodel.adaptionrdf.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -12,9 +13,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
-import qualitypatternmodel.adaptionrdf.RdfPathComponent;
+import qualitypatternmodel.adaptionrdf.RdfPathPart;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -32,7 +35,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionrdf.impl.RdfPathParamImpl#getRdfPredicate <em>Rdf Predicate</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionrdf.impl.RdfPathParamImpl#getRdfPathPart <em>Rdf Path Part</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.impl.RdfPathParamImpl#getRdfPathParts <em>Rdf Path Parts</em>}</li>
  * </ul>
  *
  * @generated
@@ -49,14 +52,14 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	protected RdfPredicate rdfPredicate;
 
 	/**
-	 * The cached value of the '{@link #getRdfPathPart() <em>Rdf Path Part</em>}' reference.
+	 * The cached value of the '{@link #getRdfPathParts() <em>Rdf Path Parts</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRdfPathPart()
+	 * @see #getRdfPathParts()
 	 * @generated
 	 * @ordered
 	 */
-	protected RdfPathComponent rdfPathPart;
+	protected EList<RdfPathPart> rdfPathParts;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -65,7 +68,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 */
 	protected RdfPathParamImpl() {
 		super();
-		setRdfPathPart(new RdfSinglePredicateImpl());
+		getRdfPathParts().add(new RdfPathPartImpl());
 	}
 
 	/**
@@ -80,19 +83,36 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	
 	@Override
 	public String generateSparql() throws InvalidityException {
-		String sparql = getRdfPathPart().generateSparql();
-		if (sparql == null) {
+		EList<RdfPathPart> parts =  getRdfPathParts();
+		int size = parts.size();
+		
+		String[] vars = new String[size+1];
+		String[] sparqlparts = new String[size];
+		String sparql = "";
+		
+		vars[0] = getRdfPredicate().getSource().generateSparql();
+		vars[vars.length-1] = getRdfPredicate().getTarget().generateSparql();
+		for (int i = 1; i < vars.length-1; i++){
+			vars[i] = "?tempvar" + getRdfPredicate().getInternalId() + "_" + i;
+		}
+		
+		for (int i = 0; i < sparqlparts.length; i++){
+			sparqlparts[i] = parts.get(i).generateSparql();
+		} 
+		
+		for (int i = 0; i < sparqlparts.length; i++){
+			sparql += "\n" + vars[i] + " " + sparqlparts[i] + " " + vars[i+1] + ".";
+			sparql += parts.get(i).generateRdfPartTypes(vars[i+1]);
+		} 		
+				
+		if (sparql == "") {
 			sparql = super.generateSparql(); 
-//			try {
-//			} catch (InvalidityException e) {
-//				throw new InvalidityException("RdfPathParam not (fully) concretized or no ParameterReference defined :" + e.getMessage());
-//			}
 		}
 		return sparql;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -160,38 +180,32 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 * @generated
 	 */
 	@Override
-	public RdfPathComponent getRdfPathPart() {
-		if (rdfPathPart != null && rdfPathPart.eIsProxy()) {
-			InternalEObject oldRdfPathPart = (InternalEObject)rdfPathPart;
-			rdfPathPart = (RdfPathComponent)eResolveProxy(oldRdfPathPart);
-			if (rdfPathPart != oldRdfPathPart) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PART, oldRdfPathPart, rdfPathPart));
-			}
+	public EList<RdfPathPart> getRdfPathParts() {
+		if (rdfPathParts == null) {
+			rdfPathParts = new EObjectContainmentWithInverseEList<RdfPathPart>(RdfPathPart.class, this, AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PARTS, AdaptionrdfPackage.RDF_PATH_PART__RDF_PATH_PARAM);
 		}
-		return rdfPathPart;
+		return rdfPathParts;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RdfPathComponent basicGetRdfPathPart() {
-		return rdfPathPart;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
-	public void setRdfPathPart(RdfPathComponent newRdfPathPart) {
-		RdfPathComponent oldRdfPathPart = rdfPathPart;
-		rdfPathPart = newRdfPathPart;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PART, oldRdfPathPart, rdfPathPart));
+	public void setRdfPathPart(RdfPathPart path) {	
+		getRdfPathParts().clear();
+		addRdfPart(path);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void addRdfPart(RdfPathPart path) {
+		getRdfPathParts().add(path);
 	}
 
 	/**
@@ -201,20 +215,20 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 */
 	@Override
 	public void createParameters() {
+		RdfPathPart part = new RdfPathPartImpl();
+		setRdfPathPart(part);
 		RdfSinglePredicate rsp = new RdfSinglePredicateImpl();
-		setRdfPathPart(rsp);
+		part.setRdfPath(rsp);		
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void removeParametersFromParameterList() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		setParameterList(null);
 	}
 
 	/**
@@ -222,6 +236,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -229,6 +244,8 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 				if (rdfPredicate != null)
 					msgs = ((InternalEObject)rdfPredicate).eInverseRemove(this, AdaptionrdfPackage.RDF_PREDICATE__RDF_PATH_PARAM, RdfPredicate.class, msgs);
 				return basicSetRdfPredicate((RdfPredicate)otherEnd, msgs);
+			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PARTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRdfPathParts()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -243,6 +260,8 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 		switch (featureID) {
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PREDICATE:
 				return basicSetRdfPredicate(null, msgs);
+			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PARTS:
+				return ((InternalEList<?>)getRdfPathParts()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -258,9 +277,8 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PREDICATE:
 				if (resolve) return getRdfPredicate();
 				return basicGetRdfPredicate();
-			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PART:
-				if (resolve) return getRdfPathPart();
-				return basicGetRdfPathPart();
+			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PARTS:
+				return getRdfPathParts();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -270,14 +288,16 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PREDICATE:
 				setRdfPredicate((RdfPredicate)newValue);
 				return;
-			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PART:
-				setRdfPathPart((RdfPathComponent)newValue);
+			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PARTS:
+				getRdfPathParts().clear();
+				getRdfPathParts().addAll((Collection<? extends RdfPathPart>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -294,8 +314,8 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PREDICATE:
 				setRdfPredicate((RdfPredicate)null);
 				return;
-			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PART:
-				setRdfPathPart((RdfPathComponent)null);
+			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PARTS:
+				getRdfPathParts().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -311,8 +331,8 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 		switch (featureID) {
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PREDICATE:
 				return rdfPredicate != null;
-			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PART:
-				return rdfPathPart != null;
+			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PATH_PARTS:
+				return rdfPathParts != null && !rdfPathParts.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -342,6 +362,12 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case AdaptionrdfPackage.RDF_PATH_PARAM___SET_RDF_PATH_PART__RDFPATHPART:
+				setRdfPathPart((RdfPathPart)arguments.get(0));
+				return null;
+			case AdaptionrdfPackage.RDF_PATH_PARAM___ADD_RDF_PART__RDFPATHPART:
+				addRdfPart((RdfPathPart)arguments.get(0));
+				return null;
 			case AdaptionrdfPackage.RDF_PATH_PARAM___CREATE_PARAMETERS:
 				createParameters();
 				return null;
@@ -355,7 +381,8 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	@Override
 	public boolean inputIsValid() {
 		try{
-			getRdfPathPart().isValid(AbstractionLevel.CONCRETE);
+			for (RdfPathPart part: getRdfPathParts())
+				part.isValid(AbstractionLevel.CONCRETE);
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -371,10 +398,13 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	@Override
 	public String myToString() {
 		String result = "rdfpath [" + getInternalId() + "] ";
-		try {
-			result += " " + generateSparql();
-		} catch (InvalidityException e) {
-		} 
+		for (RdfPathPart part: getRdfPathParts()) {
+			result += "-";
+			try {
+				result += part.generateSparql() + " ";
+			} catch (InvalidityException e) {
+			}
+		}
 		return result;
 	}
 

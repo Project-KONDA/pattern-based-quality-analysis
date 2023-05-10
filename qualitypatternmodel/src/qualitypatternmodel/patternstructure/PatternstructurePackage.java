@@ -1902,14 +1902,14 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 7;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.NodeMappingImpl <em>Element Mapping</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.NodeMappingImpl <em>Node Mapping</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see qualitypatternmodel.patternstructure.impl.NodeMappingImpl
-	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getElementMapping()
+	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getNodeMapping()
 	 * @generated
 	 */
-	int ELEMENT_MAPPING = 4;
+	int NODE_MAPPING = 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1918,7 +1918,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING__ID = MAPPING__ID;
+	int NODE_MAPPING__ID = MAPPING__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -1927,7 +1927,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING__INTERNAL_ID = MAPPING__INTERNAL_ID;
+	int NODE_MAPPING__INTERNAL_ID = MAPPING__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Morphism</b></em>' container reference.
@@ -1936,7 +1936,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING__MORPHISM = MAPPING__MORPHISM;
+	int NODE_MAPPING__MORPHISM = MAPPING__MORPHISM;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1945,7 +1945,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING__SOURCE = MAPPING_FEATURE_COUNT + 0;
+	int NODE_MAPPING__SOURCE = MAPPING_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -1954,16 +1954,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING__TARGET = MAPPING_FEATURE_COUNT + 1;
+	int NODE_MAPPING__TARGET = MAPPING_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Element Mapping</em>' class.
+	 * The number of structural features of the '<em>Node Mapping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING_FEATURE_COUNT = MAPPING_FEATURE_COUNT + 2;
+	int NODE_MAPPING_FEATURE_COUNT = MAPPING_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1972,7 +1972,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP = MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int NODE_MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP = MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -1981,7 +1981,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___IS_VALID__ABSTRACTIONLEVEL = MAPPING___IS_VALID__ABSTRACTIONLEVEL;
+	int NODE_MAPPING___IS_VALID__ABSTRACTIONLEVEL = MAPPING___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1990,7 +1990,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___IS_VALID_LOCAL__ABSTRACTIONLEVEL = MAPPING___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+	int NODE_MAPPING___IS_VALID_LOCAL__ABSTRACTIONLEVEL = MAPPING___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -1999,7 +1999,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___MY_TO_STRING = MAPPING___MY_TO_STRING;
+	int NODE_MAPPING___MY_TO_STRING = MAPPING___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Generate Cypher</em>' operation.
@@ -2008,7 +2008,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___GENERATE_CYPHER = MAPPING___GENERATE_CYPHER;
+	int NODE_MAPPING___GENERATE_CYPHER = MAPPING___GENERATE_CYPHER;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -2017,7 +2017,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___GENERATE_XQUERY = MAPPING___GENERATE_XQUERY;
+	int NODE_MAPPING___GENERATE_XQUERY = MAPPING___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Generate Sparql</em>' operation.
@@ -2026,7 +2026,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___GENERATE_SPARQL = MAPPING___GENERATE_SPARQL;
+	int NODE_MAPPING___GENERATE_SPARQL = MAPPING___GENERATE_SPARQL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -2035,7 +2035,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___GET_CONTAINER = MAPPING___GET_CONTAINER;
+	int NODE_MAPPING___GET_CONTAINER = MAPPING___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -2044,7 +2044,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___GET_ANCESTOR__CLASS = MAPPING___GET_ANCESTOR__CLASS;
+	int NODE_MAPPING___GET_ANCESTOR__CLASS = MAPPING___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Initialize Translation</em>' operation.
@@ -2053,7 +2053,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___INITIALIZE_TRANSLATION = MAPPING___INITIALIZE_TRANSLATION;
+	int NODE_MAPPING___INITIALIZE_TRANSLATION = MAPPING___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2062,7 +2062,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___PREPARE_TRANSLATION = MAPPING___PREPARE_TRANSLATION;
+	int NODE_MAPPING___PREPARE_TRANSLATION = MAPPING___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -2071,7 +2071,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___GET_OPERATOR_LIST = MAPPING___GET_OPERATOR_LIST;
+	int NODE_MAPPING___GET_OPERATOR_LIST = MAPPING___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -2080,7 +2080,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___GET_PARAMETER_LIST = MAPPING___GET_PARAMETER_LIST;
+	int NODE_MAPPING___GET_PARAMETER_LIST = MAPPING___GET_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -2089,7 +2089,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___GET_ALL_PARAMETERS = MAPPING___GET_ALL_PARAMETERS;
+	int NODE_MAPPING___GET_ALL_PARAMETERS = MAPPING___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -2098,7 +2098,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___PREPARE_PARAMETER_UPDATES = MAPPING___PREPARE_PARAMETER_UPDATES;
+	int NODE_MAPPING___PREPARE_PARAMETER_UPDATES = MAPPING___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -2107,7 +2107,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = MAPPING___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+	int NODE_MAPPING___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = MAPPING___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
 
 	/**
 	 * The operation id for the '<em>Update Parameters</em>' operation.
@@ -2116,7 +2116,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___UPDATE_PARAMETERS__PARAMETERLIST = MAPPING___UPDATE_PARAMETERS__PARAMETERLIST;
+	int NODE_MAPPING___UPDATE_PARAMETERS__PARAMETERLIST = MAPPING___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -2125,7 +2125,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = MAPPING___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+	int NODE_MAPPING___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = MAPPING___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -2134,7 +2134,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___RECORD_VALUES__XMLDATADATABASE = MAPPING___RECORD_VALUES__XMLDATADATABASE;
+	int NODE_MAPPING___RECORD_VALUES__XMLDATADATABASE = MAPPING___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -2143,7 +2143,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___RELATIONS_XML_ADAPTED = MAPPING___RELATIONS_XML_ADAPTED;
+	int NODE_MAPPING___RELATIONS_XML_ADAPTED = MAPPING___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
@@ -2152,7 +2152,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___CREATE_XML_ADAPTION = MAPPING___CREATE_XML_ADAPTION;
+	int NODE_MAPPING___CREATE_XML_ADAPTION = MAPPING___CREATE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
@@ -2161,7 +2161,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___CREATE_RDF_ADAPTION = MAPPING___CREATE_RDF_ADAPTION;
+	int NODE_MAPPING___CREATE_RDF_ADAPTION = MAPPING___CREATE_RDF_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
@@ -2170,16 +2170,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___CREATE_NEO4J_ADAPTION = MAPPING___CREATE_NEO4J_ADAPTION;
+	int NODE_MAPPING___CREATE_NEO4J_ADAPTION = MAPPING___CREATE_NEO4J_ADAPTION;
 
 	/**
-	 * The number of operations of the '<em>Element Mapping</em>' class.
+	 * The number of operations of the '<em>Node Mapping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING_OPERATION_COUNT = MAPPING_OPERATION_COUNT + 0;
+	int NODE_MAPPING_OPERATION_COUNT = MAPPING_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.FormulaImpl <em>Formula</em>}' class.
@@ -3311,13 +3311,22 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN__PARAMETER_COUNTER = PATTERN_FEATURE_COUNT + 10;
 
 	/**
+	 * The feature id for the '<em><b>Language</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__LANGUAGE = PATTERN_FEATURE_COUNT + 11;
+
+	/**
 	 * The number of structural features of the '<em>Complete Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 11;
+	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3590,13 +3599,22 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___GENERATE_CYPHER_RETURN = PATTERN_OPERATION_COUNT + 5;
 
 	/**
+	 * The operation id for the '<em>Generate Wikidata Sparql</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___GENERATE_WIKIDATA_SPARQL = PATTERN_OPERATION_COUNT + 6;
+
+	/**
 	 * The number of operations of the '<em>Complete Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 6;
+	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.NotConditionImpl <em>Not Condition</em>}' class.
@@ -5489,6 +5507,16 @@ public interface PatternstructurePackage extends EPackage {
 	int ABSTRACTION_LEVEL = 19;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.Language <em>Language</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.Language
+	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getLanguage()
+	 * @generated
+	 */
+	int LANGUAGE = 20;
+
+	/**
 	 * The meta object id for the '<em>Invalidity Exception Wrapper</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5496,7 +5524,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getInvalidityExceptionWrapper()
 	 * @generated
 	 */
-	int INVALIDITY_EXCEPTION_WRAPPER = 20;
+	int INVALIDITY_EXCEPTION_WRAPPER = 21;
 
 	/**
 	 * The meta object id for the '<em>Class Wrapper</em>' data type.
@@ -5506,7 +5534,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getClassWrapper()
 	 * @generated
 	 */
-	int CLASS_WRAPPER = 21;
+	int CLASS_WRAPPER = 22;
 
 	/**
 	 * The meta object id for the '<em>Missing Pattern Container Exception</em>' data type.
@@ -5516,7 +5544,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getMissingPatternContainerException()
 	 * @generated
 	 */
-	int MISSING_PATTERN_CONTAINER_EXCEPTION = 22;
+	int MISSING_PATTERN_CONTAINER_EXCEPTION = 23;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.RelationMapping <em>Relation Mapping</em>}'.
@@ -5773,6 +5801,38 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getMorphism__CheckRelationMappingsUniqueness();
 
 	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.NodeMapping <em>Node Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Node Mapping</em>'.
+	 * @see qualitypatternmodel.patternstructure.NodeMapping
+	 * @generated
+	 */
+	EClass getNodeMapping();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.NodeMapping#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see qualitypatternmodel.patternstructure.NodeMapping#getSource()
+	 * @see #getNodeMapping()
+	 * @generated
+	 */
+	EReference getNodeMapping_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.NodeMapping#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see qualitypatternmodel.patternstructure.NodeMapping#getTarget()
+	 * @see #getNodeMapping()
+	 * @generated
+	 */
+	EReference getNodeMapping_Target();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Morphism#checkElementMappingsUniqueness() <em>Check Element Mappings Uniqueness</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5811,38 +5871,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getMorphism__RemoveInconsistentMappings();
-
-	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.NodeMapping <em>Element Mapping</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Element Mapping</em>'.
-	 * @see qualitypatternmodel.patternstructure.NodeMapping
-	 * @generated
-	 */
-	EClass getElementMapping();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.NodeMapping#getSource <em>Source</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Source</em>'.
-	 * @see qualitypatternmodel.patternstructure.NodeMapping#getSource()
-	 * @see #getElementMapping()
-	 * @generated
-	 */
-	EReference getElementMapping_Source();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.NodeMapping#getTarget <em>Target</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Target</em>'.
-	 * @see qualitypatternmodel.patternstructure.NodeMapping#getTarget()
-	 * @see #getElementMapping()
-	 * @generated
-	 */
-	EReference getElementMapping_Target();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.Mapping <em>Mapping</em>}'.
@@ -6006,6 +6034,17 @@ public interface PatternstructurePackage extends EPackage {
 	EAttribute getCompletePattern_ParameterCounter();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getLanguage <em>Language</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Language</em>'.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getLanguage()
+	 * @see #getCompletePattern()
+	 * @generated
+	 */
+	EAttribute getCompletePattern_Language();
+
+	/**
 	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getOperatorCounter <em>Operator Counter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6119,6 +6158,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getCompletePattern__GenerateCypherReturn();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#generateWikidataSparql() <em>Generate Wikidata Sparql</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Wikidata Sparql</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#generateWikidataSparql()
+	 * @generated
+	 */
+	EOperation getCompletePattern__GenerateWikidataSparql();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.PatternElement <em>Pattern Element</em>}'.
@@ -6685,6 +6734,16 @@ public interface PatternstructurePackage extends EPackage {
 	EEnum getAbstractionLevel();
 
 	/**
+	 * Returns the meta object for enum '{@link qualitypatternmodel.patternstructure.Language <em>Language</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Language</em>'.
+	 * @see qualitypatternmodel.patternstructure.Language
+	 * @generated
+	 */
+	EEnum getLanguage();
+
+	/**
 	 * Returns the meta object for data type '{@link qualitypatternmodel.exceptions.InvalidityException <em>Invalidity Exception Wrapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6941,6 +7000,32 @@ public interface PatternstructurePackage extends EPackage {
 		EOperation MORPHISM___CHECK_RELATION_MAPPINGS_UNIQUENESS = eINSTANCE.getMorphism__CheckRelationMappingsUniqueness();
 
 		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.NodeMappingImpl <em>Node Mapping</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.patternstructure.impl.NodeMappingImpl
+		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getNodeMapping()
+		 * @generated
+		 */
+		EClass NODE_MAPPING = eINSTANCE.getNodeMapping();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NODE_MAPPING__SOURCE = eINSTANCE.getNodeMapping_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NODE_MAPPING__TARGET = eINSTANCE.getNodeMapping_Target();
+
+		/**
 		 * The meta object literal for the '<em><b>Check Element Mappings Uniqueness</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6971,32 +7056,6 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation MORPHISM___REMOVE_INCONSISTENT_MAPPINGS = eINSTANCE.getMorphism__RemoveInconsistentMappings();
-
-		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.NodeMappingImpl <em>Element Mapping</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.patternstructure.impl.NodeMappingImpl
-		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getElementMapping()
-		 * @generated
-		 */
-		EClass ELEMENT_MAPPING = eINSTANCE.getElementMapping();
-
-		/**
-		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT_MAPPING__SOURCE = eINSTANCE.getElementMapping_Source();
-
-		/**
-		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT_MAPPING__TARGET = eINSTANCE.getElementMapping_Target();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.MappingImpl <em>Mapping</em>}' class.
@@ -7127,6 +7186,14 @@ public interface PatternstructurePackage extends EPackage {
 		EAttribute COMPLETE_PATTERN__PARAMETER_COUNTER = eINSTANCE.getCompletePattern_ParameterCounter();
 
 		/**
+		 * The meta object literal for the '<em><b>Language</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPLETE_PATTERN__LANGUAGE = eINSTANCE.getCompletePattern_Language();
+
+		/**
 		 * The meta object literal for the '<em><b>Operator Counter</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7207,12 +7274,12 @@ public interface PatternstructurePackage extends EPackage {
 		EOperation COMPLETE_PATTERN___RESET_QUERY = eINSTANCE.getCompletePattern__ResetQuery();
 
 		/**
-		 * The meta object literal for the '<em><b>Generate Cypher Return</b></em>' operation.
+		 * The meta object literal for the '<em><b>Generate Wikidata Sparql</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation COMPLETE_PATTERN___GENERATE_CYPHER_RETURN = eINSTANCE.getCompletePattern__GenerateCypherReturn();
+		EOperation COMPLETE_PATTERN___GENERATE_WIKIDATA_SPARQL = eINSTANCE.getCompletePattern__GenerateWikidataSparql();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.PatternElementImpl <em>Pattern Element</em>}' class.
@@ -7675,6 +7742,16 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EEnum ABSTRACTION_LEVEL = eINSTANCE.getAbstractionLevel();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.Language <em>Language</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.patternstructure.Language
+		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getLanguage()
+		 * @generated
+		 */
+		EEnum LANGUAGE = eINSTANCE.getLanguage();
 
 		/**
 		 * The meta object literal for the '<em>Invalidity Exception Wrapper</em>' data type.

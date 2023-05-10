@@ -339,12 +339,12 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	public void checkElementMappings() throws InvalidityException {
 		for(Mapping mapping : getMappings()) {
 			if(mapping instanceof NodeMapping) {
-				NodeMapping elementMapping = (NodeMapping) mapping;
-				if(!getSource().getNodes().contains(elementMapping.getSource())) {
-					throw new InvalidityException("wrong ElementMapping from");
+				NodeMapping nodeMapping = (NodeMapping) mapping;
+				if(!getSource().getNodes().contains(nodeMapping.getSource())) {
+					throw new InvalidityException("wrong NodeMapping from");
 				}
-				if(!getTarget().getNodes().contains(elementMapping.getTarget())) {
-					throw new InvalidityException("wrong ElementMapping to");
+				if(!getTarget().getNodes().contains(nodeMapping.getTarget())) {
+					throw new InvalidityException("wrong NodeMapping to");
 				}
 			}
 		}
@@ -382,8 +382,8 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 		List<Node> nodes = new ArrayList<Node>();
 		for(Mapping mapping : getMappings()) {
 			if(mapping instanceof NodeMapping) {
-				NodeMapping elementMapping = (NodeMapping) mapping;
-				nodes.add(elementMapping.getSource());
+				NodeMapping nodeMapping = (NodeMapping) mapping;
+				nodes.add(nodeMapping.getSource());
 			}
 		}
 		Set<Node> set = new HashSet<Node>(nodes);
@@ -435,17 +435,17 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 		mappings.addAll(getMappings());
 		for(Mapping mapping : mappings) {
 			if(mapping instanceof NodeMapping) {
-				NodeMapping elementMapping = (NodeMapping) mapping;
-				if(elementMapping.getSource() == null && getSource() != null
-						|| elementMapping.getSource() != null && getSource() == null
-						|| elementMapping.getSource() != null && elementMapping.getSource().getGraph() == null
-						|| elementMapping.getSource() != null && !elementMapping.getSource().getGraph().equals(getSource())) {
-					getMappings().remove(elementMapping);
-				} else if(elementMapping.getTarget() == null && getTarget() != null
-						|| elementMapping.getTarget() != null && getTarget() == null
-						|| elementMapping.getTarget() != null && elementMapping.getTarget().getGraph() == null
-						|| elementMapping.getTarget() != null && !elementMapping.getTarget().getGraph().equals(getTarget())) {
-					getMappings().remove(elementMapping);
+				NodeMapping nodeMapping = (NodeMapping) mapping;
+				if(nodeMapping.getSource() == null && getSource() != null
+						|| nodeMapping.getSource() != null && getSource() == null
+						|| nodeMapping.getSource() != null && nodeMapping.getSource().getGraph() == null
+						|| nodeMapping.getSource() != null && !nodeMapping.getSource().getGraph().equals(getSource())) {
+					getMappings().remove(nodeMapping);
+				} else if(nodeMapping.getTarget() == null && getTarget() != null
+						|| nodeMapping.getTarget() != null && getTarget() == null
+						|| nodeMapping.getTarget() != null && nodeMapping.getTarget().getGraph() == null
+						|| nodeMapping.getTarget() != null && !nodeMapping.getTarget().getGraph().equals(getTarget())) {
+					getMappings().remove(nodeMapping);
 				}
 				
 			} else {

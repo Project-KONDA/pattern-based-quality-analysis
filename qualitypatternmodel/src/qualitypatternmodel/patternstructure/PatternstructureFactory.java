@@ -49,13 +49,13 @@ public interface PatternstructureFactory extends EFactory {
 	Morphism createMorphism();
 
 	/**
-	 * Returns a new object of class '<em>Element Mapping</em>'.
+	 * Returns a new object of class '<em>Node Mapping</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Element Mapping</em>'.
+	 * @return a new object of class '<em>Node Mapping</em>'.
 	 * @generated
 	 */
-	NodeMapping createElementMapping();
+	NodeMapping createNodeMapping();
 
 	/**
 	 * Returns a new object of class '<em>Formula</em>'.

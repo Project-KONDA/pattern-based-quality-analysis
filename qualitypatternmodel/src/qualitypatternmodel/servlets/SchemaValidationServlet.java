@@ -3,10 +3,10 @@ package qualitypatternmodel.servlets;
 import java.io.IOException;
 import java.net.URL;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -15,6 +15,7 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.EMFModelLoad;
 
+@SuppressWarnings("serial")
 public class SchemaValidationServlet extends HttpServlet {
 	
 	
@@ -28,7 +29,7 @@ public class SchemaValidationServlet extends HttpServlet {
 		URL fileURL = getClass().getClassLoader().getResource(filePath);	
 		
 		String filePathDb = Util.DATABASES_PATH + Util.DATABASES_NAME + ".execution";	
-		URL folderURLDb = getClass().getClassLoader().getResource(Util.DATABASES_PATH);
+//		URL folderURLDb = getClass().getClassLoader().getResource(Util.DATABASES_PATH);
 		URL fileURLDb = getClass().getClassLoader().getResource(filePathDb);
 		
 		if(fileURL != null && folderURL != null) {

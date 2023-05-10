@@ -83,8 +83,8 @@ public class PatternstructureAdapterFactory extends AdapterFactoryImpl {
 				return createMorphismAdapter();
 			}
 			@Override
-			public Adapter caseElementMapping(NodeMapping object) {
-				return createElementMappingAdapter();
+			public Adapter caseNodeMapping(NodeMapping object) {
+				return createNodeMappingAdapter();
 			}
 			@Override
 			public Adapter caseMapping(Mapping object) {
@@ -211,7 +211,7 @@ public class PatternstructureAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.NodeMapping <em>Element Mapping</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.NodeMapping <em>Node Mapping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -220,7 +220,7 @@ public class PatternstructureAdapterFactory extends AdapterFactoryImpl {
 	 * @see qualitypatternmodel.patternstructure.NodeMapping
 	 * @generated
 	 */
-	public Adapter createElementMappingAdapter() {
+	public Adapter createNodeMappingAdapter() {
 		return null;
 	}
 

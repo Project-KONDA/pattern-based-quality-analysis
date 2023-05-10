@@ -11,8 +11,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
-import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jPackageImpl;
+
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl;
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
@@ -126,7 +125,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass xmlAxisPairEClass = null;
+	private EClass xmlAxisPartEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -225,8 +224,6 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		TextrepresentationPackageImpl theTextrepresentationPackage = (TextrepresentationPackageImpl)(registeredPackage instanceof TextrepresentationPackageImpl ? registeredPackage : TextrepresentationPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AdaptionrdfPackage.eNS_URI);
 		AdaptionrdfPackageImpl theAdaptionrdfPackage = (AdaptionrdfPackageImpl)(registeredPackage instanceof AdaptionrdfPackageImpl ? registeredPackage : AdaptionrdfPackage.eINSTANCE);
-		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(Adaptionneo4jPackage.eNS_URI);
-		Adaptionneo4jPackageImpl theAdaptionneo4jPackage = (Adaptionneo4jPackageImpl)(registeredPackage instanceof Adaptionneo4jPackageImpl ? registeredPackage : Adaptionneo4jPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theAdaptionxmlPackage.createPackageContents();
@@ -237,7 +234,6 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		theExecutionPackage.createPackageContents();
 		theTextrepresentationPackage.createPackageContents();
 		theAdaptionrdfPackage.createPackageContents();
-		theAdaptionneo4jPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theAdaptionxmlPackage.initializePackageContents();
@@ -248,7 +244,6 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		theExecutionPackage.initializePackageContents();
 		theTextrepresentationPackage.initializePackageContents();
 		theAdaptionrdfPackage.initializePackageContents();
-		theAdaptionneo4jPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theAdaptionxmlPackage.freeze();
@@ -434,7 +429,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
-	public EReference getXmlAxisOptionParam_XmlAxisPair() {
+	public EReference getXmlAxisOptionParam_XmlAxisPart() {
 		return (EReference)xmlAxisOptionParamEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -514,6 +509,16 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
+	public EReference getXmlPropertyOptionParam_XmlAxisPart() {
+		return (EReference)xmlPropertyOptionParamEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getXmlPropertyOptionParam__SetValueIfValid__XmlPropertyKind() {
 		return xmlPropertyOptionParamEClass.getEOperations().get(0);
 	}
@@ -544,7 +549,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
-	public EReference getXmlPathParam_XmlAxisPairs() {
+	public EReference getXmlPathParam_XmlAxisParts() {
 		return (EReference)xmlPathParamEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -604,8 +609,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
-	public EClass getXmlAxisPair() {
-		return xmlAxisPairEClass;
+	public EOperation getXmlPathParam__SpecifyAxis__XmlAxisKind_XmlPropertyKind_String_String() {
+		return xmlPathParamEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -614,8 +619,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
-	public EReference getXmlAxisPair_TextLiteralParam() {
-		return (EReference)xmlAxisPairEClass.getEStructuralFeatures().get(0);
+	public EClass getXmlAxisPart() {
+		return xmlAxisPartEClass;
 	}
 
 	/**
@@ -624,8 +629,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
-	public EReference getXmlAxisPair_XmlAxisOptionParam() {
-		return (EReference)xmlAxisPairEClass.getEStructuralFeatures().get(1);
+	public EReference getXmlAxisPart_TextLiteralParam() {
+		return (EReference)xmlAxisPartEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -634,8 +639,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
-	public EReference getXmlAxisPair_XmlPathParam() {
-		return (EReference)xmlAxisPairEClass.getEStructuralFeatures().get(2);
+	public EReference getXmlAxisPart_XmlAxisOptionParam() {
+		return (EReference)xmlAxisPartEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -644,8 +649,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlAxisPair__GetNextXmlAxisPairs() {
-		return xmlAxisPairEClass.getEOperations().get(0);
+	public EReference getXmlAxisPart_XmlPathParam() {
+		return (EReference)xmlAxisPartEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -654,8 +659,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlAxisPair__GetPreviousXmlAxisPairs() {
-		return xmlAxisPairEClass.getEOperations().get(1);
+	public EReference getXmlAxisPart_XmlPropertyOption() {
+		return (EReference)xmlAxisPartEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -664,8 +669,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlAxisPair__InferAxisSuggestions() {
-		return xmlAxisPairEClass.getEOperations().get(2);
+	public EOperation getXmlAxisPart__GetNextXmlAxisPairs() {
+		return xmlAxisPartEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -674,8 +679,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlAxisPair__InferElementTagSuggestions() {
-		return xmlAxisPairEClass.getEOperations().get(3);
+	public EOperation getXmlAxisPart__GetPreviousXmlAxisPairs() {
+		return xmlAxisPartEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -684,8 +689,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlAxisPair__InferElementTagSuggestionsFromIncomingRelations() {
-		return xmlAxisPairEClass.getEOperations().get(4);
+	public EOperation getXmlAxisPart__InferAxisSuggestions() {
+		return xmlAxisPartEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -694,8 +699,28 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlAxisPair__InferElementTagSuggestionsFromOutgoingRelations() {
-		return xmlAxisPairEClass.getEOperations().get(5);
+	public EOperation getXmlAxisPart__InferElementTagSuggestions() {
+		return xmlAxisPartEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getXmlAxisPart__InferElementTagSuggestionsFromIncomingRelations() {
+		return xmlAxisPartEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getXmlAxisPart__InferElementTagSuggestionsFromOutgoingRelations() {
+		return xmlAxisPartEClass.getEOperations().get(5);
 	}
 
 	/**
@@ -870,7 +895,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		xmlAxisOptionParamEClass = createEClass(XML_AXIS_OPTION_PARAM);
 		createEAttribute(xmlAxisOptionParamEClass, XML_AXIS_OPTION_PARAM__OPTIONS);
 		createEAttribute(xmlAxisOptionParamEClass, XML_AXIS_OPTION_PARAM__VALUE);
-		createEReference(xmlAxisOptionParamEClass, XML_AXIS_OPTION_PARAM__XML_AXIS_PAIR);
+		createEReference(xmlAxisOptionParamEClass, XML_AXIS_OPTION_PARAM__XML_AXIS_PART);
 		createEOperation(xmlAxisOptionParamEClass, XML_AXIS_OPTION_PARAM___SET_VALUE_IF_VALID__XMLAXISKIND);
 		createEOperation(xmlAxisOptionParamEClass, XML_AXIS_OPTION_PARAM___INFER_SUGGESTIONS);
 
@@ -879,27 +904,30 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		createEAttribute(xmlPropertyOptionParamEClass, XML_PROPERTY_OPTION_PARAM__VALUE);
 		createEReference(xmlPropertyOptionParamEClass, XML_PROPERTY_OPTION_PARAM__XML_PATH_PARAM);
 		createEReference(xmlPropertyOptionParamEClass, XML_PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME);
+		createEReference(xmlPropertyOptionParamEClass, XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART);
 		createEOperation(xmlPropertyOptionParamEClass, XML_PROPERTY_OPTION_PARAM___SET_VALUE_IF_VALID__XMLPROPERTYKIND);
 
 		xmlPathParamEClass = createEClass(XML_PATH_PARAM);
 		createEReference(xmlPathParamEClass, XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM);
-		createEReference(xmlPathParamEClass, XML_PATH_PARAM__XML_AXIS_PAIRS);
+		createEReference(xmlPathParamEClass, XML_PATH_PARAM__XML_AXIS_PARTS);
 		createEReference(xmlPathParamEClass, XML_PATH_PARAM__XML_NAVIGATION);
 		createEOperation(xmlPathParamEClass, XML_PATH_PARAM___SET_XML_AXIS__XMLAXISKIND_STRING);
 		createEOperation(xmlPathParamEClass, XML_PATH_PARAM___ADD_XML_AXIS__XMLAXISKIND_STRING);
 		createEOperation(xmlPathParamEClass, XML_PATH_PARAM___SET_XML_AXIS__XMLAXISKIND);
 		createEOperation(xmlPathParamEClass, XML_PATH_PARAM___SET_XML_AXIS__XMLAXISKIND_STRING_1);
+		createEOperation(xmlPathParamEClass, XML_PATH_PARAM___SPECIFY_AXIS__XMLAXISKIND_XMLPROPERTYKIND_STRING_STRING);
 
-		xmlAxisPairEClass = createEClass(XML_AXIS_PAIR);
-		createEReference(xmlAxisPairEClass, XML_AXIS_PAIR__TEXT_LITERAL_PARAM);
-		createEReference(xmlAxisPairEClass, XML_AXIS_PAIR__XML_AXIS_OPTION_PARAM);
-		createEReference(xmlAxisPairEClass, XML_AXIS_PAIR__XML_PATH_PARAM);
-		createEOperation(xmlAxisPairEClass, XML_AXIS_PAIR___GET_NEXT_XML_AXIS_PAIRS);
-		createEOperation(xmlAxisPairEClass, XML_AXIS_PAIR___GET_PREVIOUS_XML_AXIS_PAIRS);
-		createEOperation(xmlAxisPairEClass, XML_AXIS_PAIR___INFER_AXIS_SUGGESTIONS);
-		createEOperation(xmlAxisPairEClass, XML_AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS);
-		createEOperation(xmlAxisPairEClass, XML_AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_INCOMING_RELATIONS);
-		createEOperation(xmlAxisPairEClass, XML_AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_OUTGOING_RELATIONS);
+		xmlAxisPartEClass = createEClass(XML_AXIS_PART);
+		createEReference(xmlAxisPartEClass, XML_AXIS_PART__TEXT_LITERAL_PARAM);
+		createEReference(xmlAxisPartEClass, XML_AXIS_PART__XML_AXIS_OPTION_PARAM);
+		createEReference(xmlAxisPartEClass, XML_AXIS_PART__XML_PATH_PARAM);
+		createEReference(xmlAxisPartEClass, XML_AXIS_PART__XML_PROPERTY_OPTION);
+		createEOperation(xmlAxisPartEClass, XML_AXIS_PART___GET_NEXT_XML_AXIS_PAIRS);
+		createEOperation(xmlAxisPartEClass, XML_AXIS_PART___GET_PREVIOUS_XML_AXIS_PAIRS);
+		createEOperation(xmlAxisPartEClass, XML_AXIS_PART___INFER_AXIS_SUGGESTIONS);
+		createEOperation(xmlAxisPartEClass, XML_AXIS_PART___INFER_ELEMENT_TAG_SUGGESTIONS);
+		createEOperation(xmlAxisPartEClass, XML_AXIS_PART___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_INCOMING_RELATIONS);
+		createEOperation(xmlAxisPartEClass, XML_AXIS_PART___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_OUTGOING_RELATIONS);
 
 		xmlNavigationEClass = createEClass(XML_NAVIGATION);
 		createEReference(xmlNavigationEClass, XML_NAVIGATION__XML_PATH_PARAM);
@@ -966,8 +994,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		xmlPropertyOptionParamEClass.getESuperTypes().add(theGraphstructurePackage.getAdaptable());
 		xmlPathParamEClass.getESuperTypes().add(theGraphstructurePackage.getAdaptable());
 		xmlPathParamEClass.getESuperTypes().add(theParametersPackage.getParameter());
-		xmlAxisPairEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
-		xmlAxisPairEClass.getESuperTypes().add(theGraphstructurePackage.getAdaptable());
+		xmlAxisPartEClass.getESuperTypes().add(theGraphstructurePackage.getAdaptable());
+		xmlAxisPartEClass.getESuperTypes().add(theParametersPackage.getParameter());
 		xmlNavigationEClass.getESuperTypes().add(theGraphstructurePackage.getRelation());
 
 		// Initialize classes, features, and operations; add parameters
@@ -999,7 +1027,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		initEClass(xmlAxisOptionParamEClass, XmlAxisOptionParam.class, "XmlAxisOptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getXmlAxisOptionParam_Options(), this.getXmlAxisKind(), "options", null, 0, -1, XmlAxisOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getXmlAxisOptionParam_Value(), this.getXmlAxisKind(), "value", null, 1, 1, XmlAxisOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getXmlAxisOptionParam_XmlAxisPair(), this.getXmlAxisPair(), this.getXmlAxisPair_XmlAxisOptionParam(), "xmlAxisPair", null, 1, 1, XmlAxisOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXmlAxisOptionParam_XmlAxisPart(), this.getXmlAxisPart(), this.getXmlAxisPart_XmlAxisOptionParam(), "xmlAxisPart", null, 1, 1, XmlAxisOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getXmlAxisOptionParam__SetValueIfValid__XmlAxisKind(), null, "setValueIfValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getXmlAxisKind(), "newValue", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1010,8 +1038,9 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		initEClass(xmlPropertyOptionParamEClass, XmlPropertyOptionParam.class, "XmlPropertyOptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getXmlPropertyOptionParam_Options(), this.getXmlPropertyKind(), "options", null, 0, -1, XmlPropertyOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getXmlPropertyOptionParam_Value(), this.getXmlPropertyKind(), "value", null, 1, 1, XmlPropertyOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getXmlPropertyOptionParam_XmlPathParam(), this.getXmlPathParam(), this.getXmlPathParam_XmlPropertyOptionParam(), "xmlPathParam", null, 1, 1, XmlPropertyOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXmlPropertyOptionParam_XmlPathParam(), this.getXmlPathParam(), this.getXmlPathParam_XmlPropertyOptionParam(), "xmlPathParam", null, 0, 1, XmlPropertyOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getXmlPropertyOptionParam_AttributeName(), theParametersPackage.getTextLiteralParam(), theParametersPackage.getTextLiteralParam_XmlPropertyOptionParam(), "attributeName", null, 0, 1, XmlPropertyOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXmlPropertyOptionParam_XmlAxisPart(), this.getXmlAxisPart(), this.getXmlAxisPart_XmlPropertyOption(), "xmlAxisPart", null, 0, 1, XmlPropertyOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getXmlPropertyOptionParam__SetValueIfValid__XmlPropertyKind(), null, "setValueIfValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getXmlPropertyKind(), "newValue", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1019,7 +1048,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 
 		initEClass(xmlPathParamEClass, XmlPathParam.class, "XmlPathParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getXmlPathParam_XmlPropertyOptionParam(), this.getXmlPropertyOptionParam(), this.getXmlPropertyOptionParam_XmlPathParam(), "xmlPropertyOptionParam", null, 0, 1, XmlPathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getXmlPathParam_XmlAxisPairs(), this.getXmlAxisPair(), this.getXmlAxisPair_XmlPathParam(), "xmlAxisPairs", null, 0, -1, XmlPathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXmlPathParam_XmlAxisParts(), this.getXmlAxisPart(), this.getXmlAxisPart_XmlPathParam(), "xmlAxisParts", null, 0, -1, XmlPathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getXmlPathParam_XmlNavigation(), this.getXmlNavigation(), this.getXmlNavigation_XmlPathParam(), "xmlNavigation", null, 0, 1, XmlPathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getXmlPathParam__SetXmlAxis__XmlAxisKind_String(), null, "setXmlAxis", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1037,22 +1066,30 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		addEParameter(op, this.getXmlAxisKindArray(), "axis", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "tag", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(xmlAxisPairEClass, XmlAxisPart.class, "XmlAxisPair", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getXmlAxisPair_TextLiteralParam(), theParametersPackage.getTextLiteralParam(), theParametersPackage.getTextLiteralParam_XmlAxisPair(), "textLiteralParam", null, 1, 1, XmlAxisPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getXmlAxisPair_XmlAxisOptionParam(), this.getXmlAxisOptionParam(), this.getXmlAxisOptionParam_XmlAxisPair(), "xmlAxisOptionParam", null, 1, 1, XmlAxisPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getXmlAxisPair_XmlPathParam(), this.getXmlPathParam(), this.getXmlPathParam_XmlAxisPairs(), "xmlPathParam", null, 1, 1, XmlAxisPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		op = initEOperation(getXmlPathParam__SpecifyAxis__XmlAxisKind_XmlPropertyKind_String_String(), null, "specifyAxis", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getXmlAxisKindArray(), "axes", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getXmlPropertyKind(), "propertyKind", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "attributeName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		initEOperation(getXmlAxisPair__GetNextXmlAxisPairs(), this.getXmlAxisPair(), "getNextXmlAxisPairs", 0, -1, IS_UNIQUE, IS_ORDERED);
+		initEClass(xmlAxisPartEClass, XmlAxisPart.class, "XmlAxisPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getXmlAxisPart_TextLiteralParam(), theParametersPackage.getTextLiteralParam(), theParametersPackage.getTextLiteralParam_XmlAxisPart(), "textLiteralParam", null, 1, 1, XmlAxisPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXmlAxisPart_XmlAxisOptionParam(), this.getXmlAxisOptionParam(), this.getXmlAxisOptionParam_XmlAxisPart(), "xmlAxisOptionParam", null, 1, 1, XmlAxisPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXmlAxisPart_XmlPathParam(), this.getXmlPathParam(), this.getXmlPathParam_XmlAxisParts(), "xmlPathParam", null, 1, 1, XmlAxisPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXmlAxisPart_XmlPropertyOption(), this.getXmlPropertyOptionParam(), this.getXmlPropertyOptionParam_XmlAxisPart(), "xmlPropertyOption", null, 0, 1, XmlAxisPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getXmlAxisPair__GetPreviousXmlAxisPairs(), this.getXmlAxisPair(), "getPreviousXmlAxisPairs", 0, -1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getXmlAxisPart__GetNextXmlAxisPairs(), this.getXmlAxisPart(), "getNextXmlAxisPairs", 0, -1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getXmlAxisPair__InferAxisSuggestions(), this.getXmlAxisKind(), "inferAxisSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getXmlAxisPart__GetPreviousXmlAxisPairs(), this.getXmlAxisPart(), "getPreviousXmlAxisPairs", 0, -1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getXmlAxisPair__InferElementTagSuggestions(), ecorePackage.getEString(), "inferElementTagSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getXmlAxisPart__InferAxisSuggestions(), this.getXmlAxisKind(), "inferAxisSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getXmlAxisPair__InferElementTagSuggestionsFromIncomingRelations(), ecorePackage.getEString(), "inferElementTagSuggestionsFromIncomingRelations", 0, -1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getXmlAxisPart__InferElementTagSuggestions(), ecorePackage.getEString(), "inferElementTagSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getXmlAxisPair__InferElementTagSuggestionsFromOutgoingRelations(), ecorePackage.getEString(), "inferElementTagSuggestionsFromOutgoingRelations", 0, -1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getXmlAxisPart__InferElementTagSuggestionsFromIncomingRelations(), ecorePackage.getEString(), "inferElementTagSuggestionsFromIncomingRelations", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getXmlAxisPart__InferElementTagSuggestionsFromOutgoingRelations(), ecorePackage.getEString(), "inferElementTagSuggestionsFromOutgoingRelations", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(xmlNavigationEClass, XmlNavigation.class, "XmlNavigation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getXmlNavigation_XmlPathParam(), this.getXmlPathParam(), this.getXmlPathParam_XmlNavigation(), "xmlPathParam", null, 0, 1, XmlNavigation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

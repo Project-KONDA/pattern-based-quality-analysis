@@ -165,11 +165,12 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AdaptionxmlPackage.XML_AXIS_PAIR: {
-				XmlAxisPart xmlAxisPair = (XmlAxisPart)theEObject;
-				T result = caseXmlAxisPair(xmlAxisPair);
-				if (result == null) result = caseAdaptable(xmlAxisPair);
-				if (result == null) result = casePatternElement(xmlAxisPair);
+			case AdaptionxmlPackage.XML_AXIS_PART: {
+				XmlAxisPart xmlAxisPart = (XmlAxisPart)theEObject;
+				T result = caseXmlAxisPart(xmlAxisPart);
+				if (result == null) result = caseAdaptable(xmlAxisPart);
+				if (result == null) result = caseParameter(xmlAxisPart);
+				if (result == null) result = casePatternElement(xmlAxisPart);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -328,17 +329,17 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Xml Axis Pair</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Xml Axis Part</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Xml Axis Pair</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Xml Axis Part</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseXmlAxisPair(XmlAxisPart object) {
+	public T caseXmlAxisPart(XmlAxisPart object) {
 		return null;
 	}
 

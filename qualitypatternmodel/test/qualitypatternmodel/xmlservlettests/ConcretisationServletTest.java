@@ -23,7 +23,7 @@ public class ConcretisationServletTest {
 	
 	@Test
 	public void doPostTestUntypedWithPreviousInstantiation() throws IOException, JSONException {
-		ServletTestsUtil.createConcretePattern("card_abstract", DemoPatternTexts.CARD_FLEXIBLE, PATTERN_NAME);	
+		ServletTestsUtil.createConcretePattern("card_abstract", DemoPatternTexts.CARD_NAME, PATTERN_NAME);	
 		
 		String parameterId = "5";
 		String value = "example";

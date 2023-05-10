@@ -284,7 +284,7 @@ public class AdaptionxmlItemProviderAdapterFactory extends AdaptionxmlAdapterFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected XmlAxisPairItemProvider xmlAxisPairItemProvider;
+	protected XmlAxisPartItemProvider xmlAxisPartItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.XmlAxisPart}.
@@ -293,12 +293,12 @@ public class AdaptionxmlItemProviderAdapterFactory extends AdaptionxmlAdapterFac
 	 * @generated
 	 */
 	@Override
-	public Adapter createXmlAxisPairAdapter() {
-		if (xmlAxisPairItemProvider == null) {
-			xmlAxisPairItemProvider = new XmlAxisPairItemProvider(this);
+	public Adapter createXmlAxisPartAdapter() {
+		if (xmlAxisPartItemProvider == null) {
+			xmlAxisPartItemProvider = new XmlAxisPartItemProvider(this);
 		}
 
-		return xmlAxisPairItemProvider;
+		return xmlAxisPartItemProvider;
 	}
 
 	/**
@@ -415,7 +415,7 @@ public class AdaptionxmlItemProviderAdapterFactory extends AdaptionxmlAdapterFac
 		if (xmlAxisOptionParamItemProvider != null) xmlAxisOptionParamItemProvider.dispose();
 		if (xmlPropertyOptionParamItemProvider != null) xmlPropertyOptionParamItemProvider.dispose();
 		if (xmlPathParamItemProvider != null) xmlPathParamItemProvider.dispose();
-		if (xmlAxisPairItemProvider != null) xmlAxisPairItemProvider.dispose();
+		if (xmlAxisPartItemProvider != null) xmlAxisPartItemProvider.dispose();
 	}
 
 }

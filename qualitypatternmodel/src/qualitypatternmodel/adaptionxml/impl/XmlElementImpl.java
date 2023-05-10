@@ -2,8 +2,6 @@
  */
 package qualitypatternmodel.adaptionxml.impl;
 
-import static qualitypatternmodel.utility.Constants.VARIABLE;
-
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
@@ -153,7 +151,7 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 			for(Relation relation : getOutgoing()) {
 				if(relation instanceof XmlPropertyNavigation) {
 					XmlPropertyNavigation nav = (XmlPropertyNavigation) relation;
-					boolean hasAxis = !nav.getXmlPathParam().getXmlAxisPairs().isEmpty();
+					boolean hasAxis = !nav.getXmlPathParam().getXmlAxisParts().isEmpty();
 					boolean isNew = getIncomingMapping() != null && nav.getTarget().getIncomingMapping() == null;
 					if (hasAxis || isNew) {
 						nav.setSourceVariable(getVariables().get(getVariables().size()-1));
@@ -181,7 +179,7 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {	
 		super.isValidLocal(abstractionLevel);
 		
-		validateCycles();
+		validateCycles(false);
 		
 		
 		if ( getIncoming() == null && abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE ) {
@@ -200,7 +198,7 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 		
 	}
 	
-	private void validateCycles() throws InvalidityException {
+	public void validateCycles(boolean change) throws InvalidityException {
 		EList<EList<XmlElementImpl>> cycles = findCycles(new BasicEList<XmlElementImpl>());
 		for(EList<XmlElementImpl> cycle : cycles) {
 			boolean deepEqualFalse = false;
@@ -208,7 +206,11 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 				deepEqualFalse = deepEqualFalse || !node.isXQueryDeepEqual();
 			}
 			if(!deepEqualFalse) {
-				throw new InvalidityException("Cycle must contain at least one XmlElement with xQueryDeepEqual false");
+				if (change) {
+					cycle.get(0).setXQueryDeepEqual(false);
+				} else {
+					throw new InvalidityException("Cycle must contain at least one XmlElement with xQueryDeepEqual false");
+				}
 			}
 		}		
 	}
@@ -252,7 +254,7 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 			for(Relation relation : getOutgoing()) {
 				if(relation instanceof XmlPropertyNavigation) {
 					XmlPropertyNavigation nav = (XmlPropertyNavigation) relation;
-					boolean hasAxis = !nav.getXmlPathParam().getXmlAxisPairs().isEmpty();
+					boolean hasAxis = !nav.getXmlPathParam().getXmlAxisParts().isEmpty();
 					boolean isNew = getIncomingMapping() != null && nav.getTarget().getIncomingMapping() == null;
 					if (!hasAxis && !isNew) {
 //						nav.setSourceVariable(getVariables().get(getVariables().size()-1));
@@ -513,7 +515,6 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	 * @generated
 	 */
 	@Override
-	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case AdaptionxmlPackage.XML_ELEMENT___GET_TAG_FROM_COMPARISONS:

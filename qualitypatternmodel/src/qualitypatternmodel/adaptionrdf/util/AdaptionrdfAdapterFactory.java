@@ -86,8 +86,8 @@ public class AdaptionrdfAdapterFactory extends AdapterFactoryImpl {
 				return createRdfIriNodeAdapter();
 			}
 			@Override
-			public Adapter caseRdfPathPart(RdfPathComponent object) {
-				return createRdfPathPartAdapter();
+			public Adapter caseRdfPathComponent(RdfPathComponent object) {
+				return createRdfPathComponentAdapter();
 			}
 			@Override
 			public Adapter caseRdfSinglePredicate(RdfSinglePredicate object) {
@@ -120,6 +120,10 @@ public class AdaptionrdfAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseRdfPathParam(RdfPathParam object) {
 				return createRdfPathParamAdapter();
+			}
+			@Override
+			public Adapter caseRdfPathPart(RdfPathPart object) {
+				return createRdfPathPartAdapter();
 			}
 			@Override
 			public Adapter casePatternElement(PatternElement object) {
@@ -206,7 +210,7 @@ public class AdaptionrdfAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionrdf.RdfPathComponent <em>Rdf Path Part</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionrdf.RdfPathComponent <em>Rdf Path Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -215,7 +219,7 @@ public class AdaptionrdfAdapterFactory extends AdapterFactoryImpl {
 	 * @see qualitypatternmodel.adaptionrdf.RdfPathComponent
 	 * @generated
 	 */
-	public Adapter createRdfPathPartAdapter() {
+	public Adapter createRdfPathComponentAdapter() {
 		return null;
 	}
 
@@ -230,6 +234,20 @@ public class AdaptionrdfAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRdfPathParamAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionrdf.RdfPathPart <em>Rdf Path Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathPart
+	 * @generated
+	 */
+	public Adapter createRdfPathPartAdapter() {
 		return null;
 	}
 

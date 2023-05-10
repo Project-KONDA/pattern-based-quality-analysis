@@ -3,14 +3,14 @@ package playground;
 import java.util.ArrayList;
 import java.util.List;
 
-import qualitypatternmodel.graphstructure.GraphstructureFactory;
+//import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.parameters.ComparisonOptionParam;
+//import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.ParametersFactory;
+//import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.TypeOptionParam;
+//import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
@@ -44,7 +44,7 @@ public class RelationSwitch {
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 
 		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;		
+//		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;		
 				
 		CompletePattern completePattern = Test03Quantor.getPatternExists();
 		TrueElement t = (TrueElement) ((QuantifiedCondition) completePattern.getCondition()).getCondition();
@@ -59,7 +59,7 @@ public class RelationSwitch {
 		Node e1g0 = completePattern.getGraph().getNodes().get(0);
 		e1g0.addOutgoing().getTarget().addPrimitiveComparison();
 		
-		Node e1g1 = qc1.getGraph().getNodes().get(0);	
+//		Node e1g1 = qc1.getGraph().getNodes().get(0);	
 		
 		Node e2g1 = qc1.getGraph().getNodes().get(1);	
 		e2g1.addOutgoing().getTarget().addPrimitiveComparison();
@@ -78,7 +78,7 @@ public class RelationSwitch {
 	
 	public static CompletePattern getRefintRunningExample() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
-		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
+//		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		CompletePattern completePattern = getRefintAbstractRunningExample();
 				
@@ -86,14 +86,14 @@ public class RelationSwitch {
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 		
 		UntypedParameterValue p0 = ((UntypedParameterValue) params.get(0));
-		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
-		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
+//		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
+//		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
 		UntypedParameterValue p3 = ((UntypedParameterValue) params.get(3));
-		ComparisonOptionParam p4 = ((ComparisonOptionParam) params.get(4));
-		TypeOptionParam p5 = ((TypeOptionParam) params.get(5));
+//		ComparisonOptionParam p4 = ((ComparisonOptionParam) params.get(4));
+//		TypeOptionParam p5 = ((TypeOptionParam) params.get(5));
 		UntypedParameterValue p6 = ((UntypedParameterValue) params.get(6));
-		ComparisonOptionParam p7 = ((ComparisonOptionParam) params.get(7));
-		TypeOptionParam p8 = ((TypeOptionParam) params.get(8));
+//		ComparisonOptionParam p7 = ((ComparisonOptionParam) params.get(7));
+//		TypeOptionParam p8 = ((TypeOptionParam) params.get(8));
 		XmlPathParamImpl p9 = ((XmlPathParamImpl) params.get(9));
 		XmlPathParamImpl p10 = ((XmlPathParamImpl) params.get(10));
 		XmlPathParamImpl p11 = ((XmlPathParamImpl) params.get(11));

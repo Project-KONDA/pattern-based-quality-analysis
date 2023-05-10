@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ASCII"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphstructure="graphstructure" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_1aPRoIB3Ee2usNr5oNQslg" internalId="1" name="cardinality_generic" description="Allows detecting violated cardinality constraints, i.e. allows detecting elements with a specific property which are related to a specific number of elements with a specific property" abstractName="cardinality_generic" counter="2">
+  <graph id="_1aPRooB3Ee2usNr5oNQslg" outgoingMorphisms="_1aPRqoB3Ee2usNr5oNQslg">
+    <nodes xsi:type="graphstructure:ComplexNode" id="_1aPRtoB3Ee2usNr5oNQslg" outgoingMappings="_1aPRsIB3Ee2usNr5oNQslg" name="Element0" returnNode="true"/>
+    <operatorList id="_1aPRo4B3Ee2usNr5oNQslg"/>
+  </graph>
+  <condition xsi:type="patternstructure:CountCondition" id="_1aPRpoB3Ee2usNr5oNQslg" option="_1aPRqIB3Ee2usNr5oNQslg">
+    <countPattern id="_1aPRqYB3Ee2usNr5oNQslg">
+      <graph id="_1aPRq4B3Ee2usNr5oNQslg" incomingMorphism="_1aPRqoB3Ee2usNr5oNQslg">
+        <nodes id="_1aPRtYB3Ee2usNr5oNQslg" name="Element1" incoming="_1aPRuIB3Ee2usNr5oNQslg"/>
+        <nodes xsi:type="graphstructure:ComplexNode" id="_1aPRt4B3Ee2usNr5oNQslg" incomingMapping="_1aPRsIB3Ee2usNr5oNQslg" name="Element0" returnNode="true" outgoing="_1aPRuIB3Ee2usNr5oNQslg"/>
+        <operatorList id="_1aPRrIB3Ee2usNr5oNQslg"/>
+        <relations id="_1aPRuIB3Ee2usNr5oNQslg" source="_1aPRt4B3Ee2usNr5oNQslg" target="_1aPRtYB3Ee2usNr5oNQslg"/>
+      </graph>
+      <condition xsi:type="patternstructure:TrueElement" id="_1aPRsYB3Ee2usNr5oNQslg"/>
+      <morphism id="_1aPRqoB3Ee2usNr5oNQslg" source="_1aPRooB3Ee2usNr5oNQslg" target="_1aPRq4B3Ee2usNr5oNQslg">
+        <mappings xsi:type="patternstructure:NodeMapping" id="_1aPRsIB3Ee2usNr5oNQslg" source="_1aPRtoB3Ee2usNr5oNQslg" target="_1aPRt4B3Ee2usNr5oNQslg"/>
+      </morphism>
+    </countPattern>
+    <argument2 xsi:type="patternstructure:NumberElement" id="_1aPRsoB3Ee2usNr5oNQslg" numberParam="_1aPRtIB3Ee2usNr5oNQslg"/>
+  </condition>
+  <parameterList id="_1aPRoYB3Ee2usNr5oNQslg">
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_1aPRqIB3Ee2usNr5oNQslg" countConditions="_1aPRpoB3Ee2usNr5oNQslg">
+      <options>=</options>
+      <options>></options>
+      <options>&lt;</options>
+      <options>>=</options>
+      <options>&lt;=</options>
+      <options>!=</options>
+    </parameters>
+    <parameters xsi:type="parameters:NumberParam" id="_1aPRtIB3Ee2usNr5oNQslg" numberArgument="_1aPRsoB3Ee2usNr5oNQslg"/>
+  </parameterList>
+</patternstructure:CompletePattern>

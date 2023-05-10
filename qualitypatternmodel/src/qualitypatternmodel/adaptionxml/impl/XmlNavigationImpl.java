@@ -203,8 +203,12 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		
 		translated = true;
 		
-		query += getTarget().generateXQuery();
-		
+		String target = getTarget().generateXQuery();
+		query += target;
+
+		if (xPredicates == "" && xPathExpression == "" && target == "") {
+			return "";
+		}
 		return query;
 	}
 
@@ -227,10 +231,10 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		super.isValidLocal(abstractionLevel);
 		if (getIncomingMapping() == null && xmlPathParam == null) {
-			throw new InvalidityException("pathParam missing on " + this + " " + getName());
+			throw new InvalidityException("xmlPathParam missing on " + this + " " + getName());
 		}
 		if (getIncomingMapping() != null && xmlPathParam != null) { 
-			throw new InvalidityException("pathParam superflous");
+			throw new InvalidityException("xmlPathParam superflous");
 		}
 	}	
 	

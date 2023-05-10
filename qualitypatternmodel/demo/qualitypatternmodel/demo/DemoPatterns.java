@@ -36,7 +36,7 @@ import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersFactory;
-import qualitypatternmodel.parameters.TypeOptionParam;
+//import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -53,9 +53,11 @@ public class DemoPatterns {
 
 	
 	private static CompletePattern compConcrete;
+	@SuppressWarnings("unused")
 	private static CompletePattern compTextConcrete;
 	private static CompletePattern compLidoConcrete;
 	private static CompletePattern cardConcrete;
+	@SuppressWarnings("unused")
 	private static CompletePattern cardConcreteFinalized;
 	private static CompletePattern cardConcreteLido;
 	private static CompletePattern funcConcrete;
@@ -91,7 +93,6 @@ public class DemoPatterns {
 		exportAllDemoPatterns();
 		printAllDemoPatternQueries();
 		executeAllDemoPatterns();
-		
 	}
 	
 	private static void executeAllDemoPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, QueryException, IOException {
@@ -209,7 +210,7 @@ public class DemoPatterns {
 		completePattern.setAbstractName("comparison_bool_abstract");
 		completePattern.setDescription("Allows detecting elements with a specific property which are related to other elements with a specific property and a specific boolean property");
 		
-		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();	
+//		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();	
 		
 		ParameterValue value = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
 		
@@ -304,7 +305,7 @@ public class DemoPatterns {
 		
 		UntypedParameterValue p0 = ((UntypedParameterValue) params.get(0));
 		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
-		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
+//		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
 		XmlPathParamImpl p3 = ((XmlPathParamImpl) params.get(3));
 		XmlPathParamImpl p4 = ((XmlPathParamImpl) params.get(4));
 
@@ -332,7 +333,7 @@ public class DemoPatterns {
 		
 		UntypedParameterValue p0 = ((UntypedParameterValue) params.get(0));
 		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
-		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
+//		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
 		XmlPathParamImpl p3 = ((XmlPathParamImpl) params.get(3));
 		XmlPathParamImpl p4 = ((XmlPathParamImpl) params.get(4));
 		
@@ -368,12 +369,13 @@ public class DemoPatterns {
 		completePattern.setDatabase(db);
 				
 		List<Parameter> params = completePattern.getParameterList().getParameters();
-		
+				
 		UntypedParameterValue p0 = ((UntypedParameterValue) params.get(0));
 		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
-		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
-		RdfPathParam p3 = ((RdfPathParam) params.get(3));
-
+//		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
+//		IriListParam p3 = ((IriListParam) params.get(3));
+		RdfPathParam p4 = ((RdfPathParam) params.get(4));
+		
 		DateParam dateValue = ParametersFactory.eINSTANCE.createDateParam();
 		dateValue.setValue("2022-12-31");
 		p0.replace(dateValue);
@@ -382,7 +384,7 @@ public class DemoPatterns {
 		IriParam p4iri = new IriParamImpl();
 		p4iri.setPrefix("wdt");
 		p4iri.setSuffix("P569");
-		((RdfSinglePredicate) p3.getRdfPathPart()).setIriParam(p4iri);
+		((RdfSinglePredicate) p4.getRdfPathParts().get(0).getRdfPath()).setIriParam(p4iri);
 								
 		return completePattern;
 	}
@@ -578,8 +580,8 @@ public class DemoPatterns {
 		
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 		
-		ComparisonOptionParam p0 = ((ComparisonOptionParam) params.get(0));
-		TypeOptionParam p1 = ((TypeOptionParam) params.get(1));
+//		ComparisonOptionParam p0 = ((ComparisonOptionParam) params.get(0));
+//		TypeOptionParam p1 = ((TypeOptionParam) params.get(1));
 		XmlPathParamImpl p2 = ((XmlPathParamImpl) params.get(2));
 		XmlPathParamImpl p3 = ((XmlPathParamImpl) params.get(3));
 		XmlPathParamImpl p4 = ((XmlPathParamImpl) params.get(4));
@@ -615,8 +617,8 @@ public class DemoPatterns {
 
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 		
-		ComparisonOptionParam p0 = ((ComparisonOptionParam) params.get(0));
-		TypeOptionParam p1 = ((TypeOptionParam) params.get(1));
+//		ComparisonOptionParam p0 = ((ComparisonOptionParam) params.get(0));
+//		TypeOptionParam p1 = ((TypeOptionParam) params.get(1));
 		XmlPathParamImpl p2 = ((XmlPathParamImpl) params.get(2));
 		XmlPathParamImpl p3 = ((XmlPathParamImpl) params.get(3));
 		XmlPathParamImpl p4 = ((XmlPathParamImpl) params.get(4));

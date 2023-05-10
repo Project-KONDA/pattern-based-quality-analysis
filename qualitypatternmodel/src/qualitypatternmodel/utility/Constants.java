@@ -46,6 +46,7 @@ public class Constants {
 	public static final String PARAMETER_TYPE_PROPERTY = "PropertyOption";
 	public static final String PARAMETER_TYPE_COMPARISON = "ComparisonOption";
 	public static final String PARAMETER_TYPE_TYPE = "TypeOption";
+	public static final String PARAMETER_TYPE_XML_PATH = "XmlPath";
 
 	//Global Exception Messages -- Introduced by Lukas Sebastian Hofmann. Existing code of the framework has not been touched.
 	public static final String INVALID_OPTION = "invalid option";

@@ -1,12 +1,14 @@
 package qualitypatternmodel.rdftranslationtests;
 
 import java.util.ArrayList;
-import qualitypatternmodel.patternstructure.*;
-import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
-import qualitypatternmodel.operators.*;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.operators.Match;
+import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.PatternstructureFactory;
+import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 public class RdfTest11Match {
 	

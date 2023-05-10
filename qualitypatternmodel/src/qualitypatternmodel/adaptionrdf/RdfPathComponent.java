@@ -18,7 +18,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathComponent#getQuantifier <em>Quantifier</em>}</li>
  * </ul>
  *
- * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathPart()
+ * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathComponent()
  * @model abstract="true"
  * @generated
  */
@@ -29,7 +29,7 @@ public interface RdfPathComponent extends PatternElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Invert</em>' attribute.
 	 * @see #setInvert(boolean)
-	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathPart_Invert()
+	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathComponent_Invert()
 	 * @model
 	 * @generated
 	 */
@@ -53,7 +53,7 @@ public interface RdfPathComponent extends PatternElement {
 	 * @return the value of the '<em>Quantifier</em>' attribute.
 	 * @see qualitypatternmodel.adaptionrdf.RdfQuantifier
 	 * @see #setQuantifier(RdfQuantifier)
-	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathPart_Quantifier()
+	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathComponent_Quantifier()
 	 * @model
 	 * @generated
 	 */

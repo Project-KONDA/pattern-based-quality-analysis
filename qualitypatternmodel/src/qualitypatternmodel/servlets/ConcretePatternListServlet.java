@@ -5,15 +5,16 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.List;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.EMFModelLoad;
 
+@SuppressWarnings("serial")
 public class ConcretePatternListServlet extends HttpServlet {
 
 	
@@ -39,7 +40,7 @@ public class ConcretePatternListServlet extends HttpServlet {
 				String result = "[";
 				for (String name: fileNames) {
 					String filePath = Util.CONCRETE_PATTERNS_PATH + name + ".patternstructure";	
-					URL folderURL = getClass().getClassLoader().getResource(Util.CONCRETE_PATTERNS_PATH);
+//					URL folderURL = getClass().getClassLoader().getResource(Util.CONCRETE_PATTERNS_PATH);
 					URL fileURL = getClass().getClassLoader().getResource(filePath);	
 					CompletePattern pattern = null;
 					String description = "";

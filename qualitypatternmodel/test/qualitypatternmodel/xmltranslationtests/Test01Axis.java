@@ -7,7 +7,10 @@ import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
+import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
+import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.exceptions.*;
@@ -18,7 +21,10 @@ public class Test01Axis {
 		for (XmlAxisKind ax : XmlAxisKind.VALUES) {
 			completePatterns.add(getBasePatternAxisRoot(ax));
 			completePatterns.add(getBasePatternAxisNotRoot(ax));
-			
+		}
+		for (XmlPropertyKind kind : XmlPropertyKind.VALUES) {
+			completePatterns.add(getBasePatternAxisPart(kind, null));
+			completePatterns.add(getBasePatternAxisPart(kind, "test"));
 		}
 		return completePatterns;
 	}
@@ -55,6 +61,21 @@ public class Test01Axis {
 		
 		XmlPathParam axisOption = navigation.getXmlPathParam();
 		axisOption.setXmlAxis(xmlAxisKind, "");
+		return completePattern;
+	}
+
+	private static CompletePattern getBasePatternAxisPart(XmlPropertyKind type, String value) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		
+		completePattern.createXmlAdaption();
+		XmlPathParam relation = ((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam();
+		XmlAxisPart part = relation.getXmlAxisParts().get(0);
+		XmlPropertyOptionParam property = part.getXmlPropertyOption();
+		property.setValue(type);
+		if (type.equals(XmlPropertyKind.ATTRIBUTE))
+			property.getAttributeName().setValue("attribute");
+		if (value != null)
+			part.getTextLiteralParam().setValue(value);				
 		return completePattern;
 	}
 

@@ -44,7 +44,7 @@ import qualitypatternmodel.utility.Constants;
  *   <li>{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl#getValue <em>Value</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl#getMatches <em>Matches</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl#getXmlPropertyOptionParam <em>Xml Property Option Param</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl#getXmlAxisPair <em>Xml Axis Pair</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl#getXmlAxisPart <em>Xml Axis Part</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl#getContains <em>Contains</em>}</li>
  * </ul>
  *
@@ -110,8 +110,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 		String container = "";
 		if (eContainer() instanceof PatternElement)
 			container += " in " + eContainer().getClass().getSimpleName() + " [" + ((PatternElement) eContainer()).getInternalId() + "]";
-		if (getParameterList() == null && getXmlAxisPair() == null && getXmlPropertyOptionParam() == null)
-			throw new InvalidityException("variableList and axisPair null" + " (" + getInternalId() + container + ")");
+		if (getParameterList() == null && getXmlAxisPart() == null && getXmlPropertyOptionParam() == null)
+			throw new InvalidityException("variableList and axisPart null" + " (" + getInternalId() + container + ")");
 		if ((abstractionLevel == AbstractionLevel.CONCRETE && !inputIsValid()))
 			throw new InvalidityException("input missing or invalid" + " (" + getInternalId() + container + ")");
 		if(isPredefined() && !inputIsValid()) {
@@ -139,7 +139,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 		if(inputIsValid()) {
 			return "\"" + getValue() + "\"";
 		} else {
-			throw new InvalidityException("invalid string");
+			throw new InvalidityException("invalid string at textlistparam " + getInternalId());
 		}
 	}
 	
@@ -193,8 +193,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	@Override
 	public EList<String> inferSuggestions() {
 		EList<String> suggestions = super.inferSuggestions();
-		XmlAxisPart pair = getXmlAxisPair();
-		EList<String> suggestionsFromPath = pair.inferElementTagSuggestions();
+		XmlAxisPart part = getXmlAxisPart();
+		EList<String> suggestionsFromPath = part.inferElementTagSuggestions();
 
 		if(suggestions.isEmpty() || suggestionsFromPath.isEmpty()) {
 			suggestions.addAll(suggestionsFromPath);
@@ -210,7 +210,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 		EList<XmlPropertyKind> list = super.getPrimitiveComparisonPropertyKinds();
 		if(this instanceof TextLiteralParam) {
 			TextLiteralParam text = (TextLiteralParam) this;
-			if(text.getXmlAxisPair() != null) {
+			if(text.getXmlAxisPart() != null) {
 				list.add(XmlPropertyKind.TAG);
 			}
 		}
@@ -327,8 +327,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	 * @generated
 	 */
 	@Override
-	public XmlAxisPart getXmlAxisPair() {
-		if (eContainerFeatureID() != ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR) return null;
+	public XmlAxisPart getXmlAxisPart() {
+		if (eContainerFeatureID() != ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART) return null;
 		return (XmlAxisPart)eInternalContainer();
 	}
 
@@ -337,8 +337,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetXmlAxisPair(XmlAxisPart newXmlAxisPair, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newXmlAxisPair, ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR, msgs);
+	public NotificationChain basicSetXmlAxisPart(XmlAxisPart newXmlAxisPart, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newXmlAxisPart, ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART, msgs);
 		return msgs;
 	}
 
@@ -348,20 +348,20 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	 * @generated
 	 */
 	@Override
-	public void setXmlAxisPair(XmlAxisPart newXmlAxisPair) {
-		if (newXmlAxisPair != eInternalContainer() || (eContainerFeatureID() != ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR && newXmlAxisPair != null)) {
-			if (EcoreUtil.isAncestor(this, newXmlAxisPair))
+	public void setXmlAxisPart(XmlAxisPart newXmlAxisPart) {
+		if (newXmlAxisPart != eInternalContainer() || (eContainerFeatureID() != ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART && newXmlAxisPart != null)) {
+			if (EcoreUtil.isAncestor(this, newXmlAxisPart))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newXmlAxisPair != null)
-				msgs = ((InternalEObject)newXmlAxisPair).eInverseAdd(this, AdaptionxmlPackage.XML_AXIS_PAIR__TEXT_LITERAL_PARAM, XmlAxisPart.class, msgs);
-			msgs = basicSetXmlAxisPair(newXmlAxisPair, msgs);
+			if (newXmlAxisPart != null)
+				msgs = ((InternalEObject)newXmlAxisPart).eInverseAdd(this, AdaptionxmlPackage.XML_AXIS_PART__TEXT_LITERAL_PARAM, XmlAxisPart.class, msgs);
+			msgs = basicSetXmlAxisPart(newXmlAxisPart, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR, newXmlAxisPair, newXmlAxisPair));
+			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART, newXmlAxisPart, newXmlAxisPart));
 	}
 
 	/**
@@ -409,10 +409,10 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetXmlPropertyOptionParam((XmlPropertyOptionParam)otherEnd, msgs);
-			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR:
+			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetXmlAxisPair((XmlAxisPart)otherEnd, msgs);
+				return basicSetXmlAxisPart((XmlAxisPart)otherEnd, msgs);
 			case ParametersPackage.TEXT_LITERAL_PARAM__CONTAINS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContains()).basicAdd(otherEnd, msgs);
 		}
@@ -431,8 +431,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				return ((InternalEList<?>)getMatches()).basicRemove(otherEnd, msgs);
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_PROPERTY_OPTION_PARAM:
 				return basicSetXmlPropertyOptionParam(null, msgs);
-			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR:
-				return basicSetXmlAxisPair(null, msgs);
+			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART:
+				return basicSetXmlAxisPart(null, msgs);
 			case ParametersPackage.TEXT_LITERAL_PARAM__CONTAINS:
 				return ((InternalEList<?>)getContains()).basicRemove(otherEnd, msgs);
 		}
@@ -449,8 +449,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 		switch (eContainerFeatureID()) {
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_PROPERTY_OPTION_PARAM:
 				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME, XmlPropertyOptionParam.class, msgs);
-			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR:
-				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.XML_AXIS_PAIR__TEXT_LITERAL_PARAM, XmlAxisPart.class, msgs);
+			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART:
+				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.XML_AXIS_PART__TEXT_LITERAL_PARAM, XmlAxisPart.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -469,8 +469,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				return getMatches();
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_PROPERTY_OPTION_PARAM:
 				return getXmlPropertyOptionParam();
-			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR:
-				return getXmlAxisPair();
+			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART:
+				return getXmlAxisPart();
 			case ParametersPackage.TEXT_LITERAL_PARAM__CONTAINS:
 				return getContains();
 		}
@@ -496,8 +496,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_PROPERTY_OPTION_PARAM:
 				setXmlPropertyOptionParam((XmlPropertyOptionParam)newValue);
 				return;
-			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR:
-				setXmlAxisPair((XmlAxisPart)newValue);
+			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART:
+				setXmlAxisPart((XmlAxisPart)newValue);
 				return;
 			case ParametersPackage.TEXT_LITERAL_PARAM__CONTAINS:
 				getContains().clear();
@@ -524,8 +524,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_PROPERTY_OPTION_PARAM:
 				setXmlPropertyOptionParam((XmlPropertyOptionParam)null);
 				return;
-			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR:
-				setXmlAxisPair((XmlAxisPart)null);
+			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART:
+				setXmlAxisPart((XmlAxisPart)null);
 				return;
 			case ParametersPackage.TEXT_LITERAL_PARAM__CONTAINS:
 				getContains().clear();
@@ -548,8 +548,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				return matches != null && !matches.isEmpty();
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_PROPERTY_OPTION_PARAM:
 				return getXmlPropertyOptionParam() != null;
-			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR:
-				return getXmlAxisPair() != null;
+			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART:
+				return getXmlAxisPart() != null;
 			case ParametersPackage.TEXT_LITERAL_PARAM__CONTAINS:
 				return contains != null && !contains.isEmpty();
 		}

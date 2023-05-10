@@ -235,6 +235,16 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	public String generateSparql() throws InvalidityException {
 		String argument1Translation = getArgument1().generateSparql();
 		String argument2Translation = getArgument2().generateSparql();
+		if (argument1Translation.equals(argument2Translation)) {
+			switch (option.getValue()) {
+			case EQUAL:
+			case GREATEROREQUAL:
+			case LESSOREQUAL:
+				return "";
+			default:
+				throw new InvalidityException("invalid options: arguments are equal but asserted to be different (" + getInternalId() + ")");			
+			}
+		}
 		
 		switch (option.getValue()) {
 		case EQUAL:

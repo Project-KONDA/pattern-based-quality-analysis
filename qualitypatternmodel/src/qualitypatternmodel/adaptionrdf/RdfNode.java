@@ -3,6 +3,7 @@
 package qualitypatternmodel.adaptionrdf;
 
 import org.eclipse.emf.ecore.EObject;
+import qualitypatternmodel.exceptions.InvalidityException;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,4 +16,12 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface RdfNode extends EObject {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String generateRdfTypes() throws InvalidityException;
 } // RdfNode
