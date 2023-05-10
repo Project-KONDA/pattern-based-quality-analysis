@@ -12,7 +12,7 @@ import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.graphstructure.Node;
 
-import qualitypatternmodel.patternstructure.ElementMapping;
+import qualitypatternmodel.patternstructure.NodeMapping;
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.graphstructure.Node}.
@@ -23,14 +23,14 @@ import qualitypatternmodel.patternstructure.ElementMapping;
 public interface ElementValidator {
 	boolean validate();
 
-	boolean validateOutgoingMappings(EList<ElementMapping> value);
+	boolean validateOutgoingMappings(EList<NodeMapping> value);
 
-	boolean validateIncomingMapping(ElementMapping value);
+	boolean validateIncomingMapping(NodeMapping value);
 
-	boolean validateMappingTo(EList<ElementMapping> value);
+	boolean validateMappingTo(EList<NodeMapping> value);
 
-	boolean validateMappingTo(ElementMapping value);
-	boolean validateMappingFrom(ElementMapping value);
+	boolean validateMappingTo(NodeMapping value);
+	boolean validateMappingFrom(NodeMapping value);
 	boolean validatePrevious(Node value);
 	boolean validateNextSet(EList<Node> value);
 

@@ -164,8 +164,8 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public ElementMapping createElementMapping() {
-		ElementMappingImpl elementMapping = new ElementMappingImpl();
+	public NodeMapping createElementMapping() {
+		NodeMappingImpl elementMapping = new NodeMappingImpl();
 		return elementMapping;
 	}
 

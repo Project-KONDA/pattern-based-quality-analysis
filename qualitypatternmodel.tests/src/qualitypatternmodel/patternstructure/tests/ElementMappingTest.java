@@ -4,7 +4,7 @@ package qualitypatternmodel.patternstructure.tests;
 
 import junit.textui.TestRunner;
 
-import qualitypatternmodel.patternstructure.ElementMapping;
+import qualitypatternmodel.patternstructure.NodeMapping;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 
 /**
@@ -41,8 +41,8 @@ public class ElementMappingTest extends MappingTest {
 	 * @generated
 	 */
 	@Override
-	protected ElementMapping getFixture() {
-		return (ElementMapping)fixture;
+	protected NodeMapping getFixture() {
+		return (NodeMapping)fixture;
 	}
 
 	/**

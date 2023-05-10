@@ -12,11 +12,11 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
-import qualitypatternmodel.patternstructure.ElementMapping;
+import qualitypatternmodel.patternstructure.NodeMapping;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.patternstructure.ElementMapping} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.patternstructure.NodeMapping} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -112,7 +112,7 @@ public class ElementMappingItemProvider extends MappingItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ElementMapping)object).getId();
+		String label = ((NodeMapping)object).getId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ElementMapping_type") :
 			getString("_UI_ElementMapping_type") + " " + label;

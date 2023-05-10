@@ -14,15 +14,15 @@ import qualitypatternmodel.graphstructure.Node;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.ElementMapping#getSource <em>Source</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.ElementMapping#getTarget <em>Target</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.NodeMapping#getSource <em>Source</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.NodeMapping#getTarget <em>Target</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getElementMapping()
  * @model
  * @generated
  */
-public interface ElementMapping extends Mapping {
+public interface NodeMapping extends Mapping {
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Node#getOutgoingMappings <em>Outgoing Mappings</em>}'.
@@ -38,7 +38,7 @@ public interface ElementMapping extends Mapping {
 	Node getSource();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.ElementMapping#getSource <em>Source</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.NodeMapping#getSource <em>Source</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Source</em>' reference.
@@ -62,7 +62,7 @@ public interface ElementMapping extends Mapping {
 	Node getTarget();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.ElementMapping#getTarget <em>Target</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.NodeMapping#getTarget <em>Target</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Target</em>' reference.

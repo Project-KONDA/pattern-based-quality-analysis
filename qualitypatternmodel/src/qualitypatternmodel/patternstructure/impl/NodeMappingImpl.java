@@ -16,7 +16,7 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.patternstructure.ElementMapping;
+import qualitypatternmodel.patternstructure.NodeMapping;
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Single
  * Element Mapping</b></em>'. <!-- end-user-doc -->
@@ -24,13 +24,13 @@ import qualitypatternmodel.patternstructure.ElementMapping;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.ElementMappingImpl#getSource <em>Source</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.ElementMappingImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.NodeMappingImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.NodeMappingImpl#getTarget <em>Target</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ElementMappingImpl extends MappingImpl implements ElementMapping {
+public class NodeMappingImpl extends MappingImpl implements NodeMapping {
 	/**
 	 * The cached value of the '{@link #getSource() <em>From</em>}' reference. <!--
 	 * begin-user-doc -->
@@ -59,7 +59,7 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public ElementMappingImpl() {
+	public NodeMappingImpl() {
 		super();
 	}
 

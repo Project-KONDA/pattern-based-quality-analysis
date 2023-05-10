@@ -1902,10 +1902,10 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 7;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.ElementMappingImpl <em>Element Mapping</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.NodeMappingImpl <em>Element Mapping</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.impl.ElementMappingImpl
+	 * @see qualitypatternmodel.patternstructure.impl.NodeMappingImpl
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getElementMapping()
 	 * @generated
 	 */
@@ -5813,32 +5813,32 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getMorphism__RemoveInconsistentMappings();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.ElementMapping <em>Element Mapping</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.NodeMapping <em>Element Mapping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Element Mapping</em>'.
-	 * @see qualitypatternmodel.patternstructure.ElementMapping
+	 * @see qualitypatternmodel.patternstructure.NodeMapping
 	 * @generated
 	 */
 	EClass getElementMapping();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.ElementMapping#getSource <em>Source</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.NodeMapping#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Source</em>'.
-	 * @see qualitypatternmodel.patternstructure.ElementMapping#getSource()
+	 * @see qualitypatternmodel.patternstructure.NodeMapping#getSource()
 	 * @see #getElementMapping()
 	 * @generated
 	 */
 	EReference getElementMapping_Source();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.ElementMapping#getTarget <em>Target</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.NodeMapping#getTarget <em>Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Target</em>'.
-	 * @see qualitypatternmodel.patternstructure.ElementMapping#getTarget()
+	 * @see qualitypatternmodel.patternstructure.NodeMapping#getTarget()
 	 * @see #getElementMapping()
 	 * @generated
 	 */
@@ -6973,10 +6973,10 @@ public interface PatternstructurePackage extends EPackage {
 		EOperation MORPHISM___REMOVE_INCONSISTENT_MAPPINGS = eINSTANCE.getMorphism__RemoveInconsistentMappings();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.ElementMappingImpl <em>Element Mapping</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.NodeMappingImpl <em>Element Mapping</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.patternstructure.impl.ElementMappingImpl
+		 * @see qualitypatternmodel.patternstructure.impl.NodeMappingImpl
 		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getElementMapping()
 		 * @generated
 		 */

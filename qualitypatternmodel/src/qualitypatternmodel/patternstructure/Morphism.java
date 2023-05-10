@@ -174,7 +174,7 @@ public interface Morphism extends PatternElement {
 	 * @model
 	 * @generated
 	 */
-	ElementMapping addMapping(Node from, Node to);
+	NodeMapping addMapping(Node from, Node to);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -418,9 +418,9 @@
         <eParameters name="isNull" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMappings" upperBound="-1"
-          eType="#//patternstructure/ElementMapping" eOpposite="#//patternstructure/ElementMapping/source"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMapping" eType="#//patternstructure/ElementMapping"
-          eOpposite="#//patternstructure/ElementMapping/target"/>
+          eType="#//patternstructure/NodeMapping" eOpposite="#//patternstructure/NodeMapping/source"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMapping" eType="#//patternstructure/NodeMapping"
+          eOpposite="#//patternstructure/NodeMapping/target"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1"
           eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/nodes"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -542,7 +542,7 @@
           eOpposite="#//patternstructure/NotCondition/condition"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Morphism" eSuperTypes="#//patternstructure/PatternElement">
-      <eOperations name="addMapping" eType="#//patternstructure/ElementMapping">
+      <eOperations name="addMapping" eType="#//patternstructure/NodeMapping">
         <eParameters name="from" eType="#//graphstructure/Node"/>
         <eParameters name="to" eType="#//graphstructure/Node"/>
       </eOperations>
@@ -564,7 +564,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="morphismContainer" eType="#//patternstructure/MorphismContainer"
           eOpposite="#//patternstructure/MorphismContainer/morphism"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ElementMapping" eSuperTypes="#//patternstructure/Mapping">
+    <eClassifiers xsi:type="ecore:EClass" name="NodeMapping" eSuperTypes="#//patternstructure/Mapping">
       <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
           eType="#//graphstructure/Node" eOpposite="#//graphstructure/Node/outgoingMappings"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"

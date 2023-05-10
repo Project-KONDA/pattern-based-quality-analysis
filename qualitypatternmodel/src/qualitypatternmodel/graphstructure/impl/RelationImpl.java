@@ -46,7 +46,7 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.ElementMapping;
+import qualitypatternmodel.patternstructure.NodeMapping;
 import qualitypatternmodel.patternstructure.Mapping;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.MorphismContainer;
@@ -336,8 +336,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				newMapping.setTarget(newRelation);
 				
 				for(Mapping mapping : morphism.getMappings()) {
-					if(mapping instanceof ElementMapping) {
-						ElementMapping elementMapping = (ElementMapping) mapping;
+					if(mapping instanceof NodeMapping) {
+						NodeMapping elementMapping = (NodeMapping) mapping;
 						if(elementMapping.getSource().equals(getSource())) {
 							newRelation.setSource(((ComplexNode) elementMapping.getTarget()));
 						}
@@ -487,8 +487,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		if(newSource != null) {
 			for(RelationMapping relationMapping : getOutgoingMappings()) {
 				for(Mapping mapping : relationMapping.getMorphism().getMappings()) {
-					if(mapping instanceof ElementMapping) {
-						ElementMapping elementMapping = (ElementMapping) mapping;
+					if(mapping instanceof NodeMapping) {
+						NodeMapping elementMapping = (NodeMapping) mapping;
 						if(elementMapping.getSource().equals(newSource)) {
 							relationMapping.getTarget().setSource((ComplexNode) elementMapping.getTarget());
 						}						
@@ -548,8 +548,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		if(newTarget != null) {
 			for(RelationMapping relationMapping : getOutgoingMappings()) {
 				for(Mapping mapping : relationMapping.getMorphism().getMappings()) {
-					if(mapping instanceof ElementMapping) {
-						ElementMapping elementMapping = (ElementMapping) mapping;
+					if(mapping instanceof NodeMapping) {
+						NodeMapping elementMapping = (NodeMapping) mapping;
 						if(elementMapping.getSource().equals(newTarget)) {
 							relationMapping.getTarget().setTarget(elementMapping.getTarget());
 						}						

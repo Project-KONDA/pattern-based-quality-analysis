@@ -141,7 +141,7 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.ElementMapping} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.NodeMapping} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -149,7 +149,7 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 	protected ElementMappingItemProvider elementMappingItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.ElementMapping}.
+	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.NodeMapping}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

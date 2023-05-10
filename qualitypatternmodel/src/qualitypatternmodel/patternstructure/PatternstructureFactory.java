@@ -55,7 +55,7 @@ public interface PatternstructureFactory extends EFactory {
 	 * @return a new object of class '<em>Element Mapping</em>'.
 	 * @generated
 	 */
-	ElementMapping createElementMapping();
+	NodeMapping createElementMapping();
 
 	/**
 	 * Returns a new object of class '<em>Formula</em>'.

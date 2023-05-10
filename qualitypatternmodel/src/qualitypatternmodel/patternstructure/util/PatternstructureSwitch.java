@@ -97,7 +97,7 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 				return result;
 			}
 			case PatternstructurePackage.ELEMENT_MAPPING: {
-				ElementMapping elementMapping = (ElementMapping)theEObject;
+				NodeMapping elementMapping = (NodeMapping)theEObject;
 				T result = caseElementMapping(elementMapping);
 				if (result == null) result = caseMapping(elementMapping);
 				if (result == null) result = casePatternElement(elementMapping);
@@ -271,7 +271,7 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseElementMapping(ElementMapping object) {
+	public T caseElementMapping(NodeMapping object) {
 		return null;
 	}
 
