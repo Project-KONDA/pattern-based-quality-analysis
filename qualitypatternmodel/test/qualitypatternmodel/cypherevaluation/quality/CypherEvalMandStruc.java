@@ -178,7 +178,8 @@ public class CypherEvalMandStruc {
 		NeoElementNode neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(0);
 		neoNode.addNeoLabel("Regesta");
 		
-		NeoElementNode neoNodeCond1 = (NeoElementNode) ((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph().getNodes().get(0);
+//		NeoElementNode neoNodeCond1 = (NeoElementNode) 
+		((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph().getNodes().get(0);
 		NeoElementNode neoNodeCond2 = (NeoElementNode) ((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph().getNodes().get(1);
 		neoNodeCond2.addNeoLabel("Place");
 		

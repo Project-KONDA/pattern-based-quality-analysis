@@ -50,7 +50,7 @@ public abstract class NeoPathPartTest implements INeoPathPartTest {
 	}
 
 	protected Method getTheGetNeoAbstractPathParamMethod() throws NoSuchMethodException {
-		Class obj = NeoPathPartImpl.class;
+		Class<?> obj = NeoPathPartImpl.class;
 		Method m = obj.getDeclaredMethod("getNeoAbstractPathParam");
 		m.setAccessible(true);
 		return m;

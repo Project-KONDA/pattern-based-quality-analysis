@@ -150,7 +150,8 @@ public class EvalAppDup {
 		completePattern.getGraph().getReturnNodes().get(0).setName("main");
 		completePattern.setName("UNIQUENESS VIOLATION");
 		
-		ComplexNode main = (ComplexNode) completePattern.getGraph().getReturnNodes().get(0);
+//		ComplexNode main = (ComplexNode) 
+		completePattern.getGraph().getReturnNodes().get(0);
 				
 		QuantifiedCondition qc1 = factory.createQuantifiedCondition();
 		completePattern.setCondition(qc1);

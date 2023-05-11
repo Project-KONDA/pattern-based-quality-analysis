@@ -32,7 +32,7 @@ public abstract class NeoPathParamTest implements INeoPathParamTest {
 		try {
 			this.neoAbstractPathParam = neoAbstractPathParam;
 			if (internalId == null) {
-				Class obj = neoAbstractPathParam.getClass();
+				Class<?> obj = neoAbstractPathParam.getClass();
 				obj = obj.getSuperclass().getSuperclass().getSuperclass();
 				Field f = obj.getDeclaredField("internalId");
 				f.setAccessible(true);
@@ -65,14 +65,14 @@ public abstract class NeoPathParamTest implements INeoPathParamTest {
 		}
 	}
 
-	protected Method getMethodGetRelationNumber(Class obj) throws NoSuchMethodException {
+	protected Method getMethodGetRelationNumber(Class<?> obj) throws NoSuchMethodException {
 		Method m = obj.getDeclaredMethod("getRelationNumber");
 		m.setAccessible(true);
 		return m;
 	}
 
 	protected Field getInternalIdField() throws NoSuchFieldException, IllegalAccessException {
-		Class obj = PatternElementImpl.class;
+		Class<?> obj = PatternElementImpl.class;
 		Field f = obj.getDeclaredField("internalId");
 		f.setAccessible(true);
 		return f;

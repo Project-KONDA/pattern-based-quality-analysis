@@ -5,7 +5,6 @@ import java.time.Instant;
 import java.util.List;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.cypherevaluation.utilis.DummyFiller;
 import qualitypatternmodel.evaluationquality.EvalMatch;
@@ -152,7 +151,8 @@ public class CypherEvalMatch {
 		NeoPropertyPathParam p2 = ((NeoPropertyPathParam) params.get(3));
 		p2.setNeoPropertyName("date");
 		
-		QuantifiedCondition quantifiedCond = (QuantifiedCondition) completePattern.getCondition();
+//		QuantifiedCondition quantifiedCond = (QuantifiedCondition) 
+		completePattern.getCondition();
 		
 		return completePattern;		
 	}	

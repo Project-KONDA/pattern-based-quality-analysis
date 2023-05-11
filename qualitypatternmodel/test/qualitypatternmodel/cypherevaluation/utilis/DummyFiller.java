@@ -5,8 +5,6 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
-import qualitypatternmodel.adaptionxml.XmlAxisPart;
-import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.NumberParam;

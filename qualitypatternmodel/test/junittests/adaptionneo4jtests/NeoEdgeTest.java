@@ -29,7 +29,7 @@ public abstract class NeoEdgeTest implements INeoEdgeTest {
 		try {
 			this.neoAbstractEdge = neoAbstractEdge;
 			if (internalId == null) {
-				Class obj = neoAbstractEdge.getClass();
+				Class<?> obj = neoAbstractEdge.getClass();
 				obj = obj.getSuperclass().getSuperclass().getSuperclass();
 				Field f = obj.getDeclaredField("internalId");
 				f.setAccessible(true);
@@ -53,7 +53,8 @@ public abstract class NeoEdgeTest implements INeoEdgeTest {
 			EMap<Integer, String> variableMap = edge.getCypherReturn();
 			assumeTrue(variableMap.keySet().stream().count() == 1);
 			assumeTrue(variableMap.containsKey(0));
-			String variable = variableMap.get(0).getValue();
+//			String variable = 
+			variableMap.get(0).getValue();
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);

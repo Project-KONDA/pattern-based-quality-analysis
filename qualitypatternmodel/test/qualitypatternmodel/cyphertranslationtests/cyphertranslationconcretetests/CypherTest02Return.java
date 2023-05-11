@@ -152,7 +152,8 @@ public class CypherTest02Return extends CypherTranslation {
 	private CompletePattern generateThereIsNoNeoPropertyNodeException() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern compltePattern = CypherTest02Return.getBasePatternReturn();
 		compltePattern.createNeo4jAdaption();
-		NeoElementNode complexNode1 = (NeoElementNode) compltePattern.getGraph().getNodes().get(0);
+//		NeoElementNode complexNode1 = (NeoElementNode) 
+		compltePattern.getGraph().getNodes().get(0);
 		
 		NeoPropertyNode neoPropertyNode = (NeoPropertyNode) compltePattern.getGraph().getNodes().get(2);
 		neoPropertyNode.setReturnNode(true);

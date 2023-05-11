@@ -14,7 +14,6 @@ import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.cypherevaluation.utilis.DummyFiller;
 import qualitypatternmodel.evaluationquality.EvalAppDup;
-import qualitypatternmodel.evaluationquality.EvalUnique;
 
 public class CypherEvalAppDup {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

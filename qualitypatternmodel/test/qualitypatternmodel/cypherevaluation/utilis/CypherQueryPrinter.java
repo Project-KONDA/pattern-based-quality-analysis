@@ -1,7 +1,6 @@
 package qualitypatternmodel.cypherevaluation.utilis;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import qualitypatternmodel.cyphertranslationtests.CypherTestSuiteTranslation;
 import qualitypatternmodel.patternstructure.CompletePattern;

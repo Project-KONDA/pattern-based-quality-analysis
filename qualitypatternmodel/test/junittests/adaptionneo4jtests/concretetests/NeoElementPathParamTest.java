@@ -289,7 +289,7 @@ public class NeoElementPathParamTest extends NeoPathParamTest {
 			NeoElementEdge neoEdge = FACTORY.createNeoElementEdge();
 			Field f = super.getInternalIdField();
 			
-			Class obj = neoPathParam.getClass();
+			Class<?> obj = neoPathParam.getClass();
 			Method m = super.getMethodGetRelationNumber(obj);
 			m.setAccessible(true);
 			

@@ -1,7 +1,6 @@
 package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
 import java.util.ArrayList;
-import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
@@ -93,9 +92,11 @@ public class CypherTest06Comparison extends CypherTranslation {
 		prepaireGenericComparisonTwoNodes(comparisonOption, completePattern);
 		
 		completePattern.createNeo4jAdaption();
-		NeoElementNode neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(0);
+//		NeoElementNode neoNode = (NeoElementNode) 
+		completePattern.getGraph().getNodes().get(0);
 		
-		neoNode = (NeoElementNode) completePattern.getGraph().getNodes().get(2);
+//		neoNode = (NeoElementNode) 
+		completePattern.getGraph().getNodes().get(2);
 		
 		return completePattern;
 	}

@@ -4,7 +4,6 @@ import java.time.Duration;
 import java.time.Instant;
 
 
-import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.cypherevaluation.utilis.DummyFiller;
 import qualitypatternmodel.evaluationquality.EvalUnique;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -88,7 +87,8 @@ public class CypherEvalUnique {
 	private static CompletePattern getUniqueAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePattern.createNeo4jAdaption();
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
-		NeoElementNode neoNode = (NeoElementNode) quantifiedCondition.getGraph().getNodes().get(1);
+//		NeoElementNode neoNode = (NeoElementNode) 
+		quantifiedCondition.getGraph().getNodes().get(1);
 		
 		//Comparison comp = neoNode.getComparison1().get(0);
 		//TypeOptionParam typeOptionParam = new TypeOptionParamImpl();

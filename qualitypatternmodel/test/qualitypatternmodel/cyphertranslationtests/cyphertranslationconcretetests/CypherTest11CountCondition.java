@@ -70,7 +70,8 @@ public class CypherTest11CountCondition extends CypherTranslation {
 	
 	private CompletePattern getJustCount() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = CypherTest11CountCondition.getComplexBasePattern();
-		CountCondition countCond = CypherTest11CountCondition.getFundamentalCountCoundition(completePattern);
+//		CountCondition countCond = 
+		CypherTest11CountCondition.getFundamentalCountCoundition(completePattern);
 		
 		completePattern.createNeo4jAdaption();		
 		
