@@ -375,11 +375,11 @@ public class CypherTest03NotCondition extends CypherTranslation {
 	    neoNode.addNeoLabel("Regesta");
 	    
 	    
-	    //Das Beginning löst hier das Problem, dass vorherige Nodes oder Relations nichts angedruckt werden
-	    //Da der generateCypher nur OutGoing-Relations berücksichtigt und nicht vorrangehenede Relations
-	    //Bei einem nicht Verwenden des beginnings müsste es über die vorgehenden Relations geregelt werden
-	    //Jede vorrangehende Relation müsste wissen, ob sie für die Conditions relevant ist, was mehr oder gleich viel Aufwand ist wie ein Beginning zu setzen
-	    //Alg's müssten angepasst werden
+	    //Das Beginning lï¿½st hier das Problem, dass vorherige Nodes oder Relations nichts angedruckt werden
+	    //Da der generateCypher nur OutGoing-Relations berï¿½cksichtigt und nicht vorrangehenede Relations
+	    //Bei einem nicht Verwenden des beginnings mï¿½sste es ï¿½ber die vorgehenden Relations geregelt werden
+	    //Jede vorrangehende Relation mï¿½sste wissen, ob sie fï¿½r die Conditions relevant ist, was mehr oder gleich viel Aufwand ist wie ein Beginning zu setzen
+	    //Alg's mï¿½ssten angepasst werden
 	    neoNode = (NeoElementNode) quantifiedCond1.getGraph().getNodes().get(2);
 	    neoNode.addNeoLabel("IndexPerson");
 	    
@@ -521,6 +521,7 @@ public class CypherTest03NotCondition extends CypherTranslation {
 		return completePattern;
 	}	
 	
+	@SuppressWarnings("unused")
 	private CompletePattern testPatternQuery1Generic() throws InvalidityException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;

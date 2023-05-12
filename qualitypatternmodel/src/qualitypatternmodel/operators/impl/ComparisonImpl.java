@@ -73,7 +73,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
-	private static final String THE_GIVEN_ARGUMENTS_ARE_NOT_VALID_FOR_NEO4J_POSSIBLIE_ARE_2X_PROPERTIES_2X_NODES_1X_PROPERTY_1X_PARAM = "The given Arguments are not valid for Neo4J \n Possiblie are: \n\t 2xProperties \n\t 2xNodes \n\t 1xProperty+1xParam \n\t 1xNeoElementNode+NumberParam";
+//	private static final String THE_GIVEN_ARGUMENTS_ARE_NOT_VALID_FOR_NEO4J_POSSIBLIE_ARE_2X_PROPERTIES_2X_NODES_1X_PROPERTY_1X_PARAM = "The given Arguments are not valid for Neo4J \n Possiblie are: \n\t 2xProperties \n\t 2xNodes \n\t 1xProperty+1xParam \n\t 1xNeoElementNode+NumberParam";
 	private static final String NOT_ALLOWED_OPERATOR_FOR_LIST_COMPARISON = "Not allowed operator for List comparison";
 	private static final String THE_SECOND_ARGUMENT_HAS_TO_BE_A_LIST = "The second Argument has to be a List";
 

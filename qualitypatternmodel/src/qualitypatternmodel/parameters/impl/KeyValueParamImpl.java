@@ -177,6 +177,7 @@ public class KeyValueParamImpl extends ParameterImpl implements KeyValueParam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {

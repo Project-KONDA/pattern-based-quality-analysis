@@ -249,11 +249,13 @@ public class CypherEvalAppDup {
 //		return EvalUnique.getUniqueCondGeneric();
 //	}
 	
+	@SuppressWarnings("unused")
 	private static CompletePattern getOldAppDup3CondGenericAbstract(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePattern.createNeo4jAdaption();
 		return completePattern;
 	}
 	
+	@SuppressWarnings("unused")
 	private static CompletePattern getOldUniqueCondGenericConcrete(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		DummyFiller.replace(completePattern);
 		return completePattern;
