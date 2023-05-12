@@ -76,7 +76,7 @@ public class Test00 {
 	}
 
 	public static CompletePattern getBasePatternFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.createXmlAdaption();
 		return completePattern;
 	}

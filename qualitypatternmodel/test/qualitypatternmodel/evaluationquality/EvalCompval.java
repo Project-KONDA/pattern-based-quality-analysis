@@ -45,7 +45,6 @@ public class EvalCompval {
 		
 		Node element1 = element0Copy.addOutgoing().getTarget().makePrimitive();
 		element1.setName("Element1");
-		element1.setGraph(quantifiedCondition.getGraph());
 		
 		element1.addPrimitiveComparison();
 				
