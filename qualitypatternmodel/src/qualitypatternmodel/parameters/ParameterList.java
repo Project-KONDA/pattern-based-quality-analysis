@@ -94,4 +94,6 @@ public interface ParameterList extends PatternElement {
 	 */
 	EList<Parameter> validateAgainstSchema();
 
+	void printCodeToConsole();
+
 } // ParameterList

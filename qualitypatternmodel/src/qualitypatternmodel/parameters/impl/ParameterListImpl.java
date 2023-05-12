@@ -361,4 +361,14 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 		return "";
 	}
 
+	@Override
+	public void printCodeToConsole() {
+		System.out.println("EList<Parameter> params = pattern.getParameterList().getParameters();\n");
+		int i=0;
+		for (Parameter p: getParameters()){
+			System.out.println(p.getClass().getSimpleName().replace("Impl", "") + " p" + i + " = ((" + p.getClass().getSimpleName().replace("Impl", "") + ") params.get(" + i + "));");
+			i++;
+		}
+	}
+
 } // ParameterListImpl
