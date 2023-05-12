@@ -356,6 +356,7 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 
 	@Override
 	public String myToString() {
-		return "NOT " + getInternalId() + " [\n. " + condition.myToString().replace("\n", "\n. ") + "\n]";
+//		return "NOT " + getInternalId() + " [\n. " + condition.myToString().replace("\n", "\n. ") + "\n]";
+		return "NOT " + " [\n. " + condition.myToString().replace("\n", "\n. ") + "\n]";
 	}
 } // NotImpl

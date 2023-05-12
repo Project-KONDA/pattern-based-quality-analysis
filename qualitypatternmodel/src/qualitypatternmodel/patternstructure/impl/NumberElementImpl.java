@@ -397,7 +397,8 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 
 	@Override
 	public String myToString() {
-		return "NumberElement " + getInternalId() + " (" + getNumberParam().getInternalId() + ")";
+//		return "NumberElement " + getInternalId() + " (" + getNumberParam().getInternalId() + ")";
+		return "NumberElement " + " (" + getNumberParam().getInternalId() + ")";
 	}
 
 } //NumberElementImpl

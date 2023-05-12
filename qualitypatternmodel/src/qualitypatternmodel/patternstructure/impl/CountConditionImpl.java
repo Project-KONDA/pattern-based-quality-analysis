@@ -732,7 +732,8 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 
 	@Override
 	public String myToString() {
-		String res = "CountCondition [" + getInternalId() + "]";
+//		String res = "CountCondition [" + getInternalId() + "]";
+		String res = "CountCondition";
 		res += " " + getOption().getValue().getLiteral() + " [" + getOption().getInternalId() + "]";
 		res += ("\n" + getCountPattern().myToString()).replace("\n", "\n#  ");
 		res += ("\n" + getArgument2().myToString()).replace("\n", "\n#  ");

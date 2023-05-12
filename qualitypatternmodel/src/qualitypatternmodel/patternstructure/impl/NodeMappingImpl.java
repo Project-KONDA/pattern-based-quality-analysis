@@ -323,7 +323,8 @@ public class NodeMappingImpl extends MappingImpl implements NodeMapping {
 	
 	@Override
 	public String myToString() {
-		String res = "NodeMapping [" + getInternalId() + "] ";
+//		String res = "NodeMapping [" + getInternalId() + "] ";
+		String res = "NodeMapping";
 		res += "(";
 		if (getSource()!= null) res += getSource().getInternalId();
 		else res += "-";		

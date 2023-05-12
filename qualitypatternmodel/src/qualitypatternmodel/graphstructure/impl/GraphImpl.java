@@ -1543,7 +1543,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		String res = "";
 		if (isReturnGraph())
 			res += "Return-";
-		res += "Graph [" + getInternalId() + "]";
+//		res += "Graph [" + getInternalId() + "]";
+		res += "Graph";
 		for (Node e : getNodes()) {
 			res += "\n| > " + e.myToString().replace("\n", "\n|   ");
 		}
