@@ -2349,7 +2349,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			res += "Return-";
 		res += this.getClass().getSimpleName();
 		if (getName() != null) res +=  " " + getName();
-		res += " [" + getInternalId() + "]";
+		if (getInternalId() == getOriginalID())
+			res += " [" + getInternalId() + "]";
+		else
+			res += " [" + getInternalId() + " (" + getOriginalID() + ")]";
 		return res;
 	}
 
