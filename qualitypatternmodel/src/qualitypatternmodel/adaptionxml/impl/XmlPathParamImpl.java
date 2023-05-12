@@ -524,6 +524,7 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	@Override
 	public void addXmlAxis(XmlAxisKind axis, String tag) {
 		XmlAxisPart part = new XmlAxisPartImpl();
+		part.getXmlPropertyOption().setValue(XmlPropertyKind.TAG);
 
 		XmlAxisOptionParam axisOption = new XmlAxisOptionParamImpl();
 		part.setXmlAxisOptionParam(axisOption);
