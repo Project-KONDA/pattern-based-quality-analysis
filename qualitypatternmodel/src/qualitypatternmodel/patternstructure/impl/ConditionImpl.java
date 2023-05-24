@@ -319,6 +319,10 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 			return true;
 		}
 		if (getNotCondition() != null) {
+			if (getNotCondition().getNotCondition() != null) {
+				System.out.println(this.getClass() + " is in rdf filter NOT/NOT maybe");
+				return getNotCondition().getNotCondition().isInRdfFilter();
+			} 
 			return true;
 		}
 		return false;
