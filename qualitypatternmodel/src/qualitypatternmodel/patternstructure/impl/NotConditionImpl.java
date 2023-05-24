@@ -90,6 +90,8 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 			boolean notForall = !(getCondition() instanceof QuantifiedCondition && ((QuantifiedCondition) getCondition()).getQuantifier() == Quantifier.FORALL);
 			boolean not = notForall; // firstNot && unevenNot && 
 			String query = condition.generateSparql();
+			if (query.equals(""))
+				return "";
 			if (query.startsWith("\n"))
 				query = query.substring(1);
 			if(not) {

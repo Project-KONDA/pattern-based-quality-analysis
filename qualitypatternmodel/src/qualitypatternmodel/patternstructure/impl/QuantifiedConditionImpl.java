@@ -178,6 +178,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				}
 			} else {
 				new InvalidityException("invalid condition in FORALL quantifier " + getInternalId() + ". It will be skipped.").printStackTrace();
+				return "";
 			}
 		} else {
 			throw new InvalidityException("invalid quantifier");
