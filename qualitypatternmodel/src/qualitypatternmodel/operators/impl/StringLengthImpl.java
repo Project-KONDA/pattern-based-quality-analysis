@@ -31,8 +31,6 @@ import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.parameters.impl.NumberParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
-import qualitypatternmodel.utility.Constants;
-import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
  * <!-- begin-user-doc -->
@@ -100,9 +98,11 @@ public class StringLengthImpl extends BooleanOperatorImpl implements StringLengt
 	
 	@Override
 	public String generateSparql() throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if(number != null && number.getValue() != null && option != null && option.getValue() != null && primitiveNode != null) {
+			return "\nFILTER (strlen(" + primitiveNode.generateSparql() + ") " + option.generateXQuery() + " " + number.generateXQuery() + ")";
+		} else {
+			throw new InvalidityException("invalid option");
+		}
 	}
 	
 	@Override 
