@@ -141,7 +141,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 		if (!getParameterReferences().isEmpty()) {
 			//TODO if later on needed.
 		}
-		throw new InvalidityException("invalid parameter value in [" + getInternalId() + "]");
+		return getValueAsString();
+//		throw new InvalidityException("invalid parameter value in [" + getInternalId() + "]");
 	}
 	
 	@Override

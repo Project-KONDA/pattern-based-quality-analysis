@@ -12,13 +12,25 @@ import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
+import qualitypatternmodel.adaptionxml.XmlAxisPart;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Match;
+import qualitypatternmodel.parameters.BooleanParam;
+import qualitypatternmodel.parameters.NumberParam;
+import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParametersFactory;
+import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.TypeOptionParam;
+import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.impl.DateParamImpl;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -269,4 +281,28 @@ public class CypherTest00 extends CypherTranslation {
 	public void buildOtherException(ArrayList<CompletePattern> completePatternsExceptions) throws InvalidityException {
 		// TODO Auto-generated method stub
 	}
+	
+	public static void test(ArrayList<CompletePattern> completePatterns) throws InvalidityException {
+		for (CompletePattern completePattern : completePatterns) {
+			replace(completePattern);
+			try {
+				completePattern.isValid(AbstractionLevel.CONCRETE);
+				System.out.println("\n\n___PATTERN_(VALID)___");
+				System.out.println(completePattern.myToString());
+				System.out.print("\n___TRANSLATION___");
+				System.out.println(completePattern.generateCypher());
+			} catch (Exception e) {
+				System.out.print("\n####### PATTERN INVALID #######");
+				try {
+				  System.out.println(completePattern.myToString());
+					e.printStackTrace();
+				} catch (Exception e2) {
+					System.out.print("\n####### PATTERN PRINTING FAILED #######");
+					e2.printStackTrace();
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
 }

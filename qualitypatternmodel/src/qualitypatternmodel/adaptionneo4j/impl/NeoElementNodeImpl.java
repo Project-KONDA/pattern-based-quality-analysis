@@ -5,6 +5,7 @@ package qualitypatternmodel.adaptionneo4j.impl;
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.BasicEMap;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
@@ -24,6 +25,8 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.impl.ComplexNodeImpl;
+import qualitypatternmodel.operators.Operator;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.utility.CypherSpecificConstants;
@@ -293,6 +296,13 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 				}
 			}
 		}
+	}
+	
+	@Override
+	public EList<Parameter> getAllParameters() throws InvalidityException {
+		EList<Parameter> res = super.getAllParameters();
+		res.add(getNeoNodeLabels());
+		return res;
 	}
 
 	/**

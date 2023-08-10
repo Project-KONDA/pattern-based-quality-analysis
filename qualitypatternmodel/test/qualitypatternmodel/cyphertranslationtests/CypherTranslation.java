@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jFactoryImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -298,6 +299,12 @@ public abstract class CypherTranslation implements ICypherTranslatione {
 				NumberParam number = (NumberParam) param;
 				if(number.getValue() == null) {
 					number.setValue(0.0);
+				}
+			}
+			if (param instanceof NeoPropertyPathParam) {
+				NeoPropertyPathParam path = (NeoPropertyPathParam) param;
+				if(path.getNeoPropertyName() == null) {
+					path.setNeoPropertyName("identifier");
 				}
 			}
 		}

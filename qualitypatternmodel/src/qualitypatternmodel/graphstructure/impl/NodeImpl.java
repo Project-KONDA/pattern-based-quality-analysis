@@ -2402,17 +2402,16 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> 
+	 * <!-- end-user-doc -->
 	 */
 	public EList<Parameter> getAllParameters() throws InvalidityException {
-			EList<Parameter> res = new BasicEList<Parameter>();
-			for (Operator op : getPredicates()) {
-				res.addAll(op.getAllParameters());
-			}
-			return res;
+		EList<Parameter> res = new BasicEList<Parameter>();
+		for (Operator op : getPredicates()) {
+			res.addAll(op.getAllParameters());
 		}
-
-	
+		return res;
+	}
 	
 	@Override
 	public void prepareTranslation() {

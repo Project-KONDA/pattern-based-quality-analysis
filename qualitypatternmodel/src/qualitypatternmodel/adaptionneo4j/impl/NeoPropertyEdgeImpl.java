@@ -19,6 +19,7 @@ import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.utility.CypherSpecificConstants;
@@ -245,6 +246,15 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 			}
 		}
 	}	
+	
+
+	
+	@Override
+	public EList<Parameter> getAllParameters() throws InvalidityException {
+		EList<Parameter> res = super.getAllParameters();
+		res.add(getNeoPropertyPathParam());
+		return res;
+	}
 	
 	/**
 	 * <!-- begin-user-doc -->
