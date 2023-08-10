@@ -560,7 +560,7 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @model
 	 * @generated
 	 */
-	boolean addPrimitiveNullCheck();
+	Boolean addPrimitiveNullCheck();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -568,7 +568,7 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @model
 	 * @generated
 	 */
-	boolean addPrimitiveNullCheck(boolean isNull);
+	Boolean addPrimitiveNullCheck(Boolean isNull);
 
 	/**
 	 * <!-- begin-user-doc -->

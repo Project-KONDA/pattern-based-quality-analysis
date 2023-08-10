@@ -1803,7 +1803,7 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM__CONTAINS = PARAMETER_VALUE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Null Check</b></em>' reference.
+	 * The feature id for the '<em><b>Null Check</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -8485,10 +8485,10 @@ public interface ParametersPackage extends EPackage {
 	EReference getBooleanParam_Contains();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.parameters.BooleanParam#getNullCheck <em>Null Check</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.BooleanParam#getNullCheck <em>Null Check</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Null Check</em>'.
+	 * @return the meta object for the reference list '<em>Null Check</em>'.
 	 * @see qualitypatternmodel.parameters.BooleanParam#getNullCheck()
 	 * @see #getBooleanParam()
 	 * @generated
@@ -9351,7 +9351,7 @@ public interface ParametersPackage extends EPackage {
 		EReference BOOLEAN_PARAM__CONTAINS = eINSTANCE.getBooleanParam_Contains();
 
 		/**
-		 * The meta object literal for the '<em><b>Null Check</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Null Check</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

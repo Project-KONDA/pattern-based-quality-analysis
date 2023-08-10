@@ -75,8 +75,8 @@
           eType="#//operators/Match" eOpposite="#//operators/Match/option"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="contains" upperBound="-1"
           eType="#//operators/Contains" eOpposite="#//operators/Contains/option"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="nullCheck" eType="#//operators/NullCheck"
-          eOpposite="#//operators/NullCheck/option"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="nullCheck" upperBound="-1"
+          eType="#//operators/NullCheck" eOpposite="#//operators/NullCheck/option"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TextListParam" eSuperTypes="#//parameters/ListParam"/>
     <eClassifiers xsi:type="ecore:EClass" name="TextLiteralParam" eSuperTypes="#//parameters/ParameterValue">
@@ -411,6 +411,10 @@
         <eParameters name="option" eType="#//operators/ComparisonOperator"/>
         <eParameters name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
       </eOperations>
+      <eOperations name="addPrimitiveNullCheck" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eOperations name="addPrimitiveNullCheck" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+        <eParameters name="isNull" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      </eOperations>
       <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="comp" eType="#//operators/Comparison"/>
@@ -435,10 +439,6 @@
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="adaptAsNeoPropertyNode" eType="#//adaptionneo4j/NeoPropertyNode"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="addPrimitiveNullCheck" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eOperations name="addPrimitiveNullCheck" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eParameters name="isNull" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMappings" upperBound="-1"
           eType="#//patternstructure/NodeMapping" eOpposite="#//patternstructure/NodeMapping/source"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMapping" eType="#//patternstructure/NodeMapping"

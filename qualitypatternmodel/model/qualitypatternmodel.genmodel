@@ -371,6 +371,10 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveStringLength.1/option"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveStringLength.1/number"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveNullCheck"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveNullCheck.1">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveNullCheck.1/isNull"/>
+        </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/checkComparisonConsistency"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/checkComparisonConsistency.1">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/checkComparisonConsistency.1/comp"/>
@@ -390,10 +394,6 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/adaptAsRdfLiteralNode"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/adaptAsNeoElementNode"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/adaptAsNeoPropertyNode"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveNullCheck"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveNullCheck.1">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveNullCheck.1/isNull"/>
-        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Graph">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Graph/nodes"/>

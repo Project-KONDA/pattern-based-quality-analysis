@@ -1003,6 +1003,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			throw new InvalidityException("PrimitiveNode with contains can not be turned into generic Node");
 		}		
 		
+		if(this instanceof PrimitiveNode && !(((PrimitiveNode) this).getNullCheck() == null)) {
+			throw new InvalidityException("PrimitiveNode with contains can not be turned into generic Node");
+		}		
+		
 		for(Comparison comp : getComparison1()) {
 			if(comp.getArgument2() instanceof ParameterValue) {
 				throw new InvalidityException("Node with primitive comparison can not be turned into generic Node");	
@@ -1314,7 +1318,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				xmlProperty.getContains().addAll(((PrimitiveNode) this).getContains());
 				((PrimitiveNode) this).getContains().clear();	
 				xmlProperty.getStringLength().addAll(((PrimitiveNode) this).getStringLength());
-				((PrimitiveNode) this).getStringLength().clear();		
+				((PrimitiveNode) this).getStringLength().clear();
+				xmlProperty.setNullCheck(((PrimitiveNode) this).getNullCheck());
+				((PrimitiveNode) this).setNullCheck(null);
 			}
 			
 			EList<Relation> incomingCopy = new BasicEList<Relation>();
@@ -1531,7 +1537,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				rdfLiteral.getContains().addAll(((PrimitiveNode) this).getContains());
 				((PrimitiveNode) this).getContains().clear();	
 				rdfLiteral.getStringLength().addAll(((PrimitiveNode) this).getStringLength());
-				((PrimitiveNode) this).getStringLength().clear();		
+				((PrimitiveNode) this).getStringLength().clear();
+				rdfLiteral.setNullCheck(((PrimitiveNode) this).getNullCheck());
+				((PrimitiveNode) this).setNullCheck(null);
 			}
 			
 			EList<Relation> incomingCopy = new BasicEList<Relation>();
@@ -2222,6 +2230,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case GraphstructurePackage.NODE___ADD_PRIMITIVE_NULL_CHECK:
+				return addPrimitiveNullCheck();
+			case GraphstructurePackage.NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN:
+				return addPrimitiveNullCheck((Boolean)arguments.get(0));
 			case GraphstructurePackage.NODE___CHECK_COMPARISON_CONSISTENCY:
 				try {
 					checkComparisonConsistency();
@@ -2346,10 +2358,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.NODE___ADD_PRIMITIVE_NULL_CHECK:
-				return addPrimitiveNullCheck();
-			case GraphstructurePackage.NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN:
-				return addPrimitiveNullCheck((Boolean)arguments.get(0));
 			case GraphstructurePackage.NODE___CREATE_PARAMETERS:
 				createParameters();
 				return null;
@@ -2522,17 +2530,17 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	@Override
-	public boolean addPrimitiveNullCheck() {
+	public Boolean addPrimitiveNullCheck() {
 		return addPrimitiveNullCheck(true);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
-	public boolean addPrimitiveNullCheck(boolean isNull) {
+	public Boolean addPrimitiveNullCheck(Boolean isNull) {
 		NullCheck nullCheck = new OperatorsFactoryImpl().createNullCheck();
 		try {			
 			Graph graph = (Graph) getAncestor(Graph.class);
@@ -2555,7 +2563,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		} catch (Exception e) {
 			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
 			e.printStackTrace();
-			return (Boolean) null;
+			return null;
 		}
 	}
 

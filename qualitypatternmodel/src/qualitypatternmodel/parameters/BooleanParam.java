@@ -83,28 +83,18 @@ public interface BooleanParam extends ParameterValue {
 	EList<Contains> getContains();
 
 	/**
-	 * Returns the value of the '<em><b>Null Check</b></em>' reference.
+	 * Returns the value of the '<em><b>Null Check</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.operators.NullCheck}.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.NullCheck#getOption <em>Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Null Check</em>' reference.
-	 * @see #setNullCheck(NullCheck)
+	 * @return the value of the '<em>Null Check</em>' reference list.
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getBooleanParam_NullCheck()
 	 * @see qualitypatternmodel.operators.NullCheck#getOption
 	 * @model opposite="option"
 	 * @generated
 	 */
-	NullCheck getNullCheck();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.parameters.BooleanParam#getNullCheck <em>Null Check</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Null Check</em>' reference.
-	 * @see #getNullCheck()
-	 * @generated
-	 */
-	void setNullCheck(NullCheck value);
+	EList<NullCheck> getNullCheck();
 
 	/**
 	 * <!-- begin-user-doc -->
