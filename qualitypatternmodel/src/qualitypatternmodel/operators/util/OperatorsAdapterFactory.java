@@ -102,6 +102,10 @@ public class OperatorsAdapterFactory extends AdapterFactoryImpl {
 				return createNullCheckAdapter();
 			}
 			@Override
+			public Adapter caseStringLength(StringLength object) {
+				return createStringLengthAdapter();
+			}
+			@Override
 			public Adapter casePatternElement(PatternElement object) {
 				return createPatternElementAdapter();
 			}
@@ -238,6 +242,20 @@ public class OperatorsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNullCheckAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.operators.StringLength <em>String Length</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.operators.StringLength
+	 * @generated
+	 */
+	public Adapter createStringLengthAdapter() {
 		return null;
 	}
 

@@ -48,6 +48,8 @@
           eType="#//operators/Comparison" eOpposite="#//operators/Comparison/option"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="countConditions" upperBound="-1"
           eType="#//patternstructure/CountCondition" eOpposite="#//patternstructure/CountCondition/option"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="stringLength" upperBound="-1"
+          eType="#//operators/StringLength" eOpposite="#//operators/StringLength/option"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParameterList" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="validateAgainstSchema" upperBound="-1" eType="#//parameters/Parameter"/>
@@ -99,6 +101,8 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="numberArgument" eType="#//patternstructure/NumberElement"
           eOpposite="#//patternstructure/NumberElement/numberParam"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="stringLength" upperBound="-1"
+          eType="#//operators/StringLength" eOpposite="#//operators/StringLength/number"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParameterValue" abstract="true" eSuperTypes="#//parameters/Parameter #//graphstructure/Comparable">
       <eOperations name="replace" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
@@ -294,6 +298,15 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//parameters/BooleanParam"
           eOpposite="#//parameters/BooleanParam/nullCheck"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StringLength" eSuperTypes="#//operators/BooleanOperator">
+      <eOperations name="getElement" eType="#//graphstructure/Node"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="primitiveNode" eType="#//graphstructure/PrimitiveNode"
+          eOpposite="#//graphstructure/PrimitiveNode/stringLength"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="number" eType="#//parameters/NumberParam"
+          eOpposite="#//parameters/NumberParam/stringLength"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//parameters/ComparisonOptionParam"
+          eOpposite="#//parameters/ComparisonOptionParam/stringLength"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="graphstructure" nsURI="graphstructure" nsPrefix="graphstructure">
     <eClassifiers xsi:type="ecore:EClass" name="Relation" eSuperTypes="#//patternstructure/PatternElement #//graphstructure/Adaptable">
@@ -342,6 +355,8 @@
           eType="#//operators/Contains" eOpposite="#//operators/Contains/primitiveNode"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="nullCheck" eType="#//operators/NullCheck"
           eOpposite="#//operators/NullCheck/primitiveNode"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="stringLength" upperBound="-1"
+          eType="#//operators/StringLength" eOpposite="#//operators/StringLength/primitiveNode"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Node" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement #//graphstructure/Adaptable">
       <eOperations name="getOriginalID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -388,6 +403,13 @@
       <eOperations name="addPrimitiveContains" eType="#//parameters/TextLiteralParam"/>
       <eOperations name="addPrimitiveContains" eType="#//parameters/TextLiteralParam">
         <eParameters name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="addPrimitiveStringLength" eType="#//operators/StringLength"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="addPrimitiveStringLength" eType="#//operators/StringLength"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="option" eType="#//operators/ComparisonOperator"/>
+        <eParameters name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
       </eOperations>
       <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper">

@@ -1,6 +1,6 @@
 /**
  */
-package qualitypatternmodel.graphstructure.provider;
+package qualitypatternmodel.operators.provider;
 
 
 import java.util.Collection;
@@ -12,23 +12,23 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
-import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.PrimitiveNode;
+import qualitypatternmodel.operators.OperatorsPackage;
+import qualitypatternmodel.operators.StringLength;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.graphstructure.PrimitiveNode} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.operators.StringLength} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PrimitiveNodeItemProvider extends NodeItemProvider {
+public class StringLengthItemProvider extends BooleanOperatorItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PrimitiveNodeItemProvider(AdapterFactory adapterFactory) {
+	public StringLengthItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -43,28 +43,27 @@ public class PrimitiveNodeItemProvider extends NodeItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addMatchPropertyDescriptor(object);
-			addContainsPropertyDescriptor(object);
-			addNullCheckPropertyDescriptor(object);
-			addStringLengthPropertyDescriptor(object);
+			addPrimitiveNodePropertyDescriptor(object);
+			addNumberPropertyDescriptor(object);
+			addOptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Match feature.
+	 * This adds a property descriptor for the Primitive Node feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addMatchPropertyDescriptor(Object object) {
+	protected void addPrimitiveNodePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PrimitiveNode_match_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveNode_match_feature", "_UI_PrimitiveNode_type"),
-				 GraphstructurePackage.Literals.PRIMITIVE_NODE__MATCH,
+				 getString("_UI_StringLength_primitiveNode_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_StringLength_primitiveNode_feature", "_UI_StringLength_type"),
+				 OperatorsPackage.Literals.STRING_LENGTH__PRIMITIVE_NODE,
 				 true,
 				 false,
 				 true,
@@ -74,19 +73,19 @@ public class PrimitiveNodeItemProvider extends NodeItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Contains feature.
+	 * This adds a property descriptor for the Number feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addContainsPropertyDescriptor(Object object) {
+	protected void addNumberPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PrimitiveNode_contains_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveNode_contains_feature", "_UI_PrimitiveNode_type"),
-				 GraphstructurePackage.Literals.PRIMITIVE_NODE__CONTAINS,
+				 getString("_UI_StringLength_number_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_StringLength_number_feature", "_UI_StringLength_type"),
+				 OperatorsPackage.Literals.STRING_LENGTH__NUMBER,
 				 true,
 				 false,
 				 true,
@@ -96,19 +95,19 @@ public class PrimitiveNodeItemProvider extends NodeItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Null Check feature.
+	 * This adds a property descriptor for the Option feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNullCheckPropertyDescriptor(Object object) {
+	protected void addOptionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PrimitiveNode_nullCheck_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveNode_nullCheck_feature", "_UI_PrimitiveNode_type"),
-				 GraphstructurePackage.Literals.PRIMITIVE_NODE__NULL_CHECK,
+				 getString("_UI_StringLength_option_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_StringLength_option_feature", "_UI_StringLength_type"),
+				 OperatorsPackage.Literals.STRING_LENGTH__OPTION,
 				 true,
 				 false,
 				 true,
@@ -118,36 +117,14 @@ public class PrimitiveNodeItemProvider extends NodeItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the String Length feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addStringLengthPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_PrimitiveNode_stringLength_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveNode_stringLength_feature", "_UI_PrimitiveNode_type"),
-				 GraphstructurePackage.Literals.PRIMITIVE_NODE__STRING_LENGTH,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns PrimitiveNode.gif.
+	 * This returns StringLength.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PrimitiveNode"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/StringLength"));
 	}
 
 	/**
@@ -158,10 +135,10 @@ public class PrimitiveNodeItemProvider extends NodeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((PrimitiveNode)object).getName();
+		String label = ((StringLength)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_PrimitiveNode_type") :
-			getString("_UI_PrimitiveNode_type") + " " + label;
+			getString("_UI_StringLength_type") :
+			getString("_UI_StringLength_type") + " " + label;
 	}
 
 

@@ -48,10 +48,12 @@ import qualitypatternmodel.operators.NullCheck;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsPackage;
+import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.operators.impl.ComparisonImpl;
 import qualitypatternmodel.operators.impl.ContainsImpl;
 import qualitypatternmodel.operators.impl.MatchImpl;
 import qualitypatternmodel.operators.impl.OperatorsFactoryImpl;
+import qualitypatternmodel.operators.impl.StringLengthImpl;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
@@ -997,6 +999,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			throw new InvalidityException("PrimitiveNode with contains can not be turned into generic Node");
 		}		
 		
+		if(this instanceof PrimitiveNode && !((PrimitiveNode) this).getStringLength().isEmpty()) {
+			throw new InvalidityException("PrimitiveNode with contains can not be turned into generic Node");
+		}		
+		
 		for(Comparison comp : getComparison1()) {
 			if(comp.getArgument2() instanceof ParameterValue) {
 				throw new InvalidityException("Node with primitive comparison can not be turned into generic Node");	
@@ -1306,7 +1312,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				xmlProperty.getMatch().addAll(((PrimitiveNode) this).getMatch());
 				((PrimitiveNode) this).getMatch().clear();		
 				xmlProperty.getContains().addAll(((PrimitiveNode) this).getContains());
-				((PrimitiveNode) this).getContains().clear();		
+				((PrimitiveNode) this).getContains().clear();	
+				xmlProperty.getStringLength().addAll(((PrimitiveNode) this).getStringLength());
+				((PrimitiveNode) this).getStringLength().clear();		
 			}
 			
 			EList<Relation> incomingCopy = new BasicEList<Relation>();
@@ -1521,7 +1529,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				rdfLiteral.getMatch().addAll(((PrimitiveNode) this).getMatch());
 				((PrimitiveNode) this).getMatch().clear();
 				rdfLiteral.getContains().addAll(((PrimitiveNode) this).getContains());
-				((PrimitiveNode) this).getContains().clear();		
+				((PrimitiveNode) this).getContains().clear();	
+				rdfLiteral.getStringLength().addAll(((PrimitiveNode) this).getStringLength());
+				((PrimitiveNode) this).getStringLength().clear();		
 			}
 			
 			EList<Relation> incomingCopy = new BasicEList<Relation>();
@@ -1718,6 +1728,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				((PrimitiveNode) this).getContains().clear();
 				neoPropertyNode.setNullCheck(((PrimitiveNode) this).getNullCheck());
 				((PrimitiveNode) this).setNullCheck(null);
+				neoPropertyNode.getStringLength().addAll(((PrimitiveNode) this).getStringLength());
+				((PrimitiveNode) this).getStringLength().clear();
 			}
 			
 			EList<Relation> incomingCopy = new BasicEList<Relation>();
@@ -2196,6 +2208,20 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return addPrimitiveContains();
 			case GraphstructurePackage.NODE___ADD_PRIMITIVE_CONTAINS__STRING:
 				return addPrimitiveContains((String)arguments.get(0));
+			case GraphstructurePackage.NODE___ADD_PRIMITIVE_STRING_LENGTH:
+				try {
+					return addPrimitiveStringLength();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.NODE___ADD_PRIMITIVE_STRING_LENGTH__COMPARISONOPERATOR_DOUBLE:
+				try {
+					return addPrimitiveStringLength((ComparisonOperator)arguments.get(0), (Double)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case GraphstructurePackage.NODE___CHECK_COMPARISON_CONSISTENCY:
 				try {
 					checkComparisonConsistency();
@@ -2532,7 +2558,53 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			return (Boolean) null;
 		}
 	}
-	
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public StringLength addPrimitiveStringLength() throws InvalidityException {
+		return addPrimitiveStringLength(null, null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public StringLength addPrimitiveStringLength(ComparisonOperator option, Double number) throws InvalidityException {
+		StringLength strLen = new StringLengthImpl();
+		try {			
+			Graph graph = (Graph) getAncestor(Graph.class);
+			OperatorList oplist = graph.getOperatorList();
+
+			oplist.add(strLen);	
+			strLen.createParameters();
+			PrimitiveNode p = null;
+			if(this instanceof PrimitiveNode) {
+				p = (PrimitiveNode) this;
+			} else {
+				p = makePrimitive();
+			}
+			strLen.setPrimitiveNode(p);
+			
+			if(option != null) {
+				strLen.getOption().setValue(option);
+			}			
+			if(number != null) {
+				strLen.getNumber().setValue(number);
+			}
+			return strLen;
+		} catch (Exception e) {
+			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

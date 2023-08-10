@@ -8,6 +8,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.operators.Contains;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.NullCheck;
+import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.parameters.ParameterValue;
 
 /**
@@ -23,6 +24,7 @@ import qualitypatternmodel.parameters.ParameterValue;
  *   <li>{@link qualitypatternmodel.graphstructure.PrimitiveNode#getMatch <em>Match</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.PrimitiveNode#getContains <em>Contains</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.PrimitiveNode#getNullCheck <em>Null Check</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.PrimitiveNode#getStringLength <em>String Length</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getPrimitiveNode()
@@ -90,5 +92,19 @@ public interface PrimitiveNode extends Node {
 	 * @generated
 	 */
 	void setNullCheck(NullCheck value);
+
+	/**
+	 * Returns the value of the '<em><b>String Length</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.operators.StringLength}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.StringLength#getPrimitiveNode <em>Primitive Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>String Length</em>' reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getPrimitiveNode_StringLength()
+	 * @see qualitypatternmodel.operators.StringLength#getPrimitiveNode
+	 * @model opposite="primitiveNode"
+	 * @generated
+	 */
+	EList<StringLength> getStringLength();
 
 } // Property

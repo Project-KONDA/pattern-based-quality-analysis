@@ -752,6 +752,24 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_NODE___ADD_PRIMITIVE_CONTAINS__STRING = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_CONTAINS__STRING;
 
 	/**
+	 * The operation id for the '<em>Add Primitive String Length</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_NODE___ADD_PRIMITIVE_STRING_LENGTH = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_STRING_LENGTH;
+
+	/**
+	 * The operation id for the '<em>Add Primitive String Length</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_NODE___ADD_PRIMITIVE_STRING_LENGTH__COMPARISONOPERATOR_DOUBLE = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_STRING_LENGTH__COMPARISONOPERATOR_DOUBLE;
+
+	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3107,6 +3125,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_NODE__NULL_CHECK = GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK;
 
 	/**
+	 * The feature id for the '<em><b>String Length</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE__STRING_LENGTH = GraphstructurePackage.PRIMITIVE_NODE__STRING_LENGTH;
+
+	/**
 	 * The number of structural features of the '<em>Neo Property Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3537,6 +3564,24 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_NODE___ADD_PRIMITIVE_CONTAINS__STRING = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_CONTAINS__STRING;
+
+	/**
+	 * The operation id for the '<em>Add Primitive String Length</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___ADD_PRIMITIVE_STRING_LENGTH = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_STRING_LENGTH;
+
+	/**
+	 * The operation id for the '<em>Add Primitive String Length</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___ADD_PRIMITIVE_STRING_LENGTH__COMPARISONOPERATOR_DOUBLE = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_STRING_LENGTH__COMPARISONOPERATOR_DOUBLE;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.

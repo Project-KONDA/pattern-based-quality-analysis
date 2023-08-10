@@ -38,6 +38,7 @@ import qualitypatternmodel.operators.Contains;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.NullCheck;
 import qualitypatternmodel.operators.OperatorsPackage;
+import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.DateParamImpl;
@@ -61,6 +62,7 @@ import static qualitypatternmodel.operators.ComparisonOperator.*;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl#getMatch <em>Match</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl#getContains <em>Contains</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl#getNullCheck <em>Null Check</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl#getStringLength <em>String Length</em>}</li>
  * </ul>
  *
  * @generated
@@ -96,6 +98,16 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 	 * @ordered
 	 */
 	protected NullCheck nullCheck;
+
+	/**
+	 * The cached value of the '{@link #getStringLength() <em>String Length</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStringLength()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<StringLength> stringLength;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -176,7 +188,7 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 
 	@Override
 	public boolean isOperatorArgument() {
-		return !getComparison1().isEmpty() || !getComparison2().isEmpty() || !getMatch().isEmpty() || !(getNullCheck() != null);
+		return !getComparison1().isEmpty() || !getComparison2().isEmpty() || !getMatch().isEmpty() || !(getNullCheck() != null) || !getStringLength().isEmpty();
 	}
 
 	/**
@@ -665,6 +677,20 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<StringLength> getStringLength() {
+		if (stringLength == null) {
+			stringLength = new EObjectWithInverseResolvingEList<StringLength>(StringLength.class, this, GraphstructurePackage.PRIMITIVE_NODE__STRING_LENGTH, OperatorsPackage.STRING_LENGTH__PRIMITIVE_NODE);
+		}
+		return stringLength;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -715,6 +741,8 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 				if (nullCheck != null)
 					msgs = ((InternalEObject)nullCheck).eInverseRemove(this, OperatorsPackage.NULL_CHECK__PRIMITIVE_NODE, NullCheck.class, msgs);
 				return basicSetNullCheck((NullCheck)otherEnd, msgs);
+			case GraphstructurePackage.PRIMITIVE_NODE__STRING_LENGTH:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getStringLength()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -733,6 +761,8 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 				return ((InternalEList<?>)getContains()).basicRemove(otherEnd, msgs);
 			case GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK:
 				return basicSetNullCheck(null, msgs);
+			case GraphstructurePackage.PRIMITIVE_NODE__STRING_LENGTH:
+				return ((InternalEList<?>)getStringLength()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -751,6 +781,8 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 			case GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK:
 				if (resolve) return getNullCheck();
 				return basicGetNullCheck();
+			case GraphstructurePackage.PRIMITIVE_NODE__STRING_LENGTH:
+				return getStringLength();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -774,6 +806,10 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 			case GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK:
 				setNullCheck((NullCheck)newValue);
 				return;
+			case GraphstructurePackage.PRIMITIVE_NODE__STRING_LENGTH:
+				getStringLength().clear();
+				getStringLength().addAll((Collection<? extends StringLength>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -794,6 +830,9 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 			case GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK:
 				setNullCheck((NullCheck)null);
 				return;
+			case GraphstructurePackage.PRIMITIVE_NODE__STRING_LENGTH:
+				getStringLength().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -811,6 +850,8 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 				return contains != null && !contains.isEmpty();
 			case GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK:
 				return nullCheck != null;
+			case GraphstructurePackage.PRIMITIVE_NODE__STRING_LENGTH:
+				return stringLength != null && !stringLength.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

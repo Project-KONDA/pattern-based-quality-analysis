@@ -141,6 +141,16 @@ public class OperatorsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case OperatorsPackage.STRING_LENGTH: {
+				StringLength stringLength = (StringLength)theEObject;
+				T result = caseStringLength(stringLength);
+				if (result == null) result = caseBooleanOperator(stringLength);
+				if (result == null) result = caseOperator(stringLength);
+				if (result == null) result = caseComparable(stringLength);
+				if (result == null) result = casePatternElement(stringLength);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -262,6 +272,21 @@ public class OperatorsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNullCheck(NullCheck object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>String Length</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>String Length</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStringLength(StringLength object) {
 		return null;
 	}
 

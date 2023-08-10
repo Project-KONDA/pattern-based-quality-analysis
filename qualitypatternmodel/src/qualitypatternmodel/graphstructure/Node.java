@@ -14,6 +14,7 @@ import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.Operator;
+import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
@@ -568,6 +569,22 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @generated
 	 */
 	boolean addPrimitiveNullCheck(boolean isNull);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	StringLength addPrimitiveStringLength() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	StringLength addPrimitiveStringLength(ComparisonOperator option, Double number) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -3212,6 +3212,439 @@ public interface OperatorsPackage extends EPackage {
 	int NULL_CHECK_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.operators.impl.StringLengthImpl <em>String Length</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.operators.impl.StringLengthImpl
+	 * @see qualitypatternmodel.operators.impl.OperatorsPackageImpl#getStringLength()
+	 * @generated
+	 */
+	int STRING_LENGTH = 8;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH__ID = BOOLEAN_OPERATOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH__INTERNAL_ID = BOOLEAN_OPERATOR__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH__COMPARISON1 = BOOLEAN_OPERATOR__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH__COMPARISON2 = BOOLEAN_OPERATOR__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Operator List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH__OPERATOR_LIST = BOOLEAN_OPERATOR__OPERATOR_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Nodes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH__NODES = BOOLEAN_OPERATOR__NODES;
+
+	/**
+	 * The feature id for the '<em><b>Primitive Node</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH__PRIMITIVE_NODE = BOOLEAN_OPERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Number</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH__NUMBER = BOOLEAN_OPERATOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Option</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH__OPTION = BOOLEAN_OPERATOR_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>String Length</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH_FEATURE_COUNT = BOOLEAN_OPERATOR_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___IS_VALID__ABSTRACTIONLEVEL = BOOLEAN_OPERATOR___IS_VALID__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___IS_VALID_LOCAL__ABSTRACTIONLEVEL = BOOLEAN_OPERATOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___MY_TO_STRING = BOOLEAN_OPERATOR___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___GENERATE_CYPHER = BOOLEAN_OPERATOR___GENERATE_CYPHER;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___GENERATE_XQUERY = BOOLEAN_OPERATOR___GENERATE_XQUERY;
+
+	/**
+	 * The operation id for the '<em>Generate Sparql</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___GENERATE_SPARQL = BOOLEAN_OPERATOR___GENERATE_SPARQL;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___GET_CONTAINER = BOOLEAN_OPERATOR___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___GET_ANCESTOR__CLASS = BOOLEAN_OPERATOR___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___INITIALIZE_TRANSLATION = BOOLEAN_OPERATOR___INITIALIZE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___PREPARE_TRANSLATION = BOOLEAN_OPERATOR___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___GET_OPERATOR_LIST = BOOLEAN_OPERATOR___GET_OPERATOR_LIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___GET_PARAMETER_LIST = BOOLEAN_OPERATOR___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___GET_ALL_PARAMETERS = BOOLEAN_OPERATOR___GET_ALL_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___PREPARE_PARAMETER_UPDATES = BOOLEAN_OPERATOR___PREPARE_PARAMETER_UPDATES;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = BOOLEAN_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___UPDATE_PARAMETERS__PARAMETERLIST = BOOLEAN_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = BOOLEAN_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___RECORD_VALUES__XMLDATADATABASE = BOOLEAN_OPERATOR___RECORD_VALUES__XMLDATADATABASE;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___RELATIONS_XML_ADAPTED = BOOLEAN_OPERATOR___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___CREATE_XML_ADAPTION = BOOLEAN_OPERATOR___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___CREATE_RDF_ADAPTION = BOOLEAN_OPERATOR___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___CREATE_NEO4J_ADAPTION = BOOLEAN_OPERATOR___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Get Return Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___GET_RETURN_TYPE = BOOLEAN_OPERATOR___GET_RETURN_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___IS_TRANSLATABLE = BOOLEAN_OPERATOR___IS_TRANSLATABLE;
+
+	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___GET_ALL_ARGUMENT_ELEMENTS = BOOLEAN_OPERATOR___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___IS_OPERATOR_ARGUMENT = BOOLEAN_OPERATOR___IS_OPERATOR_ARGUMENT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___VALIDATE__DIAGNOSTICCHAIN_MAP = BOOLEAN_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___GET_ALL_OPERATORS = BOOLEAN_OPERATOR___GET_ALL_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Get Arguments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___GET_ARGUMENTS = BOOLEAN_OPERATOR___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>Get Root Boolean Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___GET_ROOT_BOOLEAN_OPERATORS = BOOLEAN_OPERATOR___GET_ROOT_BOOLEAN_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Is Cycle Free</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___IS_CYCLE_FREE = BOOLEAN_OPERATOR___IS_CYCLE_FREE;
+
+	/**
+	 * The operation id for the '<em>Is Cycle Free</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___IS_CYCLE_FREE__ELIST = BOOLEAN_OPERATOR___IS_CYCLE_FREE__ELIST;
+
+	/**
+	 * The operation id for the '<em>Create Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___CREATE_PARAMETERS = BOOLEAN_OPERATOR___CREATE_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>Add Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___ADD_ELEMENT__NODE = BOOLEAN_OPERATOR___ADD_ELEMENT__NODE;
+
+	/**
+	 * The operation id for the '<em>Remove Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___REMOVE_ELEMENT__NODE = BOOLEAN_OPERATOR___REMOVE_ELEMENT__NODE;
+
+	/**
+	 * The operation id for the '<em>Get Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___GET_ELEMENT = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>String Length</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link qualitypatternmodel.operators.ComparisonOperator <em>Comparison Operator</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3219,7 +3652,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @see qualitypatternmodel.operators.impl.OperatorsPackageImpl#getComparisonOperator()
 	 * @generated
 	 */
-	int COMPARISON_OPERATOR = 8;
+	int COMPARISON_OPERATOR = 9;
 
 	/**
 	 * The meta object id for the '<em>Operator Cycle Exception Wrapper</em>' data type.
@@ -3229,7 +3662,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @see qualitypatternmodel.operators.impl.OperatorsPackageImpl#getOperatorCycleExceptionWrapper()
 	 * @generated
 	 */
-	int OPERATOR_CYCLE_EXCEPTION_WRAPPER = 9;
+	int OPERATOR_CYCLE_EXCEPTION_WRAPPER = 10;
 
 
 	/**
@@ -3649,6 +4082,59 @@ public interface OperatorsPackage extends EPackage {
 	EOperation getNullCheck__GetElement();
 
 	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.operators.StringLength <em>String Length</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>String Length</em>'.
+	 * @see qualitypatternmodel.operators.StringLength
+	 * @generated
+	 */
+	EClass getStringLength();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.operators.StringLength#getPrimitiveNode <em>Primitive Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Primitive Node</em>'.
+	 * @see qualitypatternmodel.operators.StringLength#getPrimitiveNode()
+	 * @see #getStringLength()
+	 * @generated
+	 */
+	EReference getStringLength_PrimitiveNode();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.operators.StringLength#getNumber <em>Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Number</em>'.
+	 * @see qualitypatternmodel.operators.StringLength#getNumber()
+	 * @see #getStringLength()
+	 * @generated
+	 */
+	EReference getStringLength_Number();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.operators.StringLength#getOption <em>Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Option</em>'.
+	 * @see qualitypatternmodel.operators.StringLength#getOption()
+	 * @see #getStringLength()
+	 * @generated
+	 */
+	EReference getStringLength_Option();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.operators.StringLength#getElement() <em>Get Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Element</em>' operation.
+	 * @see qualitypatternmodel.operators.StringLength#getElement()
+	 * @generated
+	 */
+	EOperation getStringLength__GetElement();
+
+	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.operators.ComparisonOperator <em>Comparison Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4027,6 +4513,48 @@ public interface OperatorsPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NULL_CHECK___GET_ELEMENT = eINSTANCE.getNullCheck__GetElement();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.operators.impl.StringLengthImpl <em>String Length</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.operators.impl.StringLengthImpl
+		 * @see qualitypatternmodel.operators.impl.OperatorsPackageImpl#getStringLength()
+		 * @generated
+		 */
+		EClass STRING_LENGTH = eINSTANCE.getStringLength();
+
+		/**
+		 * The meta object literal for the '<em><b>Primitive Node</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STRING_LENGTH__PRIMITIVE_NODE = eINSTANCE.getStringLength_PrimitiveNode();
+
+		/**
+		 * The meta object literal for the '<em><b>Number</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STRING_LENGTH__NUMBER = eINSTANCE.getStringLength_Number();
+
+		/**
+		 * The meta object literal for the '<em><b>Option</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STRING_LENGTH__OPTION = eINSTANCE.getStringLength_Option();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation STRING_LENGTH___GET_ELEMENT = eINSTANCE.getStringLength__GetElement();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.operators.ComparisonOperator <em>Comparison Operator</em>}' enum.

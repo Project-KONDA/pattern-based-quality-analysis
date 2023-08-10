@@ -25,6 +25,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.OperatorsPackage;
+import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
@@ -48,6 +49,7 @@ import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
  *   <li>{@link qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl#getValue <em>Value</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl#getComparisons <em>Comparisons</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl#getCountConditions <em>Count Conditions</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl#getStringLength <em>String Length</em>}</li>
  * </ul>
  *
  * @generated
@@ -107,6 +109,16 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	 * @ordered
 	 */
 	protected EList<CountCondition> countConditions;
+
+	/**
+	 * The cached value of the '{@link #getStringLength() <em>String Length</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStringLength()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<StringLength> stringLength;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -287,6 +299,19 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<StringLength> getStringLength() {
+		if (stringLength == null) {
+			stringLength = new EObjectWithInverseResolvingEList<StringLength>(StringLength.class, this, ParametersPackage.COMPARISON_OPTION_PARAM__STRING_LENGTH, OperatorsPackage.STRING_LENGTH__OPTION);
+		}
+		return stringLength;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -314,6 +339,8 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComparisons()).basicAdd(otherEnd, msgs);
 			case ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITIONS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCountConditions()).basicAdd(otherEnd, msgs);
+			case ParametersPackage.COMPARISON_OPTION_PARAM__STRING_LENGTH:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getStringLength()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -330,6 +357,8 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 				return ((InternalEList<?>)getComparisons()).basicRemove(otherEnd, msgs);
 			case ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITIONS:
 				return ((InternalEList<?>)getCountConditions()).basicRemove(otherEnd, msgs);
+			case ParametersPackage.COMPARISON_OPTION_PARAM__STRING_LENGTH:
+				return ((InternalEList<?>)getStringLength()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -350,6 +379,8 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 				return getComparisons();
 			case ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITIONS:
 				return getCountConditions();
+			case ParametersPackage.COMPARISON_OPTION_PARAM__STRING_LENGTH:
+				return getStringLength();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -378,6 +409,10 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 				getCountConditions().clear();
 				getCountConditions().addAll((Collection<? extends CountCondition>)newValue);
 				return;
+			case ParametersPackage.COMPARISON_OPTION_PARAM__STRING_LENGTH:
+				getStringLength().clear();
+				getStringLength().addAll((Collection<? extends StringLength>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -402,6 +437,9 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 			case ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITIONS:
 				getCountConditions().clear();
 				return;
+			case ParametersPackage.COMPARISON_OPTION_PARAM__STRING_LENGTH:
+				getStringLength().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -422,6 +460,8 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 				return comparisons != null && !comparisons.isEmpty();
 			case ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITIONS:
 				return countConditions != null && !countConditions.isEmpty();
+			case ParametersPackage.COMPARISON_OPTION_PARAM__STRING_LENGTH:
+				return stringLength != null && !stringLength.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

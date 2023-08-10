@@ -738,6 +738,24 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___ADD_PRIMITIVE_CONTAINS__STRING = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_CONTAINS__STRING;
 
 	/**
+	 * The operation id for the '<em>Add Primitive String Length</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___ADD_PRIMITIVE_STRING_LENGTH = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_STRING_LENGTH;
+
+	/**
+	 * The operation id for the '<em>Add Primitive String Length</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___ADD_PRIMITIVE_STRING_LENGTH__COMPARISONOPERATOR_DOUBLE = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_STRING_LENGTH__COMPARISONOPERATOR_DOUBLE;
+
+	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2502,6 +2520,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY__NULL_CHECK = GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK;
 
 	/**
+	 * The feature id for the '<em><b>String Length</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY__STRING_LENGTH = GraphstructurePackage.PRIMITIVE_NODE__STRING_LENGTH;
+
+	/**
 	 * The feature id for the '<em><b>Variables</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2950,6 +2977,24 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PROPERTY___ADD_PRIMITIVE_CONTAINS__STRING = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_CONTAINS__STRING;
+
+	/**
+	 * The operation id for the '<em>Add Primitive String Length</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___ADD_PRIMITIVE_STRING_LENGTH = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_STRING_LENGTH;
+
+	/**
+	 * The operation id for the '<em>Add Primitive String Length</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___ADD_PRIMITIVE_STRING_LENGTH__COMPARISONOPERATOR_DOUBLE = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_STRING_LENGTH__COMPARISONOPERATOR_DOUBLE;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -3733,6 +3778,24 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ROOT___ADD_PRIMITIVE_CONTAINS__STRING = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_CONTAINS__STRING;
+
+	/**
+	 * The operation id for the '<em>Add Primitive String Length</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___ADD_PRIMITIVE_STRING_LENGTH = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_STRING_LENGTH;
+
+	/**
+	 * The operation id for the '<em>Add Primitive String Length</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___ADD_PRIMITIVE_STRING_LENGTH__COMPARISONOPERATOR_DOUBLE = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_STRING_LENGTH__COMPARISONOPERATOR_DOUBLE;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.

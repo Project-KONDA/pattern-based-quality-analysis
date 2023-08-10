@@ -494,6 +494,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EReference getComparisonOptionParam_StringLength() {
+		return (EReference)comparisonOptionParamEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getComparisonOptionParam__SetValueIfValid__ComparisonOperator() {
 		return comparisonOptionParamEClass.getEOperations().get(0);
 	}
@@ -726,6 +736,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	@Override
 	public EReference getNumberParam_NumberArgument() {
 		return (EReference)numberParamEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getNumberParam_StringLength() {
+		return (EReference)numberParamEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1198,6 +1218,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEAttribute(comparisonOptionParamEClass, COMPARISON_OPTION_PARAM__VALUE);
 		createEReference(comparisonOptionParamEClass, COMPARISON_OPTION_PARAM__COMPARISONS);
 		createEReference(comparisonOptionParamEClass, COMPARISON_OPTION_PARAM__COUNT_CONDITIONS);
+		createEReference(comparisonOptionParamEClass, COMPARISON_OPTION_PARAM__STRING_LENGTH);
 		createEOperation(comparisonOptionParamEClass, COMPARISON_OPTION_PARAM___SET_VALUE_IF_VALID__COMPARISONOPERATOR);
 
 		parameterListEClass = createEClass(PARAMETER_LIST);
@@ -1227,6 +1248,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		numberParamEClass = createEClass(NUMBER_PARAM);
 		createEAttribute(numberParamEClass, NUMBER_PARAM__VALUE);
 		createEReference(numberParamEClass, NUMBER_PARAM__NUMBER_ARGUMENT);
+		createEReference(numberParamEClass, NUMBER_PARAM__STRING_LENGTH);
 		createEOperation(numberParamEClass, NUMBER_PARAM___SET_VALUE_IF_VALID__DOUBLE);
 
 		parameterValueEClass = createEClass(PARAMETER_VALUE);
@@ -1381,6 +1403,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEAttribute(getComparisonOptionParam_Value(), theOperatorsPackage.getComparisonOperator(), "value", null, 1, 1, ComparisonOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComparisonOptionParam_Comparisons(), theOperatorsPackage.getComparison(), theOperatorsPackage.getComparison_Option(), "comparisons", null, 0, -1, ComparisonOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComparisonOptionParam_CountConditions(), thePatternstructurePackage.getCountCondition(), thePatternstructurePackage.getCountCondition_Option(), "countConditions", null, 0, -1, ComparisonOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComparisonOptionParam_StringLength(), theOperatorsPackage.getStringLength(), theOperatorsPackage.getStringLength_Option(), "stringLength", null, 0, -1, ComparisonOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getComparisonOptionParam__SetValueIfValid__ComparisonOperator(), null, "setValueIfValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theOperatorsPackage.getComparisonOperator(), "newValue", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1424,6 +1447,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEClass(numberParamEClass, NumberParam.class, "NumberParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNumberParam_Value(), ecorePackage.getEDoubleObject(), "value", null, 0, 1, NumberParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNumberParam_NumberArgument(), thePatternstructurePackage.getNumberElement(), thePatternstructurePackage.getNumberElement_NumberParam(), "numberArgument", null, 0, 1, NumberParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNumberParam_StringLength(), theOperatorsPackage.getStringLength(), theOperatorsPackage.getStringLength_Number(), "stringLength", null, 0, -1, NumberParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getNumberParam__SetValueIfValid__Double(), null, "setValueIfValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDoubleObject(), "newValue", 0, 1, IS_UNIQUE, IS_ORDERED);

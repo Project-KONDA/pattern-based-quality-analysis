@@ -3,6 +3,7 @@
 package qualitypatternmodel.parameters.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -11,8 +12,12 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.operators.OperatorsPackage;
+import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.patternstructure.NumberElement;
@@ -29,6 +34,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.impl.NumberParamImpl#getValue <em>Value</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.NumberParamImpl#getNumberArgument <em>Number Argument</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.NumberParamImpl#getStringLength <em>String Length</em>}</li>
  * </ul>
  *
  * @generated
@@ -65,6 +71,16 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	 * @ordered
 	 */
 	protected NumberElement numberArgument;
+
+	/**
+	 * The cached value of the '{@link #getStringLength() <em>String Length</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStringLength()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<StringLength> stringLength;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -234,6 +250,19 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<StringLength> getStringLength() {
+		if (stringLength == null) {
+			stringLength = new EObjectWithInverseResolvingEList<StringLength>(StringLength.class, this, ParametersPackage.NUMBER_PARAM__STRING_LENGTH, OperatorsPackage.STRING_LENGTH__NUMBER);
+		}
+		return stringLength;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -258,6 +287,7 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -265,6 +295,8 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 				if (numberArgument != null)
 					msgs = ((InternalEObject)numberArgument).eInverseRemove(this, PatternstructurePackage.NUMBER_ELEMENT__NUMBER_PARAM, NumberElement.class, msgs);
 				return basicSetNumberArgument((NumberElement)otherEnd, msgs);
+			case ParametersPackage.NUMBER_PARAM__STRING_LENGTH:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getStringLength()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -279,6 +311,8 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 		switch (featureID) {
 			case ParametersPackage.NUMBER_PARAM__NUMBER_ARGUMENT:
 				return basicSetNumberArgument(null, msgs);
+			case ParametersPackage.NUMBER_PARAM__STRING_LENGTH:
+				return ((InternalEList<?>)getStringLength()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -296,6 +330,8 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 			case ParametersPackage.NUMBER_PARAM__NUMBER_ARGUMENT:
 				if (resolve) return getNumberArgument();
 				return basicGetNumberArgument();
+			case ParametersPackage.NUMBER_PARAM__STRING_LENGTH:
+				return getStringLength();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -305,6 +341,7 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -313,6 +350,10 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 				return;
 			case ParametersPackage.NUMBER_PARAM__NUMBER_ARGUMENT:
 				setNumberArgument((NumberElement)newValue);
+				return;
+			case ParametersPackage.NUMBER_PARAM__STRING_LENGTH:
+				getStringLength().clear();
+				getStringLength().addAll((Collection<? extends StringLength>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -332,6 +373,9 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 			case ParametersPackage.NUMBER_PARAM__NUMBER_ARGUMENT:
 				setNumberArgument((NumberElement)null);
 				return;
+			case ParametersPackage.NUMBER_PARAM__STRING_LENGTH:
+				getStringLength().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -348,6 +392,8 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 			case ParametersPackage.NUMBER_PARAM__NUMBER_ARGUMENT:
 				return numberArgument != null;
+			case ParametersPackage.NUMBER_PARAM__STRING_LENGTH:
+				return stringLength != null && !stringLength.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

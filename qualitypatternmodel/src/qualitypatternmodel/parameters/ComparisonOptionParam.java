@@ -7,6 +7,7 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.patternstructure.CountCondition;
 
 /**
@@ -23,6 +24,7 @@ import qualitypatternmodel.patternstructure.CountCondition;
  *   <li>{@link qualitypatternmodel.parameters.ComparisonOptionParam#getValue <em>Value</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.ComparisonOptionParam#getComparisons <em>Comparisons</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.ComparisonOptionParam#getCountConditions <em>Count Conditions</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.ComparisonOptionParam#getStringLength <em>String Length</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.parameters.ParametersPackage#getComparisonOptionParam()
@@ -97,6 +99,20 @@ public interface ComparisonOptionParam extends Parameter {
 	 * @generated
 	 */
 	EList<CountCondition> getCountConditions();
+
+	/**
+	 * Returns the value of the '<em><b>String Length</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.operators.StringLength}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.StringLength#getOption <em>Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>String Length</em>' reference list.
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getComparisonOptionParam_StringLength()
+	 * @see qualitypatternmodel.operators.StringLength#getOption
+	 * @model opposite="option"
+	 * @generated
+	 */
+	EList<StringLength> getStringLength();
 
 	/**
 	 * <!-- begin-user-doc -->

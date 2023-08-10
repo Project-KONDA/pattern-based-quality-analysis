@@ -67,6 +67,15 @@ public interface OperatorsFactory extends EFactory {
 	NullCheck createNullCheck();
 
 	/**
+	 * Returns a new object of class '<em>String Length</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>String Length</em>'.
+	 * @generated
+	 */
+	StringLength createStringLength();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

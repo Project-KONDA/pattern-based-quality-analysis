@@ -2,7 +2,9 @@
  */
 package qualitypatternmodel.parameters;
 
+import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.patternstructure.NumberElement;
 
 
@@ -18,6 +20,7 @@ import qualitypatternmodel.patternstructure.NumberElement;
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.NumberParam#getValue <em>Value</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.NumberParam#getNumberArgument <em>Number Argument</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.NumberParam#getStringLength <em>String Length</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.parameters.ParametersPackage#getNumberParam()
@@ -70,6 +73,20 @@ public interface NumberParam extends ParameterValue {
 	 * @generated
 	 */
 	void setNumberArgument(NumberElement value);
+
+	/**
+	 * Returns the value of the '<em><b>String Length</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.operators.StringLength}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.StringLength#getNumber <em>Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>String Length</em>' reference list.
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getNumberParam_StringLength()
+	 * @see qualitypatternmodel.operators.StringLength#getNumber
+	 * @model opposite="number"
+	 * @generated
+	 */
+	EList<StringLength> getStringLength();
 
 	/**
 	 * <!-- begin-user-doc -->

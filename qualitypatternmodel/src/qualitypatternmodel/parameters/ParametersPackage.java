@@ -531,13 +531,22 @@ public interface ParametersPackage extends EPackage {
 	int COMPARISON_OPTION_PARAM__COUNT_CONDITIONS = PARAMETER_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>String Length</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPTION_PARAM__STRING_LENGTH = PARAMETER_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Comparison Option Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION_PARAM_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 4;
+	int COMPARISON_OPTION_PARAM_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -4102,13 +4111,22 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM__NUMBER_ARGUMENT = PARAMETER_VALUE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>String Length</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM__STRING_LENGTH = PARAMETER_VALUE_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Number Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 2;
+	int NUMBER_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -8341,6 +8359,17 @@ public interface ParametersPackage extends EPackage {
 	EReference getComparisonOptionParam_CountConditions();
 
 	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.ComparisonOptionParam#getStringLength <em>String Length</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>String Length</em>'.
+	 * @see qualitypatternmodel.parameters.ComparisonOptionParam#getStringLength()
+	 * @see #getComparisonOptionParam()
+	 * @generated
+	 */
+	EReference getComparisonOptionParam_StringLength();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ComparisonOptionParam#setValueIfValid(qualitypatternmodel.operators.ComparisonOperator) <em>Set Value If Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8592,6 +8621,17 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getNumberParam_NumberArgument();
+
+	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.NumberParam#getStringLength <em>String Length</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>String Length</em>'.
+	 * @see qualitypatternmodel.parameters.NumberParam#getStringLength()
+	 * @see #getNumberParam()
+	 * @generated
+	 */
+	EReference getNumberParam_StringLength();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.NumberParam#setValueIfValid(java.lang.Double) <em>Set Value If Valid</em>}' operation.
@@ -9211,6 +9251,14 @@ public interface ParametersPackage extends EPackage {
 		EReference COMPARISON_OPTION_PARAM__COUNT_CONDITIONS = eINSTANCE.getComparisonOptionParam_CountConditions();
 
 		/**
+		 * The meta object literal for the '<em><b>String Length</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPARISON_OPTION_PARAM__STRING_LENGTH = eINSTANCE.getComparisonOptionParam_StringLength();
+
+		/**
 		 * The meta object literal for the '<em><b>Set Value If Valid</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -9411,6 +9459,14 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EReference NUMBER_PARAM__NUMBER_ARGUMENT = eINSTANCE.getNumberParam_NumberArgument();
+
+		/**
+		 * The meta object literal for the '<em><b>String Length</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NUMBER_PARAM__STRING_LENGTH = eINSTANCE.getNumberParam_StringLength();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Value If Valid</b></em>' operation.

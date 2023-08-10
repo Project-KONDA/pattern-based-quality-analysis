@@ -187,6 +187,29 @@ public class OperatorsItemProviderAdapterFactory extends OperatorsAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.operators.StringLength} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StringLengthItemProvider stringLengthItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.operators.StringLength}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStringLengthAdapter() {
+		if (stringLengthItemProvider == null) {
+			stringLengthItemProvider = new StringLengthItemProvider(this);
+		}
+
+		return stringLengthItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -296,6 +319,7 @@ public class OperatorsItemProviderAdapterFactory extends OperatorsAdapterFactory
 		if (operatorListItemProvider != null) operatorListItemProvider.dispose();
 		if (containsItemProvider != null) containsItemProvider.dispose();
 		if (nullCheckItemProvider != null) nullCheckItemProvider.dispose();
+		if (stringLengthItemProvider != null) stringLengthItemProvider.dispose();
 	}
 
 }

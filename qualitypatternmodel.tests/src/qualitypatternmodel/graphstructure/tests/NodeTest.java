@@ -34,6 +34,8 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveMatch(java.lang.String) <em>Add Primitive Match</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveContains() <em>Add Primitive Contains</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveContains(java.lang.String) <em>Add Primitive Contains</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveStringLength() <em>Add Primitive String Length</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveStringLength(qualitypatternmodel.operators.ComparisonOperator, java.lang.Double) <em>Add Primitive String Length</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#checkComparisonConsistency() <em>Check Comparison Consistency</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#checkComparisonConsistency(qualitypatternmodel.operators.Comparison) <em>Check Comparison Consistency</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#checkGeneric() <em>Check Generic</em>}</li>
@@ -346,6 +348,32 @@ public class NodeTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testAddPrimitiveContains__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#addPrimitiveStringLength() <em>Add Primitive String Length</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Node#addPrimitiveStringLength()
+	 * @generated
+	 */
+	public void testAddPrimitiveStringLength() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#addPrimitiveStringLength(qualitypatternmodel.operators.ComparisonOperator, java.lang.Double) <em>Add Primitive String Length</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Node#addPrimitiveStringLength(qualitypatternmodel.operators.ComparisonOperator, java.lang.Double)
+	 * @generated
+	 */
+	public void testAddPrimitiveStringLength__ComparisonOperator_Double() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

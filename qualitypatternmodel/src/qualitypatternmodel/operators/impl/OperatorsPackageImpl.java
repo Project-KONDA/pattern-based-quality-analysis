@@ -37,6 +37,7 @@ import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsFactory;
 import qualitypatternmodel.operators.OperatorsPackage;
+import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.operators.util.OperatorsValidator;
 
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -111,6 +112,13 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 	 * @generated
 	 */
 	private EClass nullCheckEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stringLengthEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -637,6 +645,56 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 	 * @generated
 	 */
 	@Override
+	public EClass getStringLength() {
+		return stringLengthEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getStringLength_PrimitiveNode() {
+		return (EReference)stringLengthEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getStringLength_Number() {
+		return (EReference)stringLengthEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getStringLength_Option() {
+		return (EReference)stringLengthEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getStringLength__GetElement() {
+		return stringLengthEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getComparisonOperator() {
 		return comparisonOperatorEEnum;
 	}
@@ -728,6 +786,12 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		createEReference(nullCheckEClass, NULL_CHECK__OPTION);
 		createEOperation(nullCheckEClass, NULL_CHECK___GET_ELEMENT);
 
+		stringLengthEClass = createEClass(STRING_LENGTH);
+		createEReference(stringLengthEClass, STRING_LENGTH__PRIMITIVE_NODE);
+		createEReference(stringLengthEClass, STRING_LENGTH__NUMBER);
+		createEReference(stringLengthEClass, STRING_LENGTH__OPTION);
+		createEOperation(stringLengthEClass, STRING_LENGTH___GET_ELEMENT);
+
 		// Create enums
 		comparisonOperatorEEnum = createEEnum(COMPARISON_OPERATOR);
 
@@ -777,6 +841,7 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		operatorListEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 		containsEClass.getESuperTypes().add(this.getBooleanOperator());
 		nullCheckEClass.getESuperTypes().add(this.getBooleanOperator());
+		stringLengthEClass.getESuperTypes().add(this.getBooleanOperator());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(booleanOperatorEClass, BooleanOperator.class, "BooleanOperator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -855,6 +920,13 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		initEReference(getNullCheck_Option(), theParametersPackage.getBooleanParam(), theParametersPackage.getBooleanParam_NullCheck(), "option", null, 0, 1, NullCheck.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getNullCheck__GetElement(), theGraphstructurePackage.getNode(), "getElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(stringLengthEClass, StringLength.class, "StringLength", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getStringLength_PrimitiveNode(), theGraphstructurePackage.getPrimitiveNode(), theGraphstructurePackage.getPrimitiveNode_StringLength(), "primitiveNode", null, 0, 1, StringLength.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStringLength_Number(), theParametersPackage.getNumberParam(), theParametersPackage.getNumberParam_StringLength(), "number", null, 0, 1, StringLength.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStringLength_Option(), theParametersPackage.getComparisonOptionParam(), theParametersPackage.getComparisonOptionParam_StringLength(), "option", null, 0, 1, StringLength.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getStringLength__GetElement(), theGraphstructurePackage.getNode(), "getElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(comparisonOperatorEEnum, ComparisonOperator.class, "ComparisonOperator");

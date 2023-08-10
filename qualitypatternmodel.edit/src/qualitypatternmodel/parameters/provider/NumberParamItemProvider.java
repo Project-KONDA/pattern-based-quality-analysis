@@ -47,6 +47,7 @@ public class NumberParamItemProvider extends ParameterValueItemProvider {
 
 			addValuePropertyDescriptor(object);
 			addNumberArgumentPropertyDescriptor(object);
+			addStringLengthPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -87,6 +88,28 @@ public class NumberParamItemProvider extends ParameterValueItemProvider {
 				 getString("_UI_NumberParam_numberArgument_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NumberParam_numberArgument_feature", "_UI_NumberParam_type"),
 				 ParametersPackage.Literals.NUMBER_PARAM__NUMBER_ARGUMENT,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the String Length feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStringLengthPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NumberParam_stringLength_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NumberParam_stringLength_feature", "_UI_NumberParam_type"),
+				 ParametersPackage.Literals.NUMBER_PARAM__STRING_LENGTH,
 				 true,
 				 false,
 				 true,

@@ -1101,6 +1101,24 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_IRI_NODE___ADD_PRIMITIVE_CONTAINS__STRING = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_CONTAINS__STRING;
 
 	/**
+	 * The operation id for the '<em>Add Primitive String Length</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_IRI_NODE___ADD_PRIMITIVE_STRING_LENGTH = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_STRING_LENGTH;
+
+	/**
+	 * The operation id for the '<em>Add Primitive String Length</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_IRI_NODE___ADD_PRIMITIVE_STRING_LENGTH__COMPARISONOPERATOR_DOUBLE = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_STRING_LENGTH__COMPARISONOPERATOR_DOUBLE;
+
+	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2069,6 +2087,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_LITERAL_NODE__NULL_CHECK = GraphstructurePackage.PRIMITIVE_NODE__NULL_CHECK;
 
 	/**
+	 * The feature id for the '<em><b>String Length</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_LITERAL_NODE__STRING_LENGTH = GraphstructurePackage.PRIMITIVE_NODE__STRING_LENGTH;
+
+	/**
 	 * The number of structural features of the '<em>Rdf Literal Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2499,6 +2526,24 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @ordered
 	 */
 	int RDF_LITERAL_NODE___ADD_PRIMITIVE_CONTAINS__STRING = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_CONTAINS__STRING;
+
+	/**
+	 * The operation id for the '<em>Add Primitive String Length</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_LITERAL_NODE___ADD_PRIMITIVE_STRING_LENGTH = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_STRING_LENGTH;
+
+	/**
+	 * The operation id for the '<em>Add Primitive String Length</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_LITERAL_NODE___ADD_PRIMITIVE_STRING_LENGTH__COMPARISONOPERATOR_DOUBLE = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_STRING_LENGTH__COMPARISONOPERATOR_DOUBLE;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.

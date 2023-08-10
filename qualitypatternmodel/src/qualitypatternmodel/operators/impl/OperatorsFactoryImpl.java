@@ -64,6 +64,7 @@ public class OperatorsFactoryImpl extends EFactoryImpl implements OperatorsFacto
 			case OperatorsPackage.OPERATOR_LIST: return createOperatorList();
 			case OperatorsPackage.CONTAINS: return createContains();
 			case OperatorsPackage.NULL_CHECK: return createNullCheck();
+			case OperatorsPackage.STRING_LENGTH: return createStringLength();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -156,6 +157,17 @@ public class OperatorsFactoryImpl extends EFactoryImpl implements OperatorsFacto
 	public NullCheck createNullCheck() {
 		NullCheckImpl nullCheck = new NullCheckImpl();
 		return nullCheck;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public StringLength createStringLength() {
+		StringLengthImpl stringLength = new StringLengthImpl();
+		return stringLength;
 	}
 
 	/**
