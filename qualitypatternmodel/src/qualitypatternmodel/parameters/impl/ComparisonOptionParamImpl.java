@@ -128,10 +128,10 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	public ComparisonOptionParamImpl() {
 		super();
 		getOptions().add(ComparisonOperator.EQUAL);
-//		getOptions().add(ComparisonOperator.LESS);
-//		getOptions().add(ComparisonOperator.GREATER);
-//		getOptions().add(ComparisonOperator.GREATEROREQUAL);
-//		getOptions().add(ComparisonOperator.LESSOREQUAL);
+		getOptions().add(ComparisonOperator.LESS);
+		getOptions().add(ComparisonOperator.GREATER);
+		getOptions().add(ComparisonOperator.GREATEROREQUAL);
+		getOptions().add(ComparisonOperator.LESSOREQUAL);
 		getOptions().add(ComparisonOperator.NOTEQUAL);
 	}
 	

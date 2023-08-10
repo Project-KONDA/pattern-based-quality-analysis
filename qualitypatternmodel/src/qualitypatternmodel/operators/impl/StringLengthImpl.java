@@ -50,9 +50,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class StringLengthImpl extends BooleanOperatorImpl implements StringLength {
-	private final static String CYPHER_REGEX = "%1$s" + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SPECIAL_CYPHER_REGEX_EXPRESSION + CypherSpecificConstants.ONE_WHITESPACE + "%2$s";
-	private final static String CYPHER_NOT_REGEX = CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + "%1$s" + CypherSpecificConstants.ONE_WHITESPACE +	CypherSpecificConstants.SPECIAL_CYPHER_REGEX_EXPRESSION + CypherSpecificConstants.ONE_WHITESPACE + "%2$s" + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
-	
+
 	/**
 	 * The cached value of the '{@link #getPrimitiveNode() <em>Primitive Node</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -94,7 +92,7 @@ public class StringLengthImpl extends BooleanOperatorImpl implements StringLengt
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		if(number != null && number.getValue() != null && option != null && option.getValue() != null && primitiveNode != null) {
-			return primitiveNode.generateXQuery() + "**length**";
+			return primitiveNode.generateXQuery() + "string-length(.) " + option.generateXQuery() + " " + number.generateXQuery();	
 		} else {
 			throw new InvalidityException("invalid option");
 		}
@@ -102,26 +100,16 @@ public class StringLengthImpl extends BooleanOperatorImpl implements StringLengt
 	
 	@Override
 	public String generateSparql() throws InvalidityException {
-		if(number != null && number.getValue() != null && option != null && option.getValue() != null && primitiveNode != null) {
-			return primitiveNode.generateXQuery() + "**length**";
-//				return "\nFILTER (regex(" + primitiveNode.generateSparql() + ", " + regularExpression.generateSparql() + "))";
-		} else {
-			throw new InvalidityException("invalid option");
-		}
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 	
-	
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @throws InvalidityException
-	 * Generates the substring for match/regex.
-	 */
 	@Override 
 	public String generateCypher() throws InvalidityException {
-		if(number != null && number.getValue() != null && option != null && option.getValue() != null && primitiveNode != null) {
-			return primitiveNode.generateXQuery() + "**length**";
-		}
-		throw new InvalidityException(Constants.INVALID_OPTION);
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 	
 	@Override
