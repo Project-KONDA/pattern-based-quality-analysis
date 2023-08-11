@@ -21,6 +21,7 @@ public class XmlEvalExNEx {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getExNExMidas());
+		completePatterns.add(getExNExMidasAps());
 		completePatterns.add(getExNExLidoWorkTypeWithoutConcept());
 
 		Test00.getQueries(completePatterns);
@@ -49,6 +50,21 @@ public class XmlEvalExNEx {
 		
 		p0.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, XmlPropertyKind.ATTRIBUTE, "Type", "obj");
 		p1.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD}, XmlPropertyKind.ATTRIBUTE, "Type", "ob30");
+		p2.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD}, null, null, null);		
+		
+		return completePattern;
+	}
+	
+	static CompletePattern getExNExMidasAps() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getExNEx2Abstract();
+		EList<Parameter> params = completePattern.getParameterList().getParameters();
+				
+		XmlPathParam p0 = ((XmlPathParam) params.get(0));
+		XmlPathParam p1 = ((XmlPathParam) params.get(1));
+		XmlPathParam p2 = ((XmlPathParam) params.get(2));
+		
+		p0.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, XmlPropertyKind.TAG, null, "obj");
+		p1.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD}, XmlPropertyKind.TAG, null, "ob30");
 		p2.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD}, null, null, null);		
 		
 		return completePattern;

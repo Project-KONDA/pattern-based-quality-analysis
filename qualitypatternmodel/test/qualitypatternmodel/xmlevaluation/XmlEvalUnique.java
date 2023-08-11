@@ -20,6 +20,7 @@ public class XmlEvalUnique {
 		
 		completePatterns.add(getUniqueAbstract());
 		completePatterns.add(getUniqueMidas());
+		completePatterns.add(getUniqueMidasAps());
 		completePatterns.add(getUniqueLidoLidoRecId());
 		completePatterns.add(getUniqueLidoObjectPublishedId());
 		completePatterns.add(getUniqueComplexLidoNameActorSet());
@@ -93,6 +94,33 @@ public class XmlEvalUnique {
 		p5.getXmlPropertyOptionParam().getAttributeName().setValue("Value");
 		p6.getXmlPropertyOptionParam().setValue(XmlPropertyKind.ATTRIBUTE);
 		p6.getXmlPropertyOptionParam().getAttributeName().setValue("Value");
+		
+		return completePattern;
+	}
+	
+
+	static CompletePattern getUniqueMidasAps() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getUniqueAbstract();
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		
+//		ComparisonOptionParam p0 = ((ComparisonOptionParam) params.get(0));
+//		NumberParam p1 = ((NumberParam) params.get(1));
+//		ComparisonOptionParam p2 = ((ComparisonOptionParam) params.get(2));
+//		TypeOptionParam p3 = ((TypeOptionParam) params.get(3));
+		XmlPathParam p4 = ((XmlPathParam) params.get(4));
+		XmlPathParam p5 = ((XmlPathParam) params.get(5));
+		XmlPathParam p6 = ((XmlPathParam) params.get(6));
+		XmlPathParam p7 = ((XmlPathParam) params.get(7));
+
+		p4.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, XmlPropertyKind.TAG, null, "wer");
+		p7.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, XmlPropertyKind.TAG, null, "wer");
+		p5.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD}, XmlPropertyKind.TAG, null, "a3600");
+		p6.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD}, XmlPropertyKind.TAG, null, "a3600");
+
+		p5.getXmlPropertyOptionParam().setValue(XmlPropertyKind.DATA);
+//		p5.getXmlPropertyOptionParam().getAttributeName().setValue("Value");
+		p6.getXmlPropertyOptionParam().setValue(XmlPropertyKind.DATA);
+//		p6.getXmlPropertyOptionParam().getAttributeName().setValue("Value");
 		
 		return completePattern;
 	}

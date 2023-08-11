@@ -19,6 +19,7 @@ public class XmlEvalFunc {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		
 		completePatterns.add(getFuncMidas());
+		completePatterns.add(getFuncMidasAps());
 		completePatterns.add(getFuncLido());
 		completePatterns.add(getFuncRunningExample());
 		
@@ -74,6 +75,40 @@ public class XmlEvalFunc {
 		p8.getXmlPropertyOptionParam().setValue(XmlPropertyKind.ATTRIBUTE);
 		p8.getXmlPropertyOptionParam().getAttributeName().setValue("Value");
 		p9.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, XmlPropertyKind.ATTRIBUTE, "Type", "wer");
+		
+		return completePattern;
+	}
+	
+	static CompletePattern getFuncMidasAps() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getFuncAbstract();
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		
+//		ComparisonOptionParam p0 = ((ComparisonOptionParam) params.get(0));
+//		TypeOptionParam p1 = ((TypeOptionParam) params.get(1));
+//		ComparisonOptionParam p2 = ((ComparisonOptionParam) params.get(2));
+//		TypeOptionParam p3 = ((TypeOptionParam) params.get(3));
+		XmlPathParam p4 = ((XmlPathParam) params.get(4));
+		XmlPathParam p5 = ((XmlPathParam) params.get(5));
+		XmlPathParam p6 = ((XmlPathParam) params.get(6));
+		XmlPathParam p7 = ((XmlPathParam) params.get(7));
+		XmlPathParam p8 = ((XmlPathParam) params.get(8));
+		XmlPathParam p9 = ((XmlPathParam) params.get(9));
+		
+
+		p4.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, XmlPropertyKind.TAG, null, "wer");
+		p5.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD}, XmlPropertyKind.TAG, null, "a3600");
+		p5.getXmlPropertyOptionParam().setValue(XmlPropertyKind.ATTRIBUTE);
+		p5.getXmlPropertyOptionParam().getAttributeName().setValue("Value");
+		p6.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD}, XmlPropertyKind.TAG, null, "a3680");
+		p6.getXmlPropertyOptionParam().setValue(XmlPropertyKind.ATTRIBUTE);
+		p6.getXmlPropertyOptionParam().getAttributeName().setValue("Value");
+		p7.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD}, XmlPropertyKind.TAG, null, "a3600");
+		p7.getXmlPropertyOptionParam().setValue(XmlPropertyKind.ATTRIBUTE);
+		p7.getXmlPropertyOptionParam().getAttributeName().setValue("Value");
+		p8.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD}, XmlPropertyKind.TAG, null, "a3680");
+		p8.getXmlPropertyOptionParam().setValue(XmlPropertyKind.ATTRIBUTE);
+		p8.getXmlPropertyOptionParam().getAttributeName().setValue("Value");
+		p9.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, XmlPropertyKind.TAG, null, "wer");
 		
 		return completePattern;
 	}

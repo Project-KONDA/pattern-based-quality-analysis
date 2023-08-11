@@ -50,7 +50,7 @@ public class XmlEvalMandStruc {
 //		p1.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD}, "aob30");
 //		p1.addXmlAxis(XmlAxisKind.CHILD, "a3100");
 		p0.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, "obj");
-		p0.addXmlAxis(XmlAxisKind.CHILD, "aob30");
+		p0.addXmlAxis(XmlAxisKind.CHILD, "ob30");
 		p1.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD}, "a3100");
 
 		return completePattern;

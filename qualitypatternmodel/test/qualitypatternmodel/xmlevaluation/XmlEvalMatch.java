@@ -10,6 +10,7 @@ import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -24,6 +25,8 @@ public class XmlEvalMatch {
 		completePatterns.add(getMatchMidas3270Imprecise());
 		completePatterns.add(getMatchMidas3100Abbreviation());
 		completePatterns.add(getMatchMidas5060());
+
+		completePatterns.add(getMatchMidas5360Aps());
 		
 		completePatterns.add(getMatchLidoMeasurementValue());
 		completePatterns.add(getMatchLidoMeasurementUnit());
@@ -73,11 +76,12 @@ public class XmlEvalMatch {
 		CompletePattern completePattern = getMatchAbstract();
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 
-//		BooleanParam p0 = ((BooleanParam) params.get(0));
+		BooleanParam p0 = ((BooleanParam) params.get(0));
 		TextLiteralParam p1 = ((TextLiteralParam) params.get(1));
 		XmlPathParam p2 = ((XmlPathParam) params.get(2));
 		XmlPathParam p3 = ((XmlPathParam) params.get(3));
 		
+		p0.setValue(false);
 		p1.setValue(regex);
 		p2.specifyAxis(returnElementAxis, attribute1Kind, attribute1Name, returnElementType);
 		p3.specifyAxis(element2Axis, attribute2Kind, attribute2Name, element2Type);
@@ -125,6 +129,12 @@ public class XmlEvalMatch {
 		return getMatchCondConcrete("obj", new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, "Type", XmlPropertyKind.ATTRIBUTE, "5360",
 				new XmlAxisKind[] {XmlAxisKind.CHILD}, "Type", XmlPropertyKind.ATTRIBUTE, "Value", XmlPropertyKind.ATTRIBUTE,
 				"^[0-9]+(,[0-9]+)?( x [0-9]+(,[0-9]+)?)? (m|mm)( \\([a-zA-Z������ ]+\\))?$");
+	}
+	
+	public static CompletePattern getMatchMidas5360Aps() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		return getMatchCondConcrete("obj", new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, null, XmlPropertyKind.TAG, "a5230",
+				new XmlAxisKind[] {XmlAxisKind.CHILD}, null, XmlPropertyKind.TAG, "Value", XmlPropertyKind.DATA,
+				"[a-zA-Z ]+");
 	}
 
 	public static CompletePattern getMatchMidas3270() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

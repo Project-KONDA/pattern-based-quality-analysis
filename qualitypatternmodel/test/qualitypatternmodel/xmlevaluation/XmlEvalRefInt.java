@@ -20,6 +20,7 @@ public class XmlEvalRefInt {
 		completePatterns.add(getRefintAbstract());
 //		completePatterns.add(getRefintCondAbstract());
 		completePatterns.add(getRefintMidasWer());
+		completePatterns.add(getRefintMidasWerAps());
 		completePatterns.add(getRefintRunningExampleAbstract());
 		completePatterns.add(getRefintRunningExample());
 		
@@ -60,6 +61,29 @@ public class XmlEvalRefInt {
 		p6.getXmlPropertyOptionParam().setValue(XmlPropertyKind.ATTRIBUTE);
 		p6.getXmlPropertyOptionParam().getAttributeName().setValue("Value");
 		p7.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, XmlPropertyKind.ATTRIBUTE, "Type", "wer");
+		
+		return completePattern;		
+	}
+	
+	public static CompletePattern getRefintMidasWerAps() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getRefintAbstract();
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+
+//		ComparisonOptionParam p0 = ((ComparisonOptionParam) params.get(0));
+//		TypeOptionParam p1 = ((TypeOptionParam) params.get(1));
+		XmlPathParam p2 = ((XmlPathParam) params.get(2));
+		XmlPathParam p3 = ((XmlPathParam) params.get(3));
+		XmlPathParam p4 = ((XmlPathParam) params.get(4));
+		XmlPathParam p5 = ((XmlPathParam) params.get(5));
+		XmlPathParam p6 = ((XmlPathParam) params.get(6));
+		XmlPathParam p7 = ((XmlPathParam) params.get(7));
+
+		p2.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, XmlPropertyKind.TAG, null, "obj");
+		p3.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD}, XmlPropertyKind.TAG, null, "a3600");
+		p4.getXmlPropertyOptionParam().setValue(XmlPropertyKind.DATA);
+		p5.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD}, XmlPropertyKind.TAG, null, "a3600");
+		p6.getXmlPropertyOptionParam().setValue(XmlPropertyKind.DATA);
+		p7.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, XmlPropertyKind.TAG, null, "wer");
 		
 		return completePattern;		
 	}
