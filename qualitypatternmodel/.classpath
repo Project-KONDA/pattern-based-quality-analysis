@@ -35,13 +35,41 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="lib/neo4j-java-driver-4.4.9.jar"/>
-	<classpathentry kind="lib" path="lib/reactive-streams-1.0.3.jar"/>
-	<classpathentry kind="lib" path="lib/mockito-core-4.8.0.jar"/>
-	<classpathentry kind="lib" path="lib/byte-buddy-1.12.14.jar"/>
-	<classpathentry kind="lib" path="lib/byte-buddy-agent-1.12.14.jar"/>
-	<classpathentry kind="lib" path="lib/objenesis-3.2.jar"/>
+	<classpathentry kind="lib" path="lib/servlet-api.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/neo4j-java-driver-4.4.9.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/reactive-streams-1.0.3.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/mockito-core-4.8.0.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/byte-buddy-1.12.14.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/byte-buddy-agent-1.12.14.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/objenesis-3.2.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="lib/jakarta.servlet-api-6.0.0.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
