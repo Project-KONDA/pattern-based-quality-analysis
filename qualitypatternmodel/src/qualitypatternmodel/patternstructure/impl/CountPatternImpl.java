@@ -111,11 +111,11 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 			//otherwise this would be printed: WITH varElementNodeX, COUNT (varElementNodeX) myCounter1, COUNT (varElementNodeY) myCounter2
 			//We want to achieve: WITH varElementNodeX, COUNT (varElementNodeY) myCounter2
 			//Since we assume that the user just wants to count the elements which are marked in a new graph as return node(-s).
-			for(Node n : lNodes) {
-				if (n.getOriginalNode() != n) {
-					n.setReturnNode(false);				
-				}
-			}							
+//			for(Node n : lNodes) {
+//				if (n.getOriginalNode() != n) {
+//					n.setReturnNode(false);				
+//				}
+//			}							
 		}
 		initCountSet();
 		return patternElement;
@@ -344,15 +344,15 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 			
 		final EList<Relation> lReturnRelations = lReturnRelations();
 		if (lReturnRelations.size() > 0) {
-			Relation temp = null;
-			for (Relation r : getGraph().getRelations()) {
-				if (r.getIncomingMapping() != null) {
-					temp = r.getOriginalRelation();
-					if (lReturnRelations.contains(temp)) {
-						((NeoEdge) r).setIsReturnElement(true);
-					}
-				}
-			}
+//			Relation temp = null;
+//			for (Relation r : getGraph().getRelations()) {
+//				if (r.getIncomingMapping() != null) {
+//					temp = r.getOriginalRelation();
+//					if (lReturnRelations.contains(temp)) {
+//						((NeoEdge) r).setIsReturnElement(true);
+//					}
+//				}
+//			}
 			//cypherEdges also contain after running the method also the previews cypher.
 			String cypherEdges = generateCypherReturnEdges(cypher);
 			if (!cypherEdges.isBlank()) {
@@ -373,25 +373,25 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	 */
 	private String addNodesToWithFromPreviewsGraph(final Graph g, final EList<Node> lReturnNodes) throws InvalidityException {
 		String cypher = new String();
-		String[] tempNodeVar = null;
-		Node original = null;
-		for (Node n : g.getNodes()) {
-			if (n.getOriginalNode() != n) {
-				original = n.getOriginalNode();
-				if (original.isReturnNode()) {
-					tempNodeVar = ((NeoNode) original).getCypherVariable().split(CypherSpecificConstants.SEPERATOR);
-					for (String s : tempNodeVar) {
-						if (!cypher.contains(s)) {
-							if (!cypher.isEmpty()) {
-								cypher = cypher + CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE + s.trim();
-							} else {
-								cypher = s.trim();
-							}
-						}
-					}
-				}
-			}
-		}
+//		String[] tempNodeVar = null;
+//		Node original = null;
+//		for (Node n : g.getNodes()) {
+//			if (n.getOriginalNode() != n) {
+//				original = n.getOriginalNode();
+//				if (original.isReturnNode()) {
+//					tempNodeVar = ((NeoNode) original).getCypherVariable().split(CypherSpecificConstants.SEPERATOR);
+//					for (String s : tempNodeVar) {
+//						if (!cypher.contains(s)) {
+//							if (!cypher.isEmpty()) {
+//								cypher = cypher + CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE + s.trim();
+//							} else {
+//								cypher = s.trim();
+//							}
+//						}
+//					}
+//				}
+//			}
+//		}
 		return cypher;
 	}
 	
@@ -409,11 +409,11 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 			neoAbstractEdge = (NeoEdge) r;
 			if (neoAbstractEdge.isReturnElement()) {
 				lReturnRelations.add(r);
-			} else if (neoAbstractEdge.getOriginalRelation() != r) {
-				neoAbstractEdge = (NeoEdge) neoAbstractEdge.getOriginalRelation();
-				if (neoAbstractEdge.isReturnElement() && !lReturnRelations.contains(neoAbstractEdge)) {
-					lReturnRelations.add(neoAbstractEdge);				
-				}
+//			} else if (neoAbstractEdge.getOriginalRelation() != r) {
+//				neoAbstractEdge = (NeoEdge) neoAbstractEdge.getOriginalRelation();
+//				if (neoAbstractEdge.isReturnElement() && !lReturnRelations.contains(neoAbstractEdge)) {
+//					lReturnRelations.add(neoAbstractEdge);				
+//				}
 			}
 		}
 		return lReturnRelations;
@@ -505,7 +505,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 			}
 		}
 		getMorphism().setSource(previousGraph);		
-		previousGraph.copyGraph(getGraph());
+//		previousGraph.copyGraph(getGraph());
 	}
 	
 	/**
@@ -523,7 +523,6 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 //		getMorphism().setSource(null);
 		getMorphism().setTarget(getGraph());
 		NotificationChain ret = super.basicSetGraph(newGraph, msgs);
-		getMorphism().removeInconsistentMappings();
 		return ret;
 	}
 
@@ -548,7 +547,6 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		if (getMorphism() != null) {
 			getMorphism().setSource(null);
 			getMorphism().setTarget(null);
-			getMorphism().getMappings().clear();
 		}
 		
 		Morphism oldMorphism = morphism;
@@ -594,7 +592,6 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		if(newCountCondition1 == null) {
 			getMorphism().setSource(null);
 		}
-		getMorphism().removeInconsistentMappings();
 		
 		if (newCountCondition1 != null) {			
 			try {
@@ -629,9 +626,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		getMorphism().setTarget(getGraph());
 		
 		msgs = eBasicSetContainer((InternalEObject)newCountCondition2, PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION2, msgs);
-		
-		getMorphism().removeInconsistentMappings();
-		
+				
 		if (newCountCondition2 != null) {
 			try {
 				copyPreviousGraph();

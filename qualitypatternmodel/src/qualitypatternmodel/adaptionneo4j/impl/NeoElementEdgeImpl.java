@@ -81,17 +81,14 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 	 */
 	@Override
 	public String generateCypher() throws InvalidityException {
-		if (getIncomingMapping() == null) {
-			String cypher = new String();
-			if(!translated && getNeoElementPathParam() != null) {
-				cypher = getNeoElementPathParam().generateCypher();
-				this.translated = true;
-			} else if(getNeoElementPathParam() == null) {
-				throw new InvalidityException(NEO_EDGE_NEEDS_A_NEO_PATH_PARAM);
-			}
-			return cypher;
+		String cypher = new String();
+		if(!translated && getNeoElementPathParam() != null) {
+			cypher = getNeoElementPathParam().generateCypher();
+			this.translated = true;
+		} else if(getNeoElementPathParam() == null) {
+			throw new InvalidityException(NEO_EDGE_NEEDS_A_NEO_PATH_PARAM);
 		}
-		return getOriginalRelation().generateCypher();
+		return cypher;
 	}
 	
 	/**
@@ -103,22 +100,19 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 	 */
 	@Override
 	public EMap<Integer, String> getCypherReturn() throws InvalidityException {
-		if (getIncomingMapping() == null) {
-			EMap<Integer, String> returnElement;
-			if (getNeoElementPathParam() != null) {
-				if (getNeoElementPathParam().getNeoPathPart() == null) {
-					returnElement = null;
-				} else {
-					returnElement = super.getCypherReturn();
-					String cypher = getNeoElementPathParam().getCypherReturnVariable();
-					returnElement.put(NeoEdgeImpl.CYPHER_RETURN_ID, cypher);
-				}
+		EMap<Integer, String> returnElement;
+		if (getNeoElementPathParam() != null) {
+			if (getNeoElementPathParam().getNeoPathPart() == null) {
+				returnElement = null;
 			} else {
-				throw new InvalidityException(NEO_PATH_PARAM_NEED_TO_BE_SET);
+				returnElement = super.getCypherReturn();
+				String cypher = getNeoElementPathParam().getCypherReturnVariable();
+				returnElement.put(NeoEdgeImpl.CYPHER_RETURN_ID, cypher);
 			}
-			return returnElement;
+		} else {
+			throw new InvalidityException(NEO_PATH_PARAM_NEED_TO_BE_SET);
 		}
-		return ((NeoElementEdge) getOriginalRelation()).getCypherReturn();
+		return returnElement;
 	}
 	
 	/**
@@ -130,14 +124,11 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 	 */
 	@Override
 	public String getReturnInnerEdgeNodes() throws InvalidityException {
-		if (getIncomingMapping() == null) {
-			String cypher = null;
-			if (getNeoElementPathParam() != null) {
-				cypher = getNeoElementPathParam().getReturnInnerEdgeNodes();
-			}
-			return cypher;
+		String cypher = null;
+		if (getNeoElementPathParam() != null) {
+			cypher = getNeoElementPathParam().getReturnInnerEdgeNodes();
 		}
-		return ((NeoElementEdge) getOriginalRelation()).getReturnInnerEdgeNodes();
+		return cypher;
 	}
 	
 	/**
@@ -147,18 +138,16 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 	 */
 	@Override 
 	public void createParameters() {
-		if (getIncomingMapping() == null) {
-			ParameterList pList = getParameterList();
-			if (pList != null) {
-				NeoElementPathParam neoPathParam = getNeoElementPathParam();
-				if (neoPathParam == null) {
-					neoPathParam = new NeoElementPathParamImpl();
-					setNeoElementPathParam(neoPathParam);
-					pList.add(neoPathParam);	
-				}
-				if (!pList.equals(neoPathParam.getParameterList())) {
-					pList.add(neoPathParam);
-				}
+		ParameterList pList = getParameterList();
+		if (pList != null) {
+			NeoElementPathParam neoPathParam = getNeoElementPathParam();
+			if (neoPathParam == null) {
+				neoPathParam = new NeoElementPathParamImpl();
+				setNeoElementPathParam(neoPathParam);
+				pList.add(neoPathParam);	
+			}
+			if (!pList.equals(neoPathParam.getParameterList())) {
+				pList.add(neoPathParam);
 			}
 		}
 	}	

@@ -4,12 +4,9 @@
  */
 package qualitypatternmodel.graphstructure.validation;
 
-import org.eclipse.emf.common.util.EList;
-
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.patternstructure.RelationMapping;
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.graphstructure.Relation}.
@@ -20,10 +17,6 @@ import qualitypatternmodel.patternstructure.RelationMapping;
 public interface RelationValidator {
 	boolean validate();
 
-	boolean validateIncomingMapping(RelationMapping value);
-
-	boolean validateOutgoingMappings(EList<RelationMapping> value);
-
 	boolean validateGraph(Graph value);
 
 	boolean validateSource(Node value);
@@ -32,10 +25,6 @@ public interface RelationValidator {
 
 	boolean validateName(String value);
 
-	boolean validateMappingFrom(RelationMapping value);
-	boolean validateMappingTo(EList<RelationMapping> value);
-
-	boolean validateMappingTo(RelationMapping value);
 	boolean validateAxis(XmlAxisKind value);
 	boolean validateRelationTo(Node value);
 

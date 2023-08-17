@@ -3,7 +3,6 @@
 package qualitypatternmodel.graphstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -13,9 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionneo4j.NeoElementEdge;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
@@ -24,12 +21,10 @@ import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jFactoryImpl;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.adaptionrdf.impl.RdfPredicateImpl;
 import qualitypatternmodel.adaptionxml.XmlElement;
-import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
-import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.adaptionxml.impl.XmlElementNavigationImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyNavigationImpl;
@@ -45,16 +40,8 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.NodeMapping;
-import qualitypatternmodel.patternstructure.Mapping;
-import qualitypatternmodel.patternstructure.Morphism;
-import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.PatternElement;
-import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.patternstructure.RelationMapping;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
-import qualitypatternmodel.patternstructure.impl.RelationMappingImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -63,8 +50,6 @@ import qualitypatternmodel.patternstructure.impl.RelationMappingImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getIncomingMapping <em>Incoming Mapping</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getOutgoingMappings <em>Outgoing Mappings</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getGraph <em>Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getSource <em>Source</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getTarget <em>Target</em>}</li>
@@ -76,29 +61,7 @@ import qualitypatternmodel.patternstructure.impl.RelationMappingImpl;
  * @generated
  */
 public class RelationImpl extends PatternElementImpl implements Relation {
-	/**
-	 * The cached value of the '{@link #getIncomingMapping() <em>Incoming Mapping</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * The <code>RelationMapping</code> that has <code>this</code> as its <code>target</code>.
-	 * It declares the equivalence between <code>this</code> and another <code>Relation</code> contained in the previous <code>Graph</code> in the condition hierarchy.
-	 * <!-- end-user-doc -->
-	 * @see #getIncomingMapping()
-	 * @generated
-	 * @ordered
-	 */
-	protected RelationMapping incomingMapping;
 
-	/**
-	 * The cached value of the '{@link #getOutgoingMappings() <em>Outgoing Mappings</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * A list of <code>RelationMapping</code> that have <code>this</code> as their <code>source</code>.
-	 * They declare the equivalence between <code>this</code> and other <code>Relations</code> contained in <code>Graphs</code> that directly follow in the condition hierarchy.
-	 * <!-- end-user-doc -->
-	 * @see #getOutgoingMappings()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<RelationMapping> outgoingMappings;
 
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
@@ -202,9 +165,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
-		if (getGraph().getPattern() != null && getGraph().getPattern() instanceof CompletePattern && incomingMapping != null) // depth=0 => ReturnGraph
-			throw new InvalidityException("invalid RelationMapping to returnGraph: " + incomingMapping + " "
-					+ incomingMapping.getId() + " - (" + outgoingMappings + ")");	
 		
 		if(getSource() == null && abstractionLevel != AbstractionLevel.SEMI_GENERIC) {
 			throw new InvalidityException(getClass().getSimpleName() + " [" + getInternalId()  +"] source null");
@@ -219,36 +179,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			if (getTarget().getGraph() != getGraph()) 
 				throw new InvalidityException("target Element not in Graph " + getId());
 		}
-		
-		for(RelationMapping mapping : getOutgoingMappings()) {
-			Relation mappedRelation = mapping.getTarget();
-			
-			// Source
-			Node mappedSource = mappedRelation.getSource();
-			if (getSource() != null && mappedSource.getIncomingMapping().getSource() != null) {
-				if(!mappedSource.getIncomingMapping().getSource().equals(getSource())) {
-					throw new InvalidityException("mapping of source invalid");
-				}
-			} else {
-				if (abstractionLevel != AbstractionLevel.SEMI_GENERIC)
-					throw new InvalidityException("source of mapping empty " + getId());
-				else if ( getSource() != null || mappedSource.getIncomingMapping().getSource() != null )
-					throw new InvalidityException("one source of mapping empty " + getId());					
-			}
-			
-			// Target
-			Node mappedTarget = mappedRelation.getTarget();
-			if (getTarget() != null && mappedTarget.getIncomingMapping().getSource() != null) {
-				if(!mappedTarget.getIncomingMapping().getSource().equals(getTarget())) {
-					throw new InvalidityException("mapping of target invalid");
-				}				
-			} else {
-					if (abstractionLevel != AbstractionLevel.SEMI_GENERIC)
-						throw new InvalidityException("target of mapping empty " + getId());
-					else if ( getTarget() != null || mappedTarget.getIncomingMapping().getSource() != null )
-						throw new InvalidityException("one target of mapping empty " + getId());					
-			}
-		}	
 	}
 
 	@Override
@@ -268,18 +198,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	protected EClass eStaticClass() {
 		return GraphstructurePackage.Literals.RELATION;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<RelationMapping> getOutgoingMappings() {
-		if (outgoingMappings == null) {
-			outgoingMappings = new EObjectWithInverseResolvingEList<RelationMapping>(RelationMapping.class, this, GraphstructurePackage.RELATION__OUTGOING_MAPPINGS, PatternstructurePackage.RELATION_MAPPING__SOURCE);
-		}
-		return outgoingMappings;
 	}
 
 	/**
@@ -307,9 +225,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		triggerParameterUpdates(newGraph);
 		
 		if (newGraph == null || getGraph() != null && !newGraph.equals(getGraph())) {
-			removeRelationFromPreviousGraphs();
-			removeMappingsToNext();
-			
 			setSource(null);
 			setTarget(null);
 		}
@@ -320,32 +235,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			}
 			if(getTarget() != null && getTarget().getGraph() != null && !getTarget().getGraph().equals(newGraph)) {
 				setTarget(null);
-			}
-		}
-				
-		if(newGraph != null) {
-			for(Morphism morphism : newGraph.getOutgoingMorphisms()) {
-				MorphismContainer container = morphism.getMorphismContainer();
-				
-				Relation newRelation = new RelationImpl();
-				newRelation.setGraph(container.getGraph());
-				
-				RelationMapping newMapping = new RelationMappingImpl();
-				newMapping.setMorphism(morphism);
-				newMapping.setSource(this);
-				newMapping.setTarget(newRelation);
-				
-				for(Mapping mapping : morphism.getMappings()) {
-					if(mapping instanceof NodeMapping) {
-						NodeMapping nodeMapping = (NodeMapping) mapping;
-						if(nodeMapping.getSource().equals(getSource())) {
-							newRelation.setSource(((ComplexNode) nodeMapping.getTarget()));
-						}
-						if(nodeMapping.getSource().equals(getTarget())) {
-							newRelation.setTarget(nodeMapping.getTarget());
-						}
-					}
-				}
 			}
 		}
 
@@ -482,23 +371,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 */
 	public NotificationChain basicSetSource(ComplexNode newSource, NotificationChain msgs) {
 		Node oldSource = source;
-		source = (ComplexNode) newSource;
-		
-		if(newSource != null) {
-			for(RelationMapping relationMapping : getOutgoingMappings()) {
-				for(Mapping mapping : relationMapping.getMorphism().getMappings()) {
-					if(mapping instanceof NodeMapping) {
-						NodeMapping nodeMapping = (NodeMapping) mapping;
-						if(nodeMapping.getSource().equals(newSource)) {
-							relationMapping.getTarget().setSource((ComplexNode) nodeMapping.getTarget());
-						}						
-					}
-				}
-			}
-		} else {
-			for(RelationMapping relationMapping : getOutgoingMappings()) {
-				relationMapping.getTarget().setSource(null);
-			}
+
+		if (setGraphConsistently(newSource, getTarget(), this)) {
+			source = (ComplexNode) newSource;
 		}
 		
 		if (eNotificationRequired()) {
@@ -539,34 +414,74 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws Exception 
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetTarget(Node newTarget, NotificationChain msgs) {
 		Node oldTarget = target;
-		target = newTarget;
 		
-		if(newTarget != null) {
-			for(RelationMapping relationMapping : getOutgoingMappings()) {
-				for(Mapping mapping : relationMapping.getMorphism().getMappings()) {
-					if(mapping instanceof NodeMapping) {
-						NodeMapping nodeMapping = (NodeMapping) mapping;
-						if(nodeMapping.getSource().equals(newTarget)) {
-							relationMapping.getTarget().setTarget(nodeMapping.getTarget());
-						}						
-					}
-				}
-			}
-		} else {
-			for(RelationMapping relationMapping : getOutgoingMappings()) {
-				relationMapping.getTarget().setTarget(null);
-			}
+		if (setGraphConsistently(getSource(), newTarget, this)) {
+			target = newTarget;
 		}
-		
+						
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__TARGET, oldTarget, newTarget);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
+	}
+	
+	private boolean setGraphConsistently(Node source, Node target, Relation r) {
+		Graph ownGraph = getGraph();
+		Graph sourceGraph = null;
+		if (getSource() != null)
+			sourceGraph = getSource().getGraph();
+		Graph newTargetGraph = null;
+		if (target != null)
+			newTargetGraph = target.getGraph();
+
+		// check if target is in graph that is hierarchically after
+		if (sourceGraph == null) {
+			if (newTargetGraph == null) {
+				if (ownGraph != null) {
+					if (getSource() != null)
+						source.setGraph(newTargetGraph);
+					if (target != null)
+						target.setGraph(newTargetGraph);
+				}
+			} else {
+				setGraph(newTargetGraph);
+				if (getSource() != null)
+					source.setGraph(newTargetGraph);
+			}
+			
+			
+		} else {
+			if (newTargetGraph == null) {
+				if (ownGraph == null) {
+					setGraph(sourceGraph);
+					if (target != null)
+						target.setGraph(sourceGraph);
+				} else {
+					if (sourceGraph.isBefore(ownGraph)) {
+						target.setGraph(ownGraph);
+					}
+					else {
+						setGraph(sourceGraph);
+						if (target != null)
+							target.setGraph(sourceGraph);
+					}
+				}
+			}
+			else {
+				if(sourceGraph.isBefore(newTargetGraph)) {
+					setGraph(newTargetGraph);
+				} else {
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 
 	/**
@@ -601,36 +516,14 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public String getName() {
 		if(name == null || name.equals("")) {
-			if(getOriginalID() > -1) {
-				name = "Relation " + getOriginalID();
+			if(getInternalId() > -1) {
+				name = "Relation " + getInternalId();
 				return name;
 			}
 		}
 		return name;
 	}
 	
-	@Override
-	public int getOriginalID() {
-		if (incomingMapping == null)
-			return this.getInternalId();
-		else
-			return incomingMapping.getSource().getOriginalID();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public Relation getOriginalRelation() {
-		if (incomingMapping == null) {
-			return this;
-		} else {
-			return incomingMapping.getSource().getOriginalRelation();
-		}		
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -639,30 +532,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 */
 	@Override
 	public XmlPropertyNavigation adaptAsXmlPropertyNavigation() throws InvalidityException {
-		Graph graph = getGraph();
-		XmlPropertyNavigation navOriginal = ((RelationImpl) getOriginalRelation()).adaptAsXMLPropertyNavigationRecursive();
-		if (graph != null)
-			for(Relation r: graph.getRelations()) {
-				if(r instanceof XmlPropertyNavigation) {
-					XmlPropertyNavigation nav = (XmlPropertyNavigation) r;
-					Relation next = r;
-					while(next != null) {
-						if(!next.equals(navOriginal)) {
-							if(next.getIncomingMapping() == null) {
-								next = null;
-							} else {
-								next = next.getIncomingMapping().getSource();
-							}
-						} else {
-							return nav;
-						}
-					}
-				}
-			}
-		throw new InvalidityException("correspondent relation not found");
-	}
-	
-	public XmlPropertyNavigation adaptAsXMLPropertyNavigationRecursive() throws InvalidityException {
 		if (!(this instanceof XmlPropertyNavigation)) {
 			XmlPropertyNavigation navigation = new XmlPropertyNavigationImpl();
 
@@ -676,35 +545,19 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			
 			navigation.setGraphSimple(getGraph());
 			
-			if (getIncomingMapping() == null) {
 				navigation.createParameters();
-			}
-
 			if (getSource() != null)
 				navigation.setSource(getSource());
 			if (getTarget() != null)
 				navigation.setTarget(getTarget());
 		
-			navigation.getOutgoingMappings().addAll(getOutgoingMappings());
-			
-			navigation.setIncomingMapping(getIncomingMapping());
-			
-			getOutgoingMappings().clear();
 			setSource(null);
 			setTarget(null);			
-			setIncomingMapping(null);
 			setGraph(null);
-			
-			for (RelationMapping mapping : navigation.getOutgoingMappings()) {
-				((RelationImpl) mapping.getTarget()).adaptAsXMLPropertyNavigationRecursive();
-			}
 			
 			navigation.getTarget().adaptAsXmlProperty();
 			
 			return navigation;
-		}
-		for (RelationMapping mapping : getOutgoingMappings()) {
-			((RelationImpl) mapping.getTarget()).adaptAsXMLPropertyNavigationRecursive();
 		}
 		return (XmlPropertyNavigation) this;
 	}
@@ -717,8 +570,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public void setName(String newName) {
 		if(newName == null || newName.equals("")) {
-			if(getOriginalID() > -1) {
-				newName = "Relation " + getOriginalID();
+			if(getInternalId() > -1) {
+				newName = "Relation " + getInternalId();
 			} else {
 				return;
 			}
@@ -728,23 +581,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__NAME, oldName, name));
-	
-		if (getIncomingMapping() != null) {
-			Relation source = getIncomingMapping().getSource();
-			if (source != null) {
-				if ((newName != null && !newName.equals(source.getName())) || (newName == null && source.getName() != null)) {
-					source.setName(newName);
-				}			
-			}
-		}
-		for (RelationMapping m : getOutgoingMappings()) {
-			Relation target = m.getTarget();
-			if (target != null) {
-				if ((newName != null && !newName.equals(target.getName())) || (newName == null && target.getName() != null)) {
-					target.setName(newName);
-				}			
-			}
-		}		
 	}
 
 	/**
@@ -793,66 +629,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__PREDICATES_ARE_BEING_TRANSLATED, oldPredicatesAreBeingTranslated, predicatesAreBeingTranslated));
 	}
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public RelationMapping getIncomingMapping() {
-		if (incomingMapping != null && incomingMapping.eIsProxy()) {
-			InternalEObject oldIncomingMapping = (InternalEObject)incomingMapping;
-			incomingMapping = (RelationMapping)eResolveProxy(oldIncomingMapping);
-			if (incomingMapping != oldIncomingMapping) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.RELATION__INCOMING_MAPPING, oldIncomingMapping, incomingMapping));
-			}
-		}
-		return incomingMapping;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RelationMapping basicGetIncomingMapping() {
-		return incomingMapping;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetIncomingMapping(RelationMapping newIncomingMapping, NotificationChain msgs) {
-		RelationMapping oldIncomingMapping = incomingMapping;
-		incomingMapping = newIncomingMapping;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__INCOMING_MAPPING, oldIncomingMapping, newIncomingMapping);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setIncomingMapping(RelationMapping newIncomingMapping) {
-		if (newIncomingMapping != incomingMapping) {
-			NotificationChain msgs = null;
-			if (incomingMapping != null)
-				msgs = ((InternalEObject)incomingMapping).eInverseRemove(this, PatternstructurePackage.RELATION_MAPPING__TARGET, RelationMapping.class, msgs);
-			if (newIncomingMapping != null)
-				msgs = ((InternalEObject)newIncomingMapping).eInverseAdd(this, PatternstructurePackage.RELATION_MAPPING__TARGET, RelationMapping.class, msgs);
-			msgs = basicSetIncomingMapping(newIncomingMapping, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__INCOMING_MAPPING, newIncomingMapping, newIncomingMapping));
-	}
-
-	
 	@Override
 	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		if (getTarget() instanceof NeoElementNode) {
@@ -890,30 +666,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 */
 	@Override
 	public XmlElementNavigation adaptAsXmlElementNavigation() throws InvalidityException {
-		Graph graph = getGraph();
-		XmlElementNavigation navOriginal = ((RelationImpl) getOriginalRelation()).adaptAsXMLElementNavigationRecursive();
-		
-		for(Relation r: graph.getRelations()) {
-			if(r instanceof XmlElementNavigation) {
-				XmlElementNavigation nav = (XmlElementNavigation) r;
-				Relation next = r;
-				while(next != null) {
-					if(!next.equals(navOriginal)) {
-						if(next.getIncomingMapping() == null) {
-							next = null;
-						} else {
-							next = next.getIncomingMapping().getSource();
-						}
-					} else {
-						return nav;
-					}
-				}
-			}
-		}
-		throw new InvalidityException("correspondent relation not found");
-	}
-	
-	private XmlElementNavigation adaptAsXMLElementNavigationRecursive() throws InvalidityException {
 		if (!(this instanceof XmlElementNavigation)) {
 			XmlElementNavigation navigation = new XmlElementNavigationImpl();
 
@@ -921,33 +673,18 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			
 			navigation.setGraphSimple(getGraph());
 			
-			if (getIncomingMapping() == null) {
-				navigation.createParameters();
-			}
+			navigation.createParameters();
 			
 			navigation.setSource(getSource());
 			navigation.setTarget(getTarget());
 		
-			navigation.getOutgoingMappings().addAll(getOutgoingMappings());
-			
-			navigation.setIncomingMapping(getIncomingMapping());
-			
-			getOutgoingMappings().clear();
 			setSource(null);
 			setTarget(null);			
-			setIncomingMapping(null);
 			setGraph(null);
-			
-			for (RelationMapping mapping : navigation.getOutgoingMappings()) {
-				((RelationImpl) mapping.getTarget()).adaptAsXMLElementNavigationRecursive();
-			}
 			
 			navigation.getTarget().adaptAsXmlElement();
 			
 			return navigation;
-		}
-		for (RelationMapping mapping : getOutgoingMappings()) {
-			((RelationImpl) mapping.getTarget()).adaptAsXMLElementNavigationRecursive();
 		}
 		return (XmlElementNavigation) this;
 	}
@@ -960,45 +697,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 */
 	@Override
 	public XmlReference adaptAsXmlReference() throws InvalidityException {
-		Graph graph = getGraph();
-		XmlReference referenceOriginal = ((RelationImpl) getOriginalRelation()).adaptAsXMLReferenceRecursive();
-		XmlElement target = (XmlElement) referenceOriginal.getTarget();
-		boolean hasIncommingNavigation = false;
-		for (Relation r: target.getIncoming()) 
-			if (r instanceof XmlElementNavigation) 
-				hasIncommingNavigation = true;
-		if (!hasIncommingNavigation) {
-			XmlRoot root = null;
-			for (Node n: referenceOriginal.getGraph().getNodes()) {
-				if (n instanceof XmlRoot)
-					root = (XmlRoot) n;
-			}
-			Relation r = target.addIncomming(root);
-			XmlElementNavigation relation = r.adaptAsXmlElementNavigation();
-			relation.getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, null);
-		}
-		for(Relation r: graph.getRelations()) {
-			if(r instanceof XmlReference) {
-				XmlReference reference = (XmlReference) r;
-				Relation next = r;
-				while(next != null) {
-					if(!next.equals(referenceOriginal)) {
-						if(next.getIncomingMapping() == null) {
-							next = null;
-						} else {
-							next = next.getIncomingMapping().getSource();
-						}
-					} else {
-						return reference;
-					}
-				}
-			}
-		}
-		throw new InvalidityException("correspondent relation not found");
-		
-	}
-
-	private XmlReference adaptAsXMLReferenceRecursive() throws InvalidityException {
 		if(!(this instanceof XmlReference)) {
 			XmlReference reference = new XmlReferenceImpl();			
 			reference.setGraphSimple(getGraph());
@@ -1022,40 +720,24 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			reference.setSource(sourceNode);
 			reference.setTarget(targetNode);			
 			
-			if(getIncomingMapping() == null) {
-				XmlProperty property = new XmlPropertyImpl();
-							
-				Graph graph = getGraph();
-				
-				property.setGraph(getGraph());
-				graph.addRelation(sourceNode, property).adaptAsXmlPropertyNavigation();
-				graph.addRelation(targetNode, property).adaptAsXmlPropertyNavigation();
-				property.createParameters();
-				
-				reference.setProperty(property);			
-			}
+			XmlProperty property = new XmlPropertyImpl();
+			Graph graph = getGraph();
+			property.setGraph(getGraph());
+			graph.addRelation(sourceNode, property).adaptAsXmlPropertyNavigation();
+			graph.addRelation(targetNode, property).adaptAsXmlPropertyNavigation();
+			property.createParameters();
 			
-			reference.getOutgoingMappings().addAll(getOutgoingMappings());
+			reference.setProperty(property);	
 			
-			reference.setIncomingMapping(getIncomingMapping());			
-			
-			getOutgoingMappings().clear();
 			setSource(null);
 			setTarget(null);
-			setIncomingMapping(null);
-			setGraph(null);
 			
-			for(RelationMapping mapping : reference.getOutgoingMappings()) {
-				((RelationImpl) mapping.getTarget()).adaptAsXMLReferenceRecursive();
-			}
+			setGraph(null);
 			
 			reference.getTarget().adaptAsXmlElement();
 			
 			return reference;
 			
-		}
-		for(RelationMapping mapping : getOutgoingMappings()) {
-			((RelationImpl) mapping.getTarget()).adaptAsXMLReferenceRecursive();
 		}
 		return (XmlReference) this;
 	}
@@ -1068,30 +750,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 */
 	@Override
 	public RdfPredicate adaptAsRdfPredicate() throws InvalidityException {
-		Graph graph = getGraph();
-		RdfPredicate navOriginal = ((RelationImpl) getOriginalRelation()).adaptAsRdfPredicateRecursive();
-				
-		for(Relation r: graph.getRelations()) {
-			if(r instanceof RdfPredicate) {
-				RdfPredicate nav = (RdfPredicate) r;
-				Relation next = r;
-				while(next != null) {
-					if(!next.equals(navOriginal)) {
-						if(next.getIncomingMapping() == null) {
-							next = null;
-						} else {
-							next = next.getIncomingMapping().getSource();
-						}
-					} else {
-						return nav;
-					}
-				}
-			}
-		}
-		throw new InvalidityException("correspondent relation not found");
-	}
-	
-	private RdfPredicate adaptAsRdfPredicateRecursive() throws InvalidityException {
 		if (!(this instanceof RdfPredicate)) {
 			RdfPredicate predicate = new RdfPredicateImpl();
 
@@ -1099,26 +757,14 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			
 			predicate.setGraphSimple(getGraph());
 			
-			if (getIncomingMapping() == null) {
-				predicate.createParameters();
-			}
+			predicate.createParameters();
 			
 			predicate.setSource(getSource());
 			predicate.setTarget(getTarget());
 		
-			predicate.getOutgoingMappings().addAll(getOutgoingMappings());
-			
-			predicate.setIncomingMapping(getIncomingMapping());
-			
-			getOutgoingMappings().clear();
 			setSource(null);
 			setTarget(null);			
-			setIncomingMapping(null);
 			setGraph(null);
-			
-			for (RelationMapping mapping : predicate.getOutgoingMappings()) {
-				((RelationImpl) mapping.getTarget()).adaptAsRdfPredicateRecursive();
-			}
 			
 			if(predicate.getTarget() instanceof ComplexNode) {
 				predicate.getTarget().adaptAsRdfIriNode();
@@ -1129,9 +775,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			}
 			
 			return predicate;
-		}
-		for (RelationMapping mapping : getOutgoingMappings()) {
-			((RelationImpl) mapping.getTarget()).adaptAsRdfPredicateRecursive();
 		}
 		return (RdfPredicate) this;
 	}
@@ -1145,61 +788,20 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 */
 	@Override
 	public NeoPropertyEdge adaptAsPropertyEdge() throws InvalidityException {
-		Graph graph = getGraph();
-		NeoPropertyEdge navOriginal = ((RelationImpl) getOriginalRelation()).adaptAsNeoPropertyEdgeRecursive();
-		
-		for(Relation r: graph.getRelations()) {
-			if(r instanceof NeoPropertyEdge) {
-				NeoPropertyEdge nav = (NeoPropertyEdge) r;
-				Relation next = r;
-				while(next != null) {
-					if(!next.equals(navOriginal)) {
-						if(next.getIncomingMapping() == null) {
-							next = null;
-						} else {
-							next = next.getIncomingMapping().getSource();
-						}
-					} else {
-						return nav;
-					}
-				}
-			}
-		}
-		throw new InvalidityException("correspondent relation not found");
-	}
-	
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @return NeoPropertyEdge
-	 * @throws InvalidityException
-	 * Traverses recursively over all connected elements of a relation. It converts and configures all elements to with the fitting values for the NeoPropertyEdge.
-	 */
-	private NeoPropertyEdge adaptAsNeoPropertyEdgeRecursive() throws InvalidityException {
 		if (!(this instanceof NeoPropertyEdge)) {
 			NeoPropertyEdge edge = (NeoPropertyEdge) Adaptionneo4jFactoryImpl.init().createNeoPropertyEdge();
 
 			edge.setName(getName());
 			edge.setGraphSimple(getGraph());
 			
-			if (getIncomingMapping() == null) {
-				edge.createParameters();
-			} 
+			edge.createParameters();
 			
 			edge.setSource(getSource());
 			edge.setTarget(getTarget());
 		
-			edge.getOutgoingMappings().addAll(getOutgoingMappings());
-			edge.setIncomingMapping(getIncomingMapping());
-			
-			getOutgoingMappings().clear();
 			setSource(null);
 			setTarget(null);			
-			setIncomingMapping(null);
 			setGraph(null);
-			
-			for (RelationMapping mapping : edge.getOutgoingMappings()) {
-				((RelationImpl) mapping.getTarget()).adaptAsNeoPropertyEdgeRecursive();
-			}
 			
 			if(edge.getTarget() instanceof ComplexNode) {
 				edge.getTarget().adaptAsNeoElementNode();
@@ -1210,9 +812,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			}
 			
 			return edge;
-		}
-		for (RelationMapping mapping : getOutgoingMappings()) {
-			((RelationImpl) mapping.getTarget()).adaptAsNeoPropertyEdgeRecursive();
 		}
 		return (NeoPropertyEdge) this;
 	}
@@ -1225,61 +824,20 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 */
 	@Override
 	public NeoElementEdge adaptAsNeoElementEdge() throws InvalidityException {
-		Graph graph = getGraph();
-		NeoElementEdge navOriginal = ((RelationImpl) getOriginalRelation()).adaptAsNeoEdgeRecursive();
-		
-		for(Relation r: graph.getRelations()) {
-			if(r instanceof NeoElementEdge) {
-				NeoElementEdge nav = (NeoElementEdge) r;
-				Relation next = r;
-				while(next != null) {
-					if(!next.equals(navOriginal)) {
-						if(next.getIncomingMapping() == null) {
-							next = null;
-						} else {
-							next = next.getIncomingMapping().getSource();
-						}
-					} else {
-						return nav;
-					}
-				}
-			}
-		}
-		throw new InvalidityException("correspondent relation not found");
-	}
-
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @return NeoElementEdge
-	 * @throws InvalidityException
-	 * Traverses recursively over all connected elements of a relation. It converts and configures all elements to with the fitting values for the NeoElementEdge.
-	 */
-	private NeoElementEdge adaptAsNeoEdgeRecursive() throws InvalidityException {
 		if (!(this instanceof NeoElementEdge)) {
 			NeoElementEdge edge = (NeoElementEdge) Adaptionneo4jFactoryImpl.init().createNeoElementEdge();
 
 			edge.setName(getName());
 			edge.setGraphSimple(getGraph());
 			
-			if (getIncomingMapping() == null) {
-				edge.createParameters(); //for what are die params? from param package
-			} 
+			edge.createParameters(); //for what are die params? from param package
 			
 			edge.setSource(getSource());
 			edge.setTarget(getTarget());
 		
-			edge.getOutgoingMappings().addAll(getOutgoingMappings());
-			edge.setIncomingMapping(getIncomingMapping());
-			
-			getOutgoingMappings().clear();
 			setSource(null);
 			setTarget(null);			
-			setIncomingMapping(null);
 			setGraph(null);
-			
-			for (RelationMapping mapping : edge.getOutgoingMappings()) {
-				((RelationImpl) mapping.getTarget()).adaptAsNeoEdgeRecursive();
-			}
 			
 			if(edge.getTarget() instanceof ComplexNode) {
 				edge.getTarget().adaptAsNeoElementNode();
@@ -1291,52 +849,20 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			
 			return edge;
 		}
-		for (RelationMapping mapping : getOutgoingMappings()) {
-			((RelationImpl) mapping.getTarget()).adaptAsNeoEdgeRecursive();
-		}
 		return (NeoElementEdge) this;
 	}
 
-	@Override
-	public void removeMappingsToNext() {
-		EList<RelationMapping> mappingToCopy = new BasicEList<RelationMapping>();
-		mappingToCopy.addAll(getOutgoingMappings());
-		for (RelationMapping mapping : mappingToCopy) {
-			mapping.setSource(null);
-			mapping.setTarget(null);
-			mapping.getMorphism().getMappings().remove(mapping);
-		}
-	}
 	//END - Neo4J/Cypher
 
-	@Override
-	public void removeRelationFromPreviousGraphs() {
-		if (getIncomingMapping() != null) {
-			Relation correspondingRelation = getIncomingMapping().getSource();
-			if (correspondingRelation != null) correspondingRelation.setGraph(null);
-//			getMappingFrom().setFrom(null);
-//			if(getMappingFrom().getMorphism() != null) {
-//				getMappingFrom().getMorphism().getMappings().remove(getMappingFrom());
-//				getMappingFrom().setTo(null);
-//			}
-		}
-	}
 
 	/**
 	 * <!-- begin-user-doc --> 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case GraphstructurePackage.RELATION__INCOMING_MAPPING:
-				if (incomingMapping != null)
-					msgs = ((InternalEObject)incomingMapping).eInverseRemove(this, PatternstructurePackage.RELATION_MAPPING__TARGET, RelationMapping.class, msgs);
-				return basicSetIncomingMapping((RelationMapping)otherEnd, msgs);
-			case GraphstructurePackage.RELATION__OUTGOING_MAPPINGS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOutgoingMappings()).basicAdd(otherEnd, msgs);
 			case GraphstructurePackage.RELATION__GRAPH:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -1360,10 +886,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case GraphstructurePackage.RELATION__INCOMING_MAPPING:
-				return basicSetIncomingMapping(null, msgs);
-			case GraphstructurePackage.RELATION__OUTGOING_MAPPINGS:
-				return ((InternalEList<?>)getOutgoingMappings()).basicRemove(otherEnd, msgs);
 			case GraphstructurePackage.RELATION__GRAPH:
 				return basicSetGraph(null, msgs);
 			case GraphstructurePackage.RELATION__SOURCE:
@@ -1395,11 +917,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GraphstructurePackage.RELATION__INCOMING_MAPPING:
-				if (resolve) return getIncomingMapping();
-				return basicGetIncomingMapping();
-			case GraphstructurePackage.RELATION__OUTGOING_MAPPINGS:
-				return getOutgoingMappings();
 			case GraphstructurePackage.RELATION__GRAPH:
 				return getGraph();
 			case GraphstructurePackage.RELATION__SOURCE:
@@ -1422,17 +939,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GraphstructurePackage.RELATION__INCOMING_MAPPING:
-				setIncomingMapping((RelationMapping)newValue);
-				return;
-			case GraphstructurePackage.RELATION__OUTGOING_MAPPINGS:
-				getOutgoingMappings().clear();
-				getOutgoingMappings().addAll((Collection<? extends RelationMapping>)newValue);
-				return;
 			case GraphstructurePackage.RELATION__GRAPH:
 				setGraph((Graph)newValue);
 				return;
@@ -1462,12 +971,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GraphstructurePackage.RELATION__INCOMING_MAPPING:
-				setIncomingMapping((RelationMapping)null);
-				return;
-			case GraphstructurePackage.RELATION__OUTGOING_MAPPINGS:
-				getOutgoingMappings().clear();
-				return;
 			case GraphstructurePackage.RELATION__GRAPH:
 				setGraph((Graph)null);
 				return;
@@ -1497,10 +1000,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GraphstructurePackage.RELATION__INCOMING_MAPPING:
-				return incomingMapping != null;
-			case GraphstructurePackage.RELATION__OUTGOING_MAPPINGS:
-				return outgoingMappings != null && !outgoingMappings.isEmpty();
 			case GraphstructurePackage.RELATION__GRAPH:
 				return getGraph() != null;
 			case GraphstructurePackage.RELATION__SOURCE:
@@ -1541,18 +1040,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case GraphstructurePackage.RELATION___GET_ORIGINAL_ID:
-				return getOriginalID();
-			case GraphstructurePackage.RELATION___GET_ORIGINAL_RELATION:
-				return getOriginalRelation();
 			case GraphstructurePackage.RELATION___SET_GRAPH_SIMPLE__GRAPH:
 				setGraphSimple((Graph)arguments.get(0));
-				return null;
-			case GraphstructurePackage.RELATION___REMOVE_RELATION_FROM_PREVIOUS_GRAPHS:
-				removeRelationFromPreviousGraphs();
-				return null;
-			case GraphstructurePackage.RELATION___REMOVE_MAPPINGS_TO_NEXT:
-				removeMappingsToNext();
 				return null;
 			case GraphstructurePackage.RELATION___ADAPT_AS_XML_ELEMENT_NAVIGATION:
 				try {
@@ -1629,23 +1118,22 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public String myToString() {
 		String res = this.getClass().getSimpleName(); // + " " + getName();
-		if (getInternalId() == getOriginalID())
+		if (getInternalId() == getInternalId())
 			res += " [" + getInternalId() + "]";
 		else
-			res += " [" + getInternalId() + " (" + getOriginalID() + ")]";
+			res += " [" + getInternalId() + " (" + getInternalId() + ")]";
 		if (getSource() != null) res += " from " + getSource().getInternalId();
 		if (getTarget() != null) res += " to " + getTarget().getInternalId();
 		return res;
 	}
 
 	@Override
-	public void removeParametersFromParameterList() {
-		
+	public void createParameters() {
 		
 	}
 
 	@Override
-	public void createParameters() {
+	public void removeParametersFromParameterList() {
 		
 	}
 

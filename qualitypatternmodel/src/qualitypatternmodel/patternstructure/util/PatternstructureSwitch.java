@@ -65,14 +65,6 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case PatternstructurePackage.RELATION_MAPPING: {
-				RelationMapping relationMapping = (RelationMapping)theEObject;
-				T result = caseRelationMapping(relationMapping);
-				if (result == null) result = caseMapping(relationMapping);
-				if (result == null) result = casePatternElement(relationMapping);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case PatternstructurePackage.QUANTIFIED_CONDITION: {
 				QuantifiedCondition quantifiedCondition = (QuantifiedCondition)theEObject;
 				T result = caseQuantifiedCondition(quantifiedCondition);
@@ -93,21 +85,6 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 				Morphism morphism = (Morphism)theEObject;
 				T result = caseMorphism(morphism);
 				if (result == null) result = casePatternElement(morphism);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case PatternstructurePackage.NODE_MAPPING: {
-				NodeMapping nodeMapping = (NodeMapping)theEObject;
-				T result = caseNodeMapping(nodeMapping);
-				if (result == null) result = caseMapping(nodeMapping);
-				if (result == null) result = casePatternElement(nodeMapping);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case PatternstructurePackage.MAPPING: {
-				Mapping mapping = (Mapping)theEObject;
-				T result = caseMapping(mapping);
-				if (result == null) result = casePatternElement(mapping);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -201,21 +178,6 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Relation Mapping</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Relation Mapping</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRelationMapping(RelationMapping object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Quantified Condition</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -257,36 +219,6 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMorphism(Morphism object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Node Mapping</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Node Mapping</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNodeMapping(NodeMapping object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Mapping</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Mapping</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseMapping(Mapping object) {
 		return null;
 	}
 

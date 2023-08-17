@@ -29,7 +29,7 @@ public abstract class NeoNodeTest implements INeoNodeTest {
 		Method m = obj.getMethod("setInternalId", int.class);
 		m.setAccessible(true);
 		m.invoke(node, id);
-		assumeTrue(((NodeImpl) node).getOriginalID() == id);
+		assumeTrue(((NodeImpl) node).getInternalId() == id);
 	}
 	
 	protected void initGetCypherVariableTest(NeoEdge edge, int id)
@@ -39,6 +39,6 @@ public abstract class NeoNodeTest implements INeoNodeTest {
 		Method m = obj.getMethod("setInternalId", int.class);
 		m.setAccessible(true);
 		m.invoke(edge, id);
-		assumeTrue(((RelationImpl) edge).getOriginalID() == id);
+		assumeTrue(((RelationImpl) edge).getInternalId() == id);
 	}
 }

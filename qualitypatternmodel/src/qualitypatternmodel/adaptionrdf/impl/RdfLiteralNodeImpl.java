@@ -46,7 +46,7 @@ public class RdfLiteralNodeImpl extends PrimitiveNodeImpl implements RdfLiteralN
 				}
 			}
 		}
-		return "?var" + getOriginalID();
+		return "?var" + getInternalId();
 	}
 
 	/**
@@ -71,11 +71,6 @@ public class RdfLiteralNodeImpl extends PrimitiveNodeImpl implements RdfLiteralN
 	}
 
 	@Override
-	public Node makeGenericRecursive() throws InvalidityException {
-		throw new InvalidityException("This node can not become generic!");
-	}
-
-	@Override
 	public void checkGeneric() throws InvalidityException {
 		throw new InvalidityException("This node can not become generic!");
 	}
@@ -83,11 +78,6 @@ public class RdfLiteralNodeImpl extends PrimitiveNodeImpl implements RdfLiteralN
 	@Override
 
 	public ComplexNode makeComplex() throws InvalidityException {
-		throw new InvalidityException("This node can not become generic!");
-	}
-
-	@Override
-	public ComplexNode makeComplexRecursive() throws InvalidityException {
 		throw new InvalidityException("This node can not become generic!");
 	}
 

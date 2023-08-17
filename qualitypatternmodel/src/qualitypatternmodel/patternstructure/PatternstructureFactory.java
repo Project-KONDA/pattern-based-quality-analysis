@@ -22,15 +22,6 @@ public interface PatternstructureFactory extends EFactory {
 	PatternstructureFactory eINSTANCE = qualitypatternmodel.patternstructure.impl.PatternstructureFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Relation Mapping</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Relation Mapping</em>'.
-	 * @generated
-	 */
-	RelationMapping createRelationMapping();
-
-	/**
 	 * Returns a new object of class '<em>Quantified Condition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -48,14 +39,6 @@ public interface PatternstructureFactory extends EFactory {
 	 */
 	Morphism createMorphism();
 
-	/**
-	 * Returns a new object of class '<em>Node Mapping</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Node Mapping</em>'.
-	 * @generated
-	 */
-	NodeMapping createNodeMapping();
 
 	/**
 	 * Returns a new object of class '<em>Formula</em>'.

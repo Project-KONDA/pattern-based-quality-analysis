@@ -81,8 +81,8 @@ public class XmlRootImpl extends ComplexNodeImpl implements XmlRoot {
 	@Override
 	public String getName() {
 		if(name == null || name.equals("")) {
-			if(getOriginalID() > -1) {
-				name = "XmlRoot " + getOriginalID();
+			if(getInternalId() > -1) {
+				name = "XmlRoot " + getInternalId();
 				return name;
 			}
 		}
@@ -110,11 +110,6 @@ public class XmlRootImpl extends ComplexNodeImpl implements XmlRoot {
 	}
 	
 	@Override
-	public Node makeGenericRecursive() throws InvalidityException{
-		throw new InvalidityException("This node can not become generic!");
-	}
-	
-	@Override
 	public void checkGeneric() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
@@ -124,12 +119,7 @@ public class XmlRootImpl extends ComplexNodeImpl implements XmlRoot {
 	public ComplexNode makeComplex() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
-	
-	@Override
-	public ComplexNode makeComplexRecursive() throws InvalidityException{
-		throw new InvalidityException("This node can not become generic!");
-	}
-	
+		
 	@Override
 	public void checkComplex() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
@@ -139,12 +129,7 @@ public class XmlRootImpl extends ComplexNodeImpl implements XmlRoot {
 	public PrimitiveNode makePrimitive() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
-	
-	@Override
-	public PrimitiveNode makePrimitiveRecursive() throws InvalidityException{
-		throw new InvalidityException("This node can not become generic!");
-	}
-	
+		
 	@Override
 	public void checkPrimitive() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");

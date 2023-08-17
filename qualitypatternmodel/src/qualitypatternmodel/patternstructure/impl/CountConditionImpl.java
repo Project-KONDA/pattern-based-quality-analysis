@@ -119,9 +119,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			String comp = getOption().getValue().getLiteral();
 			String selects = "";			
 			for(Node n : getCountPattern().getGraph().getNodes()) {
-				if(n.getIncomingMapping() != null) {
-					selects += "\n  ?var" + n.getOriginalID();
-				}
+				selects += "\n  ?var" + n.getInternalId();
 			}
 			String query = "\n{SELECT";;
 			query += selects;

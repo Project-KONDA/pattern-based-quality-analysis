@@ -64,7 +64,7 @@ public abstract class NeoEdgeTest implements INeoEdgeTest {
 	protected void initGetCypherVariableTest(NeoEdge edge, int id)
 			throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
 		this.internalId.set(edge, id);
-		assumeTrue( ((RelationImpl)edge).getOriginalID() == id);
+		assumeTrue( ((RelationImpl)edge).getInternalId() == id);
 	}
 	
 	protected NeoSimpleEdgeImpl prepaireMockObjNeoSimpleEdge(int number) throws InvalidityException {

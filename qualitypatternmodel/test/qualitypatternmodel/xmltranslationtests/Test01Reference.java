@@ -48,9 +48,10 @@ public class Test01Reference {
 		
 		completePattern.setCondition(qc);
 //		Graph g = qc.getGraph();
-		
+		System.out.println(completePattern.myToString());
 		
 		completePattern.createXmlAdaption();
+		System.out.println(completePattern.myToString());
 		return completePattern;
 	}
 

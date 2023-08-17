@@ -39,7 +39,6 @@ import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.LogicalOperator;
-import qualitypatternmodel.patternstructure.Mapping;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.NumberElement;
@@ -50,8 +49,6 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
-import qualitypatternmodel.patternstructure.RelationMapping;
-import qualitypatternmodel.patternstructure.NodeMapping;
 import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.patternstructure.util.PatternstructureValidator;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
@@ -64,13 +61,6 @@ import qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl
  * @generated
  */
 public class PatternstructurePackageImpl extends EPackageImpl implements PatternstructurePackage {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass relationMappingEClass = null;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -91,20 +81,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	private EClass morphismEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass nodeMappingEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass mappingEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -343,36 +319,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EClass getRelationMapping() {
-		return relationMappingEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getRelationMapping_Target() {
-		return (EReference)relationMappingEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getRelationMapping_Source() {
-		return (EReference)relationMappingEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getQuantifiedCondition() {
 		return quantifiedConditionEClass;
 	}
@@ -513,7 +459,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EReference getMorphism_Mappings() {
+	public EReference getMorphism_Source() {
 		return (EReference)morphismEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -523,7 +469,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EReference getMorphism_Source() {
+	public EReference getMorphism_Target() {
 		return (EReference)morphismEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -533,138 +479,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EReference getMorphism_Target() {
-		return (EReference)morphismEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getMorphism_MorphismContainer() {
-		return (EReference)morphismEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getMorphism__CheckElementMappings() {
-		return morphismEClass.getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getMorphism__CheckRelationMappings() {
-		return morphismEClass.getEOperations().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getMorphism__CheckRelationMappingsUniqueness() {
-		return morphismEClass.getEOperations().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getNodeMapping() {
-		return nodeMappingEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getNodeMapping_Source() {
-		return (EReference)nodeMappingEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getNodeMapping_Target() {
-		return (EReference)nodeMappingEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getMorphism__CheckElementMappingsUniqueness() {
-		return morphismEClass.getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getMorphism__AddMapping__Node_Node() {
-		return morphismEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getMorphism__AddMapping__Relation_Relation() {
-		return morphismEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getMorphism__RemoveInconsistentMappings() {
-		return morphismEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getMapping() {
-		return mappingEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getMapping_Morphism() {
-		return (EReference)mappingEClass.getEStructuralFeatures().get(0);
+		return (EReference)morphismEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1546,10 +1362,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		isCreated = true;
 
 		// Create classes and their features
-		relationMappingEClass = createEClass(RELATION_MAPPING);
-		createEReference(relationMappingEClass, RELATION_MAPPING__TARGET);
-		createEReference(relationMappingEClass, RELATION_MAPPING__SOURCE);
-
 		quantifiedConditionEClass = createEClass(QUANTIFIED_CONDITION);
 		createEAttribute(quantifiedConditionEClass, QUANTIFIED_CONDITION__QUANTIFIER);
 		createEReference(quantifiedConditionEClass, QUANTIFIED_CONDITION__GRAPH);
@@ -1566,24 +1378,9 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEOperation(conditionEClass, CONDITION___IS_IN_RDF_FILTER);
 
 		morphismEClass = createEClass(MORPHISM);
-		createEReference(morphismEClass, MORPHISM__MAPPINGS);
 		createEReference(morphismEClass, MORPHISM__SOURCE);
 		createEReference(morphismEClass, MORPHISM__TARGET);
 		createEReference(morphismEClass, MORPHISM__MORPHISM_CONTAINER);
-		createEOperation(morphismEClass, MORPHISM___ADD_MAPPING__NODE_NODE);
-		createEOperation(morphismEClass, MORPHISM___ADD_MAPPING__RELATION_RELATION);
-		createEOperation(morphismEClass, MORPHISM___REMOVE_INCONSISTENT_MAPPINGS);
-		createEOperation(morphismEClass, MORPHISM___CHECK_ELEMENT_MAPPINGS);
-		createEOperation(morphismEClass, MORPHISM___CHECK_ELEMENT_MAPPINGS_UNIQUENESS);
-		createEOperation(morphismEClass, MORPHISM___CHECK_RELATION_MAPPINGS);
-		createEOperation(morphismEClass, MORPHISM___CHECK_RELATION_MAPPINGS_UNIQUENESS);
-
-		nodeMappingEClass = createEClass(NODE_MAPPING);
-		createEReference(nodeMappingEClass, NODE_MAPPING__SOURCE);
-		createEReference(nodeMappingEClass, NODE_MAPPING__TARGET);
-
-		mappingEClass = createEClass(MAPPING);
-		createEReference(mappingEClass, MAPPING__MORPHISM);
 
 		formulaEClass = createEClass(FORMULA);
 		createEAttribute(formulaEClass, FORMULA__OPERATOR);
@@ -1721,13 +1518,10 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		relationMappingEClass.getESuperTypes().add(this.getMapping());
 		quantifiedConditionEClass.getESuperTypes().add(this.getCondition());
 		quantifiedConditionEClass.getESuperTypes().add(this.getMorphismContainer());
 		conditionEClass.getESuperTypes().add(this.getPatternElement());
 		morphismEClass.getESuperTypes().add(this.getPatternElement());
-		nodeMappingEClass.getESuperTypes().add(this.getMapping());
-		mappingEClass.getESuperTypes().add(this.getPatternElement());
 		formulaEClass.getESuperTypes().add(this.getCondition());
 		trueElementEClass.getESuperTypes().add(this.getCondition());
 		completePatternEClass.getESuperTypes().add(this.getPattern());
@@ -1742,10 +1536,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		numberElementEClass.getESuperTypes().add(this.getCountConditionArgument());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(relationMappingEClass, RelationMapping.class, "RelationMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRelationMapping_Target(), theGraphstructurePackage.getRelation(), theGraphstructurePackage.getRelation_IncomingMapping(), "target", null, 1, 1, RelationMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRelationMapping_Source(), theGraphstructurePackage.getRelation(), theGraphstructurePackage.getRelation_OutgoingMappings(), "source", null, 1, 1, RelationMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(quantifiedConditionEClass, QuantifiedCondition.class, "QuantifiedCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getQuantifiedCondition_Quantifier(), this.getQuantifier(), "quantifier", null, 0, 1, QuantifiedCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getQuantifiedCondition_Graph(), theGraphstructurePackage.getGraph(), theGraphstructurePackage.getGraph_QuantifiedCondition(), "graph", null, 1, 1, QuantifiedCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1767,39 +1557,9 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEOperation(getCondition__IsInRdfFilter(), ecorePackage.getEBoolean(), "isInRdfFilter", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(morphismEClass, Morphism.class, "Morphism", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMorphism_Mappings(), this.getMapping(), this.getMapping_Morphism(), "mappings", null, 0, -1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMorphism_Source(), theGraphstructurePackage.getGraph(), theGraphstructurePackage.getGraph_OutgoingMorphisms(), "source", null, 1, 1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMorphism_Target(), theGraphstructurePackage.getGraph(), theGraphstructurePackage.getGraph_IncomingMorphism(), "target", null, 1, 1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMorphism_MorphismContainer(), this.getMorphismContainer(), this.getMorphismContainer_Morphism(), "morphismContainer", null, 0, 1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getMorphism__AddMapping__Node_Node(), this.getNodeMapping(), "addMapping", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theGraphstructurePackage.getNode(), "from", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theGraphstructurePackage.getNode(), "to", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getMorphism__AddMapping__Relation_Relation(), this.getRelationMapping(), "addMapping", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theGraphstructurePackage.getRelation(), "from", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theGraphstructurePackage.getRelation(), "to", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getMorphism__RemoveInconsistentMappings(), null, "removeInconsistentMappings", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getMorphism__CheckElementMappings(), null, "checkElementMappings", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getInvalidityExceptionWrapper());
-
-		op = initEOperation(getMorphism__CheckElementMappingsUniqueness(), null, "checkElementMappingsUniqueness", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getInvalidityExceptionWrapper());
-
-		op = initEOperation(getMorphism__CheckRelationMappings(), null, "checkRelationMappings", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getInvalidityExceptionWrapper());
-
-		op = initEOperation(getMorphism__CheckRelationMappingsUniqueness(), null, "checkRelationMappingsUniqueness", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getInvalidityExceptionWrapper());
-
-		initEClass(nodeMappingEClass, NodeMapping.class, "NodeMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNodeMapping_Source(), theGraphstructurePackage.getNode(), theGraphstructurePackage.getNode_OutgoingMappings(), "source", null, 1, 1, NodeMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNodeMapping_Target(), theGraphstructurePackage.getNode(), theGraphstructurePackage.getNode_IncomingMapping(), "target", null, 1, 1, NodeMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(mappingEClass, Mapping.class, "Mapping", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMapping_Morphism(), this.getMorphism(), this.getMorphism_Mappings(), "morphism", null, 1, 1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(formulaEClass, Formula.class, "Formula", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFormula_Operator(), this.getLogicalOperator(), "operator", null, 1, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

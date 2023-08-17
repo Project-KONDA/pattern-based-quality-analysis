@@ -43,8 +43,8 @@ public class XmlElementNavigationImpl extends XmlNavigationImpl implements XmlEl
 	@Override
 	public String getName() {
 		if(name == null || name.equals("")) {
-			if(getOriginalID() > -1) {
-				name = "XmlElementNavigation " + getOriginalID();
+			if(getInternalId() > -1) {
+				name = "XmlElementNavigation " + getInternalId();
 				return name;
 			}
 		}

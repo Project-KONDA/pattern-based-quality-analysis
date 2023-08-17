@@ -67,7 +67,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getPatternElement()
 	 * @generated
 	 */
-	int PATTERN_ELEMENT = 9;
+	int PATTERN_ELEMENT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -313,548 +313,6 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT_OPERATION_COUNT = 23;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.MappingImpl <em>Mapping</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.impl.MappingImpl
-	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getMapping()
-	 * @generated
-	 */
-	int MAPPING = 5;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING__ID = PATTERN_ELEMENT__ID;
-
-	/**
-	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING__INTERNAL_ID = PATTERN_ELEMENT__INTERNAL_ID;
-
-	/**
-	 * The feature id for the '<em><b>Morphism</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING__MORPHISM = PATTERN_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Mapping</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___IS_VALID__ABSTRACTIONLEVEL = PATTERN_ELEMENT___IS_VALID__ABSTRACTIONLEVEL;
-
-	/**
-	 * The operation id for the '<em>Is Valid Local</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PATTERN_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
-
-	/**
-	 * The operation id for the '<em>My To String</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___MY_TO_STRING = PATTERN_ELEMENT___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___GENERATE_CYPHER = PATTERN_ELEMENT___GENERATE_CYPHER;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___GENERATE_XQUERY = PATTERN_ELEMENT___GENERATE_XQUERY;
-
-	/**
-	 * The operation id for the '<em>Generate Sparql</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___GENERATE_SPARQL = PATTERN_ELEMENT___GENERATE_SPARQL;
-
-	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___GET_CONTAINER = PATTERN_ELEMENT___GET_CONTAINER;
-
-	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___GET_ANCESTOR__CLASS = PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
-
-	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___INITIALIZE_TRANSLATION = PATTERN_ELEMENT___INITIALIZE_TRANSLATION;
-
-	/**
-	 * The operation id for the '<em>Prepare Translation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___PREPARE_TRANSLATION = PATTERN_ELEMENT___PREPARE_TRANSLATION;
-
-	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___GET_OPERATOR_LIST = PATTERN_ELEMENT___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___GET_PARAMETER_LIST = PATTERN_ELEMENT___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___GET_ALL_PARAMETERS = PATTERN_ELEMENT___GET_ALL_PARAMETERS;
-
-	/**
-	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___PREPARE_PARAMETER_UPDATES = PATTERN_ELEMENT___PREPARE_PARAMETER_UPDATES;
-
-	/**
-	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
-
-	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___UPDATE_PARAMETERS__PARAMETERLIST = PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
-
-	/**
-	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
-
-	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___RECORD_VALUES__XMLDATADATABASE = PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___RELATIONS_XML_ADAPTED = PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
-
-	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___CREATE_XML_ADAPTION = PATTERN_ELEMENT___CREATE_XML_ADAPTION;
-
-	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___CREATE_RDF_ADAPTION = PATTERN_ELEMENT___CREATE_RDF_ADAPTION;
-
-	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___CREATE_NEO4J_ADAPTION = PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
-
-	/**
-	 * The number of operations of the '<em>Mapping</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.RelationMappingImpl <em>Relation Mapping</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.impl.RelationMappingImpl
-	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getRelationMapping()
-	 * @generated
-	 */
-	int RELATION_MAPPING = 0;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING__ID = MAPPING__ID;
-
-	/**
-	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING__INTERNAL_ID = MAPPING__INTERNAL_ID;
-
-	/**
-	 * The feature id for the '<em><b>Morphism</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING__MORPHISM = MAPPING__MORPHISM;
-
-	/**
-	 * The feature id for the '<em><b>Target</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING__TARGET = MAPPING_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING__SOURCE = MAPPING_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Relation Mapping</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING_FEATURE_COUNT = MAPPING_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP = MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___IS_VALID__ABSTRACTIONLEVEL = MAPPING___IS_VALID__ABSTRACTIONLEVEL;
-
-	/**
-	 * The operation id for the '<em>Is Valid Local</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___IS_VALID_LOCAL__ABSTRACTIONLEVEL = MAPPING___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
-
-	/**
-	 * The operation id for the '<em>My To String</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___MY_TO_STRING = MAPPING___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___GENERATE_CYPHER = MAPPING___GENERATE_CYPHER;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___GENERATE_XQUERY = MAPPING___GENERATE_XQUERY;
-
-	/**
-	 * The operation id for the '<em>Generate Sparql</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___GENERATE_SPARQL = MAPPING___GENERATE_SPARQL;
-
-	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___GET_CONTAINER = MAPPING___GET_CONTAINER;
-
-	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___GET_ANCESTOR__CLASS = MAPPING___GET_ANCESTOR__CLASS;
-
-	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___INITIALIZE_TRANSLATION = MAPPING___INITIALIZE_TRANSLATION;
-
-	/**
-	 * The operation id for the '<em>Prepare Translation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___PREPARE_TRANSLATION = MAPPING___PREPARE_TRANSLATION;
-
-	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___GET_OPERATOR_LIST = MAPPING___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___GET_PARAMETER_LIST = MAPPING___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___GET_ALL_PARAMETERS = MAPPING___GET_ALL_PARAMETERS;
-
-	/**
-	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___PREPARE_PARAMETER_UPDATES = MAPPING___PREPARE_PARAMETER_UPDATES;
-
-	/**
-	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = MAPPING___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
-
-	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___UPDATE_PARAMETERS__PARAMETERLIST = MAPPING___UPDATE_PARAMETERS__PARAMETERLIST;
-
-	/**
-	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = MAPPING___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
-
-	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___RECORD_VALUES__XMLDATADATABASE = MAPPING___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___RELATIONS_XML_ADAPTED = MAPPING___RELATIONS_XML_ADAPTED;
-
-	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___CREATE_XML_ADAPTION = MAPPING___CREATE_XML_ADAPTION;
-
-	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___CREATE_RDF_ADAPTION = MAPPING___CREATE_RDF_ADAPTION;
-
-	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___CREATE_NEO4J_ADAPTION = MAPPING___CREATE_NEO4J_ADAPTION;
-
-	/**
-	 * The number of operations of the '<em>Relation Mapping</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING_OPERATION_COUNT = MAPPING_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.ConditionImpl <em>Condition</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -862,7 +320,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getCondition()
 	 * @generated
 	 */
-	int CONDITION = 2;
+	int CONDITION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1178,7 +636,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getQuantifiedCondition()
 	 * @generated
 	 */
-	int QUANTIFIED_CONDITION = 1;
+	int QUANTIFIED_CONDITION = 0;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1557,7 +1015,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getMorphism()
 	 * @generated
 	 */
-	int MORPHISM = 3;
+	int MORPHISM = 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1578,22 +1036,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM__INTERNAL_ID = PATTERN_ELEMENT__INTERNAL_ID;
 
 	/**
-	 * The feature id for the '<em><b>Mappings</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM__MAPPINGS = PATTERN_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM__SOURCE = PATTERN_ELEMENT_FEATURE_COUNT + 1;
+	int MORPHISM__SOURCE = PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -1602,7 +1051,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM__TARGET = PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int MORPHISM__TARGET = PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Morphism Container</b></em>' container reference.
@@ -1611,7 +1060,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM__MORPHISM_CONTAINER = PATTERN_ELEMENT_FEATURE_COUNT + 3;
+	int MORPHISM__MORPHISM_CONTAINER = PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Morphism</em>' class.
@@ -1620,7 +1069,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 4;
+	int MORPHISM_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1830,356 +1279,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM___CREATE_NEO4J_ADAPTION = PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Add Mapping</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM___ADD_MAPPING__NODE_NODE = PATTERN_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Add Mapping</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM___ADD_MAPPING__RELATION_RELATION = PATTERN_ELEMENT_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Remove Inconsistent Mappings</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM___REMOVE_INCONSISTENT_MAPPINGS = PATTERN_ELEMENT_OPERATION_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Check Element Mappings</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM___CHECK_ELEMENT_MAPPINGS = PATTERN_ELEMENT_OPERATION_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Check Element Mappings Uniqueness</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM___CHECK_ELEMENT_MAPPINGS_UNIQUENESS = PATTERN_ELEMENT_OPERATION_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Check Relation Mappings</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM___CHECK_RELATION_MAPPINGS = PATTERN_ELEMENT_OPERATION_COUNT + 5;
-
-	/**
-	 * The operation id for the '<em>Check Relation Mappings Uniqueness</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM___CHECK_RELATION_MAPPINGS_UNIQUENESS = PATTERN_ELEMENT_OPERATION_COUNT + 6;
-
-	/**
 	 * The number of operations of the '<em>Morphism</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 7;
-
-	/**
-	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.NodeMappingImpl <em>Node Mapping</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.impl.NodeMappingImpl
-	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getNodeMapping()
-	 * @generated
-	 */
-	int NODE_MAPPING = 4;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING__ID = MAPPING__ID;
-
-	/**
-	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING__INTERNAL_ID = MAPPING__INTERNAL_ID;
-
-	/**
-	 * The feature id for the '<em><b>Morphism</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING__MORPHISM = MAPPING__MORPHISM;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING__SOURCE = MAPPING_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Target</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING__TARGET = MAPPING_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Node Mapping</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING_FEATURE_COUNT = MAPPING_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP = MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING___IS_VALID__ABSTRACTIONLEVEL = MAPPING___IS_VALID__ABSTRACTIONLEVEL;
-
-	/**
-	 * The operation id for the '<em>Is Valid Local</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING___IS_VALID_LOCAL__ABSTRACTIONLEVEL = MAPPING___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
-
-	/**
-	 * The operation id for the '<em>My To String</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING___MY_TO_STRING = MAPPING___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING___GENERATE_CYPHER = MAPPING___GENERATE_CYPHER;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING___GENERATE_XQUERY = MAPPING___GENERATE_XQUERY;
-
-	/**
-	 * The operation id for the '<em>Generate Sparql</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING___GENERATE_SPARQL = MAPPING___GENERATE_SPARQL;
-
-	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING___GET_CONTAINER = MAPPING___GET_CONTAINER;
-
-	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING___GET_ANCESTOR__CLASS = MAPPING___GET_ANCESTOR__CLASS;
-
-	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING___INITIALIZE_TRANSLATION = MAPPING___INITIALIZE_TRANSLATION;
-
-	/**
-	 * The operation id for the '<em>Prepare Translation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING___PREPARE_TRANSLATION = MAPPING___PREPARE_TRANSLATION;
-
-	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING___GET_OPERATOR_LIST = MAPPING___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING___GET_PARAMETER_LIST = MAPPING___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING___GET_ALL_PARAMETERS = MAPPING___GET_ALL_PARAMETERS;
-
-	/**
-	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING___PREPARE_PARAMETER_UPDATES = MAPPING___PREPARE_PARAMETER_UPDATES;
-
-	/**
-	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = MAPPING___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
-
-	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING___UPDATE_PARAMETERS__PARAMETERLIST = MAPPING___UPDATE_PARAMETERS__PARAMETERLIST;
-
-	/**
-	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = MAPPING___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
-
-	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING___RECORD_VALUES__XMLDATADATABASE = MAPPING___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING___RELATIONS_XML_ADAPTED = MAPPING___RELATIONS_XML_ADAPTED;
-
-	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING___CREATE_XML_ADAPTION = MAPPING___CREATE_XML_ADAPTION;
-
-	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING___CREATE_RDF_ADAPTION = MAPPING___CREATE_RDF_ADAPTION;
-
-	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING___CREATE_NEO4J_ADAPTION = MAPPING___CREATE_NEO4J_ADAPTION;
-
-	/**
-	 * The number of operations of the '<em>Node Mapping</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_MAPPING_OPERATION_COUNT = MAPPING_OPERATION_COUNT + 0;
+	int MORPHISM_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.FormulaImpl <em>Formula</em>}' class.
@@ -2189,7 +1295,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getFormula()
 	 * @generated
 	 */
-	int FORMULA = 6;
+	int FORMULA = 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2541,7 +1647,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getTrueElement()
 	 * @generated
 	 */
-	int TRUE_ELEMENT = 7;
+	int TRUE_ELEMENT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2857,7 +1963,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getPattern()
 	 * @generated
 	 */
-	int PATTERN = 15;
+	int PATTERN = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3155,7 +2261,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getCompletePattern()
 	 * @generated
 	 */
-	int COMPLETE_PATTERN = 8;
+	int COMPLETE_PATTERN = 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3624,7 +2730,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getNotCondition()
 	 * @generated
 	 */
-	int NOT_CONDITION = 10;
+	int NOT_CONDITION = 7;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3958,7 +3064,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getCountCondition()
 	 * @generated
 	 */
-	int COUNT_CONDITION = 11;
+	int COUNT_CONDITION = 8;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4319,7 +3425,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getCountConditionArgument()
 	 * @generated
 	 */
-	int COUNT_CONDITION_ARGUMENT = 12;
+	int COUNT_CONDITION_ARGUMENT = 9;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4581,7 +3687,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getMorphismContainer()
 	 * @generated
 	 */
-	int MORPHISM_CONTAINER = 13;
+	int MORPHISM_CONTAINER = 10;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4861,7 +3967,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getCountPattern()
 	 * @generated
 	 */
-	int COUNT_PATTERN = 14;
+	int COUNT_PATTERN = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -5204,7 +4310,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getNumberElement()
 	 * @generated
 	 */
-	int NUMBER_ELEMENT = 16;
+	int NUMBER_ELEMENT = 13;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -5484,7 +4590,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getLogicalOperator()
 	 * @generated
 	 */
-	int LOGICAL_OPERATOR = 17;
+	int LOGICAL_OPERATOR = 14;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.Quantifier <em>Quantifier</em>}' enum.
@@ -5494,7 +4600,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getQuantifier()
 	 * @generated
 	 */
-	int QUANTIFIER = 18;
+	int QUANTIFIER = 15;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.AbstractionLevel <em>Abstraction Level</em>}' enum.
@@ -5504,7 +4610,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getAbstractionLevel()
 	 * @generated
 	 */
-	int ABSTRACTION_LEVEL = 19;
+	int ABSTRACTION_LEVEL = 16;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.Language <em>Language</em>}' enum.
@@ -5514,7 +4620,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getLanguage()
 	 * @generated
 	 */
-	int LANGUAGE = 20;
+	int LANGUAGE = 17;
 
 	/**
 	 * The meta object id for the '<em>Invalidity Exception Wrapper</em>' data type.
@@ -5524,7 +4630,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getInvalidityExceptionWrapper()
 	 * @generated
 	 */
-	int INVALIDITY_EXCEPTION_WRAPPER = 21;
+	int INVALIDITY_EXCEPTION_WRAPPER = 18;
 
 	/**
 	 * The meta object id for the '<em>Class Wrapper</em>' data type.
@@ -5534,7 +4640,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getClassWrapper()
 	 * @generated
 	 */
-	int CLASS_WRAPPER = 22;
+	int CLASS_WRAPPER = 19;
 
 	/**
 	 * The meta object id for the '<em>Missing Pattern Container Exception</em>' data type.
@@ -5544,39 +4650,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getMissingPatternContainerException()
 	 * @generated
 	 */
-	int MISSING_PATTERN_CONTAINER_EXCEPTION = 23;
-
-	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.RelationMapping <em>Relation Mapping</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Relation Mapping</em>'.
-	 * @see qualitypatternmodel.patternstructure.RelationMapping
-	 * @generated
-	 */
-	EClass getRelationMapping();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.RelationMapping#getTarget <em>Target</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Target</em>'.
-	 * @see qualitypatternmodel.patternstructure.RelationMapping#getTarget()
-	 * @see #getRelationMapping()
-	 * @generated
-	 */
-	EReference getRelationMapping_Target();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.RelationMapping#getSource <em>Source</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Source</em>'.
-	 * @see qualitypatternmodel.patternstructure.RelationMapping#getSource()
-	 * @see #getRelationMapping()
-	 * @generated
-	 */
-	EReference getRelationMapping_Source();
+	int MISSING_PATTERN_CONTAINER_EXCEPTION = 20;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.QuantifiedCondition <em>Quantified Condition</em>}'.
@@ -5727,17 +4801,6 @@ public interface PatternstructurePackage extends EPackage {
 	EClass getMorphism();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.patternstructure.Morphism#getMappings <em>Mappings</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Mappings</em>'.
-	 * @see qualitypatternmodel.patternstructure.Morphism#getMappings()
-	 * @see #getMorphism()
-	 * @generated
-	 */
-	EReference getMorphism_Mappings();
-
-	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.Morphism#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5769,129 +4832,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getMorphism_MorphismContainer();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Morphism#checkElementMappings() <em>Check Element Mappings</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Check Element Mappings</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.Morphism#checkElementMappings()
-	 * @generated
-	 */
-	EOperation getMorphism__CheckElementMappings();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Morphism#checkRelationMappings() <em>Check Relation Mappings</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Check Relation Mappings</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.Morphism#checkRelationMappings()
-	 * @generated
-	 */
-	EOperation getMorphism__CheckRelationMappings();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Morphism#checkRelationMappingsUniqueness() <em>Check Relation Mappings Uniqueness</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Check Relation Mappings Uniqueness</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.Morphism#checkRelationMappingsUniqueness()
-	 * @generated
-	 */
-	EOperation getMorphism__CheckRelationMappingsUniqueness();
-
-	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.NodeMapping <em>Node Mapping</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Node Mapping</em>'.
-	 * @see qualitypatternmodel.patternstructure.NodeMapping
-	 * @generated
-	 */
-	EClass getNodeMapping();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.NodeMapping#getSource <em>Source</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Source</em>'.
-	 * @see qualitypatternmodel.patternstructure.NodeMapping#getSource()
-	 * @see #getNodeMapping()
-	 * @generated
-	 */
-	EReference getNodeMapping_Source();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.NodeMapping#getTarget <em>Target</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Target</em>'.
-	 * @see qualitypatternmodel.patternstructure.NodeMapping#getTarget()
-	 * @see #getNodeMapping()
-	 * @generated
-	 */
-	EReference getNodeMapping_Target();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Morphism#checkElementMappingsUniqueness() <em>Check Element Mappings Uniqueness</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Check Element Mappings Uniqueness</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.Morphism#checkElementMappingsUniqueness()
-	 * @generated
-	 */
-	EOperation getMorphism__CheckElementMappingsUniqueness();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Node, qualitypatternmodel.graphstructure.Node) <em>Add Mapping</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Mapping</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Node, qualitypatternmodel.graphstructure.Node)
-	 * @generated
-	 */
-	EOperation getMorphism__AddMapping__Node_Node();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Relation, qualitypatternmodel.graphstructure.Relation) <em>Add Mapping</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Mapping</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Relation, qualitypatternmodel.graphstructure.Relation)
-	 * @generated
-	 */
-	EOperation getMorphism__AddMapping__Relation_Relation();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Morphism#removeInconsistentMappings() <em>Remove Inconsistent Mappings</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Remove Inconsistent Mappings</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.Morphism#removeInconsistentMappings()
-	 * @generated
-	 */
-	EOperation getMorphism__RemoveInconsistentMappings();
-
-	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.Mapping <em>Mapping</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Mapping</em>'.
-	 * @see qualitypatternmodel.patternstructure.Mapping
-	 * @generated
-	 */
-	EClass getMapping();
-
-	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Mapping#getMorphism <em>Morphism</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Morphism</em>'.
-	 * @see qualitypatternmodel.patternstructure.Mapping#getMorphism()
-	 * @see #getMapping()
-	 * @generated
-	 */
-	EReference getMapping_Morphism();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.Formula <em>Formula</em>}'.
@@ -6800,32 +5740,6 @@ public interface PatternstructurePackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.RelationMappingImpl <em>Relation Mapping</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.patternstructure.impl.RelationMappingImpl
-		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getRelationMapping()
-		 * @generated
-		 */
-		EClass RELATION_MAPPING = eINSTANCE.getRelationMapping();
-
-		/**
-		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RELATION_MAPPING__TARGET = eINSTANCE.getRelationMapping_Target();
-
-		/**
-		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RELATION_MAPPING__SOURCE = eINSTANCE.getRelationMapping_Source();
-
-		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl <em>Quantified Condition</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6944,14 +5858,6 @@ public interface PatternstructurePackage extends EPackage {
 		EClass MORPHISM = eINSTANCE.getMorphism();
 
 		/**
-		 * The meta object literal for the '<em><b>Mappings</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MORPHISM__MAPPINGS = eINSTANCE.getMorphism_Mappings();
-
-		/**
 		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6974,106 +5880,6 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference MORPHISM__MORPHISM_CONTAINER = eINSTANCE.getMorphism_MorphismContainer();
-
-		/**
-		 * The meta object literal for the '<em><b>Check Element Mappings</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation MORPHISM___CHECK_ELEMENT_MAPPINGS = eINSTANCE.getMorphism__CheckElementMappings();
-
-		/**
-		 * The meta object literal for the '<em><b>Check Relation Mappings</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation MORPHISM___CHECK_RELATION_MAPPINGS = eINSTANCE.getMorphism__CheckRelationMappings();
-
-		/**
-		 * The meta object literal for the '<em><b>Check Relation Mappings Uniqueness</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation MORPHISM___CHECK_RELATION_MAPPINGS_UNIQUENESS = eINSTANCE.getMorphism__CheckRelationMappingsUniqueness();
-
-		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.NodeMappingImpl <em>Node Mapping</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.patternstructure.impl.NodeMappingImpl
-		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getNodeMapping()
-		 * @generated
-		 */
-		EClass NODE_MAPPING = eINSTANCE.getNodeMapping();
-
-		/**
-		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NODE_MAPPING__SOURCE = eINSTANCE.getNodeMapping_Source();
-
-		/**
-		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NODE_MAPPING__TARGET = eINSTANCE.getNodeMapping_Target();
-
-		/**
-		 * The meta object literal for the '<em><b>Check Element Mappings Uniqueness</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation MORPHISM___CHECK_ELEMENT_MAPPINGS_UNIQUENESS = eINSTANCE.getMorphism__CheckElementMappingsUniqueness();
-
-		/**
-		 * The meta object literal for the '<em><b>Add Mapping</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation MORPHISM___ADD_MAPPING__NODE_NODE = eINSTANCE.getMorphism__AddMapping__Node_Node();
-
-		/**
-		 * The meta object literal for the '<em><b>Add Mapping</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation MORPHISM___ADD_MAPPING__RELATION_RELATION = eINSTANCE.getMorphism__AddMapping__Relation_Relation();
-
-		/**
-		 * The meta object literal for the '<em><b>Remove Inconsistent Mappings</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation MORPHISM___REMOVE_INCONSISTENT_MAPPINGS = eINSTANCE.getMorphism__RemoveInconsistentMappings();
-
-		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.MappingImpl <em>Mapping</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.patternstructure.impl.MappingImpl
-		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getMapping()
-		 * @generated
-		 */
-		EClass MAPPING = eINSTANCE.getMapping();
-
-		/**
-		 * The meta object literal for the '<em><b>Morphism</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MAPPING__MORPHISM = eINSTANCE.getMapping_Morphism();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.FormulaImpl <em>Formula</em>}' class.

@@ -310,13 +310,9 @@
   </eSubpackages>
   <eSubpackages name="graphstructure" nsURI="graphstructure" nsPrefix="graphstructure">
     <eClassifiers xsi:type="ecore:EClass" name="Relation" eSuperTypes="#//patternstructure/PatternElement #//graphstructure/Adaptable">
-      <eOperations name="getOriginalID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eOperations name="getOriginalRelation" eType="#//graphstructure/Relation"/>
       <eOperations name="setGraphSimple">
         <eParameters name="newGraph" eType="#//graphstructure/Graph"/>
       </eOperations>
-      <eOperations name="removeRelationFromPreviousGraphs"/>
-      <eOperations name="removeMappingsToNext"/>
       <eOperations name="adaptAsXmlElementNavigation" eType="#//adaptionxml/XmlElementNavigation"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="adaptAsXmlPropertyNavigation" eType="#//adaptionxml/XmlPropertyNavigation"
@@ -329,10 +325,6 @@
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="adaptAsPropertyEdge" eType="#//adaptionneo4j/NeoPropertyEdge"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMapping" eType="#//patternstructure/RelationMapping"
-          eOpposite="#//patternstructure/RelationMapping/target"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMappings" upperBound="-1"
-          eType="#//patternstructure/RelationMapping" eOpposite="#//patternstructure/RelationMapping/source"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1"
           eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/relations"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//graphstructure/ComplexNode"
@@ -359,9 +351,6 @@
           eType="#//operators/StringLength" eOpposite="#//operators/StringLength/primitiveNode"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Node" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement #//graphstructure/Adaptable">
-      <eOperations name="getOriginalID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eOperations name="getOriginalNode" eType="#//graphstructure/Node"/>
-      <eOperations name="getEquivalentNodes" upperBound="-1" eType="#//graphstructure/Node"/>
       <eOperations name="setGraphSimple">
         <eParameters name="newGraph" eType="#//graphstructure/Graph"/>
       </eOperations>
@@ -421,15 +410,10 @@
       </eOperations>
       <eOperations name="checkGeneric" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="makeGeneric" eType="#//graphstructure/Node" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="makeGenericRecursive" eType="#//graphstructure/Node" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="checkComplex" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="makeComplex" eType="#//graphstructure/ComplexNode" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="makeComplexRecursive" eType="#//graphstructure/ComplexNode"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="checkPrimitive" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="makePrimitive" eType="#//graphstructure/PrimitiveNode" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="makePrimitiveRecursive" eType="#//graphstructure/PrimitiveNode"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="adaptAsXmlElement" eType="#//adaptionxml/XmlElement" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="adaptAsXmlProperty" eType="#//adaptionxml/XmlProperty" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="adaptAsRdfIriNode" eType="#//adaptionrdf/RdfIriNode" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
@@ -439,10 +423,6 @@
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="adaptAsNeoPropertyNode" eType="#//adaptionneo4j/NeoPropertyNode"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMappings" upperBound="-1"
-          eType="#//patternstructure/NodeMapping" eOpposite="#//patternstructure/NodeMapping/source"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMapping" eType="#//patternstructure/NodeMapping"
-          eOpposite="#//patternstructure/NodeMapping/target"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1"
           eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/nodes"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -462,9 +442,6 @@
       <eOperations name="isReturnGraph" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eOperations name="getReturnNodes" upperBound="-1" eType="#//graphstructure/Node"/>
       <eOperations name="getAllOperators" upperBound="-1" eType="#//operators/Operator"/>
-      <eOperations name="copyGraph" eExceptions="#//patternstructure/MissingPatternContainerException">
-        <eParameters name="graph" eType="#//graphstructure/Graph"/>
-      </eOperations>
       <eOperations name="addRelation" eType="#//graphstructure/Relation">
         <eParameters name="from" eType="#//graphstructure/ComplexNode"/>
         <eParameters name="to" eType="#//graphstructure/Node"/>
@@ -476,6 +453,9 @@
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="getAllSubGraphs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="isBefore" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+        <eParameters name="other" eType="#//graphstructure/Graph"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" lowerBound="1"
           upperBound="-1" eType="#//graphstructure/Node" containment="true" eOpposite="#//graphstructure/Node/graph"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="operatorList" lowerBound="1"
@@ -534,12 +514,6 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="patternstructure" nsURI="patternstructure" nsPrefix="patternstructure">
-    <eClassifiers xsi:type="ecore:EClass" name="RelationMapping" eSuperTypes="#//patternstructure/Mapping">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
-          eType="#//graphstructure/Relation" eOpposite="#//graphstructure/Relation/incomingMapping"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
-          eType="#//graphstructure/Relation" eOpposite="#//graphstructure/Relation/outgoingMappings"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="QuantifiedCondition" eSuperTypes="#//patternstructure/Condition #//patternstructure/MorphismContainer">
       <eOperations name="checkMorphismOfNextGraph" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier" eType="#//patternstructure/Quantifier"/>
@@ -564,37 +538,12 @@
           eOpposite="#//patternstructure/NotCondition/condition"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Morphism" eSuperTypes="#//patternstructure/PatternElement">
-      <eOperations name="addMapping" eType="#//patternstructure/NodeMapping">
-        <eParameters name="from" eType="#//graphstructure/Node"/>
-        <eParameters name="to" eType="#//graphstructure/Node"/>
-      </eOperations>
-      <eOperations name="addMapping" eType="#//patternstructure/RelationMapping">
-        <eParameters name="from" eType="#//graphstructure/Relation"/>
-        <eParameters name="to" eType="#//graphstructure/Relation"/>
-      </eOperations>
-      <eOperations name="removeInconsistentMappings"/>
-      <eOperations name="checkElementMappings" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="checkElementMappingsUniqueness" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="checkRelationMappings" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="checkRelationMappingsUniqueness" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="mappings" upperBound="-1"
-          eType="#//patternstructure/Mapping" containment="true" eOpposite="#//patternstructure/Mapping/morphism"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
           eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/outgoingMorphisms"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
           eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/incomingMorphism"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="morphismContainer" eType="#//patternstructure/MorphismContainer"
           eOpposite="#//patternstructure/MorphismContainer/morphism"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NodeMapping" eSuperTypes="#//patternstructure/Mapping">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
-          eType="#//graphstructure/Node" eOpposite="#//graphstructure/Node/outgoingMappings"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
-          eType="#//graphstructure/Node" eOpposite="#//graphstructure/Node/incomingMapping"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Mapping" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="morphism" lowerBound="1"
-          eType="#//patternstructure/Morphism" eOpposite="#//patternstructure/Morphism/mappings"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Formula" eSuperTypes="#//patternstructure/Condition">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" lowerBound="1"

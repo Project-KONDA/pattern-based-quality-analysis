@@ -113,20 +113,17 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	 */
 	@Override
 	public String generateCypher() throws InvalidityException {
-		if (getIncomingMapping() == null) {
-			final StringBuilder cypher = new StringBuilder();
-			cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
-			cypher.append(CypherSpecificConstants.VARIABLE_ELEMENT_NODE);
-			cypher.append(getOriginalID());
-			if((!translated) && getNeoNodeLabels() != null) { 
-				final String labels = getNeoNodeLabels().generateCypher();
-				cypher.append(labels);
-				translated = true;
-			}
-			cypher.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
-			return cypher.toString();
+		final StringBuilder cypher = new StringBuilder();
+		cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
+		cypher.append(CypherSpecificConstants.VARIABLE_ELEMENT_NODE);
+		cypher.append(getInternalId());
+		if((!translated) && getNeoNodeLabels() != null) { 
+			final String labels = getNeoNodeLabels().generateCypher();
+			cypher.append(labels);
+			translated = true;
 		}
-		return ((NeoElementNode) getOriginalNode()).generateCypher();
+		cypher.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
+		return cypher.toString();
 	}
 	
 	/**
@@ -137,13 +134,10 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	 */
 	@Override 
 	public String getCypherVariable() throws InvalidityException {
-		if (getIncomingMapping() == null) {
-			String var;
-			var = CypherSpecificConstants.VARIABLE_ELEMENT_NODE;
-			var += getOriginalID();
-			return var;
-		}
-		return ((NeoElementNode) getOriginalNode()).getCypherVariable();	
+		String var;
+		var = CypherSpecificConstants.VARIABLE_ELEMENT_NODE;
+		var += getInternalId();
+		return var;
 	}
 
 	/**
@@ -157,16 +151,12 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	public EMap<Integer, String> getCypherReturn() throws InvalidityException {
 		EMap<Integer, String> returnElement = new BasicEMap<Integer, String>();
 		String cypher = null;
-		if (getIncomingMapping() == null) {
-			if (isVariableDistinctInUse) {
-				cypher = this.getCypherVariable();
-			} else {
-				cypher = String.format(CYPHER_RETURN_QUERY_PART, this.getCypherVariable());
-			}
-			returnElement.put(NeoElementNodeImpl.CYPHER_RETURN_ID, cypher);
+		if (isVariableDistinctInUse) {
+			cypher = this.getCypherVariable();
 		} else {
-			returnElement = ((NeoElementNode) getOriginalNode()).getCypherReturn();
+			cypher = String.format(CYPHER_RETURN_QUERY_PART, this.getCypherVariable());
 		}
+		returnElement.put(NeoElementNodeImpl.CYPHER_RETURN_ID, cypher);
 		return returnElement;
 	}
 
@@ -198,12 +188,7 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	public Node makeGeneric() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
-	
-	@Override
-	public Node makeGenericRecursive() throws InvalidityException{
-		throw new InvalidityException("This node can not become generic!");
-	}
-	
+		
 	@Override
 	public void checkGeneric() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
@@ -213,12 +198,7 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	public PrimitiveNode makePrimitive() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
-	
-	@Override
-	public PrimitiveNode makePrimitiveRecursive() throws InvalidityException{
-		throw new InvalidityException("This node can not become generic!");
-	}
-	
+		
 	@Override
 	public void checkPrimitive() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
@@ -280,18 +260,16 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	 */
 	@Override
 	public void createParameters() {
-		if (getIncomingMapping() == null) {
-			ParameterList pList = getParameterList();
-			if (pList != null) {
-				NeoNodeLabelsParam labels = getNeoNodeLabels();
-				if (labels == null) {
-					labels = new NeoNodeLabelsParamImpl();
-					neoNodeLabels = labels;
-					pList.add(labels);	
-				}
-				if (!pList.equals(labels.getParameterList())) {
-					pList.add(labels);
-				}
+		ParameterList pList = getParameterList();
+		if (pList != null) {
+			NeoNodeLabelsParam labels = getNeoNodeLabels();
+			if (labels == null) {
+				labels = new NeoNodeLabelsParamImpl();
+				neoNodeLabels = labels;
+				pList.add(labels);	
+			}
+			if (!pList.equals(labels.getParameterList())) {
+				pList.add(labels);
 			}
 		}
 	}

@@ -65,13 +65,7 @@ import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.parameters.impl.UntypedParameterValueImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.CountPattern;
-import qualitypatternmodel.patternstructure.NodeMapping;
-import qualitypatternmodel.patternstructure.Morphism;
-import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.PatternElement;
-import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.patternstructure.impl.NodeMappingImpl;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
@@ -83,8 +77,6 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getComparison1 <em>Comparison1</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getComparison2 <em>Comparison2</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getOutgoingMappings <em>Outgoing Mappings</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getIncomingMapping <em>Incoming Mapping</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getGraph <em>Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getPredicates <em>Predicates</em>}</li>
@@ -98,7 +90,6 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  * @generated
  */
 public class NodeImpl extends PatternElementImpl implements Node {
-	private static final String CORRESPONDING_NODE_NOT_FOUND = "corresponding node not found";
 
 	/**
 	 * The cached value of the '{@link #getComparison1() <em>Comparison1</em>}' reference list.
@@ -121,30 +112,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @ordered
 	 */
 	protected EList<Comparison> comparison2;
-
-	/**
-	 * The cached value of the '{@link #getOutgoingMappings() <em>Outgoing Mappings</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * A list of <code>ElementMappings</code> that have <code>this</code> as their <code>source</code>.
-	 * They declare the equivalence between <code>this</code> and other <code>Elements</code> contained in <code>Graphs</code> that directly follow in the condition hierarchy.
-	 * <!-- end-user-doc -->
-	 * @see #getOutgoingMappings()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<NodeMapping> outgoingMappings;
-
-	/**
-	 * The cached value of the '{@link #getIncomingMapping() <em>Incoming Mapping</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * The <code>NodeMapping</code> that has <code>this</code> as its <code>target</code>.
-	 * It declares the equivalence between <code>this</code> and another <code>Element</code> contained in the previous <code>Graph</code> in the condition hierarchy.
-	 * <!-- end-user-doc -->
-	 * @see #getIncomingMapping()
-	 * @generated
-	 * @ordered
-	 */
-	protected NodeMapping incomingMapping;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -281,14 +248,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	public NodeImpl() {
 		super();
 	}	
-
-	private void removeElementFromPreviousGraphs() {
-		if (getIncomingMapping() != null && getIncomingMapping().getSource() != null) {
-			Node correspondingPreviousElement = getIncomingMapping().getSource();
-			correspondingPreviousElement.setGraph(null);
-		}
-//		getIncomingMapping().getMorphism().getMappings().remove(getIncomingMapping());
-	}
 		
 	@Override
 	public void initializeTranslation() {
@@ -310,10 +269,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {	
-		if (getGraph().getPattern() != null && getGraph().getPattern() instanceof CompletePattern && incomingMapping != null)
-			throw new InvalidityException("invalid NodeMapping to returnGraph: " + incomingMapping + " "
-					+ incomingMapping.getId() + " - (" + outgoingMappings + ")");
-		
 		for (BooleanOperator predicate : getPredicates())
 			if (predicate == null)
 				throw new InvalidityException("predicate null (" + predicate + ")");
@@ -407,94 +362,14 @@ public class NodeImpl extends PatternElementImpl implements Node {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NodeMapping getIncomingMapping() {
-		if (incomingMapping != null && incomingMapping.eIsProxy()) {
-			InternalEObject oldIncomingMapping = (InternalEObject)incomingMapping;
-			incomingMapping = (NodeMapping)eResolveProxy(oldIncomingMapping);
-			if (incomingMapping != oldIncomingMapping) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.NODE__INCOMING_MAPPING, oldIncomingMapping, incomingMapping));
-			}
-		}
-		return incomingMapping;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NodeMapping basicGetIncomingMapping() {
-		return incomingMapping;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetIncomingMapping(NodeMapping newIncomingMapping, NotificationChain msgs) {
-		NodeMapping oldIncomingMapping = incomingMapping;
-		incomingMapping = newIncomingMapping;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.NODE__INCOMING_MAPPING, oldIncomingMapping, newIncomingMapping);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setIncomingMapping(NodeMapping newIncomingMapping) {
-		if (newIncomingMapping != incomingMapping) {
-			NotificationChain msgs = null;
-			if (incomingMapping != null)
-				msgs = ((InternalEObject)incomingMapping).eInverseRemove(this, PatternstructurePackage.NODE_MAPPING__TARGET, NodeMapping.class, msgs);
-			if (newIncomingMapping != null)
-				msgs = ((InternalEObject)newIncomingMapping).eInverseAdd(this, PatternstructurePackage.NODE_MAPPING__TARGET, NodeMapping.class, msgs);
-			msgs = basicSetIncomingMapping(newIncomingMapping, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.NODE__INCOMING_MAPPING, newIncomingMapping, newIncomingMapping));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<NodeMapping> getOutgoingMappings() {
-		if (outgoingMappings == null) {
-			outgoingMappings = new EObjectWithInverseResolvingEList<NodeMapping>(NodeMapping.class, this, GraphstructurePackage.NODE__OUTGOING_MAPPINGS, PatternstructurePackage.NODE_MAPPING__SOURCE);
-		}
-		return outgoingMappings;
-	}
-
-	private void removeMappingsToNext() {
-		EList<NodeMapping> mappingToCopy = new BasicEList<NodeMapping>();
-		mappingToCopy.addAll(getOutgoingMappings());
-		for (NodeMapping mapping : mappingToCopy) {
-			mapping.setSource(null);
-			mapping.setTarget(null);
-			mapping.getMorphism().getMappings().remove(mapping);
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
 	 */
 	@Override
 	public void setName(String newName) {
 		if(newName == null || newName.equals("")) {
-			if(getOriginalID() > -1) {
-				newName = "Element " + getOriginalID();
+			if(getInternalId() > -1) {
+				newName = "Element " + getInternalId();
 			} else {
 				return;
 			}
@@ -504,23 +379,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.NODE__NAME, oldName, name));
-	
-		if (getIncomingMapping() != null) {
-			Node source = getIncomingMapping().getSource();
-			if (source != null) {
-				if ((newName != null && !newName.equals(source.getName())) || (newName == null && source.getName() != null)) {
-					source.setName(newName);
-				}			
-			}
-		}
-		for (NodeMapping m : getOutgoingMappings()) {
-			Node target = m.getTarget();
-			if (target != null) {
-				if ((newName != null && !newName.equals(target.getName())) || (newName == null && target.getName() != null)) {
-					target.setName(newName);
-				}			
-			}
-		}
 	}
 
 	/**
@@ -660,29 +518,11 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		triggerParameterUpdates(newGraph);
 		
 		if (newGraph == null || getGraph() != null && !newGraph.equals(getGraph())) {
-			removeElementFromPreviousGraphs();
-			removeMappingsToNext();
 			setReturnNode(false);
 			getPredicates().clear();
 		}
 		
 		deleteRelations(newGraph);
-		
-		if(newGraph != null) {
-			for(Morphism morphism : newGraph.getOutgoingMorphisms()) {
-				MorphismContainer container = morphism.getMorphismContainer();
-				
-				Node newElement = new NodeImpl();
-				newElement.setGraph(container.getGraph());
-				
-				NodeMapping newMapping = new NodeMappingImpl();
-				newMapping.setMorphism(morphism);
-				newMapping.setSource(this);
-				newMapping.setTarget(newElement);
-			}		
-		}
-		
-		// TODO: reset incoming and outgoing relations ?
 		
 		msgs = eBasicSetContainer((InternalEObject)newGraph, GraphstructurePackage.NODE__GRAPH, msgs);
 		return msgs;
@@ -706,23 +546,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		}
 	}
 
-	@SuppressWarnings("unused")
-	private void setGraphForCorrespondingElements(Graph newGraph) {
-		for (NodeMapping mapping : getOutgoingMappings()) {
-			if (!( mapping.getMorphism().getMorphismContainer() instanceof CountPattern)) {
-				Node node = mapping.getTarget();
-				if (newGraph == null) {
-					node.setReturnNode(false);
-				}
-			}			
-		}
-		if (getIncomingMapping() != null && !(getIncomingMapping().getMorphism().getMorphismContainer() instanceof CountPattern)) {			
-			Node node = getIncomingMapping().getSource();
-			if (newGraph == null) {
-				node.setReturnNode(false);
-			}	
-		}
-	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -780,94 +603,24 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public EList<Node> getEquivalentNodes() {
-		EList<Node> equivalentElements = new BasicEList<Node>();
-		equivalentElements.add(this);
-		if(getIncomingMapping() != null) {
-			Node next = getIncomingMapping().getSource();
-			if(!equivalentElements.contains(next)) {
-				equivalentElements.addAll(next.getEquivalentNodes());
-			}
-		}
-		if(getOutgoingMappings() != null && !getOutgoingMappings().isEmpty()) {
-			for(NodeMapping m : getOutgoingMappings()) {
-				Node next = m.getTarget();
-				if(!equivalentElements.contains(next)) {
-					equivalentElements.addAll(next.getEquivalentNodes());
-				}				
-			}
-		}
-		return equivalentElements;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @throws InvalidityException 
 	 * @generated NOT
 	 */
 	@Override
 	public PrimitiveNode makePrimitive() throws InvalidityException {
-		Node originalNode = getOriginalNode();
-		Graph graph = getGraph();
-		originalNode.checkPrimitive();
-		PrimitiveNode primitiveOriginal = originalNode.makePrimitiveRecursive();
-		for(Node n: graph.getNodes()) {
-			if(n instanceof PrimitiveNode) {
-				PrimitiveNode primitive = (PrimitiveNode) n;
-				Node next = n;
-				while(next != null) {
-					if(!next.equals(primitiveOriginal)) {
-						if(next.getIncomingMapping() == null) {
-							next = null;
-						} else {
-							next = next.getIncomingMapping().getSource();
-						}
-					} else {
-						return primitive;
-					}
-				}
-			}
-		}	
-		throw new InvalidityException("primitive correspondent node not found");
-	}
-	
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
-	 * @generated NOT
-	 */
-	@Override
-	public PrimitiveNode makePrimitiveRecursive() throws InvalidityException {		
+		checkPrimitive();
 		if (this instanceof PrimitiveNode) {
-			for(NodeMapping mapping : getOutgoingMappings()) {
-				mapping.getTarget().makePrimitiveRecursive();
-			}
 			return (PrimitiveNode) this;
 		}
 		
 		PrimitiveNodeImpl newPrimitive = new PrimitiveNodeImpl();
 		newPrimitive.typeModifiable = false;
 		
-		newPrimitive.setGraphSimple(getGraph());				
-		
+		newPrimitive.setGraphSimple(getGraph());						
 		newPrimitive.setReturnNode(isReturnNode());
 		
 		newPrimitive.getPredicates().addAll(getPredicates());
 		getPredicates().clear();
-		
-		newPrimitive.getOutgoingMappings().addAll(getOutgoingMappings());		
-		for(NodeMapping mapping : newPrimitive.getOutgoingMappings()) {
-			mapping.getTarget().makePrimitiveRecursive();
-		}		
-		getOutgoingMappings().clear();
-		newPrimitive.setIncomingMapping(getIncomingMapping());
-		setIncomingMapping(null);
 		
 		if(getName().matches("Element [0-9]+")) {
 			newPrimitive.setName(getName().replace("Element", "PrimitiveNode"));
@@ -892,7 +645,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		
 		return newPrimitive;
 	}
-	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -901,11 +653,11 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public void checkPrimitive() throws InvalidityException {
-		if (this instanceof ComplexNode)
-			throw new InvalidityException("ComplexNode can not be turned into PrimitiveNode ("+ getInternalId() + ")");
-		for(NodeMapping mapping : getOutgoingMappings()) {
-			mapping.getTarget().checkPrimitive();
-		}					
+		if (this instanceof ComplexNode) {
+			checkGeneric();
+			throw new InvalidityException("ComplexNode with outgoing relations can not be turned into PrimitiveNode ("+ getInternalId() + ")");
+		}
+			
 	}
 	
 	/**
@@ -916,23 +668,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public Node makeGeneric() throws InvalidityException {
-		Node originalNode = getOriginalNode();
-		originalNode.checkGeneric();
-		return originalNode.makeGenericRecursive();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
-	 * @generated NOT
-	 */
-	@Override
-	public Node makeGenericRecursive() throws InvalidityException {
 		if(getClass().equals(NodeImpl.class)) {
-			for(NodeMapping mapping : getOutgoingMappings()) {
-				mapping.getTarget().makeGenericRecursive();
-			}
 			return this;
 		}
 		
@@ -943,15 +679,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		newNode.setReturnNode(isReturnNode());
 		
 		newNode.getPredicates().addAll(getPredicates());
-		getPredicates().clear();
-		
-		newNode.getOutgoingMappings().addAll(getOutgoingMappings());		
-		for(NodeMapping mapping : newNode.getOutgoingMappings()) {
-			mapping.getTarget().makeGenericRecursive();
-		}		
-		getOutgoingMappings().clear();
-		newNode.setIncomingMapping(getIncomingMapping());
-		setIncomingMapping(null);			
+		getPredicates().clear();		
 		
 		if(getName().matches("ComplexNode [0-9]+")) {
 			newNode.setName(getName().replace("ComplexNode", "Node"));
@@ -976,7 +704,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		
 		setGraph(null);
 		return newNode;
-		
 	}
 
 	/**
@@ -1017,11 +744,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				throw new InvalidityException("Node with primitive comparison can not be turned into generic Node");	
 			}
 		}
-		
-		for(NodeMapping mapping : getOutgoingMappings()) {
-			mapping.getTarget().checkGeneric();
-		}
-		
 	}
 
 
@@ -1033,47 +755,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public ComplexNode makeComplex() throws InvalidityException {		
-		Node originalNode = getOriginalNode();
-		originalNode.checkComplex();
-		Graph graph = getGraph();
-		ComplexNode complexOriginal = originalNode.makeComplexRecursive();
-		
-		if (graph == null) 
-			throw new InvalidityException("no graph found for complex node");
-		
-		for(Node n: graph.getNodes()) {
-			if(n instanceof ComplexNode) {
-				ComplexNode complex = (ComplexNode) n;
-				Node next = n;
-				while(next != null) {
-					if(!next.equals(complexOriginal)) {
-						if(next.getIncomingMapping() == null) {
-							next = null;
-						} else {
-							next = next.getIncomingMapping().getSource();
-						}
-					} else {
-						return complex;
-					}
-				}
-			}
-		}
-		
-		throw new InvalidityException("complex correspondent node not found");
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
-	 * @generated NOT
-	 */
-	@Override
-	public ComplexNode makeComplexRecursive() throws InvalidityException {
 		if (this instanceof ComplexNode) {
-			for(NodeMapping mapping : getOutgoingMappings()) {
-				mapping.getTarget().makeComplexRecursive();
-			}
 			return (ComplexNode) this;
 		}
 	
@@ -1085,14 +767,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		
 		newComplex.getPredicates().addAll(getPredicates());
 		getPredicates().clear();
-		
-		newComplex.getOutgoingMappings().addAll(getOutgoingMappings());		
-		for(NodeMapping mapping : newComplex.getOutgoingMappings()) {
-			mapping.getTarget().makeComplexRecursive();
-		}		
-		getOutgoingMappings().clear();
-		newComplex.setIncomingMapping(getIncomingMapping());
-		setIncomingMapping(null);			
 		
 		if(getName().matches("Element [0-9]+")) {
 			newComplex.setName(getName().replace("Element", "ComplexNode"));
@@ -1143,11 +817,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			if(comp.getArgument1() instanceof ParameterValue) {
 				throw new InvalidityException("Node with primitive comparison cannot be turned into ComplexNode");
 			}
-		}
-		for(NodeMapping mapping : getOutgoingMappings()) {
-			mapping.getTarget().checkComplex();
-		}
-		
+		}		
 	}
 
 	/**
@@ -1174,31 +844,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public XmlElement adaptAsXmlElement() throws InvalidityException {
-		Graph graph = getGraph();
-		XmlElement elementOriginal = ((NodeImpl) getOriginalNode()).adaptAsXmlElementRecursive();
-				
-		for(Node n: graph.getNodes()) {
-			if(n instanceof XmlElement) {
-				XmlElement element = (XmlElement) n;
-				Node next = n;
-				while(next != null) {
-					if(!next.equals(elementOriginal)) {
-						if(next.getIncomingMapping() == null) {
-							next = null;
-						} else {
-							next = next.getIncomingMapping().getSource();
-						}
-					} else {
-						return element;
-					}
-				}
-			}
-		}
-		throw new InvalidityException("correspondent node not found");
-	}
-	
-	
-	private XmlElement adaptAsXmlElementRecursive() throws InvalidityException {
 		if (!(this instanceof XmlElement)) {	
 			XmlElementImpl xmlElement = new XmlElementImpl();
 			xmlElement.typeModifiable = true;
@@ -1208,12 +853,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			
 			xmlElement.getPredicates().addAll(getPredicates());
 			getPredicates().clear();
-			
-			xmlElement.getOutgoingMappings().addAll(getOutgoingMappings());
-			getOutgoingMappings().clear();
-			xmlElement.setIncomingMapping(getIncomingMapping());
-			setIncomingMapping(null);
-			
+						
 			xmlElement.setName(getName());
 			
 			setReturnNode(false);
@@ -1239,10 +879,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			
 			setGraph(null);
 			
-			for (NodeMapping map: xmlElement.getOutgoingMappings()) {
-				((NodeImpl) map.getTarget()).adaptAsXmlElementRecursive();
-			}			
-			
 			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
 			incomingCopy2.addAll(xmlElement.getIncoming());
 			for(Relation relation : incomingCopy2) {
@@ -1252,9 +888,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			xmlElement.validateCycles(true);
 			return xmlElement;			
 		} else {
-			for (NodeMapping map: getOutgoingMappings()) {
-				((NodeImpl) map.getTarget()).adaptAsXmlElementRecursive();
-			}
 			return (XmlElement) this;
 		}
 	}
@@ -1267,31 +900,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public XmlProperty adaptAsXmlProperty() throws InvalidityException {
-		Graph graph = getGraph();
-		XmlProperty propertyOriginal = ((NodeImpl) getOriginalNode()).adaptAsXmlPropertyRecursive();
-		
-		for(Node n: graph.getNodes()) {
-			if(n instanceof XmlProperty) {
-				XmlProperty property = (XmlProperty) n;
-				Node next = n;
-				while(next != null) {
-					if(!next.equals(propertyOriginal)) {
-						if(next.getIncomingMapping() == null) {
-							next = null;
-						} else {
-							next = next.getIncomingMapping().getSource();
-						}
-					} else {
-						return property;
-					}
-				}
-			}
-		}
-		throw new InvalidityException("correspondent node not found");
-	}
-	
-
-	private XmlProperty adaptAsXmlPropertyRecursive() throws InvalidityException {			
 		if (!(this instanceof XmlProperty)) {
 			XmlPropertyImpl xmlProperty = new XmlPropertyImpl();	
 			xmlProperty.typeModifiable = true;
@@ -1301,12 +909,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			
 			xmlProperty.getPredicates().addAll(getPredicates());
 			getPredicates().clear();
-			
-			xmlProperty.getOutgoingMappings().addAll(getOutgoingMappings());
-			getOutgoingMappings().clear();
-			xmlProperty.setIncomingMapping(getIncomingMapping());
-			setIncomingMapping(null);
-			
+						
 			xmlProperty.setName(getName());
 			xmlProperty.createParameters();
 			
@@ -1336,10 +939,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	
 			setGraph(null);
 			
-			for (NodeMapping map: xmlProperty.getOutgoingMappings()) {
-				((NodeImpl) map.getTarget()).adaptAsXmlPropertyRecursive();
-			}
-
 			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
 			incomingCopy2.addAll(xmlProperty.getIncoming());
 			for(Relation relation : incomingCopy2) {
@@ -1348,9 +947,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			
 			return xmlProperty;
 		} else {
-			for (NodeMapping map: getOutgoingMappings()) {
-				((NodeImpl) map.getTarget()).adaptAsXmlPropertyRecursive();
-			}
 			return (XmlProperty) this;
 		}
 	}
@@ -1365,32 +961,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public RdfIriNode adaptAsRdfIriNode() throws InvalidityException {
-		Graph graph = getGraph();
-		RdfIriNode elementOriginal = ((NodeImpl) getOriginalNode()).adaptAsRdfIriNodeRecursive();
-		elementOriginal.createParameters();
-				
-		for(Node n: graph.getNodes()) {
-			if(n instanceof RdfIriNode) {
-				RdfIriNode element = (RdfIriNode) n;
-				Node next = n;
-				while(next != null) {
-					if(!next.equals(elementOriginal)) {
-						if(next.getIncomingMapping() == null) {
-							next = null;
-						} else {
-							next = next.getIncomingMapping().getSource();
-						}
-					} else {
-						return element;
-					}
-				}
-			}
-		}
-		throw new InvalidityException("correspondent node not found");
-	}
-	
-	
-	private RdfIriNode adaptAsRdfIriNodeRecursive() throws InvalidityException {
 		if (!(this instanceof RdfIriNode)) {	
 			RdfIriNodeImpl rdfIriNode = new RdfIriNodeImpl();
 			rdfIriNode.typeModifiable = true;
@@ -1400,12 +970,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			
 			rdfIriNode.getPredicates().addAll(getPredicates());
 			getPredicates().clear();
-			
-			rdfIriNode.getOutgoingMappings().addAll(getOutgoingMappings());
-			getOutgoingMappings().clear();
-			rdfIriNode.setIncomingMapping(getIncomingMapping());
-			setIncomingMapping(null);
-			
+						
 			rdfIriNode.setName(getName());
 			setReturnNode(false);
 			
@@ -1430,9 +995,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			
 			setGraph(null);
 			
-			for (NodeMapping map: rdfIriNode.getOutgoingMappings()) {
-				((NodeImpl) map.getTarget()).adaptAsRdfIriNodeRecursive();
-			}			
 			
 			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
 			incomingCopy2.addAll(rdfIriNode.getIncoming());
@@ -1442,9 +1004,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			
 			return rdfIriNode;			
 		} else {
-			for (NodeMapping map: getOutgoingMappings()) {
-				((NodeImpl) map.getTarget()).adaptAsRdfIriNodeRecursive();
-			}
 			return (RdfIriNode) this;
 		}
 	}
@@ -1457,60 +1016,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public RdfLiteralNode adaptAsRdfLiteralNode() throws InvalidityException {
-		Graph graph = getGraph();
-		RdfLiteralNode elementOriginal = ((NodeImpl) getOriginalNode()).adaptAsRdfLiteralNodeRecursive();
-		
-		for(Node n: graph.getNodes()) {
-			if(n instanceof RdfLiteralNode) {
-				RdfLiteralNode element = (RdfLiteralNode) n;
-				Node next = n;
-				while(next != null) {
-					if(!next.equals(elementOriginal)) {
-						if(next.getIncomingMapping() == null) {
-							next = null;
-						} else {
-							next = next.getIncomingMapping().getSource();
-						}
-					} else {
-						return element;
-					}
-				}
-			}
-		}
-		throw new InvalidityException("correspondent node not found");
-	}
-	
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public Comparison addComparison(Node node) {
-		if (this.getClass() == node.getClass() && this.getClass() != NodeImpl.class) {
-			try {
-				Comparison comparison = new ComparisonImpl();
-//				CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
-				Graph graph = (Graph) getAncestor(Graph.class);
-				OperatorList oplist = graph.getOperatorList();
-					
-				oplist.add(comparison);	
-				comparison.createParameters();
-				comparison.setArgument1(this);
-				comparison.setArgument2(node);
-				comparison.createParameters();
-				
-				return comparison;
-				
-			} catch (Exception e) {	
-				throw new RuntimeException("Adding Condition Failed: " + e.getMessage());
-			}	
-		}
-		throw new RuntimeException("Adding Condition Failed: Nodes not of same type " + this.getClass().getSimpleName() + " " + node.getClass().getSimpleName());
-	}
 
-	private RdfLiteralNode adaptAsRdfLiteralNodeRecursive() throws InvalidityException {		
 		if (!(this instanceof RdfLiteralNode)) {
 			RdfLiteralNodeImpl rdfLiteral = new RdfLiteralNodeImpl();	
 			rdfLiteral.typeModifiable = true;
@@ -1520,11 +1026,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			
 			rdfLiteral.getPredicates().addAll(getPredicates());
 			getPredicates().clear();
-			
-			rdfLiteral.getOutgoingMappings().addAll(getOutgoingMappings());
-			getOutgoingMappings().clear();
-			rdfLiteral.setIncomingMapping(getIncomingMapping());
-			setIncomingMapping(null);
 			
 			rdfLiteral.setName(getName());			
 			rdfLiteral.createParameters();
@@ -1554,10 +1055,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			getComparison2().clear();
 	
 			setGraph(null);
-			
-			for (NodeMapping map: rdfLiteral.getOutgoingMappings()) {
-				((NodeImpl) map.getTarget()).adaptAsRdfLiteralNodeRecursive();
-			}
 
 			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
 			incomingCopy2.addAll(rdfLiteral.getIncoming());
@@ -1567,12 +1064,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			
 			return rdfLiteral;
 		} else {
-			for (NodeMapping map: getOutgoingMappings()) {
-				((NodeImpl) map.getTarget()).adaptAsRdfLiteralNodeRecursive();
-			}
 			return (RdfLiteralNode) this;
 		}
 	}
+	
 	
 	//BEGIN - Adapt for Neo4J/Cypher
 	/**
@@ -1584,37 +1079,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public NeoElementNode adaptAsNeoElementNode() throws InvalidityException {
-		Graph graph = getGraph();
-		NeoElementNode elementOriginal = ((NodeImpl) getOriginalNode()).adaptAsNeoElementNodeRecursive();
-		elementOriginal.createParameters();
-		
-		for (Node n : graph.getNodes()) {
-			if(n instanceof NeoElementNode) {
-				NeoElementNode element = (NeoElementNode) n;
-				Node next = n;
-				while(next != null) {
-					if(!next.equals(elementOriginal)) {
-						if(next.getIncomingMapping() == null) {
-							next = null;
-						} else {
-							next = next.getIncomingMapping().getSource();
-						}
-					} else {
-						return element;						
-					}
-				}
-			}
-		}
-		throw new InvalidityException("correspondet node not found");
-	}
-
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @return NeoElementNode
-	 * @throws InvalidityException
-	 * Traverse over all connected elements to a NeoElementNode recursively and adapts them to the fitting type. 
-	 */
-	private NeoElementNode adaptAsNeoElementNodeRecursive() throws InvalidityException {
 		if (!(this instanceof NeoElementNode)) {	
 			NeoElementNodeImpl neoNode = (NeoElementNodeImpl) Adaptionneo4jFactoryImpl.init().createNeoElementNode();
 			neoNode.typeModifiable = true;
@@ -1624,11 +1088,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			
 			neoNode.getPredicates().addAll(getPredicates());
 			getPredicates().clear();
-			
-			neoNode.getOutgoingMappings().addAll(getOutgoingMappings());
-			getOutgoingMappings().clear();
-			neoNode.setIncomingMapping(getIncomingMapping());
-			setIncomingMapping(null);
 			
 			neoNode.setName(getName());
 			setReturnNode(this.isReturnNode());
@@ -1653,19 +1112,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			
 			
 			setGraph(null);
-			
-
-			EList<NodeMapping> maps = new BasicEList<NodeMapping>();
-			maps.addAll(neoNode.getOutgoingMappings());
-			for (NodeMapping map: maps) {
-				((NodeImpl) map.getTarget()).adaptAsNeoElementNodeRecursive();
-			}			
-			
+	
 			return neoNode;			
 		} else {
-			for (NodeMapping map: getOutgoingMappings()) {
-				((NodeImpl) map.getTarget()).adaptAsNeoElementNodeRecursive();
-			}
 			return (NeoElementNode) this;
 		}
 	}
@@ -1679,36 +1128,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public NeoPropertyNode adaptAsNeoPropertyNode() throws InvalidityException {
-		Graph graph = getGraph();
-		NeoPropertyNode elementOriginal = ((NodeImpl) getOriginalNode()).adaptAsNeoPropertyRecursive();
-		
-		for(Node n: graph.getNodes()) {
-			if(n instanceof NeoPropertyNode) {
-				NeoPropertyNode element = (NeoPropertyNode) n;
-				Node next = n;
-				while(next != null) {
-					if(!next.equals(elementOriginal)) {
-						if(next.getIncomingMapping() == null) {
-							next = null;
-						} else {
-							next = next.getIncomingMapping().getSource();
-						}
-					} else {
-						return element;
-					}
-				}
-			}
-		}
-		throw new InvalidityException(CORRESPONDING_NODE_NOT_FOUND);
-	}
-
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @return NeoElementNode
-	 * @throws InvalidityException
-	 * Traverse over all incoming elements to a NeoElementNode recursively and adapts them that they fit to the NeoPropertyNode.
-	 */
-	private NeoPropertyNode adaptAsNeoPropertyRecursive() throws InvalidityException {
 		if (!(this instanceof NeoPropertyNode)) {
 			NeoPropertyNodeImpl neoPropertyNode = (NeoPropertyNodeImpl) Adaptionneo4jFactoryImpl.init().createNeoPropertyNode();	
 			neoPropertyNode.typeModifiable = true;
@@ -1718,11 +1137,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			
 			neoPropertyNode.getPredicates().addAll(getPredicates());
 			getPredicates().clear();
-			
-			neoPropertyNode.getOutgoingMappings().addAll(getOutgoingMappings());
-			getOutgoingMappings().clear();
-			neoPropertyNode.setIncomingMapping(getIncomingMapping());
-			setIncomingMapping(null);
 			
 			neoPropertyNode.setName(getName());			
 			neoPropertyNode.createParameters();
@@ -1753,27 +1167,47 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	
 			setGraph(null);
 			
-			for (NodeMapping map: neoPropertyNode.getOutgoingMappings()) {
-				if (map instanceof NeoElementNode) {
-					((NodeImpl) map.getTarget()).adaptAsNeoElementNodeRecursive();
-				} else {
-					((NodeImpl) map.getTarget()).adaptAsNeoPropertyRecursive();
-				}
-			}
-
 			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
 			incomingCopy2.addAll(neoPropertyNode.getIncoming());
 			
 			return neoPropertyNode;
 		} else {
-			for (NodeMapping map: getOutgoingMappings()) {
-				((NodeImpl) map.getTarget()).adaptAsNeoPropertyRecursive();
-			}
 			return (NeoPropertyNode) this;
 		}
 	}
-	//END - Adapte for Neo4J/Cypher
+	//END - Adapt for Neo4J/Cypher
 
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Comparison addComparison(Node node) {
+		if (this.getClass() == node.getClass() && this.getClass() != NodeImpl.class) {
+			try {
+				Comparison comparison = new ComparisonImpl();
+//				CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
+				Graph graph = (Graph) getAncestor(Graph.class);
+				OperatorList oplist = graph.getOperatorList();
+					
+				oplist.add(comparison);	
+				comparison.createParameters();
+				comparison.setArgument1(this);
+				comparison.setArgument2(node);
+				comparison.createParameters();
+				
+				return comparison;
+				
+			} catch (Exception e) {	
+				throw new RuntimeException("Adding Condition Failed: " + e.getMessage());
+			}	
+		}
+		throw new RuntimeException("Adding Condition Failed: Nodes not of same type " + this.getClass().getSimpleName() + " " + node.getClass().getSimpleName());
+	}
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1843,37 +1277,14 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	@Override
-	public Node getOriginalNode() {
-		if (incomingMapping == null) {
-			return this;
-		} else {
-			return incomingMapping.getSource().getOriginalNode();
-		}
-	}
-		
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
 	public String getName() {
 		if(name == null || name.equals("")) {
-			if(getOriginalID() > -1) {
-				name = "Element " + getOriginalID();
+			if(getInternalId() > -1) {
+				name = "Element " + getInternalId();
 				return name;
 			}
 		}
 		return name;
-	}
-
-	@Override
-	public int getOriginalID() {
-		if (incomingMapping == null)
-			return this.getInternalId();
-		else
-			return incomingMapping.getSource().getOriginalID();
 	}
 
 	/**
@@ -1888,12 +1299,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComparison1()).basicAdd(otherEnd, msgs);
 			case GraphstructurePackage.NODE__COMPARISON2:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComparison2()).basicAdd(otherEnd, msgs);
-			case GraphstructurePackage.NODE__OUTGOING_MAPPINGS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOutgoingMappings()).basicAdd(otherEnd, msgs);
-			case GraphstructurePackage.NODE__INCOMING_MAPPING:
-				if (incomingMapping != null)
-					msgs = ((InternalEObject)incomingMapping).eInverseRemove(this, PatternstructurePackage.NODE_MAPPING__TARGET, NodeMapping.class, msgs);
-				return basicSetIncomingMapping((NodeMapping)otherEnd, msgs);
 			case GraphstructurePackage.NODE__GRAPH:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -1917,10 +1322,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return ((InternalEList<?>)getComparison1()).basicRemove(otherEnd, msgs);
 			case GraphstructurePackage.NODE__COMPARISON2:
 				return ((InternalEList<?>)getComparison2()).basicRemove(otherEnd, msgs);
-			case GraphstructurePackage.NODE__OUTGOING_MAPPINGS:
-				return ((InternalEList<?>)getOutgoingMappings()).basicRemove(otherEnd, msgs);
-			case GraphstructurePackage.NODE__INCOMING_MAPPING:
-				return basicSetIncomingMapping(null, msgs);
 			case GraphstructurePackage.NODE__GRAPH:
 				return basicSetGraph(null, msgs);
 			case GraphstructurePackage.NODE__PREDICATES:
@@ -1955,11 +1356,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return getComparison1();
 			case GraphstructurePackage.NODE__COMPARISON2:
 				return getComparison2();
-			case GraphstructurePackage.NODE__OUTGOING_MAPPINGS:
-				return getOutgoingMappings();
-			case GraphstructurePackage.NODE__INCOMING_MAPPING:
-				if (resolve) return getIncomingMapping();
-				return basicGetIncomingMapping();
 			case GraphstructurePackage.NODE__GRAPH:
 				return getGraph();
 			case GraphstructurePackage.NODE__NAME:
@@ -1995,13 +1391,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			case GraphstructurePackage.NODE__COMPARISON2:
 				getComparison2().clear();
 				getComparison2().addAll((Collection<? extends Comparison>)newValue);
-				return;
-			case GraphstructurePackage.NODE__OUTGOING_MAPPINGS:
-				getOutgoingMappings().clear();
-				getOutgoingMappings().addAll((Collection<? extends NodeMapping>)newValue);
-				return;
-			case GraphstructurePackage.NODE__INCOMING_MAPPING:
-				setIncomingMapping((NodeMapping)newValue);
 				return;
 			case GraphstructurePackage.NODE__GRAPH:
 				setGraph((Graph)newValue);
@@ -2046,12 +1435,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			case GraphstructurePackage.NODE__COMPARISON2:
 				getComparison2().clear();
 				return;
-			case GraphstructurePackage.NODE__OUTGOING_MAPPINGS:
-				getOutgoingMappings().clear();
-				return;
-			case GraphstructurePackage.NODE__INCOMING_MAPPING:
-				setIncomingMapping((NodeMapping)null);
-				return;
 			case GraphstructurePackage.NODE__GRAPH:
 				setGraph((Graph)null);
 				return;
@@ -2091,10 +1474,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return comparison1 != null && !comparison1.isEmpty();
 			case GraphstructurePackage.NODE__COMPARISON2:
 				return comparison2 != null && !comparison2.isEmpty();
-			case GraphstructurePackage.NODE__OUTGOING_MAPPINGS:
-				return outgoingMappings != null && !outgoingMappings.isEmpty();
-			case GraphstructurePackage.NODE__INCOMING_MAPPING:
-				return incomingMapping != null;
 			case GraphstructurePackage.NODE__GRAPH:
 				return getGraph() != null;
 			case GraphstructurePackage.NODE__NAME:
@@ -2139,12 +1518,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case GraphstructurePackage.NODE___GET_ORIGINAL_ID:
-				return getOriginalID();
-			case GraphstructurePackage.NODE___GET_ORIGINAL_NODE:
-				return getOriginalNode();
-			case GraphstructurePackage.NODE___GET_EQUIVALENT_NODES:
-				return getEquivalentNodes();
 			case GraphstructurePackage.NODE___SET_GRAPH_SIMPLE__GRAPH:
 				setGraphSimple((Graph)arguments.get(0));
 				return null;
@@ -2265,13 +1638,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.NODE___MAKE_GENERIC_RECURSIVE:
-				try {
-					return makeGenericRecursive();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case GraphstructurePackage.NODE___CHECK_COMPLEX:
 				try {
 					checkComplex();
@@ -2287,13 +1653,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.NODE___MAKE_COMPLEX_RECURSIVE:
-				try {
-					return makeComplexRecursive();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case GraphstructurePackage.NODE___CHECK_PRIMITIVE:
 				try {
 					checkPrimitive();
@@ -2305,13 +1664,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			case GraphstructurePackage.NODE___MAKE_PRIMITIVE:
 				try {
 					return makePrimitive();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case GraphstructurePackage.NODE___MAKE_PRIMITIVE_RECURSIVE:
-				try {
-					return makePrimitiveRecursive();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
@@ -2383,10 +1735,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			res += "Return-";
 		res += this.getClass().getSimpleName();
 		if (getName() != null) res +=  " " + getName();
-		if (getInternalId() == getOriginalID())
+		if (getInternalId() == getInternalId())
 			res += " [" + getInternalId() + "]";
 		else
-			res += " [" + getInternalId() + " (" + getOriginalID() + ")]";
+			res += " [" + getInternalId() + " (" + getInternalId() + ")]";
 		return res;
 	}
 

@@ -59,10 +59,8 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case PatternstructurePackage.RELATION_MAPPING: return createRelationMapping();
 			case PatternstructurePackage.QUANTIFIED_CONDITION: return createQuantifiedCondition();
 			case PatternstructurePackage.MORPHISM: return createMorphism();
-			case PatternstructurePackage.NODE_MAPPING: return createNodeMapping();
 			case PatternstructurePackage.FORMULA: return createFormula();
 			case PatternstructurePackage.TRUE_ELEMENT: return createTrueElement();
 			case PatternstructurePackage.COMPLETE_PATTERN: return createCompletePattern();
@@ -135,17 +133,6 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public RelationMapping createRelationMapping() {
-		RelationMappingImpl relationMapping = new RelationMappingImpl();
-		return relationMapping;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public QuantifiedCondition createQuantifiedCondition() {
 		QuantifiedConditionImpl quantifiedCondition = new QuantifiedConditionImpl();
 		return quantifiedCondition;
@@ -160,17 +147,6 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	public Morphism createMorphism() {
 		MorphismImpl morphism = new MorphismImpl();
 		return morphism;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NodeMapping createNodeMapping() {
-		NodeMappingImpl nodeMapping = new NodeMappingImpl();
-		return nodeMapping;
 	}
 
 	/**

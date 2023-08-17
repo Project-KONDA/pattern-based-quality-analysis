@@ -198,7 +198,8 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 	 */
 	@Override
 	public void checkComparisonConsistency(ParameterValue param) throws InvalidityException {
-		String value = param.getValueAsString();
+//		String value = 
+		param.getValueAsString();
 		Comparison effectedComp = null;
 		ComparisonOperator op = null;
 		for(Comparison comp1 : getComparison1()) {
@@ -218,55 +219,7 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 		}
 		if(effectedComp == null || op == null) {
 			return;
-		}
-		EList<Node> equivalentProperties = getEquivalentNodes();
-		for(Node equiProp : equivalentProperties) {
-			for(Comparison compOther : equiProp.getComparison1()) {
-				if(compOther == null) {
-					return;
-				}
-				if(!compOther.equals(effectedComp)) {
-					ComparisonOperator otherOp = compOther.getOption().getValue();
-					if(otherOp == null) {
-						return;
-					}
-					Comparable argument2 = compOther.getArgument2();
-					ParameterValue otherParam;
-					if(argument2 instanceof ParameterValue) {
-						otherParam = (ParameterValue) argument2;
-						String otherValue = otherParam.getValueAsString();
-						if(otherValue == null) {
-							return;
-						}
-						checkPropertyParameterComparisonConstraints(param, value, op, otherParam, otherValue, otherOp);					
-					}
-				}
-			}
-			
-			for(Comparison compOther : equiProp.getComparison2()) {
-				if(compOther == null) {
-					return;
-				}
-				if(!compOther.equals(effectedComp)) {
-					ComparisonOperator otherOp = compOther.getOption().getValue();
-					if(otherOp == null) {
-						return;
-					}
-					otherOp = reverseOperator(otherOp);
-					
-					Comparable argument1 = compOther.getArgument1();
-					ParameterValue otherParam;
-					if(argument1 instanceof ParameterValue) {
-						otherParam = (ParameterValue) argument1;
-						String otherValue = otherParam.getValueAsString();
-						if(otherValue == null) {
-							return;
-						}
-						checkPropertyParameterComparisonConstraints(param, value, op, otherParam, otherValue, otherOp);					
-					}
-				}
-			}
-		}		
+		}	
 	}
 
 	@Override
@@ -287,60 +240,12 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 			if(argument2 instanceof ParameterValue) {
 				ParameterValue param = (ParameterValue) argument2;
 				checkComparisonConsistency(param);
-			} else if(argument2 instanceof PrimitiveNode) {
-				PrimitiveNode otherProp = (PrimitiveNode) argument2;
-				EList<Node> equivalentProperties = getEquivalentNodes();
-				EList<Node> otherEquivalentProperties = otherProp.getEquivalentNodes();
-				for(Node equiProp : equivalentProperties) {
-					for(Comparison compOther : equiProp.getComparison1()) {
-						if(!compOther.equals(comp)) {
-							if(otherEquivalentProperties.contains(compOther.getArgument2())) {
-								ComparisonOperator otherOp = compOther.getOption().getValue();
-								checkPropertyPropertyComparisonConstraints(op, otherOp);
-							}
-						}
-					}
-					for(Comparison compOther : equiProp.getComparison2()) {
-						if(!compOther.equals(comp)) {
-							if(otherEquivalentProperties.contains(compOther.getArgument1())) {
-								ComparisonOperator otherOp = compOther.getOption().getValue();
-								otherOp = reverseOperator(otherOp);							
-								checkPropertyPropertyComparisonConstraints(op, otherOp);
-							}
-						}
-					}
-				}
 			}
 		}
 		if(argument2.equals(this)) {
 			if(argument1 instanceof ParameterValue) {
 				ParameterValue param = (ParameterValue) argument1;
 				checkComparisonConsistency(param);
-			} else if(argument1 instanceof PrimitiveNode) {
-				PrimitiveNode otherProp = (PrimitiveNode) argument1;
-				EList<Node> equivalentProperties = getEquivalentNodes();
-				EList<Node> otherEquivalentProperties = otherProp.getEquivalentNodes();
-				for(Node equiProp : equivalentProperties) {
-					for(Comparison compOther : equiProp.getComparison1()) {
-						if(!compOther.equals(comp)) {
-							if(otherEquivalentProperties.contains(compOther.getArgument2())) {
-								ComparisonOperator otherOp = compOther.getOption().getValue();
-								op = reverseOperator(op);
-								checkPropertyPropertyComparisonConstraints(op, otherOp);
-							}
-						}
-					}
-					for(Comparison compOther : equiProp.getComparison2()) {
-						if(!compOther.equals(comp)) {
-							if(otherEquivalentProperties.contains(compOther.getArgument1())) {
-								ComparisonOperator otherOp = compOther.getOption().getValue();
-								op = reverseOperator(op);
-								otherOp = reverseOperator(otherOp);							
-								checkPropertyPropertyComparisonConstraints(op, otherOp);
-							}
-						}
-					}
-				}
 			}			
 		}		
 	}

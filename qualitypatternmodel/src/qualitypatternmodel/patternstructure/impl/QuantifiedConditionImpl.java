@@ -40,7 +40,6 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
-import qualitypatternmodel.patternstructure.RelationMapping;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
@@ -340,7 +339,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		if(newQuantifiedcondition == null) {
 			getMorphism().setSource(null);
 		}
-		getMorphism().removeInconsistentMappings();
 		
 		if (newQuantifiedcondition != null) {
 			try {
@@ -374,7 +372,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		if(newNot == null) {
 			getMorphism().setSource(null);
 		}
-		getMorphism().removeInconsistentMappings();	
 		
 		if (newNot != null) {
 			try {
@@ -400,7 +397,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		if(newFormula1 == null) {
 			getMorphism().setSource(null);
 		}
-		getMorphism().removeInconsistentMappings();
 		
 		if (newFormula1 != null) {
 			try {
@@ -426,7 +422,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		if(newFormula2 == null) {
 			getMorphism().setSource(null);
 		}
-		getMorphism().removeInconsistentMappings();	
 		
 		if (newFormula2 != null) {
 			try {
@@ -452,7 +447,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		if(newPattern == null) {
 			getMorphism().setSource(null);
 		}
-		getMorphism().removeInconsistentMappings();		
 		
 		if (newPattern != null) {
 			try {
@@ -616,7 +610,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		if (getMorphism() != null) {
 			getMorphism().setSource(null);
 			getMorphism().setTarget(null);
-			getMorphism().getMappings().clear();
 		}
 		
 		Morphism oldMorphism = morphism;
@@ -676,7 +669,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			}
 		}
 		getMorphism().setSource(previousGraph);
-		previousGraph.copyGraph(graph);
+//		previousGraph.copyGraph(graph);
 	}
 
 	/**
@@ -974,7 +967,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				
 				buildExistsMatchWhere(cypher, cypherWhere);
 				//Since Cypher interprets the where-clause first outside-in the inside-out. All EXISTS have to be seperated.
-				final Set<NeoPropertyNode> uniqueNeoPropertyNodes = new TreeSet<NeoPropertyNode>((NeoPropertyNode node1, NeoPropertyNode node2) -> (node1.getOriginalID() - node2.getOriginalID()));
+				final Set<NeoPropertyNode> uniqueNeoPropertyNodes = new TreeSet<NeoPropertyNode>((NeoPropertyNode node1, NeoPropertyNode node2) -> (node1.getInternalId() - node2.getInternalId()));
 				getAllNeoPropertiesToAddress(new BasicEList<NeoPropertyEdge>(), new BasicEList<NeoPropertyEdge>(), uniqueNeoPropertyNodes);
 				for (NeoPropertyNode node : uniqueNeoPropertyNodes) {
 					addNeoPropertyToNotExists(cypher, node);
@@ -1030,7 +1023,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		final StringBuilder cypher = new StringBuilder();
 		final EList<NeoPropertyEdge> neoPropertyEdges = new BasicEList<NeoPropertyEdge>();
 		final EList<NeoPropertyEdge> neoVarPropertyEdges = new BasicEList<NeoPropertyEdge>();
-		final Set<NeoPropertyNode> uniqueNeoPropertyNodes = new TreeSet<NeoPropertyNode>((NeoPropertyNode node1, NeoPropertyNode node2) -> (node1.getOriginalID() - node2.getOriginalID()));
+		final Set<NeoPropertyNode> uniqueNeoPropertyNodes = new TreeSet<NeoPropertyNode>((NeoPropertyNode node1, NeoPropertyNode node2) -> (node1.getInternalId() - node2.getInternalId()));
 		getAllNeoPropertiesToAddress(neoPropertyEdges, neoVarPropertyEdges, uniqueNeoPropertyNodes);
 		
 		String result = new String();
@@ -1122,34 +1115,10 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		for (Relation r : getGraph().getRelations()) {
 			if (r instanceof NeoPropertyEdge) {
 				neoPropertyEdge = (NeoPropertyEdge) r;
-				if (r.getIncomingMapping() == null) {
-					if (neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart() == null) {
-						if (!isImplicitlyExitsChecked(neoPropertyEdge)) {
-							neoPropertyEdges.add(neoPropertyEdge);
-							uniqueNeoPropertyNodes.add((NeoPropertyNode) neoPropertyEdge.getTarget());							
-						}
-					}
-				} else if (r.getIncomingMapping() != null) {
-					final NeoPropertyEdge originalNeoPropertyEdge = (NeoPropertyEdge) neoPropertyEdge.getOriginalRelation();					
-					//The following prevents the existence from being checked again if it has already been checked in the preview
-					//aka was generated in a QuantifiedCondition
-					boolean isBreakable = false;
-					boolean isAlreadyChecked = false;
-					RelationMapping relationalMapping = null;
-					while (neoPropertyEdge.getIncomingMapping() != null && !isBreakable) {
-						relationalMapping = neoPropertyEdge.getIncomingMapping();
-						if (relationalMapping.getTarget().getGraph().getQuantifiedCondition() != null) {
-							isAlreadyChecked = true;
-							isBreakable = true;
-						}
-					}
-					if (!isAlreadyChecked) {
-						if (originalNeoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart() != null) {
-							if (!isImplicitlyExitsChecked(originalNeoPropertyEdge)) {
-								neoVarPropertyEdges.add(originalNeoPropertyEdge);
-								uniqueNeoPropertyNodes.add((NeoPropertyNode) originalNeoPropertyEdge.getTarget());								
-							}
-						}	
+				if (neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart() == null) {
+					if (!isImplicitlyExitsChecked(neoPropertyEdge)) {
+						neoPropertyEdges.add(neoPropertyEdge);
+						uniqueNeoPropertyNodes.add((NeoPropertyNode) neoPropertyEdge.getTarget());							
 					}
 				}
 			} 
@@ -1184,7 +1153,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	private final void createTheExistsPropertyForExistsMatch(StringBuilder cypher) throws InvalidityException {
 		final EList<NeoPropertyEdge> neoPropertyEdges = new BasicEList<NeoPropertyEdge>();
 		final EList<NeoPropertyEdge> neoVarPropertyEdges = new BasicEList<NeoPropertyEdge>();
-		final Set<NeoPropertyNode> uniqueNeoPropertyNodes = new TreeSet<NeoPropertyNode>((NeoPropertyNode node1, NeoPropertyNode node2) -> (node1.getOriginalID() - node2.getOriginalID()));
+		final Set<NeoPropertyNode> uniqueNeoPropertyNodes = new TreeSet<NeoPropertyNode>((NeoPropertyNode node1, NeoPropertyNode node2) -> (node1.getInternalId() - node2.getInternalId()));
 		getAllNeoPropertiesToAddress(neoPropertyEdges, neoVarPropertyEdges, uniqueNeoPropertyNodes);
 		if (neoPropertyEdges.size() != 0 || neoVarPropertyEdges.size() != 0) {
 			final StringBuilder localCBuilder = new StringBuilder();
@@ -1277,7 +1246,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			appendExistsProperties(cypher);				
 		} else {
 			//Since Cypher interprets the where-clause first outside-in the inside-out
-			final Set<NeoPropertyNode> uniqueNeoPropertyNodes = new TreeSet<NeoPropertyNode>((NeoPropertyNode node1, NeoPropertyNode node2) -> (node1.getOriginalID() - node2.getOriginalID()));
+			final Set<NeoPropertyNode> uniqueNeoPropertyNodes = new TreeSet<NeoPropertyNode>((NeoPropertyNode node1, NeoPropertyNode node2) -> (node1.getInternalId() - node2.getInternalId()));
 			getAllNeoPropertiesToAddress(new BasicEList<NeoPropertyEdge>(), new BasicEList<NeoPropertyEdge>(), uniqueNeoPropertyNodes);
 			for (NeoPropertyNode node : uniqueNeoPropertyNodes) {
 				addNeoPropertyToNotExists(cypher, node);

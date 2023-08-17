@@ -105,22 +105,15 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 		
 		super.isValid(abstractionLevel);
 		
-		if(getIncomingMapping() == null) {
-			getProperty().isValid(abstractionLevel);
-		}
+		getProperty().isValid(abstractionLevel);
 	}
 	
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		super.isValidLocal(abstractionLevel);
 		
-		if(getIncomingMapping() == null) {
-			if (getProperty() == null)
-				throw new InvalidityException("target property null (" + getInternalId() + ")" );				
-		} else {
-			if(getProperty() != null) {
-				throw new InvalidityException("source property not null");
-			}
-		}
+		if (getProperty() == null)
+			throw new InvalidityException("target property null (" + getInternalId() + ")" );				
+
 		
 		if(abstractionLevel == AbstractionLevel.CONCRETE && type == ReturnType.UNSPECIFIED) {
 			throw new InvalidityException("input value type unspecified" + " (" + getInternalId() + ")" );	
@@ -131,8 +124,8 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	@Override
 	public String getName() {
 		if(name == null || name.equals("")) {
-			if(getOriginalID() > -1) {
-				name = "XmlReference " + getOriginalID();
+			if(getInternalId() > -1) {
+				name = "XmlReference " + getInternalId();
 				return name;
 			}
 		}

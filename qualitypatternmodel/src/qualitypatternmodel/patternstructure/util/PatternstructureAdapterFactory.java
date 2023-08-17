@@ -67,10 +67,6 @@ public class PatternstructureAdapterFactory extends AdapterFactoryImpl {
 	protected PatternstructureSwitch<Adapter> modelSwitch =
 		new PatternstructureSwitch<Adapter>() {
 			@Override
-			public Adapter caseRelationMapping(RelationMapping object) {
-				return createRelationMappingAdapter();
-			}
-			@Override
 			public Adapter caseQuantifiedCondition(QuantifiedCondition object) {
 				return createQuantifiedConditionAdapter();
 			}
@@ -81,14 +77,6 @@ public class PatternstructureAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseMorphism(Morphism object) {
 				return createMorphismAdapter();
-			}
-			@Override
-			public Adapter caseNodeMapping(NodeMapping object) {
-				return createNodeMappingAdapter();
-			}
-			@Override
-			public Adapter caseMapping(Mapping object) {
-				return createMappingAdapter();
 			}
 			@Override
 			public Adapter caseFormula(Formula object) {
@@ -155,20 +143,6 @@ public class PatternstructureAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.RelationMapping <em>Relation Mapping</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.patternstructure.RelationMapping
-	 * @generated
-	 */
-	public Adapter createRelationMappingAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.QuantifiedCondition <em>Quantified Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -207,34 +181,6 @@ public class PatternstructureAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMorphismAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.NodeMapping <em>Node Mapping</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.patternstructure.NodeMapping
-	 * @generated
-	 */
-	public Adapter createNodeMappingAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.Mapping <em>Mapping</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.patternstructure.Mapping
-	 * @generated
-	 */
-	public Adapter createMappingAdapter() {
 		return null;
 	}
 

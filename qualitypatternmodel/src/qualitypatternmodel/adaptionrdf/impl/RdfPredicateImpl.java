@@ -66,9 +66,7 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 		String query = "";
 		if(!translated) {
 			translated = true;
-			if(getIncomingMapping() == null) {
-				query = getRdfPathParam().generateSparql();
-			}
+			query = getRdfPathParam().generateSparql();
 			if(getTarget() instanceof ComplexNode) {
 				ComplexNode complexNode = (ComplexNode) getTarget();
 				for(Relation relation : complexNode.getOutgoing()) {
@@ -81,18 +79,16 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 	
 	@Override
 	public void createParameters() {
-		if (getIncomingMapping() == null) {
-			ParameterList parameterList = getParameterList();
-			if(parameterList != null) {
-				RdfPathParam pp = getRdfPathParam();
-				if (pp == null) {
-					pp = new RdfPathParamImpl();
-					setRdfPathParam(pp);
-					parameterList.add(pp);
-				}
-				if (!parameterList.equals(pp.getParameterList())){
-					parameterList.add(pp);
-				}
+		ParameterList parameterList = getParameterList();
+		if(parameterList != null) {
+			RdfPathParam pp = getRdfPathParam();
+			if (pp == null) {
+				pp = new RdfPathParamImpl();
+				setRdfPathParam(pp);
+				parameterList.add(pp);
+			}
+			if (!parameterList.equals(pp.getParameterList())){
+				parameterList.add(pp);
 			}
 		}
 	}
@@ -102,7 +98,7 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 		EList<Parameter> res = new BasicEList<Parameter>();		
 		if (rdfPathParam != null) {
 			res.addAll(rdfPathParam.getAllParameters());
-		} else if (getIncomingMapping() == null) {
+		} else {
 			throw new InvalidityException("rdfPathParam missing on " + this + " " + getName());
 		}
 		return res;

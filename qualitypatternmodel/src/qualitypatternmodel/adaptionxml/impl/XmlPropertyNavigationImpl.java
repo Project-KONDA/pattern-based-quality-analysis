@@ -49,9 +49,7 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 
 	@Override
 	public String generateXQuery() throws InvalidityException {
-		boolean hasAxis = !getXmlPathParam().getXmlAxisParts().isEmpty();
-		boolean isNew = getSource().getIncomingMapping() != null && getTarget().getIncomingMapping() == null;
-		if (hasAxis || isNew) 
+		if (!getXmlPathParam().getXmlAxisParts().isEmpty()) 
 			return super.generateXQuery();
 		
 		XmlProperty target = (XmlProperty) getTarget();
@@ -99,8 +97,8 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 	@Override
 	public String getName() {
 		if(name == null || name.equals("")) {
-			if(getOriginalID() > -1) {
-				name = "XmlPropertyNavigation " + getOriginalID();
+			if(getInternalId() > -1) {
+				name = "XmlPropertyNavigation " + getInternalId();
 				return name;
 			}
 		}

@@ -86,8 +86,8 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	@Override
 	public String getName() {
 		if(name == null || name.equals("")) {
-			if(getOriginalID() > -1) {
-				name = "XmlElement " + getOriginalID();
+			if(getInternalId() > -1) {
+				name = "XmlElement " + getInternalId();
 				return name;
 			}
 		}
@@ -151,9 +151,7 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 			for(Relation relation : getOutgoing()) {
 				if(relation instanceof XmlPropertyNavigation) {
 					XmlPropertyNavigation nav = (XmlPropertyNavigation) relation;
-					boolean hasAxis = !nav.getXmlPathParam().getXmlAxisParts().isEmpty();
-					boolean isNew = getIncomingMapping() != null && nav.getTarget().getIncomingMapping() == null;
-					if (hasAxis || isNew) {
+					if (!nav.getXmlPathParam().getXmlAxisParts().isEmpty()) {
 						nav.setSourceVariable(getVariables().get(getVariables().size()-1));
 						query += relation.generateXQuery();
 					}
@@ -183,7 +181,7 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 		
 		
 		if ( getIncoming() == null && abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE ) {
-			throw new InvalidityException("no incoming relation at XMLElement " + getId());
+			throw new InvalidityException("no incoming relation at XMLElement " + getInternalId());
 		}
 		boolean hasIncomingXMLNavigation = false;
 		for(Relation relation : getIncoming()) {
@@ -193,7 +191,7 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 			}
 		}
 		if ( !hasIncomingXMLNavigation  && abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE ) {
-			throw new InvalidityException("no incoming XMLNavigations at XMLElement " + getId());
+			throw new InvalidityException("no incoming XMLNavigations at XMLElement " + getInternalId());
 		}
 		
 	}
@@ -254,9 +252,7 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 			for(Relation relation : getOutgoing()) {
 				if(relation instanceof XmlPropertyNavigation) {
 					XmlPropertyNavigation nav = (XmlPropertyNavigation) relation;
-					boolean hasAxis = !nav.getXmlPathParam().getXmlAxisParts().isEmpty();
-					boolean isNew = getIncomingMapping() != null && nav.getTarget().getIncomingMapping() == null;
-					if (!hasAxis && !isNew) {
+					if (nav.getXmlPathParam().getXmlAxisParts().isEmpty()) {
 //						nav.setSourceVariable(getVariables().get(getVariables().size()-1));
 						xPredicates += relation.generateXQuery();
 					}
@@ -483,12 +479,7 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	public Node makeGeneric() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
-	
-	@Override
-	public Node makeGenericRecursive() throws InvalidityException{
-		throw new InvalidityException("This node can not become generic!");
-	}
-	
+		
 	@Override
 	public void checkGeneric() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
@@ -496,11 +487,6 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	
 	@Override
 	public PrimitiveNode makePrimitive() throws InvalidityException{
-		throw new InvalidityException("This node can not become generic!");
-	}
-	
-	@Override
-	public PrimitiveNode makePrimitiveRecursive() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
 	

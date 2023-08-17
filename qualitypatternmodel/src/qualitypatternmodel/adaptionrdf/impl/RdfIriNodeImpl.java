@@ -65,7 +65,7 @@ public class RdfIriNodeImpl extends ComplexNodeImpl implements RdfIriNode {
 	
 	@Override
 	public String generateSparql() {
-		return "?var" + getOriginalID();
+		return "?var" + getInternalId();
 	}
 
 	/**
@@ -76,7 +76,7 @@ public class RdfIriNodeImpl extends ComplexNodeImpl implements RdfIriNode {
 	@Override
 	public String generateRdfTypes() throws InvalidityException {
 		String result = "";
-		if (this.equals(getOriginalNode()) && getRdfIriNodeTypes() != null) {
+		if (getRdfIriNodeTypes() != null) {
 			for (IriParam iri: getRdfIriNodeTypes().getIriParams()) {
 				result += "\n" + this.generateSparql() + " " + RDF_TYPE_PREDICATE + " " + iri.generateSparql() + ".";
 			}
@@ -87,8 +87,7 @@ public class RdfIriNodeImpl extends ComplexNodeImpl implements RdfIriNode {
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = super.getAllParameters();
-		if (this == getOriginalNode())
-			res.add(getRdfIriNodeTypes());
+		res.add(getRdfIriNodeTypes());
 		return res;
 	}
 	
@@ -101,12 +100,7 @@ public class RdfIriNodeImpl extends ComplexNodeImpl implements RdfIriNode {
 	public Node makeGeneric() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
-	
-	@Override
-	public Node makeGenericRecursive() throws InvalidityException{
-		throw new InvalidityException("This node can not become generic!");
-	}
-	
+		
 	@Override
 	public void checkGeneric() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
@@ -116,12 +110,7 @@ public class RdfIriNodeImpl extends ComplexNodeImpl implements RdfIriNode {
 	public PrimitiveNode makePrimitive() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
-	
-	@Override
-	public PrimitiveNode makePrimitiveRecursive() throws InvalidityException{
-		throw new InvalidityException("This node can not become generic!");
-	}
-	
+		
 	@Override
 	public void checkPrimitive() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
@@ -207,18 +196,10 @@ public class RdfIriNodeImpl extends ComplexNodeImpl implements RdfIriNode {
 
 	@Override
 	public void createParameters() {
-		if (this == getOriginalNode()) {
-			if (getRdfIriNodeTypes() == null)
-				setRdfIriNodeTypes(new IriListParamImpl());
-			if (getParameterList() != null && getParameterList() != getRdfIriNodeTypes().getParameterList())
-				getRdfIriNodeTypes().setParameterList(getParameterList());
-		} else {
-			if (getRdfIriNodeTypes() != null) {
-				getRdfIriNodeTypes().setParameterList(null);
-				setRdfIriNodeTypes(null);
-			}
-			getOriginalNode().createParameters();
-		}
+		if (getRdfIriNodeTypes() == null)
+			setRdfIriNodeTypes(new IriListParamImpl());
+		if (getParameterList() != null && getParameterList() != getRdfIriNodeTypes().getParameterList())
+			getRdfIriNodeTypes().setParameterList(getParameterList());
 	}
 
 	/**

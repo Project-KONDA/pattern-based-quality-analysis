@@ -12,8 +12,6 @@ import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.graphstructure.Node;
 
-import qualitypatternmodel.patternstructure.NodeMapping;
-
 /**
  * A sample validator interface for {@link qualitypatternmodel.graphstructure.Node}.
  * This doesn't really do anything, and it's not a real EMF artifact.
@@ -22,15 +20,7 @@ import qualitypatternmodel.patternstructure.NodeMapping;
  */
 public interface ElementValidator {
 	boolean validate();
-
-	boolean validateOutgoingMappings(EList<NodeMapping> value);
-
-	boolean validateIncomingMapping(NodeMapping value);
-
-	boolean validateMappingTo(EList<NodeMapping> value);
-
-	boolean validateMappingTo(NodeMapping value);
-	boolean validateMappingFrom(NodeMapping value);
+	
 	boolean validatePrevious(Node value);
 	boolean validateNextSet(EList<Node> value);
 

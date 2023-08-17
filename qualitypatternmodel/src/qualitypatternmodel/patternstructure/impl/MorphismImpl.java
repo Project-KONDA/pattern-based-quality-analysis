@@ -2,40 +2,22 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
-import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.BasicEList;
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.patternstructure.Mapping;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.patternstructure.RelationMapping;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.patternstructure.NodeMapping;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -44,7 +26,6 @@ import qualitypatternmodel.patternstructure.NodeMapping;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getMappings <em>Mappings</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getSource <em>Source</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getMorphismContainer <em>Morphism Container</em>}</li>
@@ -53,16 +34,6 @@ import qualitypatternmodel.patternstructure.NodeMapping;
  * @generated
  */
 public class MorphismImpl extends PatternElementImpl implements Morphism {
-	/**
-	 * The cached value of the '{@link #getMappings() <em>Mappings</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * The <code>Mappings</code> between components of <code>source</code> and <code>target</code> <code>Graph</code>. 
-	 * <!-- end-user-doc -->
-	 * @see #getMappings()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Mapping> mappings;
 
 	/**
 	 * The cached value of the '{@link #getSource() <em>From</em>}' reference. <!--
@@ -99,9 +70,6 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(abstractionLevel);
-		for (Mapping mapping : mappings) {
-			mapping.isValid(abstractionLevel);
-		}
 	}
 
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
@@ -109,15 +77,6 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 			throw new InvalidityException("Morphism " + getInternalId() + ": from null");
 		if (target == null)
 			throw new InvalidityException("Morphism " + getInternalId() + ": to null");
-
-		for (Mapping mapping : getMappings())
-			if (mapping == null)
-				throw new InvalidityException("Morphism " + getInternalId() + ": mapping invalid (" + mapping + ")");
-		
-		checkElementMappings();
-		checkRelationMappings();
-		checkElementMappingsUniqueness();
-		checkRelationMappingsUniqueness();
 	}
 	
 	/**
@@ -130,28 +89,13 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<Mapping> getMappings() {
-		if (mappings == null) {
-			mappings = new EObjectContainmentWithInverseEList<Mapping>(Mapping.class, this, PatternstructurePackage.MORPHISM__MAPPINGS, PatternstructurePackage.MAPPING__MORPHISM);
-		}
-		return mappings;
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PatternstructurePackage.MORPHISM__MAPPINGS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMappings()).basicAdd(otherEnd, msgs);
 			case PatternstructurePackage.MORPHISM__SOURCE:
 				if (source != null)
 					msgs = ((InternalEObject)source).eInverseRemove(this, GraphstructurePackage.GRAPH__OUTGOING_MORPHISMS, Graph.class, msgs);
@@ -330,173 +274,12 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
-	 * @generated NOT
-	 */
-	@Override
-	public void checkElementMappings() throws InvalidityException {
-		for(Mapping mapping : getMappings()) {
-			if(mapping instanceof NodeMapping) {
-				NodeMapping nodeMapping = (NodeMapping) mapping;
-				if(!getSource().getNodes().contains(nodeMapping.getSource())) {
-					throw new InvalidityException("wrong NodeMapping from");
-				}
-				if(!getTarget().getNodes().contains(nodeMapping.getTarget())) {
-					throw new InvalidityException("wrong NodeMapping to");
-				}
-			}
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
-	 * @generated NOT
-	 */
-	@Override
-	public void checkRelationMappings() throws InvalidityException {
-		for(Mapping mapping : getMappings()) {
-			if(mapping instanceof RelationMapping) {
-				RelationMapping relationMapping = (RelationMapping) mapping;
-				if(!getSource().getRelations().contains(relationMapping.getSource())) {
-					throw new InvalidityException("wrong RelationMapping from");
-				}
-				if(!getTarget().getRelations().contains(relationMapping.getTarget())) {
-					throw new InvalidityException("wrong RelationMapping to");
-				}
-			}
-		}
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
-	 * @generated NOT
-	 */
-	@Override
-	public void checkElementMappingsUniqueness() throws InvalidityException {
-		List<Node> nodes = new ArrayList<Node>();
-		for(Mapping mapping : getMappings()) {
-			if(mapping instanceof NodeMapping) {
-				NodeMapping nodeMapping = (NodeMapping) mapping;
-				nodes.add(nodeMapping.getSource());
-			}
-		}
-		Set<Node> set = new HashSet<Node>(nodes);
-		if(nodes.size() != set.size()) {
-			throw new InvalidityException("mapping source not unique");
-		}
-		
-		if(nodes.size() != getSource().getNodes().size()) {
-			throw new InvalidityException("mappings not complete");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public NodeMapping addMapping(Node from, Node to) {
-		NodeMapping em = new NodeMappingImpl();
-		getMappings().add(em);
-		em.setSource(from);
-		em.setTarget(to);
-		return em;
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public RelationMapping addMapping(Relation from, Relation to) {		
-		RelationMapping rm = new RelationMappingImpl();
-		getMappings().add(rm);
-		rm.setSource(from);
-		rm.setTarget(to);
-		return rm;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public void removeInconsistentMappings() {
-		EList<Mapping> mappings = new BasicEList<Mapping>();
-		mappings.addAll(getMappings());
-		for(Mapping mapping : mappings) {
-			if(mapping instanceof NodeMapping) {
-				NodeMapping nodeMapping = (NodeMapping) mapping;
-				if(nodeMapping.getSource() == null && getSource() != null
-						|| nodeMapping.getSource() != null && getSource() == null
-						|| nodeMapping.getSource() != null && nodeMapping.getSource().getGraph() == null
-						|| nodeMapping.getSource() != null && !nodeMapping.getSource().getGraph().equals(getSource())) {
-					getMappings().remove(nodeMapping);
-				} else if(nodeMapping.getTarget() == null && getTarget() != null
-						|| nodeMapping.getTarget() != null && getTarget() == null
-						|| nodeMapping.getTarget() != null && nodeMapping.getTarget().getGraph() == null
-						|| nodeMapping.getTarget() != null && !nodeMapping.getTarget().getGraph().equals(getTarget())) {
-					getMappings().remove(nodeMapping);
-				}
-				
-			} else {
-				RelationMapping relationMapping = (RelationMapping) mapping;
-				if(relationMapping.getSource() == null && getSource() != null
-						|| relationMapping.getSource() != null && getSource() == null
-						|| relationMapping.getSource() != null && relationMapping.getSource().getGraph() == null
-						|| relationMapping.getSource() != null && !relationMapping.getSource().getGraph().equals(getSource())) {
-					getMappings().remove(relationMapping);
-				} else if(relationMapping.getTarget() == null && getTarget() != null
-						|| relationMapping.getTarget() != null && getTarget() == null
-						|| relationMapping.getTarget() != null && relationMapping.getTarget().getGraph() == null
-						|| relationMapping.getTarget() != null && !relationMapping.getTarget().getGraph().equals(getTarget())) {
-					getMappings().remove(relationMapping);
-				}
-			}
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @throws InvalidityException
-	 * @generated NOT
-	 */
-	@Override
-	public void checkRelationMappingsUniqueness() throws InvalidityException {
-		List<Relation> relations = new ArrayList<Relation>();
-		for(Mapping mapping : getMappings()) {
-			if(mapping instanceof RelationMapping) {
-				RelationMapping relationMapping = (RelationMapping) mapping;
-				relations.add(relationMapping.getSource());
-			}
-		}
-		Set<Relation> set = new HashSet<Relation>(relations);
-		if(relations.size() != set.size()) {
-			throw new InvalidityException("mappings not unique");
-		}
-	}
-
-	
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PatternstructurePackage.MORPHISM__MAPPINGS:
-				return ((InternalEList<?>)getMappings()).basicRemove(otherEnd, msgs);
 			case PatternstructurePackage.MORPHISM__SOURCE:
 				return basicSetSource(null, msgs);
 			case PatternstructurePackage.MORPHISM__TARGET:
@@ -528,8 +311,6 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PatternstructurePackage.MORPHISM__MAPPINGS:
-				return getMappings();
 			case PatternstructurePackage.MORPHISM__SOURCE:
 				if (resolve) return getSource();
 				return basicGetSource();
@@ -546,14 +327,9 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PatternstructurePackage.MORPHISM__MAPPINGS:
-				getMappings().clear();
-				getMappings().addAll((Collection<? extends Mapping>)newValue);
-				return;
 			case PatternstructurePackage.MORPHISM__SOURCE:
 				setSource((Graph)newValue);
 				return;
@@ -574,9 +350,6 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.MORPHISM__MAPPINGS:
-				getMappings().clear();
-				return;
 			case PatternstructurePackage.MORPHISM__SOURCE:
 				setSource((Graph)null);
 				return;
@@ -597,8 +370,6 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.MORPHISM__MAPPINGS:
-				return mappings != null && !mappings.isEmpty();
 			case PatternstructurePackage.MORPHISM__SOURCE:
 				return source != null;
 			case PatternstructurePackage.MORPHISM__TARGET:
@@ -609,74 +380,9 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 		return super.eIsSet(featureID);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case PatternstructurePackage.MORPHISM___ADD_MAPPING__NODE_NODE:
-				return addMapping((Node)arguments.get(0), (Node)arguments.get(1));
-			case PatternstructurePackage.MORPHISM___ADD_MAPPING__RELATION_RELATION:
-				return addMapping((Relation)arguments.get(0), (Relation)arguments.get(1));
-			case PatternstructurePackage.MORPHISM___REMOVE_INCONSISTENT_MAPPINGS:
-				removeInconsistentMappings();
-				return null;
-			case PatternstructurePackage.MORPHISM___CHECK_ELEMENT_MAPPINGS:
-				try {
-					checkElementMappings();
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case PatternstructurePackage.MORPHISM___CHECK_ELEMENT_MAPPINGS_UNIQUENESS:
-				try {
-					checkElementMappingsUniqueness();
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case PatternstructurePackage.MORPHISM___CHECK_RELATION_MAPPINGS:
-				try {
-					checkRelationMappings();
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case PatternstructurePackage.MORPHISM___CHECK_RELATION_MAPPINGS_UNIQUENESS:
-				try {
-					checkRelationMappingsUniqueness();
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-		}
-		return super.eInvoke(operationID, arguments);
-	}
-
 	@Override
 	public String myToString() {
-		if (getMappings().size() >0) {
-//			String res = "Morphism [" + getInternalId() + "] (";
-			String res = "Morphism (";
-			if (getSource()!= null) res += getSource().getInternalId();
-			else res += "-";		
-			res += " -> ";
-			if (getTarget()!= null) res += getTarget().getInternalId() ;
-			else res += "-";	
-			res += ")";
-			for (Mapping map : getMappings()) {
-				res += "\n  * " + map.myToString();
-			}
-			return res;
-		}
-		return "Morphism [" + getInternalId() + "]";
+		return "Morphism [" + getInternalId() + ": " + getSource().getInternalId() + "->" + getTarget().getInternalId() + "]";
 	}
 
 } // MorphismImpl

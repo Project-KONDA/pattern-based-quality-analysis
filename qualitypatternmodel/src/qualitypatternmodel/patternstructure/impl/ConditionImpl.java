@@ -548,29 +548,21 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 		for (EList<NeoElementNode> neoNodeList: neoGraphs) {
 			tempCyclicSubGraphsWithNoBeginnings = new BasicEList<NeoElementNode>();
 			for (NeoElementNode neoNode : neoNodeList) {
-				if (neoNode.getIncomingMapping() == null) {
-					if (neoNode.getIncoming().size() == 0) {
+				if (neoNode.getIncoming().size() == 0) {
+					neoNode.setNeoPlace(NeoPlace.BEGINNING);
+				} else {
+					i = neoNode.getIncoming().size();
+					for (Relation r : neoNode.getIncoming()) {
+						tempNeoEdge = (NeoElementEdge) r;
+						tempNeoNode = (NeoElementNode) tempNeoEdge.getSource();
+					}
+					//When no start has been set since no Incoming Relation. It is a new SubGraph in the Condtion
+					if (i == neoNode.getIncoming().size() && i == 0) {
 						neoNode.setNeoPlace(NeoPlace.BEGINNING);
 					} else {
-						i = neoNode.getIncoming().size();
-						for (Relation r : neoNode.getIncoming()) {
-							tempNeoEdge = (NeoElementEdge) r;
-							if (r.getIncomingMapping() == null) {
-								tempNeoNode = (NeoElementNode) tempNeoEdge.getSource();
-								if (tempNeoNode.getIncomingMapping() != null) {
-									tempNeoNode.setNeoPlace(NeoPlace.BEGINNING);
-									i--;
-								}				
-							}
-						}
-						//When no start has been set since no Incoming Relation. It is a new SubGraph in the Condtion
-						if (i == neoNode.getIncoming().size() && i == 0) {
-							neoNode.setNeoPlace(NeoPlace.BEGINNING);
-						} else {
-							tempCyclicSubGraphsWithNoBeginnings.add(tempNeoNode);
-						}
-						i = -1;
+						tempCyclicSubGraphsWithNoBeginnings.add(tempNeoNode);
 					}
+					i = -1;
 				}
 			}
 			if (tempCyclicSubGraphsWithNoBeginnings.size() != 0) {
@@ -592,20 +584,16 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	 * No cycles are possible in the version from 10/11/2022. Due to this fact in this method no cycle check is done.
 	 */
 	private final void setBeginningInSubGraphForNeoPropertyNodes(EList<NeoPropertyNode> nodes) {
-		NeoElementNode neoNode = null;
+//		NeoElementNode neoNode = null;
 		NeoPropertyEdge neoPropertyEdge = null;
 		for (NeoPropertyNode node : nodes) {
-			if (node.getIncomingMapping() == null) {
-				for (Relation r : node.getIncoming()) {
-					neoPropertyEdge = (NeoPropertyEdge) r;
-					if (neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart() != null) {
-						neoNode = (NeoElementNode) r.getSource();
-						if (neoNode.getIncomingMapping() != null) {
-							neoNode.setNeoPlace(NeoPlace.BEGINNING);
-						}
-					} 
-				}			
-			}
+			for (Relation r : node.getIncoming()) {
+				neoPropertyEdge = (NeoPropertyEdge) r;
+				if (neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart() != null) {
+//					neoNode = (NeoElementNode) 
+					r.getSource();
+				} 
+			}		
 		}
 	}
 	

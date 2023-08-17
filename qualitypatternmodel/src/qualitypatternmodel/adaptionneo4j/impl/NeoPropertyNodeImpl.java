@@ -61,15 +61,10 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	public EList<String> generateCypherPropertyAddressing() throws InvalidityException {
 		final EList<String> cypherResult = new BasicEList<String>();
 		NeoPropertyEdge neoPropertyEdge = null;
-		boolean hasPrevProperty = false;
 		for (Relation r : getIncoming()) {
 			neoPropertyEdge = (NeoPropertyEdge) r;
-			if (neoPropertyEdge.getOriginalRelation() == neoPropertyEdge) {
-				cypherResult.add(neoPropertyEdge.generateCypherPropertyAddressing());
-			} else if (!hasPrevProperty) {
-				hasPrevProperty = true;
-				cypherResult.add(neoPropertyEdge.generateCypherPropertyAddressing());
-			}
+			cypherResult.add(neoPropertyEdge.generateCypherPropertyAddressing());
+
 		}
 		return cypherResult;
 	}
@@ -133,12 +128,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	public Node makeGeneric() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
-	
-	@Override
-	public Node makeGenericRecursive() throws InvalidityException{
-		throw new InvalidityException("This node can not become generic!");
-	}
-	
+		
 	@Override
 	public void checkGeneric() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
@@ -146,11 +136,6 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	
 	@Override
 	public PrimitiveNode makePrimitive() throws InvalidityException{
-		throw new InvalidityException("This node can not become generic!");
-	}
-	
-	@Override
-	public PrimitiveNode makePrimitiveRecursive() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
 	

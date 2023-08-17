@@ -458,7 +458,7 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 		if (getNeoPropertyEdge() == null) {
 			return -1;
 		}
-		return getNeoPropertyEdge().getOriginalID();
+		return getNeoPropertyEdge().getInternalId();
 	}
 
 	@Override

@@ -36,7 +36,6 @@ import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.Quantifier;
-import qualitypatternmodel.patternstructure.RelationMapping;
 
 /**
  * <!-- begin-user-doc -->
@@ -117,11 +116,10 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		
 		// Basic Translation via xmlPathParam
 		String xPathExpression = "";
-		if (xmlPathParam != null && getIncomingMapping() == null) {
+		if (xmlPathParam != null) {
 			xPathExpression = getSourceVariable() + xmlPathParam.generateXQuery();
-		} else if(getIncomingMapping() == null) {
+		} else 
 			throw new InvalidityException("option null");
-		}
 		
 		// setTranslated
 		String xPredicates;
@@ -160,18 +158,11 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		String query = "";
 		if (getGraph().isReturnGraph()) {
 			query += FOR + variable + IN; 			
-			if (getIncomingMapping() == null) {		
-				if(getTarget() instanceof XmlNode) {
-					XmlNode node = (XmlNode) getTarget();
-					xPredicates += node.translateMultipleIncoming();
-				}
-				query += xPathExpression + xPredicates;
-			} else if (!getTarget().getPredicates().isEmpty() || (getTarget() instanceof XmlNode) && ((XmlNode) getTarget()).getVariables().size() > 1) {
-				query += variable + xPredicates;
-			} else {
-				query = "";
+			if(getTarget() instanceof XmlNode) {
+				XmlNode node = (XmlNode) getTarget();
+				xPredicates += node.translateMultipleIncoming();
 			}
-			
+			query += xPathExpression + xPredicates;
 		} else {
 			if(getGraph().getQuantifiedCondition() == null) {
 				throw new InvalidityException("container QuantifiedCondition null");
@@ -187,18 +178,11 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 				throw new InvalidityException("invalid location");
 			}
 			query += variable + IN;
-			if (getIncomingMapping() == null) {
-				if(getTarget() instanceof XmlNode) {
-					XmlNode node = (XmlNode) getTarget();
-					xPredicates += node.translateMultipleIncoming();
-				}
-				query += xPathExpression + xPredicates + SATISFIES;
-			} else if (!xPredicates.equals("") && (!getTarget().getPredicates().isEmpty() || (getTarget() instanceof XmlNode) && ((XmlNode) getTarget()).getVariables().size() > 1)) {
-//			} else if (!xPredicates.equals("")) {
-				query += variable + xPredicates + SATISFIES;
-			} else {
-				query = "";
+			if(getTarget() instanceof XmlNode) {
+				XmlNode node = (XmlNode) getTarget();
+				xPredicates += node.translateMultipleIncoming();
 			}
+			query += xPathExpression + xPredicates + SATISFIES;
 		}
 		
 		translated = true;
@@ -213,7 +197,7 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	}
 
 	private String generateNextXQueryVariable() {
-		String variable = VARIABLE + getOriginalID() + "_" + getVariableCounter();
+		String variable = VARIABLE + getInternalId() + "_" + getVariableCounter();
 		setVariableCounter(getVariableCounter()+1);
 		return variable;
 	}
@@ -230,12 +214,10 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		super.isValidLocal(abstractionLevel);
-		if (getIncomingMapping() == null && xmlPathParam == null) {
+		if (xmlPathParam == null) {
 			throw new InvalidityException("xmlPathParam missing on " + this + " " + getName());
 		}
-		if (getIncomingMapping() != null && xmlPathParam != null) { 
-			throw new InvalidityException("xmlPathParam superflous");
-		}
+
 	}	
 	
 	@Override
@@ -252,8 +234,8 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	@Override
 	public String getName() {
 		if(name == null || name.equals("")) {
-			if(getOriginalID() > -1) {
-				name = "XmlElementNavigation " + getOriginalID();
+			if(getInternalId() > -1) {
+				name = "XmlElementNavigation " + getInternalId();
 				return name;
 			}
 		}
@@ -265,9 +247,8 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		EList<Parameter> res = new BasicEList<Parameter>();		
 		if (xmlPathParam != null) {
 			res.addAll(xmlPathParam.getAllParameters());
-		} else if (getIncomingMapping() == null) {
+		} else 
 			throw new InvalidityException("pathParam null" + " (" + getInternalId() + ")");
-		}
 		return res;
 	}	
 
@@ -283,19 +264,17 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	
 	@Override
 	public void createParameters() {	
-		if (getIncomingMapping() == null) {
-			ParameterList parameterList = getParameterList();
-			if(parameterList != null) {
-				XmlPathParam pp = getXmlPathParam();
-				if (pp == null) {
-					pp = new XmlPathParamImpl();
-					setXmlPathParam(pp);
-					parameterList.add(pp);
-					pp.createParameters();
-				}
-				if (!pp.getParameterList().equals(parameterList)){
-					parameterList.add(pp);
-				}
+		ParameterList parameterList = getParameterList();
+		if(parameterList != null) {
+			XmlPathParam pp = getXmlPathParam();
+			if (pp == null) {
+				pp = new XmlPathParamImpl();
+				setXmlPathParam(pp);
+				parameterList.add(pp);
+				pp.createParameters();
+			}
+			if (!pp.getParameterList().equals(parameterList)){
+				parameterList.add(pp);
 			}
 		}
 	}
@@ -313,15 +292,6 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		patternElements.add(xmlPathParam);
 		setXmlPathParam(null);
 		return patternElements;		
-	}
-	
-	@Override
-	public NotificationChain basicSetIncomingMapping(RelationMapping newMappingFrom, NotificationChain msgs) {
-		if (newMappingFrom != null) {		
-			removeParametersFromParameterList();			
-		}
-		NotificationChain res = super.basicSetIncomingMapping(newMappingFrom, msgs);
-		return res;
 	}
 	
 	/**
@@ -385,8 +355,6 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	 */
 	@Override
 	public XmlPathParam getXmlPathParam() {
-		if (getIncomingMapping() != null)
-			return ((XmlNavigation) getOriginalRelation()).getXmlPathParam();
 		if (xmlPathParam != null && xmlPathParam.eIsProxy()) {
 			InternalEObject oldPathParam = (InternalEObject)xmlPathParam;
 			xmlPathParam = (XmlPathParam)eResolveProxy(oldPathParam);

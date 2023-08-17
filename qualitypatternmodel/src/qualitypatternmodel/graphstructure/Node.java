@@ -19,7 +19,6 @@ import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.PatternElement;
-import qualitypatternmodel.patternstructure.NodeMapping;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,8 +30,6 @@ import qualitypatternmodel.patternstructure.NodeMapping;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.Node#getOutgoingMappings <em>Outgoing Mappings</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Node#getIncomingMapping <em>Incoming Mapping</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#getGraph <em>Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#getPredicates <em>Predicates</em>}</li>
@@ -48,43 +45,6 @@ import qualitypatternmodel.patternstructure.NodeMapping;
  * @generated
  */
 public interface Node extends qualitypatternmodel.graphstructure.Comparable, PatternElement, Adaptable {
-	/**
-	 * Returns the value of the '<em><b>Incoming Mapping</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.NodeMapping#getTarget <em>Target</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Incoming Mapping</em>' reference.
-	 * @see #setIncomingMapping(NodeMapping)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getNode_IncomingMapping()
-	 * @see qualitypatternmodel.patternstructure.NodeMapping#getTarget
-	 * @model opposite="target"
-	 * @generated
-	 */
-	NodeMapping getIncomingMapping();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Node#getIncomingMapping <em>Incoming Mapping</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Incoming Mapping</em>' reference.
-	 * @see #getIncomingMapping()
-	 * @generated
-	 */
-	void setIncomingMapping(NodeMapping value);
-
-	/**
-	 * Returns the value of the '<em><b>Outgoing Mappings</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.patternstructure.NodeMapping}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.NodeMapping#getSource <em>Source</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Outgoing Mappings</em>' reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getNode_OutgoingMappings()
-	 * @see qualitypatternmodel.patternstructure.NodeMapping#getSource
-	 * @model opposite="source"
-	 * @generated
-	 */
-	EList<NodeMapping> getOutgoingMappings();
 
 	/**
 	 * Returns the value of the '<em><b>Graph</b></em>' container reference.
@@ -251,15 +211,6 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Returns the <code>internalId</code> of the first correspondence of <code>this</code> in the pattern.
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" required="true"
-	 * @generated
-	 */
-	int getOriginalID();
-
-	/**
-	 * <!-- begin-user-doc -->
 	 * Creates a <code>Property</code> and
 	 * a <code>Match</code>
 	 * that references the new <code>Property</code> and has <code>regex</code> as its regular expression.
@@ -389,14 +340,6 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	EList<Node> getEquivalentNodes();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
@@ -426,29 +369,6 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 */
 	Relation addOutgoing(Node node) throws InvalidityException;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	Node getOriginalNode();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	ComplexNode makeComplexRecursive() throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	PrimitiveNode makePrimitiveRecursive() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -457,14 +377,6 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @generated
 	 */
 	Node makeGeneric() throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	Node makeGenericRecursive() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

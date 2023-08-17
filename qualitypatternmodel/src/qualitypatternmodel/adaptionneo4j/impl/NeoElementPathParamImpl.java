@@ -188,7 +188,7 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 		if (getNeoElementEdge() == null) {
 			return -1;
 		}
-		return getNeoElementEdge().getOriginalID();
+		return getNeoElementEdge().getInternalId();
 	}
 	
 	/**

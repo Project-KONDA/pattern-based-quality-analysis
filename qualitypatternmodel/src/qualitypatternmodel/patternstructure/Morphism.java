@@ -2,12 +2,7 @@
  */
 package qualitypatternmodel.patternstructure;
 
-import org.eclipse.emf.common.util.EList;
-
-import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.graphstructure.Relation;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +14,6 @@ import qualitypatternmodel.graphstructure.Relation;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getMappings <em>Mappings</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getSource <em>Source</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getTarget <em>Target</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getMorphismContainer <em>Morphism Container</em>}</li>
@@ -30,19 +24,6 @@ import qualitypatternmodel.graphstructure.Relation;
  * @generated
  */
 public interface Morphism extends PatternElement {
-	/**
-	 * Returns the value of the '<em><b>Mappings</b></em>' containment reference list.
-	 * The list contents are of type {@link qualitypatternmodel.patternstructure.Mapping}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Mapping#getMorphism <em>Morphism</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Mappings</em>' containment reference list.
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_Mappings()
-	 * @see qualitypatternmodel.patternstructure.Mapping#getMorphism
-	 * @model opposite="morphism" containment="true"
-	 * @generated
-	 */
-	EList<Mapping> getMappings();
 
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' reference.
@@ -115,91 +96,5 @@ public interface Morphism extends PatternElement {
 	 * @generated
 	 */
 	void setMorphismContainer(MorphismContainer value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Checks for all contained <code>ElementMappings</code> whether their <code>source</code> of type <code>Element</code>
-	 * is contained in the <code>source</code> <code>Graph</code> and their <code>target</code> is contained in the <code>target</code> <code>Graph</code>.
-	 * 
-	 * @throws InvalidityException if constraint is not fulfilled
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	void checkElementMappings() throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Checks for all contained <code>RelationMappings</code> whether their <code>source</code> of type <code>Relation</code>
-	 * is contained in the <code>source</code> <code>Graph</code> and their <code>target</code> is contained in the <code>target</code> <code>Graph</code>.
-	 * 
-	 * @throws InvalidityException if constraint is not fulfilled
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	void checkRelationMappings() throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Checks if each <code>Relation</code> of the <code>source</code> <code>Graph</code>
-	 * is involved in exactly one of the contained <code>RelationMappings</code>.
-	 * 
-	 * @throws InvalidityException if constraint is not fulfilled
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	void checkRelationMappingsUniqueness() throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Checks if each <code>Element</code> of the <code>source</code> <code>Graph</code>
-	 * is involved in exactly one of the contained <code>ElementMappings</code>.
-	 * 
-	 * @throws InvalidityException if constraint is not fulfilled
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	void checkElementMappingsUniqueness() throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Creates a new <code>NodeMapping</code> with <code>from</code> as <code>source</code> and <code>to</code>
-	 * as <code>target</code> and adds it to <code>mappings</code>. 
-	 * 
-	 * @return the created <code>NodeMapping</code> with <code>from</code> as <code>source</code> and <code>to</code> as <code>target</code>
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	NodeMapping addMapping(Node from, Node to);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Creates a new <code>RelationMapping</code> with <code>from</code> as <code>source</code> and <code>to</code>
-	 * as <code>target</code> and adds it to <code>mappings</code>. 
-	 * 
-	 * @return the created <code>RelationMapping</code> with <code>from</code> as <code>source</code> and <code>to</code> as <code>target</code>
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	RelationMapping addMapping(Relation from, Relation to);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Removes <code>Mappings</code> that have a <code>source</code> or <code>target</code> 
-	 * that is not contained in the <code>source</code> or <code>target</code> <code>Graph</code> 
-	 * of <code>this</code> from <code>mappings</code>.
-	 * 
-	 * <code>Mappings</code> are not removed if their <code>source</code> or <code>target</code> is null and the <code>source</code> or <code>target</code> <code>Graph</code> of <code>this</code>
-	 * is null as well.
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void removeInconsistentMappings();	
 
 } // Morphism

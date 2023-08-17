@@ -4,7 +4,6 @@ package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.patternstructure.Morphism;
@@ -249,18 +248,6 @@ public interface Graph extends PatternElement {
 	 * @generated
 	 */
 	EList<Operator> getAllOperators();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Copies all contained <code>Elements</code> and <code>Relations</code> to <code>graph</code>.
-	 * 
-	 * New <code>Elements</code> and <code>Relations</code> are created and inserted into <code>graph</code>.
-	 * Corresponding <code>Mappings</code> are created and added to the corresponding <code>MorphismContainer's</code> <code>Morphism</code>.
-	 * 
-	 * @throws MissingPatternContainerException // TODO comment
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.MissingPatternContainerException"
-	 * @generated
-	 */
-	void copyGraph(Graph graph) throws MissingPatternContainerException;
+	
+	Boolean isBefore(Graph other);
 } // Graph

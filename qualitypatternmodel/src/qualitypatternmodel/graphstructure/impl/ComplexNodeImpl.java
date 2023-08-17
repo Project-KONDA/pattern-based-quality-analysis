@@ -122,34 +122,7 @@ public class ComplexNodeImpl extends NodeImpl implements ComplexNode {
 		ComparisonOperator op = comp.getOption().getValue();
 		if(op != ComparisonOperator.EQUAL && op != ComparisonOperator.NOTEQUAL) {
 			return;
-		}
-		EList<Node> equivalentToThis = getEquivalentNodes();
-		EList<Node> equivalentToOther = otherElement.getEquivalentNodes();		
-		
-		for(Node e : equivalentToThis) {
-			for(Comparison comp1 : e.getComparison1()) {
-				if(!comp.equals(comp1)) {
-					if(equivalentToOther.contains(comp1.getArgument2())) {
-						ComparisonOperator otherOp = comp1.getOption().getValue();
-						if(op == ComparisonOperator.EQUAL && otherOp == ComparisonOperator.NOTEQUAL || op == ComparisonOperator.NOTEQUAL && otherOp == ComparisonOperator.EQUAL) {
-							throw new InvalidityException("Requiring that two elements are equal and unequal will always yield false");
-						}
-					}
-				}
-			}
-			for(Comparison comp2 : e.getComparison2()) {
-				if(!comp.equals(comp2)) {
-					if(equivalentToOther.contains(comp2.getArgument1())) {
-						ComparisonOperator otherOp = comp2.getOption().getValue();
-						if(op == ComparisonOperator.EQUAL && otherOp == ComparisonOperator.NOTEQUAL || op == ComparisonOperator.NOTEQUAL && otherOp == ComparisonOperator.EQUAL) {
-							throw new InvalidityException("Requiring that two elements are equal and unequal will always yield false");
-						}
-					}
-				}
-			}
-		}
-		
-		
+		}	
 	}
 	
 	/**

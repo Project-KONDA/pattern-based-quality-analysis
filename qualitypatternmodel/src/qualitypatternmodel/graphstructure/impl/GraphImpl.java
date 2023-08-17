@@ -24,8 +24,6 @@ import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
-import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
@@ -50,18 +48,12 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.patternstructure.CountPattern;
-import qualitypatternmodel.patternstructure.NodeMapping;
 import qualitypatternmodel.patternstructure.Morphism;
-import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.patternstructure.RelationMapping;
-import qualitypatternmodel.patternstructure.impl.NodeMappingImpl;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
-import qualitypatternmodel.patternstructure.impl.RelationMappingImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
@@ -336,14 +328,12 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		NeoPropertyEdge neoPropertyEdge;
 		for (Relation r : node.getOutgoing()) {
 			//--> Mapped Relations are not considered in Morphed Graphs 
-			if (r.getOriginalRelation() == r) {
-				if (r instanceof NeoElementEdge) {
-					i++;
-				} else {
-					neoPropertyEdge = (NeoPropertyEdge) r; 
-					if (neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart() != null) {
-						distinctNeoPropertyNode++;
-					}
+			if (r instanceof NeoElementEdge) {
+				i++;
+			} else {
+				neoPropertyEdge = (NeoPropertyEdge) r; 
+				if (neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart() != null) {
+					distinctNeoPropertyNode++;
 				}
 			}
 		}
@@ -630,14 +620,14 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, MissingPatternContainerException {
 		
 		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC 
-				&& (getReturnNodes().isEmpty()))
+				&& (getReturnNodes().isEmpty() && getIncomingMorphism() == null))
 			throw new InvalidityException("no ReturnElement in Graph (" + getInternalId() + ")");
 		
 		if (operatorList == null)
 			throw new InvalidityException("operatorList null (" + getInternalId() + ")");
 		
-		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && getNodes().isEmpty())
-			throw new InvalidityException("no element in graph (" + getInternalId() + ")");
+//		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && getNodes().isEmpty())
+//			throw new InvalidityException("no element in graph (" + getInternalId() + ")");
 			
 
 		for (Node returnNode : getReturnNodes()) {
@@ -661,7 +651,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		} 
 		
 
-		if (abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE ) {	
+		if (abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE ) {
 			for(Node node : getNodes()) {
 				if(node.getClass().equals(NodeImpl.class) || node.getClass().equals(ComplexNodeImpl.class) || node.getClass().equals(PrimitiveNodeImpl.class)) {
 					throw new InvalidityException("Non-generic pattern contains generic Element (" + getInternalId() + ")");
@@ -673,33 +663,33 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				}				
 			}
 
-			if (getNodes().get(0) instanceof XmlNode) {
-				for(Node node : getNodes()) {
-					if( !(node instanceof XmlNode || node instanceof XmlRoot)) {
-						throw new InvalidityException("XML-adapted pattern contains non-XML-Node (" + getInternalId() + ": " + node.getClass() + "(" +  + node.getInternalId() + "))");
-					}
-				}
-				
-				for(Relation relation : getRelations()) {
-					if( !(relation instanceof XmlNavigation) && !(relation instanceof XmlReference)) {
-						throw new InvalidityException("XML-adapted pattern contains non-XML-Relation (" + getInternalId() + ")");
-					}				
-				}
-				
-				// ABSTRACT, SEMI_CONCRETE or CONCRETE 		
-				int noRoot = 0;		
-				for(Node node : getNodes()) {
-					if(node instanceof XmlRoot) {
-						noRoot++;
-					}
-				}
-
-				if (noRoot == 0)
-					throw new InvalidityException("XML-adapted pattern is missing a XMLRoot (" + getInternalId() + ")");
-				
-				if (noRoot > 1)
-					throw new InvalidityException("XML-adapted pattern has too many XMLRoots (" + getInternalId() + ")");
-			}
+//			if (getNodes().get(0) instanceof XmlNode) {
+//				for(Node node : getNodes()) {
+//					if( !(node instanceof XmlNode || node instanceof XmlRoot)) {
+//						throw new InvalidityException("XML-adapted pattern contains non-XML-Node (" + getInternalId() + ": " + node.getClass() + "(" +  + node.getInternalId() + "))");
+//					}
+//				}
+//				
+//				for(Relation relation : getRelations()) {
+//					if( !(relation instanceof XmlNavigation) && !(relation instanceof XmlReference)) {
+//						throw new InvalidityException("XML-adapted pattern contains non-XML-Relation (" + getInternalId() + ")");
+//					}				
+//				}
+//				
+//				// ABSTRACT, SEMI_CONCRETE or CONCRETE 		
+//				int noRoot = 0;		
+//				for(Node node : getNodes()) {
+//					if(node instanceof XmlRoot) {
+//						noRoot++;
+//					}
+//				}
+//
+//				if (noRoot == 0)
+//					throw new InvalidityException("XML-adapted pattern is missing a XMLRoot (" + getInternalId() + ")");
+//				
+//				if (noRoot > 1)
+//					throw new InvalidityException("XML-adapted pattern has too many XMLRoots (" + getInternalId() + ")");
+//			}
 		}
 		
 	}
@@ -771,49 +761,56 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		return this;
 	}
 	
-	private void createXmlRoot() {
-		// previously called finalizeXMLAdaption()
-		
+	private void createXmlRoot() throws MissingPatternContainerException, InvalidityException {
 		XmlRoot root = null;
-		for(Node node : getNodes()) {
-			if(node instanceof XmlRoot) {
-				root = (XmlRoot) node;
-			}
-		}
-		if(root == null) {	
-			root = new XmlRootImpl();
-			root.setGraphSimple(this);	
-			try {
-				if (getContainer() instanceof MorphismContainer) {
-					Morphism morph = ((MorphismContainer) getContainer()).getMorphism();
-					Graph previousGraph = morph.getSource();
-					XmlRoot previousRoot = null;
-					for(Node node : previousGraph.getNodes()) {
-						if(node instanceof XmlRoot) {
-							previousRoot = (XmlRoot) node;
-						}
-					}
-					morph.addMapping(previousRoot, root);
-					
-					previousRoot = (XmlRoot) root.getIncomingMapping().getSource();
-					for (Relation previousRelation : previousGraph.getRelations()) {
-						if (previousRelation.getSource().equals(previousRoot)) {
-							Relation previousXmlNavigation = new XmlElementNavigationImpl();
-							previousXmlNavigation.setGraphSimple(this);
-							previousXmlNavigation.createParameters();	
-							previousXmlNavigation.setSource(root);
-							EList<NodeMapping> emaps = previousRelation.getTarget().getOutgoingMappings();
-							for (NodeMapping em : emaps) {
-								if (getNodes().contains(em.getTarget())) {
-									previousXmlNavigation.setTarget(em.getTarget());	
-								}
-							}					
-							morph.addMapping(previousRelation, previousXmlNavigation);
-						}
-					}
+		
+		if (getIncomingMorphism() == null) {
+			for(Node node : getNodes()) {
+				if(node instanceof XmlRoot) {
+					root = (XmlRoot) node;
 				}
-			} catch (MissingPatternContainerException e) {}
+			}
+
+			if(root == null) {	
+				root = new XmlRootImpl();
+				root.setGraph(this);
+			}
+		} else {
+			Graph g = this;
+			while (g.getIncomingMorphism() != null) {
+				g = g.getIncomingMorphism().getSource();
+				if (g == null) {
+					throw new InvalidityException("Graph not in valid Pattern Structure");
+				}
+			}
+			for(Node node : g.getNodes()) {
+				if(node instanceof XmlRoot) {
+					root = (XmlRoot) node;
+				}
+			}
+			if (root == null)
+				throw new InvalidityException("Return Graph was not adapted to XML before Graph " + getInternalId());
 		}
+//		XmlRoot root = null;
+//		root = new XmlRootImpl();
+//		root.setGraphSimple(this);
+		
+//		XmlRoot root = null;
+//		for(Node node : getNodes()) {
+//			if(node instanceof XmlRoot) {
+//				root = (XmlRoot) node;
+//			}
+//		}
+//		if(root == null) {
+//			root = new XmlRootImpl();
+//			root.setGraphSimple(this);
+//			try {
+//				if (getContainer() instanceof MorphismContainer) {
+//					Morphism morph = ((MorphismContainer) getContainer()).getMorphism();
+//					Graph previousGraph = morph.getSource();
+//				}
+//			} catch (MissingPatternContainerException e) {}
+//		}
 		for(Node node : getNodes()) {
 			if(node instanceof XmlElement) {
 				boolean hasIncomingNavigation = false;
@@ -886,88 +883,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		return res;
 	}
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @throws MissingPatternContainerException
-	 * @generated NOT
-	 */
-	@Override
-	public void copyGraph(Graph graph) throws MissingPatternContainerException {
-		// copy this to graph		
-		copyElements(graph);		
-		copyRelations(graph);
-	}
 
-	private void copyRelations(Graph targetGraph) {
-		for(Relation relation : getRelations()) {
-			Relation newRelation = new RelationImpl();
-			newRelation.setGraph(targetGraph);					
-			
-			RelationMapping newMapping = new RelationMappingImpl();
-			Morphism morphism = null;
-			if(targetGraph.getQuantifiedCondition() != null) {
-				morphism = targetGraph.getQuantifiedCondition().getMorphism();
-				morphism.getMappings().add(newMapping);
-			} else if(targetGraph.getPattern() instanceof CountPattern) {
-				morphism = ((CountPattern) targetGraph.getPattern()).getMorphism();
-				morphism.getMappings().add(newMapping);
-			}
-			
-			newMapping.setSource(relation);
-			newMapping.setTarget(newRelation);			
-			
-			Node source = relation.getSource();
-			Node target = relation.getTarget();
-			
-			Node mappedSource;
-			if (source != null) {
-				for(NodeMapping mapping : source.getOutgoingMappings()) {
-					if(mapping.getMorphism().equals(morphism)) {
-						mappedSource = mapping.getTarget();
-						newRelation.setSource(mappedSource);
-					}
-				}
-			}
-			
-			Node mappedTarget;
-			if (target != null) {
-				for(NodeMapping mapping : target.getOutgoingMappings()) {
-					if(mapping.getMorphism().equals(morphism)) {
-						mappedTarget = mapping.getTarget();
-						newRelation.setTarget(mappedTarget);
-					}
-				}
-			}
-		}
-	}
-
-	private void copyElements(Graph targetGraph) {
-		for(Node node : getNodes()) {
-			Class<? extends Node> clazz = node.getClass();
-			Node newElement = new NodeImpl();
-			try {
-				newElement = clazz.getDeclaredConstructor().newInstance();
-			} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
-				e.printStackTrace();
-				// should never happen
-			}
-			
-			newElement.setGraph(targetGraph);
-			if(node.isReturnNode()) {
-				newElement.setReturnNode(true);
-			}
-			NodeMapping newMapping = new NodeMappingImpl();
-			if(targetGraph.getQuantifiedCondition() != null) {
-				targetGraph.getQuantifiedCondition().getMorphism().getMappings().add(newMapping);
-			} else if(targetGraph.getPattern() instanceof CountPattern) {
-				((CountPattern) targetGraph.getPattern()).getMorphism().getMappings().add(newMapping);
-			}
-			
-			newMapping.setSource(node);
-			newMapping.setTarget(newElement);			
-		}
-	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1331,6 +1247,23 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		}
 		return result;
 	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Boolean isBefore(Graph other) {
+		if (other.equals(this))
+			return true;
+		if (other.getIncomingMorphism() != null) {
+			Graph g = other.getIncomingMorphism().getSource();
+			if (g != null)
+				return isBefore(g);
+		}
+		return false;
+	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1504,14 +1437,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return getReturnNodes();
 			case GraphstructurePackage.GRAPH___GET_ALL_OPERATORS:
 				return getAllOperators();
-			case GraphstructurePackage.GRAPH___COPY_GRAPH__GRAPH:
-				try {
-					copyGraph((Graph)arguments.get(0));
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case GraphstructurePackage.GRAPH___ADD_RELATION__COMPLEXNODE_NODE:
 				return addRelation((ComplexNode)arguments.get(0), (Node)arguments.get(1));
 			case GraphstructurePackage.GRAPH___ADD_NODE:
@@ -1534,6 +1459,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case GraphstructurePackage.GRAPH___IS_BEFORE__GRAPH:
+				return isBefore((Graph)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
