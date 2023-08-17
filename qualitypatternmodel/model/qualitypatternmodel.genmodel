@@ -273,10 +273,6 @@
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//graphstructure/ReturnType/ELEMENTID"/>
       </genEnums>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Relation">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Relation/incomingMapping"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Relation/outgoingMappings"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Relation/graph"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Relation/source"/>
@@ -285,13 +281,9 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Relation/name"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Relation/translated"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Relation/predicatesAreBeingTranslated"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/getOriginalID"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/getOriginalRelation"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/setGraphSimple">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Relation/setGraphSimple/newGraph"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/removeRelationFromPreviousGraphs"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/removeMappingsToNext"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/adaptAsXmlElementNavigation"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/adaptAsXmlPropertyNavigation"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/adaptAsXmlReference"/>
@@ -313,10 +305,6 @@
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Node">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Node/outgoingMappings"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Node/incomingMapping"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Node/graph"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Node/name"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -327,9 +315,6 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Node/typeModifiable"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Node/translated"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Node/predicatesAreBeingTranslated"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/getOriginalID"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/getOriginalNode"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/getEquivalentNodes"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/setGraphSimple">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/setGraphSimple/newGraph"/>
         </genOperations>
@@ -381,13 +366,10 @@
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/checkGeneric"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/makeGeneric"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/makeGenericRecursive"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/checkComplex"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/makeComplex"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/makeComplexRecursive"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/checkPrimitive"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/makePrimitive"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/makePrimitiveRecursive"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/adaptAsXmlElement"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/adaptAsXmlProperty"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/adaptAsRdfIriNode"/>
@@ -408,9 +390,6 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/isReturnGraph"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/getReturnNodes"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/getAllOperators"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/copyGraph">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Graph/copyGraph/graph"/>
-        </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/addRelation">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Graph/addRelation/from"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Graph/addRelation/to"/>
@@ -420,6 +399,9 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/addPrimitiveNode"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/generateCypherWhere"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/getAllSubGraphs"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/isBefore">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Graph/isBefore/other"/>
+        </genOperations>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//graphstructure/Comparable">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -474,12 +456,6 @@
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//patternstructure/InvalidityExceptionWrapper"/>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//patternstructure/ClassWrapper"/>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//patternstructure/MissingPatternContainerException"/>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/RelationMapping">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/RelationMapping/target"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/RelationMapping/source"/>
-      </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/quantifier"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/graph"/>
@@ -496,34 +472,11 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Condition/isInRdfFilter"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/Morphism">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Morphism/mappings"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Morphism/source"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Morphism/target"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Morphism/morphismContainer"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Morphism/addMapping">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/Morphism/addMapping/from"/>
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/Morphism/addMapping/to"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Morphism/addMapping.1">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/Morphism/addMapping.1/from"/>
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/Morphism/addMapping.1/to"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Morphism/removeInconsistentMappings"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Morphism/checkElementMappings"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Morphism/checkElementMappingsUniqueness"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Morphism/checkRelationMappings"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Morphism/checkRelationMappingsUniqueness"/>
-      </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/NodeMapping">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/NodeMapping/source"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/NodeMapping/target"/>
-      </genClasses>
-      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//patternstructure/Mapping">
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Mapping/morphism"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/Formula">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/Formula/operator"/>

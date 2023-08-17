@@ -261,6 +261,7 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 	}
 	
 
+	@SuppressWarnings("unused")
 	private void checkPropertyPropertyComparisonConstraints(ComparisonOperator op, ComparisonOperator otherOp)
 			throws InvalidityException {
 		if(op == EQUAL && otherOp == NOTEQUAL || op == NOTEQUAL && otherOp == EQUAL) {
@@ -296,6 +297,7 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 		return otherOp;
 	}
 
+	@SuppressWarnings("unused")
 	private void checkPropertyParameterComparisonConstraints(ParameterValue parameterValue, String value, ComparisonOperator op,
 			ParameterValue otherParam, String otherValue, ComparisonOperator otherOp) throws InvalidityException {
 		if(value == null || otherValue == null) {
