@@ -57,13 +57,15 @@ public class Test03Quantor {
 		
 		// Pattern Structure
 		CompletePattern completePattern = getPatternExists();	
+		Graph graph1 = completePattern.getGraph();
 		QuantifiedCondition cond = (QuantifiedCondition) completePattern.getCondition();
 		Graph graph2 = cond.getGraph();
 		
-		Node e0g2 = graph2.getNodes().get(0);
-		Node e1g2 = graph2.getNodes().get(1);
+		Node e0g2 = graph1.getNodes().get(0);
+		Node e1g2 = graph2.getNodes().get(0);
 		e0g2.addOutgoing(e1g2);		
 		
+		System.out.println(completePattern.myToString());
 		completePattern.createXmlAdaption();
 		
 		return completePattern;
@@ -85,7 +87,7 @@ public class Test03Quantor {
 		
 		// EXISTS additional graph structure
 		ret.addOutgoing(g).getTarget().makeComplex();
-				
+		
 		return completePattern;
 	}
 	
@@ -105,8 +107,7 @@ public class Test03Quantor {
 //		Node se1 = cond.getGraph().getReturnNodes().get(0);	
 //		Node se2 = se1.addOutgoing().getTarget();
 		Node se1 = completePattern.getGraph().getReturnNodes().get(0);	
-		Relation r = se1.addOutgoing(condGraph);
-		
+		se1.addOutgoing(condGraph);
 		return completePattern;
 	}
 
@@ -137,7 +138,7 @@ public class Test03Quantor {
 		
 		CompletePattern completePattern = getPatternExists();
 		Graph graph2 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
-		Node last = graph2.getNodes().get(1);
+		Node last = graph2.getNodes().get(0);
 		
 		last.addOutgoing().getTarget().addPrimitiveComparison("New York City");
 		

@@ -40,10 +40,15 @@ public class Test04QuantorCombinations {
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		QuantifiedCondition quantifiedCondition2 = (QuantifiedCondition) quantifiedCondition.getCondition();
 		
-		XmlReference ref = quantifiedCondition2.getGraph().getRelations().get(0).adaptAsXmlReference();
+//		Graph g1 = completePattern.getGraph();
+//		Graph g2 = quantifiedCondition.getGraph();
+		Graph g3 = quantifiedCondition2.getGraph();
+		
+		
+		XmlReference ref = g3.getRelations().get(0).adaptAsXmlReference();
 		ref.setType(ReturnType.STRING);
 		
-		XmlProperty prop0 = (XmlProperty) quantifiedCondition2.getGraph().getNodes().get(4);
+		XmlProperty prop0 = (XmlProperty) g3.getNodes().get(1);
 		Relation rel = prop0.getIncoming().get(0);
 		if(rel instanceof XmlPropertyNavigation) {
 			XmlPropertyNavigation nav = (XmlPropertyNavigation) rel;
@@ -70,15 +75,15 @@ public class Test04QuantorCombinations {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
-		Node e1q1 = qcond.getGraph().getNodes().get(0);
-		Node e2q1 = qcond.getGraph().getNodes().get(1);
-		e1q1.addOutgoing(e2q1);
+		Graph g1 = completePattern.getGraph();
+		Graph g2 = qcond.getGraph();
+		Graph g3 = qcond2.getGraph();
 		
-		Node se3 = graphFactory.createNode();
-		qcond2.getGraph().getNodes().add(se3);
+		Node e1q1 = g1.getNodes().get(0);
+		Node e2q1 = e1q1.addOutgoing(g2).getTarget();
 		
-		Node e2q2 = qcond2.getGraph().getNodes().get(1);
-		e2q2.addOutgoing(se3);		
+//		Node se3 = 
+		e2q1.addOutgoing(g3).getTarget();		
 		
 //		completePattern.createXMLAdaption();
 //		relation2.adaptAsXMLNavigation();
@@ -99,7 +104,7 @@ public class Test04QuantorCombinations {
 		CompletePattern completePattern = getPatternExistsInExistsFinal();
 		((QuantifiedCondition) completePattern.getCondition()).setQuantifier(Quantifier.FORALL);
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
-		quantifiedCondition.getGraph().getNodes().get(3).addPrimitiveComparison("demo:artist");;
+		quantifiedCondition.getGraph().getNodes().get(1).addPrimitiveComparison("demo:artist");;
 		
 		return completePattern;
 	}

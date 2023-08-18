@@ -125,8 +125,8 @@ public class Test06NotElement {
 		completePattern.createXmlAdaption();
 		
 		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, null);
-		((XmlElementNavigation) q1.getGraph().getRelations().get(1)).getXmlPathParam().setXmlAxis(XmlAxisKind.CHILD, "");
-		((XmlElementNavigation) q2.getGraph().getRelations().get(2)).getXmlPathParam().setXmlAxis(XmlAxisKind.ANCESTOR, "");
+		((XmlElementNavigation) q1.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.CHILD, "");
+		((XmlElementNavigation) q2.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.ANCESTOR, "");
 		return completePattern; 
 	}
 	public static CompletePattern getPatternForallNotForall() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	

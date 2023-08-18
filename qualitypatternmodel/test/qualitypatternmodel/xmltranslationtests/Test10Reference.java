@@ -39,18 +39,14 @@ public class Test10Reference {
 	
 	public static CompletePattern getPatternReferenceSimple() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;	
 		
 		CompletePattern completePattern = Test03Quantor.getPatternExists();
 		Graph graph = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 
-		Node element0 = graph.getNodes().get(0);
-		Node element1 = graph.getNodes().get(1);
-				
-		Relation relation = graphstructureFactory.createRelation();
-		relation.setGraph(graph);
-		relation.setSource(element0);
-		relation.setTarget(element1);	
+		Node element0 = completePattern.getGraph().getNodes().get(0);
+		Node element1 = graph.getNodes().get(0);
+		
+		element0.addOutgoing(element1);	
 		
 		completePattern.createXmlAdaption();
 		XmlReference reference = graph.getRelations().get(0).adaptAsXmlReference();	
@@ -72,12 +68,12 @@ public class Test10Reference {
 		CompletePattern completePattern = Test03Quantor.getPatternExists();
 		Graph graph = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 
-		Node element0 = graph.getNodes().get(0);
-		Node element1 = graph.getNodes().get(1);
-		Node element2 = graphstructureFactory.createNode();
-		element2.setGraph(graph);
+		Node element0 = completePattern.getGraph().getNodes().get(0);
+		Node element1 = graph.getNodes().get(0);
 		
 		element0.addOutgoing(element1);	
+		
+		Node element2 = element1.addOutgoing().getTarget();
 		
 		element2.addOutgoing(element1);
 		
@@ -88,7 +84,7 @@ public class Test10Reference {
 		reference2.setType(ReturnType.STRING);
 		
 		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, "");
-		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(2)).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, "");
+		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(1)).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, "");
 		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(4)).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, "");
 		
 		return completePattern;		
@@ -101,20 +97,11 @@ public class Test10Reference {
 		CompletePattern completePattern = Test03Quantor.getPatternExists();
 		Graph graph = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 
-		Node element0 = graph.getNodes().get(0);
-		Node element1 = graph.getNodes().get(1);
-				
-		Relation relation = graphstructureFactory.createRelation();
-		relation.setGraph(graph);
-		relation.setSource(element0);
-		relation.setTarget(element1);	
+		Node element0 = completePattern.getGraph().getNodes().get(0).makeComplex();
+		Node element1 = graph.getNodes().get(0);
+		element0.addOutgoing(element1);
 		
-		Node newElement0 = relation.getSource();
-		
-		Relation relation2 = graphstructureFactory.createRelation();
-		relation2.setGraph(graph);
-		relation2.setSource(newElement0);
-		relation2.setTarget(element1);	
+		element0.addOutgoing(element1);	
 		
 		completePattern.createXmlAdaption();
 		
@@ -131,30 +118,16 @@ public class Test10Reference {
 	
 	public static CompletePattern getPatternReferencePropertyLocationsParallel() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;	
 		
 		CompletePattern completePattern = Test03Quantor.getPatternExists();
 		Graph graph = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 
-		Node element0 = graph.getNodes().get(0);
-		Node element1 = graph.getNodes().get(1);
-				
-		Relation relation = graphstructureFactory.createRelation();
-		relation.setGraph(graph);
-		relation.setSource(element0);
-		relation.setTarget(element1);
+		Node element0 = completePattern.getGraph().getNodes().get(0).makeComplex();
+		Node element1 = graph.getNodes().get(0);
+		element0.addOutgoing(element1);
 		
-		Node newElement0 = relation.getSource();
-		
-		Relation relation1 = graphstructureFactory.createRelation();
-		relation1.setGraph(graph);
-		relation1.setSource(newElement0);
-		relation1.setTarget(element1);	
-		
-		Relation relation2 = graphstructureFactory.createRelation();
-		relation2.setGraph(graph);
-		relation2.setSource(newElement0);
-		relation2.setTarget(element1);	
+		element0.addOutgoing(element1);	
+		element0.addOutgoing(element1);
 		
 		completePattern.createXmlAdaption();
 		

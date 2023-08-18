@@ -47,11 +47,9 @@ public class Test07Formula {
 		form.setCondition1(qc1);
 		form.setCondition2(qc2);
 
-		Node e0qc1 = qc1.getGraph().getNodes().get(0);
-		e0qc1.addOutgoing();
-		
-		Node e0qc2 = qc2.getGraph().getNodes().get(0);
-		e0qc2.addOutgoing();
+		Node ret = completePattern.getGraph().getNodes().get(0).makeComplex();
+		ret.addOutgoing(qc1.getGraph());
+		ret.addOutgoing(qc2.getGraph());
 	
 		completePattern.createXmlAdaption();
 		
@@ -66,7 +64,7 @@ public class Test07Formula {
 		
 		((XmlElementNavigation) pattern.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, null);
 		QuantifiedCondition q1 = ((QuantifiedCondition)((Formula) pattern.getCondition()).getCondition2());
-		XmlPropertyOptionParam property = ((XmlPropertyNavigation) q1.getGraph().getRelations().get(3)).getXmlPathParam().getXmlPropertyOptionParam();
+		XmlPropertyOptionParam property = ((XmlPropertyNavigation) q1.getGraph().getRelations().get(2)).getXmlPathParam().getXmlPropertyOptionParam();
 		property.setValue(XmlPropertyKind.ATTRIBUTE);
 		property.getAttributeName().setValue("demo:id");		
 		
