@@ -1266,6 +1266,11 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public Relation addOutgoing(Graph graph) throws InvalidityException {
+		if (graph == null)
+			return addOutgoing();
+		if (getGraph() == null)
+			throw new InvalidityException("Graph is null for " + myToString());
+		
 		if(!getGraph().isBefore(graph))
 			throw new InvalidityException("" + getGraph().myToString() + "is not before " + graph.myToString());
 		Node newNode = new NodeImpl();

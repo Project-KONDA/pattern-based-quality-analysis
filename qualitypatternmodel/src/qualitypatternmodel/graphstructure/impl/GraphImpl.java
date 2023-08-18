@@ -1263,12 +1263,14 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	@Override
 	public Boolean isBefore(Graph other) {
-		if (other.equals(this))
-			return true;
-		if (other.getIncomingMorphism() != null) {
-			Graph g = other.getIncomingMorphism().getSource();
-			if (g != null)
-				return isBefore(g);
+		if (other != null) {
+			if (other.equals(this))
+				return true;
+			if (other.getIncomingMorphism() != null) {
+				Graph g = other.getIncomingMorphism().getSource();
+				if (g != null)
+					return isBefore(g);
+			}
 		}
 		return false;
 	}
