@@ -228,7 +228,14 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	@Override
 	public XmlReference adaptAsXmlReference() throws InvalidityException {
 		removeParametersFromParameterList();
-		return super.adaptAsXmlReference();
+		XmlReference reference = super.adaptAsXmlReference();
+		try {
+			reference.getGraph().createXmlAdaption();
+		} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
+			e.printStackTrace();
+			throw new InvalidityException(e.getMessage());
+		}	
+		return reference;
 	}
 	
 	@Override

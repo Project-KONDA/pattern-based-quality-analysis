@@ -761,16 +761,14 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		return this;
 	}
 	
-	private void createXmlRoot() throws MissingPatternContainerException, InvalidityException {
+	private XmlRoot findXmlRoot() throws InvalidityException {
 		XmlRoot root = null;
-		
 		if (getIncomingMorphism() == null) {
 			for(Node node : getNodes()) {
 				if(node instanceof XmlRoot) {
 					root = (XmlRoot) node;
 				}
 			}
-
 			if(root == null) {	
 				root = new XmlRootImpl();
 				root.setGraph(this);
@@ -788,38 +786,50 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 					root = (XmlRoot) node;
 				}
 			}
-			if (root == null)
-				throw new InvalidityException("Return Graph was not adapted to XML before Graph " + getInternalId());
 		}
-//		XmlRoot root = null;
-//		root = new XmlRootImpl();
-//		root.setGraphSimple(this);
+		return root;
+	}
 		
-//		XmlRoot root = null;
-//		for(Node node : getNodes()) {
-//			if(node instanceof XmlRoot) {
-//				root = (XmlRoot) node;
-//			}
-//		}
-//		if(root == null) {
-//			root = new XmlRootImpl();
-//			root.setGraphSimple(this);
-//			try {
-//				if (getContainer() instanceof MorphismContainer) {
-//					Morphism morph = ((MorphismContainer) getContainer()).getMorphism();
-//					Graph previousGraph = morph.getSource();
-//				}
-//			} catch (MissingPatternContainerException e) {}
-//		}
+	private void createXmlRoot() throws MissingPatternContainerException, InvalidityException {
+		XmlRoot root = findXmlRoot();
+		
+		if (getIncomingMorphism() == null) {
+			for(Node node : getNodes()) {
+				if(node instanceof XmlRoot) {
+					root = (XmlRoot) node;
+				}
+			}
+			if(root == null) {	
+				root = new XmlRootImpl();
+				root.setGraph(this);
+			}
+		} else {
+			Graph g = this;
+			while (g.getIncomingMorphism() != null) {
+				g = g.getIncomingMorphism().getSource();
+				if (g == null) {
+					throw new InvalidityException("Graph not in valid Pattern Structure");
+				}
+			}
+			for(Node node : g.getNodes()) {
+				if(node instanceof XmlRoot) {
+					root = (XmlRoot) node;
+				}
+			}
+		}
+		if (root == null)
+			throw new InvalidityException("No XmlRoot found when adaption Graph " + getInternalId());
+
 		for(Node node : getNodes()) {
+			boolean hasIncomingNavigation = false;
 			if(node instanceof XmlElement) {
-				boolean hasIncomingNavigation = false;
 				for(Relation relation : node.getIncoming()) {
 					if(relation instanceof XmlElementNavigation) {
 						hasIncomingNavigation = true;
+						break;
 					}
 				}
-				if(!hasIncomingNavigation) {			
+				if(!hasIncomingNavigation) {
 					XmlElementNavigationImpl navigation = new XmlElementNavigationImpl();
 					navigation.setGraphSimple(this);
 					navigation.createParameters();
@@ -828,7 +838,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 					navigation.getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, null);
 				}
 			} else if(node instanceof XmlProperty) {
-				boolean hasIncomingNavigation = false;
 				for(Relation relation : node.getIncoming()) {
 					if(relation instanceof XmlPropertyNavigation) {
 						hasIncomingNavigation = true;

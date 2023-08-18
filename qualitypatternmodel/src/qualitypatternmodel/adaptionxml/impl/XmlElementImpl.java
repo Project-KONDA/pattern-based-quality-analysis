@@ -174,7 +174,7 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	}
 	
 	@Override
-	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {	
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		super.isValidLocal(abstractionLevel);
 		
 		validateCycles(false);
@@ -190,8 +190,8 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 				break;
 			}
 		}
-		if ( !hasIncomingXMLNavigation  && abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE ) {
-			throw new InvalidityException("no incoming XMLNavigations at XMLElement " + getInternalId());
+		if (!hasIncomingXMLNavigation  && abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE ) {
+			throw new InvalidityException("no incoming XMLNavigations at " + myToString());
 		}
 		
 	}

@@ -522,7 +522,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			getPredicates().clear();
 		}
 		
-		deleteRelations(newGraph);
+//		deleteRelations(newGraph);
 		
 		msgs = eBasicSetContainer((InternalEObject)newGraph, GraphstructurePackage.NODE__GRAPH, msgs);
 		return msgs;
@@ -533,18 +533,18 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		return msgs;
 	}
 	
-	private void deleteRelations(Graph newGraph) {
-		EList<Relation> relations = new BasicEList<Relation>();
-		relations.addAll(getIncoming());
-		if(this instanceof ComplexNode) {
-			relations.addAll(((ComplexNode) this).getOutgoing());
-		}
-		for (Relation rel : relations) {
-			if(rel.getGraph() != null && !rel.getGraph().equals(newGraph)) {
-				rel.setGraph(null);			
-			}
-		}
-	}
+//	private void deleteRelations(Graph newGraph) {
+//		EList<Relation> relations = new BasicEList<Relation>();
+//		relations.addAll(getIncoming());
+//		if(this instanceof ComplexNode) {
+//			relations.addAll(((ComplexNode) this).getOutgoing());
+//		}
+//		for (Relation rel : relations) {
+//			if(rel.getGraph() != null && !rel.getGraph().equals(newGraph)) {
+//				rel.setGraph(null);			
+//			}
+//		}
+//	}
 
 
 	/**

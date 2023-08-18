@@ -168,9 +168,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		
 		if(getSource() == null && abstractionLevel != AbstractionLevel.SEMI_GENERIC) {
 			throw new InvalidityException(getClass().getSimpleName() + " [" + getInternalId()  +"] source null");
-		} else {
-			if (!getSource().getGraph().equals(getGraph())) 
-				throw new InvalidityException("source Element not in Graph " + getId());
 		}
 		
 		if(getTarget() == null && abstractionLevel != AbstractionLevel.SEMI_GENERIC) {
@@ -224,10 +221,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
 		triggerParameterUpdates(newGraph);
 		
-		if (newGraph == null || getGraph() != null && !newGraph.equals(getGraph())) {
-			setSource(null);
-			setTarget(null);
-		}
+//		if (newGraph == null || getGraph() != null && !newGraph.equals(getGraph())) {
+//			setSource(null);
+//			setTarget(null);
+//		}
 		
 		if(getGraph() == null && newGraph != null) {
 			if(getSource() != null && getSource().getGraph() != null && !getSource().getGraph().equals(newGraph)) {
@@ -375,6 +372,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		if (setGraphConsistently(newSource, getTarget(), this)) {
 			source = (ComplexNode) newSource;
 		}
+		else throw new RuntimeException("Source not set");
 		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__SOURCE, oldSource, newSource);
@@ -423,6 +421,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		if (setGraphConsistently(getSource(), newTarget, this)) {
 			target = newTarget;
 		}
+		else throw new RuntimeException("Target not set");
 						
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__TARGET, oldTarget, newTarget);
@@ -475,7 +474,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			}
 			else {
 				if(sourceGraph.isBefore(newTargetGraph)) {
-					setGraph(newTargetGraph);
+					if (!newTargetGraph.equals(ownGraph))
+						setGraph(newTargetGraph);
 				} else {
 					return false;
 				}
