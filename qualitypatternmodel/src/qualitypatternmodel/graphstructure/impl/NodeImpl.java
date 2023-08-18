@@ -1265,9 +1265,26 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	@Override
+	public Relation addOutgoing(Graph graph) throws InvalidityException {
+		if(!getGraph().isBefore(graph))
+			throw new InvalidityException("" + getGraph().myToString() + "is not before " + graph.myToString());
+		Node newNode = new NodeImpl();
+		newNode.setGraph(graph);
+		return getGraph().addRelation(makeComplex(), newNode);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return 
+	 * @throws InvalidityException 
+	 * @generated NOT
+	 */
+	@Override
 	public Relation addOutgoing(Node node) throws InvalidityException {
-		Graph myGraph = this.getGraph(); 
-		node.setGraph(myGraph);
+		Graph myGraph = this.getGraph();
+		if (!myGraph.isBefore(node.getGraph()))
+			node.setGraph(myGraph);
 		return myGraph.addRelation(makeComplex(), node);
 	}
 
@@ -1528,6 +1545,13 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			case GraphstructurePackage.NODE___ADD_OUTGOING:
 				try {
 					return addOutgoing();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.NODE___ADD_OUTGOING__GRAPH:
+				try {
+					return addOutgoing((Graph)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

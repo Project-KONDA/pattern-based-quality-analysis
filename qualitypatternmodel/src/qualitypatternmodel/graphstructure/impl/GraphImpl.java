@@ -1109,10 +1109,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	@Override
 	public Relation addRelation(ComplexNode from, Node to) {
-		assert this == from.getGraph();
-		assert this == to.getGraph();
+		assert from.getGraph().isBefore(to.getGraph());
 		Relation r = new RelationImpl();
-		r.setGraph(this);
+		r.setGraph(to.getGraph());
 		r.setSource(from);
 		r.setTarget(to);
 		return r;

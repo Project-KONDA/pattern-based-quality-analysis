@@ -36,7 +36,7 @@ public class Test02Return {
 		
 //		Graph graph = completePattern.getGraph();
 		Node element1 = completePattern.getGraph().getNodes().get(0);
-		Node element2 = element1.addOutgoing().getTarget();
+		Node element2 = element1.addOutgoing(completePattern.getGraph()).getTarget();
 		element2.setReturnNode(true);
 		
 		completePattern.createXmlAdaption();
@@ -50,9 +50,9 @@ public class Test02Return {
 		
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		
-//		Graph graph = completePattern.getGraph();
-		Node element1 = completePattern.getGraph().getNodes().get(0);
-		Node element2 = element1.addOutgoing().getTarget();		
+		Graph graph = completePattern.getGraph();
+		Node element1 = graph.getNodes().get(0);
+		Node element2 = element1.addOutgoing(graph).getTarget();		
 		element2.setReturnNode(true);
 		
 		completePattern.createXmlAdaption();

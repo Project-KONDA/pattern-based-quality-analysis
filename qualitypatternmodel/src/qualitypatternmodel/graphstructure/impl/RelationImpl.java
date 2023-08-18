@@ -171,10 +171,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		}
 		
 		if(getTarget() == null && abstractionLevel != AbstractionLevel.SEMI_GENERIC) {
-			throw new InvalidityException("target null " + getId());
+			throw new InvalidityException("target null of " + myToString());
 		} else {
 			if (getTarget().getGraph() != getGraph()) 
-				throw new InvalidityException("target Element not in Graph " + getId());
+				throw new InvalidityException("target "+ getTarget().myToString() + " is not in Graph of " + myToString());
 		}
 	}
 

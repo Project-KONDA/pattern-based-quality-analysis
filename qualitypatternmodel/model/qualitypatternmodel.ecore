@@ -360,6 +360,9 @@
       <eOperations name="getAllOperators" upperBound="-1" eType="#//operators/Operator"/>
       <eOperations name="addOutgoing" eType="#//graphstructure/Relation" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="addOutgoing" eType="#//graphstructure/Relation" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="graph" eType="#//graphstructure/Graph"/>
+      </eOperations>
+      <eOperations name="addOutgoing" eType="#//graphstructure/Relation" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="node" eType="#//graphstructure/Node"/>
       </eOperations>
       <eOperations name="addIncomming" eType="#//graphstructure/Relation">

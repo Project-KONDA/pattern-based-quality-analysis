@@ -27,6 +27,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Comparable;
+import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
@@ -251,7 +252,7 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 	}
 	
 	@Override
-	public Relation addOutgoing() throws InvalidityException {
+	public Relation addOutgoing(Graph graph) throws InvalidityException {
 		throw new InvalidityException("PrimitiveNodes can not have subnodes.");
 	}
 	

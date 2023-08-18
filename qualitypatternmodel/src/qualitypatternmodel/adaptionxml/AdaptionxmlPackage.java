@@ -600,6 +600,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
+	int XML_ELEMENT___ADD_OUTGOING__GRAPH = GraphstructurePackage.COMPLEX_NODE___ADD_OUTGOING__GRAPH;
+
+	/**
+	 * The operation id for the '<em>Add Outgoing</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
 	int XML_ELEMENT___ADD_OUTGOING__NODE = GraphstructurePackage.COMPLEX_NODE___ADD_OUTGOING__NODE;
 
 	/**
@@ -2607,6 +2616,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
+	int XML_PROPERTY___ADD_OUTGOING__GRAPH = GraphstructurePackage.PRIMITIVE_NODE___ADD_OUTGOING__GRAPH;
+
+	/**
+	 * The operation id for the '<em>Add Outgoing</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
 	int XML_PROPERTY___ADD_OUTGOING__NODE = GraphstructurePackage.PRIMITIVE_NODE___ADD_OUTGOING__NODE;
 
 	/**
@@ -3328,6 +3346,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ROOT___ADD_OUTGOING = GraphstructurePackage.COMPLEX_NODE___ADD_OUTGOING;
+
+	/**
+	 * The operation id for the '<em>Add Outgoing</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___ADD_OUTGOING__GRAPH = GraphstructurePackage.COMPLEX_NODE___ADD_OUTGOING__GRAPH;
 
 	/**
 	 * The operation id for the '<em>Add Outgoing</em>' operation.

@@ -10,6 +10,7 @@ import qualitypatternmodel.graphstructure.Graph;
 //import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -78,9 +79,12 @@ public class Test03Quantor {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		QuantifiedCondition cond = factory.createQuantifiedCondition();
 		completePattern.setCondition(cond);
-				
+		Graph g = cond.getGraph();
+		
+		Node ret = completePattern.getGraph().getNodes().get(0);
+		
 		// EXISTS additional graph structure
-		cond.getGraph().getReturnNodes().get(0).addOutgoing().getTarget().makeComplex();
+		ret.addOutgoing(g).getTarget().makeComplex();
 				
 		return completePattern;
 	}
@@ -95,11 +99,13 @@ public class Test03Quantor {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		QuantifiedCondition cond = factory.createQuantifiedCondition();
 		completePattern.setCondition(cond);
+		Graph condGraph = cond.getGraph();
 				
 		// EXISTS additional graph structure
-		Node se1 = cond.getGraph().getReturnNodes().get(0);	
+//		Node se1 = cond.getGraph().getReturnNodes().get(0);	
 //		Node se2 = se1.addOutgoing().getTarget();
-		se1.addOutgoing();
+		Node se1 = completePattern.getGraph().getReturnNodes().get(0);	
+		Relation r = se1.addOutgoing(condGraph);
 		
 		return completePattern;
 	}

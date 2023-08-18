@@ -909,6 +909,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
+	int RDF_IRI_NODE___ADD_OUTGOING__GRAPH = GraphstructurePackage.COMPLEX_NODE___ADD_OUTGOING__GRAPH;
+
+	/**
+	 * The operation id for the '<em>Add Outgoing</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
 	int RDF_IRI_NODE___ADD_OUTGOING__NODE = GraphstructurePackage.COMPLEX_NODE___ADD_OUTGOING__NODE;
 
 	/**
@@ -2256,6 +2265,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @ordered
 	 */
 	int RDF_LITERAL_NODE___ADD_OUTGOING = GraphstructurePackage.PRIMITIVE_NODE___ADD_OUTGOING;
+
+	/**
+	 * The operation id for the '<em>Add Outgoing</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_LITERAL_NODE___ADD_OUTGOING__GRAPH = GraphstructurePackage.PRIMITIVE_NODE___ADD_OUTGOING__GRAPH;
 
 	/**
 	 * The operation id for the '<em>Add Outgoing</em>' operation.

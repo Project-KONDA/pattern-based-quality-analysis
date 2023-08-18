@@ -614,6 +614,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
+	int NEO_ELEMENT_NODE___ADD_OUTGOING__GRAPH = GraphstructurePackage.COMPLEX_NODE___ADD_OUTGOING__GRAPH;
+
+	/**
+	 * The operation id for the '<em>Add Outgoing</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
 	int NEO_ELEMENT_NODE___ADD_OUTGOING__NODE = GraphstructurePackage.COMPLEX_NODE___ADD_OUTGOING__NODE;
 
 	/**
@@ -3240,6 +3249,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_NODE___ADD_OUTGOING = GraphstructurePackage.PRIMITIVE_NODE___ADD_OUTGOING;
+
+	/**
+	 * The operation id for the '<em>Add Outgoing</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___ADD_OUTGOING__GRAPH = GraphstructurePackage.PRIMITIVE_NODE___ADD_OUTGOING__GRAPH;
 
 	/**
 	 * The operation id for the '<em>Add Outgoing</em>' operation.
