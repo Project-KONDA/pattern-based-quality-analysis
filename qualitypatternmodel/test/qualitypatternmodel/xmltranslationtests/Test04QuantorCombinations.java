@@ -103,8 +103,9 @@ public class Test04QuantorCombinations {
 	public static CompletePattern getPatternExistsInForall() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getPatternExistsInExistsFinal();
 		((QuantifiedCondition) completePattern.getCondition()).setQuantifier(Quantifier.FORALL);
-		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
-		quantifiedCondition.getGraph().getNodes().get(1).addPrimitiveComparison("demo:artist");;
+		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) ((QuantifiedCondition) completePattern.getCondition()).getCondition();
+		Node n1 = quantifiedCondition.getGraph().getNodes().get(1);
+		n1.addPrimitiveComparison("demo:artist");;
 		
 		return completePattern;
 	}

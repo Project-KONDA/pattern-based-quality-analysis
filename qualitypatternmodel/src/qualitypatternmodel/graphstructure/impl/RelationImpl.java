@@ -166,16 +166,16 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		
-		if(getSource() == null && abstractionLevel != AbstractionLevel.SEMI_GENERIC) {
-			throw new InvalidityException(getClass().getSimpleName() + " [" + getInternalId()  +"] source null");
+		if(getSource() == null || getSource().getGraph() == null) {
+			throw new InvalidityException("source invalid of " + myToString());
 		}
 		
-		if(getTarget() == null && abstractionLevel != AbstractionLevel.SEMI_GENERIC) {
-			throw new InvalidityException("target null of " + myToString());
-		} else {
-			if (getTarget().getGraph() != getGraph()) 
-				throw new InvalidityException("target "+ getTarget().myToString() + " is not in Graph of " + myToString());
+		if(getTarget() == null || getTarget().getGraph() == null) {
+			throw new InvalidityException("target invalid of " + myToString());
 		}
+			
+		if (getTarget().getGraph() != getGraph() && getSource().getGraph() != getGraph()) 
+			throw new InvalidityException( myToString() + "is not in Graph of Source "+ getSource().myToString() + "or Target ("+ getTarget().myToString() + ")");
 	}
 
 	@Override
@@ -435,28 +435,26 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		Graph sourceGraph = null;
 		if (getSource() != null)
 			sourceGraph = getSource().getGraph();
-		Graph newTargetGraph = null;
+		Graph targetGraph = null;
 		if (target != null)
-			newTargetGraph = target.getGraph();
+			targetGraph = target.getGraph();
 
 		// check if target is in graph that is hierarchically after
 		if (sourceGraph == null) {
-			if (newTargetGraph == null) {
+			if (targetGraph == null) {
 				if (ownGraph != null) {
 					if (getSource() != null)
-						source.setGraph(newTargetGraph);
+						source.setGraph(targetGraph);
 					if (target != null)
-						target.setGraph(newTargetGraph);
+						target.setGraph(targetGraph);
 				}
 			} else {
-				setGraph(newTargetGraph);
+				setGraph(targetGraph);
 				if (getSource() != null)
-					source.setGraph(newTargetGraph);
+					source.setGraph(targetGraph);
 			}
-			
-			
 		} else {
-			if (newTargetGraph == null) {
+			if (targetGraph == null) {
 				if (ownGraph == null) {
 					setGraph(sourceGraph);
 					if (target != null)
@@ -473,11 +471,16 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				}
 			}
 			else {
-				if(sourceGraph.isBefore(newTargetGraph)) {
-					if (!newTargetGraph.equals(ownGraph))
-						setGraph(newTargetGraph);
+				if(sourceGraph.isBefore(targetGraph)) {
+					if (!targetGraph.equals(ownGraph))
+						setGraph(targetGraph);
 				} else {
-					return false;
+					if(targetGraph.isBefore(sourceGraph)) {
+						if (!sourceGraph.equals(ownGraph))
+							setGraph(sourceGraph);
+					} else {
+						return false;
+					}
 				}
 			}
 		}
@@ -492,20 +495,22 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public void setTarget(Node newTarget) {
 		if (newTarget != target) {
-			if(!(getGraph() != null && newTarget != null && newTarget.getGraph() != null && !getGraph().equals(newTarget.getGraph()))) {
-				NotificationChain msgs = null;
-				if (target != null)
-					msgs = ((InternalEObject)target).eInverseRemove(this, GraphstructurePackage.NODE__INCOMING, Node.class, msgs);
-				if (newTarget != null)
-					msgs = ((InternalEObject)newTarget).eInverseAdd(this, GraphstructurePackage.NODE__INCOMING, Node.class, msgs);
-				msgs = basicSetTarget(newTarget, msgs);
-				if (msgs != null) msgs.dispatch();
-			}
-			else if (eNotificationRequired())
+			NotificationChain msgs = null;
+			if (target != null)
+				msgs = ((InternalEObject)target).eInverseRemove(this, GraphstructurePackage.NODE__INCOMING, Node.class, msgs);
+			if (newTarget != null)
+				msgs = ((InternalEObject)newTarget).eInverseAdd(this, GraphstructurePackage.NODE__INCOMING, Node.class, msgs);
+			msgs = basicSetTarget(newTarget, msgs);
+			if (msgs != null) msgs.dispatch();
+			if (eNotificationRequired())
 				eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__TARGET, target, target));
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__TARGET, newTarget, newTarget));
+		else {
+			System.out.println("RelImpl515 target set failed somehow");
+			if (eNotificationRequired())
+				eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__TARGET, newTarget, newTarget));
+		}
+			
 	}
 
 	/**

@@ -173,12 +173,14 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 
 		String returnClause = "";
 		EList<Node> returnElements = graph.getReturnNodes();
+		if (returnElements.isEmpty())
+			throw new InvalidityException("no return nodes in return graph");
 		for (int i = 0; i < returnElements.size(); i++) {
 			if (i != 0)
 				returnClause += ", ";
 			XmlNode r = ((XmlNode) returnElements.get(i)); 
 			if (r.getVariables() == null || r.getVariables().isEmpty()) {
-				throw new InvalidityException("There was no associated variable generated to the Return Element");
+				throw new InvalidityException("There was no associated variable generated to the return node");
 			}
 			else returnClause += ((XmlNode) returnElements.get(i)).getVariables().get(0);	
 //			returnClause += VARIABLE + returnElements.get(i).getOriginalID();			

@@ -1252,8 +1252,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public Relation addOutgoing() throws InvalidityException {
-		Node newNode = new NodeImpl();
-		newNode.setGraph(getGraph());
+		Node newNode = getGraph().addNode();
 		return getGraph().addRelation(makeComplex(), newNode);
 	}
 
@@ -1266,10 +1265,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public Relation addOutgoing(Graph graph) throws InvalidityException {
-		if (graph == null)
-			return addOutgoing();
 		if (getGraph() == null)
 			throw new InvalidityException("Graph is null for " + myToString());
+		if (graph == null)
+			return addOutgoing();
 		
 		if(!getGraph().isBefore(graph))
 			throw new InvalidityException("" + getGraph().myToString() + "is not before " + graph.myToString());
@@ -1287,10 +1286,25 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public Relation addOutgoing(Node node) throws InvalidityException {
-		Graph myGraph = this.getGraph();
-		if (!myGraph.isBefore(node.getGraph()))
+		Graph myGraph = getGraph();
+		Graph nodeGraph = node.getGraph();
+
+		if (myGraph == null && nodeGraph != null) {
+			setGraph(nodeGraph);
+			return nodeGraph.addRelation(makeComplex(), node);
+		}
+		else if (myGraph != null && nodeGraph == null) {
 			node.setGraph(myGraph);
-		return myGraph.addRelation(makeComplex(), node);
+			return myGraph.addRelation(makeComplex(), node);
+			
+		}
+		else if (myGraph.isBefore(nodeGraph)) {
+			return nodeGraph.addRelation(makeComplex(), node);
+		}
+		else if (nodeGraph.isBefore(myGraph)) {
+			return myGraph.addRelation(makeComplex(), node);
+		}
+		else throw new InvalidityException("A Relation between " + myToString() +" and " + node.myToString() + "could not be added");
 	}
 
 	/**
@@ -1764,10 +1778,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			res += "Return-";
 		res += this.getClass().getSimpleName();
 		if (getName() != null) res +=  " " + getName();
-		if (getInternalId() == getInternalId())
-			res += " [" + getInternalId() + "]";
-		else
-			res += " [" + getInternalId() + " (" + getInternalId() + ")]";
+		res += " [" + getInternalId() + "]";
 		return res;
 	}
 

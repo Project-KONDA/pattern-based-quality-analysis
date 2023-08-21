@@ -2,15 +2,12 @@ package qualitypatternmodel.xmltranslationtests;
 import java.util.ArrayList;
 import java.util.List;
 
-//import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
-//import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -86,7 +83,8 @@ public class Test03Quantor {
 		Node ret = completePattern.getGraph().getNodes().get(0);
 		
 		// EXISTS additional graph structure
-		ret.addOutgoing(g).getTarget().makeComplex();
+		Node n2 = ret.addOutgoing(g).getTarget();
+		n2 = n2.makeComplex();
 		
 		return completePattern;
 	}
@@ -106,7 +104,7 @@ public class Test03Quantor {
 		// EXISTS additional graph structure
 //		Node se1 = cond.getGraph().getReturnNodes().get(0);	
 //		Node se2 = se1.addOutgoing().getTarget();
-		Node se1 = completePattern.getGraph().getReturnNodes().get(0);	
+		Node se1 = completePattern.getGraph().getReturnNodes().get(0).makeComplex();	
 		se1.addOutgoing(condGraph);
 		return completePattern;
 	}

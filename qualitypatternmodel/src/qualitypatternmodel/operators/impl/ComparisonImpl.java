@@ -792,7 +792,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		try {
 			isCycleFree();
 			
-			if((newArgument1.getClass().equals(NodeImpl.class) || newArgument1.getClass().equals(ComplexNodeImpl.class)) && argument2 instanceof ParameterValue) {
+			if(newArgument1 != null && (newArgument1.getClass().equals(NodeImpl.class) || newArgument1.getClass().equals(ComplexNodeImpl.class)) && argument2 instanceof ParameterValue) {
 				((Node) newArgument1).makePrimitive();
 			}
 			if(argument2 != null && newArgument1 instanceof ParameterValue && (argument2.getClass().equals(NodeImpl.class) || argument2.getClass().equals(ComplexNodeImpl.class))){

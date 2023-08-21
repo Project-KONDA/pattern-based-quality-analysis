@@ -31,8 +31,6 @@ public class Test05QuantorCombinationsCond {
 		Graph graph1 = qcond.getGraph();
 		QuantifiedCondition qcond2 = (QuantifiedCondition) qcond.getCondition();
 		Graph graph2 = qcond2.getGraph();
-		System.out.println("HEERE");
-		System.out.println(completePattern.myToString());
 //		// comparisons
 		Node e0 = graph0.getNodes().get(0).makeComplex();
 		Node e1 = graph1.getNodes().get(0).makeComplex();

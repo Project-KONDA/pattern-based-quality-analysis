@@ -619,8 +619,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, MissingPatternContainerException {
 		
-		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC 
-				&& (getReturnNodes().isEmpty() && getIncomingMorphism() == null))
+		if ((getReturnNodes().isEmpty() && getIncomingMorphism() == null))
 			throw new InvalidityException("no ReturnElement in Graph (" + getInternalId() + ")");
 		
 		if (operatorList == null)
@@ -1109,9 +1108,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	@Override
 	public Relation addRelation(ComplexNode from, Node to) {
-		assert from.getGraph().isBefore(to.getGraph());
 		Relation r = new RelationImpl();
-		r.setGraph(to.getGraph());
+		r.setGraph(this);
 		r.setSource(from);
 		r.setTarget(to);
 		return r;

@@ -28,33 +28,21 @@ public class Test13Cycle {
 	private static CompletePattern getPatternCycle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = Test03Quantor.getPatternExists();
 		QuantifiedCondition cond = (QuantifiedCondition) completePattern.getCondition();
+		Graph graph1 = completePattern.getGraph();
 		Graph graph2 = cond.getGraph();
 		
-		Node e0g2 = graph2.getNodes().get(0);
-		Node e1g2 = graph2.getNodes().get(1);
+		Node ret = graph1.getNodes().get(0);
+		Node n1 = graph2.getNodes().get(0);
 		
-		Relation relation = GraphstructureFactory.eINSTANCE.createRelation();
-		relation.setGraph(graph2);
-		relation.setSource(e1g2);
-		relation.setTarget(e0g2);		
+		n1.addOutgoing(ret);
 		
 		completePattern.createXmlAdaption();
-		
-		// the value is now set automatically during adaptation.
-//		assertThrows(InvalidityException.class, () -> { completePattern.isValid(AbstractionLevel.CONCRETE);});
-//		((XmlElement) graph2.getNodes().get(0)).setXQueryDeepEqual(false);
-		
-//		System.out.println(completePattern.myToString());
 		
 		return completePattern;
 	}
 
 	public static List<PatternTestPair> getTestPairs() {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-
-//		for (XmlAxisKind ax : XmlAxisKind.VALUES) {
-//			testPairs.add(new PatternTestPair(<name>, <completePattern>, <query>));
-//		}
 		return testPairs;
 	}
 }
