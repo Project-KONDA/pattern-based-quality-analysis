@@ -24,7 +24,6 @@ import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
@@ -156,10 +155,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			} else {
 				for(Relation relation : getRelations()) {
 					if (relation instanceof XmlElementNavigation && relation.getSource().getGraph().isBefore(this))
-						result += relation.generateXQuery();
-				}
-				for(Relation relation : getRelations()) {
-					if (relation instanceof XmlPropertyNavigation && relation.getSource().getGraph().isBefore(this))
 						result += relation.generateXQuery();
 				}
 			}

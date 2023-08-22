@@ -193,6 +193,7 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		if (xPredicates == "" && xPathExpression == "" && target == "") {
 			return "";
 		}
+		
 		return query;
 	}
 
