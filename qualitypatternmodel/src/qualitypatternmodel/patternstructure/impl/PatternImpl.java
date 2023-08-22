@@ -160,16 +160,20 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		
 	}
 	
+	
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
 			throw new InvalidityException("return elements missing");
 		}
+		
 		String forClauses = graph.generateXQuery();
 		
 		String whereClause = "";
-		if (!(condition instanceof TrueElement))
-			whereClause = WHERE + condition.generateXQuery().replace("\n", "\n  ");
+		if (!(condition instanceof TrueElement)) {
+			String condQuery = condition.generateXQuery().replace("\n", "\n  ");
+			whereClause = WHERE + condQuery;
+		}
 
 		String returnClause = "";
 		EList<Node> returnElements = graph.getReturnNodes();
@@ -189,10 +193,10 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			returnClause = "(" + returnClause + ")";
 		returnClause = RETURN + returnClause;	
 		
+		
 		String query = forClauses + whereClause + returnClause;
 		setXmlQuery(query);
-		setPartialXmlQuery(forClauses + returnClause);
-		
+		setPartialXmlQuery(forClauses + returnClause);		
 		return query;
 	}
 	

@@ -43,10 +43,12 @@ public class XmlRootImpl extends ComplexNodeImpl implements XmlRoot {
 	public String generateXQuery() throws InvalidityException {
 		String result = "";
 		for(Relation relation : getOutgoing()) {
-			if(relation instanceof XmlNavigation) {
-				result += relation.generateXQuery();
-			} else {
-				throw new InvalidityException("XMLRoot has XMLReference");
+			if(getGraph().equals(relation.getGraph())){
+				if(relation instanceof XmlNavigation) {
+					result += relation.generateXQuery();
+				} else {
+					throw new InvalidityException("XMLRoot has XMLReference");
+				}
 			}
 		}
 		return result;		

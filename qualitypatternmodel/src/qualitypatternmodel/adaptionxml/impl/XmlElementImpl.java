@@ -148,20 +148,23 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 			throw new InvalidityException("XmlElement without variables cannot be translated");
 		}
 		if(xQueryDeepEqual || getVariables().size() == 1) {
-			for(Relation relation : getOutgoing()) {
-				if(relation instanceof XmlPropertyNavigation) {
-					XmlPropertyNavigation nav = (XmlPropertyNavigation) relation;
-					if (!nav.getXmlPathParam().getXmlAxisParts().isEmpty()) {
+			for(Relation relation: getOutgoing()) {
+				if (relation.getGraph().equals(getGraph())) {
+					
+					if(relation instanceof XmlPropertyNavigation) {
+						XmlPropertyNavigation nav = (XmlPropertyNavigation) relation;
+						if (!nav.getXmlPathParam().getXmlAxisParts().isEmpty()) {
+							nav.setSourceVariable(getVariables().get(getVariables().size()-1));
+							query += relation.generateXQuery();
+						}
+					}
+					if(relation instanceof XmlElementNavigation) {
+						XmlElementNavigation nav = (XmlElementNavigation) relation;
 						nav.setSourceVariable(getVariables().get(getVariables().size()-1));
 						query += relation.generateXQuery();
 					}
 				}
-				if(relation instanceof XmlElementNavigation) {
-					XmlElementNavigation nav = (XmlElementNavigation) relation;
-					nav.setSourceVariable(getVariables().get(getVariables().size()-1));
-					query += relation.generateXQuery();
-				}
-			}		
+			}
 		}
 		return query;					
 	}

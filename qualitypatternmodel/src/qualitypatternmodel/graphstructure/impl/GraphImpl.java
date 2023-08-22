@@ -24,6 +24,7 @@ import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
@@ -48,6 +49,7 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -144,10 +146,27 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		String result = "";
-		for(Node node : getNodes()) {
-			if(node instanceof XmlRoot) {
-				result += node.generateXQuery();
+		try {
+			if(getContainer() instanceof CompletePattern) {
+				for(Node node : getNodes()) {
+					if(node instanceof XmlRoot) {
+						result += node.generateXQuery();
+					}
+				}
+			} else {
+				for(Relation relation : getRelations()) {
+					if (relation instanceof XmlElementNavigation && relation.getSource().getGraph().isBefore(this))
+						result += relation.generateXQuery();
+				}
+				for(Relation relation : getRelations()) {
+					if (relation instanceof XmlPropertyNavigation && relation.getSource().getGraph().isBefore(this))
+						result += relation.generateXQuery();
+				}
 			}
+		} catch (MissingPatternContainerException e) {
+			InvalidityException ex = new InvalidityException();
+			ex.setStackTrace(e.getStackTrace());
+			throw ex;
 		}
 		return result;
 	}
