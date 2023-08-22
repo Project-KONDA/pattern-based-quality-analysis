@@ -12,9 +12,9 @@ public class Test05QuantorCombinationsCond {
 	
 	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-//		completePatterns.add(getPatternExistsInExistsCond());
-//		completePatterns.add(getPatternForallInExistsCond());
-//		completePatterns.add(getPatternExistsInForallCond());
+		completePatterns.add(getPatternExistsInExistsCond());
+		completePatterns.add(getPatternForallInExistsCond());
+		completePatterns.add(getPatternExistsInForallCond());
 		completePatterns.add(getPatternForallInForallCond());
 		return completePatterns;
 	}
@@ -34,7 +34,7 @@ public class Test05QuantorCombinationsCond {
 //		// comparisons
 		Node e0 = graph0.getNodes().get(0).makeComplex();
 		Node e1 = graph1.getNodes().get(0).makeComplex();
-		Node e2 = graph1.getNodes().get(0).makeComplex();
+		Node e2 = graph1.getNodes().get(1).makeComplex();
 		Node se = graph2.getNodes().get(0).makeComplex();
 		
 		

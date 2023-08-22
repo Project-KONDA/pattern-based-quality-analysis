@@ -12,10 +12,8 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -63,7 +61,7 @@ public class Test10Reference {
 	
 	public static CompletePattern getPatternReferenceTwoReference() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;	
+//		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;	
 		
 		CompletePattern completePattern = Test03Quantor.getPatternExists();
 		Graph graph = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
@@ -92,7 +90,7 @@ public class Test10Reference {
 	
 	public static CompletePattern getPatternReferenceParallelNavigation() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;	
+//		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;	
 		
 		CompletePattern completePattern = Test03Quantor.getPatternExists();
 		Graph graph = ((QuantifiedCondition) completePattern.getCondition()).getGraph();

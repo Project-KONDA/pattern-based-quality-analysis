@@ -68,8 +68,8 @@ public class Test06NotElement {
 		TrueElement t = factory.createTrueElement();
 		qc.setCondition(t);
 		
-		Node e0 = qc.getGraph().getNodes().get(0);
-		e0.addOutgoing();	
+		Node e0 = completePattern.getGraph().getNodes().get(0);
+		e0.addOutgoing(qc.getGraph());	
 		
 		return completePattern;
 	}
@@ -119,7 +119,7 @@ public class Test06NotElement {
 	public static CompletePattern getPatternExistsNotExists() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getPatternExistsNotExistsAbstract();
 
-		QuantifiedCondition q1 = ((QuantifiedCondition)completePattern.getCondition());
+		QuantifiedCondition q1 = ((QuantifiedCondition) completePattern.getCondition());
 		QuantifiedCondition q2 = ((QuantifiedCondition) ((NotCondition) q1.getCondition()).getCondition());
 
 		completePattern.createXmlAdaption();

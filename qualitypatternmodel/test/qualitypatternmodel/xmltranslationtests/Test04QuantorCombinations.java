@@ -73,7 +73,7 @@ public class Test04QuantorCombinations {
 		
 		// EXISTS 2 additional graph structure
 		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
+//		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
 		Graph g1 = completePattern.getGraph();
 		Graph g2 = qcond.getGraph();

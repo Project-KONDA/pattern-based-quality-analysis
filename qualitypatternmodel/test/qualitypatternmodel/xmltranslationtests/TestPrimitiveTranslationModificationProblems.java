@@ -42,8 +42,8 @@ public class TestPrimitiveTranslationModificationProblems {
 		
 		Graph g = q.getGraph();
 		
-		Node nodeA = g.getReturnNodes().get(0);
-		nodeA.addOutgoing().getTarget().addPrimitiveComparison();
+		Node nodeA = completePattern.getGraph().getReturnNodes().get(0);
+		nodeA.addOutgoing(g).getTarget().addPrimitiveComparison("test");
 		
 		completePattern.createXmlAdaption();
 		

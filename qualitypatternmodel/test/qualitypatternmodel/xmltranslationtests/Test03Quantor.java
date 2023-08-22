@@ -19,11 +19,11 @@ public class Test03Quantor {
 	
 	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getPatternExistsWithRelationFinal());
-		completePatterns.add(getPatternExistsFinal());
-		completePatterns.add(getPatternExistsNavigation());
-		completePatterns.add(getPatternExistsCondFinal());
-		completePatterns.add(getPatternForall());
+//		completePatterns.add(getPatternExistsWithRelationFinal());
+//		completePatterns.add(getPatternExistsFinal());
+//		completePatterns.add(getPatternExistsNavigation());
+//		completePatterns.add(getPatternExistsCondFinal());
+//		completePatterns.add(getPatternForall());
 		completePatterns.add(getPatternForallCond());
 		return completePatterns;
 	}
@@ -62,7 +62,6 @@ public class Test03Quantor {
 		Node e1g2 = graph2.getNodes().get(0);
 		e0g2.addOutgoing(e1g2);		
 		
-		System.out.println(completePattern.myToString());
 		completePattern.createXmlAdaption();
 		
 		return completePattern;

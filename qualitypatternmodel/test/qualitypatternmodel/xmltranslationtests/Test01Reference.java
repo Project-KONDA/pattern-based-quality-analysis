@@ -13,7 +13,7 @@ public class Test01Reference {
 		
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getBaseReferenceAbstract());
-//		completePatterns.add(getBaseReferenceExistsAbstract());
+		completePatterns.add(getBaseReferenceExistsAbstract());
 		return completePatterns;
 	}
 	
