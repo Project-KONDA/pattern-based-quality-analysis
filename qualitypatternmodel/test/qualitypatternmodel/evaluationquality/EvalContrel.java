@@ -16,7 +16,6 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.xmltranslationtests.Test00;
 
 public class EvalContrel {
@@ -39,24 +38,20 @@ public class EvalContrel {
 		
 		CompletePattern pattern = factory.createCompletePattern();
 		
-//		Graph g1 = pattern.getGraph();
-//		ComplexNode g1return = g1.getReturnNodes().get(0).makeComplex();
-		
 		QuantifiedCondition qc = factory.createQuantifiedCondition();
 		pattern.setCondition(qc);
-		TrueElement trueElement = factory.createTrueElement();
-		qc.setCondition(trueElement);
 		
+		Graph g1 = pattern.getGraph();
 		Graph g2 = qc.getGraph();		
-		ComplexNode g2n1 = g2.getReturnNodes().get(0).makeComplex();
+		ComplexNode ret = g1.getNodes().get(0).makeComplex();
 		
 		ComplexNode g2c1 = graphFactory.createComplexNode();
 		g2c1.setGraph(g2);
 
-		ComplexNode g2n = g2n1.addOutgoing().getTarget().makeComplex();
+		ComplexNode g2n = ret.addOutgoing(g2).getTarget().makeComplex();
 		ComplexNode g2c = g2c1.addOutgoing().getTarget().makeComplex();
 
-		PrimitiveNode g2n2 = g2n1.addOutgoing().getTarget().makePrimitive();
+		PrimitiveNode g2n2 = ret.addOutgoing(g2).getTarget().makePrimitive();
 		PrimitiveNode g2c2 = g2c1.addOutgoing().getTarget().makePrimitive();
 		
 		PrimitiveNode g2n3 = g2n.addOutgoing().getTarget().makePrimitive();

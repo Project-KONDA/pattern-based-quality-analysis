@@ -4,10 +4,8 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.xmltranslationtests.Test00;
+import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.operators.Comparison;
-import qualitypatternmodel.operators.ComparisonOperator;
-
 import java.util.ArrayList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -34,40 +32,39 @@ public class EvalCompval {
 		completePattern.setDescription("Allows detecting illegal values, i.e. allows detecting elements with a specific property which are related to other elements with two specific properties");
 		
 		// Context graph of pattern:
-		completePattern.getGraph().getReturnNodes().get(0).makeComplex();
+		Node ret = completePattern.getGraph().getReturnNodes().get(0).makeComplex();
 		
 		// First-order logic condition of pattern:
 		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		completePattern.setCondition(quantifiedCondition);
+		Graph g2 = quantifiedCondition.getGraph();
 		
-		// Graph of quantified condition:		
-		Node element0Copy = quantifiedCondition.getGraph().getReturnNodes().get(0);
-		
-		Node element1 = element0Copy.addOutgoing().getTarget().makePrimitive();
+		Node element1 = ret.addOutgoing(g2).getTarget().makePrimitive();
 		element1.setName("Element1");
 		
 		element1.addPrimitiveComparison();
 				
-		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(0);
-		comp2.getOption().getOptions().add(ComparisonOperator.GREATER);
-		comp2.getOption().getOptions().add(ComparisonOperator.LESS);
-		comp2.getOption().getOptions().add(ComparisonOperator.GREATEROREQUAL);
-		comp2.getOption().getOptions().add(ComparisonOperator.LESSOREQUAL);
+//		Comparison comp2 = (Comparison) 
+		quantifiedCondition.getGraph().getOperatorList().getOperators().get(0);
+//		comp2.getOption().getOptions().add(ComparisonOperator.GREATER);
+//		comp2.getOption().getOptions().add(ComparisonOperator.LESS);
+//		comp2.getOption().getOptions().add(ComparisonOperator.GREATEROREQUAL);
+//		comp2.getOption().getOptions().add(ComparisonOperator.LESSOREQUAL);
 		
 		return completePattern;	
 	}
 
 	public static CompletePattern getCompval3Generic() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-//		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);
+		Graph g1 = completePattern.getGraph();
 
 		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		completePattern.setCondition(quantifiedCondition);
+		Graph g2 = quantifiedCondition.getGraph();
+		
+		Node ret = g1.getNodes().get(0).makeComplex();
 
-		Node element1 = quantifiedCondition.getGraph().getNodes().get(0).makeComplex();
-//		element1.addOutgoing().getTarget();
-
-		Node element2 = element1.addOutgoing().getTarget().makeComplex();
+		Node element2 = ret.addOutgoing(g2).getTarget().makeComplex();
 		Node element3 = element2.addOutgoing().getTarget();
 		element3.addPrimitiveComparison();
 		return completePattern;

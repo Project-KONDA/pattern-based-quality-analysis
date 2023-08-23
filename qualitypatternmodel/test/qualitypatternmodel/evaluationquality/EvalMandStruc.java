@@ -36,16 +36,16 @@ public class EvalMandStruc {
 		CompletePattern completePattern = factory.createCompletePattern();
 		
 		Graph g0 = completePattern.getGraph();
-		g0.getReturnNodes().get(0).makeComplex();
+		Node ret = g0.getReturnNodes().get(0).makeComplex();
 		
 		NotCondition not = factory.createNotCondition();
 		completePattern.setCondition(not);
 		QuantifiedCondition qc = factory.createQuantifiedCondition();
 		not.setCondition(qc);
+		
 		Graph g1 = qc.getGraph();
 		
-		Node return1 = g1.getReturnNodes().get(0).makeComplex();
-		return1.addOutgoing().getTarget().makeComplex();
+		ret.addOutgoing(g1).getTarget().makeComplex();
 		return completePattern;
 	}
 	
@@ -87,21 +87,21 @@ public class EvalMandStruc {
 		CompletePattern completePattern = factory.createCompletePattern();
 		
 		Graph g0 = completePattern.getGraph();
-		Node n0 = g0.getReturnNodes().get(0).makeComplex();
+		Node ret = g0.getReturnNodes().get(0).makeComplex();
 
 		QuantifiedCondition qc1 = factory.createQuantifiedCondition();
 		completePattern.setCondition(qc1);
+		Graph g1 = qc1.getGraph();
 		
-		Node n0g1 = n0.getOutgoingMappings().get(0).getTarget();
-		Node n1g1 = n0g1.addOutgoing().getTarget().makeComplex();
+		Node n1g1 = ret.addOutgoing(g1).getTarget().makeComplex();
 		
 		NotCondition not = factory.createNotCondition();
 		qc1.setCondition(not);
 		QuantifiedCondition qc2 = factory.createQuantifiedCondition();
 		not.setCondition(qc2);
+		Graph g2 = qc2.getGraph();
 		
-		Node n1g2 = n1g1.getOutgoingMappings().get(0).getTarget(); 
-		n1g2.addOutgoing().getTarget().makeComplex();
+		n1g1.addOutgoing(g2).getTarget().makeComplex();
 		return completePattern;
 	}
 }

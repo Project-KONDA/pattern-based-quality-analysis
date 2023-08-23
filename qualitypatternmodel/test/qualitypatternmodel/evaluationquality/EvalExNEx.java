@@ -35,16 +35,15 @@ public class EvalExNEx {
 		completePattern.setCondition(not);
 		not.setCondition(quantified);
 		
-//		Graph g0 = completePattern.getGraph();
-//		g0.getReturnNodes().get(0).addOutgoing().getTarget().addPrimitiveComparison();
+		Graph g0 = completePattern.getGraph();
 		Graph g1 = quantified.getGraph();
-		g1.getReturnNodes().get(0).addOutgoing().getTarget();
+		
+		g0.getReturnNodes().get(0).addOutgoing(g1);
 		return completePattern;
 	}
 
 	public static CompletePattern getExNEx2Generic() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		
 		QuantifiedCondition qc = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		NotCondition not = PatternstructureFactory.eINSTANCE.createNotCondition();
 		QuantifiedCondition qc2 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
@@ -53,11 +52,14 @@ public class EvalExNEx {
 		qc.setCondition(not);
 		not.setCondition(qc2);
 
+		Graph g0 = completePattern.getGraph();
 		Graph g1 = qc.getGraph();
-		Node n = g1.getReturnNodes().get(0).addOutgoing().getTarget();
+		Graph g2 = qc2.getGraph();
 		
-		n.getOutgoingMappings().get(0).getTarget().addOutgoing();
+		Node ret = g0.getNodes().get(0).makeComplex();
+		Node n1 = ret.addOutgoing(g1).getTarget().makeComplex();
+		n1.addOutgoing(g2).getTarget().makeComplex();
 		
 		return completePattern;
-	}	
+	}
 }

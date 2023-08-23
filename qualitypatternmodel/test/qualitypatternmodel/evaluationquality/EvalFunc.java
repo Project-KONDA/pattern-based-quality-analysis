@@ -2,13 +2,10 @@ package qualitypatternmodel.evaluationquality;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
-import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.xmltranslationtests.Test00;
-import qualitypatternmodel.xmltranslationtests.Test03Quantor;
 import qualitypatternmodel.graphstructure.ComplexNode;
-import qualitypatternmodel.graphstructure.GraphstructureFactory;
-import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
@@ -25,8 +22,8 @@ public class EvalFunc {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 
-		completePatterns.add(getFuncGeneric());
-		completePatterns.add(getFunc2Generic());
+//		completePatterns.add(getFuncGeneric());
+//		completePatterns.add(getFunc2Generic());
 //		completePatterns.add(getFuncCondGeneric());
 		completePatterns.add(getFuncLidoGeneric());
 		
@@ -36,25 +33,19 @@ public class EvalFunc {
 	}
 	
 	public static CompletePattern getFuncGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		PatternstructurePackage.eINSTANCE.eClass();
-		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-				
-		CompletePattern completePattern = Test03Quantor.getPatternExistsWithRelation();
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		QuantifiedCondition qc = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		
-		ComplexNode return0 = completePattern.getGraph().getReturnNodes().get(0).makeComplex();
+		completePattern.setCondition(qc);
 		
-		QuantifiedCondition qcon = factory.createQuantifiedCondition();
-		completePattern.setCondition(qcon);
+		Graph g1 = completePattern.getGraph();
+		Graph g2 = qc.getGraph();
 		
-		ComplexNode return1 = (ComplexNode) return0.getOutgoingMappings().get(0).getTarget();
+		ComplexNode ret = g1.getNodes().get(0).makeComplex();
+		ComplexNode other = g2.addComplexNode();
 		
-		ComplexNode other = graphFactory.createComplexNode();
-		other.setGraph(qcon.getGraph());
-		
-		PrimitiveNode fieldA1 = return1.addOutgoing().getTarget().makePrimitive();
-		PrimitiveNode fieldA2 = return1.addOutgoing().getTarget().makePrimitive();
+		PrimitiveNode fieldA1 = ret.addOutgoing(g2).getTarget().makePrimitive();
+		PrimitiveNode fieldA2 = ret.addOutgoing(g2).getTarget().makePrimitive();
 		PrimitiveNode fieldB1 = other.addOutgoing().getTarget().makePrimitive();
 		PrimitiveNode fieldB2 = other.addOutgoing().getTarget().makePrimitive();
 		
@@ -73,23 +64,18 @@ public class EvalFunc {
 	}
 	
 	public static CompletePattern getFunc2Generic() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		PatternstructurePackage.eINSTANCE.eClass();
-		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-				
-		CompletePattern completePattern = Test03Quantor.getPatternExistsWithRelation();
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		QuantifiedCondition qc = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		
-		ComplexNode return0 = completePattern.getGraph().getReturnNodes().get(0).makeComplex();
+		completePattern.setCondition(qc);
 		
-		QuantifiedCondition qcon = factory.createQuantifiedCondition();
-		completePattern.setCondition(qcon);
+		Graph g1 = completePattern.getGraph();
+		ComplexNode ret = g1.getNodes().get(0).makeComplex();
 		
-		ComplexNode return1 = (ComplexNode) return0.getOutgoingMappings().get(0).getTarget();
-		ComplexNode below = return1.addOutgoing().getTarget().makeComplex();
+		Graph g2 = qc.getGraph();
 		
-		ComplexNode other = graphFactory.createComplexNode();
-		other.setGraph(qcon.getGraph());
+		ComplexNode below = ret.addOutgoing(g2).getTarget().makeComplex();
+		ComplexNode other = g2.addComplexNode();
 		
 		PrimitiveNode fieldA1 = below.addOutgoing().getTarget().makePrimitive();
 		PrimitiveNode fieldA2 = below.addOutgoing().getTarget().makePrimitive();
@@ -98,10 +84,15 @@ public class EvalFunc {
 		
 		Comparison c1 = fieldA1.addComparison(fieldB1);
 		c1.getTypeOption().setValue(ReturnType.STRING);
+		c1.getTypeOption().setPredefined(true);
+		c1.getOption().setValue(ComparisonOperator.EQUAL);
+		c1.getOption().setPredefined(true);
 
 		Comparison c2 = fieldA2.addComparison(fieldB2);
 		c2.getTypeOption().setValue(ReturnType.STRING);
+		c2.getTypeOption().setPredefined(true);
 		c2.getOption().setValue(ComparisonOperator.NOTEQUAL);
+		c2.getOption().setPredefined(true);
 		return completePattern;
 	}
 
@@ -160,25 +151,21 @@ public class EvalFunc {
 //	}
 	
 	public static CompletePattern getFuncLidoGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		PatternstructurePackage.eINSTANCE.eClass();
-		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-				
-		CompletePattern completePattern = Test03Quantor.getPatternExistsWithRelation();
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		QuantifiedCondition qc = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		
+		completePattern.setCondition(qc);
+		
+//		Graph g1 = completePattern.getGraph();
+		Graph g2 = qc.getGraph();
 		
 		ComplexNode return0 = completePattern.getGraph().getReturnNodes().get(0).makeComplex();
 		return0.addOutgoing().getTarget().addPrimitiveComparison();
 		
-		QuantifiedCondition qcon = factory.createQuantifiedCondition();
-		completePattern.setCondition(qcon);
-		
-		ComplexNode return1 = (ComplexNode) return0.getOutgoingMappings().get(0).getTarget();
-		ComplexNode below = return1.addOutgoing().getTarget().makeComplex();
+		ComplexNode below = return0.addOutgoing(g2).getTarget().makeComplex();
 		below.addOutgoing().getTarget().addPrimitiveComparison();
 		
-		ComplexNode other = graphFactory.createComplexNode();
-		other.setGraph(qcon.getGraph());
+		ComplexNode other = g2.addComplexNode();
 		other.addOutgoing().getTarget().addPrimitiveComparison();
 		
 		ComplexNode fieldA1 = below.addOutgoing().getTarget().makeComplex();

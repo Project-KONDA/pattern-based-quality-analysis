@@ -4,6 +4,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.xmltranslationtests.Test00;
+import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
 
 import java.util.ArrayList;
@@ -16,8 +17,9 @@ public class EvalContains {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		
+
 		completePatterns.add(getContainsGeneric());
+		completePatterns.add(getContainsGenericWithTwoPrimitiveNodesGeneric());
 		
 		for (CompletePattern cp: completePatterns)
 			Test00.printGenericPatternExampleXQuery(cp);
@@ -29,14 +31,15 @@ public class EvalContains {
 		
 		// Context graph of pattern:
 		completePattern.getGraph().getReturnNodes().get(0).makeComplex();
+		Graph g1 = completePattern.getGraph();
+		Node ret = g1.getReturnNodes().get(0);
 		
 		// First-order logic condition of pattern:
 		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		completePattern.setCondition(quantifiedCondition);
+		Graph g2 = quantifiedCondition.getGraph();
 		
-		Node element0Copy = quantifiedCondition.getGraph().getReturnNodes().get(0);
-		
-		Node element1 = element0Copy.addOutgoing().getTarget().makePrimitive();
+		Node element1 = ret.addOutgoing(g2).getTarget().makePrimitive();
 		element1.addPrimitiveContains();
 		
 		return completePattern;	
@@ -47,20 +50,22 @@ public class EvalContains {
 		
 		// Context graph of pattern:
 		completePattern.getGraph().getReturnNodes().get(0).makeComplex();
+		Graph g1 = completePattern.getGraph();
+		Node ret = g1.getReturnNodes().get(0);
 		
 		// First-order logic condition of pattern:
 		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		completePattern.setCondition(quantifiedCondition);
-		
-		Node element0Copy = quantifiedCondition.getGraph().getReturnNodes().get(0);
-		
-		Node element1 = element0Copy.addOutgoing().getTarget().makePrimitive();
+		Graph g2 = quantifiedCondition.getGraph();
+
+		Node element1 = ret.addOutgoing(g2).getTarget().makePrimitive();
 		element1.addPrimitiveContains();
-		Node element2 = element0Copy.addOutgoing().getTarget().makePrimitive();
+		Node element2 = ret.addOutgoing(g2).getTarget().makePrimitive();
 		element2.addPrimitiveContains();
 		
 		return completePattern;	
 	}
+	
 //	public static CompletePattern getContainsCondGeneric() throws InvalidityException {
 //		CompletePattern completePattern = getContainsGeneric();
 //		Node n1 = completePattern.getGraph().getNodes().get(0);

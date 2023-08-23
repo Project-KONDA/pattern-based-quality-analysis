@@ -22,7 +22,7 @@ public class EvalMatch {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		
 		completePatterns.add(getMatchGeneric());
-		completePatterns.add(getMatch3Generic());
+//		completePatterns.add(getMatch3Generic());
 		
 		for (CompletePattern cp: completePatterns)
 			Test00.printGenericPatternExampleXQuery(cp);
@@ -37,34 +37,12 @@ public class EvalMatch {
 		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		completePattern.setCondition(quantifiedCondition);
 		
-		Node element0Copy = quantifiedCondition.getGraph().getReturnNodes().get(0);
-		
-		Node element1 = element0Copy.addOutgoing().getTarget().makePrimitive();
+		Node ret  = completePattern.getGraph().getReturnNodes().get(0);
+		Node element1 = ret.addOutgoing(quantifiedCondition.getGraph()).getTarget().makePrimitive();
 		element1.addPrimitiveMatch();
 		
 		return completePattern;	
 	}
-
-//	public static CompletePattern getMatchCondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		PatternstructurePackage.eINSTANCE.eClass();
-//		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-//		
-//		CompletePattern completePattern = factory.createCompletePattern();
-//		
-//		Graph g0 = completePattern.getGraph();
-//		Node return0 = g0.getReturnNodes().get(0);
-//		return0.addOutgoing().getTarget().addPrimitiveComparison();
-//		
-//		QuantifiedCondition qc = factory.createQuantifiedCondition();
-//		completePattern.setCondition(qc);
-//		Graph g1 = qc.getGraph();
-//		
-//		Node return1 = g1.getReturnNodes().get(0).makeComplex();
-//		Node node1 = return1.addOutgoing().getTarget().makeComplex();
-//		node1.addOutgoing().getTarget().addPrimitiveComparison();
-//		node1.addOutgoing().getTarget().addPrimitiveMatch();
-//		return completePattern;
-//	}
 	
 	public static CompletePattern getMatch3Generic() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
@@ -72,19 +50,13 @@ public class EvalMatch {
 		
 		CompletePattern completePattern = factory.createCompletePattern();
 		
-//		Graph g0 = completePattern.getGraph();
-//		Node return0 = g0.getReturnNodes().get(0);
-//		return0.addOutgoing().getTarget().addPrimitiveComparison();
-		
 		QuantifiedCondition qc = factory.createQuantifiedCondition();
 		completePattern.setCondition(qc);
 		Graph g1 = qc.getGraph();
 		
-		Node return1 = g1.getReturnNodes().get(0).makeComplex();
-		Node node1 = return1.addOutgoing().getTarget().makeComplex();
-//		node1.addOutgoing().getTarget().addPrimitiveComparison();
+		Node ret = completePattern.getGraph().getReturnNodes().get(0).makeComplex();
+		Node node1 = ret.addOutgoing(g1).getTarget().makeComplex();
 		Node node2 = node1.addOutgoing().getTarget().makeComplex();
-//		node2.addOutgoing().getTarget().addPrimitiveComparison();
 		node2.addOutgoing().getTarget().addPrimitiveMatch();
 
 		return completePattern;
@@ -97,27 +69,5 @@ public class EvalMatch {
 		booleanParam.setValue(false);
 		return completePattern;
 	}
-//	public static CompletePattern getMatch3CondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		PatternstructurePackage.eINSTANCE.eClass();
-//		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-//		
-//		CompletePattern completePattern = factory.createCompletePattern();
-//		
-//		Graph g0 = completePattern.getGraph();
-//		Node return0 = g0.getReturnNodes().get(0);
-//		return0.addOutgoing().getTarget().addPrimitiveComparison();
-//		
-//		QuantifiedCondition qc = factory.createQuantifiedCondition();
-//		completePattern.setCondition(qc);
-//		Graph g1 = qc.getGraph();
-//		
-//		Node return1 = g1.getReturnNodes().get(0).makeComplex();
-//		Node node1 = return1.addOutgoing().getTarget().makeComplex();
-//		node1.addOutgoing().getTarget().addPrimitiveComparison();
-//		Node node2 = node1.addOutgoing().getTarget().makeComplex();
-//		node2.addOutgoing().getTarget().addPrimitiveComparison();
-//		node2.addOutgoing().getTarget().addPrimitiveMatch();
-//
-//		return completePattern;
-//	}
+
 }

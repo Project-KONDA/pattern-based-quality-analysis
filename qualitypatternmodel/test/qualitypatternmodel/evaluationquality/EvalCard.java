@@ -28,7 +28,7 @@ public class EvalCard {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		
 		completePatterns.add(getCardGeneric());
-		completePatterns.add(getCardPlusGeneric());
+//		completePatterns.add(getCardPlusGeneric());
 		
 		for (CompletePattern cp: completePatterns) {
 			Test00.printGenericPatternExampleXQuery(cp);			
@@ -39,24 +39,20 @@ public class EvalCard {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		
 		// Context graph of pattern:
-		completePattern.getGraph().getReturnNodes().get(0).makeComplex();
+		Node returnNode = completePattern.getGraph().getNodes().get(0).makeComplex();
 		
 		// First-order logic condition of pattern:
 		CountCondition countCondition = PatternstructureFactory.eINSTANCE.createCountCondition();
 		completePattern.setCondition(countCondition);
-		
-		// Graph of quantified condition:
 		countCondition.createCountPattern();
-		Node element0Copy = countCondition.getCountPattern().getGraph().getReturnNodes().get(0);
-		
-		
 		NumberElementImpl ne = new NumberElementImpl();
 		countCondition.setArgument2(ne);
 		ne.createParameters();
 		ne.getNumberParam().setValue(1.);
 		countCondition.getOption().setValue(ComparisonOperator.GREATER);
 		
-		element0Copy.addOutgoing().getTarget(); //.makePrimitive();
+		Node countReturn = returnNode.addOutgoing(countCondition.getCountPattern().getGraph()).getTarget();
+		countReturn.setReturnNode(true);
 		
 		return completePattern;	
 	}
@@ -69,7 +65,7 @@ public class EvalCard {
 		
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		
-		Node e0 = completePattern.getGraph().getReturnNodes().get(0).makeComplex();
+		Node returnNode = completePattern.getGraph().getReturnNodes().get(0).makeComplex();
 //		e0.addOutgoing().getTarget().addPrimitiveComparison();
 		
 		CountCondition countCondition = patternStructureFactory.createCountCondition();
@@ -86,16 +82,13 @@ public class EvalCard {
 		
 		Graph graph2 = countPattern.getGraph();
 		
-		Node e1g2 = e0.getOutgoingMappings().get(0).getTarget();
-		Node e2g2 = e1g2.addOutgoing().getTarget().makeComplex();
-		graph2.getReturnNodes().get(0).setReturnNode(false);
+		Node e2g2 = returnNode.addOutgoing(graph2).getTarget().makeComplex();
 		e2g2.setReturnNode(true);
-//		e2g2.addOutgoing().getTarget().addPrimitiveComparison();
 		
 		QuantifiedCondition quantifiedCondition2 = patternStructureFactory.createQuantifiedCondition();
 		countPattern.setCondition(quantifiedCondition2);
-		Node e2g3 = e2g2.getOutgoingMappings().get(0).getTarget();
-		e2g3.addOutgoing().getTarget();
+		Graph graph3 = quantifiedCondition2.getGraph();
+		e2g2.addOutgoing(graph3);
 				
 		return completePattern;
 	}

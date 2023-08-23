@@ -22,6 +22,7 @@ public class EvalComp {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		
 		completePatterns.add(getCompGeneric());
+		completePatterns.add(getFundamentalCompGeneric());
 		
 		for (CompletePattern cp: completePatterns) 
 			Test00.printGenericPatternExampleXQuery(cp);
@@ -30,23 +31,17 @@ public class EvalComp {
 	
 	public static CompletePattern getCompGeneric() throws InvalidityException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-
-		completePattern.getGraph().getReturnNodes().get(0).makeComplex();
+		Graph graph1 = completePattern.getGraph();
+		Node returnNode = graph1.getReturnNodes().get(0).makeComplex();
 		
 		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		completePattern.setCondition(quantifiedCondition);
+		Graph graph2 = quantifiedCondition.getGraph();
 		
-		Node element0Copy = quantifiedCondition.getGraph().getReturnNodes().get(0);
+		Node element1 = returnNode.addOutgoing(graph2).getTarget().makePrimitive();
+		Node element2 = returnNode.addOutgoing(graph2).getTarget().makePrimitive();
 		
-		Node element1 = element0Copy.addOutgoing().getTarget().makePrimitive();
-		element1.setGraph(quantifiedCondition.getGraph());
-
-		Node element2 = element0Copy.addOutgoing().getTarget().makePrimitive();
-		element2.setGraph(quantifiedCondition.getGraph());
-		
-		element1.addComparison(element2);
-				
-		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(0);
+		Comparison comp2 = element1.addComparison(element2);
 		comp2.getOption().getOptions().add(ComparisonOperator.GREATER);
 		comp2.getOption().getOptions().add(ComparisonOperator.LESS);
 		comp2.getOption().getOptions().add(ComparisonOperator.GREATEROREQUAL);
@@ -59,13 +54,13 @@ public class EvalComp {
 	public static CompletePattern getFundamentalCompGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-
 		CompletePattern completePattern = factory.createCompletePattern();
-		
 		Graph g1 = completePattern.getGraph();
-		g1.getReturnNodes().get(0).makeComplex();
-		Node node1 = g1.getReturnNodes().get(0).addOutgoing().getTarget().makePrimitive();
-		node1.addComparison(g1.getReturnNodes().get(0).addOutgoing().getTarget().makePrimitive());
+		Node ret = g1.getNodes().get(0).makeComplex();
+			
+		Node node1 = ret.addOutgoing().getTarget().makePrimitive();
+		Node node2 = ret.addOutgoing().getTarget().makePrimitive();
+		node1.addComparison(node2);
 		
 		return completePattern;
 	}

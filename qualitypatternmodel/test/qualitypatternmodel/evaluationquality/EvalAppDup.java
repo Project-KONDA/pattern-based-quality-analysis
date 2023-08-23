@@ -32,9 +32,10 @@ public class EvalAppDup {
 		completePatterns.add(getAppDup3Generic());
 		completePatterns.add(getAppDupCountGeneric());
 		
-		for (CompletePattern cp: completePatterns)
+		for (CompletePattern cp: completePatterns) {
 			Test00.printGenericPatternExampleXQuery(cp);
 //			System.out.println(cp.myToString());
+		}
 	}
 
 	public static CompletePattern getAppDup2Generic() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -54,50 +55,37 @@ public class EvalAppDup {
 		other.setGraph(completePattern.getGraph());
 		Comparison c = main.addComparison(other);
 		
+		
 		QuantifiedCondition qc1 = factory.createQuantifiedCondition();
 		completePattern.setCondition(qc1);
 		
 		Graph g1 = qc1.getGraph();
-		Node main1 = g1.getNodes().get(0);
-		Node other1 = g1.getNodes().get(1);
 		
 		c.getOption().setValue(ComparisonOperator.NOTEQUAL);
 		c.getOption().setPredefined(true);
 		
-		Node n1 = main1.addOutgoing().getTarget().makePrimitive();
-		other1.addOutgoing(n1);
-
-		QuantifiedCondition qc2 = factory.createQuantifiedCondition();
-		qc1.setCondition(qc2);
+		Node n1 = main.addOutgoing(g1).getTarget().makePrimitive();
+		other.addOutgoing(n1);
 		
-		Graph g2 = qc2.getGraph();
-		Node main2 = g2.getNodes().get(0);
-		Node other2 = g2.getNodes().get(1);
-		
-		Node n2 = main2.addOutgoing().getTarget().makePrimitive();
-		other2.addOutgoing(n2);
+		Node n2 = main.addOutgoing(g1).getTarget().makePrimitive();
+		other.addOutgoing(n2);
 		
 		return completePattern;
 	}
 
 	public static CompletePattern getAppDup3Generic() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
-		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
 		CompletePattern completePattern = getAppDup2Generic();
-
+		Graph g0 = completePattern.getGraph();
 		QuantifiedCondition qc1 = (QuantifiedCondition) completePattern.getCondition();
-		QuantifiedCondition qc2 = (QuantifiedCondition) qc1.getCondition();
+		Graph g1 = qc1.getGraph();
 		
-		QuantifiedCondition qc3 = factory.createQuantifiedCondition();
-		qc2.setCondition(qc3);
+		Node main = g0.getNodes().get(0);
+		Node other = g0.getNodes().get(1);
 		
-		Graph g2 = qc3.getGraph();
-		Node main2 = g2.getNodes().get(0);
-		Node other2 = g2.getNodes().get(1);
-		
-		Node n2 = main2.addOutgoing().getTarget().makePrimitive();
-		other2.addOutgoing(n2);
+		Node n2 = main.addOutgoing(g1).getTarget().makePrimitive();
+		other.addOutgoing(n2);
 		
 		return completePattern;
 	}
@@ -111,7 +99,6 @@ public class EvalAppDup {
 		CompletePattern completePattern = factory.createCompletePattern();
 		Node main = completePattern.getGraph().getReturnNodes().get(0).makeComplex();
 		main.setName("main");
-		
 		ComplexNode other = graphFactory.createComplexNode();
 		other.setGraph(completePattern.getGraph());
 		other.setName("other");
@@ -119,19 +106,16 @@ public class EvalAppDup {
 		
 		Comparison c = main.addComparison(other);
 		c.getOption().setValue(ComparisonOperator.NOTEQUAL);
-				
+		
 		CountCondition cc = factory.createCountCondition();
 		completePattern.setCondition(cc);
 		cc.createCountPattern();
 		CountPattern cp = cc.getCountPattern();
 		Graph g = cp.getGraph();
 		
-		Node n1 = g.getNodes().get(0);
-		Node n2 = g.getNodes().get(1);
-		Node n3 = n1.addOutgoing().getTarget().makePrimitive();
-		n1.setReturnNode(false);
+		Node n3 = main.addOutgoing(g).getTarget();
+		other.addOutgoing(n3);
 		n3.setReturnNode(true);
-		n2.addOutgoing(n3);
 		
 		NumberElement numberElement = PatternstructureFactory.eINSTANCE.createNumberElement();
 		cc.setArgument2(numberElement);
