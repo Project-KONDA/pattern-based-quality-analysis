@@ -169,7 +169,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public String generateSparql() throws InvalidityException {
 		String result = "";
-		for(Node node : getNodes())
+		for(Node node: getNodes())
 			result += ((RdfNode) node).generateRdfTypes();
 		
 		for(Node node : getNodes()) {

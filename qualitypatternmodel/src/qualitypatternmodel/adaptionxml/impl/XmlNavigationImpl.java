@@ -113,6 +113,18 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 
 	@Override
 	public String generateXQuery() throws InvalidityException {
+		// Variable
+		String variable = generateNextXQueryVariable();
+
+		if(getTarget() instanceof XmlNode) {
+			XmlNode node = (XmlNode) getTarget();
+			node.getVariables().add(variable);
+		}
+		else throw new InvalidityException("Target of XmlNavigation [" + getInternalId() + "] is not an XmlNode");
+		
+		if(getGraph() == null) {
+			throw new InvalidityException("container Graph null");
+		}
 		
 		// Basic Translation via xmlPathParam
 		String xPathExpression = "";
@@ -131,18 +143,6 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 			property.setTranslated(true);
 		} else {
 			throw new InvalidityException("target of relation not XmlNode");
-		}
-		
-		// Variable
-		String variable = generateNextXQueryVariable();
-
-		if(getTarget() instanceof XmlNode) {
-			XmlNode node = (XmlNode) getTarget();
-			node.getVariables().add(variable);
-		}
-		
-		if(getGraph() == null) {
-			throw new InvalidityException("container Graph null");
 		}
 		
 		// Predicate

@@ -59,14 +59,13 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 		XmlElement source = (XmlElement) getSource();
 		String variable = source.getVariables().get(0) + path;
 		target.getVariables().add(variable);		
-		String result = "[" + "." + path;
+		String result = "." + path;
 		target.setTranslated(true);
 		
 		result += target.translatePredicates();
 		result += target.translateMultipleIncoming();
-		result += "]";
 		
-		return result;
+		return "[" + result + "]";
 	}
 	
 	
