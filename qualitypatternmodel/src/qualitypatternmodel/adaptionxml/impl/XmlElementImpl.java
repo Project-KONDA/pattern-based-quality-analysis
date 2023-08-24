@@ -149,19 +149,21 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 		}
 		if(xQueryDeepEqual || getVariables().size() == 1) {
 			for(Relation relation: getOutgoing()) {
-				if (relation.getGraph().equals(getGraph())) {
-					
-					if(relation instanceof XmlPropertyNavigation) {
-						XmlPropertyNavigation nav = (XmlPropertyNavigation) relation;
-						if (!nav.getXmlPathParam().getXmlAxisParts().isEmpty()) {
-							nav.setSourceVariable(getVariables().get(getVariables().size()-1));
+				if(relation instanceof XmlPropertyNavigation) {
+					XmlPropertyNavigation nav = (XmlPropertyNavigation) relation;
+					String var = getVariables().get(getVariables().size()-1);
+					nav.setSourceVariable(var);
+					if (!nav.getXmlPathParam().getXmlAxisParts().isEmpty()) {
+						if (relation.getGraph().equals(getGraph())) {
 							query += relation.generateXQuery();
 						}
 					}
-					if(relation instanceof XmlElementNavigation) {
-						XmlElementNavigation nav = (XmlElementNavigation) relation;
-						nav.setSourceVariable(getVariables().get(getVariables().size()-1));
-						query += relation.generateXQuery();
+				}
+				if(relation instanceof XmlElementNavigation) {
+					XmlElementNavigation nav = (XmlElementNavigation) relation;
+					nav.setSourceVariable(getVariables().get(getVariables().size()-1));
+					if (relation.getGraph().equals(getGraph())) {
+						query += relation.generateXQuery();	
 					}
 				}
 			}
@@ -256,8 +258,10 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 				if(relation instanceof XmlPropertyNavigation) {
 					XmlPropertyNavigation nav = (XmlPropertyNavigation) relation;
 					if (nav.getXmlPathParam().getXmlAxisParts().isEmpty()) {
-//						nav.setSourceVariable(getVariables().get(getVariables().size()-1));
-						xPredicates += relation.generateXQuery();
+						nav.setSourceVariable(getVariables().get(getVariables().size()-1));
+						if (getGraph().equals(relation.getGraph())) {
+							xPredicates += nav.generateXQuery();	
+						}
 					}
 				}
 			}

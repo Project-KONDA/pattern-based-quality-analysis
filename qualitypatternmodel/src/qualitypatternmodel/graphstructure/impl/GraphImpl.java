@@ -154,7 +154,13 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				}
 			} else {
 				for(Relation relation : getRelations()) {
-					if (relation instanceof XmlElementNavigation && relation.getSource().getGraph().isBefore(this))
+					if (relation instanceof XmlPropertyNavigation && relation.isCrossGraph()) {
+						XmlPropertyNavigationImpl nav = (XmlPropertyNavigationImpl) relation;
+						result += nav.generateXQuery2();
+					}
+				}
+				for(Relation relation : getRelations()) {
+					if (relation instanceof XmlElementNavigation && relation.isCrossGraph())
 						result += relation.generateXQuery();
 				}
 			}

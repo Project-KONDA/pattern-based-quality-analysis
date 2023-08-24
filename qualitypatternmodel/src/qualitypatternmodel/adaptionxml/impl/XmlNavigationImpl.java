@@ -26,6 +26,7 @@ import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlReference;
+import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -113,23 +114,20 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 
 	@Override
 	public String generateXQuery() throws InvalidityException {
-		// Variable
-		String variable = generateNextXQueryVariable();
-
-		if(getTarget() instanceof XmlNode) {
-			XmlNode node = (XmlNode) getTarget();
-			node.getVariables().add(variable);
-		}
-		else throw new InvalidityException("Target of XmlNavigation [" + getInternalId() + "] is not an XmlNode");
-		
 		if(getGraph() == null) {
 			throw new InvalidityException("container Graph null");
 		}
+		String variable = generateNextXQueryVariable();
 		
 		// Basic Translation via xmlPathParam
 		String xPathExpression = "";
 		if (xmlPathParam != null) {
-			xPathExpression = getSourceVariable() + xmlPathParam.generateXQuery();
+			String sourcevariable = getSourceVariable();
+			if (!(getSource() instanceof XmlRoot) && sourcevariable == "") {
+				throw new InvalidityException("SourceVariable in Relation [" + getInternalId() + "] from Element [" + getSource().getInternalId() + "] is empty");
+			}
+				
+			xPathExpression = sourcevariable + xmlPathParam.generateXQuery();
 		} else 
 			throw new InvalidityException("option null");
 		
@@ -197,9 +195,17 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		return query;
 	}
 
-	private String generateNextXQueryVariable() {
+	private String generateNextXQueryVariable() throws InvalidityException {
 		String variable = VARIABLE + getInternalId() + "_" + getVariableCounter();
 		setVariableCounter(getVariableCounter()+1);
+
+		if(getTarget() instanceof XmlNode) {
+			XmlNode node = (XmlNode) getTarget();
+			node.getVariables().add(variable);
+		}
+		else 
+			throw new InvalidityException("Target of XmlNavigation [" + getInternalId() + "] is not an XmlNode");
+		
 		return variable;
 	}
 	

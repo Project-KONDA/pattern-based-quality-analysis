@@ -47,7 +47,7 @@ public class XmlRootImpl extends ComplexNodeImpl implements XmlRoot {
 				if(relation instanceof XmlNavigation) {
 					result += relation.generateXQuery();
 				} else {
-					throw new InvalidityException("XMLRoot has XMLReference");
+					throw new InvalidityException("XMLRoot has an outgoing relation that is not an XmlNavigation");
 				}
 			}
 		}

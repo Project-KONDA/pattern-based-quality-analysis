@@ -67,6 +67,10 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 		
 		return "[" + result + "]";
 	}
+
+	public String generateXQuery2() throws InvalidityException {
+		return super.generateXQuery();
+	}
 	
 	
 	@Override
