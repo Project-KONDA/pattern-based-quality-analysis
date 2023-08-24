@@ -80,22 +80,23 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 			throw new InvalidityException("ParameterList not in Pattern" + " (" + getInternalId() + ")");
 
 		EList<Parameter> patternVars = getPattern().getAllParameters();
+		EList<Parameter> parameterList = getParameters();
 		if (patternVars == null)
 			throw new InvalidityException("invalid Operators of Graph" + " (" + getInternalId() + ")");
 		
 		if(abstractionLevel != AbstractionLevel.SEMI_GENERIC) {	
-			if (!(patternVars.containsAll(getParameters()) && getParameters().containsAll(patternVars))) {
+			if (!(patternVars.containsAll(getParameters()) && parameterList.containsAll(patternVars))) {
 				String msg = "parameters from ParameterList (" + getInternalId() + ") not equal to parameters used in Pattern:";
 				msg += "\nin Pattern:       ";
-				for (Parameter var : patternVars) {
+				for (Parameter var: patternVars) {
 					msg += "[" + var.myToString() + "]";
-					if (!getParameters().contains(var))
+					if (!parameterList.contains(var))
 						msg += "- ";
 					else
 						msg += "+ ";
 				}
 				msg += "\nin ParameterList: ";
-				for (Parameter var : getParameters()) {
+				for (Parameter var: parameterList) {
 					msg += "[" + var.myToString() + "]";
 					if (!patternVars.contains(var))
 						msg += "- ";

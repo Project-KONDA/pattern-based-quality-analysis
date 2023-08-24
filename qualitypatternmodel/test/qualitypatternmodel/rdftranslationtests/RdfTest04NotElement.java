@@ -42,9 +42,8 @@ public class RdfTest04NotElement {
 		notCond.setCondition(quantifiedCond2);
 		quantifiedCond2.setQuantifier(q);
 		
-		ComplexNode complexNode2 = quantifiedCond2.getGraph().getNodes().get(1).makeComplex();
-		Node node3 = quantifiedCond2.getGraph().addNode();
-		quantifiedCond2.getGraph().addRelation(complexNode2, node3);		
+		ComplexNode complexNode2 = completePattern.getGraph().getNodes().get(1).makeComplex();
+		complexNode2.addOutgoing(quantifiedCond2.getGraph());		
 		
 		completePattern.createRdfAdaption();
 		return completePattern;
@@ -59,9 +58,8 @@ public class RdfTest04NotElement {
 		completePattern.setCondition(quantifiedCond);
 		quantifiedCond.setQuantifier(q);
 		
-		ComplexNode complexNode = quantifiedCond.getGraph().getNodes().get(1).makeComplex();
-		Node node2 = quantifiedCond.getGraph().addNode();
-		quantifiedCond.getGraph().addRelation(complexNode, node2);
+		ComplexNode complexNode = completePattern.getGraph().getNodes().get(1).makeComplex();
+		Node node2 = complexNode.addOutgoing(quantifiedCond.getGraph()).getTarget().makeComplex();
 		
 		NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
 		quantifiedCond.setCondition(notCond);
@@ -70,9 +68,7 @@ public class RdfTest04NotElement {
 		notCond.setCondition(quantifiedCond2);
 		quantifiedCond2.setQuantifier(q2);
 		
-		ComplexNode complexNode2 = quantifiedCond2.getGraph().getNodes().get(2).makeComplex();
-		Node node3 = quantifiedCond2.getGraph().addNode();
-		quantifiedCond2.getGraph().addRelation(complexNode2, node3);		
+		node2.addOutgoing(quantifiedCond2.getGraph());
 		
 		completePattern.createRdfAdaption();
 		return completePattern;
@@ -90,9 +86,9 @@ public class RdfTest04NotElement {
 		QuantifiedCondition quantifiedCond2 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		notCond2.setCondition(quantifiedCond2);
 		
-		ComplexNode complexNode2 = quantifiedCond2.getGraph().getNodes().get(1).makeComplex();
-		Node node3 = quantifiedCond2.getGraph().addNode();
-		quantifiedCond2.getGraph().addRelation(complexNode2, node3);		
+		ComplexNode complexNode2 = completePattern.getGraph().getNodes().get(1).makeComplex();
+		
+		complexNode2.addOutgoing(quantifiedCond2.getGraph());
 		
 		completePattern.createRdfAdaption();
 		return completePattern;
@@ -112,9 +108,8 @@ public class RdfTest04NotElement {
 		QuantifiedCondition quantifiedCond2 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		notCond3.setCondition(quantifiedCond2);
 		
-		ComplexNode complexNode2 = quantifiedCond2.getGraph().getNodes().get(1).makeComplex();
-		Node node3 = quantifiedCond2.getGraph().addNode();
-		quantifiedCond2.getGraph().addRelation(complexNode2, node3);		
+		ComplexNode complexNode2 = completePattern.getGraph().getNodes().get(1).makeComplex();
+		complexNode2.addOutgoing(quantifiedCond2.getGraph());		
 		
 		completePattern.createRdfAdaption();
 		return completePattern;
@@ -136,9 +131,8 @@ public class RdfTest04NotElement {
 		QuantifiedCondition quantifiedCond2 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		notCond4.setCondition(quantifiedCond2);
 		
-		ComplexNode complexNode2 = quantifiedCond2.getGraph().getNodes().get(1).makeComplex();
-		Node node3 = quantifiedCond2.getGraph().addNode();
-		quantifiedCond2.getGraph().addRelation(complexNode2, node3);		
+		ComplexNode complexNode2 = completePattern.getGraph().getNodes().get(1).makeComplex();
+		complexNode2.addOutgoing(quantifiedCond2.getGraph());		
 		
 		completePattern.createRdfAdaption();
 		return completePattern;
@@ -162,9 +156,8 @@ public class RdfTest04NotElement {
 		QuantifiedCondition quantifiedCond2 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		notCond5.setCondition(quantifiedCond2);
 		
-		ComplexNode complexNode2 = quantifiedCond2.getGraph().getNodes().get(1).makeComplex();
-		Node node3 = quantifiedCond2.getGraph().addNode();
-		quantifiedCond2.getGraph().addRelation(complexNode2, node3);		
+		ComplexNode complexNode2 = completePattern.getGraph().getNodes().get(1).makeComplex();
+		complexNode2.addOutgoing(quantifiedCond2.getGraph());		
 		
 		completePattern.createRdfAdaption();
 		return completePattern;

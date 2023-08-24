@@ -38,16 +38,13 @@ public class RdfTest05Formula {
 		QuantifiedCondition quantifiedCond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		formula.setCondition1(quantifiedCond);
 		
-		ComplexNode complexNode = quantifiedCond.getGraph().getNodes().get(1).makeComplex();
-		Node node2 = quantifiedCond.getGraph().addNode();
-		quantifiedCond.getGraph().addRelation(complexNode, node2);	
+		ComplexNode complexNode = completePattern.getGraph().getNodes().get(1).makeComplex();
+		complexNode.addOutgoing(quantifiedCond.getGraph());	
 		
 		QuantifiedCondition quantifiedCond2 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		formula.setCondition2(quantifiedCond2);
-		
-		ComplexNode complexNode2 = quantifiedCond2.getGraph().getNodes().get(1).makeComplex();
-		Node node3 = quantifiedCond2.getGraph().addNode();
-		quantifiedCond2.getGraph().addRelation(complexNode2, node3);	
+
+		complexNode.addOutgoing(quantifiedCond2.getGraph());
 		
 		completePattern.createRdfAdaption();
 		return completePattern;

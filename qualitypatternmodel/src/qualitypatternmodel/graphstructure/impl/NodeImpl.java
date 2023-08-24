@@ -992,15 +992,14 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			rdfIriNode.getComparison2().addAll(getComparison2());
 			getComparison2().clear();	
 			
-			
 			setGraph(null);
-			
 			
 			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
 			incomingCopy2.addAll(rdfIriNode.getIncoming());
 			for(Relation relation : incomingCopy2) {
 				relation.adaptAsRdfPredicate();
 			}
+			rdfIriNode.createParameters();
 			
 			return rdfIriNode;			
 		} else {

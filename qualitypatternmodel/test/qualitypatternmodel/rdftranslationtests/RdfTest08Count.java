@@ -38,10 +38,11 @@ public class RdfTest08Count {
 		countCond.setArgument2(numberElement);
 		numberElement.getNumberParam().setValue(1.);
 		
-		ComplexNode complexNode1 = countCond.getCountPattern().getGraph().getNodes().get(1).makeComplex();
-		complexNode1.setReturnNode(true);
-		Node node2 = countCond.getCountPattern().getGraph().addNode();
-		countCond.getCountPattern().getGraph().addRelation(complexNode1, node2);
+		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(1).makeComplex();
+		
+		
+		Node node2 = complexNode1.addOutgoing(countCond.getCountPattern().getGraph()).getTarget();
+		node2.setReturnNode(true);
 		
 		completePattern.createRdfAdaption();
 		return completePattern;
@@ -53,9 +54,9 @@ public class RdfTest08Count {
 		completePattern.setCondition(quantifiedCond);
 		quantifiedCond.setQuantifier(q);
 		
-		ComplexNode complexNode1 = quantifiedCond.getGraph().getNodes().get(0).makeComplex();
-		Node node2 = quantifiedCond.getGraph().addNode();
-		quantifiedCond.getGraph().addRelation(complexNode1, node2);
+		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
+		
+		Node node2 = complexNode1.addOutgoing(quantifiedCond.getGraph().addNode()).getTarget();
 		
 		CountCondition countCond = PatternstructureFactory.eINSTANCE.createCountCondition();
 		countCond.setQuantifiedCondition(quantifiedCond);
@@ -64,10 +65,8 @@ public class RdfTest08Count {
 		countCond.setArgument2(numberElement);
 		numberElement.getNumberParam().setValue(1.);
 		
-		ComplexNode complexNode2 = countCond.getCountPattern().getGraph().getNodes().get(1).makeComplex();
-		complexNode2.setReturnNode(true);
-		Node node3 = countCond.getCountPattern().getGraph().addNode();
-		countCond.getCountPattern().getGraph().addRelation(complexNode2, node3);
+		Node node3 = node2.addOutgoing(countCond.getCountPattern().getGraph()).getTarget();
+		node3.setReturnNode(true);
 		
 		completePattern.createRdfAdaption();
 		return completePattern;

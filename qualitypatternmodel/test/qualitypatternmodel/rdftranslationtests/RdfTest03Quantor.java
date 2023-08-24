@@ -44,9 +44,8 @@ public class RdfTest03Quantor {
 		completePattern.setCondition(quantifiedCond);
 		quantifiedCond.setQuantifier(q);
 		
-		ComplexNode complexNode1 = quantifiedCond.getGraph().getNodes().get(1).makeComplex();
-		Node node2 = quantifiedCond.getGraph().addNode();
-		quantifiedCond.getGraph().addRelation(complexNode1, node2);
+		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(1).makeComplex();
+		complexNode1.addOutgoing(quantifiedCond.getGraph());
 		
 		completePattern.createRdfAdaption();
 		return completePattern;
@@ -57,18 +56,15 @@ public class RdfTest03Quantor {
 		QuantifiedCondition quantifiedCond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		completePattern.setCondition(quantifiedCond);
 		quantifiedCond.setQuantifier(q);
-		
-		ComplexNode complexNode1 = quantifiedCond.getGraph().getNodes().get(1).makeComplex();
-		Node node2 = quantifiedCond.getGraph().addNode();
-		quantifiedCond.getGraph().addRelation(complexNode1, node2);
+
+		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(1).makeComplex();
+		ComplexNode complexNode2 = complexNode1.addOutgoing(quantifiedCond.getGraph()).getTarget().makeComplex();
 		
 		QuantifiedCondition quantifiedCond2 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		quantifiedCond.setCondition(quantifiedCond2);
 		quantifiedCond2.setQuantifier(q2);
 		
-		ComplexNode complexNode2 = quantifiedCond2.getGraph().getNodes().get(2).makeComplex();
-		Node node3 = quantifiedCond2.getGraph().addNode();
-		quantifiedCond2.getGraph().addRelation(complexNode2, node3);
+		complexNode2.addOutgoing(quantifiedCond2.getGraph());
 		
 		completePattern.createRdfAdaption();
 		return completePattern;
