@@ -77,24 +77,21 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 
 		if(abstractionLevel != AbstractionLevel.SEMI_GENERIC) {
 			EList<Operator> graphOps = getGraph().getAllOperators();
-			if (!(graphOps.containsAll(getOperators()) && getOperators().containsAll(graphOps))) {
-				String msg = "amount of operators in OperatorList not equal to amount of operators used in Graph (" + getInternalId() + "):\n";
-				msg += getOperators();
+			EList<Operator> opList = getGraph().getAllOperators();
+			if (!(graphOps.containsAll(opList) && opList.containsAll(graphOps))) {
+				String msg = "Amount of operators in OperatorList [" + getInternalId() + "] not equal to amount of operators used in Graph [" + getGraph().getInternalId() + "]:\n";
+				msg += opList;
 				msg += "\n";
 				for (Operator op : graphOps) {
+					if (!opList.contains(op))
+						msg += "Missing in Operator List: ";
 					msg += op.myToString();
-					if (!getOperators().contains(op))
-						msg += "- ";
-					else
-						msg += "+ ";
 				}
 				msg += "\n";
-				for (Operator op : getOperators()) {
+				for (Operator op : opList) {
+					if (!graphOps.contains(op))
+						msg += "Missing in getAllOperators: ";
 					msg += op.myToString();
-					if (!getOperators().contains(op))
-						msg += "- ";
-					else
-						msg += "+ ";
 				}
 				throw new InvalidityException(msg);
 			}

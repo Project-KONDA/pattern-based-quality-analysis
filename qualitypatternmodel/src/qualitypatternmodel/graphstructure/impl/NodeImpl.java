@@ -1192,11 +1192,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				Graph graph = (Graph) getAncestor(Graph.class);
 				OperatorList oplist = graph.getOperatorList();
 					
-				oplist.add(comparison);	
 				comparison.createParameters();
 				comparison.setArgument1(this);
 				comparison.setArgument2(node);
-				comparison.createParameters();
+				oplist.add(comparison);	
 				
 				return comparison;
 				

@@ -46,9 +46,6 @@ public class EvalUnique {
 		QuantifiedCondition quantifiedCondition = factory.createQuantifiedCondition();
 		completePattern.setCondition(quantifiedCondition);
 		
-		
-		
-		
 		CountCondition countCondition = PatternstructureFactory.eINSTANCE.createCountCondition();
 		quantifiedCondition.setCondition(countCondition);
 		countCondition.createCountPattern();
@@ -58,7 +55,6 @@ public class EvalUnique {
 		numberElement.createParameters();
 		numberElement.getNumberParam().setValue(1.);
 		countCondition.getOption().setValue(ComparisonOperator.GREATER);
-		
 		
 		NumberParam numberParam = numberElement.getNumberParam();
 		
