@@ -1188,8 +1188,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		if (this.getClass() == node.getClass() && this.getClass() != NodeImpl.class) {
 			try {
 				Comparison comparison = new ComparisonImpl();
-//				CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
-				Graph graph = (Graph) getAncestor(Graph.class);
+				Graph graph = getGraph().isBefore(node.getGraph())? node.getGraph(): getGraph();
 				OperatorList oplist = graph.getOperatorList();
 					
 				comparison.createParameters();
