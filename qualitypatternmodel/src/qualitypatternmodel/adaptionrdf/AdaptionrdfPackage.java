@@ -398,6 +398,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PREDICATE___SET_GRAPH_SIMPLE__GRAPH = GraphstructurePackage.RELATION___SET_GRAPH_SIMPLE__GRAPH;
 
 	/**
+	 * The operation id for the '<em>Is Cross Graph</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PREDICATE___IS_CROSS_GRAPH = GraphstructurePackage.RELATION___IS_CROSS_GRAPH;
+
+	/**
 	 * The operation id for the '<em>Adapt As Xml Element Navigation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

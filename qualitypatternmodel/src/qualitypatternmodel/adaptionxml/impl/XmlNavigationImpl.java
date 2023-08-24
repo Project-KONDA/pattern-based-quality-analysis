@@ -122,7 +122,6 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 			throw new InvalidityException("option null");
 		
 		// setTranslated
-		String xPredicates;
 		
 		if(getTarget() instanceof XmlElement) {
 			XmlElement element = (XmlElement) getTarget();
@@ -147,6 +146,7 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		}
 		
 		// Predicate
+		String xPredicates = "";
 		if(getTarget() instanceof XmlNode) {
 			XmlNode targetElement = (XmlNode) getTarget();
 			xPredicates = targetElement.translatePredicates();
@@ -189,7 +189,7 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		
 		String target = getTarget().generateXQuery();
 		query += target;
-
+		
 		if (xPredicates == "" && xPathExpression == "" && target == "") {
 			return "";
 		}

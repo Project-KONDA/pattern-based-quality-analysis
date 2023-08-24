@@ -287,6 +287,23 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Boolean isCrossGraph() {
+		try {
+			Graph sourceGraph = getSource().getGraph();
+			Graph targetGraph = getTarget().getGraph(); 
+			if (sourceGraph != null && sourceGraph != targetGraph) {
+				return true;
+			}
+		} catch (Exception e) {}
+		return false;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -1048,6 +1065,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			case GraphstructurePackage.RELATION___SET_GRAPH_SIMPLE__GRAPH:
 				setGraphSimple((Graph)arguments.get(0));
 				return null;
+			case GraphstructurePackage.RELATION___IS_CROSS_GRAPH:
+				return isCrossGraph();
 			case GraphstructurePackage.RELATION___ADAPT_AS_XML_ELEMENT_NAVIGATION:
 				try {
 					return adaptAsXmlElementNavigation();

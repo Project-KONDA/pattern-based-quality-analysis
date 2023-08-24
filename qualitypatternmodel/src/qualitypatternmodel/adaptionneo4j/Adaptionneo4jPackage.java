@@ -1248,6 +1248,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_EDGE___SET_GRAPH_SIMPLE__GRAPH = GraphstructurePackage.RELATION___SET_GRAPH_SIMPLE__GRAPH;
 
 	/**
+	 * The operation id for the '<em>Is Cross Graph</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE___IS_CROSS_GRAPH = GraphstructurePackage.RELATION___IS_CROSS_GRAPH;
+
+	/**
 	 * The operation id for the '<em>Adapt As Xml Element Navigation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1679,6 +1688,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_ELEMENT_EDGE___SET_GRAPH_SIMPLE__GRAPH = NEO_EDGE___SET_GRAPH_SIMPLE__GRAPH;
+
+	/**
+	 * The operation id for the '<em>Is Cross Graph</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_EDGE___IS_CROSS_GRAPH = NEO_EDGE___IS_CROSS_GRAPH;
 
 	/**
 	 * The operation id for the '<em>Adapt As Xml Element Navigation</em>' operation.
@@ -5188,6 +5206,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_EDGE___SET_GRAPH_SIMPLE__GRAPH = NEO_EDGE___SET_GRAPH_SIMPLE__GRAPH;
+
+	/**
+	 * The operation id for the '<em>Is Cross Graph</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_EDGE___IS_CROSS_GRAPH = NEO_EDGE___IS_CROSS_GRAPH;
 
 	/**
 	 * The operation id for the '<em>Adapt As Xml Element Navigation</em>' operation.

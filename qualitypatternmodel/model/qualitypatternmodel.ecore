@@ -313,6 +313,7 @@
       <eOperations name="setGraphSimple">
         <eParameters name="newGraph" eType="#//graphstructure/Graph"/>
       </eOperations>
+      <eOperations name="isCrossGraph" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
       <eOperations name="adaptAsXmlElementNavigation" eType="#//adaptionxml/XmlElementNavigation"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="adaptAsXmlPropertyNavigation" eType="#//adaptionxml/XmlPropertyNavigation"

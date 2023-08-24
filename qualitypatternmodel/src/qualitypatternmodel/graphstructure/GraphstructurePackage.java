@@ -385,13 +385,22 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___SET_GRAPH_SIMPLE__GRAPH = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Is Cross Graph</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION___IS_CROSS_GRAPH = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
+
+	/**
 	 * The operation id for the '<em>Adapt As Xml Element Navigation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION___ADAPT_AS_XML_ELEMENT_NAVIGATION = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
+	int RELATION___ADAPT_AS_XML_ELEMENT_NAVIGATION = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Adapt As Xml Property Navigation</em>' operation.
@@ -400,7 +409,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION___ADAPT_AS_XML_PROPERTY_NAVIGATION = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+	int RELATION___ADAPT_AS_XML_PROPERTY_NAVIGATION = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Adapt As Xml Reference</em>' operation.
@@ -409,7 +418,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION___ADAPT_AS_XML_REFERENCE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
+	int RELATION___ADAPT_AS_XML_REFERENCE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Adapt As Rdf Predicate</em>' operation.
@@ -418,7 +427,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION___ADAPT_AS_RDF_PREDICATE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 6;
+	int RELATION___ADAPT_AS_RDF_PREDICATE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Adapt As Neo Element Edge</em>' operation.
@@ -427,7 +436,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION___ADAPT_AS_NEO_ELEMENT_EDGE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 7;
+	int RELATION___ADAPT_AS_NEO_ELEMENT_EDGE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Adapt As Property Edge</em>' operation.
@@ -436,7 +445,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION___ADAPT_AS_PROPERTY_EDGE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 8;
+	int RELATION___ADAPT_AS_PROPERTY_EDGE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>Relation</em>' class.
@@ -445,7 +454,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 9;
+	int RELATION_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.Comparable <em>Comparable</em>}' class.
@@ -3752,6 +3761,16 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getRelation__SetGraphSimple__Graph();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#isCrossGraph() <em>Is Cross Graph</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Cross Graph</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Relation#isCrossGraph()
+	 * @generated
+	 */
+	EOperation getRelation__IsCrossGraph();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.PrimitiveNode <em>Primitive Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4711,6 +4730,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation RELATION___SET_GRAPH_SIMPLE__GRAPH = eINSTANCE.getRelation__SetGraphSimple__Graph();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Cross Graph</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RELATION___IS_CROSS_GRAPH = eINSTANCE.getRelation__IsCrossGraph();
 
 		/**
 		 * The meta object literal for the '<em><b>Adapt As Xml Property Navigation</b></em>' operation.

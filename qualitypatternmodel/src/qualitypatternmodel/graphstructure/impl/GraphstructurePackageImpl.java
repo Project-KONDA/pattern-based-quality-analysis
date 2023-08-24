@@ -284,16 +284,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EOperation getRelation__AdaptAsXmlElementNavigation() {
-		return relationEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getRelation__AdaptAsXmlPropertyNavigation() {
 		return relationEClass.getEOperations().get(2);
 	}
 
@@ -303,7 +293,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getRelation__AdaptAsXmlReference() {
+	public EOperation getRelation__AdaptAsXmlPropertyNavigation() {
 		return relationEClass.getEOperations().get(3);
 	}
 
@@ -313,7 +303,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getRelation__AdaptAsRdfPredicate() {
+	public EOperation getRelation__AdaptAsXmlReference() {
 		return relationEClass.getEOperations().get(4);
 	}
 
@@ -323,7 +313,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getRelation__AdaptAsNeoElementEdge() {
+	public EOperation getRelation__AdaptAsRdfPredicate() {
 		return relationEClass.getEOperations().get(5);
 	}
 
@@ -333,8 +323,18 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getRelation__AdaptAsPropertyEdge() {
+	public EOperation getRelation__AdaptAsNeoElementEdge() {
 		return relationEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getRelation__AdaptAsPropertyEdge() {
+		return relationEClass.getEOperations().get(7);
 	}
 
 	/**
@@ -345,6 +345,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	@Override
 	public EOperation getRelation__SetGraphSimple__Graph() {
 		return relationEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getRelation__IsCrossGraph() {
+		return relationEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -1194,6 +1204,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEAttribute(relationEClass, RELATION__TRANSLATED);
 		createEAttribute(relationEClass, RELATION__PREDICATES_ARE_BEING_TRANSLATED);
 		createEOperation(relationEClass, RELATION___SET_GRAPH_SIMPLE__GRAPH);
+		createEOperation(relationEClass, RELATION___IS_CROSS_GRAPH);
 		createEOperation(relationEClass, RELATION___ADAPT_AS_XML_ELEMENT_NAVIGATION);
 		createEOperation(relationEClass, RELATION___ADAPT_AS_XML_PROPERTY_NAVIGATION);
 		createEOperation(relationEClass, RELATION___ADAPT_AS_XML_REFERENCE);
@@ -1349,6 +1360,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		EOperation op = initEOperation(getRelation__SetGraphSimple__Graph(), null, "setGraphSimple", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getGraph(), "newGraph", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getRelation__IsCrossGraph(), ecorePackage.getEBooleanObject(), "isCrossGraph", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getRelation__AdaptAsXmlElementNavigation(), theAdaptionxmlPackage.getXmlElementNavigation(), "adaptAsXmlElementNavigation", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
