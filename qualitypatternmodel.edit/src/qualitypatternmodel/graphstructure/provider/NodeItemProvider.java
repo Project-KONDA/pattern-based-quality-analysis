@@ -53,8 +53,6 @@ public class NodeItemProvider extends PatternElementItemProvider {
 
 			addComparison1PropertyDescriptor(object);
 			addComparison2PropertyDescriptor(object);
-			addOutgoingMappingsPropertyDescriptor(object);
-			addIncomingMappingPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addPredicatesPropertyDescriptor(object);
 			addIncomingPropertyDescriptor(object);
@@ -102,50 +100,6 @@ public class NodeItemProvider extends PatternElementItemProvider {
 				 getString("_UI_Comparable_comparison2_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Comparable_comparison2_feature", "_UI_Comparable_type"),
 				 GraphstructurePackage.Literals.COMPARABLE__COMPARISON2,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Outgoing Mappings feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOutgoingMappingsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Node_outgoingMappings_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Node_outgoingMappings_feature", "_UI_Node_type"),
-				 GraphstructurePackage.Literals.NODE__OUTGOING_MAPPINGS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Incoming Mapping feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIncomingMappingPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Node_incomingMapping_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Node_incomingMapping_feature", "_UI_Node_type"),
-				 GraphstructurePackage.Literals.NODE__INCOMING_MAPPING,
 				 true,
 				 false,
 				 true,

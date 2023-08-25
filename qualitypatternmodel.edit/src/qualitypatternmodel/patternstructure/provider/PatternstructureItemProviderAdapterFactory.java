@@ -72,29 +72,6 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.RelationMapping} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected RelationMappingItemProvider relationMappingItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.RelationMapping}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createRelationMappingAdapter() {
-		if (relationMappingItemProvider == null) {
-			relationMappingItemProvider = new RelationMappingItemProvider(this);
-		}
-
-		return relationMappingItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.QuantifiedCondition} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -138,29 +115,6 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 		}
 
 		return morphismItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.NodeMapping} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NodeMappingItemProvider nodeMappingItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.NodeMapping}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createNodeMappingAdapter() {
-		if (nodeMappingItemProvider == null) {
-			nodeMappingItemProvider = new NodeMappingItemProvider(this);
-		}
-
-		return nodeMappingItemProvider;
 	}
 
 	/**
@@ -429,10 +383,8 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 	 */
 	@Override
 	public void dispose() {
-		if (relationMappingItemProvider != null) relationMappingItemProvider.dispose();
 		if (quantifiedConditionItemProvider != null) quantifiedConditionItemProvider.dispose();
 		if (morphismItemProvider != null) morphismItemProvider.dispose();
-		if (nodeMappingItemProvider != null) nodeMappingItemProvider.dispose();
 		if (formulaItemProvider != null) formulaItemProvider.dispose();
 		if (trueElementItemProvider != null) trueElementItemProvider.dispose();
 		if (completePatternItemProvider != null) completePatternItemProvider.dispose();

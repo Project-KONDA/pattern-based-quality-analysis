@@ -51,8 +51,6 @@ public class RelationItemProvider extends PatternElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIncomingMappingPropertyDescriptor(object);
-			addOutgoingMappingsPropertyDescriptor(object);
 			addSourcePropertyDescriptor(object);
 			addTargetPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
@@ -60,50 +58,6 @@ public class RelationItemProvider extends PatternElementItemProvider {
 			addPredicatesAreBeingTranslatedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Incoming Mapping feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIncomingMappingPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Relation_incomingMapping_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Relation_incomingMapping_feature", "_UI_Relation_type"),
-				 GraphstructurePackage.Literals.RELATION__INCOMING_MAPPING,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Outgoing Mappings feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOutgoingMappingsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Relation_outgoingMappings_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Relation_outgoingMappings_feature", "_UI_Relation_type"),
-				 GraphstructurePackage.Literals.RELATION__OUTGOING_MAPPINGS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**

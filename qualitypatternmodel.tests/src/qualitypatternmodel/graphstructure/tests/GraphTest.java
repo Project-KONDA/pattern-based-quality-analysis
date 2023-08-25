@@ -19,13 +19,13 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#isReturnGraph() <em>Is Return Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getReturnNodes() <em>Get Return Nodes</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getAllOperators() <em>Get All Operators</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Graph#copyGraph(qualitypatternmodel.graphstructure.Graph) <em>Copy Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#addRelation(qualitypatternmodel.graphstructure.ComplexNode, qualitypatternmodel.graphstructure.Node) <em>Add Relation</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#addNode() <em>Add Node</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#addComplexNode() <em>Add Complex Node</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#addPrimitiveNode() <em>Add Primitive Node</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#generateCypherWhere() <em>Generate Cypher Where</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getAllSubGraphs() <em>Get All Sub Graphs</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#isBefore(qualitypatternmodel.graphstructure.Graph) <em>Is Before</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -124,19 +124,6 @@ public class GraphTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Graph#copyGraph(qualitypatternmodel.graphstructure.Graph) <em>Copy Graph</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Graph#copyGraph(qualitypatternmodel.graphstructure.Graph)
-	 * @generated
-	 */
-	public void testCopyGraph__Graph() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link qualitypatternmodel.graphstructure.Graph#addRelation(qualitypatternmodel.graphstructure.ComplexNode, qualitypatternmodel.graphstructure.Node) <em>Add Relation</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -209,6 +196,19 @@ public class GraphTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testGetAllSubGraphs() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Graph#isBefore(qualitypatternmodel.graphstructure.Graph) <em>Is Before</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Graph#isBefore(qualitypatternmodel.graphstructure.Graph)
+	 * @generated
+	 */
+	public void testIsBefore__Graph() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

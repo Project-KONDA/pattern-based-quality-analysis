@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.patternstructure.RelationMapping;
+import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,7 +60,7 @@ public class PatternstructureExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.patternstructure"));
-				RelationMapping root = PatternstructureFactory.eINSTANCE.createRelationMapping();
+				QuantifiedCondition root = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

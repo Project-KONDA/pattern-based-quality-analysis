@@ -16,11 +16,8 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.Relation#getOriginalID() <em>Get Original ID</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Relation#getOriginalRelation() <em>Get Original Relation</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#setGraphSimple(qualitypatternmodel.graphstructure.Graph) <em>Set Graph Simple</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Relation#removeRelationFromPreviousGraphs() <em>Remove Relation From Previous Graphs</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Relation#removeMappingsToNext() <em>Remove Mappings To Next</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#isCrossGraph() <em>Is Cross Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#adaptAsXmlElementNavigation() <em>Adapt As Xml Element Navigation</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#adaptAsXmlPropertyNavigation() <em>Adapt As Xml Property Navigation</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#adaptAsXmlReference() <em>Adapt As Xml Reference</em>}</li>
@@ -88,32 +85,6 @@ public class RelationTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#getOriginalID() <em>Get Original ID</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Relation#getOriginalID()
-	 * @generated
-	 */
-	public void testGetOriginalID() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#getOriginalRelation() <em>Get Original Relation</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Relation#getOriginalRelation()
-	 * @generated
-	 */
-	public void testGetOriginalRelation() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#setGraphSimple(qualitypatternmodel.graphstructure.Graph) <em>Set Graph Simple</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -127,26 +98,13 @@ public class RelationTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#removeRelationFromPreviousGraphs() <em>Remove Relation From Previous Graphs</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#isCrossGraph() <em>Is Cross Graph</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Relation#removeRelationFromPreviousGraphs()
+	 * @see qualitypatternmodel.graphstructure.Relation#isCrossGraph()
 	 * @generated
 	 */
-	public void testRemoveRelationFromPreviousGraphs() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#removeMappingsToNext() <em>Remove Mappings To Next</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Relation#removeMappingsToNext()
-	 * @generated
-	 */
-	public void testRemoveMappingsToNext() {
+	public void testIsCrossGraph() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
