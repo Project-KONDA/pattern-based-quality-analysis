@@ -35,12 +35,12 @@ public class Test12Count {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getPatternCountInPatternFinal());	
 		completePatterns.add(getPatternCountInExists());	
-//		completePatterns.add(getPatternCountInForall());	
-//		completePatterns.add(getPatternCountNextToExists());
-//		completePatterns.add(getPatternCountNextToForall());
-//		completePatterns.add(getPatternCountInNot());
-//		completePatterns.add(getPatternCountNextToExistsNested());
-//		completePatterns.add(getPatternCountNextToForallNested());
+		completePatterns.add(getPatternCountInForall());	
+		completePatterns.add(getPatternCountNextToExists());
+		completePatterns.add(getPatternCountNextToForall());
+		completePatterns.add(getPatternCountInNot());
+		completePatterns.add(getPatternCountNextToExistsNested());
+		completePatterns.add(getPatternCountNextToForallNested());
 		return completePatterns;
 	}
 	
@@ -146,7 +146,8 @@ public class Test12Count {
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
-		
+		Node ret = completePattern.getGraph().getReturnNodes().get(0);
+
 		NotCondition n = factory.createNotCondition();
 		completePattern.setCondition(n);
 		
@@ -158,9 +159,7 @@ public class Test12Count {
 		NumberElement numberElement = (NumberElement) countCondition.getArgument2();
 		numberElement.setNumberParam(parametersFactory.createNumberParam());
 		
-		Node returnInCPattern = countPattern.getGraph().getReturnNodes().get(0);
-		returnInCPattern.setReturnNode(false);
-		Relation r4 = returnInCPattern.addOutgoing();
+		Relation r4 = ret.addOutgoing(countPattern.getGraph());
 		Node nextToElement2InCPattern = r4.getTarget();
 		
 		nextToElement2InCPattern.setReturnNode(true);
@@ -204,17 +203,16 @@ public class Test12Count {
 		countCondition.setCountPattern(countPattern);
 		countCondition.setArgument2(numberElement);
 		
-		Node returnInCPattern = countPattern.getGraph().getReturnNodes().get(0);
-		returnInCPattern.setReturnNode(false);
-		Relation r = returnInCPattern.addOutgoing();
+		Node ret = completePattern.getGraph().getReturnNodes().get(0);
+		
+		Relation r = ret.addOutgoing(countPattern.getGraph());
 		Node nextToElement2InCPattern = r.getTarget();
 		Relation r2 = nextToElement2InCPattern.addOutgoing();
 		nextToElement2InCPattern = r2.getSource();
 //		Node element3 = r2.getTarget();
 		nextToElement2InCPattern.setReturnNode(true);
 		
-		Node returnInQC = quantifiedCondition2.getGraph().getReturnNodes().get(0);
-		Relation r3 = returnInQC.addOutgoing();
+		Relation r3 = ret.addOutgoing(quantifiedCondition2.getGraph());
 		Node nextToElement2InQC = r3.getTarget();
 		nextToElement2InQC.addOutgoing().getTarget().addPrimitiveComparison();
 		
@@ -271,11 +269,12 @@ public class Test12Count {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
-		
+		// Pattern
 		CompletePattern completePattern = factory.createCompletePattern();
 		QuantifiedCondition outerExists = factory.createQuantifiedCondition();
 		completePattern.setCondition(outerExists);
 		
+		// Formula
 		Formula outerFormula = factory.createFormula();
 		outerExists.setCondition(outerFormula);
 		CountCondition cc = factory.createCountCondition();
@@ -286,29 +285,31 @@ public class Test12Count {
 		numberElement.setNumberParam(numberParam);
 		cc.setCountPattern(countPattern);
 		cc.setArgument2(numberElement);
-			
+		
+		// Condition
 		QuantifiedCondition innerExists = factory.createQuantifiedCondition();
 		outerFormula.setCondition2(innerExists);
 		
 		// returngraph
-		Node n1 = completePattern.getGraph().getNodes().get(0);
+		Graph cpgraph = completePattern.getGraph(); 
+		Node n1 = cpgraph.getNodes().get(0).makeComplex();
 		n1.setName("n1");
 		Node p1 = n1.addOutgoing().getTarget(); // property
 		p1.setName("p1");
 		p1.addPrimitiveComparison();	
 		
+		
 		// outerExists
-		Node n1_1 = outerExists.getGraph().getNodes().get(0);
-		Node n2 = n1_1.addOutgoing().getTarget();
+		Graph oegraph = outerExists.getGraph(); 
+		Node n2 = n1.addOutgoing(oegraph).getTarget().makeComplex();
 		n2.setName("n2");
-		Node p2 = n2.addOutgoing().getTarget(); // property
+		Node p2 = n2.addOutgoing().getTarget();
 		p2.setName("p2");
 		p2.addPrimitiveComparison();
 		
 		// countPattern
-		countPattern.getGraph().getReturnNodes().get(0).setReturnNode(false);
-		Node n2a = countPattern.getGraph().getNodes().get(2);
-		Node n3a = n2a.addOutgoing().getTarget();
+		Graph countgraph = countPattern.getGraph();
+		Node n3a = n2.addOutgoing(countgraph).getTarget();
 		n3a.setReturnNode(true);
 		Relation n3p3 = n3a.addOutgoing();
 		n3a = n3p3.getSource();
@@ -319,8 +320,9 @@ public class Test12Count {
 		p4a.addPrimitiveComparison();
 		
 		// innerExists
-		Node n2b = innerExists.getGraph().getNodes().get(2);
-		Node n3b = n2b.addOutgoing().getTarget();
+		Graph iegraph = innerExists.getGraph(); 
+//		Node n2b = innerExists.getGraph().getNodes().get(2);
+		Node n3b = n2.addOutgoing(iegraph).getTarget();
 		Node p3b = n3b.addOutgoing().getTarget();
 		p3b.addPrimitiveComparison();
 		
