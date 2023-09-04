@@ -70,7 +70,9 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 			if(getTarget() instanceof ComplexNode) {
 				ComplexNode complexNode = (ComplexNode) getTarget();
 				for(Relation relation : complexNode.getOutgoing()) {
-					query += relation.generateSparql();
+					if (!relation.isCrossGraph()) {
+						query += relation.generateSparql();
+					}
 				}
 			}
 		}

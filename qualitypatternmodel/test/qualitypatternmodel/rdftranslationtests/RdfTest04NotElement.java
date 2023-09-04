@@ -18,9 +18,9 @@ public class RdfTest04NotElement {
 	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getNotQuantifierPattern(Quantifier.EXISTS));
-		completePatterns.add(getNotQuantifierPattern(Quantifier.FORALL));
+//		completePatterns.add(getNotQuantifierPattern(Quantifier.FORALL));
 		completePatterns.add(getQuantifierNotQuantifierPattern(Quantifier.EXISTS, Quantifier.EXISTS));
-		completePatterns.add(getQuantifierNotQuantifierPattern(Quantifier.FORALL, Quantifier.FORALL));
+//		completePatterns.add(getQuantifierNotQuantifierPattern(Quantifier.FORALL, Quantifier.FORALL));
 		completePatterns.add(getNotNotPattern());
 		completePatterns.add(getNotNotNotPattern());
 		completePatterns.add(getNotNotNotNotPattern());

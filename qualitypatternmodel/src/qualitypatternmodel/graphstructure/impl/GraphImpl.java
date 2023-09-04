@@ -178,11 +178,21 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		for(Node node: getNodes())
 			result += ((RdfNode) node).generateRdfTypes();
 		
+		for(Relation relation: getRelations()) {
+			if(relation.isCrossGraph()) {
+				if (!relation.getSource().getGraph().isBefore(this)) {
+					throw new InvalidityException("invalid Relation in Graph [" + getInternalId() + "]: "+ relation.myToString());
+				}
+				result += relation.generateSparql();
+			}
+		}
 		for(Node node : getNodes()) {
 			if(node instanceof ComplexNode) {
 				ComplexNode c = (ComplexNode) node;
 				for(Relation r : c.getOutgoing()) {
-					result += r.generateSparql();
+					if (!r.isCrossGraph()) {
+						result += r.generateSparql();
+					}	
 				}
 			}
 		}

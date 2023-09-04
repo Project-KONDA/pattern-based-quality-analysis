@@ -172,11 +172,11 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		if (operator != null) {
 			if (condition1 != null && condition2 != null) {
 				
-				String condition1Query = condition1.generateSparql();
+				String condition1Query = condition1.generateSparql().substring(1);
 				String condition2Query = condition2.generateSparql();
 				
 				if(operator != LogicalOperator.AND && !isInRdfFilter()) {
-					result += "FILTER ";
+					result += "\nFILTER ";
 				}
 				
 				switch (operator) {
