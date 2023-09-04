@@ -1,0 +1,124 @@
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl ComplexNode 1 [14]
+  | > XmlPropertyImpl PrimitiveNode 5 [15]
+  | > XmlRootImpl Root [16]
+  | ~ XmlPropertyNavigationImpl [2] from 14 to 15 (xmlpath [1][] {DATA})
+  | ~ XmlElementNavigationImpl [15] from 16 to 14 (xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.)
+  | OperatorList [3]
+  | - COMP [1] STRING:BOOLEAN (XmlPropertyImpl [15] =[5] TextLiteralParamImpl [6])
+  FORALL
+    : Graph
+    | | > Return-XmlElementImpl ComplexNode 1 [17 (14)]
+    | | > XmlPropertyImpl PrimitiveNode 3 [18 (15)]
+    | | > XmlElementImpl ComplexNode 2 [19]
+    | | > XmlPropertyImpl PrimitiveNode 7 [20]
+    | | > XmlPropertyImpl PrimitiveNode 9 [21]
+    | | > XmlPropertyImpl PrimitiveNode 11 [22]
+    | | > XmlRootImpl Root [23 (16)]
+    | | ~ XmlPropertyNavigationImpl [16 (2)] from 17 to 18 (xmlpath [1][] {DATA})
+    | | ~ XmlElementNavigationImpl [4] from 17 to 19 (xmlpath [7] {[axis [8] /child::*, {DATA}, text [9] '']}.)
+    | | ~ XmlElementNavigationImpl [6] from 17 to 19 (xmlpath [10] {[axis [11] /child::*, {DATA}, text [12] '']}.)
+    | | ~ XmlPropertyNavigationImpl [8] from 17 to 20 (xmlpath [13][] {DATA})
+    | | ~ XmlPropertyNavigationImpl [10] from 17 to 21 (xmlpath [14][] {DATA})
+    | | ~ XmlPropertyNavigationImpl [12] from 17 to 22 (xmlpath [15][] {DATA})
+    | | ~ XmlElementNavigationImpl [17 (15)] from 23 to 17 (xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.)
+    | | OperatorList [4]
+    | | - COMP [2] STRING:BOOLEAN (XmlPropertyImpl [20] =[16] TextLiteralParamImpl [17])
+    | | - COMP [3] STRING:BOOLEAN (XmlPropertyImpl [21] !=[18] TextLiteralParamImpl [19])
+    | | - COMP [4] STRING:BOOLEAN (XmlPropertyImpl [22] =[20] TextLiteralParamImpl [21])
+    : Morphism (5 -> 6)
+    |   * NodeMapping(14 -> 17)
+    |   * NodeMapping(15 -> 18)
+    |   * RelationMapping(2 -> 16)
+    |   * NodeMapping(16 -> 23)
+    |   * RelationMapping(15 -> 17)
+    : FORALL
+    |   : Graph
+    |   | | > Return-XmlElementImpl ComplexNode 1 [24 (14)]
+    |   | | > XmlPropertyImpl PrimitiveNode 4 [25 (15)]
+    |   | | > XmlElementImpl ComplexNode 2 [26 (19)]
+    |   | | > XmlPropertyImpl PrimitiveNode 6 [27 (20)]
+    |   | | > XmlPropertyImpl PrimitiveNode 8 [28 (21)]
+    |   | | > XmlPropertyImpl PrimitiveNode 10 [29 (22)]
+    |   | | > XmlElementImpl Element 13 [30]
+    |   | | > XmlPropertyImpl PrimitiveNode 12 [31]
+    |   | | > XmlRootImpl Root [32 (16)]
+    |   | | ~ XmlPropertyNavigationImpl [18 (2)] from 24 to 25 (xmlpath [1][] {DATA})
+    |   | | ~ XmlElementNavigationImpl [19 (4)] from 24 to 26 (xmlpath [7] {[axis [8] /child::*, {DATA}, text [9] '']}.)
+    |   | | ~ XmlElementNavigationImpl [20 (6)] from 24 to 26 (xmlpath [10] {[axis [11] /child::*, {DATA}, text [12] '']}.)
+    |   | | ~ XmlPropertyNavigationImpl [21 (8)] from 24 to 27 (xmlpath [13][] {DATA})
+    |   | | ~ XmlPropertyNavigationImpl [22 (10)] from 24 to 28 (xmlpath [14][] {DATA})
+    |   | | ~ XmlPropertyNavigationImpl [23 (12)] from 24 to 29 (xmlpath [15][] {DATA})
+    |   | | ~ XmlElementNavigationImpl [24] from 26 to 30 (xmlpath [22] {[axis [23] /child::*, {DATA}, text [24] '']}.)
+    |   | | ~ XmlPropertyNavigationImpl [25] from 26 to 31 (xmlpath [25][] {DATA})
+    |   | | ~ XmlElementNavigationImpl [26 (15)] from 32 to 24 (xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.)
+    |   | | OperatorList [7]
+    |   | | - COMP [5] STRING:BOOLEAN (XmlPropertyImpl [31] =[26] TextLiteralParamImpl [27])
+    |   : Morphism (6 -> 8)
+    |   |   * NodeMapping(17 -> 24)
+    |   |   * NodeMapping(19 -> 26)
+    |   |   * RelationMapping(4 -> 19)
+    |   |   * RelationMapping(6 -> 20)
+    |   |   * NodeMapping(18 -> 25)
+    |   |   * RelationMapping(16 -> 18)
+    |   |   * NodeMapping(20 -> 27)
+    |   |   * RelationMapping(8 -> 21)
+    |   |   * NodeMapping(21 -> 28)
+    |   |   * RelationMapping(10 -> 22)
+    |   |   * NodeMapping(22 -> 29)
+    |   |   * RelationMapping(12 -> 23)
+    |   |   * NodeMapping(23 -> 32)
+    |   |   * RelationMapping(17 -> 26)
+    |   : TRUE
+  ParameterList
+    : text [6] '101'
+    : comp [5] =
+    : type [28] STRING
+    : text [17] 'demo:building'
+    : comp [16] =
+    : type [29] STRING
+    : text [19] 'abc'
+    : comp [18] !=
+    : type [30] STRING
+    : text [21] 'USA'
+    : comp [20] =
+    : type [31] STRING
+    : text [27] 'demo:country'
+    : comp [26] =
+    : type [32] STRING
+    : xmlpath [1][] {DATA}
+    : xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.
+    : xmlpath [7] {[axis [8] /child::*, {DATA}, text [9] '']}.
+    : xmlpath [10] {[axis [11] /child::*, {DATA}, text [12] '']}.
+    : xmlpath [13][] {DATA}
+    : xmlpath [14][] {DATA}
+    : xmlpath [15][] {DATA}
+    : xmlpath [22] {[axis [23] /child::*, {DATA}, text [24] '']}.
+    : xmlpath [25][] {DATA}
+
+___TRANSLATION___
+for $var15_0 in /descendant::*[./text()[.="101"]]
+where 
+  every $var4_0 in $var15_0/child::*[./text()]
+  satisfies 
+  every $var6_0 in $var15_0/child::*[./text()][deep-equal(.,$var4_0)]
+  satisfies 
+  every $var8_0 in $var15_0/text()[.="demo:building"]
+  satisfies 
+  every $var10_0 in $var15_0/text()[.!="abc"]
+  satisfies 
+  every $var12_0 in $var15_0/text()[.="USA"]
+  satisfies (
+  every $var24_0 in $var4_0/child::*[./text()]
+  satisfies 
+  every $var25_0 in $var4_0/text()[.="demo:country"]
+  satisfies 
+  every $var24_1 in $var6_0/child::*[./text()][deep-equal(.,$var24_0)]
+  satisfies 
+  every $var25_1 in $var6_0/text()[.="demo:country"][. = $var25_0]
+  satisfies (true()))
+return $var15_0

@@ -1,0 +1,1121 @@
+
+<<< BEGIN - Tests >>>
+Mode - Testing without DB
+
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [4]
+  | > NeoPropertyNodeImpl Property 2 [5]
+  | ~ NeoPropertyEdgeImpl [2] from 4 to 5 NeoPropertyPathParam [1] varENode4.placeOfIssue
+  EXISTS
+    : Graph
+    | | > Return-NeoElementNodeImpl ComplexNode 1 [6 (4)]
+    | | > NeoPropertyNodeImpl Property 2 [7 (5)]
+    | | > NeoPropertyNodeImpl Property 3 [8]
+    | | ~ NeoPropertyEdgeImpl [4 (2)] from 6 to 7
+    | | ~ NeoPropertyEdgeImpl [5] from 6 to 8 NeoPropertyPathParam [2] varENode4.origPlaceOfIssue
+    : Morphism (2 -> 3)
+    |   * NodeMapping(4 -> 6)
+    |   * NodeMapping(5 -> 7)
+    |   * RelationMapping(2 -> 4)
+    : TRUE
+  ParameterList
+    : NeoNodeLabels [3] ('Regesta')
+    : NeoPropertyPathParam [1] varENode4.placeOfIssue
+    : NeoPropertyPathParam [2] varENode4.origPlaceOfIssue
+
+___TRANSLATION___
+MATCH (varENode4:Regesta)
+WHERE EXISTS (varENode4.origPlaceOfIssue)
+RETURN varENode4
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [4]
+  | > NeoPropertyNodeImpl Property 2 [5]
+  | ~ NeoPropertyEdgeImpl [2] from 4 to 5 NeoPropertyPathParam [1] varENode4.placeOfIssue
+  NOT  [
+  . EXISTS
+  .   : Graph
+  .   | | > Return-NeoElementNodeImpl ComplexNode 1 [6 (4)]
+  .   | | > NeoPropertyNodeImpl Property 2 [7 (5)]
+  .   | | > NeoPropertyNodeImpl Property 3 [8]
+  .   | | ~ NeoPropertyEdgeImpl [4 (2)] from 6 to 7
+  .   | | ~ NeoPropertyEdgeImpl [5] from 6 to 8 NeoPropertyPathParam [2] varENode4.origPlaceOfIssue
+  .   : Morphism (2 -> 3)
+  .   |   * NodeMapping(4 -> 6)
+  .   |   * NodeMapping(5 -> 7)
+  .   |   * RelationMapping(2 -> 4)
+  .   : TRUE
+  ]
+  ParameterList
+    : NeoNodeLabels [3] ('Regesta')
+    : NeoPropertyPathParam [1] varENode4.placeOfIssue
+    : NeoPropertyPathParam [2] varENode4.origPlaceOfIssue
+
+___TRANSLATION___
+MATCH (varENode4:Regesta)
+WHERE NOT (EXISTS (varENode4.origPlaceOfIssue))
+RETURN varENode4
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [6]
+  | > NeoPropertyNodeImpl Property 2 [7]
+  | ~ NeoPropertyEdgeImpl [2] from 6 to 7 NeoPropertyPathParam [1]
+  EXISTS
+    : Graph
+    | | > Return-NeoElementNodeImpl ComplexNode 1 [8 (6)]
+    | | > NeoPropertyNodeImpl Property 2 [9 (7)]
+    | | > NeoPropertyNodeImpl Property 3 [10]
+    | | > NeoPropertyNodeImpl Property 4 [11]
+    | | > NeoPropertyNodeImpl Property 5 [12]
+    | | ~ NeoPropertyEdgeImpl [6 (2)] from 8 to 9
+    | | ~ NeoPropertyEdgeImpl [7] from 8 to 10 NeoPropertyPathParam [2] varENode6.origPlaceOfIssue
+    | | ~ NeoPropertyEdgeImpl [8] from 8 to 11 NeoPropertyPathParam [3] varENode6.startDate
+    | | ~ NeoPropertyEdgeImpl [9] from 8 to 12 NeoPropertyPathParam [4] varENode6.endDate
+    : Morphism (2 -> 3)
+    |   * NodeMapping(6 -> 8)
+    |   * NodeMapping(7 -> 9)
+    |   * RelationMapping(2 -> 6)
+    : TRUE
+  ParameterList
+    : NeoNodeLabels [5] ('Regesta')
+    : NeoPropertyPathParam [1]
+    : NeoPropertyPathParam [2] varENode6.origPlaceOfIssue
+    : NeoPropertyPathParam [3] varENode6.startDate
+    : NeoPropertyPathParam [4] varENode6.endDate
+
+___TRANSLATION___
+MATCH (varENode6:Regesta)
+WHERE EXISTS (varENode6.origPlaceOfIssue, varENode6.startDate, varENode6.endDate)
+RETURN varENode6
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [6]
+  | > NeoPropertyNodeImpl Property 2 [7]
+  | ~ NeoPropertyEdgeImpl [2] from 6 to 7 NeoPropertyPathParam [1]
+  NOT  [
+  . EXISTS
+  .   : Graph
+  .   | | > Return-NeoElementNodeImpl ComplexNode 1 [8 (6)]
+  .   | | > NeoPropertyNodeImpl Property 2 [9 (7)]
+  .   | | > NeoPropertyNodeImpl Property 3 [10]
+  .   | | > NeoPropertyNodeImpl Property 4 [11]
+  .   | | > NeoPropertyNodeImpl Property 5 [12]
+  .   | | ~ NeoPropertyEdgeImpl [6 (2)] from 8 to 9
+  .   | | ~ NeoPropertyEdgeImpl [7] from 8 to 10 NeoPropertyPathParam [2] varENode6.origPlaceOfIssue
+  .   | | ~ NeoPropertyEdgeImpl [8] from 8 to 11 NeoPropertyPathParam [3] varENode6.startDate
+  .   | | ~ NeoPropertyEdgeImpl [9] from 8 to 12 NeoPropertyPathParam [4] varENode6.endDate
+  .   : Morphism (2 -> 3)
+  .   |   * NodeMapping(6 -> 8)
+  .   |   * NodeMapping(7 -> 9)
+  .   |   * RelationMapping(2 -> 6)
+  .   : TRUE
+  ]
+  ParameterList
+    : NeoNodeLabels [5] ('Regesta')
+    : NeoPropertyPathParam [1]
+    : NeoPropertyPathParam [2] varENode6.origPlaceOfIssue
+    : NeoPropertyPathParam [3] varENode6.startDate
+    : NeoPropertyPathParam [4] varENode6.endDate
+
+___TRANSLATION___
+MATCH (varENode6:Regesta)
+WHERE NOT (EXISTS (varENode6.origPlaceOfIssue)
+   AND EXISTS (varENode6.startDate)
+   AND EXISTS (varENode6.endDate))
+RETURN varENode6
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [5]
+  | > NeoPropertyNodeImpl Property 2 [6]
+  | ~ NeoPropertyEdgeImpl [2] from 5 to 6 NeoPropertyPathParam [1] varENode5.date
+  NOT  [
+  . EXISTS
+  .   : Graph
+  .   | | > Return-NeoElementNodeImpl ComplexNode 1 [7 (5)]
+  .   | | > NeoPropertyNodeImpl Property 2 [8 (6)]
+  .   | | > NeoElementNodeImpl Element 3 [9]
+  .   | | > NeoElementNodeImpl Element 4 [10]
+  .   | | ~ NeoPropertyEdgeImpl [5 (2)] from 7 to 8
+  .   | | ~ NeoPropertyEdgeImpl [6] from 9 to 8 NeoPropertyPathParam [2] varENode9.startDate
+  .   | | ~ NeoPropertyEdgeImpl [7] from 10 to 8 NeoPropertyPathParam [3] varENode10.isoStartDate
+  .   : Morphism (2 -> 3)
+  .   |   * NodeMapping(5 -> 7)
+  .   |   * NodeMapping(6 -> 8)
+  .   |   * RelationMapping(2 -> 5)
+  .   : TRUE
+  ]
+  ParameterList
+    : NeoNodeLabels [4] ()
+    : NeoPropertyPathParam [1] varENode5.date
+    : NeoNodeLabels [5] ()
+    : NeoNodeLabels [6] ()
+    : NeoPropertyPathParam [2] varENode9.startDate
+    : NeoPropertyPathParam [3] varENode10.isoStartDate
+
+___TRANSLATION___
+MATCH (varENode5)
+WHERE NOT (EXISTS {
+   MATCH (varENode9), (varENode10)
+   WHERE (varENode5.date = varENode9.startDate AND varENode5.date = varENode10.isoStartDate)})
+RETURN varENode5
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [6]
+  | > NeoPropertyNodeImpl Property 2 [7]
+  | ~ NeoPropertyEdgeImpl [2] from 6 to 7 NeoPropertyPathParam [1]
+  NOT  [
+  . EXISTS
+  .   : Graph
+  .   | | > Return-NeoElementNodeImpl ComplexNode 1 [8 (6)]
+  .   | | > NeoPropertyNodeImpl Property 2 [9 (7)]
+  .   | | > NeoElementNodeImpl Element 3 [10]
+  .   | | > NeoPropertyNodeImpl Property 4 [11]
+  .   | | > NeoPropertyNodeImpl Property 5 [12]
+  .   | | ~ NeoPropertyEdgeImpl [6 (2)] from 8 to 9
+  .   | | ~ NeoElementEdgeImpl [7] from 8 to 10 NeoPathParam [2] -[varEEdge7]-
+  .   | | ~ NeoPropertyEdgeImpl [8] from 10 to 11 NeoPropertyPathParam [3] varENode10.startDate
+  .   | | ~ NeoPropertyEdgeImpl [9] from 10 to 12 NeoPropertyPathParam [4] varENode10.endDate
+  .   | | OperatorList [2]
+  .   | | - CONTAINS (1) [5][11, 6]
+  .   : Morphism (3 -> 4)
+  .   |   * NodeMapping(6 -> 8)
+  .   |   * NodeMapping(7 -> 9)
+  .   |   * RelationMapping(2 -> 6)
+  .   : TRUE
+  ]
+  ParameterList
+    : NeoNodeLabels [7] ()
+    : NeoPropertyPathParam [1]
+    : NeoNodeLabels [8] ()
+    : NeoPathParam [2] -[varEEdge7]-
+    : NeoPropertyPathParam [3] varENode10.startDate
+    : NeoPropertyPathParam [4] varENode10.endDate
+    : bool [5] true
+    : text [6] '1613'
+
+___TRANSLATION___
+MATCH (varENode6)
+WHERE NOT (EXISTS {
+   MATCH (varENode6)-[varEEdge7]-(varENode10)
+   WHERE EXISTS (varENode10.endDate)
+      AND (varENode10.startDate CONTAINS ("1613"))})
+RETURN varENode6
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [6]
+  | > NeoPropertyNodeImpl Property 2 [7]
+  | ~ NeoPropertyEdgeImpl [2] from 6 to 7 NeoPropertyPathParam [1]
+  EXISTS
+    : Graph
+    | | > Return-NeoElementNodeImpl ComplexNode 1 [8 (6)]
+    | | > NeoPropertyNodeImpl Property 2 [9 (7)]
+    | | > NeoElementNodeImpl Element 3 [10]
+    | | > NeoPropertyNodeImpl Property 4 [11]
+    | | > NeoPropertyNodeImpl Property 5 [12]
+    | | ~ NeoPropertyEdgeImpl [6 (2)] from 8 to 9
+    | | ~ NeoElementEdgeImpl [7] from 8 to 10 NeoPathParam [2] -[varEEdge7]-
+    | | ~ NeoPropertyEdgeImpl [8] from 10 to 11 NeoPropertyPathParam [3] varENode10.startDate
+    | | ~ NeoPropertyEdgeImpl [9] from 10 to 12 NeoPropertyPathParam [4] varENode10.endDate
+    | | OperatorList [2]
+    | | - CONTAINS (1) [5][11, 6]
+    : Morphism (3 -> 4)
+    |   * NodeMapping(6 -> 8)
+    |   * NodeMapping(7 -> 9)
+    |   * RelationMapping(2 -> 6)
+    : TRUE
+  ParameterList
+    : NeoNodeLabels [7] ()
+    : NeoPropertyPathParam [1]
+    : NeoNodeLabels [8] ()
+    : NeoPathParam [2] -[varEEdge7]-
+    : NeoPropertyPathParam [3] varENode10.startDate
+    : NeoPropertyPathParam [4] varENode10.endDate
+    : bool [5] true
+    : text [6] '1613'
+
+___TRANSLATION___
+MATCH (varENode6)
+WHERE EXISTS {
+   MATCH (varENode6)-[varEEdge7]-(varENode10)
+   WHERE (varENode10.startDate CONTAINS ("1613"))}
+RETURN varENode6
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [6]
+  | > NeoPropertyNodeImpl Property 2 [7]
+  | ~ NeoPropertyEdgeImpl [2] from 6 to 7 NeoPropertyPathParam [1]
+  EXISTS
+    : Graph
+    | | > Return-NeoElementNodeImpl ComplexNode 1 [8 (6)]
+    | | > NeoPropertyNodeImpl Property 2 [9 (7)]
+    | | > NeoElementNodeImpl Element 3 [10]
+    | | > NeoPropertyNodeImpl Property 4 [11]
+    | | > NeoPropertyNodeImpl Property 5 [12]
+    | | ~ NeoPropertyEdgeImpl [6 (2)] from 8 to 9
+    | | ~ NeoElementEdgeImpl [7] from 8 to 10 NeoPathParam [2] -[varEEdge7]-
+    | | ~ NeoPropertyEdgeImpl [8] from 10 to 11 NeoPropertyPathParam [3] -[varPEdge8]-(varPNode11_8:DateNode)
+    | | ~ NeoPropertyEdgeImpl [9] from 10 to 12 NeoPropertyPathParam [4] -[varPEdge9]-(varPNode12_9:DateNode)
+    | | OperatorList [2]
+    | | - CONTAINS (1) [5][11, 6]
+    | | - CONTAINS (2) [7][12, 8]
+    : Morphism (3 -> 4)
+    |   * NodeMapping(6 -> 8)
+    |   * NodeMapping(7 -> 9)
+    |   * RelationMapping(2 -> 6)
+    : TRUE
+  ParameterList
+    : NeoNodeLabels [9] ()
+    : NeoPropertyPathParam [1]
+    : NeoNodeLabels [10] ()
+    : NeoPathParam [2] -[varEEdge7]-
+    : NeoPropertyPathParam [3] -[varPEdge8]-(varPNode11_8:DateNode)
+    : NeoPropertyPathParam [4] -[varPEdge9]-(varPNode12_9:DateNode)
+    : bool [5] true
+    : text [6] '1613'
+    : bool [7] true
+    : text [8] '1614'
+
+___TRANSLATION___
+MATCH (varENode6)
+WHERE EXISTS {
+   MATCH (varENode6)-[varEEdge7]-(varENode10), (varENode10)-[varPEdge8]-(varPNode11_8:DateNode), (varENode10)-[varPEdge9]-(varPNode12_9:DateNode)
+   WHERE (varPNode11_8.startDate CONTAINS ("1613")
+      AND varPNode12_9.endDate CONTAINS ("1614"))}
+RETURN varENode6
+<<< END - Tests >>>
+
+
+<<< BEGIN - Tests >>>
+
+--- new Query ---
+
+MATCH (varENode5)
+WHERE EXISTS {
+   MATCH (varENode6), (varENode7)
+   WHERE (varENode5.date = varENode6.startDate AND varENode5.date = varENode7.isoStartDate)}
+RETURN varENode5
+<<< END - Tests >>>
+
+
+<<< BEGIN - Build-Pattern-Exceptions >>>
+
+
+___PATTERN_(NOT VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [6]
+  | > NeoPropertyNodeImpl Property 2 [7]
+  | ~ NeoPropertyEdgeImpl [2] from 6 to 7 NeoPropertyPathParam [1]
+  FORALL
+    : Graph
+    | | > Return-NeoElementNodeImpl ComplexNode 1 [8 (6)]
+    | | > NeoPropertyNodeImpl Property 2 [9 (7)]
+    | | > NeoPropertyNodeImpl Property 3 [10]
+    | | > NeoPropertyNodeImpl Property 4 [11]
+    | | > NeoPropertyNodeImpl Property 5 [12]
+    | | ~ NeoPropertyEdgeImpl [6 (2)] from 8 to 9
+    | | ~ NeoPropertyEdgeImpl [7] from 8 to 10 NeoPropertyPathParam [2] varENode6.origPlaceOfIssue
+    | | ~ NeoPropertyEdgeImpl [8] from 8 to 11 NeoPropertyPathParam [3] varENode6.startDate
+    | | ~ NeoPropertyEdgeImpl [9] from 8 to 12 NeoPropertyPathParam [4] varENode6.endDate
+    : Morphism (2 -> 3)
+    |   * NodeMapping(6 -> 8)
+    |   * NodeMapping(7 -> 9)
+    |   * RelationMapping(2 -> 6)
+    : TRUE
+  ParameterList
+    : NeoNodeLabels [5] ('Regesta')
+    : NeoPropertyPathParam [1]
+    : NeoPropertyPathParam [2] varENode6.origPlaceOfIssue
+    : NeoPropertyPathParam [3] varENode6.startDate
+    : NeoPropertyPathParam [4] varENode6.endDate
+
+___TRANSLATION___
+-- Beginning of the Exceptions --
+qualitypatternmodel.exceptions.InvalidityException: Not valid forall structure; needs a new ComplexNode
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [6]
+  | > NeoPropertyNodeImpl Property 2 [7]
+  | ~ NeoPropertyEdgeImpl [2] from 6 to 7 NeoPropertyPathParam [1]
+  FORALL
+    : Graph
+    | | > Return-NeoElementNodeImpl ComplexNode 1 [8 (6)]
+    | | > NeoPropertyNodeImpl Property 2 [9 (7)]
+    | | > NeoPropertyNodeImpl Property 3 [10]
+    | | > NeoPropertyNodeImpl Property 4 [11]
+    | | > NeoPropertyNodeImpl Property 5 [12]
+    | | ~ NeoPropertyEdgeImpl [6 (2)] from 8 to 9
+    | | ~ NeoPropertyEdgeImpl [7] from 8 to 10 NeoPropertyPathParam [2] varENode6.origPlaceOfIssue
+    | | ~ NeoPropertyEdgeImpl [8] from 8 to 11 NeoPropertyPathParam [3] varENode6.startDate
+    | | ~ NeoPropertyEdgeImpl [9] from 8 to 12 NeoPropertyPathParam [4] varENode6.endDate
+    : Morphism (2 -> 3)
+    |   * NodeMapping(6 -> 8)
+    |   * NodeMapping(7 -> 9)
+    |   * RelationMapping(2 -> 6)
+    : TRUE
+  ParameterList
+    : NeoNodeLabels [5] ('Regesta')
+    : NeoPropertyPathParam [1]
+    : NeoPropertyPathParam [2] varENode6.origPlaceOfIssue
+    : NeoPropertyPathParam [3] varENode6.startDate
+    : NeoPropertyPathParam [4] varENode6.endDate
+Test successful
+
+
+___PATTERN_(NOT VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [5]
+  | > NeoPropertyNodeImpl Property 2 [6]
+  | ~ NeoPropertyEdgeImpl [2] from 5 to 6 NeoPropertyPathParam [1]
+  EXISTS
+    : Graph
+    | | > Return-NeoElementNodeImpl ComplexNode 1 [7 (5)]
+    | | > NeoPropertyNodeImpl Property 2 [8 (6)]
+    | | > NeoElementNodeImpl Element 3 [9]
+    | | > NeoElementNodeImpl Element 4 [10]
+    | | ~ NeoPropertyEdgeImpl [5 (2)] from 7 to 8
+    | | ~ NeoPropertyEdgeImpl [6] from 9 to 8 NeoPropertyPathParam [2]
+    | | ~ NeoPropertyEdgeImpl [7] from 10 to 8 NeoPropertyPathParam [3]
+    : Morphism (2 -> 3)
+    |   * NodeMapping(5 -> 7)
+    |   * NodeMapping(6 -> 8)
+    |   * RelationMapping(2 -> 5)
+    : TRUE
+  ParameterList
+    : NeoNodeLabels [4] ()
+    : NeoPropertyPathParam [1]
+    : NeoNodeLabels [5] ()
+    : NeoNodeLabels [6] ()
+    : NeoPropertyPathParam [2]
+    : NeoPropertyPathParam [3]
+
+___TRANSLATION___
+-- Beginning of the Exceptions --
+qualitypatternmodel.exceptions.InvalidityException: No NeoPropertyName was specified
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [5]
+  | > NeoPropertyNodeImpl Property 2 [6]
+  | ~ NeoPropertyEdgeImpl [2] from 5 to 6 NeoPropertyPathParam [1]
+  EXISTS
+    : Graph
+    | | > Return-NeoElementNodeImpl ComplexNode 1 [7 (5)]
+    | | > NeoPropertyNodeImpl Property 2 [8 (6)]
+    | | > NeoElementNodeImpl Element 3 [9]
+    | | > NeoElementNodeImpl Element 4 [10]
+    | | ~ NeoPropertyEdgeImpl [5 (2)] from 7 to 8
+    | | ~ NeoPropertyEdgeImpl [6] from 9 to 8 NeoPropertyPathParam [2]
+    | | ~ NeoPropertyEdgeImpl [7] from 10 to 8 NeoPropertyPathParam [3]
+    : Morphism (2 -> 3)
+    |   * NodeMapping(5 -> 7)
+    |   * NodeMapping(6 -> 8)
+    |   * RelationMapping(2 -> 5)
+    : TRUE
+  ParameterList
+    : NeoNodeLabels [4] ()
+    : NeoPropertyPathParam [1]
+    : NeoNodeLabels [5] ()
+    : NeoNodeLabels [6] ()
+    : NeoPropertyPathParam [2]
+    : NeoPropertyPathParam [3]
+Test successful
+
+
+___PATTERN_(NOT VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [5]
+  | > NeoPropertyNodeImpl Property 2 [6]
+  | ~ NeoPropertyEdgeImpl [2] from 5 to 6 NeoPropertyPathParam [1]
+  NOT  [
+  . EXISTS
+  .   : Graph
+  .   | | > Return-NeoElementNodeImpl ComplexNode 1 [7 (5)]
+  .   | | > NeoPropertyNodeImpl Property 2 [8 (6)]
+  .   | | > NeoElementNodeImpl Element 3 [9]
+  .   | | > NeoElementNodeImpl Element 4 [10]
+  .   | | ~ NeoPropertyEdgeImpl [5 (2)] from 7 to 8
+  .   | | ~ NeoPropertyEdgeImpl [6] from 9 to 8 NeoPropertyPathParam [2]
+  .   | | ~ NeoPropertyEdgeImpl [7] from 10 to 8 NeoPropertyPathParam [3]
+  .   : Morphism (2 -> 3)
+  .   |   * NodeMapping(5 -> 7)
+  .   |   * NodeMapping(6 -> 8)
+  .   |   * RelationMapping(2 -> 5)
+  .   : TRUE
+  ]
+  ParameterList
+    : NeoNodeLabels [4] ()
+    : NeoPropertyPathParam [1]
+    : NeoNodeLabels [5] ()
+    : NeoNodeLabels [6] ()
+    : NeoPropertyPathParam [2]
+    : NeoPropertyPathParam [3]
+
+___TRANSLATION___
+-- Beginning of the Exceptions --
+qualitypatternmodel.exceptions.InvalidityException: No NeoPropertyName was specified
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [5]
+  | > NeoPropertyNodeImpl Property 2 [6]
+  | ~ NeoPropertyEdgeImpl [2] from 5 to 6 NeoPropertyPathParam [1]
+  NOT  [
+  . EXISTS
+  .   : Graph
+  .   | | > Return-NeoElementNodeImpl ComplexNode 1 [7 (5)]
+  .   | | > NeoPropertyNodeImpl Property 2 [8 (6)]
+  .   | | > NeoElementNodeImpl Element 3 [9]
+  .   | | > NeoElementNodeImpl Element 4 [10]
+  .   | | ~ NeoPropertyEdgeImpl [5 (2)] from 7 to 8
+  .   | | ~ NeoPropertyEdgeImpl [6] from 9 to 8 NeoPropertyPathParam [2]
+  .   | | ~ NeoPropertyEdgeImpl [7] from 10 to 8 NeoPropertyPathParam [3]
+  .   : Morphism (2 -> 3)
+  .   |   * NodeMapping(5 -> 7)
+  .   |   * NodeMapping(6 -> 8)
+  .   |   * RelationMapping(2 -> 5)
+  .   : TRUE
+  ]
+  ParameterList
+    : NeoNodeLabels [4] ()
+    : NeoPropertyPathParam [1]
+    : NeoNodeLabels [5] ()
+    : NeoNodeLabels [6] ()
+    : NeoPropertyPathParam [2]
+    : NeoPropertyPathParam [3]
+Test successful
+<<< END - Build-Pattern-Exceptions >>>
+
+
+<<< BEGIN - Build-Pattern-Exceptions >>>
+
+
+___PATTERN_(NOT VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1]
+  EXISTS
+    : Graph
+    | | > Return-NeoElementNodeImpl ComplexNode 1 [5 (3)]
+    | | > NeoPropertyNodeImpl Property 2 [6 (4)]
+    | | ~ NeoPropertyEdgeImpl [3 (2)] from 5 to 6
+    : Morphism (2 -> 3)
+    |   * NodeMapping(3 -> 5)
+    |   * NodeMapping(4 -> 6)
+    |   * RelationMapping(2 -> 3)
+    : CountCondition = [2]
+    | #  Count Subpattern (
+    | #    Return-Graph
+    | #    | > Return-NeoElementNodeImpl ComplexNode 1 [7 (3)]
+    | #    | > NeoPropertyNodeImpl Property 2 [8 (4)]
+    | #    | ~ NeoPropertyEdgeImpl [4 (2)] from 7 to 8
+    | #    : Morphism (3 -> 4)
+    | #    |   * NodeMapping(5 -> 7)
+    | #    |   * NodeMapping(6 -> 8)
+    | #    |   * RelationMapping(3 -> 4)
+    | #    TRUE
+    | #  )
+    | #  NumberElement  (3)
+  ParameterList
+    : comp [2] =
+    : numb [3] null
+    : NeoNodeLabels [4] ()
+    : NeoPropertyPathParam [1]
+
+___TRANSLATION___
+-- Beginning of the Exceptions --
+java.lang.UnsupportedOperationException: The current version does not support this functionality
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1]
+  EXISTS
+    : Graph
+    | | > Return-NeoElementNodeImpl ComplexNode 1 [5 (3)]
+    | | > NeoPropertyNodeImpl Property 2 [6 (4)]
+    | | ~ NeoPropertyEdgeImpl [3 (2)] from 5 to 6
+    : Morphism (2 -> 3)
+    |   * NodeMapping(3 -> 5)
+    |   * NodeMapping(4 -> 6)
+    |   * RelationMapping(2 -> 3)
+    : CountCondition = [2]
+    | #  Count Subpattern (
+    | #    Return-Graph
+    | #    | > Return-NeoElementNodeImpl ComplexNode 1 [7 (3)]
+    | #    | > NeoPropertyNodeImpl Property 2 [8 (4)]
+    | #    | ~ NeoPropertyEdgeImpl [4 (2)] from 7 to 8
+    | #    : Morphism (3 -> 4)
+    | #    |   * NodeMapping(5 -> 7)
+    | #    |   * NodeMapping(6 -> 8)
+    | #    |   * RelationMapping(3 -> 4)
+    | #    TRUE
+    | #  )
+    | #  NumberElement  (3)
+  ParameterList
+    : comp [2] =
+    : numb [3] null
+    : NeoNodeLabels [4] ()
+    : NeoPropertyPathParam [1]
+Test successful
+<<< END - Build-Pattern-Exceptions >>>
+
+
+<<< BEGIN - Build-Pattern-Exceptions >>>
+
+
+___PATTERN_(NOT VALID)___
+
+-- Beginning of the Exceptions --
+java.lang.NullPointerException: Cannot invoke "qualitypatternmodel.graphstructure.Graph.myToString()" because the return value of "qualitypatternmodel.patternstructure.impl.CompletePatternImpl.getGraph()" is null
+java.lang.NullPointerException: Cannot invoke "qualitypatternmodel.graphstructure.Graph.myToString()" because the return value of "qualitypatternmodel.patternstructure.impl.CompletePatternImpl.getGraph()" is null
+Test successful
+<<< END - Build-Pattern-Exceptions >>>
+
+
+<<< BEGIN - Tests >>>
+Mode - Testing without DB
+
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [4]
+  NOT  [
+  . FORALL
+  .   : Graph
+  .   | | > Return-NeoElementNodeImpl ComplexNode 1 [5 (4)]
+  .   | | > NeoElementNodeImpl Element 2 [6]
+  .   | | ~ NeoElementEdgeImpl [2] from 5 to 6 NeoPathParam [1] <-[varEEdge2]-
+  .   : Morphism (2 -> 3)
+  .   |   * NodeMapping(4 -> 5)
+  .   : EXISTS
+  .   |   : Graph
+  .   |   | | > Return-NeoElementNodeImpl ComplexNode 1 [7 (4)]
+  .   |   | | > NeoElementNodeImpl Element 2 [8 (6)]
+  .   |   | | > NeoElementNodeImpl Element 3 [9]
+  .   |   | | ~ NeoElementEdgeImpl [4 (2)] from 7 to 8
+  .   |   | | ~ NeoElementEdgeImpl [5] from 8 to 9 NeoPathParam [2] -[varEEdge5]->
+  .   |   : Morphism (3 -> 4)
+  .   |   |   * NodeMapping(5 -> 7)
+  .   |   |   * NodeMapping(6 -> 8)
+  .   |   |   * RelationMapping(2 -> 4)
+  .   |   : TRUE
+  ]
+  ParameterList
+    : NeoNodeLabels [3] ('Literature')
+    : NeoNodeLabels [4] ('Regesta')
+    : NeoPathParam [1] <-[varEEdge2]-
+    : NeoNodeLabels [5] ('Reference')
+    : NeoPathParam [2] -[varEEdge5]->
+
+___TRANSLATION___
+MATCH (varENode4:Literature)
+WHERE NOT (NOT (EXISTS {
+   MATCH (varENode4)<-[varEEdge2]-(varENode6:Regesta)
+   WHERE NOT (EXISTS {
+      MATCH (varENode6)-[varEEdge5]->(varENode9:Reference)})}))
+RETURN varENode4
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [8]
+  | > NeoPropertyNodeImpl Property 2 [9]
+  | > NeoPropertyNodeImpl Property 3 [10]
+  | ~ NeoPropertyEdgeImpl [2] from 8 to 9 NeoPropertyPathParam [1] varENode8.title
+  | ~ NeoPropertyEdgeImpl [4] from 8 to 10 NeoPropertyPathParam [2] varENode8.url
+  | OperatorList [3]
+  | - COMP [1] STRING:BOOLEAN (NeoPropertyNodeImpl [9] =[3] TextLiteralParamImpl [4])
+  | - COMP [2] STRING:BOOLEAN (NeoPropertyNodeImpl [10] =[5] TextLiteralParamImpl [6])
+  NOT  [
+  . FORALL
+  .   : Graph
+  .   | | > Return-NeoElementNodeImpl ComplexNode 1 [11 (8)]
+  .   | | > NeoPropertyNodeImpl Property 2 [12 (9)]
+  .   | | > NeoPropertyNodeImpl Property 3 [13 (10)]
+  .   | | > NeoElementNodeImpl Element 4 [14]
+  .   | | > NeoPropertyNodeImpl Property 5 [15]
+  .   | | ~ NeoPropertyEdgeImpl [11 (2)] from 11 to 12
+  .   | | ~ NeoPropertyEdgeImpl [12 (4)] from 11 to 13
+  .   | | ~ NeoElementEdgeImpl [6] from 11 to 14 NeoPathParam [7] <-[varEEdge6]-
+  .   | | ~ NeoPropertyEdgeImpl [8] from 14 to 15 NeoPropertyPathParam [8] varENode14.isoStartDate
+  .   | | OperatorList [4]
+  .   | | - COMP [3] DATE:BOOLEAN (NeoPropertyNodeImpl [15] =[9] DateParamImpl [10])
+  .   : Morphism (5 -> 6)
+  .   |   * NodeMapping(8 -> 11)
+  .   |   * NodeMapping(9 -> 12)
+  .   |   * NodeMapping(10 -> 13)
+  .   |   * RelationMapping(2 -> 11)
+  .   |   * RelationMapping(4 -> 12)
+  .   : EXISTS
+  .   |   : Graph
+  .   |   | | > Return-NeoElementNodeImpl ComplexNode 1 [16 (8)]
+  .   |   | | > NeoPropertyNodeImpl Property 2 [17 (9)]
+  .   |   | | > NeoPropertyNodeImpl Property 3 [18 (10)]
+  .   |   | | > NeoElementNodeImpl Element 4 [19 (14)]
+  .   |   | | > NeoPropertyNodeImpl Property 5 [20 (15)]
+  .   |   | | > NeoElementNodeImpl Element 6 [21]
+  .   |   | | > NeoPropertyNodeImpl Property 7 [22]
+  .   |   | | ~ NeoPropertyEdgeImpl [13 (2)] from 16 to 17
+  .   |   | | ~ NeoPropertyEdgeImpl [14 (4)] from 16 to 18
+  .   |   | | ~ NeoElementEdgeImpl [15 (6)] from 16 to 19
+  .   |   | | ~ NeoPropertyEdgeImpl [16 (8)] from 19 to 20
+  .   |   | | ~ NeoElementEdgeImpl [17] from 19 to 21 NeoPathParam [11] -[varEEdge17]->
+  .   |   | | ~ NeoPropertyEdgeImpl [18] from 21 to 22 NeoPropertyPathParam [12] varENode21.title
+  .   |   | | OperatorList [7]
+  .   |   | | - COMP [4] STRING:BOOLEAN (NeoPropertyNodeImpl [22] =[13] TextLiteralParamImpl [14])
+  .   |   : Morphism (6 -> 8)
+  .   |   |   * NodeMapping(11 -> 16)
+  .   |   |   * NodeMapping(12 -> 17)
+  .   |   |   * NodeMapping(13 -> 18)
+  .   |   |   * NodeMapping(14 -> 19)
+  .   |   |   * NodeMapping(15 -> 20)
+  .   |   |   * RelationMapping(11 -> 13)
+  .   |   |   * RelationMapping(12 -> 14)
+  .   |   |   * RelationMapping(6 -> 15)
+  .   |   |   * RelationMapping(8 -> 16)
+  .   |   : TRUE
+  ]
+  ParameterList
+    : text [4] 'BATTENBERG'
+    : comp [3] =
+    : type [15] STRING
+    : text [6] 'http://opac.regesta-imperii.de/lang_de/kurztitelsuche_r.php?kurztitel=battenberg,_solmser_urkunden_1'
+    : comp [5] =
+    : type [16] STRING
+    : date [10] 1439-12-20
+    : comp [9] =
+    : type [17] DATE
+    : text [14] 'Kulpis Documenta S. 181f.'
+    : comp [13] =
+    : type [18] STRING
+    : NeoNodeLabels [19] ('Literature')
+    : NeoPropertyPathParam [1] varENode8.title
+    : NeoPropertyPathParam [2] varENode8.url
+    : NeoNodeLabels [20] ('Regesta')
+    : NeoPathParam [7] <-[varEEdge6]-
+    : NeoPropertyPathParam [8] varENode14.isoStartDate
+    : NeoNodeLabels [21] ('Reference')
+    : NeoPathParam [11] -[varEEdge17]->
+    : NeoPropertyPathParam [12] varENode21.title
+
+___TRANSLATION___
+MATCH (varENode8:Literature)
+WHERE (varENode8.title = "BATTENBERG"
+   AND varENode8.url = "http://opac.regesta-imperii.de/lang_de/kurztitelsuche_r.php?kurztitel=battenberg,_solmser_urkunden_1")
+   AND NOT (NOT (EXISTS {
+      MATCH (varENode8)<-[varEEdge6]-(varENode14:Regesta)
+      WHERE (varENode14.isoStartDate = date('1439-12-20'))
+         AND NOT (EXISTS {
+            MATCH (varENode14)-[varEEdge17]->(varENode21:Reference)
+            WHERE (varENode21.title = "Kulpis Documenta S. 181f.")})}))
+RETURN varENode8
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [5]
+  NOT  [
+  . EXISTS
+  .   : Graph
+  .   | | > Return-NeoElementNodeImpl ComplexNode 1 [6 (5)]
+  .   | | > NeoElementNodeImpl Element 2 [7]
+  .   | | > NeoElementNodeImpl Element 3 [8]
+  .   | | > NeoElementNodeImpl Element 4 [9]
+  .   | | ~ NeoElementEdgeImpl [4] from 6 to 7 NeoPathParam [1] -[varEEdge4:APPEARS_IN]-
+  .   | | ~ NeoElementEdgeImpl [5] from 6 to 8 NeoPathParam [2] -[varEEdge5:ACTION]-
+  .   | | ~ NeoElementEdgeImpl [6] from 6 to 9 NeoPathParam [3] -[varEEdge6:RECIPIENT_IN]-
+  .   : Morphism (2 -> 3)
+  .   |   * NodeMapping(5 -> 6)
+  .   : TRUE
+  ]
+  ParameterList
+    : NeoNodeLabels [4] ('Regesta')
+    : NeoNodeLabels [5] ('IndexPerson')
+    : NeoNodeLabels [6] ('Action')
+    : NeoNodeLabels [7] ('IndexPlace')
+    : NeoPathParam [1] -[varEEdge4:APPEARS_IN]-
+    : NeoPathParam [2] -[varEEdge5:ACTION]-
+    : NeoPathParam [3] -[varEEdge6:RECIPIENT_IN]-
+
+___TRANSLATION___
+MATCH (varENode5:Regesta)
+WHERE NOT (EXISTS {
+   MATCH (varENode5), (varENode5)-[varEEdge4:APPEARS_IN]-(varENode7:IndexPerson), (varENode5)-[varEEdge5:ACTION]-(varENode8:Action), (varENode5)-[varEEdge6:RECIPIENT_IN]-(varENode9:IndexPlace)})
+RETURN varENode5
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [4]
+  EXISTS
+    : Graph
+    | | > Return-NeoElementNodeImpl ComplexNode 1 [5 (4)]
+    | | > NeoElementNodeImpl Element 2 [6]
+    | | > NeoElementNodeImpl Element 3 [7]
+    | | ~ NeoElementEdgeImpl [4] from 5 to 6 NeoPathParam [1] <-[varEEdge4:APPEARS_IN]-
+    | | ~ NeoElementEdgeImpl [5] from 6 to 7 NeoPathParam [2] -[varEEdge5:IS_SUB_OF]-
+    | | ~ NeoElementEdgeImpl [6] from 5 to 7 NeoPathParam [3] -[varEEdge6:RECIPIENT_IN]-
+    : Morphism (2 -> 3)
+    |   * NodeMapping(4 -> 5)
+    : TRUE
+  ParameterList
+    : NeoNodeLabels [4] ('Regesta')
+    : NeoNodeLabels [5] ('IndexPerson')
+    : NeoNodeLabels [6] ('IndexPlace')
+    : NeoPathParam [1] <-[varEEdge4:APPEARS_IN]-
+    : NeoPathParam [2] -[varEEdge5:IS_SUB_OF]-
+    : NeoPathParam [3] -[varEEdge6:RECIPIENT_IN]-
+
+___TRANSLATION___
+MATCH (varENode4:Regesta)
+WHERE EXISTS {
+   MATCH (varENode4), (varENode4)<-[varEEdge4:APPEARS_IN]-(varENode6:IndexPerson)-[varEEdge5:IS_SUB_OF]-(varENode7:IndexPlace), (varENode4)-[varEEdge6:RECIPIENT_IN]-(varENode7)}
+RETURN varENode4
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [5]
+  | > NeoPropertyNodeImpl Property 2 [6]
+  | ~ NeoPropertyEdgeImpl [2] from 5 to 6 NeoPropertyPathParam [1]
+  NOT  [
+  . EXISTS
+  .   : Graph
+  .   | | > Return-NeoElementNodeImpl ComplexNode 1 [7 (5)]
+  .   | | > NeoPropertyNodeImpl Property 2 [8 (6)]
+  .   | | > NeoElementNodeImpl Element 3 [9]
+  .   | | ~ NeoPropertyEdgeImpl [6 (2)] from 7 to 8
+  .   | | ~ NeoElementEdgeImpl [4] from 7 to 9 NeoPathParam [2] -[varEEdge4:APPEARS_IN]-
+  .   : Morphism (2 -> 3)
+  .   |   * NodeMapping(5 -> 7)
+  .   |   * NodeMapping(6 -> 8)
+  .   |   * RelationMapping(2 -> 6)
+  .   : EXISTS
+  .   |   : Graph
+  .   |   | | > Return-NeoElementNodeImpl ComplexNode 1 [10 (5)]
+  .   |   | | > NeoPropertyNodeImpl Property 2 [11 (6)]
+  .   |   | | > NeoElementNodeImpl Element 3 [12 (9)]
+  .   |   | | > NeoElementNodeImpl Element 4 [13]
+  .   |   | | ~ NeoPropertyEdgeImpl [7 (2)] from 10 to 11
+  .   |   | | ~ NeoElementEdgeImpl [8 (4)] from 10 to 12
+  .   |   | | ~ NeoElementEdgeImpl [9] from 12 to 13 NeoPathParam [3] -[varEEdge9]-
+  .   |   : Morphism (3 -> 4)
+  .   |   |   * NodeMapping(7 -> 10)
+  .   |   |   * NodeMapping(8 -> 11)
+  .   |   |   * NodeMapping(9 -> 12)
+  .   |   |   * RelationMapping(6 -> 7)
+  .   |   |   * RelationMapping(4 -> 8)
+  .   |   : TRUE
+  ]
+  ParameterList
+    : NeoNodeLabels [4] ('Regesta')
+    : NeoPropertyPathParam [1]
+    : NeoNodeLabels [5] ('IndexPerson')
+    : NeoPathParam [2] -[varEEdge4:APPEARS_IN]-
+    : NeoNodeLabels [6] ('Regesta')
+    : NeoPathParam [3] -[varEEdge9]-
+
+___TRANSLATION___
+MATCH (varENode5:Regesta)
+WHERE NOT (EXISTS {
+   MATCH (varENode5)-[varEEdge4:APPEARS_IN]-(varENode9:IndexPerson)
+   WHERE EXISTS {
+      MATCH (varENode9)-[varEEdge9]-(varENode13:Regesta)}})
+RETURN varENode5
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [4]
+  | > NeoPropertyNodeImpl Property 2 [5]
+  | ~ NeoPropertyEdgeImpl [2] from 4 to 5 NeoPropertyPathParam [1]
+  NOT  [
+  . NOT  [
+  . . EXISTS
+  . .   : Graph
+  . .   | | > Return-NeoElementNodeImpl ComplexNode 1 [6 (4)]
+  . .   | | > NeoPropertyNodeImpl Property 2 [7 (5)]
+  . .   | | > NeoElementNodeImpl Element 3 [8]
+  . .   | | ~ NeoPropertyEdgeImpl [4 (2)] from 6 to 7
+  . .   | | ~ NeoElementEdgeImpl [5] from 6 to 8 NeoPathParam [2] -[varEEdge5]-
+  . .   : Morphism (2 -> 3)
+  . .   |   * NodeMapping(4 -> 6)
+  . .   |   * NodeMapping(5 -> 7)
+  . .   |   * RelationMapping(2 -> 4)
+  . .   : TRUE
+  . ]
+  ]
+  ParameterList
+    : NeoNodeLabels [3] ()
+    : NeoPropertyPathParam [1]
+    : NeoNodeLabels [4] ()
+    : NeoPathParam [2] -[varEEdge5]-
+
+___TRANSLATION___
+MATCH (varENode4)
+WHERE EXISTS {
+   MATCH (varENode4)-[varEEdge5]-(varENode8)}
+RETURN varENode4
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [4]
+  | > NeoPropertyNodeImpl Property 2 [5]
+  | ~ NeoPropertyEdgeImpl [2] from 4 to 5 NeoPropertyPathParam [1]
+  NOT  [
+  . NOT  [
+  . . NOT  [
+  . . . EXISTS
+  . . .   : Graph
+  . . .   | | > Return-NeoElementNodeImpl ComplexNode 1 [6 (4)]
+  . . .   | | > NeoPropertyNodeImpl Property 2 [7 (5)]
+  . . .   | | > NeoElementNodeImpl Element 3 [8]
+  . . .   | | ~ NeoPropertyEdgeImpl [4 (2)] from 6 to 7
+  . . .   | | ~ NeoElementEdgeImpl [5] from 6 to 8 NeoPathParam [2] -[varEEdge5]-
+  . . .   : Morphism (2 -> 3)
+  . . .   |   * NodeMapping(4 -> 6)
+  . . .   |   * NodeMapping(5 -> 7)
+  . . .   |   * RelationMapping(2 -> 4)
+  . . .   : TRUE
+  . . ]
+  . ]
+  ]
+  ParameterList
+    : NeoNodeLabels [3] ()
+    : NeoPropertyPathParam [1]
+    : NeoNodeLabels [4] ()
+    : NeoPathParam [2] -[varEEdge5]-
+
+___TRANSLATION___
+MATCH (varENode4)
+WHERE NOT (EXISTS {
+   MATCH (varENode4)-[varEEdge5]-(varENode8)})
+RETURN varENode4
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [4]
+  | > NeoPropertyNodeImpl Property 2 [5]
+  | ~ NeoPropertyEdgeImpl [2] from 4 to 5 NeoPropertyPathParam [1]
+  NOT  [
+  . NOT  [
+  . . NOT  [
+  . . . NOT  [
+  . . . . EXISTS
+  . . . .   : Graph
+  . . . .   | | > Return-NeoElementNodeImpl ComplexNode 1 [6 (4)]
+  . . . .   | | > NeoPropertyNodeImpl Property 2 [7 (5)]
+  . . . .   | | > NeoElementNodeImpl Element 3 [8]
+  . . . .   | | ~ NeoPropertyEdgeImpl [4 (2)] from 6 to 7
+  . . . .   | | ~ NeoElementEdgeImpl [5] from 6 to 8 NeoPathParam [2] -[varEEdge5]-
+  . . . .   : Morphism (2 -> 3)
+  . . . .   |   * NodeMapping(4 -> 6)
+  . . . .   |   * NodeMapping(5 -> 7)
+  . . . .   |   * RelationMapping(2 -> 4)
+  . . . .   : TRUE
+  . . . ]
+  . . ]
+  . ]
+  ]
+  ParameterList
+    : NeoNodeLabels [3] ()
+    : NeoPropertyPathParam [1]
+    : NeoNodeLabels [4] ()
+    : NeoPathParam [2] -[varEEdge5]-
+
+___TRANSLATION___
+MATCH (varENode4)
+WHERE EXISTS {
+   MATCH (varENode4)-[varEEdge5]-(varENode8)}
+RETURN varENode4
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [4]
+  | > NeoPropertyNodeImpl Property 2 [5]
+  | ~ NeoPropertyEdgeImpl [2] from 4 to 5 NeoPropertyPathParam [1]
+  NOT  [
+  . NOT  [
+  . . NOT  [
+  . . . NOT  [
+  . . . . NOT  [
+  . . . . . EXISTS
+  . . . . .   : Graph
+  . . . . .   | | > Return-NeoElementNodeImpl ComplexNode 1 [6 (4)]
+  . . . . .   | | > NeoPropertyNodeImpl Property 2 [7 (5)]
+  . . . . .   | | > NeoElementNodeImpl Element 3 [8]
+  . . . . .   | | ~ NeoPropertyEdgeImpl [4 (2)] from 6 to 7
+  . . . . .   | | ~ NeoElementEdgeImpl [5] from 6 to 8 NeoPathParam [2] -[varEEdge5]-
+  . . . . .   : Morphism (2 -> 3)
+  . . . . .   |   * NodeMapping(4 -> 6)
+  . . . . .   |   * NodeMapping(5 -> 7)
+  . . . . .   |   * RelationMapping(2 -> 4)
+  . . . . .   : TRUE
+  . . . . ]
+  . . . ]
+  . . ]
+  . ]
+  ]
+  ParameterList
+    : NeoNodeLabels [3] ()
+    : NeoPropertyPathParam [1]
+    : NeoNodeLabels [4] ()
+    : NeoPathParam [2] -[varEEdge5]-
+
+___TRANSLATION___
+MATCH (varENode4)
+WHERE NOT (EXISTS {
+   MATCH (varENode4)-[varEEdge5]-(varENode8)})
+RETURN varENode4
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1]
+  NOT  [
+  . TRUE
+  ]
+  ParameterList
+    : NeoNodeLabels [2] ()
+    : NeoPropertyPathParam [1]
+
+___TRANSLATION___
+MATCH (varENode3)
+WHERE false
+RETURN varENode3
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1]
+  NOT  [
+  . NOT  [
+  . . TRUE
+  . ]
+  ]
+  ParameterList
+    : NeoNodeLabels [2] ()
+    : NeoPropertyPathParam [1]
+
+___TRANSLATION___
+MATCH (varENode3)
+RETURN varENode3
+<<< END - Tests >>>
+
+
+<<< BEGIN - Build-Pattern-Exceptions >>>
+
+
+___PATTERN_(NOT VALID)___
+
+-- Beginning of the Exceptions --
+java.lang.NullPointerException: Cannot invoke "qualitypatternmodel.patternstructure.Condition.myToString()" because "this.condition" is null
+java.lang.NullPointerException: Cannot invoke "qualitypatternmodel.patternstructure.Condition.myToString()" because "this.condition" is null
+Test successful
+
+
+___PATTERN_(NOT VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1]
+  NOT  [
+  . CountCondition = [2]
+  . #  Count Subpattern (
+  . #    Return-Graph
+  . #    | > Return-NeoElementNodeImpl ComplexNode 1 [5 (3)]
+  . #    | > NeoPropertyNodeImpl Property 2 [6 (4)]
+  . #    | ~ NeoPropertyEdgeImpl [3 (2)] from 5 to 6
+  . #    : Morphism (2 -> 3)
+  . #    |   * NodeMapping(3 -> 5)
+  . #    |   * NodeMapping(4 -> 6)
+  . #    |   * RelationMapping(2 -> 3)
+  . #    TRUE
+  . #  )
+  . #  NumberElement  (3)
+  ]
+  ParameterList
+    : comp [2] =
+    : numb [3] null
+    : NeoNodeLabels [4] ()
+    : NeoPropertyPathParam [1]
+
+___TRANSLATION___
+-- Beginning of the Exceptions --
+java.lang.UnsupportedOperationException: The current version does not support this functionality
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1]
+  NOT  [
+  . CountCondition = [2]
+  . #  Count Subpattern (
+  . #    Return-Graph
+  . #    | > Return-NeoElementNodeImpl ComplexNode 1 [5 (3)]
+  . #    | > NeoPropertyNodeImpl Property 2 [6 (4)]
+  . #    | ~ NeoPropertyEdgeImpl [3 (2)] from 5 to 6
+  . #    : Morphism (2 -> 3)
+  . #    |   * NodeMapping(3 -> 5)
+  . #    |   * NodeMapping(4 -> 6)
+  . #    |   * RelationMapping(2 -> 3)
+  . #    TRUE
+  . #  )
+  . #  NumberElement  (3)
+  ]
+  ParameterList
+    : comp [2] =
+    : numb [3] null
+    : NeoNodeLabels [4] ()
+    : NeoPropertyPathParam [1]
+Test successful
+<<< END - Build-Pattern-Exceptions >>>
+

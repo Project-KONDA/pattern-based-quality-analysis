@@ -1,0 +1,208 @@
+
+<<< BEGIN - Tests >>>
+Mode - Testing without DB
+
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl PrimitiveNode 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] varENode3.archivalHistory
+  | OperatorList [3]
+  | - CONTAINS (1) [2][4, 3]
+  TRUE
+  ParameterList
+    : bool [2] true
+    : text [3] 'http://opac.regesta-imperii.de/lang_de/kurztitelsuche_r.php?kurztitel=gudenus,_cod._dipl.'
+    : NeoNodeLabels [4] ()
+    : NeoPropertyPathParam [1] varENode3.archivalHistory
+
+___TRANSLATION___
+MATCH (varENode3)
+WHERE (varENode3.archivalHistory CONTAINS ("http://opac.regesta-imperii.de/lang_de/kurztitelsuche_r.php?kurztitel=gudenus,_cod._dipl."))
+RETURN varENode3
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl PrimitiveNode 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] varENode3.archivalHistory
+  | OperatorList [3]
+  | - CONTAINS (1) [not 2][4, 3]
+  TRUE
+  ParameterList
+    : bool [2] false
+    : text [3] 'http://opac.regesta-imperii.de/lang_de/kurztitelsuche_r.php?kurztitel=gudenus,_cod._dipl.'
+    : NeoNodeLabels [4] ()
+    : NeoPropertyPathParam [1] varENode3.archivalHistory
+
+___TRANSLATION___
+MATCH (varENode3)
+WHERE (NOT (varENode3.archivalHistory CONTAINS ("http://opac.regesta-imperii.de/lang_de/kurztitelsuche_r.php?kurztitel=gudenus,_cod._dipl.")))
+RETURN varENode3
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [7]
+  | > NeoPropertyNodeImpl PrimitiveNode 2 [8]
+  | > NeoPropertyNodeImpl PrimitiveNode 3 [9]
+  | > NeoPropertyNodeImpl PrimitiveNode 4 [10]
+  | > NeoPropertyNodeImpl PrimitiveNode 5 [11]
+  | > NeoPropertyNodeImpl PrimitiveNode 6 [12]
+  | ~ NeoPropertyEdgeImpl [6] from 7 to 8 NeoPropertyPathParam [1] varENode7.summary
+  | ~ NeoPropertyEdgeImpl [7] from 7 to 9 NeoPropertyPathParam [2] varENode7.identifier
+  | ~ NeoPropertyEdgeImpl [8] from 7 to 10 NeoPropertyPathParam [3] varENode7.exchangeIdentifier
+  | ~ NeoPropertyEdgeImpl [9] from 7 to 11 NeoPropertyPathParam [4] varENode7.bandpk
+  | ~ NeoPropertyEdgeImpl [10] from 7 to 12 NeoPropertyPathParam [5] varENode7.title
+  | OperatorList [3]
+  | - CONTAINS (1) [6][8, 7]
+  | - CONTAINS (2) [8][9, 9]
+  | - CONTAINS (3) [10][10, 11]
+  | - CONTAINS (4) [12][11, 13]
+  | - CONTAINS (5) [14][12, 15]
+  TRUE
+  ParameterList
+    : bool [6] true
+    : text [7] 'Churf�rsten (Dietrich von Mainz, Dietrich'
+    : bool [8] true
+    : text [9] 'hmel n. '
+    : bool [10] true
+    : text [11] '20_000001_000001_013_0'
+    : bool [12] true
+    : text [13] '13000000'
+    : bool [14] true
+    : text [15] 'Friedrich'
+    : NeoNodeLabels [16] ()
+    : NeoPropertyPathParam [1] varENode7.summary
+    : NeoPropertyPathParam [2] varENode7.identifier
+    : NeoPropertyPathParam [3] varENode7.exchangeIdentifier
+    : NeoPropertyPathParam [4] varENode7.bandpk
+    : NeoPropertyPathParam [5] varENode7.title
+
+___TRANSLATION___
+MATCH (varENode7)
+WHERE (varENode7.summary CONTAINS ("Churf�rsten (Dietrich von Mainz, Dietrich")
+   AND varENode7.identifier CONTAINS ("hmel n. ")
+   AND varENode7.exchangeIdentifier CONTAINS ("20_000001_000001_013_0")
+   AND varENode7.bandpk CONTAINS ("13000000")
+   AND varENode7.title CONTAINS ("Friedrich"))
+RETURN varENode7
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [7]
+  | > NeoPropertyNodeImpl PrimitiveNode 2 [8]
+  | > NeoPropertyNodeImpl PrimitiveNode 3 [9]
+  | > NeoPropertyNodeImpl PrimitiveNode 4 [10]
+  | > NeoPropertyNodeImpl PrimitiveNode 5 [11]
+  | > NeoPropertyNodeImpl PrimitiveNode 6 [12]
+  | ~ NeoPropertyEdgeImpl [6] from 7 to 8 NeoPropertyPathParam [1] varENode7.summary
+  | ~ NeoPropertyEdgeImpl [7] from 7 to 9 NeoPropertyPathParam [2] varENode7.identifier
+  | ~ NeoPropertyEdgeImpl [8] from 7 to 10 NeoPropertyPathParam [3] varENode7.exchangeIdentifier
+  | ~ NeoPropertyEdgeImpl [9] from 7 to 11 NeoPropertyPathParam [4] varENode7.bandpk
+  | ~ NeoPropertyEdgeImpl [10] from 7 to 12 NeoPropertyPathParam [5] varENode7.title
+  | OperatorList [3]
+  | - CONTAINS (1) [not 6][8, 7]
+  | - CONTAINS (2) [not 8][9, 9]
+  | - CONTAINS (3) [not 10][10, 11]
+  | - CONTAINS (4) [not 12][11, 13]
+  | - CONTAINS (5) [not 14][12, 15]
+  TRUE
+  ParameterList
+    : bool [6] false
+    : text [7] 'Churf�rsten (Dietrich von Mainz, Dietrich'
+    : bool [8] false
+    : text [9] 'hmel n. '
+    : bool [10] false
+    : text [11] '20_000001_000001_013_0'
+    : bool [12] false
+    : text [13] '13000000'
+    : bool [14] false
+    : text [15] 'Friedrich'
+    : NeoNodeLabels [16] ()
+    : NeoPropertyPathParam [1] varENode7.summary
+    : NeoPropertyPathParam [2] varENode7.identifier
+    : NeoPropertyPathParam [3] varENode7.exchangeIdentifier
+    : NeoPropertyPathParam [4] varENode7.bandpk
+    : NeoPropertyPathParam [5] varENode7.title
+
+___TRANSLATION___
+MATCH (varENode7)
+WHERE (NOT (varENode7.summary CONTAINS ("Churf�rsten (Dietrich von Mainz, Dietrich"))
+   AND NOT (varENode7.identifier CONTAINS ("hmel n. "))
+   AND NOT (varENode7.exchangeIdentifier CONTAINS ("20_000001_000001_013_0"))
+   AND NOT (varENode7.bandpk CONTAINS ("13000000"))
+   AND NOT (varENode7.title CONTAINS ("Friedrich")))
+RETURN varENode7
+<<< END - Tests >>>
+
+
+<<< BEGIN - Build-Pattern-Exceptions >>>
+
+
+___PATTERN_(NOT VALID)___
+
+-- Beginning of the Exceptions --
+java.lang.NullPointerException: Cannot invoke "qualitypatternmodel.parameters.BooleanParam.getValue()" because the return value of "qualitypatternmodel.operators.impl.ContainsImpl.getOption()" is null
+java.lang.NullPointerException: Cannot invoke "qualitypatternmodel.parameters.BooleanParam.getValue()" because the return value of "qualitypatternmodel.operators.impl.ContainsImpl.getOption()" is null
+Test successful
+
+
+___PATTERN_(NOT VALID)___
+
+-- Beginning of the Exceptions --
+java.lang.NullPointerException: Cannot invoke "qualitypatternmodel.parameters.TextLiteralParam.getInternalId()" because the return value of "qualitypatternmodel.operators.impl.ContainsImpl.getContent()" is null
+java.lang.NullPointerException: Cannot invoke "qualitypatternmodel.parameters.TextLiteralParam.getInternalId()" because the return value of "qualitypatternmodel.operators.impl.ContainsImpl.getContent()" is null
+Test successful
+
+
+___PATTERN_(NOT VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl PrimitiveNode 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] varENode3.archivalHistory
+  | OperatorList [3]
+  | - CONTAINS (1) [2][4, 3]
+  TRUE
+  ParameterList
+    : bool [2] true
+    : NeoNodeLabels [4] ()
+    : NeoPropertyPathParam [1] varENode3.archivalHistory
+    : text [3] 'null'
+
+___TRANSLATION___
+-- Beginning of the Exceptions --
+qualitypatternmodel.exceptions.InvalidityException: invalid option
+Pattern Pattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl PrimitiveNode 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] varENode3.archivalHistory
+  | OperatorList [3]
+  | - CONTAINS (1) [2][4, 3]
+  TRUE
+  ParameterList
+    : bool [2] true
+    : NeoNodeLabels [4] ()
+    : NeoPropertyPathParam [1] varENode3.archivalHistory
+    : text [3] 'null'
+Test successful
+
+
+___PATTERN_(NOT VALID)___
+
+-- Beginning of the Exceptions --
+java.lang.NullPointerException: Cannot invoke "qualitypatternmodel.graphstructure.PrimitiveNode.getInternalId()" because the return value of "qualitypatternmodel.operators.impl.ContainsImpl.getPrimitiveNode()" is null
+java.lang.NullPointerException: Cannot invoke "qualitypatternmodel.graphstructure.PrimitiveNode.getInternalId()" because the return value of "qualitypatternmodel.operators.impl.ContainsImpl.getPrimitiveNode()" is null
+Test successful
+<<< END - Build-Pattern-Exceptions >>>
+

@@ -1,0 +1,205 @@
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [3]
+  | > RdfIriNodeImpl Element 2 [4]
+  | ~ RdfPredicateImpl [2] from 3 to 4 rdfpath [1] -<thisisatesturi> 
+  TRUE
+  ParameterList
+    : irilist [2] ( )
+    : rdfpath [1] -<thisisatesturi> 
+    : irilist [3] ( )
+
+___TRANSLATION___
+SELECT
+  ?var3
+WHERE {
+  ?var3 <thisisatesturi> ?var4.
+}
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [3]
+  | > RdfIriNodeImpl Element 2 [4]
+  | ~ RdfPredicateImpl [2] from 3 to 4 rdfpath [1] -wdt:P569 
+  TRUE
+  ParameterList
+    : irilist [2] ( )
+    : rdfpath [1] -wdt:P569 
+    : irilist [3] ( )
+
+___TRANSLATION___
+SELECT
+  ?var3
+WHERE {
+  ?var3 wdt:P569 ?var4.
+}
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [3]
+  | > RdfIriNodeImpl Element 2 [4]
+  | ~ RdfPredicateImpl [2] from 3 to 4 rdfpath [1] -wdt:P569? 
+  TRUE
+  ParameterList
+    : irilist [2] ( )
+    : rdfpath [1] -wdt:P569? 
+    : irilist [3] ( )
+
+___TRANSLATION___
+SELECT
+  ?var3
+WHERE {
+  ?var3 wdt:P569? ?var4.
+}
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [3]
+  | > RdfIriNodeImpl Element 2 [4]
+  | ~ RdfPredicateImpl [2] from 3 to 4 rdfpath [1] -wdt:P569* 
+  TRUE
+  ParameterList
+    : irilist [2] ( )
+    : rdfpath [1] -wdt:P569* 
+    : irilist [3] ( )
+
+___TRANSLATION___
+SELECT
+  ?var3
+WHERE {
+  ?var3 wdt:P569* ?var4.
+}
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [3]
+  | > RdfIriNodeImpl Element 2 [4]
+  | ~ RdfPredicateImpl [2] from 3 to 4 rdfpath [1] -wdt:P569+ 
+  TRUE
+  ParameterList
+    : irilist [2] ( )
+    : rdfpath [1] -wdt:P569+ 
+    : irilist [3] ( )
+
+___TRANSLATION___
+SELECT
+  ?var3
+WHERE {
+  ?var3 wdt:P569+ ?var4.
+}
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [3]
+  | > RdfIriNodeImpl Element 2 [4]
+  | ~ RdfPredicateImpl [2] from 3 to 4 rdfpath [1] -(<>|!<>) 
+  TRUE
+  ParameterList
+    : irilist [2] ( )
+    : rdfpath [1] -(<>|!<>) 
+    : irilist [3] ( )
+
+___TRANSLATION___
+SELECT
+  ?var3
+WHERE {
+  ?var3 (<>|!<>) ?var4.
+}
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [3]
+  | > RdfIriNodeImpl Element 2 [4]
+  | ~ RdfPredicateImpl [2] from 3 to 4 rdfpath [1] -((<>|!<>)/(<>|!<>)/wdt:P19/wdt:P361) 
+  TRUE
+  ParameterList
+    : irilist [2] ( )
+    : rdfpath [1] -((<>|!<>)/(<>|!<>)/wdt:P19/wdt:P361) 
+    : irilist [3] ( )
+
+___TRANSLATION___
+SELECT
+  ?var3
+WHERE {
+  ?var3 ((<>|!<>)/(<>|!<>)/wdt:P19/wdt:P361) ?var4.
+}
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [3]
+  | > RdfIriNodeImpl Element 2 [4]
+  | ~ RdfPredicateImpl [2] from 3 to 4 rdfpath [1] -((<>|!<>)/(<>|!<>)/wdt:P19/wdt:P361)? 
+  TRUE
+  ParameterList
+    : irilist [2] ( )
+    : rdfpath [1] -((<>|!<>)/(<>|!<>)/wdt:P19/wdt:P361)? 
+    : irilist [3] ( )
+
+___TRANSLATION___
+SELECT
+  ?var3
+WHERE {
+  ?var3 ((<>|!<>)/(<>|!<>)/wdt:P19/wdt:P361)? ?var4.
+}
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [3]
+  | > RdfIriNodeImpl Element 2 [4]
+  | ~ RdfPredicateImpl [2] from 3 to 4 rdfpath [1] -((<>|!<>)|(<>|!<>)|wdt:P19|wdt:P361) 
+  TRUE
+  ParameterList
+    : irilist [2] ( )
+    : rdfpath [1] -((<>|!<>)|(<>|!<>)|wdt:P19|wdt:P361) 
+    : irilist [3] ( )
+
+___TRANSLATION___
+SELECT
+  ?var3
+WHERE {
+  ?var3 ((<>|!<>)|(<>|!<>)|wdt:P19|wdt:P361) ?var4.
+}
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [4]
+  | > RdfIriNodeImpl Element 3 [5]
+  | > RdfIriNodeImpl ComplexNode 2 [6]
+  | ~ RdfPredicateImpl [3] from 4 to 5 rdfpath [1] -(<>|!<>) 
+  | ~ RdfPredicateImpl [4] from 6 to 5 rdfpath [2] -(<>|!<>) 
+  TRUE
+  ParameterList
+    : irilist [3] ( )
+    : rdfpath [1] -(<>|!<>) 
+    : irilist [4] ( )
+    : rdfpath [2] -(<>|!<>) 
+    : irilist [5] ( )
+
+___TRANSLATION___
+SELECT
+  ?var4
+WHERE {
+  ?var4 (<>|!<>) ?var5.
+  ?var6 (<>|!<>) ?var5.
+}

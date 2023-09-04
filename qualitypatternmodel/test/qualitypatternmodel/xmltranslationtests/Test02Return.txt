@@ -1,0 +1,44 @@
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl Element 2 [3]
+  | > Return-XmlElementImpl ComplexNode 1 [4]
+  | > XmlRootImpl Root [5]
+  | ~ XmlElementNavigationImpl [2] from 4 to 3 (xmlpath [1] {[axis [2] /child::*, {DATA}, text [3] '']}.)
+  | ~ XmlElementNavigationImpl [3] from 5 to 4 (xmlpath [4] {[axis [5] /descendant::*, {TAG}, text [6] '']}.)
+  TRUE
+  ParameterList
+    : xmlpath [1] {[axis [2] /child::*, {DATA}, text [3] '']}.
+    : xmlpath [4] {[axis [5] /descendant::*, {TAG}, text [6] '']}.
+
+___TRANSLATION___
+for $var3_0 in /descendant::*
+for $var2_0 in $var3_0/child::*[./text()]
+return ($var2_0, $var3_0)
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl Element 2 [3]
+  | > Return-XmlElementImpl ComplexNode 1 [4]
+  | > XmlRootImpl Root [5]
+  | > XmlPropertyImpl XmlProperty 6 [6]
+  | ~ XmlElementNavigationImpl [5] from 5 to 4 (xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.)
+  | ~ XmlReferenceImpl [6] from 4 to 3 [6]
+  | ~ XmlPropertyNavigationImpl [7] from 4 to 6 (xmlpath [5][] {ATTRIBUTE, text [6] 'demo:id'})
+  | ~ XmlPropertyNavigationImpl [8] from 3 to 6 (xmlpath [7][] {DATA})
+  | ~ XmlElementNavigationImpl [9] from 5 to 3 (xmlpath [8] {[axis [9] /descendant::*, {TAG}, text [10] '']}.)
+  TRUE
+  ParameterList
+    : xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.
+    : xmlpath [5][] {ATTRIBUTE, text [6] 'demo:id'}
+    : xmlpath [7][] {DATA}
+    : xmlpath [8] {[axis [9] /descendant::*, {TAG}, text [10] '']}.
+
+___TRANSLATION___
+for $var5_0 in /descendant::*[./@*[name()="demo:id"]]
+for $var9_0 in /descendant::*[./text()[. = $var5_0/@*[name()="demo:id"]]]
+return ($var9_0, $var5_0)

@@ -1,0 +1,66 @@
+
+for $var2_0 in /descendant::*[./text()[.="USA"]]
+return $var2_0
+
+let $list1 := ('unknown', 'USA')
+for $var2_0 in /descendant::*[./text()[.=$list1]]
+return $var2_0
+
+for $var2_0 in /descendant::*[./text()[try {xs:double(.)=xs:double(1452.0)} catch err:FORG0001 { false() }]]
+return $var2_0
+
+for $var2_0 in /descendant::*[./text()[try {xs:boolean(.)=xs:boolean(true())} catch err:FORG0001 { false() }]]
+return $var2_0
+
+for $var2_0 in /descendant::*[./text()[try {xs:date(.)=xs:date("2020-10-03")} catch err:FORG0001 { false() }]]
+return $var2_0
+
+for $var2_0 in /descendant::*[./text()[try {xs:time(.)=xs:time("09:00:00")} catch err:FORG0001 { false() }]]
+return $var2_0
+
+for $var2_0 in /descendant::*[./text()[try {xs:dateTime(.)=xs:dateTime("2020-10-03T09:00:00")} catch err:FORG0001 { false() }]]
+return $var2_0
+
+for $var2_0 in /descendant::*[./name()[.="USA"]]
+return $var2_0
+
+let $list1 := ('unknown', 'USA')
+for $var2_0 in /descendant::*[./name()[.=$list1]]
+return $var2_0
+
+for $var2_0 in /descendant::*[./name()[try {xs:double(.)=xs:double(1452.0)} catch err:FORG0001 { false() }]]
+return $var2_0
+
+for $var2_0 in /descendant::*[./name()[try {xs:boolean(.)=xs:boolean(true())} catch err:FORG0001 { false() }]]
+return $var2_0
+
+for $var2_0 in /descendant::*[./name()[try {xs:date(.)=xs:date("2020-10-03")} catch err:FORG0001 { false() }]]
+return $var2_0
+
+for $var2_0 in /descendant::*[./name()[try {xs:time(.)=xs:time("09:00:00")} catch err:FORG0001 { false() }]]
+return $var2_0
+
+for $var2_0 in /descendant::*[./name()[try {xs:dateTime(.)=xs:dateTime("2020-10-03T09:00:00")} catch err:FORG0001 { false() }]]
+return $var2_0
+
+for $var2_0 in /descendant::*[./@*[.="USA"]]
+return $var2_0
+
+let $list2 := ('unknown', 'USA')
+for $var2_0 in /descendant::*[./@*[.=$list2]]
+return $var2_0
+
+for $var2_0 in /descendant::*[./@*[try {xs:double(.)=xs:double(1452.0)} catch err:FORG0001 { false() }]]
+return $var2_0
+
+for $var2_0 in /descendant::*[./@*[try {xs:boolean(.)=xs:boolean(true())} catch err:FORG0001 { false() }]]
+return $var2_0
+
+for $var2_0 in /descendant::*[./@*[try {xs:date(.)=xs:date("2020-10-03")} catch err:FORG0001 { false() }]]
+return $var2_0
+
+for $var2_0 in /descendant::*[./@*[try {xs:time(.)=xs:time("09:00:00")} catch err:FORG0001 { false() }]]
+return $var2_0
+
+for $var2_0 in /descendant::*[./@*[try {xs:dateTime(.)=xs:dateTime("2020-10-03T09:00:00")} catch err:FORG0001 { false() }]]
+return $var2_0

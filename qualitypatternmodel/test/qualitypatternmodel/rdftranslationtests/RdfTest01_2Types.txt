@@ -1,0 +1,64 @@
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [3]
+  | > RdfIriNodeImpl Element 2 [4]
+  | ~ RdfPredicateImpl [2] from 3 to 4 rdfpath [1] -(<>|!<>) 
+  TRUE
+  ParameterList
+    : irilist [2] ( )
+    : rdfpath [1] -(<>|!<>) 
+    : irilist [3] ( )
+
+___TRANSLATION___
+SELECT
+  ?var3
+WHERE {
+  ?var3 (<>|!<>) ?var4.
+}
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [3]
+  | > RdfIriNodeImpl Element 2 [4]
+  | ~ RdfPredicateImpl [2] from 3 to 4 rdfpath [1] -(<>|!<>) 
+  TRUE
+  ParameterList
+    : irilist [2] ( <LOL> )
+    : rdfpath [1] -(<>|!<>) 
+    : irilist [3] ( )
+
+___TRANSLATION___
+SELECT
+  ?var3
+WHERE {
+  ?var3 wdt:P31 <LOL>.
+  ?var3 (<>|!<>) ?var4.
+}
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [3]
+  | > RdfIriNodeImpl Element 2 [4]
+  | ~ RdfPredicateImpl [2] from 3 to 4 rdfpath [1] -(<>|!<>) 
+  TRUE
+  ParameterList
+    : irilist [2] ( <typeuri1> <typeuri2> pre:suf )
+    : rdfpath [1] -(<>|!<>) 
+    : irilist [3] ( )
+
+___TRANSLATION___
+SELECT
+  ?var3
+WHERE {
+  ?var3 wdt:P31 <typeuri1>.
+  ?var3 wdt:P31 <typeuri2>.
+  ?var3 wdt:P31 pre:suf.
+  ?var3 (<>|!<>) ?var4.
+}

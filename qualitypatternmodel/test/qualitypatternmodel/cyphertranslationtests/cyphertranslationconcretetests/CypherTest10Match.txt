@@ -1,0 +1,312 @@
+
+<<< BEGIN - Tests >>>
+Mode - Testing without DB
+
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl PrimitiveNode 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] varENode3.summary
+  | OperatorList [3]
+  | - MATCH (1) [2][4, 3]
+  TRUE
+  ParameterList
+    : bool [2] true
+    : text [3] 'Churf�rsten'
+    : NeoNodeLabels [4] ('Regesta')
+    : NeoPropertyPathParam [1] varENode3.summary
+
+___TRANSLATION___
+MATCH (varENode3:Regesta)
+WHERE (varENode3.summary =~ "Churf�rsten")
+RETURN varENode3
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl PrimitiveNode 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] varENode3.summary
+  | OperatorList [3]
+  | - MATCH (1) [not 2][4, 3]
+  TRUE
+  ParameterList
+    : bool [2] false
+    : text [3] 'Churf�rsten'
+    : NeoNodeLabels [4] ('Regesta')
+    : NeoPropertyPathParam [1] varENode3.summary
+
+___TRANSLATION___
+MATCH (varENode3:Regesta)
+WHERE (NOT (varENode3.summary =~ "Churf�rsten"))
+RETURN varENode3
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl PrimitiveNode 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] varENode3.summary
+  | OperatorList [3]
+  | - MATCH (1) [2][4, 3]
+  TRUE
+  ParameterList
+    : bool [2] true
+    : text [3] '.*Churf�rsten.*'
+    : NeoNodeLabels [4] ('Regesta')
+    : NeoPropertyPathParam [1] varENode3.summary
+
+___TRANSLATION___
+MATCH (varENode3:Regesta)
+WHERE (varENode3.summary =~ ".*Churf�rsten.*")
+RETURN varENode3
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl PrimitiveNode 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] varENode3.summary
+  | OperatorList [3]
+  | - MATCH (1) [not 2][4, 3]
+  TRUE
+  ParameterList
+    : bool [2] false
+    : text [3] '.*Churf�rsten.*'
+    : NeoNodeLabels [4] ('Regesta')
+    : NeoPropertyPathParam [1] varENode3.summary
+
+___TRANSLATION___
+MATCH (varENode3:Regesta)
+WHERE (NOT (varENode3.summary =~ ".*Churf�rsten.*"))
+RETURN varENode3
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl PrimitiveNode 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] varENode3.summary
+  | OperatorList [3]
+  | - MATCH (1) [2][4, 3]
+  TRUE
+  ParameterList
+    : bool [2] true
+    : text [3] '.*(?i)Churf�rsten.*'
+    : NeoNodeLabels [4] ('Regesta')
+    : NeoPropertyPathParam [1] varENode3.summary
+
+___TRANSLATION___
+MATCH (varENode3:Regesta)
+WHERE (varENode3.summary =~ ".*(?i)Churf�rsten.*")
+RETURN varENode3
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl PrimitiveNode 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] varENode3.summary
+  | OperatorList [3]
+  | - MATCH (1) [not 2][4, 3]
+  TRUE
+  ParameterList
+    : bool [2] false
+    : text [3] '.*(?i)Churf�rsten.*'
+    : NeoNodeLabels [4] ('Regesta')
+    : NeoPropertyPathParam [1] varENode3.summary
+
+___TRANSLATION___
+MATCH (varENode3:Regesta)
+WHERE (NOT (varENode3.summary =~ ".*(?i)Churf�rsten.*"))
+RETURN varENode3
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl PrimitiveNode 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] varENode3.summary
+  | OperatorList [3]
+  | - MATCH (1) [2][4, 3]
+  TRUE
+  ParameterList
+    : bool [2] true
+    : text [3] '.*(?m)Churf�rsten.*'
+    : NeoNodeLabels [4] ('Regesta')
+    : NeoPropertyPathParam [1] varENode3.summary
+
+___TRANSLATION___
+MATCH (varENode3:Regesta)
+WHERE (varENode3.summary =~ ".*(?m)Churf�rsten.*")
+RETURN varENode3
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl PrimitiveNode 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] varENode3.summary
+  | OperatorList [3]
+  | - MATCH (1) [not 2][4, 3]
+  TRUE
+  ParameterList
+    : bool [2] false
+    : text [3] '.*(?m)Churf�rsten.*'
+    : NeoNodeLabels [4] ('Regesta')
+    : NeoPropertyPathParam [1] varENode3.summary
+
+___TRANSLATION___
+MATCH (varENode3:Regesta)
+WHERE (NOT (varENode3.summary =~ ".*(?m)Churf�rsten.*"))
+RETURN varENode3
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl PrimitiveNode 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] varENode3.summary
+  | OperatorList [3]
+  | - MATCH (1) [2][4, 3]
+  TRUE
+  ParameterList
+    : bool [2] true
+    : text [3] '.*(?s)Churf�rsten.*'
+    : NeoNodeLabels [4] ('Regesta')
+    : NeoPropertyPathParam [1] varENode3.summary
+
+___TRANSLATION___
+MATCH (varENode3:Regesta)
+WHERE (varENode3.summary =~ ".*(?s)Churf�rsten.*")
+RETURN varENode3
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl PrimitiveNode 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] varENode3.summary
+  | OperatorList [3]
+  | - MATCH (1) [not 2][4, 3]
+  TRUE
+  ParameterList
+    : bool [2] false
+    : text [3] '.*(?s)Churf�rsten.*'
+    : NeoNodeLabels [4] ('Regesta')
+    : NeoPropertyPathParam [1] varENode3.summary
+
+___TRANSLATION___
+MATCH (varENode3:Regesta)
+WHERE (NOT (varENode3.summary =~ ".*(?s)Churf�rsten.*"))
+RETURN varENode3
+<<< END - Tests >>>
+
+
+<<< BEGIN - Build-Pattern-Exceptions >>>
+
+
+___PATTERN_(NOT VALID)___
+
+-- Beginning of the Exceptions --
+java.lang.NullPointerException: Cannot invoke "qualitypatternmodel.parameters.BooleanParam.getValue()" because the return value of "qualitypatternmodel.operators.impl.MatchImpl.getOption()" is null
+java.lang.NullPointerException: Cannot invoke "qualitypatternmodel.parameters.BooleanParam.getValue()" because the return value of "qualitypatternmodel.operators.impl.MatchImpl.getOption()" is null
+Test successful
+
+
+___PATTERN_(NOT VALID)___
+
+-- Beginning of the Exceptions --
+java.lang.NullPointerException: Cannot invoke "qualitypatternmodel.parameters.BooleanParam.getValue()" because the return value of "qualitypatternmodel.operators.impl.MatchImpl.getOption()" is null
+java.lang.NullPointerException: Cannot invoke "qualitypatternmodel.parameters.BooleanParam.getValue()" because the return value of "qualitypatternmodel.operators.impl.MatchImpl.getOption()" is null
+Test successful
+
+
+___PATTERN_(NOT VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl PrimitiveNode 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] varENode3.summary
+  | OperatorList [3]
+  | - MATCH (1) [2][4, -1]
+  TRUE
+  ParameterList
+    : bool [2] true
+    : text [3] ''
+    : NeoNodeLabels [4] ('Regesta')
+    : NeoPropertyPathParam [1] varENode3.summary
+
+___TRANSLATION___
+-- Beginning of the Exceptions --
+qualitypatternmodel.exceptions.InvalidityException: invalid option
+Pattern Pattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl PrimitiveNode 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] varENode3.summary
+  | OperatorList [3]
+  | - MATCH (1) [2][4, -1]
+  TRUE
+  ParameterList
+    : bool [2] true
+    : text [3] ''
+    : NeoNodeLabels [4] ('Regesta')
+    : NeoPropertyPathParam [1] varENode3.summary
+Test successful
+
+
+___PATTERN_(NOT VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl PrimitiveNode 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] varENode3.summary
+  | OperatorList [3]
+  | - MATCH (1) [2][4, -1]
+  TRUE
+  ParameterList
+    : bool [2] true
+    : text [3] ''
+    : NeoNodeLabels [4] ('Regesta')
+    : NeoPropertyPathParam [1] varENode3.summary
+
+___TRANSLATION___
+-- Beginning of the Exceptions --
+qualitypatternmodel.exceptions.InvalidityException: invalid option
+Pattern Pattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl PrimitiveNode 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] varENode3.summary
+  | OperatorList [3]
+  | - MATCH (1) [2][4, -1]
+  TRUE
+  ParameterList
+    : bool [2] true
+    : text [3] ''
+    : NeoNodeLabels [4] ('Regesta')
+    : NeoPropertyPathParam [1] varENode3.summary
+Test successful
+
+
+___PATTERN_(NOT VALID)___
+
+-- Beginning of the Exceptions --
+java.lang.NullPointerException: Cannot invoke "qualitypatternmodel.graphstructure.PrimitiveNode.getInternalId()" because the return value of "qualitypatternmodel.operators.impl.MatchImpl.getPrimitiveNode()" is null
+java.lang.NullPointerException: Cannot invoke "qualitypatternmodel.graphstructure.PrimitiveNode.getInternalId()" because the return value of "qualitypatternmodel.operators.impl.MatchImpl.getPrimitiveNode()" is null
+Test successful
+<<< END - Build-Pattern-Exceptions >>>
+

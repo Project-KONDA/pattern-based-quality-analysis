@@ -1,0 +1,60 @@
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl ComplexNode 1 [3]
+  | > XmlRootImpl Root [4]
+  | ~ XmlElementNavigationImpl [2] from 4 to 3 (xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.)
+  EXISTS
+    : Graph
+    | | > Return-XmlElementImpl ComplexNode 1 [5 (3)]
+    | | > XmlPropertyImpl PrimitiveNode 2 [6]
+    | | > XmlRootImpl Root [7 (4)]
+    | | ~ XmlPropertyNavigationImpl [3] from 5 to 6 (xmlpath [4][] {DATA})
+    | | ~ XmlElementNavigationImpl [4 (2)] from 7 to 5 (xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.)
+    | | OperatorList [3]
+    | | - COMP [1] STRING:BOOLEAN (XmlPropertyImpl [6] =[5] TextLiteralParamImpl [6])
+    : Morphism (4 -> 5)
+    |   * NodeMapping(3 -> 5)
+    |   * NodeMapping(4 -> 7)
+    |   * RelationMapping(2 -> 4)
+    : TRUE
+  ParameterList
+    : text [6] 'unknown'
+    : comp [5] =
+    : type [7] STRING
+    : xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.
+    : xmlpath [4][] {DATA}
+
+___TRANSLATION___
+for $var2_0 in /descendant::*
+where 
+  some $var3_0 in $var2_0/text()[.="unknown"]
+  satisfies (true())
+return $var2_0
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > XmlElementImpl Element 2 [3]
+  | > Return-XmlElementImpl ComplexNode 1 [4]
+  | > XmlRootImpl Root [5]
+  | > XmlPropertyImpl XmlProperty 6 [6]
+  | ~ XmlElementNavigationImpl [5] from 5 to 4 (xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.)
+  | ~ XmlReferenceImpl [6] from 4 to 3 [6]
+  | ~ XmlPropertyNavigationImpl [7] from 4 to 6 (xmlpath [4][] {DATA})
+  | ~ XmlPropertyNavigationImpl [8] from 3 to 6 (xmlpath [5][] {DATA})
+  | ~ XmlElementNavigationImpl [9] from 5 to 3 (xmlpath [6] {[axis [7] /descendant::*, {TAG}, text [8] '']}.)
+  TRUE
+  ParameterList
+    : xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.
+    : xmlpath [4][] {DATA}
+    : xmlpath [5][] {DATA}
+    : xmlpath [6] {[axis [7] /descendant::*, {TAG}, text [8] '']}.
+
+___TRANSLATION___
+for $var5_0 in /descendant::*[./text()]
+for $var9_0 in /descendant::*[./text()[. = $var5_0/text()]]
+return $var5_0

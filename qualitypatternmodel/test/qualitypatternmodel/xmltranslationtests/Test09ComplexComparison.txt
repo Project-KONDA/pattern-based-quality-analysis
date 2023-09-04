@@ -1,0 +1,118 @@
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl ComplexNode 1 [4]
+  | > XmlPropertyImpl Property 2 [5]
+  | > XmlPropertyImpl Property 3 [6]
+  | > XmlRootImpl Root [7]
+  | ~ XmlPropertyNavigationImpl [3] from 4 to 5 (xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']} {DATA})
+  | ~ XmlPropertyNavigationImpl [4] from 4 to 6 (xmlpath [4][] {DATA})
+  | ~ XmlElementNavigationImpl [5] from 7 to 4 (xmlpath [5] {[axis [6] /descendant::*, {TAG}, text [7] '']}.)
+  | OperatorList [2]
+  | - COMP [1] STRING:BOOLEAN (XmlPropertyImpl [5] =[8] XmlPropertyImpl [6])
+  TRUE
+  ParameterList
+    : comp [8] =
+    : type [9] STRING
+    : xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']} {DATA}
+    : xmlpath [4][] {DATA}
+    : xmlpath [5] {[axis [6] /descendant::*, {TAG}, text [7] '']}.
+
+___TRANSLATION___
+for $var5_0 in /descendant::*[./text()]
+for $var3_0 in $var5_0/descendant::*/text()[.=$var5_0/text()]
+return $var5_0
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl ComplexNode 1 [6]
+  | > XmlElementImpl ComplexNode 2 [7]
+  | > XmlPropertyImpl PrimitiveNode 3 [8]
+  | > XmlElementImpl ComplexNode 4 [9]
+  | > XmlPropertyImpl PrimitiveNode 5 [10]
+  | > XmlRootImpl Root [11]
+  | ~ XmlElementNavigationImpl [5] from 6 to 7 (xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.)
+  | ~ XmlPropertyNavigationImpl [6] from 7 to 8 (xmlpath [4] {[axis [5] /descendant::*, {TAG}, text [6] '']} {DATA})
+  | ~ XmlElementNavigationImpl [7] from 6 to 9 (xmlpath [7] {[axis [8] /child::*, {DATA}, text [9] '']}.)
+  | ~ XmlPropertyNavigationImpl [8] from 9 to 10 (xmlpath [10][] {DATA})
+  | ~ XmlElementNavigationImpl [9] from 11 to 6 (xmlpath [11] {[axis [12] /descendant::*, {TAG}, text [13] '']}.)
+  | OperatorList [2]
+  | - COMP [1] STRING:BOOLEAN (XmlPropertyImpl [8] =[14] XmlPropertyImpl [10])
+  TRUE
+  ParameterList
+    : comp [14] =
+    : type [15] STRING
+    : xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.
+    : xmlpath [4] {[axis [5] /descendant::*, {TAG}, text [6] '']} {DATA}
+    : xmlpath [7] {[axis [8] /child::*, {DATA}, text [9] '']}.
+    : xmlpath [10][] {DATA}
+    : xmlpath [11] {[axis [12] /descendant::*, {TAG}, text [13] '']}.
+
+___TRANSLATION___
+for $var9_0 in /descendant::*
+for $var5_0 in $var9_0/descendant::*
+for $var6_0 in $var5_0/descendant::*/text()
+for $var7_0 in $var9_0/child::*[./text()][./text()[$var6_0=.]]
+return $var9_0
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl ComplexNode 1 [4]
+  | > XmlElementImpl Element 2 [5]
+  | > XmlElementImpl Element 3 [6]
+  | > XmlRootImpl Root [7]
+  | ~ XmlElementNavigationImpl [3] from 4 to 5 (xmlpath [1] {[axis [2] /child::*, {DATA}, text [3] '']}.)
+  | ~ XmlElementNavigationImpl [4] from 4 to 6 (xmlpath [4] {[axis [5] /child::*, {DATA}, text [6] '']}.)
+  | ~ XmlElementNavigationImpl [5] from 7 to 4 (xmlpath [7] {[axis [8] /descendant::*, {TAG}, text [9] '']}.)
+  | OperatorList [2]
+  | - COMP [1] ELEMENT:BOOLEAN (XmlElementImpl [5] =[10] XmlElementImpl [6])
+  TRUE
+  ParameterList
+    : comp [10] =
+    : type [11] ELEMENT
+    : xmlpath [1] {[axis [2] /child::*, {DATA}, text [3] '']}.
+    : xmlpath [4] {[axis [5] /child::*, {DATA}, text [6] '']}.
+    : xmlpath [7] {[axis [8] /descendant::*, {TAG}, text [9] '']}.
+
+___TRANSLATION___
+for $var5_0 in /descendant::*
+for $var3_0 in $var5_0/child::*[./text()]
+for $var4_0 in $var5_0/child::*[./text()][fn:deep-equal ( $var3_0, . )]
+return $var5_0
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > XmlPropertyImpl Property 2 [3]
+  | > Return-XmlElementImpl ComplexNode 1 [4]
+  | > XmlRootImpl Root [5]
+  | ~ XmlPropertyNavigationImpl [2] from 4 to 3 (xmlpath [1][] {TAG})
+  | ~ XmlElementNavigationImpl [3] from 5 to 4 (xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.)
+  | OperatorList [3]
+  | - COMP [1] BOOLEAN:BOOLEAN (ComparisonImpl [2] =[5] ComparisonImpl [3])
+  | - COMP [2] STRING:BOOLEAN (XmlPropertyImpl [3] =[6] TextLiteralParamImpl [7])
+  | - COMP [3] STRING:BOOLEAN (TextLiteralParamImpl [8] =[9] TextLiteralParamImpl [10])
+  TRUE
+  ParameterList
+    : text [7] 'building'
+    : text [8] 'A'
+    : text [10] 'B'
+    : comp [5] =
+    : type [11] BOOLEAN
+    : comp [6] =
+    : type [12] STRING
+    : comp [9] =
+    : type [13] STRING
+    : xmlpath [1][] {TAG}
+    : xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.
+
+___TRANSLATION___
+for $var3_0 in /descendant::*[./name()[try {xs:boolean(.="building")=xs:boolean("A"="B")} catch err:FORG0001 { false() }]]
+return $var3_0

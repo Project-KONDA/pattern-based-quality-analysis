@@ -1,0 +1,161 @@
+
+<<< BEGIN - Tests >>>
+Mode - Testing without DB
+
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [4]
+  | > Return-NeoElementNodeImpl ComplexNode 2 [5]
+  | > Return-NeoPropertyNodeImpl Property 3 [6]
+  | ~ NeoElementEdgeImpl [3] from 4 to 5 NeoPathParam [1] -[varEEdge3:APPEARS_IN]-(varEgNode3:IndexEntry:IndexPlace)-[varEEdge3_1:APPEARS_IN]-
+  | ~ NeoPropertyEdgeImpl [4] from 5 to 6 NeoPropertyPathParam [2] -[varPEdge4:APPEARS_IN]-(varEgNode4:IndexEntry:IndexPerson)-[varPEdge4_1:APPEARS_IN]-(varPNode6_4:Regesta)
+  TRUE
+  ParameterList
+    : NeoNodeLabels [3] ('Regesta')
+    : NeoNodeLabels [4] ('Regesta')
+    : NeoPathParam [1] -[varEEdge3:APPEARS_IN]-(varEgNode3:IndexEntry:IndexPlace)-[varEEdge3_1:APPEARS_IN]-
+    : NeoPropertyPathParam [2] -[varPEdge4:APPEARS_IN]-(varEgNode4:IndexEntry:IndexPerson)-[varPEdge4_1:APPEARS_IN]-(varPNode6_4:Regesta)
+
+___TRANSLATION___
+MATCH (varENode4:Regesta)-[varEEdge3:APPEARS_IN]-(varEgNode3:IndexEntry:IndexPlace)-[varEEdge3_1:APPEARS_IN]-(varENode5:Regesta)-[varPEdge4:APPEARS_IN]-(varEgNode4:IndexEntry:IndexPerson)-[varPEdge4_1:APPEARS_IN]-(varPNode6_4:Regesta)
+RETURN varENode4, varENode5, 
+   varPNode6_4.summary, 
+   varEEdge3, varEEdge3_1, varPEdge4, varPEdge4_1,
+   varEgNode3, varEgNode4
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [4]
+  | > Return-NeoElementNodeImpl ComplexNode 2 [5]
+  | > Return-NeoPropertyNodeImpl Property 3 [6]
+  | ~ NeoElementEdgeImpl [4] from 4 to 5 NeoPathParam [1] -[varEEdge4:APPEARS_IN]-(varEgNode4:IndexEntry:IndexPlace)-[varEEdge4_1:APPEARS_IN]-
+  | ~ NeoPropertyEdgeImpl [5] from 5 to 6 NeoPropertyPathParam [2] -[varPEdge5:APPEARS_IN]-(varEgNode5:IndexEntry:IndexPerson)-[varPEdge5_1:APPEARS_IN]-(varPNode6_5:Regesta)
+  | ~ NeoPropertyEdgeImpl [6] from 5 to 6 NeoPropertyPathParam [3] varENode5.title
+  TRUE
+  ParameterList
+    : NeoNodeLabels [4] ('Regesta')
+    : NeoNodeLabels [5] ('Regesta')
+    : NeoPathParam [1] -[varEEdge4:APPEARS_IN]-(varEgNode4:IndexEntry:IndexPlace)-[varEEdge4_1:APPEARS_IN]-
+    : NeoPropertyPathParam [2] -[varPEdge5:APPEARS_IN]-(varEgNode5:IndexEntry:IndexPerson)-[varPEdge5_1:APPEARS_IN]-(varPNode6_5:Regesta)
+    : NeoPropertyPathParam [3] varENode5.title
+
+___TRANSLATION___
+MATCH (varENode4:Regesta)-[varEEdge4:APPEARS_IN]-(varEgNode4:IndexEntry:IndexPlace)-[varEEdge4_1:APPEARS_IN]-(varENode5:Regesta)-[varPEdge5:APPEARS_IN]-(varEgNode5:IndexEntry:IndexPerson)-[varPEdge5_1:APPEARS_IN]-(varPNode6_5:Regesta)
+WHERE (varPNode6_5.summary = varENode5.title)
+RETURN varENode4, varENode5, 
+   varPNode6_5.summary, varENode5.title, 
+   varEEdge4, varEEdge4_1, varPEdge5, varPEdge5_1,
+   varEgNode4, varEgNode5
+<<< END - Tests >>>
+
+
+<<< BEGIN - Build-Pattern-Exceptions >>>
+
+
+___PATTERN_(NOT VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > NeoElementNodeImpl ComplexNode 1 [4]
+  | > NeoElementNodeImpl ComplexNode 2 [5]
+  | > NeoPropertyNodeImpl Property 3 [6]
+  | ~ NeoElementEdgeImpl [3] from 4 to 5 NeoPathParam [1] -[varEEdge3]-
+  | ~ NeoPropertyEdgeImpl [4] from 5 to 6 NeoPropertyPathParam [2]
+  TRUE
+  ParameterList
+    : NeoNodeLabels [3] ()
+    : NeoNodeLabels [4] ()
+    : NeoPathParam [1] -[varEEdge3]-
+    : NeoPropertyPathParam [2]
+
+___TRANSLATION___
+-- Beginning of the Exceptions --
+qualitypatternmodel.exceptions.InvalidityException: return element(s) missing
+Pattern MyPattern
+  Return-Graph
+  | > NeoElementNodeImpl ComplexNode 1 [4]
+  | > NeoElementNodeImpl ComplexNode 2 [5]
+  | > NeoPropertyNodeImpl Property 3 [6]
+  | ~ NeoElementEdgeImpl [3] from 4 to 5 NeoPathParam [1] -[varEEdge3]-
+  | ~ NeoPropertyEdgeImpl [4] from 5 to 6 NeoPropertyPathParam [2]
+  TRUE
+  ParameterList
+    : NeoNodeLabels [3] ()
+    : NeoNodeLabels [4] ()
+    : NeoPathParam [1] -[varEEdge3]-
+    : NeoPropertyPathParam [2]
+Test successful
+
+
+___PATTERN_(NOT VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [4]
+  | > NeoElementNodeImpl ComplexNode 2 [5]
+  | > Return-NeoPropertyNodeImpl Property 3 [6]
+  | ~ NeoElementEdgeImpl [3] from 4 to 5 NeoPathParam [1] -[varEEdge3]-
+  | ~ NeoPropertyEdgeImpl [4] from 5 to 6 NeoPropertyPathParam [2]
+  TRUE
+  ParameterList
+    : NeoNodeLabels [3] ()
+    : NeoNodeLabels [4] ()
+    : NeoPathParam [1] -[varEEdge3]-
+    : NeoPropertyPathParam [2]
+
+___TRANSLATION___
+-- Beginning of the Exceptions --
+qualitypatternmodel.exceptions.InvalidityException: No NeoPropertyName was specified
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [4]
+  | > NeoElementNodeImpl ComplexNode 2 [5]
+  | > Return-NeoPropertyNodeImpl Property 3 [6]
+  | ~ NeoElementEdgeImpl [3] from 4 to 5 NeoPathParam [1] -[varEEdge3]-
+  | ~ NeoPropertyEdgeImpl [4] from 5 to 6 NeoPropertyPathParam [2]
+  TRUE
+  ParameterList
+    : NeoNodeLabels [3] ()
+    : NeoNodeLabels [4] ()
+    : NeoPathParam [1] -[varEEdge3]-
+    : NeoPropertyPathParam [2]
+Test successful
+
+
+___PATTERN_(NOT VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [4]
+  | > Return-NeoElementNodeImpl ComplexNode 2 [5]
+  | > Return-NeoPropertyNodeImpl Property 3 [6]
+  | ~ NeoElementEdgeImpl [3] from 4 to 5 NeoPathParam [1] -[varEEdge3]-
+  | ~ NeoPropertyEdgeImpl [4] from 5 to 6 NeoPropertyPathParam [2]
+  TRUE
+  ParameterList
+    : NeoNodeLabels [3] ('Regesta')
+    : NeoNodeLabels [4] ('Regesta')
+    : NeoPathParam [1] -[varEEdge3]-
+    : NeoPropertyPathParam [2]
+
+___TRANSLATION___
+-- Beginning of the Exceptions --
+qualitypatternmodel.exceptions.InvalidityException: No NeoPropertyName was specified
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [4]
+  | > Return-NeoElementNodeImpl ComplexNode 2 [5]
+  | > Return-NeoPropertyNodeImpl Property 3 [6]
+  | ~ NeoElementEdgeImpl [3] from 4 to 5 NeoPathParam [1] -[varEEdge3]-
+  | ~ NeoPropertyEdgeImpl [4] from 5 to 6 NeoPropertyPathParam [2]
+  TRUE
+  ParameterList
+    : NeoNodeLabels [3] ('Regesta')
+    : NeoNodeLabels [4] ('Regesta')
+    : NeoPathParam [1] -[varEEdge3]-
+    : NeoPropertyPathParam [2]
+Test successful
+<<< END - Build-Pattern-Exceptions >>>
+

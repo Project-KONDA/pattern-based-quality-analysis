@@ -1,0 +1,602 @@
+
+<<< BEGIN - Tests >>>
+Mode - Testing without DB
+
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [2]
+  CountCondition = [1]
+  #  Count Subpattern (
+  #    Return-Graph
+  #    | > Return-NeoElementNodeImpl ComplexNode 1 [3 (2)]
+  #    : Morphism (2 -> 3)
+  #    |   * NodeMapping(2 -> 3)
+  #    TRUE
+  #  )
+  #  NumberElement  (2)
+  ParameterList
+    : comp [1] =
+    : numb [2] 1.0
+    : NeoNodeLabels [3] ()
+
+___TRANSLATION___
+MATCH (varENode2)
+WITH varENode2, COUNT(varENode2) AS myCounter1
+WHERE myCounter1 = 1.0
+RETURN varENode2
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  CountCondition = [1]
+  #  Count Subpattern (
+  #    Return-Graph
+  #    | > NeoElementNodeImpl ComplexNode 1 [4 (3)]
+  #    | > Return-NeoElementNodeImpl Element 2 [5]
+  #    | ~ NeoElementEdgeImpl [2] from 4 to 5 NeoPathParam [2] -[varEEdge2]-
+  #    : Morphism (2 -> 3)
+  #    |   * NodeMapping(3 -> 4)
+  #    TRUE
+  #  )
+  #  NumberElement  (3)
+  ParameterList
+    : comp [1] =
+    : numb [3] 1.0
+    : NeoNodeLabels [4] ()
+    : NeoNodeLabels [5] ()
+    : NeoPathParam [2] -[varEEdge2]-
+
+___TRANSLATION___
+MATCH (varENode3)
+MATCH (varENode3)-[varEEdge2]-(varENode5)
+WITH varENode3, COUNT(varENode5) AS myCounter1
+WHERE myCounter1 = 1.0
+RETURN varENode3
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  CountCondition = [1]
+  #  Count Subpattern (
+  #    Return-Graph
+  #    | > NeoElementNodeImpl ComplexNode 1 [4 (3)]
+  #    | > Return-NeoElementNodeImpl Element 2 [5]
+  #    | ~ NeoElementEdgeImpl [2] from 4 to 5 NeoPathParam [2] -[varEEdge2]-
+  #    : Morphism (2 -> 3)
+  #    |   * NodeMapping(3 -> 4)
+  #    TRUE
+  #  )
+  #  NumberElement  (3)
+  ParameterList
+    : comp [1] =
+    : numb [3] 1.0
+    : NeoNodeLabels [4] ()
+    : NeoNodeLabels [5] ()
+    : NeoPathParam [2] -[varEEdge2]-
+
+___TRANSLATION___
+MATCH (varENode3)
+MATCH (varENode3)-[varEEdge2]-(varENode5)
+WITH varENode3, COUNT(varENode5) AS myCounter1
+WHERE myCounter1 = 1.0
+RETURN varENode3
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  CountCondition = [1]
+  #  Count Subpattern (
+  #    Return-Graph
+  #    | > Return-NeoElementNodeImpl ComplexNode 1 [4 (3)]
+  #    | > Return-NeoElementNodeImpl Element 2 [5]
+  #    | ~ NeoElementEdgeImpl [2] from 4 to 5 NeoPathParam [2] -[varEEdge2]-
+  #    : Morphism (2 -> 3)
+  #    |   * NodeMapping(3 -> 4)
+  #    TRUE
+  #  )
+  #  NumberElement  (3)
+  ParameterList
+    : comp [1] =
+    : numb [3] 1.0
+    : NeoNodeLabels [4] ()
+    : NeoNodeLabels [5] ()
+    : NeoPathParam [2] -[varEEdge2]-
+
+___TRANSLATION___
+MATCH (varENode3)
+MATCH (varENode3)-[varEEdge2]-(varENode5)
+WITH varENode3, COUNT(varENode3) AS myCounter1, COUNT(varENode5) AS myCounter2
+WHERE myCounter1 = 1.0 AND myCounter2 = 1.0
+RETURN varENode3
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [4]
+  | > NeoPropertyNodeImpl Property 2 [5]
+  | ~ NeoPropertyEdgeImpl [2] from 4 to 5 NeoPropertyPathParam [-1] varENode4.placeOfIssue
+  | OperatorList [2]
+  | - COMP [1] STRING:BOOLEAN (NeoPropertyNodeImpl [5] =[1] TextLiteralParamImpl [2])
+  CountCondition = [3]
+  #  Count Subpattern (
+  #    Return-Graph
+  #    | > Return-NeoElementNodeImpl ComplexNode 1 [6 (4)]
+  #    | > NeoPropertyNodeImpl Property 2 [7 (5)]
+  #    | > NeoElementNodeImpl Element 3 [8]
+  #    | ~ NeoPropertyEdgeImpl [4 (2)] from 6 to 7
+  #    | ~ NeoElementEdgeImpl [5] from 6 to 8 NeoPathParam [4] -[varEEdge5]-
+  #    | OperatorList [3]
+  #    | - COMP [2] ELEMENT:BOOLEAN (NeoElementNodeImpl [6] =[5] NeoElementNodeImpl [8])
+  #    : Morphism (4 -> 5)
+  #    |   * NodeMapping(4 -> 6)
+  #    |   * NodeMapping(5 -> 7)
+  #    |   * RelationMapping(2 -> 4)
+  #    TRUE
+  #  )
+  #  NumberElement  (6)
+  ParameterList
+    : comp [3] =
+    : numb [6] 1.0
+    : NeoNodeLabels [7] ()
+    : NeoPropertyPathParam [8]
+    : NeoNodeLabels [9] ()
+    : NeoPathParam [4] -[varEEdge5]-
+    : comp [5] =
+    : type [10] ELEMENT
+    : text [2] 'Wien'
+    : comp [1] =
+    : type [11] STRING
+
+___TRANSLATION___
+MATCH (varENode4)
+WHERE (varENode4.placeOfIssue = "Wien")
+MATCH (varENode4)-[varEEdge5]-(varENode8)
+WHERE (varENode4 = varENode8)
+WITH varENode4, COUNT(varENode4) AS myCounter1
+WHERE myCounter1 = 1.0
+RETURN varENode4
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [4]
+  | > NeoPropertyNodeImpl Property 2 [5]
+  | ~ NeoPropertyEdgeImpl [2] from 4 to 5 NeoPropertyPathParam [1] -[varPEdge2:PLACE_OF_ISSUE]-(varPNode5_2:IndexPlace)
+  CountCondition = [2]
+  #  Count Subpattern (
+  #    Return-Graph
+  #    | > Return-NeoElementNodeImpl ComplexNode 1 [6 (4)]
+  #    | > Return-NeoPropertyNodeImpl Property 2 [7 (5)]
+  #    | > NeoElementNodeImpl Element 3 [8]
+  #    | ~ NeoPropertyEdgeImpl [4 (2)] from 6 to 7
+  #    | ~ NeoElementEdgeImpl [5] from 6 to 8 NeoPathParam [3] -[varEEdge5]-
+  #    : Morphism (2 -> 3)
+  #    |   * NodeMapping(4 -> 6)
+  #    |   * NodeMapping(5 -> 7)
+  #    |   * RelationMapping(2 -> 4)
+  #    TRUE
+  #  )
+  #  NumberElement  (4)
+  ParameterList
+    : comp [2] =
+    : numb [4] 1.0
+    : NeoNodeLabels [5] ()
+    : NeoPropertyPathParam [1] -[varPEdge2:PLACE_OF_ISSUE]-(varPNode5_2:IndexPlace)
+    : NeoNodeLabels [6] ()
+    : NeoPathParam [3] -[varEEdge5]-
+
+___TRANSLATION___
+MATCH (varENode4)-[varPEdge2:PLACE_OF_ISSUE]-(varPNode5_2:IndexPlace)
+MATCH (varENode4)-[varEEdge5]-(varENode8)
+WITH varENode4, COUNT(varENode4) AS myCounter1, COUNT(varPNode5_2.test) AS myCounter2
+WHERE myCounter1 = 1.0 AND myCounter2 = 1.0
+RETURN varENode4
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [4]
+  CountCondition = [1]
+  #  Count Subpattern (
+  #    Return-Graph
+  #    | > Return-NeoElementNodeImpl ComplexNode 1 [5 (4)]
+  #    | > NeoElementNodeImpl Element 2 [6]
+  #    | > Return-NeoPropertyNodeImpl Property 3 [7]
+  #    | ~ NeoElementEdgeImpl [3] from 5 to 6 NeoPathParam [2] -[varEEdge3]-
+  #    | ~ NeoPropertyEdgeImpl [4] from 5 to 7 NeoPropertyPathParam [3] varENode4.placeOfIssue
+  #    : Morphism (2 -> 3)
+  #    |   * NodeMapping(4 -> 5)
+  #    TRUE
+  #  )
+  #  NumberElement  (4)
+  ParameterList
+    : comp [1] =
+    : numb [4] 1.0
+    : NeoNodeLabels [5] ()
+    : NeoNodeLabels [6] ()
+    : NeoPathParam [2] -[varEEdge3]-
+    : NeoPropertyPathParam [3] varENode4.placeOfIssue
+
+___TRANSLATION___
+MATCH (varENode4)
+MATCH (varENode4)-[varEEdge3]-(varENode6)
+WITH varENode4, COUNT(varENode4) AS myCounter1, COUNT(varENode4.placeOfIssue) AS myCounter2
+WHERE myCounter1 = 1.0 AND myCounter2 = 1.0
+RETURN varENode4
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > NeoElementNodeImpl ComplexNode 1 [4]
+  | > Return-NeoElementNodeImpl Element 2 [5]
+  | ~ NeoElementEdgeImpl [2] from 4 to 5 NeoPathParam [1] -[varEEdge2]-
+  CountCondition = [2]
+  #  Count Subpattern (
+  #    Return-Graph
+  #    | > NeoElementNodeImpl ComplexNode 1 [6 (4)]
+  #    | > Return-NeoElementNodeImpl Element 2 [7 (5)]
+  #    | > Return-NeoElementNodeImpl Element 3 [8]
+  #    | ~ NeoElementEdgeImpl [4 (2)] from 6 to 7
+  #    | ~ NeoElementEdgeImpl [5] from 6 to 8 NeoPathParam [3] -[varEEdge5]-
+  #    : Morphism (2 -> 3)
+  #    |   * NodeMapping(4 -> 6)
+  #    |   * NodeMapping(5 -> 7)
+  #    |   * RelationMapping(2 -> 4)
+  #    TRUE
+  #  )
+  #  NumberElement  (4)
+  ParameterList
+    : comp [2] =
+    : numb [4] 1.0
+    : NeoNodeLabels [5] ('Regesta')
+    : NeoNodeLabels [6] ('IndexPlace')
+    : NeoPathParam [1] -[varEEdge2]-
+    : NeoNodeLabels [7] ('IndexPerson')
+    : NeoPathParam [3] -[varEEdge5]-
+
+___TRANSLATION___
+MATCH (varENode4:Regesta)-[varEEdge2]-(varENode5:IndexPlace)
+MATCH (varENode4)-[varEEdge5]-(varENode8:IndexPerson)
+WITH varENode5, varEEdge2, COUNT(varENode8) AS myCounter1, COUNT(varENode5) AS myCounter2
+WHERE myCounter1 = 1.0 AND myCounter2 = 1.0
+RETURN varENode5, 
+   varEEdge2
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [5]
+  CountCondition = [1]
+  #  Count Subpattern (
+  #    Return-Graph
+  #    | > NeoElementNodeImpl ComplexNode 1 [6 (5)]
+  #    | > Return-NeoElementNodeImpl Element 2 [7]
+  #    | ~ NeoElementEdgeImpl [2] from 6 to 7 NeoPathParam [2] -[varEEdge2]-
+  #    : Morphism (2 -> 3)
+  #    |   * NodeMapping(5 -> 6)
+  #    NOT  [
+  #    . ( EXISTS
+  #    . .   : Graph
+  #    . .   | | > Return-NeoElementNodeImpl ComplexNode 1 [8 (5)]
+  #    . .   | | > NeoElementNodeImpl Element 2 [9 (7)]
+  #    . .   | | > NeoElementNodeImpl ComplexNode 3 [10]
+  #    . .   | | ~ NeoElementEdgeImpl [5 (2)] from 8 to 9
+  #    . .   | | ~ NeoElementEdgeImpl [6] from 8 to 10 NeoPathParam [3] -[varEEdge6]-
+  #    . .   : Morphism (3 -> 4)
+  #    . .   |   * NodeMapping(6 -> 8)
+  #    . .   |   * NodeMapping(7 -> 9)
+  #    . .   |   * RelationMapping(2 -> 5)
+  #    . .   : TRUE
+  #    . )
+  #    . AND
+  #    . ( EXISTS
+  #    . .   : Graph
+  #    . .   | | > Return-NeoElementNodeImpl ComplexNode 1 [11 (5)]
+  #    . .   | | > NeoElementNodeImpl Element 2 [12 (7)]
+  #    . .   | | > NeoPropertyNodeImpl PrimitiveNode 4 [13]
+  #    . .   | | ~ NeoElementEdgeImpl [7 (2)] from 11 to 12
+  #    . .   | | ~ NeoPropertyEdgeImpl [8] from 11 to 13 NeoPropertyPathParam [4] varENode5.normalizedGerman
+  #    . .   : Morphism (3 -> 5)
+  #    . .   |   * NodeMapping(6 -> 11)
+  #    . .   |   * NodeMapping(7 -> 12)
+  #    . .   |   * RelationMapping(2 -> 7)
+  #    . .   : TRUE
+  #    . )
+  #    ]
+  #  )
+  #  NumberElement  (5)
+  ParameterList
+    : comp [1] =
+    : numb [5] 1.0
+    : NeoNodeLabels [6] ()
+    : NeoNodeLabels [7] ()
+    : NeoPathParam [2] -[varEEdge2]-
+    : NeoNodeLabels [8] ()
+    : NeoPathParam [3] -[varEEdge6]-
+    : NeoPropertyPathParam [4] varENode5.normalizedGerman
+
+___TRANSLATION___
+MATCH (varENode5)
+MATCH (varENode5)-[varEEdge2]-(varENode7)
+WHERE NOT (EXISTS {
+         MATCH (varENode5)-[varEEdge6]-(varENode10)}
+      AND EXISTS (varENode5.normalizedGerman))
+WITH varENode5, COUNT(varENode7) AS myCounter1
+WHERE myCounter1 = 1.0
+RETURN varENode5
+<<< END - Tests >>>
+
+
+<<< BEGIN - Build-Pattern-Exceptions >>>
+
+
+___PATTERN_(NOT VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  CountCondition = [1]
+  #  Count Subpattern (
+  #    Return-Graph
+  #    | > NeoElementNodeImpl ComplexNode 1 [4 (3)]
+  #    | > NeoElementNodeImpl Element 2 [5]
+  #    | ~ NeoElementEdgeImpl [2] from 4 to 5 NeoPathParam [2] -[varEEdge2]-
+  #    : Morphism (2 -> 3)
+  #    |   * NodeMapping(3 -> 4)
+  #    TRUE
+  #  )
+  #  NumberElement  (3)
+  ParameterList
+    : comp [1] =
+    : numb [3] 1.0
+    : NeoNodeLabels [4] ()
+    : NeoNodeLabels [5] ()
+    : NeoPathParam [2] -[varEEdge2]-
+
+___TRANSLATION___
+-- Beginning of the Exceptions --
+qualitypatternmodel.exceptions.InvalidityException: No Count Elements exists
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  CountCondition = [1]
+  #  Count Subpattern (
+  #    Return-Graph
+  #    | > NeoElementNodeImpl ComplexNode 1 [4 (3)]
+  #    | > NeoElementNodeImpl Element 2 [5]
+  #    | ~ NeoElementEdgeImpl [2] from 4 to 5 NeoPathParam [2] -[varEEdge2]-
+  #    : Morphism (2 -> 3)
+  #    |   * NodeMapping(3 -> 4)
+  #    TRUE
+  #  )
+  #  NumberElement  (3)
+  ParameterList
+    : comp [1] =
+    : numb [3] 1.0
+    : NeoNodeLabels [4] ()
+    : NeoNodeLabels [5] ()
+    : NeoPathParam [2] -[varEEdge2]-
+Test successful
+
+
+___PATTERN_(NOT VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [4]
+  CountCondition = [1]
+  #  Count Subpattern (
+  #    Return-Graph
+  #    | > Return-NeoElementNodeImpl ComplexNode 1 [5 (4)]
+  #    | > NeoElementNodeImpl Element 2 [6]
+  #    | > Return-NeoPropertyNodeImpl Property 3 [7]
+  #    | ~ NeoElementEdgeImpl [3] from 5 to 6 NeoPathParam [2] -[varEEdge3]-
+  #    | ~ NeoPropertyEdgeImpl [4] from 5 to 7 NeoPropertyPathParam [3]
+  #    : Morphism (2 -> 3)
+  #    |   * NodeMapping(4 -> 5)
+  #    TRUE
+  #  )
+  #  NumberElement  (4)
+  ParameterList
+    : comp [1] =
+    : numb [4] 1.0
+    : NeoNodeLabels [5] ()
+    : NeoNodeLabels [6] ()
+    : NeoPathParam [2] -[varEEdge3]-
+    : NeoPropertyPathParam [3]
+
+___TRANSLATION___
+-- Beginning of the Exceptions --
+qualitypatternmodel.exceptions.InvalidityException: No NeoPropertyName was specified
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [4]
+  CountCondition = [1]
+  #  Count Subpattern (
+  #    Return-Graph
+  #    | > Return-NeoElementNodeImpl ComplexNode 1 [5 (4)]
+  #    | > NeoElementNodeImpl Element 2 [6]
+  #    | > Return-NeoPropertyNodeImpl Property 3 [7]
+  #    | ~ NeoElementEdgeImpl [3] from 5 to 6 NeoPathParam [2] -[varEEdge3]-
+  #    | ~ NeoPropertyEdgeImpl [4] from 5 to 7 NeoPropertyPathParam [3]
+  #    : Morphism (2 -> 3)
+  #    |   * NodeMapping(4 -> 5)
+  #    TRUE
+  #  )
+  #  NumberElement  (4)
+  ParameterList
+    : comp [1] =
+    : numb [4] 1.0
+    : NeoNodeLabels [5] ()
+    : NeoNodeLabels [6] ()
+    : NeoPathParam [2] -[varEEdge3]-
+    : NeoPropertyPathParam [3]
+Test successful
+
+
+___PATTERN_(NOT VALID)___
+
+-- Beginning of the Exceptions --
+java.lang.NullPointerException: Cannot invoke "qualitypatternmodel.parameters.ComparisonOptionParam.getValue()" because the return value of "qualitypatternmodel.patternstructure.impl.CountConditionImpl.getOption()" is null
+java.lang.NullPointerException: Cannot invoke "qualitypatternmodel.parameters.ComparisonOptionParam.getValue()" because the return value of "qualitypatternmodel.patternstructure.impl.CountConditionImpl.getOption()" is null
+Test successful
+<<< END - Build-Pattern-Exceptions >>>
+
+
+<<< BEGIN - Build-Pattern-Exceptions >>>
+
+
+___PATTERN_(NOT VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  CountCondition = [1]
+  #  Count Subpattern (
+  #    Return-Graph
+  #    | > Return-NeoElementNodeImpl ComplexNode 1 [4 (3)]
+  #    | > NeoElementNodeImpl Element 2 [5]
+  #    | ~ NeoElementEdgeImpl [2] from 4 to 5 NeoPathParam [2] -[varEEdge2]-
+  #    : Morphism (2 -> 3)
+  #    |   * NodeMapping(3 -> 4)
+  #    TRUE
+  #  )
+  #  Count Subpattern (
+  #    Return-Graph
+  #    | > Return-NeoElementNodeImpl ComplexNode 1 [6 (3)]
+  #    : Morphism (2 -> 4)
+  #    |   * NodeMapping(3 -> 6)
+  #    TRUE
+  #  )
+  ParameterList
+    : comp [1] =
+    : NeoNodeLabels [3] ()
+    : NeoNodeLabels [4] ()
+    : NeoPathParam [2] -[varEEdge2]-
+
+___TRANSLATION___
+-- Beginning of the Exceptions --
+java.lang.UnsupportedOperationException: The current version does not support this functionality
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  CountCondition = [1]
+  #  Count Subpattern (
+  #    Return-Graph
+  #    | > Return-NeoElementNodeImpl ComplexNode 1 [4 (3)]
+  #    | > NeoElementNodeImpl Element 2 [5]
+  #    | ~ NeoElementEdgeImpl [2] from 4 to 5 NeoPathParam [2] -[varEEdge2]-
+  #    : Morphism (2 -> 3)
+  #    |   * NodeMapping(3 -> 4)
+  #    TRUE
+  #  )
+  #  Count Subpattern (
+  #    Return-Graph
+  #    | > Return-NeoElementNodeImpl ComplexNode 1 [6 (3)]
+  #    : Morphism (2 -> 4)
+  #    |   * NodeMapping(3 -> 6)
+  #    TRUE
+  #  )
+  ParameterList
+    : comp [1] =
+    : NeoNodeLabels [3] ()
+    : NeoNodeLabels [4] ()
+    : NeoPathParam [2] -[varEEdge2]-
+Test successful
+
+
+___PATTERN_(NOT VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [4]
+  CountCondition = [1]
+  #  Count Subpattern (
+  #    Return-Graph
+  #    | > Return-NeoElementNodeImpl ComplexNode 1 [5 (4)]
+  #    | > NeoElementNodeImpl Element 2 [6]
+  #    | ~ NeoElementEdgeImpl [2] from 5 to 6 NeoPathParam [2] -[varEEdge2]-
+  #    : Morphism (2 -> 3)
+  #    |   * NodeMapping(4 -> 5)
+  #    CountCondition = [3]
+  #    #  Count Subpattern (
+  #    #    Return-Graph
+  #    #    | > Return-NeoElementNodeImpl ComplexNode 1 [7 (4)]
+  #    #    | > NeoElementNodeImpl Element 2 [8 (6)]
+  #    #    | > NeoElementNodeImpl Element 3 [9]
+  #    #    | ~ NeoElementEdgeImpl [4 (2)] from 7 to 8
+  #    #    | ~ NeoElementEdgeImpl [5] from 7 to 9 NeoPathParam [4] -[varEEdge5]-
+  #    #    : Morphism (3 -> 4)
+  #    #    |   * NodeMapping(5 -> 7)
+  #    #    |   * NodeMapping(6 -> 8)
+  #    #    |   * RelationMapping(2 -> 4)
+  #    #    TRUE
+  #    #  )
+  #    #  NumberElement  (5)
+  #  )
+  #  NumberElement  (6)
+  ParameterList
+    : comp [1] =
+    : numb [6] 1.0
+    : comp [3] =
+    : numb [5] 1.0
+    : NeoNodeLabels [7] ()
+    : NeoNodeLabels [8] ()
+    : NeoPathParam [2] -[varEEdge2]-
+    : NeoNodeLabels [9] ()
+    : NeoPathParam [4] -[varEEdge5]-
+
+___TRANSLATION___
+-- Beginning of the Exceptions --
+qualitypatternmodel.exceptions.InvalidityException: The current version does not support this functionality (Nested Counting)
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [4]
+  CountCondition = [1]
+  #  Count Subpattern (
+  #    Return-Graph
+  #    | > Return-NeoElementNodeImpl ComplexNode 1 [5 (4)]
+  #    | > NeoElementNodeImpl Element 2 [6]
+  #    | ~ NeoElementEdgeImpl [2] from 5 to 6 NeoPathParam [2] -[varEEdge2]-
+  #    : Morphism (2 -> 3)
+  #    |   * NodeMapping(4 -> 5)
+  #    CountCondition = [3]
+  #    #  Count Subpattern (
+  #    #    Return-Graph
+  #    #    | > Return-NeoElementNodeImpl ComplexNode 1 [7 (4)]
+  #    #    | > NeoElementNodeImpl Element 2 [8 (6)]
+  #    #    | > NeoElementNodeImpl Element 3 [9]
+  #    #    | ~ NeoElementEdgeImpl [4 (2)] from 7 to 8
+  #    #    | ~ NeoElementEdgeImpl [5] from 7 to 9 NeoPathParam [4] -[varEEdge5]-
+  #    #    : Morphism (3 -> 4)
+  #    #    |   * NodeMapping(5 -> 7)
+  #    #    |   * NodeMapping(6 -> 8)
+  #    #    |   * RelationMapping(2 -> 4)
+  #    #    TRUE
+  #    #  )
+  #    #  NumberElement  (5)
+  #  )
+  #  NumberElement  (6)
+  ParameterList
+    : comp [1] =
+    : numb [6] 1.0
+    : comp [3] =
+    : numb [5] 1.0
+    : NeoNodeLabels [7] ()
+    : NeoNodeLabels [8] ()
+    : NeoPathParam [2] -[varEEdge2]-
+    : NeoNodeLabels [9] ()
+    : NeoPathParam [4] -[varEEdge5]-
+Test successful
+<<< END - Build-Pattern-Exceptions >>>
+

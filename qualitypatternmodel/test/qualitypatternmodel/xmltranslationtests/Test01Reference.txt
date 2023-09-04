@@ -1,0 +1,58 @@
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > XmlElementImpl Element 2 [3]
+  | > Return-XmlElementImpl ComplexNode 1 [4]
+  | > XmlRootImpl Root [5]
+  | > XmlPropertyImpl XmlProperty 6 [6]
+  | ~ XmlElementNavigationImpl [5] from 5 to 4 (xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.)
+  | ~ XmlReferenceImpl [6] from 4 to 3 [6]
+  | ~ XmlPropertyNavigationImpl [7] from 4 to 6 (xmlpath [4][] {DATA})
+  | ~ XmlPropertyNavigationImpl [8] from 3 to 6 (xmlpath [5][] {DATA})
+  | ~ XmlElementNavigationImpl [9] from 5 to 3 (xmlpath [6] {[axis [7] /descendant::*, {TAG}, text [8] '']}.)
+  TRUE
+  ParameterList
+    : xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.
+    : xmlpath [4][] {DATA}
+    : xmlpath [5][] {DATA}
+    : xmlpath [6] {[axis [7] /descendant::*, {TAG}, text [8] '']}.
+
+___TRANSLATION___
+for $var5_0 in /descendant::*[./text()]
+for $var9_0 in /descendant::*[./text()[. = $var5_0/text()]]
+return $var5_0
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > XmlElementImpl Element 2 [3]
+  | > Return-XmlElementImpl ComplexNode 1 [4]
+  | > XmlRootImpl Root [5]
+  | ~ XmlElementNavigationImpl [2] from 4 to 3 (xmlpath [1] {[axis [2] /child::*, {DATA}, text [3] '']}.)
+  | ~ XmlElementNavigationImpl [3] from 5 to 4 (xmlpath [4] {[axis [5] /descendant::*, {TAG}, text [6] '']}.)
+  EXISTS
+    : Graph
+    | | > XmlElementImpl Element 2 [6 (3)]
+    | | > Return-XmlElementImpl ComplexNode 1 [7 (4)]
+    | | > XmlRootImpl Root [8 (5)]
+    | | ~ XmlElementNavigationImpl [4 (2)] from 7 to 6 (xmlpath [1] {[axis [2] /child::*, {DATA}, text [3] '']}.)
+    | | ~ XmlElementNavigationImpl [5 (3)] from 8 to 7 (xmlpath [4] {[axis [5] /descendant::*, {TAG}, text [6] '']}.)
+    : Morphism (2 -> 3)
+    |   * NodeMapping(3 -> 6)
+    |   * NodeMapping(4 -> 7)
+    |   * RelationMapping(2 -> 4)
+    |   * NodeMapping(5 -> 8)
+    |   * RelationMapping(3 -> 5)
+    : TRUE
+  ParameterList
+    : xmlpath [1] {[axis [2] /child::*, {DATA}, text [3] '']}.
+    : xmlpath [4] {[axis [5] /descendant::*, {TAG}, text [6] '']}.
+
+___TRANSLATION___
+for $var3_0 in /descendant::*
+for $var2_0 in $var3_0/child::*[./text()]
+where (true())
+return $var3_0

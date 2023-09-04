@@ -1,0 +1,58 @@
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [4]
+  | > RdfLiteralNodeImpl PrimitiveNode 2 [5]
+  | > RdfLiteralNodeImpl PrimitiveNode 3 [6]
+  | ~ RdfPredicateImpl [3] from 4 to 5 rdfpath [1] -(<>|!<>) 
+  | ~ RdfPredicateImpl [4] from 4 to 6 rdfpath [2] -(<>|!<>) 
+  | OperatorList [2]
+  | - COMP [1] STRING:BOOLEAN (RdfLiteralNodeImpl [5] =[3] RdfLiteralNodeImpl [6])
+  TRUE
+  ParameterList
+    : comp [3] =
+    : type [4] STRING
+    : irilist [5] ( )
+    : rdfpath [1] -(<>|!<>) 
+    : rdfpath [2] -(<>|!<>) 
+
+___TRANSLATION___
+SELECT
+  ?var4
+WHERE {
+  ?var4 (<>|!<>) ?var5.
+  ?var4 (<>|!<>) ?var6.
+  FILTER (?var5 = ?var6).
+}
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [4]
+  | > RdfIriNodeImpl ComplexNode 2 [5]
+  | > RdfIriNodeImpl ComplexNode 3 [6]
+  | ~ RdfPredicateImpl [3] from 4 to 5 rdfpath [1] -(<>|!<>) 
+  | ~ RdfPredicateImpl [4] from 4 to 6 rdfpath [2] -(<>|!<>) 
+  | OperatorList [2]
+  | - COMP [1] ELEMENT:BOOLEAN (RdfIriNodeImpl [5] =[3] RdfIriNodeImpl [6])
+  TRUE
+  ParameterList
+    : comp [3] =
+    : type [4] ELEMENT
+    : irilist [5] ( )
+    : rdfpath [1] -(<>|!<>) 
+    : irilist [6] ( )
+    : rdfpath [2] -(<>|!<>) 
+    : irilist [7] ( )
+
+___TRANSLATION___
+SELECT
+  ?var4
+WHERE {
+  ?var4 (<>|!<>) ?var5.
+  ?var4 (<>|!<>) ?var6.
+  FILTER (?var5 = ?var6).
+}

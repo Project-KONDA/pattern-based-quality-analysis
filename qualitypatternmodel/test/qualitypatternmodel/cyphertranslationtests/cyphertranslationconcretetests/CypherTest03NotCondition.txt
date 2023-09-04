@@ -1,0 +1,70 @@
+
+<<< BEGIN - Build-Pattern-Exceptions >>>
+
+
+___PATTERN_(NOT VALID)___
+
+-- Beginning of the Exceptions --
+java.lang.NullPointerException: Cannot invoke "qualitypatternmodel.patternstructure.Condition.myToString()" because "this.condition" is null
+java.lang.NullPointerException: Cannot invoke "qualitypatternmodel.patternstructure.Condition.myToString()" because "this.condition" is null
+Test successful
+
+
+___PATTERN_(NOT VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1]
+  NOT  [
+  . CountCondition = [2]
+  . #  Count Subpattern (
+  . #    Return-Graph
+  . #    | > Return-NeoElementNodeImpl ComplexNode 1 [5 (3)]
+  . #    | > NeoPropertyNodeImpl Property 2 [6 (4)]
+  . #    | ~ NeoPropertyEdgeImpl [3 (2)] from 5 to 6
+  . #    : Morphism (2 -> 3)
+  . #    |   * NodeMapping(3 -> 5)
+  . #    |   * NodeMapping(4 -> 6)
+  . #    |   * RelationMapping(2 -> 3)
+  . #    TRUE
+  . #  )
+  . #  NumberElement  (3)
+  ]
+  ParameterList
+    : comp [2] =
+    : numb [3] null
+    : NeoNodeLabels [4] ()
+    : NeoPropertyPathParam [1]
+
+___TRANSLATION___
+-- Beginning of the Exceptions --
+java.lang.UnsupportedOperationException: The current version does not support this functionality
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1]
+  NOT  [
+  . CountCondition = [2]
+  . #  Count Subpattern (
+  . #    Return-Graph
+  . #    | > Return-NeoElementNodeImpl ComplexNode 1 [5 (3)]
+  . #    | > NeoPropertyNodeImpl Property 2 [6 (4)]
+  . #    | ~ NeoPropertyEdgeImpl [3 (2)] from 5 to 6
+  . #    : Morphism (2 -> 3)
+  . #    |   * NodeMapping(3 -> 5)
+  . #    |   * NodeMapping(4 -> 6)
+  . #    |   * RelationMapping(2 -> 3)
+  . #    TRUE
+  . #  )
+  . #  NumberElement  (3)
+  ]
+  ParameterList
+    : comp [2] =
+    : numb [3] null
+    : NeoNodeLabels [4] ()
+    : NeoPropertyPathParam [1]
+Test successful
+<<< END - Build-Pattern-Exceptions >>>
+

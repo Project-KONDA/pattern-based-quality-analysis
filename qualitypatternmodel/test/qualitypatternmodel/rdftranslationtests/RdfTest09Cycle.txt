@@ -1,0 +1,28 @@
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [4]
+  | > RdfIriNodeImpl ComplexNode 2 [5]
+  | > RdfIriNodeImpl ComplexNode 3 [6]
+  | ~ RdfPredicateImpl [4] from 5 to 4 rdfpath [1] -(<>|!<>) 
+  | ~ RdfPredicateImpl [5] from 6 to 5 rdfpath [2] -(<>|!<>) 
+  | ~ RdfPredicateImpl [6] from 4 to 6 rdfpath [3] -(<>|!<>) 
+  TRUE
+  ParameterList
+    : rdfpath [1] -(<>|!<>) 
+    : irilist [4] ( )
+    : rdfpath [2] -(<>|!<>) 
+    : irilist [5] ( )
+    : rdfpath [3] -(<>|!<>) 
+    : irilist [6] ( )
+
+___TRANSLATION___
+SELECT
+  ?var4
+WHERE {
+  ?var4 (<>|!<>) ?var6.
+  ?var6 (<>|!<>) ?var5.
+  ?var5 (<>|!<>) ?var4.
+}

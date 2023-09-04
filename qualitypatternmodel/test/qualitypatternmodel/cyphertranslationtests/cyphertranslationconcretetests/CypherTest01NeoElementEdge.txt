@@ -1,0 +1,87 @@
+
+<<< BEGIN - Build-Pattern-Exceptions >>>
+
+
+___PATTERN_(NOT VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-ComplexNodeImpl ComplexNode 1 [3]
+  | > ComplexNodeImpl ComplexNode 2 [4]
+  | ~ RelationImpl [1] from 3 to 4
+  TRUE
+
+___TRANSLATION___
+-- Beginning of the Exceptions --
+qualitypatternmodel.exceptions.InvalidityException: No instance of NeoElementNode
+Pattern MyPattern
+  Return-Graph
+  | > Return-ComplexNodeImpl ComplexNode 1 [3]
+  | > ComplexNodeImpl ComplexNode 2 [4]
+  | ~ RelationImpl [1] from 3 to 4
+  TRUE
+Test successful
+
+
+___PATTERN_(NOT VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoElementNodeImpl ComplexNode 2 [4]
+  | ~ NeoElementEdgeImpl [2] from 3 to 4 NeoPathParam [1] -[varEEdge2]-
+  TRUE
+  ParameterList
+    : NeoNodeLabels [2] ()
+    : NeoNodeLabels [3] ()
+    : NeoPathParam [1] -[varEEdge2]-
+
+___TRANSLATION___
+-- Beginning of the Exceptions --
+qualitypatternmodel.exceptions.InvalidityException: A cypher query need a Match-Clause
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoElementNodeImpl ComplexNode 2 [4]
+  | ~ NeoElementEdgeImpl [2] from 3 to 4 NeoPathParam [1] -[varEEdge2]-
+  TRUE
+  ParameterList
+    : NeoNodeLabels [2] ()
+    : NeoNodeLabels [3] ()
+    : NeoPathParam [1] -[varEEdge2]-
+Test successful
+
+
+___PATTERN_(NOT VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoElementNodeImpl ComplexNode 2 [4]
+  | ~ NeoElementEdgeImpl [2] from 3 to 4 NeoPathParam [1]
+  TRUE
+  ParameterList
+    : NeoNodeLabels [2] ()
+    : NeoNodeLabels [3] ()
+    : NeoPathParam [1]
+
+___TRANSLATION___
+-- Beginning of the Exceptions --
+qualitypatternmodel.exceptions.InvalidityException: NeoParts can not be empty
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoElementNodeImpl ComplexNode 2 [4]
+  | ~ NeoElementEdgeImpl [2] from 3 to 4 NeoPathParam [1]
+  TRUE
+  ParameterList
+    : NeoNodeLabels [2] ()
+    : NeoNodeLabels [3] ()
+    : NeoPathParam [1]
+Test successful
+<<< END - Build-Pattern-Exceptions >>>
+
+
+<<< BEGIN - Build-Pattern-Exceptions >>>
+Exception: Set NeoPathPart
+java.lang.UnsupportedOperationException
+
+<<< END - Build-Pattern-Exceptions >>>
+

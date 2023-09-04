@@ -1,0 +1,261 @@
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl ComplexNode 1 [6]
+  | > XmlRootImpl Root [7]
+  | ~ XmlElementNavigationImpl [10] from 7 to 6 (xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.)
+  EXISTS
+    : Graph
+    | | > Return-XmlElementImpl ComplexNode 1 [8 (6)]
+    | | > XmlElementImpl ComplexNode 2 [9]
+    | | > XmlRootImpl Root [10 (7)]
+    | | > XmlPropertyImpl XmlProperty 4 [4]
+    | | ~ XmlElementNavigationImpl [4] from 8 to 9 (xmlpath [5] {[axis [6] /child::*, {DATA}, text [7] '']}.)
+    | | ~ XmlElementNavigationImpl [11 (10)] from 10 to 8 (xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.)
+    | | ~ XmlReferenceImpl [12] from 8 to 9 [4]
+    | | ~ XmlPropertyNavigationImpl [7] from 8 to 4 (xmlpath [8][] {ATTRIBUTE, text [9] 'demo:id'})
+    | | ~ XmlPropertyNavigationImpl [9] from 9 to 4 (xmlpath [10][] {DATA})
+    : Morphism (2 -> 3)
+    |   * NodeMapping(6 -> 8)
+    |   * NodeMapping(7 -> 10)
+    |   * RelationMapping(10 -> 11)
+    : EXISTS
+    |   : Graph
+    |   | | > Return-XmlElementImpl ComplexNode 1 [11 (6)]
+    |   | | > XmlElementImpl ComplexNode 2 [12 (9)]
+    |   | | > XmlElementImpl Element 3 [13]
+    |   | | > XmlRootImpl Root [14 (7)]
+    |   | | > XmlPropertyImpl Element 5 [15 (4)]
+    |   | | ~ XmlElementNavigationImpl [13 (4)] from 11 to 12 (xmlpath [5] {[axis [6] /child::*, {DATA}, text [7] '']}.)
+    |   | | ~ XmlElementNavigationImpl [14] from 12 to 13 (xmlpath [11] {[axis [12] /child::*, {DATA}, text [13] '']}.)
+    |   | | ~ XmlElementNavigationImpl [15 (10)] from 14 to 11 (xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.)
+    |   | | ~ XmlPropertyNavigationImpl [16 (7)] from 11 to 15 (xmlpath [8][] {ATTRIBUTE, text [9] 'demo:id'})
+    |   | | ~ XmlPropertyNavigationImpl [17 (9)] from 12 to 15 (xmlpath [10][] {DATA})
+    |   | | ~ XmlReferenceImpl [18 (12)] from 11 to 12 [-]
+    |   : Morphism (3 -> 4)
+    |   |   * NodeMapping(8 -> 11)
+    |   |   * NodeMapping(9 -> 12)
+    |   |   * RelationMapping(12 -> 18)
+    |   |   * RelationMapping(4 -> 13)
+    |   |   * NodeMapping(10 -> 14)
+    |   |   * RelationMapping(11 -> 15)
+    |   |   * NodeMapping(4 -> 15)
+    |   |   * RelationMapping(7 -> 16)
+    |   |   * RelationMapping(9 -> 17)
+    |   : TRUE
+  ParameterList
+    : xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.
+    : xmlpath [5] {[axis [6] /child::*, {DATA}, text [7] '']}.
+    : xmlpath [11] {[axis [12] /child::*, {DATA}, text [13] '']}.
+    : xmlpath [8][] {ATTRIBUTE, text [9] 'demo:id'}
+    : xmlpath [10][] {DATA}
+
+___TRANSLATION___
+for $var10_0 in /descendant::*
+where 
+  some $var4_0 in $var10_0/child::*[./text()][./text()]
+  satisfies 
+  some $var7_0 in $var10_0/@*[name()="demo:id"][. = $var4_0/text()]
+  satisfies (
+  some $var14_0 in $var4_0/child::*[./text()]
+  satisfies (true()))
+return $var10_0
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl ComplexNode 1 [6]
+  | > XmlRootImpl Root [7]
+  | ~ XmlElementNavigationImpl [10] from 7 to 6 (xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.)
+  EXISTS
+    : Graph
+    | | > Return-XmlElementImpl ComplexNode 1 [8 (6)]
+    | | > XmlElementImpl ComplexNode 2 [9]
+    | | > XmlRootImpl Root [10 (7)]
+    | | > XmlPropertyImpl XmlProperty 4 [4]
+    | | ~ XmlElementNavigationImpl [4] from 8 to 9 (xmlpath [5] {[axis [6] /child::*, {DATA}, text [7] '']}.)
+    | | ~ XmlElementNavigationImpl [11 (10)] from 10 to 8 (xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.)
+    | | ~ XmlReferenceImpl [12] from 8 to 9 [4]
+    | | ~ XmlPropertyNavigationImpl [7] from 8 to 4 (xmlpath [8][] {ATTRIBUTE, text [9] 'demo:id'})
+    | | ~ XmlPropertyNavigationImpl [9] from 9 to 4 (xmlpath [10][] {DATA})
+    : Morphism (2 -> 3)
+    |   * NodeMapping(6 -> 8)
+    |   * NodeMapping(7 -> 10)
+    |   * RelationMapping(10 -> 11)
+    : FORALL
+    |   : Graph
+    |   | | > Return-XmlElementImpl ComplexNode 1 [11 (6)]
+    |   | | > XmlElementImpl ComplexNode 2 [12 (9)]
+    |   | | > XmlElementImpl Element 3 [13]
+    |   | | > XmlRootImpl Root [14 (7)]
+    |   | | > XmlPropertyImpl Element 5 [15 (4)]
+    |   | | ~ XmlElementNavigationImpl [13 (4)] from 11 to 12 (xmlpath [5] {[axis [6] /child::*, {DATA}, text [7] '']}.)
+    |   | | ~ XmlElementNavigationImpl [14] from 12 to 13 (xmlpath [11] {[axis [12] /child::*, {DATA}, text [13] '']}.)
+    |   | | ~ XmlElementNavigationImpl [15 (10)] from 14 to 11 (xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.)
+    |   | | ~ XmlPropertyNavigationImpl [16 (7)] from 11 to 15 (xmlpath [8][] {ATTRIBUTE, text [9] 'demo:id'})
+    |   | | ~ XmlPropertyNavigationImpl [17 (9)] from 12 to 15 (xmlpath [10][] {DATA})
+    |   | | ~ XmlReferenceImpl [18 (12)] from 11 to 12 [-]
+    |   : Morphism (3 -> 4)
+    |   |   * NodeMapping(8 -> 11)
+    |   |   * NodeMapping(9 -> 12)
+    |   |   * RelationMapping(12 -> 18)
+    |   |   * RelationMapping(4 -> 13)
+    |   |   * NodeMapping(10 -> 14)
+    |   |   * RelationMapping(11 -> 15)
+    |   |   * NodeMapping(4 -> 15)
+    |   |   * RelationMapping(7 -> 16)
+    |   |   * RelationMapping(9 -> 17)
+    |   : TRUE
+  ParameterList
+    : xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.
+    : xmlpath [5] {[axis [6] /child::*, {DATA}, text [7] '']}.
+    : xmlpath [11] {[axis [12] /child::*, {DATA}, text [13] '']}.
+    : xmlpath [8][] {ATTRIBUTE, text [9] 'demo:id'}
+    : xmlpath [10][] {DATA}
+
+___TRANSLATION___
+for $var10_0 in /descendant::*
+where 
+  some $var4_0 in $var10_0/child::*[./text()][./text()]
+  satisfies 
+  some $var7_0 in $var10_0/@*[name()="demo:id"][. = $var4_0/text()]
+  satisfies (
+  every $var14_0 in $var4_0/child::*[./text()]
+  satisfies (true()))
+return $var10_0
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl ComplexNode 1 [6]
+  | > XmlRootImpl Root [7]
+  | ~ XmlElementNavigationImpl [10] from 7 to 6 (xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.)
+  FORALL
+    : Graph
+    | | > Return-XmlElementImpl ComplexNode 1 [8 (6)]
+    | | > XmlElementImpl ComplexNode 2 [9]
+    | | > XmlRootImpl Root [10 (7)]
+    | | > XmlPropertyImpl XmlProperty 4 [4]
+    | | ~ XmlElementNavigationImpl [4] from 8 to 9 (xmlpath [5] {[axis [6] /child::*, {DATA}, text [7] '']}.)
+    | | ~ XmlElementNavigationImpl [11 (10)] from 10 to 8 (xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.)
+    | | ~ XmlReferenceImpl [12] from 8 to 9 [4]
+    | | ~ XmlPropertyNavigationImpl [7] from 8 to 4 (xmlpath [8][] {ATTRIBUTE, text [9] 'demo:id'})
+    | | ~ XmlPropertyNavigationImpl [9] from 9 to 4 (xmlpath [10][] {DATA})
+    | | OperatorList [3]
+    | | - COMP [1] STRING:BOOLEAN (XmlPropertyImpl [4] =[11] TextLiteralParamImpl [12])
+    : Morphism (4 -> 5)
+    |   * NodeMapping(6 -> 8)
+    |   * NodeMapping(7 -> 10)
+    |   * RelationMapping(10 -> 11)
+    : EXISTS
+    |   : Graph
+    |   | | > Return-XmlElementImpl ComplexNode 1 [11 (6)]
+    |   | | > XmlElementImpl ComplexNode 2 [12 (9)]
+    |   | | > XmlElementImpl Element 3 [13]
+    |   | | > XmlRootImpl Root [14 (7)]
+    |   | | > XmlPropertyImpl Element 5 [15 (4)]
+    |   | | ~ XmlElementNavigationImpl [13 (4)] from 11 to 12 (xmlpath [5] {[axis [6] /child::*, {DATA}, text [7] '']}.)
+    |   | | ~ XmlElementNavigationImpl [14] from 12 to 13 (xmlpath [13] {[axis [14] /child::*, {DATA}, text [15] '']}.)
+    |   | | ~ XmlElementNavigationImpl [15 (10)] from 14 to 11 (xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.)
+    |   | | ~ XmlPropertyNavigationImpl [16 (7)] from 11 to 15 (xmlpath [8][] {ATTRIBUTE, text [9] 'demo:id'})
+    |   | | ~ XmlPropertyNavigationImpl [17 (9)] from 12 to 15 (xmlpath [10][] {DATA})
+    |   | | ~ XmlReferenceImpl [18 (12)] from 11 to 12 [-]
+    |   : Morphism (5 -> 6)
+    |   |   * NodeMapping(8 -> 11)
+    |   |   * NodeMapping(9 -> 12)
+    |   |   * RelationMapping(12 -> 18)
+    |   |   * RelationMapping(4 -> 13)
+    |   |   * NodeMapping(10 -> 14)
+    |   |   * RelationMapping(11 -> 15)
+    |   |   * NodeMapping(4 -> 15)
+    |   |   * RelationMapping(7 -> 16)
+    |   |   * RelationMapping(9 -> 17)
+    |   : TRUE
+  ParameterList
+    : xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.
+    : xmlpath [5] {[axis [6] /child::*, {DATA}, text [7] '']}.
+    : xmlpath [13] {[axis [14] /child::*, {DATA}, text [15] '']}.
+    : xmlpath [8][] {ATTRIBUTE, text [9] 'demo:id'}
+    : xmlpath [10][] {DATA}
+    : text [12] 'demo:artist'
+    : comp [11] =
+    : type [16] STRING
+
+___TRANSLATION___
+for $var10_0 in /descendant::*
+where 
+  every $var4_0 in $var10_0/child::*[./text()][./text()[.="demo:artist"]]
+  satisfies 
+  every $var7_0 in $var10_0/@*[name()="demo:id"][.="demo:artist"][. = $var4_0/text()]
+  satisfies (
+  some $var14_0 in $var4_0/child::*[./text()]
+  satisfies (true()))
+return $var10_0
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl ComplexNode 1 [6]
+  | > XmlRootImpl Root [7]
+  | ~ XmlElementNavigationImpl [10] from 7 to 6 (xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.)
+  FORALL
+    : Graph
+    | | > Return-XmlElementImpl ComplexNode 1 [8 (6)]
+    | | > XmlElementImpl ComplexNode 2 [9]
+    | | > XmlRootImpl Root [10 (7)]
+    | | > XmlPropertyImpl XmlProperty 4 [4]
+    | | ~ XmlElementNavigationImpl [4] from 8 to 9 (xmlpath [5] {[axis [6] /child::*, {DATA}, text [7] '']}.)
+    | | ~ XmlElementNavigationImpl [11 (10)] from 10 to 8 (xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.)
+    | | ~ XmlReferenceImpl [12] from 8 to 9 [4]
+    | | ~ XmlPropertyNavigationImpl [7] from 8 to 4 (xmlpath [8][] {ATTRIBUTE, text [9] 'demo:id'})
+    | | ~ XmlPropertyNavigationImpl [9] from 9 to 4 (xmlpath [10][] {DATA})
+    : Morphism (2 -> 3)
+    |   * NodeMapping(6 -> 8)
+    |   * NodeMapping(7 -> 10)
+    |   * RelationMapping(10 -> 11)
+    : FORALL
+    |   : Graph
+    |   | | > Return-XmlElementImpl ComplexNode 1 [11 (6)]
+    |   | | > XmlElementImpl ComplexNode 2 [12 (9)]
+    |   | | > XmlElementImpl Element 3 [13]
+    |   | | > XmlRootImpl Root [14 (7)]
+    |   | | > XmlPropertyImpl Element 5 [15 (4)]
+    |   | | ~ XmlElementNavigationImpl [13 (4)] from 11 to 12 (xmlpath [5] {[axis [6] /child::*, {DATA}, text [7] '']}.)
+    |   | | ~ XmlElementNavigationImpl [14] from 12 to 13 (xmlpath [11] {[axis [12] /child::*, {DATA}, text [13] '']}.)
+    |   | | ~ XmlElementNavigationImpl [15 (10)] from 14 to 11 (xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.)
+    |   | | ~ XmlPropertyNavigationImpl [16 (7)] from 11 to 15 (xmlpath [8][] {ATTRIBUTE, text [9] 'demo:id'})
+    |   | | ~ XmlPropertyNavigationImpl [17 (9)] from 12 to 15 (xmlpath [10][] {DATA})
+    |   | | ~ XmlReferenceImpl [18 (12)] from 11 to 12 [-]
+    |   : Morphism (3 -> 4)
+    |   |   * NodeMapping(8 -> 11)
+    |   |   * NodeMapping(9 -> 12)
+    |   |   * RelationMapping(12 -> 18)
+    |   |   * RelationMapping(4 -> 13)
+    |   |   * NodeMapping(10 -> 14)
+    |   |   * RelationMapping(11 -> 15)
+    |   |   * NodeMapping(4 -> 15)
+    |   |   * RelationMapping(7 -> 16)
+    |   |   * RelationMapping(9 -> 17)
+    |   : TRUE
+  ParameterList
+    : xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.
+    : xmlpath [5] {[axis [6] /child::*, {DATA}, text [7] '']}.
+    : xmlpath [11] {[axis [12] /child::*, {DATA}, text [13] '']}.
+    : xmlpath [8][] {ATTRIBUTE, text [9] 'demo:id'}
+    : xmlpath [10][] {DATA}
+
+___TRANSLATION___
+for $var10_0 in /descendant::*
+where 
+  every $var4_0 in $var10_0/child::*[./text()][./text()]
+  satisfies 
+  every $var7_0 in $var10_0/@*[name()="demo:id"][. = $var4_0/text()]
+  satisfies (
+  every $var14_0 in $var4_0/child::*[./text()]
+  satisfies (true()))
+return $var10_0

@@ -1,0 +1,544 @@
+
+<<< BEGIN - Tests >>>
+Mode - Testing without DB
+
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [5]
+  | > NeoPropertyNodeImpl Property 2 [6]
+  | > NeoElementNodeImpl Element 3 [7]
+  | > NeoPropertyNodeImpl Property 4 [8]
+  | ~ NeoPropertyEdgeImpl [3] from 5 to 6 NeoPropertyPathParam [1]
+  | ~ NeoPropertyEdgeImpl [4] from 7 to 8 NeoPropertyPathParam [2]
+  | OperatorList [2]
+  | - COMP [1] ELEMENT:BOOLEAN (NeoElementNodeImpl [5] =[3] NeoElementNodeImpl [7])
+  | - COMP [2] ELEMENT:BOOLEAN (NeoElementNodeImpl [7] =[4] NeoElementNodeImpl [5])
+  TRUE
+  ParameterList
+    : type [5] ELEMENT
+    : comp [3] =
+    : type [6] ELEMENT
+    : comp [4] =
+    : NeoNodeLabels [7] ()
+    : NeoNodeLabels [8] ()
+    : NeoPropertyPathParam [1]
+    : NeoPropertyPathParam [2]
+
+___TRANSLATION___
+MATCH (varENode5)
+MATCH (varENode7)
+WHERE (varENode5 = varENode7
+   AND varENode7 = varENode5)
+RETURN varENode5
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [5]
+  | > NeoPropertyNodeImpl Property 2 [6]
+  | > NeoElementNodeImpl Element 3 [7]
+  | > NeoPropertyNodeImpl Property 4 [8]
+  | ~ NeoPropertyEdgeImpl [3] from 5 to 6 NeoPropertyPathParam [1]
+  | ~ NeoPropertyEdgeImpl [4] from 7 to 8 NeoPropertyPathParam [2]
+  | OperatorList [2]
+  | - COMP [1] ELEMENT:BOOLEAN (NeoElementNodeImpl [5] !=[3] NeoElementNodeImpl [7])
+  | - COMP [2] ELEMENT:BOOLEAN (NeoElementNodeImpl [7] !=[4] NeoElementNodeImpl [5])
+  TRUE
+  ParameterList
+    : type [5] ELEMENT
+    : comp [3] !=
+    : type [6] ELEMENT
+    : comp [4] !=
+    : NeoNodeLabels [7] ()
+    : NeoNodeLabels [8] ()
+    : NeoPropertyPathParam [1]
+    : NeoPropertyPathParam [2]
+
+___TRANSLATION___
+MATCH (varENode5)
+MATCH (varENode7)
+WHERE (varENode5 <> varENode7
+   AND varENode7 <> varENode5)
+RETURN varENode5
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [5]
+  | > NeoPropertyNodeImpl Property 2 [6]
+  | > NeoElementNodeImpl Element 3 [7]
+  | > NeoPropertyNodeImpl Property 4 [8]
+  | ~ NeoPropertyEdgeImpl [3] from 5 to 6 NeoPropertyPathParam [1] -[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+  | ~ NeoPropertyEdgeImpl [4] from 7 to 8 NeoPropertyPathParam [2] -[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+  | OperatorList [2]
+  | - COMP [1] ELEMENT:BOOLEAN (NeoElementNodeImpl [5] !=[3] NeoElementNodeImpl [7])
+  | - COMP [2] UNSPECIFIED:BOOLEAN (NeoPropertyNodeImpl [6] !=[4] NeoPropertyNodeImpl [8])
+  | - COMP [3] UNSPECIFIED:BOOLEAN (NeoPropertyNodeImpl [8] !=[5] NeoPropertyNodeImpl [6])
+  TRUE
+  ParameterList
+    : type [6] ELEMENT
+    : comp [3] !=
+    : type [7] UNSPECIFIED
+    : comp [4] !=
+    : type [8] UNSPECIFIED
+    : comp [5] !=
+    : NeoNodeLabels [9] ()
+    : NeoNodeLabels [10] ()
+    : NeoPropertyPathParam [1] -[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+    : NeoPropertyPathParam [2] -[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+
+___TRANSLATION___
+MATCH (varENode5)-[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+MATCH (varENode7)-[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+WHERE (varENode5 <> varENode7
+   AND varPNode6_3.normalizedGerman <> varPNode8_4.normalizedGerman
+   AND varPNode8_4.normalizedGerman <> varPNode6_3.normalizedGerman)
+RETURN varENode5
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [5]
+  | > NeoPropertyNodeImpl Property 2 [6]
+  | > NeoElementNodeImpl Element 3 [7]
+  | > NeoPropertyNodeImpl Property 4 [8]
+  | ~ NeoPropertyEdgeImpl [3] from 5 to 6 NeoPropertyPathParam [1] -[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+  | ~ NeoPropertyEdgeImpl [4] from 7 to 8 NeoPropertyPathParam [2] -[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+  | OperatorList [2]
+  | - COMP [1] ELEMENT:BOOLEAN (NeoElementNodeImpl [5] =[3] NeoElementNodeImpl [7])
+  | - COMP [2] UNSPECIFIED:BOOLEAN (NeoPropertyNodeImpl [6] =[4] NeoPropertyNodeImpl [8])
+  | - COMP [3] UNSPECIFIED:BOOLEAN (NeoPropertyNodeImpl [8] =[5] NeoPropertyNodeImpl [6])
+  TRUE
+  ParameterList
+    : type [6] ELEMENT
+    : comp [3] =
+    : type [7] UNSPECIFIED
+    : comp [4] =
+    : type [8] UNSPECIFIED
+    : comp [5] =
+    : NeoNodeLabels [9] ()
+    : NeoNodeLabels [10] ()
+    : NeoPropertyPathParam [1] -[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+    : NeoPropertyPathParam [2] -[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+
+___TRANSLATION___
+MATCH (varENode5)-[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+MATCH (varENode7)-[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+WHERE (varENode5 = varENode7
+   AND varPNode6_3.normalizedGerman = varPNode8_4.normalizedGerman
+   AND varPNode8_4.normalizedGerman = varPNode6_3.normalizedGerman)
+RETURN varENode5
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [5]
+  | > NeoPropertyNodeImpl Property 2 [6]
+  | > NeoElementNodeImpl Element 3 [7]
+  | > NeoPropertyNodeImpl Property 4 [8]
+  | ~ NeoPropertyEdgeImpl [3] from 5 to 6 NeoPropertyPathParam [1] -[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+  | ~ NeoPropertyEdgeImpl [4] from 7 to 8 NeoPropertyPathParam [2] -[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+  | OperatorList [2]
+  | - COMP [1] ELEMENT:BOOLEAN (NeoElementNodeImpl [5] !=[3] NeoElementNodeImpl [7])
+  | - COMP [2] ELEMENT:BOOLEAN (NeoElementNodeImpl [7] !=[4] NeoElementNodeImpl [5])
+  | - COMP [3] ELEMENT:BOOLEAN (NeoElementNodeImpl [5] =[5] NeoElementNodeImpl [7])
+  | - COMP [4] ELEMENT:BOOLEAN (NeoElementNodeImpl [7] =[6] NeoElementNodeImpl [5])
+  | - COMP [5] ELEMENT:BOOLEAN (NeoElementNodeImpl [5] =[7] NeoElementNodeImpl [7])
+  | - COMP [6] UNSPECIFIED:BOOLEAN (NeoPropertyNodeImpl [6] !=[8] NeoPropertyNodeImpl [8])
+  | - COMP [7] UNSPECIFIED:BOOLEAN (NeoPropertyNodeImpl [8] !=[9] NeoPropertyNodeImpl [6])
+  | - COMP [8] ELEMENT:BOOLEAN (NeoElementNodeImpl [5] =[10] NeoElementNodeImpl [7])
+  | - COMP [9] UNSPECIFIED:BOOLEAN (NeoPropertyNodeImpl [6] =[11] NeoPropertyNodeImpl [8])
+  | - COMP [10] UNSPECIFIED:BOOLEAN (NeoPropertyNodeImpl [8] =[12] NeoPropertyNodeImpl [6])
+  TRUE
+  ParameterList
+    : type [13] ELEMENT
+    : type [14] ELEMENT
+    : comp [5] =
+    : type [15] ELEMENT
+    : comp [6] =
+    : type [16] ELEMENT
+    : comp [4] !=
+    : comp [7] =
+    : type [17] ELEMENT
+    : type [18] UNSPECIFIED
+    : type [19] UNSPECIFIED
+    : comp [10] =
+    : type [20] ELEMENT
+    : comp [3] !=
+    : comp [11] =
+    : type [21] UNSPECIFIED
+    : comp [8] !=
+    : comp [12] =
+    : type [22] UNSPECIFIED
+    : comp [9] !=
+    : NeoNodeLabels [23] ()
+    : NeoNodeLabels [24] ()
+    : NeoPropertyPathParam [1] -[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+    : NeoPropertyPathParam [2] -[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+
+___TRANSLATION___
+MATCH (varENode5)-[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+MATCH (varENode7)-[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+WHERE (varENode5 <> varENode7
+   AND varENode7 <> varENode5
+   AND varENode5 = varENode7
+   AND varENode7 = varENode5
+   AND varENode5 = varENode7
+   AND varPNode6_3.normalizedGerman <> varPNode8_4.normalizedGerman
+   AND varPNode8_4.normalizedGerman <> varPNode6_3.normalizedGerman
+   AND varENode5 = varENode7
+   AND varPNode6_3.normalizedGerman = varPNode8_4.normalizedGerman
+   AND varPNode8_4.normalizedGerman = varPNode6_3.normalizedGerman)
+RETURN varENode5
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [5]
+  | > NeoPropertyNodeImpl Property 2 [6]
+  | > NeoElementNodeImpl Element 3 [7]
+  | > NeoPropertyNodeImpl Property 4 [8]
+  | ~ NeoPropertyEdgeImpl [3] from 5 to 6 NeoPropertyPathParam [1] -[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+  | ~ NeoPropertyEdgeImpl [4] from 7 to 8 NeoPropertyPathParam [2] -[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+  | OperatorList [2]
+  | - COMP [1] ELEMENTID:BOOLEAN (NeoElementNodeImpl [5] !=[3] NeoElementNodeImpl [7])
+  | - COMP [2] ELEMENT:BOOLEAN (NeoElementNodeImpl [7] !=[4] NeoElementNodeImpl [5])
+  TRUE
+  ParameterList
+    : comp [3] !=
+    : type [5] ELEMENT
+    : comp [4] !=
+    : NeoNodeLabels [6] ()
+    : NeoNodeLabels [7] ()
+    : NeoPropertyPathParam [1] -[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+    : NeoPropertyPathParam [2] -[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+    : type [8] ELEMENTID
+
+___TRANSLATION___
+MATCH (varENode5)-[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+MATCH (varENode7)-[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+WHERE (ID(varENode5) <> ID(varENode7)
+   AND varENode7 <> varENode5)
+RETURN varENode5
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [5]
+  | > NeoPropertyNodeImpl Property 2 [6]
+  | > NeoElementNodeImpl Element 3 [7]
+  | > NeoPropertyNodeImpl Property 4 [8]
+  | ~ NeoPropertyEdgeImpl [3] from 5 to 6 NeoPropertyPathParam [1] -[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+  | ~ NeoPropertyEdgeImpl [4] from 7 to 8 NeoPropertyPathParam [2] -[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+  | OperatorList [2]
+  | - COMP [1] ELEMENTID:BOOLEAN (NeoElementNodeImpl [5] =[3] NeoElementNodeImpl [7])
+  | - COMP [2] ELEMENT:BOOLEAN (NeoElementNodeImpl [7] =[4] NeoElementNodeImpl [5])
+  TRUE
+  ParameterList
+    : comp [3] =
+    : type [5] ELEMENT
+    : comp [4] =
+    : NeoNodeLabels [6] ()
+    : NeoNodeLabels [7] ()
+    : NeoPropertyPathParam [1] -[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+    : NeoPropertyPathParam [2] -[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+    : type [8] ELEMENTID
+
+___TRANSLATION___
+MATCH (varENode5)-[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+MATCH (varENode7)-[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+WHERE (ID(varENode5) = ID(varENode7)
+   AND varENode7 = varENode5)
+RETURN varENode5
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] varENode3.origPlaceOfIssue
+  | OperatorList [2]
+  | - COMP [1] LIST:BOOLEAN (NeoPropertyNodeImpl [4] =[2] MultiListParamImpl [1])
+  TRUE
+  ParameterList
+    : comp [2] =
+    : NeoNodeLabels [3] ()
+    : NeoPropertyPathParam [1] varENode3.origPlaceOfIssue
+    : type [4] LIST
+
+___TRANSLATION___
+MATCH (varENode3)
+WHERE (varENode3.origPlaceOfIssue IN ["unknown", "USA", 17, 17.0, -17, -17.0, "-17.0+", date('1439-12-20'), datetime('2020-10-03T09:00:00'), time('09:00:00')])
+RETURN varENode3
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [2] varENode3.origPlaceOfIssue
+  | OperatorList [2]
+  | - COMP [1] LIST:BOOLEAN (NeoPropertyNodeImpl [4] !=[3] MultiListParamImpl [1])
+  TRUE
+  ParameterList
+    : MulitListParam: list [1] ('unknown', 'USA', '17', '17.0', '-17', '-17.0', '-17.0+', '1439-12-20', '2020-10-03T09:00:00', '09:00:00')
+    : comp [3] !=
+    : NeoNodeLabels [4] ()
+    : NeoPropertyPathParam [2] varENode3.origPlaceOfIssue
+    : type [5] LIST
+
+___TRANSLATION___
+MATCH (varENode3)
+WHERE (NOT (varENode3.origPlaceOfIssue IN ["unknown", "USA", 17, 17.0, -17, -17.0, "-17.0+", date('1439-12-20'), datetime('2020-10-03T09:00:00'), time('09:00:00')]))
+RETURN varENode3
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [5]
+  | > NeoPropertyNodeImpl Property 2 [6]
+  | > NeoElementNodeImpl Element 3 [7]
+  | > NeoPropertyNodeImpl Property 4 [8]
+  | ~ NeoPropertyEdgeImpl [3] from 5 to 6 NeoPropertyPathParam [1] -[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+  | ~ NeoPropertyEdgeImpl [4] from 7 to 8 NeoPropertyPathParam [2] -[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+  | OperatorList [2]
+  | - COMP [1] ELEMENT:BOOLEAN (NeoElementNodeImpl [5] !=[3] NeoElementNodeImpl [7])
+  | - COMP [2] UNSPECIFIED:BOOLEAN (NeoPropertyNodeImpl [6] >[4] NeoPropertyNodeImpl [8])
+  | - COMP [3] UNSPECIFIED:BOOLEAN (NeoPropertyNodeImpl [8] >[5] NeoPropertyNodeImpl [6])
+  TRUE
+  ParameterList
+    : type [6] ELEMENT
+    : comp [3] !=
+    : type [7] UNSPECIFIED
+    : comp [4] >
+    : type [8] UNSPECIFIED
+    : comp [5] >
+    : NeoNodeLabels [9] ()
+    : NeoNodeLabels [10] ()
+    : NeoPropertyPathParam [1] -[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+    : NeoPropertyPathParam [2] -[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+
+___TRANSLATION___
+MATCH (varENode5)-[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+MATCH (varENode7)-[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+WHERE (varENode5 <> varENode7
+   AND varPNode6_3.normalizedGerman > varPNode8_4.normalizedGerman
+   AND varPNode8_4.normalizedGerman > varPNode6_3.normalizedGerman)
+RETURN varENode5
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [5]
+  | > NeoPropertyNodeImpl Property 2 [6]
+  | > NeoElementNodeImpl Element 3 [7]
+  | > NeoPropertyNodeImpl Property 4 [8]
+  | ~ NeoPropertyEdgeImpl [3] from 5 to 6 NeoPropertyPathParam [1] -[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+  | ~ NeoPropertyEdgeImpl [4] from 7 to 8 NeoPropertyPathParam [2] -[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+  | OperatorList [2]
+  | - COMP [1] ELEMENT:BOOLEAN (NeoElementNodeImpl [5] !=[3] NeoElementNodeImpl [7])
+  | - COMP [2] UNSPECIFIED:BOOLEAN (NeoPropertyNodeImpl [6] >=[4] NeoPropertyNodeImpl [8])
+  | - COMP [3] UNSPECIFIED:BOOLEAN (NeoPropertyNodeImpl [8] >=[5] NeoPropertyNodeImpl [6])
+  TRUE
+  ParameterList
+    : type [6] ELEMENT
+    : comp [3] !=
+    : type [7] UNSPECIFIED
+    : comp [4] >=
+    : type [8] UNSPECIFIED
+    : comp [5] >=
+    : NeoNodeLabels [9] ()
+    : NeoNodeLabels [10] ()
+    : NeoPropertyPathParam [1] -[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+    : NeoPropertyPathParam [2] -[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+
+___TRANSLATION___
+MATCH (varENode5)-[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+MATCH (varENode7)-[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+WHERE (varENode5 <> varENode7
+   AND varPNode6_3.normalizedGerman >= varPNode8_4.normalizedGerman
+   AND varPNode8_4.normalizedGerman >= varPNode6_3.normalizedGerman)
+RETURN varENode5
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [5]
+  | > NeoPropertyNodeImpl Property 2 [6]
+  | > NeoElementNodeImpl Element 3 [7]
+  | > NeoPropertyNodeImpl Property 4 [8]
+  | ~ NeoPropertyEdgeImpl [3] from 5 to 6 NeoPropertyPathParam [1] -[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+  | ~ NeoPropertyEdgeImpl [4] from 7 to 8 NeoPropertyPathParam [2] -[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+  | OperatorList [2]
+  | - COMP [1] ELEMENT:BOOLEAN (NeoElementNodeImpl [5] !=[3] NeoElementNodeImpl [7])
+  | - COMP [2] UNSPECIFIED:BOOLEAN (NeoPropertyNodeImpl [6] <[4] NeoPropertyNodeImpl [8])
+  | - COMP [3] UNSPECIFIED:BOOLEAN (NeoPropertyNodeImpl [8] <[5] NeoPropertyNodeImpl [6])
+  TRUE
+  ParameterList
+    : type [6] ELEMENT
+    : comp [3] !=
+    : type [7] UNSPECIFIED
+    : comp [4] <
+    : type [8] UNSPECIFIED
+    : comp [5] <
+    : NeoNodeLabels [9] ()
+    : NeoNodeLabels [10] ()
+    : NeoPropertyPathParam [1] -[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+    : NeoPropertyPathParam [2] -[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+
+___TRANSLATION___
+MATCH (varENode5)-[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+MATCH (varENode7)-[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+WHERE (varENode5 <> varENode7
+   AND varPNode6_3.normalizedGerman < varPNode8_4.normalizedGerman
+   AND varPNode8_4.normalizedGerman < varPNode6_3.normalizedGerman)
+RETURN varENode5
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [5]
+  | > NeoPropertyNodeImpl Property 2 [6]
+  | > NeoElementNodeImpl Element 3 [7]
+  | > NeoPropertyNodeImpl Property 4 [8]
+  | ~ NeoPropertyEdgeImpl [3] from 5 to 6 NeoPropertyPathParam [1] -[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+  | ~ NeoPropertyEdgeImpl [4] from 7 to 8 NeoPropertyPathParam [2] -[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+  | OperatorList [2]
+  | - COMP [1] ELEMENT:BOOLEAN (NeoElementNodeImpl [5] !=[3] NeoElementNodeImpl [7])
+  | - COMP [2] UNSPECIFIED:BOOLEAN (NeoPropertyNodeImpl [6] <=[4] NeoPropertyNodeImpl [8])
+  | - COMP [3] UNSPECIFIED:BOOLEAN (NeoPropertyNodeImpl [8] <=[5] NeoPropertyNodeImpl [6])
+  TRUE
+  ParameterList
+    : type [6] ELEMENT
+    : comp [3] !=
+    : type [7] UNSPECIFIED
+    : comp [4] <=
+    : type [8] UNSPECIFIED
+    : comp [5] <=
+    : NeoNodeLabels [9] ()
+    : NeoNodeLabels [10] ()
+    : NeoPropertyPathParam [1] -[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+    : NeoPropertyPathParam [2] -[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+
+___TRANSLATION___
+MATCH (varENode5)-[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+MATCH (varENode7)-[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+WHERE (varENode5 <> varENode7
+   AND varPNode6_3.normalizedGerman <= varPNode8_4.normalizedGerman
+   AND varPNode8_4.normalizedGerman <= varPNode6_3.normalizedGerman)
+RETURN varENode5
+<<< END - Tests >>>
+
+
+<<< BEGIN - Build-Pattern-Exceptions >>>
+
+
+___PATTERN_(NOT VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] varENode3.origPlaceOfIssue
+  | OperatorList [2]
+  | - COMP [1] LIST:BOOLEAN (NeoPropertyNodeImpl [4] <[2] MultiListParamImpl [3])
+  TRUE
+  ParameterList
+    : MulitListParam: list [3] ('unknown', 'USA', '17', '17.0', '-17', '-17.0', '-17.0+', '1439-12-20', '2020-10-03T09:00:00', '09:00:00')
+    : comp [2] <
+    : NeoNodeLabels [4] ()
+    : NeoPropertyPathParam [1] varENode3.origPlaceOfIssue
+    : type [5] LIST
+
+___TRANSLATION___
+-- Beginning of the Exceptions --
+qualitypatternmodel.exceptions.InvalidityException: Not allowed operator for List comparison
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] varENode3.origPlaceOfIssue
+  | OperatorList [2]
+  | - COMP [1] LIST:BOOLEAN (NeoPropertyNodeImpl [4] <[2] MultiListParamImpl [3])
+  TRUE
+  ParameterList
+    : MulitListParam: list [3] ('unknown', 'USA', '17', '17.0', '-17', '-17.0', '-17.0+', '1439-12-20', '2020-10-03T09:00:00', '09:00:00')
+    : comp [2] <
+    : NeoNodeLabels [4] ()
+    : NeoPropertyPathParam [1] varENode3.origPlaceOfIssue
+    : type [5] LIST
+Test successful
+
+
+___PATTERN_(NOT VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [5]
+  | > NeoPropertyNodeImpl Property 2 [6]
+  | > NeoElementNodeImpl Element 3 [7]
+  | > NeoPropertyNodeImpl Property 4 [8]
+  | ~ NeoPropertyEdgeImpl [3] from 5 to 6 NeoPropertyPathParam [1] -[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+  | ~ NeoPropertyEdgeImpl [4] from 7 to 8 NeoPropertyPathParam [2] -[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+  | OperatorList [2]
+  | - COMP [1] ELEMENT:BOOLEAN (NeoElementNodeImpl [5] !=[3] NeoElementNodeImpl [7])
+  | - COMP [2] LIST:BOOLEAN (NeoPropertyNodeImpl [6] >[4] NeoPropertyNodeImpl [8])
+  | - COMP [3] UNSPECIFIED:BOOLEAN (NeoPropertyNodeImpl [8] >[5] NeoPropertyNodeImpl [6])
+  TRUE
+  ParameterList
+    : type [6] ELEMENT
+    : comp [3] !=
+    : comp [4] >
+    : type [7] UNSPECIFIED
+    : comp [5] >
+    : NeoNodeLabels [8] ()
+    : NeoNodeLabels [9] ()
+    : NeoPropertyPathParam [1] -[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+    : NeoPropertyPathParam [2] -[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+    : type [10] LIST
+
+___TRANSLATION___
+-- Beginning of the Exceptions --
+qualitypatternmodel.exceptions.InvalidityException: Not allowed operator for List comparison
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [5]
+  | > NeoPropertyNodeImpl Property 2 [6]
+  | > NeoElementNodeImpl Element 3 [7]
+  | > NeoPropertyNodeImpl Property 4 [8]
+  | ~ NeoPropertyEdgeImpl [3] from 5 to 6 NeoPropertyPathParam [1] -[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+  | ~ NeoPropertyEdgeImpl [4] from 7 to 8 NeoPropertyPathParam [2] -[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+  | OperatorList [2]
+  | - COMP [1] ELEMENT:BOOLEAN (NeoElementNodeImpl [5] !=[3] NeoElementNodeImpl [7])
+  | - COMP [2] LIST:BOOLEAN (NeoPropertyNodeImpl [6] >[4] NeoPropertyNodeImpl [8])
+  | - COMP [3] UNSPECIFIED:BOOLEAN (NeoPropertyNodeImpl [8] >[5] NeoPropertyNodeImpl [6])
+  TRUE
+  ParameterList
+    : type [6] ELEMENT
+    : comp [3] !=
+    : comp [4] >
+    : type [7] UNSPECIFIED
+    : comp [5] >
+    : NeoNodeLabels [8] ()
+    : NeoNodeLabels [9] ()
+    : NeoPropertyPathParam [1] -[varPEdge3:PLACE_OF_ISSUE]-(varPNode6_3:Place)
+    : NeoPropertyPathParam [2] -[varPEdge4:PLACE_OF_ISSUE]-(varPNode8_4:Place)
+    : type [10] LIST
+Test successful
+<<< END - Build-Pattern-Exceptions >>>
+
+Start Exception Test:
+Test successfull

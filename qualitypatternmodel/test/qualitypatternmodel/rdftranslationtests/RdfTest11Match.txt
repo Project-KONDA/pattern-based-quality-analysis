@@ -1,0 +1,144 @@
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [3]
+  | > RdfLiteralNodeImpl PrimitiveNode 2 [4]
+  | ~ RdfPredicateImpl [2] from 3 to 4 rdfpath [1] -(<>|!<>) 
+  | OperatorList [3]
+  | - MATCH (1) [2][4, 3]
+  TRUE
+  ParameterList
+    : bool [2] true
+    : text [3] 'know'
+    : irilist [4] ( )
+    : rdfpath [1] -(<>|!<>) 
+
+___TRANSLATION___
+SELECT
+  ?var3
+WHERE {
+  ?var3 (<>|!<>) ?var4.
+  FILTER (regex(?var4, "know"))
+}
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [3]
+  | > RdfLiteralNodeImpl PrimitiveNode 2 [4]
+  | ~ RdfPredicateImpl [2] from 3 to 4 rdfpath [1] -(<>|!<>) 
+  | OperatorList [3]
+  | - MATCH (1) [not 2][4, 3]
+  TRUE
+  ParameterList
+    : bool [2] false
+    : text [3] 'u'
+    : irilist [4] ( )
+    : rdfpath [1] -(<>|!<>) 
+
+___TRANSLATION___
+SELECT
+  ?var3
+WHERE {
+  ?var3 (<>|!<>) ?var4.
+  FILTER (!regex(?var4, "u"))
+}
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [3]
+  | > RdfLiteralNodeImpl PrimitiveNode 2 [4]
+  | ~ RdfPredicateImpl [2] from 3 to 4 rdfpath [1] -(<>|!<>) 
+  | OperatorList [3]
+  | - MATCH (1) [2][4, 3]
+  TRUE
+  ParameterList
+    : bool [2] true
+    : text [3] '^unk'
+    : irilist [4] ( )
+    : rdfpath [1] -(<>|!<>) 
+
+___TRANSLATION___
+SELECT
+  ?var3
+WHERE {
+  ?var3 (<>|!<>) ?var4.
+  FILTER (regex(?var4, "^unk"))
+}
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [3]
+  | > RdfLiteralNodeImpl PrimitiveNode 2 [4]
+  | ~ RdfPredicateImpl [2] from 3 to 4 rdfpath [1] -(<>|!<>) 
+  | OperatorList [3]
+  | - MATCH (1) [2][4, 3]
+  TRUE
+  ParameterList
+    : bool [2] true
+    : text [3] 'own$'
+    : irilist [4] ( )
+    : rdfpath [1] -(<>|!<>) 
+
+___TRANSLATION___
+SELECT
+  ?var3
+WHERE {
+  ?var3 (<>|!<>) ?var4.
+  FILTER (regex(?var4, "own$"))
+}
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [3]
+  | > RdfLiteralNodeImpl PrimitiveNode 2 [4]
+  | ~ RdfPredicateImpl [2] from 3 to 4 rdfpath [1] -(<>|!<>) 
+  | OperatorList [3]
+  | - MATCH (1) [2][4, 3]
+  TRUE
+  ParameterList
+    : bool [2] true
+    : text [3] '^unknown$'
+    : irilist [4] ( )
+    : rdfpath [1] -(<>|!<>) 
+
+___TRANSLATION___
+SELECT
+  ?var3
+WHERE {
+  ?var3 (<>|!<>) ?var4.
+  FILTER (regex(?var4, "^unknown$"))
+}
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [3]
+  | > RdfLiteralNodeImpl PrimitiveNode 2 [4]
+  | ~ RdfPredicateImpl [2] from 3 to 4 rdfpath [1] -(<>|!<>) 
+  | OperatorList [3]
+  | - MATCH (1) [not 2][4, 3]
+  TRUE
+  ParameterList
+    : bool [2] false
+    : text [3] '^unknown$'
+    : irilist [4] ( )
+    : rdfpath [1] -(<>|!<>) 
+
+___TRANSLATION___
+SELECT
+  ?var3
+WHERE {
+  ?var3 (<>|!<>) ?var4.
+  FILTER (!regex(?var4, "^unknown$"))
+}

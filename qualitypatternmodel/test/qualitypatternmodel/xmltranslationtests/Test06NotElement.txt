@@ -1,0 +1,50 @@
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl ComplexNode 1 [4]
+  | > XmlRootImpl Root [5]
+  | ~ XmlElementNavigationImpl [3] from 5 to 4 (xmlpath [1] {[axis [2] /child::*, {TAG}, text [3] '']}.)
+  EXISTS
+    : Graph
+    | | > Return-XmlElementImpl ComplexNode 1 [6 (4)]
+    | | > XmlElementImpl ComplexNode 2 [7]
+    | | > XmlRootImpl Root [8 (5)]
+    | | ~ XmlElementNavigationImpl [2] from 6 to 7 (xmlpath [4] {[axis [5] /child::*, {DATA}, text [6] '']}.)
+    | | ~ XmlElementNavigationImpl [4 (3)] from 8 to 6 (xmlpath [1] {[axis [2] /child::*, {TAG}, text [3] '']}.)
+    : Morphism (2 -> 3)
+    |   * NodeMapping(4 -> 6)
+    |   * NodeMapping(5 -> 8)
+    |   * RelationMapping(3 -> 4)
+    : NOT  [
+    | . EXISTS
+    | .   : Graph
+    | .   | | > Return-XmlElementImpl ComplexNode 1 [9 (4)]
+    | .   | | > XmlElementImpl ComplexNode 2 [10 (7)]
+    | .   | | > XmlElementImpl Element 3 [11]
+    | .   | | > XmlRootImpl Root [12 (5)]
+    | .   | | ~ XmlElementNavigationImpl [5 (2)] from 9 to 10 (xmlpath [4] {[axis [5] /child::*, {DATA}, text [6] '']}.)
+    | .   | | ~ XmlElementNavigationImpl [6 (3)] from 12 to 9 (xmlpath [1] {[axis [2] /child::*, {TAG}, text [3] '']}.)
+    | .   | | ~ XmlElementNavigationImpl [7] from 12 to 11 (xmlpath [7] {[axis [8] /ancestor::*, {TAG}, text [9] '']}.)
+    | .   : Morphism (3 -> 4)
+    | .   |   * NodeMapping(6 -> 9)
+    | .   |   * NodeMapping(7 -> 10)
+    | .   |   * RelationMapping(2 -> 5)
+    | .   |   * NodeMapping(8 -> 12)
+    | .   |   * RelationMapping(4 -> 6)
+    | .   : TRUE
+    | ]
+  ParameterList
+    : xmlpath [1] {[axis [2] /child::*, {TAG}, text [3] '']}.
+    : xmlpath [4] {[axis [5] /child::*, {DATA}, text [6] '']}.
+    : xmlpath [7] {[axis [8] /ancestor::*, {TAG}, text [9] '']}.
+
+___TRANSLATION___
+for $var3_0 in /child::*
+where 
+  some $var2_0 in $var3_0/child::*[./text()]
+  satisfies (not(
+    some $var7_0 in /ancestor::*
+    satisfies (true())))
+return $var3_0

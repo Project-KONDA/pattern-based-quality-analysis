@@ -1,0 +1,21 @@
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [3]
+  | > Return-RdfIriNodeImpl Element 2 [4]
+  | ~ RdfPredicateImpl [2] from 3 to 4 rdfpath [1] -wdt:P569? 
+  TRUE
+  ParameterList
+    : irilist [2] ( )
+    : rdfpath [1] -wdt:P569? 
+    : irilist [3] ( )
+
+___TRANSLATION___
+SELECT
+  ?var3
+  ?var4
+WHERE {
+  ?var3 wdt:P569? ?var4.
+}

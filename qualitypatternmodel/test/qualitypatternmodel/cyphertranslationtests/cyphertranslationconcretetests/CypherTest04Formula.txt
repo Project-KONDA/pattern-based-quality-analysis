@@ -1,0 +1,56 @@
+
+<<< BEGIN - Build-Pattern-Exceptions >>>
+
+
+___PATTERN_(NOT VALID)___
+
+-- Beginning of the Exceptions --
+java.lang.NullPointerException: Cannot invoke "qualitypatternmodel.patternstructure.LogicalOperator.getName()" because the return value of "qualitypatternmodel.patternstructure.impl.FormulaImpl.getOperator()" is null
+java.lang.NullPointerException: Cannot invoke "qualitypatternmodel.patternstructure.LogicalOperator.getName()" because the return value of "qualitypatternmodel.patternstructure.impl.FormulaImpl.getOperator()" is null
+Test successful
+
+
+___PATTERN_(NOT VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-ComplexNodeImpl ComplexNode 1 [2]
+  | > PrimitiveNodeImpl Property 3 [3]
+  | ~ RelationImpl [1] from 2 to 3
+  TRUE
+
+___TRANSLATION___
+-- Beginning of the Exceptions --
+qualitypatternmodel.exceptions.InvalidityException: No instance of NeoElementNode
+Pattern MyPattern
+  Return-Graph
+  | > Return-ComplexNodeImpl ComplexNode 1 [2]
+  | > PrimitiveNodeImpl Property 3 [3]
+  | ~ RelationImpl [1] from 2 to 3
+  TRUE
+Test successful
+
+
+___PATTERN_(NOT VALID)___
+
+-- Beginning of the Exceptions --
+java.lang.NullPointerException: Cannot invoke "qualitypatternmodel.patternstructure.Condition.myToString()" because the return value of "qualitypatternmodel.patternstructure.impl.FormulaImpl.getCondition1()" is null
+java.lang.NullPointerException: Cannot invoke "qualitypatternmodel.patternstructure.Condition.myToString()" because the return value of "qualitypatternmodel.patternstructure.impl.FormulaImpl.getCondition1()" is null
+Test successful
+
+
+___PATTERN_(NOT VALID)___
+
+-- Beginning of the Exceptions --
+java.lang.NullPointerException: Cannot invoke "qualitypatternmodel.patternstructure.Condition.myToString()" because the return value of "qualitypatternmodel.patternstructure.impl.FormulaImpl.getCondition2()" is null
+java.lang.NullPointerException: Cannot invoke "qualitypatternmodel.patternstructure.Condition.myToString()" because the return value of "qualitypatternmodel.patternstructure.impl.FormulaImpl.getCondition2()" is null
+Test successful
+
+
+___PATTERN_(NOT VALID)___
+
+-- Beginning of the Exceptions --
+java.lang.NullPointerException: Cannot invoke "qualitypatternmodel.patternstructure.Condition.myToString()" because the return value of "qualitypatternmodel.patternstructure.impl.FormulaImpl.getCondition1()" is null
+java.lang.NullPointerException: Cannot invoke "qualitypatternmodel.patternstructure.Condition.myToString()" because the return value of "qualitypatternmodel.patternstructure.impl.FormulaImpl.getCondition1()" is null
+Test successful
+<<< END - Build-Pattern-Exceptions >>>
+

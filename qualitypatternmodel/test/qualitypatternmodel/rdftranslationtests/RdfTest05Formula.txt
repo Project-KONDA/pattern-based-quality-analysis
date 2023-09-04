@@ -1,0 +1,268 @@
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [5]
+  | > RdfIriNodeImpl ComplexNode 2 [6]
+  | ~ RdfPredicateImpl [2] from 5 to 6 rdfpath [1] -(<>|!<>) 
+  ( EXISTS
+  .   : Graph
+  .   | | > Return-RdfIriNodeImpl ComplexNode 1 [7 (5)]
+  .   | | > RdfIriNodeImpl ComplexNode 2 [8 (6)]
+  .   | | > RdfIriNodeImpl Element 3 [9]
+  .   | | ~ RdfPredicateImpl [5 (2)] from 7 to 8
+  .   | | ~ RdfPredicateImpl [6] from 8 to 9 rdfpath [2] -(<>|!<>) 
+  .   : Morphism (2 -> 3)
+  .   |   * NodeMapping(5 -> 7)
+  .   |   * NodeMapping(6 -> 8)
+  .   |   * RelationMapping(2 -> 5)
+  .   : TRUE
+  )
+  AND
+  ( EXISTS
+  .   : Graph
+  .   | | > Return-RdfIriNodeImpl ComplexNode 1 [10 (5)]
+  .   | | > RdfIriNodeImpl ComplexNode 2 [11 (6)]
+  .   | | > RdfIriNodeImpl Element 4 [12]
+  .   | | ~ RdfPredicateImpl [7 (2)] from 10 to 11
+  .   | | ~ RdfPredicateImpl [8] from 11 to 12 rdfpath [3] -(<>|!<>) 
+  .   : Morphism (2 -> 4)
+  .   |   * NodeMapping(5 -> 10)
+  .   |   * NodeMapping(6 -> 11)
+  .   |   * RelationMapping(2 -> 7)
+  .   : TRUE
+  )
+  ParameterList
+    : irilist [4] ( )
+    : rdfpath [1] -(<>|!<>) 
+    : irilist [5] ( )
+    : rdfpath [2] -(<>|!<>) 
+    : irilist [6] ( )
+    : rdfpath [3] -(<>|!<>) 
+    : irilist [7] ( )
+
+___TRANSLATION___
+SELECT
+  ?var5
+WHERE {
+  ?var5 (<>|!<>) ?var6.
+  ?var6 (<>|!<>) ?var9.
+  ?var6 (<>|!<>) ?var12.
+}
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [5]
+  | > RdfIriNodeImpl ComplexNode 2 [6]
+  | ~ RdfPredicateImpl [2] from 5 to 6 rdfpath [1] -(<>|!<>) 
+  ( EXISTS
+  .   : Graph
+  .   | | > Return-RdfIriNodeImpl ComplexNode 1 [7 (5)]
+  .   | | > RdfIriNodeImpl ComplexNode 2 [8 (6)]
+  .   | | > RdfIriNodeImpl Element 3 [9]
+  .   | | ~ RdfPredicateImpl [5 (2)] from 7 to 8
+  .   | | ~ RdfPredicateImpl [6] from 8 to 9 rdfpath [2] -(<>|!<>) 
+  .   : Morphism (2 -> 3)
+  .   |   * NodeMapping(5 -> 7)
+  .   |   * NodeMapping(6 -> 8)
+  .   |   * RelationMapping(2 -> 5)
+  .   : TRUE
+  )
+  OR
+  ( EXISTS
+  .   : Graph
+  .   | | > Return-RdfIriNodeImpl ComplexNode 1 [10 (5)]
+  .   | | > RdfIriNodeImpl ComplexNode 2 [11 (6)]
+  .   | | > RdfIriNodeImpl Element 4 [12]
+  .   | | ~ RdfPredicateImpl [7 (2)] from 10 to 11
+  .   | | ~ RdfPredicateImpl [8] from 11 to 12 rdfpath [3] -(<>|!<>) 
+  .   : Morphism (2 -> 4)
+  .   |   * NodeMapping(5 -> 10)
+  .   |   * NodeMapping(6 -> 11)
+  .   |   * RelationMapping(2 -> 7)
+  .   : TRUE
+  )
+  ParameterList
+    : irilist [4] ( )
+    : rdfpath [1] -(<>|!<>) 
+    : irilist [5] ( )
+    : rdfpath [2] -(<>|!<>) 
+    : irilist [6] ( )
+    : rdfpath [3] -(<>|!<>) 
+    : irilist [7] ( )
+
+___TRANSLATION___
+SELECT
+  ?var5
+WHERE {
+  ?var5 (<>|!<>) ?var6.FILTER (
+  EXISTS {
+    ?var6 (<>|!<>) ?var9.} || 
+  EXISTS {
+    ?var6 (<>|!<>) ?var12.})
+}
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [5]
+  | > RdfIriNodeImpl ComplexNode 2 [6]
+  | ~ RdfPredicateImpl [2] from 5 to 6 rdfpath [1] -(<>|!<>) 
+  ( EXISTS
+  .   : Graph
+  .   | | > Return-RdfIriNodeImpl ComplexNode 1 [7 (5)]
+  .   | | > RdfIriNodeImpl ComplexNode 2 [8 (6)]
+  .   | | > RdfIriNodeImpl Element 3 [9]
+  .   | | ~ RdfPredicateImpl [5 (2)] from 7 to 8
+  .   | | ~ RdfPredicateImpl [6] from 8 to 9 rdfpath [2] -(<>|!<>) 
+  .   : Morphism (2 -> 3)
+  .   |   * NodeMapping(5 -> 7)
+  .   |   * NodeMapping(6 -> 8)
+  .   |   * RelationMapping(2 -> 5)
+  .   : TRUE
+  )
+  IMPLIES
+  ( EXISTS
+  .   : Graph
+  .   | | > Return-RdfIriNodeImpl ComplexNode 1 [10 (5)]
+  .   | | > RdfIriNodeImpl ComplexNode 2 [11 (6)]
+  .   | | > RdfIriNodeImpl Element 4 [12]
+  .   | | ~ RdfPredicateImpl [7 (2)] from 10 to 11
+  .   | | ~ RdfPredicateImpl [8] from 11 to 12 rdfpath [3] -(<>|!<>) 
+  .   : Morphism (2 -> 4)
+  .   |   * NodeMapping(5 -> 10)
+  .   |   * NodeMapping(6 -> 11)
+  .   |   * RelationMapping(2 -> 7)
+  .   : TRUE
+  )
+  ParameterList
+    : irilist [4] ( )
+    : rdfpath [1] -(<>|!<>) 
+    : irilist [5] ( )
+    : rdfpath [2] -(<>|!<>) 
+    : irilist [6] ( )
+    : rdfpath [3] -(<>|!<>) 
+    : irilist [7] ( )
+
+___TRANSLATION___
+SELECT
+  ?var5
+WHERE {
+  ?var5 (<>|!<>) ?var6.FILTER ( NOT 
+  EXISTS {
+    ?var6 (<>|!<>) ?var9.} || 
+  EXISTS {
+    ?var6 (<>|!<>) ?var12.} )
+}
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [5]
+  | > RdfIriNodeImpl ComplexNode 2 [6]
+  | ~ RdfPredicateImpl [2] from 5 to 6 rdfpath [1] -(<>|!<>) 
+  ( EXISTS
+  .   : Graph
+  .   | | > Return-RdfIriNodeImpl ComplexNode 1 [7 (5)]
+  .   | | > RdfIriNodeImpl ComplexNode 2 [8 (6)]
+  .   | | > RdfIriNodeImpl Element 3 [9]
+  .   | | ~ RdfPredicateImpl [5 (2)] from 7 to 8
+  .   | | ~ RdfPredicateImpl [6] from 8 to 9 rdfpath [2] -(<>|!<>) 
+  .   : Morphism (2 -> 3)
+  .   |   * NodeMapping(5 -> 7)
+  .   |   * NodeMapping(6 -> 8)
+  .   |   * RelationMapping(2 -> 5)
+  .   : TRUE
+  )
+  XOR
+  ( EXISTS
+  .   : Graph
+  .   | | > Return-RdfIriNodeImpl ComplexNode 1 [10 (5)]
+  .   | | > RdfIriNodeImpl ComplexNode 2 [11 (6)]
+  .   | | > RdfIriNodeImpl Element 4 [12]
+  .   | | ~ RdfPredicateImpl [7 (2)] from 10 to 11
+  .   | | ~ RdfPredicateImpl [8] from 11 to 12 rdfpath [3] -(<>|!<>) 
+  .   : Morphism (2 -> 4)
+  .   |   * NodeMapping(5 -> 10)
+  .   |   * NodeMapping(6 -> 11)
+  .   |   * RelationMapping(2 -> 7)
+  .   : TRUE
+  )
+  ParameterList
+    : irilist [4] ( )
+    : rdfpath [1] -(<>|!<>) 
+    : irilist [5] ( )
+    : rdfpath [2] -(<>|!<>) 
+    : irilist [6] ( )
+    : rdfpath [3] -(<>|!<>) 
+    : irilist [7] ( )
+
+___TRANSLATION___
+SELECT
+  ?var5
+WHERE {
+  ?var5 (<>|!<>) ?var6.FILTER (
+  EXISTS {
+    ?var6 (<>|!<>) ?var9.} != 
+  EXISTS {
+    ?var6 (<>|!<>) ?var12.})
+}
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [5]
+  | > RdfIriNodeImpl ComplexNode 2 [6]
+  | ~ RdfPredicateImpl [2] from 5 to 6 rdfpath [1] -(<>|!<>) 
+  ( EXISTS
+  .   : Graph
+  .   | | > Return-RdfIriNodeImpl ComplexNode 1 [7 (5)]
+  .   | | > RdfIriNodeImpl ComplexNode 2 [8 (6)]
+  .   | | > RdfIriNodeImpl Element 3 [9]
+  .   | | ~ RdfPredicateImpl [5 (2)] from 7 to 8
+  .   | | ~ RdfPredicateImpl [6] from 8 to 9 rdfpath [2] -(<>|!<>) 
+  .   : Morphism (2 -> 3)
+  .   |   * NodeMapping(5 -> 7)
+  .   |   * NodeMapping(6 -> 8)
+  .   |   * RelationMapping(2 -> 5)
+  .   : TRUE
+  )
+  EQUAL
+  ( EXISTS
+  .   : Graph
+  .   | | > Return-RdfIriNodeImpl ComplexNode 1 [10 (5)]
+  .   | | > RdfIriNodeImpl ComplexNode 2 [11 (6)]
+  .   | | > RdfIriNodeImpl Element 4 [12]
+  .   | | ~ RdfPredicateImpl [7 (2)] from 10 to 11
+  .   | | ~ RdfPredicateImpl [8] from 11 to 12 rdfpath [3] -(<>|!<>) 
+  .   : Morphism (2 -> 4)
+  .   |   * NodeMapping(5 -> 10)
+  .   |   * NodeMapping(6 -> 11)
+  .   |   * RelationMapping(2 -> 7)
+  .   : TRUE
+  )
+  ParameterList
+    : irilist [4] ( )
+    : rdfpath [1] -(<>|!<>) 
+    : irilist [5] ( )
+    : rdfpath [2] -(<>|!<>) 
+    : irilist [6] ( )
+    : rdfpath [3] -(<>|!<>) 
+    : irilist [7] ( )
+
+___TRANSLATION___
+SELECT
+  ?var5
+WHERE {
+  ?var5 (<>|!<>) ?var6.FILTER (
+  EXISTS {
+    ?var6 (<>|!<>) ?var9.} = 
+  EXISTS {
+    ?var6 (<>|!<>) ?var12.})
+}

@@ -1,0 +1,369 @@
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [4]
+  | > RdfIriNodeImpl ComplexNode 2 [5]
+  | ~ RdfPredicateImpl [2] from 4 to 5 rdfpath [1] -(<>|!<>) 
+  NOT  [
+  . EXISTS
+  .   : Graph
+  .   | | > Return-RdfIriNodeImpl ComplexNode 1 [6 (4)]
+  .   | | > RdfIriNodeImpl ComplexNode 2 [7 (5)]
+  .   | | > RdfIriNodeImpl Element 3 [8]
+  .   | | ~ RdfPredicateImpl [4 (2)] from 6 to 7
+  .   | | ~ RdfPredicateImpl [5] from 7 to 8 rdfpath [2] -(<>|!<>) 
+  .   : Morphism (2 -> 3)
+  .   |   * NodeMapping(4 -> 6)
+  .   |   * NodeMapping(5 -> 7)
+  .   |   * RelationMapping(2 -> 4)
+  .   : TRUE
+  ]
+  ParameterList
+    : irilist [3] ( )
+    : rdfpath [1] -(<>|!<>) 
+    : irilist [4] ( )
+    : rdfpath [2] -(<>|!<>) 
+    : irilist [5] ( )
+
+___TRANSLATION___
+SELECT
+  ?var4
+WHERE {
+  ?var4 (<>|!<>) ?var5.
+  FILTER NOT EXISTS {
+    ?var5 (<>|!<>) ?var8.}
+}
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [4]
+  | > RdfIriNodeImpl ComplexNode 2 [5]
+  | ~ RdfPredicateImpl [2] from 4 to 5 rdfpath [1] -(<>|!<>) 
+  NOT  [
+  . FORALL
+  .   : Graph
+  .   | | > Return-RdfIriNodeImpl ComplexNode 1 [6 (4)]
+  .   | | > RdfIriNodeImpl ComplexNode 2 [7 (5)]
+  .   | | > RdfIriNodeImpl Element 3 [8]
+  .   | | ~ RdfPredicateImpl [4 (2)] from 6 to 7
+  .   | | ~ RdfPredicateImpl [5] from 7 to 8 rdfpath [2] -(<>|!<>) 
+  .   : Morphism (2 -> 3)
+  .   |   * NodeMapping(4 -> 6)
+  .   |   * NodeMapping(5 -> 7)
+  .   |   * RelationMapping(2 -> 4)
+  .   : TRUE
+  ]
+  ParameterList
+    : irilist [3] ( )
+    : rdfpath [1] -(<>|!<>) 
+    : irilist [4] ( )
+    : rdfpath [2] -(<>|!<>) 
+    : irilist [5] ( )
+
+___TRANSLATION___qualitypatternmodel.exceptions.InvalidityException: invalid condition in FORALL quantifier 4. It will be skipped.
+	at qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl.generateSparql(QuantifiedConditionImpl.java:180)
+	at qualitypatternmodel.patternstructure.impl.NotConditionImpl.generateSparql(NotConditionImpl.java:92)
+	at qualitypatternmodel.patternstructure.impl.PatternImpl.generateSparql(PatternImpl.java:205)
+	at qualitypatternmodel.patternstructure.impl.CompletePatternImpl.generateSparql(CompletePatternImpl.java:392)
+	at qualitypatternmodel.patternstructure.impl.CompletePatternImpl.generateWikidataSparql(CompletePatternImpl.java:696)
+	at qualitypatternmodel.rdftranslationtests.RdfTest00.test(RdfTest00.java:30)
+	at qualitypatternmodel.rdftranslationtests.RdfTest04NotElement.main(RdfTest04NotElement.java:32)
+
+SELECT
+  ?var4
+WHERE {
+  ?var4 (<>|!<>) ?var5.
+}
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [5]
+  | > RdfIriNodeImpl ComplexNode 2 [6]
+  | ~ RdfPredicateImpl [2] from 5 to 6 rdfpath [1] -(<>|!<>) 
+  EXISTS
+    : Graph
+    | | > Return-RdfIriNodeImpl ComplexNode 1 [7 (5)]
+    | | > RdfIriNodeImpl ComplexNode 2 [8 (6)]
+    | | > RdfIriNodeImpl ComplexNode 3 [9]
+    | | ~ RdfPredicateImpl [6 (2)] from 7 to 8
+    | | ~ RdfPredicateImpl [4] from 8 to 9 rdfpath [2] -(<>|!<>) 
+    : Morphism (2 -> 3)
+    |   * NodeMapping(5 -> 7)
+    |   * NodeMapping(6 -> 8)
+    |   * RelationMapping(2 -> 6)
+    : NOT  [
+    | . EXISTS
+    | .   : Graph
+    | .   | | > Return-RdfIriNodeImpl ComplexNode 1 [10 (5)]
+    | .   | | > RdfIriNodeImpl ComplexNode 2 [11 (6)]
+    | .   | | > RdfIriNodeImpl ComplexNode 3 [12 (9)]
+    | .   | | > RdfIriNodeImpl Element 4 [13]
+    | .   | | ~ RdfPredicateImpl [7 (2)] from 10 to 11
+    | .   | | ~ RdfPredicateImpl [8 (4)] from 11 to 12
+    | .   | | ~ RdfPredicateImpl [9] from 12 to 13 rdfpath [3] -(<>|!<>) 
+    | .   : Morphism (3 -> 4)
+    | .   |   * NodeMapping(7 -> 10)
+    | .   |   * NodeMapping(8 -> 11)
+    | .   |   * NodeMapping(9 -> 12)
+    | .   |   * RelationMapping(6 -> 7)
+    | .   |   * RelationMapping(4 -> 8)
+    | .   : TRUE
+    | ]
+  ParameterList
+    : irilist [4] ( )
+    : rdfpath [1] -(<>|!<>) 
+    : irilist [5] ( )
+    : rdfpath [2] -(<>|!<>) 
+    : irilist [6] ( )
+    : rdfpath [3] -(<>|!<>) 
+    : irilist [7] ( )
+
+___TRANSLATION___
+SELECT
+  ?var5
+WHERE {
+  ?var5 (<>|!<>) ?var6.
+  ?var6 (<>|!<>) ?var9.
+  FILTER NOT EXISTS {
+    ?var9 (<>|!<>) ?var13.}
+}
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [5]
+  | > RdfIriNodeImpl ComplexNode 2 [6]
+  | ~ RdfPredicateImpl [2] from 5 to 6 rdfpath [1] -(<>|!<>) 
+  FORALL
+    : Graph
+    | | > Return-RdfIriNodeImpl ComplexNode 1 [7 (5)]
+    | | > RdfIriNodeImpl ComplexNode 2 [8 (6)]
+    | | > RdfIriNodeImpl ComplexNode 3 [9]
+    | | ~ RdfPredicateImpl [6 (2)] from 7 to 8
+    | | ~ RdfPredicateImpl [4] from 8 to 9 rdfpath [2] -(<>|!<>) 
+    : Morphism (2 -> 3)
+    |   * NodeMapping(5 -> 7)
+    |   * NodeMapping(6 -> 8)
+    |   * RelationMapping(2 -> 6)
+    : NOT  [
+    | . FORALL
+    | .   : Graph
+    | .   | | > Return-RdfIriNodeImpl ComplexNode 1 [10 (5)]
+    | .   | | > RdfIriNodeImpl ComplexNode 2 [11 (6)]
+    | .   | | > RdfIriNodeImpl ComplexNode 3 [12 (9)]
+    | .   | | > RdfIriNodeImpl Element 4 [13]
+    | .   | | ~ RdfPredicateImpl [7 (2)] from 10 to 11
+    | .   | | ~ RdfPredicateImpl [8 (4)] from 11 to 12
+    | .   | | ~ RdfPredicateImpl [9] from 12 to 13 rdfpath [3] -(<>|!<>) 
+    | .   : Morphism (3 -> 4)
+    | .   |   * NodeMapping(7 -> 10)
+    | .   |   * NodeMapping(8 -> 11)
+    | .   |   * NodeMapping(9 -> 12)
+    | .   |   * RelationMapping(6 -> 7)
+    | .   |   * RelationMapping(4 -> 8)
+    | .   : TRUE
+    | ]
+  ParameterList
+    : irilist [4] ( )
+    : rdfpath [1] -(<>|!<>) 
+    : irilist [5] ( )
+    : rdfpath [2] -(<>|!<>) 
+    : irilist [6] ( )
+    : rdfpath [3] -(<>|!<>) 
+    : irilist [7] ( )
+
+___TRANSLATION___qualitypatternmodel.exceptions.InvalidityException: invalid condition in FORALL quantifier 5. It will be skipped.
+	at qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl.generateSparql(QuantifiedConditionImpl.java:180)
+	at qualitypatternmodel.patternstructure.impl.NotConditionImpl.generateSparql(NotConditionImpl.java:92)
+	at qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl.generateSparql(QuantifiedConditionImpl.java:157)
+	at qualitypatternmodel.patternstructure.impl.PatternImpl.generateSparql(PatternImpl.java:205)
+	at qualitypatternmodel.patternstructure.impl.CompletePatternImpl.generateSparql(CompletePatternImpl.java:392)
+	at qualitypatternmodel.patternstructure.impl.CompletePatternImpl.generateWikidataSparql(CompletePatternImpl.java:696)
+	at qualitypatternmodel.rdftranslationtests.RdfTest00.test(RdfTest00.java:30)
+	at qualitypatternmodel.rdftranslationtests.RdfTest04NotElement.main(RdfTest04NotElement.java:32)
+qualitypatternmodel.exceptions.InvalidityException: invalid condition in FORALL quantifier 6. It will be skipped.
+	at qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl.generateSparql(QuantifiedConditionImpl.java:180)
+	at qualitypatternmodel.patternstructure.impl.PatternImpl.generateSparql(PatternImpl.java:205)
+	at qualitypatternmodel.patternstructure.impl.CompletePatternImpl.generateSparql(CompletePatternImpl.java:392)
+	at qualitypatternmodel.patternstructure.impl.CompletePatternImpl.generateWikidataSparql(CompletePatternImpl.java:696)
+	at qualitypatternmodel.rdftranslationtests.RdfTest00.test(RdfTest00.java:30)
+	at qualitypatternmodel.rdftranslationtests.RdfTest04NotElement.main(RdfTest04NotElement.java:32)
+
+SELECT
+  ?var5
+WHERE {
+  ?var5 (<>|!<>) ?var6.
+}
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [4]
+  | > RdfIriNodeImpl ComplexNode 2 [5]
+  | ~ RdfPredicateImpl [2] from 4 to 5 rdfpath [1] -(<>|!<>) 
+  NOT  [
+  . NOT  [
+  . . EXISTS
+  . .   : Graph
+  . .   | | > Return-RdfIriNodeImpl ComplexNode 1 [6 (4)]
+  . .   | | > RdfIriNodeImpl ComplexNode 2 [7 (5)]
+  . .   | | > RdfIriNodeImpl Element 3 [8]
+  . .   | | ~ RdfPredicateImpl [4 (2)] from 6 to 7
+  . .   | | ~ RdfPredicateImpl [5] from 7 to 8 rdfpath [2] -(<>|!<>) 
+  . .   : Morphism (2 -> 3)
+  . .   |   * NodeMapping(4 -> 6)
+  . .   |   * NodeMapping(5 -> 7)
+  . .   |   * RelationMapping(2 -> 4)
+  . .   : TRUE
+  . ]
+  ]
+  ParameterList
+    : irilist [3] ( )
+    : rdfpath [1] -(<>|!<>) 
+    : irilist [4] ( )
+    : rdfpath [2] -(<>|!<>) 
+    : irilist [5] ( )
+
+___TRANSLATION___
+SELECT
+  ?var4
+WHERE {
+  ?var4 (<>|!<>) ?var5.
+  ?var5 (<>|!<>) ?var8.
+}
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [4]
+  | > RdfIriNodeImpl ComplexNode 2 [5]
+  | ~ RdfPredicateImpl [2] from 4 to 5 rdfpath [1] -(<>|!<>) 
+  NOT  [
+  . NOT  [
+  . . NOT  [
+  . . . EXISTS
+  . . .   : Graph
+  . . .   | | > Return-RdfIriNodeImpl ComplexNode 1 [6 (4)]
+  . . .   | | > RdfIriNodeImpl ComplexNode 2 [7 (5)]
+  . . .   | | > RdfIriNodeImpl Element 3 [8]
+  . . .   | | ~ RdfPredicateImpl [4 (2)] from 6 to 7
+  . . .   | | ~ RdfPredicateImpl [5] from 7 to 8 rdfpath [2] -(<>|!<>) 
+  . . .   : Morphism (2 -> 3)
+  . . .   |   * NodeMapping(4 -> 6)
+  . . .   |   * NodeMapping(5 -> 7)
+  . . .   |   * RelationMapping(2 -> 4)
+  . . .   : TRUE
+  . . ]
+  . ]
+  ]
+  ParameterList
+    : irilist [3] ( )
+    : rdfpath [1] -(<>|!<>) 
+    : irilist [4] ( )
+    : rdfpath [2] -(<>|!<>) 
+    : irilist [5] ( )
+
+___TRANSLATION___
+SELECT
+  ?var4
+WHERE {
+  ?var4 (<>|!<>) ?var5.
+  FILTER NOT EXISTS {
+    ?var5 (<>|!<>) ?var8.}
+}
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [4]
+  | > RdfIriNodeImpl ComplexNode 2 [5]
+  | ~ RdfPredicateImpl [2] from 4 to 5 rdfpath [1] -(<>|!<>) 
+  NOT  [
+  . NOT  [
+  . . NOT  [
+  . . . NOT  [
+  . . . . EXISTS
+  . . . .   : Graph
+  . . . .   | | > Return-RdfIriNodeImpl ComplexNode 1 [6 (4)]
+  . . . .   | | > RdfIriNodeImpl ComplexNode 2 [7 (5)]
+  . . . .   | | > RdfIriNodeImpl Element 3 [8]
+  . . . .   | | ~ RdfPredicateImpl [4 (2)] from 6 to 7
+  . . . .   | | ~ RdfPredicateImpl [5] from 7 to 8 rdfpath [2] -(<>|!<>) 
+  . . . .   : Morphism (2 -> 3)
+  . . . .   |   * NodeMapping(4 -> 6)
+  . . . .   |   * NodeMapping(5 -> 7)
+  . . . .   |   * RelationMapping(2 -> 4)
+  . . . .   : TRUE
+  . . . ]
+  . . ]
+  . ]
+  ]
+  ParameterList
+    : irilist [3] ( )
+    : rdfpath [1] -(<>|!<>) 
+    : irilist [4] ( )
+    : rdfpath [2] -(<>|!<>) 
+    : irilist [5] ( )
+
+___TRANSLATION___
+SELECT
+  ?var4
+WHERE {
+  ?var4 (<>|!<>) ?var5.
+  ?var5 (<>|!<>) ?var8.
+}
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [4]
+  | > RdfIriNodeImpl ComplexNode 2 [5]
+  | ~ RdfPredicateImpl [2] from 4 to 5 rdfpath [1] -(<>|!<>) 
+  NOT  [
+  . NOT  [
+  . . NOT  [
+  . . . NOT  [
+  . . . . NOT  [
+  . . . . . EXISTS
+  . . . . .   : Graph
+  . . . . .   | | > Return-RdfIriNodeImpl ComplexNode 1 [6 (4)]
+  . . . . .   | | > RdfIriNodeImpl ComplexNode 2 [7 (5)]
+  . . . . .   | | > RdfIriNodeImpl Element 3 [8]
+  . . . . .   | | ~ RdfPredicateImpl [4 (2)] from 6 to 7
+  . . . . .   | | ~ RdfPredicateImpl [5] from 7 to 8 rdfpath [2] -(<>|!<>) 
+  . . . . .   : Morphism (2 -> 3)
+  . . . . .   |   * NodeMapping(4 -> 6)
+  . . . . .   |   * NodeMapping(5 -> 7)
+  . . . . .   |   * RelationMapping(2 -> 4)
+  . . . . .   : TRUE
+  . . . . ]
+  . . . ]
+  . . ]
+  . ]
+  ]
+  ParameterList
+    : irilist [3] ( )
+    : rdfpath [1] -(<>|!<>) 
+    : irilist [4] ( )
+    : rdfpath [2] -(<>|!<>) 
+    : irilist [5] ( )
+
+___TRANSLATION___
+SELECT
+  ?var4
+WHERE {
+  ?var4 (<>|!<>) ?var5.
+  FILTER NOT EXISTS {
+    ?var5 (<>|!<>) ?var8.}
+}

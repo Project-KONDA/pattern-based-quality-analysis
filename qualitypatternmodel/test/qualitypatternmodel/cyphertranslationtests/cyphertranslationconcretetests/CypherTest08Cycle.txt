@@ -1,0 +1,124 @@
+Speed time of Generic/Abstract instance 2in Nanos: 347133300
+Speed time of Generic/Abstract instance 2in Millis: 347
+Speed time of Generic/Abstract instance 3in Nanos: 496300
+Speed time of Generic/Abstract instance 3in Millis: 0
+Speed time of Generic/Abstract instance 2in Nanos: 7528700
+Speed time of Generic/Abstract instance 2in Millis: 7
+Speed time of Generic/Abstract instance 3in Nanos: 964800
+Speed time of Generic/Abstract instance 3in Millis: 0
+
+<<< BEGIN - Tests >>>
+Mode - Testing without DB
+
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [4]
+  | > NeoPropertyNodeImpl Property 2 [5]
+  | > NeoElementNodeImpl Element 3 [6]
+  | ~ NeoPropertyEdgeImpl [4] from 4 to 5 NeoPropertyPathParam [1]
+  | ~ NeoElementEdgeImpl [5] from 4 to 6 NeoPathParam [2] -[varEEdge5]-
+  | ~ NeoElementEdgeImpl [6] from 6 to 4 NeoPathParam [3] -[varEEdge6]-
+  TRUE
+  ParameterList
+    : NeoNodeLabels [4] ()
+    : NeoNodeLabels [5] ()
+    : NeoPropertyPathParam [1]
+    : NeoPathParam [2] -[varEEdge5]-
+    : NeoPathParam [3] -[varEEdge6]-
+
+___TRANSLATION___
+MATCH (varENode4)-[varEEdge5]-(varENode6)-[varEEdge6]-(varENode4)
+RETURN varENode4
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [5]
+  | > NeoPropertyNodeImpl Property 2 [6]
+  | > NeoElementNodeImpl Element 3 [7]
+  | > NeoElementNodeImpl Element 4 [8]
+  | ~ NeoPropertyEdgeImpl [5] from 5 to 6 NeoPropertyPathParam [1]
+  | ~ NeoElementEdgeImpl [6] from 5 to 7 NeoPathParam [2] -[varEEdge6]-
+  | ~ NeoElementEdgeImpl [7] from 7 to 8 NeoPathParam [3] -[varEEdge7]-
+  | ~ NeoElementEdgeImpl [8] from 8 to 5 NeoPathParam [4] -[varEEdge8]-
+  TRUE
+  ParameterList
+    : NeoNodeLabels [5] ()
+    : NeoNodeLabels [6] ()
+    : NeoNodeLabels [7] ()
+    : NeoPropertyPathParam [1]
+    : NeoPathParam [2] -[varEEdge6]-
+    : NeoPathParam [3] -[varEEdge7]-
+    : NeoPathParam [4] -[varEEdge8]-
+
+___TRANSLATION___
+MATCH (varENode5)-[varEEdge6]-(varENode7)-[varEEdge7]-(varENode8)-[varEEdge8]-(varENode5)
+RETURN varENode5
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [5]
+  | > NeoPropertyNodeImpl Property 2 [6]
+  | > NeoElementNodeImpl Element 3 [7]
+  | > NeoElementNodeImpl Element 4 [8]
+  | ~ NeoPropertyEdgeImpl [4] from 5 to 6 NeoPropertyPathParam [1]
+  | ~ NeoElementEdgeImpl [5] from 5 to 7 NeoPathParam [2] -[varEEdge5]-
+  | ~ NeoElementEdgeImpl [6] from 7 to 8 NeoPathParam [3] -[varEEdge6]-
+  | OperatorList [2]
+  | - COMP [1] ELEMENT:BOOLEAN (NeoElementNodeImpl [5] =[4] NeoElementNodeImpl [8])
+  TRUE
+  ParameterList
+    : comp [4] =
+    : type [5] ELEMENT
+    : NeoNodeLabels [6] ()
+    : NeoNodeLabels [7] ()
+    : NeoNodeLabels [8] ()
+    : NeoPropertyPathParam [1]
+    : NeoPathParam [2] -[varEEdge5]-
+    : NeoPathParam [3] -[varEEdge6]-
+
+___TRANSLATION___
+MATCH (varENode5)-[varEEdge5]-(varENode7)-[varEEdge6]-(varENode8)
+WHERE (varENode5 = varENode8)
+RETURN varENode5
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [6]
+  | > NeoPropertyNodeImpl Property 2 [7]
+  | > NeoElementNodeImpl Element 3 [8]
+  | > NeoElementNodeImpl Element 4 [9]
+  | > NeoElementNodeImpl Element 5 [10]
+  | ~ NeoPropertyEdgeImpl [5] from 6 to 7 NeoPropertyPathParam [1]
+  | ~ NeoElementEdgeImpl [6] from 6 to 8 NeoPathParam [2] -[varEEdge6]-
+  | ~ NeoElementEdgeImpl [7] from 8 to 9 NeoPathParam [3] -[varEEdge7]-
+  | ~ NeoElementEdgeImpl [8] from 9 to 10 NeoPathParam [4] -[varEEdge8]-
+  | OperatorList [2]
+  | - COMP [1] ELEMENT:BOOLEAN (NeoElementNodeImpl [6] =[5] NeoElementNodeImpl [10])
+  TRUE
+  ParameterList
+    : comp [5] =
+    : type [6] ELEMENT
+    : NeoNodeLabels [7] ()
+    : NeoNodeLabels [8] ()
+    : NeoNodeLabels [9] ()
+    : NeoNodeLabels [10] ()
+    : NeoPropertyPathParam [1]
+    : NeoPathParam [2] -[varEEdge6]-
+    : NeoPathParam [3] -[varEEdge7]-
+    : NeoPathParam [4] -[varEEdge8]-
+
+___TRANSLATION___
+MATCH (varENode6)-[varEEdge6]-(varENode8)-[varEEdge7]-(varENode9)-[varEEdge8]-(varENode10)
+WHERE (varENode6 = varENode10)
+RETURN varENode6
+<<< END - Tests >>>
+

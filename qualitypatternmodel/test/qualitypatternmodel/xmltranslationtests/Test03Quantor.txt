@@ -1,0 +1,200 @@
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl ComplexNode 1 [3]
+  | > XmlRootImpl Root [4]
+  | ~ XmlElementNavigationImpl [2] from 4 to 3 (xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.)
+  EXISTS
+    : Graph
+    | | > Return-XmlElementImpl ComplexNode 1 [5 (3)]
+    | | > XmlElementImpl Element 2 [6]
+    | | > XmlRootImpl Root [7 (4)]
+    | | ~ XmlElementNavigationImpl [3] from 5 to 6 (xmlpath [4] {[axis [5] /child::*, {DATA}, text [6] '']}.)
+    | | ~ XmlElementNavigationImpl [4 (2)] from 7 to 5 (xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.)
+    : Morphism (2 -> 3)
+    |   * NodeMapping(3 -> 5)
+    |   * NodeMapping(4 -> 7)
+    |   * RelationMapping(2 -> 4)
+    : TRUE
+  ParameterList
+    : xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.
+    : xmlpath [4] {[axis [5] /child::*, {DATA}, text [6] '']}.
+
+___TRANSLATION___
+for $var2_0 in /descendant::*
+where 
+  some $var3_0 in $var2_0/child::*[./text()]
+  satisfies (true())
+return $var2_0
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl ComplexNode 1 [3]
+  | > XmlRootImpl Root [4]
+  | ~ XmlElementNavigationImpl [2] from 4 to 3 (xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.)
+  EXISTS
+    : Graph
+    | | > Return-XmlElementImpl ComplexNode 1 [5 (3)]
+    | | > XmlElementImpl ComplexNode 2 [6]
+    | | > XmlRootImpl Root [7 (4)]
+    | | ~ XmlElementNavigationImpl [3] from 5 to 6 (xmlpath [4] {[axis [5] /child::*, {DATA}, text [6] '']}.)
+    | | ~ XmlElementNavigationImpl [4 (2)] from 7 to 5 (xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.)
+    : Morphism (2 -> 3)
+    |   * NodeMapping(3 -> 5)
+    |   * NodeMapping(4 -> 7)
+    |   * RelationMapping(2 -> 4)
+    : TRUE
+  ParameterList
+    : xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.
+    : xmlpath [4] {[axis [5] /child::*, {DATA}, text [6] '']}.
+
+___TRANSLATION___
+for $var2_0 in /descendant::*
+where 
+  some $var3_0 in $var2_0/child::*[./text()]
+  satisfies (true())
+return $var2_0
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl ComplexNode 1 [3]
+  | > XmlRootImpl Root [4]
+  | ~ XmlElementNavigationImpl [3] from 4 to 3 (xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.)
+  EXISTS
+    : Graph
+    | | > Return-XmlElementImpl ComplexNode 1 [5 (3)]
+    | | > XmlElementImpl ComplexNode 2 [6]
+    | | > XmlRootImpl Root [7 (4)]
+    | | ~ XmlElementNavigationImpl [4] from 5 to 6 (xmlpath [4] {[axis [5] /child::*, {DATA}, text [6] '']}.)
+    | | ~ XmlElementNavigationImpl [5] from 5 to 6 (xmlpath [7] {[axis [8] /child::*, {DATA}, text [9] '']}.)
+    | | ~ XmlElementNavigationImpl [6 (3)] from 7 to 5 (xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.)
+    : Morphism (2 -> 3)
+    |   * NodeMapping(3 -> 5)
+    |   * NodeMapping(4 -> 7)
+    |   * RelationMapping(3 -> 6)
+    : TRUE
+  ParameterList
+    : xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.
+    : xmlpath [4] {[axis [5] /child::*, {DATA}, text [6] '']}.
+    : xmlpath [7] {[axis [8] /child::*, {DATA}, text [9] '']}.
+
+___TRANSLATION___
+for $var3_0 in /descendant::*
+where 
+  some $var4_0 in $var3_0/child::*[./text()]
+  satisfies 
+  some $var5_0 in $var3_0/child::*[./text()][deep-equal(.,$var4_0)]
+  satisfies (true())
+return $var3_0
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl ComplexNode 1 [4]
+  | > XmlRootImpl Root [5]
+  | ~ XmlElementNavigationImpl [3] from 5 to 4 (xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.)
+  EXISTS
+    : Graph
+    | | > Return-XmlElementImpl ComplexNode 1 [6 (4)]
+    | | > XmlElementImpl ComplexNode 2 [7]
+    | | > XmlPropertyImpl PrimitiveNode 3 [8]
+    | | > XmlRootImpl Root [9 (5)]
+    | | ~ XmlElementNavigationImpl [4] from 6 to 7 (xmlpath [4] {[axis [5] /child::*, {DATA}, text [6] '']}.)
+    | | ~ XmlPropertyNavigationImpl [5] from 7 to 8 (xmlpath [7][] {DATA})
+    | | ~ XmlElementNavigationImpl [6 (3)] from 9 to 6 (xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.)
+    | | OperatorList [3]
+    | | - COMP [1] STRING:BOOLEAN (XmlPropertyImpl [8] =[8] TextLiteralParamImpl [9])
+    : Morphism (4 -> 5)
+    |   * NodeMapping(4 -> 6)
+    |   * NodeMapping(5 -> 9)
+    |   * RelationMapping(3 -> 6)
+    : TRUE
+  ParameterList
+    : text [9] 'New York City'
+    : comp [8] =
+    : type [10] STRING
+    : xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.
+    : xmlpath [4] {[axis [5] /child::*, {DATA}, text [6] '']}.
+    : xmlpath [7][] {DATA}
+
+___TRANSLATION___
+for $var3_0 in /descendant::*
+where 
+  some $var4_0 in $var3_0/child::*[./text()][./text()[.="New York City"]]
+  satisfies (true())
+return $var3_0
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl ComplexNode 1 [3]
+  | > XmlRootImpl Root [4]
+  | ~ XmlElementNavigationImpl [2] from 4 to 3 (xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.)
+  FORALL
+    : Graph
+    | | > Return-XmlElementImpl ComplexNode 1 [5 (3)]
+    | | > XmlElementImpl ComplexNode 2 [6]
+    | | > XmlRootImpl Root [7 (4)]
+    | | ~ XmlElementNavigationImpl [3] from 5 to 6 (xmlpath [4] {[axis [5] /child::*, {DATA}, text [6] '']}.)
+    | | ~ XmlElementNavigationImpl [4 (2)] from 7 to 5 (xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.)
+    : Morphism (2 -> 3)
+    |   * NodeMapping(3 -> 5)
+    |   * NodeMapping(4 -> 7)
+    |   * RelationMapping(2 -> 4)
+    : TRUE
+  ParameterList
+    : xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.
+    : xmlpath [4] {[axis [5] /child::*, {DATA}, text [6] '']}.
+
+___TRANSLATION___
+for $var2_0 in /descendant::*
+where 
+  every $var3_0 in $var2_0/child::*[./text()]
+  satisfies (true())
+return $var2_0
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl ComplexNode 1 [4]
+  | > XmlRootImpl Root [5]
+  | ~ XmlElementNavigationImpl [3] from 5 to 4 (xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.)
+  FORALL
+    : Graph
+    | | > Return-XmlElementImpl ComplexNode 1 [6 (4)]
+    | | > XmlElementImpl ComplexNode 2 [7]
+    | | > XmlPropertyImpl PrimitiveNode 3 [8]
+    | | > XmlRootImpl Root [9 (5)]
+    | | ~ XmlElementNavigationImpl [4] from 6 to 7 (xmlpath [4] {[axis [5] /child::*, {DATA}, text [6] '']}.)
+    | | ~ XmlPropertyNavigationImpl [5] from 7 to 8 (xmlpath [7][] {DATA})
+    | | ~ XmlElementNavigationImpl [6 (3)] from 9 to 6 (xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.)
+    | | OperatorList [3]
+    | | - COMP [1] STRING:BOOLEAN (XmlPropertyImpl [8] =[8] TextLiteralParamImpl [9])
+    : Morphism (4 -> 5)
+    |   * NodeMapping(4 -> 6)
+    |   * NodeMapping(5 -> 9)
+    |   * RelationMapping(3 -> 6)
+    : TRUE
+  ParameterList
+    : text [9] 'New York City'
+    : comp [8] =
+    : type [10] STRING
+    : xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.
+    : xmlpath [4] {[axis [5] /child::*, {DATA}, text [6] '']}.
+    : xmlpath [7][] {DATA}
+
+___TRANSLATION___
+for $var3_0 in /descendant::*
+where 
+  every $var4_0 in $var3_0/child::*[./text()][./text()[.="New York City"]]
+  satisfies (true())
+return $var3_0

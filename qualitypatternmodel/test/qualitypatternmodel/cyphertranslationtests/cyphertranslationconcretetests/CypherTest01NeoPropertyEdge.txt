@@ -1,0 +1,374 @@
+
+<<< BEGIN - Tests >>>
+Mode - Testing without DB
+
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  EXISTS
+    : Graph
+    | | > Return-NeoElementNodeImpl ComplexNode 1 [4 (3)]
+    | | > NeoPropertyNodeImpl Property 2 [5]
+    | | ~ NeoPropertyEdgeImpl [2] from 4 to 5 NeoPropertyPathParam [1] varENode3.title
+    : Morphism (2 -> 3)
+    |   * NodeMapping(3 -> 4)
+    : TRUE
+  ParameterList
+    : NeoNodeLabels [2] ()
+    : NeoPropertyPathParam [1] varENode3.title
+
+___TRANSLATION___
+MATCH (varENode3)
+WHERE EXISTS (varENode3.title)
+RETURN varENode3
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] -[varPEdge2]-(varPNode4_2)
+  TRUE
+  ParameterList
+    : NeoNodeLabels [2] ()
+    : NeoPropertyPathParam [1] -[varPEdge2]-(varPNode4_2)
+
+___TRANSLATION___
+MATCH (varENode3)-[varPEdge2]-(varPNode4_2)
+RETURN varENode3
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > NeoElementNodeImpl ComplexNode 1 [3]
+  | > Return-NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] varENode3.identifier
+  TRUE
+  ParameterList
+    : NeoNodeLabels [2] ()
+    : NeoPropertyPathParam [1] varENode3.identifier
+
+___TRANSLATION___
+MATCH (varENode3)
+RETURN varENode3.identifier
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > NeoElementNodeImpl ComplexNode 1 [5]
+  | > Return-NeoPropertyNodeImpl Property 2 [6]
+  | > Return-NeoPropertyNodeImpl Property 3 [7]
+  | > Return-NeoPropertyNodeImpl Property 4 [8]
+  | ~ NeoPropertyEdgeImpl [4] from 5 to 6 NeoPropertyPathParam [1] varENode5.identifier
+  | ~ NeoPropertyEdgeImpl [5] from 5 to 7 NeoPropertyPathParam [2] varENode5.date
+  | ~ NeoPropertyEdgeImpl [6] from 5 to 8 NeoPropertyPathParam [3] varENode5.placeOfIssue
+  TRUE
+  ParameterList
+    : NeoNodeLabels [4] ()
+    : NeoPropertyPathParam [1] varENode5.identifier
+    : NeoPropertyPathParam [2] varENode5.date
+    : NeoPropertyPathParam [3] varENode5.placeOfIssue
+
+___TRANSLATION___
+MATCH (varENode5)
+RETURN varENode5.identifier, varENode5.date, varENode5.placeOfIssue
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] -[varPEdge2:PLACE_OF_ISSUE]-(varPNode4_2:Place)
+  TRUE
+  ParameterList
+    : NeoNodeLabels [2] ('Regesta')
+    : NeoPropertyPathParam [1] -[varPEdge2:PLACE_OF_ISSUE]-(varPNode4_2:Place)
+
+___TRANSLATION___
+MATCH (varENode3:Regesta)-[varPEdge2:PLACE_OF_ISSUE]-(varPNode4_2:Place)
+RETURN varENode3
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] -[varPEdge2:PLACE_OF_ISSUE]->(varPNode4_2:Place)
+  TRUE
+  ParameterList
+    : NeoNodeLabels [2] ('Regesta')
+    : NeoPropertyPathParam [1] -[varPEdge2:PLACE_OF_ISSUE]->(varPNode4_2:Place)
+
+___TRANSLATION___
+MATCH (varENode3:Regesta)-[varPEdge2:PLACE_OF_ISSUE]->(varPNode4_2:Place)
+RETURN varENode3
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] <-[varPEdge2:APPEARS_IN]-(varPNode4_2:IndexEntry:IndexPlace)
+  TRUE
+  ParameterList
+    : NeoNodeLabels [2] ('Regesta')
+    : NeoPropertyPathParam [1] <-[varPEdge2:APPEARS_IN]-(varPNode4_2:IndexEntry:IndexPlace)
+
+___TRANSLATION___
+MATCH (varENode3:Regesta)<-[varPEdge2:APPEARS_IN]-(varPNode4_2:IndexEntry:IndexPlace)
+RETURN varENode3
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > Return-NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] -[varPEdge2:PLACE_OF_ISSUE]->(varPNode4_2:Place)
+  TRUE
+  ParameterList
+    : NeoNodeLabels [2] ('Regesta')
+    : NeoPropertyPathParam [1] -[varPEdge2:PLACE_OF_ISSUE]->(varPNode4_2:Place)
+
+___TRANSLATION___
+MATCH (varENode3:Regesta)-[varPEdge2:PLACE_OF_ISSUE]->(varPNode4_2:Place)
+RETURN varENode3, 
+   varPNode4_2.identifier
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > Return-NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] -[varPEdge2:PLACE_OF_ISSUE]->(varPNode4_2:Place)
+  TRUE
+  ParameterList
+    : NeoNodeLabels [2] ('Regesta')
+    : NeoPropertyPathParam [1] -[varPEdge2:PLACE_OF_ISSUE]->(varPNode4_2:Place)
+
+___TRANSLATION___
+MATCH (varENode3:Regesta)-[varPEdge2:PLACE_OF_ISSUE]->(varPNode4_2:Place)
+RETURN varENode3, 
+   varPNode4_2.identifier, 
+   varPEdge2
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] -[varPEdge2]-(varEgNode2)-[varPEdge2_1]-(varPNode4_2)
+  TRUE
+  ParameterList
+    : NeoNodeLabels [2] ()
+    : NeoPropertyPathParam [1] -[varPEdge2]-(varEgNode2)-[varPEdge2_1]-(varPNode4_2)
+
+___TRANSLATION___
+MATCH (varENode3)-[varPEdge2]-(varEgNode2)-[varPEdge2_1]-(varPNode4_2)
+RETURN varENode3,
+   varEgNode2
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] -[varPEdge2:APPEARS_IN]-(varEgNode2:IndexEntry:IndexPlace)-[varPEdge2_1:IS_SUB_OF]-(varPNode4_2:IndexEntry:IndexPerson)
+  TRUE
+  ParameterList
+    : NeoNodeLabels [2] ('Regesta')
+    : NeoPropertyPathParam [1] -[varPEdge2:APPEARS_IN]-(varEgNode2:IndexEntry:IndexPlace)-[varPEdge2_1:IS_SUB_OF]-(varPNode4_2:IndexEntry:IndexPerson)
+
+___TRANSLATION___
+MATCH (varENode3:Regesta)-[varPEdge2:APPEARS_IN]-(varEgNode2:IndexEntry:IndexPlace)-[varPEdge2_1:IS_SUB_OF]-(varPNode4_2:IndexEntry:IndexPerson)
+RETURN varENode3,
+   varEgNode2
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] <-[varPEdge2:APPEARS_IN]-(varEgNode2:IndexEntry:IndexPlace)<-[varPEdge2_1:IS_SUB_OF]-(varPNode4_2:IndexEntry:IndexPerson)
+  TRUE
+  ParameterList
+    : NeoNodeLabels [2] ('Regesta')
+    : NeoPropertyPathParam [1] <-[varPEdge2:APPEARS_IN]-(varEgNode2:IndexEntry:IndexPlace)<-[varPEdge2_1:IS_SUB_OF]-(varPNode4_2:IndexEntry:IndexPerson)
+
+___TRANSLATION___
+MATCH (varENode3:Regesta)<-[varPEdge2:APPEARS_IN]-(varEgNode2:IndexEntry:IndexPlace)<-[varPEdge2_1:IS_SUB_OF]-(varPNode4_2:IndexEntry:IndexPerson)
+RETURN varENode3,
+   varEgNode2
+
+
+___PATTERN_(VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > Return-NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1] <-[varPEdge2:APPEARS_IN]-(varEgNode2:IndexEntry:IndexPlace)<-[varPEdge2_1:IS_SUB_OF]-(varPNode4_2:IndexEntry:IndexPerson)
+  TRUE
+  ParameterList
+    : NeoNodeLabels [2] ('Regesta')
+    : NeoPropertyPathParam [1] <-[varPEdge2:APPEARS_IN]-(varEgNode2:IndexEntry:IndexPlace)<-[varPEdge2_1:IS_SUB_OF]-(varPNode4_2:IndexEntry:IndexPerson)
+
+___TRANSLATION___
+MATCH (varENode3:Regesta)<-[varPEdge2:APPEARS_IN]-(varEgNode2:IndexEntry:IndexPlace)<-[varPEdge2_1:IS_SUB_OF]-(varPNode4_2:IndexEntry:IndexPerson)
+RETURN varENode3, 
+   varPNode4_2.path, 
+   varPEdge2, varPEdge2_1,
+   varEgNode2
+<<< END - Tests >>>
+
+
+<<< BEGIN - Tests >>>
+
+--- new Query ---
+
+MATCH (varENode7)
+MATCH (varENode8)
+MATCH (varENode9)-[varPEdge6]-(varPNode10_6:Regesta)
+MATCH (varENode11)-[varPEdge8]-(varPNode10_8:Regesta)
+WHERE (varENode7.placeOfIssue = varENode8.placeOfIssue AND varENode7.placeOfIssue = varPNode10_6.placeOfIssue AND varENode7.placeOfIssue = varPNode10_8.placeOfIssue)
+   AND NOT ((varENode7.placeOfIssue = varENode8.placeOfIssue))
+RETURN varENode7
+
+--- new Query ---
+
+MATCH (varENode6)
+MATCH (varENode7)
+MATCH (varENode8)-[varPEdge5]-(varPNode9_5:Regesta)
+MATCH (varENode10)-[varPEdge6]-(varPNode9_6:Regesta)
+WHERE (varENode6.placeOfIssue = varENode7.placeOfIssue AND varENode6.placeOfIssue = varPNode9_5.placeOfIssue AND varENode6.placeOfIssue = varPNode9_6.placeOfIssue)
+RETURN varENode6
+
+--- new Query ---
+
+MATCH (varENode7)
+MATCH (varENode8)-[varPEdge8]-(varPNode9_8:Regesta)
+MATCH (varENode10)-[varPEdge9]-(varPNode11_9:Regesta)
+MATCH (varENode12)
+WHERE (varENode7.placeOfIssue = varENode8.placeOfIssue AND varENode7.placeOfIssue = varPNode11_9.placeOfIssue AND varENode7.placeOfIssue = varENode12.placeOfIssue
+   AND varENode7.TestValue1 = varENode7.TestValue2 AND varENode7.TestValue1 = varPNode9_8.TestValue3)
+RETURN varENode7
+
+--- new Query ---
+
+MATCH (varENode8)
+MATCH (varENode9)-[varPEdge14]-(varPNode10_14:Regesta)
+MATCH (varENode11)-[varPEdge6]-(varPNode12_6:Regesta)
+MATCH (varENode13)
+WHERE (varENode8.placeOfIssue = varENode9.placeOfIssue AND varENode8.placeOfIssue = varPNode12_6.placeOfIssue AND varENode8.placeOfIssue = varENode13.placeOfIssue
+   AND varENode8.TestValue1 = varENode8.TestValue2 AND varENode8.TestValue1 = varPNode10_14.TestValue3)
+   AND EXISTS {
+      MATCH (varENode14)
+      WHERE (varENode8.placeOfIssue = varENode14.TestValue4)}
+RETURN varENode8
+
+--- new Query ---
+
+MATCH (varENode7)
+MATCH (varENode8)-[varPEdge14]-(varPNode9_14:Regesta)
+MATCH (varENode10)-[varPEdge6]-(varPNode11_6:Regesta)
+MATCH (varENode12)
+WHERE (varENode7.placeOfIssue = varENode8.placeOfIssue AND varENode7.placeOfIssue = varPNode11_6.placeOfIssue AND varENode7.placeOfIssue = varENode12.placeOfIssue
+   AND varENode7.TestValue1 = varENode7.TestValue2 AND varENode7.TestValue1 = varPNode9_14.TestValue3)
+   AND (varENode7.placeOfIssue = varENode7.TestValue4)
+RETURN varENode7
+<<< END - Tests >>>
+
+
+<<< BEGIN - Build-Pattern-Exceptions >>>
+
+
+___PATTERN_(NOT VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1]
+  TRUE
+  ParameterList
+    : NeoNodeLabels [2] ()
+    : NeoPropertyPathParam [1]
+
+___TRANSLATION___
+-- Beginning of the Exceptions --
+qualitypatternmodel.exceptions.InvalidityException: TargetNodes can not be null
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1]
+  TRUE
+  ParameterList
+    : NeoNodeLabels [2] ()
+    : NeoPropertyPathParam [1]
+Test successful
+
+
+___PATTERN_(NOT VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1]
+  TRUE
+  ParameterList
+    : NeoNodeLabels [2] ()
+    : NeoPropertyPathParam [1]
+
+___TRANSLATION___
+-- Beginning of the Exceptions --
+qualitypatternmodel.exceptions.InvalidityException: TargetNodes can not be null
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1]
+  TRUE
+  ParameterList
+    : NeoNodeLabels [2] ()
+    : NeoPropertyPathParam [1]
+Test successful
+
+
+___PATTERN_(NOT VALID)___
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1]
+  TRUE
+  ParameterList
+    : NeoNodeLabels [2] ()
+    : NeoPropertyPathParam [1]
+
+___TRANSLATION___
+-- Beginning of the Exceptions --
+qualitypatternmodel.exceptions.InvalidityException: TargetNodes can not be null
+Pattern MyPattern
+  Return-Graph
+  | > Return-NeoElementNodeImpl ComplexNode 1 [3]
+  | > NeoPropertyNodeImpl Property 2 [4]
+  | ~ NeoPropertyEdgeImpl [2] from 3 to 4 NeoPropertyPathParam [1]
+  TRUE
+  ParameterList
+    : NeoNodeLabels [2] ()
+    : NeoPropertyPathParam [1]
+Test successful
+<<< END - Build-Pattern-Exceptions >>>
+

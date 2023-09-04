@@ -1,0 +1,36 @@
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl ComplexNode 1 [3]
+  | > XmlRootImpl Root [4]
+  | ~ XmlElementNavigationImpl [3] from 4 to 3 (xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.)
+  EXISTS
+    : Graph
+    | | > Return-XmlElementImpl ComplexNode 1 [5 (3)]
+    | | > XmlElementImpl ComplexNode 2 [6]
+    | | > XmlRootImpl Root [7 (4)]
+    | | ~ XmlElementNavigationImpl [4] from 6 to 5 (xmlpath [4] {[axis [5] /child::*, {DATA}, text [6] '']}.)
+    | | ~ XmlElementNavigationImpl [5] from 5 to 6 (xmlpath [7] {[axis [8] /child::*, {DATA}, text [9] '']}.)
+    | | ~ XmlElementNavigationImpl [6 (3)] from 7 to 5 (xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.)
+    : Morphism (2 -> 3)
+    |   * NodeMapping(3 -> 5)
+    |   * NodeMapping(4 -> 7)
+    |   * RelationMapping(3 -> 6)
+    : TRUE
+  ParameterList
+    : xmlpath [4] {[axis [5] /child::*, {DATA}, text [6] '']}.
+    : xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.
+    : xmlpath [7] {[axis [8] /child::*, {DATA}, text [9] '']}.
+
+___TRANSLATION___
+for $var3_0 in /descendant::*
+where 
+  some $var5_0 in $var3_0/child::*[./text()]
+  satisfies 
+  some $var4_0 in $var5_0/child::*[./text()][deep-equal(.,$var3_0)]
+  satisfies 
+  some $var5_1 in $var4_0/child::*[./text()][. is $var5_0]
+  satisfies (true())
+return $var3_0

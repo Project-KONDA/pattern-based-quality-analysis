@@ -1,0 +1,132 @@
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl ComplexNode 1 [3]
+  | > XmlPropertyImpl PrimitiveNode 2 [4]
+  | > XmlRootImpl Root [5]
+  | ~ XmlPropertyNavigationImpl [2] from 3 to 4 (xmlpath [1][] {DATA})
+  | ~ XmlElementNavigationImpl [3] from 5 to 3 (xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.)
+  | OperatorList [3]
+  | - MATCH (1) [5][4, 6]
+  TRUE
+  ParameterList
+    : bool [5] true
+    : text [6] 'know'
+    : xmlpath [1][] {DATA}
+    : xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.
+
+___TRANSLATION___
+for $var3_0 in /descendant::*[./text()[matches(., "know")]]
+return $var3_0
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl ComplexNode 1 [3]
+  | > XmlPropertyImpl PrimitiveNode 2 [4]
+  | > XmlRootImpl Root [5]
+  | ~ XmlPropertyNavigationImpl [2] from 3 to 4 (xmlpath [1][] {DATA})
+  | ~ XmlElementNavigationImpl [3] from 5 to 3 (xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.)
+  | OperatorList [3]
+  | - MATCH (1) [not 5][4, 6]
+  TRUE
+  ParameterList
+    : bool [5] false
+    : text [6] 'u'
+    : xmlpath [1][] {DATA}
+    : xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.
+
+___TRANSLATION___
+for $var3_0 in /descendant::*[./text()[not(matches(., "u"))]]
+return $var3_0
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl ComplexNode 1 [3]
+  | > XmlPropertyImpl PrimitiveNode 2 [4]
+  | > XmlRootImpl Root [5]
+  | ~ XmlPropertyNavigationImpl [2] from 3 to 4 (xmlpath [1][] {DATA})
+  | ~ XmlElementNavigationImpl [3] from 5 to 3 (xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.)
+  | OperatorList [3]
+  | - MATCH (1) [5][4, 6]
+  TRUE
+  ParameterList
+    : bool [5] true
+    : text [6] '^unk'
+    : xmlpath [1][] {DATA}
+    : xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.
+
+___TRANSLATION___
+for $var3_0 in /descendant::*[./text()[matches(., "^unk")]]
+return $var3_0
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl ComplexNode 1 [3]
+  | > XmlPropertyImpl PrimitiveNode 2 [4]
+  | > XmlRootImpl Root [5]
+  | ~ XmlPropertyNavigationImpl [2] from 3 to 4 (xmlpath [1][] {DATA})
+  | ~ XmlElementNavigationImpl [3] from 5 to 3 (xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.)
+  | OperatorList [3]
+  | - MATCH (1) [5][4, 6]
+  TRUE
+  ParameterList
+    : bool [5] true
+    : text [6] 'own$'
+    : xmlpath [1][] {DATA}
+    : xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.
+
+___TRANSLATION___
+for $var3_0 in /descendant::*[./text()[matches(., "own$")]]
+return $var3_0
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl ComplexNode 1 [3]
+  | > XmlPropertyImpl PrimitiveNode 2 [4]
+  | > XmlRootImpl Root [5]
+  | ~ XmlPropertyNavigationImpl [2] from 3 to 4 (xmlpath [1][] {DATA})
+  | ~ XmlElementNavigationImpl [3] from 5 to 3 (xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.)
+  | OperatorList [3]
+  | - MATCH (1) [5][4, 6]
+  TRUE
+  ParameterList
+    : bool [5] true
+    : text [6] '^unknown$'
+    : xmlpath [1][] {DATA}
+    : xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.
+
+___TRANSLATION___
+for $var3_0 in /descendant::*[./text()[matches(., "^unknown$")]]
+return $var3_0
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl ComplexNode 1 [3]
+  | > XmlPropertyImpl PrimitiveNode 2 [4]
+  | > XmlRootImpl Root [5]
+  | ~ XmlPropertyNavigationImpl [2] from 3 to 4 (xmlpath [1][] {DATA})
+  | ~ XmlElementNavigationImpl [3] from 5 to 3 (xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.)
+  | OperatorList [3]
+  | - MATCH (1) [not 5][4, 6]
+  TRUE
+  ParameterList
+    : bool [5] false
+    : text [6] '^unknown$'
+    : xmlpath [1][] {DATA}
+    : xmlpath [2] {[axis [3] /descendant::*, {TAG}, text [4] '']}.
+
+___TRANSLATION___
+for $var3_0 in /descendant::*[./text()[not(matches(., "^unknown$"))]]
+return $var3_0

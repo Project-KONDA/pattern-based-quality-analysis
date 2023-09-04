@@ -1,0 +1,72 @@
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [3]
+  | > RdfLiteralNodeImpl PrimitiveNode 2 [4]
+  | ~ RdfPredicateImpl [2] from 3 to 4 rdfpath [1] -(<>|!<>) 
+  | OperatorList [3]
+  | - CONTAINS (1) [2][4, 3]
+  TRUE
+  ParameterList
+    : bool [2] true
+    : text [3] '?'
+    : irilist [4] ( )
+    : rdfpath [1] -(<>|!<>) 
+
+___TRANSLATION___
+SELECT
+  ?var3
+WHERE {
+  ?var3 (<>|!<>) ?var4.
+  FILTER (contains(?var4, "?"))
+}
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [3]
+  | > RdfLiteralNodeImpl PrimitiveNode 2 [4]
+  | ~ RdfPredicateImpl [2] from 3 to 4 rdfpath [1] -(<>|!<>) 
+  | OperatorList [3]
+  | - CONTAINS (1) [not 2][4, 3]
+  TRUE
+  ParameterList
+    : bool [2] false
+    : text [3] 'e'
+    : irilist [4] ( )
+    : rdfpath [1] -(<>|!<>) 
+
+___TRANSLATION___
+SELECT
+  ?var3
+WHERE {
+  ?var3 (<>|!<>) ?var4.
+  FILTER (!contains(?var4, "e"))
+}
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-RdfIriNodeImpl ComplexNode 1 [3]
+  | > RdfLiteralNodeImpl PrimitiveNode 2 [4]
+  | ~ RdfPredicateImpl [2] from 3 to 4 rdfpath [1] -(<>|!<>) 
+  | OperatorList [3]
+  | - CONTAINS (1) [2][4, 3]
+  TRUE
+  ParameterList
+    : bool [2] true
+    : text [3] 'Haus'
+    : irilist [4] ( )
+    : rdfpath [1] -(<>|!<>) 
+
+___TRANSLATION___
+SELECT
+  ?var3
+WHERE {
+  ?var3 (<>|!<>) ?var4.
+  FILTER (contains(?var4, "Haus"))
+}

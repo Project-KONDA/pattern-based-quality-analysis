@@ -1,0 +1,185 @@
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl ComplexNode 1 [3]
+  | > XmlRootImpl Root [4]
+  | ~ XmlElementNavigationImpl [5] from 4 to 3 (xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.)
+  EXISTS
+    : Graph
+    | | > Return-XmlElementImpl ComplexNode 1 [5 (3)]
+    | | > XmlElementImpl ComplexNode 2 [6]
+    | | > XmlRootImpl Root [7 (4)]
+    | | > XmlPropertyImpl XmlProperty 8 [8]
+    | | ~ XmlElementNavigationImpl [6] from 5 to 6 (xmlpath [4] {[axis [5] /child::*, {DATA}, text [6] '']}.)
+    | | ~ XmlElementNavigationImpl [7 (5)] from 7 to 5 (xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.)
+    | | ~ XmlReferenceImpl [8] from 5 to 6 [8]
+    | | ~ XmlPropertyNavigationImpl [9] from 5 to 8 (xmlpath [7] {[axis [8] /descendant::*, {TAG}, text [9] '']} {DATA})
+    | | ~ XmlPropertyNavigationImpl [10] from 6 to 8 (xmlpath [10][] {DATA})
+    : Morphism (2 -> 3)
+    |   * NodeMapping(3 -> 5)
+    |   * NodeMapping(4 -> 7)
+    |   * RelationMapping(5 -> 7)
+    : TRUE
+  ParameterList
+    : xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.
+    : xmlpath [4] {[axis [5] /child::*, {DATA}, text [6] '']}.
+    : xmlpath [7] {[axis [8] /descendant::*, {TAG}, text [9] '']} {DATA}
+    : xmlpath [10][] {DATA}
+
+___TRANSLATION___
+for $var5_0 in /descendant::*
+where 
+  some $var6_0 in $var5_0/child::*[./text()][./text()]
+  satisfies 
+  some $var9_0 in $var5_0/descendant::*/text()[. = $var6_0/text()]
+  satisfies (true())
+return $var5_0
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl ComplexNode 1 [4]
+  | > XmlRootImpl Root [5]
+  | ~ XmlElementNavigationImpl [8] from 5 to 4 (xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.)
+  EXISTS
+    : Graph
+    | | > Return-XmlElementImpl ComplexNode 1 [6 (4)]
+    | | > XmlElementImpl ComplexNode 2 [7]
+    | | > XmlElementImpl ComplexNode 3 [8]
+    | | > XmlRootImpl Root [9 (5)]
+    | | > XmlPropertyImpl XmlProperty 10 [10]
+    | | > XmlPropertyImpl XmlProperty 11 [11]
+    | | ~ XmlElementNavigationImpl [9] from 8 to 7 (xmlpath [4] {[axis [5] /child::*, {DATA}, text [6] '']}.)
+    | | ~ XmlElementNavigationImpl [10 (8)] from 9 to 6 (xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.)
+    | | ~ XmlElementNavigationImpl [11] from 9 to 8 (xmlpath [7] {[axis [8] /descendant::*, {TAG}, text [9] '']}.)
+    | | ~ XmlReferenceImpl [12] from 6 to 7 [10]
+    | | ~ XmlPropertyNavigationImpl [13] from 6 to 10 (xmlpath [10] {[axis [11] /descendant::*, {TAG}, text [12] '']} {DATA})
+    | | ~ XmlPropertyNavigationImpl [14] from 7 to 10 (xmlpath [13][] {DATA})
+    | | ~ XmlReferenceImpl [15] from 6 to 7 [11]
+    | | ~ XmlPropertyNavigationImpl [16] from 6 to 11 (xmlpath [14][] {DATA})
+    | | ~ XmlPropertyNavigationImpl [17] from 7 to 11 (xmlpath [15][] {DATA})
+    : Morphism (2 -> 3)
+    |   * NodeMapping(4 -> 6)
+    |   * NodeMapping(5 -> 9)
+    |   * RelationMapping(8 -> 10)
+    : TRUE
+  ParameterList
+    : xmlpath [1] {[axis [2] /descendant::*, {TAG}, text [3] '']}.
+    : xmlpath [4] {[axis [5] /child::*, {DATA}, text [6] '']}.
+    : xmlpath [7] {[axis [8] /descendant::*, {TAG}, text [9] '']}.
+    : xmlpath [10] {[axis [11] /descendant::*, {TAG}, text [12] '']} {DATA}
+    : xmlpath [13][] {DATA}
+    : xmlpath [14][] {DATA}
+    : xmlpath [15][] {DATA}
+
+___TRANSLATION___
+for $var8_0 in /descendant::*
+where 
+  some $var13_0 in $var8_0/descendant::*/text()
+  satisfies 
+  some $var16_0 in $var8_0/text()
+  satisfies 
+  some $var11_0 in /descendant::*
+  satisfies 
+  some $var9_0 in $var11_0/child::*[./text()][./text()[. = $var13_0]][./text()[. = $var16_0]]
+  satisfies (true())
+return $var8_0
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl ComplexNode 1 [3]
+  | > XmlRootImpl Root [4]
+  | ~ XmlElementNavigationImpl [6] from 4 to 3 (xmlpath [2] {[axis [3] /child::*, {TAG}, text [4] '']}.)
+  EXISTS
+    : Graph
+    | | > Return-XmlElementImpl ComplexNode 1 [5 (3)]
+    | | > XmlElementImpl ComplexNode 2 [6]
+    | | > XmlRootImpl Root [7 (4)]
+    | | > XmlPropertyImpl XmlProperty 8 [8]
+    | | ~ XmlElementNavigationImpl [7] from 5 to 6 (xmlpath [5] {[axis [6] /child::*, {DATA}, text [7] '']}.)
+    | | ~ XmlElementNavigationImpl [8] from 5 to 6 (xmlpath [8] {[axis [9] /child::*, {DATA}, text [10] '']}.)
+    | | ~ XmlElementNavigationImpl [9 (6)] from 7 to 5 (xmlpath [2] {[axis [3] /child::*, {TAG}, text [4] '']}.)
+    | | ~ XmlReferenceImpl [10] from 5 to 6 [8]
+    | | ~ XmlPropertyNavigationImpl [11] from 5 to 8 (xmlpath [11][] {ATTRIBUTE, text [12] 'demo:id'})
+    | | ~ XmlPropertyNavigationImpl [12] from 6 to 8 (xmlpath [13][] {DATA})
+    : Morphism (2 -> 3)
+    |   * NodeMapping(3 -> 5)
+    |   * NodeMapping(4 -> 7)
+    |   * RelationMapping(6 -> 9)
+    : TRUE
+  ParameterList
+    : xmlpath [2] {[axis [3] /child::*, {TAG}, text [4] '']}.
+    : xmlpath [5] {[axis [6] /child::*, {DATA}, text [7] '']}.
+    : xmlpath [8] {[axis [9] /child::*, {DATA}, text [10] '']}.
+    : xmlpath [11][] {ATTRIBUTE, text [12] 'demo:id'}
+    : xmlpath [13][] {DATA}
+
+___TRANSLATION___
+for $var6_0 in /child::*
+where 
+  some $var7_0 in $var6_0/child::*[./text()][./text()]
+  satisfies 
+  some $var8_0 in $var6_0/child::*[./text()][./text()][deep-equal(.,$var7_0)]
+  satisfies 
+  some $var11_0 in $var6_0/@*[name()="demo:id"][. = $var7_0/text()]
+  satisfies (true())
+return $var6_0
+
+
+___PATTERN_(VALID)___
+Pattern Pattern
+  Return-Graph
+  | > Return-XmlElementImpl ComplexNode 1 [3]
+  | > XmlRootImpl Root [4]
+  | ~ XmlElementNavigationImpl [11] from 4 to 3 (xmlpath [3] {[axis [4] /child::*, {TAG}, text [5] '']}.)
+  EXISTS
+    : Graph
+    | | > Return-XmlElementImpl ComplexNode 1 [5 (3)]
+    | | > XmlElementImpl ComplexNode 2 [6]
+    | | > XmlRootImpl Root [7 (4)]
+    | | > XmlPropertyImpl XmlProperty 8 [8]
+    | | > XmlPropertyImpl XmlProperty 9 [9]
+    | | > XmlPropertyImpl XmlProperty 10 [10]
+    | | ~ XmlElementNavigationImpl [12] from 5 to 6 (xmlpath [6] {[axis [7] /child::*, {DATA}, text [8] '']}.)
+    | | ~ XmlElementNavigationImpl [13 (11)] from 7 to 5 (xmlpath [3] {[axis [4] /child::*, {TAG}, text [5] '']}.)
+    | | ~ XmlReferenceImpl [14] from 5 to 6 [8]
+    | | ~ XmlPropertyNavigationImpl [15] from 5 to 8 (xmlpath [9][] {ATTRIBUTE, text [10] 'demo:lang'})
+    | | ~ XmlPropertyNavigationImpl [16] from 6 to 8 (xmlpath [11][] {ATTRIBUTE, text [12] 'demo:lang'})
+    | | ~ XmlReferenceImpl [17] from 5 to 6 [9]
+    | | ~ XmlPropertyNavigationImpl [18] from 5 to 9 (xmlpath [13][] {TAG})
+    | | ~ XmlPropertyNavigationImpl [19] from 6 to 9 (xmlpath [14][] {TAG})
+    | | ~ XmlReferenceImpl [20] from 5 to 6 [10]
+    | | ~ XmlPropertyNavigationImpl [21] from 5 to 10 (xmlpath [15][] {DATA})
+    | | ~ XmlPropertyNavigationImpl [22] from 6 to 10 (xmlpath [16][] {DATA})
+    : Morphism (2 -> 3)
+    |   * NodeMapping(3 -> 5)
+    |   * NodeMapping(4 -> 7)
+    |   * RelationMapping(11 -> 13)
+    : TRUE
+  ParameterList
+    : xmlpath [3] {[axis [4] /child::*, {TAG}, text [5] '']}.
+    : xmlpath [6] {[axis [7] /child::*, {DATA}, text [8] '']}.
+    : xmlpath [9][] {ATTRIBUTE, text [10] 'demo:lang'}
+    : xmlpath [11][] {ATTRIBUTE, text [12] 'demo:lang'}
+    : xmlpath [13][] {TAG}
+    : xmlpath [14][] {TAG}
+    : xmlpath [15][] {DATA}
+    : xmlpath [16][] {DATA}
+
+___TRANSLATION___
+for $var11_0 in /child::*
+where 
+  some $var12_0 in $var11_0/child::*[./text()][./@*[name()="demo:lang"]][./name()][./text()]
+  satisfies 
+  some $var15_0 in $var11_0/@*[name()="demo:lang"][. = $var12_0/@*[name()="demo:lang"]]
+  satisfies 
+  some $var18_0 in $var11_0/name()[. = $var12_0/name()]
+  satisfies 
+  some $var21_0 in $var11_0/text()[. = $var12_0/text()]
+  satisfies (true())
+return $var11_0
