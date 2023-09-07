@@ -434,6 +434,40 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<Node> getNodesFromAllPreviousGraphs() {
+		EList<Node> nodes = getNodes();
+		try {
+			GraphImpl prevGraph = (GraphImpl) getIncomingMorphism().getSource();
+			EList<Node> nodes2 = prevGraph.getNodesFromAllPreviousGraphs();
+			nodes2.addAll(nodes);
+			return nodes2;
+		} catch (Exception e) {}
+		return nodes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<Relation> getRelationsFromAllPreviousGraphs() {
+		EList<Relation> relations = getRelations();
+		try {
+			GraphImpl prevGraph = (GraphImpl) getIncomingMorphism().getSource();
+			EList<Relation> relations2 = prevGraph.getRelationsFromAllPreviousGraphs();
+			relations2.addAll(relations);
+			return relations2;
+		} catch (Exception e) {}
+		return relations;
+	}
+
+	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
 	 * @throws InvalidityException
@@ -1499,6 +1533,10 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				}
 			case GraphstructurePackage.GRAPH___IS_BEFORE__GRAPH:
 				return isBefore((Graph)arguments.get(0));
+			case GraphstructurePackage.GRAPH___GET_NODES_FROM_ALL_PREVIOUS_GRAPHS:
+				return getNodesFromAllPreviousGraphs();
+			case GraphstructurePackage.GRAPH___GET_RELATIONS_FROM_ALL_PREVIOUS_GRAPHS:
+				return getRelationsFromAllPreviousGraphs();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

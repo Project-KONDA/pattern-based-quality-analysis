@@ -406,6 +406,8 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/isBefore">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Graph/isBefore/other"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/getNodesFromAllPreviousGraphs"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/getRelationsFromAllPreviousGraphs"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//graphstructure/Comparable">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

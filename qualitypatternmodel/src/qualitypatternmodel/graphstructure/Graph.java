@@ -250,4 +250,20 @@ public interface Graph extends PatternElement {
 	EList<Operator> getAllOperators();
 	
 	Boolean isBefore(Graph other);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<Node> getNodesFromAllPreviousGraphs();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<Relation> getRelationsFromAllPreviousGraphs();
 } // Graph

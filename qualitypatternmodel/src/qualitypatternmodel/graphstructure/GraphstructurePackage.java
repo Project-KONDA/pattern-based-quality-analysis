@@ -2612,13 +2612,31 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH___IS_BEFORE__GRAPH = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 9;
 
 	/**
+	 * The operation id for the '<em>Get Nodes From All Previous Graphs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH___GET_NODES_FROM_ALL_PREVIOUS_GRAPHS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 10;
+
+	/**
+	 * The operation id for the '<em>Get Relations From All Previous Graphs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH___GET_RELATIONS_FROM_ALL_PREVIOUS_GRAPHS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 11;
+
+	/**
 	 * The number of operations of the '<em>Graph</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 10;
+	int GRAPH_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 12;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.Adaptable <em>Adaptable</em>}' class.
@@ -4450,6 +4468,26 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getGraph__IsBefore__Graph();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Graph#getNodesFromAllPreviousGraphs() <em>Get Nodes From All Previous Graphs</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Nodes From All Previous Graphs</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Graph#getNodesFromAllPreviousGraphs()
+	 * @generated
+	 */
+	EOperation getGraph__GetNodesFromAllPreviousGraphs();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Graph#getRelationsFromAllPreviousGraphs() <em>Get Relations From All Previous Graphs</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Relations From All Previous Graphs</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Graph#getRelationsFromAllPreviousGraphs()
+	 * @generated
+	 */
+	EOperation getGraph__GetRelationsFromAllPreviousGraphs();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Graph#getReturnNodes() <em>Get Return Nodes</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5280,6 +5318,22 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation GRAPH___IS_BEFORE__GRAPH = eINSTANCE.getGraph__IsBefore__Graph();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Nodes From All Previous Graphs</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRAPH___GET_NODES_FROM_ALL_PREVIOUS_GRAPHS = eINSTANCE.getGraph__GetNodesFromAllPreviousGraphs();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Relations From All Previous Graphs</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRAPH___GET_RELATIONS_FROM_ALL_PREVIOUS_GRAPHS = eINSTANCE.getGraph__GetRelationsFromAllPreviousGraphs();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Return Nodes</b></em>' operation.

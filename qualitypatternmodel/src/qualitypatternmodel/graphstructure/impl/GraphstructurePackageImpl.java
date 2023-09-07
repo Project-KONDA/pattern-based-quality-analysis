@@ -1023,6 +1023,26 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
+	public EOperation getGraph__GetNodesFromAllPreviousGraphs() {
+		return graphEClass.getEOperations().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getGraph__GetRelationsFromAllPreviousGraphs() {
+		return graphEClass.getEOperations().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getGraph__GetReturnNodes() {
 		return graphEClass.getEOperations().get(1);
 	}
@@ -1281,6 +1301,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(graphEClass, GRAPH___GENERATE_CYPHER_WHERE);
 		createEOperation(graphEClass, GRAPH___GET_ALL_SUB_GRAPHS);
 		createEOperation(graphEClass, GRAPH___IS_BEFORE__GRAPH);
+		createEOperation(graphEClass, GRAPH___GET_NODES_FROM_ALL_PREVIOUS_GRAPHS);
+		createEOperation(graphEClass, GRAPH___GET_RELATIONS_FROM_ALL_PREVIOUS_GRAPHS);
 
 		comparableEClass = createEClass(COMPARABLE);
 		createEReference(comparableEClass, COMPARABLE__COMPARISON1);
@@ -1543,6 +1565,10 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		op = initEOperation(getGraph__IsBefore__Graph(), ecorePackage.getEBooleanObject(), "isBefore", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getGraph(), "other", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getGraph__GetNodesFromAllPreviousGraphs(), this.getNode(), "getNodesFromAllPreviousGraphs", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getGraph__GetRelationsFromAllPreviousGraphs(), this.getRelation(), "getRelationsFromAllPreviousGraphs", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(comparableEClass, qualitypatternmodel.graphstructure.Comparable.class, "Comparable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComparable_Comparison1(), theOperatorsPackage.getComparison(), theOperatorsPackage.getComparison_Argument1(), "comparison1", null, 0, -1, qualitypatternmodel.graphstructure.Comparable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

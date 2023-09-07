@@ -26,6 +26,8 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#generateCypherWhere() <em>Generate Cypher Where</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getAllSubGraphs() <em>Get All Sub Graphs</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#isBefore(qualitypatternmodel.graphstructure.Graph) <em>Is Before</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#getNodesFromAllPreviousGraphs() <em>Get Nodes From All Previous Graphs</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#getRelationsFromAllPreviousGraphs() <em>Get Relations From All Previous Graphs</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -209,6 +211,32 @@ public class GraphTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testIsBefore__Graph() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Graph#getNodesFromAllPreviousGraphs() <em>Get Nodes From All Previous Graphs</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Graph#getNodesFromAllPreviousGraphs()
+	 * @generated
+	 */
+	public void testGetNodesFromAllPreviousGraphs() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Graph#getRelationsFromAllPreviousGraphs() <em>Get Relations From All Previous Graphs</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Graph#getRelationsFromAllPreviousGraphs()
+	 * @generated
+	 */
+	public void testGetRelationsFromAllPreviousGraphs() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
