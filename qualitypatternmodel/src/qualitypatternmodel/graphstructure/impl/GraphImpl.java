@@ -212,7 +212,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	@Override
 	public String generateCypher() throws InvalidityException {	
-		final EList<Node> allNodesList = getNodes();
+		final EList<Node> allNodesList = getNodesFromAllPreviousGraphs();
 		
 		if (allNodesList != null && allNodesList.size() > 0) { 
 			final StringBuilder cypher = new StringBuilder();	
@@ -284,25 +284,26 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		StringBuilder cypher = null;
 		StringBuilder cypherEdge = null;
 		StringBuilder preCypher = null;
+		String nodeCypher = node.generateCypher(); 
 		EList<StringBuilder> result = new BasicEList<StringBuilder>();
 		if (cyphers.size() == 0) {
 			cypher = new StringBuilder();
-			cypher.append(node.generateCypher());
+			cypher.append(nodeCypher);
 			if (checkIfVisibleForks(node)) {
 				result.add(cypher);
 				cypher = new StringBuilder();
-				cypher.append(node.generateCypher());
+				cypher.append(nodeCypher);
 				innerCounterString++;
 			}
 		} else if (checkIfVisibleForks(node)) {
 			preCypher = cyphers.get(innerCounterString);
 			cypher = new StringBuilder();
 			cypher.append(preCypher.toString());
-			cypher.append(node.generateCypher());
+			cypher.append(nodeCypher);
 			result.add(cypher);
 			innerCounterString++;
 			cypher = new StringBuilder();
-			cypher.append(node.generateCypher());
+			cypher.append(nodeCypher);
 			if (node instanceof NeoElementNode) {
 				((NeoElementNode) node).setIsVariableDistinctInUse(false);				
 			}
@@ -310,29 +311,31 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			preCypher = cyphers.get(innerCounterString);
 			cypher = new StringBuilder();
 			cypher.append(preCypher.toString());
-			cypher.append(node.generateCypher());
+			cypher.append(nodeCypher);
 		}
 
 		String cypherText;
 		
 		boolean hasEdges = false;
 		for (Relation innerEdges : node.getOutgoing()) {
-			cypherText = innerEdges.generateCypher();
-			//Checks for the morphisem. No Edge will be printed if it is from a previews graph --> No reprinting of the edge
-			if (!cypherText.isEmpty()) { 
-				cypherEdge = new StringBuilder();
-				cypherEdge.append(cypher.toString());
-				
-				if (innerEdges instanceof NeoElementEdge) {
-					cypherEdge.append(cypherText);
-					cyphers.add(cypherEdge);
-					innerCounterString = cyphers.size() - 1;
-					result.addAll(traverseOverPattern((ComplexNode) innerEdges.getTarget(), cyphers, innerCounterString));	
-					hasEdges = true;
-				} else {
-					cypherEdge.append(cypherText);
-					result.add(cypherEdge);
-					hasEdges = true;
+			if (!isBefore(innerEdges.getGraph())) {
+				cypherText = innerEdges.generateCypher();
+				//Checks for the morphism. No Edge will be printed if it is from a previews graph --> No reprinting of the edge
+				if (!cypherText.isEmpty()) { 
+					cypherEdge = new StringBuilder();
+					cypherEdge.append(cypher.toString());
+					
+					if (innerEdges instanceof NeoElementEdge) {
+						cypherEdge.append(cypherText);
+						cyphers.add(cypherEdge);
+						innerCounterString = cyphers.size() - 1;
+						result.addAll(traverseOverPattern((ComplexNode) innerEdges.getTarget(), cyphers, innerCounterString));	
+						hasEdges = true;
+					} else {
+						cypherEdge.append(cypherText);
+						result.add(cypherEdge);
+						hasEdges = true;
+					}
 				}
 			}
 		}
@@ -357,13 +360,15 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		int distinctNeoPropertyNode = 0; 
 		NeoPropertyEdge neoPropertyEdge;
 		for (Relation r : node.getOutgoing()) {
-			//--> Mapped Relations are not considered in Morphed Graphs 
-			if (r instanceof NeoElementEdge) {
-				i++;
-			} else {
-				neoPropertyEdge = (NeoPropertyEdge) r; 
-				if (neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart() != null) {
-					distinctNeoPropertyNode++;
+			if (!isBefore(r.getGraph())) {
+				//--> Mapped Relations are not considered in morphed Graphs 
+				if (r instanceof NeoElementEdge) {
+					i++;
+				} else {
+					neoPropertyEdge = (NeoPropertyEdge) r; 
+					if (neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart() != null) {
+						distinctNeoPropertyNode++;
+					}
 				}
 			}
 		}
@@ -1320,6 +1325,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	
 	/**
 	 * <!-- begin-user-doc -->
+	 * Checks if Graph *other* is this or related with a morphism to *this*
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
