@@ -78,8 +78,7 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 					generateMultiEdgeCypher(cypher);
 			} else {
 				generateSingleEdgeCypher(cypher, neoPathParts);
-			} 
-			
+			}
 			return cypher.toString();
 		}
 		return CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES;	

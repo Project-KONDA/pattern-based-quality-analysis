@@ -190,7 +190,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			if(node instanceof ComplexNode) {
 				ComplexNode c = (ComplexNode) node;
 				for(Relation r : c.getOutgoing()) {
-					if (!r.isCrossGraph()) {
+					if (r.getGraph().isBefore(this)) {
 						result += r.generateSparql();
 					}	
 				}
@@ -226,7 +226,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			for (Node n : allNodesList) {
 				if (n instanceof NeoElementNode && ((NeoElementNode) n).getNeoPlace() == NeoPlace.BEGINNING) {
 					beginningNodesList.add((NeoNode) n);
-				} else if(! (n instanceof NeoNode)) {
+				} else if(!(n instanceof NeoNode)) {
 					throw new InvalidityException(NO_INSTANCE_OF_NEO_ELEMENT_NODE);
 				}
 			}
@@ -318,7 +318,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		
 		boolean hasEdges = false;
 		for (Relation innerEdges : node.getOutgoing()) {
-			if (!isBefore(innerEdges.getGraph())) {
+			if (innerEdges.getGraph().isBefore(this)) {
 				cypherText = innerEdges.generateCypher();
 				//Checks for the morphism. No Edge will be printed if it is from a previews graph --> No reprinting of the edge
 				if (!cypherText.isEmpty()) { 
@@ -360,7 +360,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		int distinctNeoPropertyNode = 0; 
 		NeoPropertyEdge neoPropertyEdge;
 		for (Relation r : node.getOutgoing()) {
-			if (!isBefore(r.getGraph())) {
+			if (r.getGraph().isBefore(this)) {
 				//--> Mapped Relations are not considered in morphed Graphs 
 				if (r instanceof NeoElementEdge) {
 					i++;
@@ -420,12 +420,13 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		//Styleguide: All the Operators are all in breakers
 		cypherOperators.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
 		for (Operator operator : opList.getOperators()) {
-			if (operator.generateCypher() != null) {
+			String opCypher = operator.generateCypher();
+			if (opCypher != null) {
 				if (cypherOperators.length() != 1) {
 					cypherOperators.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX 
 							+ CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
 				}
-				cypherOperators.append(operator.generateCypher());	
+				cypherOperators.append(opCypher);	
 			}
 		}
 		
@@ -622,8 +623,10 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				final ComplexNode complexNode = (ComplexNode) node;
 				Node tempNode = null;
 				for (Relation r : complexNode.getOutgoing()) {
-					tempNode = (Node) r.getTarget();
-					getAllSubGraphRecusrive(tempNode, nodeList);
+					if (r.getGraph().isBefore(this)) {
+						tempNode = (Node) r.getTarget();
+						getAllSubGraphRecusrive(tempNode, nodeList);						
+					}
 				}				
 			}
 		}			
@@ -892,9 +895,11 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			boolean hasIncomingNavigation = false;
 			if(node instanceof XmlElement) {
 				for(Relation relation : node.getIncoming()) {
-					if(relation instanceof XmlElementNavigation) {
-						hasIncomingNavigation = true;
-						break;
+					if(relation.getGraph().isBefore(this)) {
+						if(relation instanceof XmlElementNavigation) {
+							hasIncomingNavigation = true;
+							break;
+						}
 					}
 				}
 				if(!hasIncomingNavigation) {
@@ -907,8 +912,10 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				}
 			} else if(node instanceof XmlProperty) {
 				for(Relation relation : node.getIncoming()) {
-					if(relation instanceof XmlPropertyNavigation) {
-						hasIncomingNavigation = true;
+					if(relation.getGraph().isBefore(this)) {
+						if(relation instanceof XmlPropertyNavigation) {
+							hasIncomingNavigation = true;
+						}
 					}
 				}
 				if(!hasIncomingNavigation) {			

@@ -119,7 +119,7 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
 	 * @exception InvalidityException
-	 * Returns the internale Nodes used to build the Edge.
+	 * Returns the internal Nodes used to build the Edge.
 	 * If nothing has build then it returns null.
 	 */
 	@Override
