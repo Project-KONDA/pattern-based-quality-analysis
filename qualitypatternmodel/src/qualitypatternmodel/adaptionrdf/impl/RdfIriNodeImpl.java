@@ -187,12 +187,6 @@ public class RdfIriNodeImpl extends ComplexNodeImpl implements RdfIriNode {
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_IRI_NODE__RDF_IRI_NODE_TYPES, newRdfIriNodeTypes, newRdfIriNodeTypes));
 	}
-	
-	@Override
-	public void setGraph(Graph newGraph) {
-		super.setGraph(newGraph);
-		createParameters();
-	}
 
 	@Override
 	public void createParameters() {

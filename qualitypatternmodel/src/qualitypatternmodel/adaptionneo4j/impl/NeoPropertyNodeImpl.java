@@ -9,6 +9,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
 import qualitypatternmodel.adaptionneo4j.NeoElement;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
@@ -18,6 +19,8 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl;
+import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
@@ -142,6 +145,20 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	@Override
 	public void checkPrimitive() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
+	}
+	
+	@Override
+	public void createParameters() {
+//		ParameterList pList = getParameterList();
+//		if (pList != null) {
+//		}
+	}
+	
+	@Override
+	public EList<Parameter> getAllParameters() throws InvalidityException {
+		EList<Parameter> res = super.getAllParameters();
+//		res.add();
+		return res;
 	}
 
 

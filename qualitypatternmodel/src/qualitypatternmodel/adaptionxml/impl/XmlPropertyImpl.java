@@ -204,13 +204,6 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	}
 
 	@Override
-	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
-		NotificationChain res = super.basicSetGraph(newGraph, msgs);
-		createParameters();
-		return res;
-	}
-
-	@Override
 	public Node makeGeneric() throws InvalidityException {
 		throw new InvalidityException("This node can not become generic!");
 	}

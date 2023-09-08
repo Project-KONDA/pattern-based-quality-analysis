@@ -247,15 +247,9 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 		return isVariableDistinctInUse;
 	}
 	
-	@Override
-	public void setGraph(Graph newGraph) {
-		super.setGraph(newGraph);
-		createParameters();
-	}
-	
 	/**
 	 * @author Lukas Sebastian Hofmann
-	 * Creates the Paramters for the NeoElementNode
+	 * Creates the Parameters for the NeoElementNode
 	 * 	- Labels
 	 */
 	@Override
@@ -264,20 +258,28 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 		if (pList != null) {
 			NeoNodeLabelsParam labels = getNeoNodeLabels();
 			if (labels == null) {
-				labels = new NeoNodeLabelsParamImpl();
-				neoNodeLabels = labels;
-				pList.add(labels);	
+				neoNodeLabels = new NeoNodeLabelsParamImpl();
+				pList.add(neoNodeLabels);	
 			}
-			if (!pList.equals(labels.getParameterList())) {
+			else if (!pList.equals(labels.getParameterList())) {
 				pList.add(labels);
 			}
+		}
+		else {
+			if (getGraph() != null)
+				new InvalidityException("ElementNode is in a Graph without ParameterList").printStackTrace();
 		}
 	}
 	
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = super.getAllParameters();
-		res.add(getNeoNodeLabels());
+		if (getNeoNodeLabels() == null)
+			createParameters();
+		if (getNeoNodeLabels() != null)
+			res.add(getNeoNodeLabels());
+		else 
+			new InvalidityException("NeoNodeLabels of NeoElementNode [" + getInternalId() + "] is null").printStackTrace();
 		return res;
 	}
 

@@ -523,6 +523,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		}
 		
 //		deleteRelations(newGraph);
+		this.createParameters();
 		
 		msgs = eBasicSetContainer((InternalEObject)newGraph, GraphstructurePackage.NODE__GRAPH, msgs);
 		return msgs;
@@ -1081,7 +1082,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		if (!(this instanceof NeoElementNode)) {	
 			NeoElementNodeImpl neoNode = (NeoElementNodeImpl) Adaptionneo4jFactoryImpl.init().createNeoElementNode();
 			neoNode.typeModifiable = true;
-			neoNode.setGraphSimple(getGraph());				
+			neoNode.setGraphSimple(getGraph());
 					
 			neoNode.setReturnNode(isReturnNode());
 			
@@ -1130,7 +1131,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		if (!(this instanceof NeoPropertyNode)) {
 			NeoPropertyNodeImpl neoPropertyNode = (NeoPropertyNodeImpl) Adaptionneo4jFactoryImpl.init().createNeoPropertyNode();	
 			neoPropertyNode.typeModifiable = true;
-			neoPropertyNode.setGraphSimple(getGraph());			
+			neoPropertyNode.setGraph(getGraph());
 			
 			neoPropertyNode.setReturnNode(isReturnNode());
 			
@@ -1161,6 +1162,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			
 			neoPropertyNode.getComparison1().addAll(getComparison1());
 			getComparison1().clear();
+			
 			neoPropertyNode.getComparison2().addAll(getComparison2());
 			getComparison2().clear();
 	
@@ -2138,13 +2140,11 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void createParameters() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		// Basic Nodes do not have Parameters
 	}
 
 	/**

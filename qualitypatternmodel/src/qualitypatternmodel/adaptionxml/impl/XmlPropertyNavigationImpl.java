@@ -32,8 +32,6 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 	public XmlPropertyNavigationImpl() {
 		super();
 	}
-
-
 	
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {

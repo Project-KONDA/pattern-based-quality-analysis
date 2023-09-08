@@ -162,8 +162,8 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 	 */
 	@Override
 	public void createParameters() {
-		NeoSimpleEdgeImpl nse = new NeoSimpleEdgeImpl();
-		setNeoPathPart(nse);
+		setNeoPathPart(new NeoSimpleEdgeImpl());
+		setNeoPropertyName(new NeoPropertyNameParamImpl());
 	}
 	
 	/**
@@ -234,7 +234,7 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 	 * @generated NOT 
 	 */
 	@Override
-	public String getNeoPropertyName() {
+	public NeoPropertyNameParam getNeoPropertyName() {
 		if (neoPropertyName != null && neoPropertyName.eIsProxy()) {
 			InternalEObject oldNeoPropertyName = (InternalEObject)neoPropertyName;
 			neoPropertyName = (NeoPropertyNameParam)eResolveProxy(oldNeoPropertyName);
@@ -243,7 +243,7 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_NAME, oldNeoPropertyName, neoPropertyName));
 			}
 		}
-		return neoPropertyName != null ? neoPropertyName.getValue() : null;
+		return neoPropertyName != null ? neoPropertyName : null;
 	}
 
 	/**

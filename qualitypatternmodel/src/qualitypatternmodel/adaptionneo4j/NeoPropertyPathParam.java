@@ -56,7 +56,7 @@ public interface NeoPropertyPathParam extends NeoPathParam {
 	 * @model containment="true"
 	 * @generated NOT
 	 */
-	String getNeoPropertyName();
+	NeoPropertyNameParam getNeoPropertyName();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam#getNeoPropertyName <em>Neo Property Name</em>}' containment reference.

@@ -175,7 +175,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		}
 			
 		if (getTarget().getGraph() != getGraph() && getSource().getGraph() != getGraph()) 
-			throw new InvalidityException( myToString() + "is not in Graph of Source "+ getSource().myToString() + "or Target ("+ getTarget().myToString() + ")");
+			throw new InvalidityException( myToString() + " is not in Graph of Source Node "+ getSource().myToString() + " or Target Node ("+ getTarget().myToString() + ")");
 	}
 
 	@Override
@@ -234,6 +234,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				setTarget(null);
 			}
 		}
+		this.createParameters();
 
 		msgs = eBasicSetContainer((InternalEObject)newGraph, GraphstructurePackage.RELATION__GRAPH, msgs);
 		
@@ -677,7 +678,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		if (getTarget() instanceof NeoPropertyNode) {
 			return adaptAsPropertyEdge();
 		} 
-		return adaptAsNeoElementEdge();
+		else return adaptAsNeoElementEdge();
 	}
 	
 	/**
@@ -814,9 +815,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			NeoPropertyEdge edge = (NeoPropertyEdge) Adaptionneo4jFactoryImpl.init().createNeoPropertyEdge();
 
 			edge.setName(getName());
-			edge.setGraphSimple(getGraph());
+			edge.setGraph(getGraph());
 			
-			edge.createParameters();
+//			edge.createParameters();
 			
 			edge.setSource(getSource());
 			edge.setTarget(getTarget());
@@ -850,9 +851,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			NeoElementEdge edge = (NeoElementEdge) Adaptionneo4jFactoryImpl.init().createNeoElementEdge();
 
 			edge.setName(getName());
-			edge.setGraphSimple(getGraph());
+			edge.setGraph(getGraph());
 			
-			edge.createParameters(); //for what are die params? from param package
+//			edge.createParameters();
 			
 			edge.setSource(getSource());
 			edge.setTarget(getTarget());
@@ -1151,9 +1152,14 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		return res;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
 	@Override
 	public void createParameters() {
-		
+		// Basic Relations do not have Parameters
 	}
 
 	@Override

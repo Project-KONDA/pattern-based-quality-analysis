@@ -294,13 +294,6 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	}
 	
 	@Override
-	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {		
-		NotificationChain res = super.basicSetGraph(newGraph, msgs);		
-		createParameters();
-		return res;
-	}
-	
-	@Override
 	public EList<PatternElement> prepareParameterUpdates() {
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
 		patternElements.add(xmlPathParam);

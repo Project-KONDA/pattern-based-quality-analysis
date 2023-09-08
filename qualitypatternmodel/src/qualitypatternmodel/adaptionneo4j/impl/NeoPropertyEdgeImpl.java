@@ -218,6 +218,7 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 			NeoPropertyPathParam neoPropertyPathParam = getNeoPropertyPathParam();
 			if (neoPropertyPathParam == null) {
 				neoPropertyPathParam = new NeoPropertyPathParamImpl();
+				neoPropertyPathParam.setNeoPropertyName(new NeoPropertyNameParamImpl());
 				setNeoPropertyPathParam(neoPropertyPathParam);
 				pList.add(neoPropertyPathParam);	
 			}
@@ -226,8 +227,6 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 			}
 		}
 	}	
-	
-
 	
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {

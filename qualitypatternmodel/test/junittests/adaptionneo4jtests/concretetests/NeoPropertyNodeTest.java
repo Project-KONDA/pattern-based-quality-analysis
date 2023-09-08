@@ -75,7 +75,7 @@ public class NeoPropertyNodeTest extends NeoNodeTest {
 			Mockito.when(mockNeoPropertyEdge.generateCypherPropertyAddressing()).thenReturn(propertyAddress);
 			NeoPropertyPathParam mockNeoPropertyPathParam = Mockito.mock(NeoPropertyPathParam.class);
 			Mockito.when(mockNeoPropertyEdge.getNeoPropertyPathParam()).thenReturn(mockNeoPropertyPathParam);
-			Mockito.when(mockNeoPropertyPathParam.getNeoPropertyName()).thenReturn(placeOfIssue);
+			Mockito.when(mockNeoPropertyPathParam.getNeoPropertyName().getValue()).thenReturn(placeOfIssue);
 			relations.add(mockNeoPropertyEdge);
 			field.set(neoPropertyNode, relations);
 			EList<String> temp = neoPropertyNode.generateCypherPropertyAddressing();

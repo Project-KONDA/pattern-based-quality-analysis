@@ -135,9 +135,9 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected NeoSimpleEdgeImpl() {
+	public NeoSimpleEdgeImpl() {
 		super();
 	}
 	
