@@ -668,7 +668,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	
 	@Override
 	public void initializeTranslation() {
-		EList<Node> allNodes = getNodesFromAllPreviousGraphs();
+		EList<Node> allNodes = getNodes();
 		for(Node node : allNodes) {	
 			node.initializeTranslation();
 		}
