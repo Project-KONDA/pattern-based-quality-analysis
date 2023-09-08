@@ -164,7 +164,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
-			throw new InvalidityException("return elements missing");
+			throw new InvalidityException("return elements missing in " + getClass().getSimpleName() + " [" + getInternalId() + "]");
 		}
 		
 		String forClauses = graph.generateXQuery();

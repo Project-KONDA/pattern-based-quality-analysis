@@ -63,7 +63,7 @@ public class EvalCard {
 		ParametersPackage.eINSTANCE.eClass();
 //		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
-		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		
 		Node returnNode = completePattern.getGraph().getReturnNodes().get(0).makeComplex();
 //		e0.addOutgoing().getTarget().addPrimitiveComparison();
