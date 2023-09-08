@@ -597,7 +597,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		for (Node node : nodes) {
 			if (!containedInSubGraphList(graphs, node)) {
 				graph = new BasicEList<Node>();
-				getAllSubGraphRecusrive(node, graph);
+				getAllSubGraphRecursive(node, graph);
 				graphs.add(graph);
 			}
 		}
@@ -616,7 +616,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * Thus we see no need in defining two new lists which are pointing to the same values.
 	 * A list of nodes of a subgraph is enough. 
 	 */
-	private final void getAllSubGraphRecusrive(final Node node, final EList<Node> nodeList) {
+	private final void getAllSubGraphRecursive(final Node node, final EList<Node> nodeList) {
 		if (!containedInGraphList(nodeList, node)) {
 			nodeList.add(node);
 			if (node instanceof ComplexNode) {
@@ -625,31 +625,27 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				for (Relation r : complexNode.getOutgoing()) {
 					if (r.getGraph().isBefore(this)) {
 						tempNode = (Node) r.getTarget();
-						getAllSubGraphRecusrive(tempNode, nodeList);						
+						getAllSubGraphRecursive(tempNode, nodeList);						
 					}
-				}				
+				}
 			}
-		}			
+		}
 	}
 		
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param graphs
 	 * @param node
-	 * @return
+	 * @return boolean
 	 * Checks if a node is already contained in a list of subgraph.
 	 */
 	private final boolean containedInSubGraphList(final EList<EList<Node>> graphs, Node node) {
-		boolean contained = false;
-		EList<Node> graph = null;
-		for (int i = 0; i < graphs.size(); i++) {
-			graph = graphs.get(i);
+		for (EList<Node> graph: graphs) {
 			if (graph.contains(node)) {
-				contained = true;
-				i = graphs.size();
+				return true;
 			}
 		}
-		return contained;
+		return false;
 	}
 	
 	/**
