@@ -528,7 +528,7 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 		setBeginningInSubGraph(neoGraphs);
 		neoGraphs.clear();
 		final EList<NeoElementNode> flattenNodes = getAllNeoElementNodesFlatten(graph);
-		setBeginningInSubGraphForNeoPropertyNodes(getAllNeoPropertyNodesFlatten(graph));
+//		setBeginningInSubGraphForNeoPropertyNodes(getAllNeoPropertyNodesFlatten(graph));
 		flattenNodes.clear();
 	}
 	
@@ -575,27 +575,27 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 		}
 	}
 
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @param nodes
-	 * In this method all NeoPropertyNodes which have a a morphed node as source node will be set to make generatable.
-	 * Due to the fact, that a NeoPropertyNode can not be a starting Node the source node will be set with the flag BEGINNING.
-	 * However, if the source node is not morphed nothing will be set.
-	 * No cycles are possible in the version from 10/11/2022. Due to this fact in this method no cycle check is done.
-	 */
-	private final void setBeginningInSubGraphForNeoPropertyNodes(EList<NeoPropertyNode> nodes) {
-//		NeoElementNode neoNode = null;
-		NeoPropertyEdge neoPropertyEdge = null;
-		for (NeoPropertyNode node : nodes) {
-			for (Relation r : node.getIncoming()) {
-				neoPropertyEdge = (NeoPropertyEdge) r;
-				if (neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart() != null) {
-//					neoNode = (NeoElementNode) 
-					r.getSource();
-				} 
-			}		
-		}
-	}
+//	/**
+//	 * @author Lukas Sebastian Hofmann
+//	 * @param nodes
+//	 * In this method all NeoPropertyNodes which have a a morphed node as source node will be set to make generatable.
+//	 * Due to the fact, that a NeoPropertyNode can not be a starting Node the source node will be set with the flag BEGINNING.
+//	 * However, if the source node is not morphed nothing will be set.
+//	 * No cycles are possible in the version from 10/11/2022. Due to this fact in this method no cycle check is done.
+//	 */
+//	private final void setBeginningInSubGraphForNeoPropertyNodes(EList<NeoPropertyNode> nodes) {
+////		NeoElementNode neoNode = null;
+//		NeoPropertyEdge neoPropertyEdge = null;
+//		for (NeoPropertyNode node : nodes) {
+//			for (Relation r : node.getIncoming()) {
+//				neoPropertyEdge = (NeoPropertyEdge) r;
+//				if (neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart() != null) {
+////					neoNode = (NeoElementNode) 
+//					r.getSource();
+//				} 
+//			}		
+//		}
+//	}
 	
 	/**
 	 * @author Lukas Sebastian Hofmann
