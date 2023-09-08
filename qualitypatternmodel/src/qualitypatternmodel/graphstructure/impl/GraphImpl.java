@@ -485,7 +485,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		final StringBuilder cypher = new StringBuilder();
 		final StringBuilder tempCypher = new StringBuilder();
 		final String anotherStringPart = "\n" + CypherSpecificConstants.THREE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE;
-		for (Node n : this.getNodes()) {
+		for (Node n : this.getNodesFromAllPreviousGraphs()) {
 			if (n instanceof NeoPropertyNode) {
 				fillBuilderWithNeoPropertyNodeComps(tempCypher, n);
 				if (!tempCypher.isEmpty()) {
@@ -591,7 +591,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	@Override
 	public final EList<EList<Node>> getAllSubGraphs() throws InvalidityException {
-		final EList<Node> nodes = getNodes();
+		final EList<Node> nodes = getNodesFromAllPreviousGraphs();
 		final EList<EList<Node>> graphs = new BasicEList<EList<Node>>();
 		EList<Node> graph = null;
 		for (Node node : nodes) {
@@ -668,7 +668,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	
 	@Override
 	public void initializeTranslation() {
-		for(Node node : getNodes()) {	
+		EList<Node> allNodes = getNodesFromAllPreviousGraphs();
+		for(Node node : allNodes) {	
 			node.initializeTranslation();
 		}
 		for(Relation relation: getRelations()) {	
