@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import qualitypatternmodel.adaptionneo4j.NeoElementEdge;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPlace;
-import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Graph;
@@ -524,12 +523,10 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	
 	//BEGIN - Neo4J/Cypher
 	protected final void setNeo4JBeginnings(Graph graph) throws InvalidityException {
-		final EList<EList<NeoElementNode>> neoGraphs = getAllNeoElementNodes(graph);
+		EList<EList<NeoElementNode>> neoGraphs = getAllNeoElementNodes(graph);
 		setBeginningInSubGraph(neoGraphs);
-		neoGraphs.clear();
-		final EList<NeoElementNode> flattenNodes = getAllNeoElementNodesFlatten(graph);
+//		getAllNeoElementNodesFlatten(graph);
 //		setBeginningInSubGraphForNeoPropertyNodes(getAllNeoPropertyNodesFlatten(graph));
-		flattenNodes.clear();
 	}
 	
 	/**
