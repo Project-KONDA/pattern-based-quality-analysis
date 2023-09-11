@@ -446,11 +446,16 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	@Override
 	public EList<Node> getNodesFromAllPreviousGraphs() {
-		EList<Node> nodes = getNodes();
+		EList<Node> nodes = new BasicEList<Node>();
 		try {
+			for (Node n: getNodes())
+				nodes.add(n);
 			GraphImpl prevGraph = (GraphImpl) getIncomingMorphism().getSource();
 			EList<Node> nodes2 = prevGraph.getNodesFromAllPreviousGraphs();
-			nodes2.addAll(nodes);
+			for (Node n:nodes) {
+				if (!nodes2.contains(n))
+					nodes2.add(n);
+			}
 			return nodes2;
 		} catch (Exception e) {}
 		return nodes;
