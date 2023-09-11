@@ -41,6 +41,16 @@ public class NeoNodeLabelsParamImpl extends TextListParamImpl implements NeoNode
 	}
 	
 	@Override
+	public void setValueFromString(String value) {
+		if(values != null)
+			values.clear();
+		try {
+			addStringValue(value);
+		} catch (InvalidityException e) {
+		}
+	}
+	
+	@Override
 	public String generateCypher() {
 		if (getValues() != null) {
 			final StringBuilder cypher = new StringBuilder();

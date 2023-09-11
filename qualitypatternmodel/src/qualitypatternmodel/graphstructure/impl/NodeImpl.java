@@ -1110,8 +1110,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			neoNode.getComparison2().addAll(getComparison2());
 			getComparison2().clear();	
 			
-			
 			setGraph(null);
+			neoNode.createParameters();
 	
 			return neoNode;			
 		} else {
@@ -1171,6 +1171,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
 			incomingCopy2.addAll(neoPropertyNode.getIncoming());
 			
+			neoPropertyNode.createParameters();
 			return neoPropertyNode;
 		} else {
 			return (NeoPropertyNode) this;

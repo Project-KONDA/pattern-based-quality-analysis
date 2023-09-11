@@ -833,7 +833,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			} else if(edge.getTarget() instanceof Node) {
 				edge.getTarget().adaptAsNeoElementNode();
 			}
-			
+			edge.createParameters();
 			return edge;
 		}
 		return (NeoPropertyEdge) this;

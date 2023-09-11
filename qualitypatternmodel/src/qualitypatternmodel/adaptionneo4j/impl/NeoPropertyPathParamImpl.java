@@ -81,6 +81,15 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 		return Adaptionneo4jPackage.Literals.NEO_PROPERTY_PATH_PARAM;
 	}
 	
+	@Override
+	public void setValueFromString(String value) throws InvalidityException{
+		try {
+			getNeoPropertyName().setValue(value);
+		} catch (Exception e) {
+			
+		}
+	}
+	
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return String

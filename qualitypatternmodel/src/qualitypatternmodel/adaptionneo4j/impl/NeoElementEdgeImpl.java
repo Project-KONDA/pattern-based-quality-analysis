@@ -157,7 +157,11 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = super.getAllParameters();
-		res.add(getNeoElementPathParam());
+		NeoElementPathParam neoElementPath = getNeoElementPathParam();
+		if (neoElementPath == null)
+			throw new InvalidityException("NeoElementPathParam null in NeoElementEdge [" + getInternalId() + "]");
+		else 
+			res.add(neoElementPath);
 		return res;
 	}
 

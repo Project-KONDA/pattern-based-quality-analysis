@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
+import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
@@ -40,7 +41,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
 public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge {
 	private static final String VARIABLE_PROPERTY_SEPERATOR = ".";
 	private static final String NO_NEO_PROPERTY_PATH_PARAM_NEED_TO_BE_SET = "No NeoPropertyPathParam need to be set";
-	private static final String NO_NEO_PROPERTY_NAME_WAS_SPECIFIED = "No NeoPropertyName was specified";
+	private static final String NO_NEO_PROPERTY_NAME_WAS_SPECIFIED = "No NeoPropertyName was specified: There are no wildcards for attributes in Cypher!";
 	private static final String THE_SOURCE_NEEDS_TO_BE_SET = "The Source needs to be set";
 	private static final String NEO_PROPERTY_EDGE_NEEDS_A_NEO_PROPERTY_PATH_PARAM = "NeoPropertyEdge needs a NeoPropertyPathParam";
 	private static final String THERE_IS_NO_NEO_SIMPLE_EDGE_FOR_THE_TARGET_TYPE = "There is no NeoSimpleEdge for the target type";
@@ -169,10 +170,11 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 				neoPathPart = neoPathPart.getNeoLastEdge();
 				variable = neoPathPart.getCypherInnerEdgeNodes(false);
 			}
-			if (getNeoPropertyPathParam().getNeoPropertyName() == null) {
+			String propertyName = getNeoPropertyPathParam().getNeoPropertyName().getValue();
+			if (propertyName == null || propertyName == "") {
 				throw new InvalidityException(NO_NEO_PROPERTY_NAME_WAS_SPECIFIED);
 			}
-			cypher = variable + VARIABLE_PROPERTY_SEPERATOR + getNeoPropertyPathParam().getNeoPropertyName();
+			cypher = variable + VARIABLE_PROPERTY_SEPERATOR + propertyName; // getNeoPropertyPathParam().getNeoPropertyName().getValue();
 			result = cypher;
 		}
 		return result;

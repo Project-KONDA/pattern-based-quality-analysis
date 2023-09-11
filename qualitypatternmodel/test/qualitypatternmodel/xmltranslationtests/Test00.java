@@ -33,8 +33,9 @@ public class Test00 {
 			replace(completePattern);
 			try {
 				completePattern.isValid(AbstractionLevel.CONCRETE);
+				String result = completePattern.myToString();
 				System.out.println("\n\n___PATTERN_(VALID)___");
-				System.out.println(completePattern.myToString());
+				System.out.println(result);
 				System.out.print("\n___TRANSLATION___");
 				System.out.println(completePattern.generateXQuery());
 			} catch (Exception e) {
@@ -54,10 +55,12 @@ public class Test00 {
 	public static void getQueries(ArrayList<CompletePattern> completePatterns) {
 		for (CompletePattern completePattern : completePatterns) {
 			replace(completePattern);
+
 			try {
 				completePattern.isValid(AbstractionLevel.CONCRETE);
-//				System.out.println("\n\n___PATTERN_(VALID)___");
-				System.out.println(completePattern.generateXQuery());
+				String result = completePattern.generateXQuery();
+				System.out.println("\n\n___PATTERN_(VALID)___");
+				System.out.println(result);
 			} catch (Exception e) {
 				System.out.println("\n\n___PATTERN_(InVALID)___");
 				e.printStackTrace();
