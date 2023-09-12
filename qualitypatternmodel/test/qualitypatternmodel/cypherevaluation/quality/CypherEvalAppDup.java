@@ -2,12 +2,14 @@ package qualitypatternmodel.cypherevaluation.quality;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.List;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TypeOptionParam;
@@ -50,6 +52,18 @@ public class CypherEvalAppDup {
 		completePatterngetUniVio = (CompletePattern) completePatterngetUniVio.createNeo4jAdaption();
 		
 		//Abstract --> Concrete
+		List<Parameter> params = completePatterngetUniVio.getParameterList().getParameters();
+		int i=0;
+		for (Parameter p: params){
+			System.out.println(p.getClass().getSimpleName().replace("Impl", "") + " p" + i + " = ((" + p.getClass().getSimpleName().replace("Impl", "") + ") params.get(" + i + "));");
+			i++;
+		}
+//		ComparisonOptionParam p0 = ((ComparisonOptionParam) params.get(0));
+//		TypeOptionParam p1 = ((TypeOptionParam) params.get(1));
+//		ComparisonOptionParam p2 = ((ComparisonOptionParam) params.get(2));
+//		TypeOptionParam p3 = ((TypeOptionParam) params.get(3));
+//		NeoPropertyPathParam p4 = ((NeoPropertyPathParam) params.get(4));
+//		NeoPropertyPathParam p5 = ((NeoPropertyPathParam) params.get(5));
 		
 		ParameterList paramters = completePatterngetUniVio.getParameterList();
 		TextListParam textListParam = (TextListParam) paramters.getParameters().get(4);

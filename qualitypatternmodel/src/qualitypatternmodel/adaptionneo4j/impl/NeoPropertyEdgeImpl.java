@@ -233,6 +233,8 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = super.getAllParameters();
+		if (getNeoPropertyPathParam() == null)
+			createParameters();
 		res.add(getNeoPropertyPathParam());
 		return res;
 	}

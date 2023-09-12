@@ -135,7 +135,7 @@ public class EvalAppDup {
 		completePattern.setName("UNIQUENESS VIOLATION");
 		
 //		ComplexNode main = (ComplexNode) 
-		completePattern.getGraph().getReturnNodes().get(0);
+		ComplexNode ret = completePattern.getGraph().getReturnNodes().get(0).makeComplex();
 				
 		QuantifiedCondition qc1 = factory.createQuantifiedCondition();
 		completePattern.setCondition(qc1);
@@ -144,15 +144,15 @@ public class EvalAppDup {
 		other.setName("Entry");
 		
 		Graph g1 = qc1.getGraph();
-		Node main1 = g1.getNodes().get(0);
-		Node other1 = g1.getNodes().get(1);
+//		Node main1 = g1.getNodes().get(0);
+//		Node other1 = g1.getNodes().get(1);
 		
-		Comparison c = main1.addComparison(other);
+		Comparison c = ret.addComparison(other);
 
 		c.getOption().setValue(ComparisonOperator.NOTEQUAL);
 		
-		PrimitiveNode n1 = main1.addOutgoing().getTarget().makePrimitive();
-		PrimitiveNode n2 = other1.addOutgoing().getTarget().makePrimitive();
+		PrimitiveNode n1 = ret.addOutgoing(g1).getTarget().makePrimitive();
+		PrimitiveNode n2 = other.addOutgoing().getTarget().makePrimitive();
 		
 		n1.addComparison(n2);
 		
