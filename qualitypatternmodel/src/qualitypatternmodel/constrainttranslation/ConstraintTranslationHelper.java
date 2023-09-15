@@ -1,5 +1,7 @@
 package qualitypatternmodel.constrainttranslation;
 
+import java.util.ArrayList;
+
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
@@ -153,19 +155,52 @@ public class ConstraintTranslationHelper {
 	}
 	
 
-	static EList<Node> identifyFieldNodes (CompletePattern pattern) {
-		splitNodes(pattern);
-		// TODO
-		return null;
+	static ArrayList<Node> identifyFieldNodes (CompletePattern pattern) throws InvalidityException {
+		EList<EList<Node>> nodeList = splitNodes(pattern);
+		ComplexNode recordNode = identifyRecordNode(nodeList);
+		EList<Operator> operators = extractOperatorsFromPattern(pattern); 
+		return identifyFieldNodes(nodeList, recordNode, operators);
 	}
 	
 	
-	static EList<Node> identifyFieldNodes (EList<EList<Node>> nodeList, EList<Operator> operators) {
+	static ArrayList<Node> identifyFieldNodes (EList<EList<Node>> nodeList, ComplexNode recordNode, EList<Operator> operators) throws InvalidityException {
+		
+		// nodeList.get(2) are possible FieldNodes
+		EList<Node> possibleFieldNodes = nodeList.get(2);
+		
+		EList<EList<Node>> graphWiseNodes = splitListGraphwise(possibleFieldNodes);
+		Integer nodeNumber = graphWiseNodes.size();
+		
+		ArrayList<Node> fieldNodes = new ArrayList(nodeNumber);
+		
+		EList<Integer> remaining = new BasicEList<Integer>();
+		
+		for (int i=0; i<nodeNumber;i++) {
+			try {
+				identifyFieldNode(possibleFieldNodes, recordNode, operators);
+			} catch (Exception e) {
+				remaining.add(i);
+			}
+		}
+		
+		// check remaining
+		
+		// all nodes must be connected to recordNode
+		
+		
+		
+		
 		
 		// TODO
-		return null;
+		return fieldNodes;
 	}
 
+	static EList<Node> identifyFieldNode (EList<Node> nodeList, ComplexNode recordNode, EList<Operator> operators) throws InvalidityException {
+		
+		// TODO
+		
+		return null;
+	}
 	
 	// HELPER FUNCTIONS INDIRECT
 	

@@ -13,6 +13,8 @@ import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
+import qualitypatternmodel.patternstructure.Quantifier;
+import qualitypatternmodel.patternstructure.TrueElement;
 
 public class ConstraintObject {
 	CompletePattern pattern = null;
@@ -73,7 +75,16 @@ public class ConstraintObject {
 		throw new InvalidityException();
 	}
 	
-	private static ConstraintRuleObject transformQuantifiedCondition(QuantifiedCondition condition) {
+	private static ConstraintRuleObject transformQuantifiedCondition(QuantifiedCondition condition) throws InvalidityException {
+		if (!condition.getQuantifier().equals(Quantifier.EXISTS))
+			throw new InvalidityException();
+		if (condition.getCondition() != null && !(condition.getCondition() instanceof TrueElement))
+			throw new InvalidityException();
+		
+		
+		
+		
+		
 		return null;
 	}
 	
@@ -85,7 +96,7 @@ public class ConstraintObject {
 	
 	private static abstract class ConstraintRuleObject {
 		abstract String getStringRepresentation();
-		abstract String getSchemaRepresentation();
+		abstract Object getSchemaRepresentation();
 		abstract EList<Pair<String, String>> getAllFields();
 	}
 	
@@ -108,7 +119,8 @@ public class ConstraintObject {
 				fields.addAll(arg.getAllFields());
 			return fields;
 		}
-		String getSchemaRepresentation() {
+		
+		Object getSchemaRepresentation() {
 			// TODO
 			return null;
 		}
@@ -124,7 +136,8 @@ public class ConstraintObject {
 		EList<Pair<String, String>> getAllFields() {
 			return arg.getAllFields();
 		}
-		String getSchemaRepresentation() {
+		
+		Object getSchemaRepresentation() {
 			// TODO
 			return null;
 		}
@@ -142,7 +155,7 @@ public class ConstraintObject {
 			fields.addAll(fieldsNamePath);
 			return fields;
 		}
-		String getSchemaRepresentation() {
+		Object getSchemaRepresentation() {
 			// TODO
 			return null;
 		}
