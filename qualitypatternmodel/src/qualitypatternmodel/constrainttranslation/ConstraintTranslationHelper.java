@@ -36,12 +36,12 @@ public class ConstraintTranslationHelper {
 	
 	static Boolean checkPatternTranslatable (CompletePattern completePattern) {
 		// check is valid and is XML
-		Boolean xmlvalid = validatePatternXmlAdapted(completePattern);
+		Boolean xmlvalid = validatePatternXmlAdapted (completePattern);
 		
 		// check has valid Node configuration
 		Boolean nodesValid = false;
 		if (xmlvalid)
-			nodesValid = validateNodeConfiguration(completePattern);
+			nodesValid = validateNodeConfiguration (completePattern);
 		
 		return nodesValid;
 	}
@@ -124,9 +124,13 @@ public class ConstraintTranslationHelper {
 	}
 	
 	static Node identifyFieldNodeInGraph (Graph graph, ComplexNode record) {
-		
-		// TODO
-		
+		EList<Node> nodes = graph.getNodes();
+		if (nodes.size() == 1)
+			return nodes.get(0);
+		else {
+			
+			
+		}
 		return null;
 	}
 	
@@ -171,7 +175,7 @@ public class ConstraintTranslationHelper {
 		EList<EList<Node>> graphWiseNodes = splitListGraphwise(possibleFieldNodes);
 		Integer nodeNumber = graphWiseNodes.size();
 		
-		ArrayList<Node> fieldNodes = new ArrayList(nodeNumber);
+		ArrayList<Node> fieldNodes = new ArrayList<Node>(nodeNumber);
 		
 		EList<Integer> remaining = new BasicEList<Integer>();
 		
@@ -225,7 +229,7 @@ public class ConstraintTranslationHelper {
 			nodeList.add(nextNodes);
 			
 			for (Node n: nodes1) {
-				if (n instanceof ComplexNode) {
+				if (n instanceof ComplexNode)
 					for (Relation r: ((ComplexNode) n).getOutgoing()) {
 						Node x = r.getTarget();
 						if (!allNodes.contains(x)) {
@@ -233,7 +237,6 @@ public class ConstraintTranslationHelper {
 							nodes2.add(x);
 						}
 					}
-				}
 			}
 			nodes1.clear();
 			nodes1.addAll(nodes2);

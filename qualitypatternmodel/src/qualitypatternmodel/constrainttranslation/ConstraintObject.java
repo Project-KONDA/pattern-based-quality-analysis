@@ -1,25 +1,42 @@
 package qualitypatternmodel.constrainttranslation;
 
+import java.util.ArrayList;
+
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.xtext.util.Pair;
-
+import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.FormulaConstraintRuleObject;
+import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.HasValueRuleObject;
+import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.ListComparisonRuleObject;
+import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.NotConstraintRuleObject;
+import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.NumberComparisonRuleObject;
+import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.PatternRuleObject;
+import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.SingleConstraintRuleObject;
+import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.StringLengthRuleObject;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.ComplexNode;
+import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.operators.Match;
+import qualitypatternmodel.operators.Operator;
+import qualitypatternmodel.operators.StringLength;
+import qualitypatternmodel.parameters.NumberParam;
+import qualitypatternmodel.parameters.TextListParam;
+import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
-import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.patternstructure.TrueElement;
 
 public class ConstraintObject {
-	CompletePattern pattern = null;
-	ComplexNode record = null;
-	EList<Node> fieldNodes = new BasicEList<Node>();
+	CompletePattern pattern;
+	ComplexNode record;
+	ArrayList<Node> fieldNodes;
 	String fieldPath = "";
 	
 	ConstraintRuleObject rule = null;
@@ -64,8 +81,7 @@ public class ConstraintObject {
 			return frule;
 		} else if (condition instanceof NotCondition) {
 			NotCondition notc = (NotCondition) condition;
-			NotConstraintRuleObject frule = new NotConstraintRuleObject();
-			frule.arg = transformCondition(notc.getCondition());
+			NotConstraintRuleObject frule = new NotConstraintRuleObject(transformCondition(notc.getCondition()));
 			return frule;
 		} else if (condition instanceof QuantifiedCondition) {
 			QuantifiedCondition qcond = (QuantifiedCondition) condition;
@@ -81,89 +97,89 @@ public class ConstraintObject {
 		if (condition.getCondition() != null && !(condition.getCondition() instanceof TrueElement))
 			throw new InvalidityException();
 		
+		Graph graph = condition.getGraph(); 
+		if (graph.getNodes().size() == 1 && graph.getOperatorList().getOperators().size() == 1) {
+			return transformSingleNodeGraph(graph);
+		}
+		else if (graph.getNodes().size() == 2 && graph.getOperatorList().getOperators().size() == 1) {
+			return transformNodeComparisonGraph(graph);
+		}
+		else 
+			return transformCombinationGraph(graph);
+	}
+	
+	private static ConstraintRuleObject transformSingleNodeGraph (Graph graph) throws InvalidityException {
+		Node node = graph.getNodes().get(0);
+		Operator op = graph.getOperatorList().getOperators().get(0);
+		SingleConstraintRuleObject rule = null;
 		
-		
+		if (op instanceof Comparison) {
+			Comparison cf = (Comparison) op;
+			ComparisonOperator co = cf.getOption().getValue();
+			EList<Comparable> args = cf.getArguments();
+			if (args.size() != 2)
+				throw new InvalidityException();
+			
+			Boolean isRightDirection = args.get(0) == node;
+			Comparable otherArg = (isRightDirection)? args.get(1) : args.get(0);
+			co = (isRightDirection)? co: ComparisonOperator.invert(co);
+			
+			
+			if (otherArg instanceof TextLiteralParam) {
+//				"hasValue"
+				TextLiteralParam tp = (TextLiteralParam) otherArg;
+				String value = tp.getValue();
+				
+				if ( co != ComparisonOperator.EQUAL && co != ComparisonOperator.NOTEQUAL)
+					return null;
+				rule = new HasValueRuleObject(value, co);
+				
+			} else if (otherArg instanceof NumberParam) {
+//				"minExclusive", "minInclusive", "maxInclusive", "maxExclusive"
+				NumberParam np = (NumberParam) otherArg;
+				rule = new NumberComparisonRuleObject(np.getValue(), co);
+				
+			} else if (otherArg instanceof TextListParam) {
+//				"in" [str1, str2, .. strN]
+				TextListParam tlp = (TextListParam) otherArg;
+				if ( co != ComparisonOperator.EQUAL && co != ComparisonOperator.NOTEQUAL)
+					return null;
+				
+				rule = new ListComparisonRuleObject( tlp.getValues(), (co == ComparisonOperator.NOTEQUAL) );
+			}
+			
+		} else if (op instanceof Match) {
+//			"pattern" <regex>
+//			"minWords", "maxWords"
+			Match match = (Match) op;
+
+			rule = new PatternRuleObject( match.getRegularExpression().getValue(), match.getOption().getValue() );
+			// TODO
+			
+		} else if (op instanceof StringLength) {
+//			"minLength" , "maxLength"
+			StringLength len = (StringLength) op;
+			
+			ComparisonOperator co = len.getOption().getValue();
+			if (co != ComparisonOperator.EQUAL && co != ComparisonOperator.NOTEQUAL)
+				return null;
+			Double num = len.getNumber().getValue();
+			rule = new StringLengthRuleObject(num, co);
+			// TODO
+		}
+		return rule;
+	}
+	
+
+	private static ConstraintRuleObject transformNodeComparisonGraph (Graph graph) {
 		
 		
 		return null;
 	}
-	
-	
-	
-	
-	
-	// ConstraintRuleObject declaration
-	
-	private static abstract class ConstraintRuleObject {
-		abstract String getStringRepresentation();
-		abstract Object getSchemaRepresentation();
-		abstract EList<Pair<String, String>> getAllFields();
+
+	private static ConstraintRuleObject transformCombinationGraph (Graph graph) {
+		
+		return null;
 	}
-	
-	private static class FormulaConstraintRuleObject extends ConstraintRuleObject {
-		public LogicalOperator op;
-		public EList<ConstraintRuleObject> args;
-		
-		String getStringRepresentation() {
-			String result = "";
-			for (ConstraintRuleObject arg: args)
-				result += arg.getStringRepresentation() + "\n";
-			result = indent(result);
-			result = "- " + op.getLiteral() + "\n  " + result;
-			return result;
-		}
-		
-		EList<Pair<String, String>> getAllFields() {
-			EList<Pair<String, String>> fields = new BasicEList<Pair<String, String>>();
-			for (ConstraintRuleObject arg: args)
-				fields.addAll(arg.getAllFields());
-			return fields;
-		}
-		
-		Object getSchemaRepresentation() {
-			// TODO
-			return null;
-		}
-	}
-	
-	private static class NotConstraintRuleObject extends ConstraintRuleObject {
-		public ConstraintRuleObject arg;
-		
-		String getStringRepresentation() {
-			return "- not\n  " + indent(arg.getStringRepresentation()); 
-		}
-		
-		EList<Pair<String, String>> getAllFields() {
-			return arg.getAllFields();
-		}
-		
-		Object getSchemaRepresentation() {
-			// TODO
-			return null;
-		}
-	}
-	
-	private static class SingleConstraintRuleObject extends ConstraintRuleObject {
-		EList<Pair<String, String>> fieldsNamePath = new BasicEList<Pair<String, String>>();
-		String constraint;
-		
-		String getStringRepresentation() {
-			return constraint;
-		}
-		EList<Pair<String, String>> getAllFields() {
-			EList<Pair<String, String>> fields = new BasicEList<Pair<String, String>>();
-			fields.addAll(fieldsNamePath);
-			return fields;
-		}
-		Object getSchemaRepresentation() {
-			// TODO
-			return null;
-		}
-	}
-	
-	private static String indent(String s) {
-		return s.replace("\n", "  \n");
-	}
-	
 }
 
