@@ -1,9 +1,9 @@
 package qualitypatternmodel.constrainttranslation;
 
-import java.util.ArrayList;
-
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtext.util.Pair;
+
 import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.FormulaConstraintRuleObject;
 import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.HasValueRuleObject;
 import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.ListComparisonRuleObject;
@@ -12,22 +12,27 @@ import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.NumberComp
 import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.PatternRuleObject;
 import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.SingleConstraintRuleObject;
 import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.StringLengthRuleObject;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.ComparisonRuleObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.operators.Operator;
+import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.Match;
-import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Condition;
+import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.Formula;
+import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
@@ -36,14 +41,14 @@ import qualitypatternmodel.patternstructure.TrueElement;
 public class ConstraintObject {
 	CompletePattern pattern;
 	ComplexNode record;
-	ArrayList<Node> fieldNodes;
-	String fieldPath = "";
+	Node[] fieldNodes;
+	String fieldPath;
 	
-	ConstraintRuleObject rule = null;
+	ConstraintRuleObject rule;
 	
-	EList<String> rules = new BasicEList<String>();
-	EList<String> fieldPaths = new BasicEList<String>();
-	
+	EList<String> rules;
+	EList<Pair<String, String>> fieldPaths;;
+
 	
 	public ConstraintObject (CompletePattern completePattern) throws InvalidityException {
 		
@@ -52,8 +57,13 @@ public class ConstraintObject {
 		
 		pattern = completePattern;
 		record = ConstraintTranslationHelper.identifyRecordNode(pattern);
-		fieldNodes = ConstraintTranslationHelper.identifyFieldNodes(pattern);
-		rule = transformCondition(completePattern.getCondition());
+//		fieldNodes = ConstraintTranslationHelper.identifyFieldNodes(pattern);
+		rule = transformCondition(completePattern.getCondition(), fieldNodes);
+		
+//		XmlNavigation r = (XmlNavigation) fieldNodes[0].getIncoming().get(0);
+//		fieldPath = r.getXmlPathParam().generateXQuery();
+		if (rule != null)
+			fieldPaths = rule.getAllFields();
 	}
 	
 	
@@ -63,55 +73,72 @@ public class ConstraintObject {
 		return rule.getSchemaRepresentation();
 	}
 
-	public String getStringRepresentation() {
-		return "";
+	public String getStringRepresentation() throws InvalidityException {
+		if (rule == null)
+			return "ERROR";
+		
+		String result = "format XML\nfields:\n- field: ConstraintField" +
+		"\n  path: " + fieldPath + "\n" +
+		"  rules:\n" + rule.getStringRepresentation();
+		return result;
 	}
 	
 	
 	
 	// local functions
 	
-	private static ConstraintRuleObject transformCondition(Condition condition) throws InvalidityException {
+	private static ConstraintRuleObject transformCondition(Condition condition, Node[] fieldNodes2) throws InvalidityException {
 		if (condition instanceof Formula) {
 			Formula formula = (Formula) condition;
-			FormulaConstraintRuleObject frule = new FormulaConstraintRuleObject();
-			frule.op = formula.getOperator();
-			frule.args.add(transformCondition(formula.getCondition1()));
-			frule.args.add(transformCondition(formula.getCondition2()));
+			FormulaConstraintRuleObject frule = new FormulaConstraintRuleObject(formula.getOperator());
+			frule.args.add(transformCondition(formula.getCondition1(), fieldNodes2));
+			frule.args.add(transformCondition(formula.getCondition2(), fieldNodes2));
 			return frule;
 		} else if (condition instanceof NotCondition) {
 			NotCondition notc = (NotCondition) condition;
-			NotConstraintRuleObject frule = new NotConstraintRuleObject(transformCondition(notc.getCondition()));
+			NotConstraintRuleObject frule = new NotConstraintRuleObject(transformCondition(notc.getCondition(), fieldNodes2));
 			return frule;
 		} else if (condition instanceof QuantifiedCondition) {
 			QuantifiedCondition qcond = (QuantifiedCondition) condition;
-			ConstraintRuleObject rule = transformQuantifiedCondition(qcond);
+			ConstraintRuleObject rule = transformQuantifiedCondition(qcond, fieldNodes2);
 			return rule;
 		}
 		throw new InvalidityException();
 	}
 	
-	private static ConstraintRuleObject transformQuantifiedCondition(QuantifiedCondition condition) throws InvalidityException {
+	private static ConstraintRuleObject transformQuantifiedCondition(QuantifiedCondition condition, Node[] fieldNodes2) throws InvalidityException {
 		if (!condition.getQuantifier().equals(Quantifier.EXISTS))
-			throw new InvalidityException();
-		if (condition.getCondition() != null && !(condition.getCondition() instanceof TrueElement))
 			throw new InvalidityException();
 		
 		Graph graph = condition.getGraph(); 
+		
+		// is Unique Exists
+		if (condition.getCondition() instanceof CountCondition) {
+			// TODO maybe
+		}		
+		
+		if (condition.getCondition() != null && !(condition.getCondition() instanceof TrueElement))
+			throw new InvalidityException();
+		
+		// is default Exists
 		if (graph.getNodes().size() == 1 && graph.getOperatorList().getOperators().size() == 1) {
-			return transformSingleNodeGraph(graph);
+			return transformSingleNodeGraph(graph, fieldNodes2);
 		}
 		else if (graph.getNodes().size() == 2 && graph.getOperatorList().getOperators().size() == 1) {
-			return transformNodeComparisonGraph(graph);
+			return transformNodeComparisonGraph(graph, fieldNodes2);
 		}
 		else 
-			return transformCombinationGraph(graph);
+			return transformCombinationGraph(graph, fieldNodes2);
 	}
 	
-	private static ConstraintRuleObject transformSingleNodeGraph (Graph graph) throws InvalidityException {
+	private static ConstraintRuleObject transformSingleNodeGraph (Graph graph, Node[] fieldNodes2) throws InvalidityException {
 		Node node = graph.getNodes().get(0);
 		Operator op = graph.getOperatorList().getOperators().get(0);
-		SingleConstraintRuleObject rule = null;
+		return transformOperator(op, node);
+	}
+	
+	private static ConstraintRuleObject transformOperator(Operator op, Node node) throws InvalidityException {
+SingleConstraintRuleObject rule = null;
 		
 		if (op instanceof Comparison) {
 			Comparison cf = (Comparison) op;
@@ -152,34 +179,105 @@ public class ConstraintObject {
 //			"pattern" <regex>
 //			"minWords", "maxWords"
 			Match match = (Match) op;
-
 			rule = new PatternRuleObject( match.getRegularExpression().getValue(), match.getOption().getValue() );
-			// TODO
 			
 		} else if (op instanceof StringLength) {
 //			"minLength" , "maxLength"
 			StringLength len = (StringLength) op;
 			
 			ComparisonOperator co = len.getOption().getValue();
-			if (co != ComparisonOperator.EQUAL && co != ComparisonOperator.NOTEQUAL)
-				return null;
 			Double num = len.getNumber().getValue();
 			rule = new StringLengthRuleObject(num, co);
-			// TODO
 		}
 		return rule;
 	}
-	
 
-	private static ConstraintRuleObject transformNodeComparisonGraph (Graph graph) {
+	private static ConstraintRuleObject transformNodeComparisonGraph (Graph graph, Node[] fieldNodes2) throws InvalidityException {
 		
+		EList<Node> nodes = graph.getNodes();
 		
-		return null;
+		if (nodes.size() != 2)
+			throw new InvalidityException();
+		
+		Node field = null;
+		Node other = null;
+		
+		for (Node n: nodes) {
+			Boolean contains = false;
+			for (Node n2: fieldNodes2)
+				if(n == n2)
+					contains = true;
+			
+			if (contains) {
+				if (field != null)
+					throw new InvalidityException();
+				field = n;
+			}
+			else {
+				if (other != null){
+					field = nodes.get(0);
+					other = nodes.get(1);
+				}
+				other = n;
+			}
+		}
+
+		if (field == null || other == null)
+			throw new InvalidityException();
+		
+		Comparison comp = (Comparison) field.getPredicates().get(0);
+		
+		return new ComparisonRuleObject(other, comp.getOption().getValue());
 	}
 
-	private static ConstraintRuleObject transformCombinationGraph (Graph graph) {
+	private static ConstraintRuleObject transformCombinationGraph (Graph graph, Node[] fieldNodes2) throws InvalidityException {
+
+		EList<Node> nodes = graph.getNodes();
 		
-		return null;
+		Node field = null;
+		EList<Node> others = new BasicEList<Node>();
+		
+		for (Node n: nodes) {
+			
+			Boolean contains = false;
+			for (Node n2: fieldNodes2)
+				if(n == n2)
+					contains = true;
+			
+			if (contains) {
+				if (field != null)
+					throw new InvalidityException();
+				field = n;
+			}
+			else
+				others.add(n);	
+		}
+		
+		if (field == null)
+			throw new InvalidityException();
+		
+		EList<ConstraintRuleObject> rules = new BasicEList<ConstraintRuleObject>();
+		
+		EList<BooleanOperator> ops = field.getPredicates();
+		
+		for (Operator o: ops) {
+			rules.add(transformOperator(o, field));
+		}
+		return combineWithAnd(rules);
+	}
+
+	static ConstraintRuleObject combineWithAnd (EList<ConstraintRuleObject> rules) throws InvalidityException {
+		if (rules.size() == 1)
+			return rules.get(0);
+		else if (rules.size() > 1) {
+			FormulaConstraintRuleObject and = new FormulaConstraintRuleObject(LogicalOperator.AND);
+			and.op = LogicalOperator.AND;
+			and.args.add(rules.get(0));
+			rules.remove(0);
+			and.args.add(combineWithAnd(rules));
+			return and;
+		}
+		else throw new InvalidityException();
 	}
 }
 

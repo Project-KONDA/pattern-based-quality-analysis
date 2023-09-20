@@ -4,17 +4,19 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.util.Pair;
 
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 
 public abstract class ConstraintRuleObject {
-	abstract String getStringRepresentation();
+	abstract String getStringRepresentation() throws InvalidityException;
 	abstract Object getSchemaRepresentation();
 	abstract EList<Pair<String, String>> getAllFields();
 
 
 	private static String indent(String s) {
-		return s.replace("\n", "  \n");
+		return "  " + s.replace("\n", "\n  ");
 	}
 	
 	
@@ -24,19 +26,54 @@ public abstract class ConstraintRuleObject {
 		public LogicalOperator op;
 		public EList<ConstraintRuleObject> args;
 		
-		String getStringRepresentation() {
+		FormulaConstraintRuleObject(LogicalOperator o){
+			op = o;
+			args = new BasicEList<ConstraintRuleObject>();
+		}
+		String getStringRepresentation() throws InvalidityException {
+			if (args.size() != 2)
+				throw new InvalidityException();
+			
+			String arg1 = args.get(0).getStringRepresentation();
+			String arg2 = args.get(1).getStringRepresentation();
+			
 			String result = "";
-			for (ConstraintRuleObject arg: args)
-				result += arg.getStringRepresentation() + "\n";
-			result = indent(result);
-			result = "- " + op.getLiteral() + "\n  " + result;
-			return result;
+			switch(op) {
+			case AND:
+				result = "- and\n" + indent(arg1) + "\n" + indent(arg2);
+				break;
+			case OR:
+				result = "- or\n" + indent(arg1) + "\n" + indent(arg2);
+				break;
+			case IMPLIES:
+				result = "- or\n" + indent(arg1) + "\n  - not\n" + indent(indent(arg2));
+				break;
+			case XOR:
+				String s1 = "- and\n" + indent(arg1) + "\n  - not\n" + indent(indent(arg2));
+				String s2 = "- and\n  - not\n" + indent(indent(arg1)) + "\n" + indent(arg2);
+				result = "- or\n" + indent(s1) + "\n" + indent(s2);
+				break;
+			case EQUAL:
+				String s3 = "- and\n" + indent(arg1) + "\n" + indent(arg2);
+				String s4 = "- and\n  - not\n" + indent(indent(arg2)) + "\n  - not\n" + indent(indent(arg2));
+				result = "- or\n" + indent(s3) + "\n" + indent(s4);
+				break;
+			}
+//			String result = "";
+//			for (ConstraintRuleObject arg: args)
+//				result += indent(arg.getStringRepresentation()) + "\n";
+//			result = "- " + op.getLiteral() + "\n" + result;
+			return indent(result);
 		}
 		
 		EList<Pair<String, String>> getAllFields() {
 			EList<Pair<String, String>> fields = new BasicEList<Pair<String, String>>();
-			for (ConstraintRuleObject arg: args)
-				fields.addAll(arg.getAllFields());
+			for (ConstraintRuleObject arg: args) {
+				EList<Pair<String, String>> list = arg.getAllFields();
+				if (list != null)
+					fields.addAll(list);
+				
+			}
 			return fields;
 		}
 		
@@ -52,8 +89,8 @@ public abstract class ConstraintRuleObject {
 		NotConstraintRuleObject (ConstraintRuleObject a){
 			arg = a;
 		}
-		String getStringRepresentation() {
-			return "- not\n  " + indent(arg.getStringRepresentation()); 
+		String getStringRepresentation() throws InvalidityException {
+			return indent("- not\n" + indent(arg.getStringRepresentation())); 
 		}
 		
 		EList<Pair<String, String>> getAllFields() {
@@ -83,8 +120,8 @@ public abstract class ConstraintRuleObject {
 		String getStringRepresentation() {
 			String res = "- hasValue \"" + value + "\"";
 			if (operator == ComparisonOperator.NOTEQUAL)
-				res = "- not\n  " + res;
-			return res;
+				res = "- not\n" + indent(res);
+			return indent(res);
 		}
 		Object getSchemaRepresentation() {
 			// TODO
@@ -102,21 +139,28 @@ public abstract class ConstraintRuleObject {
 		}
 		
 		String getStringRepresentation() {
+			String result = "";
 			switch(operator) {
 			case EQUAL: 
-				return "-or\n  - minExclusive " + number + "\n  - maxExclusive " + number;
+				result = "-or\n  - minExclusive " + number + "\n  - maxExclusive " + number;
+				break;
 			case GREATER: 
-				return "maxInclusive " + number;
+				result = "maxInclusive " + number;
+				break;
 			case LESS: 
-				return "minInclusive " + number;
+				result = "minInclusive " + number;
+				break;
 			case GREATEROREQUAL: 
-				return "minExclusive " + number;
+				result = "minExclusive " + number;
+				break;
 			case LESSOREQUAL: 
-				return "maxExclusive " + number;
+				result = "maxExclusive " + number;
+				break;
 			case NOTEQUAL: 
-				return "-and\n  - minInclusive " + number + "\n  - maxInclusive " + number;
-		}
-		return "";
+				result = "-and\n  - minInclusive " + number + "\n  - maxInclusive " + number;
+				break;
+			}
+			return indent(result);
 		}
 		Object getSchemaRepresentation() {
 			// TODO
@@ -133,7 +177,7 @@ public abstract class ConstraintRuleObject {
 		}
 		String getStringRepresentation() {
 			// TODO
-			return null;
+			return indent("");
 		}
 		Object getSchemaRepresentation() {
 			// TODO
@@ -151,8 +195,8 @@ public abstract class ConstraintRuleObject {
 		String getStringRepresentation() {
 			String result = "- pattern " + regularExpression;
 			if (negate)
-				result = "- not\n  " + result;
-			return result;
+				result = "- not\n  " + indent(result);
+			return indent(result);
 		}
 		Object getSchemaRepresentation() {
 			// TODO
@@ -161,17 +205,36 @@ public abstract class ConstraintRuleObject {
 	}
 	
 	public static class StringLengthRuleObject extends SingleConstraintRuleObject {
-		Double length; 
-		Boolean negate;
+		Integer length; 
+		ComparisonOperator operator;
 		
 		public StringLengthRuleObject(Double num, ComparisonOperator co) {
-			length = num;
-			negate = co == ComparisonOperator.NOTEQUAL;
+			length = (int) (num + 0.5);
+			operator = co;
 		}
 		
-		String getStringRepresentation() {
-			// TODO
-			return null;
+		String getStringRepresentation() throws InvalidityException {
+			switch(operator) {
+				case EQUAL:{
+					String result = "- minLength " + length;
+					result += "\n- maxLength " + length;
+					return indent("-and\n" + indent(result));
+				}
+				case GREATER:
+					return indent("- maxLength " + (length + 1));
+				case LESS: 
+					return indent("- minLength " + (length + 1));
+				case GREATEROREQUAL: 
+					return indent("- maxLength " + length);
+				case LESSOREQUAL: 
+					return indent("- minLength " + length);
+				case NOTEQUAL: {
+					String result = "- minLength " + (length-1);
+					result += "\n- maxLength " + (length+1);
+					return indent("-or\n" + indent(result));
+				}
+			}
+			throw new InvalidityException("no valid ComparisonOperator for StringLength Constraint");
 		}
 		
 		Object getSchemaRepresentation() {
@@ -181,9 +244,17 @@ public abstract class ConstraintRuleObject {
 	}
 	
 	public static class ComparisonRuleObject extends SingleConstraintRuleObject {
+		Node node;
+		ComparisonOperator operator;
+		
+		public ComparisonRuleObject (Node n, ComparisonOperator co) {
+			node = n;
+			operator = co;
+		}
+		
 		String getStringRepresentation() {
 			// TODO
-			return null;
+			return indent("");
 		}
 		EList<Pair<String, String>> getAllFields() {
 			return null;
@@ -197,7 +268,7 @@ public abstract class ConstraintRuleObject {
 	public static class CountRuleObject extends SingleConstraintRuleObject {
 		String getStringRepresentation() {
 			// TODO
-			return null;
+			return indent("");
 		}
 		Object getSchemaRepresentation() {
 			// TODO
@@ -208,7 +279,7 @@ public abstract class ConstraintRuleObject {
 	public static class UniqueObject extends SingleConstraintRuleObject {
 		String getStringRepresentation() {
 			// TODO
-			return null;
+			return indent("");
 		}
 		Object getSchemaRepresentation() {
 			// TODO

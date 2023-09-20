@@ -9,7 +9,6 @@ import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.Language;
-import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
@@ -76,8 +75,8 @@ public class ConstraintTranslationValidation {
 		} else if (condition instanceof Formula) {
 			Formula formula = (Formula) condition;
 
-			if (!( formula.getOperator().equals(LogicalOperator.AND) || formula.getOperator().equals(LogicalOperator.OR)))
-				return false;
+//			if (!( formula.getOperator().equals(LogicalOperator.AND) || formula.getOperator().equals(LogicalOperator.OR)))
+//				return false;
 			Boolean cond1 = validateNodeConfigurationCondition (formula.getCondition1(), record);
 			Boolean cond2 = validateNodeConfigurationCondition (formula.getCondition2(), record);
 			return cond1 && cond2;

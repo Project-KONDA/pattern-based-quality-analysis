@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ComplexNode;
@@ -16,6 +17,7 @@ import qualitypatternmodel.operators.Contains;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.NullCheck;
 import qualitypatternmodel.operators.Operator;
+import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Condition;
@@ -159,52 +161,137 @@ public class ConstraintTranslationHelper {
 	}
 	
 
-	static ArrayList<Node> identifyFieldNodes (CompletePattern pattern) throws InvalidityException {
-		EList<EList<Node>> nodeList = splitNodes(pattern);
-		ComplexNode recordNode = identifyRecordNode(nodeList);
-		EList<Operator> operators = extractOperatorsFromPattern(pattern); 
-		return identifyFieldNodes(nodeList, recordNode, operators);
-	}
+//	public static  Node[] identifyFieldNodes (CompletePattern pattern) throws InvalidityException {
+//		EList<EList<Node>> nodeList = splitNodes(pattern);
+//		ComplexNode recordNode = identifyRecordNode(nodeList);
+//		EList<Operator> operators = extractOperatorsFromPattern(pattern);
+//		
+//		return identifyFieldNodes(nodeList, recordNode, operators);
+//	}
 	
 	
-	static ArrayList<Node> identifyFieldNodes (EList<EList<Node>> nodeList, ComplexNode recordNode, EList<Operator> operators) throws InvalidityException {
-		
-		// nodeList.get(2) are possible FieldNodes
-		EList<Node> possibleFieldNodes = nodeList.get(2);
-		
-		EList<EList<Node>> graphWiseNodes = splitListGraphwise(possibleFieldNodes);
-		Integer nodeNumber = graphWiseNodes.size();
-		
-		ArrayList<Node> fieldNodes = new ArrayList<Node>(nodeNumber);
-		
-		EList<Integer> remaining = new BasicEList<Integer>();
-		
-		for (int i=0; i<nodeNumber;i++) {
-			try {
-				identifyFieldNode(possibleFieldNodes, recordNode, operators);
-			} catch (Exception e) {
-				remaining.add(i);
-			}
-		}
-		
-		// check remaining
-		
-		// all nodes must be connected to recordNode
-		
-		
-		
-		
-		
-		// TODO
-		return fieldNodes;
-	}
-
-	static EList<Node> identifyFieldNode (EList<Node> nodeList, ComplexNode recordNode, EList<Operator> operators) throws InvalidityException {
-		
-		// TODO
-		
-		return null;
-	}
+//	static Node[] identifyFieldNodes (EList<EList<Node>> nodeList, ComplexNode recordNode, EList<Operator> operators) throws InvalidityException {
+//		
+//		// Fetch all nodes that are connected to the record node
+//		EList<Node> allFollowing = new BasicEList<Node>();
+//		for (Relation r: recordNode.getOutgoing())
+//			allFollowing.add(r.getTarget());
+//
+//		for (Node n: allFollowing)
+//			System.out.println(n.myToString());
+//		
+//		EList<EList<Node>> splitNodes = splitListGraphwise(allFollowing);
+//		
+//		System.out.println("[");
+//		for (EList<Node> lst: splitNodes) {
+//			System.out.println("  [");
+//			for (Node n: lst)
+//				System.out.println("  " + n.myToString());
+//			System.out.println("  ]");
+//		}
+//		System.out.println("]");
+//		
+//
+//		// first Filter: remove nodes and potentially get error
+//		Object[] fields = new Object[splitNodes.size()];
+//
+//		for (int i = 0; i < splitNodes.size(); i++)
+//			if (splitNodes.get(i).size() == 1) {
+//				Node n = splitNodes.get(i).get(0);
+//				fields[i] = n;
+//			}
+//		
+//		for (int i = 0; i < splitNodes.size(); i++)
+//			if (splitNodes.get(i).size() > 1)
+//				fields[i] = identifyPotentialFieldNodes(splitNodes.get(i));
+//		
+//
+//		// second filter
+//		Node[] fieldNodes = new Node[splitNodes.size()];
+//		for (int i = 0; i < splitNodes.size(); i++) {
+//			Object o = fields[i];
+//			if (o instanceof Node)
+//				fieldNodes[i] = (Node) o;
+//		}
+//		EList<Node> confirmedNodes = new BasicEList<Node>();
+//		for (Node f: fieldNodes)
+//			confirmedNodes.add(f);
+//		
+//			
+//		for (int i = 0; i < splitNodes.size(); i++) {
+//			Object o = fields[i];
+//			if (o instanceof EList) {
+//				EList<Node> o2 = (EList<Node>) o;
+//				
+//				System.out.println("lololol");
+//				// TODO
+//				
+//			}
+//			
+//		}
+//		
+//		// validate
+//		for (Node node: fieldNodes)
+//			if (node == null)
+//				throw new InvalidityException();
+//		for (Node node: fieldNodes) {
+//			for (Node node2: fieldNodes) {
+//				try {
+//					String nav1 = ((XmlNavigation) node.getIncoming().get(0)).getXmlPathParam().generateXQuery();
+//					String nav2 = ((XmlNavigation) node2.getIncoming().get(0)).getXmlPathParam().generateXQuery();
+//					
+//					if ( !(nav1.equals(nav2)))
+//						throw new InvalidityException(node.myToString() + " and " + node2.myToString());
+//				} catch(Exception e) {
+//					InvalidityException exception = new InvalidityException();
+//					exception.setStackTrace(e.getStackTrace());
+//					throw exception;
+//				}
+//			}
+//		}
+//		
+//		return fieldNodes;
+//	}
+	
+	
+	
+//	static Object identifyPotentialFieldNodes(EList<Node> nodes) throws InvalidityException {
+//		EList<Node> must = new BasicEList<Node>();
+//		EList<Node> potential = new BasicEList<Node>();
+//		
+//		for (Node n: nodes) {
+//			EList<Operator> ops = new BasicEList<Operator>();
+//			ops.addAll(n.getPredicates());
+//			
+//			Boolean m = false;
+//			
+//			for (Operator o: ops) {
+//				if (o instanceof Comparison) {
+//					Comparison c = (Comparison) o;
+//					if (c.getArgument1().equals(n)) {
+//						m = m || !(c.getArgument2() instanceof Node);
+//					}
+//					else {
+//						m = m || !(c.getArgument1() instanceof Node);
+//					}
+//				}
+//				else m = true;
+//			}
+//			if (m)
+//				must.add(n);
+//			else 
+//				potential.add(n);
+//		}
+//		
+//		if (must.size() == 1)
+//			return must.get(0);
+//		else if (must.size() == 0 && potential.size() > 0)
+//			return potential;
+//		else 
+//			throw new InvalidityException("not enough nodes?");
+//	}
+	
+	
 	
 	// HELPER FUNCTIONS INDIRECT
 	
@@ -281,6 +368,7 @@ public class ConstraintTranslationHelper {
 			}
 			else if (o instanceof NullCheck
 					|| o instanceof Match
+					|| o instanceof StringLength
 					|| o instanceof Contains)
 				oneArg.add(o);	
 			else 
