@@ -1023,8 +1023,10 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 			index = indexWhereSplit(value);
 		}
 
-		assertTrue((getXmlNavigation() instanceof XmlElementNavigation) == value.matches(PROPERTY_PART_REGEX));
-		assertTrue((getXmlNavigation() instanceof XmlPropertyNavigation) == value.matches(PROPERTY_PART_REGEX));
+		
+		assertTrue(value == "" || value.matches(PROPERTY_PART_REGEX));
+//		assertTrue((getXmlNavigation() instanceof XmlElementNavigation) == ( value == "" || value.matches(PROPERTY_PART_REGEX)));
+//		assertTrue((getXmlNavigation() instanceof XmlPropertyNavigation) == ( value == "" || value.matches(PROPERTY_PART_REGEX)));
 		
 		getXmlAxisParts().clear();
 		for (String v: parts) {

@@ -34,7 +34,7 @@ public class Test01Axis {
 	}
 
 	public static CompletePattern getBasePatternAxisRoot(XmlAxisKind xmlAxisKind) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
-		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.createXmlAdaption();
 		XmlNavigation relation = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
 		XmlPathParam axisOption = relation.getXmlPathParam();

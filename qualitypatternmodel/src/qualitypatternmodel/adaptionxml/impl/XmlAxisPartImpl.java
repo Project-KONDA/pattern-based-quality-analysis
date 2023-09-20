@@ -702,66 +702,69 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+//		throw new UnsupportedOperationException("XmlAxisPart.setValue(\"" + value + "\");");
+//	}
 		
 		
 		
 		
-//		String PROPERTY_PART_REGEX = "((data\\(\\))|(name\\(\\))|(@[A-Za-z0-9]+))";
-//
-//		String[] parts = new String[XmlAxisKind.values().length];
-//		for (int i = 0; i < XmlAxisKind.values().length; i++) {
-//			String part = XmlAxisKind.values()[i].toString().replace("/", "").replace("::*", "");
-//			parts[i] = "(" + part + ")";
-//		}
-//		String axes = "(" + String.join("|", parts) + ")";
-//		String PATH_PART_REGEX = axes + "::\\*" // axes
-//			+ "(\\[" + PROPERTY_PART_REGEX + "(=(([0-9.]+)|(\".*\")))?" // optional comparison of the property 
-//			+ "\\])?";
-////		((child)|(descendant))::\*(\[((data\(\))|(name\(\))|(@[A-Za-z0-9]+))(=((".*")))?\])?
-////		https://regex101.com/r/6gWGzd
-//		
-//		
+		String PROPERTY_PART_REGEX = "((data\\(\\))|(name\\(\\))|(@[A-Za-z0-9]+))";
+
+		String[] parts = new String[XmlAxisKind.values().length];
+		for (int i = 0; i < XmlAxisKind.values().length; i++) {
+			String part = XmlAxisKind.values()[i].toString().replace("/", "").replace("::*", "");
+			parts[i] = "(" + part + ")";
+		}
+		String axes = "(" + String.join("|", parts) + ")";
+		String PATH_PART_REGEX = axes + "::\\*" // axes
+			+ "(\\[" + PROPERTY_PART_REGEX + "(=(([0-9.]+)|(\".*\")))?" // optional comparison of the property 
+			+ "\\])?";
+//		((child)|(descendant))::\*(\[((data\(\))|(name\(\))|(@[A-Za-z0-9]+))(=((".*")))?\])?
+//		https://regex101.com/r/6gWGzd
+		
+		
 //		if (!value.matches(PATH_PART_REGEX)) 
 //			throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
-//		
-//		// 1. split: axis, (property? (attribute name)? (value)
-//		String[] split = value.split("::*", 2);
-//		
-//		if(getXmlAxisOptionParam() == null)
-//			setXmlAxisOptionParam(new XmlAxisOptionParamImpl());
-//		getXmlAxisOptionParam().setValueFromString(split[0]);
-//		
-//		if (split.length >1) {
-//			String property = String.join("", split).replace(split[0] + "::*", "");
-//			if (! (property.startsWith("[") && property.endsWith("]")))
-//				throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
-//			property = property.substring(1, property.length() - 1);
-//			String[] propertySplit = property.split("=", 2);
-//			if (!propertySplit[0].matches(PROPERTY_PART_REGEX))
-//				throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
-//			if(getXmlPropertyOption() == null)
-//				setXmlPropertyOption(new XmlPropertyOptionParamImpl());
-//			else getXmlPropertyOption().setValueFromString(propertySplit[0]);
-//			
-//			if (propertySplit.length>1) {
-//				if (!propertySplit[1].startsWith("\"") || !propertySplit[1].endsWith("\""))
-//					throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
-//				String propertyvalue = propertySplit[1].substring(1, property.length() - 1);
-//				if(getTextLiteralParam() == null)
-//					setTextLiteralParam(new TextLiteralParamImpl(propertyvalue));
-//				else getTextLiteralParam().setValue(propertyvalue);
-//			}
-//				
-//		}
-//	}
+		
+		// 1. split: axis, (property? (attribute name)? (value)
+		String[] split = value.split("::*", 2);
+		if (split[1].startsWith("*"))
+			split[1] = split[1].substring(1);
+		
+		if(getXmlAxisOptionParam() == null)
+			setXmlAxisOptionParam(new XmlAxisOptionParamImpl());
+		getXmlAxisOptionParam().setValueFromString(split[0]);
+		
+		if (split.length > 1 && split[1] != "") {
+			System.out.println("\"" + split[1] + "\"");
+			String property = String.join("", split).replace(split[0] + "::*", "");
+			if (! (property.startsWith("[") && property.endsWith("]")))
+				throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
+			property = property.substring(1, property.length() - 1);
+			String[] propertySplit = property.split("=", 2);
+			if (!propertySplit[0].matches(PROPERTY_PART_REGEX))
+				throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
+			if(getXmlPropertyOption() == null)
+				setXmlPropertyOption(new XmlPropertyOptionParamImpl());
+			else getXmlPropertyOption().setValueFromString(propertySplit[0]);
+			
+			if (propertySplit.length>1) {
+				if (!propertySplit[1].startsWith("\"") || !propertySplit[1].endsWith("\""))
+					throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
+				String propertyvalue = propertySplit[1].substring(1, property.length() - 1);
+				if(getTextLiteralParam() == null)
+					setTextLiteralParam(new TextLiteralParamImpl(propertyvalue));
+				else getTextLiteralParam().setValue(propertyvalue);
+			}
+				
+		}
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
