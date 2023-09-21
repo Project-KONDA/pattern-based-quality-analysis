@@ -161,27 +161,29 @@ public class ConstraintTranslationHelper {
 	}
 	
 
-//	public static  Node[] identifyFieldNodes (CompletePattern pattern) throws InvalidityException {
-//		EList<EList<Node>> nodeList = splitNodes(pattern);
-//		ComplexNode recordNode = identifyRecordNode(nodeList);
-//		EList<Operator> operators = extractOperatorsFromPattern(pattern);
-//		
-//		return identifyFieldNodes(nodeList, recordNode, operators);
-//	}
+	public static  Node[] identifyFieldNodes (CompletePattern pattern) throws InvalidityException {
+		EList<EList<Node>> nodeList = splitNodes(pattern);
+		ComplexNode recordNode = identifyRecordNode(nodeList);
+		EList<Operator> operators = extractOperatorsFromPattern(pattern);
+		
+		return identifyFieldNodes(nodeList, recordNode, operators);
+	}
 	
 	
-//	static Node[] identifyFieldNodes (EList<EList<Node>> nodeList, ComplexNode recordNode, EList<Operator> operators) throws InvalidityException {
-//		
-//		// Fetch all nodes that are connected to the record node
-//		EList<Node> allFollowing = new BasicEList<Node>();
-//		for (Relation r: recordNode.getOutgoing())
-//			allFollowing.add(r.getTarget());
-//
+	static Node[] identifyFieldNodes (EList<EList<Node>> nodeList, ComplexNode recordNode, EList<Operator> operators) throws InvalidityException {
+		
+		// Fetch all nodes that are connected to the record node
+		EList<Node> allFollowing = new BasicEList<Node>();
+		for (Relation r: recordNode.getOutgoing())
+			allFollowing.add(r.getTarget());
+
+//		System.out.println("__");
 //		for (Node n: allFollowing)
 //			System.out.println(n.myToString());
-//		
-//		EList<EList<Node>> splitNodes = splitListGraphwise(allFollowing);
-//		
+//		System.out.println("__");
+		
+		EList<EList<Node>> splitNodes = splitListGraphwise(allFollowing);
+		
 //		System.out.println("[");
 //		for (EList<Node> lst: splitNodes) {
 //			System.out.println("  [");
@@ -190,106 +192,95 @@ public class ConstraintTranslationHelper {
 //			System.out.println("  ]");
 //		}
 //		System.out.println("]");
-//		
-//
-//		// first Filter: remove nodes and potentially get error
-//		Object[] fields = new Object[splitNodes.size()];
-//
-//		for (int i = 0; i < splitNodes.size(); i++)
-//			if (splitNodes.get(i).size() == 1) {
-//				Node n = splitNodes.get(i).get(0);
-//				fields[i] = n;
-//			}
-//		
-//		for (int i = 0; i < splitNodes.size(); i++)
-//			if (splitNodes.get(i).size() > 1)
-//				fields[i] = identifyPotentialFieldNodes(splitNodes.get(i));
-//		
-//
-//		// second filter
-//		Node[] fieldNodes = new Node[splitNodes.size()];
-//		for (int i = 0; i < splitNodes.size(); i++) {
-//			Object o = fields[i];
-//			if (o instanceof Node)
-//				fieldNodes[i] = (Node) o;
-//		}
-//		EList<Node> confirmedNodes = new BasicEList<Node>();
-//		for (Node f: fieldNodes)
-//			confirmedNodes.add(f);
-//		
-//			
-//		for (int i = 0; i < splitNodes.size(); i++) {
-//			Object o = fields[i];
-//			if (o instanceof EList) {
-//				EList<Node> o2 = (EList<Node>) o;
-//				
-//				System.out.println("lololol");
-//				// TODO
-//				
-//			}
-//			
-//		}
-//		
-//		// validate
-//		for (Node node: fieldNodes)
-//			if (node == null)
-//				throw new InvalidityException();
-//		for (Node node: fieldNodes) {
-//			for (Node node2: fieldNodes) {
-//				try {
-//					String nav1 = ((XmlNavigation) node.getIncoming().get(0)).getXmlPathParam().generateXQuery();
-//					String nav2 = ((XmlNavigation) node2.getIncoming().get(0)).getXmlPathParam().generateXQuery();
-//					
-//					if ( !(nav1.equals(nav2)))
-//						throw new InvalidityException(node.myToString() + " and " + node2.myToString());
-//				} catch(Exception e) {
-//					InvalidityException exception = new InvalidityException();
-//					exception.setStackTrace(e.getStackTrace());
-//					throw exception;
-//				}
-//			}
-//		}
-//		
-//		return fieldNodes;
-//	}
+		
+
+		// first Filter: remove nodes and potentially get error
+		Object[] fields = new Object[splitNodes.size()];
+
+		for (int i = 0; i < splitNodes.size(); i++)
+			if (splitNodes.get(i).size() == 1) {
+				Node n = splitNodes.get(i).get(0);
+				fields[i] = n;
+			}
+		
+		for (int i = 0; i < splitNodes.size(); i++)
+			if (splitNodes.get(i).size() > 1)
+				fields[i] = identifyPotentialFieldNodes(splitNodes.get(i));
+		
+
+		// second filter
+		Node[] fieldNodes = new Node[splitNodes.size()];
+		for (int i = 0; i < splitNodes.size(); i++) {
+			Object o = fields[i];
+			if (o instanceof Node)
+				fieldNodes[i] = (Node) o;
+		}
+		EList<Node> confirmedNodes = new BasicEList<Node>();
+		for (Node f: fieldNodes)
+			confirmedNodes.add(f);
+		
+			
+		for (int i = 0; i < splitNodes.size(); i++) {
+			Object o = fields[i];
+			if (o instanceof EList) {
+				EList<Node> o2 = (EList<Node>) o;
+				// TODO
+				fieldNodes[i] = o2.get(0);
+				
+			}
+		}
+		
+		// validate
+		for (Node node: fieldNodes)
+			if (node == null)
+				throw new InvalidityException();
+		for (Node node: fieldNodes) {
+			for (Node node2: fieldNodes) {
+				try {
+					String nav1 = ((XmlNavigation) node.getIncoming().get(0)).getXmlPathParam().generateXQuery();
+					String nav2 = ((XmlNavigation) node2.getIncoming().get(0)).getXmlPathParam().generateXQuery();
+					
+					if ( !(nav1.equals(nav2)))
+						throw new InvalidityException(node.myToString() + " and " + node2.myToString());
+				} catch(Exception e) {
+					InvalidityException exception = new InvalidityException();
+					exception.setStackTrace(e.getStackTrace());
+					throw exception;
+				}
+			}
+		}
+		
+		return fieldNodes;
+	}
 	
 	
 	
-//	static Object identifyPotentialFieldNodes(EList<Node> nodes) throws InvalidityException {
-//		EList<Node> must = new BasicEList<Node>();
-//		EList<Node> potential = new BasicEList<Node>();
-//		
-//		for (Node n: nodes) {
-//			EList<Operator> ops = new BasicEList<Operator>();
-//			ops.addAll(n.getPredicates());
-//			
-//			Boolean m = false;
-//			
-//			for (Operator o: ops) {
-//				if (o instanceof Comparison) {
-//					Comparison c = (Comparison) o;
-//					if (c.getArgument1().equals(n)) {
-//						m = m || !(c.getArgument2() instanceof Node);
-//					}
-//					else {
-//						m = m || !(c.getArgument1() instanceof Node);
-//					}
-//				}
-//				else m = true;
-//			}
-//			if (m)
-//				must.add(n);
-//			else 
-//				potential.add(n);
-//		}
-//		
-//		if (must.size() == 1)
-//			return must.get(0);
-//		else if (must.size() == 0 && potential.size() > 0)
-//			return potential;
-//		else 
-//			throw new InvalidityException("not enough nodes?");
-//	}
+	static Object identifyPotentialFieldNodes(EList<Node> nodes) throws InvalidityException {
+		EList<Node> potential = new BasicEList<Node>();
+		
+		EList<Operator> allOps = new BasicEList<Operator>();
+
+		for (Node n: nodes) {
+			if (n.getPredicates().isEmpty())
+				throw new InvalidityException("node without predicates");
+			allOps.addAll(n.getPredicates());
+		}
+		
+		for (Node n: nodes) {
+			Boolean p = true;
+			for(Operator o: n.getPredicates())
+				p = p && allOps.contains(o);
+			if (p)
+				potential.add(n);
+		}
+		
+		if (potential.size() == 1)
+			return potential.get(0);
+
+		else if (potential.size() == 0)
+			throw new InvalidityException("no potential node found");
+		else return potential;
+	}
 	
 	
 	

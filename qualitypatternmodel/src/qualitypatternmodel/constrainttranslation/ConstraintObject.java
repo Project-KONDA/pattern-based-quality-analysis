@@ -1,8 +1,8 @@
 package qualitypatternmodel.constrainttranslation;
 
+import org.basex.util.Pair;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.xtext.util.Pair;
 
 import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.FormulaConstraintRuleObject;
 import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.HasValueRuleObject;
@@ -47,7 +47,7 @@ public class ConstraintObject {
 	ConstraintRuleObject rule;
 	
 	EList<String> rules;
-	EList<Pair<String, String>> fieldPaths;;
+	EList<Pair<String, String>> fieldPaths;
 
 	
 	public ConstraintObject (CompletePattern completePattern) throws InvalidityException {
@@ -57,11 +57,11 @@ public class ConstraintObject {
 		
 		pattern = completePattern;
 		record = ConstraintTranslationHelper.identifyRecordNode(pattern);
-//		fieldNodes = ConstraintTranslationHelper.identifyFieldNodes(pattern);
+		fieldNodes = ConstraintTranslationHelper.identifyFieldNodes(pattern);
 		rule = transformCondition(completePattern.getCondition(), fieldNodes);
 		
-//		XmlNavigation r = (XmlNavigation) fieldNodes[0].getIncoming().get(0);
-//		fieldPath = r.getXmlPathParam().generateXQuery();
+		XmlNavigation r = (XmlNavigation) fieldNodes[0].getIncoming().get(0);
+		fieldPath = r.getXmlPathParam().generateXQuery();
 		if (rule != null)
 			fieldPaths = rule.getAllFields();
 	}
@@ -76,10 +76,20 @@ public class ConstraintObject {
 	public String getStringRepresentation() throws InvalidityException {
 		if (rule == null)
 			return "ERROR";
+		String result = "format XML\nfields:\n";
 		
-		String result = "format XML\nfields:\n- field: ConstraintField" +
-		"\n  path: " + fieldPath + "\n" +
-		"  rules:\n" + rule.getStringRepresentation();
+		EList<Pair<String, String>> fields = rule.getAllFields();
+		
+		for (Pair<String, String> fieldpair: fields) {
+			result += "- field: " + fieldpair.name() +
+					"\n  path: " + fieldpair.value() + "\n";
+		}
+		
+		
+		result += "- field: ConstraintField" +
+		"\n  path: " + fieldPath + "\n";
+		result += "  rules:\n" + rule.getStringRepresentation();
+		
 		return result;
 	}
 	

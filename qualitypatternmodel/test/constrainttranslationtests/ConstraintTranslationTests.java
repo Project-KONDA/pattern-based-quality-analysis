@@ -44,6 +44,7 @@ public class ConstraintTranslationTests {
 			try {
 				System.out.println("____ " + c.getDescription() + " _____");
 				System.out.println((String) ConstraintTranslation.translateToConstraint(c, false));
+				System.out.println();
 			} catch (InvalidityException e) {
 				e.printStackTrace();
 			}
@@ -68,7 +69,9 @@ public class ConstraintTranslationTests {
 		patterns.add(formulaCombinationPattern(LogicalOperator.IMPLIES));
 		patterns.add(formulaNotCombinationPattern());
 		patterns.add(notComparisonPattern());
-		patterns.add(simpleComparisonPattern());
+		patterns.add(simpleComparisonPattern(ComparisonOperator.EQUAL));
+		patterns.add(simpleComparisonPattern(ComparisonOperator.GREATEROREQUAL));
+		patterns.add(simpleComparisonPattern(ComparisonOperator.LESSOREQUAL));
 		patterns.add(doubleComparisonPattern());
 		patterns.add(conditionCombinationPattern());
 		patterns.add(uniqueness1Pattern());
@@ -183,7 +186,7 @@ public class ConstraintTranslationTests {
 		return completePattern;
 	}
 
-	public static CompletePattern simpleComparisonPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern simpleComparisonPattern(ComparisonOperator co) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setDescription("Simple Node Comparison");
 		QuantifiedCondition cond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
@@ -210,7 +213,7 @@ public class ConstraintTranslationTests {
 		XmlPathParamImpl p3 = (XmlPathParamImpl) params.get(3);
 		XmlPathParamImpl p4 = (XmlPathParamImpl) params.get(4);
 		
-		p0.setValue(ComparisonOperator.EQUAL);
+		p0.setValue(co);
 		p1.setValue(ReturnType.STRING);
 		p2.setValueFromString(RECORD_PATH);
 		p3.setValueFromString(FIELD_PATH);

@@ -1,9 +1,10 @@
 package qualitypatternmodel.constrainttranslation;
 
+import org.basex.util.Pair;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.xtext.util.Pair;
 
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.operators.ComparisonOperator;
@@ -245,19 +246,45 @@ public abstract class ConstraintRuleObject {
 	
 	public static class ComparisonRuleObject extends SingleConstraintRuleObject {
 		Node node;
+		String nodename;
+		String nodepath;
 		ComparisonOperator operator;
 		
-		public ComparisonRuleObject (Node n, ComparisonOperator co) {
+		public ComparisonRuleObject (Node n, ComparisonOperator co) throws InvalidityException {
 			node = n;
 			operator = co;
+			nodename = node.getName().replace(" ", "_");
+			nodepath = ((XmlNavigation) node.getIncoming().get(0)).getXmlPathParam().generateXQuery();
 		}
 		
 		String getStringRepresentation() {
-			// TODO
-			return indent("");
+			String result = "- ";
+			switch(operator) {
+			case EQUAL:
+				result += "equals";
+				break;
+			case GREATER:
+				result += "not\n  - ";
+			case LESSOREQUAL:
+				result += "lessThanOrEquals";
+				break;
+			case GREATEROREQUAL:
+				result += "not\n  - ";
+			case LESS:
+				result += "lessThan";
+				break;
+			case NOTEQUAL:
+				result = "disjoint";
+				break;
+			}
+			
+			result += " " + nodename;
+			return indent(result);
 		}
 		EList<Pair<String, String>> getAllFields() {
-			return null;
+			EList<Pair<String, String>> fields = new BasicEList<Pair<String, String>>();
+			fields.add(new Pair<String, String>(nodename, nodepath));
+			return fields;
 		}
 		Object getSchemaRepresentation() {
 			// TODO
