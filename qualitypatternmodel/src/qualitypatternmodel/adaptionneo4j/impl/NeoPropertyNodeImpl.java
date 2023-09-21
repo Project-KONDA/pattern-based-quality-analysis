@@ -3,7 +3,6 @@
 package qualitypatternmodel.adaptionneo4j.impl;
 
 import java.lang.reflect.InvocationTargetException;
-
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.BasicEMap;
 import org.eclipse.emf.common.util.EList;

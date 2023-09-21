@@ -1329,7 +1329,7 @@
           eOpposite="#//adaptionneo4j/NeoComplexEdge/neoPathParts"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoPropertyNode" eSuperTypes="#//graphstructure/PrimitiveNode #//adaptionneo4j/NeoNode">
-      <eOperations name="generateCypherPropertyAddressing" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList"
+      <eOperations name="generateCypherPropertyAddressing" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoElementPathParam" eSuperTypes="#//adaptionneo4j/NeoPathParam">

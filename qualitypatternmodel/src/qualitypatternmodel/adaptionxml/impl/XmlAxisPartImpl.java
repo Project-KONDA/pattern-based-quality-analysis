@@ -721,10 +721,10 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 			String part = XmlAxisKind.values()[i].toString().replace("/", "").replace("::*", "");
 			parts[i] = "(" + part + ")";
 		}
-		String axes = "(" + String.join("|", parts) + ")";
-		String PATH_PART_REGEX = axes + "::\\*" // axes
-			+ "(\\[" + PROPERTY_PART_REGEX + "(=(([0-9.]+)|(\".*\")))?" // optional comparison of the property 
-			+ "\\])?";
+//		String axes = "(" + String.join("|", parts) + ")";
+//		String PATH_PART_REGEX = axes + "::\\*" // axes
+//			+ "(\\[" + PROPERTY_PART_REGEX + "(=(([0-9.]+)|(\".*\")))?" // optional comparison of the property 
+//			+ "\\])?";
 //		((child)|(descendant))::\*(\[((data\(\))|(name\(\))|(@[A-Za-z0-9]+))(=((".*")))?\])?
 //		https://regex101.com/r/6gWGzd
 		

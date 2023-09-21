@@ -4,7 +4,7 @@
     <semanticResources>qualitypatternmodel.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_A2WtQB2REeqrGqxc7qjo8A">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name="class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="1694078120525">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name="class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="1695309744613">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="qualitypatternmodel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -13123,7 +13123,7 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
         </ownedElements>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_FPUcAPkVEeyqispHCUGqQA" name="NeoPropertyNode" tooltipText="&#xA;WARNING : The generic type associated with the 'EEList' classifier should have 1 type argument(s) to match the number of type parameter(s) of the classifier " outgoingEdges="_V_o-tPkVEeyqispHCUGqQA _wjQo8ANiEe206Z6-dx1KpQ" width="12" height="10">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_FPUcAPkVEeyqispHCUGqQA" name="NeoPropertyNode" tooltipText="" outgoingEdges="_V_o-tPkVEeyqispHCUGqQA _wjQo8ANiEe206Z6-dx1KpQ" width="12" height="10">
         <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyNode"/>
         <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyNode"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -13133,7 +13133,7 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_3splcCkdEe2tHKzGTjieeg" name="generateCypherPropertyAddressing() : EEList" tooltipText="generateCypherPropertyAddressing() : EEList">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_3splcCkdEe2tHKzGTjieeg" name="generateCypherPropertyAddressing() : EString" tooltipText="generateCypherPropertyAddressing() : EString">
           <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyNode/generateCypherPropertyAddressing"/>
           <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyNode/generateCypherPropertyAddressing"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_3splcSkdEe2tHKzGTjieeg" labelAlignment="LEFT">

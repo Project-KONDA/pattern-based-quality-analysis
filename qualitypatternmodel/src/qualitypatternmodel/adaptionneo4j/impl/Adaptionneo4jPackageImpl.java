@@ -1094,7 +1094,7 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 
 		initEClass(neoPropertyNodeEClass, NeoPropertyNode.class, "NeoPropertyNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getNeoPropertyNode__GenerateCypherPropertyAddressing(), ecorePackage.getEEList(), "generateCypherPropertyAddressing", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNeoPropertyNode__GenerateCypherPropertyAddressing(), ecorePackage.getEString(), "generateCypherPropertyAddressing", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(neoElementPathParamEClass, NeoElementPathParam.class, "NeoElementPathParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
