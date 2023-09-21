@@ -56,8 +56,8 @@ public class ConstraintObject {
 			throw new InvalidityException();
 		
 		pattern = completePattern;
-		record = ConstraintTranslationHelper.identifyRecordNode(pattern);
-		fieldNodes = ConstraintTranslationHelper.identifyFieldNodes(pattern);
+		record = FieldNodeIdentification.identifyRecordNode(pattern);
+		fieldNodes = FieldNodeIdentification.identifyFieldNodes(pattern);
 		rule = transformCondition(completePattern.getCondition(), fieldNodes);
 		
 		XmlNavigation r = (XmlNavigation) fieldNodes[0].getIncoming().get(0);

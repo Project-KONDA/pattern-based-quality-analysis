@@ -73,7 +73,6 @@ public abstract class ConstraintRuleObject {
 				EList<Pair<String, String>> list = arg.getAllFields();
 				if (list != null)
 					fields.addAll(list);
-				
 			}
 			return fields;
 		}
@@ -106,7 +105,7 @@ public abstract class ConstraintRuleObject {
 	
 	public static abstract class SingleConstraintRuleObject extends ConstraintRuleObject {
 		EList<Pair<String, String>> getAllFields() {
-			return null;
+			return new BasicEList<Pair<String, String>>();
 		}
 	}
 	

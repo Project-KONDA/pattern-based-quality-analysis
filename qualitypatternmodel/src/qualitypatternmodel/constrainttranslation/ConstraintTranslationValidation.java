@@ -51,7 +51,7 @@ public class ConstraintTranslationValidation {
 		
 		ComplexNode record;
 		try{
-			record = ConstraintTranslationHelper.identifyRecordNode(ConstraintTranslationHelper.splitNodes(completePattern));
+			record = FieldNodeIdentification.identifyRecordNode(FieldNodeIdentification.splitNodes(completePattern));
 		} catch (Exception e) {
 			return false;
 		}
