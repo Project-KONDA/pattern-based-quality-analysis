@@ -176,7 +176,7 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	
 	public Boolean equals(XmlPathParamImpl that) {
 		try {
-			return this.generateXQuery() == that.generateXQuery();
+			return this.generateXQuery().equals(that.generateXQuery());
 		} catch (Exception e) {
 			return false;
 		}

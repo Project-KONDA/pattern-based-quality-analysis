@@ -1,23 +1,10 @@
 package qualitypatternmodel.constrainttranslation;
 
-import java.util.ArrayList;
-
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
-import qualitypatternmodel.adaptionxml.XmlNavigation;
-import qualitypatternmodel.adaptionxml.XmlRoot;
-import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.operators.Comparison;
-import qualitypatternmodel.operators.Contains;
-import qualitypatternmodel.operators.Match;
-import qualitypatternmodel.operators.NullCheck;
-import qualitypatternmodel.operators.Operator;
-import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Condition;
@@ -26,7 +13,6 @@ import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.patternstructure.NotCondition;
-import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.TrueElement;
 //import de.gwdg.metadataqa.api.configuration.schema.Rule;
@@ -67,7 +53,7 @@ public class ConstraintTranslationHelper {
 		
 		ComplexNode record;
 		try{
-			record = FieldNodeIdentification.identifyRecordNode(FieldNodeIdentification.splitNodes(completePattern));
+			record = FieldNodeIdentification.identifyRecordNode(completePattern);
 		} catch (Exception e) {
 			return false;
 		}

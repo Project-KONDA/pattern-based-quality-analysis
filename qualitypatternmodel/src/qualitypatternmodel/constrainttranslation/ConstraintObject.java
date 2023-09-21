@@ -23,6 +23,7 @@ import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.operators.Contains;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.parameters.NumberParam;
@@ -86,8 +87,8 @@ public class ConstraintObject {
 		}
 		
 		
-		result += "- field: ConstraintField" +
-		"\n  path: " + fieldPath + "\n";
+		result += "- field: " + fieldNodes[0].getName() + "\n";
+		result += "  path: " + fieldPath + "\n";
 		result += "  rules:\n" + rule.getStringRepresentation();
 		
 		return result;
@@ -100,9 +101,9 @@ public class ConstraintObject {
 	private static ConstraintRuleObject transformCondition(Condition condition, Node[] fieldNodes2) throws InvalidityException {
 		if (condition instanceof Formula) {
 			Formula formula = (Formula) condition;
-			FormulaConstraintRuleObject frule = new FormulaConstraintRuleObject(formula.getOperator());
-			frule.args.add(transformCondition(formula.getCondition1(), fieldNodes2));
-			frule.args.add(transformCondition(formula.getCondition2(), fieldNodes2));
+			ConstraintRuleObject arg1 = transformCondition(formula.getCondition1(), fieldNodes2);
+			ConstraintRuleObject arg2 = transformCondition(formula.getCondition2(), fieldNodes2);
+			FormulaConstraintRuleObject frule = new FormulaConstraintRuleObject(formula.getOperator(), arg1, arg2);
 			return frule;
 		} else if (condition instanceof NotCondition) {
 			NotCondition notc = (NotCondition) condition;
@@ -148,7 +149,7 @@ public class ConstraintObject {
 	}
 	
 	private static ConstraintRuleObject transformOperator(Operator op, Node node) throws InvalidityException {
-SingleConstraintRuleObject rule = null;
+		SingleConstraintRuleObject rule = null;
 		
 		if (op instanceof Comparison) {
 			Comparison cf = (Comparison) op;
@@ -183,6 +184,12 @@ SingleConstraintRuleObject rule = null;
 					return null;
 				
 				rule = new ListComparisonRuleObject( tlp.getValues(), (co == ComparisonOperator.NOTEQUAL) );
+			} else if (otherArg instanceof Node) {
+				Node nodearg = (Node) otherArg;
+				if ( co != ComparisonOperator.EQUAL && co != ComparisonOperator.NOTEQUAL)
+					return null;
+				
+				rule = new ComparisonRuleObject(nodearg, co);
 			}
 			
 		} else if (op instanceof Match) {
@@ -190,6 +197,11 @@ SingleConstraintRuleObject rule = null;
 //			"minWords", "maxWords"
 			Match match = (Match) op;
 			rule = new PatternRuleObject( match.getRegularExpression().getValue(), match.getOption().getValue() );
+			
+		} else if (op instanceof Contains) {
+//			contains
+			Contains contains = (Contains) op;
+			rule = new PatternRuleObject(contains.getContent().getValue().translateEscapes(), contains.getOption().getValue());
 			
 		} else if (op instanceof StringLength) {
 //			"minLength" , "maxLength"
@@ -199,6 +211,9 @@ SingleConstraintRuleObject rule = null;
 			Double num = len.getNumber().getValue();
 			rule = new StringLengthRuleObject(num, co);
 		}
+		
+		if (rule == null)
+			throw new InvalidityException(op.myToString());
 		return rule;
 	}
 
@@ -271,20 +286,23 @@ SingleConstraintRuleObject rule = null;
 		EList<BooleanOperator> ops = field.getPredicates();
 		
 		for (Operator o: ops) {
-			rules.add(transformOperator(o, field));
+			ConstraintRuleObject rule = transformOperator(o, field);
+			rules.add(rule);
 		}
-		return combineWithAnd(rules);
+		ConstraintRuleObject result = combineWithAnd(rules);
+		return result;
 	}
 
 	static ConstraintRuleObject combineWithAnd (EList<ConstraintRuleObject> rules) throws InvalidityException {
 		if (rules.size() == 1)
 			return rules.get(0);
 		else if (rules.size() > 1) {
-			FormulaConstraintRuleObject and = new FormulaConstraintRuleObject(LogicalOperator.AND);
-			and.op = LogicalOperator.AND;
-			and.args.add(rules.get(0));
-			rules.remove(0);
-			and.args.add(combineWithAnd(rules));
+			ConstraintRuleObject rule1 = rules.get(0);
+			EList<ConstraintRuleObject> newrules = new BasicEList<ConstraintRuleObject>();
+			for (int i = 1; i<rules.size(); i++)
+				newrules.add(rules.get(i));
+			ConstraintRuleObject argument2 = combineWithAnd(newrules);
+			FormulaConstraintRuleObject and = new FormulaConstraintRuleObject(LogicalOperator.AND, rule1, argument2);
 			return and;
 		}
 		else throw new InvalidityException();

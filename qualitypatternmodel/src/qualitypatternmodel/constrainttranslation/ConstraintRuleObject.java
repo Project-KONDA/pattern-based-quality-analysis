@@ -14,7 +14,14 @@ public abstract class ConstraintRuleObject {
 	abstract String getStringRepresentation() throws InvalidityException;
 	abstract Object getSchemaRepresentation();
 	abstract EList<Pair<String, String>> getAllFields();
-
+	@Override
+	public String toString() {
+		try {
+			return getStringRepresentation();
+		} catch (InvalidityException e) {
+			return getClass().getSimpleName();
+		}
+	}
 
 	private static String indent(String s) {
 		return "  " + s.replace("\n", "\n  ");
@@ -25,39 +32,45 @@ public abstract class ConstraintRuleObject {
 	
 	public static class FormulaConstraintRuleObject extends ConstraintRuleObject {
 		public LogicalOperator op;
-		public EList<ConstraintRuleObject> args;
+		public ConstraintRuleObject argument1;
+		public ConstraintRuleObject argument2;
 		
-		FormulaConstraintRuleObject(LogicalOperator o){
+		FormulaConstraintRuleObject(LogicalOperator o, ConstraintRuleObject arg1, ConstraintRuleObject arg2) throws InvalidityException{
+			if (arg1 == null)
+				throw new InvalidityException();
+			if (arg2 == null)
+				throw new InvalidityException();
 			op = o;
-			args = new BasicEList<ConstraintRuleObject>();
+			argument1 = arg1;
+			argument2 = arg2;
 		}
 		String getStringRepresentation() throws InvalidityException {
-			if (args.size() != 2)
-				throw new InvalidityException();
-			
-			String arg1 = args.get(0).getStringRepresentation();
-			String arg2 = args.get(1).getStringRepresentation();
+			String arg1 = "", arg2 = "";
+			if (argument1 != null)
+				arg1 = argument1.getStringRepresentation();
+			if (argument2 != null)
+				arg2 = argument2.getStringRepresentation();
 			
 			String result = "";
 			switch(op) {
 			case AND:
-				result = "- and\n" + indent(arg1) + "\n" + indent(arg2);
+				result = "- and\n" + arg1 + "\n" + arg2;
 				break;
 			case OR:
-				result = "- or\n" + indent(arg1) + "\n" + indent(arg2);
+				result = "- or\n" + arg1 + "\n" + arg2;
 				break;
 			case IMPLIES:
-				result = "- or\n" + indent(arg1) + "\n  - not\n" + indent(indent(arg2));
+				result = "- or\n" + arg1 + "\n" + indent("- not\n" + arg2);
 				break;
 			case XOR:
-				String s1 = "- and\n" + indent(arg1) + "\n  - not\n" + indent(indent(arg2));
-				String s2 = "- and\n  - not\n" + indent(indent(arg1)) + "\n" + indent(arg2);
-				result = "- or\n" + indent(s1) + "\n" + indent(s2);
+				String s1 = "- and\n" + arg1 + "\n" + indent("- not\n" + arg2);
+				String s2 = "- and\n"+ indent("- not\n" + arg1) + "\n" + arg2;
+				result = "- or\n" + s1 + "\n" + s2;
 				break;
 			case EQUAL:
-				String s3 = "- and\n" + indent(arg1) + "\n" + indent(arg2);
-				String s4 = "- and\n  - not\n" + indent(indent(arg2)) + "\n  - not\n" + indent(indent(arg2));
-				result = "- or\n" + indent(s3) + "\n" + indent(s4);
+				String s3 = "- and\n" + arg1 + "\n" + arg2;
+				String s4 = "- and\n"+ indent("- not\n" + arg2) + "\n" + indent("- not\n" + arg2);
+				result = "- or\n" + s3 + "\n" + s4;
 				break;
 			}
 //			String result = "";
@@ -69,11 +82,13 @@ public abstract class ConstraintRuleObject {
 		
 		EList<Pair<String, String>> getAllFields() {
 			EList<Pair<String, String>> fields = new BasicEList<Pair<String, String>>();
-			for (ConstraintRuleObject arg: args) {
-				EList<Pair<String, String>> list = arg.getAllFields();
-				if (list != null)
-					fields.addAll(list);
-			}
+
+			EList<Pair<String, String>> list = argument1.getAllFields();
+			if (list != null)
+				fields.addAll(list);
+			list = argument2.getAllFields();
+			if (list != null)
+				fields.addAll(list);
 			return fields;
 		}
 		
@@ -90,7 +105,7 @@ public abstract class ConstraintRuleObject {
 			arg = a;
 		}
 		String getStringRepresentation() throws InvalidityException {
-			return indent("- not\n" + indent(arg.getStringRepresentation())); 
+			return indent("- not\n" + arg.getStringRepresentation()); 
 		}
 		
 		EList<Pair<String, String>> getAllFields() {
@@ -195,7 +210,7 @@ public abstract class ConstraintRuleObject {
 		String getStringRepresentation() {
 			String result = "- pattern " + regularExpression;
 			if (negate)
-				result = "- not\n  " + indent(result);
+				result = "- not\n" + indent(result);
 			return indent(result);
 		}
 		Object getSchemaRepresentation() {
@@ -218,7 +233,7 @@ public abstract class ConstraintRuleObject {
 				case EQUAL:{
 					String result = "- minLength " + length;
 					result += "\n- maxLength " + length;
-					return indent("-and\n" + indent(result));
+					return indent("- and\n" + indent(result));
 				}
 				case GREATER:
 					return indent("- maxLength " + (length + 1));

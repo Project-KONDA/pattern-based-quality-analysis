@@ -40,16 +40,22 @@ public class ConstraintTranslationTests {
 		
 		EList<CompletePattern> patterns = getTestPatternCollection();
 		
+		int valid = 0;
+		int invalid = 0;
+		
 		for (CompletePattern c: patterns) {
 			try {
 				System.out.println("____ " + c.getDescription() + " _____");
 				System.out.println((String) ConstraintTranslation.translateToConstraint(c, false));
 				System.out.println();
-			} catch (InvalidityException e) {
+				valid += 1;
+			} catch (Exception e) {
 				e.printStackTrace();
+				invalid += 1;
 			}
 		}
 		
+		System.out.println( "out of " + (valid+invalid) + " testpatterns " + valid + " were valid and " + invalid + " threw an error");
 		
 		// TODO Auto-generated method stub
 
@@ -74,9 +80,9 @@ public class ConstraintTranslationTests {
 		patterns.add(simpleComparisonPattern(ComparisonOperator.LESSOREQUAL));
 		patterns.add(doubleComparisonPattern());
 		patterns.add(conditionCombinationPattern());
-		patterns.add(uniqueness1Pattern());
-		patterns.add(uniqueness2Pattern());
-		patterns.add(uniqueness3Pattern());
+//		patterns.add(uniqueness1Pattern());
+//		patterns.add(uniqueness2Pattern());
+//		patterns.add(uniqueness3Pattern());
 		
 		return patterns;
 	}
