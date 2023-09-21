@@ -1560,8 +1560,12 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		op = initEOperation(getGraph__GenerateCypherWhere(), ecorePackage.getEString(), "generateCypherWhere", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getGraph__GetAllSubGraphs(), ecorePackage.getEEList(), "getAllSubGraphs", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getGraph__GetAllSubGraphs(), null, "getAllSubGraphs", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+		EGenericType g1 = createEGenericType(ecorePackage.getEEList());
+		EGenericType g2 = createEGenericType(this.getNode());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
 
 		op = initEOperation(getGraph__IsBefore__Graph(), ecorePackage.getEBooleanObject(), "isBefore", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getGraph(), "other", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1576,8 +1580,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		op = initEOperation(getComparable__Validate__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
-		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);

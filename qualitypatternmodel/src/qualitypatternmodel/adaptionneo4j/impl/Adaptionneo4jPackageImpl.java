@@ -5,6 +5,7 @@ package qualitypatternmodel.adaptionneo4j.impl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -1136,8 +1137,14 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 
 		initEClass(neoElementEClass, NeoElement.class, "NeoElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getNeoElement__GetCypherReturn(), ecorePackage.getEMap(), "getCypherReturn", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNeoElement__GetCypherReturn(), null, "getCypherReturn", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+		EGenericType g2 = createEGenericType(ecorePackage.getEIntegerObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
 
 		initEClass(neoNodeLabelsParamEClass, NeoNodeLabelsParam.class, "NeoNodeLabelsParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

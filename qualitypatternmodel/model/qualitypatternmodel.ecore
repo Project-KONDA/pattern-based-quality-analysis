@@ -188,10 +188,19 @@
         <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eOperations name="setNewMap">
-        <eParameters name="newKeyValueMap" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
+        <eParameters name="newKeyValueMap">
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          </eGenericType>
+        </eParameters>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyValuePair" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"
-          transient="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyValuePair" transient="true">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </eGenericType>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ListParam" abstract="true" eSuperTypes="#//parameters/ParameterValue">
       <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
@@ -455,8 +464,11 @@
       <eOperations name="addPrimitiveNode" eType="#//graphstructure/PrimitiveNode"/>
       <eOperations name="generateCypherWhere" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="getAllSubGraphs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="getAllSubGraphs" upperBound="-1" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+          <eTypeArguments eClassifier="#//graphstructure/Node"/>
+        </eGenericType>
+      </eOperations>
       <eOperations name="isBefore" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
         <eParameters name="other" eType="#//graphstructure/Graph"/>
       </eOperations>
@@ -1379,8 +1391,12 @@
       <eLiterals name="FOLLOWING" value="1"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoElement" abstract="true" interface="true">
-      <eOperations name="getCypherReturn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="getCypherReturn" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </eGenericType>
+      </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoNodeLabelsParam" eSuperTypes="#//parameters/TextListParam #//adaptionneo4j/NeoLabel"/>
     <eClassifiers xsi:type="ecore:EClass" name="NeoEdgeLabelParam" eSuperTypes="#//parameters/TextLiteralParam #//adaptionneo4j/NeoLabel"/>

@@ -177,7 +177,7 @@ public class KeyValueParamImpl extends ParameterImpl implements KeyValueParam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings("unchecked")
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
@@ -185,7 +185,7 @@ public class KeyValueParamImpl extends ParameterImpl implements KeyValueParam {
 				addValue((String)arguments.get(0), (String)arguments.get(1));
 				return null;
 			case ParametersPackage.KEY_VALUE_PARAM___SET_NEW_MAP__MAP:
-				setNewMap((Map)arguments.get(0));
+				setNewMap((Map<String, String>)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
