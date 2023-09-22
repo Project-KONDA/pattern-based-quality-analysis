@@ -55,7 +55,7 @@ public class ConstraintTranslationTests {
 			}
 		}
 		
-		System.out.println( "out of " + (valid+invalid) + " testpatterns " + valid + " were valid and " + invalid + " threw an error");
+		System.out.println( "out of " + (valid+invalid) + " testpatterns " + valid + " were valid and " + invalid + " were invalid");
 		
 		// TODO Auto-generated method stub
 
@@ -80,9 +80,12 @@ public class ConstraintTranslationTests {
 		patterns.add(simpleComparisonPattern(ComparisonOperator.LESSOREQUAL));
 		patterns.add(doubleComparisonPattern());
 		patterns.add(conditionCombinationPattern());
-//		patterns.add(uniqueness1Pattern());
-//		patterns.add(uniqueness2Pattern());
-//		patterns.add(uniqueness3Pattern());
+		patterns.add(uniqueness1_1nPattern());
+		patterns.add(uniqueness1_2nPattern());
+		patterns.add(uniqueness2_1nPattern());
+		patterns.add(uniqueness2_2nPattern());
+		patterns.add(uniqueness3_1nPattern());
+		patterns.add(uniqueness3_2nPattern());
 		
 		return patterns;
 	}
@@ -486,18 +489,21 @@ public class ConstraintTranslationTests {
 		return completePattern;
 	}
 	
-	public static CompletePattern uniqueness1Pattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern uniqueness1_1nPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		completePattern.setDescription("Uniqueness 1");
+		completePattern.setDescription("Uniqueness 1 with 1 node");
 		QuantifiedCondition cond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		completePattern.setCondition(cond);
 		Graph g = cond.getGraph();
 		
 		Node ret = completePattern.getGraph().getNodes().get(0).makeComplex();
+		ret.setName("RecordNode");
 		
 		Node record2 = g.addComplexNode();
+		record2.setName("RecordNodeCopy");
 		
 		Node field = record2.addOutgoing().getTarget();
+		field.setName("Field");
 		ret.addOutgoing(field);
 		
 		Comparison c = ret.addComparison(record2);
@@ -527,19 +533,23 @@ public class ConstraintTranslationTests {
 		return completePattern;
 	}
 	
-	public static CompletePattern uniqueness2Pattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern uniqueness1_2nPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		completePattern.setDescription("Uniqueness 2");
+		completePattern.setDescription("Uniqueness 1 with 2 nodes");
 		QuantifiedCondition cond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		completePattern.setCondition(cond);
 		Graph g = cond.getGraph();
 		
 		Node ret = completePattern.getGraph().getNodes().get(0).makeComplex();
+		ret.setName("RecordNode");
 		
 		Node record2 = g.addComplexNode();
+		record2.setName("RecordNodeCopy");
 		
 		Node field = ret.addOutgoing(g).getTarget().makePrimitive();
+		field.setName("Field1");
 		Node field2 = record2.addOutgoing().getTarget().makePrimitive();
+		field2.setName("Field2");
 		
 		Comparison c = ret.addComparison(record2);
 		c.getOption().setValue(ComparisonOperator.NOTEQUAL);
@@ -559,7 +569,7 @@ public class ConstraintTranslationTests {
 		ComparisonOptionParamImpl p0 = (ComparisonOptionParamImpl) params.get(0);
 //		TypeOptionParamImpl p1 = (TypeOptionParamImpl) params.get(1);
 		ComparisonOptionParamImpl p2 = (ComparisonOptionParamImpl) params.get(2);
-//		TypeOptionParamImpl p3 = (TypeOptionParamImpl) params.get(3);
+		TypeOptionParamImpl p3 = (TypeOptionParamImpl) params.get(3);
 		XmlPathParamImpl p4 = (XmlPathParamImpl) params.get(4);
 		XmlPathParamImpl p5 = (XmlPathParamImpl) params.get(5);
 		XmlPathParamImpl p6 = (XmlPathParamImpl) params.get(6);
@@ -567,6 +577,7 @@ public class ConstraintTranslationTests {
 		
 		p0.setValue(ComparisonOperator.NOTEQUAL);
 		p2.setValue(ComparisonOperator.EQUAL);
+		p3.setValue(ReturnType.STRING);
 		p4.setValueFromString(RECORD_PATH);
 		p5.setValueFromString(RECORD_PATH);
 		p6.setValueFromString(FIELD_PATH);
@@ -574,10 +585,121 @@ public class ConstraintTranslationTests {
 				
 		return completePattern;
 	}
+
 	
-	public static CompletePattern uniqueness3Pattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern uniqueness2_1nPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		completePattern.setDescription("Uniqueness 3");
+		completePattern.setDescription("Uniqueness 2 with 1 node");
+		QuantifiedCondition cond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		completePattern.setCondition(cond);
+		Graph g = cond.getGraph();
+		
+		Node ret = completePattern.getGraph().getNodes().get(0).makeComplex();
+		ret.setName("RecordNode");
+		
+		Node record2 = g.addComplexNode();
+		record2.setName("RecordNodeCopy");
+		
+
+		QuantifiedCondition condnext = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		cond.setCondition(condnext);
+		Graph gx = condnext.getGraph();
+		
+		Node field = ret.addOutgoing(gx).getTarget().makePrimitive();
+		field.setName("Field");
+		record2.addOutgoing(field);
+		
+
+		Comparison c = ret.addComparison(record2);
+		c.getOption().setValue(ComparisonOperator.NOTEQUAL);
+		c.getOption().setPredefined(true);
+		
+		completePattern.createXmlAdaption();
+		
+		EList<Parameter> params = completePattern.getParameterList().getParameters();
+//		for (Parameter p: params)
+//			System.out.println(p.getClass().getSimpleName() + " p" + params.indexOf(p) + " = (" + p.getClass().getSimpleName()+ ") params.get(" + params.indexOf(p) + ");" );
+		
+
+		ComparisonOptionParamImpl p0 = (ComparisonOptionParamImpl) params.get(0);
+//		TypeOptionParamImpl p1 = (TypeOptionParamImpl) params.get(1);
+		XmlPathParamImpl p2 = (XmlPathParamImpl) params.get(2);
+		XmlPathParamImpl p3 = (XmlPathParamImpl) params.get(3);
+		XmlPathParamImpl p4 = (XmlPathParamImpl) params.get(4);
+		XmlPathParamImpl p5 = (XmlPathParamImpl) params.get(5);
+		
+		p0.setValue(ComparisonOperator.NOTEQUAL);
+		
+		p2.setValueFromString(RECORD_PATH);
+		p3.setValueFromString(RECORD_PATH);
+		p4.setValueFromString(FIELD_PATH);
+		p5.setValueFromString(FIELD_PATH);
+		
+		return completePattern;
+	}
+	
+	public static CompletePattern uniqueness2_2nPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		completePattern.setDescription("Uniqueness 2 with 2 nodes");
+		QuantifiedCondition cond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		completePattern.setCondition(cond);
+		Graph g = cond.getGraph();
+		
+		Node ret = completePattern.getGraph().getNodes().get(0).makeComplex();
+		ret.setName("RecordNode");
+		
+		Node record2 = g.addComplexNode();
+		record2.setName("RecordNodeCopy");
+		
+
+		QuantifiedCondition condnext = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		cond.setCondition(condnext);
+		Graph gx = condnext.getGraph();
+		
+		
+		Node field = ret.addOutgoing(gx).getTarget().makePrimitive();
+		field.setName("Field1");
+		Node field2 = record2.addOutgoing(gx).getTarget().makePrimitive();
+		field2.setName("Field2");
+		
+		Comparison c = ret.addComparison(record2);
+		c.getOption().setValue(ComparisonOperator.NOTEQUAL);
+		c.getOption().setPredefined(true);
+		
+
+		Comparison c2 = field.addComparison(field2);
+		c2.getOption().setValue(ComparisonOperator.EQUAL);
+		c2.getOption().setPredefined(true);
+		
+		completePattern.createXmlAdaption();
+		
+		EList<Parameter> params = completePattern.getParameterList().getParameters();
+//		for (Parameter p: params)
+//			System.out.println(p.getClass().getSimpleName() + " p" + params.indexOf(p) + " = (" + p.getClass().getSimpleName()+ ") params.get(" + params.indexOf(p) + ");" );
+		
+		ComparisonOptionParamImpl p0 = (ComparisonOptionParamImpl) params.get(0);
+//		TypeOptionParamImpl p1 = (TypeOptionParamImpl) params.get(1);
+		ComparisonOptionParamImpl p2 = (ComparisonOptionParamImpl) params.get(2);
+		TypeOptionParamImpl p3 = (TypeOptionParamImpl) params.get(3);
+		XmlPathParamImpl p4 = (XmlPathParamImpl) params.get(4);
+		XmlPathParamImpl p5 = (XmlPathParamImpl) params.get(5);
+		XmlPathParamImpl p6 = (XmlPathParamImpl) params.get(6);
+		XmlPathParamImpl p7 = (XmlPathParamImpl) params.get(7);
+
+		p0.setValue(ComparisonOperator.NOTEQUAL);
+		p2.setValue(ComparisonOperator.EQUAL);
+		p3.setValue(ReturnType.STRING);
+		p4.setValueFromString(RECORD_PATH);
+		p5.setValueFromString(RECORD_PATH);
+		p6.setValueFromString(FIELD_PATH);
+		p7.setValueFromString(FIELD_PATH);
+		
+		return completePattern;
+	}
+	
+	public static CompletePattern uniqueness3_1nPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		completePattern.setDescription("Uniqueness 3 with 1 node");
 		CountCondition ccond = PatternstructureFactory.eINSTANCE.createCountCondition();
 		completePattern.setCondition(ccond);
 		CountPattern cp = ccond.getCountPattern();
@@ -591,9 +713,62 @@ public class ConstraintTranslationTests {
 		Graph g3 = qcon.getGraph();
 		
 		Node ret = g1.getNodes().get(0).makeComplex();
+		ret.setName("RecordNode");
 		Node recCopy = g2.addComplexNode();
+		recCopy.setName("RecordNodeCopy");
+		recCopy.setReturnNode(true);
 		Node n2 = ret.addOutgoing(g3).getTarget().makePrimitive();
+		n2.setName("Field");
+		recCopy.addOutgoing(n2);
+		
+		completePattern.createXmlAdaption();
+		
+		EList<Parameter> params = completePattern.getParameterList().getParameters();
+//		for (Parameter p: params)
+//			System.out.println(p.getClass().getSimpleName() + " p" + params.indexOf(p) + " = (" + p.getClass().getSimpleName()+ ") params.get(" + params.indexOf(p) + ");" );
+		
+		ComparisonOptionParamImpl p0 = (ComparisonOptionParamImpl) params.get(0);
+		NumberParamImpl p1 = (NumberParamImpl) params.get(1);
+		XmlPathParamImpl p2 = (XmlPathParamImpl) params.get(2);
+		XmlPathParamImpl p3 = (XmlPathParamImpl) params.get(3);
+		XmlPathParamImpl p4 = (XmlPathParamImpl) params.get(4);
+		XmlPathParamImpl p5 = (XmlPathParamImpl) params.get(5);
+		
+		
+		p0.setValue(ComparisonOperator.GREATER);
+		p1.setValue(1.);
+		p2.setValueFromString(RECORD_PATH);
+		p3.setValueFromString(RECORD_PATH);
+		p4.setValueFromString(FIELD_PATH);
+		p5.setValueFromString(FIELD_PATH);
+		
+		return completePattern;
+	}
+	
+	public static CompletePattern uniqueness3_2nPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		completePattern.setDescription("Uniqueness 3 with 2 nodes");
+		CountCondition ccond = PatternstructureFactory.eINSTANCE.createCountCondition();
+		completePattern.setCondition(ccond);
+		CountPattern cp = ccond.getCountPattern();
+		ccond.setArgument2(new NumberElementImpl());
+		
+		QuantifiedCondition qcon = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		cp.setCondition(qcon);
+		
+		Graph g1 = completePattern.getGraph();
+		Graph g2 = cp.getGraph();
+		Graph g3 = qcon.getGraph();
+		
+		Node ret = g1.getNodes().get(0).makeComplex();
+		ret.setName("RecordNode");
+		Node recCopy = g2.addComplexNode();
+		recCopy.setName("RecordNodeCopy");
+		recCopy.setReturnNode(true);
+		Node n2 = ret.addOutgoing(g3).getTarget().makePrimitive();
+		n2.setName("Field1");
 		Node n3 = recCopy.addOutgoing(g3).getTarget().makePrimitive();
+		n3.setName("Field2");
 		
 		n2.addComparison(n3);
 		
@@ -614,7 +789,7 @@ public class ConstraintTranslationTests {
 		
 		p0.setValue(ComparisonOperator.GREATER);
 		p1.setValue(1.);
-		p2.setValue(ComparisonOperator.GREATER);
+		p2.setValue(ComparisonOperator.EQUAL);
 		p3.setValue(ReturnType.STRING);
 		p4.setValueFromString(RECORD_PATH);
 		p5.setValueFromString(RECORD_PATH);

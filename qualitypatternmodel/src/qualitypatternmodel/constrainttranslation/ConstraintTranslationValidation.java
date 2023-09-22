@@ -1,7 +1,12 @@
 package qualitypatternmodel.constrainttranslation;
 
+import org.basex.util.Pair;
+
+import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.UniqueRuleObject;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Condition;
@@ -20,7 +25,7 @@ import qualitypatternmodel.patternstructure.TrueElement;
 
 public class ConstraintTranslationValidation {
 	
-	static Boolean checkPatternTranslatable (CompletePattern completePattern) {
+	static Boolean checkPatternTranslatable (CompletePattern completePattern) throws InvalidityException {
 		// check is valid and is XML
 		Boolean xmlvalid = validatePatternXmlAdapted(completePattern);
 		
@@ -46,7 +51,7 @@ public class ConstraintTranslationValidation {
 	}
 	
 
-	static Boolean validateNodeConfiguration (CompletePattern completePattern) {
+	static Boolean validateNodeConfiguration (CompletePattern completePattern) throws InvalidityException {
 //		Graph graph = completePattern.getGraph();
 		
 		ComplexNode record;
@@ -56,14 +61,16 @@ public class ConstraintTranslationValidation {
 			return false;
 		}
 		
-		// TODO
-		
 		Condition cond = completePattern.getCondition();
 		return validateNodeConfigurationCondition(cond, record);
 	}
 	
 	
-	static Boolean validateNodeConfigurationCondition (Condition condition, ComplexNode record) {
+	static Boolean validateNodeConfigurationCondition (Condition condition, ComplexNode record) throws InvalidityException {
+		
+		Pair<Node, Boolean> pair = UniquenessConditionCheck.uniquenessConditionField(condition, record);
+		if (pair != null)
+			return true;
 		
 		if (condition instanceof TrueElement || condition == null) {
 			return true;
@@ -105,6 +112,8 @@ public class ConstraintTranslationValidation {
 				return true;
 			}
 		}
+		
+		else throw new InvalidityException(condition.getClass().getName());
 		return false;
 	}
 	

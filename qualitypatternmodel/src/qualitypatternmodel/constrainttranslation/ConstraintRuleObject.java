@@ -317,10 +317,14 @@ public abstract class ConstraintRuleObject {
 		}
 	}
 	
-	public static class UniqueObject extends SingleConstraintRuleObject {
+	public static class UniqueRuleObject extends SingleConstraintRuleObject {
+		Boolean unique = true;
+		public UniqueRuleObject(Boolean u) {
+			unique = u;
+		}
 		String getStringRepresentation() {
 			// TODO
-			return indent("");
+			return indent("- unique " + unique);
 		}
 		Object getSchemaRepresentation() {
 			// TODO

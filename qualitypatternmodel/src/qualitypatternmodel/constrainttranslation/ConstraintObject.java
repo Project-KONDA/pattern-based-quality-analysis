@@ -12,6 +12,7 @@ import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.NumberComp
 import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.PatternRuleObject;
 import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.SingleConstraintRuleObject;
 import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.StringLengthRuleObject;
+import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.UniqueRuleObject;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.ComparisonRuleObject;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -59,7 +60,7 @@ public class ConstraintObject {
 		pattern = completePattern;
 		record = FieldNodeIdentification.identifyRecordNode(pattern);
 		fieldNodes = FieldNodeIdentification.identifyFieldNodes(pattern);
-		rule = transformCondition(completePattern.getCondition(), fieldNodes);
+		rule = transformCondition(completePattern.getCondition(), record, fieldNodes);
 		
 		XmlNavigation r = (XmlNavigation) fieldNodes[0].getIncoming().get(0);
 		fieldPath = r.getXmlPathParam().generateXQuery();
@@ -98,16 +99,22 @@ public class ConstraintObject {
 	
 	// local functions
 	
-	private static ConstraintRuleObject transformCondition(Condition condition, Node[] fieldNodes2) throws InvalidityException {
+	private static ConstraintRuleObject transformCondition(Condition condition, ComplexNode recordNode, Node[] fieldNodes2) throws InvalidityException {
+		
+		Pair<Node, Boolean> pair = UniquenessConditionCheck.uniquenessConditionField(condition, recordNode);
+		if (pair != null)
+			return new UniqueRuleObject(pair.value());
+		
+		
 		if (condition instanceof Formula) {
 			Formula formula = (Formula) condition;
-			ConstraintRuleObject arg1 = transformCondition(formula.getCondition1(), fieldNodes2);
-			ConstraintRuleObject arg2 = transformCondition(formula.getCondition2(), fieldNodes2);
+			ConstraintRuleObject arg1 = transformCondition(formula.getCondition1(), recordNode, fieldNodes2);
+			ConstraintRuleObject arg2 = transformCondition(formula.getCondition2(), recordNode, fieldNodes2);
 			FormulaConstraintRuleObject frule = new FormulaConstraintRuleObject(formula.getOperator(), arg1, arg2);
 			return frule;
 		} else if (condition instanceof NotCondition) {
 			NotCondition notc = (NotCondition) condition;
-			NotConstraintRuleObject frule = new NotConstraintRuleObject(transformCondition(notc.getCondition(), fieldNodes2));
+			NotConstraintRuleObject frule = new NotConstraintRuleObject(transformCondition(notc.getCondition(), recordNode, fieldNodes2));
 			return frule;
 		} else if (condition instanceof QuantifiedCondition) {
 			QuantifiedCondition qcond = (QuantifiedCondition) condition;

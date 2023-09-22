@@ -2,6 +2,7 @@ package qualitypatternmodel.constrainttranslation;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.basex.util.Pair;
 
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
@@ -107,19 +108,19 @@ public class FieldNodeIdentification {
 			throw new InvalidityException();
 	}
 	
-	private static Boolean areEqualNodes(Node node1, Node node2) {
+	static Boolean areEqualNodes(Node node1, Node node2) {
 		if (node1 == null || node2 == null)
-			throw new UnsupportedOperationException("both nodes null");
-//			return false;
+//			throw new UnsupportedOperationException("both nodes null");
+			return false;
 		if (node1.getClass() != node2.getClass())
-			throw new UnsupportedOperationException("not equal node classes");
-//		return false;
+//			throw new UnsupportedOperationException("not equal node classes");
+			return false;
 		if (node1.getIncoming().size() != 1 || node2.getIncoming().size() != 1)
-			throw new UnsupportedOperationException("relations invalid");
-//			return false;
+//			throw new UnsupportedOperationException("relations invalid");
+			return false;
 		if (!(node1.getIncoming().get(0) instanceof XmlNavigation) || !(node2.getIncoming().get(0) instanceof XmlNavigation))
-			throw new UnsupportedOperationException("relations invalid");
-//			return false;
+//			throw new UnsupportedOperationException("relations invalid");
+			return false;
 		XmlNavigation nav1 = (XmlNavigation) node1.getIncoming().get(0);
 		XmlNavigation nav2 = (XmlNavigation) node2.getIncoming().get(0);
 		try {
@@ -130,15 +131,22 @@ public class FieldNodeIdentification {
 	}
 	
 	private static Boolean validateIdentifiedFieldNodes(Node[] identified) {
+		if (identified.length == 0)
+			return false;
+		if (identified.length == 1)
+			return true;
+		
 		for (Node n: identified) {
+			
 			if (n == null) {
 				throw new UnsupportedOperationException("node null");
 //				return false;
 			}
+			System.out.println(n.myToString());
 				
 			for (Node n2: identified)
 				if (!areEqualNodes(n, n2))
-					throw new UnsupportedOperationException("nodes not equal");
+					throw new UnsupportedOperationException("nodes not equal: " + n.myToString() + " - " + n2.myToString());
 //					return false;
 		}
 		return true;
@@ -147,15 +155,24 @@ public class FieldNodeIdentification {
 
 	public static EList<EList<Node>> identifyPotentialFieldNodes (PatternElement element, ComplexNode rec) throws InvalidityException {
 		EList<EList<Node>> nodes = new BasicEList<EList<Node>>();
-				
-		if (element instanceof Pattern) {
+		
+
+		Pair<Node, Boolean> pair = UniquenessConditionCheck.uniquenessConditionField (element, rec);
+		
+		if (pair != null) {
+			EList<Node> uniquefieldnode = new BasicEList<Node>();
+			uniquefieldnode.add(pair.name());
+			nodes.add(uniquefieldnode);
+		}
+		
+		else if (element instanceof Pattern) {
 			Pattern cp = (Pattern) element;
 			nodes = identifyPotentialFieldNodes(cp.getCondition(), rec);
 		} 
 		
 		else if (element instanceof QuantifiedCondition) {
 			QuantifiedCondition cp = (QuantifiedCondition) element;
-
+			
 			EList<EList<Node>> graphnodes = identifyPotentialFieldNodes(cp.getGraph(), rec);
 			EList<EList<Node>> list = identifyPotentialFieldNodes(cp.getCondition(), rec);
 			
