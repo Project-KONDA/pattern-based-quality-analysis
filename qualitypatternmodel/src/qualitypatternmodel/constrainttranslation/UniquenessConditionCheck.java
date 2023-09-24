@@ -96,7 +96,7 @@ public class UniquenessConditionCheck {
 				if (recordNode.getRelationsTo(field).size() != 1 || recordCopy.getRelationsTo(field).size() != 1) {
 					return null;
 				}
-				return new Pair<Node, Boolean> (field, true);
+				return new Pair<Node, Boolean> (field, false);
 			}
 			
 			if (othernodes.size() == 2) {
@@ -121,7 +121,7 @@ public class UniquenessConditionCheck {
 					return null;
 				}
 				
-				return new Pair<Node, Boolean> (field1, true);
+				return new Pair<Node, Boolean> (field1, false);
 			}
 		} 
 		return null;
@@ -177,7 +177,7 @@ public class UniquenessConditionCheck {
 			if (recordNode.getRelationsTo(field).size() != 1 || recordCopy.getRelationsTo(field).size() != 1) {
 				return null;
 			}
-			return new Pair<Node, Boolean> (field, true);
+			return new Pair<Node, Boolean> (field, false);
 		}
 		
 		if (nextnodes.size() == 2) {
@@ -202,7 +202,7 @@ public class UniquenessConditionCheck {
 				return null;
 			}
 			
-			return new Pair<Node, Boolean> (field1, true);
+			return new Pair<Node, Boolean> (field1, false);
 		}
 		return null;
 	}
