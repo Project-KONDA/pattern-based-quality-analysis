@@ -311,4 +311,15 @@ public enum ComparisonOperator implements Enumerator {
 		return null;
 	}
 	
+	public static ComparisonOperator invertDirection(ComparisonOperator equal) {
+		switch(equal) {
+			case EQUAL: return EQUAL;
+			case GREATER: return LESS;
+			case LESS: return GREATER;
+			case GREATEROREQUAL: return LESSOREQUAL;
+			case LESSOREQUAL: return GREATEROREQUAL;
+			case NOTEQUAL: return NOTEQUAL;
+		}
+		return null;
+	}
 } //ComparisonOperator

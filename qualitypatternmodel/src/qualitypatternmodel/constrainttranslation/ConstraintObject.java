@@ -87,7 +87,6 @@ public class ConstraintObject {
 					"\n  path: " + fieldpair.value() + "\n";
 		}
 		
-		
 		result += "- field: " + fieldNodes[0].getName() + "\n";
 		result += "  path: " + fieldPath + "\n";
 		result += "  rules:\n" + rule.getStringRepresentation();
@@ -101,10 +100,9 @@ public class ConstraintObject {
 	
 	private static ConstraintRuleObject transformCondition(Condition condition, ComplexNode recordNode, Node[] fieldNodes2) throws InvalidityException {
 		
-		Pair<Node, Boolean> pair = UniquenessConditionCheck.uniquenessConditionField(condition, recordNode);
+		Pair<Node, Boolean> pair = UniquenessConditionCheck.uniquenessConditionField (condition, recordNode);
 		if (pair != null)
 			return new UniqueRuleObject(pair.value());
-		
 		
 		if (condition instanceof Formula) {
 			Formula formula = (Formula) condition;
@@ -167,8 +165,7 @@ public class ConstraintObject {
 			
 			Boolean isRightDirection = args.get(0) == node;
 			Comparable otherArg = (isRightDirection)? args.get(1) : args.get(0);
-			co = (isRightDirection)? co: ComparisonOperator.invert(co);
-			
+			co = (isRightDirection)? co: ComparisonOperator.invertDirection(co);
 			
 			if (otherArg instanceof TextLiteralParam) {
 //				"hasValue"
@@ -208,7 +205,8 @@ public class ConstraintObject {
 		} else if (op instanceof Contains) {
 //			contains
 			Contains contains = (Contains) op;
-			rule = new PatternRuleObject(contains.getContent().getValue().translateEscapes(), contains.getOption().getValue());
+			String containsAsRegex = ".*" + java.util.regex.Pattern.quote(contains.getContent().getValue()) + ".*";
+			rule = new PatternRuleObject(containsAsRegex, contains.getOption().getValue());
 			
 		} else if (op instanceof StringLength) {
 //			"minLength" , "maxLength"

@@ -35,7 +35,7 @@ public abstract class ConstraintRuleObject {
 		public ConstraintRuleObject argument1;
 		public ConstraintRuleObject argument2;
 		
-		FormulaConstraintRuleObject(LogicalOperator o, ConstraintRuleObject arg1, ConstraintRuleObject arg2) throws InvalidityException{
+		FormulaConstraintRuleObject(LogicalOperator o, ConstraintRuleObject arg1, ConstraintRuleObject arg2) throws InvalidityException {
 			if (arg1 == null)
 				throw new InvalidityException();
 			if (arg2 == null)
@@ -44,6 +44,7 @@ public abstract class ConstraintRuleObject {
 			argument1 = arg1;
 			argument2 = arg2;
 		}
+		
 		String getStringRepresentation() throws InvalidityException {
 			String arg1 = "", arg2 = "";
 			if (argument1 != null)
@@ -104,6 +105,7 @@ public abstract class ConstraintRuleObject {
 		NotConstraintRuleObject (ConstraintRuleObject a){
 			arg = a;
 		}
+		
 		String getStringRepresentation() throws InvalidityException {
 			return indent("- not\n" + arg.getStringRepresentation()); 
 		}
@@ -132,6 +134,7 @@ public abstract class ConstraintRuleObject {
 			value = val;
 			operator = co;
 		}
+		
 		String getStringRepresentation() {
 			String res = "- hasValue \"" + value + "\"";
 			if (operator == ComparisonOperator.NOTEQUAL)
