@@ -60,7 +60,7 @@ public class ConstraintObject {
 		pattern = completePattern;
 		record = FieldNodeIdentification.identifyRecordNode(pattern);
 		fieldNodes = FieldNodeIdentification.identifyFieldNodes(pattern);
-		rule = transformCondition(completePattern.getCondition(), record, fieldNodes);
+		rule = ConstraintRuleObject.realInvert(transformCondition(completePattern.getCondition(), record, fieldNodes));
 		
 		XmlNavigation r = (XmlNavigation) fieldNodes[0].getIncoming().get(0);
 		fieldPath = r.getXmlPathParam().generateXQuery();

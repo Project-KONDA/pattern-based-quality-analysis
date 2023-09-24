@@ -14,6 +14,8 @@ public abstract class ConstraintRuleObject {
 	abstract String getStringRepresentation() throws InvalidityException;
 	abstract Object getSchemaRepresentation();
 	abstract EList<Pair<String, String>> getAllFields();
+	abstract Boolean invert();
+	
 	@Override
 	public String toString() {
 		try {
@@ -97,6 +99,34 @@ public abstract class ConstraintRuleObject {
 			// TODO
 			return null;
 		}
+		
+		Boolean invert() {
+			switch(op) {
+			case AND:
+				argument1 = realInvert(argument1);
+				argument2 = realInvert(argument2);
+				op = LogicalOperator.OR;
+				return true;
+				
+			case OR:
+				argument1 = realInvert(argument1);
+				argument2 = realInvert(argument2);
+				op = LogicalOperator.AND;
+				return true;
+			case IMPLIES:
+				argument2 = realInvert(argument2);
+				op = LogicalOperator.AND;
+				return true;
+			case XOR:
+				op = LogicalOperator.EQUAL;
+				return true;
+			case EQUAL:
+				op = LogicalOperator.XOR;
+				return true;
+			}
+			return false;
+		}
+		
 	}
 	
 	public static class NotConstraintRuleObject extends ConstraintRuleObject {
@@ -107,6 +137,11 @@ public abstract class ConstraintRuleObject {
 		}
 		
 		String getStringRepresentation() throws InvalidityException {
+			if (arg.invert()) {
+				String result = arg.getStringRepresentation();
+				arg.invert();
+				return result;
+			}
 			return indent("- not\n" + arg.getStringRepresentation()); 
 		}
 		
@@ -117,6 +152,10 @@ public abstract class ConstraintRuleObject {
 		Object getSchemaRepresentation() {
 			// TODO
 			return null;
+		}
+		
+		Boolean invert() {
+			return false;
 		}
 	}
 	
@@ -141,9 +180,15 @@ public abstract class ConstraintRuleObject {
 				res = "- not\n" + indent(res);
 			return indent(res);
 		}
+		
 		Object getSchemaRepresentation() {
 			// TODO
 			return null;
+		}
+		
+		Boolean invert() {
+			operator = ComparisonOperator.invert(operator);
+			return true;
 		}
 	}
 	
@@ -180,45 +225,67 @@ public abstract class ConstraintRuleObject {
 			}
 			return indent(result);
 		}
+		
 		Object getSchemaRepresentation() {
 			// TODO
 			return null;
+		}
+		
+		Boolean invert() {
+			operator = ComparisonOperator.invert(operator);
+			return true;
 		}
 	}
 	
 	public static class ListComparisonRuleObject extends SingleConstraintRuleObject {
 		EList<String> values;
 		Boolean negate;
+		
 		public ListComparisonRuleObject(EList<String> vals, Boolean b) {
 			values = vals;
 			negate = !b;
 		}
+		
 		String getStringRepresentation() {
 			// TODO
 			return indent("");
 		}
+		
 		Object getSchemaRepresentation() {
 			// TODO
 			return null;
+		}
+		
+		Boolean invert() {
+			negate = !negate;
+			return true;
 		}
 	}
 	
 	public static class PatternRuleObject extends SingleConstraintRuleObject {
 		String regularExpression;
 		Boolean negate;
+		
 		public PatternRuleObject(String regex, Boolean neg) {
 			regularExpression = regex;
 			negate = neg;
 		}
+		
 		String getStringRepresentation() {
 			String result = "- pattern " + regularExpression;
 			if (negate)
 				result = "- not\n" + indent(result);
 			return indent(result);
 		}
+		
 		Object getSchemaRepresentation() {
 			// TODO
 			return null;
+		}
+		
+		Boolean invert() {
+			negate = !negate;
+			return true;
 		}
 	}
 	
@@ -239,13 +306,13 @@ public abstract class ConstraintRuleObject {
 					return indent("- and\n" + indent(result));
 				}
 				case GREATER:
-					return indent("- maxLength " + (length + 1));
-				case LESS: 
 					return indent("- minLength " + (length + 1));
+				case LESS: 
+					return indent("- maxLength " + (length - 1));
 				case GREATEROREQUAL: 
-					return indent("- maxLength " + length);
-				case LESSOREQUAL: 
 					return indent("- minLength " + length);
+				case LESSOREQUAL: 
+					return indent("- maxLength " + length);
 				case NOTEQUAL: {
 					String result = "- minLength " + (length-1);
 					result += "\n- maxLength " + (length+1);
@@ -258,6 +325,11 @@ public abstract class ConstraintRuleObject {
 		Object getSchemaRepresentation() {
 			// TODO
 			return null;
+		}
+		
+		Boolean invert() {
+			operator = ComparisonOperator.invert(operator);
+			return true;
 		}
 	}
 	
@@ -291,47 +363,62 @@ public abstract class ConstraintRuleObject {
 				result += "lessThan";
 				break;
 			case NOTEQUAL:
-				result = "disjoint";
+				result += "disjoint";
 				break;
 			}
 			
 			result += " " + nodename;
 			return indent(result);
 		}
+		
 		EList<Pair<String, String>> getAllFields() {
 			EList<Pair<String, String>> fields = new BasicEList<Pair<String, String>>();
 			fields.add(new Pair<String, String>(nodename, nodepath));
 			return fields;
 		}
+		
 		Object getSchemaRepresentation() {
 			// TODO
 			return null;
 		}
-	}
-	
-	public static class CountRuleObject extends SingleConstraintRuleObject {
-		String getStringRepresentation() {
-			// TODO
-			return indent("");
-		}
-		Object getSchemaRepresentation() {
-			// TODO
-			return null;
+		
+		Boolean invert() {
+			operator = ComparisonOperator.invert(operator);
+			return true;
 		}
 	}
 	
 	public static class UniqueRuleObject extends SingleConstraintRuleObject {
-		Boolean unique = true;
+		Boolean negate = true;
 		public UniqueRuleObject(Boolean u) {
-			unique = u;
+			negate = u;
 		}
+		
 		String getStringRepresentation() {
 			// TODO
-			return indent("- unique " + unique);
+			return indent("- unique " + negate);
 		}
+		
 		Object getSchemaRepresentation() {
 			// TODO
 			return null;
 		}
+		
+		Boolean invert() {
+			negate = !negate;
+			return true;
+		}
+	}
+	
+	public static ConstraintRuleObject realInvert(ConstraintRuleObject rule) {
+		if (rule.invert())
+			return rule;
+		else {
+			if (rule instanceof NotConstraintRuleObject) {
+				return ((NotConstraintRuleObject) rule).arg;
+			}
+			else
+				return new NotConstraintRuleObject(rule);
+		}	
 	}
 }
