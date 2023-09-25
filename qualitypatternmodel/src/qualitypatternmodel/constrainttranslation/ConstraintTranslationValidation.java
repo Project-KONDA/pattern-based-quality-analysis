@@ -27,7 +27,6 @@ public class ConstraintTranslationValidation {
 	static Boolean checkPatternTranslatable (CompletePattern completePattern) throws InvalidityException {
 		// check is valid and is XML
 		Boolean xmlvalid = validatePatternXmlAdapted(completePattern);
-		
 		// check has valid Node configuration
 		Boolean nodesValid = false;
 		if (xmlvalid)
@@ -44,6 +43,7 @@ public class ConstraintTranslationValidation {
 			}
 			completePattern.isValid(AbstractionLevel.CONCRETE);
 		} catch (Exception e) {
+			e.printStackTrace();
 			return false;
 		}
 		return true;
