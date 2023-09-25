@@ -162,7 +162,7 @@ public class UniquenessConditionCheck {
 			}
 			
 		}
-		EList<Node> othernodes = new BasicEList<Node>();
+		
 		for (Node n: conditiongraph.getNodes())
 			if (!(FieldNodeIdentification.areEqualNodes(n, recordNode)))
 				return null;

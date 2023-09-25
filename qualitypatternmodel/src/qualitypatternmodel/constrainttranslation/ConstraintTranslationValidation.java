@@ -2,7 +2,6 @@ package qualitypatternmodel.constrainttranslation;
 
 import org.basex.util.Pair;
 
-import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.UniqueRuleObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
