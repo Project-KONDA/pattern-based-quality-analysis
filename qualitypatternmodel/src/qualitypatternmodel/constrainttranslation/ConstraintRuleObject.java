@@ -28,6 +28,25 @@ public abstract class ConstraintRuleObject {
 	private static String indent(String s) {
 		return "  " + s.replace("\n", "\n  ");
 	}
+
+	
+	public ConstraintRuleObject realInvert() {
+		if (this.invert())
+			return this;
+		else {
+			if (this instanceof NotConstraintRuleObject) {
+				return ((NotConstraintRuleObject) this).arg;
+			}
+			else
+				return new NotConstraintRuleObject(this);
+		}
+	}
+	
+	private static List<Rule> getListWith(Rule rule){
+		List<Rule> list = new BasicEList<Rule>();
+		list.add(rule);
+		return list;
+	}
 	
 	
 	// TRANSLATION CLASSES 
@@ -103,18 +122,18 @@ public abstract class ConstraintRuleObject {
 		Boolean invert() {
 			switch(op) {
 			case AND:
-				argument1 = realInvert(argument1);
-				argument2 = realInvert(argument2);
+				argument1 = argument1.realInvert();
+				argument2 = argument2.realInvert();
 				op = LogicalOperator.OR;
 				return true;
 				
 			case OR:
-				argument1 = realInvert(argument1);
-				argument2 = realInvert(argument2);
+				argument1 = argument1.realInvert();
+				argument2 = argument2.realInvert();
 				op = LogicalOperator.AND;
 				return true;
 			case IMPLIES:
-				argument2 = realInvert(argument2);
+				argument2 = argument2.realInvert();
 				op = LogicalOperator.AND;
 				return true;
 			case XOR:
@@ -395,7 +414,6 @@ public abstract class ConstraintRuleObject {
 		}
 		
 		String getStringRepresentation() {
-			// TODO
 			return indent("- unique " + negate);
 		}
 		
@@ -408,17 +426,5 @@ public abstract class ConstraintRuleObject {
 			negate = !negate;
 			return true;
 		}
-	}
-	
-	public static ConstraintRuleObject realInvert(ConstraintRuleObject rule) {
-		if (rule.invert())
-			return rule;
-		else {
-			if (rule instanceof NotConstraintRuleObject) {
-				return ((NotConstraintRuleObject) rule).arg;
-			}
-			else
-				return new NotConstraintRuleObject(rule);
-		}	
 	}
 }
