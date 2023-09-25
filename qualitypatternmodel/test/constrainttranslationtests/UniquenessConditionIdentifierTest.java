@@ -16,12 +16,12 @@ public class UniquenessConditionIdentifierTest {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		EList<CompletePattern> patterns = new BasicEList<CompletePattern>();
 
-		patterns.add(ConstraintTranslationTests.uniqueness1_1nPattern());
-		patterns.add(ConstraintTranslationTests.uniqueness1_2nPattern());
-		patterns.add(ConstraintTranslationTests.uniqueness2_1nPattern());
-		patterns.add(ConstraintTranslationTests.uniqueness2_2nPattern());
-		patterns.add(ConstraintTranslationTests.uniqueness3_1nPattern());
-		patterns.add(ConstraintTranslationTests.uniqueness3_2nPattern());
+		patterns.add(ConstraintStringTranslationTests.uniqueness1_1nPattern());
+		patterns.add(ConstraintStringTranslationTests.uniqueness1_2nPattern());
+		patterns.add(ConstraintStringTranslationTests.uniqueness2_1nPattern());
+		patterns.add(ConstraintStringTranslationTests.uniqueness2_2nPattern());
+		patterns.add(ConstraintStringTranslationTests.uniqueness3_1nPattern());
+		patterns.add(ConstraintStringTranslationTests.uniqueness3_2nPattern());
 
 		
 		for (CompletePattern pattern: patterns) {

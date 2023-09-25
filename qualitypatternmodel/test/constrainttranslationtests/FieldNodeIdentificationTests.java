@@ -13,7 +13,7 @@ public class FieldNodeIdentificationTests {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
-		EList<CompletePattern> patterns = ConstraintTranslationTests.getTestPatternCollection();
+		EList<CompletePattern> patterns = ConstraintStringTranslationTests.getTestPatternCollection();
 		
 		for (CompletePattern pattern: patterns) {
 			

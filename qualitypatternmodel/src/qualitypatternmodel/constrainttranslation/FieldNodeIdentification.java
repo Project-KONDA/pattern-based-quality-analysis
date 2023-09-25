@@ -142,7 +142,6 @@ public class FieldNodeIdentification {
 				throw new UnsupportedOperationException("node null");
 //				return false;
 			}
-			System.out.println(n.myToString());
 				
 			for (Node n2: identified)
 				if (!areEqualNodes(n, n2))

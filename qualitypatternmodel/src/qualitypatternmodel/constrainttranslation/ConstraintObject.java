@@ -60,7 +60,7 @@ public class ConstraintObject {
 		
 		if (!ConstraintTranslationValidation.checkPatternTranslatable (completePattern))
 			throw new InvalidityException();
-		
+
 		pattern = completePattern;
 		record = FieldNodeIdentification.identifyRecordNode(pattern);
 		fieldNodes = FieldNodeIdentification.identifyFieldNodes(pattern);
@@ -93,7 +93,7 @@ public class ConstraintObject {
 		return result;
 	}
 	
-	public Object getConstraintSchema() {
+	public BaseSchema getConstraintSchema() {
 		if (rule == null)
 			return null;
 		BaseSchema schema = new BaseSchema();
@@ -106,7 +106,7 @@ public class ConstraintObject {
 			schema.addField(field);
 		}
 		
-		DataElement field1 = new DataElement(fieldNodes[0].getName(), fieldPath);
+		DataElement field1 = new DataElement(fieldNodes[0].getName().replace(" ", "_"), fieldPath);
 		
 		Rule constraintrule = new Rule();
 		field1.addRule(constraintrule);
