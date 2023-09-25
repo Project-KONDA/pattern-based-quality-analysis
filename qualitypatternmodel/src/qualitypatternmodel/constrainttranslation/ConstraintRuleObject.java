@@ -1,9 +1,12 @@
 package qualitypatternmodel.constrainttranslation;
 
+import java.util.List;
+
 import org.basex.util.Pair;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
+import de.gwdg.metadataqa.api.configuration.schema.Rule;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Node;
@@ -12,7 +15,7 @@ import qualitypatternmodel.patternstructure.LogicalOperator;
 
 public abstract class ConstraintRuleObject {
 	abstract String getStringRepresentation() throws InvalidityException;
-	abstract Object getSchemaRepresentation();
+	abstract void addConstraintRuleTo(Rule rule);
 	abstract EList<Pair<String, String>> getAllFields();
 	abstract Boolean invert();
 	
@@ -98,6 +101,76 @@ public abstract class ConstraintRuleObject {
 			return indent(result);
 		}
 		
+		void addConstraintRuleTo (Rule rule) {
+			Rule arg1 = new Rule();
+			Rule arg2 = new Rule();
+			argument1.addConstraintRuleTo(arg1);
+			argument2.addConstraintRuleTo(arg2);
+			
+			switch(op) {
+			case AND:
+				rule.setAnd(new BasicEList<Rule>());
+				rule.getAnd().add(arg1);
+				rule.getAnd().add(arg2);
+				return;
+				
+			case OR:
+				rule.setOr(new BasicEList<Rule>());
+				rule.getOr().add(arg1);
+				rule.getOr().add(arg2);
+				return;
+			case IMPLIES:
+				rule.setOr(new BasicEList<Rule>());
+				rule.getOr().add(new Rule().withNot(getListWith(arg1)));
+				rule.getOr().add(arg2);
+				return;
+			case XOR:
+				Rule impliesand1 = new Rule();
+				List<Rule> impliesand1list = new BasicEList<Rule>();
+				Rule impliesnot1 = new Rule();
+				impliesnot1.setNot(getListWith(arg1));
+				impliesand1list.add(impliesnot1);
+				impliesand1list.add(arg2);
+				impliesand1.setAnd(impliesand1list);
+				
+				Rule impliesand2 = new Rule();
+				List<Rule> impliesand2list = new BasicEList<Rule>();
+				Rule impliesnot2 = new Rule();
+				impliesnot2.setNot(getListWith(arg2));
+				impliesand2list.add(arg1);
+				impliesand2list.add(impliesnot2);
+				impliesand2.setAnd(impliesand2list);
+				
+				List<Rule> xorlist = new BasicEList<Rule>();
+				xorlist.add(new Rule().withNot(getListWith(arg1)));
+				xorlist.add(arg2);
+				rule.setOr(xorlist);	
+				return;
+			case EQUAL:
+				Rule equaland1 = new Rule();
+				List<Rule> equaland1list = new BasicEList<Rule>();
+				equaland1list.add(arg1);
+				equaland1list.add(arg2);
+				equaland1.setAnd(equaland1list);
+				
+				Rule equaland2 = new Rule();
+				List<Rule> equaland2list = new BasicEList<Rule>();
+				Rule equalnot1 = new Rule();
+				equalnot1.setNot(getListWith(arg1));
+				Rule equalnot2 = new Rule();
+				equalnot2.setNot(getListWith(arg2));
+				equaland2list.add(equalnot1);
+				equaland2list.add(equalnot2);
+				equaland2.setAnd(equaland2list);
+				
+				List<Rule> equallist = new BasicEList<Rule>();
+				equallist.add(new Rule().withNot(getListWith(arg1)));
+				equallist.add(arg2);
+				rule.setOr(equallist);	
+				return;
+			}
+		}
+		
 		EList<Pair<String, String>> getAllFields() {
 			EList<Pair<String, String>> fields = new BasicEList<Pair<String, String>>();
 
@@ -108,11 +181,6 @@ public abstract class ConstraintRuleObject {
 			if (list != null)
 				fields.addAll(list);
 			return fields;
-		}
-		
-		Object getSchemaRepresentation() {
-			// TODO
-			return null;
 		}
 		
 		Boolean invert() {
@@ -160,13 +228,14 @@ public abstract class ConstraintRuleObject {
 			return indent("- not\n" + arg.getStringRepresentation()); 
 		}
 		
-		EList<Pair<String, String>> getAllFields() {
-			return arg.getAllFields();
+		void addConstraintRuleTo (Rule rule) {
+			Rule notrule = new Rule();
+			arg.addConstraintRuleTo(notrule);
+			rule.setNot(getListWith(notrule));
 		}
 		
-		Object getSchemaRepresentation() {
-			// TODO
-			return null;
+		EList<Pair<String, String>> getAllFields() {
+			return arg.getAllFields();
 		}
 		
 		Boolean invert() {
@@ -196,9 +265,12 @@ public abstract class ConstraintRuleObject {
 			return indent(res);
 		}
 		
-		Object getSchemaRepresentation() {
-			// TODO
-			return null;
+		void addConstraintRuleTo (Rule rule) {
+			if (operator == ComparisonOperator.NOTEQUAL) {
+				rule.setNot(getListWith(new Rule().withHasValue(value)));
+			}
+			else 
+				rule.setHasValue(value);
 		}
 		
 		Boolean invert() {
@@ -241,9 +313,31 @@ public abstract class ConstraintRuleObject {
 			return indent(result);
 		}
 		
-		Object getSchemaRepresentation() {
-			// TODO
-			return null;
+		void addConstraintRuleTo (Rule rule) {
+			switch(operator) {
+			case EQUAL: 
+				rule.setAnd(new BasicEList<Rule>());
+				rule.getAnd().add(new Rule().withMinInclusive(number));
+				rule.getAnd().add(new Rule().withMaxInclusive(number));
+				return;
+			case GREATER: 
+				rule.setMinExclusive(number);
+				return;
+			case LESS: 
+				rule.setMaxExclusive(number);
+				return;
+			case GREATEROREQUAL: 
+				rule.setMinInclusive(number);
+				return;
+			case LESSOREQUAL: 
+				rule.setMaxInclusive(number);
+				return;
+			case NOTEQUAL: 
+				rule.setOr(new BasicEList<Rule>());
+				rule.getOr().add(new Rule().withMinExclusive(number));
+				rule.getOr().add(new Rule().withMaxExclusive(number));
+				return;
+			}
 		}
 		
 		Boolean invert() {
@@ -266,9 +360,9 @@ public abstract class ConstraintRuleObject {
 			return indent("");
 		}
 		
-		Object getSchemaRepresentation() {
+		void addConstraintRuleTo (Rule rule) {
 			// TODO
-			return null;
+			return;
 		}
 		
 		Boolean invert() {
@@ -293,9 +387,13 @@ public abstract class ConstraintRuleObject {
 			return indent(result);
 		}
 		
-		Object getSchemaRepresentation() {
-			// TODO
-			return null;
+		void addConstraintRuleTo (Rule rule) {
+			if (negate) {
+				rule.setNot(getListWith(new Rule().withPattern(regularExpression)));
+			}
+			else 
+				rule.setPattern(regularExpression);
+			return;
 		}
 		
 		Boolean invert() {
@@ -337,9 +435,31 @@ public abstract class ConstraintRuleObject {
 			throw new InvalidityException("no valid ComparisonOperator for StringLength Constraint");
 		}
 		
-		Object getSchemaRepresentation() {
-			// TODO
-			return null;
+		void addConstraintRuleTo (Rule rule) {
+			switch(operator) {
+			case EQUAL:
+				rule.setAnd(new BasicEList<Rule>());
+				rule.getAnd().add(new Rule().withMinLength(length));
+				rule.getAnd().add(new Rule().withMaxLength(length));
+				return;
+			case GREATER: 
+				rule.setMinLength(length+1);
+				return;
+			case LESS: 
+				rule.setMaxLength(length-1);
+				return;
+			case GREATEROREQUAL: 
+				rule.setMinLength(length);
+				return;
+			case LESSOREQUAL: 
+				rule.setMaxLength(length);
+				return;
+			case NOTEQUAL:
+				rule.setOr(new BasicEList<Rule>());
+				rule.getOr().add(new Rule().withMinLength(length-1));
+				rule.getOr().add(new Rule().withMaxLength(length+1));
+				return;
+			}
 		}
 		
 		Boolean invert() {
@@ -392,9 +512,27 @@ public abstract class ConstraintRuleObject {
 			return fields;
 		}
 		
-		Object getSchemaRepresentation() {
-			// TODO
-			return null;
+		void addConstraintRuleTo (Rule rule) {
+			switch(operator) {
+			case EQUAL:
+				rule.setEquals(nodename);
+				return;
+			case GREATER:
+				rule.setNot(getListWith(new Rule().withLessThanOrEquals(nodename)));
+				return;
+			case LESSOREQUAL:
+				rule.withLessThanOrEquals(nodename);
+				return;
+			case GREATEROREQUAL:
+				rule.setNot(getListWith(new Rule().withLessThan(nodename)));
+				return;
+			case LESS:
+				rule.withLessThan(nodename);
+				return;
+			case NOTEQUAL:
+				rule.withDisjoint(nodename);
+				return;
+			}
 		}
 		
 		Boolean invert() {
@@ -413,9 +551,8 @@ public abstract class ConstraintRuleObject {
 			return indent("- unique " + negate);
 		}
 		
-		Object getSchemaRepresentation() {
-			// TODO
-			return null;
+		void addConstraintRuleTo (Rule rule) {
+			rule.setUnique(negate);
 		}
 		
 		Boolean invert() {

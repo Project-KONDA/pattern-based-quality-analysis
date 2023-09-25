@@ -39,6 +39,10 @@ import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.patternstructure.TrueElement;
+import de.gwdg.metadataqa.api.configuration.schema.Rule;
+import de.gwdg.metadataqa.api.json.DataElement;
+import de.gwdg.metadataqa.api.schema.BaseSchema;
+import de.gwdg.metadataqa.api.schema.Format;
 
 public class ConstraintObject {
 	CompletePattern pattern;
@@ -70,11 +74,6 @@ public class ConstraintObject {
 	
 	
 	// public functions
-	
-	public Object getConstraintObject() {
-		return rule.getSchemaRepresentation();
-	}
-
 	public String getStringRepresentation() throws InvalidityException {
 		if (rule == null)
 			return "ERROR";
@@ -94,6 +93,27 @@ public class ConstraintObject {
 		return result;
 	}
 	
+	public Object getConstraintSchema() {
+		if (rule == null)
+			return null;
+		BaseSchema schema = new BaseSchema();
+		schema.setFormat(Format.XML);
+
+		EList<Pair<String, String>> fields = rule.getAllFields();
+		
+		for (Pair<String, String> fieldpair: fields) {
+			DataElement field = new DataElement("label", "path");
+			schema.addField(field);
+		}
+		
+		DataElement field1 = new DataElement(fieldNodes[0].getName(), fieldPath);
+		
+		Rule constraintrule = new Rule();
+		field1.addRule(constraintrule);
+		
+		rule.addConstraintRuleTo(constraintrule);
+		return schema;
+	}
 	
 	// local functions
 	

@@ -14,7 +14,7 @@ public class ConstraintTranslation {
 		ConstraintObject constraint = new ConstraintObject(completePattern);
 	
 		if (javaObject) {
-			return constraint.getConstraintObject();
+			return constraint.getConstraintSchema();
 		}
 		else {
 			return constraint.getStringRepresentation();
