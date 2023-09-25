@@ -25,7 +25,9 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.parameters.impl.NumberParamImpl;
+import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
+import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
 import qualitypatternmodel.parameters.impl.UntypedParameterValueImpl;
 
@@ -70,6 +72,8 @@ public class ConstraintTranslationTests {
 		patterns.add(simpleStringLengthPattern(ComparisonOperator.GREATER));
 		patterns.add(simpleValueComparisonPattern(false));
 		patterns.add(simpleValueComparisonPattern(true));
+		patterns.add(simpleListPattern(true));
+		patterns.add(simpleListPattern(false));
 		patterns.add(notConditionPattern());
 		patterns.add(doubleNotConditionPattern());
 		patterns.add(formulaCombinationPattern(LogicalOperator.AND));
@@ -92,6 +96,49 @@ public class ConstraintTranslationTests {
 	}
 	
 	
+	private static CompletePattern simpleListPattern(boolean negate) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		completePattern.setDescription("Simple Value Comparison " + (negate? "notequal":"equal") + " to \"value\"");
+		QuantifiedCondition cond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		completePattern.setCondition(cond);
+		Graph g = cond.getGraph();
+		
+		Node ret = completePattern.getGraph().getNodes().get(0);
+		
+		// EXISTS additional graph structure
+		Node n2 = ret.addOutgoing(g).getTarget();
+		
+		n2.addPrimitiveComparison();
+		
+		completePattern.createXmlAdaption();
+		
+		EList<Parameter> params = completePattern.getParameterList().getParameters();
+//		for (Parameter p: params)
+//			System.out.println(p.getClass().getSimpleName() + " p" + params.indexOf(p) + " = (" + p.getClass().getSimpleName()+ ") params.get(" + params.indexOf(p) + ");" );
+		
+		UntypedParameterValueImpl p0 = (UntypedParameterValueImpl) params.get(0);
+		ComparisonOptionParamImpl p1 = (ComparisonOptionParamImpl) params.get(1);
+		TypeOptionParamImpl p2 = (TypeOptionParamImpl) params.get(2);
+		XmlPathParamImpl p3 = (XmlPathParamImpl) params.get(3);
+		XmlPathParamImpl p4 = (XmlPathParamImpl) params.get(4);
+		
+		TextListParamImpl textlist = new TextListParamImpl();
+		textlist.addStringValue("value1");
+		textlist.addStringValue("value2");
+		textlist.addStringValue("value3");
+		
+		p0.replace(textlist);
+		if (negate)
+			p1.setValue(ComparisonOperator.NOTEQUAL);
+		else 
+			p1.setValue(ComparisonOperator.EQUAL);
+		p2.setValue(ReturnType.STRING);
+		p3.setValueFromString(RECORD_PATH); // path to record
+		p4.setValueFromString(FIELD_PATH); // path record to field
+		
+		return completePattern;
+	}
+
 	public static CompletePattern simpleMatchPattern(Boolean negate) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setDescription("Simple Match, negated:" + negate);

@@ -356,13 +356,21 @@ public abstract class ConstraintRuleObject {
 		}
 		
 		String getStringRepresentation() {
-			// TODO
-			return indent("");
+			String listing = "";
+			if(values.size() > 0) {
+				listing += values.get(0);
+				for (int i = 1; i<values.size(); i++)
+					listing += ", " + values.get(i);
+			}
+			String result = "- in: ["; 
+			result = result + listing + "]";
+			if (negate)
+				result = "- not\n" + indent(result);
+			return indent(result);
 		}
 		
 		void addConstraintRuleTo (Rule rule) {
-			// TODO
-			return;
+			rule.setIn(values);
 		}
 		
 		Boolean invert() {
