@@ -95,10 +95,6 @@ public abstract class ConstraintRuleObject {
 				result = "- or\n" + s3 + "\n" + s4;
 				break;
 			}
-//			String result = "";
-//			for (ConstraintRuleObject arg: args)
-//				result += indent(arg.getStringRepresentation()) + "\n";
-//			result = "- " + op.getLiteral() + "\n" + result;
 			return indent(result);
 		}
 		
@@ -186,9 +182,9 @@ public abstract class ConstraintRuleObject {
 	
 	public static class HasValueRuleObject extends SingleConstraintRuleObject {
 		ComparisonOperator operator;
-		Object value;
+		String value;
 		
-		public HasValueRuleObject(Object val, ComparisonOperator co) {
+		public HasValueRuleObject(String val, ComparisonOperator co) {
 			value = val;
 			operator = co;
 		}
@@ -224,22 +220,22 @@ public abstract class ConstraintRuleObject {
 			String result = "";
 			switch(operator) {
 			case EQUAL: 
-				result = "-or\n  - minExclusive " + number + "\n  - maxExclusive " + number;
+				result = "-and\n  - minInclusive " + number + "\n  - maxInclusive " + number;
 				break;
 			case GREATER: 
-				result = "maxInclusive " + number;
-				break;
-			case LESS: 
-				result = "minInclusive " + number;
-				break;
-			case GREATEROREQUAL: 
 				result = "minExclusive " + number;
 				break;
-			case LESSOREQUAL: 
+			case LESS: 
 				result = "maxExclusive " + number;
 				break;
+			case GREATEROREQUAL: 
+				result = "minInclusive " + number;
+				break;
+			case LESSOREQUAL: 
+				result = "maxInclusive " + number;
+				break;
 			case NOTEQUAL: 
-				result = "-and\n  - minInclusive " + number + "\n  - maxInclusive " + number;
+				result = "-and\n  - minExclusive " + number + "\n  - maxExclusive " + number;
 				break;
 			}
 			return indent(result);
