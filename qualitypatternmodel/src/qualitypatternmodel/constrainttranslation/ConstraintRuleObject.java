@@ -106,14 +106,12 @@ public abstract class ConstraintRuleObject {
 			Rule arg2 = new Rule();
 			argument1.addConstraintRuleTo(arg1);
 			argument2.addConstraintRuleTo(arg2);
-			
 			switch(op) {
 			case AND:
 				rule.setAnd(new BasicEList<Rule>());
 				rule.getAnd().add(arg1);
 				rule.getAnd().add(arg2);
 				return;
-				
 			case OR:
 				rule.setOr(new BasicEList<Rule>());
 				rule.getOr().add(arg1);
@@ -126,47 +124,35 @@ public abstract class ConstraintRuleObject {
 				return;
 			case XOR:
 				Rule impliesand1 = new Rule();
-				List<Rule> impliesand1list = new BasicEList<Rule>();
-				Rule impliesnot1 = new Rule();
-				impliesnot1.setNot(getListWith(arg1));
-				impliesand1list.add(impliesnot1);
-				impliesand1list.add(arg2);
-				impliesand1.setAnd(impliesand1list);
+				impliesand1.setAnd(new BasicEList<Rule>());
+				impliesand1.getAnd().add(arg1);
+				impliesand1.getAnd().add(new Rule().withNot(getListWith(arg2)));
 				
 				Rule impliesand2 = new Rule();
-				List<Rule> impliesand2list = new BasicEList<Rule>();
-				Rule impliesnot2 = new Rule();
-				impliesnot2.setNot(getListWith(arg2));
-				impliesand2list.add(arg1);
-				impliesand2list.add(impliesnot2);
-				impliesand2.setAnd(impliesand2list);
+				impliesand2.setAnd(new BasicEList<Rule>());
+				impliesand2.getAnd().add(new Rule().withNot(getListWith(arg1)));
+				impliesand2.getAnd().add(arg2);
+
+				rule.setOr(new BasicEList<Rule>());
+				rule.getOr().add(impliesand1);
+				rule.getOr().add(impliesand2);
 				
-				List<Rule> xorlist = new BasicEList<Rule>();
-				xorlist.add(new Rule().withNot(getListWith(arg1)));
-				xorlist.add(arg2);
-				rule.setOr(xorlist);	
 				return;
 			case EQUAL:
 				Rule equaland1 = new Rule();
-				List<Rule> equaland1list = new BasicEList<Rule>();
-				equaland1list.add(arg1);
-				equaland1list.add(arg2);
-				equaland1.setAnd(equaland1list);
+				equaland1.setAnd(new BasicEList<Rule>());
+				equaland1.getAnd().add(arg1);
+				equaland1.getAnd().add(arg2);
 				
 				Rule equaland2 = new Rule();
-				List<Rule> equaland2list = new BasicEList<Rule>();
-				Rule equalnot1 = new Rule();
-				equalnot1.setNot(getListWith(arg1));
-				Rule equalnot2 = new Rule();
-				equalnot2.setNot(getListWith(arg2));
-				equaland2list.add(equalnot1);
-				equaland2list.add(equalnot2);
-				equaland2.setAnd(equaland2list);
+				equaland2.setAnd(new BasicEList<Rule>());
+				equaland2.getAnd().add(new Rule().withNot(getListWith(arg1)));
+				equaland2.getAnd().add(new Rule().withNot(getListWith(arg2)));
+
+				rule.setOr(new BasicEList<Rule>());
+				rule.getOr().add(equaland1);
+				rule.getOr().add(equaland2);
 				
-				List<Rule> equallist = new BasicEList<Rule>();
-				equallist.add(new Rule().withNot(getListWith(arg1)));
-				equallist.add(arg2);
-				rule.setOr(equallist);	
 				return;
 			}
 		}
@@ -292,22 +278,22 @@ public abstract class ConstraintRuleObject {
 			String result = "";
 			switch(operator) {
 			case EQUAL: 
-				result = "-and\n  - minInclusive " + number + "\n  - maxInclusive " + number;
+				result = "- and\n  - minInclusive " + number + "\n  - maxInclusive " + number;
 				break;
 			case GREATER: 
-				result = "minExclusive " + number;
+				result = "- minExclusive " + number;
 				break;
 			case LESS: 
-				result = "maxExclusive " + number;
+				result = "- maxExclusive " + number;
 				break;
 			case GREATEROREQUAL: 
-				result = "minInclusive " + number;
+				result = "- minInclusive " + number;
 				break;
 			case LESSOREQUAL: 
-				result = "maxInclusive " + number;
+				result = "- maxInclusive " + number;
 				break;
 			case NOTEQUAL: 
-				result = "-and\n  - minExclusive " + number + "\n  - maxExclusive " + number;
+				result = "- and\n  - minExclusive " + number + "\n  - maxExclusive " + number;
 				break;
 			}
 			return indent(result);
