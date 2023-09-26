@@ -62,6 +62,9 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 
 	@Override
 	public String generateXQuery() throws InvalidityException {
+		if (condition instanceof NotCondition) {
+			return ((NotCondition) condition).getCondition().generateXQuery();
+		}
 		if (condition != null) {
 			String conQuery = condition.generateXQuery().replace("\n", "\n  "); 
 			return "not(" + conQuery + ")";
