@@ -1,4 +1,4 @@
-package constrainttranslationtests;
+package patterntoconstrainttranslation;
 
 import org.basex.util.Pair;
 import org.eclipse.emf.common.util.BasicEList;
@@ -11,17 +11,17 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
-public class UniquenessConditionIdentifierTest {
+public class UniquenessConstraintTranslationTest {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		EList<CompletePattern> patterns = new BasicEList<CompletePattern>();
 
-		patterns.add(ConstraintStringTranslationTests.uniqueness1_1nPattern());
-		patterns.add(ConstraintStringTranslationTests.uniqueness1_2nPattern());
-		patterns.add(ConstraintStringTranslationTests.uniqueness2_1nPattern());
-		patterns.add(ConstraintStringTranslationTests.uniqueness2_2nPattern());
-		patterns.add(ConstraintStringTranslationTests.uniqueness3_1nPattern());
-		patterns.add(ConstraintStringTranslationTests.uniqueness3_2nPattern());
+		patterns.add(ConstraintToStringTranslationTest.uniqueness1_1nPattern());
+		patterns.add(ConstraintToStringTranslationTest.uniqueness1_2nPattern());
+		patterns.add(ConstraintToStringTranslationTest.uniqueness2_1nPattern());
+		patterns.add(ConstraintToStringTranslationTest.uniqueness2_2nPattern());
+		patterns.add(ConstraintToStringTranslationTest.uniqueness3_1nPattern());
+		patterns.add(ConstraintToStringTranslationTest.uniqueness3_2nPattern());
 
 		
 		for (CompletePattern pattern: patterns) {

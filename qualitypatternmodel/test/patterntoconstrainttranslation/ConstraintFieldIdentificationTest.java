@@ -1,4 +1,4 @@
-package constrainttranslationtests;
+package patterntoconstrainttranslation;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -9,11 +9,11 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
-public class FieldNodeIdentificationTests {
+public class ConstraintFieldIdentificationTest {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
-		EList<CompletePattern> patterns = ConstraintStringTranslationTests.getTestPatternCollection();
+		EList<CompletePattern> patterns = ConstraintToStringTranslationTest.getTestPatternCollection();
 		
 		for (CompletePattern pattern: patterns) {
 			

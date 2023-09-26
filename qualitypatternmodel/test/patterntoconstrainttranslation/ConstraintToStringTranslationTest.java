@@ -1,4 +1,4 @@
-package constrainttranslationtests;
+package patterntoconstrainttranslation;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -30,7 +30,7 @@ import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
 import qualitypatternmodel.parameters.impl.UntypedParameterValueImpl;
 
-public class ConstraintTranslationTests {
+public class ConstraintToStringTranslationTest {
 	
 	static String RECORD_PATH = "/descendant::*";
 	static String FIELD_PATH = "/descendant::*";
@@ -62,7 +62,7 @@ public class ConstraintTranslationTests {
 
 	}
 	
-	static EList<CompletePattern> getTestPatternCollection() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
+	public static EList<CompletePattern> getTestPatternCollection() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		EList<CompletePattern> patterns = new BasicEList<CompletePattern>();
 
 		patterns.add(simpleMatchPattern(false));
@@ -97,7 +97,7 @@ public class ConstraintTranslationTests {
 		return patterns;
 	}
 
-	static CompletePattern simpleMatchPattern(Boolean negate) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern simpleMatchPattern(Boolean negate) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setDescription("Simple Match, negated:" + negate);
 		QuantifiedCondition cond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
@@ -130,7 +130,7 @@ public class ConstraintTranslationTests {
 		return completePattern;
 	}
 	
-	static CompletePattern simpleStringLengthPattern(ComparisonOperator co) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern simpleStringLengthPattern(ComparisonOperator co) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setDescription("Simple String Length: Comparison " + co + " 3");
 		QuantifiedCondition cond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
@@ -163,7 +163,7 @@ public class ConstraintTranslationTests {
 		return completePattern;
 	}
 	
-	static CompletePattern simpleValueComparisonPattern(Boolean negate) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern simpleValueComparisonPattern(Boolean negate) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setDescription("Simple Value Comparison " + (negate? "notequal":"equal") + " to \"value\"");
 		QuantifiedCondition cond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
@@ -282,7 +282,7 @@ public class ConstraintTranslationTests {
 		return completePattern;
 	}
 
-	static CompletePattern simpleComparisonPattern(ComparisonOperator co) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern simpleComparisonPattern(ComparisonOperator co) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setDescription("Simple Node Comparison: "+ co);
 		QuantifiedCondition cond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
@@ -318,7 +318,7 @@ public class ConstraintTranslationTests {
 		return completePattern;
 	}
 
-	static CompletePattern conditionCombinationPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern conditionCombinationPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setDescription("Match-Contains-Comparison:");
 		QuantifiedCondition cond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
@@ -363,7 +363,7 @@ public class ConstraintTranslationTests {
 		return completePattern;
 	}
 
-	static CompletePattern doubleComparisonPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern doubleComparisonPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setDescription("Double Node Comparison: n2 = n3 & n2 = n4");
 		QuantifiedCondition cond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
@@ -407,7 +407,7 @@ public class ConstraintTranslationTests {
 		return completePattern;
 	}
 
-	static CompletePattern notConditionPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern notConditionPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setDescription("Not Condition: not(match)");
 		NotCondition not = PatternstructureFactory.eINSTANCE.createNotCondition();
@@ -441,7 +441,7 @@ public class ConstraintTranslationTests {
 		return completePattern;
 	}
 
-	static CompletePattern doubleNotConditionPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern doubleNotConditionPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setDescription("DoubleNotCondition: not(not(match))");
 		NotCondition not1 = PatternstructureFactory.eINSTANCE.createNotCondition();
@@ -477,7 +477,7 @@ public class ConstraintTranslationTests {
 		return completePattern;
 	}
 	
-	static CompletePattern notComparisonPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern notComparisonPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setDescription("Not StringLength: not ( len =3 ) ");
 		NotCondition not = PatternstructureFactory.eINSTANCE.createNotCondition();
@@ -512,7 +512,7 @@ public class ConstraintTranslationTests {
 	}
 	
 
-	static CompletePattern formulaCombinationPattern(LogicalOperator logic) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern formulaCombinationPattern(LogicalOperator logic) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setDescription("Formula: = 1 " + logic + " = 2");
 		Formula formula = PatternstructureFactory.eINSTANCE.createFormula();
@@ -526,6 +526,7 @@ public class ConstraintTranslationTests {
 		Graph g2 = cond2.getGraph();
 		
 		Node ret = completePattern.getGraph().getNodes().get(0).makeComplex();
+
 		Node n2 = ret.addOutgoing(g).getTarget();
 		n2.addPrimitiveComparison();
 		Node n3 = ret.addOutgoing(g2).getTarget();
@@ -560,7 +561,7 @@ public class ConstraintTranslationTests {
 		return completePattern;
 	}
 
-	static CompletePattern formulaNotCombinationPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern formulaNotCombinationPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setDescription("Formula ( =1 ) and  (Not( = 2 ))");
 		Formula formula = PatternstructureFactory.eINSTANCE.createFormula();
@@ -611,7 +612,7 @@ public class ConstraintTranslationTests {
 		return completePattern;
 	}
 	
-	static CompletePattern uniqueness1_1nPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern uniqueness1_1nPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setDescription("Uniqueness 1 with 1 node");
 		QuantifiedCondition cond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
@@ -624,7 +625,7 @@ public class ConstraintTranslationTests {
 		Node record2 = g.addComplexNode();
 		record2.setName("RecordNodeCopy");
 		
-		Node field = record2.addOutgoing().getTarget().makePrimitive();
+		Node field = record2.addOutgoing().getTarget();
 		field.setName("Field");
 		ret.addOutgoing(field);
 		
@@ -655,7 +656,7 @@ public class ConstraintTranslationTests {
 		return completePattern;
 	}
 	
-	static CompletePattern uniqueness1_2nPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern uniqueness1_2nPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setDescription("Uniqueness 1 with 2 nodes");
 		QuantifiedCondition cond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
@@ -709,7 +710,7 @@ public class ConstraintTranslationTests {
 	}
 
 	
-	static CompletePattern uniqueness2_1nPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern uniqueness2_1nPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setDescription("Uniqueness 2 with 1 node");
 		QuantifiedCondition cond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
@@ -760,7 +761,7 @@ public class ConstraintTranslationTests {
 		return completePattern;
 	}
 	
-	static CompletePattern uniqueness2_2nPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern uniqueness2_2nPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setDescription("Uniqueness 2 with 2 nodes");
 		QuantifiedCondition cond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
@@ -819,7 +820,7 @@ public class ConstraintTranslationTests {
 		return completePattern;
 	}
 	
-	static CompletePattern uniqueness3_1nPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern uniqueness3_1nPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setDescription("Uniqueness 3 with 1 node");
 		CountCondition ccond = PatternstructureFactory.eINSTANCE.createCountCondition();
@@ -867,7 +868,7 @@ public class ConstraintTranslationTests {
 		return completePattern;
 	}
 	
-	static CompletePattern uniqueness3_2nPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern uniqueness3_2nPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setDescription("Uniqueness 3 with 2 nodes");
 		CountCondition ccond = PatternstructureFactory.eINSTANCE.createCountCondition();

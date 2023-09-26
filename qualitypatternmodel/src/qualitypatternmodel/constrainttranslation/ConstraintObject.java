@@ -102,7 +102,7 @@ public class ConstraintObject {
 		EList<Pair<String, String>> fields = rule.getAllFields();
 		
 		for (Pair<String, String> fieldpair: fields) {
-			DataElement field = new DataElement("label", "path");
+			DataElement field = new DataElement(fieldpair.name(), fieldpair.value());
 			schema.addField(field);
 		}
 		
