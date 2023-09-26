@@ -293,7 +293,7 @@ public abstract class ConstraintRuleObject {
 				result = "- maxInclusive " + number;
 				break;
 			case NOTEQUAL: 
-				result = "- and\n  - minExclusive " + number + "\n  - maxExclusive " + number;
+				result = "- or\n  - minExclusive " + number + "\n  - maxExclusive " + number;
 				break;
 			}
 			return indent(result);
@@ -338,7 +338,7 @@ public abstract class ConstraintRuleObject {
 		
 		public ListComparisonRuleObject(EList<String> vals, Boolean b) {
 			values = vals;
-			negate = !b;
+			negate = b;
 		}
 		
 		String getStringRepresentation() {
@@ -356,7 +356,10 @@ public abstract class ConstraintRuleObject {
 		}
 		
 		void addConstraintRuleTo (Rule rule) {
-			rule.setIn(values);
+			if (negate)
+				rule.setNot(getListWith(new Rule().withIn(values)));
+			else
+				rule.setIn(values);
 		}
 		
 		Boolean invert() {
@@ -423,7 +426,7 @@ public abstract class ConstraintRuleObject {
 				case NOTEQUAL: {
 					String result = "- minLength " + (length-1);
 					result += "\n- maxLength " + (length+1);
-					return indent("-or\n" + indent(result));
+					return indent("- or\n" + indent(result));
 				}
 			}
 			throw new InvalidityException("no valid ComparisonOperator for StringLength Constraint");

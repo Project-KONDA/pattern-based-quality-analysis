@@ -106,12 +106,12 @@ public class ConstraintObject {
 			schema.addField(field);
 		}
 		
-		DataElement field1 = new DataElement(fieldNodes[0].getName().replace(" ", "_"), fieldPath);
-		
 		Rule constraintrule = new Rule();
-		field1.addRule(constraintrule);
-		
 		rule.addConstraintRuleTo(constraintrule);
+		DataElement field1 = new DataElement(fieldNodes[0].getName().replace(" ", "_"), fieldPath);
+		field1.addRule(constraintrule);
+		schema.addField(field1);
+		
 		return schema;
 	}
 	
@@ -219,13 +219,13 @@ public class ConstraintObject {
 //			"pattern" <regex>
 //			"minWords", "maxWords"
 			Match match = (Match) op;
-			rule = new PatternRuleObject( match.getRegularExpression().getValue(), match.getOption().getValue() );
+			rule = new PatternRuleObject( match.getRegularExpression().getValue(), !match.getOption().getValue() );
 			
 		} else if (op instanceof Contains) {
 //			contains
 			Contains contains = (Contains) op;
 			String containsAsRegex = ".*" + java.util.regex.Pattern.quote(contains.getContent().getValue()) + ".*";
-			rule = new PatternRuleObject(containsAsRegex, contains.getOption().getValue());
+			rule = new PatternRuleObject(containsAsRegex, !contains.getOption().getValue());
 			
 		} else if (op instanceof StringLength) {
 //			"minLength" , "maxLength"

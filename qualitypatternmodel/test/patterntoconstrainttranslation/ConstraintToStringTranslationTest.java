@@ -99,7 +99,7 @@ public class ConstraintToStringTranslationTest {
 
 	public static CompletePattern simpleMatchPattern(Boolean negate) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		completePattern.setDescription("Simple Match, negated:" + negate);
+		completePattern.setDescription("Simple Match, negated:" + !negate);
 		QuantifiedCondition cond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		completePattern.setCondition(cond);
 		Graph g = cond.getGraph();
@@ -241,7 +241,7 @@ public class ConstraintToStringTranslationTest {
 
 	static CompletePattern simpleListPattern(boolean negate) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		completePattern.setDescription("Simple Value Comparison " + (negate? "notequal":"equal") + " to \"value\"");
+		completePattern.setDescription("Simple List Comparison: " + (negate? "is NOT in":"is in") + " the list [value1, value2, value3]");
 		QuantifiedCondition cond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		completePattern.setCondition(cond);
 		Graph g = cond.getGraph();
@@ -433,7 +433,7 @@ public class ConstraintToStringTranslationTest {
 		XmlPathParamImpl p2 = (XmlPathParamImpl) params.get(2);
 		XmlPathParamImpl p3 = (XmlPathParamImpl) params.get(3);
 		
-		p0.setValue(false); // negate match?
+		p0.setValue(true);
 		p1.setValue(".*"); // regex pattern
 		p2.setValueFromString(RECORD_PATH); // path to record
 		p3.setValueFromString(FIELD_PATH); // path record to field
@@ -469,7 +469,7 @@ public class ConstraintToStringTranslationTest {
 		XmlPathParamImpl p2 = (XmlPathParamImpl) params.get(2);
 		XmlPathParamImpl p3 = (XmlPathParamImpl) params.get(3);
 		
-		p0.setValue(false); // negate match?
+		p0.setValue(true);
 		p1.setValue(".*"); // regex pattern
 		p2.setValueFromString(RECORD_PATH); // path to record
 		p3.setValueFromString(FIELD_PATH); // path record to field
