@@ -55,37 +55,36 @@ public abstract class ConstraintRuleObject {
 	// TRANSLATION CLASSES 
 	
 	public static class FormulaConstraintRuleObject extends ConstraintRuleObject {
-		public LogicalOperator op;
-		public ConstraintRuleObject argument1;
-		public ConstraintRuleObject argument2;
+		public LogicalOperator operator;
+		public List<ConstraintRuleObject> arguments;
 		
-		FormulaConstraintRuleObject(LogicalOperator o, ConstraintRuleObject arg1, ConstraintRuleObject arg2) throws InvalidityException {
-			if (arg1 == null)
+		FormulaConstraintRuleObject(LogicalOperator op, List<ConstraintRuleObject> args) throws InvalidityException {
+			if (args.isEmpty() || args.size()<2 || args.contains(null))
 				throw new InvalidityException();
-			if (arg2 == null)
+			if (op != LogicalOperator.AND && op != LogicalOperator.OR && args.size() != 2)
 				throw new InvalidityException();
-			op = o;
-			argument1 = arg1;
-			argument2 = arg2;
+			
+			operator = op;
+			arguments = args;
 		}
 		
 		String getStringRepresentation() throws InvalidityException {
-			String arg1 = "", arg2 = "";
-			if (argument1 != null)
-				arg1 = argument1.getStringRepresentation();
-			if (argument2 != null)
-				arg2 = argument2.getStringRepresentation();
-			
+			String arg1 = arguments.get(0).getStringRepresentation();
+			String arg2 = arguments.get(1).getStringRepresentation();
 			String result = "";
-			switch(op) {
+			switch(operator) {
 			case AND:
-				result = "- and\n" + arg1 + "\n" + arg2;
+				result = "- and";
+				for (ConstraintRuleObject arg: arguments)
+					result += "\n" + arg.getStringRepresentation();
 				break;
 			case OR:
-				result = "- or\n" + arg1 + "\n" + arg2;
+				result = "- or";
+				for (ConstraintRuleObject arg: arguments)
+					result += "\n" + arg.getStringRepresentation();
 				break;
 			case IMPLIES:
-				result = "- or\n" + arg1 + "\n" + indent("- not\n" + arg2);
+				result = "- or\n" + arguments.get(0).getStringRepresentation() + "\n" + indent("- not\n" + arguments.get(1).getStringRepresentation());
 				break;
 			case XOR:
 				String s1 = "- and\n" + arg1 + "\n" + indent("- not\n" + arg2);
@@ -102,36 +101,36 @@ public abstract class ConstraintRuleObject {
 		}
 		
 		void addConstraintRuleTo (Rule rule) {
-			Rule arg1 = new Rule();
-			Rule arg2 = new Rule();
-			argument1.addConstraintRuleTo(arg1);
-			argument2.addConstraintRuleTo(arg2);
-			switch(op) {
+			List<Rule> rulelist = new BasicEList<Rule>();
+			for (ConstraintRuleObject arg: arguments) {
+				Rule r = new Rule();
+				arg.addConstraintRuleTo(r);
+				rulelist.add(r);
+			}
+			
+			
+			switch(operator) {
 			case AND:
-				rule.setAnd(new BasicEList<Rule>());
-				rule.getAnd().add(arg1);
-				rule.getAnd().add(arg2);
+				rule.setAnd(rulelist);
 				return;
 			case OR:
-				rule.setOr(new BasicEList<Rule>());
-				rule.getOr().add(arg1);
-				rule.getOr().add(arg2);
+				rule.setOr(rulelist);
 				return;
 			case IMPLIES:
 				rule.setOr(new BasicEList<Rule>());
-				rule.getOr().add(new Rule().withNot(getListWith(arg1)));
-				rule.getOr().add(arg2);
+				rule.getOr().add(new Rule().withNot(getListWith(rulelist.get(0))));
+				rule.getOr().add(rulelist.get(1));
 				return;
 			case XOR:
 				Rule impliesand1 = new Rule();
 				impliesand1.setAnd(new BasicEList<Rule>());
-				impliesand1.getAnd().add(arg1);
-				impliesand1.getAnd().add(new Rule().withNot(getListWith(arg2)));
+				impliesand1.getAnd().add(rulelist.get(0));
+				impliesand1.getAnd().add(new Rule().withNot(getListWith(rulelist.get(1))));
 				
 				Rule impliesand2 = new Rule();
 				impliesand2.setAnd(new BasicEList<Rule>());
-				impliesand2.getAnd().add(new Rule().withNot(getListWith(arg1)));
-				impliesand2.getAnd().add(arg2);
+				impliesand2.getAnd().add(new Rule().withNot(getListWith(rulelist.get(0))));
+				impliesand2.getAnd().add(rulelist.get(1));
 
 				rule.setOr(new BasicEList<Rule>());
 				rule.getOr().add(impliesand1);
@@ -141,13 +140,13 @@ public abstract class ConstraintRuleObject {
 			case EQUAL:
 				Rule equaland1 = new Rule();
 				equaland1.setAnd(new BasicEList<Rule>());
-				equaland1.getAnd().add(arg1);
-				equaland1.getAnd().add(arg2);
+				equaland1.getAnd().add(rulelist.get(0));
+				equaland1.getAnd().add(rulelist.get(1));
 				
 				Rule equaland2 = new Rule();
 				equaland2.setAnd(new BasicEList<Rule>());
-				equaland2.getAnd().add(new Rule().withNot(getListWith(arg1)));
-				equaland2.getAnd().add(new Rule().withNot(getListWith(arg2)));
+				equaland2.getAnd().add(new Rule().withNot(getListWith(rulelist.get(0))));
+				equaland2.getAnd().add(new Rule().withNot(getListWith(rulelist.get(1))));
 
 				rule.setOr(new BasicEList<Rule>());
 				rule.getOr().add(equaland1);
@@ -159,43 +158,37 @@ public abstract class ConstraintRuleObject {
 		
 		EList<Pair<String, String>> getAllFields() {
 			EList<Pair<String, String>> fields = new BasicEList<Pair<String, String>>();
-
-			EList<Pair<String, String>> list = argument1.getAllFields();
-			if (list != null)
-				fields.addAll(list);
-			list = argument2.getAllFields();
-			if (list != null)
-				fields.addAll(list);
+			for (ConstraintRuleObject arg: arguments) {
+				EList<Pair<String, String>> list = arg.getAllFields();
+				if (list != null)
+					fields.addAll(list);
+			}
 			return fields;
 		}
 		
 		Boolean invert() {
-			switch(op) {
+			switch(operator) {
 			case AND:
-				argument1 = argument1.realInvert();
-				argument2 = argument2.realInvert();
-				op = LogicalOperator.OR;
-				return true;
-				
 			case OR:
-				argument1 = argument1.realInvert();
-				argument2 = argument2.realInvert();
-				op = LogicalOperator.AND;
+				if (arguments.size() != 2)
+					return false;
+				arguments.set(0, arguments.get(0).realInvert());
+				arguments.set(1, arguments.get(1).realInvert());
+				operator = (operator == LogicalOperator.AND) ? LogicalOperator.OR : LogicalOperator.AND;
 				return true;
 			case IMPLIES:
-				argument2 = argument2.realInvert();
-				op = LogicalOperator.AND;
+				arguments.set(1, arguments.get(1).realInvert());
+				operator = LogicalOperator.AND;
 				return true;
 			case XOR:
-				op = LogicalOperator.EQUAL;
+				operator = LogicalOperator.EQUAL;
 				return true;
 			case EQUAL:
-				op = LogicalOperator.XOR;
+				operator = LogicalOperator.XOR;
 				return true;
 			}
 			return false;
 		}
-		
 	}
 	
 	public static class NotConstraintRuleObject extends ConstraintRuleObject {

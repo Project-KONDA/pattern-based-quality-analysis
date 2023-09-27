@@ -1,5 +1,7 @@
 package qualitypatternmodel.constrainttranslation;
 
+import java.util.List;
+
 import org.basex.util.Pair;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -125,9 +127,10 @@ public class ConstraintObject {
 		
 		if (condition instanceof Formula) {
 			Formula formula = (Formula) condition;
-			ConstraintRuleObject arg1 = transformCondition(formula.getCondition1(), recordNode, fieldNodes2);
-			ConstraintRuleObject arg2 = transformCondition(formula.getCondition2(), recordNode, fieldNodes2);
-			FormulaConstraintRuleObject frule = new FormulaConstraintRuleObject(formula.getOperator(), arg1, arg2);
+			List<ConstraintRuleObject> ruleobjectlist = new BasicEList<ConstraintRuleObject>();
+			ruleobjectlist.add(transformCondition(formula.getCondition1(), recordNode, fieldNodes2));
+			ruleobjectlist.add(transformCondition(formula.getCondition2(), recordNode, fieldNodes2));
+			FormulaConstraintRuleObject frule = new FormulaConstraintRuleObject(formula.getOperator(), ruleobjectlist);
 			return frule;
 		} else if (condition instanceof NotCondition) {
 			NotCondition notc = (NotCondition) condition;
@@ -313,23 +316,9 @@ public class ConstraintObject {
 			ConstraintRuleObject rule = transformOperator(o, field);
 			rules.add(rule);
 		}
-		ConstraintRuleObject result = combineWithAnd(rules);
-		return result;
-	}
+		ConstraintRuleObject result = new FormulaConstraintRuleObject(LogicalOperator.AND, rules);
 
-	static ConstraintRuleObject combineWithAnd (EList<ConstraintRuleObject> rules) throws InvalidityException {
-		if (rules.size() == 1)
-			return rules.get(0);
-		else if (rules.size() > 1) {
-			ConstraintRuleObject rule1 = rules.get(0);
-			EList<ConstraintRuleObject> newrules = new BasicEList<ConstraintRuleObject>();
-			for (int i = 1; i<rules.size(); i++)
-				newrules.add(rules.get(i));
-			ConstraintRuleObject argument2 = combineWithAnd(newrules);
-			FormulaConstraintRuleObject and = new FormulaConstraintRuleObject(LogicalOperator.AND, rule1, argument2);
-			return and;
-		}
-		else throw new InvalidityException();
+		return result;
 	}
 }
 
