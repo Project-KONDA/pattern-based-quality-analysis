@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
+import de.gwdg.metadataqa.api.schema.BaseSchema;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -207,6 +208,13 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	private EDataType missingPatternContainerExceptionEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType baseSchemaWrapperEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -741,6 +749,26 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	@Override
 	public EOperation getCompletePattern__GenerateWikidataSparql() {
 		return completePatternEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getCompletePattern__GenerateXmlConstraintSchema() {
+		return completePatternEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getCompletePattern__GenerateXmlConstraintYAMLFile__String() {
+		return completePatternEClass.getEOperations().get(8);
 	}
 
 	/**
@@ -1339,6 +1367,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EDataType getBaseSchemaWrapper() {
+		return baseSchemaWrapperEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public PatternstructureFactory getPatternstructureFactory() {
 		return (PatternstructureFactory)getEFactoryInstance();
 	}
@@ -1410,6 +1448,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___RESET_QUERY);
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___GENERATE_CYPHER_RETURN);
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___GENERATE_WIKIDATA_SPARQL);
+		createEOperation(completePatternEClass, COMPLETE_PATTERN___GENERATE_XML_CONSTRAINT_SCHEMA);
+		createEOperation(completePatternEClass, COMPLETE_PATTERN___GENERATE_XML_CONSTRAINT_YAML_FILE__STRING);
 
 		patternElementEClass = createEClass(PATTERN_ELEMENT);
 		createEAttribute(patternElementEClass, PATTERN_ELEMENT__ID);
@@ -1481,6 +1521,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		invalidityExceptionWrapperEDataType = createEDataType(INVALIDITY_EXCEPTION_WRAPPER);
 		classWrapperEDataType = createEDataType(CLASS_WRAPPER);
 		missingPatternContainerExceptionEDataType = createEDataType(MISSING_PATTERN_CONTAINER_EXCEPTION);
+		baseSchemaWrapperEDataType = createEDataType(BASE_SCHEMA_WRAPPER);
 	}
 
 	/**
@@ -1603,6 +1644,14 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 
 		op = initEOperation(getCompletePattern__GenerateWikidataSparql(), ecorePackage.getEString(), "generateWikidataSparql", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getCompletePattern__GenerateXmlConstraintSchema(), this.getBaseSchemaWrapper(), "generateXmlConstraintSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getCompletePattern__GenerateXmlConstraintYAMLFile__String(), null, "generateXmlConstraintYAMLFile", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "path", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getInvalidityExceptionWrapper());
+		addEException(op, theExecutionPackage.getIoExceptionWrapper());
 
 		initEClass(patternElementEClass, PatternElement.class, "PatternElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPatternElement_Id(), ecorePackage.getEString(), "id", null, 1, 1, PatternElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1760,6 +1809,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEDataType(invalidityExceptionWrapperEDataType, InvalidityException.class, "InvalidityExceptionWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(classWrapperEDataType, Class.class, "ClassWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(missingPatternContainerExceptionEDataType, MissingPatternContainerException.class, "MissingPatternContainerException", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(baseSchemaWrapperEDataType, BaseSchema.class, "BaseSchemaWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

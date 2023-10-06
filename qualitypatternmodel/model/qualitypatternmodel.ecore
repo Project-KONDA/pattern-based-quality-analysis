@@ -597,6 +597,11 @@
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="generateWikidataSparql" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="generateXmlConstraintSchema" eType="#//patternstructure/BaseSchemaWrapper"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="generateXmlConstraintYAMLFile" eExceptions="#//patternstructure/InvalidityExceptionWrapper #//execution/IoExceptionWrapper">
+        <eParameters name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameterList" lowerBound="1"
           eType="#//parameters/ParameterList" containment="true" eOpposite="#//parameters/ParameterList/pattern"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -746,6 +751,7 @@
       <eLiterals name="RDF" value="2"/>
       <eLiterals name="NEO4J" value="3"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="BaseSchemaWrapper" instanceClassName="de.gwdg.metadataqa.api.schema.BaseSchema"/>
   </eSubpackages>
   <eSubpackages name="adaptionxml" nsURI="adaptionxml" nsPrefix="adaptionxml">
     <eClassifiers xsi:type="ecore:EClass" name="XmlElement" eSuperTypes="#//graphstructure/ComplexNode #//adaptionxml/XmlNode">

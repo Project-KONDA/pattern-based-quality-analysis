@@ -21,6 +21,8 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#resetQuery() <em>Reset Query</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#generateCypherReturn() <em>Generate Cypher Return</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#generateWikidataSparql() <em>Generate Wikidata Sparql</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#generateXmlConstraintSchema() <em>Generate Xml Constraint Schema</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#generateXmlConstraintYAMLFile(java.lang.String) <em>Generate Xml Constraint YAML File</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -165,6 +167,32 @@ public class CompletePatternTest extends PatternTest {
 	 * @generated
 	 */
 	public void testGenerateWikidataSparql() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.CompletePattern#generateXmlConstraintSchema() <em>Generate Xml Constraint Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#generateXmlConstraintSchema()
+	 * @generated
+	 */
+	public void testGenerateXmlConstraintSchema() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.CompletePattern#generateXmlConstraintYAMLFile(java.lang.String) <em>Generate Xml Constraint YAML File</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#generateXmlConstraintYAMLFile(java.lang.String)
+	 * @generated
+	 */
+	public void testGenerateXmlConstraintYAMLFile__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

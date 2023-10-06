@@ -462,6 +462,7 @@
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//patternstructure/InvalidityExceptionWrapper"/>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//patternstructure/ClassWrapper"/>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//patternstructure/MissingPatternContainerException"/>
+      <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//patternstructure/BaseSchemaWrapper"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/quantifier"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/graph"/>
@@ -514,6 +515,10 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/resetQuery"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/generateCypherReturn"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/generateWikidataSparql"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/generateXmlConstraintSchema"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/generateXmlConstraintYAMLFile">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/CompletePattern/generateXmlConstraintYAMLFile/path"/>
+        </genOperations>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//patternstructure/PatternElement">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/PatternElement/id"/>

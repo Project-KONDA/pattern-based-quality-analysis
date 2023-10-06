@@ -2714,13 +2714,31 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___GENERATE_WIKIDATA_SPARQL = PATTERN_OPERATION_COUNT + 6;
 
 	/**
+	 * The operation id for the '<em>Generate Xml Constraint Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___GENERATE_XML_CONSTRAINT_SCHEMA = PATTERN_OPERATION_COUNT + 7;
+
+	/**
+	 * The operation id for the '<em>Generate Xml Constraint YAML File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___GENERATE_XML_CONSTRAINT_YAML_FILE__STRING = PATTERN_OPERATION_COUNT + 8;
+
+	/**
 	 * The number of operations of the '<em>Complete Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 7;
+	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.NotConditionImpl <em>Not Condition</em>}' class.
@@ -4653,6 +4671,16 @@ public interface PatternstructurePackage extends EPackage {
 	int MISSING_PATTERN_CONTAINER_EXCEPTION = 20;
 
 	/**
+	 * The meta object id for the '<em>Base Schema Wrapper</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.gwdg.metadataqa.api.schema.BaseSchema
+	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getBaseSchemaWrapper()
+	 * @generated
+	 */
+	int BASE_SCHEMA_WRAPPER = 21;
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.QuantifiedCondition <em>Quantified Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5108,6 +5136,26 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getCompletePattern__GenerateWikidataSparql();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#generateXmlConstraintSchema() <em>Generate Xml Constraint Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Xml Constraint Schema</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#generateXmlConstraintSchema()
+	 * @generated
+	 */
+	EOperation getCompletePattern__GenerateXmlConstraintSchema();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#generateXmlConstraintYAMLFile(java.lang.String) <em>Generate Xml Constraint YAML File</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Xml Constraint YAML File</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#generateXmlConstraintYAMLFile(java.lang.String)
+	 * @generated
+	 */
+	EOperation getCompletePattern__GenerateXmlConstraintYAMLFile__String();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.PatternElement <em>Pattern Element</em>}'.
@@ -5717,6 +5765,17 @@ public interface PatternstructurePackage extends EPackage {
 	EDataType getMissingPatternContainerException();
 
 	/**
+	 * Returns the meta object for data type '{@link de.gwdg.metadataqa.api.schema.BaseSchema <em>Base Schema Wrapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Base Schema Wrapper</em>'.
+	 * @see de.gwdg.metadataqa.api.schema.BaseSchema
+	 * @model instanceClass="de.gwdg.metadataqa.api.schema.BaseSchema"
+	 * @generated
+	 */
+	EDataType getBaseSchemaWrapper();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6094,6 +6153,22 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation COMPLETE_PATTERN___GENERATE_WIKIDATA_SPARQL = eINSTANCE.getCompletePattern__GenerateWikidataSparql();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Xml Constraint Schema</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPLETE_PATTERN___GENERATE_XML_CONSTRAINT_SCHEMA = eINSTANCE.getCompletePattern__GenerateXmlConstraintSchema();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Xml Constraint YAML File</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPLETE_PATTERN___GENERATE_XML_CONSTRAINT_YAML_FILE__STRING = eINSTANCE.getCompletePattern__GenerateXmlConstraintYAMLFile__String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.PatternElementImpl <em>Pattern Element</em>}' class.
@@ -6596,6 +6671,16 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EDataType MISSING_PATTERN_CONTAINER_EXCEPTION = eINSTANCE.getMissingPatternContainerException();
+
+		/**
+		 * The meta object literal for the '<em>Base Schema Wrapper</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.gwdg.metadataqa.api.schema.BaseSchema
+		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getBaseSchemaWrapper()
+		 * @generated
+		 */
+		EDataType BASE_SCHEMA_WRAPPER = eINSTANCE.getBaseSchemaWrapper();
 
 	}
 
