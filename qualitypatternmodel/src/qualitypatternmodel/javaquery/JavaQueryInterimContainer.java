@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JavaQueryInterimContainer {
-	
 	List<InterimResultContainer> results;
+	List<InterimResultContainer> rejected;
 	InterimResultContainer currentResult;
 	
 	public JavaQueryInterimContainer() {
 		results = new ArrayList<InterimResultContainer>();
+		rejected = new ArrayList<InterimResultContainer>();
 	}
 
 	public List<String> getResults(){
@@ -29,6 +30,29 @@ public class JavaQueryInterimContainer {
 			currentResult = null;
 		} else {
 			currentResult.streamNext(item);
+		}
+	}
+
+
+	/**
+	 * @param argumentList identifier of parameters from InterimResultContainer.parameter
+	 * @param every: when having multiple instances per parameter: does every instance have to fulfill the 
+	 * @param function: analysis function (string -> boolean). shall return true if 
+	 */
+	public void filter (List<Object> argumentList, Boolean every, Object function) {
+		List<InterimResultContainer> interimResults = results;
+		results = new ArrayList<InterimResultContainer>();
+		
+		for (InterimResultContainer irc: interimResults) {
+			
+			Boolean functioncall = true;
+//				((Callable) function).call(); TODO
+			
+			if (functioncall) {
+				results.add(irc);
+			} else {
+				rejected.add(irc);
+			}
 		}
 	}
 	
@@ -75,6 +99,10 @@ public class JavaQueryInterimContainer {
 		
 		public String getResult() {
 			return result.get(0);
+		}
+		
+		public List<String> getArgument(Integer i) {
+			return parameter.get(i);
 		}
 		
 		@Override
