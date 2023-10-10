@@ -88,7 +88,7 @@ public class ConstraintObject {
 					"\n  path: " + fieldpair.value() + "\n";
 		}
 		
-		result += "- field: " + fieldNodes[0].getName() + "\n";
+		result += "- field: " + fieldNodes[0].getName().replace(" ", "_") + "\n";
 		result += "  path: " + fieldPath + "\n";
 		result += "  rules:\n" + rule.getStringRepresentation();
 		

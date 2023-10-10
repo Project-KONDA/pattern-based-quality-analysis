@@ -179,10 +179,12 @@ public abstract class ConstraintRuleObject {
 			case OR:
 				if (arguments.size() != 2)
 					return false;
-				arguments.set(0, arguments.get(0).realInvert());
-				arguments.set(1, arguments.get(1).realInvert());
-				operator = (operator == LogicalOperator.AND) ? LogicalOperator.OR : LogicalOperator.AND;
-				return true;
+				else {
+					arguments.set(0, arguments.get(0).realInvert());
+					arguments.set(1, arguments.get(1).realInvert());
+					operator = (operator == LogicalOperator.AND) ? LogicalOperator.OR : LogicalOperator.AND;
+					return true;
+				}
 			case IMPLIES:
 				arguments.set(1, arguments.get(1).realInvert());
 				operator = LogicalOperator.AND;
