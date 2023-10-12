@@ -15,7 +15,7 @@
 			<demo:country>USA</demo:country>
 		</demo:address>
 		<demo:source>https://en.wikipedia.org/wiki/Empire_State_Building</demo:source>
-		<demo:source>https://en.wikipedia.org/wiki/Empire_State_Building-invalidlink</demo:source>
+		<demo:source>https://en.wikinotpedia.org/wiki/Empire_State_Building-invalidlink</demo:source>
 		<demo:source>https://en.wikipedia.org/wiki/Empire_State_Building</demo:source>
 	</demo:building>	
 	

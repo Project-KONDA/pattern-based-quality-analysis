@@ -12,20 +12,18 @@ public class BaseXJavaQueryInterimContainer extends JavaQueryInterimContainer {
 	
 	public BaseXJavaQueryInterimContainer(String databasename, String datapath, String query) {
 		results = new ArrayList<InterimResultContainer>();
-
 		Context context = new Context();
 		try {
 			new CreateDB(databasename, datapath).execute(context);
-			JavaQueryInterimContainer container = new JavaQueryInterimContainer();
 	
 			try (QueryProcessor proc = new QueryProcessor(query, context)) {
 				Iter iter = proc.iter();
 				for (Item item; (item = iter.next()) != null;) {
-					container.streamNext(item.serialize().toString());
+					streamNext(item.serialize().toString());
 				}
-				System.out.println(container.toString());
-	
 			} 
+			context.closeDB();
+			context.close();
 		} catch (Exception e) { // QueryIOException  QueryException BaseXException
 			e.printStackTrace();
 		}
