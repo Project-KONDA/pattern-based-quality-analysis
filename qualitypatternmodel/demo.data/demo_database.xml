@@ -108,13 +108,15 @@
 		<demo:name>Vincent van Gogh</demo:name>
 		<demo:birthyear>1853</demo:birthyear>
 		<demo:deathyear>1890</demo:deathyear>		
+		<demo:source>https://invalid.link/</demo:source>
 	</demo:artist>
 	
 	<demo:artist demo:id="402">
 		<demo:name>Leonardo Da Vinci</demo:name>
 		<demo:birthyear>1452</demo:birthyear>
 		<demo:birthyear>1453</demo:birthyear>
-		<demo:deathyear>1519</demo:deathyear>		
+		<demo:deathyear>1519</demo:deathyear>
+		<demo:source>https://en.wikipedia.org/wiki/Leonardo_da_Vinci</demo:source>
 	</demo:artist>
 	
 </demo:data>

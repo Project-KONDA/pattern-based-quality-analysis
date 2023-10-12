@@ -3,11 +3,7 @@ package javaquerytests;
 import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_DATABASE_NAME;
 import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_DATA_PATH;
 
-import java.util.List;
-
 import qualitypatternmodel.javaquery.BaseXJavaQueryInterimContainer;
-import qualitypatternmodel.javaquery.EverySomeNoneQuantifier;
-import qualitypatternmodel.javaquery.FilterFunctionContainer;
 import qualitypatternmodel.javaquery.JavaQueryInterimContainer;
 
 public class javaquery_playground {
@@ -16,22 +12,12 @@ public class javaquery_playground {
 			+ "let $source := $var/*[name() = \"demo:source\"]/data()\r\n" + "return (" + "\"<result>\""
 			+ ", \"<record>\", $var, \"</record>\"" + ", \"<arg1>\", $source, \"</arg1>\"" + ", \"</result>\"" + ")";
 
-	private static Boolean exampleFilter(String str) {
-		Boolean result = str.contains("wikipedia");
-		return result;
-	}
-
 	public static void main(String[] args) {
 
 		System.out.println();
 		JavaQueryInterimContainer myJavaResult = new BaseXJavaQueryInterimContainer(DEMO_DATABASE_NAME, DEMO_DATA_PATH,
 				QUERY);
-		System.out.println("unfiltered: " + myJavaResult.size());
-		
-		System.out.println("Result:");
-		JavaQueryInterimContainer myJavaResult = new BaseXJavaQueryInterimContainer(DEMO_DATABASE_NAME, DEMO_DATA_PATH, query);
 		System.out.println(myJavaResult.toString());
-		
+		System.out.println("amount: " + myJavaResult.size());
 	}
-
 }
