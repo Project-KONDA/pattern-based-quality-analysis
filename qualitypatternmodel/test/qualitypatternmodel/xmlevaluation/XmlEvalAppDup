@@ -1,0 +1,9 @@
+for $var7_0 in /child::*/child::*/child::*[./@Type="wer"]
+for $var8_0 in /child::*/child::*/child::*[./@Type="wer"][not ( fn:deep-equal ( $var7_0, . ))]
+where (true())
+return ($var7_0, $var8_0)
+
+for $var7_0 in /descendant::*[./name()="wer"]
+for $var8_0 in /descendant::*[./name()="wer"][not ( fn:deep-equal ( $var7_0, . ))]
+where (true())
+return ($var7_0, $var8_0)

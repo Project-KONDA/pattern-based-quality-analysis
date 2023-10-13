@@ -32,7 +32,6 @@ public abstract class ConstraintRuleObject {
 		return "  " + s.replace("\n", "\n  ");
 	}
 
-	
 	public ConstraintRuleObject realInvert() {
 		if (this.invert())
 			return this;
@@ -88,26 +87,26 @@ public abstract class ConstraintRuleObject {
 			String result = "";
 			switch(operator) {
 			case AND:
-				result = "- and";
+				result = "- and:";
 				for (ConstraintRuleObject arg: arguments)
 					result += "\n" + arg.getStringRepresentation();
 				break;
 			case OR:
-				result = "- or";
+				result = "- or:";
 				for (ConstraintRuleObject arg: arguments)
 					result += "\n" + arg.getStringRepresentation();
 				break;
 			case IMPLIES:
-				result = "- or\n" + getArgString(0) + "\n" + indent("- not\n" + getArgString(1));
+				result = "- or:\n" + getArgString(0) + "\n" + indent("- not:\n" + getArgString(1));
 				break;
 			case XOR:
-				String s1 = "- and\n" + getArgString(0) + "\n" + indent("- not\n" + getArgString(1));
-				String s2 = "- and\n"+ indent("- not\n" + getArgString(0)) + "\n" + getArgString(1);
+				String s1 = "- and:\n" + getArgString(0) + "\n" + indent("- not:\n" + getArgString(1));
+				String s2 = "- and:\n"+ indent("- not:\n" + getArgString(0)) + "\n" + getArgString(1);
 				result = "- or\n" + s1 + "\n" + s2;
 				break;
 			case EQUAL:
-				String s3 = "- and\n" + getArgString(0) + "\n" + getArgString(1);
-				String s4 = "- and\n"+ indent("- not\n" + getArgString(1)) + "\n" + indent("- not\n" + getArgString(1));
+				String s3 = "- and:\n" + getArgString(0) + "\n" + getArgString(1);
+				String s4 = "- and:\n"+ indent("- not:\n" + getArgString(1)) + "\n" + indent("- not:\n" + getArgString(1));
 				result = "- or\n" + s3 + "\n" + s4;
 				break;
 			}
@@ -212,8 +211,8 @@ public abstract class ConstraintRuleObject {
 				String result = arg.getStringRepresentation();
 				arg.invert();
 				return result;
-			}
-			return indent("- not\n" + arg.getStringRepresentation()); 
+			} else 
+				return indent("- not:\n" + arg.getStringRepresentation()); 
 		}
 		
 		void addConstraintRuleTo (Rule rule) {
@@ -247,9 +246,9 @@ public abstract class ConstraintRuleObject {
 		}
 		
 		String getStringRepresentation() {
-			String res = "- hasValue \"" + value + "\"";
+			String res = "- hasValue: \"" + value + "\"";
 			if (operator == ComparisonOperator.NOTEQUAL)
-				res = "- not\n" + indent(res);
+				res = "- not:\n" + indent(res);
 			return indent(res);
 		}
 		
@@ -280,22 +279,22 @@ public abstract class ConstraintRuleObject {
 			String result = "";
 			switch(operator) {
 			case EQUAL: 
-				result = "- and\n  - minInclusive " + number + "\n  - maxInclusive " + number;
+				result = "- and:\n  - minInclusive: " + number + "\n  - maxInclusive: " + number;
 				break;
 			case GREATER: 
-				result = "- minExclusive " + number;
+				result = "- minExclusive: " + number;
 				break;
 			case LESS: 
-				result = "- maxExclusive " + number;
+				result = "- maxExclusive: " + number;
 				break;
 			case GREATEROREQUAL: 
-				result = "- minInclusive " + number;
+				result = "- minInclusive: " + number;
 				break;
 			case LESSOREQUAL: 
-				result = "- maxInclusive " + number;
+				result = "- maxInclusive: " + number;
 				break;
 			case NOTEQUAL: 
-				result = "- or\n  - minExclusive " + number + "\n  - maxExclusive " + number;
+				result = "- or:\n  - minExclusive: " + number + "\n  - maxExclusive: " + number;
 				break;
 			}
 			return indent(result);
@@ -353,7 +352,7 @@ public abstract class ConstraintRuleObject {
 			String result = "- in: ["; 
 			result = result + listing + "]";
 			if (negate)
-				result = "- not\n" + indent(result);
+				result = "- not:\n" + indent(result);
 			return indent(result);
 		}
 		
@@ -380,9 +379,9 @@ public abstract class ConstraintRuleObject {
 		}
 		
 		String getStringRepresentation() {
-			String result = "- pattern " + regularExpression;
+			String result = "- pattern: " + regularExpression;
 			if (negate)
-				result = "- not\n" + indent(result);
+				result = "- not:\n" + indent(result);
 			return indent(result);
 		}
 		
@@ -413,22 +412,22 @@ public abstract class ConstraintRuleObject {
 		String getStringRepresentation() throws InvalidityException {
 			switch(operator) {
 				case EQUAL:{
-					String result = "- minLength " + length;
-					result += "\n- maxLength " + length;
-					return indent("- and\n" + indent(result));
+					String result = "- minLength: " + length;
+					result += "\n- maxLength: " + length;
+					return indent("- and:\n" + indent(result));
 				}
 				case GREATER:
-					return indent("- minLength " + (length + 1));
+					return indent("- minLength: " + (length + 1));
 				case LESS: 
-					return indent("- maxLength " + (length - 1));
+					return indent("- maxLength: " + (length - 1));
 				case GREATEROREQUAL: 
-					return indent("- minLength " + length);
+					return indent("- minLength: " + length);
 				case LESSOREQUAL: 
-					return indent("- maxLength " + length);
+					return indent("- maxLength: " + length);
 				case NOTEQUAL: {
-					String result = "- minLength " + (length-1);
-					result += "\n- maxLength " + (length+1);
-					return indent("- or\n" + indent(result));
+					String result = "- minLength: " + (length-1);
+					result += "\n- maxLength: " + (length+1);
+					return indent("- or:\n" + indent(result));
 				}
 			}
 			throw new InvalidityException("no valid ComparisonOperator for StringLength Constraint");
@@ -484,20 +483,20 @@ public abstract class ConstraintRuleObject {
 			String result = "- ";
 			switch(operator) {
 			case EQUAL:
-				result += "equals";
+				result += "equals:";
 				break;
 			case GREATER:
-				result += "not\n  - ";
+				result += "not:\n  - ";
 			case LESSOREQUAL:
-				result += "lessThanOrEquals";
+				result += "lessThanOrEquals:";
 				break;
 			case GREATEROREQUAL:
-				result += "not\n  - ";
+				result += "not:\n  - ";
 			case LESS:
-				result += "lessThan";
+				result += "lessThan:";
 				break;
 			case NOTEQUAL:
-				result += "disjoint";
+				result += "disjoint:";
 				break;
 			}
 			
@@ -547,7 +546,7 @@ public abstract class ConstraintRuleObject {
 		}
 		
 		String getStringRepresentation() {
-			return indent("- unique " + negate);
+			return indent("- unique: " + negate);
 		}
 		
 		void addConstraintRuleTo (Rule rule) {
