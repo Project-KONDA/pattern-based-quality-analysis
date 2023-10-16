@@ -1,6 +1,7 @@
 package patterntoconstrainttranslation;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -13,7 +14,10 @@ import org.eclipse.emf.common.util.EList;
 
 import de.gwdg.metadataqa.api.calculator.CalculatorFacade;
 import de.gwdg.metadataqa.api.configuration.MeasurementConfiguration;
+import de.gwdg.metadataqa.api.configuration.schema.Rule;
+import de.gwdg.metadataqa.api.json.DataElement;
 import de.gwdg.metadataqa.api.schema.BaseSchema;
+import de.gwdg.metadataqa.api.schema.Format;
 import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -34,6 +38,7 @@ import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_XQUERY_R
 
 public class ConstraintApplicationTest {
 
+	private static boolean viaPattern = false;
 
 	public static void main(String[] args) throws Exception {
 		List<String> records = getRecords(0);
@@ -44,13 +49,36 @@ public class ConstraintApplicationTest {
 		MeasurementConfiguration config = new MeasurementConfiguration().enableCompletenessMeasurement();
 		CompletePattern pattern = getPatternSourceContainsWikipedia();
 		
-		BaseSchema schema = pattern.generateXmlConstraintSchema();
-		String content = pattern.generateXmlConstraintYAMLFileContent();
-
-		System.out.println("____\n" + content + "\n_____");
+		BaseSchema schema = new BaseSchema();
+//		namespaces.put("demo", "demo");
+		if (viaPattern) {
+			schema = pattern.generateXmlConstraintSchema();
+			
+			String content = pattern.generateXmlConstraintYAMLFileContent();
+	
+			System.out.println("____\n" + content + "\n_____");
+				
+			
+		} else {
+			schema.setFormat(Format.XML);
+			Map<String, String> namespaces = new HashMap<String,String>();
+			schema.setNamespaces(namespaces);
+			Rule containsRule = new Rule().withPattern(".*\\Qwikipedia\\E.*");
+			Rule minOccursRule = new Rule().withMinCount(1);
+			
+			DataElement sourceElement = new DataElement("source", 
+//					"/*[name() = \"demo:source\"]"
+					"/demo:source"
+					);
+			sourceElement.setExtractable();
+			sourceElement.addRule(containsRule);
+			sourceElement.addRule(minOccursRule);
+			schema.addField(sourceElement);
+		}
 		
 		CalculatorFacade calculator = new CalculatorFacade(config); // use configuration
-		calculator.setSchema(schema).configure();
+		calculator.setSchema(schema);
+		calculator.configure();
 		
 		List<Map<String, Object>> csvresults = new ArrayList<Map<String, Object>>();
 		for (String record: records)
