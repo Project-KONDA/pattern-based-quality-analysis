@@ -75,6 +75,8 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="lib/de.gwdg.metadataqa.api.jar"/>
+	<classpathentry kind="lib" path="lib/json-path-2.8.0.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-core-2.15.2.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/kiraly_metadata-qa-api"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
