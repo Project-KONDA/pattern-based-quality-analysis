@@ -1008,22 +1008,16 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 		String PROPERTY_PART_REGEX = "((data\\(\\))|(name\\(\\))|(@[A-Za-z0-9]+))";
 		if (value == "")
 			return;
-//		ArrayList<XmlAxisPart> parts = new ArrayList<XmlAxisPart>();
 		ArrayList<String> parts = new ArrayList<String>();
 		int index = indexWhereSplit(value);
 		while (index != -1) {
 			String v1 = value.substring(0, index);
 			String v2 = value.substring(index);
 			parts.add(v1);
-//			XmlAxisPart part = new XmlAxisPartImpl();
-//			parts.add(part);
-//			part.setValueFromString(v1);
-			
 			value = v2;
 			index = indexWhereSplit(value);
 		}
 
-		
 		assertTrue(value == "" || value.matches(PROPERTY_PART_REGEX));
 //		assertTrue((getXmlNavigation() instanceof XmlElementNavigation) == ( value == "" || value.matches(PROPERTY_PART_REGEX)));
 //		assertTrue((getXmlNavigation() instanceof XmlPropertyNavigation) == ( value == "" || value.matches(PROPERTY_PART_REGEX)));
@@ -1059,28 +1053,30 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 			
 			case 0: // </>
 				if (c == ' ') {
-					value = value.substring(1);
-					i -= 1;
+//					value = value.substring(1);
+//					i -= 1;
+					break;
 				}
 				else if (c == '/') {
 					stage = 1;
-				} else throw new InvalidityException("value does not start with /: \"" + value + "\" index: " + i);
-				break;
-				
-			case 1: // <axis> <::*>
-				if ( ('A' <= c && c <= 'Z') || ('a' <= c && c <= 'z')) {
 					break;
-				} else {
-					if (c == ':') {
-						if (length == i+3 && value.endsWith("::*"))
-								return i+3;
-						else if (value.length() > i+3 && value.substring(i, i+3).equals("::*")) {
-							i += 2;
+				} else throw new InvalidityException("value does not start with /: \"" + value + "\" index: " + i);
+			case 1: // <axis> <::*>
+				if (value.charAt(i) == '*') {
+					stage = 2;
+					break;
+				}
+				else {
+					String valuepart = value.substring(i);
+					for (XmlAxisKind axis: XmlAxisKind.VALUES) {
+						String literal = axis.getLiteral().substring(1);
+						if (valuepart.startsWith(literal)) {
+							i+= literal.length()-1;
 							stage = 2;
 							break;
-						}	
-						else throw new InvalidityException("no valid axis at \"" + value + "\" index: " + i + " char: " + c + " substring: " + value.substring(i, i+3));
+						}
 					}
+					break;
 				}
 				
 			case 2: // <[>
@@ -1090,7 +1086,7 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 					stage = 3;
 					break;
 				}
-				else return i; 
+				else return i;
 				
 			case 3: // <anyproperty>
 				switch (c) {
@@ -1164,10 +1160,13 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 			
 			i += 1;
 		}
-		System.out.println("no value found: " + value + " index: " + i + " ");
-		System.out.println("stage " + stage);
-		System.out.println("char " + value.charAt(i));
-		return -1;
+//		System.out.println("no value found: " + value + " index: " + i + " ");
+//		System.out.println("stage " + stage);
+//		System.out.println("char " + value.charAt(i));
+		if (stage == 2) 
+			return i;
+		else
+			return -1;
 	}
 	
 //	@Override
