@@ -728,6 +728,11 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		Files.write( Paths.get(path), content.getBytes());
 	}
 
+	@Override
+	public String generateXmlConstraintYAMLFileContent() throws InvalidityException {
+		return ConstraintTranslation.translateToConstraintString(this);
+	}
+	
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

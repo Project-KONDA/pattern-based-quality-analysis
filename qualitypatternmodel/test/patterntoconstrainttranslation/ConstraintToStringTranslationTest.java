@@ -97,6 +97,46 @@ public class ConstraintToStringTranslationTest {
 		return patterns;
 	}
 
+	@FunctionalInterface
+	public interface PatternCreationFunction {
+		CompletePattern apply() throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
+	}
+	
+	public static EList<PatternCreationFunction> getTestPatternCreationFunctionCollection() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
+		EList<PatternCreationFunction> patternCreationFunctions = new BasicEList<PatternCreationFunction>();
+
+		patternCreationFunctions.add(() -> simpleMatchPattern(false));
+		patternCreationFunctions.add(() -> simpleMatchPattern(true));
+		patternCreationFunctions.add(() -> simpleStringLengthPattern(ComparisonOperator.EQUAL));
+		patternCreationFunctions.add(() -> simpleStringLengthPattern(ComparisonOperator.GREATER));
+		patternCreationFunctions.add(() -> simpleValueComparisonPattern(false));
+		patternCreationFunctions.add(() -> simpleValueComparisonPattern(true));
+		patternCreationFunctions.add(() -> simpleNumberValueComparisonPattern(ComparisonOperator.EQUAL));
+		patternCreationFunctions.add(() -> simpleNumberValueComparisonPattern(ComparisonOperator.GREATER));
+		patternCreationFunctions.add(() -> simpleNumberValueComparisonPattern(ComparisonOperator.LESSOREQUAL));
+		patternCreationFunctions.add(() -> simpleListPattern(true));
+		patternCreationFunctions.add(() -> simpleListPattern(false));
+		patternCreationFunctions.add(() -> notConditionPattern());
+		patternCreationFunctions.add(() -> doubleNotConditionPattern());
+		patternCreationFunctions.add(() -> formulaCombinationPattern(LogicalOperator.AND));
+		patternCreationFunctions.add(() -> formulaCombinationPattern(LogicalOperator.IMPLIES));
+		patternCreationFunctions.add(() -> formulaNotCombinationPattern());
+		patternCreationFunctions.add(() -> notComparisonPattern());
+		patternCreationFunctions.add(() -> simpleComparisonPattern(ComparisonOperator.EQUAL));
+		patternCreationFunctions.add(() -> simpleComparisonPattern(ComparisonOperator.GREATER));
+		patternCreationFunctions.add(() -> simpleComparisonPattern(ComparisonOperator.LESSOREQUAL));
+		patternCreationFunctions.add(() -> doubleComparisonPattern());
+		patternCreationFunctions.add(() -> conditionCombinationPattern());
+		patternCreationFunctions.add(() -> uniqueness1_1nPattern());
+		patternCreationFunctions.add(() -> uniqueness1_2nPattern());
+		patternCreationFunctions.add(() -> uniqueness2_1nPattern());
+		patternCreationFunctions.add(() -> uniqueness2_2nPattern());
+		patternCreationFunctions.add(() -> uniqueness3_1nPattern());
+		patternCreationFunctions.add(() -> uniqueness3_2nPattern());
+		
+		return patternCreationFunctions;
+	}
+
 	public static CompletePattern simpleMatchPattern(Boolean negate) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setDescription("Simple Match, negated:" + !negate);

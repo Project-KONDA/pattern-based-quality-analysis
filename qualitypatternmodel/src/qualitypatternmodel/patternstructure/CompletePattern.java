@@ -390,6 +390,7 @@ public interface CompletePattern extends Pattern {
 	 */
 	BaseSchema generateXmlConstraintSchema() throws InvalidityException;
 
+	String generateXmlConstraintYAMLFileContent() throws InvalidityException;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
