@@ -37,11 +37,12 @@ public class ConstraintApplicationTest {
 
 	public static void main(String[] args) throws Exception {
 		List<String> records = getRecords(0);
-		System.out.println(records);
+		for (String record: records)
+			System.out.println(record);
 
 		
 		MeasurementConfiguration config = new MeasurementConfiguration().enableCompletenessMeasurement();
-		CompletePattern pattern = getContainsWikipediaPattern();
+		CompletePattern pattern = getPatternSourceContainsWikipedia();
 		
 		BaseSchema schema = pattern.generateXmlConstraintSchema();
 		String content = pattern.generateXmlConstraintYAMLFileContent();
@@ -59,20 +60,11 @@ public class ConstraintApplicationTest {
 
 	}
 	
-//	private static BaseSchema getBaseSchema(int i) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		CompletePattern pattern = ConstraintToStringTranslationTest.getTestPatternCreationFunctionCollection().get(i).apply();
-//		return pattern.generateXmlConstraintSchema();
-//	}
-	
 	private static List<String> getRecords(int max) {
 		List<String> records = new ArrayList<String>();
 		records = queryXmlDB(DEMO_DATABASE_NAME, DEMO_DATA_PATH, DEMO_XQUERY_RECORD_PATH, max);
 		return records;
 	}
-
-//	private static List<String> queryXmlDB(String databasename, String datapath, String query){
-//		return queryXmlDB(databasename, datapath, query, 0);
-//	}
 	
 	private static List<String> queryXmlDB(String databasename, String datapath, String query, Integer max){
 		List<String> results = new ArrayList<String>();
@@ -99,25 +91,21 @@ public class ConstraintApplicationTest {
 	
 	// Real Patterns
 	
-	private static CompletePattern getContainsWikipediaPattern () throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getPatternSourceContainsWikipedia() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		completePattern.setDescription("Contains-Wikipedia-Comparison:");
+		completePattern.setDescription("Source-Contains-Wikipedia-Comparison:");
 		QuantifiedCondition cond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		completePattern.setCondition(cond);
 		Graph g = cond.getGraph();
 		
 		Node ret = completePattern.getGraph().getNodes().get(0);
-		
-		// EXISTS additional graph structure
 		Node n2 = ret.addOutgoing(g).getTarget().makePrimitive();
 		
 		n2.addPrimitiveContains();
+		
 		completePattern.createXmlAdaption();
 		
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
-//		for (Parameter p: params)
-//			System.out.println(p.getClass().getSimpleName() + " p" + params.indexOf(p) + " = (" + p.getClass().getSimpleName()+ ") params.get(" + params.indexOf(p) + ");" );
-		
 		BooleanParamImpl p0 = (BooleanParamImpl) params.get(0);
 		TextLiteralParamImpl p1 = (TextLiteralParamImpl) params.get(1);
 		XmlPathParamImpl p2 = (XmlPathParamImpl) params.get(2);
@@ -130,5 +118,14 @@ public class ConstraintApplicationTest {
 		
 		return completePattern;
 	}
+	
+//	private static BaseSchema getBaseSchema(int i) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern pattern = ConstraintToStringTranslationTest.getTestPatternCreationFunctionCollection().get(i).apply();
+//		return pattern.generateXmlConstraintSchema();
+//	}
+
+//	private static List<String> queryXmlDB(String databasename, String datapath, String query){
+//		return queryXmlDB(databasename, datapath, query, 0);
+//	}
 
 }

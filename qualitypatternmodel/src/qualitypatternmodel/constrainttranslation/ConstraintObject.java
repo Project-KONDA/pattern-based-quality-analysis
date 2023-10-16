@@ -104,13 +104,13 @@ public class ConstraintObject {
 		EList<Pair<String, String>> fields = rule.getAllFields();
 		
 		for (Pair<String, String> fieldpair: fields) {
-			DataElement field = new DataElement(fieldpair.name(), fieldpair.value());
+			DataElement field = new DataElement(fieldpair.name(), fieldpair.value()).setExtractable();
 			schema.addField(field);
 		}
 		
 		Rule constraintrule = new Rule();
 		rule.addConstraintRuleTo(constraintrule);
-		DataElement field1 = new DataElement(fieldNodes[0].getName().replace(" ", "_"), fieldPath);
+		DataElement field1 = new DataElement(fieldNodes[0].getName().replace(" ", "_"), fieldPath).setExtractable();
 		field1.addRule(constraintrule);
 		schema.addField(field1);
 		
