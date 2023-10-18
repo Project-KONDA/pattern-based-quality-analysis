@@ -506,7 +506,7 @@ public abstract class ConstraintRuleObject {
 		
 		EList<Pair<String, String>> getAllFields() {
 			EList<Pair<String, String>> fields = new BasicEList<Pair<String, String>>();
-			fields.add(new Pair<String, String>(nodename, nodepath));
+			fields.add(new Pair<String, String>(nodename, ConstraintObject.PATH_PRAEFIX + nodepath));
 			return fields;
 		}
 		

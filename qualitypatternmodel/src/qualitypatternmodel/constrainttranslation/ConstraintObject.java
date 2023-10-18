@@ -47,6 +47,9 @@ import de.gwdg.metadataqa.api.schema.BaseSchema;
 import de.gwdg.metadataqa.api.schema.Format;
 
 public class ConstraintObject {
+	
+	public static String PATH_PRAEFIX = "/child::*";
+	
 	CompletePattern pattern;
 	ComplexNode record;
 	Node[] fieldNodes;
@@ -69,7 +72,7 @@ public class ConstraintObject {
 		rule = transformCondition(completePattern.getCondition(), record, fieldNodes).realInvert();
 		
 		XmlNavigation r = (XmlNavigation) fieldNodes[0].getIncoming().get(0);
-		fieldPath = r.getXmlPathParam().generateXQuery();
+		fieldPath = PATH_PRAEFIX + r.getXmlPathParam().generateXQuery();
 		if (rule != null)
 			fieldPaths = rule.getAllFields();
 	}
