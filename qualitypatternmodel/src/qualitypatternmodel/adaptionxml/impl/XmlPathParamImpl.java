@@ -1005,7 +1005,7 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	 */
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
-		String PROPERTY_PART_REGEX = "((data\\(\\))|(name\\(\\))|(@[A-Za-z0-9]+))";
+		String PROPERTY_PART_REGEX = "(/)?((data\\(\\))|(name\\(\\))|(@[A-Za-z0-9]+))";
 		if (value == "")
 			return;
 		ArrayList<String> parts = new ArrayList<String>();
@@ -1018,7 +1018,9 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 			index = indexWhereSplit(value);
 		}
 
-		assertTrue(value == "" || value.matches(PROPERTY_PART_REGEX));
+		value = value.trim();
+		if (!value.equals("") && !value.matches(PROPERTY_PART_REGEX))
+			throw new InvalidityException("value invalid property specification: \"" + value + "\" - match :" +  value.matches(PROPERTY_PART_REGEX));
 //		assertTrue((getXmlNavigation() instanceof XmlElementNavigation) == ( value == "" || value.matches(PROPERTY_PART_REGEX)));
 //		assertTrue((getXmlNavigation() instanceof XmlPropertyNavigation) == ( value == "" || value.matches(PROPERTY_PART_REGEX)));
 		
@@ -1094,7 +1096,7 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 					break;
 				case 'n':
 					if (value.length() < i + 6 || !value.substring(i, i + 6).equals("name()"))
-						throw new InvalidityException("no valid property specified");
+						throw new InvalidityException("no valid property specified: " + value);
 					else {
 						stage = 5;
 						i += 5;
@@ -1102,7 +1104,7 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 					}
 				case 'd':
 					if (value.length() < i + 6 || !value.substring(i, i + 6).equals("data()"))
-						throw new InvalidityException("no valid property specified");
+						throw new InvalidityException("no valid property specified: " + value);
 					else {
 						stage = 5;
 						i += 5;
@@ -1120,7 +1122,7 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 					throw new InvalidityException("value too short");
 					
 				default:
-					throw new InvalidityException("no valid property specified"); 
+					throw new InvalidityException("no valid property specified: " + value); 
 				}
 				break;
 				

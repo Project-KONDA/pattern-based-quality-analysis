@@ -135,7 +135,10 @@ public class UniquenessConditionCheck {
 			next = (QuantifiedCondition) ((QuantifiedCondition) condition).getCondition();
 			conditiongraph = ((QuantifiedCondition) condition).getGraph();
 		} else if (condition instanceof CountPattern) {
-			next = (QuantifiedCondition) ((CountPattern) condition).getCondition();
+			Condition nextCondition = ((CountPattern) condition).getCondition();
+			if (!(nextCondition instanceof QuantifiedCondition))
+				return null;
+			next = (QuantifiedCondition) nextCondition;
 			conditiongraph = ((CountPattern) condition).getGraph();
 		} else 
 			return null;

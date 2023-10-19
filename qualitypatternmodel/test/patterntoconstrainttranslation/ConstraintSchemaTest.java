@@ -153,7 +153,7 @@ public class ConstraintSchemaTest {
 			csvresults.add(calculator.measureAsMap(record));
 		
 		System.out.println("\nCsv Result Maps:" );
-		for (Map<String, Object> csvresultmap : csvresults)
-			System.out.println(csvresultmap);
+		for (Map<String, Object> csvResultMap : csvresults)
+			System.out.println(csvResultMap);
 	}
 }

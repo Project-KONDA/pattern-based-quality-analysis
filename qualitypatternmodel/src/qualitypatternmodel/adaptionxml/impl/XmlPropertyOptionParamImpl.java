@@ -136,12 +136,15 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 			}
 		}
 		if (result == null) {
-			if (value.equals("data()"))
+			if (value.equals("/data()") || value.equals("data()"))
 				result = XmlPropertyKind.DATA;	
-			else if (value.equals("name()"))
+			else if (value.equals("/name()") || value.equals("name()"))
 				result = XmlPropertyKind.TAG;
-			else if (value.startsWith("@")) {
-				attName = value.substring(1);
+			else if (value.startsWith("/@") || value.startsWith("@")) {
+				if(value.startsWith("/@"))
+					attName = value.substring(2);
+				else 
+					attName = value.substring(1);
 				if (!attName.matches("[a-zA-Z0-9]+"))
 					throw new InvalidityException("new property kind value invalid in " + myToString() + ": " + value);
 				result = XmlPropertyKind.ATTRIBUTE;

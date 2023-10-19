@@ -129,6 +129,8 @@ public class ConstraintToStringTranslationTest {
 		patternCreationFunctions.add(() -> simpleComparisonPattern(ComparisonOperator.LESSOREQUAL));
 		patternCreationFunctions.add(() -> doubleComparisonPattern());
 		patternCreationFunctions.add(() -> conditionCombinationPattern());
+		patternCreationFunctions.add(() -> cardinalityPattern(ComparisonOperator.EQUAL, 3.));
+		patternCreationFunctions.add(() -> cardinalityPattern(ComparisonOperator.LESS, 5.));
 		patternCreationFunctions.add(() -> uniqueness1_1nPattern());
 		patternCreationFunctions.add(() -> uniqueness1_2nPattern());
 		patternCreationFunctions.add(() -> uniqueness2_1nPattern());
