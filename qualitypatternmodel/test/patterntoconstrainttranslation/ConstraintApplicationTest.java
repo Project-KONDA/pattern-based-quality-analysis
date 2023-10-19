@@ -14,10 +14,7 @@ import org.eclipse.emf.common.util.EList;
 
 import de.gwdg.metadataqa.api.calculator.CalculatorFacade;
 import de.gwdg.metadataqa.api.configuration.MeasurementConfiguration;
-import de.gwdg.metadataqa.api.configuration.schema.Rule;
-import de.gwdg.metadataqa.api.json.DataElement;
 import de.gwdg.metadataqa.api.schema.BaseSchema;
-import de.gwdg.metadataqa.api.schema.Format;
 import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -38,44 +35,42 @@ import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_XQUERY_R
 
 public class ConstraintApplicationTest {
 
-	private static boolean viaPattern = false;
-
 	public static void main(String[] args) throws Exception {
-		List<String> records = getRecords(0);
-		for (String record: records)
-			System.out.println(record);
-
 		
-		MeasurementConfiguration config = new MeasurementConfiguration().enableCompletenessMeasurement();
-		CompletePattern pattern = getPatternSourceContainsWikipedia();
+		evaluatePatternConstraintTranslation(getPatternSourceContainsWikipedia(), "ruleCatalog:ruleCatalog:score");
+	}	
 		
-		BaseSchema schema = new BaseSchema();
-//		namespaces.put("demo", "demo");
-		if (viaPattern) {
-			schema = pattern.generateXmlConstraintSchema();
-			
-			String content = pattern.generateXmlConstraintYAMLFileContent();
 	
-			System.out.println("____\n" + content + "\n_____");
-				
-			
-		} else {
-			schema.setFormat(Format.XML);
-			Map<String, String> namespaces = new HashMap<String,String>();
-			schema.setNamespaces(namespaces);
-			Rule containsRule = new Rule().withPattern(".*\\Qwikipedia\\E.*");
-			Rule minOccursRule = new Rule().withMinCount(1);
-			
-			DataElement sourceElement = new DataElement("source", 
-//					"/*[name() = \"demo:source\"]"
-					"/demo:source"
-					);
-			sourceElement.setExtractable();
-			sourceElement.addRule(containsRule);
-			sourceElement.addRule(minOccursRule);
-			schema.addField(sourceElement);
-		}
+	public static void evaluatePatternConstraintTranslation(CompletePattern pattern, String feature) throws InvalidityException {
+		List<String> records = getRecords();
 		
+		List<Boolean> patternResultIndices = calculatePatternBooleanResults(pattern);
+		
+		List<Map<String, Object>> constraintResults = calculateConstraintResults( pattern.generateXmlConstraintSchema(), records);
+		
+		
+		List<Boolean> constraintResultIndices = getConstraintResultIndices(constraintResults, feature);
+		
+		List<Boolean> comparisonResults =  compareResults(patternResultIndices, constraintResultIndices);
+		if (!comparisonResults.contains(false)) {
+			System.out.println("TEST SUCCESS");
+		}
+		else {
+			System.out.println("TEST FAILED");
+			for (int i = 0; i < comparisonResults.size(); i++)
+				System.out.println( (comparisonResults.get(i)? "   ": " X ") + patternResultIndices.get(i) + " == " + constraintResults.get(i));
+		}
+	}
+	
+	
+	
+	private static List<Map<String, Object>> calculateConstraintResults(BaseSchema schema, List<String> records) {
+
+		MeasurementConfiguration config = new MeasurementConfiguration().enableRuleCatalogMeasurement();
+
+		Map<String, String> namespaces = new HashMap<String,String>();
+		schema.setNamespaces(namespaces);
+
 		CalculatorFacade calculator = new CalculatorFacade(config); // use configuration
 		calculator.setSchema(schema);
 		calculator.configure();
@@ -83,31 +78,49 @@ public class ConstraintApplicationTest {
 		List<Map<String, Object>> csvresults = new ArrayList<Map<String, Object>>();
 		for (String record: records)
 			csvresults.add(calculator.measureAsMap(record));
-		for (Map<String, Object> csvresultmap: csvresults)
-			System.out.println(csvresultmap);
-
+		
+		return csvresults;
 	}
 	
-	private static List<String> getRecords(int max) {
-		List<String> records = new ArrayList<String>();
-		records = queryXmlDB(DEMO_DATABASE_NAME, DEMO_DATA_PATH, DEMO_XQUERY_RECORD_PATH, max);
-		return records;
+	private static List<Boolean> getConstraintResultIndices(List<Map<String, Object>> csvresultmap, String feature){
+		List<Boolean> result = new ArrayList<Boolean>();
+		for (Map<String, Object> map: csvresultmap) {
+			if (map.get(feature) == null){
+				throw new NullPointerException("Feature not correctly defined");
+			}
+			Boolean bi = map.get(feature).equals(1);
+			result.add(bi);
+		}
+		return result;
 	}
 	
-	private static List<String> queryXmlDB(String databasename, String datapath, String query, Integer max){
+	private static List<String> getRecords() {
+		return queryXmlDB(DEMO_DATABASE_NAME, DEMO_DATA_PATH, DEMO_XQUERY_RECORD_PATH);
+	}
+	
+	private static List<Boolean> calculatePatternBooleanResults(CompletePattern pattern) throws InvalidityException{
+		List<Boolean> booleans = new ArrayList<Boolean>();
+		List<String> records = getRecords();
+		List<String> patternresults = queryXmlDB(DEMO_DATABASE_NAME, DEMO_DATA_PATH, pattern.generateXQuery());
+		
+		for (int i = 0; i< records.size(); i++)
+			booleans.add(patternresults.contains(records.get(i)));
+		
+		return booleans;
+	}
+	
+	private static List<String> queryXmlDB(String databasename, String datapath, String query){
 		List<String> results = new ArrayList<String>();
 		Context context = new Context();
 		try {
 			new CreateDB(databasename, datapath).execute(context);
 	
-			int i = 0;
 			try (QueryProcessor proc = new QueryProcessor(query, context)) {
 				Iter iter = proc.iter();
-				for (Item item; ((item = iter.next()) != null) && (i < max || max == 0);) {
+				for (Item item; ((item = iter.next()) != null);) {
 					results.add(item.serialize().toString());
-					i++;
 				}
-			} 
+			}
 			context.closeDB();
 			context.close();
 		} catch (Exception e) { // QueryIOException  QueryException BaseXException
@@ -115,6 +128,15 @@ public class ConstraintApplicationTest {
 		}
 		return results;
 	}
+
+	static List<Boolean> compareResults(List<Boolean> patternBooleanResults, List<Boolean> constraintBooleanResults){
+		List<Boolean> result = new ArrayList<Boolean>();
+		for (int i = 0; i < patternBooleanResults.size() && i < constraintBooleanResults.size() ; i++)
+			result.add(patternBooleanResults.get(i) != constraintBooleanResults.get(i));
+		return result;
+	}
+	
+	
 	
 	
 	// Real Patterns

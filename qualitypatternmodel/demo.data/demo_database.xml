@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<demo:data xmlns:demo="demo" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="demo https://raw.githubusercontent.com/Project-KONDA/pattern-based-quality-analysis/constraint_translation_experiment/qualitypatternmodel/demo.data/demo_database_schema.xsd">	
+<demo:data xmlns:demo="demo" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="demo ./demo_database_schema.xsd">	
 
 	<!--  BUILDINGS -->
 	

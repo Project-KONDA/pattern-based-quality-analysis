@@ -126,7 +126,7 @@ public class ConstraintSchemaTest {
 				+ "</demo:artist>"
 		};
 		
-		MeasurementConfiguration config = new MeasurementConfiguration().enableCompletenessMeasurement();
+		MeasurementConfiguration config = new MeasurementConfiguration().enableRuleCatalogMeasurement();
 		BaseSchema schema = new BaseSchema();
 
 		schema.setFormat(Format.XML);
