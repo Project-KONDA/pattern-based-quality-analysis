@@ -87,6 +87,8 @@ public class ConstraintToStringTranslationTest {
 		patterns.add(simpleComparisonPattern(ComparisonOperator.LESSOREQUAL));
 		patterns.add(doubleComparisonPattern());
 		patterns.add(conditionCombinationPattern());
+		patterns.add(cardinalityPattern(ComparisonOperator.EQUAL, 3.));
+		patterns.add(cardinalityPattern(ComparisonOperator.LESS, 5.));
 		patterns.add(uniqueness1_1nPattern());
 		patterns.add(uniqueness1_2nPattern());
 		patterns.add(uniqueness2_1nPattern());
@@ -651,6 +653,49 @@ public class ConstraintToStringTranslationTest {
 				
 		return completePattern;
 	}
+
+
+	private static CompletePattern cardinalityPattern(ComparisonOperator operator, Double number) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		completePattern.setDescription("Count " + operator + " " + number);
+		CountCondition ccond = PatternstructureFactory.eINSTANCE.createCountCondition();
+		completePattern.setCondition(ccond);
+		CountPattern cp = ccond.getCountPattern();
+		ccond.setArgument2(new NumberElementImpl());
+				
+		Graph g1 = completePattern.getGraph();
+		Graph g2 = cp.getGraph();
+		
+		Node ret = g1.getNodes().get(0).makeComplex();
+		ret.setName("RecordNode");
+		
+		Node recCopy = g2.addPrimitiveNode();
+		ret.addOutgoing(recCopy);
+		recCopy.setName("FieldNode");
+		recCopy.setReturnNode(true);
+		
+		completePattern.createXmlAdaption();
+		
+		EList<Parameter> params = completePattern.getParameterList().getParameters();
+//		for (Parameter p: params)
+//			System.out.println(p.getClass().getSimpleName() + " p" + params.indexOf(p) + " = (" + p.getClass().getSimpleName()+ ") params.get(" + params.indexOf(p) + ");" );
+		
+		ComparisonOptionParamImpl p0 = (ComparisonOptionParamImpl) params.get(0);
+		NumberParamImpl p1 = (NumberParamImpl) params.get(1);
+		XmlPathParamImpl p2 = (XmlPathParamImpl) params.get(2);
+		XmlPathParamImpl p3 = (XmlPathParamImpl) params.get(3);
+		
+		
+		p0.setValue(operator);
+		p1.setValue(number);
+		p2.setValueFromString(RECORD_PATH);
+		p3.setValueFromString(FIELD_PATH);
+		
+//		System.out.println(completePattern.myToString());
+		
+		return completePattern;
+	}
+	
 	
 	public static CompletePattern uniqueness1_1nPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();

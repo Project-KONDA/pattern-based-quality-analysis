@@ -14,8 +14,10 @@ import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.NumberComp
 import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.PatternRuleObject;
 import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.SingleConstraintRuleObject;
 import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.StringLengthRuleObject;
+import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.CardinalityConstraintRuleObject;
 import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.UniqueRuleObject;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.ComparisonRuleObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Comparable;
@@ -38,9 +40,11 @@ import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.NotCondition;
+import qualitypatternmodel.patternstructure.NumberElement;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.patternstructure.TrueElement;
+import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
 import de.gwdg.metadataqa.api.configuration.schema.Rule;
 import de.gwdg.metadataqa.api.json.DataElement;
 import de.gwdg.metadataqa.api.schema.BaseSchema;
@@ -122,7 +126,7 @@ public class ConstraintObject {
 	
 	// local functions
 	
-	private static ConstraintRuleObject transformCondition(Condition condition, ComplexNode recordNode, Node[] fieldNodes2) throws InvalidityException {
+	private static ConstraintRuleObject transformCondition(Condition condition, ComplexNode recordNode, Node[] fieldNodes) throws InvalidityException {
 		
 		Pair<Node, Boolean> pair = UniquenessConditionCheck.uniquenessConditionField (condition, recordNode);
 		if (pair != null)
@@ -131,23 +135,31 @@ public class ConstraintObject {
 		if (condition instanceof Formula) {
 			Formula formula = (Formula) condition;
 			List<ConstraintRuleObject> ruleobjectlist = new BasicEList<ConstraintRuleObject>();
-			ruleobjectlist.add(transformCondition(formula.getCondition1(), recordNode, fieldNodes2));
-			ruleobjectlist.add(transformCondition(formula.getCondition2(), recordNode, fieldNodes2));
+			ruleobjectlist.add(transformCondition(formula.getCondition1(), recordNode, fieldNodes));
+			ruleobjectlist.add(transformCondition(formula.getCondition2(), recordNode, fieldNodes));
 			FormulaConstraintRuleObject frule = new FormulaConstraintRuleObject(formula.getOperator(), ruleobjectlist);
 			return frule;
 		} else if (condition instanceof NotCondition) {
 			NotCondition notc = (NotCondition) condition;
-			NotConstraintRuleObject frule = new NotConstraintRuleObject(transformCondition(notc.getCondition(), recordNode, fieldNodes2));
+			NotConstraintRuleObject frule = new NotConstraintRuleObject(transformCondition(notc.getCondition(), recordNode, fieldNodes));
 			return frule;
 		} else if (condition instanceof QuantifiedCondition) {
 			QuantifiedCondition qcond = (QuantifiedCondition) condition;
-			ConstraintRuleObject rule = transformQuantifiedCondition(qcond, fieldNodes2);
+			ConstraintRuleObject rule = transformQuantifiedCondition(qcond, fieldNodes);
+			return rule;
+		} else if (condition instanceof QuantifiedCondition) {
+			QuantifiedCondition qcond = (QuantifiedCondition) condition;
+			ConstraintRuleObject rule = transformQuantifiedCondition(qcond, fieldNodes);
+			return rule;
+		} else if (condition instanceof CountCondition) {
+			CountCondition ccond = (CountCondition) condition;
+			ConstraintRuleObject rule = transformCountCondition(ccond, fieldNodes);
 			return rule;
 		}
 		throw new InvalidityException();
 	}
 	
-	private static ConstraintRuleObject transformQuantifiedCondition(QuantifiedCondition condition, Node[] fieldNodes2) throws InvalidityException {
+	private static ConstraintRuleObject transformQuantifiedCondition(QuantifiedCondition condition, Node[] fieldNodes) throws InvalidityException {
 		if (!condition.getQuantifier().equals(Quantifier.EXISTS))
 			throw new InvalidityException();
 		
@@ -163,16 +175,37 @@ public class ConstraintObject {
 		
 		// is default Exists
 		if (graph.getNodes().size() == 1 && graph.getOperatorList().getOperators().size() == 1) {
-			return transformSingleNodeGraph(graph, fieldNodes2);
+			return transformSingleNodeGraph(graph, fieldNodes);
 		}
 		else if (graph.getNodes().size() == 2 && graph.getOperatorList().getOperators().size() == 1) {
-			return transformNodeComparisonGraph(graph, fieldNodes2);
+			return transformNodeComparisonGraph(graph, fieldNodes);
 		}
 		else 
-			return transformCombinationGraph(graph, fieldNodes2);
+			return transformCombinationGraph(graph, fieldNodes);
 	}
 	
-	private static ConstraintRuleObject transformSingleNodeGraph (Graph graph, Node[] fieldNodes2) throws InvalidityException {
+	private static ConstraintRuleObject transformCountCondition(CountCondition condition, Node[] fieldNodes) throws InvalidityException {
+		Graph graph = condition.getCountPattern().getGraph();
+		if (graph.getNodes().size() != 1)
+			throw new InvalidityException("Count Condition invalidly specified: multiple nodes");
+		Node node = graph.getNodes().get(0);
+		if (!(node instanceof XmlProperty))
+			throw new InvalidityException("Count Condition invalidly specified: node has wrong type");
+
+		ComparisonOperator operator = condition.getOption().getValue();
+		
+		if (! (condition.getArgument2() instanceof NumberElementImpl))
+			throw new InvalidityException("Count Condition invalidly specified: argument 2 invalid");
+		
+		Double number = ((NumberElement) condition.getArgument2()).getNumberParam().getValue();
+		
+		
+		ConstraintRuleObject rule = new CardinalityConstraintRuleObject(operator, number);
+		
+		return rule;
+	}
+	
+	private static ConstraintRuleObject transformSingleNodeGraph (Graph graph, Node[] fieldNodes) throws InvalidityException {
 		Node node = graph.getNodes().get(0);
 		Operator op = graph.getOperatorList().getOperators().get(0);
 		return transformOperator(op, node);
@@ -247,7 +280,7 @@ public class ConstraintObject {
 		return rule;
 	}
 
-	private static ConstraintRuleObject transformNodeComparisonGraph (Graph graph, Node[] fieldNodes2) throws InvalidityException {
+	private static ConstraintRuleObject transformNodeComparisonGraph (Graph graph, Node[] fieldNodes) throws InvalidityException {
 		
 		EList<Node> nodes = graph.getNodes();
 		
@@ -259,7 +292,7 @@ public class ConstraintObject {
 		
 		for (Node n: nodes) {
 			Boolean contains = false;
-			for (Node n2: fieldNodes2)
+			for (Node n2: fieldNodes)
 				if(n == n2)
 					contains = true;
 			
@@ -285,7 +318,7 @@ public class ConstraintObject {
 		return new ComparisonRuleObject(other, comp.getOption().getValue());
 	}
 
-	private static ConstraintRuleObject transformCombinationGraph (Graph graph, Node[] fieldNodes2) throws InvalidityException {
+	private static ConstraintRuleObject transformCombinationGraph (Graph graph, Node[] fieldNodes) throws InvalidityException {
 
 		EList<Node> nodes = graph.getNodes();
 		
@@ -295,7 +328,7 @@ public class ConstraintObject {
 		for (Node n: nodes) {
 			
 			Boolean contains = false;
-			for (Node n2: fieldNodes2)
+			for (Node n2: fieldNodes)
 				if(n == n2)
 					contains = true;
 			

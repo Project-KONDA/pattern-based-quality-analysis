@@ -539,6 +539,75 @@ public abstract class ConstraintRuleObject {
 		}
 	}
 	
+	public static class CardinalityConstraintRuleObject extends SingleConstraintRuleObject {
+		ComparisonOperator operator;
+		Integer number;
+		
+		public CardinalityConstraintRuleObject(ComparisonOperator o, Double n) {
+			operator = o;
+			number = (int) (n + 0.5);
+			if (number+0. != n)
+				new Exception("Warning: number in Comparison will be rounded").printStackTrace();
+		}
+		
+		String getStringRepresentation() throws InvalidityException {
+			switch(operator) {
+				case EQUAL:{
+					String result = "- minCount: " + number;
+					result += "\n- maxCount: " + number;
+					return indent("- and:\n" + indent(result));
+				}
+				case GREATER:
+					return indent("- minCount: " + (number + 1));
+				case LESS: 
+					return indent("- maxCount: " + (number - 1));
+				case GREATEROREQUAL: 
+					return indent("- minCount: " + number);
+				case LESSOREQUAL: 
+					return indent("- maxCount: " + number);
+				case NOTEQUAL: {
+					String result = "- minCount: " + (number-1);
+					result += "\n- maxCount: " + (number+1);
+					return indent("- or:\n" + indent(result));
+				}
+			}
+			throw new InvalidityException("no valid ComparisonOperator for Cardinality Constraint");
+		}
+		
+		void addConstraintRuleTo (Rule rule) {
+			switch(operator) {
+			case EQUAL:
+				rule.setAnd(new BasicEList<Rule>());
+				rule.getAnd().add(new Rule().withMinCount(number));
+				rule.getAnd().add(new Rule().withMaxCount(number));
+				return;
+			case GREATER: 
+				rule.setMinCount(number+1);
+				return;
+			case LESS: 
+				rule.setMaxCount(number-1);
+				return;
+			case GREATEROREQUAL: 
+				rule.setMinCount(number);
+				return;
+			case LESSOREQUAL: 
+				rule.setMaxCount(number);
+				return;
+			case NOTEQUAL:
+				rule.setOr(new BasicEList<Rule>());
+				rule.getOr().add(new Rule().withMinCount(number-1));
+				rule.getOr().add(new Rule().withMaxCount(number+1));
+				return;
+			}
+		}
+		
+		Boolean invert() {
+			operator = ComparisonOperator.invert(operator);
+			return true;
+		}
+		
+	}
+	
 	public static class UniqueRuleObject extends SingleConstraintRuleObject {
 		Boolean negate = true;
 		public UniqueRuleObject(Boolean u) {
