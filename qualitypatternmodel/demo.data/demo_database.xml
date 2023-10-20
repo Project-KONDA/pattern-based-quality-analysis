@@ -42,7 +42,7 @@
 			<demo:city>unknown</demo:city>
 			<demo:country>unknown</demo:country>
 		</demo:address>
-		<demo:source>https://thisisnotavalidlink/</demo:source>
+		<demo:source>thisisnotevenalink/</demo:source>
 	</demo:building>
 	
 	<!--  PAINTINGS -->
@@ -64,7 +64,8 @@
 		<demo:creator>402</demo:creator>
 		<demo:startwork>1492</demo:startwork>
 		<demo:endwork>1498</demo:endwork>
-		<demo:source>https://anotherinvalidlink/</demo:source>
+		<demo:source>thisisnotevenalink</demo:source>
+		<demo:source>thisisnotevenalink</demo:source>
 	</demo:painting>
 	
 	<demo:painting demo:id="204" demo:recorded="2020-10-04T10:00:00" demo:modified="true" demo:last-modified-date="2020-10-04" demo:last-modified-time="10:00:00">
@@ -109,6 +110,7 @@
 		<demo:birthyear>1853</demo:birthyear>
 		<demo:deathyear>1890</demo:deathyear>		
 		<demo:source>https://invalid.link/</demo:source>
+		<demo:source>thisisnotevenalink</demo:source>
 	</demo:artist>
 	
 	<demo:artist demo:id="402">
