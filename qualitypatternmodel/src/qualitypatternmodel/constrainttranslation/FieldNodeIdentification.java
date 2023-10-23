@@ -15,6 +15,7 @@ import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
+import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.Pattern;
@@ -29,9 +30,6 @@ public class FieldNodeIdentification {
 		if (!allNodes.stream().allMatch(t -> (t instanceof XmlRoot || (t.getIncoming().size() == 1 && !(t.getIncoming().get(0) instanceof XmlReference))))) {
 			return false;
 		}
-		
-		
-		
 		
 		return true;
 	}
@@ -105,7 +103,7 @@ public class FieldNodeIdentification {
 		if (validateIdentifiedFieldNodes(nodes))
 			return nodes;
 		else
-			throw new InvalidityException();
+			throw new InvalidityException("Identified Field Nodes invalid");
 	}
 	
 	static Boolean areEqualNodes(Node node1, Node node2) {
@@ -155,7 +153,6 @@ public class FieldNodeIdentification {
 	public static EList<EList<Node>> identifyPotentialFieldNodes (PatternElement element, ComplexNode rec) throws InvalidityException {
 		EList<EList<Node>> nodes = new BasicEList<EList<Node>>();
 		
-
 		Pair<Node, Boolean> pair = UniquenessConditionCheck.uniquenessConditionField (element, rec);
 		
 		if (pair != null) {
@@ -208,7 +205,7 @@ public class FieldNodeIdentification {
 			EList<Operator> allOps = new BasicEList<Operator>();
 	
 			for (Node n: graphnodes) {
-				if (n.getPredicates().isEmpty())
+				if (n.getPredicates().isEmpty() && n.getGraph().getQuantifiedCondition() != null)
 					throw new InvalidityException("node without predicates");
 				allOps.addAll(n.getPredicates());
 			}
@@ -228,14 +225,19 @@ public class FieldNodeIdentification {
 		
 		else if (element instanceof CountCondition) {
 			CountCondition cp = (CountCondition) element;
-			nodes.addAll(identifyPotentialFieldNodes(cp.getCountPattern(), rec));
+			nodes.addAll(identifyPotentialFieldNodes(cp.getCountPattern().getGraph(), rec));
+			nodes.addAll(identifyPotentialFieldNodes(cp.getCountPattern().getCondition(), rec));
 			nodes.addAll(identifyPotentialFieldNodes(cp.getArgument2(), rec));
+		} 
+		
+		else if (element instanceof CountPattern) {
+			CountPattern cp = (CountPattern) element;
+			nodes.addAll(identifyPotentialFieldNodes(cp.getGraph(), rec));
+			nodes.addAll(identifyPotentialFieldNodes(cp.getCondition(), rec));
 		} 
 		
 		return nodes;
 	}
-	
-	
 
 	static XmlRoot getXmlRoot (CompletePattern pattern) throws InvalidityException {
 		Graph g = pattern.getGraph();
@@ -266,9 +268,6 @@ public class FieldNodeIdentification {
 		return nodes;
 	}
 	
-	
-	
-	
 	static EList<Node> getAllPatternNodes (PatternElement element) throws InvalidityException {
 		EList<Node> nodes = new BasicEList<Node>();
 		
@@ -282,8 +281,7 @@ public class FieldNodeIdentification {
 			QuantifiedCondition cp = (QuantifiedCondition) element;
 			nodes.addAll(getAllPatternNodes(cp.getGraph()));
 			nodes.addAll(getAllPatternNodes(cp.getCondition()));
-		} 
-		
+		}
 
 		else if (element instanceof Formula) {
 			Formula cp = (Formula) element;
@@ -324,7 +322,6 @@ public class FieldNodeIdentification {
 			relations.addAll(getAllPatternRelations(cp.getGraph()));
 			relations.addAll(getAllPatternRelations(cp.getCondition()));
 		} 
-		
 
 		else if (element instanceof Formula) {
 			Formula cp = (Formula) element;
@@ -350,28 +347,6 @@ public class FieldNodeIdentification {
 		
 		return relations;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 //	static ComplexNode identifyRecordNode (CompletePattern pattern) throws InvalidityException {

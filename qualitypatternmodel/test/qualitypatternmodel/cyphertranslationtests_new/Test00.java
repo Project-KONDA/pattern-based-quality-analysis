@@ -192,7 +192,7 @@ public class Test00 {
 //				NeoNodeLabelsParam neoNodeLabel = (NeoNodeLabelsParam) param;
 			}
 			else if (param instanceof NeoNodeLabelsParam) {
-				NeoNodeLabelsParam p = (NeoNodeLabelsParam) param;
+//				NeoNodeLabelsParam p = (NeoNodeLabelsParam) param;
 				System.out.println("Missing Replace for Class NeoNodeLabelsParam (cyphertranslationtests_new.Test00 199)");
 			}
 			else {

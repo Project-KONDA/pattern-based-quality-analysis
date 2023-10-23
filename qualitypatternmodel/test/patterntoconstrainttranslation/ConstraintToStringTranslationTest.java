@@ -87,6 +87,8 @@ public class ConstraintToStringTranslationTest {
 		patterns.add(simpleComparisonPattern(ComparisonOperator.LESSOREQUAL));
 		patterns.add(doubleComparisonPattern());
 		patterns.add(conditionCombinationPattern());
+		patterns.add(cardinalityPattern(ComparisonOperator.EQUAL, 3.));
+		patterns.add(cardinalityPattern(ComparisonOperator.LESS, 5.));
 		patterns.add(uniqueness1_1nPattern());
 		patterns.add(uniqueness1_2nPattern());
 		patterns.add(uniqueness2_1nPattern());
@@ -95,6 +97,48 @@ public class ConstraintToStringTranslationTest {
 		patterns.add(uniqueness3_2nPattern());
 		
 		return patterns;
+	}
+
+	@FunctionalInterface
+	public interface PatternCreationFunction {
+		CompletePattern apply() throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
+	}
+	
+	public static EList<PatternCreationFunction> getTestPatternCreationFunctionCollection() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
+		EList<PatternCreationFunction> patternCreationFunctions = new BasicEList<PatternCreationFunction>();
+
+		patternCreationFunctions.add(() -> simpleMatchPattern(false));
+		patternCreationFunctions.add(() -> simpleMatchPattern(true));
+		patternCreationFunctions.add(() -> simpleStringLengthPattern(ComparisonOperator.EQUAL));
+		patternCreationFunctions.add(() -> simpleStringLengthPattern(ComparisonOperator.GREATER));
+		patternCreationFunctions.add(() -> simpleValueComparisonPattern(false));
+		patternCreationFunctions.add(() -> simpleValueComparisonPattern(true));
+		patternCreationFunctions.add(() -> simpleNumberValueComparisonPattern(ComparisonOperator.EQUAL));
+		patternCreationFunctions.add(() -> simpleNumberValueComparisonPattern(ComparisonOperator.GREATER));
+		patternCreationFunctions.add(() -> simpleNumberValueComparisonPattern(ComparisonOperator.LESSOREQUAL));
+		patternCreationFunctions.add(() -> simpleListPattern(true));
+		patternCreationFunctions.add(() -> simpleListPattern(false));
+		patternCreationFunctions.add(() -> notConditionPattern());
+		patternCreationFunctions.add(() -> doubleNotConditionPattern());
+		patternCreationFunctions.add(() -> formulaCombinationPattern(LogicalOperator.AND));
+		patternCreationFunctions.add(() -> formulaCombinationPattern(LogicalOperator.IMPLIES));
+		patternCreationFunctions.add(() -> formulaNotCombinationPattern());
+		patternCreationFunctions.add(() -> notComparisonPattern());
+		patternCreationFunctions.add(() -> simpleComparisonPattern(ComparisonOperator.EQUAL));
+		patternCreationFunctions.add(() -> simpleComparisonPattern(ComparisonOperator.GREATER));
+		patternCreationFunctions.add(() -> simpleComparisonPattern(ComparisonOperator.LESSOREQUAL));
+		patternCreationFunctions.add(() -> doubleComparisonPattern());
+		patternCreationFunctions.add(() -> conditionCombinationPattern());
+		patternCreationFunctions.add(() -> cardinalityPattern(ComparisonOperator.EQUAL, 3.));
+		patternCreationFunctions.add(() -> cardinalityPattern(ComparisonOperator.LESS, 5.));
+		patternCreationFunctions.add(() -> uniqueness1_1nPattern());
+		patternCreationFunctions.add(() -> uniqueness1_2nPattern());
+		patternCreationFunctions.add(() -> uniqueness2_1nPattern());
+		patternCreationFunctions.add(() -> uniqueness2_2nPattern());
+		patternCreationFunctions.add(() -> uniqueness3_1nPattern());
+		patternCreationFunctions.add(() -> uniqueness3_2nPattern());
+		
+		return patternCreationFunctions;
 	}
 
 	public static CompletePattern simpleMatchPattern(Boolean negate) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -611,6 +655,49 @@ public class ConstraintToStringTranslationTest {
 				
 		return completePattern;
 	}
+
+
+	private static CompletePattern cardinalityPattern(ComparisonOperator operator, Double number) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		completePattern.setDescription("Count " + operator + " " + number);
+		CountCondition ccond = PatternstructureFactory.eINSTANCE.createCountCondition();
+		completePattern.setCondition(ccond);
+		CountPattern cp = ccond.getCountPattern();
+		ccond.setArgument2(new NumberElementImpl());
+				
+		Graph g1 = completePattern.getGraph();
+		Graph g2 = cp.getGraph();
+		
+		Node ret = g1.getNodes().get(0).makeComplex();
+		ret.setName("RecordNode");
+		
+		Node recCopy = g2.addPrimitiveNode();
+		ret.addOutgoing(recCopy);
+		recCopy.setName("FieldNode");
+		recCopy.setReturnNode(true);
+		
+		completePattern.createXmlAdaption();
+		
+		EList<Parameter> params = completePattern.getParameterList().getParameters();
+//		for (Parameter p: params)
+//			System.out.println(p.getClass().getSimpleName() + " p" + params.indexOf(p) + " = (" + p.getClass().getSimpleName()+ ") params.get(" + params.indexOf(p) + ");" );
+		
+		ComparisonOptionParamImpl p0 = (ComparisonOptionParamImpl) params.get(0);
+		NumberParamImpl p1 = (NumberParamImpl) params.get(1);
+		XmlPathParamImpl p2 = (XmlPathParamImpl) params.get(2);
+		XmlPathParamImpl p3 = (XmlPathParamImpl) params.get(3);
+		
+		
+		p0.setValue(operator);
+		p1.setValue(number);
+		p2.setValueFromString(RECORD_PATH);
+		p3.setValueFromString(FIELD_PATH);
+		
+//		System.out.println(completePattern.myToString());
+		
+		return completePattern;
+	}
+	
 	
 	public static CompletePattern uniqueness1_1nPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();

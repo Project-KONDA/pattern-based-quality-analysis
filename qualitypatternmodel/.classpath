@@ -75,6 +75,11 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="lib/json-path-2.8.0.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-core-2.15.2.jar"/>
 	<classpathentry kind="lib" path="lib/de.gwdg.metadataqa.api.jar"/>
+	<classpathentry kind="lib" path="lib/metadata-qa-api-0.9.3.jar"/>
+	<classpathentry kind="lib" path="lib/ws-commons-util-1.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang3-3.13.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
