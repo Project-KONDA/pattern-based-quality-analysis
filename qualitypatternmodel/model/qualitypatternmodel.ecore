@@ -411,8 +411,8 @@
         <eParameters name="option" eType="#//operators/ComparisonOperator"/>
         <eParameters name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
       </eOperations>
-      <eOperations name="addPrimitiveNullCheck" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
-      <eOperations name="addPrimitiveNullCheck" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+      <eOperations name="addPrimitiveNullCheck" eType="#//operators/NullCheck"/>
+      <eOperations name="addPrimitiveNullCheck" eType="#//operators/NullCheck">
         <eParameters name="isNull" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
       </eOperations>
       <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>

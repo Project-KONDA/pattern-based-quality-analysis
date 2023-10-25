@@ -592,6 +592,13 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				return null;
 			case PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST:
 				return getOperatorList();
+			case PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_OPERATORS:
+				try {
+					return getAllOperators();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST:
 				return getParameterList();
 			case PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_PARAMETERS:

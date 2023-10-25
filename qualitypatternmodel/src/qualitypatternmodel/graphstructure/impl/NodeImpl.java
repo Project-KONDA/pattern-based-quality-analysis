@@ -1921,7 +1921,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	@Override
-	public Boolean addPrimitiveNullCheck() {
+	public NullCheck addPrimitiveNullCheck() {
 		return addPrimitiveNullCheck(true);
 	}
 
@@ -1931,7 +1931,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	@Override
-	public Boolean addPrimitiveNullCheck(Boolean isNull) {
+	public NullCheck addPrimitiveNullCheck(Boolean isNull) {
 		NullCheck nullCheck = new OperatorsFactoryImpl().createNullCheck();
 		try {			
 			Graph graph = (Graph) getAncestor(Graph.class);
@@ -1950,7 +1950,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			}
 			nullCheck.setPrimitiveNode(p);
 			
-			return nullCheck.getOption().getValue();
+			return nullCheck;
 		} catch (Exception e) {
 			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
 			e.printStackTrace();

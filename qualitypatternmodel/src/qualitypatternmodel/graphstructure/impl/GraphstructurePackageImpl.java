@@ -1460,9 +1460,9 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		addEParameter(op, ecorePackage.getEDoubleObject(), "number", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		initEOperation(getNode__AddPrimitiveNullCheck(), ecorePackage.getEBooleanObject(), "addPrimitiveNullCheck", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getNode__AddPrimitiveNullCheck(), theOperatorsPackage.getNullCheck(), "addPrimitiveNullCheck", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getNode__AddPrimitiveNullCheck__Boolean(), ecorePackage.getEBooleanObject(), "addPrimitiveNullCheck", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNode__AddPrimitiveNullCheck__Boolean(), theOperatorsPackage.getNullCheck(), "addPrimitiveNullCheck", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBooleanObject(), "isNull", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getNode__CheckComparisonConsistency(), null, "checkComparisonConsistency", 0, 1, IS_UNIQUE, IS_ORDERED);

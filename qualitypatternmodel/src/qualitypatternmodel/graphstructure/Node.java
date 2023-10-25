@@ -13,6 +13,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.operators.NullCheck;
 import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.TextLiteralParam;
@@ -468,7 +469,7 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @model
 	 * @generated
 	 */
-	Boolean addPrimitiveNullCheck();
+	NullCheck addPrimitiveNullCheck();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -476,7 +477,7 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @model
 	 * @generated
 	 */
-	Boolean addPrimitiveNullCheck(Boolean isNull);
+	NullCheck addPrimitiveNullCheck(Boolean isNull);
 
 	/**
 	 * <!-- begin-user-doc -->
