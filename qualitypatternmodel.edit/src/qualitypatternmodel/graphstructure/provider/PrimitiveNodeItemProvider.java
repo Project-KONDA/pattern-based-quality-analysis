@@ -47,6 +47,8 @@ public class PrimitiveNodeItemProvider extends NodeItemProvider {
 			addContainsPropertyDescriptor(object);
 			addNullCheckPropertyDescriptor(object);
 			addStringLengthPropertyDescriptor(object);
+			addOneargjavaoperatorPropertyDescriptor(object);
+			addTwoargjavaoperatorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -131,6 +133,50 @@ public class PrimitiveNodeItemProvider extends NodeItemProvider {
 				 getString("_UI_PrimitiveNode_stringLength_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveNode_stringLength_feature", "_UI_PrimitiveNode_type"),
 				 GraphstructurePackage.Literals.PRIMITIVE_NODE__STRING_LENGTH,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Oneargjavaoperator feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOneargjavaoperatorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PrimitiveNode_oneargjavaoperator_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveNode_oneargjavaoperator_feature", "_UI_PrimitiveNode_type"),
+				 GraphstructurePackage.Literals.PRIMITIVE_NODE__ONEARGJAVAOPERATOR,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Twoargjavaoperator feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTwoargjavaoperatorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PrimitiveNode_twoargjavaoperator_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveNode_twoargjavaoperator_feature", "_UI_PrimitiveNode_type"),
+				 GraphstructurePackage.Literals.PRIMITIVE_NODE__TWOARGJAVAOPERATOR,
 				 true,
 				 false,
 				 true,

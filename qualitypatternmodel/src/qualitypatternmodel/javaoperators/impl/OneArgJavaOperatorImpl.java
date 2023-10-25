@@ -1,0 +1,335 @@
+/**
+ */
+package qualitypatternmodel.javaoperators.impl;
+
+import java.lang.reflect.InvocationTargetException;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
+
+import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
+import qualitypatternmodel.javaoperators.OneArgJavaOperator;
+import qualitypatternmodel.parameters.BooleanParam;
+import qualitypatternmodel.parameters.ParametersPackage;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>One Arg Java Operator</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link qualitypatternmodel.javaoperators.impl.OneArgJavaOperatorImpl#getPrimitiveNode <em>Primitive Node</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaoperators.impl.OneArgJavaOperatorImpl#getOption <em>Option</em>}</li>
+ * </ul>
+ *
+ * @generated
+ */
+public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements OneArgJavaOperator {
+	/**
+	 * The cached value of the '{@link #getPrimitiveNode() <em>Primitive Node</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPrimitiveNode()
+	 * @generated
+	 * @ordered
+	 */
+	protected PrimitiveNode primitiveNode;
+
+	/**
+	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOption()
+	 * @generated
+	 * @ordered
+	 */
+	protected BooleanParam option;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OneArgJavaOperatorImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return JavaoperatorsPackage.Literals.ONE_ARG_JAVA_OPERATOR;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public PrimitiveNode getPrimitiveNode() {
+		if (primitiveNode != null && primitiveNode.eIsProxy()) {
+			InternalEObject oldPrimitiveNode = (InternalEObject)primitiveNode;
+			primitiveNode = (PrimitiveNode)eResolveProxy(oldPrimitiveNode);
+			if (primitiveNode != oldPrimitiveNode) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__PRIMITIVE_NODE, oldPrimitiveNode, primitiveNode));
+			}
+		}
+		return primitiveNode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PrimitiveNode basicGetPrimitiveNode() {
+		return primitiveNode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPrimitiveNode(PrimitiveNode newPrimitiveNode, NotificationChain msgs) {
+		PrimitiveNode oldPrimitiveNode = primitiveNode;
+		primitiveNode = newPrimitiveNode;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__PRIMITIVE_NODE, oldPrimitiveNode, newPrimitiveNode);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPrimitiveNode(PrimitiveNode newPrimitiveNode) {
+		if (newPrimitiveNode != primitiveNode) {
+			NotificationChain msgs = null;
+			if (primitiveNode != null)
+				msgs = ((InternalEObject)primitiveNode).eInverseRemove(this, GraphstructurePackage.PRIMITIVE_NODE__ONEARGJAVAOPERATOR, PrimitiveNode.class, msgs);
+			if (newPrimitiveNode != null)
+				msgs = ((InternalEObject)newPrimitiveNode).eInverseAdd(this, GraphstructurePackage.PRIMITIVE_NODE__ONEARGJAVAOPERATOR, PrimitiveNode.class, msgs);
+			msgs = basicSetPrimitiveNode(newPrimitiveNode, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__PRIMITIVE_NODE, newPrimitiveNode, newPrimitiveNode));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public BooleanParam getOption() {
+		if (option != null && option.eIsProxy()) {
+			InternalEObject oldOption = (InternalEObject)option;
+			option = (BooleanParam)eResolveProxy(oldOption);
+			if (option != oldOption) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__OPTION, oldOption, option));
+			}
+		}
+		return option;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BooleanParam basicGetOption() {
+		return option;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOption(BooleanParam newOption, NotificationChain msgs) {
+		BooleanParam oldOption = option;
+		option = newOption;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__OPTION, oldOption, newOption);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setOption(BooleanParam newOption) {
+		if (newOption != option) {
+			NotificationChain msgs = null;
+			if (option != null)
+				msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.BOOLEAN_PARAM__ONEARGJAVAOPERATOR, BooleanParam.class, msgs);
+			if (newOption != null)
+				msgs = ((InternalEObject)newOption).eInverseAdd(this, ParametersPackage.BOOLEAN_PARAM__ONEARGJAVAOPERATOR, BooleanParam.class, msgs);
+			msgs = basicSetOption(newOption, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__OPTION, newOption, newOption));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Boolean apply(String param1) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__PRIMITIVE_NODE:
+				if (primitiveNode != null)
+					msgs = ((InternalEObject)primitiveNode).eInverseRemove(this, GraphstructurePackage.PRIMITIVE_NODE__ONEARGJAVAOPERATOR, PrimitiveNode.class, msgs);
+				return basicSetPrimitiveNode((PrimitiveNode)otherEnd, msgs);
+			case JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__OPTION:
+				if (option != null)
+					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.BOOLEAN_PARAM__ONEARGJAVAOPERATOR, BooleanParam.class, msgs);
+				return basicSetOption((BooleanParam)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__PRIMITIVE_NODE:
+				return basicSetPrimitiveNode(null, msgs);
+			case JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__OPTION:
+				return basicSetOption(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__PRIMITIVE_NODE:
+				if (resolve) return getPrimitiveNode();
+				return basicGetPrimitiveNode();
+			case JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__OPTION:
+				if (resolve) return getOption();
+				return basicGetOption();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__PRIMITIVE_NODE:
+				setPrimitiveNode((PrimitiveNode)newValue);
+				return;
+			case JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__OPTION:
+				setOption((BooleanParam)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__PRIMITIVE_NODE:
+				setPrimitiveNode((PrimitiveNode)null);
+				return;
+			case JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__OPTION:
+				setOption((BooleanParam)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__PRIMITIVE_NODE:
+				return primitiveNode != null;
+			case JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__OPTION:
+				return option != null;
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR___APPLY__STRING:
+				return apply((String)arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
+} //OneArgJavaOperatorImpl

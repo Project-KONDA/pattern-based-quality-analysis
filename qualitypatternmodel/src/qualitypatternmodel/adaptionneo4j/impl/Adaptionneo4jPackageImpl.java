@@ -50,6 +50,8 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 
 import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
 
+import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
+import qualitypatternmodel.javaoperators.impl.JavaoperatorsPackageImpl;
 import qualitypatternmodel.operators.OperatorsPackage;
 
 import qualitypatternmodel.operators.impl.OperatorsPackageImpl;
@@ -269,6 +271,8 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 		TextrepresentationPackageImpl theTextrepresentationPackage = (TextrepresentationPackageImpl)(registeredPackage instanceof TextrepresentationPackageImpl ? registeredPackage : TextrepresentationPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AdaptionrdfPackage.eNS_URI);
 		AdaptionrdfPackageImpl theAdaptionrdfPackage = (AdaptionrdfPackageImpl)(registeredPackage instanceof AdaptionrdfPackageImpl ? registeredPackage : AdaptionrdfPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(JavaoperatorsPackage.eNS_URI);
+		JavaoperatorsPackageImpl theJavaoperatorsPackage = (JavaoperatorsPackageImpl)(registeredPackage instanceof JavaoperatorsPackageImpl ? registeredPackage : JavaoperatorsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theAdaptionneo4jPackage.createPackageContents();
@@ -280,6 +284,7 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 		theExecutionPackage.createPackageContents();
 		theTextrepresentationPackage.createPackageContents();
 		theAdaptionrdfPackage.createPackageContents();
+		theJavaoperatorsPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theAdaptionneo4jPackage.initializePackageContents();
@@ -291,6 +296,7 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 		theExecutionPackage.initializePackageContents();
 		theTextrepresentationPackage.initializePackageContents();
 		theAdaptionrdfPackage.initializePackageContents();
+		theJavaoperatorsPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theAdaptionneo4jPackage.freeze();

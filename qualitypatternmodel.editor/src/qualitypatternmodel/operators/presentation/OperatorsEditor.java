@@ -169,6 +169,7 @@ import qualitypatternmodel.execution.provider.ExecutionItemProviderAdapterFactor
 
 import qualitypatternmodel.graphstructure.provider.GraphstructureItemProviderAdapterFactory;
 
+import qualitypatternmodel.javaoperators.provider.JavaoperatorsItemProviderAdapterFactory;
 import qualitypatternmodel.parameters.presentation.QualitypatternmodelEditorPlugin;
 
 import qualitypatternmodel.parameters.provider.ParametersItemProviderAdapterFactory;
@@ -737,6 +738,7 @@ public class OperatorsEditor
 		adapterFactory.addAdapterFactory(new TextrepresentationItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new AdaptionrdfItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new Adaptionneo4jItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new JavaoperatorsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

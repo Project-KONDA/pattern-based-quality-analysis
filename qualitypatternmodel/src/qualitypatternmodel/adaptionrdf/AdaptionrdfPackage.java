@@ -1997,6 +1997,24 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_LITERAL_NODE__STRING_LENGTH = GraphstructurePackage.PRIMITIVE_NODE__STRING_LENGTH;
 
 	/**
+	 * The feature id for the '<em><b>Oneargjavaoperator</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_LITERAL_NODE__ONEARGJAVAOPERATOR = GraphstructurePackage.PRIMITIVE_NODE__ONEARGJAVAOPERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Twoargjavaoperator</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_LITERAL_NODE__TWOARGJAVAOPERATOR = GraphstructurePackage.PRIMITIVE_NODE__TWOARGJAVAOPERATOR;
+
+	/**
 	 * The number of structural features of the '<em>Rdf Literal Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

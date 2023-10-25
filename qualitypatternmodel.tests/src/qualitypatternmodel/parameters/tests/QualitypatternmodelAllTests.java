@@ -17,6 +17,7 @@ import qualitypatternmodel.execution.tests.ExecutionTests;
 
 import qualitypatternmodel.graphstructure.tests.GraphstructureTests;
 
+import qualitypatternmodel.javaoperators.tests.JavaoperatorsTests;
 import qualitypatternmodel.operators.tests.OperatorsTests;
 
 import qualitypatternmodel.patternstructure.tests.PatternstructureTests;
@@ -56,6 +57,7 @@ public class QualitypatternmodelAllTests extends TestSuite {
 		suite.addTest(TextrepresentationTests.suite());
 		suite.addTest(AdaptionrdfTests.suite());
 		suite.addTest(Adaptionneo4jTests.suite());
+		suite.addTest(JavaoperatorsTests.suite());
 		return suite;
 	}
 

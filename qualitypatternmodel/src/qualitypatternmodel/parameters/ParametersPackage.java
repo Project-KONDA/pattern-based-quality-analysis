@@ -1848,13 +1848,22 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM__NULL_CHECK = PARAMETER_VALUE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Oneargjavaoperator</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM__ONEARGJAVAOPERATOR = PARAMETER_VALUE_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Boolean Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 4;
+	int BOOLEAN_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -8640,6 +8649,17 @@ public interface ParametersPackage extends EPackage {
 	EReference getBooleanParam_NullCheck();
 
 	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.BooleanParam#getOneargjavaoperator <em>Oneargjavaoperator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Oneargjavaoperator</em>'.
+	 * @see qualitypatternmodel.parameters.BooleanParam#getOneargjavaoperator()
+	 * @see #getBooleanParam()
+	 * @generated
+	 */
+	EReference getBooleanParam_Oneargjavaoperator();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.BooleanParam#setValueIfValid(java.lang.Boolean) <em>Set Value If Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9501,6 +9521,14 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BOOLEAN_PARAM__NULL_CHECK = eINSTANCE.getBooleanParam_NullCheck();
+
+		/**
+		 * The meta object literal for the '<em><b>Oneargjavaoperator</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOOLEAN_PARAM__ONEARGJAVAOPERATOR = eINSTANCE.getBooleanParam_Oneargjavaoperator();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Value If Valid</b></em>' operation.

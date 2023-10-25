@@ -258,4 +258,32 @@
       </editor>
    </extension>
 
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated qualitypatternmodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="qualitypatternmodel.javaoperators.presentation.JavaoperatorsModelWizardID"
+            name="%_UI_JavaoperatorsModelWizard_label"
+            class="qualitypatternmodel.javaoperators.presentation.JavaoperatorsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/JavaoperatorsModelFile.gif">
+         <description>%_UI_JavaoperatorsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated qualitypatternmodel -->
+      <editor
+            id="qualitypatternmodel.javaoperators.presentation.JavaoperatorsEditorID"
+            name="%_UI_JavaoperatorsEditor_label"
+            icon="icons/full/obj16/JavaoperatorsModelFile.gif"
+            extensions="javaoperators"
+            class="qualitypatternmodel.javaoperators.presentation.JavaoperatorsEditor"
+            contributorClass="qualitypatternmodel.javaoperators.presentation.JavaoperatorsActionBarContributor">
+      </editor>
+   </extension>
+
 </plugin>

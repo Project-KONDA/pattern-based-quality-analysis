@@ -49,6 +49,7 @@ public class BooleanParamItemProvider extends ParameterValueItemProvider {
 			addMatchesPropertyDescriptor(object);
 			addContainsPropertyDescriptor(object);
 			addNullCheckPropertyDescriptor(object);
+			addOneargjavaoperatorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -133,6 +134,28 @@ public class BooleanParamItemProvider extends ParameterValueItemProvider {
 				 getString("_UI_BooleanParam_nullCheck_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_BooleanParam_nullCheck_feature", "_UI_BooleanParam_type"),
 				 ParametersPackage.Literals.BOOLEAN_PARAM__NULL_CHECK,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Oneargjavaoperator feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOneargjavaoperatorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BooleanParam_oneargjavaoperator_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BooleanParam_oneargjavaoperator_feature", "_UI_BooleanParam_type"),
+				 ParametersPackage.Literals.BOOLEAN_PARAM__ONEARGJAVAOPERATOR,
 				 true,
 				 false,
 				 true,

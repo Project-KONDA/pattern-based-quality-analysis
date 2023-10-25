@@ -78,4 +78,12 @@
             genModel="model/qualitypatternmodel.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated qualitypatternmodel -->
+      <package
+            uri="javaoperators"
+            class="qualitypatternmodel.javaoperators.JavaoperatorsPackage"
+            genModel="model/qualitypatternmodel.genmodel"/>
+   </extension>
+
 </plugin>

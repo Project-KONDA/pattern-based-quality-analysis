@@ -167,6 +167,7 @@ import qualitypatternmodel.adaptionxml.provider.AdaptionxmlItemProviderAdapterFa
 
 import qualitypatternmodel.execution.provider.ExecutionItemProviderAdapterFactory;
 
+import qualitypatternmodel.javaoperators.provider.JavaoperatorsItemProviderAdapterFactory;
 import qualitypatternmodel.operators.provider.OperatorsItemProviderAdapterFactory;
 
 import qualitypatternmodel.parameters.presentation.QualitypatternmodelEditorPlugin;
@@ -737,6 +738,7 @@ public class GraphstructureEditor
 		adapterFactory.addAdapterFactory(new TextrepresentationItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new AdaptionrdfItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new Adaptionneo4jItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new JavaoperatorsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.
