@@ -315,18 +315,8 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getOperator__GetAllOperators() {
-		return operatorEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getOperator__GetRootBooleanOperators() {
-		return operatorEClass.getEOperations().get(3);
+		return operatorEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -336,16 +326,6 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 	 */
 	@Override
 	public EOperation getOperator__IsCycleFree__EList() {
-		return operatorEClass.getEOperations().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getOperator__IsCycleFree() {
 		return operatorEClass.getEOperations().get(4);
 	}
 
@@ -355,8 +335,18 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getOperator__IsCycleFree() {
+		return operatorEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getOperator__GetArguments() {
-		return operatorEClass.getEOperations().get(2);
+		return operatorEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -747,7 +737,6 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		operatorEClass = createEClass(OPERATOR);
 		createEReference(operatorEClass, OPERATOR__OPERATOR_LIST);
 		createEOperation(operatorEClass, OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP);
-		createEOperation(operatorEClass, OPERATOR___GET_ALL_OPERATORS);
 		createEOperation(operatorEClass, OPERATOR___GET_ARGUMENTS);
 		createEOperation(operatorEClass, OPERATOR___GET_ROOT_BOOLEAN_OPERATORS);
 		createEOperation(operatorEClass, OPERATOR___IS_CYCLE_FREE);
@@ -866,8 +855,6 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getOperator__GetAllOperators(), this.getOperator(), "getAllOperators", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getOperator__GetArguments(), theGraphstructurePackage.getComparable(), "getArguments", 0, -1, IS_UNIQUE, IS_ORDERED);
 

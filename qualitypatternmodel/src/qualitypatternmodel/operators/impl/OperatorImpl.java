@@ -79,8 +79,9 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
 	 */
-	public EList<Operator> getAllOperators() {
+	public EList<Operator> getAllOperators() throws InvalidityException {
 		BasicEList<Operator> operators = new BasicEList<Operator>();
 		operators.add(this);
 		return operators;
@@ -423,8 +424,6 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case OperatorsPackage.OPERATOR___GET_ALL_OPERATORS:
-				return getAllOperators();
 			case OperatorsPackage.OPERATOR___GET_ARGUMENTS:
 				return getArguments();
 			case OperatorsPackage.OPERATOR___GET_ROOT_BOOLEAN_OPERATORS:

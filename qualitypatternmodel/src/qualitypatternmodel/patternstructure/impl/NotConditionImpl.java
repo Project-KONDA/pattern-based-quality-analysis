@@ -16,6 +16,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.Condition;
@@ -196,10 +197,13 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	}
 
 	@Override
-	public EList<Parameter> getAllParameters() throws InvalidityException {
-		EList<Parameter> parameters = new BasicEList<Parameter>();
-		parameters.addAll(condition.getAllParameters());		
-		return parameters;
+	public EList<Parameter> getAllParameters() throws InvalidityException {		
+		return condition.getAllParameters();
+	}
+
+	@Override
+	public EList<Operator> getAllOperators() throws InvalidityException {	
+		return condition.getAllOperators();
 	}
 	
 	@Override

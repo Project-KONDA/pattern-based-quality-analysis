@@ -13,7 +13,6 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
-import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.TextLiteralParam;
@@ -274,17 +273,6 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @generated
 	 */
 	UntypedParameterValue addPrimitiveComparison() throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Returns a list of all <code>Operators</code> referenced by <code>this</code>.
-	 * 
-	 * @return a list of all <code>Operators</code> referenced by <code>this</code>
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	EList<Operator> getAllOperators();
 
 	/**
 	 * <!-- begin-user-doc -->

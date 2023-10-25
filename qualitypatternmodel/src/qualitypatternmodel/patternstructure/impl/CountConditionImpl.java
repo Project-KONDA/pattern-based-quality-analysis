@@ -19,6 +19,7 @@ import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
@@ -307,6 +308,14 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		}		
 		res.addAll(getCountPattern().getAllParameters());
 		res.addAll(getArgument2().getAllParameters());		
+		return res;
+	}
+	
+	@Override
+	public EList<Operator> getAllOperators() throws InvalidityException {
+		EList<Operator> res = new BasicEList<Operator>();
+		res.addAll(getCountPattern().getAllOperators());
+		res.addAll(getArgument2().getAllOperators());		
 		return res;
 	}
 

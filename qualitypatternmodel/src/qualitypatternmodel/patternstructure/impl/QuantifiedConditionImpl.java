@@ -26,6 +26,7 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
+import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
@@ -324,6 +325,15 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			parameters.addAll(condition.getAllParameters());
 		}
 		return parameters;
+	}
+
+	@Override
+	public EList<Operator> getAllOperators() throws InvalidityException {
+		EList<Operator> operators = graph.getAllOperators();
+		if (condition != null) {
+			operators.addAll(condition.getAllOperators());
+		}
+		return operators;
 	}
 
 	@Override
@@ -1108,9 +1118,10 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 * Since the lists contains the actual node different possible possible methods, depending on the type of the Node, can be accessed
 	 * It has the advantage that the method works with references instead of creating new Objects or simple returning a String-Value. 
 	 * <b>Attention<\b> <i> No node will be return which has been handled in a previews Condition <\i>.
+	 * @throws InvalidityException 
 	 */
 	private final void getAllNeoPropertiesToAddress(final EList<NeoPropertyEdge> neoPropertyEdges,
-			final EList<NeoPropertyEdge> neoVarPropertyEdges, final Set<NeoPropertyNode> uniqueNeoPropertyNodes) {
+			final EList<NeoPropertyEdge> neoVarPropertyEdges, final Set<NeoPropertyNode> uniqueNeoPropertyNodes) throws InvalidityException {
 		NeoPropertyEdge neoPropertyEdge = null;
 		for (Relation r : getGraph().getRelations()) {
 			if (r instanceof NeoPropertyEdge) {
@@ -1263,8 +1274,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 * @return boolean.class
 	 * This method checks if an implicit exists check is already happening.
 	 * An implicit exists happens if an operator is specified or more then one edge goes into a NeoPropertyNode.
+	 * @throws InvalidityException 
 	 */
-	private final boolean isImplicitlyExitsChecked(final NeoPropertyEdge originalNeoPropertyEdge) {
+	private final boolean isImplicitlyExitsChecked(final NeoPropertyEdge originalNeoPropertyEdge) throws InvalidityException {
 		return originalNeoPropertyEdge.getTarget().getIncoming().size() != 1 || originalNeoPropertyEdge.getTarget().getAllOperators().size() != 0;
 	}
 	//END - Methods for Where-Clause

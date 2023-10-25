@@ -4,7 +4,6 @@ package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.Pattern;
@@ -238,17 +237,6 @@ public interface Graph extends PatternElement {
 	 */
 	EList<Node> getReturnNodes();
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * Returns a list of all <code>Operators</code> referenced by the contained graph components.
-	 * 
-	 * @return a list of all <code>Operators</code> referenced by the contained graph components
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	EList<Operator> getAllOperators();
-	
 	Boolean isBefore(Graph other);
 
 	/**

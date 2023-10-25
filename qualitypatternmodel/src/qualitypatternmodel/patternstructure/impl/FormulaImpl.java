@@ -17,6 +17,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.Condition;
@@ -382,6 +383,16 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 			parameters.addAll(condition2.getAllParameters());
 		}	
 		return parameters;
+	}
+
+	@Override
+	public EList<Operator> getAllOperators() throws InvalidityException {
+		EList<Operator> operators = new BasicEList<Operator>();
+		operators.addAll(condition1.getAllOperators());
+		if(condition2 != null) {
+			operators.addAll(condition2.getAllOperators());
+		}	
+		return operators;
 	}
 
 	@Override

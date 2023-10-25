@@ -838,7 +838,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EOperation getPatternElement__GetAllParameters() {
-		return patternElementEClass.getEOperations().get(13);
+		return patternElementEClass.getEOperations().get(14);
 	}
 
 	/**
@@ -888,7 +888,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EOperation getPatternElement__PrepareParameterUpdates() {
-		return patternElementEClass.getEOperations().get(14);
+		return patternElementEClass.getEOperations().get(15);
 	}
 
 	/**
@@ -898,7 +898,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EOperation getPatternElement__GetParameterList() {
-		return patternElementEClass.getEOperations().get(12);
+		return patternElementEClass.getEOperations().get(13);
 	}
 
 	/**
@@ -917,8 +917,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__CreateRdfAdaption() {
-		return patternElementEClass.getEOperations().get(21);
+	public EOperation getPatternElement__GetAllOperators() {
+		return patternElementEClass.getEOperations().get(12);
 	}
 
 	/**
@@ -927,7 +927,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__CreateNeo4jAdaption() {
+	public EOperation getPatternElement__CreateRdfAdaption() {
 		return patternElementEClass.getEOperations().get(22);
 	}
 
@@ -937,8 +937,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__RecordValues__XmlDataDatabase() {
-		return patternElementEClass.getEOperations().get(18);
+	public EOperation getPatternElement__CreateNeo4jAdaption() {
+		return patternElementEClass.getEOperations().get(23);
 	}
 
 	/**
@@ -947,7 +947,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__RelationsXmlAdapted() {
+	public EOperation getPatternElement__RecordValues__XmlDataDatabase() {
 		return patternElementEClass.getEOperations().get(19);
 	}
 
@@ -957,7 +957,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__CreateXmlAdaption() {
+	public EOperation getPatternElement__RelationsXmlAdapted() {
 		return patternElementEClass.getEOperations().get(20);
 	}
 
@@ -967,8 +967,18 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EOperation getPatternElement__CreateXmlAdaption() {
+		return patternElementEClass.getEOperations().get(21);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getPatternElement__TriggerParameterUpdates__PatternElement_EList() {
-		return patternElementEClass.getEOperations().get(15);
+		return patternElementEClass.getEOperations().get(16);
 	}
 
 	/**
@@ -978,7 +988,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EOperation getPatternElement__TriggerParameterUpdates__PatternElement() {
-		return patternElementEClass.getEOperations().get(17);
+		return patternElementEClass.getEOperations().get(18);
 	}
 
 	/**
@@ -988,7 +998,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EOperation getPatternElement__UpdateParameters__ParameterList() {
-		return patternElementEClass.getEOperations().get(16);
+		return patternElementEClass.getEOperations().get(17);
 	}
 
 	/**
@@ -1466,6 +1476,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___INITIALIZE_TRANSLATION);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___PREPARE_TRANSLATION);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_OPERATOR_LIST);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_ALL_OPERATORS);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_PARAMETER_LIST);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_ALL_PARAMETERS);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___PREPARE_PARAMETER_UPDATES);
@@ -1699,6 +1710,9 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEOperation(getPatternElement__PrepareTranslation(), null, "prepareTranslation", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getPatternElement__GetOperatorList(), theOperatorsPackage.getOperatorList(), "getOperatorList", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getPatternElement__GetAllOperators(), theOperatorsPackage.getOperator(), "getAllOperators", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getInvalidityExceptionWrapper());
 
 		initEOperation(getPatternElement__GetParameterList(), theParametersPackage.getParameterList(), "getParameterList", 0, 1, IS_UNIQUE, IS_ORDERED);
 

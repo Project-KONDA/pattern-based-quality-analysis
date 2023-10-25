@@ -1559,8 +1559,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return null;
 			case GraphstructurePackage.NODE___GET_RELATIONS_TO__NODE:
 				return getRelationsTo((Node)arguments.get(0));
-			case GraphstructurePackage.NODE___GET_ALL_OPERATORS:
-				return getAllOperators();
 			case GraphstructurePackage.NODE___ADD_OUTGOING:
 				try {
 					return addOutgoing();
@@ -1783,9 +1781,11 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
 	 */
-	public EList<Operator> getAllOperators() {
+	public EList<Operator> getAllOperators() throws InvalidityException {
 		EList<Operator> res = new BasicEList<Operator>();
 		for (Operator op : getPredicates()) {
 			res.addAll(op.getAllOperators());

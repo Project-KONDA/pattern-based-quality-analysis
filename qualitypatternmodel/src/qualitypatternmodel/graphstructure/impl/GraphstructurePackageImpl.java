@@ -514,46 +514,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EOperation getNode__AddPrimitiveMatch__String() {
-		return nodeEClass.getEOperations().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getNode__AddPrimitiveContains() {
-		return nodeEClass.getEOperations().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getNode__AddPrimitiveContains__String() {
-		return nodeEClass.getEOperations().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getNode__AddPrimitiveComparison__String() {
-		return nodeEClass.getEOperations().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getNode__AddPrimitiveMatch() {
 		return nodeEClass.getEOperations().get(12);
 	}
 
@@ -563,7 +523,27 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getNode__AddPrimitiveComparison() {
+	public EOperation getNode__AddPrimitiveContains() {
+		return nodeEClass.getEOperations().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNode__AddPrimitiveContains__String() {
+		return nodeEClass.getEOperations().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNode__AddPrimitiveComparison__String() {
 		return nodeEClass.getEOperations().get(8);
 	}
 
@@ -573,17 +553,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getNode__GetAllOperators() {
-		return nodeEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getNode__AddPrimitiveComparison__ComparisonOperator_ParameterValue() {
+	public EOperation getNode__AddPrimitiveMatch() {
 		return nodeEClass.getEOperations().get(11);
 	}
 
@@ -593,8 +563,28 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getNode__AddPrimitiveComparison__ParameterValue() {
+	public EOperation getNode__AddPrimitiveComparison() {
+		return nodeEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNode__AddPrimitiveComparison__ComparisonOperator_ParameterValue() {
 		return nodeEClass.getEOperations().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNode__AddPrimitiveComparison__ParameterValue() {
+		return nodeEClass.getEOperations().get(9);
 	}
 
 	/**
@@ -614,7 +604,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EOperation getNode__CheckComparisonConsistency__Comparison() {
-		return nodeEClass.getEOperations().get(21);
+		return nodeEClass.getEOperations().get(20);
 	}
 
 	/**
@@ -624,76 +614,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EOperation getNode__MakePrimitive() {
-		return nodeEClass.getEOperations().get(27);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getNode__MakeComplex() {
-		return nodeEClass.getEOperations().get(25);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getNode__AddOutgoing() {
-		return nodeEClass.getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getNode__AddOutgoing__Graph() {
-		return nodeEClass.getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getNode__AddOutgoing__Node() {
-		return nodeEClass.getEOperations().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getNode__MakeGeneric() {
-		return nodeEClass.getEOperations().get(23);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getNode__CheckGeneric() {
-		return nodeEClass.getEOperations().get(22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getNode__CheckPrimitive() {
 		return nodeEClass.getEOperations().get(26);
 	}
 
@@ -703,7 +623,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getNode__CheckComplex() {
+	public EOperation getNode__MakeComplex() {
 		return nodeEClass.getEOperations().get(24);
 	}
 
@@ -713,8 +633,78 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
+	public EOperation getNode__AddOutgoing() {
+		return nodeEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNode__AddOutgoing__Graph() {
+		return nodeEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNode__AddOutgoing__Node() {
+		return nodeEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNode__MakeGeneric() {
+		return nodeEClass.getEOperations().get(22);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNode__CheckGeneric() {
+		return nodeEClass.getEOperations().get(21);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNode__CheckPrimitive() {
+		return nodeEClass.getEOperations().get(25);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNode__CheckComplex() {
+		return nodeEClass.getEOperations().get(23);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getNode__AddIncomming__ComplexNode() {
-		return nodeEClass.getEOperations().get(6);
+		return nodeEClass.getEOperations().get(5);
 	}
 
 	/**
@@ -724,7 +714,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EOperation getNode__AdaptAsXmlElement() {
-		return nodeEClass.getEOperations().get(28);
+		return nodeEClass.getEOperations().get(27);
 	}
 
 	/**
@@ -734,7 +724,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EOperation getNode__AdaptAsXmlProperty() {
-		return nodeEClass.getEOperations().get(29);
+		return nodeEClass.getEOperations().get(28);
 	}
 
 	/**
@@ -744,7 +734,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EOperation getNode__AdaptAsRdfIriNode() {
-		return nodeEClass.getEOperations().get(30);
+		return nodeEClass.getEOperations().get(29);
 	}
 
 	/**
@@ -754,7 +744,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EOperation getNode__AdaptAsRdfLiteralNode() {
-		return nodeEClass.getEOperations().get(31);
+		return nodeEClass.getEOperations().get(30);
 	}
 
 	/**
@@ -764,7 +754,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EOperation getNode__AdaptAsNeoElementNode() {
-		return nodeEClass.getEOperations().get(32);
+		return nodeEClass.getEOperations().get(31);
 	}
 
 	/**
@@ -774,7 +764,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EOperation getNode__AddComparison__Node() {
-		return nodeEClass.getEOperations().get(7);
+		return nodeEClass.getEOperations().get(6);
 	}
 
 	/**
@@ -784,7 +774,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EOperation getNode__AdaptAsNeoPropertyNode() {
-		return nodeEClass.getEOperations().get(33);
+		return nodeEClass.getEOperations().get(32);
 	}
 
 	/**
@@ -794,36 +784,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EOperation getNode__AddPrimitiveNullCheck() {
-		return nodeEClass.getEOperations().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getNode__AddPrimitiveNullCheck__Boolean() {
-		return nodeEClass.getEOperations().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getNode__AddPrimitiveStringLength() {
-		return nodeEClass.getEOperations().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getNode__AddPrimitiveStringLength__ComparisonOperator_Double() {
 		return nodeEClass.getEOperations().get(17);
 	}
 
@@ -833,8 +793,38 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
+	public EOperation getNode__AddPrimitiveNullCheck__Boolean() {
+		return nodeEClass.getEOperations().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNode__AddPrimitiveStringLength() {
+		return nodeEClass.getEOperations().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNode__AddPrimitiveStringLength__ComparisonOperator_Double() {
+		return nodeEClass.getEOperations().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getNode__CheckComparisonConsistency() {
-		return nodeEClass.getEOperations().get(20);
+		return nodeEClass.getEOperations().get(19);
 	}
 
 	/**
@@ -933,16 +923,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getGraph__GetAllOperators() {
-		return graphEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getGraph__IsReturnGraph() {
 		return graphEClass.getEOperations().get(0);
 	}
@@ -954,7 +934,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EOperation getGraph__AddRelation__ComplexNode_Node() {
-		return graphEClass.getEOperations().get(3);
+		return graphEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -964,7 +944,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EOperation getGraph__AddNode() {
-		return graphEClass.getEOperations().get(4);
+		return graphEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -974,7 +954,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EOperation getGraph__AddComplexNode() {
-		return graphEClass.getEOperations().get(5);
+		return graphEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -984,7 +964,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EOperation getGraph__AddPrimitiveNode() {
-		return graphEClass.getEOperations().get(6);
+		return graphEClass.getEOperations().get(5);
 	}
 
 	/**
@@ -994,7 +974,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EOperation getGraph__GenerateCypherWhere() {
-		return graphEClass.getEOperations().get(7);
+		return graphEClass.getEOperations().get(6);
 	}
 
 	/**
@@ -1004,7 +984,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EOperation getGraph__GetAllSubGraphs() {
-		return graphEClass.getEOperations().get(8);
+		return graphEClass.getEOperations().get(7);
 	}
 
 	/**
@@ -1014,7 +994,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EOperation getGraph__IsBefore__Graph() {
-		return graphEClass.getEOperations().get(9);
+		return graphEClass.getEOperations().get(8);
 	}
 
 	/**
@@ -1024,7 +1004,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EOperation getGraph__GetNodesFromAllPreviousGraphs() {
-		return graphEClass.getEOperations().get(10);
+		return graphEClass.getEOperations().get(9);
 	}
 
 	/**
@@ -1034,7 +1014,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EOperation getGraph__GetRelationsFromAllPreviousGraphs() {
-		return graphEClass.getEOperations().get(11);
+		return graphEClass.getEOperations().get(10);
 	}
 
 	/**
@@ -1250,7 +1230,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEAttribute(nodeEClass, NODE__PREDICATES_ARE_BEING_TRANSLATED);
 		createEOperation(nodeEClass, NODE___SET_GRAPH_SIMPLE__GRAPH);
 		createEOperation(nodeEClass, NODE___GET_RELATIONS_TO__NODE);
-		createEOperation(nodeEClass, NODE___GET_ALL_OPERATORS);
 		createEOperation(nodeEClass, NODE___ADD_OUTGOING);
 		createEOperation(nodeEClass, NODE___ADD_OUTGOING__GRAPH);
 		createEOperation(nodeEClass, NODE___ADD_OUTGOING__NODE);
@@ -1293,7 +1272,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEReference(graphEClass, GRAPH__RELATIONS);
 		createEOperation(graphEClass, GRAPH___IS_RETURN_GRAPH);
 		createEOperation(graphEClass, GRAPH___GET_RETURN_NODES);
-		createEOperation(graphEClass, GRAPH___GET_ALL_OPERATORS);
 		createEOperation(graphEClass, GRAPH___ADD_RELATION__COMPLEXNODE_NODE);
 		createEOperation(graphEClass, GRAPH___ADD_NODE);
 		createEOperation(graphEClass, GRAPH___ADD_COMPLEX_NODE);
@@ -1429,8 +1407,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		op = initEOperation(getNode__GetRelationsTo__Node(), this.getRelation(), "getRelationsTo", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getNode(), "node", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getNode__GetAllOperators(), theOperatorsPackage.getOperator(), "getAllOperators", 0, -1, IS_UNIQUE, IS_ORDERED);
-
 		op = initEOperation(getNode__AddOutgoing(), this.getRelation(), "addOutgoing", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
@@ -1544,8 +1520,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		initEOperation(getGraph__IsReturnGraph(), ecorePackage.getEBoolean(), "isReturnGraph", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getGraph__GetReturnNodes(), this.getNode(), "getReturnNodes", 0, -1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getGraph__GetAllOperators(), theOperatorsPackage.getOperator(), "getAllOperators", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getGraph__AddRelation__ComplexNode_Node(), this.getRelation(), "addRelation", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getComplexNode(), "from", 0, 1, IS_UNIQUE, IS_ORDERED);

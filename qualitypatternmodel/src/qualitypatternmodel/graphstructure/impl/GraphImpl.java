@@ -961,7 +961,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	@Override
-	public EList<Operator> getAllOperators() {
+	public EList<Operator> getAllOperators() throws InvalidityException {
 		EList<Operator> res = new BasicEList<Operator>();
 		for(Node node : getNodes()) {
 			res.addAll(node.getAllOperators());
@@ -1522,8 +1522,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return isReturnGraph();
 			case GraphstructurePackage.GRAPH___GET_RETURN_NODES:
 				return getReturnNodes();
-			case GraphstructurePackage.GRAPH___GET_ALL_OPERATORS:
-				return getAllOperators();
 			case GraphstructurePackage.GRAPH___ADD_RELATION__COMPLEXNODE_NODE:
 				return addRelation((ComplexNode)arguments.get(0), (Node)arguments.get(1));
 			case GraphstructurePackage.GRAPH___ADD_NODE:

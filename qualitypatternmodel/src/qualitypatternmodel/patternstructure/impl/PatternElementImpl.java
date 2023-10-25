@@ -25,6 +25,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
+import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
@@ -105,6 +106,13 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 */
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		return new BasicEList<Parameter>();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 */
+	public EList<Operator> getAllOperators() throws InvalidityException {
+		return new BasicEList<Operator>();
 	}
 
 	/**

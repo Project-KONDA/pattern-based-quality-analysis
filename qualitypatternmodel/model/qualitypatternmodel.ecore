@@ -239,7 +239,6 @@
           </eGenericType>
         </eParameters>
       </eOperations>
-      <eOperations name="getAllOperators" upperBound="-1" eType="#//operators/Operator"/>
       <eOperations name="getArguments" upperBound="-1" eType="#//graphstructure/Comparable"/>
       <eOperations name="getRootBooleanOperators" upperBound="-1" eType="#//operators/BooleanOperator"/>
       <eOperations name="isCycleFree" eExceptions="#//operators/OperatorCycleExceptionWrapper"/>
@@ -367,7 +366,6 @@
       <eOperations name="getRelationsTo" upperBound="-1" eType="#//graphstructure/Relation">
         <eParameters name="node" eType="#//graphstructure/Node"/>
       </eOperations>
-      <eOperations name="getAllOperators" upperBound="-1" eType="#//operators/Operator"/>
       <eOperations name="addOutgoing" eType="#//graphstructure/Relation" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="addOutgoing" eType="#//graphstructure/Relation" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="graph" eType="#//graphstructure/Graph"/>
@@ -454,7 +452,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="Graph" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="isReturnGraph" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eOperations name="getReturnNodes" upperBound="-1" eType="#//graphstructure/Node"/>
-      <eOperations name="getAllOperators" upperBound="-1" eType="#//operators/Operator"/>
       <eOperations name="addRelation" eType="#//graphstructure/Relation">
         <eParameters name="from" eType="#//graphstructure/ComplexNode"/>
         <eParameters name="to" eType="#//graphstructure/Node"/>
@@ -659,6 +656,8 @@
       <eOperations name="initializeTranslation"/>
       <eOperations name="prepareTranslation"/>
       <eOperations name="getOperatorList" eType="#//operators/OperatorList"/>
+      <eOperations name="getAllOperators" upperBound="-1" eType="#//operators/Operator"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="getParameterList" eType="#//parameters/ParameterList"/>
       <eOperations name="getAllParameters" upperBound="-1" eType="#//parameters/Parameter"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>

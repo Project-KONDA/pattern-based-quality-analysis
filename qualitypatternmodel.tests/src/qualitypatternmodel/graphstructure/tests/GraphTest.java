@@ -18,7 +18,6 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#isReturnGraph() <em>Is Return Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getReturnNodes() <em>Get Return Nodes</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Graph#getAllOperators() <em>Get All Operators</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#addRelation(qualitypatternmodel.graphstructure.ComplexNode, qualitypatternmodel.graphstructure.Node) <em>Add Relation</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#addNode() <em>Add Node</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#addComplexNode() <em>Add Complex Node</em>}</li>
@@ -107,19 +106,6 @@ public class GraphTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testGetReturnNodes() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Graph#getAllOperators() <em>Get All Operators</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Graph#getAllOperators()
-	 * @generated
-	 */
-	public void testGetAllOperators() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

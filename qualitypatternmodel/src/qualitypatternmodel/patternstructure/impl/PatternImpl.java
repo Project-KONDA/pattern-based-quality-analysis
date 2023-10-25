@@ -27,6 +27,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
@@ -464,6 +465,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		getCondition().recordValues(database);
 	}
 	
+	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> parameters = graph.getAllParameters();
 		if (condition != null)
@@ -471,6 +473,14 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		return parameters;
 	}
 
+	@Override
+	public EList<Operator> getAllOperators() throws InvalidityException {
+		EList<Operator> operators = graph.getAllOperators();
+		if (condition != null)
+			return condition.getAllOperators();
+		return operators;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
