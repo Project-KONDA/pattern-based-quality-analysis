@@ -1,21 +1,21 @@
-package qualitypatternmodel.javaquery;
+package javaquerytests.testclasses;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class JavaQueryInterimContainer {
-	protected List<InterimResultContainer> results;
-	private List<InterimResultContainer> rejected;
-	private InterimResultContainer currentCreationResult;
+	protected List<InterimContainer> results;
+	private List<InterimContainer> rejected;
+	private InterimContainer currentCreationResult;
 
 	public JavaQueryInterimContainer() {
-		results = new ArrayList<InterimResultContainer>();
-		rejected = new ArrayList<InterimResultContainer>();
+		results = new ArrayList<InterimContainer>();
+		rejected = new ArrayList<InterimContainer>();
 	}
 
 	public List<String> getResults() {
 		List<String> result = new ArrayList<String>();
-		for (InterimResultContainer irc : results) {
+		for (InterimContainer irc : results) {
 			result.add(irc.getResult());
 		}
 		return result;
@@ -27,7 +27,7 @@ public class JavaQueryInterimContainer {
 
 	public List<String> getRejected() {
 		List<String> result = new ArrayList<String>();
-		for (InterimResultContainer irc : rejected) {
+		for (InterimContainer irc : rejected) {
 			result.add(irc.getResult());
 		}
 		return result;
@@ -35,7 +35,7 @@ public class JavaQueryInterimContainer {
 
 	public void streamNext(String item) {
 		if (item.equals("<result>")) {
-			currentCreationResult = new InterimResultContainer();
+			currentCreationResult = new InterimContainer();
 		} else if (item.equals("</result>")) {
 			results.add(currentCreationResult);
 			currentCreationResult = null;
@@ -53,10 +53,10 @@ public class JavaQueryInterimContainer {
 	 */
 	public void filter(List<Integer> argumentIndices, EverySomeNoneQuantifier quantifier,
 			FilterFunctionContainer function) {
-		List<InterimResultContainer> interimResults = results;
-		results = new ArrayList<InterimResultContainer>();
+		List<InterimContainer> interimResults = results;
+		results = new ArrayList<InterimContainer>();
 
-		for (InterimResultContainer irc : interimResults) {
+		for (InterimContainer irc : interimResults) {
 
 			List<List<String>> params = new ArrayList<List<String>>();
 			for (Integer i : argumentIndices) {
@@ -78,7 +78,7 @@ public class JavaQueryInterimContainer {
 	}
 	
 	public void resetFilters() {
-		for (InterimResultContainer irc : rejected) {
+		for (InterimContainer irc : rejected) {
 			results.add(irc);
 		}
 		rejected.clear();
@@ -87,7 +87,7 @@ public class JavaQueryInterimContainer {
 	@Override
 	public String toString() {
 		String result = "[\n";
-		for (InterimResultContainer re : results) {
+		for (InterimContainer re : results) {
 			result += "\n\n" + re.toString();
 		}
 		return result + "\n]";

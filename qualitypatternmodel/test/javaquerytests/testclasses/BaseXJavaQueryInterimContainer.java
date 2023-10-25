@@ -1,4 +1,4 @@
-package qualitypatternmodel.javaquery;
+package javaquerytests.testclasses;
 
 import java.util.ArrayList;
 
@@ -11,7 +11,7 @@ import org.basex.query.value.item.Item;
 public class BaseXJavaQueryInterimContainer extends JavaQueryInterimContainer {
 	
 	public BaseXJavaQueryInterimContainer(String databasename, String datapath, String query) {
-		results = new ArrayList<InterimResultContainer>();
+		results = new ArrayList<InterimContainer>();
 		Context context = new Context();
 		try {
 			new CreateDB(databasename, datapath).execute(context);

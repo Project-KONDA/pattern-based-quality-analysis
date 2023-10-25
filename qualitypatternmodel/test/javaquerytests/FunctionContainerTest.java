@@ -3,8 +3,8 @@ package javaquerytests;
 import java.util.ArrayList;
 import java.util.List;
 
+import javaquerytests.testclasses.FilterFunctionContainer;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.javaquery.FilterFunctionContainer;
 
 public class FunctionContainerTest {
     

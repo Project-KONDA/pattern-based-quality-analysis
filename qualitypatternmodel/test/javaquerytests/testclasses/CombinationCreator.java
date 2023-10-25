@@ -1,4 +1,4 @@
-package qualitypatternmodel.javaquery;
+package javaquerytests.testclasses;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class CombinationCreator<T> {
         // Constructor logic here
     }
     
-    public Boolean isFinisihed() {
+    public Boolean isFinished() {
     	return finished;
     }
     

@@ -46,7 +46,7 @@ public class ConstraintApplicationTest {
 
 	public static void main(String[] args) throws Exception {
 		evaluatePatternConstraintTranslation(cardinalityPattern(), "ruleCatalog:FieldNode:minCount:1");
-//		evaluatePatternConstraintTranslation(getPatternSourceContainsWikipedia(), "ruleCatalog:ruleCatalog:score");
+		evaluatePatternConstraintTranslation(getPatternSourceContainsWikipedia(), "ruleCatalog:ruleCatalog:score");
 	}	
 		
 	

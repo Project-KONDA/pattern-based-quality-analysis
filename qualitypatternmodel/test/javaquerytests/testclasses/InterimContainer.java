@@ -1,14 +1,14 @@
-package qualitypatternmodel.javaquery;
+package javaquerytests.testclasses;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class InterimResultContainer {
+public class InterimContainer {
 	private List<String> result;
 	List<List<String>> parameter;
 	List<String> currentList;
 
-	public InterimResultContainer() {
+	public InterimContainer() {
 		parameter = new ArrayList<List<String>>();
 	}
 

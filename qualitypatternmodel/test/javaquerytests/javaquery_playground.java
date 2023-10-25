@@ -3,8 +3,8 @@ package javaquerytests;
 import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_DATABASE_NAME;
 import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_DATA_PATH;
 
-import qualitypatternmodel.javaquery.BaseXJavaQueryInterimContainer;
-import qualitypatternmodel.javaquery.JavaQueryInterimContainer;
+import javaquerytests.testclasses.BaseXJavaQueryInterimContainer;
+import javaquerytests.testclasses.JavaQueryInterimContainer;
 
 public class javaquery_playground {
 

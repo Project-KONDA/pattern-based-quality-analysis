@@ -1,4 +1,4 @@
-package qualitypatternmodel.javaquery;
+package javaquerytests.testclasses;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,7 +67,7 @@ public class FilterFunctionContainer {
 		}
 		CombinationCreator<String> combinations = new CombinationCreator<String>(params);
 		
-		while (!combinations.isFinisihed()) {
+		while (!combinations.isFinished()) {
 			List<String> next = combinations.getNext();
 			Boolean combRes = apply(next);
 

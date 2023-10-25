@@ -3,7 +3,7 @@ package junittests;
 import java.util.ArrayList;
 import java.util.List;
 
-import qualitypatternmodel.javaquery.CombinationCreator;
+import javaquerytests.testclasses.CombinationCreator;
 
 public class CombinationsTest<T> {
 
@@ -15,7 +15,7 @@ public class CombinationsTest<T> {
 
 		CombinationCreator<Integer> combinations = new CombinationCreator<>(integerLists);
 
-		while (!combinations.isFinisihed())
+		while (!combinations.isFinished())
 			System.out.println(combinations.getNext());
 	}
 }

@@ -7,10 +7,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 
-import qualitypatternmodel.javaquery.BaseXJavaQueryInterimContainer;
-import qualitypatternmodel.javaquery.EverySomeNoneQuantifier;
-import qualitypatternmodel.javaquery.FilterFunctionContainer;
-import qualitypatternmodel.javaquery.JavaQueryInterimContainer;
+import javaquerytests.testclasses.BaseXJavaQueryInterimContainer;
+import javaquerytests.testclasses.EverySomeNoneQuantifier;
+import javaquerytests.testclasses.FilterFunctionContainer;
+import javaquerytests.testclasses.JavaQueryInterimContainer;
 
 public class CombinationTest {
 
