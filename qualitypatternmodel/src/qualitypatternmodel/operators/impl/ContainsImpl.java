@@ -228,7 +228,6 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 				parameterList.add(getContent());
 			}
 		}
-		
 	}
 
 	/**

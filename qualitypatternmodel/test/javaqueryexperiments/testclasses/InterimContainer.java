@@ -1,4 +1,4 @@
-package javaquerytests.testclasses;
+package javaqueryexperiments.testclasses;
 
 import java.util.ArrayList;
 import java.util.List;

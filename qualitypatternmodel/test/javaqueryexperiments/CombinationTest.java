@@ -1,4 +1,4 @@
-package javaquerytests;
+package javaqueryexperiments;
 
 import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_DATABASE_NAME;
 import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_DATA_PATH;
@@ -7,10 +7,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 
-import javaquerytests.testclasses.BaseXJavaQueryInterimContainer;
-import javaquerytests.testclasses.EverySomeNoneQuantifier;
-import javaquerytests.testclasses.FilterFunctionContainer;
-import javaquerytests.testclasses.JavaQueryInterimContainer;
+import javaqueryexperiments.testclasses.BaseXJavaQueryInterimContainer;
+import javaqueryexperiments.testclasses.EverySomeNoneQuantifier;
+import javaqueryexperiments.testclasses.FilterFunctionContainer;
+import javaqueryexperiments.testclasses.JavaQueryInterimContainer;
 
 public class CombinationTest {
 

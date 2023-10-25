@@ -1,9 +1,9 @@
-package javaquerytests;
+package javaqueryexperiments;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import javaquerytests.testclasses.FilterFunctionContainer;
+import javaqueryexperiments.testclasses.FilterFunctionContainer;
 import qualitypatternmodel.exceptions.InvalidityException;
 
 public class FunctionContainerTest {

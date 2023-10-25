@@ -1,10 +1,10 @@
-package javaquerytests;
+package javaqueryexperiments;
 
 import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_DATABASE_NAME;
 import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_DATA_PATH;
 
-import javaquerytests.testclasses.BaseXJavaQueryInterimContainer;
-import javaquerytests.testclasses.JavaQueryInterimContainer;
+import javaqueryexperiments.testclasses.BaseXJavaQueryInterimContainer;
+import javaqueryexperiments.testclasses.JavaQueryInterimContainer;
 
 public class javaquery_playground {
 

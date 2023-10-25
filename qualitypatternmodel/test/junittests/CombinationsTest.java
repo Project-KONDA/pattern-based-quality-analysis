@@ -3,7 +3,7 @@ package junittests;
 import java.util.ArrayList;
 import java.util.List;
 
-import javaquerytests.testclasses.CombinationCreator;
+import javaqueryexperiments.testclasses.CombinationCreator;
 
 public class CombinationsTest<T> {
 

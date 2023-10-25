@@ -35,5 +35,10 @@ public abstract class JavaOperatorImpl extends BooleanOperatorImpl implements Ja
 	protected EClass eStaticClass() {
 		return JavaoperatorsPackage.Literals.JAVA_OPERATOR;
 	}
+	
+	@Override
+	public boolean isTranslatable() {
+		return false;
+	}
 
 } //JavaOperatorImpl

@@ -39,6 +39,8 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.javaoperators.ValidateLinkOperator;
+import qualitypatternmodel.javaoperators.impl.ValidateLinkOperatorImpl;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
@@ -1648,6 +1650,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return addPrimitiveNullCheck();
 			case GraphstructurePackage.NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN:
 				return addPrimitiveNullCheck((Boolean)arguments.get(0));
+			case GraphstructurePackage.NODE___ADD_PRIMITIVE_VALIDATE_LINK:
+				return addPrimitiveValidateLink();
 			case GraphstructurePackage.NODE___CHECK_COMPARISON_CONSISTENCY:
 				try {
 					checkComparisonConsistency();
@@ -1951,6 +1955,36 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			nullCheck.setPrimitiveNode(p);
 			
 			return nullCheck;
+		} catch (Exception e) {
+			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ValidateLinkOperator addPrimitiveValidateLink() {
+		ValidateLinkOperator linkvalidation = new ValidateLinkOperatorImpl();
+		try {			
+			Graph graph = (Graph) getAncestor(Graph.class);
+			OperatorList oplist = graph.getOperatorList();
+
+			oplist.add(linkvalidation);	
+			linkvalidation.createParameters();
+			PrimitiveNode p = null;
+			if(this instanceof PrimitiveNode) {
+				p = (PrimitiveNode) this;
+			} else {
+				p = makePrimitive();
+			}
+			linkvalidation.setPrimitiveNode(p);
+			
+			return linkvalidation;
 		} catch (Exception e) {
 			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
 			e.printStackTrace();

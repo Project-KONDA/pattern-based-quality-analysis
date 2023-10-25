@@ -1065,6 +1065,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_IRI_NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN;
 
 	/**
+	 * The operation id for the '<em>Add Primitive Validate Link</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_IRI_NODE___ADD_PRIMITIVE_VALIDATE_LINK = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_VALIDATE_LINK;
+
+	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2463,6 +2472,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @ordered
 	 */
 	int RDF_LITERAL_NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Validate Link</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_LITERAL_NODE___ADD_PRIMITIVE_VALIDATE_LINK = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_VALIDATE_LINK;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.

@@ -6,7 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -14,13 +14,17 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 import qualitypatternmodel.javaoperators.OneArgJavaOperator;
 import qualitypatternmodel.parameters.BooleanParam;
+import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -74,6 +78,14 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 	@Override
 	protected EClass eStaticClass() {
 		return JavaoperatorsPackage.Literals.ONE_ARG_JAVA_OPERATOR;
+	}
+
+	@Override
+	public EList<Comparable> getArguments(){
+		EList<Comparable> list = new BasicEList<Comparable>();		
+		list.add(primitiveNode);
+		list.add(option);
+		return list;
 	}
 
 	/**
@@ -330,6 +342,24 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 				return apply((String)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	@Override
+	public void createParameters() {		
+		ParameterList parameterList = getParameterList();	
+		if(parameterList != null) {
+			if(getOption() == null) {
+				BooleanParam bool = new BooleanParamImpl();				
+				setOption(bool);
+			} else {
+				parameterList.add(getOption());
+			}
+		}
+	}
+
+	@Override
+	public EList<Node> getAllArgumentElements() {		
+		return primitiveNode.getAllArgumentElements();
 	}
 
 } //OneArgJavaOperatorImpl

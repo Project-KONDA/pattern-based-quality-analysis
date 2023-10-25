@@ -10,6 +10,7 @@ import qualitypatternmodel.adaptionrdf.RdfLiteralNode;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.javaoperators.ValidateLinkOperator;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
@@ -478,6 +479,14 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @generated
 	 */
 	NullCheck addPrimitiveNullCheck(Boolean isNull);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	ValidateLinkOperator addPrimitiveValidateLink();
 
 	/**
 	 * <!-- begin-user-doc -->

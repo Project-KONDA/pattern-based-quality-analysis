@@ -35,6 +35,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveStringLength(qualitypatternmodel.operators.ComparisonOperator, java.lang.Double) <em>Add Primitive String Length</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveNullCheck() <em>Add Primitive Null Check</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveNullCheck(java.lang.Boolean) <em>Add Primitive Null Check</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveValidateLink() <em>Add Primitive Validate Link</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#checkComparisonConsistency() <em>Check Comparison Consistency</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#checkComparisonConsistency(qualitypatternmodel.operators.Comparison) <em>Check Comparison Consistency</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#checkGeneric() <em>Check Generic</em>}</li>
@@ -355,6 +356,19 @@ public class NodeTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testAddPrimitiveNullCheck__Boolean() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#addPrimitiveValidateLink() <em>Add Primitive Validate Link</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Node#addPrimitiveValidateLink()
+	 * @generated
+	 */
+	public void testAddPrimitiveValidateLink() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

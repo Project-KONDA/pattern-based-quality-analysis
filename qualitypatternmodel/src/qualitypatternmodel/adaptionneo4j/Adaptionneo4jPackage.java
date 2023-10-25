@@ -752,6 +752,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN;
 
 	/**
+	 * The operation id for the '<em>Add Primitive Validate Link</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_NODE___ADD_PRIMITIVE_VALIDATE_LINK = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_VALIDATE_LINK;
+
+	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3474,6 +3483,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Validate Link</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___ADD_PRIMITIVE_VALIDATE_LINK = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_VALIDATE_LINK;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
