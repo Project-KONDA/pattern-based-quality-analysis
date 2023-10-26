@@ -351,10 +351,17 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 			if(getOption() == null) {
 				BooleanParam bool = new BooleanParamImpl();				
 				setOption(bool);
-			} else {
-				parameterList.add(getOption());
-			}
+			} 
+			parameterList.add(getOption());
 		}
+	}
+	
+	@Override
+	public EList<PatternElement> prepareParameterUpdates() {
+		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
+		patternElements.add(getOption());
+		setOption(null);
+		return patternElements;
 	}
 
 	@Override

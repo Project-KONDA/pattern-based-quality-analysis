@@ -179,17 +179,14 @@ public class StringLengthImpl extends BooleanOperatorImpl implements StringLengt
 			if(getOption() == null) {
 				ComparisonOptionParam op = new ComparisonOptionParamImpl();				
 				setOption(op);
-			} else {
-				parameterList.add(getOption());
 			}
+			parameterList.add(getOption());
 			if(getNumber() == null) {
 				NumberParam numb = new NumberParamImpl();				
 				setNumber(numb);
-			} else {
-				parameterList.add(getNumber());
 			}
+			parameterList.add(getNumber());
 		}
-		
 	}	
 	
 	/**

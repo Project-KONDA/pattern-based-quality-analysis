@@ -431,9 +431,8 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 			if(getOption() == null) {
 				BooleanParam bool = new BooleanParamImpl();				
 				setOption(bool);
-			} else {
-				parameterList.add(getOption());
 			}
+			parameterList.add(getOption());
 		}
 	}
 	

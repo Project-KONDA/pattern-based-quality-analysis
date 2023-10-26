@@ -218,15 +218,13 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 			if(getOption() == null) {
 				BooleanParam bool = new BooleanParamImpl();				
 				setOption(bool);
-			} else {
-				parameterList.add(getOption());
 			}
+			parameterList.add(getOption());
 			if(getContent() == null) {
 				TextLiteralParam textLiteral = new TextLiteralParamImpl();				
 				setContent(textLiteral);
-			} else {
-				parameterList.add(getContent());
 			}
+			parameterList.add(getContent());
 		}
 	}
 

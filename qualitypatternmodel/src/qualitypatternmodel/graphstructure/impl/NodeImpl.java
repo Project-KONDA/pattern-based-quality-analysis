@@ -927,6 +927,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				((PrimitiveNode) this).getStringLength().clear();
 				xmlProperty.setNullCheck(((PrimitiveNode) this).getNullCheck());
 				((PrimitiveNode) this).setNullCheck(null);
+				xmlProperty.getOneargjavaoperator().addAll(((PrimitiveNode) this).getOneargjavaoperator());
+				((PrimitiveNode) this).getOneargjavaoperator().clear();
+				xmlProperty.getTwoargjavaoperator().addAll(((PrimitiveNode) this).getTwoargjavaoperator());
+				((PrimitiveNode) this).getTwoargjavaoperator().clear();
 			}
 			
 			EList<Relation> incomingCopy = new BasicEList<Relation>();
@@ -1036,13 +1040,17 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			
 			if(this instanceof PrimitiveNode) {
 				rdfLiteral.getMatch().addAll(((PrimitiveNode) this).getMatch());
-				((PrimitiveNode) this).getMatch().clear();
+				((PrimitiveNode) this).getMatch().clear();		
 				rdfLiteral.getContains().addAll(((PrimitiveNode) this).getContains());
 				((PrimitiveNode) this).getContains().clear();	
 				rdfLiteral.getStringLength().addAll(((PrimitiveNode) this).getStringLength());
 				((PrimitiveNode) this).getStringLength().clear();
 				rdfLiteral.setNullCheck(((PrimitiveNode) this).getNullCheck());
 				((PrimitiveNode) this).setNullCheck(null);
+				rdfLiteral.getOneargjavaoperator().addAll(((PrimitiveNode) this).getOneargjavaoperator());
+				((PrimitiveNode) this).getOneargjavaoperator().clear();
+				rdfLiteral.getTwoargjavaoperator().addAll(((PrimitiveNode) this).getTwoargjavaoperator());
+				((PrimitiveNode) this).getTwoargjavaoperator().clear();
 			}
 			
 			EList<Relation> incomingCopy = new BasicEList<Relation>();
@@ -1147,13 +1155,17 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			
 			if(this instanceof PrimitiveNode) {
 				neoPropertyNode.getMatch().addAll(((PrimitiveNode) this).getMatch());
-				((PrimitiveNode) this).getMatch().clear();
+				((PrimitiveNode) this).getMatch().clear();		
 				neoPropertyNode.getContains().addAll(((PrimitiveNode) this).getContains());
-				((PrimitiveNode) this).getContains().clear();
-				neoPropertyNode.setNullCheck(((PrimitiveNode) this).getNullCheck());
-				((PrimitiveNode) this).setNullCheck(null);
+				((PrimitiveNode) this).getContains().clear();	
 				neoPropertyNode.getStringLength().addAll(((PrimitiveNode) this).getStringLength());
 				((PrimitiveNode) this).getStringLength().clear();
+				neoPropertyNode.setNullCheck(((PrimitiveNode) this).getNullCheck());
+				((PrimitiveNode) this).setNullCheck(null);
+				neoPropertyNode.getOneargjavaoperator().addAll(((PrimitiveNode) this).getOneargjavaoperator());
+				((PrimitiveNode) this).getOneargjavaoperator().clear();
+				neoPropertyNode.getTwoargjavaoperator().addAll(((PrimitiveNode) this).getTwoargjavaoperator());
+				((PrimitiveNode) this).getTwoargjavaoperator().clear();
 			}
 			
 			EList<Relation> incomingCopy = new BasicEList<Relation>();
@@ -1983,7 +1995,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				p = makePrimitive();
 			}
 			linkvalidation.setPrimitiveNode(p);
-			
 			return linkvalidation;
 		} catch (Exception e) {
 			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
@@ -2057,31 +2068,31 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public TextLiteralParam addPrimitiveMatch(String regex) {
-			Match match = new MatchImpl();
-			try {			
-				Graph graph = (Graph) getAncestor(Graph.class);
-				OperatorList oplist = graph.getOperatorList();
-	
-				oplist.add(match);	
-				match.createParameters();
-				PrimitiveNode p = null;
-				if(this instanceof PrimitiveNode) {
-					p = (PrimitiveNode) this;
-				} else {
-					p = makePrimitive();
-				}
-				match.setPrimitiveNode(p);
-									
-				if(regex != null) {
-					match.getRegularExpression().setValue(regex);
-				}
-				return match.getRegularExpression();
-			} catch (Exception e) {
-				System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
-				e.printStackTrace();
-				return null;
+		Match match = new MatchImpl();
+		try {			
+			Graph graph = (Graph) getAncestor(Graph.class);
+			OperatorList oplist = graph.getOperatorList();
+
+			oplist.add(match);	
+			match.createParameters();
+			PrimitiveNode p = null;
+			if(this instanceof PrimitiveNode) {
+				p = (PrimitiveNode) this;
+			} else {
+				p = makePrimitive();
 			}
+			match.setPrimitiveNode(p);
+								
+			if(regex != null) {
+				match.getRegularExpression().setValue(regex);
+			}
+			return match.getRegularExpression();
+		} catch (Exception e) {
+			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
+			e.printStackTrace();
+			return null;
 		}
+	}
 
 	
 

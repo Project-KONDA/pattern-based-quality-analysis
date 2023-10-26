@@ -204,17 +204,14 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			if(getOption() == null) {
 				BooleanParam bool = new BooleanParamImpl();				
 				setOption(bool);
-			} else {
-				parameterList.add(getOption());
 			}
+			parameterList.add(getOption());
 			if(getRegularExpression() == null) {
 				TextLiteralParam textLiteral = new TextLiteralParamImpl();				
 				setRegularExpression(textLiteral);
-			} else {
-				parameterList.add(getRegularExpression());
 			}
+			parameterList.add(getRegularExpression());
 		}
-		
 	}	
 	
 	/**

@@ -41,4 +41,7 @@ public abstract class JavaOperatorImpl extends BooleanOperatorImpl implements Ja
 		return false;
 	}
 
+	@Override
+	abstract public EList<PatternElement> prepareParameterUpdates();
+
 } //JavaOperatorImpl

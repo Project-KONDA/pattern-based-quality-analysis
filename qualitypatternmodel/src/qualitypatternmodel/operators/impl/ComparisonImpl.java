@@ -700,15 +700,13 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			if (getOption() == null) {
 				ComparisonOptionParam comparisonOption = new ComparisonOptionParamImpl();
 				setOption(comparisonOption);
-			} else {
-				parameterList.add(getOption());
 			}
+			parameterList.add(getOption());
 			if (getTypeOption() == null) {
 				TypeOptionParam typeOption = new TypeOptionParamImpl();
 				setTypeOption(typeOption);
-			} else {
-				parameterList.add(getTypeOption());
 			}
+			parameterList.add(getTypeOption());
 		}		
 	}
 
