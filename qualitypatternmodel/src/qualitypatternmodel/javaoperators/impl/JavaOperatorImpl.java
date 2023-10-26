@@ -5,10 +5,12 @@ package qualitypatternmodel.javaoperators.impl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaoperators.JavaOperator;
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 
 import qualitypatternmodel.operators.impl.BooleanOperatorImpl;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -37,13 +39,17 @@ public abstract class JavaOperatorImpl extends BooleanOperatorImpl implements Ja
 	protected EClass eStaticClass() {
 		return JavaoperatorsPackage.Literals.JAVA_OPERATOR;
 	}
+
+	@Override
+	abstract public EList<PatternElement> prepareParameterUpdates();
+	
+	@Override 
+	abstract public EList<Parameter> getAllParameters() throws InvalidityException;
 	
 	@Override
 	public boolean isTranslatable() {
 		return false;
 	}
-
-	@Override
-	abstract public EList<PatternElement> prepareParameterUpdates();
+	
 
 } //JavaOperatorImpl

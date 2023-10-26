@@ -15,7 +15,6 @@ import qualitypatternmodel.operators.OperatorsFactory;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.operators.Comparison#isPrimitive() <em>Is Primitive</em>}</li>
- *   <li>{@link qualitypatternmodel.operators.Comparison#getElement() <em>Get Element</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.Comparison#copy() <em>Copy</em>}</li>
  * </ul>
  * </p>
@@ -83,19 +82,6 @@ public class ComparisonTest extends BooleanOperatorTest {
 	 * @generated
 	 */
 	public void testIsPrimitive() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.operators.Comparison#getElement() <em>Get Element</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.operators.Comparison#getElement()
-	 * @generated
-	 */
-	public void testGetElement() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

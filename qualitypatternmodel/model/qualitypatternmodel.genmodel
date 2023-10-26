@@ -70,7 +70,7 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/BooleanParam/nullCheck"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/BooleanParam/oneargjavaoperator"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/BooleanParam/oneArgJavaOperator"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/BooleanParam/setValueIfValid">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/BooleanParam/setValueIfValid/newValue"/>
         </genOperations>
@@ -190,6 +190,7 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//operators/BooleanOperator/removeElement">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//operators/BooleanOperator/removeElement/element"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//operators/BooleanOperator/getElement"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//operators/Operator">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//operators/Operator/operatorList"/>
@@ -212,7 +213,6 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//operators/Match/option"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//operators/Match/regularExpression"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//operators/Match/getElement"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//operators/Comparison">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -224,7 +224,6 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//operators/Comparison/typeOption"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//operators/Comparison/isPrimitive"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//operators/Comparison/getElement"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//operators/Comparison/copy"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//operators/OperatorList">
@@ -241,13 +240,11 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//operators/Contains/option"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//operators/Contains/content"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//operators/Contains/getElement"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//operators/NullCheck">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//operators/NullCheck/primitiveNode"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//operators/NullCheck/option"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//operators/NullCheck/getElement"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//operators/StringLength">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -256,7 +253,6 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//operators/StringLength/number"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//operators/StringLength/option"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//operators/StringLength/getElement"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Graphstructure" basePackage="qualitypatternmodel" disposableProviderFactory="true"

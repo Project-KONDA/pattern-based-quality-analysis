@@ -228,6 +228,7 @@
       <eOperations name="removeElement">
         <eParameters name="element" eType="#//graphstructure/Node"/>
       </eOperations>
+      <eOperations name="getElement" eType="#//graphstructure/Node"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" upperBound="-1"
           eType="#//graphstructure/Node" eOpposite="#//graphstructure/Node/predicates"/>
     </eClassifiers>
@@ -252,7 +253,6 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NumberOperator" abstract="true" eSuperTypes="#//operators/Operator"/>
     <eClassifiers xsi:type="ecore:EClass" name="Match" eSuperTypes="#//operators/BooleanOperator">
-      <eOperations name="getElement" eType="#//graphstructure/Node"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="primitiveNode" eType="#//graphstructure/PrimitiveNode"
           eOpposite="#//graphstructure/PrimitiveNode/match"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
@@ -262,7 +262,6 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Comparison" eSuperTypes="#//operators/BooleanOperator">
       <eOperations name="isPrimitive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eOperations name="getElement" eType="#//graphstructure/Node"/>
       <eOperations name="copy" eType="#//operators/Comparison"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument1" eType="#//graphstructure/Comparable"
           eOpposite="#//graphstructure/Comparable/comparison1"/>
@@ -293,7 +292,6 @@
     <eClassifiers xsi:type="ecore:EDataType" name="OperatorCycleExceptionWrapper"
         instanceClassName="qualitypatternmodel.exceptions.OperatorCycleException"/>
     <eClassifiers xsi:type="ecore:EClass" name="Contains" eSuperTypes="#//operators/BooleanOperator">
-      <eOperations name="getElement" eType="#//graphstructure/Node"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="primitiveNode" eType="#//graphstructure/PrimitiveNode"
           eOpposite="#//graphstructure/PrimitiveNode/contains"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
@@ -302,14 +300,12 @@
           eType="#//parameters/TextLiteralParam" eOpposite="#//parameters/TextLiteralParam/contains"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NullCheck" eSuperTypes="#//operators/BooleanOperator">
-      <eOperations name="getElement" eType="#//graphstructure/Node"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="primitiveNode" eType="#//graphstructure/PrimitiveNode"
           eOpposite="#//graphstructure/PrimitiveNode/nullCheck"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//parameters/BooleanParam"
           eOpposite="#//parameters/BooleanParam/nullCheck"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="StringLength" eSuperTypes="#//operators/BooleanOperator">
-      <eOperations name="getElement" eType="#//graphstructure/Node"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="primitiveNode" eType="#//graphstructure/PrimitiveNode"
           eOpposite="#//graphstructure/PrimitiveNode/stringLength"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="number" eType="#//parameters/NumberParam"

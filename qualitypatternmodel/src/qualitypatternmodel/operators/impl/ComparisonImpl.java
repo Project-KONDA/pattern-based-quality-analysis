@@ -1424,8 +1424,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		switch (operationID) {
 			case OperatorsPackage.COMPARISON___IS_PRIMITIVE:
 				return isPrimitive();
-			case OperatorsPackage.COMPARISON___GET_ELEMENT:
-				return getElement();
 			case OperatorsPackage.COMPARISON___COPY:
 				return copy();
 		}

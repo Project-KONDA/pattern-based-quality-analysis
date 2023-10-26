@@ -2,7 +2,6 @@
  */
 package qualitypatternmodel.operators;
 
-import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.TypeOptionParam;
 
@@ -109,19 +108,6 @@ public interface Comparison extends BooleanOperator {
 	 * @generated
 	 */
 	boolean isPrimitive();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * In case <code>this</code> is primitive returns the <code>Element</code> that contains the
-	 * <code>Property</code> that is compared with a <code>Parameter</code>, else returns null.
-	 * 
-	 * @return null if <code>this</code> is not primitive, else the <code>Element</code> that contains the
-	 * <code>Property</code> that is compared with a <code>Parameter</code>
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	Node getElement();
 
 	/**
 	 * <!-- begin-user-doc -->

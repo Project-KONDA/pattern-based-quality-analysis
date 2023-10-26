@@ -447,6 +447,15 @@ public interface JavaoperatorsPackage extends EPackage {
 	int JAVA_OPERATOR___REMOVE_ELEMENT__NODE = OperatorsPackage.BOOLEAN_OPERATOR___REMOVE_ELEMENT__NODE;
 
 	/**
+	 * The operation id for the '<em>Get Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_OPERATOR___GET_ELEMENT = OperatorsPackage.BOOLEAN_OPERATOR___GET_ELEMENT;
+
+	/**
 	 * The number of operations of the '<em>Java Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -862,6 +871,15 @@ public interface JavaoperatorsPackage extends EPackage {
 	int ONE_ARG_JAVA_OPERATOR___REMOVE_ELEMENT__NODE = JAVA_OPERATOR___REMOVE_ELEMENT__NODE;
 
 	/**
+	 * The operation id for the '<em>Get Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_OPERATOR___GET_ELEMENT = JAVA_OPERATOR___GET_ELEMENT;
+
+	/**
 	 * The operation id for the '<em>Apply</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1275,6 +1293,15 @@ public interface JavaoperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TWO_ARG_JAVA_OPERATOR___REMOVE_ELEMENT__NODE = JAVA_OPERATOR___REMOVE_ELEMENT__NODE;
+
+	/**
+	 * The operation id for the '<em>Get Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TWO_ARG_JAVA_OPERATOR___GET_ELEMENT = JAVA_OPERATOR___GET_ELEMENT;
 
 	/**
 	 * The operation id for the '<em>Apply</em>' operation.
@@ -1699,6 +1726,15 @@ public interface JavaoperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int VALIDATE_LINK_OPERATOR___REMOVE_ELEMENT__NODE = ONE_ARG_JAVA_OPERATOR___REMOVE_ELEMENT__NODE;
+
+	/**
+	 * The operation id for the '<em>Get Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALIDATE_LINK_OPERATOR___GET_ELEMENT = ONE_ARG_JAVA_OPERATOR___GET_ELEMENT;
 
 	/**
 	 * The operation id for the '<em>Apply</em>' operation.

@@ -222,6 +222,17 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__OPTION, newOption, newOption));
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Node getElement() {
+		return getPrimitiveNode();
+	}
+	
+
 	@Override
 	abstract public String myToString();
 

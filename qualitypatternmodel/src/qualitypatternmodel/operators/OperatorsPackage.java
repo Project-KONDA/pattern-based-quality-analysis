@@ -812,13 +812,22 @@ public interface OperatorsPackage extends EPackage {
 	int BOOLEAN_OPERATOR___REMOVE_ELEMENT__NODE = OPERATOR_OPERATION_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Get Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___GET_ELEMENT = OPERATOR_OPERATION_COUNT + 3;
+
+	/**
 	 * The number of operations of the '<em>Boolean Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR_OPERATION_COUNT = OPERATOR_OPERATION_COUNT + 3;
+	int BOOLEAN_OPERATOR_OPERATION_COUNT = OPERATOR_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.operators.impl.NumberOperatorImpl <em>Number Operator</em>}' class.
@@ -1603,7 +1612,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MATCH___GET_ELEMENT = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
+	int MATCH___GET_ELEMENT = BOOLEAN_OPERATOR___GET_ELEMENT;
 
 	/**
 	 * The number of operations of the '<em>Match</em>' class.
@@ -1612,7 +1621,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MATCH_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 1;
+	int MATCH_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.operators.impl.ComparisonImpl <em>Comparison</em>}' class.
@@ -2039,6 +2048,15 @@ public interface OperatorsPackage extends EPackage {
 	int COMPARISON___REMOVE_ELEMENT__NODE = BOOLEAN_OPERATOR___REMOVE_ELEMENT__NODE;
 
 	/**
+	 * The operation id for the '<em>Get Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___GET_ELEMENT = BOOLEAN_OPERATOR___GET_ELEMENT;
+
+	/**
 	 * The operation id for the '<em>Is Primitive</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2048,22 +2066,13 @@ public interface OperatorsPackage extends EPackage {
 	int COMPARISON___IS_PRIMITIVE = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARISON___GET_ELEMENT = BOOLEAN_OPERATOR_OPERATION_COUNT + 1;
-
-	/**
 	 * The operation id for the '<em>Copy</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON___COPY = BOOLEAN_OPERATOR_OPERATION_COUNT + 2;
+	int COMPARISON___COPY = BOOLEAN_OPERATOR_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Comparison</em>' class.
@@ -2072,7 +2081,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 3;
+	int COMPARISON_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.operators.impl.OperatorListImpl <em>Operator List</em>}' class.
@@ -2785,7 +2794,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINS___GET_ELEMENT = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
+	int CONTAINS___GET_ELEMENT = BOOLEAN_OPERATOR___GET_ELEMENT;
 
 	/**
 	 * The number of operations of the '<em>Contains</em>' class.
@@ -2794,7 +2803,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINS_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 1;
+	int CONTAINS_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.operators.impl.NullCheckImpl <em>Null Check</em>}' class.
@@ -3209,7 +3218,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NULL_CHECK___GET_ELEMENT = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
+	int NULL_CHECK___GET_ELEMENT = BOOLEAN_OPERATOR___GET_ELEMENT;
 
 	/**
 	 * The number of operations of the '<em>Null Check</em>' class.
@@ -3218,7 +3227,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NULL_CHECK_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 1;
+	int NULL_CHECK_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.operators.impl.StringLengthImpl <em>String Length</em>}' class.
@@ -3642,7 +3651,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_LENGTH___GET_ELEMENT = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
+	int STRING_LENGTH___GET_ELEMENT = BOOLEAN_OPERATOR___GET_ELEMENT;
 
 	/**
 	 * The number of operations of the '<em>String Length</em>' class.
@@ -3651,7 +3660,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_LENGTH_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 1;
+	int STRING_LENGTH_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.operators.ComparisonOperator <em>Comparison Operator</em>}' enum.
@@ -3714,6 +3723,16 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getBooleanOperator__RemoveElement__Node();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.operators.BooleanOperator#getElement() <em>Get Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Element</em>' operation.
+	 * @see qualitypatternmodel.operators.BooleanOperator#getElement()
+	 * @generated
+	 */
+	EOperation getBooleanOperator__GetElement();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.operators.BooleanOperator#createParameters() <em>Create Parameters</em>}' operation.
@@ -3850,16 +3869,6 @@ public interface OperatorsPackage extends EPackage {
 	EReference getMatch_RegularExpression();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.operators.Match#getElement() <em>Get Element</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Element</em>' operation.
-	 * @see qualitypatternmodel.operators.Match#getElement()
-	 * @generated
-	 */
-	EOperation getMatch__GetElement();
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.operators.Comparison <em>Comparison</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3922,16 +3931,6 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getComparison__IsPrimitive();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.operators.Comparison#getElement() <em>Get Element</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Element</em>' operation.
-	 * @see qualitypatternmodel.operators.Comparison#getElement()
-	 * @generated
-	 */
-	EOperation getComparison__GetElement();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.operators.Comparison#copy() <em>Copy</em>}' operation.
@@ -4029,16 +4028,6 @@ public interface OperatorsPackage extends EPackage {
 	EReference getContains_Content();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.operators.Contains#getElement() <em>Get Element</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Element</em>' operation.
-	 * @see qualitypatternmodel.operators.Contains#getElement()
-	 * @generated
-	 */
-	EOperation getContains__GetElement();
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.operators.NullCheck <em>Null Check</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4069,16 +4058,6 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getNullCheck_Option();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.operators.NullCheck#getElement() <em>Get Element</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Element</em>' operation.
-	 * @see qualitypatternmodel.operators.NullCheck#getElement()
-	 * @generated
-	 */
-	EOperation getNullCheck__GetElement();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.operators.StringLength <em>String Length</em>}'.
@@ -4122,16 +4101,6 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getStringLength_Option();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.operators.StringLength#getElement() <em>Get Element</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Element</em>' operation.
-	 * @see qualitypatternmodel.operators.StringLength#getElement()
-	 * @generated
-	 */
-	EOperation getStringLength__GetElement();
 
 	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.operators.ComparisonOperator <em>Comparison Operator</em>}'.
@@ -4210,6 +4179,14 @@ public interface OperatorsPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation BOOLEAN_OPERATOR___REMOVE_ELEMENT__NODE = eINSTANCE.getBooleanOperator__RemoveElement__Node();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOOLEAN_OPERATOR___GET_ELEMENT = eINSTANCE.getBooleanOperator__GetElement();
 
 		/**
 		 * The meta object literal for the '<em><b>Create Parameters</b></em>' operation.
@@ -4322,14 +4299,6 @@ public interface OperatorsPackage extends EPackage {
 		EReference MATCH__REGULAR_EXPRESSION = eINSTANCE.getMatch_RegularExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation MATCH___GET_ELEMENT = eINSTANCE.getMatch__GetElement();
-
-		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.operators.impl.ComparisonImpl <em>Comparison</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4378,14 +4347,6 @@ public interface OperatorsPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation COMPARISON___IS_PRIMITIVE = eINSTANCE.getComparison__IsPrimitive();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation COMPARISON___GET_ELEMENT = eINSTANCE.getComparison__GetElement();
 
 		/**
 		 * The meta object literal for the '<em><b>Copy</b></em>' operation.
@@ -4464,14 +4425,6 @@ public interface OperatorsPackage extends EPackage {
 		EReference CONTAINS__CONTENT = eINSTANCE.getContains_Content();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation CONTAINS___GET_ELEMENT = eINSTANCE.getContains__GetElement();
-
-		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.operators.impl.NullCheckImpl <em>Null Check</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4496,14 +4449,6 @@ public interface OperatorsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference NULL_CHECK__OPTION = eINSTANCE.getNullCheck_Option();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NULL_CHECK___GET_ELEMENT = eINSTANCE.getNullCheck__GetElement();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.operators.impl.StringLengthImpl <em>String Length</em>}' class.
@@ -4538,14 +4483,6 @@ public interface OperatorsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference STRING_LENGTH__OPTION = eINSTANCE.getStringLength_Option();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation STRING_LENGTH___GET_ELEMENT = eINSTANCE.getStringLength__GetElement();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.operators.ComparisonOperator <em>Comparison Operator</em>}' enum.

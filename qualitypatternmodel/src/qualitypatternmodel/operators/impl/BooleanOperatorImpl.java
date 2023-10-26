@@ -139,6 +139,8 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 		}
 	}
 
+	@Override
+	abstract public Node getElement();
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -263,6 +265,8 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 			case OperatorsPackage.BOOLEAN_OPERATOR___REMOVE_ELEMENT__NODE:
 				removeElement((Node)arguments.get(0));
 				return null;
+			case OperatorsPackage.BOOLEAN_OPERATOR___GET_ELEMENT:
+				return getElement();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

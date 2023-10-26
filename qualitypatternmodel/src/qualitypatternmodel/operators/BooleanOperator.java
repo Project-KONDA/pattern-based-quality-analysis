@@ -64,6 +64,14 @@ public interface BooleanOperator extends Operator {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	Node getElement();
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * Creates associated <code>Parameters</code> if non-existent and adds them to the
 	 * pattern's <code>ParameterList</code>.
 	 * <!-- end-user-doc -->
