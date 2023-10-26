@@ -212,9 +212,9 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 		if (newOption != option) {
 			NotificationChain msgs = null;
 			if (option != null)
-				msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.BOOLEAN_PARAM__ONEARGJAVAOPERATOR, BooleanParam.class, msgs);
+				msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.BOOLEAN_PARAM__ONE_ARG_JAVA_OPERATOR, BooleanParam.class, msgs);
 			if (newOption != null)
-				msgs = ((InternalEObject)newOption).eInverseAdd(this, ParametersPackage.BOOLEAN_PARAM__ONEARGJAVAOPERATOR, BooleanParam.class, msgs);
+				msgs = ((InternalEObject)newOption).eInverseAdd(this, ParametersPackage.BOOLEAN_PARAM__ONE_ARG_JAVA_OPERATOR, BooleanParam.class, msgs);
 			msgs = basicSetOption(newOption, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -239,7 +239,7 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 				return basicSetPrimitiveNode((PrimitiveNode)otherEnd, msgs);
 			case JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__OPTION:
 				if (option != null)
-					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.BOOLEAN_PARAM__ONEARGJAVAOPERATOR, BooleanParam.class, msgs);
+					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.BOOLEAN_PARAM__ONE_ARG_JAVA_OPERATOR, BooleanParam.class, msgs);
 				return basicSetOption((BooleanParam)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);

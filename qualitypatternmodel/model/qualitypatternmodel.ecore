@@ -77,7 +77,7 @@
           eType="#//operators/Contains" eOpposite="#//operators/Contains/option"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="nullCheck" upperBound="-1"
           eType="#//operators/NullCheck" eOpposite="#//operators/NullCheck/option"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="oneargjavaoperator" upperBound="-1"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="oneArgJavaOperator" upperBound="-1"
           eType="#//javaoperators/OneArgJavaOperator" eOpposite="#//javaoperators/OneArgJavaOperator/option"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TextListParam" eSuperTypes="#//parameters/ListParam"/>
@@ -1422,10 +1422,10 @@
       <eOperations name="apply" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
         <eParameters name="param1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="primitiveNode" lowerBound="1"
-          eType="#//graphstructure/PrimitiveNode" eOpposite="#//graphstructure/PrimitiveNode/oneArgJavaOperator"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="primitiveNode" eType="#//graphstructure/PrimitiveNode"
+          eOpposite="#//graphstructure/PrimitiveNode/oneArgJavaOperator"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
-          eType="#//parameters/BooleanParam" eOpposite="#//parameters/BooleanParam/oneargjavaoperator"/>
+          eType="#//parameters/BooleanParam" eOpposite="#//parameters/BooleanParam/oneArgJavaOperator"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TwoArgJavaOperator" abstract="true"
         eSuperTypes="#//javaoperators/JavaOperator">
@@ -1433,8 +1433,8 @@
         <eParameters name="param1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eParameters name="param2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="primitiveNodes" lowerBound="2"
-          upperBound="2" eType="#//graphstructure/PrimitiveNode" eOpposite="#//graphstructure/PrimitiveNode/twoArgJavaOperator"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="primitiveNodes" upperBound="2"
+          eType="#//graphstructure/PrimitiveNode" eOpposite="#//graphstructure/PrimitiveNode/twoArgJavaOperator"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ValidateLinkOperator" eSuperTypes="#//javaoperators/OneArgJavaOperator"/>
   </eSubpackages>

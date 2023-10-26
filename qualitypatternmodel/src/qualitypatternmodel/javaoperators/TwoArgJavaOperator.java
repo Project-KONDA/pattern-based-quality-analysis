@@ -32,7 +32,7 @@ public interface TwoArgJavaOperator extends JavaOperator {
 	 * @return the value of the '<em>Primitive Nodes</em>' reference list.
 	 * @see qualitypatternmodel.javaoperators.JavaoperatorsPackage#getTwoArgJavaOperator_PrimitiveNodes()
 	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#getTwoArgJavaOperator
-	 * @model opposite="twoArgJavaOperator" lower="2" upper="2"
+	 * @model opposite="twoArgJavaOperator" upper="2"
 	 * @generated
 	 */
 	EList<PrimitiveNode> getPrimitiveNodes();

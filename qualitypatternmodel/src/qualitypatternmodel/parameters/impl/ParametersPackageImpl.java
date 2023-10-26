@@ -630,7 +630,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EReference getBooleanParam_Oneargjavaoperator() {
+	public EReference getBooleanParam_OneArgJavaOperator() {
 		return (EReference)booleanParamEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1249,7 +1249,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEReference(booleanParamEClass, BOOLEAN_PARAM__MATCHES);
 		createEReference(booleanParamEClass, BOOLEAN_PARAM__CONTAINS);
 		createEReference(booleanParamEClass, BOOLEAN_PARAM__NULL_CHECK);
-		createEReference(booleanParamEClass, BOOLEAN_PARAM__ONEARGJAVAOPERATOR);
+		createEReference(booleanParamEClass, BOOLEAN_PARAM__ONE_ARG_JAVA_OPERATOR);
 		createEOperation(booleanParamEClass, BOOLEAN_PARAM___SET_VALUE_IF_VALID__BOOLEAN);
 
 		textListParamEClass = createEClass(TEXT_LIST_PARAM);
@@ -1444,7 +1444,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEReference(getBooleanParam_Matches(), theOperatorsPackage.getMatch(), theOperatorsPackage.getMatch_Option(), "matches", null, 0, -1, BooleanParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBooleanParam_Contains(), theOperatorsPackage.getContains(), theOperatorsPackage.getContains_Option(), "contains", null, 0, -1, BooleanParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBooleanParam_NullCheck(), theOperatorsPackage.getNullCheck(), theOperatorsPackage.getNullCheck_Option(), "nullCheck", null, 0, -1, BooleanParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBooleanParam_Oneargjavaoperator(), theJavaoperatorsPackage.getOneArgJavaOperator(), theJavaoperatorsPackage.getOneArgJavaOperator_Option(), "oneargjavaoperator", null, 0, -1, BooleanParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBooleanParam_OneArgJavaOperator(), theJavaoperatorsPackage.getOneArgJavaOperator(), theJavaoperatorsPackage.getOneArgJavaOperator_Option(), "oneArgJavaOperator", null, 0, -1, BooleanParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getBooleanParam__SetValueIfValid__Boolean(), null, "setValueIfValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBooleanObject(), "newValue", 0, 1, IS_UNIQUE, IS_ORDERED);

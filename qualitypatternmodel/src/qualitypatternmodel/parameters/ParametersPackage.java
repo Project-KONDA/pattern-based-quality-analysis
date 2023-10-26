@@ -1848,13 +1848,13 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM__NULL_CHECK = PARAMETER_VALUE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Oneargjavaoperator</b></em>' reference list.
+	 * The feature id for the '<em><b>One Arg Java Operator</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_PARAM__ONEARGJAVAOPERATOR = PARAMETER_VALUE_FEATURE_COUNT + 4;
+	int BOOLEAN_PARAM__ONE_ARG_JAVA_OPERATOR = PARAMETER_VALUE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Boolean Param</em>' class.
@@ -8649,15 +8649,15 @@ public interface ParametersPackage extends EPackage {
 	EReference getBooleanParam_NullCheck();
 
 	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.BooleanParam#getOneargjavaoperator <em>Oneargjavaoperator</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.BooleanParam#getOneArgJavaOperator <em>One Arg Java Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Oneargjavaoperator</em>'.
-	 * @see qualitypatternmodel.parameters.BooleanParam#getOneargjavaoperator()
+	 * @return the meta object for the reference list '<em>One Arg Java Operator</em>'.
+	 * @see qualitypatternmodel.parameters.BooleanParam#getOneArgJavaOperator()
 	 * @see #getBooleanParam()
 	 * @generated
 	 */
-	EReference getBooleanParam_Oneargjavaoperator();
+	EReference getBooleanParam_OneArgJavaOperator();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.BooleanParam#setValueIfValid(java.lang.Boolean) <em>Set Value If Valid</em>}' operation.
@@ -9523,12 +9523,12 @@ public interface ParametersPackage extends EPackage {
 		EReference BOOLEAN_PARAM__NULL_CHECK = eINSTANCE.getBooleanParam_NullCheck();
 
 		/**
-		 * The meta object literal for the '<em><b>Oneargjavaoperator</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>One Arg Java Operator</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BOOLEAN_PARAM__ONEARGJAVAOPERATOR = eINSTANCE.getBooleanParam_Oneargjavaoperator();
+		EReference BOOLEAN_PARAM__ONE_ARG_JAVA_OPERATOR = eINSTANCE.getBooleanParam_OneArgJavaOperator();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Value If Valid</b></em>' operation.

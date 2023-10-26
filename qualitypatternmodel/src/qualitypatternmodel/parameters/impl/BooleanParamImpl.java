@@ -42,7 +42,7 @@ import qualitypatternmodel.parameters.ParameterList;
  *   <li>{@link qualitypatternmodel.parameters.impl.BooleanParamImpl#getMatches <em>Matches</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.BooleanParamImpl#getContains <em>Contains</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.BooleanParamImpl#getNullCheck <em>Null Check</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.impl.BooleanParamImpl#getOneargjavaoperator <em>Oneargjavaoperator</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.BooleanParamImpl#getOneArgJavaOperator <em>One Arg Java Operator</em>}</li>
  * </ul>
  *
  * @generated
@@ -101,14 +101,14 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	protected EList<NullCheck> nullCheck;
 
 	/**
-	 * The cached value of the '{@link #getOneargjavaoperator() <em>Oneargjavaoperator</em>}' reference list.
+	 * The cached value of the '{@link #getOneArgJavaOperator() <em>One Arg Java Operator</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOneargjavaoperator()
+	 * @see #getOneArgJavaOperator()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<OneArgJavaOperator> oneargjavaoperator;
+	protected EList<OneArgJavaOperator> oneArgJavaOperator;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -270,11 +270,11 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	 * @generated
 	 */
 	@Override
-	public EList<OneArgJavaOperator> getOneargjavaoperator() {
-		if (oneargjavaoperator == null) {
-			oneargjavaoperator = new EObjectWithInverseResolvingEList<OneArgJavaOperator>(OneArgJavaOperator.class, this, ParametersPackage.BOOLEAN_PARAM__ONEARGJAVAOPERATOR, JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__OPTION);
+	public EList<OneArgJavaOperator> getOneArgJavaOperator() {
+		if (oneArgJavaOperator == null) {
+			oneArgJavaOperator = new EObjectWithInverseResolvingEList<OneArgJavaOperator>(OneArgJavaOperator.class, this, ParametersPackage.BOOLEAN_PARAM__ONE_ARG_JAVA_OPERATOR, JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__OPTION);
 		}
-		return oneargjavaoperator;
+		return oneArgJavaOperator;
 	}
 
 	/**
@@ -314,8 +314,8 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContains()).basicAdd(otherEnd, msgs);
 			case ParametersPackage.BOOLEAN_PARAM__NULL_CHECK:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getNullCheck()).basicAdd(otherEnd, msgs);
-			case ParametersPackage.BOOLEAN_PARAM__ONEARGJAVAOPERATOR:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOneargjavaoperator()).basicAdd(otherEnd, msgs);
+			case ParametersPackage.BOOLEAN_PARAM__ONE_ARG_JAVA_OPERATOR:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOneArgJavaOperator()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -334,8 +334,8 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 				return ((InternalEList<?>)getContains()).basicRemove(otherEnd, msgs);
 			case ParametersPackage.BOOLEAN_PARAM__NULL_CHECK:
 				return ((InternalEList<?>)getNullCheck()).basicRemove(otherEnd, msgs);
-			case ParametersPackage.BOOLEAN_PARAM__ONEARGJAVAOPERATOR:
-				return ((InternalEList<?>)getOneargjavaoperator()).basicRemove(otherEnd, msgs);
+			case ParametersPackage.BOOLEAN_PARAM__ONE_ARG_JAVA_OPERATOR:
+				return ((InternalEList<?>)getOneArgJavaOperator()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -356,8 +356,8 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 				return getContains();
 			case ParametersPackage.BOOLEAN_PARAM__NULL_CHECK:
 				return getNullCheck();
-			case ParametersPackage.BOOLEAN_PARAM__ONEARGJAVAOPERATOR:
-				return getOneargjavaoperator();
+			case ParametersPackage.BOOLEAN_PARAM__ONE_ARG_JAVA_OPERATOR:
+				return getOneArgJavaOperator();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -386,9 +386,9 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 				getNullCheck().clear();
 				getNullCheck().addAll((Collection<? extends NullCheck>)newValue);
 				return;
-			case ParametersPackage.BOOLEAN_PARAM__ONEARGJAVAOPERATOR:
-				getOneargjavaoperator().clear();
-				getOneargjavaoperator().addAll((Collection<? extends OneArgJavaOperator>)newValue);
+			case ParametersPackage.BOOLEAN_PARAM__ONE_ARG_JAVA_OPERATOR:
+				getOneArgJavaOperator().clear();
+				getOneArgJavaOperator().addAll((Collection<? extends OneArgJavaOperator>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -414,8 +414,8 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 			case ParametersPackage.BOOLEAN_PARAM__NULL_CHECK:
 				getNullCheck().clear();
 				return;
-			case ParametersPackage.BOOLEAN_PARAM__ONEARGJAVAOPERATOR:
-				getOneargjavaoperator().clear();
+			case ParametersPackage.BOOLEAN_PARAM__ONE_ARG_JAVA_OPERATOR:
+				getOneArgJavaOperator().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -437,8 +437,8 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 				return contains != null && !contains.isEmpty();
 			case ParametersPackage.BOOLEAN_PARAM__NULL_CHECK:
 				return nullCheck != null && !nullCheck.isEmpty();
-			case ParametersPackage.BOOLEAN_PARAM__ONEARGJAVAOPERATOR:
-				return oneargjavaoperator != null && !oneargjavaoperator.isEmpty();
+			case ParametersPackage.BOOLEAN_PARAM__ONE_ARG_JAVA_OPERATOR:
+				return oneArgJavaOperator != null && !oneArgJavaOperator.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
