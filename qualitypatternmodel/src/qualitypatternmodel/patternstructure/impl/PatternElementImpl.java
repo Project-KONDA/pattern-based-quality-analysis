@@ -155,7 +155,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 			e.printStackTrace();
 			return false;
 		}
-//		System.out.println("Validation successfull at " + this.getClass().getSimpleName() + " " + this.getId() + "!");
+//		System.out.println("Validation successful at " + this.getClass().getSimpleName() + " " + this.getId() + "!");
 		return true;
 	}
 
@@ -169,7 +169,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	public EList<PatternElement> prepareParameterUpdates() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		throw new UnsupportedOperationException("Operation 'prepareParameterUpdates' not implemented for class " + getClass().getSimpleName());
 	}
 
 	/**

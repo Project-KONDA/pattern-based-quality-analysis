@@ -52,10 +52,20 @@ public class ValidateLinkOperatorImpl extends OneArgJavaOperatorImpl implements 
 
 	@Override
 	public String myToString() {
-		String res = "ValidateLink (" + getInternalId() + ") [";
-		if (!getOption().getValue()) res += "not ";
-		res += getOption().getInternalId() + "]";
-		res += "[" + getPrimitiveNode().getInternalId() + "]";
+		String res = "ValidateLink (" + getInternalId() + ")";
+		if (getOption() != null) {
+			res +=  "[";
+			if (!getOption().getValue()) 
+				res += "not ";
+			res += getOption().getInternalId() + "]";
+		}
+		else 
+			res += "[no option] ";
+
+		if (getPrimitiveNode() != null)
+			res += "[" + getPrimitiveNode().getInternalId() + "]";
+		else 
+			res += "[no node] ";
 		return res;
 	}
 } //ValidateLinkOperatorImpl

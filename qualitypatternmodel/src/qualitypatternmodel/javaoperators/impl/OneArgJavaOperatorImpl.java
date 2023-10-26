@@ -25,6 +25,7 @@ import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
+import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -70,6 +71,15 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 		super();
 	}
 
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	abstract public Boolean apply(String param1);
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,8 +93,8 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 	@Override
 	public EList<Comparable> getArguments(){
 		EList<Comparable> list = new BasicEList<Comparable>();		
-		list.add(primitiveNode);
-		list.add(option);
+		list.add(getPrimitiveNode());
+		list.add(getOption());
 		return list;
 	}
 
@@ -218,11 +228,7 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 	 * @generated
 	 */
 	@Override
-	public Boolean apply(String param1) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+	abstract public String myToString();
 
 	/**
 	 * <!-- begin-user-doc -->

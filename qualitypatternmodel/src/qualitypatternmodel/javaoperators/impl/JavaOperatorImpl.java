@@ -2,12 +2,14 @@
  */
 package qualitypatternmodel.javaoperators.impl;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.javaoperators.JavaOperator;
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 
 import qualitypatternmodel.operators.impl.BooleanOperatorImpl;
+import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->

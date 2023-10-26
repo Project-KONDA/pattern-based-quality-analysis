@@ -239,7 +239,7 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 			if(comp2.getArgument1().equals(param)) {
 				effectedComp = comp2;
 				op = effectedComp.getOption().getValue();
-				op = reverseOperator(op);
+				op = ComparisonOperator.invert(op);
 				break;
 			}
 		}
@@ -308,19 +308,6 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 		if(op == LESS && otherOp == GREATER || op == GREATER && otherOp == LESS) {
 			throw new InvalidityException("Requiring that a property is smaller and greater to another property will always yield false");
 		}
-	}
-
-	private ComparisonOperator reverseOperator(ComparisonOperator otherOp) {
-		if(otherOp == GREATER) {
-			otherOp = LESS;
-		} else if(otherOp == LESS) {
-			otherOp = GREATER;
-		} else if(otherOp == GREATEROREQUAL) {
-			otherOp = LESSOREQUAL;
-		} else if(otherOp == LESSOREQUAL) {
-			otherOp = GREATEROREQUAL;
-		}
-		return otherOp;
 	}
 
 	@SuppressWarnings("unused")
