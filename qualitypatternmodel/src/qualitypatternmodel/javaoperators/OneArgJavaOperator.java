@@ -25,14 +25,14 @@ import qualitypatternmodel.parameters.BooleanParam;
 public interface OneArgJavaOperator extends JavaOperator {
 	/**
 	 * Returns the value of the '<em><b>Primitive Node</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.PrimitiveNode#getOneargjavaoperator <em>Oneargjavaoperator</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.PrimitiveNode#getOneArgJavaOperator <em>One Arg Java Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Primitive Node</em>' reference.
 	 * @see #setPrimitiveNode(PrimitiveNode)
 	 * @see qualitypatternmodel.javaoperators.JavaoperatorsPackage#getOneArgJavaOperator_PrimitiveNode()
-	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#getOneargjavaoperator
-	 * @model opposite="oneargjavaoperator" required="true"
+	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#getOneArgJavaOperator
+	 * @model opposite="oneArgJavaOperator" required="true"
 	 * @generated
 	 */
 	PrimitiveNode getPrimitiveNode();

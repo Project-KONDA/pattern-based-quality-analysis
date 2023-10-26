@@ -54,6 +54,13 @@ public abstract class TwoArgJavaOperatorImpl extends JavaOperatorImpl implements
 	protected TwoArgJavaOperatorImpl() {
 		super();
 	}
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	abstract public Boolean apply(String param1, String param2);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -73,21 +80,9 @@ public abstract class TwoArgJavaOperatorImpl extends JavaOperatorImpl implements
 	@Override
 	public EList<PrimitiveNode> getPrimitiveNodes() {
 		if (primitiveNodes == null) {
-			primitiveNodes = new EObjectWithInverseResolvingEList.ManyInverse<PrimitiveNode>(PrimitiveNode.class, this, JavaoperatorsPackage.TWO_ARG_JAVA_OPERATOR__PRIMITIVE_NODES, GraphstructurePackage.PRIMITIVE_NODE__TWOARGJAVAOPERATOR);
+			primitiveNodes = new EObjectWithInverseResolvingEList.ManyInverse<PrimitiveNode>(PrimitiveNode.class, this, JavaoperatorsPackage.TWO_ARG_JAVA_OPERATOR__PRIMITIVE_NODES, GraphstructurePackage.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR);
 		}
 		return primitiveNodes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Boolean apply(String param1, String param2) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**

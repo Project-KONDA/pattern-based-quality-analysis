@@ -419,7 +419,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EReference getPrimitiveNode_Oneargjavaoperator() {
+	public EReference getPrimitiveNode_OneArgJavaOperator() {
 		return (EReference)primitiveNodeEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -429,7 +429,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EReference getPrimitiveNode_Twoargjavaoperator() {
+	public EReference getPrimitiveNode_TwoArgJavaOperator() {
 		return (EReference)primitiveNodeEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -1253,8 +1253,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEReference(primitiveNodeEClass, PRIMITIVE_NODE__CONTAINS);
 		createEReference(primitiveNodeEClass, PRIMITIVE_NODE__NULL_CHECK);
 		createEReference(primitiveNodeEClass, PRIMITIVE_NODE__STRING_LENGTH);
-		createEReference(primitiveNodeEClass, PRIMITIVE_NODE__ONEARGJAVAOPERATOR);
-		createEReference(primitiveNodeEClass, PRIMITIVE_NODE__TWOARGJAVAOPERATOR);
+		createEReference(primitiveNodeEClass, PRIMITIVE_NODE__ONE_ARG_JAVA_OPERATOR);
+		createEReference(primitiveNodeEClass, PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR);
 		createEOperation(primitiveNodeEClass, PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE);
 
 		nodeEClass = createEClass(NODE);
@@ -1426,8 +1426,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		initEReference(getPrimitiveNode_Contains(), theOperatorsPackage.getContains(), theOperatorsPackage.getContains_PrimitiveNode(), "contains", null, 0, -1, PrimitiveNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPrimitiveNode_NullCheck(), theOperatorsPackage.getNullCheck(), theOperatorsPackage.getNullCheck_PrimitiveNode(), "nullCheck", null, 0, 1, PrimitiveNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPrimitiveNode_StringLength(), theOperatorsPackage.getStringLength(), theOperatorsPackage.getStringLength_PrimitiveNode(), "stringLength", null, 0, -1, PrimitiveNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPrimitiveNode_Oneargjavaoperator(), theJavaoperatorsPackage.getOneArgJavaOperator(), theJavaoperatorsPackage.getOneArgJavaOperator_PrimitiveNode(), "oneargjavaoperator", null, 0, -1, PrimitiveNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPrimitiveNode_Twoargjavaoperator(), theJavaoperatorsPackage.getTwoArgJavaOperator(), theJavaoperatorsPackage.getTwoArgJavaOperator_PrimitiveNodes(), "twoargjavaoperator", null, 0, -1, PrimitiveNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPrimitiveNode_OneArgJavaOperator(), theJavaoperatorsPackage.getOneArgJavaOperator(), theJavaoperatorsPackage.getOneArgJavaOperator_PrimitiveNode(), "oneArgJavaOperator", null, 0, -1, PrimitiveNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPrimitiveNode_TwoArgJavaOperator(), theJavaoperatorsPackage.getTwoArgJavaOperator(), theJavaoperatorsPackage.getTwoArgJavaOperator_PrimitiveNodes(), "twoArgJavaOperator", null, 0, -1, PrimitiveNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getPrimitiveNode__CheckComparisonConsistency__ParameterValue(), null, "checkComparisonConsistency", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theParametersPackage.getParameterValue(), "parameterValue", 0, 1, IS_UNIQUE, IS_ORDERED);

@@ -4,7 +4,7 @@
     <semanticResources>qualitypatternmodel.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_A2WtQB2REeqrGqxc7qjo8A">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name="class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="1698245020226">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name="class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="1698325371690">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="qualitypatternmodel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -6373,7 +6373,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3LWAB3M0Ee6HKLLQiCF52w" x="46" y="10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_3LWACHM0Ee6HKLLQiCF52w" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3LWACXM0Ee6HKLLQiCF52w" x="-429" y="63"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3LWACXM0Ee6HKLLQiCF52w" x="-360" y="26"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_3LWAAXM0Ee6HKLLQiCF52w" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_3LWAAnM0Ee6HKLLQiCF52w" fontName="Segoe UI" fontHeight="8"/>
@@ -6389,7 +6389,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kDZz53M2Ee6HKLLQiCF52w" x="268" y="10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_kDZz6HM2Ee6HKLLQiCF52w" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kDZz6XM2Ee6HKLLQiCF52w" x="-13" y="299"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kDZz6XM2Ee6HKLLQiCF52w" x="89" y="-28"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_kDZz4XM2Ee6HKLLQiCF52w" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_kDZz4nM2Ee6HKLLQiCF52w" fontName="Segoe UI" fontHeight="8"/>
@@ -14490,9 +14490,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_3KfEnHM0Ee6HKLLQiCF52w" sourceNode="_c7kEcB2REeqrGqxc7qjo8A" targetNode="_5fYKEHMyEe6HKLLQiCF52w" beginLabel="[1..1] primitiveNode" endLabel="[0..*] oneargjavaoperator">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/oneargjavaoperator"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/oneargjavaoperator"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_3KfEnHM0Ee6HKLLQiCF52w" sourceNode="_c7kEcB2REeqrGqxc7qjo8A" targetNode="_5fYKEHMyEe6HKLLQiCF52w" beginLabel="[1..1] primitiveNode" endLabel="[0..*] oneArgJavaOperator">
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/oneArgJavaOperator"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/oneArgJavaOperator"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//javaoperators/OneArgJavaOperator/primitiveNode"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_mRGI3nM4Ee6HKLLQiCF52w" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
@@ -14501,10 +14501,10 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_kCnJznM2Ee6HKLLQiCF52w" sourceNode="_c7kEcB2REeqrGqxc7qjo8A" targetNode="_7-XVAHMyEe6HKLLQiCF52w" beginLabel="[2..2] primitiveNodes" endLabel="[0..*] twoargjavaoperator">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/twoargjavaoperator"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_kCnJznM2Ee6HKLLQiCF52w" sourceNode="_c7kEcB2REeqrGqxc7qjo8A" targetNode="_7-XVAHMyEe6HKLLQiCF52w" beginLabel="[2..2] primitiveNodes" endLabel="[0..*] twoArgJavaOperator">
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/twoArgJavaOperator"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//javaoperators/TwoArgJavaOperator/primitiveNodes"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/twoargjavaoperator"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/twoArgJavaOperator"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_k7u4JnM4Ee6HKLLQiCF52w" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_k7u4J3M4Ee6HKLLQiCF52w" showIcon="false"/>

@@ -1648,22 +1648,22 @@ public interface GraphstructurePackage extends EPackage {
 	int PRIMITIVE_NODE__STRING_LENGTH = NODE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Oneargjavaoperator</b></em>' reference list.
+	 * The feature id for the '<em><b>One Arg Java Operator</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_NODE__ONEARGJAVAOPERATOR = NODE_FEATURE_COUNT + 4;
+	int PRIMITIVE_NODE__ONE_ARG_JAVA_OPERATOR = NODE_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Twoargjavaoperator</b></em>' reference list.
+	 * The feature id for the '<em><b>Two Arg Java Operator</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_NODE__TWOARGJAVAOPERATOR = NODE_FEATURE_COUNT + 5;
+	int PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR = NODE_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Primitive Node</em>' class.
@@ -3915,26 +3915,26 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getPrimitiveNode_StringLength();
 
 	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.PrimitiveNode#getOneargjavaoperator <em>Oneargjavaoperator</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.PrimitiveNode#getOneArgJavaOperator <em>One Arg Java Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Oneargjavaoperator</em>'.
-	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#getOneargjavaoperator()
+	 * @return the meta object for the reference list '<em>One Arg Java Operator</em>'.
+	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#getOneArgJavaOperator()
 	 * @see #getPrimitiveNode()
 	 * @generated
 	 */
-	EReference getPrimitiveNode_Oneargjavaoperator();
+	EReference getPrimitiveNode_OneArgJavaOperator();
 
 	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.PrimitiveNode#getTwoargjavaoperator <em>Twoargjavaoperator</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.PrimitiveNode#getTwoArgJavaOperator <em>Two Arg Java Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Twoargjavaoperator</em>'.
-	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#getTwoargjavaoperator()
+	 * @return the meta object for the reference list '<em>Two Arg Java Operator</em>'.
+	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#getTwoArgJavaOperator()
 	 * @see #getPrimitiveNode()
 	 * @generated
 	 */
-	EReference getPrimitiveNode_Twoargjavaoperator();
+	EReference getPrimitiveNode_TwoArgJavaOperator();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.PrimitiveNode#checkComparisonConsistency(qualitypatternmodel.parameters.ParameterValue) <em>Check Comparison Consistency</em>}' operation.
@@ -4912,20 +4912,20 @@ public interface GraphstructurePackage extends EPackage {
 		EReference PRIMITIVE_NODE__STRING_LENGTH = eINSTANCE.getPrimitiveNode_StringLength();
 
 		/**
-		 * The meta object literal for the '<em><b>Oneargjavaoperator</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>One Arg Java Operator</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PRIMITIVE_NODE__ONEARGJAVAOPERATOR = eINSTANCE.getPrimitiveNode_Oneargjavaoperator();
+		EReference PRIMITIVE_NODE__ONE_ARG_JAVA_OPERATOR = eINSTANCE.getPrimitiveNode_OneArgJavaOperator();
 
 		/**
-		 * The meta object literal for the '<em><b>Twoargjavaoperator</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Two Arg Java Operator</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PRIMITIVE_NODE__TWOARGJAVAOPERATOR = eINSTANCE.getPrimitiveNode_Twoargjavaoperator();
+		EReference PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR = eINSTANCE.getPrimitiveNode_TwoArgJavaOperator();
 
 		/**
 		 * The meta object literal for the '<em><b>Check Comparison Consistency</b></em>' operation.

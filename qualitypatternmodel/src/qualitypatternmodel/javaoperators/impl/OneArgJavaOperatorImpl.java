@@ -150,9 +150,9 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 		if (newPrimitiveNode != primitiveNode) {
 			NotificationChain msgs = null;
 			if (primitiveNode != null)
-				msgs = ((InternalEObject)primitiveNode).eInverseRemove(this, GraphstructurePackage.PRIMITIVE_NODE__ONEARGJAVAOPERATOR, PrimitiveNode.class, msgs);
+				msgs = ((InternalEObject)primitiveNode).eInverseRemove(this, GraphstructurePackage.PRIMITIVE_NODE__ONE_ARG_JAVA_OPERATOR, PrimitiveNode.class, msgs);
 			if (newPrimitiveNode != null)
-				msgs = ((InternalEObject)newPrimitiveNode).eInverseAdd(this, GraphstructurePackage.PRIMITIVE_NODE__ONEARGJAVAOPERATOR, PrimitiveNode.class, msgs);
+				msgs = ((InternalEObject)newPrimitiveNode).eInverseAdd(this, GraphstructurePackage.PRIMITIVE_NODE__ONE_ARG_JAVA_OPERATOR, PrimitiveNode.class, msgs);
 			msgs = basicSetPrimitiveNode(newPrimitiveNode, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -222,11 +222,6 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__OPTION, newOption, newOption));
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	abstract public String myToString();
 
@@ -240,7 +235,7 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 		switch (featureID) {
 			case JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__PRIMITIVE_NODE:
 				if (primitiveNode != null)
-					msgs = ((InternalEObject)primitiveNode).eInverseRemove(this, GraphstructurePackage.PRIMITIVE_NODE__ONEARGJAVAOPERATOR, PrimitiveNode.class, msgs);
+					msgs = ((InternalEObject)primitiveNode).eInverseRemove(this, GraphstructurePackage.PRIMITIVE_NODE__ONE_ARG_JAVA_OPERATOR, PrimitiveNode.class, msgs);
 				return basicSetPrimitiveNode((PrimitiveNode)otherEnd, msgs);
 			case JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__OPTION:
 				if (option != null)

@@ -163,12 +163,10 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public EList<PatternElement> prepareParameterUpdates() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException("Operation 'prepareParameterUpdates' not implemented for class " + getClass().getSimpleName());
 	}
 

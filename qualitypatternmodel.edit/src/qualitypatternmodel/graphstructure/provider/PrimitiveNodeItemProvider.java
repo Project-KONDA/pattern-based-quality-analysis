@@ -47,8 +47,8 @@ public class PrimitiveNodeItemProvider extends NodeItemProvider {
 			addContainsPropertyDescriptor(object);
 			addNullCheckPropertyDescriptor(object);
 			addStringLengthPropertyDescriptor(object);
-			addOneargjavaoperatorPropertyDescriptor(object);
-			addTwoargjavaoperatorPropertyDescriptor(object);
+			addOneArgJavaOperatorPropertyDescriptor(object);
+			addTwoArgJavaOperatorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -142,19 +142,19 @@ public class PrimitiveNodeItemProvider extends NodeItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Oneargjavaoperator feature.
+	 * This adds a property descriptor for the One Arg Java Operator feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addOneargjavaoperatorPropertyDescriptor(Object object) {
+	protected void addOneArgJavaOperatorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PrimitiveNode_oneargjavaoperator_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveNode_oneargjavaoperator_feature", "_UI_PrimitiveNode_type"),
-				 GraphstructurePackage.Literals.PRIMITIVE_NODE__ONEARGJAVAOPERATOR,
+				 getString("_UI_PrimitiveNode_oneArgJavaOperator_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveNode_oneArgJavaOperator_feature", "_UI_PrimitiveNode_type"),
+				 GraphstructurePackage.Literals.PRIMITIVE_NODE__ONE_ARG_JAVA_OPERATOR,
 				 true,
 				 false,
 				 true,
@@ -164,19 +164,19 @@ public class PrimitiveNodeItemProvider extends NodeItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Twoargjavaoperator feature.
+	 * This adds a property descriptor for the Two Arg Java Operator feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTwoargjavaoperatorPropertyDescriptor(Object object) {
+	protected void addTwoArgJavaOperatorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PrimitiveNode_twoargjavaoperator_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveNode_twoargjavaoperator_feature", "_UI_PrimitiveNode_type"),
-				 GraphstructurePackage.Literals.PRIMITIVE_NODE__TWOARGJAVAOPERATOR,
+				 getString("_UI_PrimitiveNode_twoArgJavaOperator_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveNode_twoArgJavaOperator_feature", "_UI_PrimitiveNode_type"),
+				 GraphstructurePackage.Literals.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR,
 				 true,
 				 false,
 				 true,

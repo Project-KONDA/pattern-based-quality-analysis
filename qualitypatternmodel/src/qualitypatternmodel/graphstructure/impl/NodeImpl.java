@@ -927,10 +927,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				((PrimitiveNode) this).getStringLength().clear();
 				xmlProperty.setNullCheck(((PrimitiveNode) this).getNullCheck());
 				((PrimitiveNode) this).setNullCheck(null);
-				xmlProperty.getOneargjavaoperator().addAll(((PrimitiveNode) this).getOneargjavaoperator());
-				((PrimitiveNode) this).getOneargjavaoperator().clear();
-				xmlProperty.getTwoargjavaoperator().addAll(((PrimitiveNode) this).getTwoargjavaoperator());
-				((PrimitiveNode) this).getTwoargjavaoperator().clear();
+				xmlProperty.getOneArgJavaOperator().addAll(((PrimitiveNode) this).getOneArgJavaOperator());
+				((PrimitiveNode) this).getOneArgJavaOperator().clear();
+				xmlProperty.getTwoArgJavaOperator().addAll(((PrimitiveNode) this).getTwoArgJavaOperator());
+				((PrimitiveNode) this).getTwoArgJavaOperator().clear();
 			}
 			
 			EList<Relation> incomingCopy = new BasicEList<Relation>();
@@ -1047,10 +1047,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				((PrimitiveNode) this).getStringLength().clear();
 				rdfLiteral.setNullCheck(((PrimitiveNode) this).getNullCheck());
 				((PrimitiveNode) this).setNullCheck(null);
-				rdfLiteral.getOneargjavaoperator().addAll(((PrimitiveNode) this).getOneargjavaoperator());
-				((PrimitiveNode) this).getOneargjavaoperator().clear();
-				rdfLiteral.getTwoargjavaoperator().addAll(((PrimitiveNode) this).getTwoargjavaoperator());
-				((PrimitiveNode) this).getTwoargjavaoperator().clear();
+				rdfLiteral.getOneArgJavaOperator().addAll(((PrimitiveNode) this).getOneArgJavaOperator());
+				((PrimitiveNode) this).getOneArgJavaOperator().clear();
+				rdfLiteral.getTwoArgJavaOperator().addAll(((PrimitiveNode) this).getTwoArgJavaOperator());
+				((PrimitiveNode) this).getTwoArgJavaOperator().clear();
 			}
 			
 			EList<Relation> incomingCopy = new BasicEList<Relation>();
@@ -1162,10 +1162,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				((PrimitiveNode) this).getStringLength().clear();
 				neoPropertyNode.setNullCheck(((PrimitiveNode) this).getNullCheck());
 				((PrimitiveNode) this).setNullCheck(null);
-				neoPropertyNode.getOneargjavaoperator().addAll(((PrimitiveNode) this).getOneargjavaoperator());
-				((PrimitiveNode) this).getOneargjavaoperator().clear();
-				neoPropertyNode.getTwoargjavaoperator().addAll(((PrimitiveNode) this).getTwoargjavaoperator());
-				((PrimitiveNode) this).getTwoargjavaoperator().clear();
+				neoPropertyNode.getOneArgJavaOperator().addAll(((PrimitiveNode) this).getOneArgJavaOperator());
+				((PrimitiveNode) this).getOneArgJavaOperator().clear();
+				neoPropertyNode.getTwoArgJavaOperator().addAll(((PrimitiveNode) this).getTwoArgJavaOperator());
+				((PrimitiveNode) this).getTwoArgJavaOperator().clear();
 			}
 			
 			EList<Relation> incomingCopy = new BasicEList<Relation>();
@@ -1977,7 +1977,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public ValidateLinkOperator addPrimitiveValidateLink() {

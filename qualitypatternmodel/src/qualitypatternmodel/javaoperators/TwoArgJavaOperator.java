@@ -26,13 +26,13 @@ public interface TwoArgJavaOperator extends JavaOperator {
 	/**
 	 * Returns the value of the '<em><b>Primitive Nodes</b></em>' reference list.
 	 * The list contents are of type {@link qualitypatternmodel.graphstructure.PrimitiveNode}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.PrimitiveNode#getTwoargjavaoperator <em>Twoargjavaoperator</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.PrimitiveNode#getTwoArgJavaOperator <em>Two Arg Java Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Primitive Nodes</em>' reference list.
 	 * @see qualitypatternmodel.javaoperators.JavaoperatorsPackage#getTwoArgJavaOperator_PrimitiveNodes()
-	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#getTwoargjavaoperator
-	 * @model opposite="twoargjavaoperator" lower="2" upper="2"
+	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#getTwoArgJavaOperator
+	 * @model opposite="twoArgJavaOperator" lower="2" upper="2"
 	 * @generated
 	 */
 	EList<PrimitiveNode> getPrimitiveNodes();
