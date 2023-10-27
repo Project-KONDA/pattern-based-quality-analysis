@@ -929,8 +929,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				((PrimitiveNode) this).setNullCheck(null);
 				xmlProperty.getOneArgJavaOperator().addAll(((PrimitiveNode) this).getOneArgJavaOperator());
 				((PrimitiveNode) this).getOneArgJavaOperator().clear();
-				xmlProperty.getTwoArgJavaOperator().addAll(((PrimitiveNode) this).getTwoArgJavaOperator());
-				((PrimitiveNode) this).getTwoArgJavaOperator().clear();
+				xmlProperty.getTwoArgJavaOperator1().addAll(((PrimitiveNode) this).getTwoArgJavaOperator1());
+				((PrimitiveNode) this).getTwoArgJavaOperator1().clear();
+				xmlProperty.getTwoArgJavaOperator2().addAll(((PrimitiveNode) this).getTwoArgJavaOperator2());
+				((PrimitiveNode) this).getTwoArgJavaOperator2().clear();
 			}
 			
 			EList<Relation> incomingCopy = new BasicEList<Relation>();
@@ -1049,8 +1051,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				((PrimitiveNode) this).setNullCheck(null);
 				rdfLiteral.getOneArgJavaOperator().addAll(((PrimitiveNode) this).getOneArgJavaOperator());
 				((PrimitiveNode) this).getOneArgJavaOperator().clear();
-				rdfLiteral.getTwoArgJavaOperator().addAll(((PrimitiveNode) this).getTwoArgJavaOperator());
-				((PrimitiveNode) this).getTwoArgJavaOperator().clear();
+				rdfLiteral.getTwoArgJavaOperator1().addAll(((PrimitiveNode) this).getTwoArgJavaOperator1());
+				((PrimitiveNode) this).getTwoArgJavaOperator1().clear();
+				rdfLiteral.getTwoArgJavaOperator2().addAll(((PrimitiveNode) this).getTwoArgJavaOperator2());
+				((PrimitiveNode) this).getTwoArgJavaOperator2().clear();
 			}
 			
 			EList<Relation> incomingCopy = new BasicEList<Relation>();
@@ -1164,8 +1168,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				((PrimitiveNode) this).setNullCheck(null);
 				neoPropertyNode.getOneArgJavaOperator().addAll(((PrimitiveNode) this).getOneArgJavaOperator());
 				((PrimitiveNode) this).getOneArgJavaOperator().clear();
-				neoPropertyNode.getTwoArgJavaOperator().addAll(((PrimitiveNode) this).getTwoArgJavaOperator());
-				((PrimitiveNode) this).getTwoArgJavaOperator().clear();
+				neoPropertyNode.getTwoArgJavaOperator1().addAll(((PrimitiveNode) this).getTwoArgJavaOperator1());
+				((PrimitiveNode) this).getTwoArgJavaOperator1().clear();
+				neoPropertyNode.getTwoArgJavaOperator2().addAll(((PrimitiveNode) this).getTwoArgJavaOperator2());
+				((PrimitiveNode) this).getTwoArgJavaOperator2().clear();
 			}
 			
 			EList<Relation> incomingCopy = new BasicEList<Relation>();

@@ -251,8 +251,18 @@ public class JavaoperatorsPackageImpl extends EPackageImpl implements Javaoperat
 	 * @generated
 	 */
 	@Override
-	public EReference getTwoArgJavaOperator_PrimitiveNodes() {
+	public EReference getTwoArgJavaOperator_Argument1() {
 		return (EReference)twoArgJavaOperatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTwoArgJavaOperator_Argument2() {
+		return (EReference)twoArgJavaOperatorEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -312,7 +322,8 @@ public class JavaoperatorsPackageImpl extends EPackageImpl implements Javaoperat
 		createEOperation(oneArgJavaOperatorEClass, ONE_ARG_JAVA_OPERATOR___APPLY__STRING);
 
 		twoArgJavaOperatorEClass = createEClass(TWO_ARG_JAVA_OPERATOR);
-		createEReference(twoArgJavaOperatorEClass, TWO_ARG_JAVA_OPERATOR__PRIMITIVE_NODES);
+		createEReference(twoArgJavaOperatorEClass, TWO_ARG_JAVA_OPERATOR__ARGUMENT1);
+		createEReference(twoArgJavaOperatorEClass, TWO_ARG_JAVA_OPERATOR__ARGUMENT2);
 		createEOperation(twoArgJavaOperatorEClass, TWO_ARG_JAVA_OPERATOR___APPLY__STRING_STRING);
 
 		validateLinkOperatorEClass = createEClass(VALIDATE_LINK_OPERATOR);
@@ -367,7 +378,8 @@ public class JavaoperatorsPackageImpl extends EPackageImpl implements Javaoperat
 		addEParameter(op, ecorePackage.getEString(), "param1", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(twoArgJavaOperatorEClass, TwoArgJavaOperator.class, "TwoArgJavaOperator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTwoArgJavaOperator_PrimitiveNodes(), theGraphstructurePackage.getPrimitiveNode(), theGraphstructurePackage.getPrimitiveNode_TwoArgJavaOperator(), "primitiveNodes", null, 0, 2, TwoArgJavaOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTwoArgJavaOperator_Argument1(), theGraphstructurePackage.getPrimitiveNode(), theGraphstructurePackage.getPrimitiveNode_TwoArgJavaOperator1(), "argument1", null, 0, 1, TwoArgJavaOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTwoArgJavaOperator_Argument2(), theGraphstructurePackage.getPrimitiveNode(), theGraphstructurePackage.getPrimitiveNode_TwoArgJavaOperator2(), "argument2", null, 0, 1, TwoArgJavaOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getTwoArgJavaOperator__Apply__String_String(), ecorePackage.getEBooleanObject(), "apply", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "param1", 0, 1, IS_UNIQUE, IS_ORDERED);

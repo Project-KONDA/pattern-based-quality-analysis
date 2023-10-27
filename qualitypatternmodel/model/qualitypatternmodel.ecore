@@ -358,8 +358,10 @@
           eType="#//operators/StringLength" eOpposite="#//operators/StringLength/primitiveNode"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="oneArgJavaOperator" upperBound="-1"
           eType="#//javaoperators/OneArgJavaOperator" eOpposite="#//javaoperators/OneArgJavaOperator/primitiveNode"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="twoArgJavaOperator" upperBound="-1"
-          eType="#//javaoperators/TwoArgJavaOperator" eOpposite="#//javaoperators/TwoArgJavaOperator/primitiveNodes"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="twoArgJavaOperator1"
+          upperBound="-1" eType="#//javaoperators/TwoArgJavaOperator" eOpposite="#//javaoperators/TwoArgJavaOperator/argument1"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="twoArgJavaOperator2"
+          upperBound="-1" eType="#//javaoperators/TwoArgJavaOperator" eOpposite="#//javaoperators/TwoArgJavaOperator/argument2"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Node" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement #//graphstructure/Adaptable">
       <eOperations name="setGraphSimple">
@@ -1429,8 +1431,10 @@
         <eParameters name="param1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eParameters name="param2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="primitiveNodes" upperBound="2"
-          eType="#//graphstructure/PrimitiveNode" eOpposite="#//graphstructure/PrimitiveNode/twoArgJavaOperator"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="argument1" eType="#//graphstructure/PrimitiveNode"
+          eOpposite="#//graphstructure/PrimitiveNode/twoArgJavaOperator1"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="argument2" eType="#//graphstructure/PrimitiveNode"
+          eOpposite="#//graphstructure/PrimitiveNode/twoArgJavaOperator2"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ValidateLinkOperator" eSuperTypes="#//javaoperators/OneArgJavaOperator"/>
   </eSubpackages>

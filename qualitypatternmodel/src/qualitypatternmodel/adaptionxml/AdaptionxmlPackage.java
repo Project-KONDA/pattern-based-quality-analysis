@@ -2358,13 +2358,22 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY__ONE_ARG_JAVA_OPERATOR = GraphstructurePackage.PRIMITIVE_NODE__ONE_ARG_JAVA_OPERATOR;
 
 	/**
-	 * The feature id for the '<em><b>Two Arg Java Operator</b></em>' reference list.
+	 * The feature id for the '<em><b>Two Arg Java Operator1</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY__TWO_ARG_JAVA_OPERATOR = GraphstructurePackage.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR;
+	int XML_PROPERTY__TWO_ARG_JAVA_OPERATOR1 = GraphstructurePackage.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR1;
+
+	/**
+	 * The feature id for the '<em><b>Two Arg Java Operator2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY__TWO_ARG_JAVA_OPERATOR2 = GraphstructurePackage.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR2;
 
 	/**
 	 * The feature id for the '<em><b>Variables</b></em>' attribute list.

@@ -962,13 +962,22 @@ public interface JavaoperatorsPackage extends EPackage {
 	int TWO_ARG_JAVA_OPERATOR__NODES = JAVA_OPERATOR__NODES;
 
 	/**
-	 * The feature id for the '<em><b>Primitive Nodes</b></em>' reference list.
+	 * The feature id for the '<em><b>Argument1</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TWO_ARG_JAVA_OPERATOR__PRIMITIVE_NODES = JAVA_OPERATOR_FEATURE_COUNT + 0;
+	int TWO_ARG_JAVA_OPERATOR__ARGUMENT1 = JAVA_OPERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Argument2</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TWO_ARG_JAVA_OPERATOR__ARGUMENT2 = JAVA_OPERATOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Two Arg Java Operator</em>' class.
@@ -977,7 +986,7 @@ public interface JavaoperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TWO_ARG_JAVA_OPERATOR_FEATURE_COUNT = JAVA_OPERATOR_FEATURE_COUNT + 1;
+	int TWO_ARG_JAVA_OPERATOR_FEATURE_COUNT = JAVA_OPERATOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -1818,15 +1827,26 @@ public interface JavaoperatorsPackage extends EPackage {
 	EClass getTwoArgJavaOperator();
 
 	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.javaoperators.TwoArgJavaOperator#getPrimitiveNodes <em>Primitive Nodes</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.javaoperators.TwoArgJavaOperator#getArgument1 <em>Argument1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Primitive Nodes</em>'.
-	 * @see qualitypatternmodel.javaoperators.TwoArgJavaOperator#getPrimitiveNodes()
+	 * @return the meta object for the reference '<em>Argument1</em>'.
+	 * @see qualitypatternmodel.javaoperators.TwoArgJavaOperator#getArgument1()
 	 * @see #getTwoArgJavaOperator()
 	 * @generated
 	 */
-	EReference getTwoArgJavaOperator_PrimitiveNodes();
+	EReference getTwoArgJavaOperator_Argument1();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.javaoperators.TwoArgJavaOperator#getArgument2 <em>Argument2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Argument2</em>'.
+	 * @see qualitypatternmodel.javaoperators.TwoArgJavaOperator#getArgument2()
+	 * @see #getTwoArgJavaOperator()
+	 * @generated
+	 */
+	EReference getTwoArgJavaOperator_Argument2();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.javaoperators.TwoArgJavaOperator#apply(java.lang.String, java.lang.String) <em>Apply</em>}' operation.
@@ -1926,12 +1946,20 @@ public interface JavaoperatorsPackage extends EPackage {
 		EClass TWO_ARG_JAVA_OPERATOR = eINSTANCE.getTwoArgJavaOperator();
 
 		/**
-		 * The meta object literal for the '<em><b>Primitive Nodes</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Argument1</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TWO_ARG_JAVA_OPERATOR__PRIMITIVE_NODES = eINSTANCE.getTwoArgJavaOperator_PrimitiveNodes();
+		EReference TWO_ARG_JAVA_OPERATOR__ARGUMENT1 = eINSTANCE.getTwoArgJavaOperator_Argument1();
+
+		/**
+		 * The meta object literal for the '<em><b>Argument2</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TWO_ARG_JAVA_OPERATOR__ARGUMENT2 = eINSTANCE.getTwoArgJavaOperator_Argument2();
 
 		/**
 		 * The meta object literal for the '<em><b>Apply</b></em>' operation.

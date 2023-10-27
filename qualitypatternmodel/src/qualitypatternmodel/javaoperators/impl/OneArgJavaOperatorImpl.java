@@ -24,6 +24,7 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
 
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 import qualitypatternmodel.javaoperators.OneArgJavaOperator;
+import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
@@ -76,7 +77,6 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 		super();
 	}
 
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -117,7 +117,7 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 	}
 
 	@Override
-	public void createParameters() {		
+	public void createParameters() {
 		ParameterList parameterList = getParameterList();	
 		if(parameterList != null) {
 			if(getOption() == null) {
@@ -168,13 +168,27 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetPrimitiveNode(PrimitiveNode newPrimitiveNode, NotificationChain msgs) {
 		PrimitiveNode oldPrimitiveNode = primitiveNode;
 		primitiveNode = newPrimitiveNode;
+		
+		if(oldPrimitiveNode instanceof PrimitiveNode && newPrimitiveNode == null) {
+			try {
+				((Node) oldPrimitiveNode).makeGeneric();
+			} catch (InvalidityException e) {
+				// there is another reason why this node needs to be PrimitiveNode
+			}
+		}
+		
+		if(oldPrimitiveNode != null) {
+			oldPrimitiveNode.getPredicates().remove(this);
+		}
+		newPrimitiveNode.getPredicates().add(this);
+		
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__PRIMITIVE_NODE, oldPrimitiveNode, newPrimitiveNode);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__PRIMITIVE_NODE, oldPrimitiveNode, newPrimitiveNode);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -272,10 +286,18 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 		return getPrimitiveNode();
 	}
 	
+	@Override
+	public EList<PatternElement> prepareParameterUpdates() {
+		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
+		patternElements.add(getOption());
+		setOption(null);
+		return patternElements;
+	}
 
 	@Override
-	abstract public String myToString();
-
+	public EList<Node> getAllArgumentElements() {		
+		return primitiveNode.getAllArgumentElements();
+	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -395,18 +417,9 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 		}
 		return super.eInvoke(operationID, arguments);
 	}
-	
-	@Override
-	public EList<PatternElement> prepareParameterUpdates() {
-		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
-		patternElements.add(getOption());
-		setOption(null);
-		return patternElements;
-	}
 
 	@Override
-	public EList<Node> getAllArgumentElements() {		
-		return primitiveNode.getAllArgumentElements();
-	}
+	abstract public String myToString();
+
 
 } //OneArgJavaOperatorImpl

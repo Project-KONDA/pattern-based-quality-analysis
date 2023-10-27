@@ -68,7 +68,8 @@ import static qualitypatternmodel.operators.ComparisonOperator.*;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl#getNullCheck <em>Null Check</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl#getStringLength <em>String Length</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl#getOneArgJavaOperator <em>One Arg Java Operator</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl#getTwoArgJavaOperator <em>Two Arg Java Operator</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl#getTwoArgJavaOperator1 <em>Two Arg Java Operator1</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl#getTwoArgJavaOperator2 <em>Two Arg Java Operator2</em>}</li>
  * </ul>
  *
  * @generated
@@ -126,14 +127,24 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 	protected EList<OneArgJavaOperator> oneArgJavaOperator;
 
 	/**
-	 * The cached value of the '{@link #getTwoArgJavaOperator() <em>Two Arg Java Operator</em>}' reference list.
+	 * The cached value of the '{@link #getTwoArgJavaOperator1() <em>Two Arg Java Operator1</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTwoArgJavaOperator()
+	 * @see #getTwoArgJavaOperator1()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<TwoArgJavaOperator> twoArgJavaOperator;
+	protected EList<TwoArgJavaOperator> twoArgJavaOperator1;
+
+	/**
+	 * The cached value of the '{@link #getTwoArgJavaOperator2() <em>Two Arg Java Operator2</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTwoArgJavaOperator2()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TwoArgJavaOperator> twoArgJavaOperator2;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -628,11 +639,25 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 	 * @generated
 	 */
 	@Override
-	public EList<TwoArgJavaOperator> getTwoArgJavaOperator() {
-		if (twoArgJavaOperator == null) {
-			twoArgJavaOperator = new EObjectWithInverseResolvingEList.ManyInverse<TwoArgJavaOperator>(TwoArgJavaOperator.class, this, GraphstructurePackage.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR, JavaoperatorsPackage.TWO_ARG_JAVA_OPERATOR__PRIMITIVE_NODES);
+	public EList<TwoArgJavaOperator> getTwoArgJavaOperator1() {
+		if (twoArgJavaOperator1 == null) {
+			twoArgJavaOperator1 = new EObjectWithInverseResolvingEList<TwoArgJavaOperator>(TwoArgJavaOperator.class, this, GraphstructurePackage.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR1, JavaoperatorsPackage.TWO_ARG_JAVA_OPERATOR__ARGUMENT1);
 		}
-		return twoArgJavaOperator;
+		return twoArgJavaOperator1;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<TwoArgJavaOperator> getTwoArgJavaOperator2() {
+		if (twoArgJavaOperator2 == null) {
+			twoArgJavaOperator2 = new EObjectWithInverseResolvingEList<TwoArgJavaOperator>(TwoArgJavaOperator.class, this, GraphstructurePackage.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR2, JavaoperatorsPackage.TWO_ARG_JAVA_OPERATOR__ARGUMENT2);
+		}
+		return twoArgJavaOperator2;
 	}
 
 
@@ -693,8 +718,10 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getStringLength()).basicAdd(otherEnd, msgs);
 			case GraphstructurePackage.PRIMITIVE_NODE__ONE_ARG_JAVA_OPERATOR:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOneArgJavaOperator()).basicAdd(otherEnd, msgs);
-			case GraphstructurePackage.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTwoArgJavaOperator()).basicAdd(otherEnd, msgs);
+			case GraphstructurePackage.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR1:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTwoArgJavaOperator1()).basicAdd(otherEnd, msgs);
+			case GraphstructurePackage.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR2:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTwoArgJavaOperator2()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -717,8 +744,10 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 				return ((InternalEList<?>)getStringLength()).basicRemove(otherEnd, msgs);
 			case GraphstructurePackage.PRIMITIVE_NODE__ONE_ARG_JAVA_OPERATOR:
 				return ((InternalEList<?>)getOneArgJavaOperator()).basicRemove(otherEnd, msgs);
-			case GraphstructurePackage.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR:
-				return ((InternalEList<?>)getTwoArgJavaOperator()).basicRemove(otherEnd, msgs);
+			case GraphstructurePackage.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR1:
+				return ((InternalEList<?>)getTwoArgJavaOperator1()).basicRemove(otherEnd, msgs);
+			case GraphstructurePackage.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR2:
+				return ((InternalEList<?>)getTwoArgJavaOperator2()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -741,8 +770,10 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 				return getStringLength();
 			case GraphstructurePackage.PRIMITIVE_NODE__ONE_ARG_JAVA_OPERATOR:
 				return getOneArgJavaOperator();
-			case GraphstructurePackage.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR:
-				return getTwoArgJavaOperator();
+			case GraphstructurePackage.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR1:
+				return getTwoArgJavaOperator1();
+			case GraphstructurePackage.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR2:
+				return getTwoArgJavaOperator2();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -774,9 +805,13 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 				getOneArgJavaOperator().clear();
 				getOneArgJavaOperator().addAll((Collection<? extends OneArgJavaOperator>)newValue);
 				return;
-			case GraphstructurePackage.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR:
-				getTwoArgJavaOperator().clear();
-				getTwoArgJavaOperator().addAll((Collection<? extends TwoArgJavaOperator>)newValue);
+			case GraphstructurePackage.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR1:
+				getTwoArgJavaOperator1().clear();
+				getTwoArgJavaOperator1().addAll((Collection<? extends TwoArgJavaOperator>)newValue);
+				return;
+			case GraphstructurePackage.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR2:
+				getTwoArgJavaOperator2().clear();
+				getTwoArgJavaOperator2().addAll((Collection<? extends TwoArgJavaOperator>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -804,8 +839,11 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 			case GraphstructurePackage.PRIMITIVE_NODE__ONE_ARG_JAVA_OPERATOR:
 				getOneArgJavaOperator().clear();
 				return;
-			case GraphstructurePackage.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR:
-				getTwoArgJavaOperator().clear();
+			case GraphstructurePackage.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR1:
+				getTwoArgJavaOperator1().clear();
+				return;
+			case GraphstructurePackage.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR2:
+				getTwoArgJavaOperator2().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -828,8 +866,10 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 				return stringLength != null && !stringLength.isEmpty();
 			case GraphstructurePackage.PRIMITIVE_NODE__ONE_ARG_JAVA_OPERATOR:
 				return oneArgJavaOperator != null && !oneArgJavaOperator.isEmpty();
-			case GraphstructurePackage.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR:
-				return twoArgJavaOperator != null && !twoArgJavaOperator.isEmpty();
+			case GraphstructurePackage.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR1:
+				return twoArgJavaOperator1 != null && !twoArgJavaOperator1.isEmpty();
+			case GraphstructurePackage.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR2:
+				return twoArgJavaOperator2 != null && !twoArgJavaOperator2.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

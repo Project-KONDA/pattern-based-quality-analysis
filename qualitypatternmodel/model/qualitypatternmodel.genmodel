@@ -301,7 +301,9 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/oneArgJavaOperator"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/twoArgJavaOperator"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/twoArgJavaOperator1"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/twoArgJavaOperator2"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/checkComparisonConsistency">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/checkComparisonConsistency/parameterValue"/>
         </genOperations>
@@ -1168,7 +1170,9 @@
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//javaoperators/TwoArgJavaOperator">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaoperators/TwoArgJavaOperator/primitiveNodes"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaoperators/TwoArgJavaOperator/argument1"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaoperators/TwoArgJavaOperator/argument2"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaoperators/TwoArgJavaOperator/apply">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaoperators/TwoArgJavaOperator/apply/param1"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaoperators/TwoArgJavaOperator/apply/param2"/>

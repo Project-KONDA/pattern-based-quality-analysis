@@ -48,7 +48,8 @@ public class PrimitiveNodeItemProvider extends NodeItemProvider {
 			addNullCheckPropertyDescriptor(object);
 			addStringLengthPropertyDescriptor(object);
 			addOneArgJavaOperatorPropertyDescriptor(object);
-			addTwoArgJavaOperatorPropertyDescriptor(object);
+			addTwoArgJavaOperator1PropertyDescriptor(object);
+			addTwoArgJavaOperator2PropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -164,19 +165,41 @@ public class PrimitiveNodeItemProvider extends NodeItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Two Arg Java Operator feature.
+	 * This adds a property descriptor for the Two Arg Java Operator1 feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTwoArgJavaOperatorPropertyDescriptor(Object object) {
+	protected void addTwoArgJavaOperator1PropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PrimitiveNode_twoArgJavaOperator_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveNode_twoArgJavaOperator_feature", "_UI_PrimitiveNode_type"),
-				 GraphstructurePackage.Literals.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR,
+				 getString("_UI_PrimitiveNode_twoArgJavaOperator1_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveNode_twoArgJavaOperator1_feature", "_UI_PrimitiveNode_type"),
+				 GraphstructurePackage.Literals.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR1,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Two Arg Java Operator2 feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTwoArgJavaOperator2PropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PrimitiveNode_twoArgJavaOperator2_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveNode_twoArgJavaOperator2_feature", "_UI_PrimitiveNode_type"),
+				 GraphstructurePackage.Literals.PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR2,
 				 true,
 				 false,
 				 true,

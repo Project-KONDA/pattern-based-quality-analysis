@@ -28,7 +28,8 @@ import qualitypatternmodel.parameters.ParameterValue;
  *   <li>{@link qualitypatternmodel.graphstructure.PrimitiveNode#getNullCheck <em>Null Check</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.PrimitiveNode#getStringLength <em>String Length</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.PrimitiveNode#getOneArgJavaOperator <em>One Arg Java Operator</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.PrimitiveNode#getTwoArgJavaOperator <em>Two Arg Java Operator</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.PrimitiveNode#getTwoArgJavaOperator1 <em>Two Arg Java Operator1</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.PrimitiveNode#getTwoArgJavaOperator2 <em>Two Arg Java Operator2</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getPrimitiveNode()
@@ -126,17 +127,31 @@ public interface PrimitiveNode extends Node {
 	EList<OneArgJavaOperator> getOneArgJavaOperator();
 
 	/**
-	 * Returns the value of the '<em><b>Two Arg Java Operator</b></em>' reference list.
+	 * Returns the value of the '<em><b>Two Arg Java Operator1</b></em>' reference list.
 	 * The list contents are of type {@link qualitypatternmodel.javaoperators.TwoArgJavaOperator}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.javaoperators.TwoArgJavaOperator#getPrimitiveNodes <em>Primitive Nodes</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.javaoperators.TwoArgJavaOperator#getArgument1 <em>Argument1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Two Arg Java Operator</em>' reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getPrimitiveNode_TwoArgJavaOperator()
-	 * @see qualitypatternmodel.javaoperators.TwoArgJavaOperator#getPrimitiveNodes
-	 * @model opposite="primitiveNodes"
+	 * @return the value of the '<em>Two Arg Java Operator1</em>' reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getPrimitiveNode_TwoArgJavaOperator1()
+	 * @see qualitypatternmodel.javaoperators.TwoArgJavaOperator#getArgument1
+	 * @model opposite="argument1"
 	 * @generated
 	 */
-	EList<TwoArgJavaOperator> getTwoArgJavaOperator();
+	EList<TwoArgJavaOperator> getTwoArgJavaOperator1();
+
+	/**
+	 * Returns the value of the '<em><b>Two Arg Java Operator2</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.javaoperators.TwoArgJavaOperator}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.javaoperators.TwoArgJavaOperator#getArgument2 <em>Argument2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Two Arg Java Operator2</em>' reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getPrimitiveNode_TwoArgJavaOperator2()
+	 * @see qualitypatternmodel.javaoperators.TwoArgJavaOperator#getArgument2
+	 * @model opposite="argument2"
+	 * @generated
+	 */
+	EList<TwoArgJavaOperator> getTwoArgJavaOperator2();
 
 } // Property
