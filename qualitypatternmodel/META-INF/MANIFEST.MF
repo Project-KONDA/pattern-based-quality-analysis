@@ -8,7 +8,7 @@ Bundle-ClassPath: .,
  lib/BaseX931.jar
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: qualitypatternmodel.adaptionneo4j,
  qualitypatternmodel.adaptionneo4j.impl,
  qualitypatternmodel.adaptionneo4j.util,
