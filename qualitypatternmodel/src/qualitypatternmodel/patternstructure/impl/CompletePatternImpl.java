@@ -40,6 +40,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
+import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.operators.impl.OperatorImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.graphstructure.impl.NodeImpl;
@@ -728,6 +729,19 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		Files.write( Paths.get(path), content.getBytes());
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public JavaFilter generateQueryFilter() throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+
 	@Override
 	public String generateXmlConstraintYAMLFileContent() throws InvalidityException {
 		return ConstraintTranslation.translateToConstraintString(this);
@@ -1406,6 +1420,13 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				try {
 					generateXmlConstraintYAMLFile((String)arguments.get(0));
 					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case PatternstructurePackage.COMPLETE_PATTERN___GENERATE_QUERY_FILTER:
+				try {
+					return generateQueryFilter();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

@@ -36,10 +36,14 @@ import qualitypatternmodel.javaoperators.OneArgJavaOperator;
 import qualitypatternmodel.javaoperators.TwoArgJavaOperator;
 import qualitypatternmodel.javaoperators.ValidateLinkOperator;
 
+import qualitypatternmodel.javaquery.JavaqueryPackage;
+import qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl;
 import qualitypatternmodel.operators.OperatorsPackage;
 
 import qualitypatternmodel.operators.impl.OperatorsPackageImpl;
 
+import qualitypatternmodel.outputstructure.OutputstructurePackage;
+import qualitypatternmodel.outputstructure.impl.OutputstructurePackageImpl;
 import qualitypatternmodel.parameters.ParametersPackage;
 
 import qualitypatternmodel.parameters.impl.ParametersPackageImpl;
@@ -152,6 +156,10 @@ public class JavaoperatorsPackageImpl extends EPackageImpl implements Javaoperat
 		AdaptionrdfPackageImpl theAdaptionrdfPackage = (AdaptionrdfPackageImpl)(registeredPackage instanceof AdaptionrdfPackageImpl ? registeredPackage : AdaptionrdfPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(Adaptionneo4jPackage.eNS_URI);
 		Adaptionneo4jPackageImpl theAdaptionneo4jPackage = (Adaptionneo4jPackageImpl)(registeredPackage instanceof Adaptionneo4jPackageImpl ? registeredPackage : Adaptionneo4jPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(JavaqueryPackage.eNS_URI);
+		JavaqueryPackageImpl theJavaqueryPackage = (JavaqueryPackageImpl)(registeredPackage instanceof JavaqueryPackageImpl ? registeredPackage : JavaqueryPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(OutputstructurePackage.eNS_URI);
+		OutputstructurePackageImpl theOutputstructurePackage = (OutputstructurePackageImpl)(registeredPackage instanceof OutputstructurePackageImpl ? registeredPackage : OutputstructurePackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theJavaoperatorsPackage.createPackageContents();
@@ -164,6 +172,8 @@ public class JavaoperatorsPackageImpl extends EPackageImpl implements Javaoperat
 		theTextrepresentationPackage.createPackageContents();
 		theAdaptionrdfPackage.createPackageContents();
 		theAdaptionneo4jPackage.createPackageContents();
+		theJavaqueryPackage.createPackageContents();
+		theOutputstructurePackage.createPackageContents();
 
 		// Initialize created meta-data
 		theJavaoperatorsPackage.initializePackageContents();
@@ -176,6 +186,8 @@ public class JavaoperatorsPackageImpl extends EPackageImpl implements Javaoperat
 		theTextrepresentationPackage.initializePackageContents();
 		theAdaptionrdfPackage.initializePackageContents();
 		theAdaptionneo4jPackage.initializePackageContents();
+		theJavaqueryPackage.initializePackageContents();
+		theOutputstructurePackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theJavaoperatorsPackage.freeze();

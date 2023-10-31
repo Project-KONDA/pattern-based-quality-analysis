@@ -38,6 +38,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#createRdfAdaption() <em>Create Rdf Adaption</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#createNeo4jAdaption() <em>Create Neo4j Adaption</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#containsJavaOperator() <em>Contains Java Operator</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#generateQueryFilterPart() <em>Generate Query Filter Part</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -402,6 +403,19 @@ public abstract class PatternElementTest extends TestCase {
 	 * @generated
 	 */
 	public void testContainsJavaOperator() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#generateQueryFilterPart() <em>Generate Query Filter Part</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.PatternElement#generateQueryFilterPart()
+	 * @generated
+	 */
+	public void testGenerateQueryFilterPart() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

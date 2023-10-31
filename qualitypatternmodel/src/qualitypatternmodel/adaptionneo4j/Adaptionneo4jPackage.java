@@ -527,6 +527,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_NODE___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.COMPLEX_NODE___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_NODE___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.COMPLEX_NODE___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1257,6 +1266,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_EDGE___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.RELATION___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.RELATION___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1717,6 +1735,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_EDGE___CONTAINS_JAVA_OPERATOR = NEO_EDGE___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_EDGE___GENERATE_QUERY_FILTER_PART = NEO_EDGE___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2123,6 +2150,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PATH_PART___CONTAINS_JAVA_OPERATOR = PatternstructurePackage.PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PART___GENERATE_QUERY_FILTER_PART = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Get Neo Path Part Edge Leafs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2455,6 +2491,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_COMPLEX_EDGE___CONTAINS_JAVA_OPERATOR = NEO_PATH_PART___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_COMPLEX_EDGE___GENERATE_QUERY_FILTER_PART = NEO_PATH_PART___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Get Neo Path Part Edge Leafs</em>' operation.
@@ -2843,6 +2888,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_SIMPLE_EDGE___CONTAINS_JAVA_OPERATOR = NEO_PATH_PART___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE___GENERATE_QUERY_FILTER_PART = NEO_PATH_PART___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Get Neo Path Part Edge Leafs</em>' operation.
@@ -3321,6 +3375,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_NODE___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.PRIMITIVE_NODE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -4035,6 +4098,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PATH_PARAM___CONTAINS_JAVA_OPERATOR = ParametersPackage.PARAMETER___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PARAM___GENERATE_QUERY_FILTER_PART = ParametersPackage.PARAMETER___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4475,6 +4547,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_ELEMENT_PATH_PARAM___CONTAINS_JAVA_OPERATOR = NEO_PATH_PARAM___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_PATH_PARAM___GENERATE_QUERY_FILTER_PART = NEO_PATH_PARAM___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -4926,6 +5007,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_PATH_PARAM___CONTAINS_JAVA_OPERATOR = NEO_PATH_PARAM___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_PATH_PARAM___GENERATE_QUERY_FILTER_PART = NEO_PATH_PARAM___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -5406,6 +5496,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_EDGE___CONTAINS_JAVA_OPERATOR = NEO_EDGE___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_EDGE___GENERATE_QUERY_FILTER_PART = NEO_EDGE___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5873,6 +5972,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_NODE_LABELS_PARAM___CONTAINS_JAVA_OPERATOR = ParametersPackage.TEXT_LIST_PARAM___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___GENERATE_QUERY_FILTER_PART = ParametersPackage.TEXT_LIST_PARAM___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -6506,6 +6614,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_EDGE_LABEL_PARAM___CONTAINS_JAVA_OPERATOR = ParametersPackage.TEXT_LITERAL_PARAM___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___GENERATE_QUERY_FILTER_PART = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7136,6 +7253,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_NAME_PARAM___CONTAINS_JAVA_OPERATOR = ParametersPackage.TEXT_LITERAL_PARAM___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NAME_PARAM___GENERATE_QUERY_FILTER_PART = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.

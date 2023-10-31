@@ -29,8 +29,12 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 import qualitypatternmodel.javaoperators.impl.JavaoperatorsPackageImpl;
+import qualitypatternmodel.javaquery.JavaqueryPackage;
+import qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.operators.impl.OperatorsPackageImpl;
+import qualitypatternmodel.outputstructure.OutputstructurePackage;
+import qualitypatternmodel.outputstructure.impl.OutputstructurePackageImpl;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.ParametersPackageImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -284,6 +288,10 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		Adaptionneo4jPackageImpl theAdaptionneo4jPackage = (Adaptionneo4jPackageImpl)(registeredPackage instanceof Adaptionneo4jPackageImpl ? registeredPackage : Adaptionneo4jPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(JavaoperatorsPackage.eNS_URI);
 		JavaoperatorsPackageImpl theJavaoperatorsPackage = (JavaoperatorsPackageImpl)(registeredPackage instanceof JavaoperatorsPackageImpl ? registeredPackage : JavaoperatorsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(JavaqueryPackage.eNS_URI);
+		JavaqueryPackageImpl theJavaqueryPackage = (JavaqueryPackageImpl)(registeredPackage instanceof JavaqueryPackageImpl ? registeredPackage : JavaqueryPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(OutputstructurePackage.eNS_URI);
+		OutputstructurePackageImpl theOutputstructurePackage = (OutputstructurePackageImpl)(registeredPackage instanceof OutputstructurePackageImpl ? registeredPackage : OutputstructurePackage.eINSTANCE);
 
 		// Create package meta-data objects
 		thePatternstructurePackage.createPackageContents();
@@ -296,6 +304,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		theAdaptionrdfPackage.createPackageContents();
 		theAdaptionneo4jPackage.createPackageContents();
 		theJavaoperatorsPackage.createPackageContents();
+		theJavaqueryPackage.createPackageContents();
+		theOutputstructurePackage.createPackageContents();
 
 		// Initialize created meta-data
 		thePatternstructurePackage.initializePackageContents();
@@ -308,6 +318,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		theAdaptionrdfPackage.initializePackageContents();
 		theAdaptionneo4jPackage.initializePackageContents();
 		theJavaoperatorsPackage.initializePackageContents();
+		theJavaqueryPackage.initializePackageContents();
+		theOutputstructurePackage.initializePackageContents();
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put
@@ -783,6 +795,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EOperation getCompletePattern__GenerateQueryFilter() {
+		return completePatternEClass.getEOperations().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getPatternElement() {
 		return patternElementEClass;
 	}
@@ -955,6 +977,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	@Override
 	public EOperation getPatternElement__ContainsJavaOperator() {
 		return patternElementEClass.getEOperations().get(24);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPatternElement__GenerateQueryFilterPart() {
+		return patternElementEClass.getEOperations().get(25);
 	}
 
 	/**
@@ -1476,6 +1508,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___GENERATE_WIKIDATA_SPARQL);
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___GENERATE_XML_CONSTRAINT_SCHEMA);
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___GENERATE_XML_CONSTRAINT_YAML_FILE__STRING);
+		createEOperation(completePatternEClass, COMPLETE_PATTERN___GENERATE_QUERY_FILTER);
 
 		patternElementEClass = createEClass(PATTERN_ELEMENT);
 		createEAttribute(patternElementEClass, PATTERN_ELEMENT__ID);
@@ -1505,6 +1538,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___CREATE_RDF_ADAPTION);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART);
 
 		notConditionEClass = createEClass(NOT_CONDITION);
 		createEReference(notConditionEClass, NOT_CONDITION__CONDITION);
@@ -1581,6 +1615,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		ExecutionPackage theExecutionPackage = (ExecutionPackage)EPackage.Registry.INSTANCE.getEPackage(ExecutionPackage.eNS_URI);
 		TextrepresentationPackage theTextrepresentationPackage = (TextrepresentationPackage)EPackage.Registry.INSTANCE.getEPackage(TextrepresentationPackage.eNS_URI);
 		OperatorsPackage theOperatorsPackage = (OperatorsPackage)EPackage.Registry.INSTANCE.getEPackage(OperatorsPackage.eNS_URI);
+		JavaqueryPackage theJavaqueryPackage = (JavaqueryPackage)EPackage.Registry.INSTANCE.getEPackage(JavaqueryPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -1681,6 +1716,9 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		addEException(op, this.getInvalidityExceptionWrapper());
 		addEException(op, theExecutionPackage.getIoExceptionWrapper());
 
+		op = initEOperation(getCompletePattern__GenerateQueryFilter(), theJavaqueryPackage.getJavaFilter(), "generateQueryFilter", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getInvalidityExceptionWrapper());
+
 		initEClass(patternElementEClass, PatternElement.class, "PatternElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPatternElement_Id(), ecorePackage.getEString(), "id", null, 1, 1, PatternElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPatternElement_InternalId(), ecorePackage.getEInt(), "internalId", "-1", 1, 1, PatternElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1769,6 +1807,9 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		addEException(op, this.getMissingPatternContainerException());
 
 		op = initEOperation(getPatternElement__ContainsJavaOperator(), ecorePackage.getEBooleanObject(), "containsJavaOperator", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getPatternElement__GenerateQueryFilterPart(), theJavaqueryPackage.getJavaFilterPart(), "generateQueryFilterPart", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
 
 		initEClass(notConditionEClass, NotCondition.class, "NotCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

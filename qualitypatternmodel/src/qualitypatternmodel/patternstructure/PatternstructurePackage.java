@@ -322,13 +322,22 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR = 24;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART = 25;
+
+	/**
 	 * The number of operations of the '<em>Pattern Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT_OPERATION_COUNT = 25;
+	int PATTERN_ELEMENT_OPERATION_COUNT = 26;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.ConditionImpl <em>Condition</em>}' class.
@@ -636,6 +645,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int CONDITION___CONTAINS_JAVA_OPERATOR = PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___GENERATE_QUERY_FILTER_PART = PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
@@ -1008,6 +1026,15 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION___CONTAINS_JAVA_OPERATOR = CONDITION___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___GENERATE_QUERY_FILTER_PART = CONDITION___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1349,6 +1376,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MORPHISM___CONTAINS_JAVA_OPERATOR = PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___GENERATE_QUERY_FILTER_PART = PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The number of operations of the '<em>Morphism</em>' class.
@@ -1703,6 +1739,15 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA___CONTAINS_JAVA_OPERATOR = CONDITION___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___GENERATE_QUERY_FILTER_PART = CONDITION___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2037,6 +2082,15 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE_ELEMENT___CONTAINS_JAVA_OPERATOR = CONDITION___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE_ELEMENT___GENERATE_QUERY_FILTER_PART = CONDITION___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2360,6 +2414,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PATTERN___CONTAINS_JAVA_OPERATOR = PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___GENERATE_QUERY_FILTER_PART = PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Check Morphism Of Next Graph</em>' operation.
@@ -2786,6 +2849,15 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___CONTAINS_JAVA_OPERATOR = PATTERN___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___GENERATE_QUERY_FILTER_PART = PATTERN___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Check Morphism Of Next Graph</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2876,13 +2948,22 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___GENERATE_XML_CONSTRAINT_YAML_FILE__STRING = PATTERN_OPERATION_COUNT + 8;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___GENERATE_QUERY_FILTER = PATTERN_OPERATION_COUNT + 9;
+
+	/**
 	 * The number of operations of the '<em>Complete Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 9;
+	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.NotConditionImpl <em>Not Condition</em>}' class.
@@ -3199,6 +3280,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int NOT_CONDITION___CONTAINS_JAVA_OPERATOR = CONDITION___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_CONDITION___GENERATE_QUERY_FILTER_PART = CONDITION___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
@@ -3571,6 +3661,15 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION___CONTAINS_JAVA_OPERATOR = CONDITION___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION___GENERATE_QUERY_FILTER_PART = CONDITION___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3887,6 +3986,15 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION_ARGUMENT___CONTAINS_JAVA_OPERATOR = PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION_ARGUMENT___GENERATE_QUERY_FILTER_PART = PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The number of operations of the '<em>Count Condition Argument</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4165,6 +4273,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MORPHISM_CONTAINER___CONTAINS_JAVA_OPERATOR = PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___GENERATE_QUERY_FILTER_PART = PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Get Graph</em>' operation.
@@ -4519,6 +4636,15 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_PATTERN___CONTAINS_JAVA_OPERATOR = PATTERN___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___GENERATE_QUERY_FILTER_PART = PATTERN___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Check Morphism Of Next Graph</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4833,6 +4959,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_ELEMENT___CONTAINS_JAVA_OPERATOR = COUNT_CONDITION_ARGUMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___GENERATE_QUERY_FILTER_PART = COUNT_CONDITION_ARGUMENT___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -5410,6 +5545,16 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getCompletePattern__GenerateXmlConstraintYAMLFile__String();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#generateQueryFilter() <em>Generate Query Filter</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Query Filter</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#generateQueryFilter()
+	 * @generated
+	 */
+	EOperation getCompletePattern__GenerateQueryFilter();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.PatternElement <em>Pattern Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5590,6 +5735,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPatternElement__ContainsJavaOperator();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#generateQueryFilterPart() <em>Generate Query Filter Part</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Query Filter Part</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#generateQueryFilterPart()
+	 * @generated
+	 */
+	EOperation getPatternElement__GenerateQueryFilterPart();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#recordValues(qualitypatternmodel.execution.XmlDataDatabase) <em>Record Values</em>}' operation.
@@ -6443,6 +6598,14 @@ public interface PatternstructurePackage extends EPackage {
 		EOperation COMPLETE_PATTERN___GENERATE_XML_CONSTRAINT_YAML_FILE__STRING = eINSTANCE.getCompletePattern__GenerateXmlConstraintYAMLFile__String();
 
 		/**
+		 * The meta object literal for the '<em><b>Generate Query Filter</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPLETE_PATTERN___GENERATE_QUERY_FILTER = eINSTANCE.getCompletePattern__GenerateQueryFilter();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.PatternElementImpl <em>Pattern Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6595,6 +6758,14 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR = eINSTANCE.getPatternElement__ContainsJavaOperator();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Query Filter Part</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART = eINSTANCE.getPatternElement__GenerateQueryFilterPart();
 
 		/**
 		 * The meta object literal for the '<em><b>Record Values</b></em>' operation.

@@ -389,6 +389,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PREDICATE___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.RELATION___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PREDICATE___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.RELATION___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -847,6 +856,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @ordered
 	 */
 	int RDF_IRI_NODE___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.COMPLEX_NODE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_IRI_NODE___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.COMPLEX_NODE___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1516,6 +1534,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PATH_COMPONENT___CONTAINS_JAVA_OPERATOR = PatternstructurePackage.PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_COMPONENT___GENERATE_QUERY_FILTER_PART = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Get Rdf Single Predicates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1831,6 +1858,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @ordered
 	 */
 	int RDF_SINGLE_PREDICATE___CONTAINS_JAVA_OPERATOR = RDF_PATH_COMPONENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_SINGLE_PREDICATE___GENERATE_QUERY_FILTER_PART = RDF_PATH_COMPONENT___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Get Rdf Single Predicates</em>' operation.
@@ -2292,6 +2328,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @ordered
 	 */
 	int RDF_LITERAL_NODE___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.PRIMITIVE_NODE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_LITERAL_NODE___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3051,6 +3096,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	int IRI_PARAM___CONTAINS_JAVA_OPERATOR = ParametersPackage.PARAMETER_VALUE___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_PARAM___GENERATE_QUERY_FILTER_PART = ParametersPackage.PARAMETER_VALUE___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3583,6 +3637,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_XOR___CONTAINS_JAVA_OPERATOR = RDF_PATH_COMPONENT___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_XOR___GENERATE_QUERY_FILTER_PART = RDF_PATH_COMPONENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Get Rdf Single Predicates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3888,6 +3951,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @ordered
 	 */
 	int RDF_SEQUENCE___CONTAINS_JAVA_OPERATOR = RDF_PATH_COMPONENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_SEQUENCE___GENERATE_QUERY_FILTER_PART = RDF_PATH_COMPONENT___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Get Rdf Single Predicates</em>' operation.
@@ -4249,6 +4321,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @ordered
 	 */
 	int IRI_LIST_PARAM___CONTAINS_JAVA_OPERATOR = ParametersPackage.PARAMETER_VALUE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___GENERATE_QUERY_FILTER_PART = ParametersPackage.PARAMETER_VALUE___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -4782,6 +4863,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PATH_PARAM___CONTAINS_JAVA_OPERATOR = ParametersPackage.PARAMETER___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PARAM___GENERATE_QUERY_FILTER_PART = ParametersPackage.PARAMETER___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5204,6 +5294,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @ordered
 	 */
 	int RDF_PATH_PART___CONTAINS_JAVA_OPERATOR = PatternstructurePackage.PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART___GENERATE_QUERY_FILTER_PART = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Generate Rdf Part Types</em>' operation.

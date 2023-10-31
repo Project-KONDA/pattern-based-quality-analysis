@@ -11,6 +11,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.parameters.Parameter;
@@ -219,6 +220,14 @@ public interface PatternElement extends EObject {
 	 * @generated
 	 */
 	Boolean containsJavaOperator() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	JavaFilterPart generateQueryFilterPart() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

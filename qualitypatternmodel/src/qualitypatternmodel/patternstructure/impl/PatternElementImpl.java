@@ -27,6 +27,7 @@ import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.javaoperators.JavaOperator;
+import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.parameters.Parameter;
@@ -249,6 +250,18 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 			if (o instanceof JavaOperator)
 				return true;
 		return false;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -662,6 +675,13 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 			case PatternstructurePackage.PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR:
 				try {
 					return containsJavaOperator();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART:
+				try {
+					return generateQueryFilterPart();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

@@ -23,6 +23,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#generateWikidataSparql() <em>Generate Wikidata Sparql</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#generateXmlConstraintSchema() <em>Generate Xml Constraint Schema</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#generateXmlConstraintYAMLFile(java.lang.String) <em>Generate Xml Constraint YAML File</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#generateQueryFilter() <em>Generate Query Filter</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -193,6 +194,19 @@ public class CompletePatternTest extends PatternTest {
 	 * @generated
 	 */
 	public void testGenerateXmlConstraintYAMLFile__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.CompletePattern#generateQueryFilter() <em>Generate Query Filter</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#generateQueryFilter()
+	 * @generated
+	 */
+	public void testGenerateQueryFilter() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

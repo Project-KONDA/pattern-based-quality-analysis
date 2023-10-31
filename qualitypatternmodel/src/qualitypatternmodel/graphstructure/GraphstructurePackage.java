@@ -376,6 +376,15 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___CONTAINS_JAVA_OPERATOR = PatternstructurePackage.PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION___GENERATE_QUERY_FILTER_PART = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -744,6 +753,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARABLE___CONTAINS_JAVA_OPERATOR = PatternstructurePackage.PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARABLE___GENERATE_QUERY_FILTER_PART = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1141,6 +1159,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int NODE___CONTAINS_JAVA_OPERATOR = COMPARABLE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___GENERATE_QUERY_FILTER_PART = COMPARABLE___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1927,6 +1954,15 @@ public interface GraphstructurePackage extends EPackage {
 	int PRIMITIVE_NODE___CONTAINS_JAVA_OPERATOR = NODE___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___GENERATE_QUERY_FILTER_PART = NODE___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2639,6 +2675,15 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH___CONTAINS_JAVA_OPERATOR = PatternstructurePackage.PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH___GENERATE_QUERY_FILTER_PART = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Is Return Graph</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3007,6 +3052,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int ADAPTABLE___CONTAINS_JAVA_OPERATOR = PatternstructurePackage.PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADAPTABLE___GENERATE_QUERY_FILTER_PART = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -3386,6 +3440,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPLEX_NODE___CONTAINS_JAVA_OPERATOR = NODE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___GENERATE_QUERY_FILTER_PART = NODE___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.

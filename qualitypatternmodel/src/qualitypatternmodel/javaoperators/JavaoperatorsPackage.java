@@ -348,6 +348,15 @@ public interface JavaoperatorsPackage extends EPackage {
 	int JAVA_OPERATOR___CONTAINS_JAVA_OPERATOR = OperatorsPackage.BOOLEAN_OPERATOR___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_OPERATOR___GENERATE_QUERY_FILTER_PART = OperatorsPackage.BOOLEAN_OPERATOR___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -779,6 +788,15 @@ public interface JavaoperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int ONE_ARG_JAVA_OPERATOR___CONTAINS_JAVA_OPERATOR = JAVA_OPERATOR___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_OPERATOR___GENERATE_QUERY_FILTER_PART = JAVA_OPERATOR___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1223,6 +1241,15 @@ public interface JavaoperatorsPackage extends EPackage {
 	int TWO_ARG_JAVA_OPERATOR___CONTAINS_JAVA_OPERATOR = JAVA_OPERATOR___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TWO_ARG_JAVA_OPERATOR___GENERATE_QUERY_FILTER_PART = JAVA_OPERATOR___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1663,6 +1690,15 @@ public interface JavaoperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int VALIDATE_LINK_OPERATOR___CONTAINS_JAVA_OPERATOR = ONE_ARG_JAVA_OPERATOR___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALIDATE_LINK_OPERATOR___GENERATE_QUERY_FILTER_PART = ONE_ARG_JAVA_OPERATOR___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.

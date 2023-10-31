@@ -286,4 +286,60 @@
       </editor>
    </extension>
 
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated qualitypatternmodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="qualitypatternmodel.javaquery.presentation.JavaqueryModelWizardID"
+            name="%_UI_JavaqueryModelWizard_label"
+            class="qualitypatternmodel.javaquery.presentation.JavaqueryModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/JavaqueryModelFile.gif">
+         <description>%_UI_JavaqueryModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated qualitypatternmodel -->
+      <editor
+            id="qualitypatternmodel.javaquery.presentation.JavaqueryEditorID"
+            name="%_UI_JavaqueryEditor_label"
+            icon="icons/full/obj16/JavaqueryModelFile.gif"
+            extensions="javaquery"
+            class="qualitypatternmodel.javaquery.presentation.JavaqueryEditor"
+            contributorClass="qualitypatternmodel.javaquery.presentation.JavaqueryActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated qualitypatternmodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="qualitypatternmodel.outputstructure.presentation.OutputstructureModelWizardID"
+            name="%_UI_OutputstructureModelWizard_label"
+            class="qualitypatternmodel.outputstructure.presentation.OutputstructureModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/OutputstructureModelFile.gif">
+         <description>%_UI_OutputstructureModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated qualitypatternmodel -->
+      <editor
+            id="qualitypatternmodel.outputstructure.presentation.OutputstructureEditorID"
+            name="%_UI_OutputstructureEditor_label"
+            icon="icons/full/obj16/OutputstructureModelFile.gif"
+            extensions="outputstructure"
+            class="qualitypatternmodel.outputstructure.presentation.OutputstructureEditor"
+            contributorClass="qualitypatternmodel.outputstructure.presentation.OutputstructureActionBarContributor">
+      </editor>
+   </extension>
+
 </plugin>

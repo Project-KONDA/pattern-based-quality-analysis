@@ -168,8 +168,10 @@ import qualitypatternmodel.execution.provider.ExecutionItemProviderAdapterFactor
 import qualitypatternmodel.graphstructure.provider.GraphstructureItemProviderAdapterFactory;
 
 import qualitypatternmodel.javaoperators.provider.JavaoperatorsItemProviderAdapterFactory;
+import qualitypatternmodel.javaquery.provider.JavaqueryItemProviderAdapterFactory;
 import qualitypatternmodel.operators.provider.OperatorsItemProviderAdapterFactory;
 
+import qualitypatternmodel.outputstructure.provider.OutputstructureItemProviderAdapterFactory;
 import qualitypatternmodel.parameters.presentation.QualitypatternmodelEditorPlugin;
 
 import qualitypatternmodel.parameters.provider.ParametersItemProviderAdapterFactory;
@@ -739,6 +741,8 @@ public class AdaptionrdfEditor
 		adapterFactory.addAdapterFactory(new AdaptionrdfItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new Adaptionneo4jItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new JavaoperatorsItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new JavaqueryItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new OutputstructureItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

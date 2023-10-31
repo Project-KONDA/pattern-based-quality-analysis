@@ -350,6 +350,15 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER___CONTAINS_JAVA_OPERATOR = PatternstructurePackage.PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___GENERATE_QUERY_FILTER_PART = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -783,6 +792,15 @@ public interface ParametersPackage extends EPackage {
 	int COMPARISON_OPTION_PARAM___CONTAINS_JAVA_OPERATOR = PARAMETER___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPTION_PARAM___GENERATE_QUERY_FILTER_PART = PARAMETER___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1171,6 +1189,15 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_LIST___CONTAINS_JAVA_OPERATOR = PatternstructurePackage.PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_LIST___GENERATE_QUERY_FILTER_PART = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1521,6 +1548,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER_VALUE___CONTAINS_JAVA_OPERATOR = PARAMETER___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___GENERATE_QUERY_FILTER_PART = PARAMETER___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -2118,6 +2154,15 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM___CONTAINS_JAVA_OPERATOR = PARAMETER_VALUE___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___GENERATE_QUERY_FILTER_PART = PARAMETER_VALUE___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2684,6 +2729,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int LIST_PARAM___CONTAINS_JAVA_OPERATOR = PARAMETER_VALUE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_PARAM___GENERATE_QUERY_FILTER_PART = PARAMETER_VALUE___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -3279,6 +3333,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LIST_PARAM___CONTAINS_JAVA_OPERATOR = LIST_PARAM___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___GENERATE_QUERY_FILTER_PART = LIST_PARAM___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -3912,6 +3975,15 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM___CONTAINS_JAVA_OPERATOR = PARAMETER_VALUE___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___GENERATE_QUERY_FILTER_PART = PARAMETER_VALUE___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4498,6 +4570,15 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM___CONTAINS_JAVA_OPERATOR = PARAMETER_VALUE___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___GENERATE_QUERY_FILTER_PART = PARAMETER_VALUE___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5064,6 +5145,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_PARAM___CONTAINS_JAVA_OPERATOR = PARAMETER_VALUE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___GENERATE_QUERY_FILTER_PART = PARAMETER_VALUE___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -5634,6 +5724,15 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM___CONTAINS_JAVA_OPERATOR = PARAMETER_VALUE___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___GENERATE_QUERY_FILTER_PART = PARAMETER_VALUE___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6191,6 +6290,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNTYPED_PARAMETER_VALUE___CONTAINS_JAVA_OPERATOR = PARAMETER_VALUE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE___GENERATE_QUERY_FILTER_PART = PARAMETER_VALUE___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -6761,6 +6869,15 @@ public interface ParametersPackage extends EPackage {
 	int DATE_TIME_PARAM___CONTAINS_JAVA_OPERATOR = PARAMETER_VALUE___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___GENERATE_QUERY_FILTER_PART = PARAMETER_VALUE___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7320,6 +7437,15 @@ public interface ParametersPackage extends EPackage {
 	int TYPE_OPTION_PARAM___CONTAINS_JAVA_OPERATOR = PARAMETER___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_OPTION_PARAM___GENERATE_QUERY_FILTER_PART = PARAMETER___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7715,6 +7841,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int KEY_VALUE_PARAM___CONTAINS_JAVA_OPERATOR = PARAMETER___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___GENERATE_QUERY_FILTER_PART = PARAMETER___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -8157,6 +8292,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int MULTI_LIST_PARAM___CONTAINS_JAVA_OPERATOR = LIST_PARAM___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_LIST_PARAM___GENERATE_QUERY_FILTER_PART = LIST_PARAM___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.

@@ -40,10 +40,14 @@ import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
 
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 import qualitypatternmodel.javaoperators.impl.JavaoperatorsPackageImpl;
+import qualitypatternmodel.javaquery.JavaqueryPackage;
+import qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl;
 import qualitypatternmodel.operators.OperatorsPackage;
 
 import qualitypatternmodel.operators.impl.OperatorsPackageImpl;
 
+import qualitypatternmodel.outputstructure.OutputstructurePackage;
+import qualitypatternmodel.outputstructure.impl.OutputstructurePackageImpl;
 import qualitypatternmodel.parameters.ParametersPackage;
 
 import qualitypatternmodel.parameters.impl.ParametersPackageImpl;
@@ -232,6 +236,10 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		Adaptionneo4jPackageImpl theAdaptionneo4jPackage = (Adaptionneo4jPackageImpl)(registeredPackage instanceof Adaptionneo4jPackageImpl ? registeredPackage : Adaptionneo4jPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(JavaoperatorsPackage.eNS_URI);
 		JavaoperatorsPackageImpl theJavaoperatorsPackage = (JavaoperatorsPackageImpl)(registeredPackage instanceof JavaoperatorsPackageImpl ? registeredPackage : JavaoperatorsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(JavaqueryPackage.eNS_URI);
+		JavaqueryPackageImpl theJavaqueryPackage = (JavaqueryPackageImpl)(registeredPackage instanceof JavaqueryPackageImpl ? registeredPackage : JavaqueryPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(OutputstructurePackage.eNS_URI);
+		OutputstructurePackageImpl theOutputstructurePackage = (OutputstructurePackageImpl)(registeredPackage instanceof OutputstructurePackageImpl ? registeredPackage : OutputstructurePackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theAdaptionxmlPackage.createPackageContents();
@@ -244,6 +252,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		theAdaptionrdfPackage.createPackageContents();
 		theAdaptionneo4jPackage.createPackageContents();
 		theJavaoperatorsPackage.createPackageContents();
+		theJavaqueryPackage.createPackageContents();
+		theOutputstructurePackage.createPackageContents();
 
 		// Initialize created meta-data
 		theAdaptionxmlPackage.initializePackageContents();
@@ -256,6 +266,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		theAdaptionrdfPackage.initializePackageContents();
 		theAdaptionneo4jPackage.initializePackageContents();
 		theJavaoperatorsPackage.initializePackageContents();
+		theJavaqueryPackage.initializePackageContents();
+		theOutputstructurePackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theAdaptionxmlPackage.freeze();

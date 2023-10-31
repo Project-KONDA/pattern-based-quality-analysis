@@ -1,0 +1,205 @@
+/**
+ */
+package qualitypatternmodel.javaquery.impl;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+
+import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import qualitypatternmodel.javaquery.*;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model <b>Factory</b>.
+ * <!-- end-user-doc -->
+ * @generated
+ */
+public class JavaqueryFactoryImpl extends EFactoryImpl implements JavaqueryFactory {
+	/**
+	 * Creates the default factory implementation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static JavaqueryFactory init() {
+		try {
+			JavaqueryFactory theJavaqueryFactory = (JavaqueryFactory)EPackage.Registry.INSTANCE.getEFactory(JavaqueryPackage.eNS_URI);
+			if (theJavaqueryFactory != null) {
+				return theJavaqueryFactory;
+			}
+		}
+		catch (Exception exception) {
+			EcorePlugin.INSTANCE.log(exception);
+		}
+		return new JavaqueryFactoryImpl();
+	}
+
+	/**
+	 * Creates an instance of the factory.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JavaqueryFactoryImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EObject create(EClass eClass) {
+		switch (eClass.getClassifierID()) {
+			case JavaqueryPackage.JAVA_FILTER: return createJavaFilter();
+			case JavaqueryPackage.FORMULA_FILTER_PART: return createFormulaFilterPart();
+			case JavaqueryPackage.BOOLEAN_FILTER_PART: return createBooleanFilterPart();
+			case JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART: return createOneArgFunctionFilterPart();
+			case JavaqueryPackage.LIST_FILTER_PART: return createListFilterPart();
+			case JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART: return createTwoArgFunctionFilterPart();
+			case JavaqueryPackage.EVERY_COMBINATOR: return createEveryCombinator();
+			case JavaqueryPackage.ANY_COMBINATOR: return createAnyCombinator();
+			case JavaqueryPackage.NONE_COMBINATOR: return createNoneCombinator();
+			case JavaqueryPackage.COUNT_COMBINATOR: return createCountCombinator();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public JavaFilter createJavaFilter() {
+		JavaFilterImpl javaFilter = new JavaFilterImpl();
+		return javaFilter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public FormulaFilterPart createFormulaFilterPart() {
+		FormulaFilterPartImpl formulaFilterPart = new FormulaFilterPartImpl();
+		return formulaFilterPart;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public BooleanFilterPart createBooleanFilterPart() {
+		BooleanFilterPartImpl booleanFilterPart = new BooleanFilterPartImpl();
+		return booleanFilterPart;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public OneArgFunctionFilterPart createOneArgFunctionFilterPart() {
+		OneArgFunctionFilterPartImpl oneArgFunctionFilterPart = new OneArgFunctionFilterPartImpl();
+		return oneArgFunctionFilterPart;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ListFilterPart createListFilterPart() {
+		ListFilterPartImpl listFilterPart = new ListFilterPartImpl();
+		return listFilterPart;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TwoArgFunctionFilterPart createTwoArgFunctionFilterPart() {
+		TwoArgFunctionFilterPartImpl twoArgFunctionFilterPart = new TwoArgFunctionFilterPartImpl();
+		return twoArgFunctionFilterPart;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EveryCombinator createEveryCombinator() {
+		EveryCombinatorImpl everyCombinator = new EveryCombinatorImpl();
+		return everyCombinator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public AnyCombinator createAnyCombinator() {
+		AnyCombinatorImpl anyCombinator = new AnyCombinatorImpl();
+		return anyCombinator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NoneCombinator createNoneCombinator() {
+		NoneCombinatorImpl noneCombinator = new NoneCombinatorImpl();
+		return noneCombinator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public CountCombinator createCountCombinator() {
+		CountCombinatorImpl countCombinator = new CountCombinatorImpl();
+		return countCombinator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public JavaqueryPackage getJavaqueryPackage() {
+		return (JavaqueryPackage)getEPackage();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @deprecated
+	 * @generated
+	 */
+	@Deprecated
+	public static JavaqueryPackage getPackage() {
+		return JavaqueryPackage.eINSTANCE;
+	}
+
+} //JavaqueryFactoryImpl

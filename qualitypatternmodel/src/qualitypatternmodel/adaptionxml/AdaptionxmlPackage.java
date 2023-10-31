@@ -513,6 +513,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.COMPLEX_NODE___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.COMPLEX_NODE___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1260,6 +1269,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.RELATION___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.RELATION___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1692,6 +1710,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT_NAVIGATION___CONTAINS_JAVA_OPERATOR = XML_NAVIGATION___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT_NAVIGATION___GENERATE_QUERY_FILTER_PART = XML_NAVIGATION___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2113,6 +2140,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_REFERENCE___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.RELATION___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_REFERENCE___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.RELATION___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -2653,6 +2689,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PROPERTY___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.PRIMITIVE_NODE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3411,6 +3456,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ROOT___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.COMPLEX_NODE___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.COMPLEX_NODE___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4122,6 +4176,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_NAVIGATION___CONTAINS_JAVA_OPERATOR = XML_NAVIGATION___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY_NAVIGATION___GENERATE_QUERY_FILTER_PART = XML_NAVIGATION___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4535,6 +4598,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_AXIS_OPTION_PARAM___CONTAINS_JAVA_OPERATOR = ParametersPackage.PARAMETER___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_OPTION_PARAM___GENERATE_QUERY_FILTER_PART = ParametersPackage.PARAMETER___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -4988,6 +5060,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_OPTION_PARAM___CONTAINS_JAVA_OPERATOR = ParametersPackage.PARAMETER___CONTAINS_JAVA_OPERATOR;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY_OPTION_PARAM___GENERATE_QUERY_FILTER_PART = ParametersPackage.PARAMETER___GENERATE_QUERY_FILTER_PART;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5418,6 +5499,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PATH_PARAM___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.ADAPTABLE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PATH_PARAM___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.ADAPTABLE___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -5905,6 +5995,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_AXIS_PART___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.ADAPTABLE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.ADAPTABLE___GENERATE_QUERY_FILTER_PART;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
