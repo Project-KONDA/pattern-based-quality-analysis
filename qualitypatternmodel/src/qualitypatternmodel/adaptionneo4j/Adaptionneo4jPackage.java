@@ -518,6 +518,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_NODE___CREATE_NEO4J_ADAPTION = GraphstructurePackage.COMPLEX_NODE___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_NODE___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.COMPLEX_NODE___CONTAINS_JAVA_OPERATOR;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1239,6 +1248,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_EDGE___CREATE_NEO4J_ADAPTION = GraphstructurePackage.RELATION___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.RELATION___CONTAINS_JAVA_OPERATOR;
+
+	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1690,6 +1708,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_EDGE___CREATE_NEO4J_ADAPTION = NEO_EDGE___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_EDGE___CONTAINS_JAVA_OPERATOR = NEO_EDGE___CONTAINS_JAVA_OPERATOR;
+
+	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2087,6 +2114,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PATH_PART___CREATE_NEO4J_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PART___CONTAINS_JAVA_OPERATOR = PatternstructurePackage.PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
 	 * The operation id for the '<em>Get Neo Path Part Edge Leafs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2410,6 +2446,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_COMPLEX_EDGE___CREATE_NEO4J_ADAPTION = NEO_PATH_PART___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_COMPLEX_EDGE___CONTAINS_JAVA_OPERATOR = NEO_PATH_PART___CONTAINS_JAVA_OPERATOR;
 
 	/**
 	 * The operation id for the '<em>Get Neo Path Part Edge Leafs</em>' operation.
@@ -2789,6 +2834,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_SIMPLE_EDGE___CREATE_NEO4J_ADAPTION = NEO_PATH_PART___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE___CONTAINS_JAVA_OPERATOR = NEO_PATH_PART___CONTAINS_JAVA_OPERATOR;
 
 	/**
 	 * The operation id for the '<em>Get Neo Path Part Edge Leafs</em>' operation.
@@ -3258,6 +3312,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_NODE___CREATE_NEO4J_ADAPTION = GraphstructurePackage.PRIMITIVE_NODE___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.PRIMITIVE_NODE___CONTAINS_JAVA_OPERATOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3963,6 +4026,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PATH_PARAM___CREATE_NEO4J_ADAPTION = ParametersPackage.PARAMETER___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PARAM___CONTAINS_JAVA_OPERATOR = ParametersPackage.PARAMETER___CONTAINS_JAVA_OPERATOR;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4394,6 +4466,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_ELEMENT_PATH_PARAM___CREATE_NEO4J_ADAPTION = NEO_PATH_PARAM___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_PATH_PARAM___CONTAINS_JAVA_OPERATOR = NEO_PATH_PARAM___CONTAINS_JAVA_OPERATOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -4836,6 +4917,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_PATH_PARAM___CREATE_NEO4J_ADAPTION = NEO_PATH_PARAM___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_PATH_PARAM___CONTAINS_JAVA_OPERATOR = NEO_PATH_PARAM___CONTAINS_JAVA_OPERATOR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -5307,6 +5397,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_EDGE___CREATE_NEO4J_ADAPTION = NEO_EDGE___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_EDGE___CONTAINS_JAVA_OPERATOR = NEO_EDGE___CONTAINS_JAVA_OPERATOR;
+
+	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5765,6 +5864,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_NODE_LABELS_PARAM___CREATE_NEO4J_ADAPTION = ParametersPackage.TEXT_LIST_PARAM___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___CONTAINS_JAVA_OPERATOR = ParametersPackage.TEXT_LIST_PARAM___CONTAINS_JAVA_OPERATOR;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -6389,6 +6497,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_EDGE_LABEL_PARAM___CREATE_NEO4J_ADAPTION = ParametersPackage.TEXT_LITERAL_PARAM___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___CONTAINS_JAVA_OPERATOR = ParametersPackage.TEXT_LITERAL_PARAM___CONTAINS_JAVA_OPERATOR;
+
+	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7010,6 +7127,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_NAME_PARAM___CREATE_NEO4J_ADAPTION = ParametersPackage.TEXT_LITERAL_PARAM___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NAME_PARAM___CONTAINS_JAVA_OPERATOR = ParametersPackage.TEXT_LITERAL_PARAM___CONTAINS_JAVA_OPERATOR;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.

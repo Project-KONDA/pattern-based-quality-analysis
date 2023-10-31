@@ -3,6 +3,7 @@
 package qualitypatternmodel.patternstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicDiagnostic;
@@ -25,6 +26,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
+import qualitypatternmodel.javaoperators.JavaOperator;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.parameters.Parameter;
@@ -233,6 +235,20 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return this;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Boolean containsJavaOperator() throws InvalidityException {
+		List<Operator> ops = getAllOperators();
+		for (Operator o: ops)
+			if (o instanceof JavaOperator)
+				return true;
+		return false;
 	}
 
 	/**
@@ -639,6 +655,13 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 			case PatternstructurePackage.PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION:
 				try {
 					return createNeo4jAdaption();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case PatternstructurePackage.PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR:
+				try {
+					return containsJavaOperator();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

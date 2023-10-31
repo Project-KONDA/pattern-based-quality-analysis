@@ -953,6 +953,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EOperation getPatternElement__ContainsJavaOperator() {
+		return patternElementEClass.getEOperations().get(24);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getPatternElement__RecordValues__XmlDataDatabase() {
 		return patternElementEClass.getEOperations().get(19);
 	}
@@ -1494,6 +1504,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___CREATE_XML_ADAPTION);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___CREATE_RDF_ADAPTION);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR);
 
 		notConditionEClass = createEClass(NOT_CONDITION);
 		createEReference(notConditionEClass, NOT_CONDITION__CONDITION);
@@ -1756,6 +1767,9 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		addEException(op, this.getInvalidityExceptionWrapper());
 		addEException(op, theOperatorsPackage.getOperatorCycleExceptionWrapper());
 		addEException(op, this.getMissingPatternContainerException());
+
+		op = initEOperation(getPatternElement__ContainsJavaOperator(), ecorePackage.getEBooleanObject(), "containsJavaOperator", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getInvalidityExceptionWrapper());
 
 		initEClass(notConditionEClass, NotCondition.class, "NotCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNotCondition_Condition(), this.getCondition(), this.getCondition_NotCondition(), "condition", null, 0, 1, NotCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

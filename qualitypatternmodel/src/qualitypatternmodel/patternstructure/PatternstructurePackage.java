@@ -313,13 +313,22 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION = 23;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR = 24;
+
+	/**
 	 * The number of operations of the '<em>Pattern Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT_OPERATION_COUNT = 24;
+	int PATTERN_ELEMENT_OPERATION_COUNT = 25;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.ConditionImpl <em>Condition</em>}' class.
@@ -618,6 +627,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int CONDITION___CREATE_NEO4J_ADAPTION = PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___CONTAINS_JAVA_OPERATOR = PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
 
 	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
@@ -981,6 +999,15 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION___CREATE_NEO4J_ADAPTION = CONDITION___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___CONTAINS_JAVA_OPERATOR = CONDITION___CONTAINS_JAVA_OPERATOR;
+
+	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1313,6 +1340,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MORPHISM___CREATE_NEO4J_ADAPTION = PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___CONTAINS_JAVA_OPERATOR = PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
 
 	/**
 	 * The number of operations of the '<em>Morphism</em>' class.
@@ -1658,6 +1694,15 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA___CREATE_NEO4J_ADAPTION = CONDITION___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___CONTAINS_JAVA_OPERATOR = CONDITION___CONTAINS_JAVA_OPERATOR;
+
+	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1983,6 +2028,15 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE_ELEMENT___CREATE_NEO4J_ADAPTION = CONDITION___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE_ELEMENT___CONTAINS_JAVA_OPERATOR = CONDITION___CONTAINS_JAVA_OPERATOR;
+
+	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2297,6 +2351,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PATTERN___CREATE_NEO4J_ADAPTION = PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___CONTAINS_JAVA_OPERATOR = PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
 
 	/**
 	 * The operation id for the '<em>Check Morphism Of Next Graph</em>' operation.
@@ -2714,6 +2777,15 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___CREATE_NEO4J_ADAPTION = PATTERN___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___CONTAINS_JAVA_OPERATOR = PATTERN___CONTAINS_JAVA_OPERATOR;
+
+	/**
 	 * The operation id for the '<em>Check Morphism Of Next Graph</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3120,6 +3192,15 @@ public interface PatternstructurePackage extends EPackage {
 	int NOT_CONDITION___CREATE_NEO4J_ADAPTION = CONDITION___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_CONDITION___CONTAINS_JAVA_OPERATOR = CONDITION___CONTAINS_JAVA_OPERATOR;
+
+	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3481,6 +3562,15 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION___CREATE_NEO4J_ADAPTION = CONDITION___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION___CONTAINS_JAVA_OPERATOR = CONDITION___CONTAINS_JAVA_OPERATOR;
+
+	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3788,6 +3878,15 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION_ARGUMENT___CREATE_NEO4J_ADAPTION = PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION_ARGUMENT___CONTAINS_JAVA_OPERATOR = PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
 	 * The number of operations of the '<em>Count Condition Argument</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4057,6 +4156,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MORPHISM_CONTAINER___CREATE_NEO4J_ADAPTION = PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___CONTAINS_JAVA_OPERATOR = PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
 
 	/**
 	 * The operation id for the '<em>Get Graph</em>' operation.
@@ -4402,6 +4510,15 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_PATTERN___CREATE_NEO4J_ADAPTION = PATTERN___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___CONTAINS_JAVA_OPERATOR = PATTERN___CONTAINS_JAVA_OPERATOR;
+
+	/**
 	 * The operation id for the '<em>Check Morphism Of Next Graph</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4707,6 +4824,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_ELEMENT___CREATE_NEO4J_ADAPTION = COUNT_CONDITION_ARGUMENT___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___CONTAINS_JAVA_OPERATOR = COUNT_CONDITION_ARGUMENT___CONTAINS_JAVA_OPERATOR;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -5454,6 +5580,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPatternElement__CreateNeo4jAdaption();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#containsJavaOperator() <em>Contains Java Operator</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Contains Java Operator</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#containsJavaOperator()
+	 * @generated
+	 */
+	EOperation getPatternElement__ContainsJavaOperator();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#recordValues(qualitypatternmodel.execution.XmlDataDatabase) <em>Record Values</em>}' operation.
@@ -6451,6 +6587,14 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION = eINSTANCE.getPatternElement__CreateNeo4jAdaption();
+
+		/**
+		 * The meta object literal for the '<em><b>Contains Java Operator</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR = eINSTANCE.getPatternElement__ContainsJavaOperator();
 
 		/**
 		 * The meta object literal for the '<em><b>Record Values</b></em>' operation.

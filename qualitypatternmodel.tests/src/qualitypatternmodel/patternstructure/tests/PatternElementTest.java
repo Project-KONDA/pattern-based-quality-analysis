@@ -37,6 +37,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#createXmlAdaption() <em>Create Xml Adaption</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#createRdfAdaption() <em>Create Rdf Adaption</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#createNeo4jAdaption() <em>Create Neo4j Adaption</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#containsJavaOperator() <em>Contains Java Operator</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -388,6 +389,19 @@ public abstract class PatternElementTest extends TestCase {
 	 * @generated
 	 */
 	public void testCreateNeo4jAdaption() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#containsJavaOperator() <em>Contains Java Operator</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.PatternElement#containsJavaOperator()
+	 * @generated
+	 */
+	public void testContainsJavaOperator() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
