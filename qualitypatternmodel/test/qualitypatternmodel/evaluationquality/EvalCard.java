@@ -104,8 +104,8 @@ public class EvalCard {
 
 		CountCondition countCond = PatternstructureFactory.eINSTANCE.createCountCondition();
 		countCond.setPattern(completePattern);
-		countCond.getCountPattern().getGraph().getNodes().get(0).setReturnNode(false);
-		countCond.getCountPattern().getGraph().getNodes().get(1).setReturnNode(true);
+		//countCond.getCountPattern().getGraph().getNodes().get(0).setReturnNode(false);
+		//countCond.getCountPattern().getGraph().getNodes().get(1).setReturnNode(true);
 		
 		NumberElement numberElement = PatternstructureFactory.eINSTANCE.createNumberElement();
 		countCond.setArgument2(numberElement);

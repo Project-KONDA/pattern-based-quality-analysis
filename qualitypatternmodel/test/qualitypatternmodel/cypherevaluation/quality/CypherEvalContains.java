@@ -94,14 +94,14 @@ public class CypherEvalContains {
 		neoNode.addNeoLabel("Regesta");
 		
 		Graph g = ((QuantifiedCondition) completePattern.getCondition()).getGraph(); 
-		NeoPropertyNode neoPropertyNode = (NeoPropertyNode) g.getNodes().get(1);
+		NeoPropertyNode neoPropertyNode = (NeoPropertyNode) g.getNodes().get(0);
 		NeoPropertyEdge neoPropertyEdge = (NeoPropertyEdge) neoPropertyNode.getIncoming().get(0);
 		neoPropertyEdge.getNeoPropertyPathParam().setNeoPropertyName("summary");
 		Contains contains = (Contains) g.getAllOperators().get(0); 
 		TextLiteralParam textLiteralParam = new TextLiteralParamImpl();
 		textLiteralParam.setValue("<sup>");
 		contains.setContent(textLiteralParam);
-		neoPropertyNode = (NeoPropertyNode) g.getNodes().get(2);
+		neoPropertyNode = (NeoPropertyNode) g.getNodes().get(1);
 		neoPropertyEdge = (NeoPropertyEdge) neoPropertyNode.getIncoming().get(0);
 		neoPropertyEdge.getNeoPropertyPathParam().setNeoPropertyName("summary");
 		contains = (Contains) g.getAllOperators().get(1); 

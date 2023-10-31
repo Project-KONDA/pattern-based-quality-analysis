@@ -22,7 +22,10 @@ public class EvalMandStruc {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 
 		completePatterns.add(getMandstrucGeneric());
-		completePatterns.add(getMandstruc3Generic());	
+		completePatterns.add(getMandstruc3Generic());
+		
+		//@Lukas
+		completePatterns.add(getMandStrucGeneric2());
 		
 		for (CompletePattern cp: completePatterns)
 			Test00.printGenericPatternExampleXQuery(cp);

@@ -33,7 +33,7 @@ public class NeoPropertyNameParamTest implements INeoPropertyNameParamTest {
 	}
 	
 	@ParameterizedTest
-	@ValueSource(strings = {"title", "titl_e", "titleäüö", "title123", "null"})
+	@ValueSource(strings = {"title", "titl_e", "titleï¿½ï¿½ï¿½", "title123", "null"})
 	public void setValueIfValid(String property) {
 		if (property.compareTo("null") == 0) {
 			assertDoesNotThrow(() -> propertyName.setValueIfValid(null));	
@@ -72,7 +72,6 @@ public class NeoPropertyNameParamTest implements INeoPropertyNameParamTest {
 	@Override
 	public void myToString() {
 		assertDoesNotThrow(() -> propertyName.setValueIfValid("title"));
-		System.out.println(propertyName.myToString());
 		assertTrue(propertyName.myToString().compareTo("property name [-1] 'title'") == 0);
 	}
 

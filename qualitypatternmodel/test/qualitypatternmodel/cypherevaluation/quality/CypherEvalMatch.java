@@ -72,7 +72,7 @@ public class CypherEvalMatch {
 		textListParam.addStringValue("Regesta");
 		((NeoPropertyPathParam) paramters.getParameters().get(3)).setNeoPropertyName("date");
 		TextLiteralParam textLiteralParam = (TextLiteralParam) paramters.getParameters().get(1);
-		textLiteralParam.setValue("\\\\d{4}\\s[A-Z]{1}[a-z���]*\\s\\\\d{1,2}");		
+		textLiteralParam.setValue("\\\\d{4}\\s[A-Z]{1}[a-z]*\\s\\\\d{1,2}");		
 		//To Query
 		try {			
 			System.out.println(completePatternMatchDateFormat.generateCypher());
@@ -147,7 +147,7 @@ public class CypherEvalMatch {
 		
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 		TextLiteralParam p1 = ((TextLiteralParam) params.get(1));
-		p1.setValue("\\\\d{4}\\s[A-Z]{1}[a-z���]*\\s\\\\d{1,2}");
+		p1.setValue("\\\\d{4}\\s[A-Z]{1}[a-z]*\\s\\\\d{1,2}");
 		NeoPropertyPathParam p2 = ((NeoPropertyPathParam) params.get(3));
 		p2.setNeoPropertyName("date");
 		
@@ -221,7 +221,7 @@ public class CypherEvalMatch {
 		p0.setValue(false);
 		
 		TextLiteralParam p1 = ((TextLiteralParam) params.get(1));
-		p1.setValue("\\\\d{4}\\s[A-Z]{1}[a-z���]*\\s\\\\d{1,2}");
+		p1.setValue("\\\\d{4}\\s[A-Z]{1}[a-z]*\\s\\\\d{1,2}");
 		
 		NeoPropertyPathParam p2 = ((NeoPropertyPathParam) params.get(3));
 		p2.setNeoPropertyName("date");

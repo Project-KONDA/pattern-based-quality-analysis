@@ -180,7 +180,7 @@ public class CypherEvalMandStruc {
 		
 //		NeoElementNode neoNodeCond1 = (NeoElementNode) 
 		((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph().getNodes().get(0);
-		NeoElementNode neoNodeCond2 = (NeoElementNode) ((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph().getNodes().get(1);
+		NeoElementNode neoNodeCond2 = (NeoElementNode) ((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph().getNodes().get(0);
 		neoNodeCond2.addNeoLabel("Place");
 		
 		return completePattern;

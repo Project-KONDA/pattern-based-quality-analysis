@@ -27,6 +27,7 @@ import junittests.adaptionneo4jtests.NeoNodeTest;
 import qualitypatternmodel.adaptionneo4j.NeoNode;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyNameParam;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
@@ -75,6 +76,7 @@ public class NeoPropertyNodeTest extends NeoNodeTest {
 			Mockito.when(mockNeoPropertyEdge.generateCypherPropertyAddressing()).thenReturn(propertyAddress);
 			NeoPropertyPathParam mockNeoPropertyPathParam = Mockito.mock(NeoPropertyPathParam.class);
 			Mockito.when(mockNeoPropertyEdge.getNeoPropertyPathParam()).thenReturn(mockNeoPropertyPathParam);
+			Mockito.when(mockNeoPropertyPathParam.getNeoPropertyName()).thenReturn(Mockito.mock(NeoPropertyNameParam.class));
 			Mockito.when(mockNeoPropertyPathParam.getNeoPropertyName().getValue()).thenReturn(placeOfIssue);
 			relations.add(mockNeoPropertyEdge);
 			field.set(neoPropertyNode, relations);
