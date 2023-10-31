@@ -2,9 +2,11 @@
  */
 package qualitypatternmodel.javaquery.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -13,6 +15,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.javaquery.Combinator;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.OneArgFunctionFilterPart;
+import qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,7 +50,7 @@ public class OneArgFunctionFilterPartImpl extends JavaFilterPartImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart argument;
+	protected ValueListInterimResultPart argument;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -119,10 +122,10 @@ public class OneArgFunctionFilterPartImpl extends JavaFilterPartImpl implements 
 	 * @generated
 	 */
 	@Override
-	public qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart getArgument() {
+	public ValueListInterimResultPart getArgument() {
 		if (argument != null && argument.eIsProxy()) {
 			InternalEObject oldArgument = (InternalEObject)argument;
-			argument = (qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart)eResolveProxy(oldArgument);
+			argument = (ValueListInterimResultPart)eResolveProxy(oldArgument);
 			if (argument != oldArgument) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT, oldArgument, argument));
@@ -136,7 +139,7 @@ public class OneArgFunctionFilterPartImpl extends JavaFilterPartImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart basicGetArgument() {
+	public ValueListInterimResultPart basicGetArgument() {
 		return argument;
 	}
 
@@ -146,11 +149,23 @@ public class OneArgFunctionFilterPartImpl extends JavaFilterPartImpl implements 
 	 * @generated
 	 */
 	@Override
-	public void setArgument(qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart newArgument) {
-		qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart oldArgument = argument;
+	public void setArgument(ValueListInterimResultPart newArgument) {
+		ValueListInterimResultPart oldArgument = argument;
 		argument = newArgument;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT, oldArgument, argument));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Boolean apply(String param1) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -196,7 +211,7 @@ public class OneArgFunctionFilterPartImpl extends JavaFilterPartImpl implements 
 				setCombinator((Combinator)newValue);
 				return;
 			case JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT:
-				setArgument((qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart)newValue);
+				setArgument((ValueListInterimResultPart)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -214,7 +229,7 @@ public class OneArgFunctionFilterPartImpl extends JavaFilterPartImpl implements 
 				setCombinator((Combinator)null);
 				return;
 			case JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT:
-				setArgument((qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart)null);
+				setArgument((ValueListInterimResultPart)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -234,6 +249,20 @@ public class OneArgFunctionFilterPartImpl extends JavaFilterPartImpl implements 
 				return argument != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART___APPLY__STRING:
+				return apply((String)arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //OneArgFunctionFilterPartImpl

@@ -327,6 +327,16 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getJavaFilterPart__GetArguments() {
+		return javaFilterPartEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getFormulaFilterPart() {
 		return formulaFilterPartEClass;
 	}
@@ -399,6 +409,16 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	@Override
 	public EReference getOneArgFunctionFilterPart_Argument() {
 		return (EReference)oneArgFunctionFilterPartEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getOneArgFunctionFilterPart__Apply__String() {
+		return oneArgFunctionFilterPartEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -489,6 +509,16 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	@Override
 	public EReference getTwoArgFunctionFilterPart_Argument2() {
 		return (EReference)twoArgFunctionFilterPartEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getTwoArgFunctionFilterPart__Apply__String_String() {
+		return twoArgFunctionFilterPartEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -616,6 +646,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 
 		javaFilterPartEClass = createEClass(JAVA_FILTER_PART);
 		createEOperation(javaFilterPartEClass, JAVA_FILTER_PART___APPLY);
+		createEOperation(javaFilterPartEClass, JAVA_FILTER_PART___GET_ARGUMENTS);
 
 		formulaFilterPartEClass = createEClass(FORMULA_FILTER_PART);
 		createEReference(formulaFilterPartEClass, FORMULA_FILTER_PART__SUBFILTER1);
@@ -627,6 +658,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		oneArgFunctionFilterPartEClass = createEClass(ONE_ARG_FUNCTION_FILTER_PART);
 		createEReference(oneArgFunctionFilterPartEClass, ONE_ARG_FUNCTION_FILTER_PART__COMBINATOR);
 		createEReference(oneArgFunctionFilterPartEClass, ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT);
+		createEOperation(oneArgFunctionFilterPartEClass, ONE_ARG_FUNCTION_FILTER_PART___APPLY__STRING);
 
 		listFilterPartEClass = createEClass(LIST_FILTER_PART);
 		createEReference(listFilterPartEClass, LIST_FILTER_PART__COMBINATOR);
@@ -638,6 +670,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		createEReference(twoArgFunctionFilterPartEClass, TWO_ARG_FUNCTION_FILTER_PART__COMBINATOR1);
 		createEReference(twoArgFunctionFilterPartEClass, TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT1);
 		createEReference(twoArgFunctionFilterPartEClass, TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT2);
+		createEOperation(twoArgFunctionFilterPartEClass, TWO_ARG_FUNCTION_FILTER_PART___APPLY__STRING_STRING);
 
 		combinatorEClass = createEClass(COMBINATOR);
 
@@ -709,6 +742,8 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		EOperation op = initEOperation(getJavaFilterPart__Apply(), ecorePackage.getEBooleanObject(), "apply", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
+		initEOperation(getJavaFilterPart__GetArguments(), this.getJavaFilterPart(), "getArguments", 0, -1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(formulaFilterPartEClass, FormulaFilterPart.class, "FormulaFilterPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFormulaFilterPart_Subfilter1(), this.getJavaFilterPart(), null, "subfilter1", null, 1, 1, FormulaFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFormulaFilterPart_Subfilter2(), this.getJavaFilterPart(), null, "subfilter2", null, 1, 1, FormulaFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -720,6 +755,9 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		initEReference(getOneArgFunctionFilterPart_Combinator(), this.getCombinator(), null, "combinator", null, 1, 1, OneArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOneArgFunctionFilterPart_Argument(), theJavaqueryoutputPackage.getValueListInterimResultPart(), null, "argument", null, 1, 1, OneArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		op = initEOperation(getOneArgFunctionFilterPart__Apply__String(), ecorePackage.getEBooleanObject(), "apply", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "param1", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(listFilterPartEClass, ListFilterPart.class, "ListFilterPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getListFilterPart_Combinator(), this.getCombinator(), null, "combinator", null, 1, 1, ListFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getListFilterPart_Subfilter(), this.getJavaFilterPart(), null, "subfilter", null, 1, 1, ListFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -730,6 +768,10 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		initEReference(getTwoArgFunctionFilterPart_Combinator1(), this.getCombinator(), null, "combinator1", null, 1, 1, TwoArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTwoArgFunctionFilterPart_Argument1(), theJavaqueryoutputPackage.getValueListInterimResultPart(), null, "argument1", null, 1, 1, TwoArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTwoArgFunctionFilterPart_Argument2(), theJavaqueryoutputPackage.getValueListInterimResultPart(), null, "argument2", null, 1, 1, TwoArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getTwoArgFunctionFilterPart__Apply__String_String(), ecorePackage.getEBooleanObject(), "apply", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "param1", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "param2", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(combinatorEClass, Combinator.class, "Combinator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

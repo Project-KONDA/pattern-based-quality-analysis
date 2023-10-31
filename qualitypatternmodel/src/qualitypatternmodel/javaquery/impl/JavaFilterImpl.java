@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
+import qualitypatternmodel.javaqueryoutput.InterimResultsStructure;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,14 +49,14 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated
 	 * @ordered
 	 */
-	protected qualitypatternmodel.javaqueryoutput.InterimResultsStructure structure;
+	protected InterimResultsStructure structure;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected JavaFilterImpl() {
+	public JavaFilterImpl() {
 		super();
 	}
 
@@ -120,7 +121,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated
 	 */
 	@Override
-	public qualitypatternmodel.javaqueryoutput.InterimResultsStructure getStructure() {
+	public InterimResultsStructure getStructure() {
 		return structure;
 	}
 
@@ -129,8 +130,8 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStructure(qualitypatternmodel.javaqueryoutput.InterimResultsStructure newStructure, NotificationChain msgs) {
-		qualitypatternmodel.javaqueryoutput.InterimResultsStructure oldStructure = structure;
+	public NotificationChain basicSetStructure(InterimResultsStructure newStructure, NotificationChain msgs) {
+		InterimResultsStructure oldStructure = structure;
 		structure = newStructure;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryPackage.JAVA_FILTER__STRUCTURE, oldStructure, newStructure);
@@ -145,7 +146,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated
 	 */
 	@Override
-	public void setStructure(qualitypatternmodel.javaqueryoutput.InterimResultsStructure newStructure) {
+	public void setStructure(InterimResultsStructure newStructure) {
 		if (newStructure != structure) {
 			NotificationChain msgs = null;
 			if (structure != null)
@@ -203,7 +204,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 				setFilter((JavaFilterPart)newValue);
 				return;
 			case JavaqueryPackage.JAVA_FILTER__STRUCTURE:
-				setStructure((qualitypatternmodel.javaqueryoutput.InterimResultsStructure)newValue);
+				setStructure((InterimResultsStructure)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -221,7 +222,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 				setFilter((JavaFilterPart)null);
 				return;
 			case JavaqueryPackage.JAVA_FILTER__STRUCTURE:
-				setStructure((qualitypatternmodel.javaqueryoutput.InterimResultsStructure)null);
+				setStructure((InterimResultsStructure)null);
 				return;
 		}
 		super.eUnset(featureID);

@@ -11,6 +11,12 @@ import qualitypatternmodel.javaquery.OneArgFunctionFilterPart;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>One Arg Function Filter Part</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.javaquery.OneArgFunctionFilterPart#apply(java.lang.String) <em>Apply</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class OneArgFunctionFilterPartTest extends JavaFilterPartTest {
@@ -65,6 +71,19 @@ public class OneArgFunctionFilterPartTest extends JavaFilterPartTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.javaquery.OneArgFunctionFilterPart#apply(java.lang.String) <em>Apply</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaquery.OneArgFunctionFilterPart#apply(java.lang.String)
+	 * @generated
+	 */
+	public void testApply__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //OneArgFunctionFilterPartTest

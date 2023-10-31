@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.javaquery;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 
@@ -24,4 +25,12 @@ public interface JavaFilterPart extends EObject {
 	 * @generated
 	 */
 	Boolean apply() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<JavaFilterPart> getArguments();
 } // JavaFilterPart

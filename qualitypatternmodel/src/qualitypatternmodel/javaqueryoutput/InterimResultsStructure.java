@@ -29,7 +29,7 @@ public interface InterimResultsStructure extends EObject {
 	 * @return the value of the '<em>Substructure</em>' containment reference.
 	 * @see #setSubstructure(InterimResultParam)
 	 * @see qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage#getInterimResultsStructure_Substructure()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	InterimResultParam getSubstructure();

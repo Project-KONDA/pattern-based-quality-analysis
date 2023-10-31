@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.javaquery;
 
+import qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Two Arg Function Filter Part</b></em>'.
@@ -71,12 +73,12 @@ public interface TwoArgFunctionFilterPart extends JavaFilterPart {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Argument1</em>' reference.
-	 * @see #setArgument1(qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart)
+	 * @see #setArgument1(ValueListInterimResultPart)
 	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getTwoArgFunctionFilterPart_Argument1()
 	 * @model required="true"
 	 * @generated
 	 */
-	qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart getArgument1();
+	ValueListInterimResultPart getArgument1();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getArgument1 <em>Argument1</em>}' reference.
@@ -86,19 +88,19 @@ public interface TwoArgFunctionFilterPart extends JavaFilterPart {
 	 * @see #getArgument1()
 	 * @generated
 	 */
-	void setArgument1(qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart value);
+	void setArgument1(ValueListInterimResultPart value);
 
 	/**
 	 * Returns the value of the '<em><b>Argument2</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Argument2</em>' reference.
-	 * @see #setArgument2(qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart)
+	 * @see #setArgument2(ValueListInterimResultPart)
 	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getTwoArgFunctionFilterPart_Argument2()
 	 * @model required="true"
 	 * @generated
 	 */
-	qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart getArgument2();
+	ValueListInterimResultPart getArgument2();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getArgument2 <em>Argument2</em>}' reference.
@@ -108,6 +110,14 @@ public interface TwoArgFunctionFilterPart extends JavaFilterPart {
 	 * @see #getArgument2()
 	 * @generated
 	 */
-	void setArgument2(qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart value);
+	void setArgument2(ValueListInterimResultPart value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Boolean apply(String param1, String param2);
 
 } // TwoArgFunctionFilterPart

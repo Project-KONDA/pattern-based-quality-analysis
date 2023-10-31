@@ -14,6 +14,7 @@ import qualitypatternmodel.javaquery.Combinator;
 import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.ListFilterPart;
+import qualitypatternmodel.javaqueryoutput.ContainerInterimResultPart;
 
 /**
  * <!-- begin-user-doc -->
@@ -59,7 +60,7 @@ public class ListFilterPartImpl extends JavaFilterPartImpl implements ListFilter
 	 * @generated
 	 * @ordered
 	 */
-	protected qualitypatternmodel.javaqueryoutput.ContainerInterimResultPart argument;
+	protected ContainerInterimResultPart argument;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -176,10 +177,10 @@ public class ListFilterPartImpl extends JavaFilterPartImpl implements ListFilter
 	 * @generated
 	 */
 	@Override
-	public qualitypatternmodel.javaqueryoutput.ContainerInterimResultPart getArgument() {
+	public ContainerInterimResultPart getArgument() {
 		if (argument != null && argument.eIsProxy()) {
 			InternalEObject oldArgument = (InternalEObject)argument;
-			argument = (qualitypatternmodel.javaqueryoutput.ContainerInterimResultPart)eResolveProxy(oldArgument);
+			argument = (ContainerInterimResultPart)eResolveProxy(oldArgument);
 			if (argument != oldArgument) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaqueryPackage.LIST_FILTER_PART__ARGUMENT, oldArgument, argument));
@@ -193,7 +194,7 @@ public class ListFilterPartImpl extends JavaFilterPartImpl implements ListFilter
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public qualitypatternmodel.javaqueryoutput.ContainerInterimResultPart basicGetArgument() {
+	public ContainerInterimResultPart basicGetArgument() {
 		return argument;
 	}
 
@@ -203,8 +204,8 @@ public class ListFilterPartImpl extends JavaFilterPartImpl implements ListFilter
 	 * @generated
 	 */
 	@Override
-	public void setArgument(qualitypatternmodel.javaqueryoutput.ContainerInterimResultPart newArgument) {
-		qualitypatternmodel.javaqueryoutput.ContainerInterimResultPart oldArgument = argument;
+	public void setArgument(ContainerInterimResultPart newArgument) {
+		ContainerInterimResultPart oldArgument = argument;
 		argument = newArgument;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.LIST_FILTER_PART__ARGUMENT, oldArgument, argument));
@@ -260,7 +261,7 @@ public class ListFilterPartImpl extends JavaFilterPartImpl implements ListFilter
 				setSubfilter((JavaFilterPart)newValue);
 				return;
 			case JavaqueryPackage.LIST_FILTER_PART__ARGUMENT:
-				setArgument((qualitypatternmodel.javaqueryoutput.ContainerInterimResultPart)newValue);
+				setArgument((ContainerInterimResultPart)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -281,7 +282,7 @@ public class ListFilterPartImpl extends JavaFilterPartImpl implements ListFilter
 				setSubfilter((JavaFilterPart)null);
 				return;
 			case JavaqueryPackage.LIST_FILTER_PART__ARGUMENT:
-				setArgument((qualitypatternmodel.javaqueryoutput.ContainerInterimResultPart)null);
+				setArgument((ContainerInterimResultPart)null);
 				return;
 		}
 		super.eUnset(featureID);

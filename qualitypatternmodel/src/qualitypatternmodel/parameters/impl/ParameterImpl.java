@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
@@ -108,6 +109,11 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 		if(isPredefined() && !inputIsValid()) {
 			throw new InvalidityException("predefined input invalid" + " (" + getInternalId() + ")");
 		}
+	}
+	
+	@Override
+	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
+		throw new UnsupportedOperationException();
 	}
 	
 	@Override

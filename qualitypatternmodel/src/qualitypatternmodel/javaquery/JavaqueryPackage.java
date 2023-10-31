@@ -132,13 +132,22 @@ public interface JavaqueryPackage extends EPackage {
 	int JAVA_FILTER_PART___APPLY = 0;
 
 	/**
+	 * The operation id for the '<em>Get Arguments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_FILTER_PART___GET_ARGUMENTS = 1;
+
+	/**
 	 * The number of operations of the '<em>Java Filter Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_FILTER_PART_OPERATION_COUNT = 1;
+	int JAVA_FILTER_PART_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl <em>Formula Filter Part</em>}' class.
@@ -187,6 +196,15 @@ public interface JavaqueryPackage extends EPackage {
 	int FORMULA_FILTER_PART___APPLY = JAVA_FILTER_PART___APPLY;
 
 	/**
+	 * The operation id for the '<em>Get Arguments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA_FILTER_PART___GET_ARGUMENTS = JAVA_FILTER_PART___GET_ARGUMENTS;
+
+	/**
 	 * The number of operations of the '<em>Formula Filter Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -231,6 +249,15 @@ public interface JavaqueryPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_FILTER_PART___APPLY = JAVA_FILTER_PART___APPLY;
+
+	/**
+	 * The operation id for the '<em>Get Arguments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_FILTER_PART___GET_ARGUMENTS = JAVA_FILTER_PART___GET_ARGUMENTS;
 
 	/**
 	 * The number of operations of the '<em>Boolean Filter Part</em>' class.
@@ -288,13 +315,31 @@ public interface JavaqueryPackage extends EPackage {
 	int ONE_ARG_FUNCTION_FILTER_PART___APPLY = JAVA_FILTER_PART___APPLY;
 
 	/**
+	 * The operation id for the '<em>Get Arguments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_FUNCTION_FILTER_PART___GET_ARGUMENTS = JAVA_FILTER_PART___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_FUNCTION_FILTER_PART___APPLY__STRING = JAVA_FILTER_PART_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>One Arg Function Filter Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ONE_ARG_FUNCTION_FILTER_PART_OPERATION_COUNT = JAVA_FILTER_PART_OPERATION_COUNT + 0;
+	int ONE_ARG_FUNCTION_FILTER_PART_OPERATION_COUNT = JAVA_FILTER_PART_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.ListFilterPartImpl <em>List Filter Part</em>}' class.
@@ -350,6 +395,15 @@ public interface JavaqueryPackage extends EPackage {
 	 * @ordered
 	 */
 	int LIST_FILTER_PART___APPLY = JAVA_FILTER_PART___APPLY;
+
+	/**
+	 * The operation id for the '<em>Get Arguments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_FILTER_PART___GET_ARGUMENTS = JAVA_FILTER_PART___GET_ARGUMENTS;
 
 	/**
 	 * The number of operations of the '<em>List Filter Part</em>' class.
@@ -425,13 +479,31 @@ public interface JavaqueryPackage extends EPackage {
 	int TWO_ARG_FUNCTION_FILTER_PART___APPLY = JAVA_FILTER_PART___APPLY;
 
 	/**
+	 * The operation id for the '<em>Get Arguments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TWO_ARG_FUNCTION_FILTER_PART___GET_ARGUMENTS = JAVA_FILTER_PART___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TWO_ARG_FUNCTION_FILTER_PART___APPLY__STRING_STRING = JAVA_FILTER_PART_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Two Arg Function Filter Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TWO_ARG_FUNCTION_FILTER_PART_OPERATION_COUNT = JAVA_FILTER_PART_OPERATION_COUNT + 0;
+	int TWO_ARG_FUNCTION_FILTER_PART_OPERATION_COUNT = JAVA_FILTER_PART_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.CombinatorImpl <em>Combinator</em>}' class.
@@ -630,6 +702,15 @@ public interface JavaqueryPackage extends EPackage {
 	int NOT_FILTER_PART___APPLY = JAVA_FILTER_PART___APPLY;
 
 	/**
+	 * The operation id for the '<em>Get Arguments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_FILTER_PART___GET_ARGUMENTS = JAVA_FILTER_PART___GET_ARGUMENTS;
+
+	/**
 	 * The number of operations of the '<em>Not Filter Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -690,6 +771,16 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getJavaFilterPart__Apply();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilterPart#getArguments() <em>Get Arguments</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Arguments</em>' operation.
+	 * @see qualitypatternmodel.javaquery.JavaFilterPart#getArguments()
+	 * @generated
+	 */
+	EOperation getJavaFilterPart__GetArguments();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.FormulaFilterPart <em>Formula Filter Part</em>}'.
@@ -775,6 +866,16 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getOneArgFunctionFilterPart_Argument();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.OneArgFunctionFilterPart#apply(java.lang.String) <em>Apply</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Apply</em>' operation.
+	 * @see qualitypatternmodel.javaquery.OneArgFunctionFilterPart#apply(java.lang.String)
+	 * @generated
+	 */
+	EOperation getOneArgFunctionFilterPart__Apply__String();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.ListFilterPart <em>List Filter Part</em>}'.
@@ -872,6 +973,16 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTwoArgFunctionFilterPart_Argument2();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#apply(java.lang.String, java.lang.String) <em>Apply</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Apply</em>' operation.
+	 * @see qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#apply(java.lang.String, java.lang.String)
+	 * @generated
+	 */
+	EOperation getTwoArgFunctionFilterPart__Apply__String_String();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.Combinator <em>Combinator</em>}'.
@@ -1034,6 +1145,14 @@ public interface JavaqueryPackage extends EPackage {
 		EOperation JAVA_FILTER_PART___APPLY = eINSTANCE.getJavaFilterPart__Apply();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Arguments</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JAVA_FILTER_PART___GET_ARGUMENTS = eINSTANCE.getJavaFilterPart__GetArguments();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl <em>Formula Filter Part</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1102,6 +1221,14 @@ public interface JavaqueryPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT = eINSTANCE.getOneArgFunctionFilterPart_Argument();
+
+		/**
+		 * The meta object literal for the '<em><b>Apply</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ONE_ARG_FUNCTION_FILTER_PART___APPLY__STRING = eINSTANCE.getOneArgFunctionFilterPart__Apply__String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.ListFilterPartImpl <em>List Filter Part</em>}' class.
@@ -1178,6 +1305,14 @@ public interface JavaqueryPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT2 = eINSTANCE.getTwoArgFunctionFilterPart_Argument2();
+
+		/**
+		 * The meta object literal for the '<em><b>Apply</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TWO_ARG_FUNCTION_FILTER_PART___APPLY__STRING_STRING = eINSTANCE.getTwoArgFunctionFilterPart__Apply__String_String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.CombinatorImpl <em>Combinator</em>}' class.

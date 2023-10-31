@@ -57,6 +57,18 @@ public abstract class JavaFilterPartImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 */
 	@Override
+	public EList<JavaFilterPart> getArguments() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case JavaqueryPackage.JAVA_FILTER_PART___APPLY:
@@ -66,6 +78,8 @@ public abstract class JavaFilterPartImpl extends MinimalEObjectImpl.Container im
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case JavaqueryPackage.JAVA_FILTER_PART___GET_ARGUMENTS:
+				return getArguments();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

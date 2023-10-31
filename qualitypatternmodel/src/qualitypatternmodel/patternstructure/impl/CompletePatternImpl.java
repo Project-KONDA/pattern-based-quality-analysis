@@ -380,10 +380,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 						}
 					}
 				}
-				
 			}
 		}
-		
 		
 		EList<Node> selects = graph.getReturnNodes();
 

@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.javaquery;
 
+import qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>One Arg Function Filter Part</b></em>'.
@@ -47,12 +49,12 @@ public interface OneArgFunctionFilterPart extends JavaFilterPart {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Argument</em>' reference.
-	 * @see #setArgument(qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart)
+	 * @see #setArgument(ValueListInterimResultPart)
 	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getOneArgFunctionFilterPart_Argument()
 	 * @model required="true"
 	 * @generated
 	 */
-	qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart getArgument();
+	ValueListInterimResultPart getArgument();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.javaquery.OneArgFunctionFilterPart#getArgument <em>Argument</em>}' reference.
@@ -62,6 +64,14 @@ public interface OneArgFunctionFilterPart extends JavaFilterPart {
 	 * @see #getArgument()
 	 * @generated
 	 */
-	void setArgument(qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart value);
+	void setArgument(ValueListInterimResultPart value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Boolean apply(String param1);
 
 } // OneArgFunctionFilterPart

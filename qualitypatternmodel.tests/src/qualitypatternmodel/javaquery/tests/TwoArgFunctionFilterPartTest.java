@@ -11,6 +11,12 @@ import qualitypatternmodel.javaquery.TwoArgFunctionFilterPart;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Two Arg Function Filter Part</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#apply(java.lang.String, java.lang.String) <em>Apply</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class TwoArgFunctionFilterPartTest extends JavaFilterPartTest {
@@ -65,6 +71,19 @@ public class TwoArgFunctionFilterPartTest extends JavaFilterPartTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#apply(java.lang.String, java.lang.String) <em>Apply</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#apply(java.lang.String, java.lang.String)
+	 * @generated
+	 */
+	public void testApply__String_String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //TwoArgFunctionFilterPartTest

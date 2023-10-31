@@ -407,7 +407,7 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(interimResultsStructureEClass, InterimResultsStructure.class, "InterimResultsStructure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInterimResultsStructure_Substructure(), this.getInterimResultParam(), null, "substructure", null, 1, 1, InterimResultsStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInterimResultsStructure_Substructure(), this.getInterimResultParam(), null, "substructure", null, 0, 1, InterimResultsStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getInterimResultsStructure_Record(), this.getRecordInterimResult(), null, "record", null, 1, 1, InterimResultsStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(recordInterimResultEClass, RecordInterimResult.class, "RecordInterimResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

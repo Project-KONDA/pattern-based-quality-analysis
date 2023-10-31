@@ -1453,6 +1453,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="JavaFilterPart" abstract="true">
       <eOperations name="apply" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="getArguments" upperBound="-1" eType="#//javaquery/JavaFilterPart"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="FormulaFilterPart" eSuperTypes="#//javaquery/JavaFilterPart">
       <eStructuralFeatures xsi:type="ecore:EReference" name="subfilter1" lowerBound="1"
@@ -1465,6 +1466,9 @@
           eType="#//javaqueryoutput/BooleanInterimResultParam"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OneArgFunctionFilterPart" eSuperTypes="#//javaquery/JavaFilterPart">
+      <eOperations name="apply" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+        <eParameters name="param1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="combinator" lowerBound="1"
           eType="#//javaquery/Combinator" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
@@ -1479,6 +1483,10 @@
           eType="#//javaqueryoutput/ContainerInterimResultPart"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TwoArgFunctionFilterPart" eSuperTypes="#//javaquery/JavaFilterPart">
+      <eOperations name="apply" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+        <eParameters name="param1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="param2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="combinator2" lowerBound="1"
           eType="#//javaquery/Combinator" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="combinator1" lowerBound="1"
@@ -1503,8 +1511,8 @@
   </eSubpackages>
   <eSubpackages name="javaqueryoutput" nsURI="javaqueryoutput" nsPrefix="javaqueryoutput">
     <eClassifiers xsi:type="ecore:EClass" name="InterimResultsStructure">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="substructure" lowerBound="1"
-          eType="#//javaqueryoutput/InterimResultParam" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="substructure" eType="#//javaqueryoutput/InterimResultParam"
+          containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="record" lowerBound="1"
           eType="#//javaqueryoutput/RecordInterimResult" containment="true"/>
     </eClassifiers>

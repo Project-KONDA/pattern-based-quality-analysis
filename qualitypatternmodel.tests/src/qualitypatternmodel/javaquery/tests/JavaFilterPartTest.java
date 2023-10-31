@@ -14,6 +14,7 @@ import qualitypatternmodel.javaquery.JavaFilterPart;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.javaquery.JavaFilterPart#apply() <em>Apply</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.JavaFilterPart#getArguments() <em>Get Arguments</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -66,6 +67,19 @@ public abstract class JavaFilterPartTest extends TestCase {
 	 * @generated
 	 */
 	public void testApply() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.javaquery.JavaFilterPart#getArguments() <em>Get Arguments</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaquery.JavaFilterPart#getArguments()
+	 * @generated
+	 */
+	public void testGetArguments() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
