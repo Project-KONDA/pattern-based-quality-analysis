@@ -2,8 +2,6 @@
  */
 package qualitypatternmodel.javaquery;
 
-import qualitypatternmodel.outputstructure.BooleanInterimResultParam;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Boolean Filter Part</b></em>'.
@@ -26,12 +24,12 @@ public interface BooleanFilterPart extends JavaFilterPart {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Argument</em>' reference.
-	 * @see #setArgument(BooleanInterimResultParam)
+	 * @see #setArgument(qualitypatternmodel.javaqueryoutput.BooleanInterimResultParam)
 	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getBooleanFilterPart_Argument()
 	 * @model required="true"
 	 * @generated
 	 */
-	BooleanInterimResultParam getArgument();
+	qualitypatternmodel.javaqueryoutput.BooleanInterimResultParam getArgument();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.javaquery.BooleanFilterPart#getArgument <em>Argument</em>}' reference.
@@ -41,6 +39,6 @@ public interface BooleanFilterPart extends JavaFilterPart {
 	 * @see #getArgument()
 	 * @generated
 	 */
-	void setArgument(BooleanInterimResultParam value);
+	void setArgument(qualitypatternmodel.javaqueryoutput.BooleanInterimResultParam value);
 
 } // BooleanFilterPart

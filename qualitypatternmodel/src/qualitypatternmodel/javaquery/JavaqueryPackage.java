@@ -4,6 +4,7 @@ package qualitypatternmodel.javaquery;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -122,13 +123,22 @@ public interface JavaqueryPackage extends EPackage {
 	int JAVA_FILTER_PART_FEATURE_COUNT = 0;
 
 	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_FILTER_PART___APPLY = 0;
+
+	/**
 	 * The number of operations of the '<em>Java Filter Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_FILTER_PART_OPERATION_COUNT = 0;
+	int JAVA_FILTER_PART_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl <em>Formula Filter Part</em>}' class.
@@ -168,6 +178,15 @@ public interface JavaqueryPackage extends EPackage {
 	int FORMULA_FILTER_PART_FEATURE_COUNT = JAVA_FILTER_PART_FEATURE_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA_FILTER_PART___APPLY = JAVA_FILTER_PART___APPLY;
+
+	/**
 	 * The number of operations of the '<em>Formula Filter Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -203,6 +222,15 @@ public interface JavaqueryPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_FILTER_PART_FEATURE_COUNT = JAVA_FILTER_PART_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_FILTER_PART___APPLY = JAVA_FILTER_PART___APPLY;
 
 	/**
 	 * The number of operations of the '<em>Boolean Filter Part</em>' class.
@@ -249,6 +277,15 @@ public interface JavaqueryPackage extends EPackage {
 	 * @ordered
 	 */
 	int ONE_ARG_FUNCTION_FILTER_PART_FEATURE_COUNT = JAVA_FILTER_PART_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_FUNCTION_FILTER_PART___APPLY = JAVA_FILTER_PART___APPLY;
 
 	/**
 	 * The number of operations of the '<em>One Arg Function Filter Part</em>' class.
@@ -304,6 +341,15 @@ public interface JavaqueryPackage extends EPackage {
 	 * @ordered
 	 */
 	int LIST_FILTER_PART_FEATURE_COUNT = JAVA_FILTER_PART_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_FILTER_PART___APPLY = JAVA_FILTER_PART___APPLY;
 
 	/**
 	 * The number of operations of the '<em>List Filter Part</em>' class.
@@ -368,6 +414,15 @@ public interface JavaqueryPackage extends EPackage {
 	 * @ordered
 	 */
 	int TWO_ARG_FUNCTION_FILTER_PART_FEATURE_COUNT = JAVA_FILTER_PART_FEATURE_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TWO_ARG_FUNCTION_FILTER_PART___APPLY = JAVA_FILTER_PART___APPLY;
 
 	/**
 	 * The number of operations of the '<em>Two Arg Function Filter Part</em>' class.
@@ -566,6 +621,15 @@ public interface JavaqueryPackage extends EPackage {
 	int NOT_FILTER_PART_FEATURE_COUNT = JAVA_FILTER_PART_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_FILTER_PART___APPLY = JAVA_FILTER_PART___APPLY;
+
+	/**
 	 * The number of operations of the '<em>Not Filter Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -616,6 +680,16 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getJavaFilterPart();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilterPart#apply() <em>Apply</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Apply</em>' operation.
+	 * @see qualitypatternmodel.javaquery.JavaFilterPart#apply()
+	 * @generated
+	 */
+	EOperation getJavaFilterPart__Apply();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.FormulaFilterPart <em>Formula Filter Part</em>}'.
@@ -950,6 +1024,14 @@ public interface JavaqueryPackage extends EPackage {
 		 * @generated
 		 */
 		EClass JAVA_FILTER_PART = eINSTANCE.getJavaFilterPart();
+
+		/**
+		 * The meta object literal for the '<em><b>Apply</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JAVA_FILTER_PART___APPLY = eINSTANCE.getJavaFilterPart__Apply();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl <em>Formula Filter Part</em>}' class.

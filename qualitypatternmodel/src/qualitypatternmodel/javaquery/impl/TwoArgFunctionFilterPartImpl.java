@@ -14,8 +14,6 @@ import qualitypatternmodel.javaquery.Combinator;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.TwoArgFunctionFilterPart;
 
-import qualitypatternmodel.outputstructure.ValueListInterimResultPart;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Two Arg Function Filter Part</b></em>'.
@@ -61,7 +59,7 @@ public class TwoArgFunctionFilterPartImpl extends JavaFilterPartImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected ValueListInterimResultPart argument1;
+	protected qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart argument1;
 
 	/**
 	 * The cached value of the '{@link #getArgument2() <em>Argument2</em>}' reference.
@@ -71,7 +69,7 @@ public class TwoArgFunctionFilterPartImpl extends JavaFilterPartImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected ValueListInterimResultPart argument2;
+	protected qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart argument2;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -188,10 +186,10 @@ public class TwoArgFunctionFilterPartImpl extends JavaFilterPartImpl implements 
 	 * @generated
 	 */
 	@Override
-	public ValueListInterimResultPart getArgument1() {
+	public qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart getArgument1() {
 		if (argument1 != null && argument1.eIsProxy()) {
 			InternalEObject oldArgument1 = (InternalEObject)argument1;
-			argument1 = (ValueListInterimResultPart)eResolveProxy(oldArgument1);
+			argument1 = (qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart)eResolveProxy(oldArgument1);
 			if (argument1 != oldArgument1) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT1, oldArgument1, argument1));
@@ -205,7 +203,7 @@ public class TwoArgFunctionFilterPartImpl extends JavaFilterPartImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ValueListInterimResultPart basicGetArgument1() {
+	public qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart basicGetArgument1() {
 		return argument1;
 	}
 
@@ -215,8 +213,8 @@ public class TwoArgFunctionFilterPartImpl extends JavaFilterPartImpl implements 
 	 * @generated
 	 */
 	@Override
-	public void setArgument1(ValueListInterimResultPart newArgument1) {
-		ValueListInterimResultPart oldArgument1 = argument1;
+	public void setArgument1(qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart newArgument1) {
+		qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart oldArgument1 = argument1;
 		argument1 = newArgument1;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT1, oldArgument1, argument1));
@@ -228,10 +226,10 @@ public class TwoArgFunctionFilterPartImpl extends JavaFilterPartImpl implements 
 	 * @generated
 	 */
 	@Override
-	public ValueListInterimResultPart getArgument2() {
+	public qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart getArgument2() {
 		if (argument2 != null && argument2.eIsProxy()) {
 			InternalEObject oldArgument2 = (InternalEObject)argument2;
-			argument2 = (ValueListInterimResultPart)eResolveProxy(oldArgument2);
+			argument2 = (qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart)eResolveProxy(oldArgument2);
 			if (argument2 != oldArgument2) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT2, oldArgument2, argument2));
@@ -245,7 +243,7 @@ public class TwoArgFunctionFilterPartImpl extends JavaFilterPartImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ValueListInterimResultPart basicGetArgument2() {
+	public qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart basicGetArgument2() {
 		return argument2;
 	}
 
@@ -255,8 +253,8 @@ public class TwoArgFunctionFilterPartImpl extends JavaFilterPartImpl implements 
 	 * @generated
 	 */
 	@Override
-	public void setArgument2(ValueListInterimResultPart newArgument2) {
-		ValueListInterimResultPart oldArgument2 = argument2;
+	public void setArgument2(qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart newArgument2) {
+		qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart oldArgument2 = argument2;
 		argument2 = newArgument2;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT2, oldArgument2, argument2));
@@ -315,10 +313,10 @@ public class TwoArgFunctionFilterPartImpl extends JavaFilterPartImpl implements 
 				setCombinator1((Combinator)newValue);
 				return;
 			case JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT1:
-				setArgument1((ValueListInterimResultPart)newValue);
+				setArgument1((qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart)newValue);
 				return;
 			case JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT2:
-				setArgument2((ValueListInterimResultPart)newValue);
+				setArgument2((qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -339,10 +337,10 @@ public class TwoArgFunctionFilterPartImpl extends JavaFilterPartImpl implements 
 				setCombinator1((Combinator)null);
 				return;
 			case JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT1:
-				setArgument1((ValueListInterimResultPart)null);
+				setArgument1((qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart)null);
 				return;
 			case JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT2:
-				setArgument2((ValueListInterimResultPart)null);
+				setArgument2((qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart)null);
 				return;
 		}
 		super.eUnset(featureID);

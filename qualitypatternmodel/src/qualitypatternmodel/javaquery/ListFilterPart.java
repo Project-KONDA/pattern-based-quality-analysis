@@ -2,8 +2,6 @@
  */
 package qualitypatternmodel.javaquery;
 
-import qualitypatternmodel.outputstructure.ContainerInterimResultPart;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>List Filter Part</b></em>'.
@@ -72,12 +70,12 @@ public interface ListFilterPart extends JavaFilterPart {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Argument</em>' reference.
-	 * @see #setArgument(ContainerInterimResultPart)
+	 * @see #setArgument(qualitypatternmodel.javaqueryoutput.ContainerInterimResultPart)
 	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getListFilterPart_Argument()
 	 * @model required="true"
 	 * @generated
 	 */
-	ContainerInterimResultPart getArgument();
+	qualitypatternmodel.javaqueryoutput.ContainerInterimResultPart getArgument();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.javaquery.ListFilterPart#getArgument <em>Argument</em>}' reference.
@@ -87,6 +85,6 @@ public interface ListFilterPart extends JavaFilterPart {
 	 * @see #getArgument()
 	 * @generated
 	 */
-	void setArgument(ContainerInterimResultPart value);
+	void setArgument(qualitypatternmodel.javaqueryoutput.ContainerInterimResultPart value);
 
 } // ListFilterPart

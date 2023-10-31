@@ -31,10 +31,10 @@ import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 import qualitypatternmodel.javaoperators.impl.JavaoperatorsPackageImpl;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl;
+import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
+import qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputPackageImpl;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.operators.impl.OperatorsPackageImpl;
-import qualitypatternmodel.outputstructure.OutputstructurePackage;
-import qualitypatternmodel.outputstructure.impl.OutputstructurePackageImpl;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.ParametersPackageImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -290,8 +290,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		JavaoperatorsPackageImpl theJavaoperatorsPackage = (JavaoperatorsPackageImpl)(registeredPackage instanceof JavaoperatorsPackageImpl ? registeredPackage : JavaoperatorsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(JavaqueryPackage.eNS_URI);
 		JavaqueryPackageImpl theJavaqueryPackage = (JavaqueryPackageImpl)(registeredPackage instanceof JavaqueryPackageImpl ? registeredPackage : JavaqueryPackage.eINSTANCE);
-		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(OutputstructurePackage.eNS_URI);
-		OutputstructurePackageImpl theOutputstructurePackage = (OutputstructurePackageImpl)(registeredPackage instanceof OutputstructurePackageImpl ? registeredPackage : OutputstructurePackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(JavaqueryoutputPackage.eNS_URI);
+		JavaqueryoutputPackageImpl theJavaqueryoutputPackage = (JavaqueryoutputPackageImpl)(registeredPackage instanceof JavaqueryoutputPackageImpl ? registeredPackage : JavaqueryoutputPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		thePatternstructurePackage.createPackageContents();
@@ -305,7 +305,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		theAdaptionneo4jPackage.createPackageContents();
 		theJavaoperatorsPackage.createPackageContents();
 		theJavaqueryPackage.createPackageContents();
-		theOutputstructurePackage.createPackageContents();
+		theJavaqueryoutputPackage.createPackageContents();
 
 		// Initialize created meta-data
 		thePatternstructurePackage.initializePackageContents();
@@ -319,7 +319,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		theAdaptionneo4jPackage.initializePackageContents();
 		theJavaoperatorsPackage.initializePackageContents();
 		theJavaqueryPackage.initializePackageContents();
-		theOutputstructurePackage.initializePackageContents();
+		theJavaqueryoutputPackage.initializePackageContents();
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put

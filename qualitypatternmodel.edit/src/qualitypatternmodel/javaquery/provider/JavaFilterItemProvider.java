@@ -26,8 +26,7 @@ import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.javaquery.JavaqueryFactory;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 
-import qualitypatternmodel.outputstructure.OutputstructureFactory;
-
+import qualitypatternmodel.javaqueryoutput.JavaqueryoutputFactory;
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**
@@ -187,7 +186,7 @@ public class JavaFilterItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaqueryPackage.Literals.JAVA_FILTER__STRUCTURE,
-				 OutputstructureFactory.eINSTANCE.createInterimResultsStructure()));
+				 JavaqueryoutputFactory.eINSTANCE.createInterimResultsStructure()));
 	}
 
 	/**

@@ -12,8 +12,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 
-import qualitypatternmodel.outputstructure.BooleanInterimResultParam;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Boolean Filter Part</b></em>'.
@@ -36,7 +34,7 @@ public class BooleanFilterPartImpl extends JavaFilterPartImpl implements Boolean
 	 * @generated
 	 * @ordered
 	 */
-	protected BooleanInterimResultParam argument;
+	protected qualitypatternmodel.javaqueryoutput.BooleanInterimResultParam argument;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -63,10 +61,10 @@ public class BooleanFilterPartImpl extends JavaFilterPartImpl implements Boolean
 	 * @generated
 	 */
 	@Override
-	public BooleanInterimResultParam getArgument() {
+	public qualitypatternmodel.javaqueryoutput.BooleanInterimResultParam getArgument() {
 		if (argument != null && argument.eIsProxy()) {
 			InternalEObject oldArgument = (InternalEObject)argument;
-			argument = (BooleanInterimResultParam)eResolveProxy(oldArgument);
+			argument = (qualitypatternmodel.javaqueryoutput.BooleanInterimResultParam)eResolveProxy(oldArgument);
 			if (argument != oldArgument) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaqueryPackage.BOOLEAN_FILTER_PART__ARGUMENT, oldArgument, argument));
@@ -80,7 +78,7 @@ public class BooleanFilterPartImpl extends JavaFilterPartImpl implements Boolean
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BooleanInterimResultParam basicGetArgument() {
+	public qualitypatternmodel.javaqueryoutput.BooleanInterimResultParam basicGetArgument() {
 		return argument;
 	}
 
@@ -90,8 +88,8 @@ public class BooleanFilterPartImpl extends JavaFilterPartImpl implements Boolean
 	 * @generated
 	 */
 	@Override
-	public void setArgument(BooleanInterimResultParam newArgument) {
-		BooleanInterimResultParam oldArgument = argument;
+	public void setArgument(qualitypatternmodel.javaqueryoutput.BooleanInterimResultParam newArgument) {
+		qualitypatternmodel.javaqueryoutput.BooleanInterimResultParam oldArgument = argument;
 		argument = newArgument;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.BOOLEAN_FILTER_PART__ARGUMENT, oldArgument, argument));
@@ -121,7 +119,7 @@ public class BooleanFilterPartImpl extends JavaFilterPartImpl implements Boolean
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case JavaqueryPackage.BOOLEAN_FILTER_PART__ARGUMENT:
-				setArgument((BooleanInterimResultParam)newValue);
+				setArgument((qualitypatternmodel.javaqueryoutput.BooleanInterimResultParam)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -136,7 +134,7 @@ public class BooleanFilterPartImpl extends JavaFilterPartImpl implements Boolean
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case JavaqueryPackage.BOOLEAN_FILTER_PART__ARGUMENT:
-				setArgument((BooleanInterimResultParam)null);
+				setArgument((qualitypatternmodel.javaqueryoutput.BooleanInterimResultParam)null);
 				return;
 		}
 		super.eUnset(featureID);

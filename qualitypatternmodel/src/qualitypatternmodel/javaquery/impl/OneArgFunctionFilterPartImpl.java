@@ -14,8 +14,6 @@ import qualitypatternmodel.javaquery.Combinator;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.OneArgFunctionFilterPart;
 
-import qualitypatternmodel.outputstructure.ValueListInterimResultPart;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>One Arg Function Filter Part</b></em>'.
@@ -49,7 +47,7 @@ public class OneArgFunctionFilterPartImpl extends JavaFilterPartImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected ValueListInterimResultPart argument;
+	protected qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart argument;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -121,10 +119,10 @@ public class OneArgFunctionFilterPartImpl extends JavaFilterPartImpl implements 
 	 * @generated
 	 */
 	@Override
-	public ValueListInterimResultPart getArgument() {
+	public qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart getArgument() {
 		if (argument != null && argument.eIsProxy()) {
 			InternalEObject oldArgument = (InternalEObject)argument;
-			argument = (ValueListInterimResultPart)eResolveProxy(oldArgument);
+			argument = (qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart)eResolveProxy(oldArgument);
 			if (argument != oldArgument) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT, oldArgument, argument));
@@ -138,7 +136,7 @@ public class OneArgFunctionFilterPartImpl extends JavaFilterPartImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ValueListInterimResultPart basicGetArgument() {
+	public qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart basicGetArgument() {
 		return argument;
 	}
 
@@ -148,8 +146,8 @@ public class OneArgFunctionFilterPartImpl extends JavaFilterPartImpl implements 
 	 * @generated
 	 */
 	@Override
-	public void setArgument(ValueListInterimResultPart newArgument) {
-		ValueListInterimResultPart oldArgument = argument;
+	public void setArgument(qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart newArgument) {
+		qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart oldArgument = argument;
 		argument = newArgument;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT, oldArgument, argument));
@@ -198,7 +196,7 @@ public class OneArgFunctionFilterPartImpl extends JavaFilterPartImpl implements 
 				setCombinator((Combinator)newValue);
 				return;
 			case JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT:
-				setArgument((ValueListInterimResultPart)newValue);
+				setArgument((qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -216,7 +214,7 @@ public class OneArgFunctionFilterPartImpl extends JavaFilterPartImpl implements 
 				setCombinator((Combinator)null);
 				return;
 			case JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT:
-				setArgument((ValueListInterimResultPart)null);
+				setArgument((qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart)null);
 				return;
 		}
 		super.eUnset(featureID);

@@ -153,8 +153,8 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated qualitypatternmodel -->
       <factory
-            uri="outputstructure"
-            class="qualitypatternmodel.outputstructure.provider.OutputstructureItemProviderAdapterFactory"
+            uri="javaqueryoutput"
+            class="qualitypatternmodel.javaqueryoutput.provider.JavaqueryoutputItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

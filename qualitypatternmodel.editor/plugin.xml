@@ -320,12 +320,12 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="qualitypatternmodel.outputstructure.presentation.OutputstructureModelWizardID"
-            name="%_UI_OutputstructureModelWizard_label"
-            class="qualitypatternmodel.outputstructure.presentation.OutputstructureModelWizard"
+            id="qualitypatternmodel.javaqueryoutput.presentation.JavaqueryoutputModelWizardID"
+            name="%_UI_JavaqueryoutputModelWizard_label"
+            class="qualitypatternmodel.javaqueryoutput.presentation.JavaqueryoutputModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/OutputstructureModelFile.gif">
-         <description>%_UI_OutputstructureModelWizard_description</description>
+            icon="icons/full/obj16/JavaqueryoutputModelFile.gif">
+         <description>%_UI_JavaqueryoutputModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
    </extension>
@@ -333,12 +333,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated qualitypatternmodel -->
       <editor
-            id="qualitypatternmodel.outputstructure.presentation.OutputstructureEditorID"
-            name="%_UI_OutputstructureEditor_label"
-            icon="icons/full/obj16/OutputstructureModelFile.gif"
-            extensions="outputstructure"
-            class="qualitypatternmodel.outputstructure.presentation.OutputstructureEditor"
-            contributorClass="qualitypatternmodel.outputstructure.presentation.OutputstructureActionBarContributor">
+            id="qualitypatternmodel.javaqueryoutput.presentation.JavaqueryoutputEditorID"
+            name="%_UI_JavaqueryoutputEditor_label"
+            icon="icons/full/obj16/JavaqueryoutputModelFile.gif"
+            extensions="javaqueryoutput"
+            class="qualitypatternmodel.javaqueryoutput.presentation.JavaqueryoutputEditor"
+            contributorClass="qualitypatternmodel.javaqueryoutput.presentation.JavaqueryoutputActionBarContributor">
       </editor>
    </extension>
 

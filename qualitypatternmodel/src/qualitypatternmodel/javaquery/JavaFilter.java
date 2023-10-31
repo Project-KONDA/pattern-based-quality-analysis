@@ -4,8 +4,6 @@ package qualitypatternmodel.javaquery;
 
 import org.eclipse.emf.ecore.EObject;
 
-import qualitypatternmodel.outputstructure.InterimResultsStructure;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Java Filter</b></em>'.
@@ -51,12 +49,12 @@ public interface JavaFilter extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Structure</em>' containment reference.
-	 * @see #setStructure(InterimResultsStructure)
+	 * @see #setStructure(qualitypatternmodel.javaqueryoutput.InterimResultsStructure)
 	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getJavaFilter_Structure()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	InterimResultsStructure getStructure();
+	qualitypatternmodel.javaqueryoutput.InterimResultsStructure getStructure();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.javaquery.JavaFilter#getStructure <em>Structure</em>}' containment reference.
@@ -66,6 +64,6 @@ public interface JavaFilter extends EObject {
 	 * @see #getStructure()
 	 * @generated
 	 */
-	void setStructure(InterimResultsStructure value);
+	void setStructure(qualitypatternmodel.javaqueryoutput.InterimResultsStructure value);
 
 } // JavaFilter

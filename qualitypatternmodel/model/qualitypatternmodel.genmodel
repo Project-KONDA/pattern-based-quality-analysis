@@ -1188,7 +1188,9 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaquery/JavaFilter/filter"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaquery/JavaFilter/structure"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//javaquery/JavaFilterPart"/>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//javaquery/JavaFilterPart">
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaquery/JavaFilterPart/apply"/>
+      </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaquery/FormulaFilterPart">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaquery/FormulaFilterPart/subfilter1"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaquery/FormulaFilterPart/subfilter2"/>
@@ -1228,19 +1230,19 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaquery/NotFilterPart/subfilter"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Outputstructure" disposableProviderFactory="true" ecorePackage="qualitypatternmodel.ecore#//outputstructure">
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//outputstructure/InterimResultsStructure">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//outputstructure/InterimResultsStructure/substructure"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//outputstructure/InterimResultsStructure/record"/>
+    <nestedGenPackages prefix="Javaqueryoutput" disposableProviderFactory="true" ecorePackage="qualitypatternmodel.ecore#//javaqueryoutput">
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultsStructure">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/InterimResultsStructure/substructure"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/InterimResultsStructure/record"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//outputstructure/RecordInterimResult"/>
-      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//outputstructure/InterimResultPart"/>
-      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//outputstructure/InterimResultParam"/>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//outputstructure/BooleanInterimResultParam"/>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//outputstructure/ContainerInterimResultPart">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//outputstructure/ContainerInterimResultPart/contained"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/RecordInterimResult"/>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultPart"/>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultParam"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/BooleanInterimResultParam"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/ContainerInterimResultPart">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/ContainerInterimResultPart/contained"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//outputstructure/ValueListInterimResultPart"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/ValueListInterimResultPart"/>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>
