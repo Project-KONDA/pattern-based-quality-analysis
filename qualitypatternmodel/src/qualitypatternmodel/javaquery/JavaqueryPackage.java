@@ -538,6 +538,44 @@ public interface JavaqueryPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.NotFilterPartImpl <em>Not Filter Part</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaquery.impl.NotFilterPartImpl
+	 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getNotFilterPart()
+	 * @generated
+	 */
+	int NOT_FILTER_PART = 12;
+
+	/**
+	 * The feature id for the '<em><b>Subfilter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_FILTER_PART__SUBFILTER = JAVA_FILTER_PART_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Not Filter Part</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_FILTER_PART_FEATURE_COUNT = JAVA_FILTER_PART_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Not Filter Part</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_FILTER_PART_OPERATION_COUNT = JAVA_FILTER_PART_OPERATION_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.JavaFilter <em>Java Filter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -834,6 +872,27 @@ public interface JavaqueryPackage extends EPackage {
 	EAttribute getCountCombinator_Number();
 
 	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.NotFilterPart <em>Not Filter Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Not Filter Part</em>'.
+	 * @see qualitypatternmodel.javaquery.NotFilterPart
+	 * @generated
+	 */
+	EClass getNotFilterPart();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.javaquery.NotFilterPart#getSubfilter <em>Subfilter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Subfilter</em>'.
+	 * @see qualitypatternmodel.javaquery.NotFilterPart#getSubfilter()
+	 * @see #getNotFilterPart()
+	 * @generated
+	 */
+	EReference getNotFilterPart_Subfilter();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1103,6 +1162,24 @@ public interface JavaqueryPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COUNT_COMBINATOR__NUMBER = eINSTANCE.getCountCombinator_Number();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.NotFilterPartImpl <em>Not Filter Part</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.javaquery.impl.NotFilterPartImpl
+		 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getNotFilterPart()
+		 * @generated
+		 */
+		EClass NOT_FILTER_PART = eINSTANCE.getNotFilterPart();
+
+		/**
+		 * The meta object literal for the '<em><b>Subfilter</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NOT_FILTER_PART__SUBFILTER = eINSTANCE.getNotFilterPart_Subfilter();
 
 	}
 

@@ -112,6 +112,15 @@ public interface JavaqueryFactory extends EFactory {
 	CountCombinator createCountCombinator();
 
 	/**
+	 * Returns a new object of class '<em>Not Filter Part</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Not Filter Part</em>'.
+	 * @generated
+	 */
+	NotFilterPart createNotFilterPart();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

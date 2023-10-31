@@ -66,6 +66,7 @@ public class JavaqueryFactoryImpl extends EFactoryImpl implements JavaqueryFacto
 			case JavaqueryPackage.ANY_COMBINATOR: return createAnyCombinator();
 			case JavaqueryPackage.NONE_COMBINATOR: return createNoneCombinator();
 			case JavaqueryPackage.COUNT_COMBINATOR: return createCountCombinator();
+			case JavaqueryPackage.NOT_FILTER_PART: return createNotFilterPart();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -179,6 +180,17 @@ public class JavaqueryFactoryImpl extends EFactoryImpl implements JavaqueryFacto
 	public CountCombinator createCountCombinator() {
 		CountCombinatorImpl countCombinator = new CountCombinatorImpl();
 		return countCombinator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotFilterPart createNotFilterPart() {
+		NotFilterPartImpl notFilterPart = new NotFilterPartImpl();
+		return notFilterPart;
 	}
 
 	/**

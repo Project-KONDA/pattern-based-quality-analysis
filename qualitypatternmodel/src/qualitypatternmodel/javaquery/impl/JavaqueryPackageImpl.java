@@ -45,6 +45,7 @@ import qualitypatternmodel.javaquery.JavaqueryFactory;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.ListFilterPart;
 import qualitypatternmodel.javaquery.NoneCombinator;
+import qualitypatternmodel.javaquery.NotFilterPart;
 import qualitypatternmodel.javaquery.OneArgFunctionFilterPart;
 import qualitypatternmodel.javaquery.TwoArgFunctionFilterPart;
 
@@ -158,6 +159,13 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	private EClass countCombinatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass notFilterPartEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -551,6 +559,26 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
+	public EClass getNotFilterPart() {
+		return notFilterPartEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getNotFilterPart_Subfilter() {
+		return (EReference)notFilterPartEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public JavaqueryFactory getJavaqueryFactory() {
 		return (JavaqueryFactory)getEFactoryInstance();
 	}
@@ -613,6 +641,9 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		countCombinatorEClass = createEClass(COUNT_COMBINATOR);
 		createEAttribute(countCombinatorEClass, COUNT_COMBINATOR__OPERATOR);
 		createEAttribute(countCombinatorEClass, COUNT_COMBINATOR__NUMBER);
+
+		notFilterPartEClass = createEClass(NOT_FILTER_PART);
+		createEReference(notFilterPartEClass, NOT_FILTER_PART__SUBFILTER);
 	}
 
 	/**
@@ -656,6 +687,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		anyCombinatorEClass.getESuperTypes().add(this.getCombinator());
 		noneCombinatorEClass.getESuperTypes().add(this.getCombinator());
 		countCombinatorEClass.getESuperTypes().add(this.getCombinator());
+		notFilterPartEClass.getESuperTypes().add(this.getJavaFilterPart());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(javaFilterEClass, JavaFilter.class, "JavaFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -697,6 +729,9 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		initEClass(countCombinatorEClass, CountCombinator.class, "CountCombinator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCountCombinator_Operator(), theOperatorsPackage.getComparisonOperator(), "operator", null, 0, 1, CountCombinator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCountCombinator_Number(), ecorePackage.getEDoubleObject(), "number", null, 0, 1, CountCombinator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(notFilterPartEClass, NotFilterPart.class, "NotFilterPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNotFilterPart_Subfilter(), this.getJavaFilterPart(), null, "subfilter", null, 1, 1, NotFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

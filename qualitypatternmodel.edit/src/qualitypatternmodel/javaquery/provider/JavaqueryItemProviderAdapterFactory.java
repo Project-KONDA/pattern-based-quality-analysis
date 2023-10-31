@@ -302,6 +302,29 @@ public class JavaqueryItemProviderAdapterFactory extends JavaqueryAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaquery.NotFilterPart} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NotFilterPartItemProvider notFilterPartItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.javaquery.NotFilterPart}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNotFilterPartAdapter() {
+		if (notFilterPartItemProvider == null) {
+			notFilterPartItemProvider = new NotFilterPartItemProvider(this);
+		}
+
+		return notFilterPartItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -416,6 +439,7 @@ public class JavaqueryItemProviderAdapterFactory extends JavaqueryAdapterFactory
 		if (anyCombinatorItemProvider != null) anyCombinatorItemProvider.dispose();
 		if (noneCombinatorItemProvider != null) noneCombinatorItemProvider.dispose();
 		if (countCombinatorItemProvider != null) countCombinatorItemProvider.dispose();
+		if (notFilterPartItemProvider != null) notFilterPartItemProvider.dispose();
 	}
 
 }

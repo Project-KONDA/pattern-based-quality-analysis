@@ -1493,6 +1493,10 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//operators/ComparisonOperator"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NotFilterPart" eSuperTypes="#//javaquery/JavaFilterPart">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subfilter" lowerBound="1"
+          eType="#//javaquery/JavaFilterPart" containment="true"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="outputstructure" nsURI="outputstructure" nsPrefix="outputstructure">
     <eClassifiers xsi:type="ecore:EClass" name="InterimResultsStructure">

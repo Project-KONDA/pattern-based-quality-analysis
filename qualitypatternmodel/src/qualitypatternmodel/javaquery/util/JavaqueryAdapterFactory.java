@@ -116,6 +116,10 @@ public class JavaqueryAdapterFactory extends AdapterFactoryImpl {
 				return createCountCombinatorAdapter();
 			}
 			@Override
+			public Adapter caseNotFilterPart(NotFilterPart object) {
+				return createNotFilterPartAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -300,6 +304,20 @@ public class JavaqueryAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCountCombinatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaquery.NotFilterPart <em>Not Filter Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.javaquery.NotFilterPart
+	 * @generated
+	 */
+	public Adapter createNotFilterPartAdapter() {
 		return null;
 	}
 

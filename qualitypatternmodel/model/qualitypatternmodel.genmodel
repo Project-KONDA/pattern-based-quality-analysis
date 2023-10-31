@@ -1224,6 +1224,9 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaquery/CountCombinator/operator"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaquery/CountCombinator/number"/>
       </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//javaquery/NotFilterPart">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaquery/NotFilterPart/subfilter"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Outputstructure" disposableProviderFactory="true" ecorePackage="qualitypatternmodel.ecore#//outputstructure">
       <genClasses ecoreClass="qualitypatternmodel.ecore#//outputstructure/InterimResultsStructure">

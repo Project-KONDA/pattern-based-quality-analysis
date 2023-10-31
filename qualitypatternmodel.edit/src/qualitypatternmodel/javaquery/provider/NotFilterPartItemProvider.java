@@ -14,24 +14,24 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import qualitypatternmodel.javaquery.FormulaFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryFactory;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
+import qualitypatternmodel.javaquery.NotFilterPart;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.javaquery.FormulaFilterPart} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.javaquery.NotFilterPart} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class FormulaFilterPartItemProvider extends JavaFilterPartItemProvider {
+public class NotFilterPartItemProvider extends JavaFilterPartItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FormulaFilterPartItemProvider(AdapterFactory adapterFactory) {
+	public NotFilterPartItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,8 +62,7 @@ public class FormulaFilterPartItemProvider extends JavaFilterPartItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER1);
-			childrenFeatures.add(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER2);
+			childrenFeatures.add(JavaqueryPackage.Literals.NOT_FILTER_PART__SUBFILTER);
 		}
 		return childrenFeatures;
 	}
@@ -82,14 +81,14 @@ public class FormulaFilterPartItemProvider extends JavaFilterPartItemProvider {
 	}
 
 	/**
-	 * This returns FormulaFilterPart.gif.
+	 * This returns NotFilterPart.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/FormulaFilterPart"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/NotFilterPart"));
 	}
 
 	/**
@@ -100,7 +99,7 @@ public class FormulaFilterPartItemProvider extends JavaFilterPartItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_FormulaFilterPart_type");
+		return getString("_UI_NotFilterPart_type");
 	}
 
 
@@ -115,9 +114,8 @@ public class FormulaFilterPartItemProvider extends JavaFilterPartItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(FormulaFilterPart.class)) {
-			case JavaqueryPackage.FORMULA_FILTER_PART__SUBFILTER1:
-			case JavaqueryPackage.FORMULA_FILTER_PART__SUBFILTER2:
+		switch (notification.getFeatureID(NotFilterPart.class)) {
+			case JavaqueryPackage.NOT_FILTER_PART__SUBFILTER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -137,86 +135,33 @@ public class FormulaFilterPartItemProvider extends JavaFilterPartItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER1,
+				(JavaqueryPackage.Literals.NOT_FILTER_PART__SUBFILTER,
 				 JavaqueryFactory.eINSTANCE.createFormulaFilterPart()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER1,
+				(JavaqueryPackage.Literals.NOT_FILTER_PART__SUBFILTER,
 				 JavaqueryFactory.eINSTANCE.createBooleanFilterPart()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER1,
+				(JavaqueryPackage.Literals.NOT_FILTER_PART__SUBFILTER,
 				 JavaqueryFactory.eINSTANCE.createOneArgFunctionFilterPart()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER1,
+				(JavaqueryPackage.Literals.NOT_FILTER_PART__SUBFILTER,
 				 JavaqueryFactory.eINSTANCE.createListFilterPart()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER1,
+				(JavaqueryPackage.Literals.NOT_FILTER_PART__SUBFILTER,
 				 JavaqueryFactory.eINSTANCE.createTwoArgFunctionFilterPart()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER1,
+				(JavaqueryPackage.Literals.NOT_FILTER_PART__SUBFILTER,
 				 JavaqueryFactory.eINSTANCE.createNotFilterPart()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER2,
-				 JavaqueryFactory.eINSTANCE.createFormulaFilterPart()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER2,
-				 JavaqueryFactory.eINSTANCE.createBooleanFilterPart()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER2,
-				 JavaqueryFactory.eINSTANCE.createOneArgFunctionFilterPart()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER2,
-				 JavaqueryFactory.eINSTANCE.createListFilterPart()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER2,
-				 JavaqueryFactory.eINSTANCE.createTwoArgFunctionFilterPart()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER2,
-				 JavaqueryFactory.eINSTANCE.createNotFilterPart()));
-	}
-
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify =
-			childFeature == JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER1 ||
-			childFeature == JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER2;
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

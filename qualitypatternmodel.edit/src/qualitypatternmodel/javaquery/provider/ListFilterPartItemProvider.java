@@ -203,6 +203,11 @@ public class ListFilterPartItemProvider extends JavaFilterPartItemProvider {
 			(createChildParameter
 				(JavaqueryPackage.Literals.LIST_FILTER_PART__SUBFILTER,
 				 JavaqueryFactory.eINSTANCE.createTwoArgFunctionFilterPart()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaqueryPackage.Literals.LIST_FILTER_PART__SUBFILTER,
+				 JavaqueryFactory.eINSTANCE.createNotFilterPart()));
 	}
 
 }
