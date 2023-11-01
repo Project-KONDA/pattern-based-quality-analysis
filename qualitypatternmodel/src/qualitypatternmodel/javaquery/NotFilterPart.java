@@ -19,18 +19,18 @@ package qualitypatternmodel.javaquery;
  * @model
  * @generated
  */
-public interface NotFilterPart extends JavaFilterPart {
+public interface NotFilterPart extends BooleanFilterPart {
 	/**
 	 * Returns the value of the '<em><b>Subfilter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Subfilter</em>' containment reference.
-	 * @see #setSubfilter(JavaFilterPart)
+	 * @see #setSubfilter(BooleanFilterPart)
 	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getNotFilterPart_Subfilter()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	JavaFilterPart getSubfilter();
+	BooleanFilterPart getSubfilter();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.javaquery.NotFilterPart#getSubfilter <em>Subfilter</em>}' containment reference.
@@ -40,6 +40,6 @@ public interface NotFilterPart extends JavaFilterPart {
 	 * @see #getSubfilter()
 	 * @generated
 	 */
-	void setSubfilter(JavaFilterPart value);
+	void setSubfilter(BooleanFilterPart value);
 
 } // NotFilterPart

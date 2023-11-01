@@ -33,20 +33,19 @@ import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 
 import qualitypatternmodel.javaoperators.impl.JavaoperatorsPackageImpl;
-
-import qualitypatternmodel.javaquery.AnyCombinator;
+import qualitypatternmodel.javaquery.BooleanFilterElement;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
-import qualitypatternmodel.javaquery.Combinator;
-import qualitypatternmodel.javaquery.CountCombinator;
-import qualitypatternmodel.javaquery.EveryCombinator;
+import qualitypatternmodel.javaquery.CountFilterElement;
+import qualitypatternmodel.javaquery.CountFilterPart;
 import qualitypatternmodel.javaquery.FormulaFilterPart;
 import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryFactory;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.ListFilterPart;
-import qualitypatternmodel.javaquery.NoneCombinator;
 import qualitypatternmodel.javaquery.NotFilterPart;
+import qualitypatternmodel.javaquery.NumberFilterElement;
+import qualitypatternmodel.javaquery.NumberFilterPart;
 import qualitypatternmodel.javaquery.OneArgFunctionFilterPart;
 import qualitypatternmodel.javaquery.TwoArgFunctionFilterPart;
 
@@ -100,6 +99,13 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass booleanFilterElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass booleanFilterPartEClass = null;
 
 	/**
@@ -128,42 +134,35 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass combinatorEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass everyCombinatorEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass anyCombinatorEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass noneCombinatorEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass countCombinatorEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass notFilterPartEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass countFilterPartEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass numberFilterPartEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass countFilterElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass numberFilterElementEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -317,26 +316,6 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getJavaFilterPart__Apply() {
-		return javaFilterPartEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getJavaFilterPart__GetArguments() {
-		return javaFilterPartEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getFormulaFilterPart() {
 		return formulaFilterPartEClass;
 	}
@@ -367,6 +346,36 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
+	public EAttribute getFormulaFilterPart_Operator() {
+		return (EAttribute)formulaFilterPartEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getBooleanFilterElement() {
+		return booleanFilterElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getBooleanFilterElement_Argument() {
+		return (EReference)booleanFilterElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getBooleanFilterPart() {
 		return booleanFilterPartEClass;
 	}
@@ -377,8 +386,18 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getBooleanFilterPart_Argument() {
-		return (EReference)booleanFilterPartEClass.getEStructuralFeatures().get(0);
+	public EOperation getBooleanFilterPart__Apply() {
+		return booleanFilterPartEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getBooleanFilterPart__GetArguments() {
+		return booleanFilterPartEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -397,7 +416,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getOneArgFunctionFilterPart_Combinator() {
+	public EReference getOneArgFunctionFilterPart_Argument() {
 		return (EReference)oneArgFunctionFilterPartEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -407,8 +426,8 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getOneArgFunctionFilterPart_Argument() {
-		return (EReference)oneArgFunctionFilterPartEClass.getEStructuralFeatures().get(1);
+	public EAttribute getOneArgFunctionFilterPart_Quantifier() {
+		return (EAttribute)oneArgFunctionFilterPartEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -437,7 +456,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getListFilterPart_Combinator() {
+	public EReference getListFilterPart_Subfilter() {
 		return (EReference)listFilterPartEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -447,7 +466,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getListFilterPart_Subfilter() {
+	public EReference getListFilterPart_Argument() {
 		return (EReference)listFilterPartEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -457,8 +476,8 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getListFilterPart_Argument() {
-		return (EReference)listFilterPartEClass.getEStructuralFeatures().get(2);
+	public EAttribute getListFilterPart_Quantifier() {
+		return (EAttribute)listFilterPartEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -477,7 +496,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getTwoArgFunctionFilterPart_Combinator2() {
+	public EReference getTwoArgFunctionFilterPart_Argument1() {
 		return (EReference)twoArgFunctionFilterPartEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -487,7 +506,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getTwoArgFunctionFilterPart_Combinator1() {
+	public EReference getTwoArgFunctionFilterPart_Argument2() {
 		return (EReference)twoArgFunctionFilterPartEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -497,8 +516,8 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getTwoArgFunctionFilterPart_Argument1() {
-		return (EReference)twoArgFunctionFilterPartEClass.getEStructuralFeatures().get(2);
+	public EAttribute getTwoArgFunctionFilterPart_Quantifier1() {
+		return (EAttribute)twoArgFunctionFilterPartEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -507,8 +526,8 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getTwoArgFunctionFilterPart_Argument2() {
-		return (EReference)twoArgFunctionFilterPartEClass.getEStructuralFeatures().get(3);
+	public EAttribute getTwoArgFunctionFilterPart_Quantifier2() {
+		return (EAttribute)twoArgFunctionFilterPartEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -519,76 +538,6 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	@Override
 	public EOperation getTwoArgFunctionFilterPart__Apply__String_String() {
 		return twoArgFunctionFilterPartEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getCombinator() {
-		return combinatorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getEveryCombinator() {
-		return everyCombinatorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getAnyCombinator() {
-		return anyCombinatorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getNoneCombinator() {
-		return noneCombinatorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getCountCombinator() {
-		return countCombinatorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getCountCombinator_Operator() {
-		return (EAttribute)countCombinatorEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getCountCombinator_Number() {
-		return (EAttribute)countCombinatorEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -609,6 +558,106 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	@Override
 	public EReference getNotFilterPart_Subfilter() {
 		return (EReference)notFilterPartEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getCountFilterPart() {
+		return countFilterPartEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getCountFilterPart_Argument1() {
+		return (EReference)countFilterPartEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getCountFilterPart_Argument2() {
+		return (EReference)countFilterPartEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCountFilterPart_Operator() {
+		return (EAttribute)countFilterPartEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getNumberFilterPart() {
+		return numberFilterPartEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNumberFilterPart__Apply() {
+		return numberFilterPartEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getCountFilterElement() {
+		return countFilterElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getCountFilterElement_Subfilter() {
+		return (EReference)countFilterElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getCountFilterElement_Argument() {
+		return (EReference)countFilterElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getNumberFilterElement() {
+		return numberFilterElementEClass;
 	}
 
 	/**
@@ -644,48 +693,53 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		createEReference(javaFilterEClass, JAVA_FILTER__FILTER);
 		createEReference(javaFilterEClass, JAVA_FILTER__STRUCTURE);
 
-		javaFilterPartEClass = createEClass(JAVA_FILTER_PART);
-		createEOperation(javaFilterPartEClass, JAVA_FILTER_PART___APPLY);
-		createEOperation(javaFilterPartEClass, JAVA_FILTER_PART___GET_ARGUMENTS);
+		booleanFilterPartEClass = createEClass(BOOLEAN_FILTER_PART);
+		createEOperation(booleanFilterPartEClass, BOOLEAN_FILTER_PART___APPLY);
+		createEOperation(booleanFilterPartEClass, BOOLEAN_FILTER_PART___GET_ARGUMENTS);
 
 		formulaFilterPartEClass = createEClass(FORMULA_FILTER_PART);
 		createEReference(formulaFilterPartEClass, FORMULA_FILTER_PART__SUBFILTER1);
 		createEReference(formulaFilterPartEClass, FORMULA_FILTER_PART__SUBFILTER2);
+		createEAttribute(formulaFilterPartEClass, FORMULA_FILTER_PART__OPERATOR);
 
-		booleanFilterPartEClass = createEClass(BOOLEAN_FILTER_PART);
-		createEReference(booleanFilterPartEClass, BOOLEAN_FILTER_PART__ARGUMENT);
+		booleanFilterElementEClass = createEClass(BOOLEAN_FILTER_ELEMENT);
+		createEReference(booleanFilterElementEClass, BOOLEAN_FILTER_ELEMENT__ARGUMENT);
 
 		oneArgFunctionFilterPartEClass = createEClass(ONE_ARG_FUNCTION_FILTER_PART);
-		createEReference(oneArgFunctionFilterPartEClass, ONE_ARG_FUNCTION_FILTER_PART__COMBINATOR);
 		createEReference(oneArgFunctionFilterPartEClass, ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT);
+		createEAttribute(oneArgFunctionFilterPartEClass, ONE_ARG_FUNCTION_FILTER_PART__QUANTIFIER);
 		createEOperation(oneArgFunctionFilterPartEClass, ONE_ARG_FUNCTION_FILTER_PART___APPLY__STRING);
 
 		listFilterPartEClass = createEClass(LIST_FILTER_PART);
-		createEReference(listFilterPartEClass, LIST_FILTER_PART__COMBINATOR);
 		createEReference(listFilterPartEClass, LIST_FILTER_PART__SUBFILTER);
 		createEReference(listFilterPartEClass, LIST_FILTER_PART__ARGUMENT);
+		createEAttribute(listFilterPartEClass, LIST_FILTER_PART__QUANTIFIER);
 
 		twoArgFunctionFilterPartEClass = createEClass(TWO_ARG_FUNCTION_FILTER_PART);
-		createEReference(twoArgFunctionFilterPartEClass, TWO_ARG_FUNCTION_FILTER_PART__COMBINATOR2);
-		createEReference(twoArgFunctionFilterPartEClass, TWO_ARG_FUNCTION_FILTER_PART__COMBINATOR1);
 		createEReference(twoArgFunctionFilterPartEClass, TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT1);
 		createEReference(twoArgFunctionFilterPartEClass, TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT2);
+		createEAttribute(twoArgFunctionFilterPartEClass, TWO_ARG_FUNCTION_FILTER_PART__QUANTIFIER1);
+		createEAttribute(twoArgFunctionFilterPartEClass, TWO_ARG_FUNCTION_FILTER_PART__QUANTIFIER2);
 		createEOperation(twoArgFunctionFilterPartEClass, TWO_ARG_FUNCTION_FILTER_PART___APPLY__STRING_STRING);
-
-		combinatorEClass = createEClass(COMBINATOR);
-
-		everyCombinatorEClass = createEClass(EVERY_COMBINATOR);
-
-		anyCombinatorEClass = createEClass(ANY_COMBINATOR);
-
-		noneCombinatorEClass = createEClass(NONE_COMBINATOR);
-
-		countCombinatorEClass = createEClass(COUNT_COMBINATOR);
-		createEAttribute(countCombinatorEClass, COUNT_COMBINATOR__OPERATOR);
-		createEAttribute(countCombinatorEClass, COUNT_COMBINATOR__NUMBER);
 
 		notFilterPartEClass = createEClass(NOT_FILTER_PART);
 		createEReference(notFilterPartEClass, NOT_FILTER_PART__SUBFILTER);
+
+		countFilterPartEClass = createEClass(COUNT_FILTER_PART);
+		createEReference(countFilterPartEClass, COUNT_FILTER_PART__ARGUMENT1);
+		createEReference(countFilterPartEClass, COUNT_FILTER_PART__ARGUMENT2);
+		createEAttribute(countFilterPartEClass, COUNT_FILTER_PART__OPERATOR);
+
+		numberFilterPartEClass = createEClass(NUMBER_FILTER_PART);
+		createEOperation(numberFilterPartEClass, NUMBER_FILTER_PART___APPLY);
+
+		countFilterElementEClass = createEClass(COUNT_FILTER_ELEMENT);
+		createEReference(countFilterElementEClass, COUNT_FILTER_ELEMENT__SUBFILTER);
+		createEReference(countFilterElementEClass, COUNT_FILTER_ELEMENT__ARGUMENT);
+
+		numberFilterElementEClass = createEClass(NUMBER_FILTER_ELEMENT);
+
+		javaFilterPartEClass = createEClass(JAVA_FILTER_PART);
 	}
 
 	/**
@@ -721,72 +775,80 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		formulaFilterPartEClass.getESuperTypes().add(this.getJavaFilterPart());
 		booleanFilterPartEClass.getESuperTypes().add(this.getJavaFilterPart());
-		oneArgFunctionFilterPartEClass.getESuperTypes().add(this.getJavaFilterPart());
-		listFilterPartEClass.getESuperTypes().add(this.getJavaFilterPart());
-		twoArgFunctionFilterPartEClass.getESuperTypes().add(this.getJavaFilterPart());
-		everyCombinatorEClass.getESuperTypes().add(this.getCombinator());
-		anyCombinatorEClass.getESuperTypes().add(this.getCombinator());
-		noneCombinatorEClass.getESuperTypes().add(this.getCombinator());
-		countCombinatorEClass.getESuperTypes().add(this.getCombinator());
-		notFilterPartEClass.getESuperTypes().add(this.getJavaFilterPart());
+		formulaFilterPartEClass.getESuperTypes().add(this.getBooleanFilterPart());
+		booleanFilterElementEClass.getESuperTypes().add(this.getBooleanFilterPart());
+		oneArgFunctionFilterPartEClass.getESuperTypes().add(this.getBooleanFilterPart());
+		listFilterPartEClass.getESuperTypes().add(this.getBooleanFilterPart());
+		twoArgFunctionFilterPartEClass.getESuperTypes().add(this.getBooleanFilterPart());
+		notFilterPartEClass.getESuperTypes().add(this.getBooleanFilterPart());
+		countFilterPartEClass.getESuperTypes().add(this.getBooleanFilterPart());
+		numberFilterPartEClass.getESuperTypes().add(this.getJavaFilterPart());
+		countFilterElementEClass.getESuperTypes().add(this.getNumberFilterPart());
+		numberFilterElementEClass.getESuperTypes().add(this.getNumberFilterPart());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(javaFilterEClass, JavaFilter.class, "JavaFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getJavaFilter_Filter(), this.getJavaFilterPart(), null, "filter", null, 0, 1, JavaFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJavaFilter_Filter(), this.getBooleanFilterPart(), null, "filter", null, 0, 1, JavaFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJavaFilter_Structure(), theJavaqueryoutputPackage.getInterimResultsStructure(), null, "structure", null, 1, 1, JavaFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(javaFilterPartEClass, JavaFilterPart.class, "JavaFilterPart", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(booleanFilterPartEClass, BooleanFilterPart.class, "BooleanFilterPart", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		EOperation op = initEOperation(getJavaFilterPart__Apply(), ecorePackage.getEBooleanObject(), "apply", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getBooleanFilterPart__Apply(), ecorePackage.getEBooleanObject(), "apply", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		initEOperation(getJavaFilterPart__GetArguments(), this.getJavaFilterPart(), "getArguments", 0, -1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getBooleanFilterPart__GetArguments(), this.getBooleanFilterPart(), "getArguments", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(formulaFilterPartEClass, FormulaFilterPart.class, "FormulaFilterPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFormulaFilterPart_Subfilter1(), this.getJavaFilterPart(), null, "subfilter1", null, 1, 1, FormulaFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFormulaFilterPart_Subfilter2(), this.getJavaFilterPart(), null, "subfilter2", null, 1, 1, FormulaFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFormulaFilterPart_Subfilter1(), this.getBooleanFilterPart(), null, "subfilter1", null, 1, 1, FormulaFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFormulaFilterPart_Subfilter2(), this.getBooleanFilterPart(), null, "subfilter2", null, 1, 1, FormulaFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFormulaFilterPart_Operator(), thePatternstructurePackage.getLogicalOperator(), "operator", null, 0, 1, FormulaFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(booleanFilterPartEClass, BooleanFilterPart.class, "BooleanFilterPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBooleanFilterPart_Argument(), theJavaqueryoutputPackage.getBooleanInterimResultParam(), null, "argument", null, 1, 1, BooleanFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(booleanFilterElementEClass, BooleanFilterElement.class, "BooleanFilterElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBooleanFilterElement_Argument(), theJavaqueryoutputPackage.getBooleanInterimResultParam(), null, "argument", null, 1, 1, BooleanFilterElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(oneArgFunctionFilterPartEClass, OneArgFunctionFilterPart.class, "OneArgFunctionFilterPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOneArgFunctionFilterPart_Combinator(), this.getCombinator(), null, "combinator", null, 1, 1, OneArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOneArgFunctionFilterPart_Argument(), theJavaqueryoutputPackage.getValueListInterimResultPart(), null, "argument", null, 1, 1, OneArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOneArgFunctionFilterPart_Quantifier(), thePatternstructurePackage.getQuantifier(), "quantifier", null, 0, 1, OneArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getOneArgFunctionFilterPart__Apply__String(), ecorePackage.getEBooleanObject(), "apply", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "param1", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(listFilterPartEClass, ListFilterPart.class, "ListFilterPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getListFilterPart_Combinator(), this.getCombinator(), null, "combinator", null, 1, 1, ListFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getListFilterPart_Subfilter(), this.getJavaFilterPart(), null, "subfilter", null, 1, 1, ListFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getListFilterPart_Subfilter(), this.getBooleanFilterPart(), null, "subfilter", null, 1, 1, ListFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getListFilterPart_Argument(), theJavaqueryoutputPackage.getContainerInterimResultPart(), null, "argument", null, 1, 1, ListFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getListFilterPart_Quantifier(), thePatternstructurePackage.getQuantifier(), "quantifier", null, 0, 1, ListFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(twoArgFunctionFilterPartEClass, TwoArgFunctionFilterPart.class, "TwoArgFunctionFilterPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTwoArgFunctionFilterPart_Combinator2(), this.getCombinator(), null, "combinator2", null, 1, 1, TwoArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTwoArgFunctionFilterPart_Combinator1(), this.getCombinator(), null, "combinator1", null, 1, 1, TwoArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTwoArgFunctionFilterPart_Argument1(), theJavaqueryoutputPackage.getValueListInterimResultPart(), null, "argument1", null, 1, 1, TwoArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTwoArgFunctionFilterPart_Argument2(), theJavaqueryoutputPackage.getValueListInterimResultPart(), null, "argument2", null, 1, 1, TwoArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTwoArgFunctionFilterPart_Quantifier1(), thePatternstructurePackage.getQuantifier(), "quantifier1", null, 0, 1, TwoArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTwoArgFunctionFilterPart_Quantifier2(), thePatternstructurePackage.getQuantifier(), "quantifier2", null, 0, 1, TwoArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getTwoArgFunctionFilterPart__Apply__String_String(), ecorePackage.getEBooleanObject(), "apply", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "param1", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "param2", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(combinatorEClass, Combinator.class, "Combinator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(everyCombinatorEClass, EveryCombinator.class, "EveryCombinator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(anyCombinatorEClass, AnyCombinator.class, "AnyCombinator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(noneCombinatorEClass, NoneCombinator.class, "NoneCombinator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(countCombinatorEClass, CountCombinator.class, "CountCombinator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCountCombinator_Operator(), theOperatorsPackage.getComparisonOperator(), "operator", null, 0, 1, CountCombinator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCountCombinator_Number(), ecorePackage.getEDoubleObject(), "number", null, 0, 1, CountCombinator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(notFilterPartEClass, NotFilterPart.class, "NotFilterPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNotFilterPart_Subfilter(), this.getJavaFilterPart(), null, "subfilter", null, 1, 1, NotFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNotFilterPart_Subfilter(), this.getBooleanFilterPart(), null, "subfilter", null, 1, 1, NotFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(countFilterPartEClass, CountFilterPart.class, "CountFilterPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCountFilterPart_Argument1(), this.getNumberFilterPart(), null, "argument1", null, 1, 1, CountFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCountFilterPart_Argument2(), this.getNumberFilterPart(), null, "argument2", null, 1, 1, CountFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCountFilterPart_Operator(), theOperatorsPackage.getComparisonOperator(), "operator", null, 0, 1, CountFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(numberFilterPartEClass, NumberFilterPart.class, "NumberFilterPart", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = initEOperation(getNumberFilterPart__Apply(), ecorePackage.getEDoubleObject(), "apply", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		initEClass(countFilterElementEClass, CountFilterElement.class, "CountFilterElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCountFilterElement_Subfilter(), this.getBooleanFilterPart(), null, "subfilter", null, 1, 1, CountFilterElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCountFilterElement_Argument(), theJavaqueryoutputPackage.getContainerInterimResultPart(), null, "argument", null, 1, 1, CountFilterElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(numberFilterElementEClass, NumberFilterElement.class, "NumberFilterElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(javaFilterPartEClass, JavaFilterPart.class, "JavaFilterPart", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

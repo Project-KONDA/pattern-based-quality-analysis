@@ -118,29 +118,6 @@ public class JavaqueryItemProviderAdapterFactory extends JavaqueryAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaquery.BooleanFilterPart} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BooleanFilterPartItemProvider booleanFilterPartItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.javaquery.BooleanFilterPart}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBooleanFilterPartAdapter() {
-		if (booleanFilterPartItemProvider == null) {
-			booleanFilterPartItemProvider = new BooleanFilterPartItemProvider(this);
-		}
-
-		return booleanFilterPartItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaquery.OneArgFunctionFilterPart} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -210,98 +187,6 @@ public class JavaqueryItemProviderAdapterFactory extends JavaqueryAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaquery.EveryCombinator} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EveryCombinatorItemProvider everyCombinatorItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.javaquery.EveryCombinator}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createEveryCombinatorAdapter() {
-		if (everyCombinatorItemProvider == null) {
-			everyCombinatorItemProvider = new EveryCombinatorItemProvider(this);
-		}
-
-		return everyCombinatorItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaquery.AnyCombinator} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AnyCombinatorItemProvider anyCombinatorItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.javaquery.AnyCombinator}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createAnyCombinatorAdapter() {
-		if (anyCombinatorItemProvider == null) {
-			anyCombinatorItemProvider = new AnyCombinatorItemProvider(this);
-		}
-
-		return anyCombinatorItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaquery.NoneCombinator} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NoneCombinatorItemProvider noneCombinatorItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.javaquery.NoneCombinator}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createNoneCombinatorAdapter() {
-		if (noneCombinatorItemProvider == null) {
-			noneCombinatorItemProvider = new NoneCombinatorItemProvider(this);
-		}
-
-		return noneCombinatorItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaquery.CountCombinator} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CountCombinatorItemProvider countCombinatorItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.javaquery.CountCombinator}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCountCombinatorAdapter() {
-		if (countCombinatorItemProvider == null) {
-			countCombinatorItemProvider = new CountCombinatorItemProvider(this);
-		}
-
-		return countCombinatorItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaquery.NotFilterPart} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -322,6 +207,75 @@ public class JavaqueryItemProviderAdapterFactory extends JavaqueryAdapterFactory
 		}
 
 		return notFilterPartItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaquery.CountFilterPart} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CountFilterPartItemProvider countFilterPartItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.javaquery.CountFilterPart}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCountFilterPartAdapter() {
+		if (countFilterPartItemProvider == null) {
+			countFilterPartItemProvider = new CountFilterPartItemProvider(this);
+		}
+
+		return countFilterPartItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaquery.CountFilterElement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CountFilterElementItemProvider countFilterElementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.javaquery.CountFilterElement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCountFilterElementAdapter() {
+		if (countFilterElementItemProvider == null) {
+			countFilterElementItemProvider = new CountFilterElementItemProvider(this);
+		}
+
+		return countFilterElementItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaquery.NumberFilterElement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NumberFilterElementItemProvider numberFilterElementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.javaquery.NumberFilterElement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNumberFilterElementAdapter() {
+		if (numberFilterElementItemProvider == null) {
+			numberFilterElementItemProvider = new NumberFilterElementItemProvider(this);
+		}
+
+		return numberFilterElementItemProvider;
 	}
 
 	/**
@@ -431,15 +385,13 @@ public class JavaqueryItemProviderAdapterFactory extends JavaqueryAdapterFactory
 	public void dispose() {
 		if (javaFilterItemProvider != null) javaFilterItemProvider.dispose();
 		if (formulaFilterPartItemProvider != null) formulaFilterPartItemProvider.dispose();
-		if (booleanFilterPartItemProvider != null) booleanFilterPartItemProvider.dispose();
 		if (oneArgFunctionFilterPartItemProvider != null) oneArgFunctionFilterPartItemProvider.dispose();
 		if (listFilterPartItemProvider != null) listFilterPartItemProvider.dispose();
 		if (twoArgFunctionFilterPartItemProvider != null) twoArgFunctionFilterPartItemProvider.dispose();
-		if (everyCombinatorItemProvider != null) everyCombinatorItemProvider.dispose();
-		if (anyCombinatorItemProvider != null) anyCombinatorItemProvider.dispose();
-		if (noneCombinatorItemProvider != null) noneCombinatorItemProvider.dispose();
-		if (countCombinatorItemProvider != null) countCombinatorItemProvider.dispose();
 		if (notFilterPartItemProvider != null) notFilterPartItemProvider.dispose();
+		if (countFilterPartItemProvider != null) countFilterPartItemProvider.dispose();
+		if (countFilterElementItemProvider != null) countFilterElementItemProvider.dispose();
+		if (numberFilterElementItemProvider != null) numberFilterElementItemProvider.dispose();
 	}
 
 }

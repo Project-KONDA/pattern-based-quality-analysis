@@ -40,15 +40,6 @@ public interface JavaqueryFactory extends EFactory {
 	FormulaFilterPart createFormulaFilterPart();
 
 	/**
-	 * Returns a new object of class '<em>Boolean Filter Part</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Boolean Filter Part</em>'.
-	 * @generated
-	 */
-	BooleanFilterPart createBooleanFilterPart();
-
-	/**
 	 * Returns a new object of class '<em>One Arg Function Filter Part</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,42 +67,6 @@ public interface JavaqueryFactory extends EFactory {
 	TwoArgFunctionFilterPart createTwoArgFunctionFilterPart();
 
 	/**
-	 * Returns a new object of class '<em>Every Combinator</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Every Combinator</em>'.
-	 * @generated
-	 */
-	EveryCombinator createEveryCombinator();
-
-	/**
-	 * Returns a new object of class '<em>Any Combinator</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Any Combinator</em>'.
-	 * @generated
-	 */
-	AnyCombinator createAnyCombinator();
-
-	/**
-	 * Returns a new object of class '<em>None Combinator</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>None Combinator</em>'.
-	 * @generated
-	 */
-	NoneCombinator createNoneCombinator();
-
-	/**
-	 * Returns a new object of class '<em>Count Combinator</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Count Combinator</em>'.
-	 * @generated
-	 */
-	CountCombinator createCountCombinator();
-
-	/**
 	 * Returns a new object of class '<em>Not Filter Part</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -119,6 +74,33 @@ public interface JavaqueryFactory extends EFactory {
 	 * @generated
 	 */
 	NotFilterPart createNotFilterPart();
+
+	/**
+	 * Returns a new object of class '<em>Count Filter Part</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Count Filter Part</em>'.
+	 * @generated
+	 */
+	CountFilterPart createCountFilterPart();
+
+	/**
+	 * Returns a new object of class '<em>Count Filter Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Count Filter Element</em>'.
+	 * @generated
+	 */
+	CountFilterElement createCountFilterElement();
+
+	/**
+	 * Returns a new object of class '<em>Number Filter Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Number Filter Element</em>'.
+	 * @generated
+	 */
+	NumberFilterElement createNumberFilterElement();
 
 	/**
 	 * Returns the package supported by this factory.

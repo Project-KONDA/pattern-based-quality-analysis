@@ -58,15 +58,13 @@ public class JavaqueryFactoryImpl extends EFactoryImpl implements JavaqueryFacto
 		switch (eClass.getClassifierID()) {
 			case JavaqueryPackage.JAVA_FILTER: return createJavaFilter();
 			case JavaqueryPackage.FORMULA_FILTER_PART: return createFormulaFilterPart();
-			case JavaqueryPackage.BOOLEAN_FILTER_PART: return createBooleanFilterPart();
 			case JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART: return createOneArgFunctionFilterPart();
 			case JavaqueryPackage.LIST_FILTER_PART: return createListFilterPart();
 			case JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART: return createTwoArgFunctionFilterPart();
-			case JavaqueryPackage.EVERY_COMBINATOR: return createEveryCombinator();
-			case JavaqueryPackage.ANY_COMBINATOR: return createAnyCombinator();
-			case JavaqueryPackage.NONE_COMBINATOR: return createNoneCombinator();
-			case JavaqueryPackage.COUNT_COMBINATOR: return createCountCombinator();
 			case JavaqueryPackage.NOT_FILTER_PART: return createNotFilterPart();
+			case JavaqueryPackage.COUNT_FILTER_PART: return createCountFilterPart();
+			case JavaqueryPackage.COUNT_FILTER_ELEMENT: return createCountFilterElement();
+			case JavaqueryPackage.NUMBER_FILTER_ELEMENT: return createNumberFilterElement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -92,17 +90,6 @@ public class JavaqueryFactoryImpl extends EFactoryImpl implements JavaqueryFacto
 	public FormulaFilterPart createFormulaFilterPart() {
 		FormulaFilterPartImpl formulaFilterPart = new FormulaFilterPartImpl();
 		return formulaFilterPart;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public BooleanFilterPart createBooleanFilterPart() {
-		BooleanFilterPartImpl booleanFilterPart = new BooleanFilterPartImpl();
-		return booleanFilterPart;
 	}
 
 	/**
@@ -144,53 +131,42 @@ public class JavaqueryFactoryImpl extends EFactoryImpl implements JavaqueryFacto
 	 * @generated
 	 */
 	@Override
-	public EveryCombinator createEveryCombinator() {
-		EveryCombinatorImpl everyCombinator = new EveryCombinatorImpl();
-		return everyCombinator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public AnyCombinator createAnyCombinator() {
-		AnyCombinatorImpl anyCombinator = new AnyCombinatorImpl();
-		return anyCombinator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NoneCombinator createNoneCombinator() {
-		NoneCombinatorImpl noneCombinator = new NoneCombinatorImpl();
-		return noneCombinator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public CountCombinator createCountCombinator() {
-		CountCombinatorImpl countCombinator = new CountCombinatorImpl();
-		return countCombinator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotFilterPart createNotFilterPart() {
 		NotFilterPartImpl notFilterPart = new NotFilterPartImpl();
 		return notFilterPart;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public CountFilterPart createCountFilterPart() {
+		CountFilterPartImpl countFilterPart = new CountFilterPartImpl();
+		return countFilterPart;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public CountFilterElement createCountFilterElement() {
+		CountFilterElementImpl countFilterElement = new CountFilterElementImpl();
+		return countFilterElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NumberFilterElement createNumberFilterElement() {
+		NumberFilterElementImpl numberFilterElement = new NumberFilterElementImpl();
+		return numberFilterElement;
 	}
 
 	/**

@@ -32,11 +32,13 @@ public class JavaqueryTests extends TestSuite {
 	public static Test suite() {
 		TestSuite suite = new JavaqueryTests("javaquery Tests");
 		suite.addTestSuite(FormulaFilterPartTest.class);
-		suite.addTestSuite(BooleanFilterPartTest.class);
 		suite.addTestSuite(OneArgFunctionFilterPartTest.class);
 		suite.addTestSuite(ListFilterPartTest.class);
 		suite.addTestSuite(TwoArgFunctionFilterPartTest.class);
 		suite.addTestSuite(NotFilterPartTest.class);
+		suite.addTestSuite(CountFilterPartTest.class);
+		suite.addTestSuite(CountFilterElementTest.class);
+		suite.addTestSuite(NumberFilterElementTest.class);
 		return suite;
 	}
 

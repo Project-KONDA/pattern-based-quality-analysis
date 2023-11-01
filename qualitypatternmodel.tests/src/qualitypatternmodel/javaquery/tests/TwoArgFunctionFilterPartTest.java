@@ -19,7 +19,7 @@ import qualitypatternmodel.javaquery.TwoArgFunctionFilterPart;
  * </p>
  * @generated
  */
-public class TwoArgFunctionFilterPartTest extends JavaFilterPartTest {
+public class TwoArgFunctionFilterPartTest extends BooleanFilterPartTest {
 
 	/**
 	 * <!-- begin-user-doc -->

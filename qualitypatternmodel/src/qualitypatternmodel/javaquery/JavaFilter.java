@@ -28,12 +28,12 @@ public interface JavaFilter extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Filter</em>' containment reference.
-	 * @see #setFilter(JavaFilterPart)
+	 * @see #setFilter(BooleanFilterPart)
 	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getJavaFilter_Filter()
 	 * @model containment="true"
 	 * @generated
 	 */
-	JavaFilterPart getFilter();
+	BooleanFilterPart getFilter();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.javaquery.JavaFilter#getFilter <em>Filter</em>}' containment reference.
@@ -43,7 +43,7 @@ public interface JavaFilter extends EObject {
 	 * @see #getFilter()
 	 * @generated
 	 */
-	void setFilter(JavaFilterPart value);
+	void setFilter(BooleanFilterPart value);
 
 	/**
 	 * Returns the value of the '<em><b>Structure</b></em>' containment reference.

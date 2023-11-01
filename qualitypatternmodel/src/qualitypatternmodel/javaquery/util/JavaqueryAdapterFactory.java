@@ -72,16 +72,16 @@ public class JavaqueryAdapterFactory extends AdapterFactoryImpl {
 				return createJavaFilterAdapter();
 			}
 			@Override
-			public Adapter caseJavaFilterPart(JavaFilterPart object) {
-				return createJavaFilterPartAdapter();
+			public Adapter caseBooleanFilterPart(BooleanFilterPart object) {
+				return createBooleanFilterPartAdapter();
 			}
 			@Override
 			public Adapter caseFormulaFilterPart(FormulaFilterPart object) {
 				return createFormulaFilterPartAdapter();
 			}
 			@Override
-			public Adapter caseBooleanFilterPart(BooleanFilterPart object) {
-				return createBooleanFilterPartAdapter();
+			public Adapter caseBooleanFilterElement(BooleanFilterElement object) {
+				return createBooleanFilterElementAdapter();
 			}
 			@Override
 			public Adapter caseOneArgFunctionFilterPart(OneArgFunctionFilterPart object) {
@@ -96,28 +96,28 @@ public class JavaqueryAdapterFactory extends AdapterFactoryImpl {
 				return createTwoArgFunctionFilterPartAdapter();
 			}
 			@Override
-			public Adapter caseCombinator(Combinator object) {
-				return createCombinatorAdapter();
-			}
-			@Override
-			public Adapter caseEveryCombinator(EveryCombinator object) {
-				return createEveryCombinatorAdapter();
-			}
-			@Override
-			public Adapter caseAnyCombinator(AnyCombinator object) {
-				return createAnyCombinatorAdapter();
-			}
-			@Override
-			public Adapter caseNoneCombinator(NoneCombinator object) {
-				return createNoneCombinatorAdapter();
-			}
-			@Override
-			public Adapter caseCountCombinator(CountCombinator object) {
-				return createCountCombinatorAdapter();
-			}
-			@Override
 			public Adapter caseNotFilterPart(NotFilterPart object) {
 				return createNotFilterPartAdapter();
+			}
+			@Override
+			public Adapter caseCountFilterPart(CountFilterPart object) {
+				return createCountFilterPartAdapter();
+			}
+			@Override
+			public Adapter caseNumberFilterPart(NumberFilterPart object) {
+				return createNumberFilterPartAdapter();
+			}
+			@Override
+			public Adapter caseCountFilterElement(CountFilterElement object) {
+				return createCountFilterElementAdapter();
+			}
+			@Override
+			public Adapter caseNumberFilterElement(NumberFilterElement object) {
+				return createNumberFilterElementAdapter();
+			}
+			@Override
+			public Adapter caseJavaFilterPart(JavaFilterPart object) {
+				return createJavaFilterPartAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -182,6 +182,20 @@ public class JavaqueryAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaquery.BooleanFilterElement <em>Boolean Filter Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.javaquery.BooleanFilterElement
+	 * @generated
+	 */
+	public Adapter createBooleanFilterElementAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaquery.BooleanFilterPart <em>Boolean Filter Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -238,76 +252,6 @@ public class JavaqueryAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaquery.Combinator <em>Combinator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.javaquery.Combinator
-	 * @generated
-	 */
-	public Adapter createCombinatorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaquery.EveryCombinator <em>Every Combinator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.javaquery.EveryCombinator
-	 * @generated
-	 */
-	public Adapter createEveryCombinatorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaquery.AnyCombinator <em>Any Combinator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.javaquery.AnyCombinator
-	 * @generated
-	 */
-	public Adapter createAnyCombinatorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaquery.NoneCombinator <em>None Combinator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.javaquery.NoneCombinator
-	 * @generated
-	 */
-	public Adapter createNoneCombinatorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaquery.CountCombinator <em>Count Combinator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.javaquery.CountCombinator
-	 * @generated
-	 */
-	public Adapter createCountCombinatorAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaquery.NotFilterPart <em>Not Filter Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -318,6 +262,62 @@ public class JavaqueryAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNotFilterPartAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaquery.CountFilterPart <em>Count Filter Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.javaquery.CountFilterPart
+	 * @generated
+	 */
+	public Adapter createCountFilterPartAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaquery.NumberFilterPart <em>Number Filter Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.javaquery.NumberFilterPart
+	 * @generated
+	 */
+	public Adapter createNumberFilterPartAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaquery.CountFilterElement <em>Count Filter Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.javaquery.CountFilterElement
+	 * @generated
+	 */
+	public Adapter createCountFilterElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaquery.NumberFilterElement <em>Number Filter Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.javaquery.NumberFilterElement
+	 * @generated
+	 */
+	public Adapter createNumberFilterElementAdapter() {
 		return null;
 	}
 

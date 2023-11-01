@@ -13,7 +13,7 @@ import qualitypatternmodel.javaquery.NotFilterPart;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NotFilterPartTest extends JavaFilterPartTest {
+public class NotFilterPartTest extends BooleanFilterPartTest {
 
 	/**
 	 * <!-- begin-user-doc -->

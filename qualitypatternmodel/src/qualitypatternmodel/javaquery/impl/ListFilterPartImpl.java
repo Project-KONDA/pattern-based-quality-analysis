@@ -10,11 +10,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import qualitypatternmodel.javaquery.Combinator;
-import qualitypatternmodel.javaquery.JavaFilterPart;
+import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.ListFilterPart;
 import qualitypatternmodel.javaqueryoutput.ContainerInterimResultPart;
+import qualitypatternmodel.patternstructure.Quantifier;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,24 +24,14 @@ import qualitypatternmodel.javaqueryoutput.ContainerInterimResultPart;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.javaquery.impl.ListFilterPartImpl#getCombinator <em>Combinator</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.impl.ListFilterPartImpl#getSubfilter <em>Subfilter</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.impl.ListFilterPartImpl#getArgument <em>Argument</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.impl.ListFilterPartImpl#getQuantifier <em>Quantifier</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ListFilterPartImpl extends JavaFilterPartImpl implements ListFilterPart {
-	/**
-	 * The cached value of the '{@link #getCombinator() <em>Combinator</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCombinator()
-	 * @generated
-	 * @ordered
-	 */
-	protected Combinator combinator;
-
+public class ListFilterPartImpl extends BooleanFilterPartImpl implements ListFilterPart {
 	/**
 	 * The cached value of the '{@link #getSubfilter() <em>Subfilter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -50,7 +40,7 @@ public class ListFilterPartImpl extends JavaFilterPartImpl implements ListFilter
 	 * @generated
 	 * @ordered
 	 */
-	protected JavaFilterPart subfilter;
+	protected BooleanFilterPart subfilter;
 
 	/**
 	 * The cached value of the '{@link #getArgument() <em>Argument</em>}' reference.
@@ -63,12 +53,38 @@ public class ListFilterPartImpl extends JavaFilterPartImpl implements ListFilter
 	protected ContainerInterimResultPart argument;
 
 	/**
+	 * The default value of the '{@link #getQuantifier() <em>Quantifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQuantifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Quantifier QUANTIFIER_EDEFAULT = Quantifier.EXISTS;
+
+	/**
+	 * The cached value of the '{@link #getQuantifier() <em>Quantifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQuantifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected Quantifier quantifier = QUANTIFIER_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ListFilterPartImpl() {
 		super();
+	}
+
+	public ListFilterPartImpl(Quantifier quantifier, BooleanFilterPart subfilter) {
+		super();
+		setQuantifier(quantifier);
+		setSubfilter(subfilter);
 	}
 
 	/**
@@ -87,52 +103,7 @@ public class ListFilterPartImpl extends JavaFilterPartImpl implements ListFilter
 	 * @generated
 	 */
 	@Override
-	public Combinator getCombinator() {
-		return combinator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCombinator(Combinator newCombinator, NotificationChain msgs) {
-		Combinator oldCombinator = combinator;
-		combinator = newCombinator;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryPackage.LIST_FILTER_PART__COMBINATOR, oldCombinator, newCombinator);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setCombinator(Combinator newCombinator) {
-		if (newCombinator != combinator) {
-			NotificationChain msgs = null;
-			if (combinator != null)
-				msgs = ((InternalEObject)combinator).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JavaqueryPackage.LIST_FILTER_PART__COMBINATOR, null, msgs);
-			if (newCombinator != null)
-				msgs = ((InternalEObject)newCombinator).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JavaqueryPackage.LIST_FILTER_PART__COMBINATOR, null, msgs);
-			msgs = basicSetCombinator(newCombinator, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.LIST_FILTER_PART__COMBINATOR, newCombinator, newCombinator));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public JavaFilterPart getSubfilter() {
+	public BooleanFilterPart getSubfilter() {
 		return subfilter;
 	}
 
@@ -141,8 +112,8 @@ public class ListFilterPartImpl extends JavaFilterPartImpl implements ListFilter
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSubfilter(JavaFilterPart newSubfilter, NotificationChain msgs) {
-		JavaFilterPart oldSubfilter = subfilter;
+	public NotificationChain basicSetSubfilter(BooleanFilterPart newSubfilter, NotificationChain msgs) {
+		BooleanFilterPart oldSubfilter = subfilter;
 		subfilter = newSubfilter;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryPackage.LIST_FILTER_PART__SUBFILTER, oldSubfilter, newSubfilter);
@@ -157,7 +128,7 @@ public class ListFilterPartImpl extends JavaFilterPartImpl implements ListFilter
 	 * @generated
 	 */
 	@Override
-	public void setSubfilter(JavaFilterPart newSubfilter) {
+	public void setSubfilter(BooleanFilterPart newSubfilter) {
 		if (newSubfilter != subfilter) {
 			NotificationChain msgs = null;
 			if (subfilter != null)
@@ -217,10 +188,31 @@ public class ListFilterPartImpl extends JavaFilterPartImpl implements ListFilter
 	 * @generated
 	 */
 	@Override
+	public Quantifier getQuantifier() {
+		return quantifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setQuantifier(Quantifier newQuantifier) {
+		Quantifier oldQuantifier = quantifier;
+		quantifier = newQuantifier == null ? QUANTIFIER_EDEFAULT : newQuantifier;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.LIST_FILTER_PART__QUANTIFIER, oldQuantifier, quantifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case JavaqueryPackage.LIST_FILTER_PART__COMBINATOR:
-				return basicSetCombinator(null, msgs);
 			case JavaqueryPackage.LIST_FILTER_PART__SUBFILTER:
 				return basicSetSubfilter(null, msgs);
 		}
@@ -235,13 +227,13 @@ public class ListFilterPartImpl extends JavaFilterPartImpl implements ListFilter
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JavaqueryPackage.LIST_FILTER_PART__COMBINATOR:
-				return getCombinator();
 			case JavaqueryPackage.LIST_FILTER_PART__SUBFILTER:
 				return getSubfilter();
 			case JavaqueryPackage.LIST_FILTER_PART__ARGUMENT:
 				if (resolve) return getArgument();
 				return basicGetArgument();
+			case JavaqueryPackage.LIST_FILTER_PART__QUANTIFIER:
+				return getQuantifier();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -254,14 +246,14 @@ public class ListFilterPartImpl extends JavaFilterPartImpl implements ListFilter
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JavaqueryPackage.LIST_FILTER_PART__COMBINATOR:
-				setCombinator((Combinator)newValue);
-				return;
 			case JavaqueryPackage.LIST_FILTER_PART__SUBFILTER:
-				setSubfilter((JavaFilterPart)newValue);
+				setSubfilter((BooleanFilterPart)newValue);
 				return;
 			case JavaqueryPackage.LIST_FILTER_PART__ARGUMENT:
 				setArgument((ContainerInterimResultPart)newValue);
+				return;
+			case JavaqueryPackage.LIST_FILTER_PART__QUANTIFIER:
+				setQuantifier((Quantifier)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -275,14 +267,14 @@ public class ListFilterPartImpl extends JavaFilterPartImpl implements ListFilter
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JavaqueryPackage.LIST_FILTER_PART__COMBINATOR:
-				setCombinator((Combinator)null);
-				return;
 			case JavaqueryPackage.LIST_FILTER_PART__SUBFILTER:
-				setSubfilter((JavaFilterPart)null);
+				setSubfilter((BooleanFilterPart)null);
 				return;
 			case JavaqueryPackage.LIST_FILTER_PART__ARGUMENT:
 				setArgument((ContainerInterimResultPart)null);
+				return;
+			case JavaqueryPackage.LIST_FILTER_PART__QUANTIFIER:
+				setQuantifier(QUANTIFIER_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -296,14 +288,30 @@ public class ListFilterPartImpl extends JavaFilterPartImpl implements ListFilter
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JavaqueryPackage.LIST_FILTER_PART__COMBINATOR:
-				return combinator != null;
 			case JavaqueryPackage.LIST_FILTER_PART__SUBFILTER:
 				return subfilter != null;
 			case JavaqueryPackage.LIST_FILTER_PART__ARGUMENT:
 				return argument != null;
+			case JavaqueryPackage.LIST_FILTER_PART__QUANTIFIER:
+				return quantifier != QUANTIFIER_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (quantifier: ");
+		result.append(quantifier);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ListFilterPartImpl

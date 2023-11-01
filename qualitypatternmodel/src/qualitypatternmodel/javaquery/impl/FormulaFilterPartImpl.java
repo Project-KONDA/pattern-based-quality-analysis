@@ -10,9 +10,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.FormulaFilterPart;
-import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
+import qualitypatternmodel.patternstructure.LogicalOperator;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,11 +25,12 @@ import qualitypatternmodel.javaquery.JavaqueryPackage;
  * <ul>
  *   <li>{@link qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl#getSubfilter1 <em>Subfilter1</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl#getSubfilter2 <em>Subfilter2</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl#getOperator <em>Operator</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class FormulaFilterPartImpl extends JavaFilterPartImpl implements FormulaFilterPart {
+public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements FormulaFilterPart {
 	/**
 	 * The cached value of the '{@link #getSubfilter1() <em>Subfilter1</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -37,7 +39,7 @@ public class FormulaFilterPartImpl extends JavaFilterPartImpl implements Formula
 	 * @generated
 	 * @ordered
 	 */
-	protected JavaFilterPart subfilter1;
+	protected BooleanFilterPart subfilter1;
 
 	/**
 	 * The cached value of the '{@link #getSubfilter2() <em>Subfilter2</em>}' containment reference.
@@ -47,15 +49,43 @@ public class FormulaFilterPartImpl extends JavaFilterPartImpl implements Formula
 	 * @generated
 	 * @ordered
 	 */
-	protected JavaFilterPart subfilter2;
+	protected BooleanFilterPart subfilter2;
+
+	/**
+	 * The default value of the '{@link #getOperator() <em>Operator</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOperator()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final LogicalOperator OPERATOR_EDEFAULT = LogicalOperator.AND;
+
+	/**
+	 * The cached value of the '{@link #getOperator() <em>Operator</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOperator()
+	 * @generated
+	 * @ordered
+	 */
+	protected LogicalOperator operator = OPERATOR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected FormulaFilterPartImpl() {
+	public FormulaFilterPartImpl() {
 		super();
+	}
+	
+	public FormulaFilterPartImpl(LogicalOperator op, BooleanFilterPart booleanFilterPart,
+			BooleanFilterPart booleanFilterPart2) {
+		super();
+		setOperator(op);
+		setSubfilter1(booleanFilterPart);
+		setSubfilter2(booleanFilterPart2);
 	}
 
 	/**
@@ -74,7 +104,7 @@ public class FormulaFilterPartImpl extends JavaFilterPartImpl implements Formula
 	 * @generated
 	 */
 	@Override
-	public JavaFilterPart getSubfilter1() {
+	public BooleanFilterPart getSubfilter1() {
 		return subfilter1;
 	}
 
@@ -83,8 +113,8 @@ public class FormulaFilterPartImpl extends JavaFilterPartImpl implements Formula
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSubfilter1(JavaFilterPart newSubfilter1, NotificationChain msgs) {
-		JavaFilterPart oldSubfilter1 = subfilter1;
+	public NotificationChain basicSetSubfilter1(BooleanFilterPart newSubfilter1, NotificationChain msgs) {
+		BooleanFilterPart oldSubfilter1 = subfilter1;
 		subfilter1 = newSubfilter1;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryPackage.FORMULA_FILTER_PART__SUBFILTER1, oldSubfilter1, newSubfilter1);
@@ -99,7 +129,7 @@ public class FormulaFilterPartImpl extends JavaFilterPartImpl implements Formula
 	 * @generated
 	 */
 	@Override
-	public void setSubfilter1(JavaFilterPart newSubfilter1) {
+	public void setSubfilter1(BooleanFilterPart newSubfilter1) {
 		if (newSubfilter1 != subfilter1) {
 			NotificationChain msgs = null;
 			if (subfilter1 != null)
@@ -119,7 +149,7 @@ public class FormulaFilterPartImpl extends JavaFilterPartImpl implements Formula
 	 * @generated
 	 */
 	@Override
-	public JavaFilterPart getSubfilter2() {
+	public BooleanFilterPart getSubfilter2() {
 		return subfilter2;
 	}
 
@@ -128,8 +158,8 @@ public class FormulaFilterPartImpl extends JavaFilterPartImpl implements Formula
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSubfilter2(JavaFilterPart newSubfilter2, NotificationChain msgs) {
-		JavaFilterPart oldSubfilter2 = subfilter2;
+	public NotificationChain basicSetSubfilter2(BooleanFilterPart newSubfilter2, NotificationChain msgs) {
+		BooleanFilterPart oldSubfilter2 = subfilter2;
 		subfilter2 = newSubfilter2;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryPackage.FORMULA_FILTER_PART__SUBFILTER2, oldSubfilter2, newSubfilter2);
@@ -144,7 +174,7 @@ public class FormulaFilterPartImpl extends JavaFilterPartImpl implements Formula
 	 * @generated
 	 */
 	@Override
-	public void setSubfilter2(JavaFilterPart newSubfilter2) {
+	public void setSubfilter2(BooleanFilterPart newSubfilter2) {
 		if (newSubfilter2 != subfilter2) {
 			NotificationChain msgs = null;
 			if (subfilter2 != null)
@@ -156,6 +186,29 @@ public class FormulaFilterPartImpl extends JavaFilterPartImpl implements Formula
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.FORMULA_FILTER_PART__SUBFILTER2, newSubfilter2, newSubfilter2));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public LogicalOperator getOperator() {
+		return operator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setOperator(LogicalOperator newOperator) {
+		LogicalOperator oldOperator = operator;
+		operator = newOperator == null ? OPERATOR_EDEFAULT : newOperator;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.FORMULA_FILTER_PART__OPERATOR, oldOperator, operator));
 	}
 
 	/**
@@ -186,6 +239,8 @@ public class FormulaFilterPartImpl extends JavaFilterPartImpl implements Formula
 				return getSubfilter1();
 			case JavaqueryPackage.FORMULA_FILTER_PART__SUBFILTER2:
 				return getSubfilter2();
+			case JavaqueryPackage.FORMULA_FILTER_PART__OPERATOR:
+				return getOperator();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -199,10 +254,13 @@ public class FormulaFilterPartImpl extends JavaFilterPartImpl implements Formula
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case JavaqueryPackage.FORMULA_FILTER_PART__SUBFILTER1:
-				setSubfilter1((JavaFilterPart)newValue);
+				setSubfilter1((BooleanFilterPart)newValue);
 				return;
 			case JavaqueryPackage.FORMULA_FILTER_PART__SUBFILTER2:
-				setSubfilter2((JavaFilterPart)newValue);
+				setSubfilter2((BooleanFilterPart)newValue);
+				return;
+			case JavaqueryPackage.FORMULA_FILTER_PART__OPERATOR:
+				setOperator((LogicalOperator)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -217,10 +275,13 @@ public class FormulaFilterPartImpl extends JavaFilterPartImpl implements Formula
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case JavaqueryPackage.FORMULA_FILTER_PART__SUBFILTER1:
-				setSubfilter1((JavaFilterPart)null);
+				setSubfilter1((BooleanFilterPart)null);
 				return;
 			case JavaqueryPackage.FORMULA_FILTER_PART__SUBFILTER2:
-				setSubfilter2((JavaFilterPart)null);
+				setSubfilter2((BooleanFilterPart)null);
+				return;
+			case JavaqueryPackage.FORMULA_FILTER_PART__OPERATOR:
+				setOperator(OPERATOR_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -238,8 +299,26 @@ public class FormulaFilterPartImpl extends JavaFilterPartImpl implements Formula
 				return subfilter1 != null;
 			case JavaqueryPackage.FORMULA_FILTER_PART__SUBFILTER2:
 				return subfilter2 != null;
+			case JavaqueryPackage.FORMULA_FILTER_PART__OPERATOR:
+				return operator != OPERATOR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (operator: ");
+		result.append(operator);
+		result.append(')');
+		return result.toString();
 	}
 
 } //FormulaFilterPartImpl

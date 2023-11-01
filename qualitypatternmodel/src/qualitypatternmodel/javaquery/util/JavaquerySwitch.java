@@ -72,19 +72,6 @@ public class JavaquerySwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JavaqueryPackage.JAVA_FILTER_PART: {
-				JavaFilterPart javaFilterPart = (JavaFilterPart)theEObject;
-				T result = caseJavaFilterPart(javaFilterPart);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case JavaqueryPackage.FORMULA_FILTER_PART: {
-				FormulaFilterPart formulaFilterPart = (FormulaFilterPart)theEObject;
-				T result = caseFormulaFilterPart(formulaFilterPart);
-				if (result == null) result = caseJavaFilterPart(formulaFilterPart);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case JavaqueryPackage.BOOLEAN_FILTER_PART: {
 				BooleanFilterPart booleanFilterPart = (BooleanFilterPart)theEObject;
 				T result = caseBooleanFilterPart(booleanFilterPart);
@@ -92,9 +79,26 @@ public class JavaquerySwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case JavaqueryPackage.FORMULA_FILTER_PART: {
+				FormulaFilterPart formulaFilterPart = (FormulaFilterPart)theEObject;
+				T result = caseFormulaFilterPart(formulaFilterPart);
+				if (result == null) result = caseBooleanFilterPart(formulaFilterPart);
+				if (result == null) result = caseJavaFilterPart(formulaFilterPart);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaqueryPackage.BOOLEAN_FILTER_ELEMENT: {
+				BooleanFilterElement booleanFilterElement = (BooleanFilterElement)theEObject;
+				T result = caseBooleanFilterElement(booleanFilterElement);
+				if (result == null) result = caseBooleanFilterPart(booleanFilterElement);
+				if (result == null) result = caseJavaFilterPart(booleanFilterElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART: {
 				OneArgFunctionFilterPart oneArgFunctionFilterPart = (OneArgFunctionFilterPart)theEObject;
 				T result = caseOneArgFunctionFilterPart(oneArgFunctionFilterPart);
+				if (result == null) result = caseBooleanFilterPart(oneArgFunctionFilterPart);
 				if (result == null) result = caseJavaFilterPart(oneArgFunctionFilterPart);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -102,6 +106,7 @@ public class JavaquerySwitch<T> extends Switch<T> {
 			case JavaqueryPackage.LIST_FILTER_PART: {
 				ListFilterPart listFilterPart = (ListFilterPart)theEObject;
 				T result = caseListFilterPart(listFilterPart);
+				if (result == null) result = caseBooleanFilterPart(listFilterPart);
 				if (result == null) result = caseJavaFilterPart(listFilterPart);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -109,48 +114,53 @@ public class JavaquerySwitch<T> extends Switch<T> {
 			case JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART: {
 				TwoArgFunctionFilterPart twoArgFunctionFilterPart = (TwoArgFunctionFilterPart)theEObject;
 				T result = caseTwoArgFunctionFilterPart(twoArgFunctionFilterPart);
+				if (result == null) result = caseBooleanFilterPart(twoArgFunctionFilterPart);
 				if (result == null) result = caseJavaFilterPart(twoArgFunctionFilterPart);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case JavaqueryPackage.COMBINATOR: {
-				Combinator combinator = (Combinator)theEObject;
-				T result = caseCombinator(combinator);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case JavaqueryPackage.EVERY_COMBINATOR: {
-				EveryCombinator everyCombinator = (EveryCombinator)theEObject;
-				T result = caseEveryCombinator(everyCombinator);
-				if (result == null) result = caseCombinator(everyCombinator);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case JavaqueryPackage.ANY_COMBINATOR: {
-				AnyCombinator anyCombinator = (AnyCombinator)theEObject;
-				T result = caseAnyCombinator(anyCombinator);
-				if (result == null) result = caseCombinator(anyCombinator);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case JavaqueryPackage.NONE_COMBINATOR: {
-				NoneCombinator noneCombinator = (NoneCombinator)theEObject;
-				T result = caseNoneCombinator(noneCombinator);
-				if (result == null) result = caseCombinator(noneCombinator);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case JavaqueryPackage.COUNT_COMBINATOR: {
-				CountCombinator countCombinator = (CountCombinator)theEObject;
-				T result = caseCountCombinator(countCombinator);
-				if (result == null) result = caseCombinator(countCombinator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case JavaqueryPackage.NOT_FILTER_PART: {
 				NotFilterPart notFilterPart = (NotFilterPart)theEObject;
 				T result = caseNotFilterPart(notFilterPart);
+				if (result == null) result = caseBooleanFilterPart(notFilterPart);
 				if (result == null) result = caseJavaFilterPart(notFilterPart);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaqueryPackage.COUNT_FILTER_PART: {
+				CountFilterPart countFilterPart = (CountFilterPart)theEObject;
+				T result = caseCountFilterPart(countFilterPart);
+				if (result == null) result = caseBooleanFilterPart(countFilterPart);
+				if (result == null) result = caseJavaFilterPart(countFilterPart);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaqueryPackage.NUMBER_FILTER_PART: {
+				NumberFilterPart numberFilterPart = (NumberFilterPart)theEObject;
+				T result = caseNumberFilterPart(numberFilterPart);
+				if (result == null) result = caseJavaFilterPart(numberFilterPart);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaqueryPackage.COUNT_FILTER_ELEMENT: {
+				CountFilterElement countFilterElement = (CountFilterElement)theEObject;
+				T result = caseCountFilterElement(countFilterElement);
+				if (result == null) result = caseNumberFilterPart(countFilterElement);
+				if (result == null) result = caseJavaFilterPart(countFilterElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaqueryPackage.NUMBER_FILTER_ELEMENT: {
+				NumberFilterElement numberFilterElement = (NumberFilterElement)theEObject;
+				T result = caseNumberFilterElement(numberFilterElement);
+				if (result == null) result = caseNumberFilterPart(numberFilterElement);
+				if (result == null) result = caseJavaFilterPart(numberFilterElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaqueryPackage.JAVA_FILTER_PART: {
+				JavaFilterPart javaFilterPart = (JavaFilterPart)theEObject;
+				T result = caseJavaFilterPart(javaFilterPart);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -200,6 +210,21 @@ public class JavaquerySwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseFormulaFilterPart(FormulaFilterPart object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Boolean Filter Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Boolean Filter Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBooleanFilterElement(BooleanFilterElement object) {
 		return null;
 	}
 
@@ -264,81 +289,6 @@ public class JavaquerySwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Combinator</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Combinator</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCombinator(Combinator object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Every Combinator</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Every Combinator</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEveryCombinator(EveryCombinator object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Any Combinator</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Any Combinator</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAnyCombinator(AnyCombinator object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>None Combinator</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>None Combinator</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNoneCombinator(NoneCombinator object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Count Combinator</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Count Combinator</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCountCombinator(CountCombinator object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Not Filter Part</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -350,6 +300,66 @@ public class JavaquerySwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNotFilterPart(NotFilterPart object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Count Filter Part</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Count Filter Part</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCountFilterPart(CountFilterPart object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Number Filter Part</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Number Filter Part</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNumberFilterPart(NumberFilterPart object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Count Filter Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Count Filter Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCountFilterElement(CountFilterElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Number Filter Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Number Filter Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNumberFilterElement(NumberFilterElement object) {
 		return null;
 	}
 

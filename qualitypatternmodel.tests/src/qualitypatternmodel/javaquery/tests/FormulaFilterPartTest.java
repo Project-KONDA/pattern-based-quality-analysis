@@ -13,7 +13,7 @@ import qualitypatternmodel.javaquery.JavaqueryFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class FormulaFilterPartTest extends JavaFilterPartTest {
+public class FormulaFilterPartTest extends BooleanFilterPartTest {
 
 	/**
 	 * <!-- begin-user-doc -->

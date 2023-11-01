@@ -19,7 +19,7 @@ import qualitypatternmodel.javaquery.OneArgFunctionFilterPart;
  * </p>
  * @generated
  */
-public class OneArgFunctionFilterPartTest extends JavaFilterPartTest {
+public class OneArgFunctionFilterPartTest extends BooleanFilterPartTest {
 
 	/**
 	 * <!-- begin-user-doc -->

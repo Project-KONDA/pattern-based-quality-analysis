@@ -12,19 +12,19 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.javaquery.NoneCombinator} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.javaquery.NumberFilterPart} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class NoneCombinatorItemProvider extends CombinatorItemProvider {
+public class NumberFilterPartItemProvider extends JavaFilterPartItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NoneCombinatorItemProvider(AdapterFactory adapterFactory) {
+	public NumberFilterPartItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -44,17 +44,6 @@ public class NoneCombinatorItemProvider extends CombinatorItemProvider {
 	}
 
 	/**
-	 * This returns NoneCombinator.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/NoneCombinator"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,7 +51,7 @@ public class NoneCombinatorItemProvider extends CombinatorItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_NoneCombinator_type");
+		return getString("_UI_NumberFilterPart_type");
 	}
 
 

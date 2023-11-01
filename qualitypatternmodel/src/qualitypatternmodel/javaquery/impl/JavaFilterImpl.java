@@ -11,8 +11,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaFilter;
-import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaqueryoutput.InterimResultsStructure;
 
@@ -39,7 +39,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated
 	 * @ordered
 	 */
-	protected JavaFilterPart filter;
+	protected BooleanFilterPart filter;
 
 	/**
 	 * The cached value of the '{@link #getStructure() <em>Structure</em>}' containment reference.
@@ -76,7 +76,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated
 	 */
 	@Override
-	public JavaFilterPart getFilter() {
+	public BooleanFilterPart getFilter() {
 		return filter;
 	}
 
@@ -85,8 +85,8 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFilter(JavaFilterPart newFilter, NotificationChain msgs) {
-		JavaFilterPart oldFilter = filter;
+	public NotificationChain basicSetFilter(BooleanFilterPart newFilter, NotificationChain msgs) {
+		BooleanFilterPart oldFilter = filter;
 		filter = newFilter;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryPackage.JAVA_FILTER__FILTER, oldFilter, newFilter);
@@ -101,7 +101,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated
 	 */
 	@Override
-	public void setFilter(JavaFilterPart newFilter) {
+	public void setFilter(BooleanFilterPart newFilter) {
 		if (newFilter != filter) {
 			NotificationChain msgs = null;
 			if (filter != null)
@@ -201,7 +201,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case JavaqueryPackage.JAVA_FILTER__FILTER:
-				setFilter((JavaFilterPart)newValue);
+				setFilter((BooleanFilterPart)newValue);
 				return;
 			case JavaqueryPackage.JAVA_FILTER__STRUCTURE:
 				setStructure((InterimResultsStructure)newValue);
@@ -219,7 +219,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case JavaqueryPackage.JAVA_FILTER__FILTER:
-				setFilter((JavaFilterPart)null);
+				setFilter((BooleanFilterPart)null);
 				return;
 			case JavaqueryPackage.JAVA_FILTER__STRUCTURE:
 				setStructure((InterimResultsStructure)null);

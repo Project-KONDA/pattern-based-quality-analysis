@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import qualitypatternmodel.javaquery.JavaFilterPart;
+import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.NotFilterPart;
 
@@ -27,7 +27,7 @@ import qualitypatternmodel.javaquery.NotFilterPart;
  *
  * @generated
  */
-public class NotFilterPartImpl extends JavaFilterPartImpl implements NotFilterPart {
+public class NotFilterPartImpl extends BooleanFilterPartImpl implements NotFilterPart {
 	/**
 	 * The cached value of the '{@link #getSubfilter() <em>Subfilter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -36,14 +36,14 @@ public class NotFilterPartImpl extends JavaFilterPartImpl implements NotFilterPa
 	 * @generated
 	 * @ordered
 	 */
-	protected JavaFilterPart subfilter;
+	protected BooleanFilterPart subfilter;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected NotFilterPartImpl() {
+	public NotFilterPartImpl() {
 		super();
 	}
 
@@ -63,7 +63,7 @@ public class NotFilterPartImpl extends JavaFilterPartImpl implements NotFilterPa
 	 * @generated
 	 */
 	@Override
-	public JavaFilterPart getSubfilter() {
+	public BooleanFilterPart getSubfilter() {
 		return subfilter;
 	}
 
@@ -72,8 +72,8 @@ public class NotFilterPartImpl extends JavaFilterPartImpl implements NotFilterPa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSubfilter(JavaFilterPart newSubfilter, NotificationChain msgs) {
-		JavaFilterPart oldSubfilter = subfilter;
+	public NotificationChain basicSetSubfilter(BooleanFilterPart newSubfilter, NotificationChain msgs) {
+		BooleanFilterPart oldSubfilter = subfilter;
 		subfilter = newSubfilter;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryPackage.NOT_FILTER_PART__SUBFILTER, oldSubfilter, newSubfilter);
@@ -88,7 +88,7 @@ public class NotFilterPartImpl extends JavaFilterPartImpl implements NotFilterPa
 	 * @generated
 	 */
 	@Override
-	public void setSubfilter(JavaFilterPart newSubfilter) {
+	public void setSubfilter(BooleanFilterPart newSubfilter) {
 		if (newSubfilter != subfilter) {
 			NotificationChain msgs = null;
 			if (subfilter != null)
@@ -139,7 +139,7 @@ public class NotFilterPartImpl extends JavaFilterPartImpl implements NotFilterPa
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case JavaqueryPackage.NOT_FILTER_PART__SUBFILTER:
-				setSubfilter((JavaFilterPart)newValue);
+				setSubfilter((BooleanFilterPart)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -154,7 +154,7 @@ public class NotFilterPartImpl extends JavaFilterPartImpl implements NotFilterPa
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case JavaqueryPackage.NOT_FILTER_PART__SUBFILTER:
-				setSubfilter((JavaFilterPart)null);
+				setSubfilter((BooleanFilterPart)null);
 				return;
 		}
 		super.eUnset(featureID);

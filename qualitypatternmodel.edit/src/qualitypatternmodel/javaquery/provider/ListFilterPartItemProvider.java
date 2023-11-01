@@ -13,11 +13,13 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.javaquery.JavaqueryFactory;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.ListFilterPart;
+import qualitypatternmodel.patternstructure.Quantifier;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.javaquery.ListFilterPart} object.
@@ -25,7 +27,7 @@ import qualitypatternmodel.javaquery.ListFilterPart;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ListFilterPartItemProvider extends JavaFilterPartItemProvider {
+public class ListFilterPartItemProvider extends BooleanFilterPartItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -48,6 +50,7 @@ public class ListFilterPartItemProvider extends JavaFilterPartItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addArgumentPropertyDescriptor(object);
+			addQuantifierPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -75,6 +78,28 @@ public class ListFilterPartItemProvider extends JavaFilterPartItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Quantifier feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addQuantifierPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ListFilterPart_quantifier_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ListFilterPart_quantifier_feature", "_UI_ListFilterPart_type"),
+				 JavaqueryPackage.Literals.LIST_FILTER_PART__QUANTIFIER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -86,7 +111,6 @@ public class ListFilterPartItemProvider extends JavaFilterPartItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(JavaqueryPackage.Literals.LIST_FILTER_PART__COMBINATOR);
 			childrenFeatures.add(JavaqueryPackage.Literals.LIST_FILTER_PART__SUBFILTER);
 		}
 		return childrenFeatures;
@@ -124,7 +148,11 @@ public class ListFilterPartItemProvider extends JavaFilterPartItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ListFilterPart_type");
+		Quantifier labelValue = ((ListFilterPart)object).getQuantifier();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ListFilterPart_type") :
+			getString("_UI_ListFilterPart_type") + " " + label;
 	}
 
 
@@ -140,7 +168,9 @@ public class ListFilterPartItemProvider extends JavaFilterPartItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ListFilterPart.class)) {
-			case JavaqueryPackage.LIST_FILTER_PART__COMBINATOR:
+			case JavaqueryPackage.LIST_FILTER_PART__QUANTIFIER:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case JavaqueryPackage.LIST_FILTER_PART__SUBFILTER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -161,33 +191,8 @@ public class ListFilterPartItemProvider extends JavaFilterPartItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaqueryPackage.Literals.LIST_FILTER_PART__COMBINATOR,
-				 JavaqueryFactory.eINSTANCE.createEveryCombinator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaqueryPackage.Literals.LIST_FILTER_PART__COMBINATOR,
-				 JavaqueryFactory.eINSTANCE.createAnyCombinator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaqueryPackage.Literals.LIST_FILTER_PART__COMBINATOR,
-				 JavaqueryFactory.eINSTANCE.createNoneCombinator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaqueryPackage.Literals.LIST_FILTER_PART__COMBINATOR,
-				 JavaqueryFactory.eINSTANCE.createCountCombinator()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(JavaqueryPackage.Literals.LIST_FILTER_PART__SUBFILTER,
 				 JavaqueryFactory.eINSTANCE.createFormulaFilterPart()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaqueryPackage.Literals.LIST_FILTER_PART__SUBFILTER,
-				 JavaqueryFactory.eINSTANCE.createBooleanFilterPart()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -208,6 +213,11 @@ public class ListFilterPartItemProvider extends JavaFilterPartItemProvider {
 			(createChildParameter
 				(JavaqueryPackage.Literals.LIST_FILTER_PART__SUBFILTER,
 				 JavaqueryFactory.eINSTANCE.createNotFilterPart()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaqueryPackage.Literals.LIST_FILTER_PART__SUBFILTER,
+				 JavaqueryFactory.eINSTANCE.createCountFilterPart()));
 	}
 
 }

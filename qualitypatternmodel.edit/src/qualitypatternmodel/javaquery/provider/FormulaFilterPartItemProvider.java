@@ -11,12 +11,15 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.javaquery.FormulaFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryFactory;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
+import qualitypatternmodel.patternstructure.LogicalOperator;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.javaquery.FormulaFilterPart} object.
@@ -24,7 +27,7 @@ import qualitypatternmodel.javaquery.JavaqueryPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class FormulaFilterPartItemProvider extends JavaFilterPartItemProvider {
+public class FormulaFilterPartItemProvider extends BooleanFilterPartItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -46,8 +49,31 @@ public class FormulaFilterPartItemProvider extends JavaFilterPartItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addOperatorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Operator feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOperatorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FormulaFilterPart_operator_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FormulaFilterPart_operator_feature", "_UI_FormulaFilterPart_type"),
+				 JavaqueryPackage.Literals.FORMULA_FILTER_PART__OPERATOR,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -100,7 +126,11 @@ public class FormulaFilterPartItemProvider extends JavaFilterPartItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_FormulaFilterPart_type");
+		LogicalOperator labelValue = ((FormulaFilterPart)object).getOperator();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_FormulaFilterPart_type") :
+			getString("_UI_FormulaFilterPart_type") + " " + label;
 	}
 
 
@@ -116,6 +146,9 @@ public class FormulaFilterPartItemProvider extends JavaFilterPartItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(FormulaFilterPart.class)) {
+			case JavaqueryPackage.FORMULA_FILTER_PART__OPERATOR:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case JavaqueryPackage.FORMULA_FILTER_PART__SUBFILTER1:
 			case JavaqueryPackage.FORMULA_FILTER_PART__SUBFILTER2:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -143,11 +176,6 @@ public class FormulaFilterPartItemProvider extends JavaFilterPartItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER1,
-				 JavaqueryFactory.eINSTANCE.createBooleanFilterPart()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER1,
 				 JavaqueryFactory.eINSTANCE.createOneArgFunctionFilterPart()));
 
 		newChildDescriptors.add
@@ -164,6 +192,11 @@ public class FormulaFilterPartItemProvider extends JavaFilterPartItemProvider {
 			(createChildParameter
 				(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER1,
 				 JavaqueryFactory.eINSTANCE.createNotFilterPart()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER1,
+				 JavaqueryFactory.eINSTANCE.createCountFilterPart()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -173,11 +206,6 @@ public class FormulaFilterPartItemProvider extends JavaFilterPartItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER2,
-				 JavaqueryFactory.eINSTANCE.createBooleanFilterPart()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER2,
 				 JavaqueryFactory.eINSTANCE.createOneArgFunctionFilterPart()));
 
 		newChildDescriptors.add
@@ -194,6 +222,11 @@ public class FormulaFilterPartItemProvider extends JavaFilterPartItemProvider {
 			(createChildParameter
 				(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER2,
 				 JavaqueryFactory.eINSTANCE.createNotFilterPart()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER2,
+				 JavaqueryFactory.eINSTANCE.createCountFilterPart()));
 	}
 
 	/**

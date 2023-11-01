@@ -12,19 +12,19 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.javaquery.AnyCombinator} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.javaquery.NumberFilterElement} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AnyCombinatorItemProvider extends CombinatorItemProvider {
+public class NumberFilterElementItemProvider extends NumberFilterPartItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AnyCombinatorItemProvider(AdapterFactory adapterFactory) {
+	public NumberFilterElementItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -44,14 +44,14 @@ public class AnyCombinatorItemProvider extends CombinatorItemProvider {
 	}
 
 	/**
-	 * This returns AnyCombinator.gif.
+	 * This returns NumberFilterElement.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AnyCombinator"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/NumberFilterElement"));
 	}
 
 	/**
@@ -62,7 +62,7 @@ public class AnyCombinatorItemProvider extends CombinatorItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_AnyCombinator_type");
+		return getString("_UI_NumberFilterElement_type");
 	}
 
 

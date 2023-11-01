@@ -111,7 +111,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getJavaFilterPart()
 	 * @generated
 	 */
-	int JAVA_FILTER_PART = 1;
+	int JAVA_FILTER_PART = 12;
 
 	/**
 	 * The number of structural features of the '<em>Java Filter Part</em>' class.
@@ -123,31 +123,13 @@ public interface JavaqueryPackage extends EPackage {
 	int JAVA_FILTER_PART_FEATURE_COUNT = 0;
 
 	/**
-	 * The operation id for the '<em>Apply</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_FILTER_PART___APPLY = 0;
-
-	/**
-	 * The operation id for the '<em>Get Arguments</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_FILTER_PART___GET_ARGUMENTS = 1;
-
-	/**
 	 * The number of operations of the '<em>Java Filter Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_FILTER_PART_OPERATION_COUNT = 2;
+	int JAVA_FILTER_PART_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl <em>Formula Filter Part</em>}' class.
@@ -160,58 +142,14 @@ public interface JavaqueryPackage extends EPackage {
 	int FORMULA_FILTER_PART = 2;
 
 	/**
-	 * The feature id for the '<em><b>Subfilter1</b></em>' containment reference.
+	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.BooleanFilterElementImpl <em>Boolean Filter Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaquery.impl.BooleanFilterElementImpl
+	 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getBooleanFilterElement()
 	 * @generated
-	 * @ordered
 	 */
-	int FORMULA_FILTER_PART__SUBFILTER1 = JAVA_FILTER_PART_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Subfilter2</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FORMULA_FILTER_PART__SUBFILTER2 = JAVA_FILTER_PART_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Formula Filter Part</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FORMULA_FILTER_PART_FEATURE_COUNT = JAVA_FILTER_PART_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Apply</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FORMULA_FILTER_PART___APPLY = JAVA_FILTER_PART___APPLY;
-
-	/**
-	 * The operation id for the '<em>Get Arguments</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FORMULA_FILTER_PART___GET_ARGUMENTS = JAVA_FILTER_PART___GET_ARGUMENTS;
-
-	/**
-	 * The number of operations of the '<em>Formula Filter Part</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FORMULA_FILTER_PART_OPERATION_COUNT = JAVA_FILTER_PART_OPERATION_COUNT + 0;
+	int BOOLEAN_FILTER_ELEMENT = 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.BooleanFilterPartImpl <em>Boolean Filter Part</em>}' class.
@@ -221,16 +159,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getBooleanFilterPart()
 	 * @generated
 	 */
-	int BOOLEAN_FILTER_PART = 3;
-
-	/**
-	 * The feature id for the '<em><b>Argument</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_FILTER_PART__ARGUMENT = JAVA_FILTER_PART_FEATURE_COUNT + 0;
+	int BOOLEAN_FILTER_PART = 1;
 
 	/**
 	 * The number of structural features of the '<em>Boolean Filter Part</em>' class.
@@ -239,7 +168,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_FILTER_PART_FEATURE_COUNT = JAVA_FILTER_PART_FEATURE_COUNT + 1;
+	int BOOLEAN_FILTER_PART_FEATURE_COUNT = JAVA_FILTER_PART_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Apply</em>' operation.
@@ -248,7 +177,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_FILTER_PART___APPLY = JAVA_FILTER_PART___APPLY;
+	int BOOLEAN_FILTER_PART___APPLY = JAVA_FILTER_PART_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Arguments</em>' operation.
@@ -257,7 +186,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_FILTER_PART___GET_ARGUMENTS = JAVA_FILTER_PART___GET_ARGUMENTS;
+	int BOOLEAN_FILTER_PART___GET_ARGUMENTS = JAVA_FILTER_PART_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Boolean Filter Part</em>' class.
@@ -266,7 +195,115 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_FILTER_PART_OPERATION_COUNT = JAVA_FILTER_PART_OPERATION_COUNT + 0;
+	int BOOLEAN_FILTER_PART_OPERATION_COUNT = JAVA_FILTER_PART_OPERATION_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Subfilter1</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA_FILTER_PART__SUBFILTER1 = BOOLEAN_FILTER_PART_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Subfilter2</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA_FILTER_PART__SUBFILTER2 = BOOLEAN_FILTER_PART_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA_FILTER_PART__OPERATOR = BOOLEAN_FILTER_PART_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Formula Filter Part</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA_FILTER_PART_FEATURE_COUNT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA_FILTER_PART___APPLY = BOOLEAN_FILTER_PART___APPLY;
+
+	/**
+	 * The operation id for the '<em>Get Arguments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA_FILTER_PART___GET_ARGUMENTS = BOOLEAN_FILTER_PART___GET_ARGUMENTS;
+
+	/**
+	 * The number of operations of the '<em>Formula Filter Part</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA_FILTER_PART_OPERATION_COUNT = BOOLEAN_FILTER_PART_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Argument</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_FILTER_ELEMENT__ARGUMENT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Boolean Filter Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_FILTER_ELEMENT_FEATURE_COUNT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_FILTER_ELEMENT___APPLY = BOOLEAN_FILTER_PART___APPLY;
+
+	/**
+	 * The operation id for the '<em>Get Arguments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_FILTER_ELEMENT___GET_ARGUMENTS = BOOLEAN_FILTER_PART___GET_ARGUMENTS;
+
+	/**
+	 * The number of operations of the '<em>Boolean Filter Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_FILTER_ELEMENT_OPERATION_COUNT = BOOLEAN_FILTER_PART_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.OneArgFunctionFilterPartImpl <em>One Arg Function Filter Part</em>}' class.
@@ -279,22 +316,22 @@ public interface JavaqueryPackage extends EPackage {
 	int ONE_ARG_FUNCTION_FILTER_PART = 4;
 
 	/**
-	 * The feature id for the '<em><b>Combinator</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ONE_ARG_FUNCTION_FILTER_PART__COMBINATOR = JAVA_FILTER_PART_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Argument</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT = JAVA_FILTER_PART_FEATURE_COUNT + 1;
+	int ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Quantifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_FUNCTION_FILTER_PART__QUANTIFIER = BOOLEAN_FILTER_PART_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>One Arg Function Filter Part</em>' class.
@@ -303,7 +340,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ONE_ARG_FUNCTION_FILTER_PART_FEATURE_COUNT = JAVA_FILTER_PART_FEATURE_COUNT + 2;
+	int ONE_ARG_FUNCTION_FILTER_PART_FEATURE_COUNT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Apply</em>' operation.
@@ -312,7 +349,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ONE_ARG_FUNCTION_FILTER_PART___APPLY = JAVA_FILTER_PART___APPLY;
+	int ONE_ARG_FUNCTION_FILTER_PART___APPLY = BOOLEAN_FILTER_PART___APPLY;
 
 	/**
 	 * The operation id for the '<em>Get Arguments</em>' operation.
@@ -321,7 +358,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ONE_ARG_FUNCTION_FILTER_PART___GET_ARGUMENTS = JAVA_FILTER_PART___GET_ARGUMENTS;
+	int ONE_ARG_FUNCTION_FILTER_PART___GET_ARGUMENTS = BOOLEAN_FILTER_PART___GET_ARGUMENTS;
 
 	/**
 	 * The operation id for the '<em>Apply</em>' operation.
@@ -330,7 +367,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ONE_ARG_FUNCTION_FILTER_PART___APPLY__STRING = JAVA_FILTER_PART_OPERATION_COUNT + 0;
+	int ONE_ARG_FUNCTION_FILTER_PART___APPLY__STRING = BOOLEAN_FILTER_PART_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>One Arg Function Filter Part</em>' class.
@@ -339,7 +376,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ONE_ARG_FUNCTION_FILTER_PART_OPERATION_COUNT = JAVA_FILTER_PART_OPERATION_COUNT + 1;
+	int ONE_ARG_FUNCTION_FILTER_PART_OPERATION_COUNT = BOOLEAN_FILTER_PART_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.ListFilterPartImpl <em>List Filter Part</em>}' class.
@@ -352,22 +389,13 @@ public interface JavaqueryPackage extends EPackage {
 	int LIST_FILTER_PART = 5;
 
 	/**
-	 * The feature id for the '<em><b>Combinator</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIST_FILTER_PART__COMBINATOR = JAVA_FILTER_PART_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Subfilter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LIST_FILTER_PART__SUBFILTER = JAVA_FILTER_PART_FEATURE_COUNT + 1;
+	int LIST_FILTER_PART__SUBFILTER = BOOLEAN_FILTER_PART_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Argument</b></em>' reference.
@@ -376,7 +404,16 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LIST_FILTER_PART__ARGUMENT = JAVA_FILTER_PART_FEATURE_COUNT + 2;
+	int LIST_FILTER_PART__ARGUMENT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Quantifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_FILTER_PART__QUANTIFIER = BOOLEAN_FILTER_PART_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>List Filter Part</em>' class.
@@ -385,7 +422,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LIST_FILTER_PART_FEATURE_COUNT = JAVA_FILTER_PART_FEATURE_COUNT + 3;
+	int LIST_FILTER_PART_FEATURE_COUNT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Apply</em>' operation.
@@ -394,7 +431,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LIST_FILTER_PART___APPLY = JAVA_FILTER_PART___APPLY;
+	int LIST_FILTER_PART___APPLY = BOOLEAN_FILTER_PART___APPLY;
 
 	/**
 	 * The operation id for the '<em>Get Arguments</em>' operation.
@@ -403,7 +440,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LIST_FILTER_PART___GET_ARGUMENTS = JAVA_FILTER_PART___GET_ARGUMENTS;
+	int LIST_FILTER_PART___GET_ARGUMENTS = BOOLEAN_FILTER_PART___GET_ARGUMENTS;
 
 	/**
 	 * The number of operations of the '<em>List Filter Part</em>' class.
@@ -412,7 +449,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LIST_FILTER_PART_OPERATION_COUNT = JAVA_FILTER_PART_OPERATION_COUNT + 0;
+	int LIST_FILTER_PART_OPERATION_COUNT = BOOLEAN_FILTER_PART_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.TwoArgFunctionFilterPartImpl <em>Two Arg Function Filter Part</em>}' class.
@@ -425,31 +462,13 @@ public interface JavaqueryPackage extends EPackage {
 	int TWO_ARG_FUNCTION_FILTER_PART = 6;
 
 	/**
-	 * The feature id for the '<em><b>Combinator2</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TWO_ARG_FUNCTION_FILTER_PART__COMBINATOR2 = JAVA_FILTER_PART_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Combinator1</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TWO_ARG_FUNCTION_FILTER_PART__COMBINATOR1 = JAVA_FILTER_PART_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Argument1</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT1 = JAVA_FILTER_PART_FEATURE_COUNT + 2;
+	int TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT1 = BOOLEAN_FILTER_PART_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Argument2</b></em>' reference.
@@ -458,7 +477,25 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT2 = JAVA_FILTER_PART_FEATURE_COUNT + 3;
+	int TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT2 = BOOLEAN_FILTER_PART_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Quantifier1</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TWO_ARG_FUNCTION_FILTER_PART__QUANTIFIER1 = BOOLEAN_FILTER_PART_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Quantifier2</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TWO_ARG_FUNCTION_FILTER_PART__QUANTIFIER2 = BOOLEAN_FILTER_PART_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Two Arg Function Filter Part</em>' class.
@@ -467,7 +504,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TWO_ARG_FUNCTION_FILTER_PART_FEATURE_COUNT = JAVA_FILTER_PART_FEATURE_COUNT + 4;
+	int TWO_ARG_FUNCTION_FILTER_PART_FEATURE_COUNT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Apply</em>' operation.
@@ -476,7 +513,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TWO_ARG_FUNCTION_FILTER_PART___APPLY = JAVA_FILTER_PART___APPLY;
+	int TWO_ARG_FUNCTION_FILTER_PART___APPLY = BOOLEAN_FILTER_PART___APPLY;
 
 	/**
 	 * The operation id for the '<em>Get Arguments</em>' operation.
@@ -485,7 +522,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TWO_ARG_FUNCTION_FILTER_PART___GET_ARGUMENTS = JAVA_FILTER_PART___GET_ARGUMENTS;
+	int TWO_ARG_FUNCTION_FILTER_PART___GET_ARGUMENTS = BOOLEAN_FILTER_PART___GET_ARGUMENTS;
 
 	/**
 	 * The operation id for the '<em>Apply</em>' operation.
@@ -494,7 +531,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TWO_ARG_FUNCTION_FILTER_PART___APPLY__STRING_STRING = JAVA_FILTER_PART_OPERATION_COUNT + 0;
+	int TWO_ARG_FUNCTION_FILTER_PART___APPLY__STRING_STRING = BOOLEAN_FILTER_PART_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Two Arg Function Filter Part</em>' class.
@@ -503,166 +540,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TWO_ARG_FUNCTION_FILTER_PART_OPERATION_COUNT = JAVA_FILTER_PART_OPERATION_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.CombinatorImpl <em>Combinator</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.javaquery.impl.CombinatorImpl
-	 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getCombinator()
-	 * @generated
-	 */
-	int COMBINATOR = 7;
-
-	/**
-	 * The number of structural features of the '<em>Combinator</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMBINATOR_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Combinator</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMBINATOR_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.EveryCombinatorImpl <em>Every Combinator</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.javaquery.impl.EveryCombinatorImpl
-	 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getEveryCombinator()
-	 * @generated
-	 */
-	int EVERY_COMBINATOR = 8;
-
-	/**
-	 * The number of structural features of the '<em>Every Combinator</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVERY_COMBINATOR_FEATURE_COUNT = COMBINATOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Every Combinator</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVERY_COMBINATOR_OPERATION_COUNT = COMBINATOR_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.AnyCombinatorImpl <em>Any Combinator</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.javaquery.impl.AnyCombinatorImpl
-	 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getAnyCombinator()
-	 * @generated
-	 */
-	int ANY_COMBINATOR = 9;
-
-	/**
-	 * The number of structural features of the '<em>Any Combinator</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANY_COMBINATOR_FEATURE_COUNT = COMBINATOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Any Combinator</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANY_COMBINATOR_OPERATION_COUNT = COMBINATOR_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.NoneCombinatorImpl <em>None Combinator</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.javaquery.impl.NoneCombinatorImpl
-	 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getNoneCombinator()
-	 * @generated
-	 */
-	int NONE_COMBINATOR = 10;
-
-	/**
-	 * The number of structural features of the '<em>None Combinator</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NONE_COMBINATOR_FEATURE_COUNT = COMBINATOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>None Combinator</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NONE_COMBINATOR_OPERATION_COUNT = COMBINATOR_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.CountCombinatorImpl <em>Count Combinator</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.javaquery.impl.CountCombinatorImpl
-	 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getCountCombinator()
-	 * @generated
-	 */
-	int COUNT_COMBINATOR = 11;
-
-	/**
-	 * The feature id for the '<em><b>Operator</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_COMBINATOR__OPERATOR = COMBINATOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_COMBINATOR__NUMBER = COMBINATOR_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Count Combinator</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_COMBINATOR_FEATURE_COUNT = COMBINATOR_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Count Combinator</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_COMBINATOR_OPERATION_COUNT = COMBINATOR_OPERATION_COUNT + 0;
-
+	int TWO_ARG_FUNCTION_FILTER_PART_OPERATION_COUNT = BOOLEAN_FILTER_PART_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.NotFilterPartImpl <em>Not Filter Part</em>}' class.
@@ -672,7 +550,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getNotFilterPart()
 	 * @generated
 	 */
-	int NOT_FILTER_PART = 12;
+	int NOT_FILTER_PART = 7;
 
 	/**
 	 * The feature id for the '<em><b>Subfilter</b></em>' containment reference.
@@ -681,7 +559,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_FILTER_PART__SUBFILTER = JAVA_FILTER_PART_FEATURE_COUNT + 0;
+	int NOT_FILTER_PART__SUBFILTER = BOOLEAN_FILTER_PART_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Not Filter Part</em>' class.
@@ -690,7 +568,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_FILTER_PART_FEATURE_COUNT = JAVA_FILTER_PART_FEATURE_COUNT + 1;
+	int NOT_FILTER_PART_FEATURE_COUNT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Apply</em>' operation.
@@ -699,7 +577,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_FILTER_PART___APPLY = JAVA_FILTER_PART___APPLY;
+	int NOT_FILTER_PART___APPLY = BOOLEAN_FILTER_PART___APPLY;
 
 	/**
 	 * The operation id for the '<em>Get Arguments</em>' operation.
@@ -708,7 +586,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_FILTER_PART___GET_ARGUMENTS = JAVA_FILTER_PART___GET_ARGUMENTS;
+	int NOT_FILTER_PART___GET_ARGUMENTS = BOOLEAN_FILTER_PART___GET_ARGUMENTS;
 
 	/**
 	 * The number of operations of the '<em>Not Filter Part</em>' class.
@@ -717,7 +595,210 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_FILTER_PART_OPERATION_COUNT = JAVA_FILTER_PART_OPERATION_COUNT + 0;
+	int NOT_FILTER_PART_OPERATION_COUNT = BOOLEAN_FILTER_PART_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.CountFilterPartImpl <em>Count Filter Part</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaquery.impl.CountFilterPartImpl
+	 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getCountFilterPart()
+	 * @generated
+	 */
+	int COUNT_FILTER_PART = 8;
+
+	/**
+	 * The feature id for the '<em><b>Argument1</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_FILTER_PART__ARGUMENT1 = BOOLEAN_FILTER_PART_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Argument2</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_FILTER_PART__ARGUMENT2 = BOOLEAN_FILTER_PART_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_FILTER_PART__OPERATOR = BOOLEAN_FILTER_PART_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Count Filter Part</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_FILTER_PART_FEATURE_COUNT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_FILTER_PART___APPLY = BOOLEAN_FILTER_PART___APPLY;
+
+	/**
+	 * The operation id for the '<em>Get Arguments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_FILTER_PART___GET_ARGUMENTS = BOOLEAN_FILTER_PART___GET_ARGUMENTS;
+
+	/**
+	 * The number of operations of the '<em>Count Filter Part</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_FILTER_PART_OPERATION_COUNT = BOOLEAN_FILTER_PART_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.NumberFilterPartImpl <em>Number Filter Part</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaquery.impl.NumberFilterPartImpl
+	 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getNumberFilterPart()
+	 * @generated
+	 */
+	int NUMBER_FILTER_PART = 9;
+
+	/**
+	 * The number of structural features of the '<em>Number Filter Part</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_FILTER_PART_FEATURE_COUNT = JAVA_FILTER_PART_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_FILTER_PART___APPLY = JAVA_FILTER_PART_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Number Filter Part</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_FILTER_PART_OPERATION_COUNT = JAVA_FILTER_PART_OPERATION_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.CountFilterElementImpl <em>Count Filter Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaquery.impl.CountFilterElementImpl
+	 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getCountFilterElement()
+	 * @generated
+	 */
+	int COUNT_FILTER_ELEMENT = 10;
+
+	/**
+	 * The feature id for the '<em><b>Subfilter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_FILTER_ELEMENT__SUBFILTER = NUMBER_FILTER_PART_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Argument</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_FILTER_ELEMENT__ARGUMENT = NUMBER_FILTER_PART_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Count Filter Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_FILTER_ELEMENT_FEATURE_COUNT = NUMBER_FILTER_PART_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_FILTER_ELEMENT___APPLY = NUMBER_FILTER_PART___APPLY;
+
+	/**
+	 * The number of operations of the '<em>Count Filter Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_FILTER_ELEMENT_OPERATION_COUNT = NUMBER_FILTER_PART_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.NumberFilterElementImpl <em>Number Filter Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaquery.impl.NumberFilterElementImpl
+	 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getNumberFilterElement()
+	 * @generated
+	 */
+	int NUMBER_FILTER_ELEMENT = 11;
+
+	/**
+	 * The number of structural features of the '<em>Number Filter Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_FILTER_ELEMENT_FEATURE_COUNT = NUMBER_FILTER_PART_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_FILTER_ELEMENT___APPLY = NUMBER_FILTER_PART___APPLY;
+
+	/**
+	 * The number of operations of the '<em>Number Filter Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_FILTER_ELEMENT_OPERATION_COUNT = NUMBER_FILTER_PART_OPERATION_COUNT + 0;
 
 
 	/**
@@ -763,26 +844,6 @@ public interface JavaqueryPackage extends EPackage {
 	EClass getJavaFilterPart();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilterPart#apply() <em>Apply</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Apply</em>' operation.
-	 * @see qualitypatternmodel.javaquery.JavaFilterPart#apply()
-	 * @generated
-	 */
-	EOperation getJavaFilterPart__Apply();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilterPart#getArguments() <em>Get Arguments</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Arguments</em>' operation.
-	 * @see qualitypatternmodel.javaquery.JavaFilterPart#getArguments()
-	 * @generated
-	 */
-	EOperation getJavaFilterPart__GetArguments();
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.FormulaFilterPart <em>Formula Filter Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -815,6 +876,38 @@ public interface JavaqueryPackage extends EPackage {
 	EReference getFormulaFilterPart_Subfilter2();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.javaquery.FormulaFilterPart#getOperator <em>Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Operator</em>'.
+	 * @see qualitypatternmodel.javaquery.FormulaFilterPart#getOperator()
+	 * @see #getFormulaFilterPart()
+	 * @generated
+	 */
+	EAttribute getFormulaFilterPart_Operator();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.BooleanFilterElement <em>Boolean Filter Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Boolean Filter Element</em>'.
+	 * @see qualitypatternmodel.javaquery.BooleanFilterElement
+	 * @generated
+	 */
+	EClass getBooleanFilterElement();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.javaquery.BooleanFilterElement#getArgument <em>Argument</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Argument</em>'.
+	 * @see qualitypatternmodel.javaquery.BooleanFilterElement#getArgument()
+	 * @see #getBooleanFilterElement()
+	 * @generated
+	 */
+	EReference getBooleanFilterElement_Argument();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.BooleanFilterPart <em>Boolean Filter Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -825,15 +918,24 @@ public interface JavaqueryPackage extends EPackage {
 	EClass getBooleanFilterPart();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.javaquery.BooleanFilterPart#getArgument <em>Argument</em>}'.
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.BooleanFilterPart#apply() <em>Apply</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Argument</em>'.
-	 * @see qualitypatternmodel.javaquery.BooleanFilterPart#getArgument()
-	 * @see #getBooleanFilterPart()
+	 * @return the meta object for the '<em>Apply</em>' operation.
+	 * @see qualitypatternmodel.javaquery.BooleanFilterPart#apply()
 	 * @generated
 	 */
-	EReference getBooleanFilterPart_Argument();
+	EOperation getBooleanFilterPart__Apply();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.BooleanFilterPart#getArguments() <em>Get Arguments</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Arguments</em>' operation.
+	 * @see qualitypatternmodel.javaquery.BooleanFilterPart#getArguments()
+	 * @generated
+	 */
+	EOperation getBooleanFilterPart__GetArguments();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.OneArgFunctionFilterPart <em>One Arg Function Filter Part</em>}'.
@@ -846,17 +948,6 @@ public interface JavaqueryPackage extends EPackage {
 	EClass getOneArgFunctionFilterPart();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.javaquery.OneArgFunctionFilterPart#getCombinator <em>Combinator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Combinator</em>'.
-	 * @see qualitypatternmodel.javaquery.OneArgFunctionFilterPart#getCombinator()
-	 * @see #getOneArgFunctionFilterPart()
-	 * @generated
-	 */
-	EReference getOneArgFunctionFilterPart_Combinator();
-
-	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.javaquery.OneArgFunctionFilterPart#getArgument <em>Argument</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -866,6 +957,17 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getOneArgFunctionFilterPart_Argument();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.javaquery.OneArgFunctionFilterPart#getQuantifier <em>Quantifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Quantifier</em>'.
+	 * @see qualitypatternmodel.javaquery.OneArgFunctionFilterPart#getQuantifier()
+	 * @see #getOneArgFunctionFilterPart()
+	 * @generated
+	 */
+	EAttribute getOneArgFunctionFilterPart_Quantifier();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.OneArgFunctionFilterPart#apply(java.lang.String) <em>Apply</em>}' operation.
@@ -886,17 +988,6 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getListFilterPart();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.javaquery.ListFilterPart#getCombinator <em>Combinator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Combinator</em>'.
-	 * @see qualitypatternmodel.javaquery.ListFilterPart#getCombinator()
-	 * @see #getListFilterPart()
-	 * @generated
-	 */
-	EReference getListFilterPart_Combinator();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.javaquery.ListFilterPart#getSubfilter <em>Subfilter</em>}'.
@@ -921,6 +1012,17 @@ public interface JavaqueryPackage extends EPackage {
 	EReference getListFilterPart_Argument();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.javaquery.ListFilterPart#getQuantifier <em>Quantifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Quantifier</em>'.
+	 * @see qualitypatternmodel.javaquery.ListFilterPart#getQuantifier()
+	 * @see #getListFilterPart()
+	 * @generated
+	 */
+	EAttribute getListFilterPart_Quantifier();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart <em>Two Arg Function Filter Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -929,28 +1031,6 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getTwoArgFunctionFilterPart();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getCombinator2 <em>Combinator2</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Combinator2</em>'.
-	 * @see qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getCombinator2()
-	 * @see #getTwoArgFunctionFilterPart()
-	 * @generated
-	 */
-	EReference getTwoArgFunctionFilterPart_Combinator2();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getCombinator1 <em>Combinator1</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Combinator1</em>'.
-	 * @see qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getCombinator1()
-	 * @see #getTwoArgFunctionFilterPart()
-	 * @generated
-	 */
-	EReference getTwoArgFunctionFilterPart_Combinator1();
 
 	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getArgument1 <em>Argument1</em>}'.
@@ -975,6 +1055,28 @@ public interface JavaqueryPackage extends EPackage {
 	EReference getTwoArgFunctionFilterPart_Argument2();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getQuantifier1 <em>Quantifier1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Quantifier1</em>'.
+	 * @see qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getQuantifier1()
+	 * @see #getTwoArgFunctionFilterPart()
+	 * @generated
+	 */
+	EAttribute getTwoArgFunctionFilterPart_Quantifier1();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getQuantifier2 <em>Quantifier2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Quantifier2</em>'.
+	 * @see qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getQuantifier2()
+	 * @see #getTwoArgFunctionFilterPart()
+	 * @generated
+	 */
+	EAttribute getTwoArgFunctionFilterPart_Quantifier2();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#apply(java.lang.String, java.lang.String) <em>Apply</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -983,78 +1085,6 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getTwoArgFunctionFilterPart__Apply__String_String();
-
-	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.Combinator <em>Combinator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Combinator</em>'.
-	 * @see qualitypatternmodel.javaquery.Combinator
-	 * @generated
-	 */
-	EClass getCombinator();
-
-	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.EveryCombinator <em>Every Combinator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Every Combinator</em>'.
-	 * @see qualitypatternmodel.javaquery.EveryCombinator
-	 * @generated
-	 */
-	EClass getEveryCombinator();
-
-	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.AnyCombinator <em>Any Combinator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Any Combinator</em>'.
-	 * @see qualitypatternmodel.javaquery.AnyCombinator
-	 * @generated
-	 */
-	EClass getAnyCombinator();
-
-	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.NoneCombinator <em>None Combinator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>None Combinator</em>'.
-	 * @see qualitypatternmodel.javaquery.NoneCombinator
-	 * @generated
-	 */
-	EClass getNoneCombinator();
-
-	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.CountCombinator <em>Count Combinator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Count Combinator</em>'.
-	 * @see qualitypatternmodel.javaquery.CountCombinator
-	 * @generated
-	 */
-	EClass getCountCombinator();
-
-	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.javaquery.CountCombinator#getOperator <em>Operator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Operator</em>'.
-	 * @see qualitypatternmodel.javaquery.CountCombinator#getOperator()
-	 * @see #getCountCombinator()
-	 * @generated
-	 */
-	EAttribute getCountCombinator_Operator();
-
-	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.javaquery.CountCombinator#getNumber <em>Number</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Number</em>'.
-	 * @see qualitypatternmodel.javaquery.CountCombinator#getNumber()
-	 * @see #getCountCombinator()
-	 * @generated
-	 */
-	EAttribute getCountCombinator_Number();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.NotFilterPart <em>Not Filter Part</em>}'.
@@ -1076,6 +1106,111 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getNotFilterPart_Subfilter();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.CountFilterPart <em>Count Filter Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Count Filter Part</em>'.
+	 * @see qualitypatternmodel.javaquery.CountFilterPart
+	 * @generated
+	 */
+	EClass getCountFilterPart();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.javaquery.CountFilterPart#getArgument1 <em>Argument1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Argument1</em>'.
+	 * @see qualitypatternmodel.javaquery.CountFilterPart#getArgument1()
+	 * @see #getCountFilterPart()
+	 * @generated
+	 */
+	EReference getCountFilterPart_Argument1();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.javaquery.CountFilterPart#getArgument2 <em>Argument2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Argument2</em>'.
+	 * @see qualitypatternmodel.javaquery.CountFilterPart#getArgument2()
+	 * @see #getCountFilterPart()
+	 * @generated
+	 */
+	EReference getCountFilterPart_Argument2();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.javaquery.CountFilterPart#getOperator <em>Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Operator</em>'.
+	 * @see qualitypatternmodel.javaquery.CountFilterPart#getOperator()
+	 * @see #getCountFilterPart()
+	 * @generated
+	 */
+	EAttribute getCountFilterPart_Operator();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.NumberFilterPart <em>Number Filter Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Number Filter Part</em>'.
+	 * @see qualitypatternmodel.javaquery.NumberFilterPart
+	 * @generated
+	 */
+	EClass getNumberFilterPart();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.NumberFilterPart#apply() <em>Apply</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Apply</em>' operation.
+	 * @see qualitypatternmodel.javaquery.NumberFilterPart#apply()
+	 * @generated
+	 */
+	EOperation getNumberFilterPart__Apply();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.CountFilterElement <em>Count Filter Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Count Filter Element</em>'.
+	 * @see qualitypatternmodel.javaquery.CountFilterElement
+	 * @generated
+	 */
+	EClass getCountFilterElement();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.javaquery.CountFilterElement#getSubfilter <em>Subfilter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Subfilter</em>'.
+	 * @see qualitypatternmodel.javaquery.CountFilterElement#getSubfilter()
+	 * @see #getCountFilterElement()
+	 * @generated
+	 */
+	EReference getCountFilterElement_Subfilter();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.javaquery.CountFilterElement#getArgument <em>Argument</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Argument</em>'.
+	 * @see qualitypatternmodel.javaquery.CountFilterElement#getArgument()
+	 * @see #getCountFilterElement()
+	 * @generated
+	 */
+	EReference getCountFilterElement_Argument();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.NumberFilterElement <em>Number Filter Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Number Filter Element</em>'.
+	 * @see qualitypatternmodel.javaquery.NumberFilterElement
+	 * @generated
+	 */
+	EClass getNumberFilterElement();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1137,22 +1272,6 @@ public interface JavaqueryPackage extends EPackage {
 		EClass JAVA_FILTER_PART = eINSTANCE.getJavaFilterPart();
 
 		/**
-		 * The meta object literal for the '<em><b>Apply</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation JAVA_FILTER_PART___APPLY = eINSTANCE.getJavaFilterPart__Apply();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Arguments</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation JAVA_FILTER_PART___GET_ARGUMENTS = eINSTANCE.getJavaFilterPart__GetArguments();
-
-		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl <em>Formula Filter Part</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1179,6 +1298,32 @@ public interface JavaqueryPackage extends EPackage {
 		EReference FORMULA_FILTER_PART__SUBFILTER2 = eINSTANCE.getFormulaFilterPart_Subfilter2();
 
 		/**
+		 * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FORMULA_FILTER_PART__OPERATOR = eINSTANCE.getFormulaFilterPart_Operator();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.BooleanFilterElementImpl <em>Boolean Filter Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.javaquery.impl.BooleanFilterElementImpl
+		 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getBooleanFilterElement()
+		 * @generated
+		 */
+		EClass BOOLEAN_FILTER_ELEMENT = eINSTANCE.getBooleanFilterElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Argument</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOOLEAN_FILTER_ELEMENT__ARGUMENT = eINSTANCE.getBooleanFilterElement_Argument();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.BooleanFilterPartImpl <em>Boolean Filter Part</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1189,12 +1334,20 @@ public interface JavaqueryPackage extends EPackage {
 		EClass BOOLEAN_FILTER_PART = eINSTANCE.getBooleanFilterPart();
 
 		/**
-		 * The meta object literal for the '<em><b>Argument</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Apply</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BOOLEAN_FILTER_PART__ARGUMENT = eINSTANCE.getBooleanFilterPart_Argument();
+		EOperation BOOLEAN_FILTER_PART___APPLY = eINSTANCE.getBooleanFilterPart__Apply();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Arguments</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOOLEAN_FILTER_PART___GET_ARGUMENTS = eINSTANCE.getBooleanFilterPart__GetArguments();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.OneArgFunctionFilterPartImpl <em>One Arg Function Filter Part</em>}' class.
@@ -1207,20 +1360,20 @@ public interface JavaqueryPackage extends EPackage {
 		EClass ONE_ARG_FUNCTION_FILTER_PART = eINSTANCE.getOneArgFunctionFilterPart();
 
 		/**
-		 * The meta object literal for the '<em><b>Combinator</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ONE_ARG_FUNCTION_FILTER_PART__COMBINATOR = eINSTANCE.getOneArgFunctionFilterPart_Combinator();
-
-		/**
 		 * The meta object literal for the '<em><b>Argument</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT = eINSTANCE.getOneArgFunctionFilterPart_Argument();
+
+		/**
+		 * The meta object literal for the '<em><b>Quantifier</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ONE_ARG_FUNCTION_FILTER_PART__QUANTIFIER = eINSTANCE.getOneArgFunctionFilterPart_Quantifier();
 
 		/**
 		 * The meta object literal for the '<em><b>Apply</b></em>' operation.
@@ -1241,14 +1394,6 @@ public interface JavaqueryPackage extends EPackage {
 		EClass LIST_FILTER_PART = eINSTANCE.getListFilterPart();
 
 		/**
-		 * The meta object literal for the '<em><b>Combinator</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference LIST_FILTER_PART__COMBINATOR = eINSTANCE.getListFilterPart_Combinator();
-
-		/**
 		 * The meta object literal for the '<em><b>Subfilter</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1265,6 +1410,14 @@ public interface JavaqueryPackage extends EPackage {
 		EReference LIST_FILTER_PART__ARGUMENT = eINSTANCE.getListFilterPart_Argument();
 
 		/**
+		 * The meta object literal for the '<em><b>Quantifier</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LIST_FILTER_PART__QUANTIFIER = eINSTANCE.getListFilterPart_Quantifier();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.TwoArgFunctionFilterPartImpl <em>Two Arg Function Filter Part</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1273,22 +1426,6 @@ public interface JavaqueryPackage extends EPackage {
 		 * @generated
 		 */
 		EClass TWO_ARG_FUNCTION_FILTER_PART = eINSTANCE.getTwoArgFunctionFilterPart();
-
-		/**
-		 * The meta object literal for the '<em><b>Combinator2</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TWO_ARG_FUNCTION_FILTER_PART__COMBINATOR2 = eINSTANCE.getTwoArgFunctionFilterPart_Combinator2();
-
-		/**
-		 * The meta object literal for the '<em><b>Combinator1</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TWO_ARG_FUNCTION_FILTER_PART__COMBINATOR1 = eINSTANCE.getTwoArgFunctionFilterPart_Combinator1();
 
 		/**
 		 * The meta object literal for the '<em><b>Argument1</b></em>' reference feature.
@@ -1307,78 +1444,28 @@ public interface JavaqueryPackage extends EPackage {
 		EReference TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT2 = eINSTANCE.getTwoArgFunctionFilterPart_Argument2();
 
 		/**
+		 * The meta object literal for the '<em><b>Quantifier1</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TWO_ARG_FUNCTION_FILTER_PART__QUANTIFIER1 = eINSTANCE.getTwoArgFunctionFilterPart_Quantifier1();
+
+		/**
+		 * The meta object literal for the '<em><b>Quantifier2</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TWO_ARG_FUNCTION_FILTER_PART__QUANTIFIER2 = eINSTANCE.getTwoArgFunctionFilterPart_Quantifier2();
+
+		/**
 		 * The meta object literal for the '<em><b>Apply</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation TWO_ARG_FUNCTION_FILTER_PART___APPLY__STRING_STRING = eINSTANCE.getTwoArgFunctionFilterPart__Apply__String_String();
-
-		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.CombinatorImpl <em>Combinator</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.javaquery.impl.CombinatorImpl
-		 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getCombinator()
-		 * @generated
-		 */
-		EClass COMBINATOR = eINSTANCE.getCombinator();
-
-		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.EveryCombinatorImpl <em>Every Combinator</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.javaquery.impl.EveryCombinatorImpl
-		 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getEveryCombinator()
-		 * @generated
-		 */
-		EClass EVERY_COMBINATOR = eINSTANCE.getEveryCombinator();
-
-		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.AnyCombinatorImpl <em>Any Combinator</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.javaquery.impl.AnyCombinatorImpl
-		 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getAnyCombinator()
-		 * @generated
-		 */
-		EClass ANY_COMBINATOR = eINSTANCE.getAnyCombinator();
-
-		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.NoneCombinatorImpl <em>None Combinator</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.javaquery.impl.NoneCombinatorImpl
-		 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getNoneCombinator()
-		 * @generated
-		 */
-		EClass NONE_COMBINATOR = eINSTANCE.getNoneCombinator();
-
-		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.CountCombinatorImpl <em>Count Combinator</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.javaquery.impl.CountCombinatorImpl
-		 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getCountCombinator()
-		 * @generated
-		 */
-		EClass COUNT_COMBINATOR = eINSTANCE.getCountCombinator();
-
-		/**
-		 * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COUNT_COMBINATOR__OPERATOR = eINSTANCE.getCountCombinator_Operator();
-
-		/**
-		 * The meta object literal for the '<em><b>Number</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COUNT_COMBINATOR__NUMBER = eINSTANCE.getCountCombinator_Number();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.NotFilterPartImpl <em>Not Filter Part</em>}' class.
@@ -1397,6 +1484,94 @@ public interface JavaqueryPackage extends EPackage {
 		 * @generated
 		 */
 		EReference NOT_FILTER_PART__SUBFILTER = eINSTANCE.getNotFilterPart_Subfilter();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.CountFilterPartImpl <em>Count Filter Part</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.javaquery.impl.CountFilterPartImpl
+		 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getCountFilterPart()
+		 * @generated
+		 */
+		EClass COUNT_FILTER_PART = eINSTANCE.getCountFilterPart();
+
+		/**
+		 * The meta object literal for the '<em><b>Argument1</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COUNT_FILTER_PART__ARGUMENT1 = eINSTANCE.getCountFilterPart_Argument1();
+
+		/**
+		 * The meta object literal for the '<em><b>Argument2</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COUNT_FILTER_PART__ARGUMENT2 = eINSTANCE.getCountFilterPart_Argument2();
+
+		/**
+		 * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COUNT_FILTER_PART__OPERATOR = eINSTANCE.getCountFilterPart_Operator();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.NumberFilterPartImpl <em>Number Filter Part</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.javaquery.impl.NumberFilterPartImpl
+		 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getNumberFilterPart()
+		 * @generated
+		 */
+		EClass NUMBER_FILTER_PART = eINSTANCE.getNumberFilterPart();
+
+		/**
+		 * The meta object literal for the '<em><b>Apply</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NUMBER_FILTER_PART___APPLY = eINSTANCE.getNumberFilterPart__Apply();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.CountFilterElementImpl <em>Count Filter Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.javaquery.impl.CountFilterElementImpl
+		 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getCountFilterElement()
+		 * @generated
+		 */
+		EClass COUNT_FILTER_ELEMENT = eINSTANCE.getCountFilterElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Subfilter</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COUNT_FILTER_ELEMENT__SUBFILTER = eINSTANCE.getCountFilterElement_Subfilter();
+
+		/**
+		 * The meta object literal for the '<em><b>Argument</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COUNT_FILTER_ELEMENT__ARGUMENT = eINSTANCE.getCountFilterElement_Argument();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.NumberFilterElementImpl <em>Number Filter Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.javaquery.impl.NumberFilterElementImpl
+		 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getNumberFilterElement()
+		 * @generated
+		 */
+		EClass NUMBER_FILTER_ELEMENT = eINSTANCE.getNumberFilterElement();
 
 	}
 

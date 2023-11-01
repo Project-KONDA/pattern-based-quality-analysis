@@ -4,16 +4,16 @@ package qualitypatternmodel.javaquery.tests;
 
 import junit.textui.TestRunner;
 
-import qualitypatternmodel.javaquery.CountCombinator;
 import qualitypatternmodel.javaquery.JavaqueryFactory;
+import qualitypatternmodel.javaquery.NumberFilterElement;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Count Combinator</b></em>'.
+ * A test case for the model object '<em><b>Number Filter Element</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class CountCombinatorTest extends CombinatorTest {
+public class NumberFilterElementTest extends NumberFilterPartTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +21,28 @@ public class CountCombinatorTest extends CombinatorTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(CountCombinatorTest.class);
+		TestRunner.run(NumberFilterElementTest.class);
 	}
 
 	/**
-	 * Constructs a new Count Combinator test case with the given name.
+	 * Constructs a new Number Filter Element test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CountCombinatorTest(String name) {
+	public NumberFilterElementTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Count Combinator test case.
+	 * Returns the fixture for this Number Filter Element test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected CountCombinator getFixture() {
-		return (CountCombinator)fixture;
+	protected NumberFilterElement getFixture() {
+		return (NumberFilterElement)fixture;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class CountCombinatorTest extends CombinatorTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(JavaqueryFactory.eINSTANCE.createCountCombinator());
+		setFixture(JavaqueryFactory.eINSTANCE.createNumberFilterElement());
 	}
 
 	/**
@@ -67,4 +67,4 @@ public class CountCombinatorTest extends CombinatorTest {
 		setFixture(null);
 	}
 
-} //CountCombinatorTest
+} //NumberFilterElementTest

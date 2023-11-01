@@ -3,6 +3,7 @@
 package qualitypatternmodel.javaquery;
 
 import qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart;
+import qualitypatternmodel.patternstructure.Quantifier;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,61 +14,17 @@ import qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getCombinator2 <em>Combinator2</em>}</li>
- *   <li>{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getCombinator1 <em>Combinator1</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getArgument1 <em>Argument1</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getArgument2 <em>Argument2</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getQuantifier1 <em>Quantifier1</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getQuantifier2 <em>Quantifier2</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.javaquery.JavaqueryPackage#getTwoArgFunctionFilterPart()
  * @model
  * @generated
  */
-public interface TwoArgFunctionFilterPart extends JavaFilterPart {
-	/**
-	 * Returns the value of the '<em><b>Combinator2</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Combinator2</em>' containment reference.
-	 * @see #setCombinator2(Combinator)
-	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getTwoArgFunctionFilterPart_Combinator2()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	Combinator getCombinator2();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getCombinator2 <em>Combinator2</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Combinator2</em>' containment reference.
-	 * @see #getCombinator2()
-	 * @generated
-	 */
-	void setCombinator2(Combinator value);
-
-	/**
-	 * Returns the value of the '<em><b>Combinator1</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Combinator1</em>' containment reference.
-	 * @see #setCombinator1(Combinator)
-	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getTwoArgFunctionFilterPart_Combinator1()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	Combinator getCombinator1();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getCombinator1 <em>Combinator1</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Combinator1</em>' containment reference.
-	 * @see #getCombinator1()
-	 * @generated
-	 */
-	void setCombinator1(Combinator value);
-
+public interface TwoArgFunctionFilterPart extends BooleanFilterPart {
 	/**
 	 * Returns the value of the '<em><b>Argument1</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -111,6 +68,56 @@ public interface TwoArgFunctionFilterPart extends JavaFilterPart {
 	 * @generated
 	 */
 	void setArgument2(ValueListInterimResultPart value);
+
+	/**
+	 * Returns the value of the '<em><b>Quantifier1</b></em>' attribute.
+	 * The literals are from the enumeration {@link qualitypatternmodel.patternstructure.Quantifier}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Quantifier1</em>' attribute.
+	 * @see qualitypatternmodel.patternstructure.Quantifier
+	 * @see #setQuantifier1(Quantifier)
+	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getTwoArgFunctionFilterPart_Quantifier1()
+	 * @model
+	 * @generated
+	 */
+	Quantifier getQuantifier1();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getQuantifier1 <em>Quantifier1</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Quantifier1</em>' attribute.
+	 * @see qualitypatternmodel.patternstructure.Quantifier
+	 * @see #getQuantifier1()
+	 * @generated
+	 */
+	void setQuantifier1(Quantifier value);
+
+	/**
+	 * Returns the value of the '<em><b>Quantifier2</b></em>' attribute.
+	 * The literals are from the enumeration {@link qualitypatternmodel.patternstructure.Quantifier}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Quantifier2</em>' attribute.
+	 * @see qualitypatternmodel.patternstructure.Quantifier
+	 * @see #setQuantifier2(Quantifier)
+	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getTwoArgFunctionFilterPart_Quantifier2()
+	 * @model
+	 * @generated
+	 */
+	Quantifier getQuantifier2();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getQuantifier2 <em>Quantifier2</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Quantifier2</em>' attribute.
+	 * @see qualitypatternmodel.patternstructure.Quantifier
+	 * @see #getQuantifier2()
+	 * @generated
+	 */
+	void setQuantifier2(Quantifier value);
 
 	/**
 	 * <!-- begin-user-doc -->

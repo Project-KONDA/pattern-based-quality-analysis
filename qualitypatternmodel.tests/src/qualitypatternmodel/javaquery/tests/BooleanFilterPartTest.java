@@ -2,27 +2,22 @@
  */
 package qualitypatternmodel.javaquery.tests;
 
-import junit.textui.TestRunner;
-
 import qualitypatternmodel.javaquery.BooleanFilterPart;
-import qualitypatternmodel.javaquery.JavaqueryFactory;
 
 /**
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Boolean Filter Part</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.javaquery.BooleanFilterPart#apply() <em>Apply</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.BooleanFilterPart#getArguments() <em>Get Arguments</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
-public class BooleanFilterPartTest extends JavaFilterPartTest {
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static void main(String[] args) {
-		TestRunner.run(BooleanFilterPartTest.class);
-	}
+public abstract class BooleanFilterPartTest extends JavaFilterPartTest {
 
 	/**
 	 * Constructs a new Boolean Filter Part test case with the given name.
@@ -46,25 +41,29 @@ public class BooleanFilterPartTest extends JavaFilterPartTest {
 	}
 
 	/**
+	 * Tests the '{@link qualitypatternmodel.javaquery.BooleanFilterPart#apply() <em>Apply</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
+	 * @see qualitypatternmodel.javaquery.BooleanFilterPart#apply()
 	 * @generated
 	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(JavaqueryFactory.eINSTANCE.createBooleanFilterPart());
+	public void testApply() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 	/**
+	 * Tests the '{@link qualitypatternmodel.javaquery.BooleanFilterPart#getArguments() <em>Get Arguments</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
+	 * @see qualitypatternmodel.javaquery.BooleanFilterPart#getArguments()
 	 * @generated
 	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
+	public void testGetArguments() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //BooleanFilterPartTest

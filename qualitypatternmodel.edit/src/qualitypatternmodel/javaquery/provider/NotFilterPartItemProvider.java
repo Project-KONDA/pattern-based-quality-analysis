@@ -24,7 +24,7 @@ import qualitypatternmodel.javaquery.NotFilterPart;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NotFilterPartItemProvider extends JavaFilterPartItemProvider {
+public class NotFilterPartItemProvider extends BooleanFilterPartItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -141,11 +141,6 @@ public class NotFilterPartItemProvider extends JavaFilterPartItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaqueryPackage.Literals.NOT_FILTER_PART__SUBFILTER,
-				 JavaqueryFactory.eINSTANCE.createBooleanFilterPart()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaqueryPackage.Literals.NOT_FILTER_PART__SUBFILTER,
 				 JavaqueryFactory.eINSTANCE.createOneArgFunctionFilterPart()));
 
 		newChildDescriptors.add
@@ -162,6 +157,11 @@ public class NotFilterPartItemProvider extends JavaFilterPartItemProvider {
 			(createChildParameter
 				(JavaqueryPackage.Literals.NOT_FILTER_PART__SUBFILTER,
 				 JavaqueryFactory.eINSTANCE.createNotFilterPart()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaqueryPackage.Literals.NOT_FILTER_PART__SUBFILTER,
+				 JavaqueryFactory.eINSTANCE.createCountFilterPart()));
 	}
 
 }
