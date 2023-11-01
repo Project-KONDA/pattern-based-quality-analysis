@@ -40,6 +40,8 @@ import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.javaquery.BooleanFilterPart;
+import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsPackage;
@@ -140,6 +142,19 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	public GraphImpl() {
 		super();
 		setOperatorList(new OperatorListImpl());
+	}
+
+	@Override
+	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
+		EList<BooleanFilterPart> filters = new BasicEList<BooleanFilterPart>();
+		for (Node node: getNodes()) {
+			if (node instanceof PrimitiveNode) {
+				BooleanFilterPart filter = (BooleanFilterPart) node.generateQueryFilterPart();
+				if (filter != null)
+					filters.add(filter);
+			}
+		}
+		return BooleanFilterPart.combine(filters);
 	}
 
 	@Override

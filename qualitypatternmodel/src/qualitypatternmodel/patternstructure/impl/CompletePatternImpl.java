@@ -41,7 +41,12 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.javaquery.JavaFilter;
+import qualitypatternmodel.javaquery.JavaFilterPart;
+import qualitypatternmodel.javaquery.BooleanFilterPart;
+import qualitypatternmodel.javaquery.FormulaFilterPart;
+import qualitypatternmodel.javaquery.impl.JavaFilterImpl;
 import qualitypatternmodel.operators.impl.OperatorImpl;
+import qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.graphstructure.impl.NodeImpl;
 import qualitypatternmodel.parameters.ParameterList;
@@ -338,6 +343,37 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		super.isValidLocal(abstractionLevel);
 		if (parameterList == null)
 			throw new InvalidityException("variableList null" + " (" + getInternalId() + ")");
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public JavaFilter generateQueryFilter() throws InvalidityException {
+		JavaFilter filter = new JavaFilterImpl();
+		filter.setFilter((BooleanFilterPart) generateQueryFilterPart());
+		return filter;
+	}
+	
+	@Override
+	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
+		Boolean graph = getGraph().containsJavaOperator();
+		Boolean condition = getCondition().containsJavaOperator();
+		
+		if (graph && condition) {
+			FormulaFilterPart container = new FormulaFilterPartImpl();
+			container.setSubfilter1((BooleanFilterPart) getGraph().generateQueryFilterPart());
+			container.setSubfilter2((BooleanFilterPart) getCondition().generateQueryFilterPart());
+			return container;
+		}
+		else if (graph)
+			return getGraph().generateQueryFilterPart();
+		else if (condition)
+			return getCondition().generateQueryFilterPart();
+		else 
+			return null;
 	}
 
 	@Override
@@ -655,12 +691,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 					return null;
 				}
 			}
-			
 		}
-		
 	}
-
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -672,8 +705,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			throw new InvalidityException("Pattern has no Database assigned!");
 		return getParameterList().validateAgainstSchema();
 	}
-
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -684,10 +716,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		setXmlQuery(null);
 		setPartialXmlQuery(null);
 	}
-
-
-
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -726,19 +755,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		String content = ConstraintTranslation.translateToConstraintString(this);
 		Files.write( Paths.get(path), content.getBytes());
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public JavaFilter generateQueryFilter() throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
 
 	@Override
 	public String generateXmlConstraintYAMLFileContent() throws InvalidityException {

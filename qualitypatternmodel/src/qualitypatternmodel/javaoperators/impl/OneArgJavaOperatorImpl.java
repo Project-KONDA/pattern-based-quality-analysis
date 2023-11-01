@@ -24,6 +24,9 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
 
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 import qualitypatternmodel.javaoperators.OneArgJavaOperator;
+import qualitypatternmodel.javaquery.JavaFilterPart;
+import qualitypatternmodel.javaquery.OneArgFunctionFilterPart;
+import qualitypatternmodel.javaquery.impl.OneArgFunctionFilterPartImpl;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.Parameter;
@@ -85,6 +88,12 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 	@Override
 	abstract public Boolean apply(String param1);
 
+	@Override
+	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
+		OneArgFunctionFilterPart filterPart = new OneArgFunctionFilterPartImpl(this::apply);
+		return filterPart;
+	}
+	
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(abstractionLevel);

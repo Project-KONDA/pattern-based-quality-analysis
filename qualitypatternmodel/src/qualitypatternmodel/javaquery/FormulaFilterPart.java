@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.javaquery;
 
+import qualitypatternmodel.patternstructure.LogicalOperator;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -14,24 +16,25 @@ package qualitypatternmodel.javaquery;
  * <ul>
  *   <li>{@link qualitypatternmodel.javaquery.FormulaFilterPart#getSubfilter1 <em>Subfilter1</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.FormulaFilterPart#getSubfilter2 <em>Subfilter2</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.FormulaFilterPart#getOperator <em>Operator</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.javaquery.JavaqueryPackage#getFormulaFilterPart()
  * @model
  * @generated
  */
-public interface FormulaFilterPart extends JavaFilterPart {
+public interface FormulaFilterPart extends BooleanFilterPart {
 	/**
 	 * Returns the value of the '<em><b>Subfilter1</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Subfilter1</em>' containment reference.
-	 * @see #setSubfilter1(JavaFilterPart)
+	 * @see #setSubfilter1(BooleanFilterPart)
 	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getFormulaFilterPart_Subfilter1()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	JavaFilterPart getSubfilter1();
+	BooleanFilterPart getSubfilter1();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.javaquery.FormulaFilterPart#getSubfilter1 <em>Subfilter1</em>}' containment reference.
@@ -41,19 +44,19 @@ public interface FormulaFilterPart extends JavaFilterPart {
 	 * @see #getSubfilter1()
 	 * @generated
 	 */
-	void setSubfilter1(JavaFilterPart value);
+	void setSubfilter1(BooleanFilterPart value);
 
 	/**
 	 * Returns the value of the '<em><b>Subfilter2</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Subfilter2</em>' containment reference.
-	 * @see #setSubfilter2(JavaFilterPart)
+	 * @see #setSubfilter2(BooleanFilterPart)
 	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getFormulaFilterPart_Subfilter2()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	JavaFilterPart getSubfilter2();
+	BooleanFilterPart getSubfilter2();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.javaquery.FormulaFilterPart#getSubfilter2 <em>Subfilter2</em>}' containment reference.
@@ -63,6 +66,31 @@ public interface FormulaFilterPart extends JavaFilterPart {
 	 * @see #getSubfilter2()
 	 * @generated
 	 */
-	void setSubfilter2(JavaFilterPart value);
+	void setSubfilter2(BooleanFilterPart value);
+
+	/**
+	 * Returns the value of the '<em><b>Operator</b></em>' attribute.
+	 * The literals are from the enumeration {@link qualitypatternmodel.patternstructure.LogicalOperator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Operator</em>' attribute.
+	 * @see qualitypatternmodel.patternstructure.LogicalOperator
+	 * @see #setOperator(LogicalOperator)
+	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getFormulaFilterPart_Operator()
+	 * @model
+	 * @generated
+	 */
+	LogicalOperator getOperator();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.javaquery.FormulaFilterPart#getOperator <em>Operator</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Operator</em>' attribute.
+	 * @see qualitypatternmodel.patternstructure.LogicalOperator
+	 * @see #getOperator()
+	 * @generated
+	 */
+	void setOperator(LogicalOperator value);
 
 } // FormulaFilterPart

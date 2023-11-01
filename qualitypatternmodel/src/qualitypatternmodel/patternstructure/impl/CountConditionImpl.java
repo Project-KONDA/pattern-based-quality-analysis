@@ -18,6 +18,9 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.javaquery.JavaFilterPart;
+import qualitypatternmodel.javaquery.NumberFilterPart;
+import qualitypatternmodel.javaquery.impl.CountFilterPartImpl;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
@@ -97,6 +100,15 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		super();
 		getCountPattern();
 		setArgument2(new NumberElementImpl());
+	}
+
+	
+	@Override
+	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
+		NumberFilterPart arg1filter = (NumberFilterPart) getCountPattern().generateQueryFilterPart();
+		NumberFilterPart arg2filter = (NumberFilterPart) getArgument2().generateQueryFilterPart();
+		
+		return new CountFilterPartImpl(getOption().getValue(), arg1filter, arg2filter); 
 	}
 	
 	@Override

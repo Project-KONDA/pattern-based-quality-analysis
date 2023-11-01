@@ -27,6 +27,11 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
+import qualitypatternmodel.javaquery.BooleanFilterPart;
+import qualitypatternmodel.javaquery.FormulaFilterPart;
+import qualitypatternmodel.javaquery.JavaFilterPart;
+import qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl;
+import qualitypatternmodel.javaquery.impl.CountFilterElementImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
@@ -34,6 +39,7 @@ import qualitypatternmodel.patternstructure.CountConditionArgument;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 import qualitypatternmodel.patternstructure.CountPattern;
+import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -79,6 +85,31 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		setGraph(new GraphImpl());
 		getInternalId();
 		setCondition(new TrueElementImpl());
+	}
+
+	@Override
+	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
+				
+		Boolean graph = getGraph().containsJavaOperator();
+		Boolean condition = getCondition().containsJavaOperator();
+		
+		if (!graph && !condition)
+			return null;
+		else {
+			BooleanFilterPart subfilter = null;
+			if (graph && condition) {
+				FormulaFilterPart container = new FormulaFilterPartImpl(
+					LogicalOperator.AND, 
+					(BooleanFilterPart) getGraph().generateQueryFilterPart(),
+					(BooleanFilterPart) getCondition().generateQueryFilterPart());
+				subfilter = container;
+			}
+			else if (graph)
+				subfilter = (BooleanFilterPart) getGraph().generateQueryFilterPart();
+			else if (condition)
+				subfilter = (BooleanFilterPart) getCondition().generateQueryFilterPart();
+			return new CountFilterElementImpl(subfilter);
+		}
 	}
 	
 	@Override

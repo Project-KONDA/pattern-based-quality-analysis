@@ -305,20 +305,20 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 */
 	@Override
 	public void triggerParameterUpdates(PatternElement newContainer) {
-		ParameterList oldParameterList = getParameterList();		
+//		ParameterList oldParameterList = getParameterList();		
 		
 		ParameterList newParameterList = null;
 		if(newContainer != null) {
 			newParameterList = newContainer.getParameterList();
 		}		
 		
-		if(oldParameterList == null) {
-			// TODO
-		} else if(newParameterList == null) {
-			// TODO
-		} else if(oldParameterList.equals(newParameterList)) {
-			// TODO
-		}
+//		if(oldParameterList == null) {
+//			// TODO
+//		} else if(newParameterList == null) {
+//			// TODO
+//		} else if(oldParameterList.equals(newParameterList)) {
+//			// TODO
+//		}
 		
 		updateParameters(newParameterList);
 	}

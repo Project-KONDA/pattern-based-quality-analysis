@@ -2,45 +2,52 @@
  */
 package qualitypatternmodel.javaquery;
 
-import qualitypatternmodel.javaqueryoutput.BooleanInterimResultParam;
+import java.util.List;
+
+import org.eclipse.emf.common.util.EList;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl;
+import qualitypatternmodel.patternstructure.LogicalOperator;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Boolean Filter Part</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link qualitypatternmodel.javaquery.BooleanFilterPart#getArgument <em>Argument</em>}</li>
- * </ul>
  *
  * @see qualitypatternmodel.javaquery.JavaqueryPackage#getBooleanFilterPart()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface BooleanFilterPart extends JavaFilterPart {
 	/**
-	 * Returns the value of the '<em><b>Argument</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Argument</em>' reference.
-	 * @see #setArgument(BooleanInterimResultParam)
-	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getBooleanFilterPart_Argument()
-	 * @model required="true"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	BooleanInterimResultParam getArgument();
+	Boolean apply() throws InvalidityException;
 
+	static BooleanFilterPart combine(List<BooleanFilterPart> filterparts) {
+		if (filterparts == null || filterparts.isEmpty())
+			return null;
+		else if (filterparts.size() == 1)
+			return (BooleanFilterPart) filterparts.get(0);
+		else {
+			int middleIndex = filterparts.size() / 2;
+			List<BooleanFilterPart> firstHalf = filterparts.subList(0, middleIndex);
+			List<BooleanFilterPart> secondHalf = filterparts.subList(middleIndex, filterparts.size());
+			BooleanFilterPart first = combine(firstHalf);
+			BooleanFilterPart second = combine(secondHalf);
+			return new FormulaFilterPartImpl(LogicalOperator.AND, first, second);
+		}
+	}
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.javaquery.BooleanFilterPart#getArgument <em>Argument</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Argument</em>' reference.
-	 * @see #getArgument()
+	 * @model kind="operation"
 	 * @generated
 	 */
-	void setArgument(BooleanInterimResultParam value);
+	EList<BooleanFilterPart> getArguments();
 
 } // BooleanFilterPart

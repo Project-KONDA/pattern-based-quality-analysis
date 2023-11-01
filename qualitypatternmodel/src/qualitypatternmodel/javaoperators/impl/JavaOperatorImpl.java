@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaoperators.JavaOperator;
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
-
+import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.operators.impl.BooleanOperatorImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -29,6 +29,9 @@ public abstract class JavaOperatorImpl extends BooleanOperatorImpl implements Ja
 	protected JavaOperatorImpl() {
 		super();
 	}
+
+	@Override
+	abstract public JavaFilterPart generateQueryFilterPart() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

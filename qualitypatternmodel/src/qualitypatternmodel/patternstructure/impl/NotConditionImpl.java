@@ -16,6 +16,10 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.javaquery.BooleanFilterPart;
+import qualitypatternmodel.javaquery.JavaFilterPart;
+import qualitypatternmodel.javaquery.NotFilterPart;
+import qualitypatternmodel.javaquery.impl.NotFilterPartImpl;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -59,6 +63,14 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	protected NotConditionImpl() {
 		super();
 		setCondition(new TrueElementImpl());
+	}
+	
+	@Override
+	public JavaFilterPart generateQueryFilterPart() throws InvalidityException{
+		NotFilterPart notfilterpart = new NotFilterPartImpl();
+		BooleanFilterPart nextfilterpart = (BooleanFilterPart) getCondition().generateQueryFilterPart();
+		notfilterpart.setSubfilter(nextfilterpart);
+		return notfilterpart;
 	}
 
 	@Override

@@ -26,6 +26,10 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
+import qualitypatternmodel.javaquery.BooleanFilterPart;
+import qualitypatternmodel.javaquery.JavaFilterPart;
+import qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl;
+import qualitypatternmodel.javaquery.impl.ListFilterPartImpl;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.Condition;
@@ -125,6 +129,25 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		setGraph(new GraphImpl());
 		setMorphism(new MorphismImpl());
 		setCondition(new TrueElementImpl());
+	}
+
+	
+	@Override
+	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
+		BooleanFilterPart subfilter;
+		Boolean graph = getGraph().containsJavaOperator();
+		Boolean condition = getCondition().containsJavaOperator();
+		if (graph && condition) {
+			subfilter = new FormulaFilterPartImpl(
+				LogicalOperator.AND,
+				(BooleanFilterPart) getGraph().generateQueryFilterPart(),
+				(BooleanFilterPart) getCondition().generateQueryFilterPart());
+		} else if (graph) {
+			subfilter = (BooleanFilterPart) getGraph().generateQueryFilterPart();
+		} else 
+			subfilter = (BooleanFilterPart) getCondition().generateQueryFilterPart();
+		
+		return new ListFilterPartImpl(getQuantifier(), subfilter);
 	}
 
 	@Override

@@ -33,9 +33,13 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.javaoperators.JavaOperator;
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 import qualitypatternmodel.javaoperators.OneArgJavaOperator;
 import qualitypatternmodel.javaoperators.TwoArgJavaOperator;
+import qualitypatternmodel.javaquery.BooleanFilterPart;
+import qualitypatternmodel.javaquery.JavaFilterPart;
+import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.Contains;
@@ -164,6 +168,17 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 	
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {}	
+
+	@Override
+	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
+		if(containsJavaOperator()) {
+			EList<BooleanFilterPart> filterparts = new BasicEList<BooleanFilterPart>();
+			for (BooleanOperator op: getPredicates())
+				if (op instanceof JavaOperator)
+					filterparts.add((BooleanFilterPart) op.generateQueryFilterPart());
+			return BooleanFilterPart.combine(filterparts);
+		} else return null;
+	}
 	
 	@Override
 	public PatternElement createXmlAdaption() throws InvalidityException {

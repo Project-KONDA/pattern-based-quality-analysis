@@ -17,6 +17,9 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.javaquery.BooleanFilterPart;
+import qualitypatternmodel.javaquery.JavaFilterPart;
+import qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -118,6 +121,13 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		super();
 		setCondition1(new TrueElementImpl());
 		setCondition2(new TrueElementImpl());
+	}
+
+	@Override
+	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
+		return new FormulaFilterPartImpl(getOperator(), 
+				(BooleanFilterPart) getCondition1().generateQueryFilterPart(), 
+				(BooleanFilterPart) getCondition2().generateQueryFilterPart());
 	}
 
 	@Override
