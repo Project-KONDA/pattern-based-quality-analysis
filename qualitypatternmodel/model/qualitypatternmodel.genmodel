@@ -1190,12 +1190,13 @@
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaquery/BooleanFilterPart">
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaquery/BooleanFilterPart/apply"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaquery/BooleanFilterPart/getArguments"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaquery/FormulaFilterPart">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaquery/FormulaFilterPart/subfilter1"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaquery/FormulaFilterPart/subfilter2"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaquery/FormulaFilterPart/operator"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaquery/FormulaFilterPart/argument"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//javaquery/BooleanFilterElement">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -1244,12 +1245,14 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaquery/CountFilterElement/argument"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaquery/NumberFilterElement"/>
-      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//javaquery/JavaFilterPart"/>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//javaquery/JavaFilterPart">
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaquery/JavaFilterPart/getArguments"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Javaqueryoutput" disposableProviderFactory="true" ecorePackage="qualitypatternmodel.ecore#//javaqueryoutput">
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultsStructure">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/InterimResultsStructure/substructure"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/InterimResultsStructure/record"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultStructure">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/InterimResultStructure/substructure"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/InterimResultStructure/record"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/RecordInterimResult"/>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultPart"/>

@@ -161,6 +161,11 @@ public class JavaFilterItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaqueryPackage.Literals.JAVA_FILTER__FILTER,
+				 JavaqueryFactory.eINSTANCE.createBooleanFilterElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaqueryPackage.Literals.JAVA_FILTER__FILTER,
 				 JavaqueryFactory.eINSTANCE.createOneArgFunctionFilterPart()));
 
 		newChildDescriptors.add
@@ -186,7 +191,7 @@ public class JavaFilterItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaqueryPackage.Literals.JAVA_FILTER__STRUCTURE,
-				 JavaqueryoutputFactory.eINSTANCE.createInterimResultsStructure()));
+				 JavaqueryoutputFactory.eINSTANCE.createInterimResultStructure()));
 	}
 
 	/**

@@ -22,13 +22,13 @@ public interface JavaqueryoutputFactory extends EFactory {
 	JavaqueryoutputFactory eINSTANCE = qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Interim Results Structure</em>'.
+	 * Returns a new object of class '<em>Interim Result Structure</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Interim Results Structure</em>'.
+	 * @return a new object of class '<em>Interim Result Structure</em>'.
 	 * @generated
 	 */
-	InterimResultsStructure createInterimResultsStructure();
+	InterimResultStructure createInterimResultStructure();
 
 	/**
 	 * Returns a new object of class '<em>Record Interim Result</em>'.

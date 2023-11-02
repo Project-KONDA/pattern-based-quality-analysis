@@ -66,9 +66,9 @@ public class JavaqueryoutputSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case JavaqueryoutputPackage.INTERIM_RESULTS_STRUCTURE: {
-				InterimResultsStructure interimResultsStructure = (InterimResultsStructure)theEObject;
-				T result = caseInterimResultsStructure(interimResultsStructure);
+			case JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE: {
+				InterimResultStructure interimResultStructure = (InterimResultStructure)theEObject;
+				T result = caseInterimResultStructure(interimResultStructure);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -121,17 +121,17 @@ public class JavaqueryoutputSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Interim Results Structure</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Interim Result Structure</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Interim Results Structure</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Interim Result Structure</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseInterimResultsStructure(InterimResultsStructure object) {
+	public T caseInterimResultStructure(InterimResultStructure object) {
 		return null;
 	}
 

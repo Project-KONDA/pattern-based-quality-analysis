@@ -3,8 +3,6 @@
 package qualitypatternmodel.javaquery;
 
 import java.util.List;
-
-import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl;
 import qualitypatternmodel.patternstructure.LogicalOperator;
@@ -42,12 +40,5 @@ public interface BooleanFilterPart extends JavaFilterPart {
 			return new FormulaFilterPartImpl(LogicalOperator.AND, first, second);
 		}
 	}
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	EList<BooleanFilterPart> getArguments();
 
 } // BooleanFilterPart

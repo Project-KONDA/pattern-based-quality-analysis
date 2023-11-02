@@ -123,13 +123,22 @@ public interface JavaqueryPackage extends EPackage {
 	int JAVA_FILTER_PART_FEATURE_COUNT = 0;
 
 	/**
+	 * The operation id for the '<em>Get Arguments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_FILTER_PART___GET_ARGUMENTS = 0;
+
+	/**
 	 * The number of operations of the '<em>Java Filter Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_FILTER_PART_OPERATION_COUNT = 0;
+	int JAVA_FILTER_PART_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl <em>Formula Filter Part</em>}' class.
@@ -171,6 +180,15 @@ public interface JavaqueryPackage extends EPackage {
 	int BOOLEAN_FILTER_PART_FEATURE_COUNT = JAVA_FILTER_PART_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get Arguments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_FILTER_PART___GET_ARGUMENTS = JAVA_FILTER_PART___GET_ARGUMENTS;
+
+	/**
 	 * The operation id for the '<em>Apply</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -180,22 +198,13 @@ public interface JavaqueryPackage extends EPackage {
 	int BOOLEAN_FILTER_PART___APPLY = JAVA_FILTER_PART_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Arguments</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_FILTER_PART___GET_ARGUMENTS = JAVA_FILTER_PART_OPERATION_COUNT + 1;
-
-	/**
 	 * The number of operations of the '<em>Boolean Filter Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_FILTER_PART_OPERATION_COUNT = JAVA_FILTER_PART_OPERATION_COUNT + 2;
+	int BOOLEAN_FILTER_PART_OPERATION_COUNT = JAVA_FILTER_PART_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Subfilter1</b></em>' containment reference.
@@ -225,22 +234,22 @@ public interface JavaqueryPackage extends EPackage {
 	int FORMULA_FILTER_PART__OPERATOR = BOOLEAN_FILTER_PART_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Argument</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA_FILTER_PART__ARGUMENT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Formula Filter Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA_FILTER_PART_FEATURE_COUNT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Apply</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FORMULA_FILTER_PART___APPLY = BOOLEAN_FILTER_PART___APPLY;
+	int FORMULA_FILTER_PART_FEATURE_COUNT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Get Arguments</em>' operation.
@@ -250,6 +259,15 @@ public interface JavaqueryPackage extends EPackage {
 	 * @ordered
 	 */
 	int FORMULA_FILTER_PART___GET_ARGUMENTS = BOOLEAN_FILTER_PART___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA_FILTER_PART___APPLY = BOOLEAN_FILTER_PART___APPLY;
 
 	/**
 	 * The number of operations of the '<em>Formula Filter Part</em>' class.
@@ -279,15 +297,6 @@ public interface JavaqueryPackage extends EPackage {
 	int BOOLEAN_FILTER_ELEMENT_FEATURE_COUNT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Apply</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_FILTER_ELEMENT___APPLY = BOOLEAN_FILTER_PART___APPLY;
-
-	/**
 	 * The operation id for the '<em>Get Arguments</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -295,6 +304,15 @@ public interface JavaqueryPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_FILTER_ELEMENT___GET_ARGUMENTS = BOOLEAN_FILTER_PART___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_FILTER_ELEMENT___APPLY = BOOLEAN_FILTER_PART___APPLY;
 
 	/**
 	 * The number of operations of the '<em>Boolean Filter Element</em>' class.
@@ -343,15 +361,6 @@ public interface JavaqueryPackage extends EPackage {
 	int ONE_ARG_FUNCTION_FILTER_PART_FEATURE_COUNT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Apply</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ONE_ARG_FUNCTION_FILTER_PART___APPLY = BOOLEAN_FILTER_PART___APPLY;
-
-	/**
 	 * The operation id for the '<em>Get Arguments</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -359,6 +368,15 @@ public interface JavaqueryPackage extends EPackage {
 	 * @ordered
 	 */
 	int ONE_ARG_FUNCTION_FILTER_PART___GET_ARGUMENTS = BOOLEAN_FILTER_PART___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_FUNCTION_FILTER_PART___APPLY = BOOLEAN_FILTER_PART___APPLY;
 
 	/**
 	 * The operation id for the '<em>Apply</em>' operation.
@@ -425,15 +443,6 @@ public interface JavaqueryPackage extends EPackage {
 	int LIST_FILTER_PART_FEATURE_COUNT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Apply</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIST_FILTER_PART___APPLY = BOOLEAN_FILTER_PART___APPLY;
-
-	/**
 	 * The operation id for the '<em>Get Arguments</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -441,6 +450,15 @@ public interface JavaqueryPackage extends EPackage {
 	 * @ordered
 	 */
 	int LIST_FILTER_PART___GET_ARGUMENTS = BOOLEAN_FILTER_PART___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_FILTER_PART___APPLY = BOOLEAN_FILTER_PART___APPLY;
 
 	/**
 	 * The number of operations of the '<em>List Filter Part</em>' class.
@@ -507,15 +525,6 @@ public interface JavaqueryPackage extends EPackage {
 	int TWO_ARG_FUNCTION_FILTER_PART_FEATURE_COUNT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Apply</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TWO_ARG_FUNCTION_FILTER_PART___APPLY = BOOLEAN_FILTER_PART___APPLY;
-
-	/**
 	 * The operation id for the '<em>Get Arguments</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -523,6 +532,15 @@ public interface JavaqueryPackage extends EPackage {
 	 * @ordered
 	 */
 	int TWO_ARG_FUNCTION_FILTER_PART___GET_ARGUMENTS = BOOLEAN_FILTER_PART___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TWO_ARG_FUNCTION_FILTER_PART___APPLY = BOOLEAN_FILTER_PART___APPLY;
 
 	/**
 	 * The operation id for the '<em>Apply</em>' operation.
@@ -571,15 +589,6 @@ public interface JavaqueryPackage extends EPackage {
 	int NOT_FILTER_PART_FEATURE_COUNT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Apply</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOT_FILTER_PART___APPLY = BOOLEAN_FILTER_PART___APPLY;
-
-	/**
 	 * The operation id for the '<em>Get Arguments</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -587,6 +596,15 @@ public interface JavaqueryPackage extends EPackage {
 	 * @ordered
 	 */
 	int NOT_FILTER_PART___GET_ARGUMENTS = BOOLEAN_FILTER_PART___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_FILTER_PART___APPLY = BOOLEAN_FILTER_PART___APPLY;
 
 	/**
 	 * The number of operations of the '<em>Not Filter Part</em>' class.
@@ -645,15 +663,6 @@ public interface JavaqueryPackage extends EPackage {
 	int COUNT_FILTER_PART_FEATURE_COUNT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Apply</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_FILTER_PART___APPLY = BOOLEAN_FILTER_PART___APPLY;
-
-	/**
 	 * The operation id for the '<em>Get Arguments</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -661,6 +670,15 @@ public interface JavaqueryPackage extends EPackage {
 	 * @ordered
 	 */
 	int COUNT_FILTER_PART___GET_ARGUMENTS = BOOLEAN_FILTER_PART___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_FILTER_PART___APPLY = BOOLEAN_FILTER_PART___APPLY;
 
 	/**
 	 * The number of operations of the '<em>Count Filter Part</em>' class.
@@ -689,6 +707,15 @@ public interface JavaqueryPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_FILTER_PART_FEATURE_COUNT = JAVA_FILTER_PART_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Arguments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_FILTER_PART___GET_ARGUMENTS = JAVA_FILTER_PART___GET_ARGUMENTS;
 
 	/**
 	 * The operation id for the '<em>Apply</em>' operation.
@@ -746,6 +773,15 @@ public interface JavaqueryPackage extends EPackage {
 	int COUNT_FILTER_ELEMENT_FEATURE_COUNT = NUMBER_FILTER_PART_FEATURE_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Get Arguments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_FILTER_ELEMENT___GET_ARGUMENTS = NUMBER_FILTER_PART___GET_ARGUMENTS;
+
+	/**
 	 * The operation id for the '<em>Apply</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -781,6 +817,15 @@ public interface JavaqueryPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_FILTER_ELEMENT_FEATURE_COUNT = NUMBER_FILTER_PART_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Arguments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_FILTER_ELEMENT___GET_ARGUMENTS = NUMBER_FILTER_PART___GET_ARGUMENTS;
 
 	/**
 	 * The operation id for the '<em>Apply</em>' operation.
@@ -844,6 +889,16 @@ public interface JavaqueryPackage extends EPackage {
 	EClass getJavaFilterPart();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilterPart#getArguments() <em>Get Arguments</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Arguments</em>' operation.
+	 * @see qualitypatternmodel.javaquery.JavaFilterPart#getArguments()
+	 * @generated
+	 */
+	EOperation getJavaFilterPart__GetArguments();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.FormulaFilterPart <em>Formula Filter Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -887,6 +942,17 @@ public interface JavaqueryPackage extends EPackage {
 	EAttribute getFormulaFilterPart_Operator();
 
 	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.javaquery.FormulaFilterPart#getArgument <em>Argument</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Argument</em>'.
+	 * @see qualitypatternmodel.javaquery.FormulaFilterPart#getArgument()
+	 * @see #getFormulaFilterPart()
+	 * @generated
+	 */
+	EReference getFormulaFilterPart_Argument();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.BooleanFilterElement <em>Boolean Filter Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -926,16 +992,6 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getBooleanFilterPart__Apply();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.BooleanFilterPart#getArguments() <em>Get Arguments</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Arguments</em>' operation.
-	 * @see qualitypatternmodel.javaquery.BooleanFilterPart#getArguments()
-	 * @generated
-	 */
-	EOperation getBooleanFilterPart__GetArguments();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.OneArgFunctionFilterPart <em>One Arg Function Filter Part</em>}'.
@@ -1272,6 +1328,14 @@ public interface JavaqueryPackage extends EPackage {
 		EClass JAVA_FILTER_PART = eINSTANCE.getJavaFilterPart();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Arguments</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JAVA_FILTER_PART___GET_ARGUMENTS = eINSTANCE.getJavaFilterPart__GetArguments();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl <em>Formula Filter Part</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1304,6 +1368,14 @@ public interface JavaqueryPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute FORMULA_FILTER_PART__OPERATOR = eINSTANCE.getFormulaFilterPart_Operator();
+
+		/**
+		 * The meta object literal for the '<em><b>Argument</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FORMULA_FILTER_PART__ARGUMENT = eINSTANCE.getFormulaFilterPart_Argument();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.BooleanFilterElementImpl <em>Boolean Filter Element</em>}' class.
@@ -1340,14 +1412,6 @@ public interface JavaqueryPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation BOOLEAN_FILTER_PART___APPLY = eINSTANCE.getBooleanFilterPart__Apply();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Arguments</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation BOOLEAN_FILTER_PART___GET_ARGUMENTS = eINSTANCE.getBooleanFilterPart__GetArguments();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.OneArgFunctionFilterPartImpl <em>One Arg Function Filter Part</em>}' class.

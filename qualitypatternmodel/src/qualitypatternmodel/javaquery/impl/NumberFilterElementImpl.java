@@ -2,10 +2,13 @@
  */
 package qualitypatternmodel.javaquery.impl;
 
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.NumberFilterElement;
+import qualitypatternmodel.javaqueryoutput.InterimResultParam;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,9 +28,21 @@ public class NumberFilterElementImpl extends NumberFilterPartImpl implements Num
 	}
 
 	public NumberFilterElementImpl(Double value) {
-		// TODO Auto-generated constructor stub
+		super();
 	}
+	
+	@Override
+	public Double apply() {return null;};
 
+	@Override
+	public EList<InterimResultParam> getArguments() {
+		return new BasicEList<InterimResultParam>();
+	}
+	
+	
+	
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

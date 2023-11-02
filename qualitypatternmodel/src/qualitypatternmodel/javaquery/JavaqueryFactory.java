@@ -40,6 +40,15 @@ public interface JavaqueryFactory extends EFactory {
 	FormulaFilterPart createFormulaFilterPart();
 
 	/**
+	 * Returns a new object of class '<em>Boolean Filter Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Boolean Filter Element</em>'.
+	 * @generated
+	 */
+	BooleanFilterElement createBooleanFilterElement();
+
+	/**
 	 * Returns a new object of class '<em>One Arg Function Filter Part</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

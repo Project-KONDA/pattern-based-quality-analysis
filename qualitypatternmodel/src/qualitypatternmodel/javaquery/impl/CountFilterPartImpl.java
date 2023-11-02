@@ -4,16 +4,18 @@ package qualitypatternmodel.javaquery.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.CountFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.NumberFilterPart;
-
+import qualitypatternmodel.javaqueryoutput.InterimResultParam;
 import qualitypatternmodel.operators.ComparisonOperator;
 
 /**
@@ -88,6 +90,22 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 		setArgument2(arg2filter);
 	}
 
+	@Override
+	public Boolean apply() throws InvalidityException {
+		Double result1 = getArgument1().apply();
+		Double result2 = getArgument2().apply();
+		return ComparisonOperator.evaluate(getOperator(), result1, result2);
+	}
+
+	@Override
+	public EList<InterimResultParam> getArguments() {
+		return new BasicEList<InterimResultParam>();
+	}
+	
+	
+	
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -320,5 +338,4 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 		result.append(')');
 		return result.toString();
 	}
-
 } //CountFilterPartImpl

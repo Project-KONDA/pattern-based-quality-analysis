@@ -4,7 +4,7 @@ package qualitypatternmodel.javaquery.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.NotFilterPart;
+import qualitypatternmodel.javaqueryoutput.InterimResultParam;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,7 +47,19 @@ public class NotFilterPartImpl extends BooleanFilterPartImpl implements NotFilte
 	public NotFilterPartImpl() {
 		super();
 	}
+	
+	@Override
+	public Boolean apply() {return true;};
 
+	@Override
+	public EList<InterimResultParam> getArguments() {
+		return getSubfilter().getArguments();
+	}
+	
+	
+	
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

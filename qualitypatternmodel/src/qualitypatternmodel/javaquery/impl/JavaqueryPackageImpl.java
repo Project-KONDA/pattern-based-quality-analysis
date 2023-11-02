@@ -316,6 +316,16 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getJavaFilterPart__GetArguments() {
+		return javaFilterPartEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getFormulaFilterPart() {
 		return formulaFilterPartEClass;
 	}
@@ -356,6 +366,16 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
+	public EReference getFormulaFilterPart_Argument() {
+		return (EReference)formulaFilterPartEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getBooleanFilterElement() {
 		return booleanFilterElementEClass;
 	}
@@ -388,16 +408,6 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	@Override
 	public EOperation getBooleanFilterPart__Apply() {
 		return booleanFilterPartEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getBooleanFilterPart__GetArguments() {
-		return booleanFilterPartEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -695,12 +705,12 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 
 		booleanFilterPartEClass = createEClass(BOOLEAN_FILTER_PART);
 		createEOperation(booleanFilterPartEClass, BOOLEAN_FILTER_PART___APPLY);
-		createEOperation(booleanFilterPartEClass, BOOLEAN_FILTER_PART___GET_ARGUMENTS);
 
 		formulaFilterPartEClass = createEClass(FORMULA_FILTER_PART);
 		createEReference(formulaFilterPartEClass, FORMULA_FILTER_PART__SUBFILTER1);
 		createEReference(formulaFilterPartEClass, FORMULA_FILTER_PART__SUBFILTER2);
 		createEAttribute(formulaFilterPartEClass, FORMULA_FILTER_PART__OPERATOR);
+		createEReference(formulaFilterPartEClass, FORMULA_FILTER_PART__ARGUMENT);
 
 		booleanFilterElementEClass = createEClass(BOOLEAN_FILTER_ELEMENT);
 		createEReference(booleanFilterElementEClass, BOOLEAN_FILTER_ELEMENT__ARGUMENT);
@@ -740,6 +750,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		numberFilterElementEClass = createEClass(NUMBER_FILTER_ELEMENT);
 
 		javaFilterPartEClass = createEClass(JAVA_FILTER_PART);
+		createEOperation(javaFilterPartEClass, JAVA_FILTER_PART___GET_ARGUMENTS);
 	}
 
 	/**
@@ -790,21 +801,20 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		// Initialize classes, features, and operations; add parameters
 		initEClass(javaFilterEClass, JavaFilter.class, "JavaFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getJavaFilter_Filter(), this.getBooleanFilterPart(), null, "filter", null, 0, 1, JavaFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJavaFilter_Structure(), theJavaqueryoutputPackage.getInterimResultsStructure(), null, "structure", null, 1, 1, JavaFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJavaFilter_Structure(), theJavaqueryoutputPackage.getInterimResultStructure(), null, "structure", null, 1, 1, JavaFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(booleanFilterPartEClass, BooleanFilterPart.class, "BooleanFilterPart", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		EOperation op = initEOperation(getBooleanFilterPart__Apply(), ecorePackage.getEBooleanObject(), "apply", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		initEOperation(getBooleanFilterPart__GetArguments(), this.getBooleanFilterPart(), "getArguments", 0, -1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(formulaFilterPartEClass, FormulaFilterPart.class, "FormulaFilterPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFormulaFilterPart_Subfilter1(), this.getBooleanFilterPart(), null, "subfilter1", null, 1, 1, FormulaFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFormulaFilterPart_Subfilter2(), this.getBooleanFilterPart(), null, "subfilter2", null, 1, 1, FormulaFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFormulaFilterPart_Operator(), thePatternstructurePackage.getLogicalOperator(), "operator", null, 0, 1, FormulaFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFormulaFilterPart_Argument(), theJavaqueryoutputPackage.getContainerInterimResultPart(), null, "argument", null, 1, 1, FormulaFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(booleanFilterElementEClass, BooleanFilterElement.class, "BooleanFilterElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(booleanFilterElementEClass, BooleanFilterElement.class, "BooleanFilterElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBooleanFilterElement_Argument(), theJavaqueryoutputPackage.getBooleanInterimResultParam(), null, "argument", null, 1, 1, BooleanFilterElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(oneArgFunctionFilterPartEClass, OneArgFunctionFilterPart.class, "OneArgFunctionFilterPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -849,6 +859,8 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		initEClass(numberFilterElementEClass, NumberFilterElement.class, "NumberFilterElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(javaFilterPartEClass, JavaFilterPart.class, "JavaFilterPart", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getJavaFilterPart__GetArguments(), theJavaqueryoutputPackage.getInterimResultParam(), "getArguments", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

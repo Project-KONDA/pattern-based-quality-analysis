@@ -13,29 +13,29 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.javaqueryoutput.InterimResultsStructure#getSubstructure <em>Substructure</em>}</li>
- *   <li>{@link qualitypatternmodel.javaqueryoutput.InterimResultsStructure#getRecord <em>Record</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaqueryoutput.InterimResultStructure#getSubstructure <em>Substructure</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaqueryoutput.InterimResultStructure#getRecord <em>Record</em>}</li>
  * </ul>
  *
- * @see qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage#getInterimResultsStructure()
+ * @see qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage#getInterimResultStructure()
  * @model
  * @generated
  */
-public interface InterimResultsStructure extends EObject {
+public interface InterimResultStructure extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Substructure</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Substructure</em>' containment reference.
 	 * @see #setSubstructure(InterimResultParam)
-	 * @see qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage#getInterimResultsStructure_Substructure()
+	 * @see qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage#getInterimResultStructure_Substructure()
 	 * @model containment="true"
 	 * @generated
 	 */
 	InterimResultParam getSubstructure();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.javaqueryoutput.InterimResultsStructure#getSubstructure <em>Substructure</em>}' containment reference.
+	 * Sets the value of the '{@link qualitypatternmodel.javaqueryoutput.InterimResultStructure#getSubstructure <em>Substructure</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Substructure</em>' containment reference.
@@ -50,14 +50,14 @@ public interface InterimResultsStructure extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Record</em>' containment reference.
 	 * @see #setRecord(RecordInterimResult)
-	 * @see qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage#getInterimResultsStructure_Record()
+	 * @see qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage#getInterimResultStructure_Record()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	RecordInterimResult getRecord();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.javaqueryoutput.InterimResultsStructure#getRecord <em>Record</em>}' containment reference.
+	 * Sets the value of the '{@link qualitypatternmodel.javaqueryoutput.InterimResultStructure#getRecord <em>Record</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Record</em>' containment reference.

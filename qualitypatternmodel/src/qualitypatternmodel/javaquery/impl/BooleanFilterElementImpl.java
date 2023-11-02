@@ -3,7 +3,8 @@
 package qualitypatternmodel.javaquery.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -13,6 +14,8 @@ import qualitypatternmodel.javaquery.BooleanFilterElement;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 
 import qualitypatternmodel.javaqueryoutput.BooleanInterimResultParam;
+import qualitypatternmodel.javaqueryoutput.InterimResultParam;
+import qualitypatternmodel.javaqueryoutput.impl.BooleanInterimResultParamImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +30,7 @@ import qualitypatternmodel.javaqueryoutput.BooleanInterimResultParam;
  *
  * @generated
  */
-public abstract class BooleanFilterElementImpl extends BooleanFilterPartImpl implements BooleanFilterElement {
+public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements BooleanFilterElement {
 	/**
 	 * The cached value of the '{@link #getArgument() <em>Argument</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -41,12 +44,27 @@ public abstract class BooleanFilterElementImpl extends BooleanFilterPartImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected BooleanFilterElementImpl() {
 		super();
+		setArgument(new BooleanInterimResultParamImpl());
 	}
+	
+	@Override
+	public Boolean apply() {return true;};
 
+	@Override
+	public EList<InterimResultParam> getArguments() {
+		EList<InterimResultParam> result = new BasicEList<InterimResultParam>();
+		result.add(getArgument());
+		return result;
+	}
+	
+	
+	
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

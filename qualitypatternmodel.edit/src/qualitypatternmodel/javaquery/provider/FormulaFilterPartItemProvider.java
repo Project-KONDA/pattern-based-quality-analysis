@@ -50,6 +50,7 @@ public class FormulaFilterPartItemProvider extends BooleanFilterPartItemProvider
 			super.getPropertyDescriptors(object);
 
 			addOperatorPropertyDescriptor(object);
+			addArgumentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -72,6 +73,28 @@ public class FormulaFilterPartItemProvider extends BooleanFilterPartItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Argument feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addArgumentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FormulaFilterPart_argument_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FormulaFilterPart_argument_feature", "_UI_FormulaFilterPart_type"),
+				 JavaqueryPackage.Literals.FORMULA_FILTER_PART__ARGUMENT,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -176,6 +199,11 @@ public class FormulaFilterPartItemProvider extends BooleanFilterPartItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER1,
+				 JavaqueryFactory.eINSTANCE.createBooleanFilterElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER1,
 				 JavaqueryFactory.eINSTANCE.createOneArgFunctionFilterPart()));
 
 		newChildDescriptors.add
@@ -202,6 +230,11 @@ public class FormulaFilterPartItemProvider extends BooleanFilterPartItemProvider
 			(createChildParameter
 				(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER2,
 				 JavaqueryFactory.eINSTANCE.createFormulaFilterPart()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER2,
+				 JavaqueryFactory.eINSTANCE.createBooleanFilterElement()));
 
 		newChildDescriptors.add
 			(createChildParameter

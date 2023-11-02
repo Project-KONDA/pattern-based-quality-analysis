@@ -45,10 +45,16 @@ public class ContainerInterimResultPartImpl extends InterimResultParamImpl imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected ContainerInterimResultPartImpl() {
+	public ContainerInterimResultPartImpl() {
 		super();
+	}
+
+	public ContainerInterimResultPartImpl(EList<InterimResultParam> interims) {
+		super();
+		getContained().clear();
+		getContained().addAll(interims);
 	}
 
 	/**

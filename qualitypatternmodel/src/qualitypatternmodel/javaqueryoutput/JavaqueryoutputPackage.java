@@ -56,14 +56,14 @@ public interface JavaqueryoutputPackage extends EPackage {
 	JavaqueryoutputPackage eINSTANCE = qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.javaqueryoutput.impl.InterimResultsStructureImpl <em>Interim Results Structure</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.javaqueryoutput.impl.InterimResultStructureImpl <em>Interim Result Structure</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.javaqueryoutput.impl.InterimResultsStructureImpl
-	 * @see qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputPackageImpl#getInterimResultsStructure()
+	 * @see qualitypatternmodel.javaqueryoutput.impl.InterimResultStructureImpl
+	 * @see qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputPackageImpl#getInterimResultStructure()
 	 * @generated
 	 */
-	int INTERIM_RESULTS_STRUCTURE = 0;
+	int INTERIM_RESULT_STRUCTURE = 0;
 
 	/**
 	 * The feature id for the '<em><b>Substructure</b></em>' containment reference.
@@ -72,7 +72,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERIM_RESULTS_STRUCTURE__SUBSTRUCTURE = 0;
+	int INTERIM_RESULT_STRUCTURE__SUBSTRUCTURE = 0;
 
 	/**
 	 * The feature id for the '<em><b>Record</b></em>' containment reference.
@@ -81,25 +81,25 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERIM_RESULTS_STRUCTURE__RECORD = 1;
+	int INTERIM_RESULT_STRUCTURE__RECORD = 1;
 
 	/**
-	 * The number of structural features of the '<em>Interim Results Structure</em>' class.
+	 * The number of structural features of the '<em>Interim Result Structure</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERIM_RESULTS_STRUCTURE_FEATURE_COUNT = 2;
+	int INTERIM_RESULT_STRUCTURE_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Interim Results Structure</em>' class.
+	 * The number of operations of the '<em>Interim Result Structure</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERIM_RESULTS_STRUCTURE_OPERATION_COUNT = 0;
+	int INTERIM_RESULT_STRUCTURE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.javaqueryoutput.impl.InterimResultPartImpl <em>Interim Result Part</em>}' class.
@@ -280,36 +280,36 @@ public interface JavaqueryoutputPackage extends EPackage {
 
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.javaqueryoutput.InterimResultsStructure <em>Interim Results Structure</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.javaqueryoutput.InterimResultStructure <em>Interim Result Structure</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Interim Results Structure</em>'.
-	 * @see qualitypatternmodel.javaqueryoutput.InterimResultsStructure
+	 * @return the meta object for class '<em>Interim Result Structure</em>'.
+	 * @see qualitypatternmodel.javaqueryoutput.InterimResultStructure
 	 * @generated
 	 */
-	EClass getInterimResultsStructure();
+	EClass getInterimResultStructure();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.javaqueryoutput.InterimResultsStructure#getSubstructure <em>Substructure</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.javaqueryoutput.InterimResultStructure#getSubstructure <em>Substructure</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Substructure</em>'.
-	 * @see qualitypatternmodel.javaqueryoutput.InterimResultsStructure#getSubstructure()
-	 * @see #getInterimResultsStructure()
+	 * @see qualitypatternmodel.javaqueryoutput.InterimResultStructure#getSubstructure()
+	 * @see #getInterimResultStructure()
 	 * @generated
 	 */
-	EReference getInterimResultsStructure_Substructure();
+	EReference getInterimResultStructure_Substructure();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.javaqueryoutput.InterimResultsStructure#getRecord <em>Record</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.javaqueryoutput.InterimResultStructure#getRecord <em>Record</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Record</em>'.
-	 * @see qualitypatternmodel.javaqueryoutput.InterimResultsStructure#getRecord()
-	 * @see #getInterimResultsStructure()
+	 * @see qualitypatternmodel.javaqueryoutput.InterimResultStructure#getRecord()
+	 * @see #getInterimResultStructure()
 	 * @generated
 	 */
-	EReference getInterimResultsStructure_Record();
+	EReference getInterimResultStructure_Record();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaqueryoutput.RecordInterimResult <em>Record Interim Result</em>}'.
@@ -406,14 +406,14 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.javaqueryoutput.impl.InterimResultsStructureImpl <em>Interim Results Structure</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.javaqueryoutput.impl.InterimResultStructureImpl <em>Interim Result Structure</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.javaqueryoutput.impl.InterimResultsStructureImpl
-		 * @see qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputPackageImpl#getInterimResultsStructure()
+		 * @see qualitypatternmodel.javaqueryoutput.impl.InterimResultStructureImpl
+		 * @see qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputPackageImpl#getInterimResultStructure()
 		 * @generated
 		 */
-		EClass INTERIM_RESULTS_STRUCTURE = eINSTANCE.getInterimResultsStructure();
+		EClass INTERIM_RESULT_STRUCTURE = eINSTANCE.getInterimResultStructure();
 
 		/**
 		 * The meta object literal for the '<em><b>Substructure</b></em>' containment reference feature.
@@ -421,7 +421,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference INTERIM_RESULTS_STRUCTURE__SUBSTRUCTURE = eINSTANCE.getInterimResultsStructure_Substructure();
+		EReference INTERIM_RESULT_STRUCTURE__SUBSTRUCTURE = eINSTANCE.getInterimResultStructure_Substructure();
 
 		/**
 		 * The meta object literal for the '<em><b>Record</b></em>' containment reference feature.
@@ -429,7 +429,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference INTERIM_RESULTS_STRUCTURE__RECORD = eINSTANCE.getInterimResultsStructure_Record();
+		EReference INTERIM_RESULT_STRUCTURE__RECORD = eINSTANCE.getInterimResultStructure_Record();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaqueryoutput.impl.RecordInterimResultImpl <em>Record Interim Result</em>}' class.

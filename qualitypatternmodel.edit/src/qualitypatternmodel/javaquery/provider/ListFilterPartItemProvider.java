@@ -197,6 +197,11 @@ public class ListFilterPartItemProvider extends BooleanFilterPartItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaqueryPackage.Literals.LIST_FILTER_PART__SUBFILTER,
+				 JavaqueryFactory.eINSTANCE.createBooleanFilterElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaqueryPackage.Literals.LIST_FILTER_PART__SUBFILTER,
 				 JavaqueryFactory.eINSTANCE.createOneArgFunctionFilterPart()));
 
 		newChildDescriptors.add

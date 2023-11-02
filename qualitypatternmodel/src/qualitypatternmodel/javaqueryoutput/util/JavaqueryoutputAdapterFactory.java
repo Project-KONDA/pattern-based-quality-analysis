@@ -68,8 +68,8 @@ public class JavaqueryoutputAdapterFactory extends AdapterFactoryImpl {
 	protected JavaqueryoutputSwitch<Adapter> modelSwitch =
 		new JavaqueryoutputSwitch<Adapter>() {
 			@Override
-			public Adapter caseInterimResultsStructure(InterimResultsStructure object) {
-				return createInterimResultsStructureAdapter();
+			public Adapter caseInterimResultStructure(InterimResultStructure object) {
+				return createInterimResultStructureAdapter();
 			}
 			@Override
 			public Adapter caseRecordInterimResult(RecordInterimResult object) {
@@ -116,16 +116,16 @@ public class JavaqueryoutputAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaqueryoutput.InterimResultsStructure <em>Interim Results Structure</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaqueryoutput.InterimResultStructure <em>Interim Result Structure</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.javaqueryoutput.InterimResultsStructure
+	 * @see qualitypatternmodel.javaqueryoutput.InterimResultStructure
 	 * @generated
 	 */
-	public Adapter createInterimResultsStructureAdapter() {
+	public Adapter createInterimResultStructureAdapter() {
 		return null;
 	}
 

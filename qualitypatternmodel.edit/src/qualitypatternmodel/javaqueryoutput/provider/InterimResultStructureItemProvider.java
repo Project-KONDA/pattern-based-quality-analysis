@@ -22,19 +22,19 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import qualitypatternmodel.javaqueryoutput.InterimResultsStructure;
+import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputFactory;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.javaqueryoutput.InterimResultsStructure} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.javaqueryoutput.InterimResultStructure} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class InterimResultsStructureItemProvider 
+public class InterimResultStructureItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -48,7 +48,7 @@ public class InterimResultsStructureItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InterimResultsStructureItemProvider(AdapterFactory adapterFactory) {
+	public InterimResultStructureItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -79,8 +79,8 @@ public class InterimResultsStructureItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(JavaqueryoutputPackage.Literals.INTERIM_RESULTS_STRUCTURE__SUBSTRUCTURE);
-			childrenFeatures.add(JavaqueryoutputPackage.Literals.INTERIM_RESULTS_STRUCTURE__RECORD);
+			childrenFeatures.add(JavaqueryoutputPackage.Literals.INTERIM_RESULT_STRUCTURE__SUBSTRUCTURE);
+			childrenFeatures.add(JavaqueryoutputPackage.Literals.INTERIM_RESULT_STRUCTURE__RECORD);
 		}
 		return childrenFeatures;
 	}
@@ -99,14 +99,14 @@ public class InterimResultsStructureItemProvider
 	}
 
 	/**
-	 * This returns InterimResultsStructure.gif.
+	 * This returns InterimResultStructure.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/InterimResultsStructure"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/InterimResultStructure"));
 	}
 
 	/**
@@ -117,7 +117,7 @@ public class InterimResultsStructureItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_InterimResultsStructure_type");
+		return getString("_UI_InterimResultStructure_type");
 	}
 
 
@@ -132,9 +132,9 @@ public class InterimResultsStructureItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(InterimResultsStructure.class)) {
-			case JavaqueryoutputPackage.INTERIM_RESULTS_STRUCTURE__SUBSTRUCTURE:
-			case JavaqueryoutputPackage.INTERIM_RESULTS_STRUCTURE__RECORD:
+		switch (notification.getFeatureID(InterimResultStructure.class)) {
+			case JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE__SUBSTRUCTURE:
+			case JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE__RECORD:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -154,22 +154,22 @@ public class InterimResultsStructureItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaqueryoutputPackage.Literals.INTERIM_RESULTS_STRUCTURE__SUBSTRUCTURE,
+				(JavaqueryoutputPackage.Literals.INTERIM_RESULT_STRUCTURE__SUBSTRUCTURE,
 				 JavaqueryoutputFactory.eINSTANCE.createBooleanInterimResultParam()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaqueryoutputPackage.Literals.INTERIM_RESULTS_STRUCTURE__SUBSTRUCTURE,
+				(JavaqueryoutputPackage.Literals.INTERIM_RESULT_STRUCTURE__SUBSTRUCTURE,
 				 JavaqueryoutputFactory.eINSTANCE.createContainerInterimResultPart()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaqueryoutputPackage.Literals.INTERIM_RESULTS_STRUCTURE__SUBSTRUCTURE,
+				(JavaqueryoutputPackage.Literals.INTERIM_RESULT_STRUCTURE__SUBSTRUCTURE,
 				 JavaqueryoutputFactory.eINSTANCE.createValueListInterimResultPart()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaqueryoutputPackage.Literals.INTERIM_RESULTS_STRUCTURE__RECORD,
+				(JavaqueryoutputPackage.Literals.INTERIM_RESULT_STRUCTURE__RECORD,
 				 JavaqueryoutputFactory.eINSTANCE.createRecordInterimResult()));
 	}
 

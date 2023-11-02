@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import qualitypatternmodel.javaqueryoutput.InterimResultParam;
-import qualitypatternmodel.javaqueryoutput.InterimResultsStructure;
+import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 import qualitypatternmodel.javaqueryoutput.RecordInterimResult;
 
@@ -24,13 +24,13 @@ import qualitypatternmodel.javaqueryoutput.RecordInterimResult;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.javaqueryoutput.impl.InterimResultsStructureImpl#getSubstructure <em>Substructure</em>}</li>
- *   <li>{@link qualitypatternmodel.javaqueryoutput.impl.InterimResultsStructureImpl#getRecord <em>Record</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaqueryoutput.impl.InterimResultStructureImpl#getSubstructure <em>Substructure</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaqueryoutput.impl.InterimResultStructureImpl#getRecord <em>Record</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class InterimResultsStructureImpl extends MinimalEObjectImpl.Container implements InterimResultsStructure {
+public class InterimResultStructureImpl extends MinimalEObjectImpl.Container implements InterimResultStructure {
 	/**
 	 * The cached value of the '{@link #getSubstructure() <em>Substructure</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -54,10 +54,11 @@ public class InterimResultsStructureImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected InterimResultsStructureImpl() {
+	public InterimResultStructureImpl() {
 		super();
+		setRecord(new RecordInterimResultImpl());
 	}
 
 	/**
@@ -67,7 +68,7 @@ public class InterimResultsStructureImpl extends MinimalEObjectImpl.Container im
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return JavaqueryoutputPackage.Literals.INTERIM_RESULTS_STRUCTURE;
+		return JavaqueryoutputPackage.Literals.INTERIM_RESULT_STRUCTURE;
 	}
 
 	/**
@@ -89,7 +90,7 @@ public class InterimResultsStructureImpl extends MinimalEObjectImpl.Container im
 		InterimResultParam oldSubstructure = substructure;
 		substructure = newSubstructure;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryoutputPackage.INTERIM_RESULTS_STRUCTURE__SUBSTRUCTURE, oldSubstructure, newSubstructure);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE__SUBSTRUCTURE, oldSubstructure, newSubstructure);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -105,14 +106,14 @@ public class InterimResultsStructureImpl extends MinimalEObjectImpl.Container im
 		if (newSubstructure != substructure) {
 			NotificationChain msgs = null;
 			if (substructure != null)
-				msgs = ((InternalEObject)substructure).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JavaqueryoutputPackage.INTERIM_RESULTS_STRUCTURE__SUBSTRUCTURE, null, msgs);
+				msgs = ((InternalEObject)substructure).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE__SUBSTRUCTURE, null, msgs);
 			if (newSubstructure != null)
-				msgs = ((InternalEObject)newSubstructure).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JavaqueryoutputPackage.INTERIM_RESULTS_STRUCTURE__SUBSTRUCTURE, null, msgs);
+				msgs = ((InternalEObject)newSubstructure).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE__SUBSTRUCTURE, null, msgs);
 			msgs = basicSetSubstructure(newSubstructure, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryoutputPackage.INTERIM_RESULTS_STRUCTURE__SUBSTRUCTURE, newSubstructure, newSubstructure));
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE__SUBSTRUCTURE, newSubstructure, newSubstructure));
 	}
 
 	/**
@@ -134,7 +135,7 @@ public class InterimResultsStructureImpl extends MinimalEObjectImpl.Container im
 		RecordInterimResult oldRecord = record;
 		record = newRecord;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryoutputPackage.INTERIM_RESULTS_STRUCTURE__RECORD, oldRecord, newRecord);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE__RECORD, oldRecord, newRecord);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -150,14 +151,14 @@ public class InterimResultsStructureImpl extends MinimalEObjectImpl.Container im
 		if (newRecord != record) {
 			NotificationChain msgs = null;
 			if (record != null)
-				msgs = ((InternalEObject)record).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JavaqueryoutputPackage.INTERIM_RESULTS_STRUCTURE__RECORD, null, msgs);
+				msgs = ((InternalEObject)record).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE__RECORD, null, msgs);
 			if (newRecord != null)
-				msgs = ((InternalEObject)newRecord).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JavaqueryoutputPackage.INTERIM_RESULTS_STRUCTURE__RECORD, null, msgs);
+				msgs = ((InternalEObject)newRecord).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE__RECORD, null, msgs);
 			msgs = basicSetRecord(newRecord, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryoutputPackage.INTERIM_RESULTS_STRUCTURE__RECORD, newRecord, newRecord));
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE__RECORD, newRecord, newRecord));
 	}
 
 	/**
@@ -168,9 +169,9 @@ public class InterimResultsStructureImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case JavaqueryoutputPackage.INTERIM_RESULTS_STRUCTURE__SUBSTRUCTURE:
+			case JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE__SUBSTRUCTURE:
 				return basicSetSubstructure(null, msgs);
-			case JavaqueryoutputPackage.INTERIM_RESULTS_STRUCTURE__RECORD:
+			case JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE__RECORD:
 				return basicSetRecord(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -184,9 +185,9 @@ public class InterimResultsStructureImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JavaqueryoutputPackage.INTERIM_RESULTS_STRUCTURE__SUBSTRUCTURE:
+			case JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE__SUBSTRUCTURE:
 				return getSubstructure();
-			case JavaqueryoutputPackage.INTERIM_RESULTS_STRUCTURE__RECORD:
+			case JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE__RECORD:
 				return getRecord();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -200,10 +201,10 @@ public class InterimResultsStructureImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JavaqueryoutputPackage.INTERIM_RESULTS_STRUCTURE__SUBSTRUCTURE:
+			case JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE__SUBSTRUCTURE:
 				setSubstructure((InterimResultParam)newValue);
 				return;
-			case JavaqueryoutputPackage.INTERIM_RESULTS_STRUCTURE__RECORD:
+			case JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE__RECORD:
 				setRecord((RecordInterimResult)newValue);
 				return;
 		}
@@ -218,10 +219,10 @@ public class InterimResultsStructureImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JavaqueryoutputPackage.INTERIM_RESULTS_STRUCTURE__SUBSTRUCTURE:
+			case JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE__SUBSTRUCTURE:
 				setSubstructure((InterimResultParam)null);
 				return;
-			case JavaqueryoutputPackage.INTERIM_RESULTS_STRUCTURE__RECORD:
+			case JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE__RECORD:
 				setRecord((RecordInterimResult)null);
 				return;
 		}
@@ -236,9 +237,9 @@ public class InterimResultsStructureImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JavaqueryoutputPackage.INTERIM_RESULTS_STRUCTURE__SUBSTRUCTURE:
+			case JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE__SUBSTRUCTURE:
 				return substructure != null;
-			case JavaqueryoutputPackage.INTERIM_RESULTS_STRUCTURE__RECORD:
+			case JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE__RECORD:
 				return record != null;
 		}
 		return super.eIsSet(featureID);

@@ -43,14 +43,10 @@ public abstract class NumberFilterPartImpl extends JavaFilterPartImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
-	public Double apply() throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+	abstract public Double apply() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

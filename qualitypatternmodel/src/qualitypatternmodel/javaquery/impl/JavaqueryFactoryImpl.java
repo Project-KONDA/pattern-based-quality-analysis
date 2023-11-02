@@ -58,6 +58,7 @@ public class JavaqueryFactoryImpl extends EFactoryImpl implements JavaqueryFacto
 		switch (eClass.getClassifierID()) {
 			case JavaqueryPackage.JAVA_FILTER: return createJavaFilter();
 			case JavaqueryPackage.FORMULA_FILTER_PART: return createFormulaFilterPart();
+			case JavaqueryPackage.BOOLEAN_FILTER_ELEMENT: return createBooleanFilterElement();
 			case JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART: return createOneArgFunctionFilterPart();
 			case JavaqueryPackage.LIST_FILTER_PART: return createListFilterPart();
 			case JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART: return createTwoArgFunctionFilterPart();
@@ -90,6 +91,17 @@ public class JavaqueryFactoryImpl extends EFactoryImpl implements JavaqueryFacto
 	public FormulaFilterPart createFormulaFilterPart() {
 		FormulaFilterPartImpl formulaFilterPart = new FormulaFilterPartImpl();
 		return formulaFilterPart;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public BooleanFilterElement createBooleanFilterElement() {
+		BooleanFilterElementImpl booleanFilterElement = new BooleanFilterElementImpl();
+		return booleanFilterElement;
 	}
 
 	/**

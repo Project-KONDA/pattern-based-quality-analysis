@@ -72,26 +72,26 @@ public class JavaqueryoutputItemProviderAdapterFactory extends JavaqueryoutputAd
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaqueryoutput.InterimResultsStructure} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaqueryoutput.InterimResultStructure} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected InterimResultsStructureItemProvider interimResultsStructureItemProvider;
+	protected InterimResultStructureItemProvider interimResultStructureItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.javaqueryoutput.InterimResultsStructure}.
+	 * This creates an adapter for a {@link qualitypatternmodel.javaqueryoutput.InterimResultStructure}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createInterimResultsStructureAdapter() {
-		if (interimResultsStructureItemProvider == null) {
-			interimResultsStructureItemProvider = new InterimResultsStructureItemProvider(this);
+	public Adapter createInterimResultStructureAdapter() {
+		if (interimResultStructureItemProvider == null) {
+			interimResultStructureItemProvider = new InterimResultStructureItemProvider(this);
 		}
 
-		return interimResultsStructureItemProvider;
+		return interimResultStructureItemProvider;
 	}
 
 	/**
@@ -291,7 +291,7 @@ public class JavaqueryoutputItemProviderAdapterFactory extends JavaqueryoutputAd
 	 */
 	@Override
 	public void dispose() {
-		if (interimResultsStructureItemProvider != null) interimResultsStructureItemProvider.dispose();
+		if (interimResultStructureItemProvider != null) interimResultStructureItemProvider.dispose();
 		if (recordInterimResultItemProvider != null) recordInterimResultItemProvider.dispose();
 		if (booleanInterimResultParamItemProvider != null) booleanInterimResultParamItemProvider.dispose();
 		if (containerInterimResultPartItemProvider != null) containerInterimResultPartItemProvider.dispose();

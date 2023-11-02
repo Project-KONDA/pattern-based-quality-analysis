@@ -299,8 +299,8 @@ public enum ComparisonOperator implements Enumerator {
 		return literal;
 	}
 
-	public static ComparisonOperator invert(ComparisonOperator equal) {
-		switch(equal) {
+	public static ComparisonOperator invert(ComparisonOperator operator) {
+		switch(operator) {
 			case EQUAL: return NOTEQUAL;
 			case GREATER: return LESSOREQUAL;
 			case LESS: return GREATEROREQUAL;
@@ -311,8 +311,8 @@ public enum ComparisonOperator implements Enumerator {
 		return null;
 	}
 	
-	public static ComparisonOperator invertDirection(ComparisonOperator equal) {
-		switch(equal) {
+	public static ComparisonOperator invertDirection(ComparisonOperator operator) {
+		switch(operator) {
 			case EQUAL: return EQUAL;
 			case GREATER: return LESS;
 			case LESS: return GREATER;
@@ -321,5 +321,18 @@ public enum ComparisonOperator implements Enumerator {
 			case NOTEQUAL: return NOTEQUAL;
 		}
 		return null;
+	}
+
+	public static Boolean evaluate(ComparisonOperator operator, Double result1, Double result2) {
+		switch(operator) {
+		case EQUAL: return result1 == result2;
+		case GREATER: return result1 > result2;
+		case LESS: return result1 < result2;
+		case GREATEROREQUAL: return result1 <= result2;
+		case LESSOREQUAL: return result1 >= result2;
+		case NOTEQUAL: return result1 != result2;
+	}
+	return null;
+		
 	}
 } //ComparisonOperator

@@ -118,6 +118,29 @@ public class JavaqueryItemProviderAdapterFactory extends JavaqueryAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaquery.BooleanFilterElement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BooleanFilterElementItemProvider booleanFilterElementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.javaquery.BooleanFilterElement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBooleanFilterElementAdapter() {
+		if (booleanFilterElementItemProvider == null) {
+			booleanFilterElementItemProvider = new BooleanFilterElementItemProvider(this);
+		}
+
+		return booleanFilterElementItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaquery.OneArgFunctionFilterPart} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -385,6 +408,7 @@ public class JavaqueryItemProviderAdapterFactory extends JavaqueryAdapterFactory
 	public void dispose() {
 		if (javaFilterItemProvider != null) javaFilterItemProvider.dispose();
 		if (formulaFilterPartItemProvider != null) formulaFilterPartItemProvider.dispose();
+		if (booleanFilterElementItemProvider != null) booleanFilterElementItemProvider.dispose();
 		if (oneArgFunctionFilterPartItemProvider != null) oneArgFunctionFilterPartItemProvider.dispose();
 		if (listFilterPartItemProvider != null) listFilterPartItemProvider.dispose();
 		if (twoArgFunctionFilterPartItemProvider != null) twoArgFunctionFilterPartItemProvider.dispose();

@@ -17,7 +17,7 @@ import qualitypatternmodel.javaqueryoutput.BooleanInterimResultParam;
  * </ul>
  *
  * @see qualitypatternmodel.javaquery.JavaqueryPackage#getBooleanFilterElement()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface BooleanFilterElement extends BooleanFilterPart {

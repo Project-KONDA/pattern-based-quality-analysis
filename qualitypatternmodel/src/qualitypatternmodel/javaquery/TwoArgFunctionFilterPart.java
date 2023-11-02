@@ -25,6 +25,7 @@ import qualitypatternmodel.patternstructure.Quantifier;
  * @generated
  */
 public interface TwoArgFunctionFilterPart extends BooleanFilterPart {
+	
 	/**
 	 * Returns the value of the '<em><b>Argument1</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -127,4 +128,11 @@ public interface TwoArgFunctionFilterPart extends BooleanFilterPart {
 	 */
 	Boolean apply(String param1, String param2);
 
+	@FunctionalInterface
+	interface Function {
+	    Boolean evaluate(String str, String str2);
+	}
+	
+	void setFunction(Function object);
+	
 } // TwoArgFunctionFilterPart

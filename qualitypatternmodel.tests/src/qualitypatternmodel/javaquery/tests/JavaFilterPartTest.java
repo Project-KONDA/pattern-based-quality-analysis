@@ -10,6 +10,12 @@ import qualitypatternmodel.javaquery.JavaFilterPart;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Java Filter Part</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.javaquery.JavaFilterPart#getArguments() <em>Get Arguments</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public abstract class JavaFilterPartTest extends TestCase {
@@ -50,6 +56,19 @@ public abstract class JavaFilterPartTest extends TestCase {
 	 */
 	protected JavaFilterPart getFixture() {
 		return fixture;
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.javaquery.JavaFilterPart#getArguments() <em>Get Arguments</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaquery.JavaFilterPart#getArguments()
+	 * @generated
+	 */
+	public void testGetArguments() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //JavaFilterPartTest

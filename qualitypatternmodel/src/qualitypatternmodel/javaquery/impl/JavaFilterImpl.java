@@ -4,7 +4,7 @@ package qualitypatternmodel.javaquery.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -14,7 +14,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
-import qualitypatternmodel.javaqueryoutput.InterimResultsStructure;
+import qualitypatternmodel.javaqueryoutput.InterimResultParam;
+import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
+import qualitypatternmodel.javaqueryoutput.impl.ContainerInterimResultPartImpl;
+import qualitypatternmodel.javaqueryoutput.impl.InterimResultStructureImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,7 +52,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated
 	 * @ordered
 	 */
-	protected InterimResultsStructure structure;
+	protected InterimResultStructure structure;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -58,6 +61,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 */
 	public JavaFilterImpl() {
 		super();
+		setStructure(new InterimResultStructureImpl()); 
 	}
 
 	/**
@@ -83,11 +87,21 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetFilter(BooleanFilterPart newFilter, NotificationChain msgs) {
 		BooleanFilterPart oldFilter = filter;
 		filter = newFilter;
+		
+		EList<InterimResultParam> interims = filter.getArguments();
+		
+		if (interims != null) {
+			if (interims.size() == 1)
+				getStructure().setSubstructure(interims.get(0));
+			else 
+				getStructure().setSubstructure(new ContainerInterimResultPartImpl(interims));
+		}
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryPackage.JAVA_FILTER__FILTER, oldFilter, newFilter);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
@@ -121,7 +135,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated
 	 */
 	@Override
-	public InterimResultsStructure getStructure() {
+	public InterimResultStructure getStructure() {
 		return structure;
 	}
 
@@ -130,8 +144,8 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStructure(InterimResultsStructure newStructure, NotificationChain msgs) {
-		InterimResultsStructure oldStructure = structure;
+	public NotificationChain basicSetStructure(InterimResultStructure newStructure, NotificationChain msgs) {
+		InterimResultStructure oldStructure = structure;
 		structure = newStructure;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryPackage.JAVA_FILTER__STRUCTURE, oldStructure, newStructure);
@@ -146,7 +160,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated
 	 */
 	@Override
-	public void setStructure(InterimResultsStructure newStructure) {
+	public void setStructure(InterimResultStructure newStructure) {
 		if (newStructure != structure) {
 			NotificationChain msgs = null;
 			if (structure != null)
@@ -204,7 +218,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 				setFilter((BooleanFilterPart)newValue);
 				return;
 			case JavaqueryPackage.JAVA_FILTER__STRUCTURE:
-				setStructure((InterimResultsStructure)newValue);
+				setStructure((InterimResultStructure)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -222,7 +236,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 				setFilter((BooleanFilterPart)null);
 				return;
 			case JavaqueryPackage.JAVA_FILTER__STRUCTURE:
-				setStructure((InterimResultsStructure)null);
+				setStructure((InterimResultStructure)null);
 				return;
 		}
 		super.eUnset(featureID);

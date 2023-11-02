@@ -4,7 +4,8 @@ package qualitypatternmodel.javaquery.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -14,6 +15,8 @@ import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.CountFilterElement;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaqueryoutput.ContainerInterimResultPart;
+import qualitypatternmodel.javaqueryoutput.InterimResultParam;
+import qualitypatternmodel.javaqueryoutput.impl.ContainerInterimResultPartImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -53,17 +56,32 @@ public class CountFilterElementImpl extends NumberFilterPartImpl implements Coun
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected CountFilterElementImpl() {
 		super();
+		setArgument(new ContainerInterimResultPartImpl());
 	}
 
 	public CountFilterElementImpl(BooleanFilterPart subfilter) {
 		super();
 		setSubfilter(subfilter);
 	}
+	
+	@Override
+	public Double apply() {return null;};
 
+	@Override
+	public EList<InterimResultParam> getArguments() {
+		EList<InterimResultParam> result = new BasicEList<InterimResultParam>();
+		result.add(getArgument());
+		return result;
+	}
+	
+	
+	
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

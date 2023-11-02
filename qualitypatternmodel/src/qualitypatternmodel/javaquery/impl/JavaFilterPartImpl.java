@@ -2,11 +2,14 @@
  */
 package qualitypatternmodel.javaquery.impl;
 
+import java.lang.reflect.InvocationTargetException;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
+import qualitypatternmodel.javaqueryoutput.InterimResultParam;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,6 +36,32 @@ public abstract class JavaFilterPartImpl extends MinimalEObjectImpl.Container im
 	@Override
 	protected EClass eStaticClass() {
 		return JavaqueryPackage.Literals.JAVA_FILTER_PART;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<InterimResultParam> getArguments() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case JavaqueryPackage.JAVA_FILTER_PART___GET_ARGUMENTS:
+				return getArguments();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //JavaFilterPartImpl

@@ -4,6 +4,7 @@ package qualitypatternmodel.javaquery.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -11,7 +12,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.TwoArgFunctionFilterPart;
+import qualitypatternmodel.javaqueryoutput.InterimResultParam;
 import qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart;
+import qualitypatternmodel.javaqueryoutput.impl.ValueListInterimResultPartImpl;
 import qualitypatternmodel.patternstructure.Quantifier;
 
 /**
@@ -30,7 +33,14 @@ import qualitypatternmodel.patternstructure.Quantifier;
  *
  * @generated
  */
-public class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl implements TwoArgFunctionFilterPart {
+public class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl implements TwoArgFunctionFilterPart {	
+	
+	protected Function function;
+	
+	@Override
+	public void setFunction(Function f) {
+		function = f;
+	}
 	/**
 	 * The cached value of the '{@link #getArgument1() <em>Argument1</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -94,12 +104,36 @@ public class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected TwoArgFunctionFilterPartImpl() {
 		super();
+		setArgument1(new ValueListInterimResultPartImpl());
+		setArgument2(new ValueListInterimResultPartImpl());
 	}
+	
+	protected TwoArgFunctionFilterPartImpl(Function f) {
+		super();
+		setFunction(f);
+		setArgument1(new ValueListInterimResultPartImpl());
+		setArgument2(new ValueListInterimResultPartImpl());
+	}
+	
+	@Override
+	public Boolean apply() {return true;};
 
+	@Override
+	public EList<InterimResultParam> getArguments() {
+		EList<InterimResultParam> result = new BasicEList<InterimResultParam>();
+		result.add(getArgument1());
+		result.add(getArgument2());
+		return result;
+	}
+	
+	
+	
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

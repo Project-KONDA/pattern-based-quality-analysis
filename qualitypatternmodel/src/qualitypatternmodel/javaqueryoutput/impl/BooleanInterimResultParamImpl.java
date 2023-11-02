@@ -18,9 +18,9 @@ public class BooleanInterimResultParamImpl extends InterimResultParamImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected BooleanInterimResultParamImpl() {
+	public BooleanInterimResultParamImpl() {
 		super();
 	}
 

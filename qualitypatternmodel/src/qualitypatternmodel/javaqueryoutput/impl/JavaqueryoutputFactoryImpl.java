@@ -56,7 +56,7 @@ public class JavaqueryoutputFactoryImpl extends EFactoryImpl implements Javaquer
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case JavaqueryoutputPackage.INTERIM_RESULTS_STRUCTURE: return createInterimResultsStructure();
+			case JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE: return createInterimResultStructure();
 			case JavaqueryoutputPackage.RECORD_INTERIM_RESULT: return createRecordInterimResult();
 			case JavaqueryoutputPackage.BOOLEAN_INTERIM_RESULT_PARAM: return createBooleanInterimResultParam();
 			case JavaqueryoutputPackage.CONTAINER_INTERIM_RESULT_PART: return createContainerInterimResultPart();
@@ -72,9 +72,9 @@ public class JavaqueryoutputFactoryImpl extends EFactoryImpl implements Javaquer
 	 * @generated
 	 */
 	@Override
-	public InterimResultsStructure createInterimResultsStructure() {
-		InterimResultsStructureImpl interimResultsStructure = new InterimResultsStructureImpl();
-		return interimResultsStructure;
+	public InterimResultStructure createInterimResultStructure() {
+		InterimResultStructureImpl interimResultStructure = new InterimResultStructureImpl();
+		return interimResultStructure;
 	}
 
 	/**
