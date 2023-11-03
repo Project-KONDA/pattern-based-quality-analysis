@@ -17,6 +17,7 @@ import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.NumberFilterPart;
 import qualitypatternmodel.javaqueryoutput.ContainerInterim;
 import qualitypatternmodel.javaqueryoutput.InterimResultParam;
+import qualitypatternmodel.javaqueryoutput.impl.ContainerInterimImpl;
 import qualitypatternmodel.operators.ComparisonOperator;
 
 /**
@@ -89,15 +90,17 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected CountFilterPartImpl() {
+	public CountFilterPartImpl() {
 		super();
+		setArgument(new ContainerInterimImpl());
 	}
 
 	public CountFilterPartImpl(ComparisonOperator value, NumberFilterPart arg1filter, NumberFilterPart arg2filter) {
 		super();
 		setOperator(value);
+		setArgument(new ContainerInterimImpl());
 		setSubfilter1(arg1filter);
 		setSubfilter2(arg2filter);
 	}
@@ -111,7 +114,18 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 
 	@Override
 	public EList<InterimResultParam> getArguments() {
-		return new BasicEList<InterimResultParam>();
+		EList<InterimResultParam> result = new BasicEList<InterimResultParam>();
+		result.add(getArgument());
+		return result;
+	}
+	
+	@Override
+	protected void updateArgument() {
+		ContainerInterim arg = getArgument();
+		EList<InterimResultParam> contained = arg.getContained();
+		contained.clear();
+		contained.addAll(getSubfilter1().getArguments());
+		contained.addAll(getSubfilter2().getArguments());
 	}
 	
 	
@@ -141,11 +155,13 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetSubfilter1(NumberFilterPart newSubfilter1, NotificationChain msgs) {
 		NumberFilterPart oldSubfilter1 = subfilter1;
 		subfilter1 = newSubfilter1;
+		updateArgument();
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryPackage.COUNT_FILTER_PART__SUBFILTER1, oldSubfilter1, newSubfilter1);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
@@ -186,11 +202,13 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetSubfilter2(NumberFilterPart newSubfilter2, NotificationChain msgs) {
 		NumberFilterPart oldSubfilter2 = subfilter2;
 		subfilter2 = newSubfilter2;
+		updateArgument();
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryPackage.COUNT_FILTER_PART__SUBFILTER2, oldSubfilter2, newSubfilter2);
 			if (msgs == null) msgs = notification; else msgs.add(notification);

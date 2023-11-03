@@ -18,9 +18,9 @@ public class NumberValueInterimImpl extends InterimResultParamImpl implements Nu
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected NumberValueInterimImpl() {
+	public NumberValueInterimImpl() {
 		super();
 	}
 

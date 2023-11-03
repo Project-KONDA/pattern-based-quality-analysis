@@ -18,7 +18,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.javaquery.JavaFilterPart;
-import qualitypatternmodel.javaquery.impl.NumberFilterElementImpl;
+import qualitypatternmodel.javaquery.impl.NumberValueFilterElementImpl;
 import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
@@ -68,7 +68,7 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
-		return new NumberFilterElementImpl(getNumberParam().getValue()); 
+		return new NumberValueFilterElementImpl(getNumberParam().getValue()); 
 	}
 	
 	@Override

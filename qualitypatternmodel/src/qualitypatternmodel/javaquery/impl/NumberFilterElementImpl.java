@@ -13,6 +13,7 @@ import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.NumberFilterElement;
 import qualitypatternmodel.javaqueryoutput.InterimResultParam;
 import qualitypatternmodel.javaqueryoutput.NumberValueInterim;
+import qualitypatternmodel.javaqueryoutput.impl.NumberValueInterimImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,14 +42,11 @@ public class NumberFilterElementImpl extends NumberFilterPartImpl implements Num
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected NumberFilterElementImpl() {
+	public NumberFilterElementImpl() {
 		super();
-	}
-
-	public NumberFilterElementImpl(Double value) {
-		super();
+		setArgument(new NumberValueInterimImpl());
 	}
 	
 	@Override
@@ -56,7 +54,9 @@ public class NumberFilterElementImpl extends NumberFilterPartImpl implements Num
 
 	@Override
 	public EList<InterimResultParam> getArguments() {
-		return new BasicEList<InterimResultParam>();
+		EList<InterimResultParam> result = new BasicEList<InterimResultParam>();
+		result.add(getArgument());
+		return result;
 	}
 	
 	

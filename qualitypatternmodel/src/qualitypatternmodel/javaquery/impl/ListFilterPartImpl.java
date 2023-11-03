@@ -102,6 +102,18 @@ public class ListFilterPartImpl extends BooleanFilterPartImpl implements ListFil
 		return result;
 	}
 
+	@Override
+	protected void updateArgument() {
+		ContainerInterim arg = getArgument();
+		EList<InterimResultParam> contained = arg.getContained();
+		contained.clear();
+		contained.addAll(getSubfilter().getArguments());
+	}
+	
+	
+	
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -125,11 +137,13 @@ public class ListFilterPartImpl extends BooleanFilterPartImpl implements ListFil
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetSubfilter(BooleanFilterPart newSubfilter, NotificationChain msgs) {
 		BooleanFilterPart oldSubfilter = subfilter;
 		subfilter = newSubfilter;
+		updateArgument();
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryPackage.LIST_FILTER_PART__SUBFILTER, oldSubfilter, newSubfilter);
 			if (msgs == null) msgs = notification; else msgs.add(notification);

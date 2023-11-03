@@ -3,7 +3,8 @@
 package qualitypatternmodel.javaquery.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -11,6 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.NumberValueFilterElement;
+import qualitypatternmodel.javaqueryoutput.InterimResultParam;
 
 /**
  * <!-- begin-user-doc -->
@@ -64,6 +66,15 @@ public class NumberValueFilterElementImpl extends NumberFilterPartImpl implement
 	public Double apply() throws InvalidityException {
 		return getNumber();
 	}
+
+	@Override
+	public EList<InterimResultParam> getArguments() {
+		return new BasicEList<InterimResultParam>();
+	}
+	
+	
+	
+	
 	
 	/**
 	 * <!-- begin-user-doc -->

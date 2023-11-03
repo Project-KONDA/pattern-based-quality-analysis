@@ -115,6 +115,15 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 		return result;
 	}
 	
+	@Override
+	protected void updateArgument() {
+		ContainerInterim arg = getArgument();
+		EList<InterimResultParam> contained = arg.getContained();
+		contained.clear();
+		contained.addAll(getSubfilter1().getArguments());
+		contained.addAll(getSubfilter2().getArguments());
+	}
+	
 	
 	
 	
@@ -142,11 +151,13 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetSubfilter1(BooleanFilterPart newSubfilter1, NotificationChain msgs) {
 		BooleanFilterPart oldSubfilter1 = subfilter1;
 		subfilter1 = newSubfilter1;
+		updateArgument();
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryPackage.FORMULA_FILTER_PART__SUBFILTER1, oldSubfilter1, newSubfilter1);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
@@ -187,11 +198,13 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetSubfilter2(BooleanFilterPart newSubfilter2, NotificationChain msgs) {
 		BooleanFilterPart oldSubfilter2 = subfilter2;
 		subfilter2 = newSubfilter2;
+		updateArgument();
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryPackage.FORMULA_FILTER_PART__SUBFILTER2, oldSubfilter2, newSubfilter2);
 			if (msgs == null) msgs = notification; else msgs.add(notification);

@@ -58,13 +58,14 @@ public class CountFilterElementImpl extends NumberFilterPartImpl implements Coun
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	protected CountFilterElementImpl() {
+	public CountFilterElementImpl() {
 		super();
 		setArgument(new ContainerInterimImpl());
 	}
 
 	public CountFilterElementImpl(BooleanFilterPart subfilter) {
 		super();
+		setArgument(new ContainerInterimImpl());
 		setSubfilter(subfilter);
 	}
 	
@@ -76,6 +77,14 @@ public class CountFilterElementImpl extends NumberFilterPartImpl implements Coun
 		EList<InterimResultParam> result = new BasicEList<InterimResultParam>();
 		result.add(getArgument());
 		return result;
+	}
+	
+	@Override
+	protected void updateArgument() {
+		ContainerInterim arg = getArgument();
+		EList<InterimResultParam> contained = arg.getContained();
+		contained.clear();
+		contained.addAll(getSubfilter().getArguments());
 	}
 	
 	
@@ -105,11 +114,13 @@ public class CountFilterElementImpl extends NumberFilterPartImpl implements Coun
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetSubfilter(BooleanFilterPart newSubfilter, NotificationChain msgs) {
 		BooleanFilterPart oldSubfilter = subfilter;
 		subfilter = newSubfilter;
+		updateArgument();
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryPackage.COUNT_FILTER_ELEMENT__SUBFILTER, oldSubfilter, newSubfilter);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
