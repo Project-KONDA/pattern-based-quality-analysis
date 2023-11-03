@@ -115,7 +115,6 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 		return result;
 	}
 	
-	@Override
 	protected void updateArgument() {
 		ContainerInterim arg = getArgument();
 		EList<InterimResultParam> contained = arg.getContained();

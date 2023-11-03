@@ -101,8 +101,7 @@ public class ListFilterPartImpl extends BooleanFilterPartImpl implements ListFil
 		result.add(getArgument());
 		return result;
 	}
-
-	@Override
+	
 	protected void updateArgument() {
 		ContainerInterim arg = getArgument();
 		EList<InterimResultParam> contained = arg.getContained();

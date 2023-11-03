@@ -119,7 +119,6 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 		return result;
 	}
 	
-	@Override
 	protected void updateArgument() {
 		ContainerInterim arg = getArgument();
 		EList<InterimResultParam> contained = arg.getContained();

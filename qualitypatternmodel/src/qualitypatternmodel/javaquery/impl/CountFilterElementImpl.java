@@ -79,7 +79,6 @@ public class CountFilterElementImpl extends NumberFilterPartImpl implements Coun
 		return result;
 	}
 	
-	@Override
 	protected void updateArgument() {
 		ContainerInterim arg = getArgument();
 		EList<InterimResultParam> contained = arg.getContained();
