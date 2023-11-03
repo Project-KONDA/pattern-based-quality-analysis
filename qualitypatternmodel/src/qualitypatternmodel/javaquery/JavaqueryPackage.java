@@ -627,22 +627,22 @@ public interface JavaqueryPackage extends EPackage {
 	int COUNT_FILTER_PART = 8;
 
 	/**
-	 * The feature id for the '<em><b>Argument1</b></em>' containment reference.
+	 * The feature id for the '<em><b>Subfilter1</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_FILTER_PART__ARGUMENT1 = BOOLEAN_FILTER_PART_FEATURE_COUNT + 0;
+	int COUNT_FILTER_PART__SUBFILTER1 = BOOLEAN_FILTER_PART_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Argument2</b></em>' containment reference.
+	 * The feature id for the '<em><b>Subfilter2</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_FILTER_PART__ARGUMENT2 = BOOLEAN_FILTER_PART_FEATURE_COUNT + 1;
+	int COUNT_FILTER_PART__SUBFILTER2 = BOOLEAN_FILTER_PART_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Operator</b></em>' attribute.
@@ -1269,26 +1269,26 @@ public interface JavaqueryPackage extends EPackage {
 	EClass getCountFilterPart();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.javaquery.CountFilterPart#getArgument1 <em>Argument1</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.javaquery.CountFilterPart#getSubfilter1 <em>Subfilter1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Argument1</em>'.
-	 * @see qualitypatternmodel.javaquery.CountFilterPart#getArgument1()
+	 * @return the meta object for the containment reference '<em>Subfilter1</em>'.
+	 * @see qualitypatternmodel.javaquery.CountFilterPart#getSubfilter1()
 	 * @see #getCountFilterPart()
 	 * @generated
 	 */
-	EReference getCountFilterPart_Argument1();
+	EReference getCountFilterPart_Subfilter1();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.javaquery.CountFilterPart#getArgument2 <em>Argument2</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.javaquery.CountFilterPart#getSubfilter2 <em>Subfilter2</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Argument2</em>'.
-	 * @see qualitypatternmodel.javaquery.CountFilterPart#getArgument2()
+	 * @return the meta object for the containment reference '<em>Subfilter2</em>'.
+	 * @see qualitypatternmodel.javaquery.CountFilterPart#getSubfilter2()
 	 * @see #getCountFilterPart()
 	 * @generated
 	 */
-	EReference getCountFilterPart_Argument2();
+	EReference getCountFilterPart_Subfilter2();
 
 	/**
 	 * Returns the meta object for the attribute '{@link qualitypatternmodel.javaquery.CountFilterPart#getOperator <em>Operator</em>}'.
@@ -1695,20 +1695,20 @@ public interface JavaqueryPackage extends EPackage {
 		EClass COUNT_FILTER_PART = eINSTANCE.getCountFilterPart();
 
 		/**
-		 * The meta object literal for the '<em><b>Argument1</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Subfilter1</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COUNT_FILTER_PART__ARGUMENT1 = eINSTANCE.getCountFilterPart_Argument1();
+		EReference COUNT_FILTER_PART__SUBFILTER1 = eINSTANCE.getCountFilterPart_Subfilter1();
 
 		/**
-		 * The meta object literal for the '<em><b>Argument2</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Subfilter2</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COUNT_FILTER_PART__ARGUMENT2 = eINSTANCE.getCountFilterPart_Argument2();
+		EReference COUNT_FILTER_PART__SUBFILTER2 = eINSTANCE.getCountFilterPart_Subfilter2();
 
 		/**
 		 * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.

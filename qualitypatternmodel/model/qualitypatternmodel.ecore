@@ -1500,9 +1500,9 @@
           eType="#//javaquery/BooleanFilterPart" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CountFilterPart" eSuperTypes="#//javaquery/BooleanFilterPart">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="argument1" lowerBound="1"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subfilter1" lowerBound="1"
           eType="#//javaquery/NumberFilterPart" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="argument2" lowerBound="1"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subfilter2" lowerBound="1"
           eType="#//javaquery/NumberFilterPart" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//operators/ComparisonOperator"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"

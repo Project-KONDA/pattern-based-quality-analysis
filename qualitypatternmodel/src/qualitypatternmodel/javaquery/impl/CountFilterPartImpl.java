@@ -27,8 +27,8 @@ import qualitypatternmodel.operators.ComparisonOperator;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.javaquery.impl.CountFilterPartImpl#getArgument1 <em>Argument1</em>}</li>
- *   <li>{@link qualitypatternmodel.javaquery.impl.CountFilterPartImpl#getArgument2 <em>Argument2</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.impl.CountFilterPartImpl#getSubfilter1 <em>Subfilter1</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.impl.CountFilterPartImpl#getSubfilter2 <em>Subfilter2</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.impl.CountFilterPartImpl#getOperator <em>Operator</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.impl.CountFilterPartImpl#getArgument <em>Argument</em>}</li>
  * </ul>
@@ -37,24 +37,24 @@ import qualitypatternmodel.operators.ComparisonOperator;
  */
 public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountFilterPart {
 	/**
-	 * The cached value of the '{@link #getArgument1() <em>Argument1</em>}' containment reference.
+	 * The cached value of the '{@link #getSubfilter1() <em>Subfilter1</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getArgument1()
+	 * @see #getSubfilter1()
 	 * @generated
 	 * @ordered
 	 */
-	protected NumberFilterPart argument1;
+	protected NumberFilterPart subfilter1;
 
 	/**
-	 * The cached value of the '{@link #getArgument2() <em>Argument2</em>}' containment reference.
+	 * The cached value of the '{@link #getSubfilter2() <em>Subfilter2</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getArgument2()
+	 * @see #getSubfilter2()
 	 * @generated
 	 * @ordered
 	 */
-	protected NumberFilterPart argument2;
+	protected NumberFilterPart subfilter2;
 
 	/**
 	 * The default value of the '{@link #getOperator() <em>Operator</em>}' attribute.
@@ -98,14 +98,14 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 	public CountFilterPartImpl(ComparisonOperator value, NumberFilterPart arg1filter, NumberFilterPart arg2filter) {
 		super();
 		setOperator(value);
-		setArgument1(arg1filter);
-		setArgument2(arg2filter);
+		setSubfilter1(arg1filter);
+		setSubfilter2(arg2filter);
 	}
 
 	@Override
 	public Boolean apply() throws InvalidityException {
-		Double result1 = getArgument1().apply();
-		Double result2 = getArgument2().apply();
+		Double result1 = getSubfilter1().apply();
+		Double result2 = getSubfilter2().apply();
 		return ComparisonOperator.evaluate(getOperator(), result1, result2);
 	}
 
@@ -134,8 +134,8 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 	 * @generated
 	 */
 	@Override
-	public NumberFilterPart getArgument1() {
-		return argument1;
+	public NumberFilterPart getSubfilter1() {
+		return subfilter1;
 	}
 
 	/**
@@ -143,11 +143,11 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetArgument1(NumberFilterPart newArgument1, NotificationChain msgs) {
-		NumberFilterPart oldArgument1 = argument1;
-		argument1 = newArgument1;
+	public NotificationChain basicSetSubfilter1(NumberFilterPart newSubfilter1, NotificationChain msgs) {
+		NumberFilterPart oldSubfilter1 = subfilter1;
+		subfilter1 = newSubfilter1;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT1, oldArgument1, newArgument1);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryPackage.COUNT_FILTER_PART__SUBFILTER1, oldSubfilter1, newSubfilter1);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -159,18 +159,18 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 	 * @generated
 	 */
 	@Override
-	public void setArgument1(NumberFilterPart newArgument1) {
-		if (newArgument1 != argument1) {
+	public void setSubfilter1(NumberFilterPart newSubfilter1) {
+		if (newSubfilter1 != subfilter1) {
 			NotificationChain msgs = null;
-			if (argument1 != null)
-				msgs = ((InternalEObject)argument1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT1, null, msgs);
-			if (newArgument1 != null)
-				msgs = ((InternalEObject)newArgument1).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT1, null, msgs);
-			msgs = basicSetArgument1(newArgument1, msgs);
+			if (subfilter1 != null)
+				msgs = ((InternalEObject)subfilter1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JavaqueryPackage.COUNT_FILTER_PART__SUBFILTER1, null, msgs);
+			if (newSubfilter1 != null)
+				msgs = ((InternalEObject)newSubfilter1).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JavaqueryPackage.COUNT_FILTER_PART__SUBFILTER1, null, msgs);
+			msgs = basicSetSubfilter1(newSubfilter1, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT1, newArgument1, newArgument1));
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.COUNT_FILTER_PART__SUBFILTER1, newSubfilter1, newSubfilter1));
 	}
 
 	/**
@@ -179,8 +179,8 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 	 * @generated
 	 */
 	@Override
-	public NumberFilterPart getArgument2() {
-		return argument2;
+	public NumberFilterPart getSubfilter2() {
+		return subfilter2;
 	}
 
 	/**
@@ -188,11 +188,11 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetArgument2(NumberFilterPart newArgument2, NotificationChain msgs) {
-		NumberFilterPart oldArgument2 = argument2;
-		argument2 = newArgument2;
+	public NotificationChain basicSetSubfilter2(NumberFilterPart newSubfilter2, NotificationChain msgs) {
+		NumberFilterPart oldSubfilter2 = subfilter2;
+		subfilter2 = newSubfilter2;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT2, oldArgument2, newArgument2);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryPackage.COUNT_FILTER_PART__SUBFILTER2, oldSubfilter2, newSubfilter2);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -204,18 +204,18 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 	 * @generated
 	 */
 	@Override
-	public void setArgument2(NumberFilterPart newArgument2) {
-		if (newArgument2 != argument2) {
+	public void setSubfilter2(NumberFilterPart newSubfilter2) {
+		if (newSubfilter2 != subfilter2) {
 			NotificationChain msgs = null;
-			if (argument2 != null)
-				msgs = ((InternalEObject)argument2).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT2, null, msgs);
-			if (newArgument2 != null)
-				msgs = ((InternalEObject)newArgument2).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT2, null, msgs);
-			msgs = basicSetArgument2(newArgument2, msgs);
+			if (subfilter2 != null)
+				msgs = ((InternalEObject)subfilter2).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JavaqueryPackage.COUNT_FILTER_PART__SUBFILTER2, null, msgs);
+			if (newSubfilter2 != null)
+				msgs = ((InternalEObject)newSubfilter2).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JavaqueryPackage.COUNT_FILTER_PART__SUBFILTER2, null, msgs);
+			msgs = basicSetSubfilter2(newSubfilter2, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT2, newArgument2, newArgument2));
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.COUNT_FILTER_PART__SUBFILTER2, newSubfilter2, newSubfilter2));
 	}
 
 	/**
@@ -289,10 +289,10 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT1:
-				return basicSetArgument1(null, msgs);
-			case JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT2:
-				return basicSetArgument2(null, msgs);
+			case JavaqueryPackage.COUNT_FILTER_PART__SUBFILTER1:
+				return basicSetSubfilter1(null, msgs);
+			case JavaqueryPackage.COUNT_FILTER_PART__SUBFILTER2:
+				return basicSetSubfilter2(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -305,10 +305,10 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT1:
-				return getArgument1();
-			case JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT2:
-				return getArgument2();
+			case JavaqueryPackage.COUNT_FILTER_PART__SUBFILTER1:
+				return getSubfilter1();
+			case JavaqueryPackage.COUNT_FILTER_PART__SUBFILTER2:
+				return getSubfilter2();
 			case JavaqueryPackage.COUNT_FILTER_PART__OPERATOR:
 				return getOperator();
 			case JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT:
@@ -326,11 +326,11 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT1:
-				setArgument1((NumberFilterPart)newValue);
+			case JavaqueryPackage.COUNT_FILTER_PART__SUBFILTER1:
+				setSubfilter1((NumberFilterPart)newValue);
 				return;
-			case JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT2:
-				setArgument2((NumberFilterPart)newValue);
+			case JavaqueryPackage.COUNT_FILTER_PART__SUBFILTER2:
+				setSubfilter2((NumberFilterPart)newValue);
 				return;
 			case JavaqueryPackage.COUNT_FILTER_PART__OPERATOR:
 				setOperator((ComparisonOperator)newValue);
@@ -350,11 +350,11 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT1:
-				setArgument1((NumberFilterPart)null);
+			case JavaqueryPackage.COUNT_FILTER_PART__SUBFILTER1:
+				setSubfilter1((NumberFilterPart)null);
 				return;
-			case JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT2:
-				setArgument2((NumberFilterPart)null);
+			case JavaqueryPackage.COUNT_FILTER_PART__SUBFILTER2:
+				setSubfilter2((NumberFilterPart)null);
 				return;
 			case JavaqueryPackage.COUNT_FILTER_PART__OPERATOR:
 				setOperator(OPERATOR_EDEFAULT);
@@ -374,10 +374,10 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT1:
-				return argument1 != null;
-			case JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT2:
-				return argument2 != null;
+			case JavaqueryPackage.COUNT_FILTER_PART__SUBFILTER1:
+				return subfilter1 != null;
+			case JavaqueryPackage.COUNT_FILTER_PART__SUBFILTER2:
+				return subfilter2 != null;
 			case JavaqueryPackage.COUNT_FILTER_PART__OPERATOR:
 				return operator != OPERATOR_EDEFAULT;
 			case JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT:

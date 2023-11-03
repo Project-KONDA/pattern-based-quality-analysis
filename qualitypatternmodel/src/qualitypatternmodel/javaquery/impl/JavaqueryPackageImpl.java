@@ -614,7 +614,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getCountFilterPart_Argument1() {
+	public EReference getCountFilterPart_Subfilter1() {
 		return (EReference)countFilterPartEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -624,7 +624,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getCountFilterPart_Argument2() {
+	public EReference getCountFilterPart_Subfilter2() {
 		return (EReference)countFilterPartEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -784,8 +784,8 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		createEReference(notFilterPartEClass, NOT_FILTER_PART__SUBFILTER);
 
 		countFilterPartEClass = createEClass(COUNT_FILTER_PART);
-		createEReference(countFilterPartEClass, COUNT_FILTER_PART__ARGUMENT1);
-		createEReference(countFilterPartEClass, COUNT_FILTER_PART__ARGUMENT2);
+		createEReference(countFilterPartEClass, COUNT_FILTER_PART__SUBFILTER1);
+		createEReference(countFilterPartEClass, COUNT_FILTER_PART__SUBFILTER2);
 		createEAttribute(countFilterPartEClass, COUNT_FILTER_PART__OPERATOR);
 		createEReference(countFilterPartEClass, COUNT_FILTER_PART__ARGUMENT);
 
@@ -897,8 +897,8 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		initEReference(getNotFilterPart_Subfilter(), this.getBooleanFilterPart(), null, "subfilter", null, 1, 1, NotFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(countFilterPartEClass, CountFilterPart.class, "CountFilterPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCountFilterPart_Argument1(), this.getNumberFilterPart(), null, "argument1", null, 1, 1, CountFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCountFilterPart_Argument2(), this.getNumberFilterPart(), null, "argument2", null, 1, 1, CountFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCountFilterPart_Subfilter1(), this.getNumberFilterPart(), null, "subfilter1", null, 1, 1, CountFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCountFilterPart_Subfilter2(), this.getNumberFilterPart(), null, "subfilter2", null, 1, 1, CountFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCountFilterPart_Operator(), theOperatorsPackage.getComparisonOperator(), "operator", null, 0, 1, CountFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCountFilterPart_Argument(), theJavaqueryoutputPackage.getContainerInterim(), null, "argument", null, 1, 1, CountFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

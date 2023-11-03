@@ -112,8 +112,8 @@ public class CountFilterPartItemProvider extends BooleanFilterPartItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(JavaqueryPackage.Literals.COUNT_FILTER_PART__ARGUMENT1);
-			childrenFeatures.add(JavaqueryPackage.Literals.COUNT_FILTER_PART__ARGUMENT2);
+			childrenFeatures.add(JavaqueryPackage.Literals.COUNT_FILTER_PART__SUBFILTER1);
+			childrenFeatures.add(JavaqueryPackage.Literals.COUNT_FILTER_PART__SUBFILTER2);
 		}
 		return childrenFeatures;
 	}
@@ -173,8 +173,8 @@ public class CountFilterPartItemProvider extends BooleanFilterPartItemProvider {
 			case JavaqueryPackage.COUNT_FILTER_PART__OPERATOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT1:
-			case JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT2:
+			case JavaqueryPackage.COUNT_FILTER_PART__SUBFILTER1:
+			case JavaqueryPackage.COUNT_FILTER_PART__SUBFILTER2:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -194,32 +194,32 @@ public class CountFilterPartItemProvider extends BooleanFilterPartItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaqueryPackage.Literals.COUNT_FILTER_PART__ARGUMENT1,
+				(JavaqueryPackage.Literals.COUNT_FILTER_PART__SUBFILTER1,
 				 JavaqueryFactory.eINSTANCE.createCountFilterElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaqueryPackage.Literals.COUNT_FILTER_PART__ARGUMENT1,
+				(JavaqueryPackage.Literals.COUNT_FILTER_PART__SUBFILTER1,
 				 JavaqueryFactory.eINSTANCE.createNumberFilterElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaqueryPackage.Literals.COUNT_FILTER_PART__ARGUMENT1,
+				(JavaqueryPackage.Literals.COUNT_FILTER_PART__SUBFILTER1,
 				 JavaqueryFactory.eINSTANCE.createNumberValueFilterElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaqueryPackage.Literals.COUNT_FILTER_PART__ARGUMENT2,
+				(JavaqueryPackage.Literals.COUNT_FILTER_PART__SUBFILTER2,
 				 JavaqueryFactory.eINSTANCE.createCountFilterElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaqueryPackage.Literals.COUNT_FILTER_PART__ARGUMENT2,
+				(JavaqueryPackage.Literals.COUNT_FILTER_PART__SUBFILTER2,
 				 JavaqueryFactory.eINSTANCE.createNumberFilterElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaqueryPackage.Literals.COUNT_FILTER_PART__ARGUMENT2,
+				(JavaqueryPackage.Literals.COUNT_FILTER_PART__SUBFILTER2,
 				 JavaqueryFactory.eINSTANCE.createNumberValueFilterElement()));
 	}
 
@@ -235,8 +235,8 @@ public class CountFilterPartItemProvider extends BooleanFilterPartItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == JavaqueryPackage.Literals.COUNT_FILTER_PART__ARGUMENT1 ||
-			childFeature == JavaqueryPackage.Literals.COUNT_FILTER_PART__ARGUMENT2;
+			childFeature == JavaqueryPackage.Literals.COUNT_FILTER_PART__SUBFILTER1 ||
+			childFeature == JavaqueryPackage.Literals.COUNT_FILTER_PART__SUBFILTER2;
 
 		if (qualify) {
 			return getString

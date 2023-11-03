@@ -14,8 +14,8 @@ import qualitypatternmodel.operators.ComparisonOperator;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.javaquery.CountFilterPart#getArgument1 <em>Argument1</em>}</li>
- *   <li>{@link qualitypatternmodel.javaquery.CountFilterPart#getArgument2 <em>Argument2</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.CountFilterPart#getSubfilter1 <em>Subfilter1</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.CountFilterPart#getSubfilter2 <em>Subfilter2</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.CountFilterPart#getOperator <em>Operator</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.CountFilterPart#getArgument <em>Argument</em>}</li>
  * </ul>
@@ -26,48 +26,48 @@ import qualitypatternmodel.operators.ComparisonOperator;
  */
 public interface CountFilterPart extends BooleanFilterPart {
 	/**
-	 * Returns the value of the '<em><b>Argument1</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Subfilter1</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Argument1</em>' containment reference.
-	 * @see #setArgument1(NumberFilterPart)
-	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getCountFilterPart_Argument1()
+	 * @return the value of the '<em>Subfilter1</em>' containment reference.
+	 * @see #setSubfilter1(NumberFilterPart)
+	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getCountFilterPart_Subfilter1()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	NumberFilterPart getArgument1();
+	NumberFilterPart getSubfilter1();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.javaquery.CountFilterPart#getArgument1 <em>Argument1</em>}' containment reference.
+	 * Sets the value of the '{@link qualitypatternmodel.javaquery.CountFilterPart#getSubfilter1 <em>Subfilter1</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Argument1</em>' containment reference.
-	 * @see #getArgument1()
+	 * @param value the new value of the '<em>Subfilter1</em>' containment reference.
+	 * @see #getSubfilter1()
 	 * @generated
 	 */
-	void setArgument1(NumberFilterPart value);
+	void setSubfilter1(NumberFilterPart value);
 
 	/**
-	 * Returns the value of the '<em><b>Argument2</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Subfilter2</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Argument2</em>' containment reference.
-	 * @see #setArgument2(NumberFilterPart)
-	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getCountFilterPart_Argument2()
+	 * @return the value of the '<em>Subfilter2</em>' containment reference.
+	 * @see #setSubfilter2(NumberFilterPart)
+	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getCountFilterPart_Subfilter2()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	NumberFilterPart getArgument2();
+	NumberFilterPart getSubfilter2();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.javaquery.CountFilterPart#getArgument2 <em>Argument2</em>}' containment reference.
+	 * Sets the value of the '{@link qualitypatternmodel.javaquery.CountFilterPart#getSubfilter2 <em>Subfilter2</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Argument2</em>' containment reference.
-	 * @see #getArgument2()
+	 * @param value the new value of the '<em>Subfilter2</em>' containment reference.
+	 * @see #getSubfilter2()
 	 * @generated
 	 */
-	void setArgument2(NumberFilterPart value);
+	void setSubfilter2(NumberFilterPart value);
 
 	/**
 	 * Returns the value of the '<em><b>Operator</b></em>' attribute.

@@ -4,7 +4,7 @@
     <semanticResources>qualitypatternmodel.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_A2WtQB2REeqrGqxc7qjo8A">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name="class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="1699009345686">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name="class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="1699012267203">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="qualitypatternmodel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -16105,9 +16105,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_hWEY33i5Ee6gUedoXbiQbg" name="[1..1] argument1" sourceNode="_hVdUwHi5Ee6gUedoXbiQbg" targetNode="__MMzoHi8Ee6gUedoXbiQbg">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//javaquery/CountFilterPart/argument1"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//javaquery/CountFilterPart/argument1"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_hWEY33i5Ee6gUedoXbiQbg" name="[1..1] subfilter1" sourceNode="_hVdUwHi5Ee6gUedoXbiQbg" targetNode="__MMzoHi8Ee6gUedoXbiQbg">
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//javaquery/CountFilterPart/subfilter1"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//javaquery/CountFilterPart/subfilter1"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_FuRZnni9Ee6gUedoXbiQbg" description="_J_6VvDJuEeywtuBPrOf5rQ" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_FuRZoHi9Ee6gUedoXbiQbg" showIcon="false">
           <labelFormat>bold</labelFormat>
@@ -16131,9 +16131,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_FJWunHi9Ee6gUedoXbiQbg" name="[1..1] argument2" sourceNode="_hVdUwHi5Ee6gUedoXbiQbg" targetNode="__MMzoHi8Ee6gUedoXbiQbg">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//javaquery/CountFilterPart/argument2"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//javaquery/CountFilterPart/argument2"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_FJWunHi9Ee6gUedoXbiQbg" name="[1..1] subfilter2" sourceNode="_hVdUwHi5Ee6gUedoXbiQbg" targetNode="__MMzoHi8Ee6gUedoXbiQbg">
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//javaquery/CountFilterPart/subfilter2"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//javaquery/CountFilterPart/subfilter2"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_KetC0Hi9Ee6gUedoXbiQbg" description="_J_6VvDJuEeywtuBPrOf5rQ" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_KetC0ni9Ee6gUedoXbiQbg" showIcon="false">
           <labelFormat>bold</labelFormat>

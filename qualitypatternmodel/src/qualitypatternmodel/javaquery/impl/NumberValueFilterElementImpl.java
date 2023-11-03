@@ -49,7 +49,7 @@ public class NumberValueFilterElementImpl extends NumberFilterPartImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NumberValueFilterElementImpl() {
 		super();
