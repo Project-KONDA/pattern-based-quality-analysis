@@ -14,24 +14,24 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import qualitypatternmodel.javaqueryoutput.ContainerInterimResultPart;
+import qualitypatternmodel.javaqueryoutput.ContainerInterim;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputFactory;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.javaqueryoutput.ContainerInterimResultPart} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.javaqueryoutput.ContainerInterim} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ContainerInterimResultPartItemProvider extends InterimResultParamItemProvider {
+public class ContainerInterimItemProvider extends InterimResultParamItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ContainerInterimResultPartItemProvider(AdapterFactory adapterFactory) {
+	public ContainerInterimItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,7 +62,7 @@ public class ContainerInterimResultPartItemProvider extends InterimResultParamIt
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(JavaqueryoutputPackage.Literals.CONTAINER_INTERIM_RESULT_PART__CONTAINED);
+			childrenFeatures.add(JavaqueryoutputPackage.Literals.CONTAINER_INTERIM__CONTAINED);
 		}
 		return childrenFeatures;
 	}
@@ -81,14 +81,14 @@ public class ContainerInterimResultPartItemProvider extends InterimResultParamIt
 	}
 
 	/**
-	 * This returns ContainerInterimResultPart.gif.
+	 * This returns ContainerInterim.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ContainerInterimResultPart"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ContainerInterim"));
 	}
 
 	/**
@@ -99,7 +99,7 @@ public class ContainerInterimResultPartItemProvider extends InterimResultParamIt
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ContainerInterimResultPart_type");
+		return getString("_UI_ContainerInterim_type");
 	}
 
 
@@ -114,8 +114,8 @@ public class ContainerInterimResultPartItemProvider extends InterimResultParamIt
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ContainerInterimResultPart.class)) {
-			case JavaqueryoutputPackage.CONTAINER_INTERIM_RESULT_PART__CONTAINED:
+		switch (notification.getFeatureID(ContainerInterim.class)) {
+			case JavaqueryoutputPackage.CONTAINER_INTERIM__CONTAINED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -135,18 +135,23 @@ public class ContainerInterimResultPartItemProvider extends InterimResultParamIt
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaqueryoutputPackage.Literals.CONTAINER_INTERIM_RESULT_PART__CONTAINED,
-				 JavaqueryoutputFactory.eINSTANCE.createBooleanInterimResultParam()));
+				(JavaqueryoutputPackage.Literals.CONTAINER_INTERIM__CONTAINED,
+				 JavaqueryoutputFactory.eINSTANCE.createBooleanValueInterim()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaqueryoutputPackage.Literals.CONTAINER_INTERIM_RESULT_PART__CONTAINED,
-				 JavaqueryoutputFactory.eINSTANCE.createContainerInterimResultPart()));
+				(JavaqueryoutputPackage.Literals.CONTAINER_INTERIM__CONTAINED,
+				 JavaqueryoutputFactory.eINSTANCE.createContainerInterim()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaqueryoutputPackage.Literals.CONTAINER_INTERIM_RESULT_PART__CONTAINED,
-				 JavaqueryoutputFactory.eINSTANCE.createValueListInterimResultPart()));
+				(JavaqueryoutputPackage.Literals.CONTAINER_INTERIM__CONTAINED,
+				 JavaqueryoutputFactory.eINSTANCE.createValueListInterim()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaqueryoutputPackage.Literals.CONTAINER_INTERIM__CONTAINED,
+				 JavaqueryoutputFactory.eINSTANCE.createNumberValueInterim()));
 	}
 
 }

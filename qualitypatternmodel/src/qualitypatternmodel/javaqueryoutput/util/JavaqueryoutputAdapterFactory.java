@@ -72,8 +72,8 @@ public class JavaqueryoutputAdapterFactory extends AdapterFactoryImpl {
 				return createInterimResultStructureAdapter();
 			}
 			@Override
-			public Adapter caseRecordInterimResult(RecordInterimResult object) {
-				return createRecordInterimResultAdapter();
+			public Adapter caseRecordInterim(RecordInterim object) {
+				return createRecordInterimAdapter();
 			}
 			@Override
 			public Adapter caseInterimResultPart(InterimResultPart object) {
@@ -84,16 +84,20 @@ public class JavaqueryoutputAdapterFactory extends AdapterFactoryImpl {
 				return createInterimResultParamAdapter();
 			}
 			@Override
-			public Adapter caseBooleanInterimResultParam(BooleanInterimResultParam object) {
-				return createBooleanInterimResultParamAdapter();
+			public Adapter caseBooleanValueInterim(BooleanValueInterim object) {
+				return createBooleanValueInterimAdapter();
 			}
 			@Override
-			public Adapter caseContainerInterimResultPart(ContainerInterimResultPart object) {
-				return createContainerInterimResultPartAdapter();
+			public Adapter caseContainerInterim(ContainerInterim object) {
+				return createContainerInterimAdapter();
 			}
 			@Override
-			public Adapter caseValueListInterimResultPart(ValueListInterimResultPart object) {
-				return createValueListInterimResultPartAdapter();
+			public Adapter caseValueListInterim(ValueListInterim object) {
+				return createValueListInterimAdapter();
+			}
+			@Override
+			public Adapter caseNumberValueInterim(NumberValueInterim object) {
+				return createNumberValueInterimAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -130,16 +134,16 @@ public class JavaqueryoutputAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaqueryoutput.RecordInterimResult <em>Record Interim Result</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaqueryoutput.RecordInterim <em>Record Interim</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.javaqueryoutput.RecordInterimResult
+	 * @see qualitypatternmodel.javaqueryoutput.RecordInterim
 	 * @generated
 	 */
-	public Adapter createRecordInterimResultAdapter() {
+	public Adapter createRecordInterimAdapter() {
 		return null;
 	}
 
@@ -172,44 +176,58 @@ public class JavaqueryoutputAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaqueryoutput.BooleanInterimResultParam <em>Boolean Interim Result Param</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaqueryoutput.BooleanValueInterim <em>Boolean Value Interim</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.javaqueryoutput.BooleanInterimResultParam
+	 * @see qualitypatternmodel.javaqueryoutput.BooleanValueInterim
 	 * @generated
 	 */
-	public Adapter createBooleanInterimResultParamAdapter() {
+	public Adapter createBooleanValueInterimAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaqueryoutput.ContainerInterimResultPart <em>Container Interim Result Part</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaqueryoutput.ContainerInterim <em>Container Interim</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.javaqueryoutput.ContainerInterimResultPart
+	 * @see qualitypatternmodel.javaqueryoutput.ContainerInterim
 	 * @generated
 	 */
-	public Adapter createContainerInterimResultPartAdapter() {
+	public Adapter createContainerInterimAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart <em>Value List Interim Result Part</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaqueryoutput.ValueListInterim <em>Value List Interim</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart
+	 * @see qualitypatternmodel.javaqueryoutput.ValueListInterim
 	 * @generated
 	 */
-	public Adapter createValueListInterimResultPartAdapter() {
+	public Adapter createValueListInterimAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaqueryoutput.NumberValueInterim <em>Number Value Interim</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.javaqueryoutput.NumberValueInterim
+	 * @generated
+	 */
+	public Adapter createNumberValueInterimAdapter() {
 		return null;
 	}
 

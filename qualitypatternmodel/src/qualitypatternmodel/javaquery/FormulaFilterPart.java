@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.javaquery;
 
-import qualitypatternmodel.javaqueryoutput.ContainerInterimResultPart;
+import qualitypatternmodel.javaqueryoutput.ContainerInterim;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 
 
@@ -100,12 +100,12 @@ public interface FormulaFilterPart extends BooleanFilterPart {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Argument</em>' reference.
-	 * @see #setArgument(ContainerInterimResultPart)
+	 * @see #setArgument(ContainerInterim)
 	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getFormulaFilterPart_Argument()
 	 * @model required="true"
 	 * @generated
 	 */
-	ContainerInterimResultPart getArgument();
+	ContainerInterim getArgument();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.javaquery.FormulaFilterPart#getArgument <em>Argument</em>}' reference.
@@ -115,6 +115,6 @@ public interface FormulaFilterPart extends BooleanFilterPart {
 	 * @see #getArgument()
 	 * @generated
 	 */
-	void setArgument(ContainerInterimResultPart value);
+	void setArgument(ContainerInterim value);
 
 } // FormulaFilterPart

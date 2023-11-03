@@ -14,8 +14,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.OneArgFunctionFilterPart;
 import qualitypatternmodel.javaqueryoutput.InterimResultParam;
-import qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart;
-import qualitypatternmodel.javaqueryoutput.impl.ValueListInterimResultPartImpl;
+import qualitypatternmodel.javaqueryoutput.ValueListInterim;
+import qualitypatternmodel.javaqueryoutput.impl.ValueListInterimImpl;
 import qualitypatternmodel.patternstructure.Quantifier;
 
 /**
@@ -49,7 +49,7 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected ValueListInterimResultPart argument;
+	protected ValueListInterim argument;
 
 	/**
 	 * The default value of the '{@link #getQuantifier() <em>Quantifier</em>}' attribute.
@@ -78,13 +78,13 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	 */
 	public OneArgFunctionFilterPartImpl() {
 		super();
-		setArgument(new ValueListInterimResultPartImpl());
+		setArgument(new ValueListInterimImpl());
 	}
 	
 	public OneArgFunctionFilterPartImpl(Function f) {
 		super();
 		function = f;
-		setArgument(new ValueListInterimResultPartImpl());
+		setArgument(new ValueListInterimImpl());
 	}
 	
 	@Override
@@ -117,10 +117,10 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	 * @generated
 	 */
 	@Override
-	public ValueListInterimResultPart getArgument() {
+	public ValueListInterim getArgument() {
 		if (argument != null && argument.eIsProxy()) {
 			InternalEObject oldArgument = (InternalEObject)argument;
-			argument = (ValueListInterimResultPart)eResolveProxy(oldArgument);
+			argument = (ValueListInterim)eResolveProxy(oldArgument);
 			if (argument != oldArgument) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT, oldArgument, argument));
@@ -134,7 +134,7 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ValueListInterimResultPart basicGetArgument() {
+	public ValueListInterim basicGetArgument() {
 		return argument;
 	}
 
@@ -144,8 +144,8 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	 * @generated
 	 */
 	@Override
-	public void setArgument(ValueListInterimResultPart newArgument) {
-		ValueListInterimResultPart oldArgument = argument;
+	public void setArgument(ValueListInterim newArgument) {
+		ValueListInterim oldArgument = argument;
 		argument = newArgument;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT, oldArgument, argument));
@@ -212,7 +212,7 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT:
-				setArgument((ValueListInterimResultPart)newValue);
+				setArgument((ValueListInterim)newValue);
 				return;
 			case JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__QUANTIFIER:
 				setQuantifier((Quantifier)newValue);
@@ -230,7 +230,7 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT:
-				setArgument((ValueListInterimResultPart)null);
+				setArgument((ValueListInterim)null);
 				return;
 			case JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__QUANTIFIER:
 				setQuantifier(QUANTIFIER_EDEFAULT);

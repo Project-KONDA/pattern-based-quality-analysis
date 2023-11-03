@@ -12,19 +12,19 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.javaqueryoutput.BooleanValueInterim} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ValueListInterimResultPartItemProvider extends InterimResultParamItemProvider {
+public class BooleanValueInterimItemProvider extends InterimResultParamItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ValueListInterimResultPartItemProvider(AdapterFactory adapterFactory) {
+	public BooleanValueInterimItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -44,14 +44,14 @@ public class ValueListInterimResultPartItemProvider extends InterimResultParamIt
 	}
 
 	/**
-	 * This returns ValueListInterimResultPart.gif.
+	 * This returns BooleanValueInterim.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ValueListInterimResultPart"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BooleanValueInterim"));
 	}
 
 	/**
@@ -62,7 +62,7 @@ public class ValueListInterimResultPartItemProvider extends InterimResultParamIt
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ValueListInterimResultPart_type");
+		return getString("_UI_BooleanValueInterim_type");
 	}
 
 

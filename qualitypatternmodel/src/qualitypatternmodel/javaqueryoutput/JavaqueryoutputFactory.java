@@ -31,40 +31,49 @@ public interface JavaqueryoutputFactory extends EFactory {
 	InterimResultStructure createInterimResultStructure();
 
 	/**
-	 * Returns a new object of class '<em>Record Interim Result</em>'.
+	 * Returns a new object of class '<em>Record Interim</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Record Interim Result</em>'.
+	 * @return a new object of class '<em>Record Interim</em>'.
 	 * @generated
 	 */
-	RecordInterimResult createRecordInterimResult();
+	RecordInterim createRecordInterim();
 
 	/**
-	 * Returns a new object of class '<em>Boolean Interim Result Param</em>'.
+	 * Returns a new object of class '<em>Boolean Value Interim</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Boolean Interim Result Param</em>'.
+	 * @return a new object of class '<em>Boolean Value Interim</em>'.
 	 * @generated
 	 */
-	BooleanInterimResultParam createBooleanInterimResultParam();
+	BooleanValueInterim createBooleanValueInterim();
 
 	/**
-	 * Returns a new object of class '<em>Container Interim Result Part</em>'.
+	 * Returns a new object of class '<em>Container Interim</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Container Interim Result Part</em>'.
+	 * @return a new object of class '<em>Container Interim</em>'.
 	 * @generated
 	 */
-	ContainerInterimResultPart createContainerInterimResultPart();
+	ContainerInterim createContainerInterim();
 
 	/**
-	 * Returns a new object of class '<em>Value List Interim Result Part</em>'.
+	 * Returns a new object of class '<em>Value List Interim</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Value List Interim Result Part</em>'.
+	 * @return a new object of class '<em>Value List Interim</em>'.
 	 * @generated
 	 */
-	ValueListInterimResultPart createValueListInterimResultPart();
+	ValueListInterim createValueListInterim();
+
+	/**
+	 * Returns a new object of class '<em>Number Value Interim</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Number Value Interim</em>'.
+	 * @generated
+	 */
+	NumberValueInterim createNumberValueInterim();
 
 	/**
 	 * Returns the package supported by this factory.

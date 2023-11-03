@@ -12,19 +12,19 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.javaqueryoutput.BooleanInterimResultParam} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.javaqueryoutput.NumberValueInterim} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class BooleanInterimResultParamItemProvider extends InterimResultParamItemProvider {
+public class NumberValueInterimItemProvider extends InterimResultParamItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BooleanInterimResultParamItemProvider(AdapterFactory adapterFactory) {
+	public NumberValueInterimItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -44,14 +44,14 @@ public class BooleanInterimResultParamItemProvider extends InterimResultParamIte
 	}
 
 	/**
-	 * This returns BooleanInterimResultParam.gif.
+	 * This returns NumberValueInterim.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BooleanInterimResultParam"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/NumberValueInterim"));
 	}
 
 	/**
@@ -62,7 +62,7 @@ public class BooleanInterimResultParamItemProvider extends InterimResultParamIte
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_BooleanInterimResultParam_type");
+		return getString("_UI_NumberValueInterim_type");
 	}
 
 

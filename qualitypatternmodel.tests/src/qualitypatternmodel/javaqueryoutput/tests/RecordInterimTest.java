@@ -4,16 +4,16 @@ package qualitypatternmodel.javaqueryoutput.tests;
 
 import junit.textui.TestRunner;
 
-import qualitypatternmodel.javaqueryoutput.ContainerInterimResultPart;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputFactory;
+import qualitypatternmodel.javaqueryoutput.RecordInterim;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Container Interim Result Part</b></em>'.
+ * A test case for the model object '<em><b>Record Interim</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class ContainerInterimResultPartTest extends InterimResultParamTest {
+public class RecordInterimTest extends InterimResultPartTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +21,28 @@ public class ContainerInterimResultPartTest extends InterimResultParamTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(ContainerInterimResultPartTest.class);
+		TestRunner.run(RecordInterimTest.class);
 	}
 
 	/**
-	 * Constructs a new Container Interim Result Part test case with the given name.
+	 * Constructs a new Record Interim test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ContainerInterimResultPartTest(String name) {
+	public RecordInterimTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Container Interim Result Part test case.
+	 * Returns the fixture for this Record Interim test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected ContainerInterimResultPart getFixture() {
-		return (ContainerInterimResultPart)fixture;
+	protected RecordInterim getFixture() {
+		return (RecordInterim)fixture;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class ContainerInterimResultPartTest extends InterimResultParamTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(JavaqueryoutputFactory.eINSTANCE.createContainerInterimResultPart());
+		setFixture(JavaqueryoutputFactory.eINSTANCE.createRecordInterim());
 	}
 
 	/**
@@ -67,4 +67,4 @@ public class ContainerInterimResultPartTest extends InterimResultParamTest {
 		setFixture(null);
 	}
 
-} //ContainerInterimResultPartTest
+} //RecordInterimTest

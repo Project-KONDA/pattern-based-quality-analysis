@@ -40,6 +40,7 @@ public class JavaqueryTests extends TestSuite {
 		suite.addTestSuite(CountFilterPartTest.class);
 		suite.addTestSuite(CountFilterElementTest.class);
 		suite.addTestSuite(NumberFilterElementTest.class);
+		suite.addTestSuite(NumberValueFilterElementTest.class);
 		return suite;
 	}
 

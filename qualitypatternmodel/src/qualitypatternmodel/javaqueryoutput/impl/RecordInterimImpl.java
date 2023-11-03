@@ -5,7 +5,7 @@ package qualitypatternmodel.javaqueryoutput.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
-import qualitypatternmodel.javaqueryoutput.RecordInterimResult;
+import qualitypatternmodel.javaqueryoutput.RecordInterim;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,13 +14,13 @@ import qualitypatternmodel.javaqueryoutput.RecordInterimResult;
  *
  * @generated
  */
-public class RecordInterimResultImpl extends InterimResultPartImpl implements RecordInterimResult {
+public class RecordInterimImpl extends InterimResultPartImpl implements RecordInterim {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RecordInterimResultImpl() {
+	protected RecordInterimImpl() {
 		super();
 	}
 
@@ -31,7 +31,7 @@ public class RecordInterimResultImpl extends InterimResultPartImpl implements Re
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return JavaqueryoutputPackage.Literals.RECORD_INTERIM_RESULT;
+		return JavaqueryoutputPackage.Literals.RECORD_INTERIM;
 	}
 
 } //RecordInterimResultImpl

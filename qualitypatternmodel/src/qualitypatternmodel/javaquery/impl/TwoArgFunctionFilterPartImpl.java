@@ -13,8 +13,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.TwoArgFunctionFilterPart;
 import qualitypatternmodel.javaqueryoutput.InterimResultParam;
-import qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart;
-import qualitypatternmodel.javaqueryoutput.impl.ValueListInterimResultPartImpl;
+import qualitypatternmodel.javaqueryoutput.ValueListInterim;
+import qualitypatternmodel.javaqueryoutput.impl.ValueListInterimImpl;
 import qualitypatternmodel.patternstructure.Quantifier;
 
 /**
@@ -49,7 +49,7 @@ public class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected ValueListInterimResultPart argument1;
+	protected ValueListInterim argument1;
 
 	/**
 	 * The cached value of the '{@link #getArgument2() <em>Argument2</em>}' reference.
@@ -59,7 +59,7 @@ public class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected ValueListInterimResultPart argument2;
+	protected ValueListInterim argument2;
 
 	/**
 	 * The default value of the '{@link #getQuantifier1() <em>Quantifier1</em>}' attribute.
@@ -108,15 +108,15 @@ public class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	 */
 	protected TwoArgFunctionFilterPartImpl() {
 		super();
-		setArgument1(new ValueListInterimResultPartImpl());
-		setArgument2(new ValueListInterimResultPartImpl());
+		setArgument1(new ValueListInterimImpl());
+		setArgument2(new ValueListInterimImpl());
 	}
 	
 	protected TwoArgFunctionFilterPartImpl(Function f) {
 		super();
 		setFunction(f);
-		setArgument1(new ValueListInterimResultPartImpl());
-		setArgument2(new ValueListInterimResultPartImpl());
+		setArgument1(new ValueListInterimImpl());
+		setArgument2(new ValueListInterimImpl());
 	}
 	
 	@Override
@@ -150,10 +150,10 @@ public class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	 * @generated
 	 */
 	@Override
-	public ValueListInterimResultPart getArgument1() {
+	public ValueListInterim getArgument1() {
 		if (argument1 != null && argument1.eIsProxy()) {
 			InternalEObject oldArgument1 = (InternalEObject)argument1;
-			argument1 = (ValueListInterimResultPart)eResolveProxy(oldArgument1);
+			argument1 = (ValueListInterim)eResolveProxy(oldArgument1);
 			if (argument1 != oldArgument1) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT1, oldArgument1, argument1));
@@ -167,7 +167,7 @@ public class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ValueListInterimResultPart basicGetArgument1() {
+	public ValueListInterim basicGetArgument1() {
 		return argument1;
 	}
 
@@ -177,8 +177,8 @@ public class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	 * @generated
 	 */
 	@Override
-	public void setArgument1(ValueListInterimResultPart newArgument1) {
-		ValueListInterimResultPart oldArgument1 = argument1;
+	public void setArgument1(ValueListInterim newArgument1) {
+		ValueListInterim oldArgument1 = argument1;
 		argument1 = newArgument1;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT1, oldArgument1, argument1));
@@ -190,10 +190,10 @@ public class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	 * @generated
 	 */
 	@Override
-	public ValueListInterimResultPart getArgument2() {
+	public ValueListInterim getArgument2() {
 		if (argument2 != null && argument2.eIsProxy()) {
 			InternalEObject oldArgument2 = (InternalEObject)argument2;
-			argument2 = (ValueListInterimResultPart)eResolveProxy(oldArgument2);
+			argument2 = (ValueListInterim)eResolveProxy(oldArgument2);
 			if (argument2 != oldArgument2) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT2, oldArgument2, argument2));
@@ -207,7 +207,7 @@ public class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ValueListInterimResultPart basicGetArgument2() {
+	public ValueListInterim basicGetArgument2() {
 		return argument2;
 	}
 
@@ -217,8 +217,8 @@ public class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	 * @generated
 	 */
 	@Override
-	public void setArgument2(ValueListInterimResultPart newArgument2) {
-		ValueListInterimResultPart oldArgument2 = argument2;
+	public void setArgument2(ValueListInterim newArgument2) {
+		ValueListInterim oldArgument2 = argument2;
 		argument2 = newArgument2;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT2, oldArgument2, argument2));
@@ -313,10 +313,10 @@ public class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT1:
-				setArgument1((ValueListInterimResultPart)newValue);
+				setArgument1((ValueListInterim)newValue);
 				return;
 			case JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT2:
-				setArgument2((ValueListInterimResultPart)newValue);
+				setArgument2((ValueListInterim)newValue);
 				return;
 			case JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART__QUANTIFIER1:
 				setQuantifier1((Quantifier)newValue);
@@ -337,10 +337,10 @@ public class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT1:
-				setArgument1((ValueListInterimResultPart)null);
+				setArgument1((ValueListInterim)null);
 				return;
 			case JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT2:
-				setArgument2((ValueListInterimResultPart)null);
+				setArgument2((ValueListInterim)null);
 				return;
 			case JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART__QUANTIFIER1:
 				setQuantifier1(QUANTIFIER1_EDEFAULT);

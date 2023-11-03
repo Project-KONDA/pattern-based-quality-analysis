@@ -9,9 +9,9 @@ package qualitypatternmodel.javaqueryoutput;
  * <!-- end-user-doc -->
  *
  *
- * @see qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage#getRecordInterimResult()
+ * @see qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage#getRecordInterim()
  * @model
  * @generated
  */
-public interface RecordInterimResult extends InterimResultPart {
+public interface RecordInterim extends InterimResultPart {
 } // RecordInterimResult

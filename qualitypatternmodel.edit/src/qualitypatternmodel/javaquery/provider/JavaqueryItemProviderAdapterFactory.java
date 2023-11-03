@@ -302,6 +302,29 @@ public class JavaqueryItemProviderAdapterFactory extends JavaqueryAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaquery.NumberValueFilterElement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NumberValueFilterElementItemProvider numberValueFilterElementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.javaquery.NumberValueFilterElement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNumberValueFilterElementAdapter() {
+		if (numberValueFilterElementItemProvider == null) {
+			numberValueFilterElementItemProvider = new NumberValueFilterElementItemProvider(this);
+		}
+
+		return numberValueFilterElementItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -416,6 +439,7 @@ public class JavaqueryItemProviderAdapterFactory extends JavaqueryAdapterFactory
 		if (countFilterPartItemProvider != null) countFilterPartItemProvider.dispose();
 		if (countFilterElementItemProvider != null) countFilterElementItemProvider.dispose();
 		if (numberFilterElementItemProvider != null) numberFilterElementItemProvider.dispose();
+		if (numberValueFilterElementItemProvider != null) numberValueFilterElementItemProvider.dispose();
 	}
 
 }

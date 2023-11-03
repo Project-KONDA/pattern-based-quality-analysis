@@ -14,9 +14,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.ListFilterPart;
-import qualitypatternmodel.javaqueryoutput.ContainerInterimResultPart;
+import qualitypatternmodel.javaqueryoutput.ContainerInterim;
 import qualitypatternmodel.javaqueryoutput.InterimResultParam;
-import qualitypatternmodel.javaqueryoutput.impl.ContainerInterimResultPartImpl;
+import qualitypatternmodel.javaqueryoutput.impl.ContainerInterimImpl;
 import qualitypatternmodel.patternstructure.Quantifier;
 
 /**
@@ -53,7 +53,7 @@ public class ListFilterPartImpl extends BooleanFilterPartImpl implements ListFil
 	 * @generated
 	 * @ordered
 	 */
-	protected ContainerInterimResultPart argument;
+	protected ContainerInterim argument;
 
 	/**
 	 * The default value of the '{@link #getQuantifier() <em>Quantifier</em>}' attribute.
@@ -82,14 +82,14 @@ public class ListFilterPartImpl extends BooleanFilterPartImpl implements ListFil
 	 */
 	public ListFilterPartImpl() {
 		super();
-		setArgument(new ContainerInterimResultPartImpl());
+		setArgument(new ContainerInterimImpl());
 	}
 
 	public ListFilterPartImpl(Quantifier quantifier, BooleanFilterPart subfilter) {
 		super();
 		setQuantifier(quantifier);
 		setSubfilter(subfilter);
-		setArgument(new ContainerInterimResultPartImpl());
+		setArgument(new ContainerInterimImpl());
 	}
 	
 	@Override
@@ -163,10 +163,10 @@ public class ListFilterPartImpl extends BooleanFilterPartImpl implements ListFil
 	 * @generated
 	 */
 	@Override
-	public ContainerInterimResultPart getArgument() {
+	public ContainerInterim getArgument() {
 		if (argument != null && argument.eIsProxy()) {
 			InternalEObject oldArgument = (InternalEObject)argument;
-			argument = (ContainerInterimResultPart)eResolveProxy(oldArgument);
+			argument = (ContainerInterim)eResolveProxy(oldArgument);
 			if (argument != oldArgument) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaqueryPackage.LIST_FILTER_PART__ARGUMENT, oldArgument, argument));
@@ -180,7 +180,7 @@ public class ListFilterPartImpl extends BooleanFilterPartImpl implements ListFil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ContainerInterimResultPart basicGetArgument() {
+	public ContainerInterim basicGetArgument() {
 		return argument;
 	}
 
@@ -190,8 +190,8 @@ public class ListFilterPartImpl extends BooleanFilterPartImpl implements ListFil
 	 * @generated
 	 */
 	@Override
-	public void setArgument(ContainerInterimResultPart newArgument) {
-		ContainerInterimResultPart oldArgument = argument;
+	public void setArgument(ContainerInterim newArgument) {
+		ContainerInterim oldArgument = argument;
 		argument = newArgument;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.LIST_FILTER_PART__ARGUMENT, oldArgument, argument));
@@ -265,7 +265,7 @@ public class ListFilterPartImpl extends BooleanFilterPartImpl implements ListFil
 				setSubfilter((BooleanFilterPart)newValue);
 				return;
 			case JavaqueryPackage.LIST_FILTER_PART__ARGUMENT:
-				setArgument((ContainerInterimResultPart)newValue);
+				setArgument((ContainerInterim)newValue);
 				return;
 			case JavaqueryPackage.LIST_FILTER_PART__QUANTIFIER:
 				setQuantifier((Quantifier)newValue);
@@ -286,7 +286,7 @@ public class ListFilterPartImpl extends BooleanFilterPartImpl implements ListFil
 				setSubfilter((BooleanFilterPart)null);
 				return;
 			case JavaqueryPackage.LIST_FILTER_PART__ARGUMENT:
-				setArgument((ContainerInterimResultPart)null);
+				setArgument((ContainerInterim)null);
 				return;
 			case JavaqueryPackage.LIST_FILTER_PART__QUANTIFIER:
 				setQuantifier(QUANTIFIER_EDEFAULT);

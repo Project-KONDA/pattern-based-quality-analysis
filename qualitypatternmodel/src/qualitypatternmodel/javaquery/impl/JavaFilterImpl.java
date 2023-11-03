@@ -16,7 +16,7 @@ import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaqueryoutput.InterimResultParam;
 import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
-import qualitypatternmodel.javaqueryoutput.impl.ContainerInterimResultPartImpl;
+import qualitypatternmodel.javaqueryoutput.impl.ContainerInterimImpl;
 import qualitypatternmodel.javaqueryoutput.impl.InterimResultStructureImpl;
 
 /**
@@ -99,7 +99,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 			if (interims.size() == 1)
 				getStructure().setSubstructure(interims.get(0));
 			else 
-				getStructure().setSubstructure(new ContainerInterimResultPartImpl(interims));
+				getStructure().setSubstructure(new ContainerInterimImpl(interims));
 		}
 		
 		if (eNotificationRequired()) {

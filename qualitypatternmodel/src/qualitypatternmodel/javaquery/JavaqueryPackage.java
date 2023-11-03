@@ -654,13 +654,22 @@ public interface JavaqueryPackage extends EPackage {
 	int COUNT_FILTER_PART__OPERATOR = BOOLEAN_FILTER_PART_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Argument</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_FILTER_PART__ARGUMENT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Count Filter Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_FILTER_PART_FEATURE_COUNT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 3;
+	int COUNT_FILTER_PART_FEATURE_COUNT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Get Arguments</em>' operation.
@@ -810,13 +819,22 @@ public interface JavaqueryPackage extends EPackage {
 	int NUMBER_FILTER_ELEMENT = 11;
 
 	/**
+	 * The feature id for the '<em><b>Argument</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_FILTER_ELEMENT__ARGUMENT = NUMBER_FILTER_PART_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Number Filter Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_FILTER_ELEMENT_FEATURE_COUNT = NUMBER_FILTER_PART_FEATURE_COUNT + 0;
+	int NUMBER_FILTER_ELEMENT_FEATURE_COUNT = NUMBER_FILTER_PART_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Arguments</em>' operation.
@@ -844,6 +862,62 @@ public interface JavaqueryPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_FILTER_ELEMENT_OPERATION_COUNT = NUMBER_FILTER_PART_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.NumberValueFilterElementImpl <em>Number Value Filter Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaquery.impl.NumberValueFilterElementImpl
+	 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getNumberValueFilterElement()
+	 * @generated
+	 */
+	int NUMBER_VALUE_FILTER_ELEMENT = 13;
+
+	/**
+	 * The feature id for the '<em><b>Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_VALUE_FILTER_ELEMENT__NUMBER = NUMBER_FILTER_PART_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Number Value Filter Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_VALUE_FILTER_ELEMENT_FEATURE_COUNT = NUMBER_FILTER_PART_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Arguments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_VALUE_FILTER_ELEMENT___GET_ARGUMENTS = NUMBER_FILTER_PART___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_VALUE_FILTER_ELEMENT___APPLY = NUMBER_FILTER_PART___APPLY;
+
+	/**
+	 * The number of operations of the '<em>Number Value Filter Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_VALUE_FILTER_ELEMENT_OPERATION_COUNT = NUMBER_FILTER_PART_OPERATION_COUNT + 0;
 
 
 	/**
@@ -897,6 +971,27 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getJavaFilterPart__GetArguments();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.NumberValueFilterElement <em>Number Value Filter Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Number Value Filter Element</em>'.
+	 * @see qualitypatternmodel.javaquery.NumberValueFilterElement
+	 * @generated
+	 */
+	EClass getNumberValueFilterElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.javaquery.NumberValueFilterElement#getNumber <em>Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Number</em>'.
+	 * @see qualitypatternmodel.javaquery.NumberValueFilterElement#getNumber()
+	 * @see #getNumberValueFilterElement()
+	 * @generated
+	 */
+	EAttribute getNumberValueFilterElement_Number();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.FormulaFilterPart <em>Formula Filter Part</em>}'.
@@ -1207,6 +1302,17 @@ public interface JavaqueryPackage extends EPackage {
 	EAttribute getCountFilterPart_Operator();
 
 	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.javaquery.CountFilterPart#getArgument <em>Argument</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Argument</em>'.
+	 * @see qualitypatternmodel.javaquery.CountFilterPart#getArgument()
+	 * @see #getCountFilterPart()
+	 * @generated
+	 */
+	EReference getCountFilterPart_Argument();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.NumberFilterPart <em>Number Filter Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1267,6 +1373,17 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getNumberFilterElement();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.javaquery.NumberFilterElement#getArgument <em>Argument</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Argument</em>'.
+	 * @see qualitypatternmodel.javaquery.NumberFilterElement#getArgument()
+	 * @see #getNumberFilterElement()
+	 * @generated
+	 */
+	EReference getNumberFilterElement_Argument();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1334,6 +1451,24 @@ public interface JavaqueryPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation JAVA_FILTER_PART___GET_ARGUMENTS = eINSTANCE.getJavaFilterPart__GetArguments();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.NumberValueFilterElementImpl <em>Number Value Filter Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.javaquery.impl.NumberValueFilterElementImpl
+		 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getNumberValueFilterElement()
+		 * @generated
+		 */
+		EClass NUMBER_VALUE_FILTER_ELEMENT = eINSTANCE.getNumberValueFilterElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Number</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NUMBER_VALUE_FILTER_ELEMENT__NUMBER = eINSTANCE.getNumberValueFilterElement_Number();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl <em>Formula Filter Part</em>}' class.
@@ -1584,6 +1719,14 @@ public interface JavaqueryPackage extends EPackage {
 		EAttribute COUNT_FILTER_PART__OPERATOR = eINSTANCE.getCountFilterPart_Operator();
 
 		/**
+		 * The meta object literal for the '<em><b>Argument</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COUNT_FILTER_PART__ARGUMENT = eINSTANCE.getCountFilterPart_Argument();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.NumberFilterPartImpl <em>Number Filter Part</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1636,6 +1779,14 @@ public interface JavaqueryPackage extends EPackage {
 		 * @generated
 		 */
 		EClass NUMBER_FILTER_ELEMENT = eINSTANCE.getNumberFilterElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Argument</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NUMBER_FILTER_ELEMENT__ARGUMENT = eINSTANCE.getNumberFilterElement_Argument();
 
 	}
 

@@ -5,22 +5,22 @@ package qualitypatternmodel.javaqueryoutput.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
-import qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart;
+import qualitypatternmodel.javaqueryoutput.ValueListInterim;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Value List Interim Result Part</b></em>'.
+ * An implementation of the model object '<em><b>Value List Interim</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class ValueListInterimResultPartImpl extends InterimResultParamImpl implements ValueListInterimResultPart {
+public class ValueListInterimImpl extends InterimResultParamImpl implements ValueListInterim {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public ValueListInterimResultPartImpl() {
+	public ValueListInterimImpl() {
 		super();
 	}
 
@@ -31,7 +31,7 @@ public class ValueListInterimResultPartImpl extends InterimResultParamImpl imple
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return JavaqueryoutputPackage.Literals.VALUE_LIST_INTERIM_RESULT_PART;
+		return JavaqueryoutputPackage.Literals.VALUE_LIST_INTERIM;
 	}
 
-} //ValueListInterimResultPartImpl
+} //ValueListInterimImpl

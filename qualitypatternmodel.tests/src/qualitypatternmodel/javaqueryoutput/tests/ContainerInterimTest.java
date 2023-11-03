@@ -4,16 +4,16 @@ package qualitypatternmodel.javaqueryoutput.tests;
 
 import junit.textui.TestRunner;
 
+import qualitypatternmodel.javaqueryoutput.ContainerInterim;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputFactory;
-import qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Value List Interim Result Part</b></em>'.
+ * A test case for the model object '<em><b>Container Interim</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class ValueListInterimResultPartTest extends InterimResultParamTest {
+public class ContainerInterimTest extends InterimResultParamTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +21,28 @@ public class ValueListInterimResultPartTest extends InterimResultParamTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(ValueListInterimResultPartTest.class);
+		TestRunner.run(ContainerInterimTest.class);
 	}
 
 	/**
-	 * Constructs a new Value List Interim Result Part test case with the given name.
+	 * Constructs a new Container Interim test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ValueListInterimResultPartTest(String name) {
+	public ContainerInterimTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Value List Interim Result Part test case.
+	 * Returns the fixture for this Container Interim test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected ValueListInterimResultPart getFixture() {
-		return (ValueListInterimResultPart)fixture;
+	protected ContainerInterim getFixture() {
+		return (ContainerInterim)fixture;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class ValueListInterimResultPartTest extends InterimResultParamTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(JavaqueryoutputFactory.eINSTANCE.createValueListInterimResultPart());
+		setFixture(JavaqueryoutputFactory.eINSTANCE.createContainerInterim());
 	}
 
 	/**
@@ -67,4 +67,4 @@ public class ValueListInterimResultPartTest extends InterimResultParamTest {
 		setFixture(null);
 	}
 
-} //ValueListInterimResultPartTest
+} //ContainerInterimTest

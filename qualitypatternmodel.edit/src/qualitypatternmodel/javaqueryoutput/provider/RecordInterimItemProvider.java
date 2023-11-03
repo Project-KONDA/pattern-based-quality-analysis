@@ -12,19 +12,19 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.javaqueryoutput.RecordInterimResult} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.javaqueryoutput.RecordInterim} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class RecordInterimResultItemProvider extends InterimResultPartItemProvider {
+public class RecordInterimItemProvider extends InterimResultPartItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RecordInterimResultItemProvider(AdapterFactory adapterFactory) {
+	public RecordInterimItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -44,14 +44,14 @@ public class RecordInterimResultItemProvider extends InterimResultPartItemProvid
 	}
 
 	/**
-	 * This returns RecordInterimResult.gif.
+	 * This returns RecordInterim.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RecordInterimResult"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RecordInterim"));
 	}
 
 	/**
@@ -62,7 +62,7 @@ public class RecordInterimResultItemProvider extends InterimResultPartItemProvid
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_RecordInterimResult_type");
+		return getString("_UI_RecordInterim_type");
 	}
 
 

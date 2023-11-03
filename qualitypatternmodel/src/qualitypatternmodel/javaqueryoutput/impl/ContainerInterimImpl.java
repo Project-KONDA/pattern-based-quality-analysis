@@ -14,24 +14,24 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import qualitypatternmodel.javaqueryoutput.ContainerInterimResultPart;
+import qualitypatternmodel.javaqueryoutput.ContainerInterim;
 import qualitypatternmodel.javaqueryoutput.InterimResultParam;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Container Interim Result Part</b></em>'.
+ * An implementation of the model object '<em><b>Container Interim</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.javaqueryoutput.impl.ContainerInterimResultPartImpl#getContained <em>Contained</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaqueryoutput.impl.ContainerInterimImpl#getContained <em>Contained</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ContainerInterimResultPartImpl extends InterimResultParamImpl implements ContainerInterimResultPart {
+public class ContainerInterimImpl extends InterimResultParamImpl implements ContainerInterim {
 	/**
 	 * The cached value of the '{@link #getContained() <em>Contained</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -47,11 +47,11 @@ public class ContainerInterimResultPartImpl extends InterimResultParamImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public ContainerInterimResultPartImpl() {
+	public ContainerInterimImpl() {
 		super();
 	}
 
-	public ContainerInterimResultPartImpl(EList<InterimResultParam> interims) {
+	public ContainerInterimImpl(EList<InterimResultParam> interims) {
 		super();
 		getContained().clear();
 		getContained().addAll(interims);
@@ -64,7 +64,7 @@ public class ContainerInterimResultPartImpl extends InterimResultParamImpl imple
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return JavaqueryoutputPackage.Literals.CONTAINER_INTERIM_RESULT_PART;
+		return JavaqueryoutputPackage.Literals.CONTAINER_INTERIM;
 	}
 
 	/**
@@ -75,7 +75,7 @@ public class ContainerInterimResultPartImpl extends InterimResultParamImpl imple
 	@Override
 	public EList<InterimResultParam> getContained() {
 		if (contained == null) {
-			contained = new EObjectContainmentEList<InterimResultParam>(InterimResultParam.class, this, JavaqueryoutputPackage.CONTAINER_INTERIM_RESULT_PART__CONTAINED);
+			contained = new EObjectContainmentEList<InterimResultParam>(InterimResultParam.class, this, JavaqueryoutputPackage.CONTAINER_INTERIM__CONTAINED);
 		}
 		return contained;
 	}
@@ -88,7 +88,7 @@ public class ContainerInterimResultPartImpl extends InterimResultParamImpl imple
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case JavaqueryoutputPackage.CONTAINER_INTERIM_RESULT_PART__CONTAINED:
+			case JavaqueryoutputPackage.CONTAINER_INTERIM__CONTAINED:
 				return ((InternalEList<?>)getContained()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -102,7 +102,7 @@ public class ContainerInterimResultPartImpl extends InterimResultParamImpl imple
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JavaqueryoutputPackage.CONTAINER_INTERIM_RESULT_PART__CONTAINED:
+			case JavaqueryoutputPackage.CONTAINER_INTERIM__CONTAINED:
 				return getContained();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -117,7 +117,7 @@ public class ContainerInterimResultPartImpl extends InterimResultParamImpl imple
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JavaqueryoutputPackage.CONTAINER_INTERIM_RESULT_PART__CONTAINED:
+			case JavaqueryoutputPackage.CONTAINER_INTERIM__CONTAINED:
 				getContained().clear();
 				getContained().addAll((Collection<? extends InterimResultParam>)newValue);
 				return;
@@ -133,7 +133,7 @@ public class ContainerInterimResultPartImpl extends InterimResultParamImpl imple
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JavaqueryoutputPackage.CONTAINER_INTERIM_RESULT_PART__CONTAINED:
+			case JavaqueryoutputPackage.CONTAINER_INTERIM__CONTAINED:
 				getContained().clear();
 				return;
 		}
@@ -148,10 +148,10 @@ public class ContainerInterimResultPartImpl extends InterimResultParamImpl imple
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JavaqueryoutputPackage.CONTAINER_INTERIM_RESULT_PART__CONTAINED:
+			case JavaqueryoutputPackage.CONTAINER_INTERIM__CONTAINED:
 				return contained != null && !contained.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //ContainerInterimResultPartImpl
+} //ContainerInterimImpl

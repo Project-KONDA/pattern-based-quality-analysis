@@ -15,6 +15,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.CountFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.NumberFilterPart;
+import qualitypatternmodel.javaqueryoutput.ContainerInterim;
 import qualitypatternmodel.javaqueryoutput.InterimResultParam;
 import qualitypatternmodel.operators.ComparisonOperator;
 
@@ -29,6 +30,7 @@ import qualitypatternmodel.operators.ComparisonOperator;
  *   <li>{@link qualitypatternmodel.javaquery.impl.CountFilterPartImpl#getArgument1 <em>Argument1</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.impl.CountFilterPartImpl#getArgument2 <em>Argument2</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.impl.CountFilterPartImpl#getOperator <em>Operator</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.impl.CountFilterPartImpl#getArgument <em>Argument</em>}</li>
  * </ul>
  *
  * @generated
@@ -73,6 +75,16 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 	 * @ordered
 	 */
 	protected ComparisonOperator operator = OPERATOR_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getArgument() <em>Argument</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getArgument()
+	 * @generated
+	 * @ordered
+	 */
+	protected ContainerInterim argument;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -235,6 +247,46 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 	 * @generated
 	 */
 	@Override
+	public ContainerInterim getArgument() {
+		if (argument != null && argument.eIsProxy()) {
+			InternalEObject oldArgument = (InternalEObject)argument;
+			argument = (ContainerInterim)eResolveProxy(oldArgument);
+			if (argument != oldArgument) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT, oldArgument, argument));
+			}
+		}
+		return argument;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ContainerInterim basicGetArgument() {
+		return argument;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setArgument(ContainerInterim newArgument) {
+		ContainerInterim oldArgument = argument;
+		argument = newArgument;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT, oldArgument, argument));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT1:
@@ -259,6 +311,9 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 				return getArgument2();
 			case JavaqueryPackage.COUNT_FILTER_PART__OPERATOR:
 				return getOperator();
+			case JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT:
+				if (resolve) return getArgument();
+				return basicGetArgument();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -279,6 +334,9 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 				return;
 			case JavaqueryPackage.COUNT_FILTER_PART__OPERATOR:
 				setOperator((ComparisonOperator)newValue);
+				return;
+			case JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT:
+				setArgument((ContainerInterim)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -301,6 +359,9 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 			case JavaqueryPackage.COUNT_FILTER_PART__OPERATOR:
 				setOperator(OPERATOR_EDEFAULT);
 				return;
+			case JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT:
+				setArgument((ContainerInterim)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -319,6 +380,8 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 				return argument2 != null;
 			case JavaqueryPackage.COUNT_FILTER_PART__OPERATOR:
 				return operator != OPERATOR_EDEFAULT;
+			case JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT:
+				return argument != null;
 		}
 		return super.eIsSet(featureID);
 	}

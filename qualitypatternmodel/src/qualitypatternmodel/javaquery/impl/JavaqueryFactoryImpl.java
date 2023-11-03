@@ -66,6 +66,7 @@ public class JavaqueryFactoryImpl extends EFactoryImpl implements JavaqueryFacto
 			case JavaqueryPackage.COUNT_FILTER_PART: return createCountFilterPart();
 			case JavaqueryPackage.COUNT_FILTER_ELEMENT: return createCountFilterElement();
 			case JavaqueryPackage.NUMBER_FILTER_ELEMENT: return createNumberFilterElement();
+			case JavaqueryPackage.NUMBER_VALUE_FILTER_ELEMENT: return createNumberValueFilterElement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -179,6 +180,17 @@ public class JavaqueryFactoryImpl extends EFactoryImpl implements JavaqueryFacto
 	public NumberFilterElement createNumberFilterElement() {
 		NumberFilterElementImpl numberFilterElement = new NumberFilterElementImpl();
 		return numberFilterElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NumberValueFilterElement createNumberValueFilterElement() {
+		NumberValueFilterElementImpl numberValueFilterElement = new NumberValueFilterElementImpl();
+		return numberValueFilterElement;
 	}
 
 	/**

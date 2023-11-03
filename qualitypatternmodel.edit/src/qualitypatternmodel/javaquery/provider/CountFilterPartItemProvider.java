@@ -51,6 +51,7 @@ public class CountFilterPartItemProvider extends BooleanFilterPartItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addOperatorPropertyDescriptor(object);
+			addArgumentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -73,6 +74,28 @@ public class CountFilterPartItemProvider extends BooleanFilterPartItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Argument feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addArgumentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CountFilterPart_argument_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CountFilterPart_argument_feature", "_UI_CountFilterPart_type"),
+				 JavaqueryPackage.Literals.COUNT_FILTER_PART__ARGUMENT,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -181,6 +204,11 @@ public class CountFilterPartItemProvider extends BooleanFilterPartItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(JavaqueryPackage.Literals.COUNT_FILTER_PART__ARGUMENT1,
+				 JavaqueryFactory.eINSTANCE.createNumberValueFilterElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(JavaqueryPackage.Literals.COUNT_FILTER_PART__ARGUMENT2,
 				 JavaqueryFactory.eINSTANCE.createCountFilterElement()));
 
@@ -188,6 +216,11 @@ public class CountFilterPartItemProvider extends BooleanFilterPartItemProvider {
 			(createChildParameter
 				(JavaqueryPackage.Literals.COUNT_FILTER_PART__ARGUMENT2,
 				 JavaqueryFactory.eINSTANCE.createNumberFilterElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaqueryPackage.Literals.COUNT_FILTER_PART__ARGUMENT2,
+				 JavaqueryFactory.eINSTANCE.createNumberValueFilterElement()));
 	}
 
 	/**

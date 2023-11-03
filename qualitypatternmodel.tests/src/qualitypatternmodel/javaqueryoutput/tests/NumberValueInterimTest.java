@@ -5,15 +5,15 @@ package qualitypatternmodel.javaqueryoutput.tests;
 import junit.textui.TestRunner;
 
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputFactory;
-import qualitypatternmodel.javaqueryoutput.RecordInterimResult;
+import qualitypatternmodel.javaqueryoutput.NumberValueInterim;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Record Interim Result</b></em>'.
+ * A test case for the model object '<em><b>Number Value Interim</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class RecordInterimResultTest extends InterimResultPartTest {
+public class NumberValueInterimTest extends InterimResultParamTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +21,28 @@ public class RecordInterimResultTest extends InterimResultPartTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(RecordInterimResultTest.class);
+		TestRunner.run(NumberValueInterimTest.class);
 	}
 
 	/**
-	 * Constructs a new Record Interim Result test case with the given name.
+	 * Constructs a new Number Value Interim test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RecordInterimResultTest(String name) {
+	public NumberValueInterimTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Record Interim Result test case.
+	 * Returns the fixture for this Number Value Interim test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected RecordInterimResult getFixture() {
-		return (RecordInterimResult)fixture;
+	protected NumberValueInterim getFixture() {
+		return (NumberValueInterim)fixture;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class RecordInterimResultTest extends InterimResultPartTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(JavaqueryoutputFactory.eINSTANCE.createRecordInterimResult());
+		setFixture(JavaqueryoutputFactory.eINSTANCE.createNumberValueInterim());
 	}
 
 	/**
@@ -67,4 +67,4 @@ public class RecordInterimResultTest extends InterimResultPartTest {
 		setFixture(null);
 	}
 
-} //RecordInterimResultTest
+} //NumberValueInterimTest

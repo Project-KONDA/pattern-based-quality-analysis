@@ -46,6 +46,7 @@ import qualitypatternmodel.javaquery.ListFilterPart;
 import qualitypatternmodel.javaquery.NotFilterPart;
 import qualitypatternmodel.javaquery.NumberFilterElement;
 import qualitypatternmodel.javaquery.NumberFilterPart;
+import qualitypatternmodel.javaquery.NumberValueFilterElement;
 import qualitypatternmodel.javaquery.OneArgFunctionFilterPart;
 import qualitypatternmodel.javaquery.TwoArgFunctionFilterPart;
 
@@ -86,6 +87,13 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	private EClass javaFilterPartEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass numberValueFilterElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -318,6 +326,26 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	@Override
 	public EOperation getJavaFilterPart__GetArguments() {
 		return javaFilterPartEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getNumberValueFilterElement() {
+		return numberValueFilterElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNumberValueFilterElement_Number() {
+		return (EAttribute)numberValueFilterElementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -616,6 +644,16 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
+	public EReference getCountFilterPart_Argument() {
+		return (EReference)countFilterPartEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getNumberFilterPart() {
 		return numberFilterPartEClass;
 	}
@@ -668,6 +706,16 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	@Override
 	public EClass getNumberFilterElement() {
 		return numberFilterElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getNumberFilterElement_Argument() {
+		return (EReference)numberFilterElementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -739,6 +787,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		createEReference(countFilterPartEClass, COUNT_FILTER_PART__ARGUMENT1);
 		createEReference(countFilterPartEClass, COUNT_FILTER_PART__ARGUMENT2);
 		createEAttribute(countFilterPartEClass, COUNT_FILTER_PART__OPERATOR);
+		createEReference(countFilterPartEClass, COUNT_FILTER_PART__ARGUMENT);
 
 		numberFilterPartEClass = createEClass(NUMBER_FILTER_PART);
 		createEOperation(numberFilterPartEClass, NUMBER_FILTER_PART___APPLY);
@@ -748,9 +797,13 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		createEReference(countFilterElementEClass, COUNT_FILTER_ELEMENT__ARGUMENT);
 
 		numberFilterElementEClass = createEClass(NUMBER_FILTER_ELEMENT);
+		createEReference(numberFilterElementEClass, NUMBER_FILTER_ELEMENT__ARGUMENT);
 
 		javaFilterPartEClass = createEClass(JAVA_FILTER_PART);
 		createEOperation(javaFilterPartEClass, JAVA_FILTER_PART___GET_ARGUMENTS);
+
+		numberValueFilterElementEClass = createEClass(NUMBER_VALUE_FILTER_ELEMENT);
+		createEAttribute(numberValueFilterElementEClass, NUMBER_VALUE_FILTER_ELEMENT__NUMBER);
 	}
 
 	/**
@@ -797,6 +850,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		numberFilterPartEClass.getESuperTypes().add(this.getJavaFilterPart());
 		countFilterElementEClass.getESuperTypes().add(this.getNumberFilterPart());
 		numberFilterElementEClass.getESuperTypes().add(this.getNumberFilterPart());
+		numberValueFilterElementEClass.getESuperTypes().add(this.getNumberFilterPart());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(javaFilterEClass, JavaFilter.class, "JavaFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -812,13 +866,13 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		initEReference(getFormulaFilterPart_Subfilter1(), this.getBooleanFilterPart(), null, "subfilter1", null, 1, 1, FormulaFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFormulaFilterPart_Subfilter2(), this.getBooleanFilterPart(), null, "subfilter2", null, 1, 1, FormulaFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFormulaFilterPart_Operator(), thePatternstructurePackage.getLogicalOperator(), "operator", null, 0, 1, FormulaFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFormulaFilterPart_Argument(), theJavaqueryoutputPackage.getContainerInterimResultPart(), null, "argument", null, 1, 1, FormulaFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFormulaFilterPart_Argument(), theJavaqueryoutputPackage.getContainerInterim(), null, "argument", null, 1, 1, FormulaFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(booleanFilterElementEClass, BooleanFilterElement.class, "BooleanFilterElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBooleanFilterElement_Argument(), theJavaqueryoutputPackage.getBooleanInterimResultParam(), null, "argument", null, 1, 1, BooleanFilterElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBooleanFilterElement_Argument(), theJavaqueryoutputPackage.getBooleanValueInterim(), null, "argument", null, 1, 1, BooleanFilterElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(oneArgFunctionFilterPartEClass, OneArgFunctionFilterPart.class, "OneArgFunctionFilterPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOneArgFunctionFilterPart_Argument(), theJavaqueryoutputPackage.getValueListInterimResultPart(), null, "argument", null, 1, 1, OneArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOneArgFunctionFilterPart_Argument(), theJavaqueryoutputPackage.getValueListInterim(), null, "argument", null, 1, 1, OneArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOneArgFunctionFilterPart_Quantifier(), thePatternstructurePackage.getQuantifier(), "quantifier", null, 0, 1, OneArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getOneArgFunctionFilterPart__Apply__String(), ecorePackage.getEBooleanObject(), "apply", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -826,12 +880,12 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 
 		initEClass(listFilterPartEClass, ListFilterPart.class, "ListFilterPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getListFilterPart_Subfilter(), this.getBooleanFilterPart(), null, "subfilter", null, 1, 1, ListFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getListFilterPart_Argument(), theJavaqueryoutputPackage.getContainerInterimResultPart(), null, "argument", null, 1, 1, ListFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getListFilterPart_Argument(), theJavaqueryoutputPackage.getContainerInterim(), null, "argument", null, 1, 1, ListFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getListFilterPart_Quantifier(), thePatternstructurePackage.getQuantifier(), "quantifier", null, 0, 1, ListFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(twoArgFunctionFilterPartEClass, TwoArgFunctionFilterPart.class, "TwoArgFunctionFilterPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTwoArgFunctionFilterPart_Argument1(), theJavaqueryoutputPackage.getValueListInterimResultPart(), null, "argument1", null, 1, 1, TwoArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTwoArgFunctionFilterPart_Argument2(), theJavaqueryoutputPackage.getValueListInterimResultPart(), null, "argument2", null, 1, 1, TwoArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTwoArgFunctionFilterPart_Argument1(), theJavaqueryoutputPackage.getValueListInterim(), null, "argument1", null, 1, 1, TwoArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTwoArgFunctionFilterPart_Argument2(), theJavaqueryoutputPackage.getValueListInterim(), null, "argument2", null, 1, 1, TwoArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTwoArgFunctionFilterPart_Quantifier1(), thePatternstructurePackage.getQuantifier(), "quantifier1", null, 0, 1, TwoArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTwoArgFunctionFilterPart_Quantifier2(), thePatternstructurePackage.getQuantifier(), "quantifier2", null, 0, 1, TwoArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -846,6 +900,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		initEReference(getCountFilterPart_Argument1(), this.getNumberFilterPart(), null, "argument1", null, 1, 1, CountFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCountFilterPart_Argument2(), this.getNumberFilterPart(), null, "argument2", null, 1, 1, CountFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCountFilterPart_Operator(), theOperatorsPackage.getComparisonOperator(), "operator", null, 0, 1, CountFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCountFilterPart_Argument(), theJavaqueryoutputPackage.getContainerInterim(), null, "argument", null, 1, 1, CountFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(numberFilterPartEClass, NumberFilterPart.class, "NumberFilterPart", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -854,13 +909,17 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 
 		initEClass(countFilterElementEClass, CountFilterElement.class, "CountFilterElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCountFilterElement_Subfilter(), this.getBooleanFilterPart(), null, "subfilter", null, 1, 1, CountFilterElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCountFilterElement_Argument(), theJavaqueryoutputPackage.getContainerInterimResultPart(), null, "argument", null, 1, 1, CountFilterElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCountFilterElement_Argument(), theJavaqueryoutputPackage.getContainerInterim(), null, "argument", null, 1, 1, CountFilterElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(numberFilterElementEClass, NumberFilterElement.class, "NumberFilterElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNumberFilterElement_Argument(), theJavaqueryoutputPackage.getNumberValueInterim(), null, "argument", null, 1, 1, NumberFilterElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(javaFilterPartEClass, JavaFilterPart.class, "JavaFilterPart", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEOperation(getJavaFilterPart__GetArguments(), theJavaqueryoutputPackage.getInterimResultParam(), "getArguments", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(numberValueFilterElementEClass, NumberValueFilterElement.class, "NumberValueFilterElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNumberValueFilterElement_Number(), ecorePackage.getEDoubleObject(), "number", null, 0, 1, NumberValueFilterElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

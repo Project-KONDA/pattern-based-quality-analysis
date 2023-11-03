@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.javaquery;
 
+import qualitypatternmodel.javaqueryoutput.ContainerInterim;
 import qualitypatternmodel.operators.ComparisonOperator;
 
 /**
@@ -16,6 +17,7 @@ import qualitypatternmodel.operators.ComparisonOperator;
  *   <li>{@link qualitypatternmodel.javaquery.CountFilterPart#getArgument1 <em>Argument1</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.CountFilterPart#getArgument2 <em>Argument2</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.CountFilterPart#getOperator <em>Operator</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.CountFilterPart#getArgument <em>Argument</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.javaquery.JavaqueryPackage#getCountFilterPart()
@@ -91,5 +93,27 @@ public interface CountFilterPart extends BooleanFilterPart {
 	 * @generated
 	 */
 	void setOperator(ComparisonOperator value);
+
+	/**
+	 * Returns the value of the '<em><b>Argument</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Argument</em>' reference.
+	 * @see #setArgument(ContainerInterim)
+	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getCountFilterPart_Argument()
+	 * @model required="true"
+	 * @generated
+	 */
+	ContainerInterim getArgument();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.javaquery.CountFilterPart#getArgument <em>Argument</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Argument</em>' reference.
+	 * @see #getArgument()
+	 * @generated
+	 */
+	void setArgument(ContainerInterim value);
 
 } // CountFilterPart

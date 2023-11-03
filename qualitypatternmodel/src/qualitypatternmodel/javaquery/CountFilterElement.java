@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.javaquery;
 
-import qualitypatternmodel.javaqueryoutput.ContainerInterimResultPart;
+import qualitypatternmodel.javaqueryoutput.ContainerInterim;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,12 +49,12 @@ public interface CountFilterElement extends NumberFilterPart {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Argument</em>' reference.
-	 * @see #setArgument(ContainerInterimResultPart)
+	 * @see #setArgument(ContainerInterim)
 	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getCountFilterElement_Argument()
 	 * @model required="true"
 	 * @generated
 	 */
-	ContainerInterimResultPart getArgument();
+	ContainerInterim getArgument();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.javaquery.CountFilterElement#getArgument <em>Argument</em>}' reference.
@@ -64,6 +64,6 @@ public interface CountFilterElement extends NumberFilterPart {
 	 * @see #getArgument()
 	 * @generated
 	 */
-	void setArgument(ContainerInterimResultPart value);
+	void setArgument(ContainerInterim value);
 
 } // CountFilterElement

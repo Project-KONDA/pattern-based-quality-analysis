@@ -4,23 +4,23 @@ package qualitypatternmodel.javaqueryoutput.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import qualitypatternmodel.javaqueryoutput.BooleanInterimResultParam;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
+import qualitypatternmodel.javaqueryoutput.NumberValueInterim;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Boolean Interim Result Param</b></em>'.
+ * An implementation of the model object '<em><b>Number Value Interim</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class BooleanInterimResultParamImpl extends InterimResultParamImpl implements BooleanInterimResultParam {
+public class NumberValueInterimImpl extends InterimResultParamImpl implements NumberValueInterim {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
-	public BooleanInterimResultParamImpl() {
+	protected NumberValueInterimImpl() {
 		super();
 	}
 
@@ -31,7 +31,7 @@ public class BooleanInterimResultParamImpl extends InterimResultParamImpl implem
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return JavaqueryoutputPackage.Literals.BOOLEAN_INTERIM_RESULT_PARAM;
+		return JavaqueryoutputPackage.Literals.NUMBER_VALUE_INTERIM;
 	}
 
-} //BooleanInterimResultParamImpl
+} //NumberValueInterimImpl

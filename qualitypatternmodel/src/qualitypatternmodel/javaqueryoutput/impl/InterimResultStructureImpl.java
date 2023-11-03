@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import qualitypatternmodel.javaqueryoutput.InterimResultParam;
 import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
-import qualitypatternmodel.javaqueryoutput.RecordInterimResult;
+import qualitypatternmodel.javaqueryoutput.RecordInterim;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,7 +49,7 @@ public class InterimResultStructureImpl extends MinimalEObjectImpl.Container imp
 	 * @generated
 	 * @ordered
 	 */
-	protected RecordInterimResult record;
+	protected RecordInterim record;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -58,7 +58,7 @@ public class InterimResultStructureImpl extends MinimalEObjectImpl.Container imp
 	 */
 	public InterimResultStructureImpl() {
 		super();
-		setRecord(new RecordInterimResultImpl());
+		setRecord(new RecordInterimImpl());
 	}
 
 	/**
@@ -122,7 +122,7 @@ public class InterimResultStructureImpl extends MinimalEObjectImpl.Container imp
 	 * @generated
 	 */
 	@Override
-	public RecordInterimResult getRecord() {
+	public RecordInterim getRecord() {
 		return record;
 	}
 
@@ -131,8 +131,8 @@ public class InterimResultStructureImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRecord(RecordInterimResult newRecord, NotificationChain msgs) {
-		RecordInterimResult oldRecord = record;
+	public NotificationChain basicSetRecord(RecordInterim newRecord, NotificationChain msgs) {
+		RecordInterim oldRecord = record;
 		record = newRecord;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE__RECORD, oldRecord, newRecord);
@@ -147,7 +147,7 @@ public class InterimResultStructureImpl extends MinimalEObjectImpl.Container imp
 	 * @generated
 	 */
 	@Override
-	public void setRecord(RecordInterimResult newRecord) {
+	public void setRecord(RecordInterim newRecord) {
 		if (newRecord != record) {
 			NotificationChain msgs = null;
 			if (record != null)
@@ -205,7 +205,7 @@ public class InterimResultStructureImpl extends MinimalEObjectImpl.Container imp
 				setSubstructure((InterimResultParam)newValue);
 				return;
 			case JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE__RECORD:
-				setRecord((RecordInterimResult)newValue);
+				setRecord((RecordInterim)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -223,7 +223,7 @@ public class InterimResultStructureImpl extends MinimalEObjectImpl.Container imp
 				setSubstructure((InterimResultParam)null);
 				return;
 			case JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE__RECORD:
-				setRecord((RecordInterimResult)null);
+				setRecord((RecordInterim)null);
 				return;
 		}
 		super.eUnset(featureID);

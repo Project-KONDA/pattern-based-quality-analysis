@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.javaquery;
 
-import qualitypatternmodel.javaqueryoutput.ValueListInterimResultPart;
+import qualitypatternmodel.javaqueryoutput.ValueListInterim;
 import qualitypatternmodel.patternstructure.Quantifier;
 
 /**
@@ -28,12 +28,12 @@ public interface OneArgFunctionFilterPart extends BooleanFilterPart {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Argument</em>' reference.
-	 * @see #setArgument(ValueListInterimResultPart)
+	 * @see #setArgument(ValueListInterim)
 	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getOneArgFunctionFilterPart_Argument()
 	 * @model required="true"
 	 * @generated
 	 */
-	ValueListInterimResultPart getArgument();
+	ValueListInterim getArgument();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.javaquery.OneArgFunctionFilterPart#getArgument <em>Argument</em>}' reference.
@@ -43,7 +43,7 @@ public interface OneArgFunctionFilterPart extends BooleanFilterPart {
 	 * @see #getArgument()
 	 * @generated
 	 */
-	void setArgument(ValueListInterimResultPart value);
+	void setArgument(ValueListInterim value);
 
 	/**
 	 * Returns the value of the '<em><b>Quantifier</b></em>' attribute.

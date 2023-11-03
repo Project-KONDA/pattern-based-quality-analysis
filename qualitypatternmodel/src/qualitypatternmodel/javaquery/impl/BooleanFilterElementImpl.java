@@ -12,10 +12,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.javaquery.BooleanFilterElement;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
-
-import qualitypatternmodel.javaqueryoutput.BooleanInterimResultParam;
+import qualitypatternmodel.javaqueryoutput.BooleanValueInterim;
 import qualitypatternmodel.javaqueryoutput.InterimResultParam;
-import qualitypatternmodel.javaqueryoutput.impl.BooleanInterimResultParamImpl;
+import qualitypatternmodel.javaqueryoutput.impl.BooleanValueInterimImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,7 +38,7 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 	 * @generated
 	 * @ordered
 	 */
-	protected BooleanInterimResultParam argument;
+	protected BooleanValueInterim argument;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -48,7 +47,7 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 	 */
 	protected BooleanFilterElementImpl() {
 		super();
-		setArgument(new BooleanInterimResultParamImpl());
+		setArgument(new BooleanValueInterimImpl());
 	}
 	
 	@Override
@@ -81,10 +80,10 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 	 * @generated
 	 */
 	@Override
-	public BooleanInterimResultParam getArgument() {
+	public BooleanValueInterim getArgument() {
 		if (argument != null && argument.eIsProxy()) {
 			InternalEObject oldArgument = (InternalEObject)argument;
-			argument = (BooleanInterimResultParam)eResolveProxy(oldArgument);
+			argument = (BooleanValueInterim)eResolveProxy(oldArgument);
 			if (argument != oldArgument) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaqueryPackage.BOOLEAN_FILTER_ELEMENT__ARGUMENT, oldArgument, argument));
@@ -98,7 +97,7 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BooleanInterimResultParam basicGetArgument() {
+	public BooleanValueInterim basicGetArgument() {
 		return argument;
 	}
 
@@ -108,8 +107,8 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 	 * @generated
 	 */
 	@Override
-	public void setArgument(BooleanInterimResultParam newArgument) {
-		BooleanInterimResultParam oldArgument = argument;
+	public void setArgument(BooleanValueInterim newArgument) {
+		BooleanValueInterim oldArgument = argument;
 		argument = newArgument;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.BOOLEAN_FILTER_ELEMENT__ARGUMENT, oldArgument, argument));
@@ -139,7 +138,7 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case JavaqueryPackage.BOOLEAN_FILTER_ELEMENT__ARGUMENT:
-				setArgument((BooleanInterimResultParam)newValue);
+				setArgument((BooleanValueInterim)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -154,7 +153,7 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case JavaqueryPackage.BOOLEAN_FILTER_ELEMENT__ARGUMENT:
-				setArgument((BooleanInterimResultParam)null);
+				setArgument((BooleanValueInterim)null);
 				return;
 		}
 		super.eUnset(featureID);

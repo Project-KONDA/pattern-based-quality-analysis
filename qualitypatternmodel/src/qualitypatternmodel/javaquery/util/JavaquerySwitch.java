@@ -164,6 +164,14 @@ public class JavaquerySwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case JavaqueryPackage.NUMBER_VALUE_FILTER_ELEMENT: {
+				NumberValueFilterElement numberValueFilterElement = (NumberValueFilterElement)theEObject;
+				T result = caseNumberValueFilterElement(numberValueFilterElement);
+				if (result == null) result = caseNumberFilterPart(numberValueFilterElement);
+				if (result == null) result = caseJavaFilterPart(numberValueFilterElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -195,6 +203,21 @@ public class JavaquerySwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseJavaFilterPart(JavaFilterPart object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Number Value Filter Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Number Value Filter Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNumberValueFilterElement(NumberValueFilterElement object) {
 		return null;
 	}
 

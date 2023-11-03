@@ -57,10 +57,11 @@ public class JavaqueryoutputFactoryImpl extends EFactoryImpl implements Javaquer
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE: return createInterimResultStructure();
-			case JavaqueryoutputPackage.RECORD_INTERIM_RESULT: return createRecordInterimResult();
-			case JavaqueryoutputPackage.BOOLEAN_INTERIM_RESULT_PARAM: return createBooleanInterimResultParam();
-			case JavaqueryoutputPackage.CONTAINER_INTERIM_RESULT_PART: return createContainerInterimResultPart();
-			case JavaqueryoutputPackage.VALUE_LIST_INTERIM_RESULT_PART: return createValueListInterimResultPart();
+			case JavaqueryoutputPackage.RECORD_INTERIM: return createRecordInterim();
+			case JavaqueryoutputPackage.BOOLEAN_VALUE_INTERIM: return createBooleanValueInterim();
+			case JavaqueryoutputPackage.CONTAINER_INTERIM: return createContainerInterim();
+			case JavaqueryoutputPackage.VALUE_LIST_INTERIM: return createValueListInterim();
+			case JavaqueryoutputPackage.NUMBER_VALUE_INTERIM: return createNumberValueInterim();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -83,9 +84,9 @@ public class JavaqueryoutputFactoryImpl extends EFactoryImpl implements Javaquer
 	 * @generated
 	 */
 	@Override
-	public RecordInterimResult createRecordInterimResult() {
-		RecordInterimResultImpl recordInterimResult = new RecordInterimResultImpl();
-		return recordInterimResult;
+	public RecordInterim createRecordInterim() {
+		RecordInterimImpl recordInterim = new RecordInterimImpl();
+		return recordInterim;
 	}
 
 	/**
@@ -94,9 +95,9 @@ public class JavaqueryoutputFactoryImpl extends EFactoryImpl implements Javaquer
 	 * @generated
 	 */
 	@Override
-	public BooleanInterimResultParam createBooleanInterimResultParam() {
-		BooleanInterimResultParamImpl booleanInterimResultParam = new BooleanInterimResultParamImpl();
-		return booleanInterimResultParam;
+	public BooleanValueInterim createBooleanValueInterim() {
+		BooleanValueInterimImpl booleanValueInterim = new BooleanValueInterimImpl();
+		return booleanValueInterim;
 	}
 
 	/**
@@ -105,9 +106,9 @@ public class JavaqueryoutputFactoryImpl extends EFactoryImpl implements Javaquer
 	 * @generated
 	 */
 	@Override
-	public ContainerInterimResultPart createContainerInterimResultPart() {
-		ContainerInterimResultPartImpl containerInterimResultPart = new ContainerInterimResultPartImpl();
-		return containerInterimResultPart;
+	public ContainerInterim createContainerInterim() {
+		ContainerInterimImpl containerInterim = new ContainerInterimImpl();
+		return containerInterim;
 	}
 
 	/**
@@ -116,9 +117,20 @@ public class JavaqueryoutputFactoryImpl extends EFactoryImpl implements Javaquer
 	 * @generated
 	 */
 	@Override
-	public ValueListInterimResultPart createValueListInterimResultPart() {
-		ValueListInterimResultPartImpl valueListInterimResultPart = new ValueListInterimResultPartImpl();
-		return valueListInterimResultPart;
+	public ValueListInterim createValueListInterim() {
+		ValueListInterimImpl valueListInterim = new ValueListInterimImpl();
+		return valueListInterim;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NumberValueInterim createNumberValueInterim() {
+		NumberValueInterimImpl numberValueInterim = new NumberValueInterimImpl();
+		return numberValueInterim;
 	}
 
 	/**

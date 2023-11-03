@@ -4,16 +4,16 @@ package qualitypatternmodel.javaqueryoutput.tests;
 
 import junit.textui.TestRunner;
 
-import qualitypatternmodel.javaqueryoutput.BooleanInterimResultParam;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputFactory;
+import qualitypatternmodel.javaqueryoutput.ValueListInterim;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Boolean Interim Result Param</b></em>'.
+ * A test case for the model object '<em><b>Value List Interim</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class BooleanInterimResultParamTest extends InterimResultParamTest {
+public class ValueListInterimTest extends InterimResultParamTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +21,28 @@ public class BooleanInterimResultParamTest extends InterimResultParamTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(BooleanInterimResultParamTest.class);
+		TestRunner.run(ValueListInterimTest.class);
 	}
 
 	/**
-	 * Constructs a new Boolean Interim Result Param test case with the given name.
+	 * Constructs a new Value List Interim test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BooleanInterimResultParamTest(String name) {
+	public ValueListInterimTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Boolean Interim Result Param test case.
+	 * Returns the fixture for this Value List Interim test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected BooleanInterimResultParam getFixture() {
-		return (BooleanInterimResultParam)fixture;
+	protected ValueListInterim getFixture() {
+		return (ValueListInterim)fixture;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class BooleanInterimResultParamTest extends InterimResultParamTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(JavaqueryoutputFactory.eINSTANCE.createBooleanInterimResultParam());
+		setFixture(JavaqueryoutputFactory.eINSTANCE.createValueListInterim());
 	}
 
 	/**
@@ -67,4 +67,4 @@ public class BooleanInterimResultParamTest extends InterimResultParamTest {
 		setFixture(null);
 	}
 
-} //BooleanInterimResultParamTest
+} //ValueListInterimTest
