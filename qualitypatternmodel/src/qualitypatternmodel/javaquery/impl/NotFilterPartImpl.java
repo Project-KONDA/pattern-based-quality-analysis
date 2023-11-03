@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.NotFilterPart;
@@ -49,11 +50,18 @@ public class NotFilterPartImpl extends BooleanFilterPartImpl implements NotFilte
 	}
 	
 	@Override
-	public Boolean apply() {return true;};
+	public Boolean apply() throws InvalidityException {
+		return !getSubfilter().apply();
+	};
 
 	@Override
 	public EList<InterimResultParam> getArguments() {
 		return getSubfilter().getArguments();
+	}
+	
+	@Override
+	public String toString() {
+		return "[not " + getJavaFilterPartId() + " " + getSubfilter().toString() + "]";
 	}
 	
 	

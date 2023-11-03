@@ -87,9 +87,9 @@ public class ListFilterPartImpl extends BooleanFilterPartImpl implements ListFil
 
 	public ListFilterPartImpl(Quantifier quantifier, BooleanFilterPart subfilter) {
 		super();
+		setArgument(new ContainerInterimImpl());
 		setQuantifier(quantifier);
 		setSubfilter(subfilter);
-		setArgument(new ContainerInterimImpl());
 	}
 	
 	@Override
@@ -107,6 +107,12 @@ public class ListFilterPartImpl extends BooleanFilterPartImpl implements ListFil
 		EList<InterimResultParam> contained = arg.getContained();
 		contained.clear();
 		contained.addAll(getSubfilter().getArguments());
+	}
+	
+	@Override
+	public String toString() {
+		return "[list " + getJavaFilterPartId() + " <" + getArgument().getInterimPartId() + "> " 
+				+ " " + getSubfilter().toString() + "]";
 	}
 	
 	
@@ -325,21 +331,4 @@ public class ListFilterPartImpl extends BooleanFilterPartImpl implements ListFil
 		}
 		return super.eIsSet(featureID);
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (quantifier: ");
-		result.append(quantifier);
-		result.append(')');
-		return result.toString();
-	}
-
 } //ListFilterPartImpl

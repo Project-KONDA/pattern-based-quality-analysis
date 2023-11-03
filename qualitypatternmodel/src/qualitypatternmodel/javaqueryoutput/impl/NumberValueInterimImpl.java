@@ -24,6 +24,15 @@ public class NumberValueInterimImpl extends InterimResultParamImpl implements Nu
 		super();
 	}
 
+	@Override
+	public String toString(){
+		return "<number " + getInterimPartId() + ">";
+	}
+	
+	
+	
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

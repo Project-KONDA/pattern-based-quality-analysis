@@ -72,6 +72,11 @@ public class NumberValueFilterElementImpl extends NumberFilterPartImpl implement
 		return new BasicEList<InterimResultParam>();
 	}
 	
+	@Override
+	public String toString() {
+		return "(constant " + getJavaFilterPartId() + " [" + getNumber() + "])";
+	}
+	
 	
 	
 	
@@ -165,21 +170,5 @@ public class NumberValueFilterElementImpl extends NumberFilterPartImpl implement
 				return NUMBER_EDEFAULT == null ? number != null : !NUMBER_EDEFAULT.equals(number);
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (number: ");
-		result.append(number);
-		result.append(')');
-		return result.toString();
 	}
 } //NumberValueFilterElementImpl

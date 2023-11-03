@@ -97,6 +97,11 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 		return result;
 	}
 	
+	@Override
+	public String toString() {
+		return "(oneArg " + getJavaFilterPartId() + " (" + getQuantifier() + ") <" + getArgument().getInterimPartId() + ">)";
+	}
+	
 	
 	
 	
@@ -267,22 +272,6 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 				return apply((String)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (quantifier: ");
-		result.append(quantifier);
-		result.append(')');
-		return result.toString();
 	}
 
 } //OneArgFunctionFilterPartImpl

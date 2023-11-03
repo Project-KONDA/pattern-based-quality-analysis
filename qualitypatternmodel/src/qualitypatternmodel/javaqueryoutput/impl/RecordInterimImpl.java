@@ -24,6 +24,15 @@ public class RecordInterimImpl extends InterimResultPartImpl implements RecordIn
 		super();
 	}
 
+	@Override
+	public String toString(){
+		return "<record " + getInterimPartId() + ">";
+	}
+	
+	
+	
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

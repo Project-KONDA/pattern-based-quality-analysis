@@ -24,6 +24,15 @@ public class BooleanValueInterimImpl extends InterimResultParamImpl implements B
 		super();
 	}
 
+	@Override
+	public String toString(){
+		return "<bool " + getInterimPartId() + ">";
+	}
+	
+	
+	
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

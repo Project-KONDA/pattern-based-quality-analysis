@@ -60,6 +60,11 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 		return result;
 	}
 	
+	@Override
+	public String toString() {
+		return "(bool " + getJavaFilterPartId() + "<" + getArgument().getInterimPartId() + ">)";
+	}
+
 	
 	
 	

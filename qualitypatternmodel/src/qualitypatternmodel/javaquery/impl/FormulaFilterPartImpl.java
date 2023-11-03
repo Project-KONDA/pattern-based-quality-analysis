@@ -123,6 +123,12 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 		contained.addAll(getSubfilter2().getArguments());
 	}
 	
+	@Override
+	public String toString() {
+		return "[formula " + getJavaFilterPartId() + " <" + getArgument().getInterimPartId() + "> " 
+				+ " " + getSubfilter1().toString() + " " + getOperator().toString() + " " + getSubfilter2().toString() + "]";
+	}
+	
 	
 	
 	
@@ -398,21 +404,4 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 		}
 		return super.eIsSet(featureID);
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (operator: ");
-		result.append(operator);
-		result.append(')');
-		return result.toString();
-	}
-
 } //FormulaFilterPartImpl

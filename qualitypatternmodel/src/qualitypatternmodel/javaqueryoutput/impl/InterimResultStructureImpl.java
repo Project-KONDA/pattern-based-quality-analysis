@@ -61,6 +61,15 @@ public class InterimResultStructureImpl extends MinimalEObjectImpl.Container imp
 		setRecord(new RecordInterimImpl());
 	}
 
+	@Override
+	public String toString(){
+		return "[" + getRecord().toString() + " | " + getSubstructure().toString() + "]";
+	}
+	
+	
+	
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

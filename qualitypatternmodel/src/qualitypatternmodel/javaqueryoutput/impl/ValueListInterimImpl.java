@@ -24,6 +24,15 @@ public class ValueListInterimImpl extends InterimResultParamImpl implements Valu
 		super();
 	}
 
+	@Override
+	public String toString(){
+		return "<valuelist " + getInterimPartId() + ">";
+	}
+	
+	
+	
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

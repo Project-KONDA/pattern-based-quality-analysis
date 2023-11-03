@@ -59,6 +59,11 @@ public class NumberFilterElementImpl extends NumberFilterPartImpl implements Num
 		return result;
 	}
 	
+	@Override
+	public String toString() {
+		return "(number " + getJavaFilterPartId() + " <" + getArgument().getInterimPartId() + ">)";
+	}
+	
 	
 	
 	

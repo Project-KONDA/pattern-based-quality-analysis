@@ -26,6 +26,20 @@ public abstract class InterimResultPartImpl extends MinimalEObjectImpl.Container
 		super();
 	}
 
+	private static Integer idCounter = 1;
+	private Integer interimPartId = -1;
+	public Integer getInterimPartId() {
+		if (interimPartId == -1) {
+			idCounter++;
+			interimPartId = idCounter;
+		}
+		return interimPartId;
+	}
+	
+	
+	
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

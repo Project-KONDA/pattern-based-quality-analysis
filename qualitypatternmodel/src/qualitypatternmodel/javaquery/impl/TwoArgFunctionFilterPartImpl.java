@@ -130,6 +130,12 @@ public class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 		return result;
 	}
 	
+	@Override
+	public String toString() {
+		return "(oneArg " + getJavaFilterPartId() + " (" + getQuantifier1() + "X" + getQuantifier2() + ")" + 
+			" <" + getArgument1().getInterimPartId() + "x" + getArgument2().getInterimPartId() + ">)";
+	}
+	
 	
 	
 	
@@ -385,23 +391,4 @@ public class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 		}
 		return super.eInvoke(operationID, arguments);
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (quantifier1: ");
-		result.append(quantifier1);
-		result.append(", quantifier2: ");
-		result.append(quantifier2);
-		result.append(')');
-		return result.toString();
-	}
-
 } //TwoArgFunctionFilterPartImpl

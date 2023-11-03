@@ -257,5 +257,10 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 		}
 		return super.eIsSet(featureID);
 	}
+	
+	@Override
+	public String toString() {
+		return getFilter().toString() + "\n\n" + getStructure().toString();
+	}
 
 } //JavaFilterImpl

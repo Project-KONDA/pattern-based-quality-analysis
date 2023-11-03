@@ -27,6 +27,19 @@ public abstract class JavaFilterPartImpl extends MinimalEObjectImpl.Container im
 	protected JavaFilterPartImpl() {
 		super();
 	}
+	
+	@Override
+	abstract public String toString();
+	
+	private static Integer idCounter = 1;
+	private Integer javaFilterPartId = -1;
+	public Integer getJavaFilterPartId() {
+		if (javaFilterPartId == -1) {
+			idCounter++;
+			javaFilterPartId = idCounter;
+		}
+		return javaFilterPartId;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

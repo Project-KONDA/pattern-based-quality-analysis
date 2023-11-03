@@ -15,4 +15,5 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface InterimResultPart extends EObject {
+	abstract public Integer getInterimPartId();
 } // InterimResultPart

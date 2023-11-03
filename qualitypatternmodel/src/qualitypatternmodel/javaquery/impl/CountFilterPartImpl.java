@@ -127,6 +127,12 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 		contained.addAll(getSubfilter2().getArguments());
 	}
 	
+	@Override
+	public String toString() {
+		return "[count " + getJavaFilterPartId() + " <" + getArgument().getInterimPartId() + "> " + " "
+				+ getSubfilter1().toString() + " " + getOperator().toString() + " " + getSubfilter2().toString() + "]";
+	}
+	
 	
 	
 	
@@ -401,21 +407,5 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 				return argument != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (operator: ");
-		result.append(operator);
-		result.append(')');
-		return result.toString();
 	}
 } //CountFilterPartImpl

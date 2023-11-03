@@ -57,6 +57,22 @@ public class ContainerInterimImpl extends InterimResultParamImpl implements Cont
 		getContained().addAll(interims);
 	}
 
+	@Override
+	public String toString(){
+		int containedSize = getContained().size();
+		String containedString = "";
+		for (int i = 0; i < containedSize; i++) {
+			if (i>0)
+				containedString += ", ";
+			containedString += getContained().get(i); 
+		}
+		return "<container " + getInterimPartId() + " " + containedString + ">";
+	}
+	
+	
+	
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

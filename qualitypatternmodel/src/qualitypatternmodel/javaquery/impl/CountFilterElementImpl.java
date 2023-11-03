@@ -86,6 +86,10 @@ public class CountFilterElementImpl extends NumberFilterPartImpl implements Coun
 		contained.addAll(getSubfilter().getArguments());
 	}
 	
+	@Override
+	public String toString() {
+		return "[count " + getJavaFilterPartId() + " <" + getArgument().getInterimPartId() + "> " + getSubfilter().toString() + "]";
+	}
 	
 	
 	
