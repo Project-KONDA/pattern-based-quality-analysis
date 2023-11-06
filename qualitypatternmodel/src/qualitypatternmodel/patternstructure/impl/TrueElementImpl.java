@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -30,6 +31,12 @@ public class TrueElementImpl extends ConditionImpl implements TrueElement {
 	protected TrueElementImpl() {
 		super();
 	}
+
+	@Override
+	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
+		return null;
+	}
+	
 	
 	@Override
 	public String generateXQuery() throws InvalidityException {

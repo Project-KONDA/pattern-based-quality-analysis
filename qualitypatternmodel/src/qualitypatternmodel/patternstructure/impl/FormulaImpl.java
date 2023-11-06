@@ -125,9 +125,9 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
-		return new FormulaFilterPartImpl(getOperator(), 
-				(BooleanFilterPart) getCondition1().generateQueryFilterPart(), 
-				(BooleanFilterPart) getCondition2().generateQueryFilterPart());
+		BooleanFilterPart qfp1 = (BooleanFilterPart) getCondition1().generateQueryFilterPart();
+		BooleanFilterPart qfp2 = (BooleanFilterPart) getCondition2().generateQueryFilterPart();
+		return new FormulaFilterPartImpl(getOperator(), qfp1, qfp2);
 	}
 
 	@Override

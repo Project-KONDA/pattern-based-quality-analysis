@@ -45,7 +45,7 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	protected BooleanFilterElementImpl() {
+	public BooleanFilterElementImpl() {
 		super();
 		setArgument(new BooleanValueInterimImpl());
 	}

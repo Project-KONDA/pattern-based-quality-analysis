@@ -28,6 +28,7 @@ import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaFilterPart;
+import qualitypatternmodel.javaquery.impl.BooleanFilterElementImpl;
 import qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl;
 import qualitypatternmodel.javaquery.impl.ListFilterPartImpl;
 import qualitypatternmodel.operators.Operator;
@@ -134,20 +135,23 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
-		BooleanFilterPart subfilter;
-		Boolean graph = getGraph().containsJavaOperator();
-		Boolean condition = getCondition().containsJavaOperator();
-		if (graph && condition) {
-			subfilter = new FormulaFilterPartImpl(
-				LogicalOperator.AND,
-				(BooleanFilterPart) getGraph().generateQueryFilterPart(),
-				(BooleanFilterPart) getCondition().generateQueryFilterPart());
-		} else if (graph) {
-			subfilter = (BooleanFilterPart) getGraph().generateQueryFilterPart();
-		} else 
-			subfilter = (BooleanFilterPart) getCondition().generateQueryFilterPart();
-		
-		return new ListFilterPartImpl(getQuantifier(), subfilter);
+		if (containsJavaOperator()) {
+			BooleanFilterPart subfilter;
+			Boolean graph = getGraph().containsJavaOperator();
+			Boolean condition = getCondition().containsJavaOperator();
+			if (graph && condition) {
+				subfilter = new FormulaFilterPartImpl(
+					LogicalOperator.AND,
+					(BooleanFilterPart) getGraph().generateQueryFilterPart(),
+					(BooleanFilterPart) getCondition().generateQueryFilterPart());
+			} else if (graph) {
+				subfilter = (BooleanFilterPart) getGraph().generateQueryFilterPart();
+			} else 
+				subfilter = (BooleanFilterPart) getCondition().generateQueryFilterPart();
+			
+			return new ListFilterPartImpl(getQuantifier(), subfilter);
+		}
+		return new BooleanFilterElementImpl();
 	}
 
 	@Override

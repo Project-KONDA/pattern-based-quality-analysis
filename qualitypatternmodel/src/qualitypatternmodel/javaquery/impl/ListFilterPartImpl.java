@@ -112,7 +112,7 @@ public class ListFilterPartImpl extends BooleanFilterPartImpl implements ListFil
 	@Override
 	public String toString() {
 		return "[list " + getJavaFilterPartId() + " <" + getArgument().getInterimPartId() + "> " 
-				+ " " + getSubfilter().toString() + "]";
+				+ " " + (getSubfilter() != null? getSubfilter().toString() : "null" ) + "]";
 	}
 	
 	

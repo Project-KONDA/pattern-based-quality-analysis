@@ -24,8 +24,10 @@ public class OneArgTestPatterns {
 		List<CompletePattern> result = getXmlTestPatterns();
 		for (CompletePattern pattern: result) {
 			System.out.println(pattern.myToString());
+			System.out.println();			
 			try{
-				System.out.println(pattern.generateXQuery());
+//				System.out.println(pattern.generateXQuery());
+				System.out.println(pattern.generateQueryFilter());
 			} catch (InvalidityException e) {}
 			System.out.println("-----------------------------------------\n");
 		}

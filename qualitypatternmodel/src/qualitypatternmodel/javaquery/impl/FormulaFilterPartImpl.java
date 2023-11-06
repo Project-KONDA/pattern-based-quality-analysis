@@ -100,9 +100,9 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 			BooleanFilterPart booleanFilterPart2) {
 		super();
 		setOperator(op);
+		setArgument(new ContainerInterimImpl());
 		setSubfilter1(booleanFilterPart);
 		setSubfilter2(booleanFilterPart2);
-		setArgument(new ContainerInterimImpl());
 	}
 	
 	@Override
@@ -119,8 +119,10 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 		ContainerInterim arg = getArgument();
 		EList<InterimResultParam> contained = arg.getContained();
 		contained.clear();
-		contained.addAll(getSubfilter1().getArguments());
-		contained.addAll(getSubfilter2().getArguments());
+		if (getSubfilter1() != null)
+			contained.addAll(getSubfilter1().getArguments());
+		if (getSubfilter2() != null)
+			contained.addAll(getSubfilter2().getArguments());
 	}
 	
 	@Override
