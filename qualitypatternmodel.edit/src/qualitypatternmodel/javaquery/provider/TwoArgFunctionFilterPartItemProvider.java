@@ -10,11 +10,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
-import qualitypatternmodel.javaquery.TwoArgFunctionFilterPart;
-import qualitypatternmodel.patternstructure.Quantifier;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart} object.
@@ -46,8 +42,6 @@ public class TwoArgFunctionFilterPartItemProvider extends BooleanFilterPartItemP
 
 			addArgument1PropertyDescriptor(object);
 			addArgument2PropertyDescriptor(object);
-			addQuantifier1PropertyDescriptor(object);
-			addQuantifier2PropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -97,50 +91,6 @@ public class TwoArgFunctionFilterPartItemProvider extends BooleanFilterPartItemP
 	}
 
 	/**
-	 * This adds a property descriptor for the Quantifier1 feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addQuantifier1PropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TwoArgFunctionFilterPart_quantifier1_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TwoArgFunctionFilterPart_quantifier1_feature", "_UI_TwoArgFunctionFilterPart_type"),
-				 JavaqueryPackage.Literals.TWO_ARG_FUNCTION_FILTER_PART__QUANTIFIER1,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Quantifier2 feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addQuantifier2PropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TwoArgFunctionFilterPart_quantifier2_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TwoArgFunctionFilterPart_quantifier2_feature", "_UI_TwoArgFunctionFilterPart_type"),
-				 JavaqueryPackage.Literals.TWO_ARG_FUNCTION_FILTER_PART__QUANTIFIER2,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns TwoArgFunctionFilterPart.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -159,11 +109,7 @@ public class TwoArgFunctionFilterPartItemProvider extends BooleanFilterPartItemP
 	 */
 	@Override
 	public String getText(Object object) {
-		Quantifier labelValue = ((TwoArgFunctionFilterPart)object).getQuantifier1();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_TwoArgFunctionFilterPart_type") :
-			getString("_UI_TwoArgFunctionFilterPart_type") + " " + label;
+		return getString("_UI_TwoArgFunctionFilterPart_type");
 	}
 
 
@@ -177,13 +123,6 @@ public class TwoArgFunctionFilterPartItemProvider extends BooleanFilterPartItemP
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(TwoArgFunctionFilterPart.class)) {
-			case JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART__QUANTIFIER1:
-			case JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART__QUANTIFIER2:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

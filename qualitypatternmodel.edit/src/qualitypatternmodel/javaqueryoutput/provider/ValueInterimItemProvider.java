@@ -17,14 +17,14 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ValueListInterimItemProvider extends InterimResultParamItemProvider {
+public class ValueInterimItemProvider extends InterimResultParamItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ValueListInterimItemProvider(AdapterFactory adapterFactory) {
+	public ValueInterimItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -44,14 +44,14 @@ public class ValueListInterimItemProvider extends InterimResultParamItemProvider
 	}
 
 	/**
-	 * This returns ValueListInterim.gif.
+	 * This returns ValueInterim.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ValueListInterim"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ValueInterim"));
 	}
 
 	/**
@@ -62,7 +62,7 @@ public class ValueListInterimItemProvider extends InterimResultParamItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ValueListInterim_type");
+		return getString("_UI_ValueInterim_type");
 	}
 
 

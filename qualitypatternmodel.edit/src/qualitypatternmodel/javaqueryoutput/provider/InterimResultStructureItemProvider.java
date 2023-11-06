@@ -165,7 +165,7 @@ public class InterimResultStructureItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaqueryoutputPackage.Literals.INTERIM_RESULT_STRUCTURE__SUBSTRUCTURE,
-				 JavaqueryoutputFactory.eINSTANCE.createValueListInterim()));
+				 JavaqueryoutputFactory.eINSTANCE.createValueInterim()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -146,7 +146,7 @@ public class ContainerInterimItemProvider extends InterimResultParamItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaqueryoutputPackage.Literals.CONTAINER_INTERIM__CONTAINED,
-				 JavaqueryoutputFactory.eINSTANCE.createValueListInterim()));
+				 JavaqueryoutputFactory.eINSTANCE.createValueInterim()));
 
 		newChildDescriptors.add
 			(createChildParameter

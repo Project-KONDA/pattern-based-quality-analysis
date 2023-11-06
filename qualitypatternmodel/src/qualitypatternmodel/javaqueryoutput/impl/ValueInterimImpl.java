@@ -5,7 +5,7 @@ package qualitypatternmodel.javaqueryoutput.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
-import qualitypatternmodel.javaqueryoutput.ValueListInterim;
+import qualitypatternmodel.javaqueryoutput.ValueInterim;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,13 +14,13 @@ import qualitypatternmodel.javaqueryoutput.ValueListInterim;
  *
  * @generated
  */
-public class ValueListInterimImpl extends InterimResultParamImpl implements ValueListInterim {
+public class ValueInterimImpl extends InterimResultParamImpl implements ValueInterim {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public ValueListInterimImpl() {
+	public ValueInterimImpl() {
 		super();
 	}
 
@@ -40,7 +40,7 @@ public class ValueListInterimImpl extends InterimResultParamImpl implements Valu
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return JavaqueryoutputPackage.Literals.VALUE_LIST_INTERIM;
+		return JavaqueryoutputPackage.Literals.VALUE_INTERIM;
 	}
 
 } //ValueListInterimImpl

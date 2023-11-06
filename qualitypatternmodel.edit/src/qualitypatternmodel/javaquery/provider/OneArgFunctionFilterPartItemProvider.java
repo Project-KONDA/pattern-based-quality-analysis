@@ -10,11 +10,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
-import qualitypatternmodel.javaquery.OneArgFunctionFilterPart;
-import qualitypatternmodel.patternstructure.Quantifier;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.javaquery.OneArgFunctionFilterPart} object.
@@ -45,7 +41,6 @@ public class OneArgFunctionFilterPartItemProvider extends BooleanFilterPartItemP
 			super.getPropertyDescriptors(object);
 
 			addArgumentPropertyDescriptor(object);
-			addQuantifierPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -73,28 +68,6 @@ public class OneArgFunctionFilterPartItemProvider extends BooleanFilterPartItemP
 	}
 
 	/**
-	 * This adds a property descriptor for the Quantifier feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addQuantifierPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_OneArgFunctionFilterPart_quantifier_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OneArgFunctionFilterPart_quantifier_feature", "_UI_OneArgFunctionFilterPart_type"),
-				 JavaqueryPackage.Literals.ONE_ARG_FUNCTION_FILTER_PART__QUANTIFIER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns OneArgFunctionFilterPart.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -113,11 +86,7 @@ public class OneArgFunctionFilterPartItemProvider extends BooleanFilterPartItemP
 	 */
 	@Override
 	public String getText(Object object) {
-		Quantifier labelValue = ((OneArgFunctionFilterPart)object).getQuantifier();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_OneArgFunctionFilterPart_type") :
-			getString("_UI_OneArgFunctionFilterPart_type") + " " + label;
+		return getString("_UI_OneArgFunctionFilterPart_type");
 	}
 
 
@@ -131,12 +100,6 @@ public class OneArgFunctionFilterPartItemProvider extends BooleanFilterPartItemP
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(OneArgFunctionFilterPart.class)) {
-			case JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__QUANTIFIER:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

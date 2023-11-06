@@ -2,8 +2,7 @@
  */
 package qualitypatternmodel.javaquery;
 
-import qualitypatternmodel.javaqueryoutput.ValueListInterim;
-import qualitypatternmodel.patternstructure.Quantifier;
+import qualitypatternmodel.javaqueryoutput.ValueInterim;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,8 +15,6 @@ import qualitypatternmodel.patternstructure.Quantifier;
  * <ul>
  *   <li>{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getArgument1 <em>Argument1</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getArgument2 <em>Argument2</em>}</li>
- *   <li>{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getQuantifier1 <em>Quantifier1</em>}</li>
- *   <li>{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getQuantifier2 <em>Quantifier2</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.javaquery.JavaqueryPackage#getTwoArgFunctionFilterPart()
@@ -31,12 +28,12 @@ public interface TwoArgFunctionFilterPart extends BooleanFilterPart {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Argument1</em>' reference.
-	 * @see #setArgument1(ValueListInterim)
+	 * @see #setArgument1(ValueInterim)
 	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getTwoArgFunctionFilterPart_Argument1()
 	 * @model required="true"
 	 * @generated
 	 */
-	ValueListInterim getArgument1();
+	ValueInterim getArgument1();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getArgument1 <em>Argument1</em>}' reference.
@@ -46,19 +43,19 @@ public interface TwoArgFunctionFilterPart extends BooleanFilterPart {
 	 * @see #getArgument1()
 	 * @generated
 	 */
-	void setArgument1(ValueListInterim value);
+	void setArgument1(ValueInterim value);
 
 	/**
 	 * Returns the value of the '<em><b>Argument2</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Argument2</em>' reference.
-	 * @see #setArgument2(ValueListInterim)
+	 * @see #setArgument2(ValueInterim)
 	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getTwoArgFunctionFilterPart_Argument2()
 	 * @model required="true"
 	 * @generated
 	 */
-	ValueListInterim getArgument2();
+	ValueInterim getArgument2();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getArgument2 <em>Argument2</em>}' reference.
@@ -68,58 +65,8 @@ public interface TwoArgFunctionFilterPart extends BooleanFilterPart {
 	 * @see #getArgument2()
 	 * @generated
 	 */
-	void setArgument2(ValueListInterim value);
-
-	/**
-	 * Returns the value of the '<em><b>Quantifier1</b></em>' attribute.
-	 * The literals are from the enumeration {@link qualitypatternmodel.patternstructure.Quantifier}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Quantifier1</em>' attribute.
-	 * @see qualitypatternmodel.patternstructure.Quantifier
-	 * @see #setQuantifier1(Quantifier)
-	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getTwoArgFunctionFilterPart_Quantifier1()
-	 * @model
-	 * @generated
-	 */
-	Quantifier getQuantifier1();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getQuantifier1 <em>Quantifier1</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Quantifier1</em>' attribute.
-	 * @see qualitypatternmodel.patternstructure.Quantifier
-	 * @see #getQuantifier1()
-	 * @generated
-	 */
-	void setQuantifier1(Quantifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Quantifier2</b></em>' attribute.
-	 * The literals are from the enumeration {@link qualitypatternmodel.patternstructure.Quantifier}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Quantifier2</em>' attribute.
-	 * @see qualitypatternmodel.patternstructure.Quantifier
-	 * @see #setQuantifier2(Quantifier)
-	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getTwoArgFunctionFilterPart_Quantifier2()
-	 * @model
-	 * @generated
-	 */
-	Quantifier getQuantifier2();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getQuantifier2 <em>Quantifier2</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Quantifier2</em>' attribute.
-	 * @see qualitypatternmodel.patternstructure.Quantifier
-	 * @see #getQuantifier2()
-	 * @generated
-	 */
-	void setQuantifier2(Quantifier value);
-
+	void setArgument2(ValueInterim value);
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

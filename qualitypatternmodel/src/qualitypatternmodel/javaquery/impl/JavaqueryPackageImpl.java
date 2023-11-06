@@ -464,16 +464,6 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getOneArgFunctionFilterPart_Quantifier() {
-		return (EAttribute)oneArgFunctionFilterPartEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getOneArgFunctionFilterPart__Apply__String() {
 		return oneArgFunctionFilterPartEClass.getEOperations().get(0);
 	}
@@ -546,26 +536,6 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	@Override
 	public EReference getTwoArgFunctionFilterPart_Argument2() {
 		return (EReference)twoArgFunctionFilterPartEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getTwoArgFunctionFilterPart_Quantifier1() {
-		return (EAttribute)twoArgFunctionFilterPartEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getTwoArgFunctionFilterPart_Quantifier2() {
-		return (EAttribute)twoArgFunctionFilterPartEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -765,7 +735,6 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 
 		oneArgFunctionFilterPartEClass = createEClass(ONE_ARG_FUNCTION_FILTER_PART);
 		createEReference(oneArgFunctionFilterPartEClass, ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT);
-		createEAttribute(oneArgFunctionFilterPartEClass, ONE_ARG_FUNCTION_FILTER_PART__QUANTIFIER);
 		createEOperation(oneArgFunctionFilterPartEClass, ONE_ARG_FUNCTION_FILTER_PART___APPLY__STRING);
 
 		listFilterPartEClass = createEClass(LIST_FILTER_PART);
@@ -776,8 +745,6 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		twoArgFunctionFilterPartEClass = createEClass(TWO_ARG_FUNCTION_FILTER_PART);
 		createEReference(twoArgFunctionFilterPartEClass, TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT1);
 		createEReference(twoArgFunctionFilterPartEClass, TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT2);
-		createEAttribute(twoArgFunctionFilterPartEClass, TWO_ARG_FUNCTION_FILTER_PART__QUANTIFIER1);
-		createEAttribute(twoArgFunctionFilterPartEClass, TWO_ARG_FUNCTION_FILTER_PART__QUANTIFIER2);
 		createEOperation(twoArgFunctionFilterPartEClass, TWO_ARG_FUNCTION_FILTER_PART___APPLY__STRING_STRING);
 
 		notFilterPartEClass = createEClass(NOT_FILTER_PART);
@@ -872,8 +839,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		initEReference(getBooleanFilterElement_Argument(), theJavaqueryoutputPackage.getBooleanValueInterim(), null, "argument", null, 1, 1, BooleanFilterElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(oneArgFunctionFilterPartEClass, OneArgFunctionFilterPart.class, "OneArgFunctionFilterPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOneArgFunctionFilterPart_Argument(), theJavaqueryoutputPackage.getValueListInterim(), null, "argument", null, 1, 1, OneArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getOneArgFunctionFilterPart_Quantifier(), thePatternstructurePackage.getQuantifier(), "quantifier", null, 0, 1, OneArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOneArgFunctionFilterPart_Argument(), theJavaqueryoutputPackage.getValueInterim(), null, "argument", null, 1, 1, OneArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getOneArgFunctionFilterPart__Apply__String(), ecorePackage.getEBooleanObject(), "apply", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "param1", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -884,10 +850,8 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		initEAttribute(getListFilterPart_Quantifier(), thePatternstructurePackage.getQuantifier(), "quantifier", null, 0, 1, ListFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(twoArgFunctionFilterPartEClass, TwoArgFunctionFilterPart.class, "TwoArgFunctionFilterPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTwoArgFunctionFilterPart_Argument1(), theJavaqueryoutputPackage.getValueListInterim(), null, "argument1", null, 1, 1, TwoArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTwoArgFunctionFilterPart_Argument2(), theJavaqueryoutputPackage.getValueListInterim(), null, "argument2", null, 1, 1, TwoArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTwoArgFunctionFilterPart_Quantifier1(), thePatternstructurePackage.getQuantifier(), "quantifier1", null, 0, 1, TwoArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTwoArgFunctionFilterPart_Quantifier2(), thePatternstructurePackage.getQuantifier(), "quantifier2", null, 0, 1, TwoArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTwoArgFunctionFilterPart_Argument1(), theJavaqueryoutputPackage.getValueInterim(), null, "argument1", null, 1, 1, TwoArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTwoArgFunctionFilterPart_Argument2(), theJavaqueryoutputPackage.getValueInterim(), null, "argument2", null, 1, 1, TwoArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getTwoArgFunctionFilterPart__Apply__String_String(), ecorePackage.getEBooleanObject(), "apply", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "param1", 0, 1, IS_UNIQUE, IS_ORDERED);

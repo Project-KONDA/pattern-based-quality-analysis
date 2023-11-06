@@ -60,7 +60,7 @@ public class JavaqueryoutputFactoryImpl extends EFactoryImpl implements Javaquer
 			case JavaqueryoutputPackage.RECORD_INTERIM: return createRecordInterim();
 			case JavaqueryoutputPackage.BOOLEAN_VALUE_INTERIM: return createBooleanValueInterim();
 			case JavaqueryoutputPackage.CONTAINER_INTERIM: return createContainerInterim();
-			case JavaqueryoutputPackage.VALUE_LIST_INTERIM: return createValueListInterim();
+			case JavaqueryoutputPackage.VALUE_INTERIM: return createValueInterim();
 			case JavaqueryoutputPackage.NUMBER_VALUE_INTERIM: return createNumberValueInterim();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -117,9 +117,9 @@ public class JavaqueryoutputFactoryImpl extends EFactoryImpl implements Javaquer
 	 * @generated
 	 */
 	@Override
-	public ValueListInterim createValueListInterim() {
-		ValueListInterimImpl valueListInterim = new ValueListInterimImpl();
-		return valueListInterim;
+	public ValueInterim createValueInterim() {
+		ValueInterimImpl valueInterim = new ValueInterimImpl();
+		return valueInterim;
 	}
 
 	/**
