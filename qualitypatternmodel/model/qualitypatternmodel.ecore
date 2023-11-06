@@ -1462,11 +1462,11 @@
           eType="#//javaquery/BooleanFilterPart" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//patternstructure/LogicalOperator"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
-          eType="#//javaqueryoutput/ContainerInterim"/>
+          eType="#//javaqueryoutput/FixedContainerInterim"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BooleanFilterElement" eSuperTypes="#//javaquery/BooleanFilterPart">
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
-          eType="#//javaqueryoutput/BooleanValueInterim"/>
+          eType="#//javaqueryoutput/ValueInterim"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OneArgFunctionFilterPart" eSuperTypes="#//javaquery/BooleanFilterPart">
       <eOperations name="apply" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
@@ -1479,7 +1479,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="subfilter" lowerBound="1"
           eType="#//javaquery/BooleanFilterPart" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
-          eType="#//javaqueryoutput/ContainerInterim"/>
+          eType="#//javaqueryoutput/VariableContainerInterim"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier" eType="#//patternstructure/Quantifier"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TwoArgFunctionFilterPart" eSuperTypes="#//javaquery/BooleanFilterPart">
@@ -1503,7 +1503,7 @@
           eType="#//javaquery/NumberFilterPart" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//operators/ComparisonOperator"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
-          eType="#//javaqueryoutput/ContainerInterim"/>
+          eType="#//javaqueryoutput/FixedContainerInterim"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NumberFilterPart" abstract="true"
         eSuperTypes="#//javaquery/JavaFilterPart">
@@ -1514,11 +1514,11 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="subfilter" lowerBound="1"
           eType="#//javaquery/BooleanFilterPart" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
-          eType="#//javaqueryoutput/ContainerInterim"/>
+          eType="#//javaqueryoutput/VariableContainerInterim"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NumberFilterElement" eSuperTypes="#//javaquery/NumberFilterPart">
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
-          eType="#//javaqueryoutput/NumberValueInterim"/>
+          eType="#//javaqueryoutput/ValueInterim"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="JavaFilterPart" abstract="true">
       <eOperations name="getArguments" upperBound="-1" eType="#//javaqueryoutput/InterimResultParam"/>
@@ -1538,12 +1538,13 @@
     <eClassifiers xsi:type="ecore:EClass" name="InterimResultPart" abstract="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="InterimResultParam" abstract="true"
         eSuperTypes="#//javaqueryoutput/InterimResultPart"/>
-    <eClassifiers xsi:type="ecore:EClass" name="BooleanValueInterim" eSuperTypes="#//javaqueryoutput/InterimResultParam"/>
-    <eClassifiers xsi:type="ecore:EClass" name="ContainerInterim" eSuperTypes="#//javaqueryoutput/InterimResultParam">
+    <eClassifiers xsi:type="ecore:EClass" name="ContainerInterim" abstract="true"
+        eSuperTypes="#//javaqueryoutput/InterimResultParam">
       <eStructuralFeatures xsi:type="ecore:EReference" name="contained" lowerBound="1"
           upperBound="-1" eType="#//javaqueryoutput/InterimResultParam" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ValueInterim" eSuperTypes="#//javaqueryoutput/InterimResultParam"/>
-    <eClassifiers xsi:type="ecore:EClass" name="NumberValueInterim" eSuperTypes="#//javaqueryoutput/InterimResultParam"/>
+    <eClassifiers xsi:type="ecore:EClass" name="VariableContainerInterim" eSuperTypes="#//javaqueryoutput/ContainerInterim"/>
+    <eClassifiers xsi:type="ecore:EClass" name="FixedContainerInterim" eSuperTypes="#//javaqueryoutput/ContainerInterim"/>
   </eSubpackages>
 </ecore:EPackage>

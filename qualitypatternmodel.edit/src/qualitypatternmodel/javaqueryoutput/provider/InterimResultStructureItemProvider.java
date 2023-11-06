@@ -155,22 +155,17 @@ public class InterimResultStructureItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaqueryoutputPackage.Literals.INTERIM_RESULT_STRUCTURE__SUBSTRUCTURE,
-				 JavaqueryoutputFactory.eINSTANCE.createBooleanValueInterim()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaqueryoutputPackage.Literals.INTERIM_RESULT_STRUCTURE__SUBSTRUCTURE,
-				 JavaqueryoutputFactory.eINSTANCE.createContainerInterim()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaqueryoutputPackage.Literals.INTERIM_RESULT_STRUCTURE__SUBSTRUCTURE,
 				 JavaqueryoutputFactory.eINSTANCE.createValueInterim()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaqueryoutputPackage.Literals.INTERIM_RESULT_STRUCTURE__SUBSTRUCTURE,
-				 JavaqueryoutputFactory.eINSTANCE.createNumberValueInterim()));
+				 JavaqueryoutputFactory.eINSTANCE.createVariableContainerInterim()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaqueryoutputPackage.Literals.INTERIM_RESULT_STRUCTURE__SUBSTRUCTURE,
+				 JavaqueryoutputFactory.eINSTANCE.createFixedContainerInterim()));
 
 		newChildDescriptors.add
 			(createChildParameter

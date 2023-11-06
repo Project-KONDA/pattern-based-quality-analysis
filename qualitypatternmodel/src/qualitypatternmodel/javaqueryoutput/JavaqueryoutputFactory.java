@@ -40,24 +40,6 @@ public interface JavaqueryoutputFactory extends EFactory {
 	RecordInterim createRecordInterim();
 
 	/**
-	 * Returns a new object of class '<em>Boolean Value Interim</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Boolean Value Interim</em>'.
-	 * @generated
-	 */
-	BooleanValueInterim createBooleanValueInterim();
-
-	/**
-	 * Returns a new object of class '<em>Container Interim</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Container Interim</em>'.
-	 * @generated
-	 */
-	ContainerInterim createContainerInterim();
-
-	/**
 	 * Returns a new object of class '<em>Value Interim</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,13 +49,22 @@ public interface JavaqueryoutputFactory extends EFactory {
 	ValueInterim createValueInterim();
 
 	/**
-	 * Returns a new object of class '<em>Number Value Interim</em>'.
+	 * Returns a new object of class '<em>Variable Container Interim</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Number Value Interim</em>'.
+	 * @return a new object of class '<em>Variable Container Interim</em>'.
 	 * @generated
 	 */
-	NumberValueInterim createNumberValueInterim();
+	VariableContainerInterim createVariableContainerInterim();
+
+	/**
+	 * Returns a new object of class '<em>Fixed Container Interim</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Fixed Container Interim</em>'.
+	 * @generated
+	 */
+	FixedContainerInterim createFixedContainerInterim();
 
 	/**
 	 * Returns the package supported by this factory.

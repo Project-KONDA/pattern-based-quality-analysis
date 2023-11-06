@@ -2,10 +2,7 @@
  */
 package qualitypatternmodel.javaqueryoutput.tests;
 
-import junit.textui.TestRunner;
-
 import qualitypatternmodel.javaqueryoutput.ContainerInterim;
-import qualitypatternmodel.javaqueryoutput.JavaqueryoutputFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,16 +10,7 @@ import qualitypatternmodel.javaqueryoutput.JavaqueryoutputFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ContainerInterimTest extends InterimResultParamTest {
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static void main(String[] args) {
-		TestRunner.run(ContainerInterimTest.class);
-	}
+public abstract class ContainerInterimTest extends InterimResultParamTest {
 
 	/**
 	 * Constructs a new Container Interim test case with the given name.
@@ -43,28 +31,6 @@ public class ContainerInterimTest extends InterimResultParamTest {
 	@Override
 	protected ContainerInterim getFixture() {
 		return (ContainerInterim)fixture;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(JavaqueryoutputFactory.eINSTANCE.createContainerInterim());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
 	}
 
 } //ContainerInterimTest

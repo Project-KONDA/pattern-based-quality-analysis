@@ -31,7 +31,7 @@ import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
  *
  * @generated
  */
-public class ContainerInterimImpl extends InterimResultParamImpl implements ContainerInterim {
+public abstract class ContainerInterimImpl extends InterimResultParamImpl implements ContainerInterim {
 	/**
 	 * The cached value of the '{@link #getContained() <em>Contained</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

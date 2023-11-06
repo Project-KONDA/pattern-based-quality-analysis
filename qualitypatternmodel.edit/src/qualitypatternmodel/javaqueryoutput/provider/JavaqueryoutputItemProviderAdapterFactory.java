@@ -118,52 +118,6 @@ public class JavaqueryoutputItemProviderAdapterFactory extends JavaqueryoutputAd
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaqueryoutput.BooleanValueInterim} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BooleanValueInterimItemProvider booleanValueInterimItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.javaqueryoutput.BooleanValueInterim}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBooleanValueInterimAdapter() {
-		if (booleanValueInterimItemProvider == null) {
-			booleanValueInterimItemProvider = new BooleanValueInterimItemProvider(this);
-		}
-
-		return booleanValueInterimItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaqueryoutput.ContainerInterim} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ContainerInterimItemProvider containerInterimItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.javaqueryoutput.ContainerInterim}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createContainerInterimAdapter() {
-		if (containerInterimItemProvider == null) {
-			containerInterimItemProvider = new ContainerInterimItemProvider(this);
-		}
-
-		return containerInterimItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaqueryoutput.ValueInterim} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -187,26 +141,49 @@ public class JavaqueryoutputItemProviderAdapterFactory extends JavaqueryoutputAd
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaqueryoutput.NumberValueInterim} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaqueryoutput.VariableContainerInterim} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NumberValueInterimItemProvider numberValueInterimItemProvider;
+	protected VariableContainerInterimItemProvider variableContainerInterimItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.javaqueryoutput.NumberValueInterim}.
+	 * This creates an adapter for a {@link qualitypatternmodel.javaqueryoutput.VariableContainerInterim}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createNumberValueInterimAdapter() {
-		if (numberValueInterimItemProvider == null) {
-			numberValueInterimItemProvider = new NumberValueInterimItemProvider(this);
+	public Adapter createVariableContainerInterimAdapter() {
+		if (variableContainerInterimItemProvider == null) {
+			variableContainerInterimItemProvider = new VariableContainerInterimItemProvider(this);
 		}
 
-		return numberValueInterimItemProvider;
+		return variableContainerInterimItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaqueryoutput.FixedContainerInterim} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FixedContainerInterimItemProvider fixedContainerInterimItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.javaqueryoutput.FixedContainerInterim}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFixedContainerInterimAdapter() {
+		if (fixedContainerInterimItemProvider == null) {
+			fixedContainerInterimItemProvider = new FixedContainerInterimItemProvider(this);
+		}
+
+		return fixedContainerInterimItemProvider;
 	}
 
 	/**
@@ -316,10 +293,9 @@ public class JavaqueryoutputItemProviderAdapterFactory extends JavaqueryoutputAd
 	public void dispose() {
 		if (interimResultStructureItemProvider != null) interimResultStructureItemProvider.dispose();
 		if (recordInterimItemProvider != null) recordInterimItemProvider.dispose();
-		if (booleanValueInterimItemProvider != null) booleanValueInterimItemProvider.dispose();
-		if (containerInterimItemProvider != null) containerInterimItemProvider.dispose();
 		if (valueInterimItemProvider != null) valueInterimItemProvider.dispose();
-		if (numberValueInterimItemProvider != null) numberValueInterimItemProvider.dispose();
+		if (variableContainerInterimItemProvider != null) variableContainerInterimItemProvider.dispose();
+		if (fixedContainerInterimItemProvider != null) fixedContainerInterimItemProvider.dispose();
 	}
 
 }

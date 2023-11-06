@@ -16,8 +16,9 @@ import qualitypatternmodel.javaquery.CountFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.NumberFilterPart;
 import qualitypatternmodel.javaqueryoutput.ContainerInterim;
+import qualitypatternmodel.javaqueryoutput.FixedContainerInterim;
 import qualitypatternmodel.javaqueryoutput.InterimResultParam;
-import qualitypatternmodel.javaqueryoutput.impl.ContainerInterimImpl;
+import qualitypatternmodel.javaqueryoutput.impl.FixedContainerInterimImpl;
 import qualitypatternmodel.operators.ComparisonOperator;
 
 /**
@@ -85,7 +86,7 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 	 * @generated
 	 * @ordered
 	 */
-	protected ContainerInterim argument;
+	protected FixedContainerInterim argument;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -94,13 +95,13 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 	 */
 	public CountFilterPartImpl() {
 		super();
-		setArgument(new ContainerInterimImpl());
+		setArgument(new FixedContainerInterimImpl());
 	}
 
 	public CountFilterPartImpl(ComparisonOperator value, NumberFilterPart arg1filter, NumberFilterPart arg2filter) {
 		super();
 		setOperator(value);
-		setArgument(new ContainerInterimImpl());
+		setArgument(new FixedContainerInterimImpl());
 		setSubfilter1(arg1filter);
 		setSubfilter2(arg2filter);
 	}
@@ -270,10 +271,10 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 	 * @generated
 	 */
 	@Override
-	public ContainerInterim getArgument() {
+	public FixedContainerInterim getArgument() {
 		if (argument != null && argument.eIsProxy()) {
 			InternalEObject oldArgument = (InternalEObject)argument;
-			argument = (ContainerInterim)eResolveProxy(oldArgument);
+			argument = (FixedContainerInterim)eResolveProxy(oldArgument);
 			if (argument != oldArgument) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT, oldArgument, argument));
@@ -287,7 +288,7 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ContainerInterim basicGetArgument() {
+	public FixedContainerInterim basicGetArgument() {
 		return argument;
 	}
 
@@ -297,8 +298,8 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 	 * @generated
 	 */
 	@Override
-	public void setArgument(ContainerInterim newArgument) {
-		ContainerInterim oldArgument = argument;
+	public void setArgument(FixedContainerInterim newArgument) {
+		FixedContainerInterim oldArgument = argument;
 		argument = newArgument;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT, oldArgument, argument));
@@ -359,7 +360,7 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 				setOperator((ComparisonOperator)newValue);
 				return;
 			case JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT:
-				setArgument((ContainerInterim)newValue);
+				setArgument((FixedContainerInterim)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -383,7 +384,7 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 				setOperator(OPERATOR_EDEFAULT);
 				return;
 			case JavaqueryPackage.COUNT_FILTER_PART__ARGUMENT:
-				setArgument((ContainerInterim)null);
+				setArgument((FixedContainerInterim)null);
 				return;
 		}
 		super.eUnset(featureID);

@@ -1262,12 +1262,12 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/RecordInterim"/>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultPart"/>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultParam"/>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/BooleanValueInterim"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/ContainerInterim">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/ContainerInterim/contained"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/ValueInterim"/>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/NumberValueInterim"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/VariableContainerInterim"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/FixedContainerInterim"/>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

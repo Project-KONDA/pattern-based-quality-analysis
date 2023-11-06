@@ -16,7 +16,8 @@ import qualitypatternmodel.javaquery.CountFilterElement;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaqueryoutput.ContainerInterim;
 import qualitypatternmodel.javaqueryoutput.InterimResultParam;
-import qualitypatternmodel.javaqueryoutput.impl.ContainerInterimImpl;
+import qualitypatternmodel.javaqueryoutput.VariableContainerInterim;
+import qualitypatternmodel.javaqueryoutput.impl.VariableContainerInterimImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,7 +52,7 @@ public class CountFilterElementImpl extends NumberFilterPartImpl implements Coun
 	 * @generated
 	 * @ordered
 	 */
-	protected ContainerInterim argument;
+	protected VariableContainerInterim argument;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -60,12 +61,12 @@ public class CountFilterElementImpl extends NumberFilterPartImpl implements Coun
 	 */
 	public CountFilterElementImpl() {
 		super();
-		setArgument(new ContainerInterimImpl());
+		setArgument(new VariableContainerInterimImpl());
 	}
 
 	public CountFilterElementImpl(BooleanFilterPart subfilter) {
 		super();
-		setArgument(new ContainerInterimImpl());
+		setArgument(new VariableContainerInterimImpl());
 		setSubfilter(subfilter);
 	}
 	
@@ -157,10 +158,10 @@ public class CountFilterElementImpl extends NumberFilterPartImpl implements Coun
 	 * @generated
 	 */
 	@Override
-	public ContainerInterim getArgument() {
+	public VariableContainerInterim getArgument() {
 		if (argument != null && argument.eIsProxy()) {
 			InternalEObject oldArgument = (InternalEObject)argument;
-			argument = (ContainerInterim)eResolveProxy(oldArgument);
+			argument = (VariableContainerInterim)eResolveProxy(oldArgument);
 			if (argument != oldArgument) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaqueryPackage.COUNT_FILTER_ELEMENT__ARGUMENT, oldArgument, argument));
@@ -174,7 +175,7 @@ public class CountFilterElementImpl extends NumberFilterPartImpl implements Coun
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ContainerInterim basicGetArgument() {
+	public VariableContainerInterim basicGetArgument() {
 		return argument;
 	}
 
@@ -184,8 +185,8 @@ public class CountFilterElementImpl extends NumberFilterPartImpl implements Coun
 	 * @generated
 	 */
 	@Override
-	public void setArgument(ContainerInterim newArgument) {
-		ContainerInterim oldArgument = argument;
+	public void setArgument(VariableContainerInterim newArgument) {
+		VariableContainerInterim oldArgument = argument;
 		argument = newArgument;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.COUNT_FILTER_ELEMENT__ARGUMENT, oldArgument, argument));
@@ -234,7 +235,7 @@ public class CountFilterElementImpl extends NumberFilterPartImpl implements Coun
 				setSubfilter((BooleanFilterPart)newValue);
 				return;
 			case JavaqueryPackage.COUNT_FILTER_ELEMENT__ARGUMENT:
-				setArgument((ContainerInterim)newValue);
+				setArgument((VariableContainerInterim)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -252,7 +253,7 @@ public class CountFilterElementImpl extends NumberFilterPartImpl implements Coun
 				setSubfilter((BooleanFilterPart)null);
 				return;
 			case JavaqueryPackage.COUNT_FILTER_ELEMENT__ARGUMENT:
-				setArgument((ContainerInterim)null);
+				setArgument((VariableContainerInterim)null);
 				return;
 		}
 		super.eUnset(featureID);

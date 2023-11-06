@@ -15,8 +15,9 @@ import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.FormulaFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaqueryoutput.ContainerInterim;
+import qualitypatternmodel.javaqueryoutput.FixedContainerInterim;
 import qualitypatternmodel.javaqueryoutput.InterimResultParam;
-import qualitypatternmodel.javaqueryoutput.impl.ContainerInterimImpl;
+import qualitypatternmodel.javaqueryoutput.impl.FixedContainerInterimImpl;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 
 /**
@@ -84,7 +85,7 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 	 * @generated
 	 * @ordered
 	 */
-	protected ContainerInterim argument;
+	protected FixedContainerInterim argument;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -93,14 +94,14 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 	 */
 	public FormulaFilterPartImpl() {
 		super();
-		setArgument(new ContainerInterimImpl());
+		setArgument(new FixedContainerInterimImpl());
 	}
 	
 	public FormulaFilterPartImpl(LogicalOperator op, BooleanFilterPart booleanFilterPart,
 			BooleanFilterPart booleanFilterPart2) {
 		super();
 		setOperator(op);
-		setArgument(new ContainerInterimImpl());
+		setArgument(new FixedContainerInterimImpl());
 		setSubfilter1(booleanFilterPart);
 		setSubfilter2(booleanFilterPart2);
 	}
@@ -268,10 +269,10 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 	 * @generated
 	 */
 	@Override
-	public ContainerInterim getArgument() {
+	public FixedContainerInterim getArgument() {
 		if (argument != null && argument.eIsProxy()) {
 			InternalEObject oldArgument = (InternalEObject)argument;
-			argument = (ContainerInterim)eResolveProxy(oldArgument);
+			argument = (FixedContainerInterim)eResolveProxy(oldArgument);
 			if (argument != oldArgument) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaqueryPackage.FORMULA_FILTER_PART__ARGUMENT, oldArgument, argument));
@@ -285,7 +286,7 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ContainerInterim basicGetArgument() {
+	public FixedContainerInterim basicGetArgument() {
 		return argument;
 	}
 
@@ -295,8 +296,8 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 	 * @generated
 	 */
 	@Override
-	public void setArgument(ContainerInterim newArgument) {
-		ContainerInterim oldArgument = argument;
+	public void setArgument(FixedContainerInterim newArgument) {
+		FixedContainerInterim oldArgument = argument;
 		argument = newArgument;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.FORMULA_FILTER_PART__ARGUMENT, oldArgument, argument));
@@ -357,7 +358,7 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 				setOperator((LogicalOperator)newValue);
 				return;
 			case JavaqueryPackage.FORMULA_FILTER_PART__ARGUMENT:
-				setArgument((ContainerInterim)newValue);
+				setArgument((FixedContainerInterim)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -381,7 +382,7 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 				setOperator(OPERATOR_EDEFAULT);
 				return;
 			case JavaqueryPackage.FORMULA_FILTER_PART__ARGUMENT:
-				setArgument((ContainerInterim)null);
+				setArgument((FixedContainerInterim)null);
 				return;
 		}
 		super.eUnset(featureID);

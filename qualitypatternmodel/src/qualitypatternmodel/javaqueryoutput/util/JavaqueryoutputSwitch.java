@@ -92,14 +92,6 @@ public class JavaqueryoutputSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JavaqueryoutputPackage.BOOLEAN_VALUE_INTERIM: {
-				BooleanValueInterim booleanValueInterim = (BooleanValueInterim)theEObject;
-				T result = caseBooleanValueInterim(booleanValueInterim);
-				if (result == null) result = caseInterimResultParam(booleanValueInterim);
-				if (result == null) result = caseInterimResultPart(booleanValueInterim);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case JavaqueryoutputPackage.CONTAINER_INTERIM: {
 				ContainerInterim containerInterim = (ContainerInterim)theEObject;
 				T result = caseContainerInterim(containerInterim);
@@ -116,11 +108,21 @@ public class JavaqueryoutputSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JavaqueryoutputPackage.NUMBER_VALUE_INTERIM: {
-				NumberValueInterim numberValueInterim = (NumberValueInterim)theEObject;
-				T result = caseNumberValueInterim(numberValueInterim);
-				if (result == null) result = caseInterimResultParam(numberValueInterim);
-				if (result == null) result = caseInterimResultPart(numberValueInterim);
+			case JavaqueryoutputPackage.VARIABLE_CONTAINER_INTERIM: {
+				VariableContainerInterim variableContainerInterim = (VariableContainerInterim)theEObject;
+				T result = caseVariableContainerInterim(variableContainerInterim);
+				if (result == null) result = caseContainerInterim(variableContainerInterim);
+				if (result == null) result = caseInterimResultParam(variableContainerInterim);
+				if (result == null) result = caseInterimResultPart(variableContainerInterim);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaqueryoutputPackage.FIXED_CONTAINER_INTERIM: {
+				FixedContainerInterim fixedContainerInterim = (FixedContainerInterim)theEObject;
+				T result = caseFixedContainerInterim(fixedContainerInterim);
+				if (result == null) result = caseContainerInterim(fixedContainerInterim);
+				if (result == null) result = caseInterimResultParam(fixedContainerInterim);
+				if (result == null) result = caseInterimResultPart(fixedContainerInterim);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -189,21 +191,6 @@ public class JavaqueryoutputSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Boolean Value Interim</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Boolean Value Interim</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBooleanValueInterim(BooleanValueInterim object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Container Interim</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -234,17 +221,32 @@ public class JavaqueryoutputSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Number Value Interim</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Variable Container Interim</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Number Value Interim</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Variable Container Interim</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNumberValueInterim(NumberValueInterim object) {
+	public T caseVariableContainerInterim(VariableContainerInterim object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Fixed Container Interim</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Fixed Container Interim</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFixedContainerInterim(FixedContainerInterim object) {
 		return null;
 	}
 

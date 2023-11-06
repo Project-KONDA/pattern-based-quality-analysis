@@ -12,9 +12,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.javaquery.BooleanFilterElement;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
-import qualitypatternmodel.javaqueryoutput.BooleanValueInterim;
 import qualitypatternmodel.javaqueryoutput.InterimResultParam;
-import qualitypatternmodel.javaqueryoutput.impl.BooleanValueInterimImpl;
+import qualitypatternmodel.javaqueryoutput.ValueInterim;
+import qualitypatternmodel.javaqueryoutput.impl.ValueInterimImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,7 +38,7 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 	 * @generated
 	 * @ordered
 	 */
-	protected BooleanValueInterim argument;
+	protected ValueInterim argument;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -47,7 +47,7 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 	 */
 	public BooleanFilterElementImpl() {
 		super();
-		setArgument(new BooleanValueInterimImpl());
+		setArgument(new ValueInterimImpl());
 	}
 	
 	@Override
@@ -85,10 +85,10 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 	 * @generated
 	 */
 	@Override
-	public BooleanValueInterim getArgument() {
+	public ValueInterim getArgument() {
 		if (argument != null && argument.eIsProxy()) {
 			InternalEObject oldArgument = (InternalEObject)argument;
-			argument = (BooleanValueInterim)eResolveProxy(oldArgument);
+			argument = (ValueInterim)eResolveProxy(oldArgument);
 			if (argument != oldArgument) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaqueryPackage.BOOLEAN_FILTER_ELEMENT__ARGUMENT, oldArgument, argument));
@@ -102,7 +102,7 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BooleanValueInterim basicGetArgument() {
+	public ValueInterim basicGetArgument() {
 		return argument;
 	}
 
@@ -112,8 +112,8 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 	 * @generated
 	 */
 	@Override
-	public void setArgument(BooleanValueInterim newArgument) {
-		BooleanValueInterim oldArgument = argument;
+	public void setArgument(ValueInterim newArgument) {
+		ValueInterim oldArgument = argument;
 		argument = newArgument;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.BOOLEAN_FILTER_ELEMENT__ARGUMENT, oldArgument, argument));
@@ -143,7 +143,7 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case JavaqueryPackage.BOOLEAN_FILTER_ELEMENT__ARGUMENT:
-				setArgument((BooleanValueInterim)newValue);
+				setArgument((ValueInterim)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -158,7 +158,7 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case JavaqueryPackage.BOOLEAN_FILTER_ELEMENT__ARGUMENT:
-				setArgument((BooleanValueInterim)null);
+				setArgument((ValueInterim)null);
 				return;
 		}
 		super.eUnset(featureID);

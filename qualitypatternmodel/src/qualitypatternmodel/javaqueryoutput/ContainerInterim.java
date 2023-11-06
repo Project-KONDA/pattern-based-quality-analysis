@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage#getContainerInterim()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface ContainerInterim extends InterimResultParam {

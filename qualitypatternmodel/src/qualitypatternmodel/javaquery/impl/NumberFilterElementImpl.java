@@ -12,8 +12,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.NumberFilterElement;
 import qualitypatternmodel.javaqueryoutput.InterimResultParam;
-import qualitypatternmodel.javaqueryoutput.NumberValueInterim;
-import qualitypatternmodel.javaqueryoutput.impl.NumberValueInterimImpl;
+import qualitypatternmodel.javaqueryoutput.ValueInterim;
+import qualitypatternmodel.javaqueryoutput.impl.ValueInterimImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,7 +37,7 @@ public class NumberFilterElementImpl extends NumberFilterPartImpl implements Num
 	 * @generated
 	 * @ordered
 	 */
-	protected NumberValueInterim argument;
+	protected ValueInterim argument;
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -46,7 +46,7 @@ public class NumberFilterElementImpl extends NumberFilterPartImpl implements Num
 	 */
 	public NumberFilterElementImpl() {
 		super();
-		setArgument(new NumberValueInterimImpl());
+		setArgument(new ValueInterimImpl());
 	}
 	
 	@Override
@@ -84,10 +84,10 @@ public class NumberFilterElementImpl extends NumberFilterPartImpl implements Num
 	 * @generated
 	 */
 	@Override
-	public NumberValueInterim getArgument() {
+	public ValueInterim getArgument() {
 		if (argument != null && argument.eIsProxy()) {
 			InternalEObject oldArgument = (InternalEObject)argument;
-			argument = (NumberValueInterim)eResolveProxy(oldArgument);
+			argument = (ValueInterim)eResolveProxy(oldArgument);
 			if (argument != oldArgument) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaqueryPackage.NUMBER_FILTER_ELEMENT__ARGUMENT, oldArgument, argument));
@@ -101,7 +101,7 @@ public class NumberFilterElementImpl extends NumberFilterPartImpl implements Num
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NumberValueInterim basicGetArgument() {
+	public ValueInterim basicGetArgument() {
 		return argument;
 	}
 
@@ -111,8 +111,8 @@ public class NumberFilterElementImpl extends NumberFilterPartImpl implements Num
 	 * @generated
 	 */
 	@Override
-	public void setArgument(NumberValueInterim newArgument) {
-		NumberValueInterim oldArgument = argument;
+	public void setArgument(ValueInterim newArgument) {
+		ValueInterim oldArgument = argument;
 		argument = newArgument;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.NUMBER_FILTER_ELEMENT__ARGUMENT, oldArgument, argument));
@@ -142,7 +142,7 @@ public class NumberFilterElementImpl extends NumberFilterPartImpl implements Num
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case JavaqueryPackage.NUMBER_FILTER_ELEMENT__ARGUMENT:
-				setArgument((NumberValueInterim)newValue);
+				setArgument((ValueInterim)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -157,7 +157,7 @@ public class NumberFilterElementImpl extends NumberFilterPartImpl implements Num
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case JavaqueryPackage.NUMBER_FILTER_ELEMENT__ARGUMENT:
-				setArgument((NumberValueInterim)null);
+				setArgument((ValueInterim)null);
 				return;
 		}
 		super.eUnset(featureID);

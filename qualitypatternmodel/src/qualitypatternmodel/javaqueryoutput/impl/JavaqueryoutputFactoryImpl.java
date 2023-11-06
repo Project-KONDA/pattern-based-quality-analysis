@@ -58,10 +58,9 @@ public class JavaqueryoutputFactoryImpl extends EFactoryImpl implements Javaquer
 		switch (eClass.getClassifierID()) {
 			case JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE: return createInterimResultStructure();
 			case JavaqueryoutputPackage.RECORD_INTERIM: return createRecordInterim();
-			case JavaqueryoutputPackage.BOOLEAN_VALUE_INTERIM: return createBooleanValueInterim();
-			case JavaqueryoutputPackage.CONTAINER_INTERIM: return createContainerInterim();
 			case JavaqueryoutputPackage.VALUE_INTERIM: return createValueInterim();
-			case JavaqueryoutputPackage.NUMBER_VALUE_INTERIM: return createNumberValueInterim();
+			case JavaqueryoutputPackage.VARIABLE_CONTAINER_INTERIM: return createVariableContainerInterim();
+			case JavaqueryoutputPackage.FIXED_CONTAINER_INTERIM: return createFixedContainerInterim();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -95,28 +94,6 @@ public class JavaqueryoutputFactoryImpl extends EFactoryImpl implements Javaquer
 	 * @generated
 	 */
 	@Override
-	public BooleanValueInterim createBooleanValueInterim() {
-		BooleanValueInterimImpl booleanValueInterim = new BooleanValueInterimImpl();
-		return booleanValueInterim;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ContainerInterim createContainerInterim() {
-		ContainerInterimImpl containerInterim = new ContainerInterimImpl();
-		return containerInterim;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public ValueInterim createValueInterim() {
 		ValueInterimImpl valueInterim = new ValueInterimImpl();
 		return valueInterim;
@@ -128,9 +105,20 @@ public class JavaqueryoutputFactoryImpl extends EFactoryImpl implements Javaquer
 	 * @generated
 	 */
 	@Override
-	public NumberValueInterim createNumberValueInterim() {
-		NumberValueInterimImpl numberValueInterim = new NumberValueInterimImpl();
-		return numberValueInterim;
+	public VariableContainerInterim createVariableContainerInterim() {
+		VariableContainerInterimImpl variableContainerInterim = new VariableContainerInterimImpl();
+		return variableContainerInterim;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public FixedContainerInterim createFixedContainerInterim() {
+		FixedContainerInterimImpl fixedContainerInterim = new FixedContainerInterimImpl();
+		return fixedContainerInterim;
 	}
 
 	/**

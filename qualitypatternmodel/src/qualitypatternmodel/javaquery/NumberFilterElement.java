@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.javaquery;
 
-import qualitypatternmodel.javaqueryoutput.NumberValueInterim;
+import qualitypatternmodel.javaqueryoutput.ValueInterim;
 
 
 /**
@@ -28,12 +28,12 @@ public interface NumberFilterElement extends NumberFilterPart {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Argument</em>' reference.
-	 * @see #setArgument(NumberValueInterim)
+	 * @see #setArgument(ValueInterim)
 	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getNumberFilterElement_Argument()
 	 * @model required="true"
 	 * @generated
 	 */
-	NumberValueInterim getArgument();
+	ValueInterim getArgument();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.javaquery.NumberFilterElement#getArgument <em>Argument</em>}' reference.
@@ -43,5 +43,5 @@ public interface NumberFilterElement extends NumberFilterPart {
 	 * @see #getArgument()
 	 * @generated
 	 */
-	void setArgument(NumberValueInterim value);
+	void setArgument(ValueInterim value);
 } // NumberFilterElement

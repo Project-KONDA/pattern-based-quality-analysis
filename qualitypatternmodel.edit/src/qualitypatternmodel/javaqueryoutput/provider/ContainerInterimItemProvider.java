@@ -136,22 +136,17 @@ public class ContainerInterimItemProvider extends InterimResultParamItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaqueryoutputPackage.Literals.CONTAINER_INTERIM__CONTAINED,
-				 JavaqueryoutputFactory.eINSTANCE.createBooleanValueInterim()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaqueryoutputPackage.Literals.CONTAINER_INTERIM__CONTAINED,
-				 JavaqueryoutputFactory.eINSTANCE.createContainerInterim()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaqueryoutputPackage.Literals.CONTAINER_INTERIM__CONTAINED,
 				 JavaqueryoutputFactory.eINSTANCE.createValueInterim()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaqueryoutputPackage.Literals.CONTAINER_INTERIM__CONTAINED,
-				 JavaqueryoutputFactory.eINSTANCE.createNumberValueInterim()));
+				 JavaqueryoutputFactory.eINSTANCE.createVariableContainerInterim()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaqueryoutputPackage.Literals.CONTAINER_INTERIM__CONTAINED,
+				 JavaqueryoutputFactory.eINSTANCE.createFixedContainerInterim()));
 	}
 
 }
