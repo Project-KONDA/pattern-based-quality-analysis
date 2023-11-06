@@ -58,13 +58,13 @@ public interface JavaqueryoutputFactory extends EFactory {
 	ContainerInterim createContainerInterim();
 
 	/**
-	 * Returns a new object of class '<em>Value List Interim</em>'.
+	 * Returns a new object of class '<em>Value Interim</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Value List Interim</em>'.
+	 * @return a new object of class '<em>Value Interim</em>'.
 	 * @generated
 	 */
-	ValueListInterim createValueListInterim();
+	ValueInterim createValueInterim();
 
 	/**
 	 * Returns a new object of class '<em>Number Value Interim</em>'.

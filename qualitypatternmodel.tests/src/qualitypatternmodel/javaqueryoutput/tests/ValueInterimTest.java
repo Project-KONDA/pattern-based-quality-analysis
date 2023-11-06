@@ -9,11 +9,11 @@ import qualitypatternmodel.javaqueryoutput.ValueInterim;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Value List Interim</b></em>'.
+ * A test case for the model object '<em><b>Value Interim</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class ValueListInterimTest extends InterimResultParamTest {
+public class ValueInterimTest extends InterimResultParamTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,21 +21,21 @@ public class ValueListInterimTest extends InterimResultParamTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(ValueListInterimTest.class);
+		TestRunner.run(ValueInterimTest.class);
 	}
 
 	/**
-	 * Constructs a new Value List Interim test case with the given name.
+	 * Constructs a new Value Interim test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ValueListInterimTest(String name) {
+	public ValueInterimTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Value List Interim test case.
+	 * Returns the fixture for this Value Interim test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -67,4 +67,4 @@ public class ValueListInterimTest extends InterimResultParamTest {
 		setFixture(null);
 	}
 
-} //ValueListInterimTest
+} //ValueInterimTest

@@ -9,9 +9,9 @@ package qualitypatternmodel.javaqueryoutput;
  * <!-- end-user-doc -->
  *
  *
- * @see qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage#getValueListInterim()
+ * @see qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage#getValueInterim()
  * @model
  * @generated
  */
-public interface ValueListInterim extends InterimResultParam {
+public interface ValueInterim extends InterimResultParam {
 } // ValueListInterim

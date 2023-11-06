@@ -92,8 +92,8 @@ public class JavaqueryoutputAdapterFactory extends AdapterFactoryImpl {
 				return createContainerInterimAdapter();
 			}
 			@Override
-			public Adapter caseValueListInterim(ValueListInterim object) {
-				return createValueListInterimAdapter();
+			public Adapter caseValueInterim(ValueInterim object) {
+				return createValueInterimAdapter();
 			}
 			@Override
 			public Adapter caseNumberValueInterim(NumberValueInterim object) {
@@ -204,16 +204,16 @@ public class JavaqueryoutputAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaqueryoutput.ValueListInterim <em>Value List Interim</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaqueryoutput.ValueInterim <em>Value Interim</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.javaqueryoutput.ValueListInterim
+	 * @see qualitypatternmodel.javaqueryoutput.ValueInterim
 	 * @generated
 	 */
-	public Adapter createValueListInterimAdapter() {
+	public Adapter createValueInterimAdapter() {
 		return null;
 	}
 

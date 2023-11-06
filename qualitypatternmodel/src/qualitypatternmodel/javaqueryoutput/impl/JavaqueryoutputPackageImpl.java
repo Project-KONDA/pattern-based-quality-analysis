@@ -44,7 +44,7 @@ import qualitypatternmodel.javaqueryoutput.JavaqueryoutputFactory;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 import qualitypatternmodel.javaqueryoutput.NumberValueInterim;
 import qualitypatternmodel.javaqueryoutput.RecordInterim;
-import qualitypatternmodel.javaqueryoutput.ValueListInterim;
+import qualitypatternmodel.javaqueryoutput.ValueInterim;
 import qualitypatternmodel.operators.OperatorsPackage;
 
 import qualitypatternmodel.operators.impl.OperatorsPackageImpl;
@@ -115,7 +115,7 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass valueListInterimEClass = null;
+	private EClass valueInterimEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -326,8 +326,8 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 	 * @generated
 	 */
 	@Override
-	public EClass getValueListInterim() {
-		return valueListInterimEClass;
+	public EClass getValueInterim() {
+		return valueInterimEClass;
 	}
 
 	/**
@@ -384,7 +384,7 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		containerInterimEClass = createEClass(CONTAINER_INTERIM);
 		createEReference(containerInterimEClass, CONTAINER_INTERIM__CONTAINED);
 
-		valueListInterimEClass = createEClass(VALUE_LIST_INTERIM);
+		valueInterimEClass = createEClass(VALUE_INTERIM);
 
 		numberValueInterimEClass = createEClass(NUMBER_VALUE_INTERIM);
 	}
@@ -421,7 +421,7 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		interimResultParamEClass.getESuperTypes().add(this.getInterimResultPart());
 		booleanValueInterimEClass.getESuperTypes().add(this.getInterimResultParam());
 		containerInterimEClass.getESuperTypes().add(this.getInterimResultParam());
-		valueListInterimEClass.getESuperTypes().add(this.getInterimResultParam());
+		valueInterimEClass.getESuperTypes().add(this.getInterimResultParam());
 		numberValueInterimEClass.getESuperTypes().add(this.getInterimResultParam());
 
 		// Initialize classes, features, and operations; add parameters
@@ -440,7 +440,7 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		initEClass(containerInterimEClass, ContainerInterim.class, "ContainerInterim", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getContainerInterim_Contained(), this.getInterimResultParam(), null, "contained", null, 1, -1, ContainerInterim.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(valueListInterimEClass, ValueListInterim.class, "ValueListInterim", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(valueInterimEClass, ValueInterim.class, "ValueInterim", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(numberValueInterimEClass, NumberValueInterim.class, "NumberValueInterim", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

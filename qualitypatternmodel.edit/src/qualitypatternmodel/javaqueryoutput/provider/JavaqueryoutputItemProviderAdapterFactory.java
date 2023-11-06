@@ -164,26 +164,26 @@ public class JavaqueryoutputItemProviderAdapterFactory extends JavaqueryoutputAd
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaqueryoutput.ValueListInterim} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaqueryoutput.ValueInterim} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ValueListInterimItemProvider valueListInterimItemProvider;
+	protected ValueInterimItemProvider valueInterimItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.javaqueryoutput.ValueListInterim}.
+	 * This creates an adapter for a {@link qualitypatternmodel.javaqueryoutput.ValueInterim}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createValueListInterimAdapter() {
-		if (valueListInterimItemProvider == null) {
-			valueListInterimItemProvider = new ValueListInterimItemProvider(this);
+	public Adapter createValueInterimAdapter() {
+		if (valueInterimItemProvider == null) {
+			valueInterimItemProvider = new ValueInterimItemProvider(this);
 		}
 
-		return valueListInterimItemProvider;
+		return valueInterimItemProvider;
 	}
 
 	/**
@@ -318,7 +318,7 @@ public class JavaqueryoutputItemProviderAdapterFactory extends JavaqueryoutputAd
 		if (recordInterimItemProvider != null) recordInterimItemProvider.dispose();
 		if (booleanValueInterimItemProvider != null) booleanValueInterimItemProvider.dispose();
 		if (containerInterimItemProvider != null) containerInterimItemProvider.dispose();
-		if (valueListInterimItemProvider != null) valueListInterimItemProvider.dispose();
+		if (valueInterimItemProvider != null) valueInterimItemProvider.dispose();
 		if (numberValueInterimItemProvider != null) numberValueInterimItemProvider.dispose();
 	}
 

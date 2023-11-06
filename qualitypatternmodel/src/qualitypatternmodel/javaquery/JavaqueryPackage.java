@@ -343,22 +343,13 @@ public interface JavaqueryPackage extends EPackage {
 	int ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Quantifier</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ONE_ARG_FUNCTION_FILTER_PART__QUANTIFIER = BOOLEAN_FILTER_PART_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>One Arg Function Filter Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ONE_ARG_FUNCTION_FILTER_PART_FEATURE_COUNT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 2;
+	int ONE_ARG_FUNCTION_FILTER_PART_FEATURE_COUNT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Arguments</em>' operation.
@@ -498,31 +489,13 @@ public interface JavaqueryPackage extends EPackage {
 	int TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT2 = BOOLEAN_FILTER_PART_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Quantifier1</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TWO_ARG_FUNCTION_FILTER_PART__QUANTIFIER1 = BOOLEAN_FILTER_PART_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Quantifier2</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TWO_ARG_FUNCTION_FILTER_PART__QUANTIFIER2 = BOOLEAN_FILTER_PART_FEATURE_COUNT + 3;
-
-	/**
 	 * The number of structural features of the '<em>Two Arg Function Filter Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TWO_ARG_FUNCTION_FILTER_PART_FEATURE_COUNT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 4;
+	int TWO_ARG_FUNCTION_FILTER_PART_FEATURE_COUNT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Arguments</em>' operation.
@@ -1110,17 +1083,6 @@ public interface JavaqueryPackage extends EPackage {
 	EReference getOneArgFunctionFilterPart_Argument();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.javaquery.OneArgFunctionFilterPart#getQuantifier <em>Quantifier</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Quantifier</em>'.
-	 * @see qualitypatternmodel.javaquery.OneArgFunctionFilterPart#getQuantifier()
-	 * @see #getOneArgFunctionFilterPart()
-	 * @generated
-	 */
-	EAttribute getOneArgFunctionFilterPart_Quantifier();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.OneArgFunctionFilterPart#apply(java.lang.String) <em>Apply</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1204,28 +1166,6 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTwoArgFunctionFilterPart_Argument2();
-
-	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getQuantifier1 <em>Quantifier1</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Quantifier1</em>'.
-	 * @see qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getQuantifier1()
-	 * @see #getTwoArgFunctionFilterPart()
-	 * @generated
-	 */
-	EAttribute getTwoArgFunctionFilterPart_Quantifier1();
-
-	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getQuantifier2 <em>Quantifier2</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Quantifier2</em>'.
-	 * @see qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getQuantifier2()
-	 * @see #getTwoArgFunctionFilterPart()
-	 * @generated
-	 */
-	EAttribute getTwoArgFunctionFilterPart_Quantifier2();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#apply(java.lang.String, java.lang.String) <em>Apply</em>}' operation.
@@ -1567,14 +1507,6 @@ public interface JavaqueryPackage extends EPackage {
 		EReference ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT = eINSTANCE.getOneArgFunctionFilterPart_Argument();
 
 		/**
-		 * The meta object literal for the '<em><b>Quantifier</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ONE_ARG_FUNCTION_FILTER_PART__QUANTIFIER = eINSTANCE.getOneArgFunctionFilterPart_Quantifier();
-
-		/**
 		 * The meta object literal for the '<em><b>Apply</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1641,22 +1573,6 @@ public interface JavaqueryPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT2 = eINSTANCE.getTwoArgFunctionFilterPart_Argument2();
-
-		/**
-		 * The meta object literal for the '<em><b>Quantifier1</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TWO_ARG_FUNCTION_FILTER_PART__QUANTIFIER1 = eINSTANCE.getTwoArgFunctionFilterPart_Quantifier1();
-
-		/**
-		 * The meta object literal for the '<em><b>Quantifier2</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TWO_ARG_FUNCTION_FILTER_PART__QUANTIFIER2 = eINSTANCE.getTwoArgFunctionFilterPart_Quantifier2();
 
 		/**
 		 * The meta object literal for the '<em><b>Apply</b></em>' operation.

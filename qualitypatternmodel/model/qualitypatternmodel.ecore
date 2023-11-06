@@ -1473,8 +1473,7 @@
         <eParameters name="param1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
-          eType="#//javaqueryoutput/ValueListInterim"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier" eType="#//patternstructure/Quantifier"/>
+          eType="#//javaqueryoutput/ValueInterim"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ListFilterPart" eSuperTypes="#//javaquery/BooleanFilterPart">
       <eStructuralFeatures xsi:type="ecore:EReference" name="subfilter" lowerBound="1"
@@ -1489,11 +1488,9 @@
         <eParameters name="param2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument1" lowerBound="1"
-          eType="#//javaqueryoutput/ValueListInterim"/>
+          eType="#//javaqueryoutput/ValueInterim"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument2" lowerBound="1"
-          eType="#//javaqueryoutput/ValueListInterim"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier1" eType="#//patternstructure/Quantifier"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier2" eType="#//patternstructure/Quantifier"/>
+          eType="#//javaqueryoutput/ValueInterim"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NotFilterPart" eSuperTypes="#//javaquery/BooleanFilterPart">
       <eStructuralFeatures xsi:type="ecore:EReference" name="subfilter" lowerBound="1"
@@ -1546,7 +1543,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="contained" lowerBound="1"
           upperBound="-1" eType="#//javaqueryoutput/InterimResultParam" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ValueListInterim" eSuperTypes="#//javaqueryoutput/InterimResultParam"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ValueInterim" eSuperTypes="#//javaqueryoutput/InterimResultParam"/>
     <eClassifiers xsi:type="ecore:EClass" name="NumberValueInterim" eSuperTypes="#//javaqueryoutput/InterimResultParam"/>
   </eSubpackages>
 </ecore:EPackage>

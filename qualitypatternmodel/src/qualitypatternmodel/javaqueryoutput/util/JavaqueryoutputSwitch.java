@@ -108,11 +108,11 @@ public class JavaqueryoutputSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JavaqueryoutputPackage.VALUE_LIST_INTERIM: {
-				ValueListInterim valueListInterim = (ValueListInterim)theEObject;
-				T result = caseValueListInterim(valueListInterim);
-				if (result == null) result = caseInterimResultParam(valueListInterim);
-				if (result == null) result = caseInterimResultPart(valueListInterim);
+			case JavaqueryoutputPackage.VALUE_INTERIM: {
+				ValueInterim valueInterim = (ValueInterim)theEObject;
+				T result = caseValueInterim(valueInterim);
+				if (result == null) result = caseInterimResultParam(valueInterim);
+				if (result == null) result = caseInterimResultPart(valueInterim);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -219,17 +219,17 @@ public class JavaqueryoutputSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Value List Interim</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Value Interim</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Value List Interim</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Value Interim</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseValueListInterim(ValueListInterim object) {
+	public T caseValueInterim(ValueInterim object) {
 		return null;
 	}
 
