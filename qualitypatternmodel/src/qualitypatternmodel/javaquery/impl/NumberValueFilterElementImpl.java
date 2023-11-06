@@ -12,7 +12,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.NumberValueFilterElement;
-import qualitypatternmodel.javaqueryoutput.InterimResultParam;
+import qualitypatternmodel.javaqueryoutput.InterimResult;
+import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 
 /**
  * <!-- begin-user-doc -->
@@ -63,13 +64,13 @@ public class NumberValueFilterElementImpl extends NumberFilterPartImpl implement
 	}
 	
 	@Override
-	public Double apply() throws InvalidityException {
+	public Double apply(InterimResult parameter) throws InvalidityException {
 		return getNumber();
 	}
 
 	@Override
-	public EList<InterimResultParam> getArguments() {
-		return new BasicEList<InterimResultParam>();
+	public EList<InterimResultPart> getArguments() {
+		return new BasicEList<InterimResultPart>();
 	}
 	
 	@Override

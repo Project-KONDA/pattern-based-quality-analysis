@@ -4,7 +4,7 @@ package qualitypatternmodel.javaquery;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import qualitypatternmodel.javaqueryoutput.InterimResultParam;
+import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +24,6 @@ public interface JavaFilterPart extends EObject {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	EList<InterimResultParam> getArguments();
+	EList<InterimResultPart> getArguments();
 
 } // JavaFilterPart

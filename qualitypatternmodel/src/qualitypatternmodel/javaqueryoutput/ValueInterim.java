@@ -13,5 +13,5 @@ package qualitypatternmodel.javaqueryoutput;
  * @model
  * @generated
  */
-public interface ValueInterim extends InterimResultParam {
+public interface ValueInterim extends InterimResultPart {
 } // ValueListInterim

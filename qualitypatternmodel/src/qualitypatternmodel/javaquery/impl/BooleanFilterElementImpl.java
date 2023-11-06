@@ -12,7 +12,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.javaquery.BooleanFilterElement;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
-import qualitypatternmodel.javaqueryoutput.InterimResultParam;
+import qualitypatternmodel.javaqueryoutput.InterimResult;
+import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.ValueInterim;
 import qualitypatternmodel.javaqueryoutput.impl.ValueInterimImpl;
 
@@ -51,11 +52,11 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 	}
 	
 	@Override
-	public Boolean apply() {return true;};
+	public Boolean apply(InterimResult parameter) {return true;};
 
 	@Override
-	public EList<InterimResultParam> getArguments() {
-		EList<InterimResultParam> result = new BasicEList<InterimResultParam>();
+	public EList<InterimResultPart> getArguments() {
+		EList<InterimResultPart> result = new BasicEList<InterimResultPart>();
 		result.add(getArgument());
 		return result;
 	}

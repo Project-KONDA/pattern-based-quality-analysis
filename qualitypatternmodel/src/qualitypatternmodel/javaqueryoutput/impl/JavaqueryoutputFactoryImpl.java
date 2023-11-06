@@ -57,10 +57,11 @@ public class JavaqueryoutputFactoryImpl extends EFactoryImpl implements Javaquer
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE: return createInterimResultStructure();
-			case JavaqueryoutputPackage.RECORD_INTERIM: return createRecordInterim();
 			case JavaqueryoutputPackage.VALUE_INTERIM: return createValueInterim();
 			case JavaqueryoutputPackage.VARIABLE_CONTAINER_INTERIM: return createVariableContainerInterim();
 			case JavaqueryoutputPackage.FIXED_CONTAINER_INTERIM: return createFixedContainerInterim();
+			case JavaqueryoutputPackage.CONTAINER_RESULT: return createContainerResult();
+			case JavaqueryoutputPackage.VALUE_RESULT: return createValueResult();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -75,17 +76,6 @@ public class JavaqueryoutputFactoryImpl extends EFactoryImpl implements Javaquer
 	public InterimResultStructure createInterimResultStructure() {
 		InterimResultStructureImpl interimResultStructure = new InterimResultStructureImpl();
 		return interimResultStructure;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public RecordInterim createRecordInterim() {
-		RecordInterimImpl recordInterim = new RecordInterimImpl();
-		return recordInterim;
 	}
 
 	/**
@@ -119,6 +109,28 @@ public class JavaqueryoutputFactoryImpl extends EFactoryImpl implements Javaquer
 	public FixedContainerInterim createFixedContainerInterim() {
 		FixedContainerInterimImpl fixedContainerInterim = new FixedContainerInterimImpl();
 		return fixedContainerInterim;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ContainerResult createContainerResult() {
+		ContainerResultImpl containerResult = new ContainerResultImpl();
+		return containerResult;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ValueResult createValueResult() {
+		ValueResultImpl valueResult = new ValueResultImpl();
+		return valueResult;
 	}
 
 	/**

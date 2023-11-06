@@ -95,29 +95,6 @@ public class JavaqueryoutputItemProviderAdapterFactory extends JavaqueryoutputAd
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaqueryoutput.RecordInterim} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected RecordInterimItemProvider recordInterimItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.javaqueryoutput.RecordInterim}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createRecordInterimAdapter() {
-		if (recordInterimItemProvider == null) {
-			recordInterimItemProvider = new RecordInterimItemProvider(this);
-		}
-
-		return recordInterimItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaqueryoutput.ValueInterim} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -184,6 +161,52 @@ public class JavaqueryoutputItemProviderAdapterFactory extends JavaqueryoutputAd
 		}
 
 		return fixedContainerInterimItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaqueryoutput.ContainerResult} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ContainerResultItemProvider containerResultItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.javaqueryoutput.ContainerResult}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createContainerResultAdapter() {
+		if (containerResultItemProvider == null) {
+			containerResultItemProvider = new ContainerResultItemProvider(this);
+		}
+
+		return containerResultItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaqueryoutput.ValueResult} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ValueResultItemProvider valueResultItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.javaqueryoutput.ValueResult}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createValueResultAdapter() {
+		if (valueResultItemProvider == null) {
+			valueResultItemProvider = new ValueResultItemProvider(this);
+		}
+
+		return valueResultItemProvider;
 	}
 
 	/**
@@ -292,10 +315,11 @@ public class JavaqueryoutputItemProviderAdapterFactory extends JavaqueryoutputAd
 	@Override
 	public void dispose() {
 		if (interimResultStructureItemProvider != null) interimResultStructureItemProvider.dispose();
-		if (recordInterimItemProvider != null) recordInterimItemProvider.dispose();
 		if (valueInterimItemProvider != null) valueInterimItemProvider.dispose();
 		if (variableContainerInterimItemProvider != null) variableContainerInterimItemProvider.dispose();
 		if (fixedContainerInterimItemProvider != null) fixedContainerInterimItemProvider.dispose();
+		if (containerResultItemProvider != null) containerResultItemProvider.dispose();
+		if (valueResultItemProvider != null) valueResultItemProvider.dispose();
 	}
 
 }

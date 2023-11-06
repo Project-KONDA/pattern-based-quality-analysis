@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.javaqueryoutput.tests;
 
-import qualitypatternmodel.javaqueryoutput.InterimResultParam;
+import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,8 +29,8 @@ public abstract class InterimResultParamTest extends InterimResultPartTest {
 	 * @generated
 	 */
 	@Override
-	protected InterimResultParam getFixture() {
-		return (InterimResultParam)fixture;
+	protected InterimResultPart getFixture() {
+		return (InterimResultPart)fixture;
 	}
 
 } //InterimResultParamTest

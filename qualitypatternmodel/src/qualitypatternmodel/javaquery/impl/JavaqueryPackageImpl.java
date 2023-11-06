@@ -2,8 +2,10 @@
  */
 package qualitypatternmodel.javaquery.impl;
 
+import java.util.List;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -94,6 +96,13 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	private EClass numberValueFilterElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType stringListWrapperEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -314,6 +323,26 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
+	public EReference getJavaFilter_InterimResult() {
+		return (EReference)javaFilterEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getJavaFilter__FilterXQueryResults__List() {
+		return javaFilterEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getJavaFilterPart() {
 		return javaFilterPartEClass;
 	}
@@ -346,6 +375,16 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	@Override
 	public EAttribute getNumberValueFilterElement_Number() {
 		return (EAttribute)numberValueFilterElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EDataType getStringListWrapper() {
+		return stringListWrapperEDataType;
 	}
 
 	/**
@@ -434,7 +473,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getBooleanFilterPart__Apply() {
+	public EOperation getBooleanFilterPart__Apply__InterimResult() {
 		return booleanFilterPartEClass.getEOperations().get(0);
 	}
 
@@ -634,7 +673,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getNumberFilterPart__Apply() {
+	public EOperation getNumberFilterPart__Apply__InterimResult() {
 		return numberFilterPartEClass.getEOperations().get(0);
 	}
 
@@ -720,9 +759,11 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		javaFilterEClass = createEClass(JAVA_FILTER);
 		createEReference(javaFilterEClass, JAVA_FILTER__FILTER);
 		createEReference(javaFilterEClass, JAVA_FILTER__STRUCTURE);
+		createEReference(javaFilterEClass, JAVA_FILTER__INTERIM_RESULT);
+		createEOperation(javaFilterEClass, JAVA_FILTER___FILTER_XQUERY_RESULTS__LIST);
 
 		booleanFilterPartEClass = createEClass(BOOLEAN_FILTER_PART);
-		createEOperation(booleanFilterPartEClass, BOOLEAN_FILTER_PART___APPLY);
+		createEOperation(booleanFilterPartEClass, BOOLEAN_FILTER_PART___APPLY__INTERIMRESULT);
 
 		formulaFilterPartEClass = createEClass(FORMULA_FILTER_PART);
 		createEReference(formulaFilterPartEClass, FORMULA_FILTER_PART__SUBFILTER1);
@@ -757,7 +798,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		createEReference(countFilterPartEClass, COUNT_FILTER_PART__ARGUMENT);
 
 		numberFilterPartEClass = createEClass(NUMBER_FILTER_PART);
-		createEOperation(numberFilterPartEClass, NUMBER_FILTER_PART___APPLY);
+		createEOperation(numberFilterPartEClass, NUMBER_FILTER_PART___APPLY__INTERIMRESULT);
 
 		countFilterElementEClass = createEClass(COUNT_FILTER_ELEMENT);
 		createEReference(countFilterElementEClass, COUNT_FILTER_ELEMENT__SUBFILTER);
@@ -771,6 +812,9 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 
 		numberValueFilterElementEClass = createEClass(NUMBER_VALUE_FILTER_ELEMENT);
 		createEAttribute(numberValueFilterElementEClass, NUMBER_VALUE_FILTER_ELEMENT__NUMBER);
+
+		// Create data types
+		stringListWrapperEDataType = createEDataType(STRING_LIST_WRAPPER);
 	}
 
 	/**
@@ -823,10 +867,15 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		initEClass(javaFilterEClass, JavaFilter.class, "JavaFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getJavaFilter_Filter(), this.getBooleanFilterPart(), null, "filter", null, 0, 1, JavaFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJavaFilter_Structure(), theJavaqueryoutputPackage.getInterimResultStructure(), null, "structure", null, 1, 1, JavaFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJavaFilter_InterimResult(), theJavaqueryoutputPackage.getInterimResult(), null, "interimResult", null, 0, 1, JavaFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		EOperation op = initEOperation(getJavaFilter__FilterXQueryResults__List(), ecorePackage.getEString(), "filterXQueryResults", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getStringListWrapper(), "param1", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(booleanFilterPartEClass, BooleanFilterPart.class, "BooleanFilterPart", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		EOperation op = initEOperation(getBooleanFilterPart__Apply(), ecorePackage.getEBooleanObject(), "apply", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getBooleanFilterPart__Apply__InterimResult(), ecorePackage.getEBooleanObject(), "apply", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theJavaqueryoutputPackage.getInterimResult(), "parameter", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(formulaFilterPartEClass, FormulaFilterPart.class, "FormulaFilterPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -868,7 +917,8 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 
 		initEClass(numberFilterPartEClass, NumberFilterPart.class, "NumberFilterPart", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getNumberFilterPart__Apply(), ecorePackage.getEDoubleObject(), "apply", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNumberFilterPart__Apply__InterimResult(), ecorePackage.getEDoubleObject(), "apply", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theJavaqueryoutputPackage.getInterimResult(), "parameter", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(countFilterElementEClass, CountFilterElement.class, "CountFilterElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -880,10 +930,13 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 
 		initEClass(javaFilterPartEClass, JavaFilterPart.class, "JavaFilterPart", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEOperation(getJavaFilterPart__GetArguments(), theJavaqueryoutputPackage.getInterimResultParam(), "getArguments", 0, -1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getJavaFilterPart__GetArguments(), theJavaqueryoutputPackage.getInterimResultPart(), "getArguments", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(numberValueFilterElementEClass, NumberValueFilterElement.class, "NumberValueFilterElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNumberValueFilterElement_Number(), ecorePackage.getEDoubleObject(), "number", null, 0, 1, NumberValueFilterElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize data types
+		initEDataType(stringListWrapperEDataType, List.class, "StringListWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS, "java.util.List<String>");
 
 		// Create resource
 		createResource(eNS_URI);

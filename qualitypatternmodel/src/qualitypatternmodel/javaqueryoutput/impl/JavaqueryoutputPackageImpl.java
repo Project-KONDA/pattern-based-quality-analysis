@@ -36,14 +36,15 @@ import qualitypatternmodel.javaquery.JavaqueryPackage;
 
 import qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl;
 import qualitypatternmodel.javaqueryoutput.ContainerInterim;
+import qualitypatternmodel.javaqueryoutput.ContainerResult;
 import qualitypatternmodel.javaqueryoutput.FixedContainerInterim;
-import qualitypatternmodel.javaqueryoutput.InterimResultParam;
+import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputFactory;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
-import qualitypatternmodel.javaqueryoutput.RecordInterim;
 import qualitypatternmodel.javaqueryoutput.ValueInterim;
+import qualitypatternmodel.javaqueryoutput.ValueResult;
 import qualitypatternmodel.javaqueryoutput.VariableContainerInterim;
 import qualitypatternmodel.operators.OperatorsPackage;
 
@@ -80,21 +81,7 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass recordInterimEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass interimResultPartEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass interimResultParamEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -123,6 +110,27 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 	 * @generated
 	 */
 	private EClass fixedContainerInterimEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass interimResultEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass containerResultEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass valueResultEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -266,16 +274,6 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 	 * @generated
 	 */
 	@Override
-	public EClass getRecordInterim() {
-		return recordInterimEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getInterimResultPart() {
 		return interimResultPartEClass;
 	}
@@ -286,28 +284,8 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 	 * @generated
 	 */
 	@Override
-	public EClass getInterimResultParam() {
-		return interimResultParamEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getContainerInterim() {
 		return containerInterimEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getContainerInterim_Contained() {
-		return (EReference)containerInterimEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -336,8 +314,88 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 	 * @generated
 	 */
 	@Override
+	public EReference getVariableContainerInterim_Contained() {
+		return (EReference)variableContainerInterimEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getFixedContainerInterim() {
 		return fixedContainerInterimEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getFixedContainerInterim_Contained() {
+		return (EReference)fixedContainerInterimEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getInterimResult() {
+		return interimResultEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getContainerResult() {
+		return containerResultEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getContainerResult_CorrespondsTo() {
+		return (EReference)containerResultEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getContainerResult_Subresult() {
+		return (EReference)containerResultEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getValueResult() {
+		return valueResultEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getValueResult_CorrespondsTo() {
+		return (EReference)valueResultEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -373,20 +431,26 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		createEReference(interimResultStructureEClass, INTERIM_RESULT_STRUCTURE__SUBSTRUCTURE);
 		createEReference(interimResultStructureEClass, INTERIM_RESULT_STRUCTURE__RECORD);
 
-		recordInterimEClass = createEClass(RECORD_INTERIM);
-
 		interimResultPartEClass = createEClass(INTERIM_RESULT_PART);
 
-		interimResultParamEClass = createEClass(INTERIM_RESULT_PARAM);
-
 		containerInterimEClass = createEClass(CONTAINER_INTERIM);
-		createEReference(containerInterimEClass, CONTAINER_INTERIM__CONTAINED);
 
 		valueInterimEClass = createEClass(VALUE_INTERIM);
 
 		variableContainerInterimEClass = createEClass(VARIABLE_CONTAINER_INTERIM);
+		createEReference(variableContainerInterimEClass, VARIABLE_CONTAINER_INTERIM__CONTAINED);
 
 		fixedContainerInterimEClass = createEClass(FIXED_CONTAINER_INTERIM);
+		createEReference(fixedContainerInterimEClass, FIXED_CONTAINER_INTERIM__CONTAINED);
+
+		interimResultEClass = createEClass(INTERIM_RESULT);
+
+		containerResultEClass = createEClass(CONTAINER_RESULT);
+		createEReference(containerResultEClass, CONTAINER_RESULT__CORRESPONDS_TO);
+		createEReference(containerResultEClass, CONTAINER_RESULT__SUBRESULT);
+
+		valueResultEClass = createEClass(VALUE_RESULT);
+		createEReference(valueResultEClass, VALUE_RESULT__CORRESPONDS_TO);
 	}
 
 	/**
@@ -417,32 +481,38 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		recordInterimEClass.getESuperTypes().add(this.getInterimResultPart());
-		interimResultParamEClass.getESuperTypes().add(this.getInterimResultPart());
-		containerInterimEClass.getESuperTypes().add(this.getInterimResultParam());
-		valueInterimEClass.getESuperTypes().add(this.getInterimResultParam());
+		containerInterimEClass.getESuperTypes().add(this.getInterimResultPart());
+		valueInterimEClass.getESuperTypes().add(this.getInterimResultPart());
 		variableContainerInterimEClass.getESuperTypes().add(this.getContainerInterim());
 		fixedContainerInterimEClass.getESuperTypes().add(this.getContainerInterim());
+		containerResultEClass.getESuperTypes().add(this.getInterimResult());
+		valueResultEClass.getESuperTypes().add(this.getInterimResult());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(interimResultStructureEClass, InterimResultStructure.class, "InterimResultStructure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInterimResultStructure_Substructure(), this.getInterimResultParam(), null, "substructure", null, 0, 1, InterimResultStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInterimResultStructure_Record(), this.getRecordInterim(), null, "record", null, 1, 1, InterimResultStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(recordInterimEClass, RecordInterim.class, "RecordInterim", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInterimResultStructure_Substructure(), this.getInterimResultPart(), null, "substructure", null, 0, 1, InterimResultStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInterimResultStructure_Record(), this.getValueInterim(), null, "record", null, 1, 1, InterimResultStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(interimResultPartEClass, InterimResultPart.class, "InterimResultPart", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(interimResultParamEClass, InterimResultParam.class, "InterimResultParam", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(containerInterimEClass, ContainerInterim.class, "ContainerInterim", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getContainerInterim_Contained(), this.getInterimResultParam(), null, "contained", null, 1, -1, ContainerInterim.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(valueInterimEClass, ValueInterim.class, "ValueInterim", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(variableContainerInterimEClass, VariableContainerInterim.class, "VariableContainerInterim", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getVariableContainerInterim_Contained(), this.getInterimResultPart(), null, "contained", null, 1, 1, VariableContainerInterim.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fixedContainerInterimEClass, FixedContainerInterim.class, "FixedContainerInterim", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFixedContainerInterim_Contained(), this.getInterimResultPart(), null, "contained", null, 1, -1, FixedContainerInterim.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(interimResultEClass, InterimResult.class, "InterimResult", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(containerResultEClass, ContainerResult.class, "ContainerResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getContainerResult_CorrespondsTo(), this.getContainerInterim(), null, "correspondsTo", null, 0, 1, ContainerResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContainerResult_Subresult(), this.getInterimResult(), null, "subresult", null, 0, -1, ContainerResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(valueResultEClass, ValueResult.class, "ValueResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getValueResult_CorrespondsTo(), this.getValueInterim(), null, "correspondsTo", null, 0, 1, ValueResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

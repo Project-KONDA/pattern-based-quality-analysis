@@ -31,6 +31,7 @@ public class JavaqueryTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new JavaqueryTests("javaquery Tests");
+		suite.addTestSuite(JavaFilterTest.class);
 		suite.addTestSuite(FormulaFilterPartTest.class);
 		suite.addTestSuite(BooleanFilterElementTest.class);
 		suite.addTestSuite(OneArgFunctionFilterPartTest.class);

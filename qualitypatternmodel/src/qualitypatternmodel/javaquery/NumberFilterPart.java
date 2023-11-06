@@ -3,6 +3,7 @@
 package qualitypatternmodel.javaquery;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.javaqueryoutput.InterimResult;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,6 +22,6 @@ public interface NumberFilterPart extends JavaFilterPart {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	Double apply() throws InvalidityException;
+	Double apply(InterimResult parameter) throws InvalidityException;
 
 } // NumberFilterPart

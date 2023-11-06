@@ -27,12 +27,12 @@ public interface InterimResultStructure extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Substructure</em>' containment reference.
-	 * @see #setSubstructure(InterimResultParam)
+	 * @see #setSubstructure(InterimResultPart)
 	 * @see qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage#getInterimResultStructure_Substructure()
 	 * @model containment="true"
 	 * @generated
 	 */
-	InterimResultParam getSubstructure();
+	InterimResultPart getSubstructure();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.javaqueryoutput.InterimResultStructure#getSubstructure <em>Substructure</em>}' containment reference.
@@ -42,19 +42,19 @@ public interface InterimResultStructure extends EObject {
 	 * @see #getSubstructure()
 	 * @generated
 	 */
-	void setSubstructure(InterimResultParam value);
+	void setSubstructure(InterimResultPart value);
 
 	/**
 	 * Returns the value of the '<em><b>Record</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Record</em>' containment reference.
-	 * @see #setRecord(RecordInterim)
+	 * @see #setRecord(ValueInterim)
 	 * @see qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage#getInterimResultStructure_Record()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	RecordInterim getRecord();
+	ValueInterim getRecord();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.javaqueryoutput.InterimResultStructure#getRecord <em>Record</em>}' containment reference.
@@ -64,6 +64,6 @@ public interface InterimResultStructure extends EObject {
 	 * @see #getRecord()
 	 * @generated
 	 */
-	void setRecord(RecordInterim value);
+	void setRecord(ValueInterim value);
 
 } // InterimResultsStructure

@@ -11,11 +11,12 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.ListFilterPart;
-import qualitypatternmodel.javaqueryoutput.ContainerInterim;
-import qualitypatternmodel.javaqueryoutput.InterimResultParam;
+import qualitypatternmodel.javaqueryoutput.InterimResult;
+import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.VariableContainerInterim;
 import qualitypatternmodel.javaqueryoutput.impl.VariableContainerInterimImpl;
 import qualitypatternmodel.patternstructure.Quantifier;
@@ -94,20 +95,24 @@ public class ListFilterPartImpl extends BooleanFilterPartImpl implements ListFil
 	}
 	
 	@Override
-	public Boolean apply() {return true;};
+	public Boolean apply(InterimResult parameter) {return true;};
 
 	@Override
-	public EList<InterimResultParam> getArguments() {
-		EList<InterimResultParam> result = new BasicEList<InterimResultParam>();
+	public EList<InterimResultPart> getArguments() {
+		EList<InterimResultPart> result = new BasicEList<InterimResultPart>();
 		result.add(getArgument());
 		return result;
 	}
-	
-	protected void updateArgument() {
-		ContainerInterim arg = getArgument();
-		EList<InterimResultParam> contained = arg.getContained();
-		contained.clear();
-		contained.addAll(getSubfilter().getArguments());
+
+	protected void updateArgument() throws InvalidityException {
+		EList<InterimResultPart> contained = getSubfilter().getArguments();
+		if (contained == null)
+			getArgument().setContained(null);
+		else if (contained.size() == 1)
+			getArgument().setContained(contained.get(0));
+		else 
+			throw new InvalidityException("CountFilterElement has too much arguments");
+		
 	}
 	
 	@Override
@@ -148,7 +153,11 @@ public class ListFilterPartImpl extends BooleanFilterPartImpl implements ListFil
 	public NotificationChain basicSetSubfilter(BooleanFilterPart newSubfilter, NotificationChain msgs) {
 		BooleanFilterPart oldSubfilter = subfilter;
 		subfilter = newSubfilter;
-		updateArgument();
+		try {
+			updateArgument();
+		} catch (InvalidityException e) {
+			e.printStackTrace();
+		};
 		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryPackage.LIST_FILTER_PART__SUBFILTER, oldSubfilter, newSubfilter);

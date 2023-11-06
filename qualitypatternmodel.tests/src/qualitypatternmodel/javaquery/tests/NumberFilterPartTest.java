@@ -11,7 +11,7 @@ import qualitypatternmodel.javaquery.NumberFilterPart;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.javaquery.NumberFilterPart#apply() <em>Apply</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.NumberFilterPart#apply(qualitypatternmodel.javaqueryoutput.InterimResult) <em>Apply</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -40,13 +40,13 @@ public abstract class NumberFilterPartTest extends JavaFilterPartTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.javaquery.NumberFilterPart#apply() <em>Apply</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.javaquery.NumberFilterPart#apply(qualitypatternmodel.javaqueryoutput.InterimResult) <em>Apply</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.javaquery.NumberFilterPart#apply()
+	 * @see qualitypatternmodel.javaquery.NumberFilterPart#apply(qualitypatternmodel.javaqueryoutput.InterimResult)
 	 * @generated
 	 */
-	public void testApply() {
+	public void testApply__InterimResult() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

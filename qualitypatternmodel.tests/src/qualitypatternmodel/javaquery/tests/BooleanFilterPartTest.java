@@ -11,7 +11,7 @@ import qualitypatternmodel.javaquery.BooleanFilterPart;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.javaquery.BooleanFilterPart#apply() <em>Apply</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.BooleanFilterPart#apply(qualitypatternmodel.javaqueryoutput.InterimResult) <em>Apply</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -40,13 +40,13 @@ public abstract class BooleanFilterPartTest extends JavaFilterPartTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.javaquery.BooleanFilterPart#apply() <em>Apply</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.javaquery.BooleanFilterPart#apply(qualitypatternmodel.javaqueryoutput.InterimResult) <em>Apply</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.javaquery.BooleanFilterPart#apply()
+	 * @see qualitypatternmodel.javaquery.BooleanFilterPart#apply(qualitypatternmodel.javaqueryoutput.InterimResult)
 	 * @generated
 	 */
-	public void testApply() {
+	public void testApply__InterimResult() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

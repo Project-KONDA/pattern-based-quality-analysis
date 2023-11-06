@@ -13,7 +13,7 @@ import qualitypatternmodel.javaqueryoutput.ValueInterim;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ValueInterimTest extends InterimResultParamTest {
+public class ValueInterimTest extends InterimResultPartTest {
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -10,7 +10,7 @@ import qualitypatternmodel.javaqueryoutput.ContainerInterim;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class ContainerInterimTest extends InterimResultParamTest {
+public abstract class ContainerInterimTest extends InterimResultPartTest {
 
 	/**
 	 * Constructs a new Container Interim test case with the given name.

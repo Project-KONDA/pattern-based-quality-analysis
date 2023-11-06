@@ -2,7 +2,9 @@
  */
 package qualitypatternmodel.javaquery;
 
+import java.util.List;
 import org.eclipse.emf.ecore.EObject;
+import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
 
 /**
@@ -16,6 +18,7 @@ import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
  * <ul>
  *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#getFilter <em>Filter</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#getStructure <em>Structure</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#getInterimResult <em>Interim Result</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.javaquery.JavaqueryPackage#getJavaFilter()
@@ -66,5 +69,35 @@ public interface JavaFilter extends EObject {
 	 * @generated
 	 */
 	void setStructure(InterimResultStructure value);
+
+	/**
+	 * Returns the value of the '<em><b>Interim Result</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Interim Result</em>' reference.
+	 * @see #setInterimResult(InterimResult)
+	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getJavaFilter_InterimResult()
+	 * @model
+	 * @generated
+	 */
+	InterimResult getInterimResult();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.javaquery.JavaFilter#getInterimResult <em>Interim Result</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Interim Result</em>' reference.
+	 * @see #getInterimResult()
+	 * @generated
+	 */
+	void setInterimResult(InterimResult value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model param1DataType="qualitypatternmodel.javaquery.StringListWrapper"
+	 * @generated
+	 */
+	String filterXQueryResults(List<Object> param1);
 
 } // JavaFilter

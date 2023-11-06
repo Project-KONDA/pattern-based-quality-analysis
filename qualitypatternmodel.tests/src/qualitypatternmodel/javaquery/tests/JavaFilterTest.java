@@ -13,6 +13,12 @@ import qualitypatternmodel.javaquery.JavaqueryFactory;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Java Filter</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#filterXQueryResults(java.util.List) <em>Filter XQuery Results</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class JavaFilterTest extends TestCase {
@@ -84,6 +90,19 @@ public class JavaFilterTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.javaquery.JavaFilter#filterXQueryResults(java.util.List) <em>Filter XQuery Results</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaquery.JavaFilter#filterXQueryResults(java.util.List)
+	 * @generated
+	 */
+	public void testFilterXQueryResults__List() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //JavaFilterTest

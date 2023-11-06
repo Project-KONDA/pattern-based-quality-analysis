@@ -31,15 +31,6 @@ public interface JavaqueryoutputFactory extends EFactory {
 	InterimResultStructure createInterimResultStructure();
 
 	/**
-	 * Returns a new object of class '<em>Record Interim</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Record Interim</em>'.
-	 * @generated
-	 */
-	RecordInterim createRecordInterim();
-
-	/**
 	 * Returns a new object of class '<em>Value Interim</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,6 +56,24 @@ public interface JavaqueryoutputFactory extends EFactory {
 	 * @generated
 	 */
 	FixedContainerInterim createFixedContainerInterim();
+
+	/**
+	 * Returns a new object of class '<em>Container Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Container Result</em>'.
+	 * @generated
+	 */
+	ContainerResult createContainerResult();
+
+	/**
+	 * Returns a new object of class '<em>Value Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Value Result</em>'.
+	 * @generated
+	 */
+	ValueResult createValueResult();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -109,7 +109,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @see qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputPackageImpl#getInterimResultPart()
 	 * @generated
 	 */
-	int INTERIM_RESULT_PART = 2;
+	int INTERIM_RESULT_PART = 1;
 
 	/**
 	 * The number of structural features of the '<em>Interim Result Part</em>' class.
@@ -130,62 +130,6 @@ public interface JavaqueryoutputPackage extends EPackage {
 	int INTERIM_RESULT_PART_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.javaqueryoutput.impl.RecordInterimImpl <em>Record Interim</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.javaqueryoutput.impl.RecordInterimImpl
-	 * @see qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputPackageImpl#getRecordInterim()
-	 * @generated
-	 */
-	int RECORD_INTERIM = 1;
-
-	/**
-	 * The number of structural features of the '<em>Record Interim</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RECORD_INTERIM_FEATURE_COUNT = INTERIM_RESULT_PART_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Record Interim</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RECORD_INTERIM_OPERATION_COUNT = INTERIM_RESULT_PART_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link qualitypatternmodel.javaqueryoutput.impl.InterimResultParamImpl <em>Interim Result Param</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.javaqueryoutput.impl.InterimResultParamImpl
-	 * @see qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputPackageImpl#getInterimResultParam()
-	 * @generated
-	 */
-	int INTERIM_RESULT_PARAM = 3;
-
-	/**
-	 * The number of structural features of the '<em>Interim Result Param</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERIM_RESULT_PARAM_FEATURE_COUNT = INTERIM_RESULT_PART_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Interim Result Param</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERIM_RESULT_PARAM_OPERATION_COUNT = INTERIM_RESULT_PART_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link qualitypatternmodel.javaqueryoutput.impl.ContainerInterimImpl <em>Container Interim</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -193,16 +137,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @see qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputPackageImpl#getContainerInterim()
 	 * @generated
 	 */
-	int CONTAINER_INTERIM = 4;
-
-	/**
-	 * The feature id for the '<em><b>Contained</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINER_INTERIM__CONTAINED = INTERIM_RESULT_PARAM_FEATURE_COUNT + 0;
+	int CONTAINER_INTERIM = 2;
 
 	/**
 	 * The number of structural features of the '<em>Container Interim</em>' class.
@@ -211,7 +146,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER_INTERIM_FEATURE_COUNT = INTERIM_RESULT_PARAM_FEATURE_COUNT + 1;
+	int CONTAINER_INTERIM_FEATURE_COUNT = INTERIM_RESULT_PART_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Container Interim</em>' class.
@@ -220,7 +155,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER_INTERIM_OPERATION_COUNT = INTERIM_RESULT_PARAM_OPERATION_COUNT + 0;
+	int CONTAINER_INTERIM_OPERATION_COUNT = INTERIM_RESULT_PART_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.javaqueryoutput.impl.ValueInterimImpl <em>Value Interim</em>}' class.
@@ -230,7 +165,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @see qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputPackageImpl#getValueInterim()
 	 * @generated
 	 */
-	int VALUE_INTERIM = 5;
+	int VALUE_INTERIM = 3;
 
 	/**
 	 * The number of structural features of the '<em>Value Interim</em>' class.
@@ -239,7 +174,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_INTERIM_FEATURE_COUNT = INTERIM_RESULT_PARAM_FEATURE_COUNT + 0;
+	int VALUE_INTERIM_FEATURE_COUNT = INTERIM_RESULT_PART_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Value Interim</em>' class.
@@ -248,7 +183,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_INTERIM_OPERATION_COUNT = INTERIM_RESULT_PARAM_OPERATION_COUNT + 0;
+	int VALUE_INTERIM_OPERATION_COUNT = INTERIM_RESULT_PART_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.javaqueryoutput.impl.VariableContainerInterimImpl <em>Variable Container Interim</em>}' class.
@@ -258,16 +193,16 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @see qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputPackageImpl#getVariableContainerInterim()
 	 * @generated
 	 */
-	int VARIABLE_CONTAINER_INTERIM = 6;
+	int VARIABLE_CONTAINER_INTERIM = 4;
 
 	/**
-	 * The feature id for the '<em><b>Contained</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Contained</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_CONTAINER_INTERIM__CONTAINED = CONTAINER_INTERIM__CONTAINED;
+	int VARIABLE_CONTAINER_INTERIM__CONTAINED = CONTAINER_INTERIM_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Variable Container Interim</em>' class.
@@ -276,7 +211,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_CONTAINER_INTERIM_FEATURE_COUNT = CONTAINER_INTERIM_FEATURE_COUNT + 0;
+	int VARIABLE_CONTAINER_INTERIM_FEATURE_COUNT = CONTAINER_INTERIM_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Variable Container Interim</em>' class.
@@ -295,7 +230,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @see qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputPackageImpl#getFixedContainerInterim()
 	 * @generated
 	 */
-	int FIXED_CONTAINER_INTERIM = 7;
+	int FIXED_CONTAINER_INTERIM = 5;
 
 	/**
 	 * The feature id for the '<em><b>Contained</b></em>' containment reference list.
@@ -304,7 +239,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIXED_CONTAINER_INTERIM__CONTAINED = CONTAINER_INTERIM__CONTAINED;
+	int FIXED_CONTAINER_INTERIM__CONTAINED = CONTAINER_INTERIM_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Fixed Container Interim</em>' class.
@@ -313,7 +248,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIXED_CONTAINER_INTERIM_FEATURE_COUNT = CONTAINER_INTERIM_FEATURE_COUNT + 0;
+	int FIXED_CONTAINER_INTERIM_FEATURE_COUNT = CONTAINER_INTERIM_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Fixed Container Interim</em>' class.
@@ -323,6 +258,117 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @ordered
 	 */
 	int FIXED_CONTAINER_INTERIM_OPERATION_COUNT = CONTAINER_INTERIM_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.javaqueryoutput.impl.InterimResultImpl <em>Interim Result</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaqueryoutput.impl.InterimResultImpl
+	 * @see qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputPackageImpl#getInterimResult()
+	 * @generated
+	 */
+	int INTERIM_RESULT = 6;
+
+	/**
+	 * The number of structural features of the '<em>Interim Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERIM_RESULT_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Interim Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERIM_RESULT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.javaqueryoutput.impl.ContainerResultImpl <em>Container Result</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaqueryoutput.impl.ContainerResultImpl
+	 * @see qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputPackageImpl#getContainerResult()
+	 * @generated
+	 */
+	int CONTAINER_RESULT = 7;
+
+	/**
+	 * The feature id for the '<em><b>Corresponds To</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER_RESULT__CORRESPONDS_TO = INTERIM_RESULT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Subresult</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER_RESULT__SUBRESULT = INTERIM_RESULT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Container Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER_RESULT_FEATURE_COUNT = INTERIM_RESULT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Container Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER_RESULT_OPERATION_COUNT = INTERIM_RESULT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.javaqueryoutput.impl.ValueResultImpl <em>Value Result</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaqueryoutput.impl.ValueResultImpl
+	 * @see qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputPackageImpl#getValueResult()
+	 * @generated
+	 */
+	int VALUE_RESULT = 8;
+
+	/**
+	 * The feature id for the '<em><b>Corresponds To</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_RESULT__CORRESPONDS_TO = INTERIM_RESULT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Value Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_RESULT_FEATURE_COUNT = INTERIM_RESULT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Value Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_RESULT_OPERATION_COUNT = INTERIM_RESULT_OPERATION_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaqueryoutput.InterimResultStructure <em>Interim Result Structure</em>}'.
@@ -357,16 +403,6 @@ public interface JavaqueryoutputPackage extends EPackage {
 	EReference getInterimResultStructure_Record();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.javaqueryoutput.RecordInterim <em>Record Interim</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Record Interim</em>'.
-	 * @see qualitypatternmodel.javaqueryoutput.RecordInterim
-	 * @generated
-	 */
-	EClass getRecordInterim();
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaqueryoutput.InterimResultPart <em>Interim Result Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -377,16 +413,6 @@ public interface JavaqueryoutputPackage extends EPackage {
 	EClass getInterimResultPart();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.javaqueryoutput.InterimResultParam <em>Interim Result Param</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Interim Result Param</em>'.
-	 * @see qualitypatternmodel.javaqueryoutput.InterimResultParam
-	 * @generated
-	 */
-	EClass getInterimResultParam();
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaqueryoutput.ContainerInterim <em>Container Interim</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -395,17 +421,6 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getContainerInterim();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.javaqueryoutput.ContainerInterim#getContained <em>Contained</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Contained</em>'.
-	 * @see qualitypatternmodel.javaqueryoutput.ContainerInterim#getContained()
-	 * @see #getContainerInterim()
-	 * @generated
-	 */
-	EReference getContainerInterim_Contained();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaqueryoutput.ValueInterim <em>Value Interim</em>}'.
@@ -428,6 +443,17 @@ public interface JavaqueryoutputPackage extends EPackage {
 	EClass getVariableContainerInterim();
 
 	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.javaqueryoutput.VariableContainerInterim#getContained <em>Contained</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Contained</em>'.
+	 * @see qualitypatternmodel.javaqueryoutput.VariableContainerInterim#getContained()
+	 * @see #getVariableContainerInterim()
+	 * @generated
+	 */
+	EReference getVariableContainerInterim_Contained();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaqueryoutput.FixedContainerInterim <em>Fixed Container Interim</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -436,6 +462,80 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getFixedContainerInterim();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.javaqueryoutput.FixedContainerInterim#getContained <em>Contained</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Contained</em>'.
+	 * @see qualitypatternmodel.javaqueryoutput.FixedContainerInterim#getContained()
+	 * @see #getFixedContainerInterim()
+	 * @generated
+	 */
+	EReference getFixedContainerInterim_Contained();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.javaqueryoutput.InterimResult <em>Interim Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Interim Result</em>'.
+	 * @see qualitypatternmodel.javaqueryoutput.InterimResult
+	 * @generated
+	 */
+	EClass getInterimResult();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.javaqueryoutput.ContainerResult <em>Container Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Container Result</em>'.
+	 * @see qualitypatternmodel.javaqueryoutput.ContainerResult
+	 * @generated
+	 */
+	EClass getContainerResult();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.javaqueryoutput.ContainerResult#getCorrespondsTo <em>Corresponds To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Corresponds To</em>'.
+	 * @see qualitypatternmodel.javaqueryoutput.ContainerResult#getCorrespondsTo()
+	 * @see #getContainerResult()
+	 * @generated
+	 */
+	EReference getContainerResult_CorrespondsTo();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.javaqueryoutput.ContainerResult#getSubresult <em>Subresult</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Subresult</em>'.
+	 * @see qualitypatternmodel.javaqueryoutput.ContainerResult#getSubresult()
+	 * @see #getContainerResult()
+	 * @generated
+	 */
+	EReference getContainerResult_Subresult();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.javaqueryoutput.ValueResult <em>Value Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Value Result</em>'.
+	 * @see qualitypatternmodel.javaqueryoutput.ValueResult
+	 * @generated
+	 */
+	EClass getValueResult();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.javaqueryoutput.ValueResult#getCorrespondsTo <em>Corresponds To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Corresponds To</em>'.
+	 * @see qualitypatternmodel.javaqueryoutput.ValueResult#getCorrespondsTo()
+	 * @see #getValueResult()
+	 * @generated
+	 */
+	EReference getValueResult_CorrespondsTo();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -487,16 +587,6 @@ public interface JavaqueryoutputPackage extends EPackage {
 		EReference INTERIM_RESULT_STRUCTURE__RECORD = eINSTANCE.getInterimResultStructure_Record();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.javaqueryoutput.impl.RecordInterimImpl <em>Record Interim</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.javaqueryoutput.impl.RecordInterimImpl
-		 * @see qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputPackageImpl#getRecordInterim()
-		 * @generated
-		 */
-		EClass RECORD_INTERIM = eINSTANCE.getRecordInterim();
-
-		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaqueryoutput.impl.InterimResultPartImpl <em>Interim Result Part</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -507,16 +597,6 @@ public interface JavaqueryoutputPackage extends EPackage {
 		EClass INTERIM_RESULT_PART = eINSTANCE.getInterimResultPart();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.javaqueryoutput.impl.InterimResultParamImpl <em>Interim Result Param</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.javaqueryoutput.impl.InterimResultParamImpl
-		 * @see qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputPackageImpl#getInterimResultParam()
-		 * @generated
-		 */
-		EClass INTERIM_RESULT_PARAM = eINSTANCE.getInterimResultParam();
-
-		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaqueryoutput.impl.ContainerInterimImpl <em>Container Interim</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -525,14 +605,6 @@ public interface JavaqueryoutputPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CONTAINER_INTERIM = eINSTANCE.getContainerInterim();
-
-		/**
-		 * The meta object literal for the '<em><b>Contained</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONTAINER_INTERIM__CONTAINED = eINSTANCE.getContainerInterim_Contained();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaqueryoutput.impl.ValueInterimImpl <em>Value Interim</em>}' class.
@@ -555,6 +627,14 @@ public interface JavaqueryoutputPackage extends EPackage {
 		EClass VARIABLE_CONTAINER_INTERIM = eINSTANCE.getVariableContainerInterim();
 
 		/**
+		 * The meta object literal for the '<em><b>Contained</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE_CONTAINER_INTERIM__CONTAINED = eINSTANCE.getVariableContainerInterim_Contained();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaqueryoutput.impl.FixedContainerInterimImpl <em>Fixed Container Interim</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -563,6 +643,68 @@ public interface JavaqueryoutputPackage extends EPackage {
 		 * @generated
 		 */
 		EClass FIXED_CONTAINER_INTERIM = eINSTANCE.getFixedContainerInterim();
+
+		/**
+		 * The meta object literal for the '<em><b>Contained</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FIXED_CONTAINER_INTERIM__CONTAINED = eINSTANCE.getFixedContainerInterim_Contained();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.javaqueryoutput.impl.InterimResultImpl <em>Interim Result</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.javaqueryoutput.impl.InterimResultImpl
+		 * @see qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputPackageImpl#getInterimResult()
+		 * @generated
+		 */
+		EClass INTERIM_RESULT = eINSTANCE.getInterimResult();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.javaqueryoutput.impl.ContainerResultImpl <em>Container Result</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.javaqueryoutput.impl.ContainerResultImpl
+		 * @see qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputPackageImpl#getContainerResult()
+		 * @generated
+		 */
+		EClass CONTAINER_RESULT = eINSTANCE.getContainerResult();
+
+		/**
+		 * The meta object literal for the '<em><b>Corresponds To</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTAINER_RESULT__CORRESPONDS_TO = eINSTANCE.getContainerResult_CorrespondsTo();
+
+		/**
+		 * The meta object literal for the '<em><b>Subresult</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTAINER_RESULT__SUBRESULT = eINSTANCE.getContainerResult_Subresult();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.javaqueryoutput.impl.ValueResultImpl <em>Value Result</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.javaqueryoutput.impl.ValueResultImpl
+		 * @see qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputPackageImpl#getValueResult()
+		 * @generated
+		 */
+		EClass VALUE_RESULT = eINSTANCE.getValueResult();
+
+		/**
+		 * The meta object literal for the '<em><b>Corresponds To</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VALUE_RESULT__CORRESPONDS_TO = eINSTANCE.getValueResult_CorrespondsTo();
 
 	}
 

@@ -14,7 +14,8 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.NotFilterPart;
-import qualitypatternmodel.javaqueryoutput.InterimResultParam;
+import qualitypatternmodel.javaqueryoutput.InterimResult;
+import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,12 +51,12 @@ public class NotFilterPartImpl extends BooleanFilterPartImpl implements NotFilte
 	}
 	
 	@Override
-	public Boolean apply() throws InvalidityException {
-		return !getSubfilter().apply();
+	public Boolean apply(InterimResult parameter) throws InvalidityException {
+		return !getSubfilter().apply(null);
 	};
 
 	@Override
-	public EList<InterimResultParam> getArguments() {
+	public EList<InterimResultPart> getArguments() {
 		return getSubfilter().getArguments();
 	}
 	

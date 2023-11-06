@@ -14,7 +14,7 @@ import qualitypatternmodel.javaqueryoutput.ValueInterim;
  *
  * @generated
  */
-public class ValueInterimImpl extends InterimResultParamImpl implements ValueInterim {
+public class ValueInterimImpl extends InterimResultPartImpl implements ValueInterim {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

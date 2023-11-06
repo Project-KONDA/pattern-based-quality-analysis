@@ -14,9 +14,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.FormulaFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
-import qualitypatternmodel.javaqueryoutput.ContainerInterim;
 import qualitypatternmodel.javaqueryoutput.FixedContainerInterim;
-import qualitypatternmodel.javaqueryoutput.InterimResultParam;
+import qualitypatternmodel.javaqueryoutput.InterimResult;
+import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.impl.FixedContainerInterimImpl;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 
@@ -107,18 +107,20 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 	}
 	
 	@Override
-	public Boolean apply() {return true;};
+	public Boolean apply(InterimResult parameter) {
+		return true;
+	};
 
 	@Override
-	public EList<InterimResultParam> getArguments() {
-		EList<InterimResultParam> result = new BasicEList<InterimResultParam>();
+	public EList<InterimResultPart> getArguments() {
+		EList<InterimResultPart> result = new BasicEList<InterimResultPart>();
 		result.add(getArgument());
 		return result;
 	}
 	
 	protected void updateArgument() {
-		ContainerInterim arg = getArgument();
-		EList<InterimResultParam> contained = arg.getContained();
+		FixedContainerInterim arg = getArgument();
+		EList<InterimResultPart> contained = arg.getContained();
 		contained.clear();
 		if (getSubfilter1() != null)
 			contained.addAll(getSubfilter1().getArguments());

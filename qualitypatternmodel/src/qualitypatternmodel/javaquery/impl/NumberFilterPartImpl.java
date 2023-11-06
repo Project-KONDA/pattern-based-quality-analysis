@@ -12,6 +12,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.NumberFilterPart;
+import qualitypatternmodel.javaqueryoutput.InterimResult;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,7 +47,7 @@ public abstract class NumberFilterPartImpl extends JavaFilterPartImpl implements
 	 * @generated NOT
 	 */
 	@Override
-	abstract public Double apply() throws InvalidityException;
+	abstract public Double apply(InterimResult parameter) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -56,9 +57,9 @@ public abstract class NumberFilterPartImpl extends JavaFilterPartImpl implements
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case JavaqueryPackage.NUMBER_FILTER_PART___APPLY:
+			case JavaqueryPackage.NUMBER_FILTER_PART___APPLY__INTERIMRESULT:
 				try {
-					return apply();
+					return apply((InterimResult)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

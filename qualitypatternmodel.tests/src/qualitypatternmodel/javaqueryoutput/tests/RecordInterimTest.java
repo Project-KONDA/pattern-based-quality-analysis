@@ -5,7 +5,6 @@ package qualitypatternmodel.javaqueryoutput.tests;
 import junit.textui.TestRunner;
 
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputFactory;
-import qualitypatternmodel.javaqueryoutput.RecordInterim;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,17 +34,6 @@ public class RecordInterimTest extends InterimResultPartTest {
 	}
 
 	/**
-	 * Returns the fixture for this Record Interim test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected RecordInterim getFixture() {
-		return (RecordInterim)fixture;
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see junit.framework.TestCase#setUp()
@@ -53,7 +41,7 @@ public class RecordInterimTest extends InterimResultPartTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(JavaqueryoutputFactory.eINSTANCE.createRecordInterim());
+		setFixture(JavaqueryoutputFactory.eINSTANCE.createValueInterim());
 	}
 
 	/**

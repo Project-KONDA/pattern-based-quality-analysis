@@ -8,7 +8,8 @@ import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
-import qualitypatternmodel.javaqueryoutput.InterimResultParam;
+import qualitypatternmodel.javaqueryoutput.InterimResult;
+import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,7 +44,7 @@ public abstract class BooleanFilterPartImpl extends JavaFilterPartImpl implement
 	 * @generated NOT
 	 */
 	@Override
-	abstract public Boolean apply() throws InvalidityException;
+	abstract public Boolean apply(InterimResult parameter) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -51,7 +52,7 @@ public abstract class BooleanFilterPartImpl extends JavaFilterPartImpl implement
 	 * @generated NOT
 	 */
 	@Override
-	abstract public EList<InterimResultParam> getArguments();
+	abstract public EList<InterimResultPart> getArguments();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -61,9 +62,9 @@ public abstract class BooleanFilterPartImpl extends JavaFilterPartImpl implement
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case JavaqueryPackage.BOOLEAN_FILTER_PART___APPLY:
+			case JavaqueryPackage.BOOLEAN_FILTER_PART___APPLY__INTERIMRESULT:
 				try {
-					return apply();
+					return apply((InterimResult)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

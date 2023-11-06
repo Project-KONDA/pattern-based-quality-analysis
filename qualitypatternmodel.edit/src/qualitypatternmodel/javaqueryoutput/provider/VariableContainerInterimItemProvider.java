@@ -9,7 +9,9 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.javaqueryoutput.VariableContainerInterim} object.
@@ -39,8 +41,31 @@ public class VariableContainerInterimItemProvider extends ContainerInterimItemPr
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addContainedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Contained feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addContainedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_VariableContainerInterim_contained_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_VariableContainerInterim_contained_feature", "_UI_VariableContainerInterim_type"),
+				 JavaqueryoutputPackage.Literals.VARIABLE_CONTAINER_INTERIM__CONTAINED,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**

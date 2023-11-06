@@ -13,5 +13,5 @@ package qualitypatternmodel.javaqueryoutput;
  * @model
  * @generated
  */
-public interface BooleanValueInterim extends InterimResultParam {
+public interface BooleanValueInterim extends InterimResultPart {
 } // BooleanValueInterim

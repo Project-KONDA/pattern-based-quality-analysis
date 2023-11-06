@@ -4,6 +4,7 @@ package qualitypatternmodel.javaquery;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -86,13 +87,31 @@ public interface JavaqueryPackage extends EPackage {
 	int JAVA_FILTER__STRUCTURE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Interim Result</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_FILTER__INTERIM_RESULT = 2;
+
+	/**
 	 * The number of structural features of the '<em>Java Filter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_FILTER_FEATURE_COUNT = 2;
+	int JAVA_FILTER_FEATURE_COUNT = 3;
+
+	/**
+	 * The operation id for the '<em>Filter XQuery Results</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_FILTER___FILTER_XQUERY_RESULTS__LIST = 0;
 
 	/**
 	 * The number of operations of the '<em>Java Filter</em>' class.
@@ -101,7 +120,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_FILTER_OPERATION_COUNT = 0;
+	int JAVA_FILTER_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.JavaFilterPartImpl <em>Java Filter Part</em>}' class.
@@ -195,7 +214,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_FILTER_PART___APPLY = JAVA_FILTER_PART_OPERATION_COUNT + 0;
+	int BOOLEAN_FILTER_PART___APPLY__INTERIMRESULT = JAVA_FILTER_PART_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Boolean Filter Part</em>' class.
@@ -267,7 +286,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA_FILTER_PART___APPLY = BOOLEAN_FILTER_PART___APPLY;
+	int FORMULA_FILTER_PART___APPLY__INTERIMRESULT = BOOLEAN_FILTER_PART___APPLY__INTERIMRESULT;
 
 	/**
 	 * The number of operations of the '<em>Formula Filter Part</em>' class.
@@ -312,7 +331,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_FILTER_ELEMENT___APPLY = BOOLEAN_FILTER_PART___APPLY;
+	int BOOLEAN_FILTER_ELEMENT___APPLY__INTERIMRESULT = BOOLEAN_FILTER_PART___APPLY__INTERIMRESULT;
 
 	/**
 	 * The number of operations of the '<em>Boolean Filter Element</em>' class.
@@ -367,7 +386,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ONE_ARG_FUNCTION_FILTER_PART___APPLY = BOOLEAN_FILTER_PART___APPLY;
+	int ONE_ARG_FUNCTION_FILTER_PART___APPLY__INTERIMRESULT = BOOLEAN_FILTER_PART___APPLY__INTERIMRESULT;
 
 	/**
 	 * The operation id for the '<em>Apply</em>' operation.
@@ -449,7 +468,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LIST_FILTER_PART___APPLY = BOOLEAN_FILTER_PART___APPLY;
+	int LIST_FILTER_PART___APPLY__INTERIMRESULT = BOOLEAN_FILTER_PART___APPLY__INTERIMRESULT;
 
 	/**
 	 * The number of operations of the '<em>List Filter Part</em>' class.
@@ -513,7 +532,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TWO_ARG_FUNCTION_FILTER_PART___APPLY = BOOLEAN_FILTER_PART___APPLY;
+	int TWO_ARG_FUNCTION_FILTER_PART___APPLY__INTERIMRESULT = BOOLEAN_FILTER_PART___APPLY__INTERIMRESULT;
 
 	/**
 	 * The operation id for the '<em>Apply</em>' operation.
@@ -577,7 +596,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_FILTER_PART___APPLY = BOOLEAN_FILTER_PART___APPLY;
+	int NOT_FILTER_PART___APPLY__INTERIMRESULT = BOOLEAN_FILTER_PART___APPLY__INTERIMRESULT;
 
 	/**
 	 * The number of operations of the '<em>Not Filter Part</em>' class.
@@ -660,7 +679,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_FILTER_PART___APPLY = BOOLEAN_FILTER_PART___APPLY;
+	int COUNT_FILTER_PART___APPLY__INTERIMRESULT = BOOLEAN_FILTER_PART___APPLY__INTERIMRESULT;
 
 	/**
 	 * The number of operations of the '<em>Count Filter Part</em>' class.
@@ -706,7 +725,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_FILTER_PART___APPLY = JAVA_FILTER_PART_OPERATION_COUNT + 0;
+	int NUMBER_FILTER_PART___APPLY__INTERIMRESULT = JAVA_FILTER_PART_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Number Filter Part</em>' class.
@@ -770,7 +789,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_FILTER_ELEMENT___APPLY = NUMBER_FILTER_PART___APPLY;
+	int COUNT_FILTER_ELEMENT___APPLY__INTERIMRESULT = NUMBER_FILTER_PART___APPLY__INTERIMRESULT;
 
 	/**
 	 * The number of operations of the '<em>Count Filter Element</em>' class.
@@ -825,7 +844,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_FILTER_ELEMENT___APPLY = NUMBER_FILTER_PART___APPLY;
+	int NUMBER_FILTER_ELEMENT___APPLY__INTERIMRESULT = NUMBER_FILTER_PART___APPLY__INTERIMRESULT;
 
 	/**
 	 * The number of operations of the '<em>Number Filter Element</em>' class.
@@ -881,7 +900,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_VALUE_FILTER_ELEMENT___APPLY = NUMBER_FILTER_PART___APPLY;
+	int NUMBER_VALUE_FILTER_ELEMENT___APPLY__INTERIMRESULT = NUMBER_FILTER_PART___APPLY__INTERIMRESULT;
 
 	/**
 	 * The number of operations of the '<em>Number Value Filter Element</em>' class.
@@ -891,6 +910,17 @@ public interface JavaqueryPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_VALUE_FILTER_ELEMENT_OPERATION_COUNT = NUMBER_FILTER_PART_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '<em>String List Wrapper</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.util.List
+	 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getStringListWrapper()
+	 * @generated
+	 */
+	int STRING_LIST_WRAPPER = 14;
 
 
 	/**
@@ -924,6 +954,27 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getJavaFilter_Structure();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.javaquery.JavaFilter#getInterimResult <em>Interim Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Interim Result</em>'.
+	 * @see qualitypatternmodel.javaquery.JavaFilter#getInterimResult()
+	 * @see #getJavaFilter()
+	 * @generated
+	 */
+	EReference getJavaFilter_InterimResult();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilter#filterXQueryResults(java.util.List) <em>Filter XQuery Results</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Filter XQuery Results</em>' operation.
+	 * @see qualitypatternmodel.javaquery.JavaFilter#filterXQueryResults(java.util.List)
+	 * @generated
+	 */
+	EOperation getJavaFilter__FilterXQueryResults__List();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.JavaFilterPart <em>Java Filter Part</em>}'.
@@ -965,6 +1016,17 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getNumberValueFilterElement_Number();
+
+	/**
+	 * Returns the meta object for data type '{@link java.util.List <em>String List Wrapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>String List Wrapper</em>'.
+	 * @see java.util.List
+	 * @model instanceClass="java.util.List&lt;java.lang.Object&gt;"
+	 * @generated
+	 */
+	EDataType getStringListWrapper();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.FormulaFilterPart <em>Formula Filter Part</em>}'.
@@ -1052,14 +1114,14 @@ public interface JavaqueryPackage extends EPackage {
 	EClass getBooleanFilterPart();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.BooleanFilterPart#apply() <em>Apply</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.BooleanFilterPart#apply(qualitypatternmodel.javaqueryoutput.InterimResult) <em>Apply</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Apply</em>' operation.
-	 * @see qualitypatternmodel.javaquery.BooleanFilterPart#apply()
+	 * @see qualitypatternmodel.javaquery.BooleanFilterPart#apply(qualitypatternmodel.javaqueryoutput.InterimResult)
 	 * @generated
 	 */
-	EOperation getBooleanFilterPart__Apply();
+	EOperation getBooleanFilterPart__Apply__InterimResult();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.OneArgFunctionFilterPart <em>One Arg Function Filter Part</em>}'.
@@ -1263,14 +1325,14 @@ public interface JavaqueryPackage extends EPackage {
 	EClass getNumberFilterPart();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.NumberFilterPart#apply() <em>Apply</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.NumberFilterPart#apply(qualitypatternmodel.javaqueryoutput.InterimResult) <em>Apply</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Apply</em>' operation.
-	 * @see qualitypatternmodel.javaquery.NumberFilterPart#apply()
+	 * @see qualitypatternmodel.javaquery.NumberFilterPart#apply(qualitypatternmodel.javaqueryoutput.InterimResult)
 	 * @generated
 	 */
-	EOperation getNumberFilterPart__Apply();
+	EOperation getNumberFilterPart__Apply__InterimResult();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.CountFilterElement <em>Count Filter Element</em>}'.
@@ -1375,6 +1437,22 @@ public interface JavaqueryPackage extends EPackage {
 		EReference JAVA_FILTER__STRUCTURE = eINSTANCE.getJavaFilter_Structure();
 
 		/**
+		 * The meta object literal for the '<em><b>Interim Result</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JAVA_FILTER__INTERIM_RESULT = eINSTANCE.getJavaFilter_InterimResult();
+
+		/**
+		 * The meta object literal for the '<em><b>Filter XQuery Results</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JAVA_FILTER___FILTER_XQUERY_RESULTS__LIST = eINSTANCE.getJavaFilter__FilterXQueryResults__List();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.JavaFilterPartImpl <em>Java Filter Part</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1409,6 +1487,16 @@ public interface JavaqueryPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute NUMBER_VALUE_FILTER_ELEMENT__NUMBER = eINSTANCE.getNumberValueFilterElement_Number();
+
+		/**
+		 * The meta object literal for the '<em>String List Wrapper</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.util.List
+		 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getStringListWrapper()
+		 * @generated
+		 */
+		EDataType STRING_LIST_WRAPPER = eINSTANCE.getStringListWrapper();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl <em>Formula Filter Part</em>}' class.
@@ -1486,7 +1574,7 @@ public interface JavaqueryPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation BOOLEAN_FILTER_PART___APPLY = eINSTANCE.getBooleanFilterPart__Apply();
+		EOperation BOOLEAN_FILTER_PART___APPLY__INTERIMRESULT = eINSTANCE.getBooleanFilterPart__Apply__InterimResult();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.OneArgFunctionFilterPartImpl <em>One Arg Function Filter Part</em>}' class.
@@ -1658,7 +1746,7 @@ public interface JavaqueryPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation NUMBER_FILTER_PART___APPLY = eINSTANCE.getNumberFilterPart__Apply();
+		EOperation NUMBER_FILTER_PART___APPLY__INTERIMRESULT = eINSTANCE.getNumberFilterPart__Apply__InterimResult();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.CountFilterElementImpl <em>Count Filter Element</em>}' class.

@@ -15,9 +15,9 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.CountFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.NumberFilterPart;
-import qualitypatternmodel.javaqueryoutput.ContainerInterim;
 import qualitypatternmodel.javaqueryoutput.FixedContainerInterim;
-import qualitypatternmodel.javaqueryoutput.InterimResultParam;
+import qualitypatternmodel.javaqueryoutput.InterimResult;
+import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.impl.FixedContainerInterimImpl;
 import qualitypatternmodel.operators.ComparisonOperator;
 
@@ -107,22 +107,22 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 	}
 
 	@Override
-	public Boolean apply() throws InvalidityException {
-		Double result1 = getSubfilter1().apply();
-		Double result2 = getSubfilter2().apply();
+	public Boolean apply(InterimResult parameter) throws InvalidityException {
+		Double result1 = getSubfilter1().apply(null);
+		Double result2 = getSubfilter2().apply(null);
 		return ComparisonOperator.evaluate(getOperator(), result1, result2);
 	}
 
 	@Override
-	public EList<InterimResultParam> getArguments() {
-		EList<InterimResultParam> result = new BasicEList<InterimResultParam>();
+	public EList<InterimResultPart> getArguments() {
+		EList<InterimResultPart> result = new BasicEList<InterimResultPart>();
 		result.add(getArgument());
 		return result;
 	}
 	
 	protected void updateArgument() {
-		ContainerInterim arg = getArgument();
-		EList<InterimResultParam> contained = arg.getContained();
+		FixedContainerInterim arg = getArgument();
+		EList<InterimResultPart> contained = arg.getContained();
 		contained.clear();
 		contained.addAll(getSubfilter1().getArguments());
 		contained.addAll(getSubfilter2().getArguments());
