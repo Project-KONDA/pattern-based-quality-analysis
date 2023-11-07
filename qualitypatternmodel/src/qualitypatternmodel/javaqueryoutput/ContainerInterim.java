@@ -14,4 +14,6 @@ package qualitypatternmodel.javaqueryoutput;
  */
 public interface ContainerInterim extends InterimResultPart {
 
+	Integer getSize();
+
 } // ContainerInterim

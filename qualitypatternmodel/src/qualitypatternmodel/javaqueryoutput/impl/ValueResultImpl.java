@@ -9,6 +9,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 import qualitypatternmodel.javaqueryoutput.ValueInterim;
 import qualitypatternmodel.javaqueryoutput.ValueResult;
@@ -153,6 +155,14 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 				return correspondsTo != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	@Override
+	public void setCorresponding(InterimResultPart corresponding) throws InvalidityException {
+		if (corresponding instanceof ValueInterimImpl)
+			setCorrespondsTo((ValueInterimImpl) corresponding);
+		else throw new InvalidityException(corresponding.getClass().getSimpleName() + "cannot be cast to ValueInterimImpl for ValueResultImpl");
+		
 	}
 
 } //ValueResultImpl

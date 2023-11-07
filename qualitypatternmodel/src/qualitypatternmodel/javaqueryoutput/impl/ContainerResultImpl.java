@@ -14,10 +14,15 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.ContainerInterim;
 import qualitypatternmodel.javaqueryoutput.ContainerResult;
+import qualitypatternmodel.javaqueryoutput.FixedContainerInterim;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
+import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
+import qualitypatternmodel.javaqueryoutput.VariableContainerInterim;
 
 /**
  * <!-- begin-user-doc -->
@@ -61,6 +66,28 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 	 */
 	protected ContainerResultImpl() {
 		super();
+	}
+	
+	@Override
+	public void setCorresponding(InterimResultPart corresponding) throws InvalidityException {
+		if (corresponding instanceof ContainerInterim) {
+			int size = ((ContainerInterim) corresponding).getSize();
+			if (size == -1) {
+				VariableContainerInterim container = (VariableContainerInterim) corresponding;
+				setCorrespondsTo(container);
+				for(InterimResult a: getSubresult())
+					a.setCorresponding(((VariableContainerInterim)container).getContained());
+			}	
+			else if (size == getSubresult().size()) {
+				FixedContainerInterim container = (FixedContainerInterim) corresponding;
+				setCorrespondsTo(container);
+				for(int i= 0; i<size;i++) {
+					getSubresult().get(i).setCorresponding(container.getContained().get(i));
+				}
+			}
+		}
+		throw new InvalidityException();
+		
 	}
 
 	/**

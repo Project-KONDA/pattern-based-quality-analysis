@@ -3,6 +3,7 @@
 package qualitypatternmodel.javaqueryoutput;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -149,13 +150,22 @@ public interface JavaqueryoutputPackage extends EPackage {
 	int CONTAINER_INTERIM_FEATURE_COUNT = INTERIM_RESULT_PART_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER_INTERIM___GET_SIZE = INTERIM_RESULT_PART_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Container Interim</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER_INTERIM_OPERATION_COUNT = INTERIM_RESULT_PART_OPERATION_COUNT + 0;
+	int CONTAINER_INTERIM_OPERATION_COUNT = INTERIM_RESULT_PART_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.javaqueryoutput.impl.ValueInterimImpl <em>Value Interim</em>}' class.
@@ -214,6 +224,15 @@ public interface JavaqueryoutputPackage extends EPackage {
 	int VARIABLE_CONTAINER_INTERIM_FEATURE_COUNT = CONTAINER_INTERIM_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Get Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_CONTAINER_INTERIM___GET_SIZE = CONTAINER_INTERIM___GET_SIZE;
+
+	/**
 	 * The number of operations of the '<em>Variable Container Interim</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -251,6 +270,15 @@ public interface JavaqueryoutputPackage extends EPackage {
 	int FIXED_CONTAINER_INTERIM_FEATURE_COUNT = CONTAINER_INTERIM_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Get Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIXED_CONTAINER_INTERIM___GET_SIZE = CONTAINER_INTERIM___GET_SIZE;
+
+	/**
 	 * The number of operations of the '<em>Fixed Container Interim</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -279,13 +307,22 @@ public interface JavaqueryoutputPackage extends EPackage {
 	int INTERIM_RESULT_FEATURE_COUNT = 0;
 
 	/**
+	 * The operation id for the '<em>Set Corresponding</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERIM_RESULT___SET_CORRESPONDING__INTERIMRESULTPART = 0;
+
+	/**
 	 * The number of operations of the '<em>Interim Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERIM_RESULT_OPERATION_COUNT = 0;
+	int INTERIM_RESULT_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.javaqueryoutput.impl.ContainerResultImpl <em>Container Result</em>}' class.
@@ -325,6 +362,15 @@ public interface JavaqueryoutputPackage extends EPackage {
 	int CONTAINER_RESULT_FEATURE_COUNT = INTERIM_RESULT_FEATURE_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Set Corresponding</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER_RESULT___SET_CORRESPONDING__INTERIMRESULTPART = INTERIM_RESULT___SET_CORRESPONDING__INTERIMRESULTPART;
+
+	/**
 	 * The number of operations of the '<em>Container Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -360,6 +406,15 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @ordered
 	 */
 	int VALUE_RESULT_FEATURE_COUNT = INTERIM_RESULT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Set Corresponding</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_RESULT___SET_CORRESPONDING__INTERIMRESULTPART = INTERIM_RESULT___SET_CORRESPONDING__INTERIMRESULTPART;
 
 	/**
 	 * The number of operations of the '<em>Value Result</em>' class.
@@ -423,6 +478,16 @@ public interface JavaqueryoutputPackage extends EPackage {
 	EClass getContainerInterim();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaqueryoutput.ContainerInterim#getSize() <em>Get Size</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Size</em>' operation.
+	 * @see qualitypatternmodel.javaqueryoutput.ContainerInterim#getSize()
+	 * @generated
+	 */
+	EOperation getContainerInterim__GetSize();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaqueryoutput.ValueInterim <em>Value Interim</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -483,6 +548,16 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getInterimResult();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaqueryoutput.InterimResult#setCorresponding(qualitypatternmodel.javaqueryoutput.InterimResultPart) <em>Set Corresponding</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Corresponding</em>' operation.
+	 * @see qualitypatternmodel.javaqueryoutput.InterimResult#setCorresponding(qualitypatternmodel.javaqueryoutput.InterimResultPart)
+	 * @generated
+	 */
+	EOperation getInterimResult__SetCorresponding__InterimResultPart();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaqueryoutput.ContainerResult <em>Container Result</em>}'.
@@ -607,6 +682,14 @@ public interface JavaqueryoutputPackage extends EPackage {
 		EClass CONTAINER_INTERIM = eINSTANCE.getContainerInterim();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Size</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONTAINER_INTERIM___GET_SIZE = eINSTANCE.getContainerInterim__GetSize();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaqueryoutput.impl.ValueInterimImpl <em>Value Interim</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -661,6 +744,14 @@ public interface JavaqueryoutputPackage extends EPackage {
 		 * @generated
 		 */
 		EClass INTERIM_RESULT = eINSTANCE.getInterimResult();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Corresponding</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INTERIM_RESULT___SET_CORRESPONDING__INTERIMRESULTPART = eINSTANCE.getInterimResult__SetCorresponding__InterimResultPart();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaqueryoutput.impl.ContainerResultImpl <em>Container Result</em>}' class.

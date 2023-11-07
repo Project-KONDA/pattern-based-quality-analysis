@@ -4,6 +4,8 @@ package qualitypatternmodel.javaqueryoutput;
 
 import org.eclipse.emf.ecore.EObject;
 
+import qualitypatternmodel.exceptions.InvalidityException;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Interim Result</b></em>'.
@@ -15,4 +17,12 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface InterimResult extends EObject {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	void setCorresponding(InterimResultPart corresponding) throws InvalidityException;
 } // InterimResult

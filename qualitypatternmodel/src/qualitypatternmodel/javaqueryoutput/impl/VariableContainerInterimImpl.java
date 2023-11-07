@@ -43,6 +43,11 @@ public class VariableContainerInterimImpl extends ContainerInterimImpl implement
 	public VariableContainerInterimImpl() {
 		super();
 	}
+		
+	@Override
+	public Integer getSize() {
+		return -1;
+	}
 	
 	@Override
 	public String toString(){
