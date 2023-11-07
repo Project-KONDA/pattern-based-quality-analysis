@@ -1545,7 +1545,9 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InterimResultPart" abstract="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="ContainerInterim" abstract="true"
-        eSuperTypes="#//javaqueryoutput/InterimResultPart"/>
+        eSuperTypes="#//javaqueryoutput/InterimResultPart">
+      <eOperations name="getSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ValueInterim" eSuperTypes="#//javaqueryoutput/InterimResultPart"/>
     <eClassifiers xsi:type="ecore:EClass" name="VariableContainerInterim" eSuperTypes="#//javaqueryoutput/ContainerInterim">
       <eStructuralFeatures xsi:type="ecore:EReference" name="contained" lowerBound="1"
@@ -1555,7 +1557,11 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="contained" lowerBound="1"
           upperBound="-1" eType="#//javaqueryoutput/InterimResultPart" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="InterimResult" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="InterimResult" abstract="true">
+      <eOperations name="setCorresponding" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="corresponding" eType="#//javaqueryoutput/InterimResultPart"/>
+      </eOperations>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ContainerResult" eSuperTypes="#//javaqueryoutput/InterimResult">
       <eStructuralFeatures xsi:type="ecore:EReference" name="correspondsTo" eType="#//javaqueryoutput/ContainerInterim"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="subresult" upperBound="-1"

@@ -3,6 +3,7 @@
 package qualitypatternmodel.javaqueryoutput.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -294,6 +295,16 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 	 * @generated
 	 */
 	@Override
+	public EOperation getContainerInterim__GetSize() {
+		return containerInterimEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getValueInterim() {
 		return valueInterimEClass;
 	}
@@ -346,6 +357,16 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 	@Override
 	public EClass getInterimResult() {
 		return interimResultEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getInterimResult__SetCorresponding__InterimResultPart() {
+		return interimResultEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -434,6 +455,7 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		interimResultPartEClass = createEClass(INTERIM_RESULT_PART);
 
 		containerInterimEClass = createEClass(CONTAINER_INTERIM);
+		createEOperation(containerInterimEClass, CONTAINER_INTERIM___GET_SIZE);
 
 		valueInterimEClass = createEClass(VALUE_INTERIM);
 
@@ -444,6 +466,7 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		createEReference(fixedContainerInterimEClass, FIXED_CONTAINER_INTERIM__CONTAINED);
 
 		interimResultEClass = createEClass(INTERIM_RESULT);
+		createEOperation(interimResultEClass, INTERIM_RESULT___SET_CORRESPONDING__INTERIMRESULTPART);
 
 		containerResultEClass = createEClass(CONTAINER_RESULT);
 		createEReference(containerResultEClass, CONTAINER_RESULT__CORRESPONDS_TO);
@@ -476,6 +499,9 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		PatternstructurePackage thePatternstructurePackage = (PatternstructurePackage)EPackage.Registry.INSTANCE.getEPackage(PatternstructurePackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -497,6 +523,8 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 
 		initEClass(containerInterimEClass, ContainerInterim.class, "ContainerInterim", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEOperation(getContainerInterim__GetSize(), ecorePackage.getEIntegerObject(), "getSize", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(valueInterimEClass, ValueInterim.class, "ValueInterim", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(variableContainerInterimEClass, VariableContainerInterim.class, "VariableContainerInterim", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -506,6 +534,10 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		initEReference(getFixedContainerInterim_Contained(), this.getInterimResultPart(), null, "contained", null, 1, -1, FixedContainerInterim.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(interimResultEClass, InterimResult.class, "InterimResult", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		EOperation op = initEOperation(getInterimResult__SetCorresponding__InterimResultPart(), null, "setCorresponding", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getInterimResultPart(), "corresponding", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(containerResultEClass, ContainerResult.class, "ContainerResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getContainerResult_CorrespondsTo(), this.getContainerInterim(), null, "correspondsTo", null, 0, 1, ContainerResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -14,9 +14,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.ContainerInterim;
 import qualitypatternmodel.javaqueryoutput.ContainerResult;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
+import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 
 /**
@@ -61,6 +64,18 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 	 */
 	protected ContainerResultImpl() {
 		super();
+	}
+	
+
+	@Override
+	public void setCorresponding(InterimResultPart corresponding) throws InvalidityException {
+		if (corresponding instanceof ContainerInterim) {
+			ContainerInterim container = (ContainerInterim) corresponding;
+			int size = container.getSize();
+			if (size == -1 || size == getSubresult().size())
+				setCorrespondsTo(container);
+		}
+		throw new InvalidityException();
 	}
 
 	/**

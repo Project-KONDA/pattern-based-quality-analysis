@@ -1270,7 +1270,9 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/InterimResultStructure/record"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultPart"/>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/ContainerInterim"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/ContainerInterim">
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaqueryoutput/ContainerInterim/getSize"/>
+      </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/ValueInterim"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/VariableContainerInterim">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -1279,7 +1281,11 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/FixedContainerInterim">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/FixedContainerInterim/contained"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/InterimResult"/>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/InterimResult">
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaqueryoutput/InterimResult/setCorresponding">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaqueryoutput/InterimResult/setCorresponding/corresponding"/>
+        </genOperations>
+      </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/ContainerResult">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/ContainerResult/correspondsTo"/>

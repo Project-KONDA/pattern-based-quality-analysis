@@ -53,6 +53,11 @@ public class FixedContainerInterimImpl extends ContainerInterimImpl implements F
 		getContained().clear();
 		getContained().addAll(interims);
 	}
+	
+	@Override
+	public Integer getSize() {
+		return getContained().size();
+	}
 
 	@Override
 	public String toString(){
