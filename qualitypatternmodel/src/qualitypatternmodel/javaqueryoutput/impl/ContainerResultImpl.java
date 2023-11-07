@@ -87,7 +87,6 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 			}
 		}
 		throw new InvalidityException();
-		
 	}
 
 	/**
