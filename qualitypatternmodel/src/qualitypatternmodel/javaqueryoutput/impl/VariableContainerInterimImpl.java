@@ -46,7 +46,7 @@ public class VariableContainerInterimImpl extends ContainerInterimImpl implement
 	
 	@Override
 	public String toString(){
-		return "<container " + getInterimPartId() + " " + getContained().toString() + ">";
+		return "<containerV " + getInterimPartId() + " " + getContained().toString() + ">";
 	}
 	
 	

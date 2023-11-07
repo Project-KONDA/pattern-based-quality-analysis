@@ -63,7 +63,7 @@ public class FixedContainerInterimImpl extends ContainerInterimImpl implements F
 				containedString += ", ";
 			containedString += getContained().get(i); 
 		}
-		return "<container " + getInterimPartId() + " " + containedString + ">";
+		return "<containerF " + getInterimPartId() + " " + containedString + ">";
 	}
 
 	/**
