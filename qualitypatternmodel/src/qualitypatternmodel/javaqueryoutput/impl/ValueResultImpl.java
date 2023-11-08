@@ -24,6 +24,7 @@ import qualitypatternmodel.javaqueryoutput.ValueResult;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.javaqueryoutput.impl.ValueResultImpl#getCorrespondsTo <em>Corresponds To</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaqueryoutput.impl.ValueResultImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -38,6 +39,25 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 	 * @ordered
 	 */
 	protected ValueInterim correspondsTo;
+
+	/**
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VALUE_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected String value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -104,11 +124,36 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 	 * @generated
 	 */
 	@Override
+	public String getValue() {
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setValue(String newValue) {
+		String oldValue = value;
+		value = newValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryoutputPackage.VALUE_RESULT__VALUE, oldValue, value));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case JavaqueryoutputPackage.VALUE_RESULT__CORRESPONDS_TO:
 				if (resolve) return getCorrespondsTo();
 				return basicGetCorrespondsTo();
+			case JavaqueryoutputPackage.VALUE_RESULT__VALUE:
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -123,6 +168,9 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 		switch (featureID) {
 			case JavaqueryoutputPackage.VALUE_RESULT__CORRESPONDS_TO:
 				setCorrespondsTo((ValueInterim)newValue);
+				return;
+			case JavaqueryoutputPackage.VALUE_RESULT__VALUE:
+				setValue((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -139,6 +187,9 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 			case JavaqueryoutputPackage.VALUE_RESULT__CORRESPONDS_TO:
 				setCorrespondsTo((ValueInterim)null);
 				return;
+			case JavaqueryoutputPackage.VALUE_RESULT__VALUE:
+				setValue(VALUE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -153,8 +204,26 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 		switch (featureID) {
 			case JavaqueryoutputPackage.VALUE_RESULT__CORRESPONDS_TO:
 				return correspondsTo != null;
+			case JavaqueryoutputPackage.VALUE_RESULT__VALUE:
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (value: ");
+		result.append(value);
+		result.append(')');
+		return result.toString();
 	}
 
 	@Override

@@ -2,10 +2,13 @@
  */
 package qualitypatternmodel.javaquery;
 
-import java.util.List;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import qualitypatternmodel.javaqueryoutput.InterimResult;
+
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.javaqueryoutput.ContainerResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
+import qualitypatternmodel.patternstructure.Language;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,6 +22,8 @@ import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
  *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#getFilter <em>Filter</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#getStructure <em>Structure</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#getInterimResult <em>Interim Result</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#getQuery <em>Query</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#getLanguage <em>Language</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.javaquery.JavaqueryPackage#getJavaFilter()
@@ -75,12 +80,12 @@ public interface JavaFilter extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Interim Result</em>' reference.
-	 * @see #setInterimResult(InterimResult)
+	 * @see #setInterimResult(ContainerResult)
 	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getJavaFilter_InterimResult()
 	 * @model
 	 * @generated
 	 */
-	InterimResult getInterimResult();
+	ContainerResult getInterimResult();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.javaquery.JavaFilter#getInterimResult <em>Interim Result</em>}' reference.
@@ -90,14 +95,61 @@ public interface JavaFilter extends EObject {
 	 * @see #getInterimResult()
 	 * @generated
 	 */
-	void setInterimResult(InterimResult value);
+	void setInterimResult(ContainerResult value);
+
+	/**
+	 * Returns the value of the '<em><b>Query</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Query</em>' attribute.
+	 * @see #setQuery(String)
+	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getJavaFilter_Query()
+	 * @model
+	 * @generated
+	 */
+	String getQuery();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.javaquery.JavaFilter#getQuery <em>Query</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Query</em>' attribute.
+	 * @see #getQuery()
+	 * @generated
+	 */
+	void setQuery(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Language</b></em>' attribute.
+	 * The literals are from the enumeration {@link qualitypatternmodel.patternstructure.Language}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Language</em>' attribute.
+	 * @see qualitypatternmodel.patternstructure.Language
+	 * @see #setLanguage(Language)
+	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getJavaFilter_Language()
+	 * @model
+	 * @generated
+	 */
+	Language getLanguage();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.javaquery.JavaFilter#getLanguage <em>Language</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Language</em>' attribute.
+	 * @see qualitypatternmodel.patternstructure.Language
+	 * @see #getLanguage()
+	 * @generated
+	 */
+	void setLanguage(Language value);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model param1DataType="qualitypatternmodel.javaquery.StringListWrapper"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	String filterXQueryResults(List<Object> param1);
+	EList<String> filterQueryResults() throws InvalidityException;
 
 } // JavaFilter

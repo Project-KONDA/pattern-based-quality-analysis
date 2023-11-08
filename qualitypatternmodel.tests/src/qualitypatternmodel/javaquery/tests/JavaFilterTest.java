@@ -16,7 +16,7 @@ import qualitypatternmodel.javaquery.JavaqueryFactory;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#filterXQueryResults(java.util.List) <em>Filter XQuery Results</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#filterQueryResults() <em>Filter Query Results</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -93,13 +93,13 @@ public class JavaFilterTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.javaquery.JavaFilter#filterXQueryResults(java.util.List) <em>Filter XQuery Results</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.javaquery.JavaFilter#filterQueryResults() <em>Filter Query Results</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.javaquery.JavaFilter#filterXQueryResults(java.util.List)
+	 * @see qualitypatternmodel.javaquery.JavaFilter#filterQueryResults()
 	 * @generated
 	 */
-	public void testFilterXQueryResults__List() {
+	public void testFilterQueryResults() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

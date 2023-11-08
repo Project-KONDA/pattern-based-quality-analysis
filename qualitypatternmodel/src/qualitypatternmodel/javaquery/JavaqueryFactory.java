@@ -67,15 +67,6 @@ public interface JavaqueryFactory extends EFactory {
 	ListFilterPart createListFilterPart();
 
 	/**
-	 * Returns a new object of class '<em>Two Arg Function Filter Part</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Two Arg Function Filter Part</em>'.
-	 * @generated
-	 */
-	TwoArgFunctionFilterPart createTwoArgFunctionFilterPart();
-
-	/**
 	 * Returns a new object of class '<em>Not Filter Part</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

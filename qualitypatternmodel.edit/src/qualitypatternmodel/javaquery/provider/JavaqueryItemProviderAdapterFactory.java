@@ -187,29 +187,6 @@ public class JavaqueryItemProviderAdapterFactory extends JavaqueryAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TwoArgFunctionFilterPartItemProvider twoArgFunctionFilterPartItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTwoArgFunctionFilterPartAdapter() {
-		if (twoArgFunctionFilterPartItemProvider == null) {
-			twoArgFunctionFilterPartItemProvider = new TwoArgFunctionFilterPartItemProvider(this);
-		}
-
-		return twoArgFunctionFilterPartItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaquery.NotFilterPart} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -434,7 +411,6 @@ public class JavaqueryItemProviderAdapterFactory extends JavaqueryAdapterFactory
 		if (booleanFilterElementItemProvider != null) booleanFilterElementItemProvider.dispose();
 		if (oneArgFunctionFilterPartItemProvider != null) oneArgFunctionFilterPartItemProvider.dispose();
 		if (listFilterPartItemProvider != null) listFilterPartItemProvider.dispose();
-		if (twoArgFunctionFilterPartItemProvider != null) twoArgFunctionFilterPartItemProvider.dispose();
 		if (notFilterPartItemProvider != null) notFilterPartItemProvider.dispose();
 		if (countFilterPartItemProvider != null) countFilterPartItemProvider.dispose();
 		if (countFilterElementItemProvider != null) countFilterElementItemProvider.dispose();

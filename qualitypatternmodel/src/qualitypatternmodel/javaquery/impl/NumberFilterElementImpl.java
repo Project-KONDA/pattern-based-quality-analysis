@@ -9,11 +9,14 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.NumberFilterElement;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.ValueInterim;
+import qualitypatternmodel.javaqueryoutput.ValueResult;
 import qualitypatternmodel.javaqueryoutput.impl.ValueInterimImpl;
 
 /**
@@ -51,7 +54,17 @@ public class NumberFilterElementImpl extends NumberFilterPartImpl implements Num
 	}
 	
 	@Override
-	public Double apply(InterimResult parameter) {return null;};
+	public Double apply(InterimResult parameter) throws InvalidityException{
+		assert(parameter instanceof ValueResult);
+		String value = ((ValueResult) parameter).getValue();
+		Double result;
+		try {
+			result = Double.parseDouble(value);
+		} catch (Exception e) {
+			throw new InvalidityException(e.getMessage());
+		}
+		return result;
+	};
 
 	@Override
 	public EList<InterimResultPart> getArguments() {

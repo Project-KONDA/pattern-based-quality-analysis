@@ -96,22 +96,40 @@ public interface JavaqueryPackage extends EPackage {
 	int JAVA_FILTER__INTERIM_RESULT = 2;
 
 	/**
+	 * The feature id for the '<em><b>Query</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_FILTER__QUERY = 3;
+
+	/**
+	 * The feature id for the '<em><b>Language</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_FILTER__LANGUAGE = 4;
+
+	/**
 	 * The number of structural features of the '<em>Java Filter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_FILTER_FEATURE_COUNT = 3;
+	int JAVA_FILTER_FEATURE_COUNT = 5;
 
 	/**
-	 * The operation id for the '<em>Filter XQuery Results</em>' operation.
+	 * The operation id for the '<em>Filter Query Results</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_FILTER___FILTER_XQUERY_RESULTS__LIST = 0;
+	int JAVA_FILTER___FILTER_QUERY_RESULTS = 0;
 
 	/**
 	 * The number of operations of the '<em>Java Filter</em>' class.
@@ -967,14 +985,36 @@ public interface JavaqueryPackage extends EPackage {
 	EReference getJavaFilter_InterimResult();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilter#filterXQueryResults(java.util.List) <em>Filter XQuery Results</em>}' operation.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.javaquery.JavaFilter#getQuery <em>Query</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Filter XQuery Results</em>' operation.
-	 * @see qualitypatternmodel.javaquery.JavaFilter#filterXQueryResults(java.util.List)
+	 * @return the meta object for the attribute '<em>Query</em>'.
+	 * @see qualitypatternmodel.javaquery.JavaFilter#getQuery()
+	 * @see #getJavaFilter()
 	 * @generated
 	 */
-	EOperation getJavaFilter__FilterXQueryResults__List();
+	EAttribute getJavaFilter_Query();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.javaquery.JavaFilter#getLanguage <em>Language</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Language</em>'.
+	 * @see qualitypatternmodel.javaquery.JavaFilter#getLanguage()
+	 * @see #getJavaFilter()
+	 * @generated
+	 */
+	EAttribute getJavaFilter_Language();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilter#filterQueryResults() <em>Filter Query Results</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Filter Query Results</em>' operation.
+	 * @see qualitypatternmodel.javaquery.JavaFilter#filterQueryResults()
+	 * @generated
+	 */
+	EOperation getJavaFilter__FilterQueryResults();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.JavaFilterPart <em>Java Filter Part</em>}'.
@@ -1445,12 +1485,28 @@ public interface JavaqueryPackage extends EPackage {
 		EReference JAVA_FILTER__INTERIM_RESULT = eINSTANCE.getJavaFilter_InterimResult();
 
 		/**
-		 * The meta object literal for the '<em><b>Filter XQuery Results</b></em>' operation.
+		 * The meta object literal for the '<em><b>Query</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation JAVA_FILTER___FILTER_XQUERY_RESULTS__LIST = eINSTANCE.getJavaFilter__FilterXQueryResults__List();
+		EAttribute JAVA_FILTER__QUERY = eINSTANCE.getJavaFilter_Query();
+
+		/**
+		 * The meta object literal for the '<em><b>Language</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JAVA_FILTER__LANGUAGE = eINSTANCE.getJavaFilter_Language();
+
+		/**
+		 * The meta object literal for the '<em><b>Filter Query Results</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JAVA_FILTER___FILTER_QUERY_RESULTS = eINSTANCE.getJavaFilter__FilterQueryResults();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.JavaFilterPartImpl <em>Java Filter Part</em>}' class.

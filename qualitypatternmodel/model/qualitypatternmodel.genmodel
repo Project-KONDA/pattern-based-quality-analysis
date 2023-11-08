@@ -1190,9 +1190,9 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaquery/JavaFilter/structure"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaquery/JavaFilter/interimResult"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaquery/JavaFilter/filterXQueryResults">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaquery/JavaFilter/filterXQueryResults/param1"/>
-        </genOperations>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaquery/JavaFilter/query"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaquery/JavaFilter/language"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaquery/JavaFilter/filterQueryResults"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaquery/BooleanFilterPart">
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaquery/BooleanFilterPart/apply">
@@ -1294,6 +1294,7 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/ValueResult">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/ValueResult/correspondsTo"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaqueryoutput/ValueResult/value"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

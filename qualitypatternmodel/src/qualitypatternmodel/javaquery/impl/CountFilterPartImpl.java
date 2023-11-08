@@ -15,6 +15,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.CountFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.NumberFilterPart;
+import qualitypatternmodel.javaqueryoutput.ContainerResult;
 import qualitypatternmodel.javaqueryoutput.FixedContainerInterim;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
@@ -108,8 +109,11 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 
 	@Override
 	public Boolean apply(InterimResult parameter) throws InvalidityException {
-		Double result1 = getSubfilter1().apply(null);
-		Double result2 = getSubfilter2().apply(null);
+		assert(parameter instanceof ContainerResult);
+		InterimResult argument1 = ((ContainerResult)parameter).getSubresult().get(0);
+		InterimResult argument2 = ((ContainerResult)parameter).getSubresult().get(1);
+		Double result1 = getSubfilter1().apply(argument1);
+		Double result2 = getSubfilter2().apply(argument2);
 		return ComparisonOperator.evaluate(getOperator(), result1, result2);
 	}
 

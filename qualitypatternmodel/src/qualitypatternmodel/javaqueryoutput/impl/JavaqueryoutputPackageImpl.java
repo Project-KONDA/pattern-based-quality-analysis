@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.javaqueryoutput.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -425,6 +426,16 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 	 * @generated
 	 */
 	@Override
+	public EAttribute getValueResult_Value() {
+		return (EAttribute)valueResultEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public JavaqueryoutputFactory getJavaqueryoutputFactory() {
 		return (JavaqueryoutputFactory)getEFactoryInstance();
 	}
@@ -474,6 +485,7 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 
 		valueResultEClass = createEClass(VALUE_RESULT);
 		createEReference(valueResultEClass, VALUE_RESULT__CORRESPONDS_TO);
+		createEAttribute(valueResultEClass, VALUE_RESULT__VALUE);
 	}
 
 	/**
@@ -545,6 +557,7 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 
 		initEClass(valueResultEClass, ValueResult.class, "ValueResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getValueResult_CorrespondsTo(), this.getValueInterim(), null, "correspondsTo", null, 0, 1, ValueResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getValueResult_Value(), ecorePackage.getEString(), "value", null, 0, 1, ValueResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

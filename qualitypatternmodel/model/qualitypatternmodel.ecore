@@ -1445,14 +1445,15 @@
   </eSubpackages>
   <eSubpackages name="javaquery" nsURI="javaquery" nsPrefix="javaquery">
     <eClassifiers xsi:type="ecore:EClass" name="JavaFilter">
-      <eOperations name="filterXQueryResults" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-        <eParameters name="param1" eType="#//javaquery/StringListWrapper"/>
-      </eOperations>
+      <eOperations name="filterQueryResults" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="filter" eType="#//javaquery/BooleanFilterPart"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="structure" lowerBound="1"
           eType="#//javaqueryoutput/InterimResultStructure" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="interimResult" eType="#//javaqueryoutput/InterimResult"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="interimResult" eType="#//javaqueryoutput/ContainerResult"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="query" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="language" eType="#//patternstructure/Language"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BooleanFilterPart" abstract="true"
         eSuperTypes="#//javaquery/JavaFilterPart">
@@ -1488,7 +1489,8 @@
           eType="#//javaqueryoutput/VariableContainerInterim"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier" eType="#//patternstructure/Quantifier"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TwoArgFunctionFilterPart" eSuperTypes="#//javaquery/BooleanFilterPart">
+    <eClassifiers xsi:type="ecore:EClass" name="TwoArgFunctionFilterPart" abstract="true"
+        eSuperTypes="#//javaquery/BooleanFilterPart">
       <eOperations name="apply" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
         <eParameters name="param1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eParameters name="param2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -1569,6 +1571,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ValueResult" eSuperTypes="#//javaqueryoutput/InterimResult">
       <eStructuralFeatures xsi:type="ecore:EReference" name="correspondsTo" eType="#//javaqueryoutput/ValueInterim"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

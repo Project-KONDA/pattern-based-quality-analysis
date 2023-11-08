@@ -11,9 +11,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.FormulaFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
+import qualitypatternmodel.javaqueryoutput.ContainerResult;
 import qualitypatternmodel.javaqueryoutput.FixedContainerInterim;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
@@ -107,8 +109,14 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 	}
 	
 	@Override
-	public Boolean apply(InterimResult parameter) {
-		return true;
+	public Boolean apply(InterimResult parameter) throws InvalidityException {
+		assert(parameter instanceof ContainerResult);
+		ContainerResult param = (ContainerResult) parameter;
+		InterimResult argument1 = param.getSubresult().get(0);
+		InterimResult argument2 = param.getSubresult().get(1);
+		Boolean result1 = getSubfilter1().apply(argument1);
+		Boolean result2 = getSubfilter2().apply(argument2);
+		return LogicalOperator.evaluate(getOperator(), result1, result2);
 	};
 
 	@Override

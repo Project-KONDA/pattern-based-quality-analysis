@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.javaqueryoutput;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -399,13 +400,22 @@ public interface JavaqueryoutputPackage extends EPackage {
 	int VALUE_RESULT__CORRESPONDS_TO = INTERIM_RESULT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_RESULT__VALUE = INTERIM_RESULT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Value Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_RESULT_FEATURE_COUNT = INTERIM_RESULT_FEATURE_COUNT + 1;
+	int VALUE_RESULT_FEATURE_COUNT = INTERIM_RESULT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Set Corresponding</em>' operation.
@@ -613,6 +623,17 @@ public interface JavaqueryoutputPackage extends EPackage {
 	EReference getValueResult_CorrespondsTo();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.javaqueryoutput.ValueResult#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see qualitypatternmodel.javaqueryoutput.ValueResult#getValue()
+	 * @see #getValueResult()
+	 * @generated
+	 */
+	EAttribute getValueResult_Value();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -796,6 +817,14 @@ public interface JavaqueryoutputPackage extends EPackage {
 		 * @generated
 		 */
 		EReference VALUE_RESULT__CORRESPONDS_TO = eINSTANCE.getValueResult_CorrespondsTo();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VALUE_RESULT__VALUE = eINSTANCE.getValueResult_Value();
 
 	}
 

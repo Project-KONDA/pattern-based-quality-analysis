@@ -63,7 +63,6 @@ public class JavaqueryFactoryImpl extends EFactoryImpl implements JavaqueryFacto
 			case JavaqueryPackage.BOOLEAN_FILTER_ELEMENT: return createBooleanFilterElement();
 			case JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART: return createOneArgFunctionFilterPart();
 			case JavaqueryPackage.LIST_FILTER_PART: return createListFilterPart();
-			case JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART: return createTwoArgFunctionFilterPart();
 			case JavaqueryPackage.NOT_FILTER_PART: return createNotFilterPart();
 			case JavaqueryPackage.COUNT_FILTER_PART: return createCountFilterPart();
 			case JavaqueryPackage.COUNT_FILTER_ELEMENT: return createCountFilterElement();
@@ -157,17 +156,6 @@ public class JavaqueryFactoryImpl extends EFactoryImpl implements JavaqueryFacto
 	public ListFilterPart createListFilterPart() {
 		ListFilterPartImpl listFilterPart = new ListFilterPartImpl();
 		return listFilterPart;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public TwoArgFunctionFilterPart createTwoArgFunctionFilterPart() {
-		TwoArgFunctionFilterPartImpl twoArgFunctionFilterPart = new TwoArgFunctionFilterPartImpl();
-		return twoArgFunctionFilterPart;
 	}
 
 	/**

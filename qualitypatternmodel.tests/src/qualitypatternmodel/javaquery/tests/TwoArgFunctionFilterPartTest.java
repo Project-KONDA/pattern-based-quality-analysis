@@ -2,9 +2,6 @@
  */
 package qualitypatternmodel.javaquery.tests;
 
-import junit.textui.TestRunner;
-
-import qualitypatternmodel.javaquery.JavaqueryFactory;
 import qualitypatternmodel.javaquery.TwoArgFunctionFilterPart;
 
 /**
@@ -19,16 +16,7 @@ import qualitypatternmodel.javaquery.TwoArgFunctionFilterPart;
  * </p>
  * @generated
  */
-public class TwoArgFunctionFilterPartTest extends BooleanFilterPartTest {
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static void main(String[] args) {
-		TestRunner.run(TwoArgFunctionFilterPartTest.class);
-	}
+public abstract class TwoArgFunctionFilterPartTest extends BooleanFilterPartTest {
 
 	/**
 	 * Constructs a new Two Arg Function Filter Part test case with the given name.
@@ -49,28 +37,6 @@ public class TwoArgFunctionFilterPartTest extends BooleanFilterPartTest {
 	@Override
 	protected TwoArgFunctionFilterPart getFixture() {
 		return (TwoArgFunctionFilterPart)fixture;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(JavaqueryFactory.eINSTANCE.createTwoArgFunctionFilterPart());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
 	}
 
 	/**

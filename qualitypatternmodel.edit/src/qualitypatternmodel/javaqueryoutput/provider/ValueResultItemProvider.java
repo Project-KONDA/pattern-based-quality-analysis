@@ -12,7 +12,10 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
+import qualitypatternmodel.javaqueryoutput.ValueResult;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.javaqueryoutput.ValueResult} object.
@@ -43,6 +46,7 @@ public class ValueResultItemProvider extends InterimResultItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addCorrespondsToPropertyDescriptor(object);
+			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -70,6 +74,28 @@ public class ValueResultItemProvider extends InterimResultItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ValueResult_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ValueResult_value_feature", "_UI_ValueResult_type"),
+				 JavaqueryoutputPackage.Literals.VALUE_RESULT__VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns ValueResult.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -88,7 +114,10 @@ public class ValueResultItemProvider extends InterimResultItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ValueResult_type");
+		String label = ((ValueResult)object).getValue();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ValueResult_type") :
+			getString("_UI_ValueResult_type") + " " + label;
 	}
 
 
@@ -102,6 +131,12 @@ public class ValueResultItemProvider extends InterimResultItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(ValueResult.class)) {
+			case JavaqueryoutputPackage.VALUE_RESULT__VALUE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

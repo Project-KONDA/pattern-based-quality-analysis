@@ -16,6 +16,7 @@ import qualitypatternmodel.javaquery.OneArgFunctionFilterPart;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.ValueInterim;
+import qualitypatternmodel.javaqueryoutput.ValueResult;
 import qualitypatternmodel.javaqueryoutput.impl.ValueInterimImpl;
 
 /**
@@ -67,7 +68,12 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	}
 	
 	@Override
-	public Boolean apply(InterimResult parameter) {return true;};
+	public Boolean apply(InterimResult parameter) {
+		assert(parameter instanceof ValueResult);
+		String value = ((ValueResult) parameter).getValue();
+		return function.evaluate(value);
+		
+	};
 
 	@Override
 	public EList<InterimResultPart> getArguments() {

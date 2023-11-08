@@ -15,6 +15,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.ListFilterPart;
+import qualitypatternmodel.javaqueryoutput.ContainerResult;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.VariableContainerInterim;
@@ -95,7 +96,17 @@ public class ListFilterPartImpl extends BooleanFilterPartImpl implements ListFil
 	}
 	
 	@Override
-	public Boolean apply(InterimResult parameter) {return true;};
+	public Boolean apply(InterimResult parameter) throws InvalidityException {
+		ContainerResult container = (ContainerResult) parameter;
+		for(InterimResult argument: container.getSubresult()) {
+			Boolean arg = getSubfilter().apply(argument);
+			if (arg && getQuantifier() == Quantifier.EXISTS)
+				return true;
+			if (!arg && getQuantifier() == Quantifier.FORALL)
+				return false;
+		}
+		return getQuantifier() == Quantifier.FORALL;
+	};
 
 	@Override
 	public EList<InterimResultPart> getArguments() {

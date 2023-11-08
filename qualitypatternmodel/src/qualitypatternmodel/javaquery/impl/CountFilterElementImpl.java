@@ -15,6 +15,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.CountFilterElement;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
+import qualitypatternmodel.javaqueryoutput.ContainerResult;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.VariableContainerInterim;
@@ -72,7 +73,17 @@ public class CountFilterElementImpl extends NumberFilterPartImpl implements Coun
 	}
 	
 	@Override
-	public Double apply(InterimResult parameter) {return null;};
+	public Double apply(InterimResult parameter) throws InvalidityException {
+		assert (parameter instanceof ContainerResult);
+		ContainerResult param = (ContainerResult) parameter;
+		EList<InterimResult> arguments = param.getSubresult();
+		int i = 0;
+		for (InterimResult argument: arguments)
+			if (getSubfilter().apply(argument))
+				i++;
+		return (double) i;
+		
+	};
 
 	@Override
 	public EList<InterimResultPart> getArguments() {

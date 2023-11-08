@@ -275,5 +275,21 @@ public enum LogicalOperator implements Enumerator {
 	public String toString() {
 		return literal;
 	}
+
+	public static Boolean evaluate(LogicalOperator operator, Boolean result1, Boolean result2) {
+		switch (operator) {
+			case AND: 
+				return (result1 && result2);
+			case OR: 
+				return (result1 || result2);
+			case IMPLIES: 
+				return (!result1 || result2);
+			case XOR: 
+				return (result1 != result2);
+			case EQUAL:
+				return (result1 == result2);
+		}
+		return false;
+	}
 	
 } //LogicalOperator

@@ -180,11 +180,6 @@ public class CountFilterElementItemProvider extends NumberFilterPartItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(JavaqueryPackage.Literals.COUNT_FILTER_ELEMENT__SUBFILTER,
-				 JavaqueryFactory.eINSTANCE.createTwoArgFunctionFilterPart()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaqueryPackage.Literals.COUNT_FILTER_ELEMENT__SUBFILTER,
 				 JavaqueryFactory.eINSTANCE.createNotFilterPart()));
 
 		newChildDescriptors.add

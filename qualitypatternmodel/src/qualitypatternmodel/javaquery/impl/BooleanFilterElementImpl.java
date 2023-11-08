@@ -15,6 +15,7 @@ import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.ValueInterim;
+import qualitypatternmodel.javaqueryoutput.ValueResult;
 import qualitypatternmodel.javaqueryoutput.impl.ValueInterimImpl;
 
 /**
@@ -52,7 +53,11 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 	}
 	
 	@Override
-	public Boolean apply(InterimResult parameter) {return true;};
+	public Boolean apply(InterimResult parameter) {
+		assert(parameter instanceof ValueResult);
+		String value = ((ValueResult) parameter).getValue();
+		return value.contains("true");
+	};
 
 	@Override
 	public EList<InterimResultPart> getArguments() {

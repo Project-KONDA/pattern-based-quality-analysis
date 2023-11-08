@@ -20,6 +20,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -66,6 +67,8 @@ public class JavaFilterItemProvider
 			super.getPropertyDescriptors(object);
 
 			addInterimResultPropertyDescriptor(object);
+			addQueryPropertyDescriptor(object);
+			addLanguagePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -88,6 +91,50 @@ public class JavaFilterItemProvider
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Query feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addQueryPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JavaFilter_query_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JavaFilter_query_feature", "_UI_JavaFilter_type"),
+				 JavaqueryPackage.Literals.JAVA_FILTER__QUERY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Language feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLanguagePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JavaFilter_language_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JavaFilter_language_feature", "_UI_JavaFilter_type"),
+				 JavaqueryPackage.Literals.JAVA_FILTER__LANGUAGE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -142,7 +189,10 @@ public class JavaFilterItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_JavaFilter_type");
+		String label = ((JavaFilter)object).getQuery();
+		return label == null || label.length() == 0 ?
+			getString("_UI_JavaFilter_type") :
+			getString("_UI_JavaFilter_type") + " " + label;
 	}
 
 
@@ -158,6 +208,10 @@ public class JavaFilterItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(JavaFilter.class)) {
+			case JavaqueryPackage.JAVA_FILTER__QUERY:
+			case JavaqueryPackage.JAVA_FILTER__LANGUAGE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case JavaqueryPackage.JAVA_FILTER__FILTER:
 			case JavaqueryPackage.JAVA_FILTER__STRUCTURE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -196,11 +250,6 @@ public class JavaFilterItemProvider
 			(createChildParameter
 				(JavaqueryPackage.Literals.JAVA_FILTER__FILTER,
 				 JavaqueryFactory.eINSTANCE.createListFilterPart()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JavaqueryPackage.Literals.JAVA_FILTER__FILTER,
-				 JavaqueryFactory.eINSTANCE.createTwoArgFunctionFilterPart()));
 
 		newChildDescriptors.add
 			(createChildParameter

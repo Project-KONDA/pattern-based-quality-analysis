@@ -18,7 +18,7 @@ import qualitypatternmodel.javaqueryoutput.ValueInterim;
  * </ul>
  *
  * @see qualitypatternmodel.javaquery.JavaqueryPackage#getTwoArgFunctionFilterPart()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface TwoArgFunctionFilterPart extends BooleanFilterPart {

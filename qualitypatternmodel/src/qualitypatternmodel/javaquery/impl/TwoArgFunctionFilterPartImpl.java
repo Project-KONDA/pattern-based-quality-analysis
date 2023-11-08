@@ -31,7 +31,7 @@ import qualitypatternmodel.javaqueryoutput.impl.ValueInterimImpl;
  *
  * @generated
  */
-public class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl implements TwoArgFunctionFilterPart {	
+public abstract class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl implements TwoArgFunctionFilterPart {	
 	
 	protected Function function;
 	
@@ -78,7 +78,7 @@ public class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	}
 	
 	@Override
-	public Boolean apply(InterimResult parameter) {return true;};
+	abstract public Boolean apply(InterimResult parameter);
 
 	@Override
 	public EList<InterimResultPart> getArguments() {

@@ -52,7 +52,7 @@ public class NotFilterPartImpl extends BooleanFilterPartImpl implements NotFilte
 	
 	@Override
 	public Boolean apply(InterimResult parameter) throws InvalidityException {
-		return !getSubfilter().apply(null);
+		return !getSubfilter().apply(parameter);
 	};
 
 	@Override
