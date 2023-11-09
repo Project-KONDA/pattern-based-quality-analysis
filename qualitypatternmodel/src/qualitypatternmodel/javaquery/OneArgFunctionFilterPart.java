@@ -14,6 +14,7 @@ import qualitypatternmodel.javaqueryoutput.ValueInterim;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.javaquery.OneArgFunctionFilterPart#getArgument <em>Argument</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.OneArgFunctionFilterPart#isNegate <em>Negate</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.javaquery.JavaqueryPackage#getOneArgFunctionFilterPart()
@@ -42,6 +43,28 @@ public interface OneArgFunctionFilterPart extends BooleanFilterPart {
 	 * @generated
 	 */
 	void setArgument(ValueInterim value);
+
+	/**
+	 * Returns the value of the '<em><b>Negate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Negate</em>' attribute.
+	 * @see #setNegate(boolean)
+	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getOneArgFunctionFilterPart_Negate()
+	 * @model
+	 * @generated
+	 */
+	boolean isNegate();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.javaquery.OneArgFunctionFilterPart#isNegate <em>Negate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Negate</em>' attribute.
+	 * @see #isNegate()
+	 * @generated
+	 */
+	void setNegate(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -20,9 +20,11 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
+import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultContainer;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
+import qualitypatternmodel.javaqueryoutput.ValueResult;
 import qualitypatternmodel.javaqueryoutput.impl.FixedContainerInterimImpl;
 import qualitypatternmodel.javaqueryoutput.impl.InterimResultContainerImpl;
 import qualitypatternmodel.javaqueryoutput.impl.InterimResultStructureImpl;
@@ -129,7 +131,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void createInterimResultContainer(List<Object> objectList) throws InvalidityException {
@@ -330,8 +332,13 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 		EList<InterimResultContainer> interims = getInterimResults();
 		EList<String> results = new BasicEList<String>();
 		for (InterimResultContainer ir: interims) {
-			if (getFilter().apply(ir.getParameter()))
-				results.add(ir.getReturn().toString());
+			if (getFilter().apply(ir.getParameter())) {
+				InterimResult ret = ir.getReturn();
+				if (ret instanceof ValueResult)
+					results.add(((ValueResult) ret).getValue());
+				else 
+					results.add(ret.toString());
+			}
 		}
 		return results;
 	}

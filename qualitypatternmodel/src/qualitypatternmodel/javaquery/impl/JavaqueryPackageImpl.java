@@ -550,6 +550,16 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
+	public EAttribute getOneArgFunctionFilterPart_Negate() {
+		return (EAttribute)oneArgFunctionFilterPartEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getOneArgFunctionFilterPart__Apply__String() {
 		return oneArgFunctionFilterPartEClass.getEOperations().get(0);
 	}
@@ -826,6 +836,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 
 		oneArgFunctionFilterPartEClass = createEClass(ONE_ARG_FUNCTION_FILTER_PART);
 		createEReference(oneArgFunctionFilterPartEClass, ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT);
+		createEAttribute(oneArgFunctionFilterPartEClass, ONE_ARG_FUNCTION_FILTER_PART__NEGATE);
 		createEOperation(oneArgFunctionFilterPartEClass, ONE_ARG_FUNCTION_FILTER_PART___APPLY__STRING);
 
 		listFilterPartEClass = createEClass(LIST_FILTER_PART);
@@ -946,6 +957,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 
 		initEClass(oneArgFunctionFilterPartEClass, OneArgFunctionFilterPart.class, "OneArgFunctionFilterPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOneArgFunctionFilterPart_Argument(), theJavaqueryoutputPackage.getValueInterim(), null, "argument", null, 1, 1, OneArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOneArgFunctionFilterPart_Negate(), ecorePackage.getEBoolean(), "negate", null, 0, 1, OneArgFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getOneArgFunctionFilterPart__Apply__String(), ecorePackage.getEBooleanObject(), "apply", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "param1", 0, 1, IS_UNIQUE, IS_ORDERED);

@@ -28,6 +28,7 @@ import qualitypatternmodel.javaqueryoutput.impl.ValueInterimImpl;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.javaquery.impl.OneArgFunctionFilterPartImpl#getArgument <em>Argument</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.impl.OneArgFunctionFilterPartImpl#isNegate <em>Negate</em>}</li>
  * </ul>
  *
  * @generated
@@ -50,6 +51,25 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	 * @ordered
 	 */
 	protected ValueInterim argument;
+
+	/**
+	 * The default value of the '{@link #isNegate() <em>Negate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNegate()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean NEGATE_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isNegate() <em>Negate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNegate()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean negate = NEGATE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -147,6 +167,29 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	 * @generated
 	 */
 	@Override
+	public boolean isNegate() {
+		return negate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setNegate(boolean newNegate) {
+		boolean oldNegate = negate;
+		negate = newNegate;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__NEGATE, oldNegate, negate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Boolean apply(String param1) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -164,6 +207,8 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 			case JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT:
 				if (resolve) return getArgument();
 				return basicGetArgument();
+			case JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__NEGATE:
+				return isNegate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -178,6 +223,9 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 		switch (featureID) {
 			case JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT:
 				setArgument((ValueInterim)newValue);
+				return;
+			case JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__NEGATE:
+				setNegate((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -194,6 +242,9 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 			case JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT:
 				setArgument((ValueInterim)null);
 				return;
+			case JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__NEGATE:
+				setNegate(NEGATE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -208,6 +259,8 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 		switch (featureID) {
 			case JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT:
 				return argument != null;
+			case JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__NEGATE:
+				return negate != NEGATE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

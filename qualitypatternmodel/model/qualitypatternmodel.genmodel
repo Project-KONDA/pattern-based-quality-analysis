@@ -1217,6 +1217,7 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaquery/OneArgFunctionFilterPart">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaquery/OneArgFunctionFilterPart/argument"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaquery/OneArgFunctionFilterPart/negate"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaquery/OneArgFunctionFilterPart/apply">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaquery/OneArgFunctionFilterPart/apply/param1"/>
         </genOperations>

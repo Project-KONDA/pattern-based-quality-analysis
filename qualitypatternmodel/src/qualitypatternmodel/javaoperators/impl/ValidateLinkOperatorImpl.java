@@ -39,14 +39,16 @@ public class ValidateLinkOperatorImpl extends OneArgJavaOperatorImpl implements 
 
 	@Override
 	public Boolean apply(String urlString) {
+		Boolean negate = getOption().getValue();
 	    try {
 	        URL url = new URL(urlString);
 	        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 	        connection.setRequestMethod("HEAD");
 	        int responseCode = connection.getResponseCode();
-	        return responseCode == HttpURLConnection.HTTP_OK;
+	        Boolean result = responseCode == HttpURLConnection.HTTP_OK; 
+	        return result != negate;
 	    } catch (Exception e) {
-	        return false;
+	        return negate;
 	    }
 	}
 

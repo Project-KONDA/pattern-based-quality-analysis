@@ -1485,6 +1485,7 @@
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
           eType="#//javaqueryoutput/ValueInterim"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="negate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ListFilterPart" eSuperTypes="#//javaquery/BooleanFilterPart">
       <eStructuralFeatures xsi:type="ecore:EReference" name="subfilter" lowerBound="1"

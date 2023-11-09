@@ -389,13 +389,22 @@ public interface JavaqueryPackage extends EPackage {
 	int ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Negate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_FUNCTION_FILTER_PART__NEGATE = BOOLEAN_FILTER_PART_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>One Arg Function Filter Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ONE_ARG_FUNCTION_FILTER_PART_FEATURE_COUNT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 1;
+	int ONE_ARG_FUNCTION_FILTER_PART_FEATURE_COUNT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Arguments</em>' operation.
@@ -1225,6 +1234,17 @@ public interface JavaqueryPackage extends EPackage {
 	EReference getOneArgFunctionFilterPart_Argument();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.javaquery.OneArgFunctionFilterPart#isNegate <em>Negate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Negate</em>'.
+	 * @see qualitypatternmodel.javaquery.OneArgFunctionFilterPart#isNegate()
+	 * @see #getOneArgFunctionFilterPart()
+	 * @generated
+	 */
+	EAttribute getOneArgFunctionFilterPart_Negate();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.OneArgFunctionFilterPart#apply(java.lang.String) <em>Apply</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1707,6 +1727,14 @@ public interface JavaqueryPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT = eINSTANCE.getOneArgFunctionFilterPart_Argument();
+
+		/**
+		 * The meta object literal for the '<em><b>Negate</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ONE_ARG_FUNCTION_FILTER_PART__NEGATE = eINSTANCE.getOneArgFunctionFilterPart_Negate();
 
 		/**
 		 * The meta object literal for the '<em><b>Apply</b></em>' operation.

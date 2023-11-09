@@ -14,6 +14,7 @@ import qualitypatternmodel.javaqueryoutput.InterimResult;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.javaqueryoutput.InterimResult#setCorresponding(qualitypatternmodel.javaqueryoutput.InterimResultPart) <em>Set Corresponding</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaqueryoutput.InterimResult#isValidToCorresponding() <em>Is Valid To Corresponding</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -66,6 +67,19 @@ public abstract class InterimResultTest extends TestCase {
 	 * @generated
 	 */
 	public void testSetCorresponding__InterimResultPart() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.javaqueryoutput.InterimResult#isValidToCorresponding() <em>Is Valid To Corresponding</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaqueryoutput.InterimResult#isValidToCorresponding()
+	 * @generated
+	 */
+	public void testIsValidToCorresponding() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

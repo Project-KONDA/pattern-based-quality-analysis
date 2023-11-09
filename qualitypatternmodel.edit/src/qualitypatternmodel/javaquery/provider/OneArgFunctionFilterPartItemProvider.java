@@ -10,7 +10,10 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
+import qualitypatternmodel.javaquery.OneArgFunctionFilterPart;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.javaquery.OneArgFunctionFilterPart} object.
@@ -41,6 +44,7 @@ public class OneArgFunctionFilterPartItemProvider extends BooleanFilterPartItemP
 			super.getPropertyDescriptors(object);
 
 			addArgumentPropertyDescriptor(object);
+			addNegatePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -68,6 +72,28 @@ public class OneArgFunctionFilterPartItemProvider extends BooleanFilterPartItemP
 	}
 
 	/**
+	 * This adds a property descriptor for the Negate feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNegatePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_OneArgFunctionFilterPart_negate_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_OneArgFunctionFilterPart_negate_feature", "_UI_OneArgFunctionFilterPart_type"),
+				 JavaqueryPackage.Literals.ONE_ARG_FUNCTION_FILTER_PART__NEGATE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns OneArgFunctionFilterPart.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -86,7 +112,8 @@ public class OneArgFunctionFilterPartItemProvider extends BooleanFilterPartItemP
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_OneArgFunctionFilterPart_type");
+		OneArgFunctionFilterPart oneArgFunctionFilterPart = (OneArgFunctionFilterPart)object;
+		return getString("_UI_OneArgFunctionFilterPart_type") + " " + oneArgFunctionFilterPart.isNegate();
 	}
 
 
@@ -100,6 +127,12 @@ public class OneArgFunctionFilterPartItemProvider extends BooleanFilterPartItemP
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(OneArgFunctionFilterPart.class)) {
+			case JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__NEGATE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 
