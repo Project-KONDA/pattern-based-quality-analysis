@@ -3,6 +3,8 @@
 package qualitypatternmodel.javaquery.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
+import java.util.List;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -13,16 +15,16 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
-import qualitypatternmodel.javaqueryoutput.ContainerResult;
-import qualitypatternmodel.javaqueryoutput.InterimResult;
+import qualitypatternmodel.javaqueryoutput.InterimResultContainer;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
-import qualitypatternmodel.javaqueryoutput.ValueResult;
 import qualitypatternmodel.javaqueryoutput.impl.FixedContainerInterimImpl;
+import qualitypatternmodel.javaqueryoutput.impl.InterimResultContainerImpl;
 import qualitypatternmodel.javaqueryoutput.impl.InterimResultStructureImpl;
 import qualitypatternmodel.patternstructure.Language;
 
@@ -36,7 +38,7 @@ import qualitypatternmodel.patternstructure.Language;
  * <ul>
  *   <li>{@link qualitypatternmodel.javaquery.impl.JavaFilterImpl#getFilter <em>Filter</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.impl.JavaFilterImpl#getStructure <em>Structure</em>}</li>
- *   <li>{@link qualitypatternmodel.javaquery.impl.JavaFilterImpl#getInterimResult <em>Interim Result</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.impl.JavaFilterImpl#getInterimResults <em>Interim Results</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.impl.JavaFilterImpl#getQuery <em>Query</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.impl.JavaFilterImpl#getLanguage <em>Language</em>}</li>
  * </ul>
@@ -65,14 +67,14 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	protected InterimResultStructure structure;
 
 	/**
-	 * The cached value of the '{@link #getInterimResult() <em>Interim Result</em>}' reference.
+	 * The cached value of the '{@link #getInterimResults() <em>Interim Results</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInterimResult()
+	 * @see #getInterimResults()
 	 * @generated
 	 * @ordered
 	 */
-	protected ContainerResult interimResult;
+	protected EList<InterimResultContainer> interimResults;
 
 	/**
 	 * The default value of the '{@link #getQuery() <em>Query</em>}' attribute.
@@ -124,6 +126,31 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 		setStructure(new InterimResultStructureImpl()); 
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void createInterimResultContainer(List<Object> objectList) throws InvalidityException {
+		EList<InterimResultContainer> a = getInterimResults();
+		a.clear();
+		for (Object object: objectList) {
+			if (object instanceof List) {
+				@SuppressWarnings("unchecked")
+				List<Object> lst = (List<Object>) object;
+				Object retu = lst.get(0);
+				Object parameter = lst.get(1);
+				a.add(new InterimResultContainerImpl(getStructure(), retu, parameter));
+			}
+		}
+	}
+	
+	
+	
+	
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -240,38 +267,11 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated
 	 */
 	@Override
-	public ContainerResult getInterimResult() {
-		if (interimResult != null && interimResult.eIsProxy()) {
-			InternalEObject oldInterimResult = (InternalEObject)interimResult;
-			interimResult = (ContainerResult)eResolveProxy(oldInterimResult);
-			if (interimResult != oldInterimResult) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaqueryPackage.JAVA_FILTER__INTERIM_RESULT, oldInterimResult, interimResult));
-			}
+	public EList<InterimResultContainer> getInterimResults() {
+		if (interimResults == null) {
+			interimResults = new EObjectResolvingEList<InterimResultContainer>(InterimResultContainer.class, this, JavaqueryPackage.JAVA_FILTER__INTERIM_RESULTS);
 		}
-		return interimResult;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ContainerResult basicGetInterimResult() {
-		return interimResult;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setInterimResult(ContainerResult newInterimResult) {
-		ContainerResult oldInterimResult = interimResult;
-		interimResult = newInterimResult;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.JAVA_FILTER__INTERIM_RESULT, oldInterimResult, interimResult));
+		return interimResults;
 	}
 
 	/**
@@ -327,20 +327,11 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 */
 	@Override
 	public EList<String> filterQueryResults() throws InvalidityException {
-		EList<InterimResult> interims = getInterimResult().getSubresult();
+		EList<InterimResultContainer> interims = getInterimResults();
 		EList<String> results = new BasicEList<String>();
-		for (InterimResult ir: interims) {
-			assert(ir instanceof ContainerResult);
-			EList<InterimResult> resultparts = ((ContainerResult) ir).getSubresult();
-			
-			if (!(resultparts.get(0) instanceof ValueResult))
-				throw new InvalidityException();
-			
-			ValueResult record = (ValueResult) resultparts.get(0); 
-			InterimResult todo = resultparts.get(1);
-			
-			if (getFilter().apply(todo))
-				results.add(record.getValue());
+		for (InterimResultContainer ir: interims) {
+			if (getFilter().apply(ir.getParameter()))
+				results.add(ir.getReturn().toString());
 		}
 		return results;
 	}
@@ -373,9 +364,8 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 				return getFilter();
 			case JavaqueryPackage.JAVA_FILTER__STRUCTURE:
 				return getStructure();
-			case JavaqueryPackage.JAVA_FILTER__INTERIM_RESULT:
-				if (resolve) return getInterimResult();
-				return basicGetInterimResult();
+			case JavaqueryPackage.JAVA_FILTER__INTERIM_RESULTS:
+				return getInterimResults();
 			case JavaqueryPackage.JAVA_FILTER__QUERY:
 				return getQuery();
 			case JavaqueryPackage.JAVA_FILTER__LANGUAGE:
@@ -389,6 +379,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -398,8 +389,9 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 			case JavaqueryPackage.JAVA_FILTER__STRUCTURE:
 				setStructure((InterimResultStructure)newValue);
 				return;
-			case JavaqueryPackage.JAVA_FILTER__INTERIM_RESULT:
-				setInterimResult((ContainerResult)newValue);
+			case JavaqueryPackage.JAVA_FILTER__INTERIM_RESULTS:
+				getInterimResults().clear();
+				getInterimResults().addAll((Collection<? extends InterimResultContainer>)newValue);
 				return;
 			case JavaqueryPackage.JAVA_FILTER__QUERY:
 				setQuery((String)newValue);
@@ -425,8 +417,8 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 			case JavaqueryPackage.JAVA_FILTER__STRUCTURE:
 				setStructure((InterimResultStructure)null);
 				return;
-			case JavaqueryPackage.JAVA_FILTER__INTERIM_RESULT:
-				setInterimResult((ContainerResult)null);
+			case JavaqueryPackage.JAVA_FILTER__INTERIM_RESULTS:
+				getInterimResults().clear();
 				return;
 			case JavaqueryPackage.JAVA_FILTER__QUERY:
 				setQuery(QUERY_EDEFAULT);
@@ -450,8 +442,8 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 				return filter != null;
 			case JavaqueryPackage.JAVA_FILTER__STRUCTURE:
 				return structure != null;
-			case JavaqueryPackage.JAVA_FILTER__INTERIM_RESULT:
-				return interimResult != null;
+			case JavaqueryPackage.JAVA_FILTER__INTERIM_RESULTS:
+				return interimResults != null && !interimResults.isEmpty();
 			case JavaqueryPackage.JAVA_FILTER__QUERY:
 				return QUERY_EDEFAULT == null ? query != null : !QUERY_EDEFAULT.equals(query);
 			case JavaqueryPackage.JAVA_FILTER__LANGUAGE:
@@ -466,11 +458,20 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case JavaqueryPackage.JAVA_FILTER___FILTER_QUERY_RESULTS:
 				try {
 					return filterQueryResults();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case JavaqueryPackage.JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__LIST:
+				try {
+					createInterimResultContainer((List<Object>)arguments.get(0));
+					return null;
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

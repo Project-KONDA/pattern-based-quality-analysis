@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
-import qualitypatternmodel.javaqueryoutput.ValueInterim;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,7 +46,7 @@ public class InterimResultStructureImpl extends MinimalEObjectImpl.Container imp
 	 * @generated
 	 * @ordered
 	 */
-	protected ValueInterim record;
+	protected InterimResultPart record;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -129,7 +128,7 @@ public class InterimResultStructureImpl extends MinimalEObjectImpl.Container imp
 	 * @generated
 	 */
 	@Override
-	public ValueInterim getRecord() {
+	public InterimResultPart getRecord() {
 		return record;
 	}
 
@@ -138,8 +137,8 @@ public class InterimResultStructureImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRecord(ValueInterim newRecord, NotificationChain msgs) {
-		ValueInterim oldRecord = record;
+	public NotificationChain basicSetRecord(InterimResultPart newRecord, NotificationChain msgs) {
+		InterimResultPart oldRecord = record;
 		record = newRecord;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE__RECORD, oldRecord, newRecord);
@@ -154,7 +153,7 @@ public class InterimResultStructureImpl extends MinimalEObjectImpl.Container imp
 	 * @generated
 	 */
 	@Override
-	public void setRecord(ValueInterim newRecord) {
+	public void setRecord(InterimResultPart newRecord) {
 		if (newRecord != record) {
 			NotificationChain msgs = null;
 			if (record != null)
@@ -212,7 +211,7 @@ public class InterimResultStructureImpl extends MinimalEObjectImpl.Container imp
 				setSubstructure((InterimResultPart)newValue);
 				return;
 			case JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE__RECORD:
-				setRecord((ValueInterim)newValue);
+				setRecord((InterimResultPart)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -230,7 +229,7 @@ public class InterimResultStructureImpl extends MinimalEObjectImpl.Container imp
 				setSubstructure((InterimResultPart)null);
 				return;
 			case JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE__RECORD:
-				setRecord((ValueInterim)null);
+				setRecord((InterimResultPart)null);
 				return;
 		}
 		super.eUnset(featureID);

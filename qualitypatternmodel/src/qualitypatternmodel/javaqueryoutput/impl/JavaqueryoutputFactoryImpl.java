@@ -62,6 +62,7 @@ public class JavaqueryoutputFactoryImpl extends EFactoryImpl implements Javaquer
 			case JavaqueryoutputPackage.FIXED_CONTAINER_INTERIM: return createFixedContainerInterim();
 			case JavaqueryoutputPackage.CONTAINER_RESULT: return createContainerResult();
 			case JavaqueryoutputPackage.VALUE_RESULT: return createValueResult();
+			case JavaqueryoutputPackage.INTERIM_RESULT_CONTAINER: return createInterimResultContainer();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -131,6 +132,17 @@ public class JavaqueryoutputFactoryImpl extends EFactoryImpl implements Javaquer
 	public ValueResult createValueResult() {
 		ValueResultImpl valueResult = new ValueResultImpl();
 		return valueResult;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public InterimResultContainer createInterimResultContainer() {
+		InterimResultContainerImpl interimResultContainer = new InterimResultContainerImpl();
+		return interimResultContainer;
 	}
 
 	/**

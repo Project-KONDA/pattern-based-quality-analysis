@@ -210,6 +210,29 @@ public class JavaqueryoutputItemProviderAdapterFactory extends JavaqueryoutputAd
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaqueryoutput.InterimResultContainer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InterimResultContainerItemProvider interimResultContainerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.javaqueryoutput.InterimResultContainer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInterimResultContainerAdapter() {
+		if (interimResultContainerItemProvider == null) {
+			interimResultContainerItemProvider = new InterimResultContainerItemProvider(this);
+		}
+
+		return interimResultContainerItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -320,6 +343,7 @@ public class JavaqueryoutputItemProviderAdapterFactory extends JavaqueryoutputAd
 		if (fixedContainerInterimItemProvider != null) fixedContainerInterimItemProvider.dispose();
 		if (containerResultItemProvider != null) containerResultItemProvider.dispose();
 		if (valueResultItemProvider != null) valueResultItemProvider.dispose();
+		if (interimResultContainerItemProvider != null) interimResultContainerItemProvider.dispose();
 	}
 
 }

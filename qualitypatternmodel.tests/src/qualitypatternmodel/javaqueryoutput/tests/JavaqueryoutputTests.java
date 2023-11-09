@@ -35,6 +35,7 @@ public class JavaqueryoutputTests extends TestSuite {
 		suite.addTestSuite(FixedContainerInterimTest.class);
 		suite.addTestSuite(ContainerResultTest.class);
 		suite.addTestSuite(ValueResultTest.class);
+		suite.addTestSuite(InterimResultContainerTest.class);
 		return suite;
 	}
 

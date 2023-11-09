@@ -104,6 +104,10 @@ public class JavaqueryoutputAdapterFactory extends AdapterFactoryImpl {
 				return createValueResultAdapter();
 			}
 			@Override
+			public Adapter caseInterimResultContainer(InterimResultContainer object) {
+				return createInterimResultContainerAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -246,6 +250,20 @@ public class JavaqueryoutputAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createValueResultAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaqueryoutput.InterimResultContainer <em>Interim Result Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.javaqueryoutput.InterimResultContainer
+	 * @generated
+	 */
+	public Adapter createInterimResultContainerAdapter() {
 		return null;
 	}
 

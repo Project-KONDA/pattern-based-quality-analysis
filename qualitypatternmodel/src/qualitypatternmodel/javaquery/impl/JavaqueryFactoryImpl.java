@@ -83,6 +83,8 @@ public class JavaqueryFactoryImpl extends EFactoryImpl implements JavaqueryFacto
 		switch (eDataType.getClassifierID()) {
 			case JavaqueryPackage.STRING_LIST_WRAPPER:
 				return createStringListWrapperFromString(eDataType, initialValue);
+			case JavaqueryPackage.OBJECT_LIST_WRAPPER:
+				return createObjectListWrapperFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -98,6 +100,8 @@ public class JavaqueryFactoryImpl extends EFactoryImpl implements JavaqueryFacto
 		switch (eDataType.getClassifierID()) {
 			case JavaqueryPackage.STRING_LIST_WRAPPER:
 				return convertStringListWrapperToString(eDataType, instanceValue);
+			case JavaqueryPackage.OBJECT_LIST_WRAPPER:
+				return convertObjectListWrapperToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -229,6 +233,25 @@ public class JavaqueryFactoryImpl extends EFactoryImpl implements JavaqueryFacto
 	 * @generated
 	 */
 	public String convertStringListWrapperToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Object> createObjectListWrapperFromString(EDataType eDataType, String initialValue) {
+		return (List<Object>)super.createFromString(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertObjectListWrapperToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(instanceValue);
 	}
 

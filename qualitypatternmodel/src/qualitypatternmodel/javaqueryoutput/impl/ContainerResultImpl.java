@@ -3,6 +3,8 @@
 package qualitypatternmodel.javaqueryoutput.impl;
 
 import java.util.Collection;
+import java.util.List;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -68,6 +70,19 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 		super();
 	}
 	
+	@SuppressWarnings("unchecked")
+	public ContainerResultImpl(List<Object> input) throws InvalidityException {
+		super();
+		for (Object inputobject: input) {
+			if (inputobject instanceof List)
+				getSubresult().add(new ContainerResultImpl((List<Object>) inputobject));
+			else if (inputobject instanceof String)
+				getSubresult().add(new ValueResultImpl((String) inputobject));
+			else 
+				throw new InvalidityException(inputobject.toString() + " cannot be transformed to an InterimResultObject.");
+		}
+	}
+
 	@Override
 	public void setCorresponding(InterimResultPart corresponding) throws InvalidityException {
 		if (corresponding instanceof ContainerInterim) {
@@ -85,10 +100,21 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 					getSubresult().get(i).setCorresponding(container.getContained().get(i));
 				}
 			}
+			return;
 		}
-		throw new InvalidityException();
+		throw new InvalidityException(corresponding.getClass().toString() + " is not of type ContainerInterim!");
 	}
-
+	
+	@Override
+	public Boolean isValidToCorresponding() {
+		Integer size = getCorrespondsTo().getSize();
+		return (size == -1 || size == getSubresult().size()); 
+	}
+	
+	
+	
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -235,6 +261,16 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 				return subresult != null && !subresult.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String toString() {
+		return "Container[" + getSubresult().toString() + "]";
 	}
 
 } //ContainerResultImpl

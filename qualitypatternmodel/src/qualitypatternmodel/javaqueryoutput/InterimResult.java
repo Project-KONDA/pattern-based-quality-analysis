@@ -25,4 +25,12 @@ public interface InterimResult extends EObject {
 	 * @generated
 	 */
 	void setCorresponding(InterimResultPart corresponding) throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	Boolean isValidToCorresponding();
 } // InterimResult

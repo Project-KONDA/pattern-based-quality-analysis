@@ -68,6 +68,27 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 		super();
 	}
 
+	public ValueResultImpl(String input) {
+		super();
+		value = input;
+	}
+
+	@Override
+	public void setCorresponding(InterimResultPart corresponding) throws InvalidityException {
+		if (corresponding instanceof ValueInterimImpl)
+			setCorrespondsTo((ValueInterimImpl) corresponding);
+		else throw new InvalidityException(corresponding.getClass().getSimpleName() + "cannot be cast to ValueInterimImpl for ValueResultImpl");
+	}
+	
+	@Override
+	public Boolean isValidToCorresponding() {
+		return getCorrespondsTo() != null && value != null;
+	}
+	
+	
+	
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -213,25 +234,10 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (value: ");
-		result.append(value);
-		result.append(')');
-		return result.toString();
+		return "ValueResult (" + value + ")";
 	}
-
-	@Override
-	public void setCorresponding(InterimResultPart corresponding) throws InvalidityException {
-		if (corresponding instanceof ValueInterimImpl)
-			setCorrespondsTo((ValueInterimImpl) corresponding);
-		else throw new InvalidityException(corresponding.getClass().getSimpleName() + "cannot be cast to ValueInterimImpl for ValueResultImpl");
-		
-	}
-
 } //ValueResultImpl

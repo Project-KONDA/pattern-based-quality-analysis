@@ -76,6 +76,15 @@ public interface JavaqueryoutputFactory extends EFactory {
 	ValueResult createValueResult();
 
 	/**
+	 * Returns a new object of class '<em>Interim Result Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Interim Result Container</em>'.
+	 * @generated
+	 */
+	InterimResultContainer createInterimResultContainer();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -109,6 +109,13 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EDataType objectListWrapperEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass formulaFilterPartEClass = null;
 
 	/**
@@ -323,7 +330,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getJavaFilter_InterimResult() {
+	public EReference getJavaFilter_InterimResults() {
 		return (EReference)javaFilterEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -355,6 +362,16 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	@Override
 	public EOperation getJavaFilter__FilterQueryResults() {
 		return javaFilterEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getJavaFilter__CreateInterimResultContainer__List() {
+		return javaFilterEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -405,6 +422,16 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	@Override
 	public EDataType getStringListWrapper() {
 		return stringListWrapperEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EDataType getObjectListWrapper() {
+		return objectListWrapperEDataType;
 	}
 
 	/**
@@ -779,10 +806,11 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		javaFilterEClass = createEClass(JAVA_FILTER);
 		createEReference(javaFilterEClass, JAVA_FILTER__FILTER);
 		createEReference(javaFilterEClass, JAVA_FILTER__STRUCTURE);
-		createEReference(javaFilterEClass, JAVA_FILTER__INTERIM_RESULT);
+		createEReference(javaFilterEClass, JAVA_FILTER__INTERIM_RESULTS);
 		createEAttribute(javaFilterEClass, JAVA_FILTER__QUERY);
 		createEAttribute(javaFilterEClass, JAVA_FILTER__LANGUAGE);
 		createEOperation(javaFilterEClass, JAVA_FILTER___FILTER_QUERY_RESULTS);
+		createEOperation(javaFilterEClass, JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__LIST);
 
 		booleanFilterPartEClass = createEClass(BOOLEAN_FILTER_PART);
 		createEOperation(booleanFilterPartEClass, BOOLEAN_FILTER_PART___APPLY__INTERIMRESULT);
@@ -837,6 +865,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 
 		// Create data types
 		stringListWrapperEDataType = createEDataType(STRING_LIST_WRAPPER);
+		objectListWrapperEDataType = createEDataType(OBJECT_LIST_WRAPPER);
 	}
 
 	/**
@@ -889,11 +918,15 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		initEClass(javaFilterEClass, JavaFilter.class, "JavaFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getJavaFilter_Filter(), this.getBooleanFilterPart(), null, "filter", null, 0, 1, JavaFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJavaFilter_Structure(), theJavaqueryoutputPackage.getInterimResultStructure(), null, "structure", null, 1, 1, JavaFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJavaFilter_InterimResult(), theJavaqueryoutputPackage.getContainerResult(), null, "interimResult", null, 0, 1, JavaFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJavaFilter_InterimResults(), theJavaqueryoutputPackage.getInterimResultContainer(), null, "interimResults", null, 0, -1, JavaFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaFilter_Query(), ecorePackage.getEString(), "query", null, 0, 1, JavaFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaFilter_Language(), thePatternstructurePackage.getLanguage(), "language", null, 0, 1, JavaFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getJavaFilter__FilterQueryResults(), ecorePackage.getEString(), "filterQueryResults", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getJavaFilter__CreateInterimResultContainer__List(), null, "createInterimResultContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getObjectListWrapper(), "objectList", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(booleanFilterPartEClass, BooleanFilterPart.class, "BooleanFilterPart", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -961,6 +994,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 
 		// Initialize data types
 		initEDataType(stringListWrapperEDataType, List.class, "StringListWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS, "java.util.List<String>");
+		initEDataType(objectListWrapperEDataType, List.class, "ObjectListWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS, "java.util.List<Object>");
 
 		// Create resource
 		createResource(eNS_URI);

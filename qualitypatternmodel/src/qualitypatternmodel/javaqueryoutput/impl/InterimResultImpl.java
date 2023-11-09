@@ -3,6 +3,8 @@
 package qualitypatternmodel.javaqueryoutput.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
@@ -52,6 +54,14 @@ public abstract class InterimResultImpl extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	abstract public Boolean isValidToCorresponding();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -65,8 +75,19 @@ public abstract class InterimResultImpl extends MinimalEObjectImpl.Container imp
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case JavaqueryoutputPackage.INTERIM_RESULT___IS_VALID_TO_CORRESPONDING:
+				return isValidToCorresponding();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
 
+	@SuppressWarnings("unchecked")
+	public static InterimResult transformToInterimResult(Object input) throws InvalidityException{
+		if (input instanceof List) {
+			return new ContainerResultImpl((List<Object>) input);
+		} else if (input instanceof String) {
+			return new ValueResultImpl((String) input);
+		} else 
+			throw new InvalidityException();
+	}
 } //InterimResultImpl

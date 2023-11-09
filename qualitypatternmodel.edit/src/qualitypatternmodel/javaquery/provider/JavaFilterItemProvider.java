@@ -66,7 +66,7 @@ public class JavaFilterItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addInterimResultPropertyDescriptor(object);
+			addInterimResultsPropertyDescriptor(object);
 			addQueryPropertyDescriptor(object);
 			addLanguagePropertyDescriptor(object);
 		}
@@ -74,19 +74,19 @@ public class JavaFilterItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Interim Result feature.
+	 * This adds a property descriptor for the Interim Results feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addInterimResultPropertyDescriptor(Object object) {
+	protected void addInterimResultsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_JavaFilter_interimResult_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JavaFilter_interimResult_feature", "_UI_JavaFilter_type"),
-				 JavaqueryPackage.Literals.JAVA_FILTER__INTERIM_RESULT,
+				 getString("_UI_JavaFilter_interimResults_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JavaFilter_interimResults_feature", "_UI_JavaFilter_type"),
+				 JavaqueryPackage.Literals.JAVA_FILTER__INTERIM_RESULTS,
 				 true,
 				 false,
 				 true,

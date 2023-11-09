@@ -1447,11 +1447,15 @@
     <eClassifiers xsi:type="ecore:EClass" name="JavaFilter">
       <eOperations name="filterQueryResults" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="createInterimResultContainer" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="objectList" eType="#//javaquery/ObjectListWrapper"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="filter" eType="#//javaquery/BooleanFilterPart"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="structure" lowerBound="1"
           eType="#//javaqueryoutput/InterimResultStructure" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="interimResult" eType="#//javaqueryoutput/ContainerResult"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="interimResults" upperBound="-1"
+          eType="#//javaqueryoutput/InterimResultContainer"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="query" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="language" eType="#//patternstructure/Language"/>
     </eClassifiers>
@@ -1537,13 +1541,14 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="StringListWrapper" instanceClassName="java.util.List&lt;String>"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="ObjectListWrapper" instanceClassName="java.util.List&lt;Object>"/>
   </eSubpackages>
   <eSubpackages name="javaqueryoutput" nsURI="javaqueryoutput" nsPrefix="javaqueryoutput">
     <eClassifiers xsi:type="ecore:EClass" name="InterimResultStructure">
       <eStructuralFeatures xsi:type="ecore:EReference" name="substructure" eType="#//javaqueryoutput/InterimResultPart"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="record" lowerBound="1"
-          eType="#//javaqueryoutput/ValueInterim" containment="true"/>
+          eType="#//javaqueryoutput/InterimResultPart" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InterimResultPart" abstract="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="ContainerInterim" abstract="true"
@@ -1563,6 +1568,7 @@
       <eOperations name="setCorresponding" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="corresponding" eType="#//javaqueryoutput/InterimResultPart"/>
       </eOperations>
+      <eOperations name="isValidToCorresponding" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ContainerResult" eSuperTypes="#//javaqueryoutput/InterimResult">
       <eStructuralFeatures xsi:type="ecore:EReference" name="correspondsTo" eType="#//javaqueryoutput/ContainerInterim"/>
@@ -1572,6 +1578,14 @@
     <eClassifiers xsi:type="ecore:EClass" name="ValueResult" eSuperTypes="#//javaqueryoutput/InterimResult">
       <eStructuralFeatures xsi:type="ecore:EReference" name="correspondsTo" eType="#//javaqueryoutput/ValueInterim"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InterimResultContainer">
+      <eOperations name="isValidToStructure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="correspondsTo" eType="#//javaqueryoutput/InterimResultStructure"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" eType="#//javaqueryoutput/InterimResult"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="return" lowerBound="1"
+          eType="#//javaqueryoutput/InterimResult" containment="true"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

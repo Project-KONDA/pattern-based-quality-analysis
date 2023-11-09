@@ -87,13 +87,13 @@ public interface JavaqueryPackage extends EPackage {
 	int JAVA_FILTER__STRUCTURE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Interim Result</b></em>' reference.
+	 * The feature id for the '<em><b>Interim Results</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_FILTER__INTERIM_RESULT = 2;
+	int JAVA_FILTER__INTERIM_RESULTS = 2;
 
 	/**
 	 * The feature id for the '<em><b>Query</b></em>' attribute.
@@ -132,13 +132,22 @@ public interface JavaqueryPackage extends EPackage {
 	int JAVA_FILTER___FILTER_QUERY_RESULTS = 0;
 
 	/**
+	 * The operation id for the '<em>Create Interim Result Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__LIST = 1;
+
+	/**
 	 * The number of operations of the '<em>Java Filter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_FILTER_OPERATION_COUNT = 1;
+	int JAVA_FILTER_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.JavaFilterPartImpl <em>Java Filter Part</em>}' class.
@@ -942,6 +951,16 @@ public interface JavaqueryPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '<em>Object List Wrapper</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.util.List
+	 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getObjectListWrapper()
+	 * @generated
+	 */
+	int OBJECT_LIST_WRAPPER = 15;
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.JavaFilter <em>Java Filter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -974,15 +993,15 @@ public interface JavaqueryPackage extends EPackage {
 	EReference getJavaFilter_Structure();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.javaquery.JavaFilter#getInterimResult <em>Interim Result</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.javaquery.JavaFilter#getInterimResults <em>Interim Results</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Interim Result</em>'.
-	 * @see qualitypatternmodel.javaquery.JavaFilter#getInterimResult()
+	 * @return the meta object for the reference list '<em>Interim Results</em>'.
+	 * @see qualitypatternmodel.javaquery.JavaFilter#getInterimResults()
 	 * @see #getJavaFilter()
 	 * @generated
 	 */
-	EReference getJavaFilter_InterimResult();
+	EReference getJavaFilter_InterimResults();
 
 	/**
 	 * Returns the meta object for the attribute '{@link qualitypatternmodel.javaquery.JavaFilter#getQuery <em>Query</em>}'.
@@ -1015,6 +1034,16 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getJavaFilter__FilterQueryResults();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilter#createInterimResultContainer(java.util.List) <em>Create Interim Result Container</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Interim Result Container</em>' operation.
+	 * @see qualitypatternmodel.javaquery.JavaFilter#createInterimResultContainer(java.util.List)
+	 * @generated
+	 */
+	EOperation getJavaFilter__CreateInterimResultContainer__List();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.JavaFilterPart <em>Java Filter Part</em>}'.
@@ -1067,6 +1096,17 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getStringListWrapper();
+
+	/**
+	 * Returns the meta object for data type '{@link java.util.List <em>Object List Wrapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Object List Wrapper</em>'.
+	 * @see java.util.List
+	 * @model instanceClass="java.util.List&lt;java.lang.Object&gt;"
+	 * @generated
+	 */
+	EDataType getObjectListWrapper();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.FormulaFilterPart <em>Formula Filter Part</em>}'.
@@ -1477,12 +1517,12 @@ public interface JavaqueryPackage extends EPackage {
 		EReference JAVA_FILTER__STRUCTURE = eINSTANCE.getJavaFilter_Structure();
 
 		/**
-		 * The meta object literal for the '<em><b>Interim Result</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Interim Results</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference JAVA_FILTER__INTERIM_RESULT = eINSTANCE.getJavaFilter_InterimResult();
+		EReference JAVA_FILTER__INTERIM_RESULTS = eINSTANCE.getJavaFilter_InterimResults();
 
 		/**
 		 * The meta object literal for the '<em><b>Query</b></em>' attribute feature.
@@ -1507,6 +1547,14 @@ public interface JavaqueryPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation JAVA_FILTER___FILTER_QUERY_RESULTS = eINSTANCE.getJavaFilter__FilterQueryResults();
+
+		/**
+		 * The meta object literal for the '<em><b>Create Interim Result Container</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__LIST = eINSTANCE.getJavaFilter__CreateInterimResultContainer__List();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.JavaFilterPartImpl <em>Java Filter Part</em>}' class.
@@ -1553,6 +1601,16 @@ public interface JavaqueryPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType STRING_LIST_WRAPPER = eINSTANCE.getStringListWrapper();
+
+		/**
+		 * The meta object literal for the '<em>Object List Wrapper</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.util.List
+		 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getObjectListWrapper()
+		 * @generated
+		 */
+		EDataType OBJECT_LIST_WRAPPER = eINSTANCE.getObjectListWrapper();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl <em>Formula Filter Part</em>}' class.
