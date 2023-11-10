@@ -107,6 +107,8 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 	
 	@Override
 	public Boolean isValidToCorresponding() {
+		if (getCorrespondsTo() == null)
+			return false;
 		Integer size = getCorrespondsTo().getSize();
 		return (size == -1 || size == getSubresult().size()); 
 	}

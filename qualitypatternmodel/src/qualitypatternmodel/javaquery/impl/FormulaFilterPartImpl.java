@@ -111,7 +111,11 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 	@Override
 	public Boolean apply(InterimResult parameter) throws InvalidityException {
 		assert(parameter instanceof ContainerResult);
+		assert(((ContainerResult) parameter).getCorrespondsTo() instanceof FixedContainerInterim);
+		assert(((FixedContainerInterim) ((ContainerResult) parameter).getCorrespondsTo()).getSize() == 2);
 		ContainerResult param = (ContainerResult) parameter;
+		if (param.getSubresult().size() != 2)
+			throw new InvalidityException(parameter + " is not of size 2");
 		InterimResult argument1 = param.getSubresult().get(0);
 		InterimResult argument2 = param.getSubresult().get(1);
 		Boolean result1 = getSubfilter1().apply(argument1);

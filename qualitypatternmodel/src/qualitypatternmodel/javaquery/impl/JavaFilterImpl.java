@@ -135,15 +135,24 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 */
 	@Override
 	public void createInterimResultContainer(List<Object> objectList) throws InvalidityException {
-		EList<InterimResultContainer> a = getInterimResults();
-		a.clear();
+		EList<InterimResultContainer> interimContainer = getInterimResults();
+		interimContainer.clear();
 		for (Object object: objectList) {
 			if (object instanceof List) {
 				@SuppressWarnings("unchecked")
 				List<Object> lst = (List<Object>) object;
+				
 				Object retu = lst.get(0);
 				Object parameter = lst.get(1);
-				a.add(new InterimResultContainerImpl(getStructure(), retu, parameter));
+				try {
+					InterimResultContainer interim = new InterimResultContainerImpl(getStructure(), retu, parameter);
+					interimContainer.add(interim);
+				}
+				catch (InvalidityException e) {
+					InvalidityException newE = new InvalidityException("invalid list: " + lst, e);
+					newE.printStackTrace();
+				}
+				
 			}
 		}
 	}

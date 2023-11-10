@@ -77,7 +77,10 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 	public void setCorresponding(InterimResultPart corresponding) throws InvalidityException {
 		if (corresponding instanceof ValueInterimImpl)
 			setCorrespondsTo((ValueInterimImpl) corresponding);
-		else throw new InvalidityException(corresponding.getClass().getSimpleName() + " cannot be cast to ValueInterimImpl for ValueResultImpl");
+		else throw new InvalidityException(
+				corresponding.getClass().getSimpleName() 
+				+ " (" + ( getCorrespondsTo() == null? "x": getCorrespondsTo().getInterimPartId()) + ") " 
+				+ "cannot be cast to ValueInterimImpl for ValueResultImpl (" + getValue() + ")");
 	}
 	
 	@Override

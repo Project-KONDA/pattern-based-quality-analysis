@@ -19,6 +19,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaFilterPart;
+import qualitypatternmodel.javaquery.impl.BooleanFilterElementImpl;
 import qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.parameters.Parameter;
@@ -125,6 +126,19 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
+		if (!containsJavaOperator())
+			return new BooleanFilterElementImpl();
+		
+		
+		Boolean c1 = getCondition1().containsJavaOperator();
+		Boolean c2 = getCondition2().containsJavaOperator();
+		Boolean isAnd = (getOperator() == LogicalOperator.AND);
+
+		if (isAnd && c1 && !c2) 
+			return (BooleanFilterPart) getCondition1().generateQueryFilterPart();
+		if (isAnd && !c1 && c2)
+			return (BooleanFilterPart) getCondition2().generateQueryFilterPart();
+		
 		BooleanFilterPart qfp1 = (BooleanFilterPart) getCondition1().generateQueryFilterPart();
 		BooleanFilterPart qfp2 = (BooleanFilterPart) getCondition2().generateQueryFilterPart();
 		return new FormulaFilterPartImpl(getOperator(), qfp1, qfp2);
