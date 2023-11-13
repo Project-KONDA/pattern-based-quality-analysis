@@ -49,7 +49,9 @@ public class InterimResultTest {
 			filter.createInterimResultContainer(rawResults);
 			List<String> result = filter.filterQueryResults();
 			if (output) 
-				System.out.println(result);
+				System.out.println("res: " + result);
+			if (output) 
+				System.out.println("exp: " + expected);
 			if (output) 
 				System.out.println(Objects.equals(expected, result));
 			return Objects.equals(expected, result);
@@ -119,6 +121,19 @@ public class InterimResultTest {
 		}	
 		return result;
 	}
+	@SuppressWarnings("unchecked")
+	private static List<String> getExpectedList1(){
+		List<String> result = new ArrayList<String>();
+		for (Object list: testList1()) {
+			List<Object> lst = (List<Object>) list;
+			String record = (String) lst.get(0);
+			List<Object> test = ((List<Object>) lst.get(1));
+			if (test.contains(invalid))
+				result.add(record);
+		}	
+		return result;
+	}
+	
 	
 	
 	private static List<Object> testList2 = testList2();
@@ -162,7 +177,6 @@ public class InterimResultTest {
 	private static List<Object> testList8(){
 		List<Object> result = new ArrayList<Object>();
 		int i = 0;
-		
 		for (List<List<List<String>>> sublist: listListCombinations) {
 			result.add(List.of("record" + i, sublist));
 			i++;
@@ -193,7 +207,6 @@ public class InterimResultTest {
 					outersome = true;
 					break;
 				}
-				
 			}
 			if (outersome)
 				result.add("record" + i);
@@ -222,7 +235,7 @@ public class InterimResultTest {
 		return result;
 	}
 	
-	static List<String> expectedList1 = List.of("record2", "record4", "record5");
+	static List<String> expectedList1 = getExpectedList1(); // List.of("record2", "record4", "record5");
 	static List<String> expectedList2 = expectedList1;
 	static List<String> expectedList3 = List.of("record14", "record16", "record17", "record26", "record28", "record29", "record32", "record34", "record35");
 	static List<String> expectedList4 = List.of("record2", "record4", "record5", "record8", "record10", "record11", "record12", "record13", "record14", "record15", "record16", "record17", "record20", "record22", "record23", "record24", "record25", "record26", "record27", "record28", "record29", "record30", "record31", "record32", "record33", "record34", "record35");

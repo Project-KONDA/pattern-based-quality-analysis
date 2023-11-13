@@ -205,12 +205,15 @@ public class OneArgTestPatterns {
 
 		// Condition Structure
 		QuantifiedCondition qcon1 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		qcon1.setQuantifier(Quantifier.EXISTS);
 		completePattern.setCondition(qcon1);
 		Graph qcon1graph = qcon1.getGraph();
 		QuantifiedCondition qcon2 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		qcon2.setQuantifier(Quantifier.FORALL);
 		qcon1.setCondition(qcon2);
 		Graph qcon2graph = qcon2.getGraph();
 		QuantifiedCondition qcon3 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		qcon3.setQuantifier(Quantifier.EXISTS);
 		qcon2.setCondition(qcon3);
 		Graph qcon3graph = qcon3.getGraph();
 
