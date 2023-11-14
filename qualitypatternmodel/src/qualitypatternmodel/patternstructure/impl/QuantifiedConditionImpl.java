@@ -146,9 +146,13 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 					(BooleanFilterPart) getCondition().generateQueryFilterPart());
 			} else if (graph) {
 				subfilter = (BooleanFilterPart) getGraph().generateQueryFilterPart();
+				if (subfilter instanceof FormulaFilterPartImpl) {
+					FormulaFilterPartImpl formula = (FormulaFilterPartImpl) subfilter;
+					formula.addQuantifiersToArguments(getQuantifier());
+					return formula;
+				}
 			} else 
 				subfilter = (BooleanFilterPart) getCondition().generateQueryFilterPart();
-			
 			return new ListFilterPartImpl(getQuantifier(), subfilter);
 		}
 		return new BooleanFilterElementImpl();

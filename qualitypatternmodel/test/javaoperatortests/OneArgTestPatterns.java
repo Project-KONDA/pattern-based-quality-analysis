@@ -67,18 +67,18 @@ public class OneArgTestPatterns {
 	
 	public static List<CompletePattern> getTestPatterns() throws InvalidityException{
 		List<CompletePattern> result = new ArrayList<CompletePattern>();
-//		result.add(getTestPattern1());
-//		result.add(getTestPattern2());
+		result.add(getTestPattern1());
+		result.add(getTestPattern2());
 		result.add(getTestPattern3());
-//		result.add(getTestPattern4());
-//		result.add(getTestPattern5());
-//		result.add(getTestPattern5b());
-//		result.add(getTestPattern6());
-//		result.add(getTestPattern6b());
-//		result.add(getTestPattern7());
-//		result.add(getTestPattern8());
-//		result.add(getTestPattern9());
-//		result.add(getTestPattern10());
+		result.add(getTestPattern4());
+		result.add(getTestPattern5());
+		result.add(getTestPattern5b());
+		result.add(getTestPattern6());
+		result.add(getTestPattern6b());
+		result.add(getTestPattern7());
+		result.add(getTestPattern8());
+		result.add(getTestPattern9());
+		result.add(getTestPattern10());
 		return result;
 	}
 	

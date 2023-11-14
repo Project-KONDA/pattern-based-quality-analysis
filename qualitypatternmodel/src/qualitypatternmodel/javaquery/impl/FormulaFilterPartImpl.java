@@ -21,6 +21,7 @@ import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.impl.FixedContainerInterimImpl;
 import qualitypatternmodel.patternstructure.LogicalOperator;
+import qualitypatternmodel.patternstructure.Quantifier;
 
 /**
  * <!-- begin-user-doc -->
@@ -144,6 +145,18 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 	public String toString() {
 		return "[formula " + getJavaFilterPartId() + " <" + getArgument().getInterimPartId() + "> " 
 				+ " " + getSubfilter1().toString() + " " + getOperator().toString() + " " + getSubfilter2().toString() + "]";
+	}
+	
+	public void addQuantifiersToArguments(Quantifier quantifier) {
+		if(getSubfilter1() instanceof FormulaFilterPartImpl)
+			((FormulaFilterPartImpl) getSubfilter1()).addQuantifiersToArguments(quantifier);
+		else 
+			setSubfilter1(new ListFilterPartImpl(quantifier, getSubfilter1()));
+		
+		if(getSubfilter2() instanceof FormulaFilterPartImpl)
+			((FormulaFilterPartImpl)getSubfilter2()).addQuantifiersToArguments(quantifier);
+		else 
+			setSubfilter2(new ListFilterPartImpl(quantifier, getSubfilter2()));
 	}
 	
 	
