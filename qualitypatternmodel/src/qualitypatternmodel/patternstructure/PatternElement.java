@@ -231,6 +231,14 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String generateXQueryJavaReturn() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * Recursively records all values of contained or referenced <code>Parameters</code> in the <code>XmlDatabase</code>.
 	 * 
 	 * @param database the <code>XmlDatabase</code> in which the values of <code>Parameters</code> are recorded

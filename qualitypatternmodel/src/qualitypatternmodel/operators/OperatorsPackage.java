@@ -352,6 +352,15 @@ public interface OperatorsPackage extends EPackage {
 	int OPERATOR___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.COMPARABLE___GENERATE_QUERY_FILTER_PART;
 
 	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.COMPARABLE___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -738,6 +747,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_OPERATOR___GENERATE_QUERY_FILTER_PART = OPERATOR___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA_RETURN = OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1155,6 +1173,15 @@ public interface OperatorsPackage extends EPackage {
 	int NUMBER_OPERATOR___GENERATE_QUERY_FILTER_PART = OPERATOR___GENERATE_QUERY_FILTER_PART;
 
 	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATOR___GENERATE_XQUERY_JAVA_RETURN = OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1568,6 +1595,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MATCH___GENERATE_QUERY_FILTER_PART = BOOLEAN_OPERATOR___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___GENERATE_XQUERY_JAVA_RETURN = BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -2030,6 +2066,15 @@ public interface OperatorsPackage extends EPackage {
 	int COMPARISON___GENERATE_QUERY_FILTER_PART = BOOLEAN_OPERATOR___GENERATE_QUERY_FILTER_PART;
 
 	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___GENERATE_XQUERY_JAVA_RETURN = BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2463,6 +2508,15 @@ public interface OperatorsPackage extends EPackage {
 	int OPERATOR_LIST___GENERATE_QUERY_FILTER_PART = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
 
 	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___GENERATE_XQUERY_JAVA_RETURN = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
 	 * The operation id for the '<em>Add</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2804,6 +2858,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONTAINS___GENERATE_QUERY_FILTER_PART = BOOLEAN_OPERATOR___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___GENERATE_XQUERY_JAVA_RETURN = BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -3246,6 +3309,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NULL_CHECK___GENERATE_QUERY_FILTER_PART = BOOLEAN_OPERATOR___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NULL_CHECK___GENERATE_XQUERY_JAVA_RETURN = BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -3697,6 +3769,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int STRING_LENGTH___GENERATE_QUERY_FILTER_PART = BOOLEAN_OPERATOR___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___GENERATE_XQUERY_JAVA_RETURN = BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.

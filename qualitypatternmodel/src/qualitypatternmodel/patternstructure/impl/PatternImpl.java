@@ -6,7 +6,9 @@ import static qualitypatternmodel.utility.Constants.RETURN;
 import static qualitypatternmodel.utility.Constants.WHERE;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -40,6 +42,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
 /**
  * <!-- begin-user-doc -->
@@ -183,7 +186,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		for (int i = 0; i < returnElements.size(); i++) {
 			if (i != 0)
 				returnClause += ", ";
-			XmlNode r = ((XmlNode) returnElements.get(i)); 
+			XmlNode r = ((XmlNode) returnElements.get(i));
 			if (r.getVariables() == null || r.getVariables().isEmpty()) {
 				throw new InvalidityException("There was no associated variable generated to the return node");
 			}
@@ -199,6 +202,40 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		setXmlQuery(query);
 		setPartialXmlQuery(forClauses + returnClause);		
 		return query;
+	}
+
+	@Override
+	public String generateXQueryJavaReturn() throws InvalidityException {
+		EList<Node> returnElements = graph.getReturnNodes();
+		if (returnElements.isEmpty())
+			throw new InvalidityException("no return nodes in return graph");
+		
+		List<String> nodes = new ArrayList<String>();
+		for (Node node: returnElements) {
+			XmlNode xmlnode = ((XmlNode) node);
+			if (xmlnode.getVariables() == null || xmlnode.getVariables().isEmpty()) {
+				throw new InvalidityException("There was no associated variable generated to the return node");
+			}
+			nodes.add(xmlnode.getVariables().get(0));
+		}	
+		String nodeString = JavaQueryTranslationUtility.getXQueryReturnList(nodes, "return");
+		
+		if (!containsJavaOperator())
+			return nodeString;
+		
+		String conditionString = "conditionpath";
+		
+		
+//		Boolean graphJava = getGraph().containsJavaOperator();
+		getGraph().generateXQueryJavaReturn();
+		
+//		Boolean conditionJava = getCondition().containsJavaOperator();
+		getCondition().generateXQueryJavaReturn();
+		
+		
+		
+		
+		return JavaQueryTranslationUtility.getXQueryReturnList(List.of(nodeString, conditionString), "interim");
 	}
 	
 	@Override
