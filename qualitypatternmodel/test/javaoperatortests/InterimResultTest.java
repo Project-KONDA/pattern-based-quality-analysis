@@ -29,7 +29,7 @@ public class InterimResultTest {
 		System.out.print("total: " + (!results.contains(false)));
 	}
 
-	private static Boolean testTestPattern(CompletePattern testpattern, List<Object> rawResults, List<String> expected, Boolean output)
+	static Boolean testTestPattern(CompletePattern testpattern, List<Object> rawResults, List<String> expected, Boolean output)
 			throws InvalidityException {
 		if (rawResults == null)
 			return false;
@@ -112,7 +112,7 @@ public class InterimResultTest {
 		return result;
 	}
 
-	private static List<Object> testList1 = testList1();
+	static List<Object> testList1 = testList1();
 	private static List<Object> testList1(){
 		List<Object> result = new ArrayList<Object>();
 		int i = 0;
@@ -137,7 +137,7 @@ public class InterimResultTest {
 	
 	
 	
-	private static List<Object> testList2 = testList2();
+	static List<Object> testList2 = testList2();
 	private static List<Object> testList2(){
 		List<Object> result = new ArrayList<Object>();
 		int i = 0;
@@ -149,7 +149,7 @@ public class InterimResultTest {
 		return result;
 	}
 
-	private static List<Object> testList3 = testList3();
+	static List<Object> testList3 = testList3();
 	private static List<Object> testList3(){
 		List<Object> result = new ArrayList<Object>();
 		int i = 0;
@@ -161,7 +161,7 @@ public class InterimResultTest {
 		return result;
 	}
 	
-	private static List<Object> testList7 = testList7();
+	static List<Object> testList7 = testList7();
 	private static List<Object> testList7(){
 		List<Object> result = new ArrayList<Object>();
 		int i = 0;
@@ -174,7 +174,7 @@ public class InterimResultTest {
 		
 	}
 	
-	private static List<Object> testList8 = testList8();
+	static List<Object> testList8 = testList8();
 	private static List<Object> testList8(){
 		List<Object> result = new ArrayList<Object>();
 		int i = 0;
@@ -216,7 +216,7 @@ public class InterimResultTest {
 		return result;
 	}
 	
-	private static List<Object> testList10 = testList10(); //testList10old();
+	static List<Object> testList10 = testList10(); //testList10old();
 	private static List<Object> testList10(){
 		List<Object> result = new ArrayList<Object>();
 		int i = 0;
