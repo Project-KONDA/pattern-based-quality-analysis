@@ -815,7 +815,11 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			NeoPropertyEdge edge = (NeoPropertyEdge) Adaptionneo4jFactoryImpl.init().createNeoPropertyEdge();
 
 			edge.setName(getName());
-			edge.setGraph(getGraph());
+//			edge.setGraph(getGraph());
+			
+			edge.setGraphSimple(getGraph());
+			
+			edge.createParameters();
 			
 //			edge.createParameters();
 			
@@ -851,7 +855,11 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			NeoElementEdge edge = (NeoElementEdge) Adaptionneo4jFactoryImpl.init().createNeoElementEdge();
 
 			edge.setName(getName());
-			edge.setGraph(getGraph());
+//			edge.setGraph(getGraph());
+			
+			edge.setGraphSimple(getGraph());
+			
+			edge.createParameters();
 			
 //			edge.createParameters();
 			

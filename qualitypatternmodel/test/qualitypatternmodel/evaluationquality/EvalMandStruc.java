@@ -71,15 +71,15 @@ public class EvalMandStruc {
 		formula.setCondition1(qc1);
 		Graph g1 = qc1.getGraph();
 		
-		Node return1 = g1.getReturnNodes().get(0).makeComplex();
-		return1.addOutgoing().getTarget().makeComplex();
+		Node return1 = g0.getReturnNodes().get(0).makeComplex();
+		return1.addOutgoing(g1).getTarget().makeComplex();
 		
 		QuantifiedCondition qc2 = factory.createQuantifiedCondition();
 		formula.setCondition2(qc2);
 		Graph g2 = qc2.getGraph();
 		
-		Node return2 = g2.getReturnNodes().get(0).makeComplex();
-		return2.addOutgoing().getTarget().makeComplex();
+		Node return2 = g0.getReturnNodes().get(0).makeComplex();
+		return2.addOutgoing(g2).getTarget().makeComplex();
 		return completePattern;
 	}
 		

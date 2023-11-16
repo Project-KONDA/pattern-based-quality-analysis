@@ -241,5 +241,4 @@ public abstract class NeoEdgeImpl extends RelationImpl implements NeoEdge {
 		result.append(')');
 		return result.toString();
 	}
-
 } //NeoAbstractEdgeImpl

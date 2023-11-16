@@ -17,18 +17,18 @@ public class CypherEvalUnique {
 		//New ones
 		printUniqueIdentifier();
 		
-		System.out.println();
-		System.out.println("---");
-		System.out.println();
-		
-		//Dummy-files for old ones --> The followings are not SUPPORTED
-		printgetUniqueCondGeneric();
-		
-		System.out.println();
-		System.out.println("---");
-		System.out.println();
-		
-		printUniqueCondComplexGeneric();
+//		System.out.println();
+//		System.out.println("---");
+//		System.out.println();
+//		
+//		//Dummy-files for old ones --> The followings are not SUPPORTED
+//		printgetUniqueCondGeneric();
+//		
+//		System.out.println();
+//		System.out.println("---");
+//		System.out.println();
+//		
+//		printUniqueCondComplexGeneric();
 				
 	}
 

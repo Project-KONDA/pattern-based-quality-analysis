@@ -93,7 +93,7 @@ public class EvalUnique {
 		quantifiedCondition.setQuantifier(Quantifier.EXISTS);
 		
 		PrimitiveNode primitiveNode1 = quantifiedCondition.getGraph().addPrimitiveNode();
-		ComplexNode complexNode1 = (ComplexNode) quantifiedCondition.getGraph().getNodes().get(0).makeComplex();
+		ComplexNode complexNode1 = (ComplexNode) completePattern.getGraph().getNodes().get(0).makeComplex();
 		quantifiedCondition.getGraph().addRelation(complexNode1, primitiveNode1);
 		
 		PrimitiveNode primitiveNode2 = quantifiedCondition.getGraph().addPrimitiveNode();

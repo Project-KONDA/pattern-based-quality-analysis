@@ -304,14 +304,10 @@ public class CypherEvalMandStruc {
 		
 		Formula formula = ((Formula) ((NotCondition) completePattern.getCondition()).getCondition());
 		NeoElementNode neoNode1Cond1 = (NeoElementNode) ((QuantifiedCondition) formula.getCondition1()).getGraph().getNodes().get(0);
-		neoNode1Cond1.setNeoPlace(NeoPlace.BEGINNING);
-		NeoElementNode neoNode2Cond1 = (NeoElementNode) ((QuantifiedCondition) formula.getCondition1()).getGraph().getNodes().get(1);
-		neoNode2Cond1.addNeoLabel("Place");
+		neoNode1Cond1.addNeoLabel("Place");
 		
 		NeoElementNode neoNode1Cond2 = (NeoElementNode) ((QuantifiedCondition) formula.getCondition2()).getGraph().getNodes().get(0);
-		neoNode1Cond2.setNeoPlace(NeoPlace.BEGINNING);
-		NeoElementNode neoNode2Cond2 = (NeoElementNode) ((QuantifiedCondition) formula.getCondition2()).getGraph().getNodes().get(1);
-		neoNode2Cond2.addNeoLabel("IndexPlace");
+		neoNode1Cond2.addNeoLabel("IndexPlace");
 		
 		return completePattern;
 	}

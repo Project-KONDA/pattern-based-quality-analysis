@@ -29,26 +29,26 @@ public class CypherTest00 extends CypherTranslation {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CypherTest00 cypher00 = new CypherTest00();
 		try {
-			long timeElapsedNanos = 0;
-			long timeElapsedMillis =  0;
+//			long timeElapsedNanos = 0;
+//			long timeElapsedMillis =  0;
 			
-			for (int i = 0; i <= 9; i++) {
-				Instant start = Instant.now();
-				
+//			for (int i = 0; i <= 9; i++) {
+//				Instant start = Instant.now();
+//				
 				cypher00.tester();   
-				
-				Instant finish = Instant.now();
-				timeElapsedNanos += Duration.between(start, finish).toNanos();
-				timeElapsedMillis += Duration.between(start, finish).toMillisPart();
-			}			
+//				
+//				Instant finish = Instant.now();
+//				timeElapsedNanos += Duration.between(start, finish).toNanos();
+//				timeElapsedMillis += Duration.between(start, finish).toMillisPart();
+//			}			
 			
 			cypher00.invalidtyExceptionTester();
 			
-			System.out.println("--- Average Run ---");
-			long timeElapsedNanosAvg = timeElapsedNanos / 10;
-			System.out.println(timeElapsedNanosAvg);
-			long timeElapsedSecAvg = timeElapsedMillis / 10;
-			System.out.println(timeElapsedSecAvg);
+//			System.out.println("--- Average Run ---");
+//			long timeElapsedNanosAvg = timeElapsedNanos / 10;
+//			System.out.println(timeElapsedNanosAvg);
+//			long timeElapsedSecAvg = timeElapsedMillis / 10;
+//			System.out.println(timeElapsedSecAvg);
 		} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();
@@ -58,10 +58,12 @@ public class CypherTest00 extends CypherTranslation {
 	@Override
 	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		completePatterns.add(getBasePatternCypher());
-		completePatterns.add(getBasePatternComplexFinal());
-		completePatterns.add(getComplexStructure());
-		completePatterns.add(getBasePatternCondDateConcrete("1440-02-02"));
+//		completePatterns.add(getBasePatternCypher());
+//		completePatterns.add(getBasePatternComplexFinal());
+//		completePatterns.add(getComplexStructure());
+		
+		// --> This failes
+		completePatterns.add(getBasePatternCondDateConcrete("1440-02-02")); 
 		completePatterns.add(getBasePatternCondConcrete("1439-12-20"));
 		completePatterns.add(getBasePatternMatchConcrete("1439.*"));
 		completePatterns.add(getBasePatternMatchNotConcrete("1439.*"));

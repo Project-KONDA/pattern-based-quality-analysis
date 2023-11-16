@@ -40,12 +40,12 @@ public class EvalConditions {
 		QuantifiedCondition qc1 = factory.createQuantifiedCondition();
 		formula.setCondition1(qc1);
 		ComplexNode innerComplexNode = qc1.getGraph().addComplexNode();
-		qc1.getGraph().addRelation((ComplexNode) qc1.getGraph().getNodes().get(0), innerComplexNode);
+		qc1.getGraph().addRelation((ComplexNode) completePattern.getGraph().getNodes().get(0), innerComplexNode);
 		
 		QuantifiedCondition qc2 = factory.createQuantifiedCondition();
 		formula.setCondition2(qc2);
 		innerComplexNode = qc2.getGraph().addComplexNode();
-		qc2.getGraph().addRelation((ComplexNode) qc2.getGraph().getNodes().get(0), innerComplexNode);
+		qc2.getGraph().addRelation((ComplexNode) completePattern.getGraph().getNodes().get(0), innerComplexNode);
 		
 		return completePattern;
 	}
@@ -69,7 +69,7 @@ public class EvalConditions {
 		
 		QuantifiedCondition qc1 = factory.createQuantifiedCondition();
 		not.setCondition(qc1);
-		ComplexNode innerComplexNode = (ComplexNode) qc1.getGraph().getNodes().get(0);
+		ComplexNode innerComplexNode = (ComplexNode) completePattern.getGraph().getNodes().get(0);
 		PrimitiveNode primitiveNode1 = qc1.getGraph().addPrimitiveNode();
 		qc1.getGraph().addRelation(innerComplexNode, primitiveNode1);
 		PrimitiveNode primitiveNode2 = qc1.getGraph().addPrimitiveNode();
@@ -104,8 +104,8 @@ public class EvalConditions {
 			numberElement.getNumberParam().setValue(1.);
 			
 			CountPattern countPattern = (CountPattern) countCond.getCountPattern();
-			countPattern.getGraph().getNodes().get(0).setReturnNode(false);
-			countPattern.getGraph().getNodes().get(1).setReturnNode(true);
+//			countPattern.getGraph().getNodes().get(0).setReturnNode(false);
+//			countPattern.getGraph().getNodes().get(1).setReturnNode(true);
 			
 			ParameterList paramters = completePattern.getParameterList();
 			ComparisonOptionParam comparisonOptionParam = (ComparisonOptionParam) paramters.getParameters().get(0);

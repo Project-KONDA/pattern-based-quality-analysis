@@ -11,38 +11,41 @@ import qualitypatternmodel.evaluationquality.EvalCard;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.CountCondition;
+import qualitypatternmodel.patternstructure.CountPattern;
 
 public class CypherEvalCard {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		//New Ones
-		//printCard1Generic();
+		printCard1Generic();
 		
-//		System.out.println();
-//		System.out.println("---");
-//		System.out.println();
-//		
+		System.out.println();
+		System.out.println("---");
+		System.out.println();
+		
 //		Old Ones filled with dummy data
-//		printCard2Generic();
-//		
-//		System.out.println();
-//		System.out.println("---");
-//		System.out.println();
-//		
-//		printCard2PlusGeneric();
-//		
-//		System.out.println();
-//		System.out.println("---");
-//		System.out.println();
-//		
-//		printCard2CondGeneric();
-//		
-//		System.out.println();
-//		System.out.println("---");
-//		System.out.println();
-//
+		printCard2Generic();
+		
+		System.out.println();
+		System.out.println("---");
+		System.out.println();
+		
+		printCard2PlusGeneric();
+		
+		System.out.println();
+		System.out.println("---");
+		System.out.println();
+		
+		printCard2CondGeneric();
+		
+		System.out.println();
+		System.out.println("---");
+		System.out.println();
+
 		printCard2CondPlusGeneric();
 	}
 	
@@ -77,6 +80,10 @@ public class CypherEvalCard {
 		textListParam.addStringValue("Regesta");
 		NeoNodeLabelsParam neoNodeLabelParam = (NeoNodeLabelsParam) paramters.getParameters().get(3);
 		neoNodeLabelParam.addStringValue("PLACE_OF_ISSUE");
+//		Node countElement = completePatternCard1.getGraph().getNodes().get(0);
+//		CountPattern cPattern = ((CountCondition) completePatternCard1.getCondition()).getCountPattern();
+//		cPattern.
+		
 		
 		finish = Instant.now();
 		timeElapsed = Duration.between(start, finish).toMillis();
