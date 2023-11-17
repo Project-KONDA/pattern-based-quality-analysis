@@ -31,7 +31,7 @@ public class CypherTest04Formula extends CypherTranslation {
     	CypherTest04Formula formula = new CypherTest04Formula();
     	try {
     		formula.tester();         
-        	//formula.invalidtyExceptionTester();	
+        	formula.invalidtyExceptionTester();	
     	} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();
