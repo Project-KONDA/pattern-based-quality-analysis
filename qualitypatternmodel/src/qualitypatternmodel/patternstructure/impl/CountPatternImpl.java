@@ -3,6 +3,7 @@
 package qualitypatternmodel.patternstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -38,6 +39,7 @@ import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountConditionArgument;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.Morphism;
@@ -120,6 +122,20 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		return "\ncount (" + super.generateXQuery().replace("\n", "\n  ") + "\n)";
 	}
 	
+	public String generateXQueryJavaReturn() throws InvalidityException {
+		Boolean graphJava = getGraph().containsJavaOperator();
+		Boolean conditionJava = getCondition().containsJavaOperator();
+		String graphString = getGraph().generateXQueryJavaReturn();
+		String conditionString = getCondition().generateXQueryJavaReturn();
+		if (!graphJava && !conditionJava)
+			return generateXQuery();
+		else if (!graphJava)
+			return conditionString;
+		else if (!conditionJava)
+			return graphString;
+		else 
+			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(graphString, conditionString), "condition");
+	}
 	
 	
 	//BEGIN - CYPHER (Simples Count)

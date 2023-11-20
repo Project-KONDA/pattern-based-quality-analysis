@@ -4,6 +4,7 @@ package qualitypatternmodel.patternstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -47,6 +48,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -168,7 +170,22 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		}
 		result += "(" + condition.generateXQuery() + ")";
 		return result;
-
+	}
+	
+	public String generateXQueryJavaReturn() throws InvalidityException {
+		Boolean graphJava = getGraph().containsJavaOperator();
+		Boolean conditionJava = getCondition().containsJavaOperator();
+		String graphString = getGraph().generateXQueryJavaReturn();
+		String conditionString = getCondition().generateXQueryJavaReturn();
+		
+		if (!graphJava && !conditionJava)
+			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(generateXQuery()), "quantified");
+		else if (!graphJava)
+			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(conditionString), "quantified");
+		else if (!conditionJava)
+			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(graphString), "quantified");
+		else 
+			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(graphString, conditionString), "quantified");
 	}
 	
 	@Override

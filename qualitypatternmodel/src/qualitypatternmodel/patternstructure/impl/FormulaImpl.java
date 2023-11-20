@@ -4,6 +4,8 @@ package qualitypatternmodel.patternstructure.impl;
 
 import static qualitypatternmodel.utility.Constants.*;
 
+import java.util.List;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -32,6 +34,7 @@ import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -188,7 +191,24 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		} else {
 			throw new InvalidityException("operator null");
 		}
+	}
+	
+	@Override
+	public String generateXQueryJavaReturn() throws InvalidityException {
+		Boolean cond1Java = getCondition1().containsJavaOperator();
+		Boolean cond2Java = getCondition2().containsJavaOperator();
+
+		String cond1String = cond1Java? getCondition1().generateXQueryJavaReturn() : getCondition1().generateXQuery();
+		String cond2String = cond2Java? getCondition2().generateXQueryJavaReturn() : getCondition2().generateXQuery();
 		
+		if (!cond1Java && !cond2Java)
+			return generateXQuery();
+//		else if (!cond1Java)
+//			return cond2String;
+//		else if (!cond2Java)
+//			return cond1String;
+		else 
+			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(cond1String, cond2String), "condition");
 	}
 	
 	@Override
@@ -223,13 +243,10 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 				default:
 					throw new InvalidityException("invalid arguments");
 				}
-				
 			} else {
 				throw new InvalidityException("invalid arguments");
 			}
-			
 			return addMissingBrackets(result);
-			
 		} else {
 			throw new InvalidityException("operator null");
 		}

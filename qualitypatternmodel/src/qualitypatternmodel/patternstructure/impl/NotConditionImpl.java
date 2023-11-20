@@ -85,6 +85,15 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 			throw new InvalidityException("invalid condition");
 		}
 	}
+	
+	public String generateXQueryJavaReturn() throws InvalidityException {
+		String conditionString = getCondition().generateXQueryJavaReturn();
+		if (conditionString == null)
+			return null;
+		else 
+			return conditionString;
+	}
+	
 	@Override
 	public int getNotSequenceSize() {
 		if(getCondition() instanceof NotConditionImpl) {

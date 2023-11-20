@@ -2,7 +2,10 @@
  */
 package qualitypatternmodel.graphstructure.impl;
 
+import static qualitypatternmodel.utility.Constants.VARIABLE;
+
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -24,6 +27,7 @@ import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
+import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
@@ -185,6 +189,49 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			throw ex;
 		}
 		return result;
+	}
+	
+	@Override
+	public String generateXQueryJavaReturn() throws InvalidityException {
+		if(!containsJavaOperator())
+			return "";
+		String result = "";
+//		result += this.generateXQuery();
+		
+		ArrayList<XmlNode> javaNodes = new ArrayList<XmlNode>();
+		ArrayList<XmlNode> javaMidNodes = new ArrayList<XmlNode>();
+		ArrayList<Relation> javaRelations = new ArrayList<Relation>();
+		ArrayList<Relation> javaStartRelations = new ArrayList<Relation>();
+		for (Node node: getNodes()) {
+			if(node.containsJavaOperator())
+				javaNodes.add((XmlNode) node);
+			else if(node.nodeInJavaReturnRequired())
+				javaMidNodes.add((XmlNode)node);
+		}
+		for (Relation relation: getRelations()) {
+			if(relation.relationInJavaReturnRequired()) {
+			 if (relation.isCrossGraph())
+				 javaStartRelations.add(relation);
+			 else
+				 javaRelations.add(relation);
+			}
+		}
+		
+		for (XmlNode node: javaNodes) {
+			result += VARIABLE + ((Node) node).getInternalId() + "_0" + "\n";
+			result += ((Node) node).generateXQuery() + "\n";
+		}
+		
+//		for (Relation relation: javaStartRelations) {
+//			result += relation.generateXQuery() + "\n";
+//		}
+//		for (Relation relation: javaRelations) {
+//			result += relation.generateXQuery() + "\n";
+//		}
+//		for (XmlNode node: javaMidNodes) {
+//			result += ((Node)node).generateXQuery() + "\n";
+//		}
+		return "(\n  " + result + "\n  )";
 	}
 	
 	@Override

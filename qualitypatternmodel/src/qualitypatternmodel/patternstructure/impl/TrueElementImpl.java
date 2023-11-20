@@ -43,6 +43,10 @@ public class TrueElementImpl extends ConditionImpl implements TrueElement {
 		return "true()";
 	}
 	
+	public String generateXQueryJavaReturn() throws InvalidityException {
+		return null;
+	}
+	
 	@Override
 	public String generateSparql() throws InvalidityException {
 		return "";

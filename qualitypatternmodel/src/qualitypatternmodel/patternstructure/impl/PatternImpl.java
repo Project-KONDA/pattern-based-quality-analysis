@@ -3,6 +3,7 @@
 package qualitypatternmodel.patternstructure.impl;
 
 import static qualitypatternmodel.utility.Constants.RETURN;
+import static qualitypatternmodel.utility.Constants.VARIABLE;
 import static qualitypatternmodel.utility.Constants.WHERE;
 
 import java.lang.reflect.InvocationTargetException;
@@ -206,6 +207,12 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 
 	@Override
 	public String generateXQueryJavaReturn() throws InvalidityException {
+		if (!containsJavaOperator())
+			return null;
+		if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
+			throw new InvalidityException("return elements missing in " + getClass().getSimpleName() + " [" + getInternalId() + "]");
+		}
+		
 		EList<Node> returnElements = graph.getReturnNodes();
 		if (returnElements.isEmpty())
 			throw new InvalidityException("no return nodes in return graph");
@@ -213,29 +220,18 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		List<String> nodes = new ArrayList<String>();
 		for (Node node: returnElements) {
 			XmlNode xmlnode = ((XmlNode) node);
-			if (xmlnode.getVariables() == null || xmlnode.getVariables().isEmpty()) {
-				throw new InvalidityException("There was no associated variable generated to the return node");
-			}
-			nodes.add(xmlnode.getVariables().get(0));
-		}	
-		String nodeString = JavaQueryTranslationUtility.getXQueryReturnList(nodes, "return");
+			nodes.add(VARIABLE + ((Node) xmlnode).getInternalId() + "_0");
+		}
 		
-		if (!containsJavaOperator())
-			return nodeString;
+		String graphString = getGraph().generateXQueryJavaReturn();
+		String conditionString = getCondition().generateXQueryJavaReturn();
 		
-		String conditionString = "conditionpath";
-		
-		
-//		Boolean graphJava = getGraph().containsJavaOperator();
-		getGraph().generateXQueryJavaReturn();
-		
-//		Boolean conditionJava = getCondition().containsJavaOperator();
-		getCondition().generateXQueryJavaReturn();
-		
-		
-		
-		
-		return JavaQueryTranslationUtility.getXQueryReturnList(List.of(nodeString, conditionString), "interim");
+		List<String> resultList = new ArrayList<String>();
+		resultList.add("\"<return>\"");
+		resultList.addAll(nodes);
+		resultList.addAll(List.of("\"</return>\"", "\"<condition>\"", graphString, conditionString, "\"</condition>"));
+		String resultString = JavaQueryTranslationUtility.getXQueryReturnList(resultList, "interim"); 
+		return resultString;
 	}
 	
 	@Override
@@ -243,7 +239,6 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
 			throw new InvalidityException("return elements missing");
 		}
-		
 		String query = "";
 		query += graph.generateSparql();
 		query += condition.generateSparql();
