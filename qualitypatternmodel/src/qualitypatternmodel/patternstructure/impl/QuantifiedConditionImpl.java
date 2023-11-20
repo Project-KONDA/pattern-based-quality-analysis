@@ -172,6 +172,18 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		return result;
 	}
 	
+	@Override
+	public String generateXQueryJava() throws InvalidityException {
+		String result;
+		if (quantifier == Quantifier.EXISTS || quantifier == Quantifier.FORALL) {
+			result = graph.generateXQueryJava();
+		} else {
+			throw new InvalidityException("invalid quantifier");
+		}
+		result += "(" + condition.generateXQueryJava() + ")";
+		return result;
+	}
+	
 	public String generateXQueryJavaReturn() throws InvalidityException {
 		Boolean graphJava = getGraph().containsJavaOperator();
 		Boolean conditionJava = getCondition().containsJavaOperator();

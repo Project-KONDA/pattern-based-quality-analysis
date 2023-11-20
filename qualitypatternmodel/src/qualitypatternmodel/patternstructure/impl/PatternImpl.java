@@ -3,7 +3,6 @@
 package qualitypatternmodel.patternstructure.impl;
 
 import static qualitypatternmodel.utility.Constants.RETURN;
-import static qualitypatternmodel.utility.Constants.VARIABLE;
 import static qualitypatternmodel.utility.Constants.WHERE;
 
 import java.lang.reflect.InvocationTargetException;
@@ -204,6 +203,32 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		setPartialXmlQuery(forClauses + returnClause);		
 		return query;
 	}
+	
+	@Override
+	public String generateXQueryJava() throws InvalidityException {
+		if (!containsJavaOperator())
+			return generateXQuery();
+		
+		String forClauses = graph.generateXQuery();
+		if (graph.containsJavaOperator())
+			throw new UnsupportedOperationException("Java Operator in Return Graph");
+		
+		String whereClause = "";
+		if (!(condition instanceof TrueElement)) {
+			String condQuery = condition.generateXQueryJava().replace("\n", "\n  ");
+			if (!condQuery.equals("(true())"))
+				whereClause = WHERE + condQuery;
+			else 
+				whereClause = "\n";
+		}
+		
+		String returnClause = generateXQueryJavaReturn();
+		
+		String query = forClauses + whereClause + returnClause;
+		setXmlQuery(query);
+		setPartialXmlQuery(forClauses + returnClause);		
+		return query;	
+	}
 
 	@Override
 	public String generateXQueryJavaReturn() throws InvalidityException {
@@ -220,7 +245,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		List<String> nodes = new ArrayList<String>();
 		for (Node node: returnElements) {
 			XmlNode xmlnode = ((XmlNode) node);
-			nodes.add(VARIABLE + ((Node) xmlnode).getInternalId() + "_0");
+			nodes.add(xmlnode.getVariables().get(0)); //  VARIABLE + ((Node) xmlnode).getInternalId() + "_0");
 		}
 		
 		String graphString = getGraph().generateXQueryJavaReturn();
@@ -229,7 +254,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		List<String> resultList = new ArrayList<String>();
 		resultList.add("\"<return>\"");
 		resultList.addAll(nodes);
-		resultList.addAll(List.of("\"</return>\"", "\"<condition>\"", graphString, conditionString, "\"</condition>"));
+		resultList.addAll(List.of("\"</return>\"", "\"<condition>\"", graphString, conditionString, "\"</condition>\""));
 		String resultString = JavaQueryTranslationUtility.getXQueryReturnList(resultList, "interim"); 
 		return resultString;
 	}

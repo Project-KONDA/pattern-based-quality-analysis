@@ -37,9 +37,13 @@ public class TrueElementImpl extends ConditionImpl implements TrueElement {
 		return null;
 	}
 	
-	
 	@Override
 	public String generateXQuery() throws InvalidityException {
+		return "true()";
+	}
+	
+	@Override
+	public String generateXQueryJava() throws InvalidityException {
 		return "true()";
 	}
 	

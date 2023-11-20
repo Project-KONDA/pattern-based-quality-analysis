@@ -385,6 +385,16 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	}
 
 	@Override
+	public String generateXQueryJava() throws InvalidityException {
+		if (!containsJavaOperator())
+			return generateXQuery();
+		initializeTranslation();
+		String res = getParameterList().generateXQuery();
+		res += super.generateXQueryJava();
+		return res;
+	}
+
+	@Override
 	public String generateSparql() throws InvalidityException {
 		initializeTranslation();
 		if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {

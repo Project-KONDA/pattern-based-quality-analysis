@@ -11,13 +11,13 @@ public class JavaQueryTranslationUtility {
 		for (String element: elements) {
 			if (element != null && !element.equals("")) {
 				if (element.startsWith(concat)) {
-					element = element.substring(concat.length(), element.length()-2);
+					element = element.substring(concat.length(), element.length()-1);
 				}
 				returnstring += element + ",\n  ";
 			}
 		}
 		
-		returnstring += "\"</" + tagname + ">\")";;
+		returnstring += "\"</" + tagname + ">\")";
 		return returnstring;
 	}
 	
