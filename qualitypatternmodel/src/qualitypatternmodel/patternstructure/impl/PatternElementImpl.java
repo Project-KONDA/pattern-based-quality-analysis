@@ -466,7 +466,19 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 		if (containsJavaOperator())
 			throw new UnsupportedOperationException(getClass().getSimpleName());
 		else 
-			return null;
+			return generateXQuery();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String generateXQueryJava() throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -687,6 +699,13 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART:
 				try {
 					return generateQueryFilterPart();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA:
+				try {
+					return generateXQueryJava();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

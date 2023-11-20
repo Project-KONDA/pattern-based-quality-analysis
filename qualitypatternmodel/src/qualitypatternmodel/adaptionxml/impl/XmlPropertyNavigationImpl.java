@@ -3,6 +3,7 @@
 package qualitypatternmodel.adaptionxml.impl;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static qualitypatternmodel.utility.Constants.VARIABLE;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -68,6 +69,27 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 
 	public String generateXQuery2() throws InvalidityException {
 		return super.generateXQuery();
+	}
+
+	@Override
+	public String generateXQueryJavaReturn() throws InvalidityException {
+		if (!getXmlPathParam().getXmlAxisParts().isEmpty()) 
+			return super.generateXQuery();
+		
+		XmlProperty target = (XmlProperty) getTarget();
+		
+		String path = getXmlPathParam().generateXQuery();
+		
+		XmlElement source = (XmlElement) getSource();
+		String variable = VARIABLE + source.getInternalId() + "_0" + path;
+		target.getVariables().add(variable);		
+		String result = "." + path;
+		target.setTranslated(true);
+		
+		result += target.translatePredicates();
+		result += target.translateMultipleIncoming();
+		
+		return "[" + result + "]";
 	}
 	
 	

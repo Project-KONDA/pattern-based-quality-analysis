@@ -536,6 +536,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_NODE___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.COMPLEX_NODE___GENERATE_QUERY_FILTER_PART;
 
 	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_NODE___GENERATE_XQUERY_JAVA = GraphstructurePackage.COMPLEX_NODE___GENERATE_XQUERY_JAVA;
+
+	/**
 	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -914,6 +923,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_NODE___ADAPT_AS_NEO_PROPERTY_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_NEO_PROPERTY_NODE;
 
 	/**
+	 * The operation id for the '<em>Node In Java Return Required</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_NODE___NODE_IN_JAVA_RETURN_REQUIRED = GraphstructurePackage.COMPLEX_NODE___NODE_IN_JAVA_RETURN_REQUIRED;
+
+	/**
 	 * The operation id for the '<em>Get Cypher Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1284,6 +1302,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_EDGE___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.RELATION___GENERATE_QUERY_FILTER_PART;
 
 	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE___GENERATE_XQUERY_JAVA = GraphstructurePackage.RELATION___GENERATE_XQUERY_JAVA;
+
+	/**
 	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1381,6 +1408,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_EDGE___ADAPT_AS_PROPERTY_EDGE = GraphstructurePackage.RELATION___ADAPT_AS_PROPERTY_EDGE;
+
+	/**
+	 * The operation id for the '<em>Relation In Java Return Required</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE___RELATION_IN_JAVA_RETURN_REQUIRED = GraphstructurePackage.RELATION___RELATION_IN_JAVA_RETURN_REQUIRED;
 
 	/**
 	 * The operation id for the '<em>Get Cypher Return</em>' operation.
@@ -1762,6 +1798,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_EDGE___GENERATE_QUERY_FILTER_PART = NEO_EDGE___GENERATE_QUERY_FILTER_PART;
 
 	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_EDGE___GENERATE_XQUERY_JAVA = NEO_EDGE___GENERATE_XQUERY_JAVA;
+
+	/**
 	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1859,6 +1904,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_ELEMENT_EDGE___ADAPT_AS_PROPERTY_EDGE = NEO_EDGE___ADAPT_AS_PROPERTY_EDGE;
+
+	/**
+	 * The operation id for the '<em>Relation In Java Return Required</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_EDGE___RELATION_IN_JAVA_RETURN_REQUIRED = NEO_EDGE___RELATION_IN_JAVA_RETURN_REQUIRED;
 
 	/**
 	 * The operation id for the '<em>Get Cypher Return</em>' operation.
@@ -2184,6 +2238,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PATH_PART___GENERATE_QUERY_FILTER_PART = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PART___GENERATE_XQUERY_JAVA = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
@@ -2536,6 +2599,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_COMPLEX_EDGE___GENERATE_QUERY_FILTER_PART = NEO_PATH_PART___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_COMPLEX_EDGE___GENERATE_XQUERY_JAVA = NEO_PATH_PART___GENERATE_XQUERY_JAVA;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
@@ -2942,6 +3014,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_SIMPLE_EDGE___GENERATE_QUERY_FILTER_PART = NEO_PATH_PART___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE___GENERATE_XQUERY_JAVA = NEO_PATH_PART___GENERATE_XQUERY_JAVA;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
@@ -3440,6 +3521,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_NODE___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_QUERY_FILTER_PART;
 
 	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___GENERATE_XQUERY_JAVA = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_XQUERY_JAVA;
+
+	/**
 	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3818,6 +3908,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_NODE___ADAPT_AS_NEO_PROPERTY_NODE = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_NEO_PROPERTY_NODE;
 
 	/**
+	 * The operation id for the '<em>Node In Java Return Required</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___NODE_IN_JAVA_RETURN_REQUIRED = GraphstructurePackage.PRIMITIVE_NODE___NODE_IN_JAVA_RETURN_REQUIRED;
+
+	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4168,6 +4267,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PATH_PARAM___GENERATE_QUERY_FILTER_PART = ParametersPackage.PARAMETER___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PARAM___GENERATE_XQUERY_JAVA = ParametersPackage.PARAMETER___GENERATE_XQUERY_JAVA;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
@@ -4628,6 +4736,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_ELEMENT_PATH_PARAM___GENERATE_QUERY_FILTER_PART = NEO_PATH_PARAM___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_PATH_PARAM___GENERATE_XQUERY_JAVA = NEO_PATH_PARAM___GENERATE_XQUERY_JAVA;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
@@ -5097,6 +5214,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_PATH_PARAM___GENERATE_QUERY_FILTER_PART = NEO_PATH_PARAM___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_PATH_PARAM___GENERATE_XQUERY_JAVA = NEO_PATH_PARAM___GENERATE_XQUERY_JAVA;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
@@ -5595,6 +5721,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_EDGE___GENERATE_QUERY_FILTER_PART = NEO_EDGE___GENERATE_QUERY_FILTER_PART;
 
 	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_EDGE___GENERATE_XQUERY_JAVA = NEO_EDGE___GENERATE_XQUERY_JAVA;
+
+	/**
 	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5692,6 +5827,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_EDGE___ADAPT_AS_PROPERTY_EDGE = NEO_EDGE___ADAPT_AS_PROPERTY_EDGE;
+
+	/**
+	 * The operation id for the '<em>Relation In Java Return Required</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_EDGE___RELATION_IN_JAVA_RETURN_REQUIRED = NEO_EDGE___RELATION_IN_JAVA_RETURN_REQUIRED;
 
 	/**
 	 * The operation id for the '<em>Get Cypher Return</em>' operation.
@@ -6080,6 +6224,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_NODE_LABELS_PARAM___GENERATE_QUERY_FILTER_PART = ParametersPackage.TEXT_LIST_PARAM___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___GENERATE_XQUERY_JAVA = ParametersPackage.TEXT_LIST_PARAM___GENERATE_XQUERY_JAVA;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
@@ -6731,6 +6884,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_EDGE_LABEL_PARAM___GENERATE_QUERY_FILTER_PART = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_QUERY_FILTER_PART;
 
 	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___GENERATE_XQUERY_JAVA = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_XQUERY_JAVA;
+
+	/**
 	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7379,6 +7541,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_NAME_PARAM___GENERATE_QUERY_FILTER_PART = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NAME_PARAM___GENERATE_XQUERY_JAVA = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_XQUERY_JAVA;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.

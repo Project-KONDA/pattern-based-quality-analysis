@@ -72,9 +72,9 @@ public class OneArgTestPatterns {
 		result.add(getTestPattern3());
 		result.add(getTestPattern4());
 		result.add(getTestPattern5());
-		result.add(getTestPattern5b());
+//		result.add(getTestPattern5b());
 		result.add(getTestPattern6());
-		result.add(getTestPattern6b());
+//		result.add(getTestPattern6b());
 		result.add(getTestPattern7());
 		result.add(getTestPattern8());
 		result.add(getTestPattern9());

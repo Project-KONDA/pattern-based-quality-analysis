@@ -276,6 +276,20 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				throw new InvalidityException("predicate null (" + predicate + ")");
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Boolean nodeInJavaReturnRequired() {
+		try {
+			return containsJavaOperator();
+		} catch (InvalidityException e) {
+			return false;
+		}
+	}
+
 	@Override
 	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return adaptAsXmlElement();
@@ -1773,6 +1787,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case GraphstructurePackage.NODE___NODE_IN_JAVA_RETURN_REQUIRED:
+				return nodeInJavaReturnRequired();
 			case GraphstructurePackage.NODE___CREATE_PARAMETERS:
 				createParameters();
 				return null;

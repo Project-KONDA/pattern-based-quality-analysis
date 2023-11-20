@@ -228,6 +228,14 @@ public interface Relation extends PatternElement, Adaptable {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Boolean relationInJavaReturnRequired();
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * Sets <code>graph</code> of <code>this</code> to <code>newGraph</code> 
 	 * without updating corresponding <code>Relations</code> in previous and following <code>Graphs</code>,
 	 * updating referenced <code>Parameters</code> and resetting <code>source</code> and <code>target</code>.

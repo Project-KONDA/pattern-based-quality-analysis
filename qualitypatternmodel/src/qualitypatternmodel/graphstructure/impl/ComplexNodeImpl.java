@@ -60,6 +60,17 @@ public class ComplexNodeImpl extends NodeImpl implements ComplexNode {
 	}
 
 	@Override
+	public Boolean nodeInJavaReturnRequired() {
+		if (super.nodeInJavaReturnRequired())
+			return true;
+		for (Relation relation: getOutgoing()) {
+			if(relation != null && relation.getTarget() != null && relation.getTarget().nodeInJavaReturnRequired())
+				return true;
+		}
+		return false;
+	}
+
+	@Override
 	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return adaptAsXmlElement();
 	}
