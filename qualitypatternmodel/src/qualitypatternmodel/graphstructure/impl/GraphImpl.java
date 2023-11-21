@@ -42,6 +42,7 @@ import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.javaoperators.JavaOperator;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.operators.Operator;
@@ -146,6 +147,42 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		setOperatorList(new OperatorListImpl());
 	}
 
+	public EList<Node> javaParameterNodes(){
+		EList<Node> parameterNodes = new BasicEList<Node>();
+		for (Node node: getNodes()){
+			Boolean yes = false;
+			for (Operator operator: node.getPredicates())
+				yes = (operator instanceof JavaOperator) || yes;
+			if (yes)
+				parameterNodes.add(node);
+		}
+		return parameterNodes;
+	}
+
+	public EList<Node> javaLocalRequiredNodes(){
+		EList<Node> parameterNodes = new BasicEList<Node>();
+		for (Node node: getNodes()){
+			Boolean yes = false;
+			for (Operator operator: node.getPredicates())
+				yes = (operator instanceof JavaOperator) || yes;
+			if (yes)
+				parameterNodes.add(node);
+		}
+		return parameterNodes;
+	}
+
+	public EList<Node> javaLaterRequiredNodes(){
+		EList<Node> parameterNodes = new BasicEList<Node>();
+		for (Node node: getNodes()){
+			Boolean yes = false;
+			for (Operator operator: node.getPredicates())
+				yes = (operator instanceof JavaOperator) || yes;
+			if (yes)
+				parameterNodes.add(node);
+		}
+		return parameterNodes;
+	}
+
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
 		EList<BooleanFilterPart> filters = new BasicEList<BooleanFilterPart>();
@@ -193,9 +230,12 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	public String generateXQueryJava() throws InvalidityException {
 		String result = "";
 		for(Relation relation : getRelations()) {
-			if (relation instanceof XmlPropertyNavigation && relation.isCrossGraph() && !relation.relationInJavaReturnRequired()) {
+			if (relation instanceof XmlPropertyNavigation && relation.isCrossGraph()) {
 				XmlPropertyNavigationImpl nav = (XmlPropertyNavigationImpl) relation;
-				result += nav.generateXQuery2();
+				if( relation.relationInJavaReturnRequired())
+					result += nav.generateXQueryJava();
+				else
+					result += nav.generateXQuery2();
 			}
 		}
 		for(Relation relation : getRelations()) {

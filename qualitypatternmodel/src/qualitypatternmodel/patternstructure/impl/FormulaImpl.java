@@ -152,10 +152,8 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		String result = "";
 		if (operator != null) {
 			if (condition1 != null && condition2 != null) {
-				
 				String condition1Query = condition1.generateXQuery();
 				String condition2Query = condition2.generateXQuery();
-				
 				switch (operator) {
 				case AND:
 				case OR:
@@ -181,13 +179,10 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 				default:
 					throw new InvalidityException("invalid arguments");
 				}
-				
 			} else {
 				throw new InvalidityException("invalid arguments");
 			}
-			
 			return addMissingBrackets(result);
-					
 		} else {
 			throw new InvalidityException("operator null");
 		}
@@ -208,7 +203,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 //		else if (!cond2Java)
 //			return cond1String;
 		else 
-			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(cond1String, cond2String), "condition");
+			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(cond1String, cond2String), "formula");
 	}
 	
 	@Override

@@ -276,6 +276,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				throw new InvalidityException("predicate null (" + predicate + ")");
 	}
 
+	private boolean nodeInJavaReturnRequiredCheck = false;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -283,11 +284,47 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public Boolean nodeInJavaReturnRequired() {
-		try {
-			return containsJavaOperator();
-		} catch (InvalidityException e) {
+		if (nodeInJavaReturnRequiredCheck) 
 			return false;
+		try {
+			if (containsJavaOperator())
+				return true;
+		} catch (InvalidityException e) {
 		}
+		nodeInJavaReturnRequiredCheck = true;
+		if (this instanceof ComplexNode) {
+			ComplexNode cn = ((ComplexNode) this);
+			for (Relation rel : cn.getOutgoing()) {
+				if (rel.relationInJavaReturnRequired()) {
+					nodeInJavaReturnRequiredCheck = false;
+					return true;
+				}
+			}
+			nodeInJavaReturnRequiredCheck = false;
+		}
+		return false;
+	}
+
+	public Boolean nodeInJavaGraphReturnRequired() {
+		if (nodeInJavaReturnRequiredCheck) 
+			return false;
+		try {
+			if (containsJavaOperator())
+				return true;
+		} catch (InvalidityException e) {
+		}
+		nodeInJavaReturnRequiredCheck = true;
+		if (this instanceof ComplexNode) {
+			ComplexNode cn = ((ComplexNode) this);
+			for (Relation rel : cn.getOutgoing()) {
+				if (rel.getGraph() == getGraph() && rel.relationInJavaReturnRequired()) {
+					nodeInJavaReturnRequiredCheck = false;
+					return true;
+				}
+			}
+			nodeInJavaReturnRequiredCheck = false;
+		}
+		return false;
 	}
 
 	@Override
@@ -322,8 +359,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	@Override
 	public EList<Node> getAllArgumentElements() {
@@ -377,8 +415,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
