@@ -244,6 +244,12 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 		}
 		return variables;
 	}
+	
+	@Override
+	public void initializeTranslation() {
+		super.initializeTranslation();
+		getVariables().clear();
+	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

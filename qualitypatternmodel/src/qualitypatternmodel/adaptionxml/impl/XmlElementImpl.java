@@ -116,6 +116,12 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 		}
 		return variables;
 	}
+	
+	@Override
+	public void initializeTranslation() {
+		super.initializeTranslation();
+		getVariables().clear();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

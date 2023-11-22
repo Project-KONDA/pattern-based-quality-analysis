@@ -486,6 +486,12 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	public int getVariableCounter() {
 		return variableCounter;
 	}
+	
+	@Override
+	public void initializeTranslation() {
+		super.initializeTranslation();
+		setVariableCounter(VARIABLE_COUNTER_EDEFAULT);
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
