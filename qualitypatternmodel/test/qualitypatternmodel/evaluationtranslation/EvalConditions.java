@@ -11,7 +11,6 @@ import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
-import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.NumberElement;
@@ -103,7 +102,7 @@ public class EvalConditions {
 			countCond.setArgument2(numberElement);
 			numberElement.getNumberParam().setValue(1.);
 			
-			CountPattern countPattern = (CountPattern) countCond.getCountPattern();
+//			CountPattern countPattern = (CountPattern) countCond.getCountPattern();
 //			countPattern.getGraph().getNodes().get(0).setReturnNode(false);
 //			countPattern.getGraph().getNodes().get(1).setReturnNode(true);
 			

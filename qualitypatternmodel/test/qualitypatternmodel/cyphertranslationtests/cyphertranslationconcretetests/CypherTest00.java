@@ -1,7 +1,5 @@
 package qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests;
 
-import java.time.Duration;
-import java.time.Instant;
 import java.util.ArrayList;
 
 import org.eclipse.emf.common.util.BasicEList;
@@ -142,13 +140,13 @@ public class CypherTest00 extends CypherTranslation {
 		return completePattern;
 	}
 	
-	private CompletePattern getBasePatternComplexFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = CypherTranslation.getBasePatternComplex();
-		
-		completePattern.createNeo4jAdaption();
-		
-		return completePattern;
-	}
+//	private CompletePattern getBasePatternComplexFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern completePattern = CypherTranslation.getBasePatternComplex();
+//		
+//		completePattern.createNeo4jAdaption();
+//		
+//		return completePattern;
+//	}
 	
 	private CompletePattern getBasePatternCondDateConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternCondDate(comp);
