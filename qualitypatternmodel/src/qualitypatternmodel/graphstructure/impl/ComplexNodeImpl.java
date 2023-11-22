@@ -60,11 +60,11 @@ public class ComplexNodeImpl extends NodeImpl implements ComplexNode {
 	}
 
 	@Override
-	public Boolean nodeInJavaReturnRequired() {
-		if (super.nodeInJavaReturnRequired())
+	public Boolean inJavaReturnRequired() {
+		if (super.inJavaReturnRequired())
 			return true;
 		for (Relation relation: getOutgoing()) {
-			if(relation != null && relation.getTarget() != null && relation.getTarget().nodeInJavaReturnRequired())
+			if(relation != null && relation.getTarget() != null && relation.getTarget().inJavaReturnRequired())
 				return true;
 		}
 		return false;

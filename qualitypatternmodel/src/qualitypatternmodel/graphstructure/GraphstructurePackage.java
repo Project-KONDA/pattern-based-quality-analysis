@@ -493,13 +493,13 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___ADAPT_AS_PROPERTY_EDGE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 9;
 
 	/**
-	 * The operation id for the '<em>Relation In Java Return Required</em>' operation.
+	 * The operation id for the '<em>In Java Return Required</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION___RELATION_IN_JAVA_RETURN_REQUIRED = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 10;
+	int RELATION___IN_JAVA_RETURN_REQUIRED = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 10;
 
 	/**
 	 * The number of operations of the '<em>Relation</em>' class.
@@ -1602,13 +1602,22 @@ public interface GraphstructurePackage extends EPackage {
 	int NODE___ADAPT_AS_NEO_PROPERTY_NODE = COMPARABLE_OPERATION_COUNT + 35;
 
 	/**
-	 * The operation id for the '<em>Node In Java Return Required</em>' operation.
+	 * The operation id for the '<em>In Java Return Required</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___NODE_IN_JAVA_RETURN_REQUIRED = COMPARABLE_OPERATION_COUNT + 36;
+	int NODE___IN_JAVA_RETURN_REQUIRED = COMPARABLE_OPERATION_COUNT + 36;
+
+	/**
+	 * The operation id for the '<em>In Java Graph Return Required</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___IN_JAVA_GRAPH_RETURN_REQUIRED = COMPARABLE_OPERATION_COUNT + 37;
 
 	/**
 	 * The number of operations of the '<em>Node</em>' class.
@@ -1617,7 +1626,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 37;
+	int NODE_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 38;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl <em>Primitive Node</em>}' class.
@@ -2422,13 +2431,22 @@ public interface GraphstructurePackage extends EPackage {
 	int PRIMITIVE_NODE___ADAPT_AS_NEO_PROPERTY_NODE = NODE___ADAPT_AS_NEO_PROPERTY_NODE;
 
 	/**
-	 * The operation id for the '<em>Node In Java Return Required</em>' operation.
+	 * The operation id for the '<em>In Java Return Required</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_NODE___NODE_IN_JAVA_RETURN_REQUIRED = NODE___NODE_IN_JAVA_RETURN_REQUIRED;
+	int PRIMITIVE_NODE___IN_JAVA_RETURN_REQUIRED = NODE___IN_JAVA_RETURN_REQUIRED;
+
+	/**
+	 * The operation id for the '<em>In Java Graph Return Required</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___IN_JAVA_GRAPH_RETURN_REQUIRED = NODE___IN_JAVA_GRAPH_RETURN_REQUIRED;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -3973,13 +3991,22 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPLEX_NODE___ADAPT_AS_NEO_PROPERTY_NODE = NODE___ADAPT_AS_NEO_PROPERTY_NODE;
 
 	/**
-	 * The operation id for the '<em>Node In Java Return Required</em>' operation.
+	 * The operation id for the '<em>In Java Return Required</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLEX_NODE___NODE_IN_JAVA_RETURN_REQUIRED = NODE___NODE_IN_JAVA_RETURN_REQUIRED;
+	int COMPLEX_NODE___IN_JAVA_RETURN_REQUIRED = NODE___IN_JAVA_RETURN_REQUIRED;
+
+	/**
+	 * The operation id for the '<em>In Java Graph Return Required</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___IN_JAVA_GRAPH_RETURN_REQUIRED = NODE___IN_JAVA_GRAPH_RETURN_REQUIRED;
 
 	/**
 	 * The number of operations of the '<em>Complex Node</em>' class.
@@ -4138,14 +4165,14 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getRelation__AdaptAsPropertyEdge();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#relationInJavaReturnRequired() <em>Relation In Java Return Required</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#inJavaReturnRequired() <em>In Java Return Required</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Relation In Java Return Required</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Relation#relationInJavaReturnRequired()
+	 * @return the meta object for the '<em>In Java Return Required</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Relation#inJavaReturnRequired()
 	 * @generated
 	 */
-	EOperation getRelation__RelationInJavaReturnRequired();
+	EOperation getRelation__InJavaReturnRequired();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#setGraphSimple(qualitypatternmodel.graphstructure.Graph) <em>Set Graph Simple</em>}' operation.
@@ -4633,14 +4660,24 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getNode__AdaptAsNeoPropertyNode();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#nodeInJavaReturnRequired() <em>Node In Java Return Required</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#inJavaReturnRequired() <em>In Java Return Required</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Node In Java Return Required</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Node#nodeInJavaReturnRequired()
+	 * @return the meta object for the '<em>In Java Return Required</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#inJavaReturnRequired()
 	 * @generated
 	 */
-	EOperation getNode__NodeInJavaReturnRequired();
+	EOperation getNode__InJavaReturnRequired();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#inJavaGraphReturnRequired() <em>In Java Graph Return Required</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>In Java Graph Return Required</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#inJavaGraphReturnRequired()
+	 * @generated
+	 */
+	EOperation getNode__InJavaGraphReturnRequired();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#addPrimitiveNullCheck() <em>Add Primitive Null Check</em>}' operation.
@@ -5174,12 +5211,12 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation RELATION___ADAPT_AS_PROPERTY_EDGE = eINSTANCE.getRelation__AdaptAsPropertyEdge();
 
 		/**
-		 * The meta object literal for the '<em><b>Relation In Java Return Required</b></em>' operation.
+		 * The meta object literal for the '<em><b>In Java Return Required</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RELATION___RELATION_IN_JAVA_RETURN_REQUIRED = eINSTANCE.getRelation__RelationInJavaReturnRequired();
+		EOperation RELATION___IN_JAVA_RETURN_REQUIRED = eINSTANCE.getRelation__InJavaReturnRequired();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Graph Simple</b></em>' operation.
@@ -5570,12 +5607,20 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation NODE___ADAPT_AS_NEO_PROPERTY_NODE = eINSTANCE.getNode__AdaptAsNeoPropertyNode();
 
 		/**
-		 * The meta object literal for the '<em><b>Node In Java Return Required</b></em>' operation.
+		 * The meta object literal for the '<em><b>In Java Return Required</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation NODE___NODE_IN_JAVA_RETURN_REQUIRED = eINSTANCE.getNode__NodeInJavaReturnRequired();
+		EOperation NODE___IN_JAVA_RETURN_REQUIRED = eINSTANCE.getNode__InJavaReturnRequired();
+
+		/**
+		 * The meta object literal for the '<em><b>In Java Graph Return Required</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NODE___IN_JAVA_GRAPH_RETURN_REQUIRED = eINSTANCE.getNode__InJavaGraphReturnRequired();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Primitive Null Check</b></em>' operation.

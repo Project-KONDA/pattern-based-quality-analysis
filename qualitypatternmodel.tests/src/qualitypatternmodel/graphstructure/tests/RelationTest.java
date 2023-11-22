@@ -24,7 +24,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#adaptAsRdfPredicate() <em>Adapt As Rdf Predicate</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#adaptAsNeoElementEdge() <em>Adapt As Neo Element Edge</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#adaptAsPropertyEdge() <em>Adapt As Property Edge</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Relation#relationInJavaReturnRequired() <em>Relation In Java Return Required</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#inJavaReturnRequired() <em>In Java Return Required</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
  * </ul>
@@ -190,13 +190,13 @@ public class RelationTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#relationInJavaReturnRequired() <em>Relation In Java Return Required</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#inJavaReturnRequired() <em>In Java Return Required</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Relation#relationInJavaReturnRequired()
+	 * @see qualitypatternmodel.graphstructure.Relation#inJavaReturnRequired()
 	 * @generated
 	 */
-	public void testRelationInJavaReturnRequired() {
+	public void testInJavaReturnRequired() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

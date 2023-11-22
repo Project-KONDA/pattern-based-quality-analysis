@@ -909,13 +909,22 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___ADAPT_AS_NEO_PROPERTY_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_NEO_PROPERTY_NODE;
 
 	/**
-	 * The operation id for the '<em>Node In Java Return Required</em>' operation.
+	 * The operation id for the '<em>In Java Return Required</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___NODE_IN_JAVA_RETURN_REQUIRED = GraphstructurePackage.COMPLEX_NODE___NODE_IN_JAVA_RETURN_REQUIRED;
+	int XML_ELEMENT___IN_JAVA_RETURN_REQUIRED = GraphstructurePackage.COMPLEX_NODE___IN_JAVA_RETURN_REQUIRED;
+
+	/**
+	 * The operation id for the '<em>In Java Graph Return Required</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___IN_JAVA_GRAPH_RETURN_REQUIRED = GraphstructurePackage.COMPLEX_NODE___IN_JAVA_GRAPH_RETURN_REQUIRED;
 
 	/**
 	 * The operation id for the '<em>Translate Predicates</em>' operation.
@@ -1413,13 +1422,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION___ADAPT_AS_PROPERTY_EDGE = GraphstructurePackage.RELATION___ADAPT_AS_PROPERTY_EDGE;
 
 	/**
-	 * The operation id for the '<em>Relation In Java Return Required</em>' operation.
+	 * The operation id for the '<em>In Java Return Required</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION___RELATION_IN_JAVA_RETURN_REQUIRED = GraphstructurePackage.RELATION___RELATION_IN_JAVA_RETURN_REQUIRED;
+	int XML_NAVIGATION___IN_JAVA_RETURN_REQUIRED = GraphstructurePackage.RELATION___IN_JAVA_RETURN_REQUIRED;
 
 	/**
 	 * The number of operations of the '<em>Xml Navigation</em>' class.
@@ -1881,13 +1890,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT_NAVIGATION___ADAPT_AS_PROPERTY_EDGE = XML_NAVIGATION___ADAPT_AS_PROPERTY_EDGE;
 
 	/**
-	 * The operation id for the '<em>Relation In Java Return Required</em>' operation.
+	 * The operation id for the '<em>In Java Return Required</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___RELATION_IN_JAVA_RETURN_REQUIRED = XML_NAVIGATION___RELATION_IN_JAVA_RETURN_REQUIRED;
+	int XML_ELEMENT_NAVIGATION___IN_JAVA_RETURN_REQUIRED = XML_NAVIGATION___IN_JAVA_RETURN_REQUIRED;
 
 	/**
 	 * The number of operations of the '<em>Xml Element Navigation</em>' class.
@@ -2340,13 +2349,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_REFERENCE___ADAPT_AS_PROPERTY_EDGE = GraphstructurePackage.RELATION___ADAPT_AS_PROPERTY_EDGE;
 
 	/**
-	 * The operation id for the '<em>Relation In Java Return Required</em>' operation.
+	 * The operation id for the '<em>In Java Return Required</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE___RELATION_IN_JAVA_RETURN_REQUIRED = GraphstructurePackage.RELATION___RELATION_IN_JAVA_RETURN_REQUIRED;
+	int XML_REFERENCE___IN_JAVA_RETURN_REQUIRED = GraphstructurePackage.RELATION___IN_JAVA_RETURN_REQUIRED;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -3195,13 +3204,22 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY___ADAPT_AS_NEO_PROPERTY_NODE = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_NEO_PROPERTY_NODE;
 
 	/**
-	 * The operation id for the '<em>Node In Java Return Required</em>' operation.
+	 * The operation id for the '<em>In Java Return Required</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___NODE_IN_JAVA_RETURN_REQUIRED = GraphstructurePackage.PRIMITIVE_NODE___NODE_IN_JAVA_RETURN_REQUIRED;
+	int XML_PROPERTY___IN_JAVA_RETURN_REQUIRED = GraphstructurePackage.PRIMITIVE_NODE___IN_JAVA_RETURN_REQUIRED;
+
+	/**
+	 * The operation id for the '<em>In Java Graph Return Required</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___IN_JAVA_GRAPH_RETURN_REQUIRED = GraphstructurePackage.PRIMITIVE_NODE___IN_JAVA_GRAPH_RETURN_REQUIRED;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -3987,13 +4005,22 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ROOT___ADAPT_AS_NEO_PROPERTY_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_NEO_PROPERTY_NODE;
 
 	/**
-	 * The operation id for the '<em>Node In Java Return Required</em>' operation.
+	 * The operation id for the '<em>In Java Return Required</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ROOT___NODE_IN_JAVA_RETURN_REQUIRED = GraphstructurePackage.COMPLEX_NODE___NODE_IN_JAVA_RETURN_REQUIRED;
+	int XML_ROOT___IN_JAVA_RETURN_REQUIRED = GraphstructurePackage.COMPLEX_NODE___IN_JAVA_RETURN_REQUIRED;
+
+	/**
+	 * The operation id for the '<em>In Java Graph Return Required</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___IN_JAVA_GRAPH_RETURN_REQUIRED = GraphstructurePackage.COMPLEX_NODE___IN_JAVA_GRAPH_RETURN_REQUIRED;
 
 	/**
 	 * The number of operations of the '<em>Xml Root</em>' class.
@@ -4455,13 +4482,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_NAVIGATION___ADAPT_AS_PROPERTY_EDGE = XML_NAVIGATION___ADAPT_AS_PROPERTY_EDGE;
 
 	/**
-	 * The operation id for the '<em>Relation In Java Return Required</em>' operation.
+	 * The operation id for the '<em>In Java Return Required</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___RELATION_IN_JAVA_RETURN_REQUIRED = XML_NAVIGATION___RELATION_IN_JAVA_RETURN_REQUIRED;
+	int XML_PROPERTY_NAVIGATION___IN_JAVA_RETURN_REQUIRED = XML_NAVIGATION___IN_JAVA_RETURN_REQUIRED;
 
 	/**
 	 * The number of operations of the '<em>Xml Property Navigation</em>' class.

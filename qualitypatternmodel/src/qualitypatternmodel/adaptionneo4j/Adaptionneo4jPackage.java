@@ -923,13 +923,22 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_NODE___ADAPT_AS_NEO_PROPERTY_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_NEO_PROPERTY_NODE;
 
 	/**
-	 * The operation id for the '<em>Node In Java Return Required</em>' operation.
+	 * The operation id for the '<em>In Java Return Required</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_NODE___NODE_IN_JAVA_RETURN_REQUIRED = GraphstructurePackage.COMPLEX_NODE___NODE_IN_JAVA_RETURN_REQUIRED;
+	int NEO_ELEMENT_NODE___IN_JAVA_RETURN_REQUIRED = GraphstructurePackage.COMPLEX_NODE___IN_JAVA_RETURN_REQUIRED;
+
+	/**
+	 * The operation id for the '<em>In Java Graph Return Required</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_NODE___IN_JAVA_GRAPH_RETURN_REQUIRED = GraphstructurePackage.COMPLEX_NODE___IN_JAVA_GRAPH_RETURN_REQUIRED;
 
 	/**
 	 * The operation id for the '<em>Get Cypher Return</em>' operation.
@@ -1410,13 +1419,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_EDGE___ADAPT_AS_PROPERTY_EDGE = GraphstructurePackage.RELATION___ADAPT_AS_PROPERTY_EDGE;
 
 	/**
-	 * The operation id for the '<em>Relation In Java Return Required</em>' operation.
+	 * The operation id for the '<em>In Java Return Required</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE___RELATION_IN_JAVA_RETURN_REQUIRED = GraphstructurePackage.RELATION___RELATION_IN_JAVA_RETURN_REQUIRED;
+	int NEO_EDGE___IN_JAVA_RETURN_REQUIRED = GraphstructurePackage.RELATION___IN_JAVA_RETURN_REQUIRED;
 
 	/**
 	 * The operation id for the '<em>Get Cypher Return</em>' operation.
@@ -1906,13 +1915,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_EDGE___ADAPT_AS_PROPERTY_EDGE = NEO_EDGE___ADAPT_AS_PROPERTY_EDGE;
 
 	/**
-	 * The operation id for the '<em>Relation In Java Return Required</em>' operation.
+	 * The operation id for the '<em>In Java Return Required</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_EDGE___RELATION_IN_JAVA_RETURN_REQUIRED = NEO_EDGE___RELATION_IN_JAVA_RETURN_REQUIRED;
+	int NEO_ELEMENT_EDGE___IN_JAVA_RETURN_REQUIRED = NEO_EDGE___IN_JAVA_RETURN_REQUIRED;
 
 	/**
 	 * The operation id for the '<em>Get Cypher Return</em>' operation.
@@ -3908,13 +3917,22 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_NODE___ADAPT_AS_NEO_PROPERTY_NODE = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_NEO_PROPERTY_NODE;
 
 	/**
-	 * The operation id for the '<em>Node In Java Return Required</em>' operation.
+	 * The operation id for the '<em>In Java Return Required</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE___NODE_IN_JAVA_RETURN_REQUIRED = GraphstructurePackage.PRIMITIVE_NODE___NODE_IN_JAVA_RETURN_REQUIRED;
+	int NEO_PROPERTY_NODE___IN_JAVA_RETURN_REQUIRED = GraphstructurePackage.PRIMITIVE_NODE___IN_JAVA_RETURN_REQUIRED;
+
+	/**
+	 * The operation id for the '<em>In Java Graph Return Required</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___IN_JAVA_GRAPH_RETURN_REQUIRED = GraphstructurePackage.PRIMITIVE_NODE___IN_JAVA_GRAPH_RETURN_REQUIRED;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -5829,13 +5847,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_EDGE___ADAPT_AS_PROPERTY_EDGE = NEO_EDGE___ADAPT_AS_PROPERTY_EDGE;
 
 	/**
-	 * The operation id for the '<em>Relation In Java Return Required</em>' operation.
+	 * The operation id for the '<em>In Java Return Required</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_EDGE___RELATION_IN_JAVA_RETURN_REQUIRED = NEO_EDGE___RELATION_IN_JAVA_RETURN_REQUIRED;
+	int NEO_PROPERTY_EDGE___IN_JAVA_RETURN_REQUIRED = NEO_EDGE___IN_JAVA_RETURN_REQUIRED;
 
 	/**
 	 * The operation id for the '<em>Get Cypher Return</em>' operation.

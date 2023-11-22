@@ -470,7 +470,15 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @model
 	 * @generated
 	 */
-	Boolean nodeInJavaReturnRequired();
+	Boolean inJavaReturnRequired();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Boolean inJavaGraphReturnRequired();
 
 	/**
 	 * <!-- begin-user-doc -->

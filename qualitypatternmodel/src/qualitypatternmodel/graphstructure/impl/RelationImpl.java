@@ -845,8 +845,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated NOT
 	 */
 	@Override
-	public Boolean relationInJavaReturnRequired() {
-		return getTarget().nodeInJavaReturnRequired();
+	public Boolean inJavaReturnRequired() {
+		return getTarget().inJavaReturnRequired();
 	}
 
 	/**
@@ -1120,8 +1120,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.RELATION___RELATION_IN_JAVA_RETURN_REQUIRED:
-				return relationInJavaReturnRequired();
+			case GraphstructurePackage.RELATION___IN_JAVA_RETURN_REQUIRED:
+				return inJavaReturnRequired();
 			case GraphstructurePackage.RELATION___CREATE_PARAMETERS:
 				createParameters();
 				return null;

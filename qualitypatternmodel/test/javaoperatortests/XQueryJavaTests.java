@@ -28,7 +28,7 @@ public class XQueryJavaTests {
 	}
 
 	static Boolean testTestPattern(CompletePattern testpattern, String expected) throws InvalidityException {
-//		System.out.println("\n\nquery:\n\n" + testpattern.generateXQuery());
+		System.out.println("\n\nquery:\n\n" + testpattern.generateXQuery());
 //		testpattern.generateXQuery();
 		String result = testpattern.generateXQueryJava();
 		System.out.println("\n\nresult:\n\n" + result);

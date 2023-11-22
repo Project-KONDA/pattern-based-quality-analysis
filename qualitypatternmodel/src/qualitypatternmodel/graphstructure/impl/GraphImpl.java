@@ -42,7 +42,6 @@ import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.javaoperators.JavaOperator;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.operators.Operator;
@@ -150,36 +149,28 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	public EList<Node> javaParameterNodes(){
 		EList<Node> parameterNodes = new BasicEList<Node>();
 		for (Node node: getNodes()){
-			Boolean yes = false;
-			for (Operator operator: node.getPredicates())
-				yes = (operator instanceof JavaOperator) || yes;
-			if (yes)
-				parameterNodes.add(node);
+			try {
+				if (node.containsJavaOperator())
+					parameterNodes.add(node);
+			} catch (InvalidityException e) {
+			}
 		}
 		return parameterNodes;
 	}
 
 	public EList<Node> javaLocalRequiredNodes(){
 		EList<Node> parameterNodes = new BasicEList<Node>();
-		for (Node node: getNodes()){
-			Boolean yes = false;
-			for (Operator operator: node.getPredicates())
-				yes = (operator instanceof JavaOperator) || yes;
-			if (yes)
+		for (Node node: getNodes())
+			if (node.inJavaGraphReturnRequired())
 				parameterNodes.add(node);
-		}
 		return parameterNodes;
 	}
 
 	public EList<Node> javaLaterRequiredNodes(){
 		EList<Node> parameterNodes = new BasicEList<Node>();
-		for (Node node: getNodes()){
-			Boolean yes = false;
-			for (Operator operator: node.getPredicates())
-				yes = (operator instanceof JavaOperator) || yes;
-			if (yes)
+		for (Node node: getNodes())
+			if (node.inJavaReturnRequired()&& node.inJavaGraphReturnRequired())
 				parameterNodes.add(node);
-		}
 		return parameterNodes;
 	}
 
@@ -232,7 +223,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		for(Relation relation : getRelations()) {
 			if (relation instanceof XmlPropertyNavigation && relation.isCrossGraph()) {
 				XmlPropertyNavigationImpl nav = (XmlPropertyNavigationImpl) relation;
-				if( relation.relationInJavaReturnRequired())
+				if( relation.inJavaReturnRequired())
 					result += nav.generateXQueryJava();
 				else
 					result += nav.generateXQuery2();
@@ -260,11 +251,11 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		for (Node node: getNodes()) {
 			if(node.containsJavaOperator())
 				javaNodes.add((XmlNode) node);
-			else if(node.nodeInJavaReturnRequired())
+			else if(node.inJavaReturnRequired())
 				javaMidNodes.add((XmlNode)node);
 		}
 		for (Relation relation: getRelations()) {
-			if(relation.relationInJavaReturnRequired()) {
+			if(relation.inJavaReturnRequired()) {
 				allJavaRelations.add(relation);
 				if (relation.isCrossGraph())
 					javaStartRelations.add(relation);

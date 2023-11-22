@@ -232,7 +232,7 @@ public interface Relation extends PatternElement, Adaptable {
 	 * @model
 	 * @generated
 	 */
-	Boolean relationInJavaReturnRequired();
+	Boolean inJavaReturnRequired();
 
 	/**
 	 * <!-- begin-user-doc -->

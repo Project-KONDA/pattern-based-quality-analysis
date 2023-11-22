@@ -506,13 +506,13 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PREDICATE___ADAPT_AS_PROPERTY_EDGE = GraphstructurePackage.RELATION___ADAPT_AS_PROPERTY_EDGE;
 
 	/**
-	 * The operation id for the '<em>Relation In Java Return Required</em>' operation.
+	 * The operation id for the '<em>In Java Return Required</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PREDICATE___RELATION_IN_JAVA_RETURN_REQUIRED = GraphstructurePackage.RELATION___RELATION_IN_JAVA_RETURN_REQUIRED;
+	int RDF_PREDICATE___IN_JAVA_RETURN_REQUIRED = GraphstructurePackage.RELATION___IN_JAVA_RETURN_REQUIRED;
 
 	/**
 	 * The number of operations of the '<em>Rdf Predicate</em>' class.
@@ -1281,13 +1281,22 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_IRI_NODE___ADAPT_AS_NEO_PROPERTY_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_NEO_PROPERTY_NODE;
 
 	/**
-	 * The operation id for the '<em>Node In Java Return Required</em>' operation.
+	 * The operation id for the '<em>In Java Return Required</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRI_NODE___NODE_IN_JAVA_RETURN_REQUIRED = GraphstructurePackage.COMPLEX_NODE___NODE_IN_JAVA_RETURN_REQUIRED;
+	int RDF_IRI_NODE___IN_JAVA_RETURN_REQUIRED = GraphstructurePackage.COMPLEX_NODE___IN_JAVA_RETURN_REQUIRED;
+
+	/**
+	 * The operation id for the '<em>In Java Graph Return Required</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_IRI_NODE___IN_JAVA_GRAPH_RETURN_REQUIRED = GraphstructurePackage.COMPLEX_NODE___IN_JAVA_GRAPH_RETURN_REQUIRED;
 
 	/**
 	 * The operation id for the '<em>Generate Rdf Types</em>' operation.
@@ -2816,13 +2825,22 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_LITERAL_NODE___ADAPT_AS_NEO_PROPERTY_NODE = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_NEO_PROPERTY_NODE;
 
 	/**
-	 * The operation id for the '<em>Node In Java Return Required</em>' operation.
+	 * The operation id for the '<em>In Java Return Required</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_LITERAL_NODE___NODE_IN_JAVA_RETURN_REQUIRED = GraphstructurePackage.PRIMITIVE_NODE___NODE_IN_JAVA_RETURN_REQUIRED;
+	int RDF_LITERAL_NODE___IN_JAVA_RETURN_REQUIRED = GraphstructurePackage.PRIMITIVE_NODE___IN_JAVA_RETURN_REQUIRED;
+
+	/**
+	 * The operation id for the '<em>In Java Graph Return Required</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_LITERAL_NODE___IN_JAVA_GRAPH_RETURN_REQUIRED = GraphstructurePackage.PRIMITIVE_NODE___IN_JAVA_GRAPH_RETURN_REQUIRED;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.

@@ -283,7 +283,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	@Override
-	public Boolean nodeInJavaReturnRequired() {
+	public Boolean inJavaReturnRequired() {
 		if (nodeInJavaReturnRequiredCheck) 
 			return false;
 		try {
@@ -295,7 +295,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		if (this instanceof ComplexNode) {
 			ComplexNode cn = ((ComplexNode) this);
 			for (Relation rel : cn.getOutgoing()) {
-				if (rel.relationInJavaReturnRequired()) {
+				if (rel.inJavaReturnRequired()) {
 					nodeInJavaReturnRequiredCheck = false;
 					return true;
 				}
@@ -305,7 +305,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		return false;
 	}
 
-	public Boolean nodeInJavaGraphReturnRequired() {
+	@Override
+	public Boolean inJavaGraphReturnRequired() {
 		if (nodeInJavaReturnRequiredCheck) 
 			return false;
 		try {
@@ -317,7 +318,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		if (this instanceof ComplexNode) {
 			ComplexNode cn = ((ComplexNode) this);
 			for (Relation rel : cn.getOutgoing()) {
-				if (rel.getGraph() == getGraph() && rel.relationInJavaReturnRequired()) {
+				if (rel.getGraph() == getGraph() && rel.inJavaReturnRequired()) {
 					nodeInJavaReturnRequiredCheck = false;
 					return true;
 				}
@@ -361,7 +362,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public EList<Node> getAllArgumentElements() {
@@ -1825,8 +1826,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.NODE___NODE_IN_JAVA_RETURN_REQUIRED:
-				return nodeInJavaReturnRequired();
+			case GraphstructurePackage.NODE___IN_JAVA_RETURN_REQUIRED:
+				return inJavaReturnRequired();
+			case GraphstructurePackage.NODE___IN_JAVA_GRAPH_RETURN_REQUIRED:
+				return inJavaGraphReturnRequired();
 			case GraphstructurePackage.NODE___CREATE_PARAMETERS:
 				createParameters();
 				return null;
