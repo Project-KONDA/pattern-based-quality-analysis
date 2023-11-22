@@ -229,7 +229,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		
 		String query = forClauses + whereClause + returnClause;
 		setXmlQuery(query);
-		setPartialXmlQuery(forClauses + generateXQueryReturnClause());		
+		setPartialXmlQuery(forClauses + "\n" + generateXQueryReturnClause());		
 		return query;	
 	}
 

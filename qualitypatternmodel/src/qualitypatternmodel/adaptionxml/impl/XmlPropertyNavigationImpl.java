@@ -3,16 +3,19 @@
 package qualitypatternmodel.adaptionxml.impl;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static qualitypatternmodel.utility.Constants.VARIABLE;
-
+import static qualitypatternmodel.utility.Constants.FOR;
+import static qualitypatternmodel.utility.Constants.IN;
+import static qualitypatternmodel.utility.Constants.RETURN;
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
+import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
+import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -73,23 +76,37 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 
 	@Override
 	public String generateXQueryJavaReturn() throws InvalidityException {
-		if (!getXmlPathParam().getXmlAxisParts().isEmpty()) 
-			return super.generateXQuery();
+		String variable = generateNextXQueryVariable();
 		
-		XmlProperty target = (XmlProperty) getTarget();
+		if (!getTarget().containsJavaOperator())
+			new InvalidityException("This query should not get translated here: " + variable);
 		
-		String path = getXmlPathParam().generateXQuery();
+		// Basic Translation via xmlPathParam
+		String path = "";
+		if (xmlPathParam != null) {
+			String sourcevariable = getSourceVariable();
+			if (!(getSource() instanceof XmlRoot) && sourcevariable == "") {
+				throw new InvalidityException("SourceVariable in Relation [" + getInternalId() + "] from Element [" + getSource().getInternalId() + "] is empty");
+			}
+				
+			path = sourcevariable + xmlPathParam.generateXQuery();
+		} else 
+			throw new InvalidityException("option null");
+
+		// Predicate
+		String predicates = "";
+		if(getTarget() instanceof XmlNode) {
+			getTarget().setTranslated(true);
+			XmlNode targetElement = (XmlNode) getTarget();
+			predicates = targetElement.translatePredicates();
+		} else {
+			throw new InvalidityException("target of relation not XmlNode");
+		}
 		
-		XmlElement source = (XmlElement) getSource();
-		String variable = VARIABLE + source.getInternalId() + "_0" + path;
-		target.getVariables().add(variable);		
-		String result = "." + path;
-		target.setTranslated(true);
-		
-		result += target.translatePredicates();
-		result += target.translateMultipleIncoming();
-		
-		return "[" + result + "]";
+		String query1 = FOR + variable + IN + path + predicates;
+		String query2 = RETURN + variable;
+		String query = query1 + query2;
+		return query.indent(2);
 	}
 	
 	

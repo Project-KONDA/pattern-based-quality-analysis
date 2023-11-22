@@ -265,9 +265,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		}
 		
 		for (Relation relation: allJavaRelations) {
-			result += relation.generateXQueryJava() + "\n";
+			result += relation.generateXQueryJavaReturn();
 		}
-		return "(\n  " + result + "\n  )";
+		return "(" + result + "  )";
 	}
 	
 	@Override

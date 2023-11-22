@@ -17,234 +17,195 @@ public class XQueryJavaTests {
 				expectedReturn5, expectedReturn6, expectedReturn7, expectedReturn8, expectedReturn9, expectedReturn10);
 		List<CompletePattern> patterns = OneArgTestPatterns.getXmlTestPatterns();
 		
-		int scope = 1;
-		for (int i = 0; i<patterns.size() && i < expectations.size() && i < scope; i++) {
+		int from = 1;
+		int to = 5;
+		for (int i = from-1; i<patterns.size() && i < expectations.size() && i < to; i++) {
 			System.out.println("Example " + (i+1) + ":");
 			results.add(testTestPattern(patterns.get(i), expectations.get(i)));
 		}
 			
-//		System.out.println(results);
-//		System.out.print("total: " + (!results.contains(false)));
+		System.out.println(results);
+		System.out.print("total: " + (!results.contains(false)));
 	}
 
 	static Boolean testTestPattern(CompletePattern testpattern, String expected) throws InvalidityException {
 		System.out.println("\n\nquery:\n\n" + testpattern.generateXQuery());
 //		testpattern.generateXQuery();
 		String result = testpattern.generateXQueryJava();
-		System.out.println("\n\nresult:\n\n" + result);
-		System.out.println("\n\nexpected:\n\n" + expected);
-		return Objects.equals(expected, result);
+		System.out.println("\n\nresult:\n\n'" + result + "'");
+		System.out.println("\n\nexpected:\n\n'" + expected + "'");
+		return Objects.equals(result.substring(1), expected);
 	}
 	
-	static String expectedStart = "\"return concat(\r\n"
-			+ "\"<interim>\",\r\n"
-			+ "  <return>\",\r\n";
-	static String expectedMid =
-			 "  \"</return>,\r\n"
-			+ "  <condition>\",\r\n";
-	static String expectedEnd =
-			"  \"</condition>,\r\n"
-			+ "  \"</interim>\")\"";	
+	
+	static String expectedStart = "return\n"
+			+ "  concat(\n"
+			+ "  \"<interim>\",\n"
+			+ "  \"<return>\",\n";
+	static String expectedMid = "  \"</return>\",\n"
+			+ "  \"<condition>\",\n";
+	static String expectedEnd = "  \"</condition>\",\n"
+			+ "  \"</interim>\")";
 	
 	static String expectedReturn1 = 
-			"for $var2_0 in /descendant::*[name()]\r\n"
-			+ "return \r\n"
-			+ "  concat(\r\n"
-			+ "  \"<interim>\",\r\n"
-			+ "  \"<return>\",\r\n"
-			+ "  $var2_0,\r\n"
-			+ "  \"</return>\",\r\n"
-			+ "  \"<condition>\",\r\n"
-			+ "  \"<quantified>\",\r\n"
-			+ "  (\r\n"
-			+ "  for $var3_0 in $var2_0/text()\r\n"
-			+ "  return $var3_0\r\n"
-			+ "  ),\r\n"
-			+ "  \"</quantified>\",\r\n"
-			+ "  \"</condition>\",\r\n"
-			+ "  \"</interim>\")";
-	
+			"for $var2_0 in /descendant::*[name()]\n"
+			+ expectedStart
+			+ "  $var2_0,\n"
+			+ expectedMid
+			+ "  \"<quantified>\",\n"
+			+ "  (  \n"
+			+ "  for $var3_0 in $var2_0/text()\n"
+			+ "  return $var3_0\n"
+			+ "  ),\n"
+			+ "  \"</quantified>\",\n"
+			+ expectedEnd;
 	static String expectedReturn2 = 
-			"for $var2_0 in /descendant::*[name()]\r\n"
-			+ "return \r\n"
-			+ "  concat(\r\n"
-			+ "  \"<interim>\",\r\n"
-			+ "  \"<return>\",\r\n"
-			+ "  $var2_0,\r\n"
-			+ "  \"</return>\",\r\n"
-			+ "  \"<condition>\",\r\n"
-			+ "  \"<quantified>\",\r\n"
-			+ "  ("
-			+ "  for $var3_0 in $var2_0/text()[matches(., \".*a.*\")]\r\n"
-			+ "  return $var3_0),\r\n"
-			+ "  \"</quantified>\",\r\n"
-			+ "  \"</condition>\",\r\n"
-			+ "  \"</interim>\")";
+			"for $var2_0 in /descendant::*[name()]\n"
+			+ expectedStart
+			+ "  $var2_0,\n"
+			+ expectedMid
+			+ "  \"<quantified>\",\n"
+			+ "  (  \n"
+			+ "  for $var3_0 in $var2_0/text()[matches(., \".*a.*\")]\n"
+			+ "  return $var3_0\n"
+			+ "  ),\n"
+			+ "  \"</quantified>\",\n"
+			+ expectedEnd;
 	static String expectedReturn3 = 
-			"for $var3_0 in /descendant::*[name()]\r\n"
-			+ "return \r\n"
-			+ "  concat(\r\n"
-			+ "  \"<interim>\",\r\n"
-			+ "  \"<return>\",\r\n"
-			+ "  $var2_0,\r\n"
-			+ "  \"</return>\",\r\n"
-			+ "  \"<condition>\",\r\n"
-			+ "  \"<quantified>\",\r\n"
-			+ "  (\r\n"
-			+ "  for $var4_0 in $var3_0/text()\r\n"
-			+ "  return $var4_0\r\n"
-			+ "  ),\r\n"
-			+ "  \"</quantified>\",\r\n"
-			+ "  \"<quantified>\",\r\n"
-			+ "  (\r\n"
-			+ "  for $var5_0 in $var3_0/text()\r\n"
-			+ "  return $var5_0\r\n"
-			+ "  ),\r\n"
-			+ "  \"</quantified>\",\r\n"
-			+ "  \"</condition>\",\r\n"
-			+ "  \"</interim>\")";
+			"for $var3_0 in /descendant::*[name()]\n"
+			+ expectedStart
+			+ "  $var3_0,\n"
+			+ expectedMid
+			+ "  \"<formula>\",\n"
+			+ "  \"<quantified>\",\n"
+			+ "  (  \n"
+			+ "  for $var4_0 in $var3_0/text()\n"
+			+ "  return $var4_0\n"
+			+ "  ),\n"
+			+ "  \"</quantified>\",\n"
+			+ "  \"<quantified>\",\n"
+			+ "  (  \n"
+			+ "  for $var5_0 in $var3_0/text()\n"
+			+ "  return $var5_0\n"
+			+ "  ),\n"
+			+ "  \"</quantified>\",\n"
+			+ "  \"</formula>\",\n"
+			+ expectedEnd;
 	static String expectedReturn4 = 
-			"for $var3_0 in /descendant::*[name()]\r\n"
-			+ "where ((\r\n"
-			+ "  some $var4_0 in $var3_0/text()[matches(., \"\"something\"\")]\r\n"
-			+ "  satisfies (true()))\r\n"
-			+ "return $var3_0\r\n"
-			+ "  concat(\r\n"
-			+ "  \"<interim>\",\r\n"
-			+ "  \"<return>\",\r\n"
-			+ "  $var3_0,\r\n"
-			+ "  \"</return>\",\r\n"
-			+ "  \"<condition>\",\r\n"
-			+ "  \"<quantified>\",\r\n"
-			+ "  (\r\n"
-			+ "  for $var5_0 in $var3_0/text()\r\n"
-			+ "  return $var5_0\r\n"
-			+ "  ),\r\n"
-			+ "  \"</quantified>\",\r\n"
-			+ "  \"</condition>\",\r\n"
-			+ "  \"</interim>\")";
+			"for $var3_0 in /descendant::*[name()]\n"
+			+ "where ((\n"
+			+ "  some $var4_0 in $var3_0/text()[matches(., \"\"something\"\")]\n"
+			+ "  satisfies (true()))\n"
+			+ expectedStart
+			+ "  $var3_0,\n"
+			+ expectedMid
+			+ "  \"<formula>\",\n"
+			+ "  \"<quantified>\",\n"
+			+ "  (  \n"
+			+ "  for $var4_0 in $var3_0/text()\n"
+			+ "  return $var4_0\n"
+			+ "  ),\n"
+			+ "  \"</quantified>\",\n"
+			+ "  \"<quantified>\",\n"
+			+ "  (  \n"
+			+ "  for $var5_0 in $var3_0/text()\n"
+			+ "  return $var5_0\n"
+			+ "  ),\n"
+			+ "  \"</quantified>\",\n"
+			+ "  \"</formula>\",\n"
+			+ expectedEnd;
 	static String expectedReturn5 = 
-			"for $var3_0 in /descendant::*[name()]\r\n"
-			+ "where ((\r\n"
-			+ "  some $var4_0 in $var3_0/text()[matches(., \"\"something\"\")]\r\n"
-			+ "  satisfies (true()))\r\n" 
-			+ "return $var3_0\r\n"
-			+ "  concat(\r\n"
-			+ "  \"<interim>\",\r\n"
-			+ "  \"<return>\",\r\n"
-			+ "  $var3_0,\r\n"
-			+ "  \"</return>\",\r\n"
-			+ "  \"<condition>\",\r\n"
-			+ "  \"<quantified>\",\r\n"
-			+ "  (\r\n"
-			+ "  for $var5_0 in $var3_0/text()\r\n"
-			+ "  return $var5_0\r\n"
-			+ "  ),\r\n"
-			+ "  \"</quantified>\",\r\n"
-			+ "  \"</condition>\",\r\n"
-			+ "  \"</interim>\")";
+			"for $var3_0 in /descendant::*[name()]\n"
+			+ "where ((\n"
+			+ "  some $var4_0 in $var3_0/text()[matches(., \"\"something\"\")]\n"
+			+ "  satisfies (true()))\n" 
+			+ expectedStart
+			+ "  $var3_0,\n"
+			+ expectedMid
+			+ "  \"<quantified>\",\n"
+			+ "  (\n"
+			+ "  for $var5_0 in $var3_0/text()\n"
+			+ "  return $var5_0\n"
+			+ "  ),\n"
+			+ "  \"</quantified>\",\n"
+			+ expectedEnd;
 	static String expectedReturn6 = 
-			"for $var3_0 in /descendant::*[name()]\r\n"
-			+ "return\r\n"
-			+ "  concat(\r\n"
-			+ "  \"<interim>\",\r\n"
-			+ "  \"<return>\",\r\n"
-			+ "  $var3_0,\r\n"
-			+ "  \"</return>\",\r\n"
-			+ "  \"<condition>\",\r\n"
-			+ "  \"<boolean>\",\r\n"
-			+ "  (some $var4_0 in $var3_0/text()[matches(., \"something\")]\r\n"
-			+ "  satisfies (true())),\r\n"
-			+ "  \"</boolean>\",\r\n"
-			+ "  \"<quantified>\",\r\n"
-			+ "  (for $var5_0 in $var3_0/text()\r\n"
-			+ "  return $var5_0),\r\n"
-			+ "  \"</quantified>\",\r\n"
-			+ "  \"</condition>\",\r\n"
-			+ "  \"</interim>\")";
+			"for $var3_0 in /descendant::*[name()]\n"
+			+ expectedStart
+			+ "  $var3_0,\n"
+			+ expectedMid
+			+ "  \"<boolean>\",\n"
+			+ "  (some $var4_0 in $var3_0/text()[matches(., \"something\")]\n"
+			+ "  satisfies (true())),\n"
+			+ "  \"</boolean>\",\n"
+			+ "  \"<quantified>\",\n"
+			+ "  (for $var5_0 in $var3_0/text()\n"
+			+ "  return $var5_0),\n"
+			+ "  \"</quantified>\",\n"
+			+ expectedEnd;
 	static String expectedReturn7 = 
-			"for $var3_0 in /descendant::*[name()]\r\n" 
-			+ "return \r\n"
-			+ "  concat(\r\n"
-			+ "  \"<interim>\",\r\n"
-			+ "  \"<return>\",\r\n"
-			+ "  $var3_0,\r\n"
-			+ "  \"</return>\",\r\n"
-			+ "  \"<condition>\",\r\n"
-			+ "  \"<quantified>\",\r\n"
-			+ "  (for $var4_0 in $var3_0/child::*\r\n"
-			+ "  return \r\n"
-			+ "  concat(\r\n"
-			+ "  \"<quantified>\",\r\n"
-			+ "  (for $var5_0 in $var4_0/text()\r\n"
-			+ "  return $var5_0)\r\n"
-			+ "  \"</quantified>\")\r\n"
-			+ "  )\r\n"
-			+ "  \"</quantified>\",\r\n"
-			+ "  \"</condition>\",\r\n"
-			+ "  \"</interim>\")";
+			"for $var3_0 in /descendant::*[name()]\n" 
+			+ expectedStart
+			+ "  $var3_0,\n"
+			+ expectedMid
+			+ "  \"<quantified>\",\n"
+			+ "  (for $var4_0 in $var3_0/child::*\n"
+			+ "  return \n"
+			+ "  concat(\n"
+			+ "  \"<quantified>\",\n"
+			+ "  (for $var5_0 in $var4_0/text()\n"
+			+ "  return $var5_0)\n"
+			+ "  \"</quantified>\")\n"
+			+ "  )\n"
+			+ "  \"</quantified>\",\n"
+			+ expectedEnd;
 	static String expectedReturn8 = 
-			"for $var4_0 in /descendant::*[name()]\r\n"
-			+ "return \r\n"
-			+ "  concat(\r\n"
-			+ "  \"<interim>\",\r\n"
-			+ "  \"<return>\",\r\n"
-			+ "  $var4_0,\r\n"
-			+ "  \"</return>\",\r\n"
-			+ "  \"<condition>\",\r\n"
-			+ "  \"<quantified>\",\r\n"
-			+ "  (for $var5_0 in $var4_0/child::*\r\n"
-			+ "  return \r\n"
-			+ "  concat(\r\n"
-			+ "  \"<quantified>\",\r\n"
-			+ "  (for $var6_0 in $var5_0/text()\r\n"
-			+ "  return \r\n"
-			+ "  concat(\r\n"
-			+ "  \"<quantified>\",\r\n"
-			+ "  (for $var7_0 in $var6_0/text()\r\n"
-			+ "  return $var7_0),\r\n"
-			+ "  \"</quantified>\")\r\n"
-			+ "  ),\r\n"
-			+ "  \"</quantified>\")\r\n"
-			+ "  ),\r\n"
-			+ "  \"</quantified>\",\r\n"
-			+ "  \"</condition>\",\r\n"
-			+ "  \"</interim>\")";
+			"for $var4_0 in /descendant::*[name()]\n"
+			+ expectedStart
+			+ "  $var4_0,\n"
+			+ expectedMid
+			+ "  \"<quantified>\",\n"
+			+ "  (for $var5_0 in $var4_0/child::*\n"
+			+ "  return \n"
+			+ "  concat(\n"
+			+ "  \"<quantified>\",\n"
+			+ "  (for $var6_0 in $var5_0/text()\n"
+			+ "  return \n"
+			+ "  concat(\n"
+			+ "  \"<quantified>\",\n"
+			+ "  (for $var7_0 in $var6_0/text()\n"
+			+ "  return $var7_0),\n"
+			+ "  \"</quantified>\")\n"
+			+ "  ),\n"
+			+ "  \"</quantified>\")\n"
+			+ "  ),\n"
+			+ "  \"</quantified>\",\n"
+			+ expectedEnd;
 	static String expectedReturn9 = 
-			"for $var3_0 in /descendant::*[name()]\r\n"
-			+ "where ((\r\n"
-			+ "  some $var4_0 in $var3_0/text()[matches(., \"\"\"\"something\"\"\"\")]\r\n"
-			+ "  satisfies (true()))\r\n" 
-			+ "return $var3_0\r\n"
-			+ "  concat(\r\n"
-			+ "  \"\"<interim>\"\",\r\n"
-			+ "  \"<return>\",\r\n"
-			+ "  $var3_0,\r\n"
-			+ "  \"</return>\",\r\n"
-			+ "  \"<condition>\",\r\n"
-			+ "  \"\"<quantified>\"\",\r\n"
-			+ "  (for $var5_0 in $var3_0/text()\r\n"
-			+ "  return $var5_0),\r\n"
-			+ "  \"\"</quantified>\"\",\r\n"
-			+ "  \"</condition>\",\r\n"
-			+ "  \"\"</interim>\"\")\"";
+			"for $var3_0 in /descendant::*[name()]\n"
+			+ "where ((\n"
+			+ "  some $var4_0 in $var3_0/text()[matches(., \"\"\"\"something\"\"\"\")]\n"
+			+ "  satisfies (true()))\n" 
+			+ expectedStart
+			+ "  $var3_0,\n"
+			+ expectedMid
+			+ "  \"\"<quantified>\"\",\n"
+			+ "  (for $var5_0 in $var3_0/text()\n"
+			+ "  return $var5_0),\n"
+			+ "  \"\"</quantified>\"\",\n"
+			+ expectedEnd;
 	static String expectedReturn10 = 
-			"for $var3_0 in /descendant::*[name()]\r\n"
-			+ "return \r\n"
-			+ "  concat(\r\n"
-			+ "  \"<interim>\",\r\n"
-			+ "  \"<return>\",\r\n"
-			+ "  $var3_0,\r\n"
-			+ "  \"</return>\",\r\n"
-			+ "  \"<condition>\",\r\n"
-			+ "  \"<quantified>\",\r\n"
-			+ "  (for $var4_0 in $var3_0/text()\r\n"
-			+ "  return $var4_0),\r\n"
-			+ "  \"</quantified>\",\r\n"
-			+ "  \"<quantified>\",\r\n"
-			+ "  (for $var5_0 in $var3_0/text()\r\n"
-			+ "  return $var5_0),\r\n"
-			+ "  \"</quantified>\",\r\n"
-			+ "  \"</condition>\",\r\n"
-			+ "  \"</interim>\")";
+			"for $var3_0 in /descendant::*[name()]\n"
+			+ expectedStart
+			+ "  $var3_0,\n"
+			+ expectedMid
+			+ "  \"<quantified>\",\n"
+			+ "  (for $var4_0 in $var3_0/text()\n"
+			+ "  return $var4_0),\n"
+			+ "  \"</quantified>\",\n"
+			+ "  \"<quantified>\",\n"
+			+ "  (for $var5_0 in $var3_0/text()\n"
+			+ "  return $var5_0),\n"
+			+ "  \"</quantified>\",\n"
+			+ expectedEnd;
 }
