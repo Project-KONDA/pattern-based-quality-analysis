@@ -179,6 +179,15 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			whereClause = WHERE + condQuery;
 		}
 
+		String returnClause = generateXQueryReturnClause();
+		
+		String query = forClauses + whereClause + returnClause;
+		setXmlQuery(query);
+		setPartialXmlQuery(forClauses + returnClause);		
+		return query;
+	}
+	
+	private String generateXQueryReturnClause() throws InvalidityException {
 		String returnClause = "";
 		EList<Node> returnElements = graph.getReturnNodes();
 		if (returnElements.isEmpty())
@@ -195,13 +204,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		}
 		if (returnElements.size()>1)
 			returnClause = "(" + returnClause + ")";
-		returnClause = RETURN + returnClause;	
-		
-		
-		String query = forClauses + whereClause + returnClause;
-		setXmlQuery(query);
-		setPartialXmlQuery(forClauses + returnClause);		
-		return query;
+		return RETURN + returnClause;	
 	}
 	
 	@Override
@@ -226,7 +229,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		
 		String query = forClauses + whereClause + returnClause;
 		setXmlQuery(query);
-		setPartialXmlQuery(forClauses + returnClause);		
+		setPartialXmlQuery(forClauses + generateXQueryReturnClause());		
 		return query;	
 	}
 
