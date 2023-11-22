@@ -193,8 +193,12 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		Boolean cond1Java = getCondition1().containsJavaOperator();
 		Boolean cond2Java = getCondition2().containsJavaOperator();
 
-		String cond1String = cond1Java? getCondition1().generateXQueryJavaReturn() : getCondition1().generateXQuery();
-		String cond2String = cond2Java? getCondition2().generateXQueryJavaReturn() : getCondition2().generateXQuery();
+		String cond1String = cond1Java? 
+				getCondition1().generateXQueryJavaReturn()
+				: "\"<boolean>\",\n  (" + getCondition1().generateXQuery().indent(2) + "  ),\n  \"</boolean>\"";
+		String cond2String = cond2Java? getCondition2().generateXQueryJavaReturn()
+				: "\"<boolean>\",\n  (" + getCondition2().generateXQuery().indent(2) + "  ),\n  \"</boolean>\"";
+		
 		
 		if (!cond1Java && !cond2Java)
 			return generateXQuery();
