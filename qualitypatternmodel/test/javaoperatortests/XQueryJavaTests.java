@@ -18,7 +18,7 @@ public class XQueryJavaTests {
 		List<CompletePattern> patterns = OneArgTestPatterns.getXmlTestPatterns();
 		
 		int from = 1;
-		int to = 5;
+		int to = 6;
 		for (int i = from-1; i<patterns.size() && i < expectations.size() && i < to; i++) {
 			System.out.println("Example " + (i+1) + ":");
 			results.add(testTestPattern(patterns.get(i), expectations.get(i)));
@@ -29,12 +29,17 @@ public class XQueryJavaTests {
 	}
 
 	static Boolean testTestPattern(CompletePattern testpattern, String expected) throws InvalidityException {
-		System.out.println("\n\nquery:\n\n" + testpattern.generateXQuery());
 //		testpattern.generateXQuery();
 		String result = testpattern.generateXQueryJava();
-		System.out.println("\n\nresult:\n\n'" + result + "'");
-		System.out.println("\n\nexpected:\n\n'" + expected + "'");
-		return Objects.equals(result.substring(1), expected);
+		boolean equal = Objects.equals(result.substring(1), expected);
+		if(!equal) {
+			System.out.println("\n\nquery:\n\n" + testpattern.generateXQuery());
+			System.out.println("\n\nresult:\n\n'" + result + "'");
+			System.out.println("\n\nexpected:\n\n'" + expected + "'");
+			if (dif > -1)
+				System.out.println("firstDifIndex :" + dif + " '" + (result.charAt(dif+1)) + "' '" + (expected.charAt(dif)) + "'");
+		}
+		return equal;
 	}
 	
 	
@@ -48,7 +53,7 @@ public class XQueryJavaTests {
 			+ "  \"</interim>\")";
 	
 	static String expectedReturn1 = 
-			"for $var2_0 in /descendant::*[name()]\n"
+			"for $var2_0 in /descendant::*\n"
 			+ expectedStart
 			+ "  $var2_0,\n"
 			+ expectedMid
@@ -60,7 +65,7 @@ public class XQueryJavaTests {
 			+ "  \"</quantified>\",\n"
 			+ expectedEnd;
 	static String expectedReturn2 = 
-			"for $var2_0 in /descendant::*[name()]\n"
+			"for $var2_0 in /descendant::*\n"
 			+ expectedStart
 			+ "  $var2_0,\n"
 			+ expectedMid
@@ -72,7 +77,7 @@ public class XQueryJavaTests {
 			+ "  \"</quantified>\",\n"
 			+ expectedEnd;
 	static String expectedReturn3 = 
-			"for $var3_0 in /descendant::*[name()]\n"
+			"for $var3_0 in /descendant::*\n"
 			+ expectedStart
 			+ "  $var3_0,\n"
 			+ expectedMid
@@ -92,7 +97,27 @@ public class XQueryJavaTests {
 			+ "  \"</formula>\",\n"
 			+ expectedEnd;
 	static String expectedReturn4 = 
-			"for $var3_0 in /descendant::*[name()]\n"
+			"for $var3_0 in /descendant::*\n"
+			+ expectedStart
+			+ "  $var3_0,\n"
+			+ expectedMid
+			+ "  \"<formula>\",\n"
+			+ "  \"<quantified>\",\n"
+			+ "  (  \n"
+			+ "  for $var4_0 in $var3_0/text()\n"
+			+ "  return $var4_0\n"
+			+ "  ),\n"
+			+ "  \"</quantified>\",\n"
+			+ "  \"<quantified>\",\n"
+			+ "  (  \n"
+			+ "  for $var5_0 in $var3_0/text()\n"
+			+ "  return $var5_0\n"
+			+ "  ),\n"
+			+ "  \"</quantified>\",\n"
+			+ "  \"</formula>\",\n"
+			+ expectedEnd;
+	static String expectedReturn4Where = 
+			"for $var3_0 in /descendant::*\n"
 			+ "where ((\n"
 			+ "  some $var4_0 in $var3_0/text()[matches(., \"\"something\"\")]\n"
 			+ "  satisfies (true()))\n"
@@ -114,37 +139,64 @@ public class XQueryJavaTests {
 			+ "  \"</quantified>\",\n"
 			+ "  \"</formula>\",\n"
 			+ expectedEnd;
-	static String expectedReturn5 = 
-			"for $var3_0 in /descendant::*[name()]\n"
+	static String expectedReturn5 = "for $var3_0 in /descendant::*\n"
+			+ expectedStart
+			+ "  $var3_0,\n"
+			+ expectedMid
+			+ "  \"<formula>\",\n"
+			+ "  \"<boolean>\",\n"
+			+ "  (  \n"
+			+ "  some $var4_0 in $var3_0/text()[matches(., \"something\")]\n"
+			+ "  satisfies (true())\n"
+			+ "  ),\n"
+			+ "  \"</boolean>\",\n"
+			+ "  \"<quantified>\",\n"
+			+ "  (  \n"
+			+ "  for $var5_0 in $var3_0/text()\n"
+			+ "  return $var5_0\n"
+			+ "  ),\n"
+			+ "  \"</quantified>\",\n"
+			+ "  \"</formula>\",\n"
+			+ expectedEnd;
+	static String expectedReturn5Where = 
+			"for $var3_0 in /descendant::*\n"
 			+ "where ((\n"
 			+ "  some $var4_0 in $var3_0/text()[matches(., \"\"something\"\")]\n"
 			+ "  satisfies (true()))\n" 
 			+ expectedStart
 			+ "  $var3_0,\n"
 			+ expectedMid
+			+ "  \"<formula>\",\n"
 			+ "  \"<quantified>\",\n"
-			+ "  (\n"
+			+ "  (  \n"
 			+ "  for $var5_0 in $var3_0/text()\n"
 			+ "  return $var5_0\n"
 			+ "  ),\n"
 			+ "  \"</quantified>\",\n"
+			+ "  \"</formula>\",\n"
 			+ expectedEnd;
 	static String expectedReturn6 = 
-			"for $var3_0 in /descendant::*[name()]\n"
+			"for $var3_0 in /descendant::*\n"
 			+ expectedStart
 			+ "  $var3_0,\n"
 			+ expectedMid
+			+ "  \"<formula>\",\n"
 			+ "  \"<boolean>\",\n"
-			+ "  (some $var4_0 in $var3_0/text()[matches(., \"something\")]\n"
-			+ "  satisfies (true())),\n"
+			+ "  (  \n"
+			+ "  some $var4_0 in $var3_0/text()[matches(., \"something\")]\n"
+			+ "  satisfies (true())\n"
+			+ "  ),\n"
 			+ "  \"</boolean>\",\n"
 			+ "  \"<quantified>\",\n"
-			+ "  (for $var5_0 in $var3_0/text()\n"
-			+ "  return $var5_0),\n"
+			+ "  (  \n"
+			+ "  for $var5_0 in $var3_0/text()\n"
+			+ "  return $var5_0\n"
+			+ "  ),\n"
 			+ "  \"</quantified>\",\n"
+			+ "  \"</formula>\",\n"
 			+ expectedEnd;
 	static String expectedReturn7 = 
-			"for $var3_0 in /descendant::*[name()]\n" 
+			"for $var3_0 in /descendant::*\n" 
 			+ expectedStart
 			+ "  $var3_0,\n"
 			+ expectedMid
@@ -160,7 +212,7 @@ public class XQueryJavaTests {
 			+ "  \"</quantified>\",\n"
 			+ expectedEnd;
 	static String expectedReturn8 = 
-			"for $var4_0 in /descendant::*[name()]\n"
+			"for $var4_0 in /descendant::*\n"
 			+ expectedStart
 			+ "  $var4_0,\n"
 			+ expectedMid
@@ -182,30 +234,36 @@ public class XQueryJavaTests {
 			+ "  \"</quantified>\",\n"
 			+ expectedEnd;
 	static String expectedReturn9 = 
-			"for $var3_0 in /descendant::*[name()]\n"
+			"for $var3_0 in /descendant::*\n"
 			+ "where ((\n"
-			+ "  some $var4_0 in $var3_0/text()[matches(., \"\"\"\"something\"\"\"\")]\n"
+			+ "  some $var4_0 in $var3_0/text()[matches(., \"something\")]\n"
 			+ "  satisfies (true()))\n" 
 			+ expectedStart
 			+ "  $var3_0,\n"
 			+ expectedMid
-			+ "  \"\"<quantified>\"\",\n"
-			+ "  (for $var5_0 in $var3_0/text()\n"
-			+ "  return $var5_0),\n"
-			+ "  \"\"</quantified>\"\",\n"
+			+ "  \"<quantified>\",\n"
+			+ "  (  \n"
+			+ "  for $var4_0 in $var3_0/text()\n"
+			+ "  return $var4_0\n"
+			+ "  ),\n"
+			+ "  \"</quantified>\",\n"
 			+ expectedEnd;
 	static String expectedReturn10 = 
-			"for $var3_0 in /descendant::*[name()]\n"
+			"for $var3_0 in /descendant::*\n"
 			+ expectedStart
 			+ "  $var3_0,\n"
 			+ expectedMid
 			+ "  \"<quantified>\",\n"
-			+ "  (for $var4_0 in $var3_0/text()\n"
-			+ "  return $var4_0),\n"
+			+ "  (  \n"
+			+ "  for $var4_0 in $var3_0/text()\n"
+			+ "  return $var4_0\n"
+			+ "  ),\n"
 			+ "  \"</quantified>\",\n"
 			+ "  \"<quantified>\",\n"
-			+ "  (for $var5_0 in $var3_0/text()\n"
-			+ "  return $var5_0),\n"
+			+ "  (  \n"
+			+ "  for $var5_0 in $var3_0/text()\n"
+			+ "  return $var5_0\n"
+			+ "  ),\n"
 			+ "  \"</quantified>\",\n"
 			+ expectedEnd;
 }

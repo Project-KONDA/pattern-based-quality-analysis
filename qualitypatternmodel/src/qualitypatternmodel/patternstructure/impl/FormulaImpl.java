@@ -195,7 +195,9 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 
 		String cond1String = cond1Java? 
 				getCondition1().generateXQueryJavaReturn()
-				: "\"<boolean>\",\n  (" + getCondition1().generateXQuery().indent(2) + "  ),\n  \"</boolean>\"";
+				: "\"<boolean>\",\n  (" 
+				+ getCondition1().generateXQuery().indent(2) 
+				+ "  ),\n  \"</boolean>\"";
 		String cond2String = cond2Java? getCondition2().generateXQueryJavaReturn()
 				: "\"<boolean>\",\n  (" + getCondition2().generateXQuery().indent(2) + "  ),\n  \"</boolean>\"";
 		
