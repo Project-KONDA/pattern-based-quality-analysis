@@ -154,6 +154,7 @@ public class ConstraintApplicationTest {
 	
 	// Real Patterns
 	
+	@SuppressWarnings("unused")
 	private static CompletePattern getPatternSourceContainsWikipedia() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setDescription("Source-Contains-Wikipedia-Comparison:");

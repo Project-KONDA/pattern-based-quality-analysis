@@ -53,11 +53,11 @@ public class ConstraintSchemaTest {
 		// Create DataElement with Rules
 		DataElement sourceElement = new DataElement("source", fieldpath);
 		sourceElement.setExtractable();
-		Rule min1OccursRule = new Rule().withMinCount(1);
+		Rule min1OccursRule = new Rule().withMinCount(1).withSuccessScore(1);
 		sourceElement.addRule(min1OccursRule);
-		Rule max1OccursRule = new Rule().withMaxCount(1);
+		Rule max1OccursRule = new Rule().withMaxCount(1).withSuccessScore(1);
 		sourceElement.addRule(max1OccursRule);
-		Rule patternRule = new Rule().withPattern("https:.*");
+		Rule patternRule = new Rule().withPattern("https:.*").withSuccessScore(1);
 		sourceElement.addRule(patternRule);
 
 		// Create BaseSchema
