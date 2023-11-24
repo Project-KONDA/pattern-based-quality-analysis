@@ -100,7 +100,7 @@ public class ConstraintApplicationTest {
 			if (map.get(feature) == null){
 				throw new NullPointerException("Feature not correctly defined: " + feature + " is not in: " + map.keySet());
 			}
-			Boolean bi = map.get(feature).equals(1);
+			Boolean bi = map.get(feature).toString().equals("1");
 			result.add(bi);
 		}
 		return result;
