@@ -115,7 +115,7 @@ public class ConstraintObject {
 			schema.addField(field);
 		}
 		
-		Rule constraintrule = new Rule();
+		Rule constraintrule = new Rule().withSuccessScore(1);
 		rule.addConstraintRuleTo(constraintrule);
 		DataElement field1 = new DataElement(fieldNodes[0].getName().replace(" ", "_"), fieldPath).setExtractable();
 		field1.addRule(constraintrule);

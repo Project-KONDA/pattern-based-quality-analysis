@@ -32,10 +32,10 @@ public class ConstraintSchemaTest {
 	 * i added the number of correct values / total calculated values. 
 	 * Note, that if everything is returned as wrong, it results in 19 correct results
 	 */
-//	static String fieldpath = "/*/demo:source/text()";  				// path 0 : 19 /60
-//	static String fieldpath = "/*/demo:source"; 						// path 1 : 19 /60
-//	static String fieldpath = "/*/*[name()=\"demo:source\"]/text()"; 	// path 2 : 31 /60
-	static String fieldpath = "/*/*[name()=\"demo:source\"]"; 			// path 3 : 35 /60
+//	static String fieldpath = "/*/demo:source/text()";  				// path 0 : 19 /60 - 19 - 27
+//	static String fieldpath = "/*/demo:source"; 						// path 1 : 19 /60 - 19 - 27
+//	static String fieldpath = "/*/*[name()=\"demo:source\"]/text()"; 	// path 2 : 31 /60 - 42 - 50
+	static String fieldpath = "/*/*[name()=\"demo:source\"]"; 			// path 3 : 35 /60 - 52 - 60
 
 	
 	
@@ -104,15 +104,16 @@ public class ConstraintSchemaTest {
 		Boolean[] existence = new Boolean[]{true, true, true, false, false, true, true, true, false, false, true, true};
 		String cardinalityKey = "cardinality:source";
 		Integer[] cardinality = new Integer[]{3, 1, 2, 0, 0, 2, 1, 1, 0, 0, 2, 1};
+
+		Integer notex = 0;
 		
 		// for the remaining i input the expected status instead of creating the correct RuleCheckerOutput (de.gwdg.metadataqa.api.rule.RuleCheckerOutput)
 		String minCountKey = "ruleCatalog:source:minCount:1";
 		Integer[] minCount = new Integer[]{1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1};
 		String maxCountKey = "ruleCatalog:source:maxCount:2";
-		Integer[] maxCount = new Integer[]{0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1};
+		Integer[] maxCount = new Integer[]{0, 1, 0, notex, notex, 0, 1, 1, notex, notex, 0, 1};
 		String patternKey = "ruleCatalog:source:pattern:3";
-		Integer all = 1, some =0, notex = -1, none = 0; // for pattern as i am not sure, what the values shall be if working correctly
-		Integer[] pattern = new Integer[]{all, all, some, notex, notex, none, all, all, notex, notex, some, all};
+		Integer[] pattern = new Integer[]{1, 1, 0, notex, notex, 0, 1, 1, notex, notex, 0, 1};
 		
 		ArrayList<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
 		for (int i = 0; i < 12; i++) {
