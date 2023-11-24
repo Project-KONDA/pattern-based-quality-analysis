@@ -45,8 +45,10 @@ public class ConstraintApplicationTest {
 	private static String SOURCEFIELD_PATH = "/*[name() = \"demo:source\"]/data()";
 
 	public static void main(String[] args) throws Exception {
-		evaluatePatternConstraintTranslation(cardinalityPattern(), "ruleCatalog:FieldNode:minCount:1");
-//		evaluatePatternConstraintTranslation(getPatternSourceContainsWikipedia(), "ruleCatalog:ruleCatalog:score");
+		evaluatePatternConstraintTranslation(cardinalityPattern(ComparisonOperator.LESS, 2.), "ruleCatalog:FieldNode:minCount:1");
+		evaluatePatternConstraintTranslation(cardinalityPattern(ComparisonOperator.LESSOREQUAL, 2.), "ruleCatalog:FieldNode:minCount:1");
+		evaluatePatternConstraintTranslation(cardinalityPattern(ComparisonOperator.GREATER, 1.), "ruleCatalog:FieldNode:maxCount:1");
+		evaluatePatternConstraintTranslation(getPatternSourceContainsWikipedia(), "ruleCatalog:PrimitiveNode_2:pattern:1");
 	}	
 		
 	
@@ -183,7 +185,7 @@ public class ConstraintApplicationTest {
 		return completePattern;
 	}
 	
-	private static CompletePattern cardinalityPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern cardinalityPattern(ComparisonOperator co, double d) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setDescription("Count lessthan 1");
 		CountCondition ccond = PatternstructureFactory.eINSTANCE.createCountCondition();
@@ -214,8 +216,8 @@ public class ConstraintApplicationTest {
 		XmlPathParamImpl p3 = (XmlPathParamImpl) params.get(3);
 		
 		
-		p0.setValue(ComparisonOperator.LESS);
-		p1.setValue(1.);
+		p0.setValue(co);
+		p1.setValue(2.);
 		p2.setValueFromString(RECORD_PATH);
 		p3.setValueFromString(SOURCEFIELD_PATH);
 		
