@@ -16,7 +16,6 @@ import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.SingleCons
 import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.StringLengthRuleObject;
 import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.CardinalityConstraintRuleObject;
 import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.UniqueRuleObject;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.ComparisonRuleObject;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -52,8 +51,6 @@ import de.gwdg.metadataqa.api.schema.Format;
 
 public class ConstraintObject {
 	
-	public static String PATH_PRAEFIX = "/child::*";
-	
 	CompletePattern pattern;
 	ComplexNode record;
 	Node[] fieldNodes;
@@ -75,12 +72,10 @@ public class ConstraintObject {
 		fieldNodes = FieldNodeIdentification.identifyFieldNodes(pattern);
 		rule = transformCondition(completePattern.getCondition(), record, fieldNodes).realInvert();
 		
-		XmlNavigation r = (XmlNavigation) fieldNodes[0].getIncoming().get(0);
-		fieldPath = PATH_PRAEFIX + r.getXmlPathParam().generateXQuery();
+		fieldPath = ConstraintTranslationHelper.getRelationPathTo(fieldNodes[0]);
 		if (rule != null)
 			fieldPaths = rule.getAllFields();
 	}
-	
 	
 	// public functions
 	public String getStringRepresentation() throws InvalidityException {
