@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
 import de.gwdg.metadataqa.api.calculator.CalculatorFacade;
 import de.gwdg.metadataqa.api.configuration.MeasurementConfiguration;
 import de.gwdg.metadataqa.api.schema.BaseSchema;
+import de.gwdg.metadataqa.api.xml.XPathWrapper;
 import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -43,6 +44,7 @@ public class ConstraintApplicationTest {
 
 	private static String RECORD_PATH = "/*[name() = \"demo:data\"]/*";
 	private static String SOURCEFIELD_PATH = "/*[name() = \"demo:source\"]/data()";
+	private static Boolean namespaceWorkaround = true;
 
 	public static void main(String[] args) throws Exception {
 		evaluatePatternConstraintTranslation(cardinalityPattern(ComparisonOperator.LESS, 2.), "ruleCatalog:FieldNode:minCount:1");
@@ -87,6 +89,8 @@ public class ConstraintApplicationTest {
 
 		CalculatorFacade calculator = new CalculatorFacade(config); // use configuration
 		calculator.setSchema(schema);
+		if (namespaceWorkaround)
+			XPathWrapper.setXpathEngine(schema.getNamespaces());
 		calculator.configure();
 		
 		List<Map<String, Object>> csvresults = new ArrayList<Map<String, Object>>();
@@ -156,7 +160,6 @@ public class ConstraintApplicationTest {
 	
 	// Real Patterns
 	
-	@SuppressWarnings("unused")
 	private static CompletePattern getPatternSourceContainsWikipedia() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setDescription("Source-Contains-Wikipedia-Comparison:");
