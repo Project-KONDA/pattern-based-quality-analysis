@@ -21,7 +21,13 @@ public class XQueryJavaTests {
 		int to = 6;
 		for (int i = from-1; i<patterns.size() && i < expectations.size() && i < to; i++) {
 			System.out.println("Example " + (i+1) + ":");
-			results.add(testTestPattern(patterns.get(i), expectations.get(i)));
+			try {
+				results.add(testTestPattern(patterns.get(i), expectations.get(i)));
+			}
+			catch (InvalidityException e) {
+				e.printStackTrace();
+				results.add(false);
+			}
 		}
 			
 		System.out.println(results);
@@ -42,7 +48,7 @@ public class XQueryJavaTests {
 	
 	
 	static String expectedStart = "return\n"
-			+ "  concat(\n"
+			+ "  (\n"
 			+ "  \"<interim>\",\n"
 			+ "  \"<return>\",\n";
 	static String expectedMid = "  \"</return>\",\n"

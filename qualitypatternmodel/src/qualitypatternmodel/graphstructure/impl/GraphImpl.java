@@ -3,8 +3,8 @@
 package qualitypatternmodel.graphstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -25,7 +25,6 @@ import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
-import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
@@ -60,6 +59,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -241,33 +241,19 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		if(!containsJavaOperator())
 			return "";
 		String result = "";
-//		result += this.generateXQuery();
 		
-		ArrayList<XmlNode> javaNodes = new ArrayList<XmlNode>();
-		ArrayList<XmlNode> javaMidNodes = new ArrayList<XmlNode>();
-		ArrayList<Relation> javaRelations = new ArrayList<Relation>();
-		ArrayList<Relation> javaStartRelations = new ArrayList<Relation>();
-		ArrayList<Relation> allJavaRelations = new ArrayList<Relation>();
-		for (Node node: getNodes()) {
-			if(node.containsJavaOperator())
-				javaNodes.add((XmlNode) node);
-			else if(node.inJavaReturnRequired())
-				javaMidNodes.add((XmlNode)node);
+		List<Relation> relations = getRelations();
+		for(Relation relation : relations) {
+			if (relation.isCrossGraph())
+				relations.add(relation);
 		}
-		for (Relation relation: getRelations()) {
-			if(relation.inJavaReturnRequired()) {
-				allJavaRelations.add(relation);
-				if (relation.isCrossGraph())
-					javaStartRelations.add(relation);
-				else
-					javaRelations.add(relation);
-			}
+		relations = JavaQueryTranslationUtility.orderRelationsJavaQuery(relations);
+		for(int i = 0; i< relations.size(); i++) {
+			result += relations.get(i).generateXQueryJavaReturn();
+			if (i<relations.size()-1)
+				result += ",";
 		}
-		
-		for (Relation relation: allJavaRelations) {
-			result += relation.generateXQueryJavaReturn();
-		}
-		return "(" + result + "  )";
+		return "(" + result + ")";
 	}
 	
 	@Override
