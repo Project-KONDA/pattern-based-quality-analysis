@@ -36,8 +36,6 @@ public class XQueryJavaTests {
 			System.out.println("\n\nquery:\n\n" + testpattern.generateXQuery());
 			System.out.println("\n\nresult:\n\n'" + result + "'");
 			System.out.println("\n\nexpected:\n\n'" + expected + "'");
-			if (dif > -1)
-				System.out.println("firstDifIndex :" + dif + " '" + (result.charAt(dif+1)) + "' '" + (expected.charAt(dif)) + "'");
 		}
 		return equal;
 	}
