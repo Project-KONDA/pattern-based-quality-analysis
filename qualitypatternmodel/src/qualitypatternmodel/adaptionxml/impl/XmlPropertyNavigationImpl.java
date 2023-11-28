@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static qualitypatternmodel.utility.Constants.FOR;
 import static qualitypatternmodel.utility.Constants.IN;
 import static qualitypatternmodel.utility.Constants.RETURN;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.VALUESTART;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.VALUEEND;
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
@@ -106,7 +108,9 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 		String query1 = FOR + variable + IN + path + predicates;
 		String query2 = RETURN + variable;
 		String query = query1 + query2;
-		return query.indent(2);
+		query = query.indent(2);
+		query = "\n  " + VALUESTART +",\n  (" + query + "  ),\n  "+ VALUEEND + "\n  ";
+		return query; 
 	}
 	
 	

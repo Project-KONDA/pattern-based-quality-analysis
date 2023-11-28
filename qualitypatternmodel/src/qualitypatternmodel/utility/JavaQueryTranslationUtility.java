@@ -22,6 +22,8 @@ public class JavaQueryTranslationUtility {
 	public static String FORMULA = "formula";
 	public static String FORMULASTART = "\"<formula>\"";
 	public static String FORMULAEND = "\"</formula>\"";
+	public static String VALUESTART = "\"<value>\"";
+	public static String VALUEEND = "\"</value>\"";
 	
 	public static String getXQueryReturnList(List<String> elements, String tagname) {
 		String concat = "return\n  (\n  ";
