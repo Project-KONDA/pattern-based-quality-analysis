@@ -2,10 +2,29 @@ package qualitypatternmodel.utility;
 
 import java.util.List;
 
+import org.eclipse.emf.common.util.BasicEList;
+
+import qualitypatternmodel.graphstructure.PrimitiveNode;
+import qualitypatternmodel.graphstructure.Relation;
+
 public class JavaQueryTranslationUtility {
+
+	public static String INTERIM = "interim";
+	public static String INTERIMSTART = "\"<interim>\"";
+	public static String INTERIMEND = "\"</interim>\"";
+	public static String RETURNSTART = "\"<return>\"";
+	public static String RETURNEND = "\"</return>\"";
+	public static String CONDITIONSTART = "\"<condition>\"";
+	public static String CONDITIONEND = "\"</condition>\"";
+	public static String QUANTIFIED = "quantified";
+	public static String QUANTIFIEDSTART = "\"<quantified>\"";
+	public static String QUANTIFIEDEND = "\"</quantified>\"";
+	public static String FORMULA = "formula";
+	public static String FORMULASTART = "\"<formula>\"";
+	public static String FORMULAEND = "\"</formula>\"";
 	
 	public static String getXQueryReturnList(List<String> elements, String tagname) {
-		String concat = "return\n  concat(\n  ";
+		String concat = "return\n  (\n  ";
 		
 		String returnstring = concat + "\"<" + tagname + ">\",\n  ";
 		for (String element: elements) {

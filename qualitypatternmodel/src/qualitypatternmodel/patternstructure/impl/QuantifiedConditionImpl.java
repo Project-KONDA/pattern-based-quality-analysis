@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIED;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.List;
@@ -191,13 +193,13 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		String conditionString = getCondition().generateXQueryJavaReturn();
 		
 		if (!graphJava && !conditionJava)
-			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(generateXQuery()), "quantified");
+			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(generateXQuery()), QUANTIFIED);
 		else if (!graphJava)
-			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(conditionString), "quantified");
+			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(conditionString), QUANTIFIED);
 		else if (!conditionJava)
-			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(graphString), "quantified");
+			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(graphString), QUANTIFIED);
 		else 
-			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(graphString, conditionString), "quantified");
+			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(graphString, conditionString), QUANTIFIED);
 	}
 	
 	@Override

@@ -2,7 +2,8 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
-import static qualitypatternmodel.utility.Constants.*;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.FORMULA;
+import static qualitypatternmodel.utility.Constants.addMissingBrackets;
 
 import java.util.List;
 
@@ -209,7 +210,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 //		else if (!cond2Java)
 //			return cond1String;
 		else 
-			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(cond1String, cond2String), "formula");
+			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(cond1String, cond2String), FORMULA);
 	}
 	
 	@Override

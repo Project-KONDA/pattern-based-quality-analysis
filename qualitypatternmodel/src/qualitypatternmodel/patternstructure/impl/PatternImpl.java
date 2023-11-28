@@ -4,6 +4,12 @@ package qualitypatternmodel.patternstructure.impl;
 
 import static qualitypatternmodel.utility.Constants.RETURN;
 import static qualitypatternmodel.utility.Constants.WHERE;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.INTERIM;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.RETURNSTART;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.RETURNEND;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.CONDITIONSTART;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.CONDITIONEND;
+
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -256,12 +262,16 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		String graphString = getGraph().generateXQueryJavaReturn();
 		String conditionString = getCondition().generateXQueryJavaReturn();
 		
-		List<String> resultList = new ArrayList<String>();
-		resultList.add("\"<return>\"");
-		resultList.addAll(nodes);
-		resultList.addAll(List.of("\"</return>\"", "\"<condition>\"", graphString, conditionString, "\"</condition>\""));
-		String resultString = JavaQueryTranslationUtility.getXQueryReturnList(resultList, "interim"); 
+		String resultString = getResultString(nodes, graphString, conditionString); 
 		return resultString;
+	}
+	
+	private String getResultString(List<String> nodes, String graphString, String conditionString){
+		List<String> resultList = new ArrayList<String>();
+		resultList.add(RETURNSTART);
+		resultList.addAll(nodes);
+		resultList.addAll(List.of(RETURNEND, CONDITIONSTART, graphString, conditionString, CONDITIONEND));
+		return JavaQueryTranslationUtility.getXQueryReturnList(resultList, INTERIM); 
 	}
 	
 	@Override
