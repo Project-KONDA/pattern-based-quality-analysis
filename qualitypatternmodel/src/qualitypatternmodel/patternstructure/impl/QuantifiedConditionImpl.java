@@ -194,8 +194,8 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		
 		if (!graphJava && !conditionJava)
 			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(generateXQuery()), QUANTIFIED);
-		else if (!graphJava)
-			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(conditionString), QUANTIFIED);
+//		else if (!graphJava)
+//			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(conditionString), QUANTIFIED);
 		else if (!conditionJava)
 			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(graphString), QUANTIFIED);
 		else 

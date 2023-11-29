@@ -270,7 +270,10 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		List<String> resultList = new ArrayList<String>();
 		resultList.add(RETURNSTART);
 		resultList.addAll(nodes);
-		resultList.addAll(List.of(RETURNEND, CONDITIONSTART, graphString, conditionString, CONDITIONEND));
+		if (!graphString.equals("()"))
+			resultList.addAll(List.of(RETURNEND, CONDITIONSTART, graphString, conditionString, CONDITIONEND));
+		else 
+			resultList.addAll(List.of(RETURNEND, CONDITIONSTART, conditionString, CONDITIONEND));
 		return JavaQueryTranslationUtility.getXQueryReturnList(resultList, INTERIM); 
 	}
 	

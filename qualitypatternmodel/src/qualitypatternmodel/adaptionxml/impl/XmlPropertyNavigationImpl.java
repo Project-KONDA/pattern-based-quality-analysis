@@ -85,15 +85,16 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 		
 		// Basic Translation via xmlPathParam
 		String path = "";
-		if (xmlPathParam != null) {
-			String sourcevariable = getSourceVariable();
-			if (!(getSource() instanceof XmlRoot) && sourcevariable == "") {
-				throw new InvalidityException("SourceVariable in Relation [" + getInternalId() + "] from Element [" + getSource().getInternalId() + "] is empty");
-			}
-				
-			path = sourcevariable + xmlPathParam.generateXQuery();
-		} else 
+		if (xmlPathParam == null)
 			throw new InvalidityException("option null");
+			
+		String sourcevariable = ((XmlNode) source).getVariables().size()>0? ((XmlNode) source).getVariables().get(0) : "X";
+//		String sourcevariable = getSourceVariable();
+		if (!(getSource() instanceof XmlRoot) && sourcevariable == "") {
+			throw new InvalidityException("SourceVariable in Relation [" + getInternalId() + "] from Element [" + getSource().getInternalId() + "] is empty");
+		}
+			
+		path = sourcevariable + xmlPathParam.generateXQuery();
 
 		// Predicate
 		String predicates = "";

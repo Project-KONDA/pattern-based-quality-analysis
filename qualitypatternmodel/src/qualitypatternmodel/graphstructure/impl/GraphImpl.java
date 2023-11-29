@@ -238,13 +238,13 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	
 	@Override
 	public String generateXQueryJavaReturn() throws InvalidityException {
-		if(!containsJavaOperator())
-			return "";
+//		if(!containsJavaOperator())
+//			return "";
 		String result = "";
 		
-		List<Relation> relations = getRelations();
-		for(Relation relation : relations) {
-			if (relation.isCrossGraph())
+		List<Relation> relations = new BasicEList<Relation>();
+		for(Relation relation : getRelations()) {
+			if (relation.isCrossGraph() && !relation.isTranslated())
 				relations.add(relation);
 		}
 		relations = JavaQueryTranslationUtility.orderRelationsJavaQuery(relations);

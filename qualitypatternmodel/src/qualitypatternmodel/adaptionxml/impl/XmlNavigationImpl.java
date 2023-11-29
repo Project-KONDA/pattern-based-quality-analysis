@@ -253,6 +253,11 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		}
 		return query;
 	}
+	
+	@Override
+	public String generateXQueryJavaReturn() throws InvalidityException {
+		return this.generateXQueryJava();
+	}
 
 	protected String generateNextXQueryVariable() throws InvalidityException {
 		String variable = VARIABLE + getInternalId() + "_" + getVariableCounter();
