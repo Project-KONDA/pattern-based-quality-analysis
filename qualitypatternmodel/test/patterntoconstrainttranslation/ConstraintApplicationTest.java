@@ -14,6 +14,8 @@ import org.eclipse.emf.common.util.EList;
 
 import de.gwdg.metadataqa.api.calculator.CalculatorFacade;
 import de.gwdg.metadataqa.api.configuration.MeasurementConfiguration;
+import de.gwdg.metadataqa.api.configuration.schema.Rule;
+import de.gwdg.metadataqa.api.json.DataElement;
 import de.gwdg.metadataqa.api.schema.BaseSchema;
 import de.gwdg.metadataqa.api.xml.XPathWrapper;
 import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
@@ -46,6 +48,11 @@ public class ConstraintApplicationTest {
 	private static String SOURCEFIELD_PATH = "/*[name() = \"demo:source\"]/data()";
 	private static Boolean namespaceWorkaround = true;
 
+	static Integer SUCCESS = 1;
+	static Integer NA = 0;
+	static Integer FAILIURE = -1;
+	static boolean NARating = true;
+	
 	public static void main(String[] args) throws Exception {
 		evaluatePatternConstraintTranslation(cardinalityPattern(ComparisonOperator.LESS, 2.), "ruleCatalog:FieldNode:minCount:1");
 		evaluatePatternConstraintTranslation(cardinalityPattern(ComparisonOperator.LESSOREQUAL, 2.), "ruleCatalog:FieldNode:minCount:1");
@@ -59,7 +66,10 @@ public class ConstraintApplicationTest {
 		
 		List<Boolean> patternResultIndices = calculatePatternBooleanResults(pattern);
 		
-		List<Map<String, Object>> constraintResults = calculateConstraintResults( pattern.generateXmlConstraintSchema(), records);
+		BaseSchema schema = pattern.generateXmlConstraintSchema();
+		setSchemaScores(schema);
+		
+		List<Map<String, Object>> constraintResults = calculateConstraintResults(schema, records);
 		List<Boolean> constraintResultIndices = getConstraintResultIndices(constraintResults, feature);
 		
 		List<Boolean> comparisonResults =  compareResults(patternResultIndices, constraintResultIndices);
@@ -79,7 +89,15 @@ public class ConstraintApplicationTest {
 	}
 	
 	
-	
+	private static void setSchemaScores(BaseSchema schema) {
+		for (DataElement de: schema.getPaths()) {
+			for (Rule rule: de.getRules()) {
+				rule.withSuccessScore(SUCCESS).withNaScore(NA).withFailureScore(FAILIURE);
+			}
+		}
+	}
+
+
 	private static List<Map<String, Object>> calculateConstraintResults(BaseSchema schema, List<String> records) {
 
 		MeasurementConfiguration config = new MeasurementConfiguration().enableRuleCatalogMeasurement();
@@ -106,7 +124,9 @@ public class ConstraintApplicationTest {
 			if (map.get(feature) == null){
 				throw new NullPointerException("Feature not correctly defined: " + feature + " is not in: " + map.keySet());
 			}
-			Boolean bi = map.get(feature).toString().equals("1");
+			Boolean isSuccess = map.get(feature).toString().equals(SUCCESS.toString());
+			Boolean isNa = map.get(feature).toString().equals(NA.toString());
+			Boolean bi =  isSuccess || NARating && isNa;
 			result.add(bi);
 		}
 		return result;
