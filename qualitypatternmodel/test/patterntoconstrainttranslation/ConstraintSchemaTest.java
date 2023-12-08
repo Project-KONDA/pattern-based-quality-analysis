@@ -18,6 +18,10 @@ public class ConstraintSchemaTest {
 	
 	static Boolean printConstraintResultsAdditionally = false;
 
+	static Integer SUCCESS = 1;
+	static Integer NA = 0;
+	static Integer FAILIURE = -1;
+
 	/* my TestPaths 
 	 * I expected path 0 to be the preferred one
 	 *
@@ -53,11 +57,11 @@ public class ConstraintSchemaTest {
 		// Create DataElement with Rules
 		DataElement sourceElement = new DataElement("source", fieldpath);
 		sourceElement.setExtractable();
-		Rule min1OccursRule = new Rule().withMinCount(1).withSuccessScore(1);
+		Rule min1OccursRule = new Rule().withMinCount(1).withSuccessScore(SUCCESS).withNaScore(NA).withFailureScore(FAILIURE);
 		sourceElement.addRule(min1OccursRule);
-		Rule max1OccursRule = new Rule().withMaxCount(1).withSuccessScore(1);
+		Rule max1OccursRule = new Rule().withMaxCount(1).withSuccessScore(SUCCESS).withNaScore(NA).withFailureScore(FAILIURE);
 		sourceElement.addRule(max1OccursRule);
-		Rule patternRule = new Rule().withPattern("https:.*").withSuccessScore(1);
+		Rule patternRule = new Rule().withPattern("https:.*").withSuccessScore(SUCCESS).withNaScore(NA).withFailureScore(FAILIURE);
 		sourceElement.addRule(patternRule);
 
 		// Create BaseSchema
@@ -104,16 +108,14 @@ public class ConstraintSchemaTest {
 		Boolean[] existence = new Boolean[]{true, true, true, false, false, true, true, true, false, false, true, true};
 		String cardinalityKey = "cardinality:source";
 		Integer[] cardinality = new Integer[]{3, 1, 2, 0, 0, 2, 1, 1, 0, 0, 2, 1};
-
-		Integer notex = 0;
 		
 		// for the remaining i input the expected status instead of creating the correct RuleCheckerOutput (de.gwdg.metadataqa.api.rule.RuleCheckerOutput)
 		String minCountKey = "ruleCatalog:source:minCount:1";
-		Integer[] minCount = new Integer[]{1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1};
+		Integer[] minCount = new Integer[]{SUCCESS, SUCCESS, SUCCESS, FAILIURE, FAILIURE, SUCCESS, SUCCESS, SUCCESS, FAILIURE, FAILIURE, SUCCESS, SUCCESS};
 		String maxCountKey = "ruleCatalog:source:maxCount:2";
-		Integer[] maxCount = new Integer[]{0, 1, 0, notex, notex, 0, 1, 1, notex, notex, 0, 1};
+		Integer[] maxCount = new Integer[]{FAILIURE, SUCCESS, FAILIURE, NA, NA, FAILIURE, SUCCESS, SUCCESS, NA, NA, FAILIURE, SUCCESS};
 		String patternKey = "ruleCatalog:source:pattern:3";
-		Integer[] pattern = new Integer[]{1, 1, 0, notex, notex, 0, 1, 1, notex, notex, 0, 1};
+		Integer[] pattern = new Integer[]{SUCCESS, SUCCESS, FAILIURE, NA, NA, FAILIURE, SUCCESS, SUCCESS, NA, NA, FAILIURE, SUCCESS};
 		
 		ArrayList<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
 		for (int i = 0; i < 12; i++) {
