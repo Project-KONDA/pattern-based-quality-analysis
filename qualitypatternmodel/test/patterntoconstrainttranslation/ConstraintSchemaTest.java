@@ -19,8 +19,8 @@ public class ConstraintSchemaTest {
 	static Boolean printConstraintResultsAdditionally = false;
 
 	static Integer SUCCESS = 1;
-	static Integer NA = 0;
-	static Integer FAILIURE = -1;
+	static Integer NA = -1;
+	static Integer FAILIURE = -2;
 
 	/* my TestPaths 
 	 * I expected path 0 to be the preferred one
