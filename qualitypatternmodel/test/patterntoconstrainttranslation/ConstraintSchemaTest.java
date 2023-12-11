@@ -37,33 +37,36 @@ public class ConstraintSchemaTest {
 	 * Note, that if everything is returned as wrong, it results in 19 correct results
 	 */
 //	static String fieldpath = "/*/demo:source/text()";  				// path 0 : 19 /60 - 19 - 27
-//	static String fieldpath = "/*/demo:source"; 						// path 1 : 19 /60 - 19 - 27
+	static String fieldpath = "/*/demo:source"; 						// path 1 : 19 /60 - 19 - 27
 //	static String fieldpath = "/*/*[name()=\"demo:source\"]/text()"; 	// path 2 : 31 /60 - 42 - 50
-	static String fieldpath = "/*/*[name()=\"demo:source\"]"; 			// path 3 : 35 /60 - 52 - 60
+//	static String fieldpath = "/*/*[name()=\"demo:source\"]"; 			// path 3 : 35 /60 - 52 - 60
 
 	
 	
 	// i tried to configure the namespace in this ways
 	@SuppressWarnings("serial")
 	static Map<String, String> namespaces = new HashMap<String, String>() {{
-		    put("demo", "https://raw.githubusercontent.com/Project-KONDA/pattern-based-quality-analysis/constraint_translation_experiment/qualitypatternmodel/demo.data/demo_database_schema.xsd");
-//		    put("demo", "demo");
+//		    put("demo", "https://raw.githubusercontent.com/Project-KONDA/pattern-based-quality-analysis/constraint_translation_experiment/qualitypatternmodel/demo.data/demo_database_schema.xsd");
+		    put("demo", "demo");
 //		    put("demo", "demo https://raw.githubusercontent.com/Project-KONDA/pattern-based-quality-analysis/constraint_translation_experiment/qualitypatternmodel/demo.data/demo_database_schema.xsd");
 	}};
 	
 	public static void main(String[] args) throws Exception {
 		String[] records = getRecords();
 		
-		// Create DataElement with Rules
+		// Create DataElement
 		DataElement sourceElement = new DataElement("source", fieldpath);
-		sourceElement.setExtractable();
+		
+		// Create Rules with Success, NA and FailureScore
 		Rule min1OccursRule = new Rule().withMinCount(1).withSuccessScore(SUCCESS).withNaScore(NA).withFailureScore(FAILIURE);
-		sourceElement.addRule(min1OccursRule);
 		Rule max1OccursRule = new Rule().withMaxCount(1).withSuccessScore(SUCCESS).withNaScore(NA).withFailureScore(FAILIURE);
-		sourceElement.addRule(max1OccursRule);
 		Rule patternRule = new Rule().withPattern("https:.*").withSuccessScore(SUCCESS).withNaScore(NA).withFailureScore(FAILIURE);
+		
+		sourceElement.setExtractable();
+		sourceElement.addRule(min1OccursRule);
+		sourceElement.addRule(max1OccursRule);
 		sourceElement.addRule(patternRule);
-
+		
 		// Create BaseSchema
 		BaseSchema schema = new BaseSchema();
 		schema.setFormat(Format.XML);
@@ -154,6 +157,7 @@ public class ConstraintSchemaTest {
 			
 			constraintResult = removeOtherMappings(constraintResult, expectedResult.keySet());
 			
+			// comparing values of expectedResult and constraintResult
 			for (String key: expectedResult.keySet()){
 				if (constraintResult.get(key).toString().equals(expectedResult.get(key).toString()))
 					correct++;
