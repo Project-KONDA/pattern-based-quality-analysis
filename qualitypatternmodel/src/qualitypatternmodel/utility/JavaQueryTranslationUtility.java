@@ -22,19 +22,24 @@ public class JavaQueryTranslationUtility {
 	public static String FORMULA = "formula";
 	public static String FORMULASTART = "\"<formula>\"";
 	public static String FORMULAEND = "\"</formula>\"";
+	public static String VALUE = "value";
 	public static String VALUESTART = "\"<value>\"";
 	public static String VALUEEND = "\"</value>\"";
+	public static String RETURNSTATEMENT = "return\n  (\n  ";
 	
-	public static String getXQueryReturnList(List<String> elements, String tagname) {
-		String concat = "return\n  (\n  ";
-		
-		String returnstring = concat + "\"<" + tagname + ">\",\n  ";
-		for (String element: elements) {
+	public static String getXQueryReturnList(List<String> elements, String tagname, boolean ret) {
+		String returnstring = "\"<" + tagname + ">\",\n  (";
+		if (ret)
+			returnstring = RETURNSTATEMENT + returnstring;
+		for (int i = 0; i < elements.size(); i++) {
+			String element = elements.get(i);
 			if (element != null && !element.equals("")) {
-				if (element.startsWith(concat)) {
-					element = element.substring(concat.length(), element.length()-1);
+				if (element.startsWith(RETURNSTATEMENT)) {
+					element = element.substring(RETURNSTATEMENT.length(), element.length()-1);
 				}
-				returnstring += element + ",\n  ";
+				if (i == elements.size()-1)
+					returnstring += element + "),\n  ";
+				else returnstring += element + ",\n  ";
 			}
 		}
 		

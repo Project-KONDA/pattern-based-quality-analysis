@@ -210,7 +210,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 //		else if (!cond2Java)
 //			return cond1String;
 		else 
-			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(cond1String, cond2String), FORMULA);
+			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(cond1String, cond2String), FORMULA, true);
 	}
 	
 	@Override

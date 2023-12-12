@@ -6,8 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static qualitypatternmodel.utility.Constants.FOR;
 import static qualitypatternmodel.utility.Constants.IN;
 import static qualitypatternmodel.utility.Constants.RETURN;
-import static qualitypatternmodel.utility.JavaQueryTranslationUtility.VALUESTART;
-import static qualitypatternmodel.utility.JavaQueryTranslationUtility.VALUEEND;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.VALUE;
+import java.util.List;
+
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
@@ -21,6 +22,7 @@ import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
 /**
  * <!-- begin-user-doc -->
@@ -109,8 +111,10 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 		String query1 = FOR + variable + IN + path + predicates;
 		String query2 = RETURN + variable;
 		String query = query1 + query2;
-		query = query.indent(2);
-		query = "\n  " + VALUESTART +",\n  (" + query + "  ),\n  "+ VALUEEND + "\n  ";
+//		query = query.indent(2);
+		query = JavaQueryTranslationUtility.getXQueryReturnList(List.of(query), VALUE, false);
+//		query = "\n  " + VALUESTART +",\n  (" + query + "  ),\n  "+ VALUEEND; // + "\n  ";
+		query = query.substring(0, query.length()-1);
 		return query; 
 	}
 	
