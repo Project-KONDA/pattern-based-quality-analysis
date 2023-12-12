@@ -249,8 +249,10 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		}
 		relations = JavaQueryTranslationUtility.orderRelationsJavaQuery(relations);
 		for(int i = 0; i< relations.size(); i++) {
-			String relationtranslation = "(" + relations.get(i).generateXQueryJavaReturn() + ")";
-			result += relationtranslation + "\n";
+			String relationtranslation = "(" + relations.get(i).generateXQueryJavaReturn() + "\n  )";
+			if (i < relations.size()-1)
+				relationtranslation += ",";
+			result += relationtranslation + "\n  ";
 		}
 		return result;
 	}

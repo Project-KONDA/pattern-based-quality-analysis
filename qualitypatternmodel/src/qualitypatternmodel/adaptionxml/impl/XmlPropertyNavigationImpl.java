@@ -111,10 +111,9 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 		String query1 = FOR + variable + IN + path + predicates;
 		String query2 = RETURN + variable;
 		String query = query1 + query2;
-//		query = query.indent(2);
-		query = JavaQueryTranslationUtility.getXQueryReturnList(List.of(query), VALUE, false);
+		query = query.indent(2);
+		query = JavaQueryTranslationUtility.getXQueryReturnList(List.of(query), VALUE, false, false, true);
 //		query = "\n  " + VALUESTART +",\n  (" + query + "  ),\n  "+ VALUEEND; // + "\n  ";
-		query = query.substring(0, query.length()-1);
 		return query; 
 	}
 	

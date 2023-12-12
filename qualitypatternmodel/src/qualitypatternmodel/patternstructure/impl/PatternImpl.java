@@ -274,7 +274,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			resultList.addAll(List.of(RETURNEND, CONDITIONSTART, graphString, conditionString, CONDITIONEND));
 		else 
 			resultList.addAll(List.of(RETURNEND, CONDITIONSTART, conditionString, CONDITIONEND));
-		return JavaQueryTranslationUtility.getXQueryReturnList(resultList, INTERIM, true); 
+		return JavaQueryTranslationUtility.getXQueryReturnList(resultList, INTERIM, true, true, false); 
 	}
 	
 	@Override

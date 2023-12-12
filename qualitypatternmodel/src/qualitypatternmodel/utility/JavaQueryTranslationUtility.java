@@ -12,38 +12,44 @@ public class JavaQueryTranslationUtility {
 	public static String INTERIM = "interim";
 	public static String INTERIMSTART = "\"<interim>\"";
 	public static String INTERIMEND = "\"</interim>\"";
+	public static String RETURN = "return";
 	public static String RETURNSTART = "\"<return>\"";
 	public static String RETURNEND = "\"</return>\"";
 	public static String CONDITIONSTART = "\"<condition>\"";
 	public static String CONDITIONEND = "\"</condition>\"";
 	public static String QUANTIFIED = "quantified";
-	public static String QUANTIFIEDSTART = "\"<quantified>\"";
-	public static String QUANTIFIEDEND = "\"</quantified>\"";
+//	public static String QUANTIFIEDSTART = "\"<quantified>\"";
+//	public static String QUANTIFIEDEND = "\"</quantified>\"";
 	public static String FORMULA = "formula";
-	public static String FORMULASTART = "\"<formula>\"";
-	public static String FORMULAEND = "\"</formula>\"";
+//	public static String FORMULASTART = "\"<formula>\"";
+//	public static String FORMULAEND = "\"</formula>\"";
 	public static String VALUE = "value";
-	public static String VALUESTART = "\"<value>\"";
-	public static String VALUEEND = "\"</value>\"";
-	public static String RETURNSTATEMENT = "return\n  (\n  ";
+//	public static String VALUESTART = "\"<value>\"";
+//	public static String VALUEEND = "\"</value>\"";
+	public static String RETURNSTATEMENT = "return\n  ";
 	
-	public static String getXQueryReturnList(List<String> elements, String tagname, boolean ret) {
-		String returnstring = "\"<" + tagname + ">\",\n  (";
+	public static String getXQueryReturnList(List<String> elements, String tagname, boolean ret, boolean outerbrackets, boolean innerbrackets) {
+		String returnstring = "\"<" + tagname + ">\",\n  ";
+		if (innerbrackets)
+			returnstring += "(";
+		returnstring = "\n  " + returnstring;
+		if (outerbrackets)
+			returnstring = "(" + returnstring;
 		if (ret)
 			returnstring = RETURNSTATEMENT + returnstring;
 		for (int i = 0; i < elements.size(); i++) {
 			String element = elements.get(i);
 			if (element != null && !element.equals("")) {
-				if (element.startsWith(RETURNSTATEMENT)) {
-					element = element.substring(RETURNSTATEMENT.length(), element.length()-1);
-				}
-				if (i == elements.size()-1)
-					returnstring += element + "),\n  ";
-				else returnstring += element + ",\n  ";
+				returnstring += element;
+				if (i == elements.size()-1 && innerbrackets)
+					returnstring += "  )";
+				returnstring += ",\n  ";
 			}
 		}
 		
-		returnstring += "\"</" + tagname + ">\")";
+		returnstring += "\"</" + tagname + ">\"";
+		if (outerbrackets)
+			returnstring += ")";
 		return returnstring;
 	}
 	
