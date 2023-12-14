@@ -18,23 +18,24 @@ public class JavaQueryTranslationUtility {
 	public static String CONDITIONSTART = "\"<condition>\"";
 	public static String CONDITIONEND = "\"</condition>\"";
 	public static String QUANTIFIED = "quantified";
-//	public static String QUANTIFIEDSTART = "\"<quantified>\"";
-//	public static String QUANTIFIEDEND = "\"</quantified>\"";
+	public static String QUANTIFIEDSTART = "\"<quantified>\"";
+	public static String QUANTIFIEDEND = "\"</quantified>\"";
 	public static String FORMULA = "formula";
 //	public static String FORMULASTART = "\"<formula>\"";
 //	public static String FORMULAEND = "\"</formula>\"";
 	public static String VALUE = "value";
 //	public static String VALUESTART = "\"<value>\"";
 //	public static String VALUEEND = "\"</value>\"";
+	public static String BOOLEAN = "boolean";
 	public static String RETURNSTATEMENT = "return\n  ";
 	
 	public static String getXQueryReturnList(List<String> elements, String tagname, boolean ret, boolean outerbrackets, boolean innerbrackets) {
 		String returnstring = "\"<" + tagname + ">\",\n  ";
 		if (innerbrackets)
 			returnstring += "(";
-		returnstring = "\n  " + returnstring;
+//		returnstring = "\n  " + returnstring;
 		if (outerbrackets)
-			returnstring = "(" + returnstring;
+			returnstring = "(\n  " + returnstring;
 		if (ret)
 			returnstring = RETURNSTATEMENT + returnstring;
 		for (int i = 0; i < elements.size(); i++) {

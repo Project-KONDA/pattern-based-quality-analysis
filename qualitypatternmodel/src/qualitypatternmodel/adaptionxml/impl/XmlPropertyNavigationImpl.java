@@ -7,6 +7,7 @@ import static qualitypatternmodel.utility.Constants.FOR;
 import static qualitypatternmodel.utility.Constants.IN;
 import static qualitypatternmodel.utility.Constants.RETURN;
 import static qualitypatternmodel.utility.JavaQueryTranslationUtility.VALUE;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.BOOLEAN;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
@@ -80,6 +81,12 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 
 	@Override
 	public String generateXQueryJavaReturn() throws InvalidityException {
+		if (!getTarget().containsJavaOperator()) {
+			String query = generateXQuery2() + "(true())\n";
+			query = query.indent(2);
+			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(query), BOOLEAN, false, false, true);
+		}	
+			
 		String variable = generateNextXQueryVariable();
 		
 		if (!getTarget().containsJavaOperator())

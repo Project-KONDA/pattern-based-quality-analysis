@@ -3,6 +3,8 @@
 package qualitypatternmodel.patternstructure.impl;
 
 import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIED;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIEDSTART;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIEDEND;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
@@ -49,6 +51,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
+import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
@@ -192,14 +195,22 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		String graphString = getGraph().generateXQueryJavaReturn();
 		String conditionString = getCondition().generateXQueryJavaReturn();
 		
+		String result = "";
 		if (!graphJava && !conditionJava)
-			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(generateXQuery()), QUANTIFIED, false, false, false);
+			result = JavaQueryTranslationUtility.getXQueryReturnList(List.of(generateXQuery()), QUANTIFIED, false, false, false);
 //		else if (!graphJava)
-//			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(conditionString), QUANTIFIED);
+//			result = JavaQueryTranslationUtility.getXQueryReturnList(List.of(conditionString), QUANTIFIED);
 		else if (!conditionJava)
-			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(graphString), QUANTIFIED, false, false, false);
-		else 
-			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(graphString + conditionString), QUANTIFIED, false, true, false);
+			result = JavaQueryTranslationUtility.getXQueryReturnList(List.of(graphString), QUANTIFIED, false, false, false);
+		else {
+//			result = JavaQueryTranslationUtility.getXQueryReturnList(List.of(graphString + conditionString), QUANTIFIED, false, true, false);
+			result = QUANTIFIEDSTART + ",\n  ";
+			result += "(\n  " + graphString;
+			result += conditionString + "),\n  ";
+			result += QUANTIFIEDEND;
+			result = Constants.addMissingBrackets(result);
+		}
+		return result;
 	}
 	
 	@Override

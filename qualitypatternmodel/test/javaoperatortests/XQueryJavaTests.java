@@ -14,11 +14,11 @@ public class XQueryJavaTests {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<Boolean> results = new ArrayList<Boolean>();
 		List<String> expectations = List.of(expectedReturn1, expectedReturn2, expectedReturn3, expectedReturn4,
-				expectedReturn5, expectedReturn6, expectedReturn7New, expectedReturn8, expectedReturn9, expectedReturn10);
+				expectedReturn5, expectedReturn6, expectedReturn7, expectedReturn8, expectedReturn9, expectedReturn10);
 		List<CompletePattern> patterns = OneArgTestPatterns.getXmlTestPatterns();
 		
-		int from = 7;
-		int to = 7;
+		int from = 1;
+		int to = 10;
 		for (int i = from-1; i<patterns.size() && i < expectations.size() && i < to; i++) {
 			System.out.println("Example " + (i+1) + ":");
 			try {
@@ -35,17 +35,16 @@ public class XQueryJavaTests {
 	}
 
 	static Boolean testTestPattern(CompletePattern testpattern, String expected) throws InvalidityException {
-//		testpattern.generateXQuery();
 		String result = " ";
 		try {
 			result = testpattern.generateXQueryJava();
 		} catch (InvalidityException e) {
 			e.printStackTrace();
 		}
-		boolean equal = Objects.equals(result.substring(1), expected);
+		boolean equal = Objects.equals(result, expected);
 		if(!equal) {
 			System.out.println("\n\nquery:\n\n" + testpattern.generateXQuery());
-			System.out.println("\n\nstructure:\n\n" + testpattern.myToString());
+//			System.out.println("\n\nstructure:\n\n" + testpattern.myToString());
 			System.out.println("\n\nresult:\n\n'" + result + "'");
 			System.out.println("\n\nexpected:\n\n'" + expected + "'");
 		}
@@ -68,9 +67,12 @@ public class XQueryJavaTests {
 			+ "  $var2_0,\n"
 			+ expectedMid
 			+ "  \"<quantified>\",\n"
+			+ "  (\"<value>\",\n"
 			+ "  (  \n"
 			+ "  for $var3_0 in $var2_0/text()\n"
 			+ "  return $var3_0\n"
+			+ "  ),\n"
+			+ "  \"</value>\"\n"
 			+ "  ),\n"
 			+ "  \"</quantified>\",\n"
 			+ expectedEnd;
@@ -80,9 +82,12 @@ public class XQueryJavaTests {
 			+ "  $var2_0,\n"
 			+ expectedMid
 			+ "  \"<quantified>\",\n"
+					+ "  (\"<value>\",\n"
 			+ "  (  \n"
 			+ "  for $var3_0 in $var2_0/text()[matches(., \".*a.*\")]\n"
 			+ "  return $var3_0\n"
+			+ "  ),\n"
+			+ "  \"</value>\"\n"
 			+ "  ),\n"
 			+ "  \"</quantified>\",\n"
 			+ expectedEnd;
@@ -93,15 +98,21 @@ public class XQueryJavaTests {
 			+ expectedMid
 			+ "  \"<formula>\",\n"
 			+ "  \"<quantified>\",\n"
+			+ "  (\"<value>\",\n"
 			+ "  (  \n"
 			+ "  for $var4_0 in $var3_0/text()\n"
 			+ "  return $var4_0\n"
 			+ "  ),\n"
+			+ "  \"</value>\"\n"
+			+ "  ),\n"
 			+ "  \"</quantified>\",\n"
 			+ "  \"<quantified>\",\n"
+			+ "  (\"<value>\",\n"
 			+ "  (  \n"
 			+ "  for $var5_0 in $var3_0/text()\n"
 			+ "  return $var5_0\n"
+			+ "  ),\n"
+			+ "  \"</value>\"\n"
 			+ "  ),\n"
 			+ "  \"</quantified>\",\n"
 			+ "  \"</formula>\",\n"
@@ -113,15 +124,21 @@ public class XQueryJavaTests {
 			+ expectedMid
 			+ "  \"<formula>\",\n"
 			+ "  \"<quantified>\",\n"
+			+ "  (\"<value>\",\n"
 			+ "  (  \n"
 			+ "  for $var4_0 in $var3_0/text()\n"
 			+ "  return $var4_0\n"
 			+ "  ),\n"
+			+ "  \"</value>\"\n"
+			+ "  ),\n"
 			+ "  \"</quantified>\",\n"
 			+ "  \"<quantified>\",\n"
+			+ "  (\"<value>\",\n"
 			+ "  (  \n"
 			+ "  for $var5_0 in $var3_0/text()\n"
 			+ "  return $var5_0\n"
+			+ "  ),\n"
+			+ "  \"</value>\"\n"
 			+ "  ),\n"
 			+ "  \"</quantified>\",\n"
 			+ "  \"</formula>\",\n"
@@ -136,15 +153,21 @@ public class XQueryJavaTests {
 			+ expectedMid
 			+ "  \"<formula>\",\n"
 			+ "  \"<quantified>\",\n"
+			+ "  (\"<value>\",\n"
 			+ "  (  \n"
 			+ "  for $var4_0 in $var3_0/text()\n"
 			+ "  return $var4_0\n"
 			+ "  ),\n"
+			+ "  \"</value>\"\n"
+			+ "  ),\n"
 			+ "  \"</quantified>\",\n"
 			+ "  \"<quantified>\",\n"
+			+ "  (\"<value>\",\n"
 			+ "  (  \n"
 			+ "  for $var5_0 in $var3_0/text()\n"
 			+ "  return $var5_0\n"
+			+ "  ),\n"
+			+ "  \"</value>\"\n"
 			+ "  ),\n"
 			+ "  \"</quantified>\",\n"
 			+ "  \"</formula>\",\n"
@@ -161,9 +184,12 @@ public class XQueryJavaTests {
 			+ "  ),\n"
 			+ "  \"</boolean>\",\n"
 			+ "  \"<quantified>\",\n"
+			+ "  (\"<value>\",\n"
 			+ "  (  \n"
 			+ "  for $var5_0 in $var3_0/text()\n"
 			+ "  return $var5_0\n"
+			+ "  ),\n"
+			+ "  \"</value>\"\n"
 			+ "  ),\n"
 			+ "  \"</quantified>\",\n"
 			+ "  \"</formula>\",\n"
@@ -178,9 +204,12 @@ public class XQueryJavaTests {
 			+ expectedMid
 			+ "  \"<formula>\",\n"
 			+ "  \"<quantified>\",\n"
+			+ "  (\"<value>\",\n"
 			+ "  (  \n"
 			+ "  for $var5_0 in $var3_0/text()\n"
 			+ "  return $var5_0\n"
+			+ "  ),\n"
+			+ "  \"</value>\"\n"
 			+ "  ),\n"
 			+ "  \"</quantified>\",\n"
 			+ "  \"</formula>\",\n"
@@ -198,14 +227,17 @@ public class XQueryJavaTests {
 			+ "  ),\n"
 			+ "  \"</boolean>\",\n"
 			+ "  \"<quantified>\",\n"
+			+ "  (\"<value>\",\n"
 			+ "  (  \n"
 			+ "  for $var5_0 in $var3_0/text()\n"
 			+ "  return $var5_0\n"
 			+ "  ),\n"
+			+ "  \"</value>\"\n"
+			+ "  ),\n"
 			+ "  \"</quantified>\",\n"
 			+ "  \"</formula>\",\n"
 			+ expectedEnd;
-	static String expectedReturn7 = 
+	static String expectedReturn7Old = 
 			"for $var3_0 in /descendant::*\n" 
 			+ expectedStart
 			+ "  $var3_0,\n"
@@ -221,26 +253,25 @@ public class XQueryJavaTests {
 			+ "  )\n"
 			+ "  \"</quantified>\",\n"
 			+ expectedEnd;
-	static String expectedReturn7New = 
-			"for $var3_0 in /descendant::*\r\n"
+	static String expectedReturn7 = 
+			"for $var3_0 in /descendant::*\n"
 			+ expectedStart
-			+ "  $var3_0,\r\n"
+			+ "  $var3_0,\n"
 			+ expectedMid
-			+ "  \"<quantified>\",\r\n"
-			+ "  (\r\n"
-			+ "  for $var4_0 in $var3_0/child::*\r\n"
-			+ "  return \r\n"
-			+ "    (\r\n"
-			+ "      \"<quantified>\",\r\n"
-			+ "      \"<value>\",\r\n"
-			+ "      (  \r\n"
-			+ "        for $var5_0 in $var4_0/text()\r\n"
-			+ "        return $var5_0\r\n"
-			+ "      ),\r\n"
-			+ "      \"</value>\",\r\n"
-			+ "      \"</quantified>\"\r\n"
-			+ "    ),\r\n"
-			+ "    \"</quantified>\",\r\n"
+			+ "  \"<quantified>\",\n"
+			+ "  (\n"
+			+ "  for $var4_0 in $var3_0/child::*\n"
+			+ "  return (\n"
+			+ "  \"<quantified>\",\n"
+			+ "  (\"<value>\",\n"
+			+ "  (  \n"
+			+ "  for $var5_0 in $var4_0/text()\n"
+			+ "  return $var5_0\n"
+			+ "  ),\n"
+			+ "  \"</value>\"\n"
+			+ "  ),\n"
+			+ "  \"</quantified>\"),\n"
+			+ "  \"</quantified>\"),\n"
 			+ expectedEnd;
 	static String expectedReturn8 = 
 			"for $var4_0 in /descendant::*\n"
@@ -248,23 +279,26 @@ public class XQueryJavaTests {
 			+ "  $var4_0,\n"
 			+ expectedMid
 			+ "  \"<quantified>\",\n"
-			+ "  (for $var5_0 in $var4_0/child::*\n"
-			+ "  return \n"
 			+ "  (\n"
+			+ "  for $var5_0 in $var4_0/child::*\n"
+			+ "  return (\n"
 			+ "  \"<quantified>\",\n"
-			+ "  (for $var6_0 in $var5_0/text()\n"
-			+ "  return \n"
 			+ "  (\n"
+			+ "  for $var6_0 in $var5_0/child::*\n"
+			+ "  return (\n"
 			+ "  \"<quantified>\",\n"
-			+ "  (for $var7_0 in $var6_0/text()\n"
-			+ "  return $var7_0),\n"
-			+ "  \"</quantified>\")\n"
+			+ "  (\"<value>\",\n"
+			+ "  (  \n"
+			+ "  for $var7_0 in $var6_0/text()\n"
+			+ "  return $var7_0\n"
 			+ "  ),\n"
-			+ "  \"</quantified>\")\n"
+			+ "  \"</value>\"\n"
 			+ "  ),\n"
-			+ "  \"</quantified>\",\n"
+			+ "  \"</quantified>\"),\n"
+			+ "  \"</quantified>\")),\n"
+			+ "  \"</quantified>\"),\n"
 			+ expectedEnd;
-	static String expectedReturn9 = 
+	static String expectedReturn9where = 
 			"for $var3_0 in /descendant::*\n"
 			+ "where ((\n"
 			+ "  some $var4_0 in $var3_0/text()[matches(., \"something\")]\n"
@@ -273,9 +307,32 @@ public class XQueryJavaTests {
 			+ "  $var3_0,\n"
 			+ expectedMid
 			+ "  \"<quantified>\",\n"
+			+ "  \"<value>\",\n"
+			+ "  (for $var4_0 in $var3_0/text()\n"
+			+ "  return $var4_0\n"
+			+ "  ),\n"
+			+ "  \"</value>\",\n"
+			+ "  \"</quantified>\",\n"
+			+ expectedEnd;
+	static String expectedReturn9 = 
+			"for $var3_0 in /descendant::*\n"
+			+ expectedStart
+			+ "  $var3_0,\n"
+			+ expectedMid
+			+ "  \"<quantified>\",\n"
+			+ "  (\"<value>\",\n"
 			+ "  (  \n"
 			+ "  for $var4_0 in $var3_0/text()\n"
 			+ "  return $var4_0\n"
+			+ "  ),\n"
+			+ "  \"</value>\"\n"
+			+ "  ),\n"
+			+ "  (\"<boolean>\",\n"
+			+ "  (  \n"
+			+ "  some $var5_0 in $var3_0/text()[matches(., \"something\")]\n"
+			+ "  satisfies (true())\n"
+			+ "  ),\n"
+			+ "  \"</boolean>\"\n"
 			+ "  ),\n"
 			+ "  \"</quantified>\",\n"
 			+ expectedEnd;
@@ -285,15 +342,19 @@ public class XQueryJavaTests {
 			+ "  $var3_0,\n"
 			+ expectedMid
 			+ "  \"<quantified>\",\n"
+			+ "  (\"<value>\",\n"
 			+ "  (  \n"
 			+ "  for $var4_0 in $var3_0/text()\n"
 			+ "  return $var4_0\n"
 			+ "  ),\n"
-			+ "  \"</quantified>\",\n"
-			+ "  \"<quantified>\",\n"
+			+ "  \"</value>\"\n"
+			+ "  ),\n"
+			+ "  (\"<value>\",\n"
 			+ "  (  \n"
 			+ "  for $var5_0 in $var3_0/text()\n"
 			+ "  return $var5_0\n"
+			+ "  ),\n"
+			+ "  \"</value>\"\n"
 			+ "  ),\n"
 			+ "  \"</quantified>\",\n"
 			+ expectedEnd;
