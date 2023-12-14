@@ -309,6 +309,8 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		if (xPredicates == "" && xPathExpression == "" && target == "") {
 			return "";
 		}
+		if (query.startsWith("\n"))
+			query = query.substring(1);
 //		return "  " + query + "\n  return (";
 		return query;
 	}

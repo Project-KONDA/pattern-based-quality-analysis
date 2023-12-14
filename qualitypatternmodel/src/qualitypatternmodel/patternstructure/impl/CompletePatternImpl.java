@@ -391,6 +391,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		initializeTranslation();
 		String res = getParameterList().generateXQuery();
 		res += super.generateXQueryJava();
+		if (res.startsWith("\n"))
+			res = res.substring(1);
 		return res;
 	}
 
