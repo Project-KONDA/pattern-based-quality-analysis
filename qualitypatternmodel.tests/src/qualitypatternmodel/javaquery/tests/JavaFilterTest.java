@@ -18,6 +18,7 @@ import qualitypatternmodel.javaquery.JavaqueryFactory;
  * <ul>
  *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#filterQueryResults() <em>Filter Query Results</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#createInterimResultContainer(java.util.List) <em>Create Interim Result Container</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#executeXQueryJava(java.lang.String, java.lang.String) <em>Execute XQuery Java</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -114,6 +115,19 @@ public class JavaFilterTest extends TestCase {
 	 * @generated
 	 */
 	public void testCreateInterimResultContainer__List() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.javaquery.JavaFilter#executeXQueryJava(java.lang.String, java.lang.String) <em>Execute XQuery Java</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaquery.JavaFilter#executeXQueryJava(java.lang.String, java.lang.String)
+	 * @generated
+	 */
+	public void testExecuteXQueryJava__String_String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

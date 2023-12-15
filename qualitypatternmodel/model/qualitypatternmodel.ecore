@@ -699,6 +699,8 @@
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="generateXQueryJavaReturn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="inJavaQueryWhereClause" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="internalId" lowerBound="1"
@@ -1457,6 +1459,10 @@
       <eOperations name="createInterimResultContainer" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="objectList" eType="#//javaquery/ObjectListWrapper"/>
       </eOperations>
+      <eOperations name="executeXQueryJava" eType="#//javaquery/StringListWrapper">
+        <eParameters name="databasename" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="datapath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="filter" eType="#//javaquery/BooleanFilterPart"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="structure" lowerBound="1"
@@ -1582,6 +1588,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="correspondsTo" eType="#//javaqueryoutput/ContainerInterim"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="subresult" upperBound="-1"
           eType="#//javaqueryoutput/InterimResult" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="tagname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ValueResult" eSuperTypes="#//javaqueryoutput/InterimResult">
       <eStructuralFeatures xsi:type="ecore:EReference" name="correspondsTo" eType="#//javaqueryoutput/ValueInterim"/>

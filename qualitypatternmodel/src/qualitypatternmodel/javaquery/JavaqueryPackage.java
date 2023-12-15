@@ -141,13 +141,22 @@ public interface JavaqueryPackage extends EPackage {
 	int JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__LIST = 1;
 
 	/**
+	 * The operation id for the '<em>Execute XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_FILTER___EXECUTE_XQUERY_JAVA__STRING_STRING = 2;
+
+	/**
 	 * The number of operations of the '<em>Java Filter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_FILTER_OPERATION_COUNT = 2;
+	int JAVA_FILTER_OPERATION_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.JavaFilterPartImpl <em>Java Filter Part</em>}' class.
@@ -1055,6 +1064,16 @@ public interface JavaqueryPackage extends EPackage {
 	EOperation getJavaFilter__CreateInterimResultContainer__List();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilter#executeXQueryJava(java.lang.String, java.lang.String) <em>Execute XQuery Java</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Execute XQuery Java</em>' operation.
+	 * @see qualitypatternmodel.javaquery.JavaFilter#executeXQueryJava(java.lang.String, java.lang.String)
+	 * @generated
+	 */
+	EOperation getJavaFilter__ExecuteXQueryJava__String_String();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.JavaFilterPart <em>Java Filter Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1575,6 +1594,14 @@ public interface JavaqueryPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__LIST = eINSTANCE.getJavaFilter__CreateInterimResultContainer__List();
+
+		/**
+		 * The meta object literal for the '<em><b>Execute XQuery Java</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JAVA_FILTER___EXECUTE_XQUERY_JAVA__STRING_STRING = eINSTANCE.getJavaFilter__ExecuteXQueryJava__String_String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.JavaFilterPartImpl <em>Java Filter Part</em>}' class.

@@ -375,6 +375,15 @@ public interface JavaoperatorsPackage extends EPackage {
 	int JAVA_OPERATOR___GENERATE_XQUERY_JAVA_RETURN = OperatorsPackage.BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
+	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_OPERATOR___IN_JAVA_QUERY_WHERE_CLAUSE = OperatorsPackage.BOOLEAN_OPERATOR___IN_JAVA_QUERY_WHERE_CLAUSE;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -833,6 +842,15 @@ public interface JavaoperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int ONE_ARG_JAVA_OPERATOR___GENERATE_XQUERY_JAVA_RETURN = JAVA_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_OPERATOR___IN_JAVA_QUERY_WHERE_CLAUSE = JAVA_OPERATOR___IN_JAVA_QUERY_WHERE_CLAUSE;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1304,6 +1322,15 @@ public interface JavaoperatorsPackage extends EPackage {
 	int TWO_ARG_JAVA_OPERATOR___GENERATE_XQUERY_JAVA_RETURN = JAVA_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
+	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TWO_ARG_JAVA_OPERATOR___IN_JAVA_QUERY_WHERE_CLAUSE = JAVA_OPERATOR___IN_JAVA_QUERY_WHERE_CLAUSE;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1771,6 +1798,15 @@ public interface JavaoperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int VALIDATE_LINK_OPERATOR___GENERATE_XQUERY_JAVA_RETURN = ONE_ARG_JAVA_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALIDATE_LINK_OPERATOR___IN_JAVA_QUERY_WHERE_CLAUSE = ONE_ARG_JAVA_OPERATOR___IN_JAVA_QUERY_WHERE_CLAUSE;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.

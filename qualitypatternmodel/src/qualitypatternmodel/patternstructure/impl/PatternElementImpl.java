@@ -475,6 +475,18 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 */
 	@Override
+	public Boolean inJavaQueryWhereClause() throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String generateXQueryJava() throws InvalidityException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -713,6 +725,13 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN:
 				try {
 					return generateXQueryJavaReturn();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case PatternstructurePackage.PATTERN_ELEMENT___IN_JAVA_QUERY_WHERE_CLAUSE:
+				try {
+					return inJavaQueryWhereClause();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

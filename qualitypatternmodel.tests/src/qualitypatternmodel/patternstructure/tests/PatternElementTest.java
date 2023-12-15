@@ -41,6 +41,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#generateQueryFilterPart() <em>Generate Query Filter Part</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#generateXQueryJava() <em>Generate XQuery Java</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#generateXQueryJavaReturn() <em>Generate XQuery Java Return</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#inJavaQueryWhereClause() <em>In Java Query Where Clause</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -431,6 +432,19 @@ public abstract class PatternElementTest extends TestCase {
 	 * @generated
 	 */
 	public void testGenerateXQueryJavaReturn() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#inJavaQueryWhereClause() <em>In Java Query Where Clause</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.PatternElement#inJavaQueryWhereClause()
+	 * @generated
+	 */
+	public void testInJavaQueryWhereClause() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

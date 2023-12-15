@@ -370,6 +370,15 @@ public interface OperatorsPackage extends EPackage {
 	int OPERATOR___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.COMPARABLE___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
+	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___IN_JAVA_QUERY_WHERE_CLAUSE = GraphstructurePackage.COMPARABLE___IN_JAVA_QUERY_WHERE_CLAUSE;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -774,6 +783,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA_RETURN = OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___IN_JAVA_QUERY_WHERE_CLAUSE = OPERATOR___IN_JAVA_QUERY_WHERE_CLAUSE;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1209,6 +1227,15 @@ public interface OperatorsPackage extends EPackage {
 	int NUMBER_OPERATOR___GENERATE_XQUERY_JAVA_RETURN = OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
+	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATOR___IN_JAVA_QUERY_WHERE_CLAUSE = OPERATOR___IN_JAVA_QUERY_WHERE_CLAUSE;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1640,6 +1667,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MATCH___GENERATE_XQUERY_JAVA_RETURN = BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___IN_JAVA_QUERY_WHERE_CLAUSE = BOOLEAN_OPERATOR___IN_JAVA_QUERY_WHERE_CLAUSE;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -2120,6 +2156,15 @@ public interface OperatorsPackage extends EPackage {
 	int COMPARISON___GENERATE_XQUERY_JAVA_RETURN = BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
+	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___IN_JAVA_QUERY_WHERE_CLAUSE = BOOLEAN_OPERATOR___IN_JAVA_QUERY_WHERE_CLAUSE;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2571,6 +2616,15 @@ public interface OperatorsPackage extends EPackage {
 	int OPERATOR_LIST___GENERATE_XQUERY_JAVA_RETURN = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
+	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___IN_JAVA_QUERY_WHERE_CLAUSE = PatternstructurePackage.PATTERN_ELEMENT___IN_JAVA_QUERY_WHERE_CLAUSE;
+
+	/**
 	 * The operation id for the '<em>Add</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2930,6 +2984,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONTAINS___GENERATE_XQUERY_JAVA_RETURN = BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___IN_JAVA_QUERY_WHERE_CLAUSE = BOOLEAN_OPERATOR___IN_JAVA_QUERY_WHERE_CLAUSE;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -3390,6 +3453,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NULL_CHECK___GENERATE_XQUERY_JAVA_RETURN = BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NULL_CHECK___IN_JAVA_QUERY_WHERE_CLAUSE = BOOLEAN_OPERATOR___IN_JAVA_QUERY_WHERE_CLAUSE;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -3859,6 +3931,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int STRING_LENGTH___GENERATE_XQUERY_JAVA_RETURN = BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___IN_JAVA_QUERY_WHERE_CLAUSE = BOOLEAN_OPERATOR___IN_JAVA_QUERY_WHERE_CLAUSE;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.

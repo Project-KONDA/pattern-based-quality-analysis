@@ -36,6 +36,7 @@ import qualitypatternmodel.javaqueryoutput.VariableContainerInterim;
  * <ul>
  *   <li>{@link qualitypatternmodel.javaqueryoutput.impl.ContainerResultImpl#getCorrespondsTo <em>Corresponds To</em>}</li>
  *   <li>{@link qualitypatternmodel.javaqueryoutput.impl.ContainerResultImpl#getSubresult <em>Subresult</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaqueryoutput.impl.ContainerResultImpl#getTagname <em>Tagname</em>}</li>
  * </ul>
  *
  * @generated
@@ -60,6 +61,26 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 	 * @ordered
 	 */
 	protected EList<InterimResult> subresult;
+
+	/**
+	 * The default value of the '{@link #getTagname() <em>Tagname</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTagname()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TAGNAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTagname() <em>Tagname</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTagname()
+	 * @generated
+	 * @ordered
+	 */
+	protected String tagname = TAGNAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -186,6 +207,29 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 	 * @generated
 	 */
 	@Override
+	public String getTagname() {
+		return tagname;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTagname(String newTagname) {
+		String oldTagname = tagname;
+		tagname = newTagname;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryoutputPackage.CONTAINER_RESULT__TAGNAME, oldTagname, tagname));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case JavaqueryoutputPackage.CONTAINER_RESULT__SUBRESULT:
@@ -207,6 +251,8 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 				return basicGetCorrespondsTo();
 			case JavaqueryoutputPackage.CONTAINER_RESULT__SUBRESULT:
 				return getSubresult();
+			case JavaqueryoutputPackage.CONTAINER_RESULT__TAGNAME:
+				return getTagname();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -227,6 +273,9 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 				getSubresult().clear();
 				getSubresult().addAll((Collection<? extends InterimResult>)newValue);
 				return;
+			case JavaqueryoutputPackage.CONTAINER_RESULT__TAGNAME:
+				setTagname((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -245,6 +294,9 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 			case JavaqueryoutputPackage.CONTAINER_RESULT__SUBRESULT:
 				getSubresult().clear();
 				return;
+			case JavaqueryoutputPackage.CONTAINER_RESULT__TAGNAME:
+				setTagname(TAGNAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -261,6 +313,8 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 				return correspondsTo != null;
 			case JavaqueryoutputPackage.CONTAINER_RESULT__SUBRESULT:
 				return subresult != null && !subresult.isEmpty();
+			case JavaqueryoutputPackage.CONTAINER_RESULT__TAGNAME:
+				return TAGNAME_EDEFAULT == null ? tagname != null : !TAGNAME_EDEFAULT.equals(tagname);
 		}
 		return super.eIsSet(featureID);
 	}

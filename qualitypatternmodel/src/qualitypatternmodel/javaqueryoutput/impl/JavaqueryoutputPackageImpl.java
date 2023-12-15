@@ -424,6 +424,16 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 	 * @generated
 	 */
 	@Override
+	public EAttribute getContainerResult_Tagname() {
+		return (EAttribute)containerResultEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getValueResult() {
 		return valueResultEClass;
 	}
@@ -551,6 +561,7 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		containerResultEClass = createEClass(CONTAINER_RESULT);
 		createEReference(containerResultEClass, CONTAINER_RESULT__CORRESPONDS_TO);
 		createEReference(containerResultEClass, CONTAINER_RESULT__SUBRESULT);
+		createEAttribute(containerResultEClass, CONTAINER_RESULT__TAGNAME);
 
 		valueResultEClass = createEClass(VALUE_RESULT);
 		createEReference(valueResultEClass, VALUE_RESULT__CORRESPONDS_TO);
@@ -631,6 +642,7 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		initEClass(containerResultEClass, ContainerResult.class, "ContainerResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getContainerResult_CorrespondsTo(), this.getContainerInterim(), null, "correspondsTo", null, 0, 1, ContainerResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContainerResult_Subresult(), this.getInterimResult(), null, "subresult", null, 0, -1, ContainerResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getContainerResult_Tagname(), ecorePackage.getEString(), "tagname", null, 0, 1, ContainerResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(valueResultEClass, ValueResult.class, "ValueResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getValueResult_CorrespondsTo(), this.getValueInterim(), null, "correspondsTo", null, 0, 1, ValueResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

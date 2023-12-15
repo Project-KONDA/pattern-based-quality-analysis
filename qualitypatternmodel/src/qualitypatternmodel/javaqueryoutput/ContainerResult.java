@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link qualitypatternmodel.javaqueryoutput.ContainerResult#getCorrespondsTo <em>Corresponds To</em>}</li>
  *   <li>{@link qualitypatternmodel.javaqueryoutput.ContainerResult#getSubresult <em>Subresult</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaqueryoutput.ContainerResult#getTagname <em>Tagname</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage#getContainerResult()
@@ -56,5 +57,27 @@ public interface ContainerResult extends InterimResult {
 	 * @generated
 	 */
 	EList<InterimResult> getSubresult();
+
+	/**
+	 * Returns the value of the '<em><b>Tagname</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Tagname</em>' attribute.
+	 * @see #setTagname(String)
+	 * @see qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage#getContainerResult_Tagname()
+	 * @model
+	 * @generated
+	 */
+	String getTagname();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.javaqueryoutput.ContainerResult#getTagname <em>Tagname</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Tagname</em>' attribute.
+	 * @see #getTagname()
+	 * @generated
+	 */
+	void setTagname(String value);
 
 } // ContainerResult

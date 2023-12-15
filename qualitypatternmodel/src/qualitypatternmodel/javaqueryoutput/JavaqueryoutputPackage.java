@@ -363,13 +363,22 @@ public interface JavaqueryoutputPackage extends EPackage {
 	int CONTAINER_RESULT__SUBRESULT = INTERIM_RESULT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Tagname</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER_RESULT__TAGNAME = INTERIM_RESULT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Container Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER_RESULT_FEATURE_COUNT = INTERIM_RESULT_FEATURE_COUNT + 2;
+	int CONTAINER_RESULT_FEATURE_COUNT = INTERIM_RESULT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Set Corresponding</em>' operation.
@@ -703,6 +712,17 @@ public interface JavaqueryoutputPackage extends EPackage {
 	EReference getContainerResult_Subresult();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.javaqueryoutput.ContainerResult#getTagname <em>Tagname</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Tagname</em>'.
+	 * @see qualitypatternmodel.javaqueryoutput.ContainerResult#getTagname()
+	 * @see #getContainerResult()
+	 * @generated
+	 */
+	EAttribute getContainerResult_Tagname();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaqueryoutput.ValueResult <em>Value Result</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -961,6 +981,14 @@ public interface JavaqueryoutputPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONTAINER_RESULT__SUBRESULT = eINSTANCE.getContainerResult_Subresult();
+
+		/**
+		 * The meta object literal for the '<em><b>Tagname</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTAINER_RESULT__TAGNAME = eINSTANCE.getContainerResult_Tagname();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaqueryoutput.impl.ValueResultImpl <em>Value Result</em>}' class.

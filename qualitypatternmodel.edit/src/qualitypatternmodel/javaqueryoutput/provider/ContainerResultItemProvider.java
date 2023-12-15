@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.javaqueryoutput.ContainerResult;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputFactory;
@@ -47,6 +48,7 @@ public class ContainerResultItemProvider extends InterimResultItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addCorrespondsToPropertyDescriptor(object);
+			addTagnamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -69,6 +71,28 @@ public class ContainerResultItemProvider extends InterimResultItemProvider {
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Tagname feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTagnamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ContainerResult_tagname_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ContainerResult_tagname_feature", "_UI_ContainerResult_type"),
+				 JavaqueryoutputPackage.Literals.CONTAINER_RESULT__TAGNAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -122,7 +146,10 @@ public class ContainerResultItemProvider extends InterimResultItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ContainerResult_type");
+		String label = ((ContainerResult)object).getTagname();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ContainerResult_type") :
+			getString("_UI_ContainerResult_type") + " " + label;
 	}
 
 
@@ -138,6 +165,9 @@ public class ContainerResultItemProvider extends InterimResultItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ContainerResult.class)) {
+			case JavaqueryoutputPackage.CONTAINER_RESULT__TAGNAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case JavaqueryoutputPackage.CONTAINER_RESULT__SUBRESULT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

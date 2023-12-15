@@ -540,6 +540,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.COMPLEX_NODE___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
+	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___IN_JAVA_QUERY_WHERE_CLAUSE = GraphstructurePackage.COMPLEX_NODE___IN_JAVA_QUERY_WHERE_CLAUSE;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1332,6 +1341,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.RELATION___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
+	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___IN_JAVA_QUERY_WHERE_CLAUSE = GraphstructurePackage.RELATION___IN_JAVA_QUERY_WHERE_CLAUSE;
+
+	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1800,6 +1818,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT_NAVIGATION___GENERATE_XQUERY_JAVA_RETURN = XML_NAVIGATION___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
+	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT_NAVIGATION___IN_JAVA_QUERY_WHERE_CLAUSE = XML_NAVIGATION___IN_JAVA_QUERY_WHERE_CLAUSE;
+
+	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2257,6 +2284,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_REFERENCE___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.RELATION___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_REFERENCE___IN_JAVA_QUERY_WHERE_CLAUSE = GraphstructurePackage.RELATION___IN_JAVA_QUERY_WHERE_CLAUSE;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -2833,6 +2869,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PROPERTY___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___IN_JAVA_QUERY_WHERE_CLAUSE = GraphstructurePackage.PRIMITIVE_NODE___IN_JAVA_QUERY_WHERE_CLAUSE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3636,6 +3681,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ROOT___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.COMPLEX_NODE___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
+	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___IN_JAVA_QUERY_WHERE_CLAUSE = GraphstructurePackage.COMPLEX_NODE___IN_JAVA_QUERY_WHERE_CLAUSE;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4392,6 +4446,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_NAVIGATION___GENERATE_XQUERY_JAVA_RETURN = XML_NAVIGATION___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
+	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY_NAVIGATION___IN_JAVA_QUERY_WHERE_CLAUSE = XML_NAVIGATION___IN_JAVA_QUERY_WHERE_CLAUSE;
+
+	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4841,6 +4904,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_AXIS_OPTION_PARAM___GENERATE_XQUERY_JAVA_RETURN = ParametersPackage.PARAMETER___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_OPTION_PARAM___IN_JAVA_QUERY_WHERE_CLAUSE = ParametersPackage.PARAMETER___IN_JAVA_QUERY_WHERE_CLAUSE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -5321,6 +5393,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_OPTION_PARAM___GENERATE_XQUERY_JAVA_RETURN = ParametersPackage.PARAMETER___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
+	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY_OPTION_PARAM___IN_JAVA_QUERY_WHERE_CLAUSE = ParametersPackage.PARAMETER___IN_JAVA_QUERY_WHERE_CLAUSE;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5778,6 +5859,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PATH_PARAM___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.ADAPTABLE___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PATH_PARAM___IN_JAVA_QUERY_WHERE_CLAUSE = GraphstructurePackage.ADAPTABLE___IN_JAVA_QUERY_WHERE_CLAUSE;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -6292,6 +6382,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_AXIS_PART___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.ADAPTABLE___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART___IN_JAVA_QUERY_WHERE_CLAUSE = GraphstructurePackage.ADAPTABLE___IN_JAVA_QUERY_WHERE_CLAUSE;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.

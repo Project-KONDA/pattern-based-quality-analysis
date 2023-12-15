@@ -3,8 +3,15 @@
 package qualitypatternmodel.javaquery.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
+import org.basex.core.Context;
+import org.basex.core.cmd.CreateDB;
+import org.basex.query.QueryProcessor;
+import org.basex.query.iter.Iter;
+import org.basex.query.value.item.Item;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -16,6 +23,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
+import javaqueryexperiments.testclasses.InterimContainer;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaFilter;
@@ -162,6 +171,16 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	
 	
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public List<Object> executeXQueryJava(String databasename, String datapath) {
+		return null;
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -492,6 +511,8 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case JavaqueryPackage.JAVA_FILTER___EXECUTE_XQUERY_JAVA__STRING_STRING:
+				return executeXQueryJava((String)arguments.get(0), (String)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
