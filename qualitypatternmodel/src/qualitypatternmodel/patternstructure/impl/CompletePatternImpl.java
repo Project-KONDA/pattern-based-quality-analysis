@@ -353,6 +353,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	@Override
 	public JavaFilter generateQueryFilter() throws InvalidityException {
 		JavaFilter filter = new JavaFilterImpl();
+		filter.setQuery(generateXQueryJava());
 		filter.setFilter((BooleanFilterPart) generateQueryFilterPart());
 		return filter;
 	}

@@ -178,7 +178,23 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 */
 	@Override
 	public List<Object> executeXQueryJava(String databasename, String datapath) {
-		return null;
+		String query = getQuery();
+		List<String> outcome = new ArrayList<String>();
+		Context context = new Context();
+		try {
+			new CreateDB(databasename, datapath).execute(context);
+			try (QueryProcessor proc = new QueryProcessor(query, context)) {
+				Iter iter = proc.iter();
+				for (Item item; (item = iter.next()) != null;) {
+					outcome.add(item.serialize().toString());
+				}
+			} 
+		} catch(Exception e) {}
+		context.closeDB();
+		context.close();
+		
+		List<Object> result = null;
+		return result;
 	}
 
 	/**

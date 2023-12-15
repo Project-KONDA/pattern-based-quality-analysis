@@ -8,9 +8,19 @@ import javaqueryexperiments.testclasses.JavaQueryInterimContainer;
 
 public class javaquery_playground {
 
-	static String QUERY = "for $var in /*[name() = \"demo:data\"]/*\r\n"
-			+ "let $source := $var/*[name() = \"demo:source\"]/data()\r\n" + "return (" + "\"<result>\""
-			+ ", \"<record>\", $var, \"</record>\"" + ", \"<arg1>\", $source, \"</arg1>\"" + ", \"</result>\"" + ")";
+	static String QUERY = 
+			"for $var in /*[name() = \"demo:data\"]/*\r\n"
+			+ "let $source := $var/*[name() = \"demo:source\"]/data()\r\n" 
+			+ "return (" 
+			+ "\"<result>\", "
+			+ "\"<record>\","
+			+ " $var,"
+			+ " \"</record>\"" 
+			+ ", \"<arg1>\","
+			+ " $source,"
+			+ " \"</arg1>\","
+			+ " \"</result>\""
+			+ ")";
 
 	public static void main(String[] args) {
 
