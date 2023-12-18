@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
-import javaqueryexperiments.testclasses.InterimContainer;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaFilter;
@@ -146,39 +145,39 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	public void createInterimResultContainer(List<Object> objectList) throws InvalidityException {
 		EList<InterimResultContainer> interimContainer = getInterimResults();
 		interimContainer.clear();
-		for (Object object: objectList) {
-			if (object instanceof List) {
-				@SuppressWarnings("unchecked")
-				List<Object> lst = (List<Object>) object;
-				
-				Object retu = lst.get(0);
-				Object parameter = lst.get(1);
-				try {
-					InterimResultContainer interim = new InterimResultContainerImpl(getStructure(), retu, parameter);
-					interimContainer.add(interim);
+//		if (objectList != null) {
+			for (Object object: objectList) {
+				if (object instanceof List) {
+					@SuppressWarnings("unchecked")
+					List<Object> lst = (List<Object>) object;
+					
+					Object retu = lst.get(0);
+					Object parameter = lst.get(1);
+					try {
+						InterimResultContainer interim = new InterimResultContainerImpl(getStructure(), retu, parameter);
+						interimContainer.add(interim);
+					}
+					catch (InvalidityException e) {
+						InvalidityException newE = new InvalidityException("invalid list: " + lst, e);
+						newE.printStackTrace();
+					}
 				}
-				catch (InvalidityException e) {
-					InvalidityException newE = new InvalidityException("invalid list: " + lst, e);
-					newE.printStackTrace();
-				}
-				
 			}
-		}
+//		}
 	}
-	
-	
-	
-	
-	
+		
 	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
 	 * @generated NOT
 	 */
 	@Override
-	public List<Object> executeXQueryJava(String databasename, String datapath) {
+	public List<Object> executeXQueryJava(String databasename, String datapath) throws InvalidityException {
 		String query = getQuery();
+		if (query == null || query == "")
+			throw new InvalidityException();
 		List<String> outcome = new ArrayList<String>();
 		Context context = new Context();
 		try {
@@ -193,7 +192,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 		context.closeDB();
 		context.close();
 		
-		List<Object> result = null;
+		List<Object> result = new ArrayList<Object>();
 		return result;
 	}
 

@@ -154,9 +154,10 @@ public interface JavaFilter extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
 	 * @model dataType="qualitypatternmodel.javaquery.StringListWrapper"
 	 * @generated
 	 */
-	List<Object> executeXQueryJava(String databasename, String datapath);
+	List<Object> executeXQueryJava(String databasename, String datapath) throws InvalidityException;
 
 } // JavaFilter

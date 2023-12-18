@@ -1459,7 +1459,8 @@
       <eOperations name="createInterimResultContainer" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="objectList" eType="#//javaquery/ObjectListWrapper"/>
       </eOperations>
-      <eOperations name="executeXQueryJava" eType="#//javaquery/StringListWrapper">
+      <eOperations name="executeXQueryJava" eType="#//javaquery/StringListWrapper"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="databasename" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eParameters name="datapath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
