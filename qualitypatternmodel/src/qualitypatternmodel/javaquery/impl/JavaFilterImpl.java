@@ -527,7 +527,12 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 					throw new InvocationTargetException(throwable);
 				}
 			case JavaqueryPackage.JAVA_FILTER___EXECUTE_XQUERY_JAVA__STRING_STRING:
-				return executeXQueryJava((String)arguments.get(0), (String)arguments.get(1));
+				try {
+					return executeXQueryJava((String)arguments.get(0), (String)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

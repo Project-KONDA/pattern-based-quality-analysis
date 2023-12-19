@@ -954,6 +954,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		op = initEOperation(getJavaFilter__ExecuteXQueryJava__String_String(), this.getStringListWrapper(), "executeXQueryJava", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "databasename", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "datapath", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(booleanFilterPartEClass, BooleanFilterPart.class, "BooleanFilterPart", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
