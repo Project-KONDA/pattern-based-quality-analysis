@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.javaqueryoutput.impl;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -224,6 +226,67 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryoutputPackage.CONTAINER_RESULT__TAGNAME, oldTagname, tagname));
 	}
 
+
+	private Boolean hasStarted = false;
+	private Boolean hasEnded = false;
+	private ContainerResult currentCreationResult = null;
+	private int depth = 0;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Boolean stream(String value) {
+		if (hasEnded)
+			return false;
+		if(!hasStarted) {
+			if(isStartTag(value)) {
+				hasStarted = true;
+				tagname = value.substring(1, value.length()-2);
+			}	
+		}
+
+		if (isStartTag(value))
+			depth +=1;
+		else if (isEndTag(value))
+			depth-=1;
+			
+		if(isStartTag(value))
+		
+		if(depth == 0) {
+			hasEnded = true;
+		} else if (depth == 1) {
+			if(isEndTag(value)) {
+				currentCreationResult.stream(value);
+				getSubresult().add(currentCreationResult);
+				currentCreationResult = null;
+			}
+			else if(isStartTag(value)){
+				assert(currentCreationResult == null);
+				currentCreationResult = new ContainerResultImpl();
+				currentCreationResult.stream(value);
+			}
+			else {
+				assert(isValue(value));
+				getSubresult().add(new ValueResultImpl(value));
+			}
+		} else if (depth > 1) {
+			currentCreationResult.stream(value);
+		}
+		return true;
+	}
+	
+	private Boolean isStartTag(String value) {
+		return value.startsWith("<") && !value.startsWith("</") && !value.contains(" ");
+	}
+	private Boolean isValue(String value) {
+		return !isStartTag(value) && !isEndTag(value);
+	}
+	private Boolean isEndTag(String value) {
+		return value.startsWith("</") && !value.contains(" ");
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -317,6 +380,20 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 				return TAGNAME_EDEFAULT == null ? tagname != null : !TAGNAME_EDEFAULT.equals(tagname);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case JavaqueryoutputPackage.CONTAINER_RESULT___STREAM__STRING:
+				return stream((String)arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

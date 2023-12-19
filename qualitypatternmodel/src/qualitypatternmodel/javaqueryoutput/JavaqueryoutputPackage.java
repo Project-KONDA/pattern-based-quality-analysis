@@ -399,13 +399,22 @@ public interface JavaqueryoutputPackage extends EPackage {
 	int CONTAINER_RESULT___IS_VALID_TO_CORRESPONDING = INTERIM_RESULT___IS_VALID_TO_CORRESPONDING;
 
 	/**
+	 * The operation id for the '<em>Stream</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER_RESULT___STREAM__STRING = INTERIM_RESULT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Container Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER_RESULT_OPERATION_COUNT = INTERIM_RESULT_OPERATION_COUNT + 0;
+	int CONTAINER_RESULT_OPERATION_COUNT = INTERIM_RESULT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.javaqueryoutput.impl.ValueResultImpl <em>Value Result</em>}' class.
@@ -723,6 +732,16 @@ public interface JavaqueryoutputPackage extends EPackage {
 	EAttribute getContainerResult_Tagname();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaqueryoutput.ContainerResult#stream(java.lang.String) <em>Stream</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Stream</em>' operation.
+	 * @see qualitypatternmodel.javaqueryoutput.ContainerResult#stream(java.lang.String)
+	 * @generated
+	 */
+	EOperation getContainerResult__Stream__String();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaqueryoutput.ValueResult <em>Value Result</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -989,6 +1008,14 @@ public interface JavaqueryoutputPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CONTAINER_RESULT__TAGNAME = eINSTANCE.getContainerResult_Tagname();
+
+		/**
+		 * The meta object literal for the '<em><b>Stream</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONTAINER_RESULT___STREAM__STRING = eINSTANCE.getContainerResult__Stream__String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaqueryoutput.impl.ValueResultImpl <em>Value Result</em>}' class.

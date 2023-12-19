@@ -26,8 +26,8 @@ public class JavaFilterCompleteTest {
 			JavaFilter filter = patterns.get(i).generateQueryFilter(); 
 			filters.add(filter);
 			try {
-				List<Object> list = filter.executeXQueryJava(DEMO_DATABASE_NAME, DEMO_DATA_PATH);
-				filter.createInterimResultContainer(list);
+				List<String> list = filter.executeXQueryJava(DEMO_DATABASE_NAME, DEMO_DATA_PATH);
+				filter.createInterimResultContainerXQuery(list);
 				Boolean fits = filter.getInterimResults().stream().allMatch(x-> x.isValidToStructure());
 				List<String> result = filter.filterQueryResults();
 				valid.add(fits);

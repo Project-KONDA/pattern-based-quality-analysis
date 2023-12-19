@@ -174,7 +174,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated NOT
 	 */
 	@Override
-	public List<Object> executeXQueryJava(String databasename, String datapath) throws InvalidityException {
+	public List<String> executeXQueryJava(String databasename, String datapath) throws InvalidityException {
 		String query = getQuery();
 		if (query == null || query == "")
 			throw new InvalidityException();
@@ -192,8 +192,19 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 		context.closeDB();
 		context.close();
 		
-		List<Object> result = new ArrayList<Object>();
-		return result;
+		return outcome;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void createInterimResultContainerXQuery(List<String> objectList) throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**

@@ -80,4 +80,12 @@ public interface ContainerResult extends InterimResult {
 	 */
 	void setTagname(String value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Boolean stream(String value);
+
 } // ContainerResult
