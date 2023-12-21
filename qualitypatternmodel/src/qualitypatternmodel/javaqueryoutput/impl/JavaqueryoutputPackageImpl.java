@@ -374,6 +374,16 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 	 * @generated
 	 */
 	@Override
+	public EReference getInterimResult_CorrespondsTo() {
+		return (EReference)interimResultEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getInterimResult__SetCorresponding__InterimResultPart() {
 		return interimResultEClass.getEOperations().get(0);
 	}
@@ -404,7 +414,7 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 	 * @generated
 	 */
 	@Override
-	public EReference getContainerResult_CorrespondsTo() {
+	public EReference getContainerResult_Subresult() {
 		return (EReference)containerResultEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -414,18 +424,8 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 	 * @generated
 	 */
 	@Override
-	public EReference getContainerResult_Subresult() {
-		return (EReference)containerResultEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getContainerResult_Tagname() {
-		return (EAttribute)containerResultEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)containerResultEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -454,18 +454,8 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 	 * @generated
 	 */
 	@Override
-	public EReference getValueResult_CorrespondsTo() {
-		return (EReference)valueResultEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getValueResult_Value() {
-		return (EAttribute)valueResultEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)valueResultEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -524,6 +514,16 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 	 * @generated
 	 */
 	@Override
+	public EOperation getInterimResultContainer__Stream__String() {
+		return interimResultContainerEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public JavaqueryoutputFactory getJavaqueryoutputFactory() {
 		return (JavaqueryoutputFactory)getEFactoryInstance();
 	}
@@ -565,17 +565,16 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		createEReference(fixedContainerInterimEClass, FIXED_CONTAINER_INTERIM__CONTAINED);
 
 		interimResultEClass = createEClass(INTERIM_RESULT);
+		createEReference(interimResultEClass, INTERIM_RESULT__CORRESPONDS_TO);
 		createEOperation(interimResultEClass, INTERIM_RESULT___SET_CORRESPONDING__INTERIMRESULTPART);
 		createEOperation(interimResultEClass, INTERIM_RESULT___IS_VALID_TO_CORRESPONDING);
 
 		containerResultEClass = createEClass(CONTAINER_RESULT);
-		createEReference(containerResultEClass, CONTAINER_RESULT__CORRESPONDS_TO);
 		createEReference(containerResultEClass, CONTAINER_RESULT__SUBRESULT);
 		createEAttribute(containerResultEClass, CONTAINER_RESULT__TAGNAME);
 		createEOperation(containerResultEClass, CONTAINER_RESULT___STREAM__STRING);
 
 		valueResultEClass = createEClass(VALUE_RESULT);
-		createEReference(valueResultEClass, VALUE_RESULT__CORRESPONDS_TO);
 		createEAttribute(valueResultEClass, VALUE_RESULT__VALUE);
 
 		interimResultContainerEClass = createEClass(INTERIM_RESULT_CONTAINER);
@@ -583,6 +582,7 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		createEReference(interimResultContainerEClass, INTERIM_RESULT_CONTAINER__PARAMETER);
 		createEReference(interimResultContainerEClass, INTERIM_RESULT_CONTAINER__RETURN);
 		createEOperation(interimResultContainerEClass, INTERIM_RESULT_CONTAINER___IS_VALID_TO_STRUCTURE);
+		createEOperation(interimResultContainerEClass, INTERIM_RESULT_CONTAINER___STREAM__STRING);
 	}
 
 	/**
@@ -643,6 +643,7 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		initEReference(getFixedContainerInterim_Contained(), this.getInterimResultPart(), null, "contained", null, 1, -1, FixedContainerInterim.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(interimResultEClass, InterimResult.class, "InterimResult", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInterimResult_CorrespondsTo(), this.getInterimResultPart(), null, "correspondsTo", null, 0, 1, InterimResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getInterimResult__SetCorresponding__InterimResultPart(), null, "setCorresponding", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getInterimResultPart(), "corresponding", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -651,15 +652,14 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		initEOperation(getInterimResult__IsValidToCorresponding(), ecorePackage.getEBooleanObject(), "isValidToCorresponding", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(containerResultEClass, ContainerResult.class, "ContainerResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getContainerResult_CorrespondsTo(), this.getContainerInterim(), null, "correspondsTo", null, 0, 1, ContainerResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContainerResult_Subresult(), this.getInterimResult(), null, "subresult", null, 0, -1, ContainerResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContainerResult_Tagname(), ecorePackage.getEString(), "tagname", null, 0, 1, ContainerResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getContainerResult__Stream__String(), ecorePackage.getEBooleanObject(), "stream", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(valueResultEClass, ValueResult.class, "ValueResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getValueResult_CorrespondsTo(), this.getValueInterim(), null, "correspondsTo", null, 0, 1, ValueResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getValueResult_Value(), ecorePackage.getEString(), "value", null, 0, 1, ValueResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(interimResultContainerEClass, InterimResultContainer.class, "InterimResultContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -668,6 +668,10 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		initEReference(getInterimResultContainer_Return(), this.getInterimResult(), null, "return", null, 1, 1, InterimResultContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getInterimResultContainer__IsValidToStructure(), ecorePackage.getEBooleanObject(), "isValidToStructure", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getInterimResultContainer__Stream__String(), ecorePackage.getEBooleanObject(), "stream", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		// Create resource
 		createResource(eNS_URI);

@@ -299,13 +299,22 @@ public interface JavaqueryoutputPackage extends EPackage {
 	int INTERIM_RESULT = 6;
 
 	/**
+	 * The feature id for the '<em><b>Corresponds To</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERIM_RESULT__CORRESPONDS_TO = 0;
+
+	/**
 	 * The number of structural features of the '<em>Interim Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERIM_RESULT_FEATURE_COUNT = 0;
+	int INTERIM_RESULT_FEATURE_COUNT = 1;
 
 	/**
 	 * The operation id for the '<em>Set Corresponding</em>' operation.
@@ -351,7 +360,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER_RESULT__CORRESPONDS_TO = INTERIM_RESULT_FEATURE_COUNT + 0;
+	int CONTAINER_RESULT__CORRESPONDS_TO = INTERIM_RESULT__CORRESPONDS_TO;
 
 	/**
 	 * The feature id for the '<em><b>Subresult</b></em>' containment reference list.
@@ -360,7 +369,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER_RESULT__SUBRESULT = INTERIM_RESULT_FEATURE_COUNT + 1;
+	int CONTAINER_RESULT__SUBRESULT = INTERIM_RESULT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Tagname</b></em>' attribute.
@@ -369,7 +378,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER_RESULT__TAGNAME = INTERIM_RESULT_FEATURE_COUNT + 2;
+	int CONTAINER_RESULT__TAGNAME = INTERIM_RESULT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Container Result</em>' class.
@@ -378,7 +387,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER_RESULT_FEATURE_COUNT = INTERIM_RESULT_FEATURE_COUNT + 3;
+	int CONTAINER_RESULT_FEATURE_COUNT = INTERIM_RESULT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Set Corresponding</em>' operation.
@@ -433,7 +442,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_RESULT__CORRESPONDS_TO = INTERIM_RESULT_FEATURE_COUNT + 0;
+	int VALUE_RESULT__CORRESPONDS_TO = INTERIM_RESULT__CORRESPONDS_TO;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -442,7 +451,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_RESULT__VALUE = INTERIM_RESULT_FEATURE_COUNT + 1;
+	int VALUE_RESULT__VALUE = INTERIM_RESULT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Value Result</em>' class.
@@ -451,7 +460,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_RESULT_FEATURE_COUNT = INTERIM_RESULT_FEATURE_COUNT + 2;
+	int VALUE_RESULT_FEATURE_COUNT = INTERIM_RESULT_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Set Corresponding</em>' operation.
@@ -536,13 +545,22 @@ public interface JavaqueryoutputPackage extends EPackage {
 	int INTERIM_RESULT_CONTAINER___IS_VALID_TO_STRUCTURE = 0;
 
 	/**
+	 * The operation id for the '<em>Stream</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERIM_RESULT_CONTAINER___STREAM__STRING = 1;
+
+	/**
 	 * The number of operations of the '<em>Interim Result Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERIM_RESULT_CONTAINER_OPERATION_COUNT = 1;
+	int INTERIM_RESULT_CONTAINER_OPERATION_COUNT = 2;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaqueryoutput.InterimResultStructure <em>Interim Result Structure</em>}'.
@@ -669,6 +687,17 @@ public interface JavaqueryoutputPackage extends EPackage {
 	EClass getInterimResult();
 
 	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.javaqueryoutput.InterimResult#getCorrespondsTo <em>Corresponds To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Corresponds To</em>'.
+	 * @see qualitypatternmodel.javaqueryoutput.InterimResult#getCorrespondsTo()
+	 * @see #getInterimResult()
+	 * @generated
+	 */
+	EReference getInterimResult_CorrespondsTo();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.javaqueryoutput.InterimResult#setCorresponding(qualitypatternmodel.javaqueryoutput.InterimResultPart) <em>Set Corresponding</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -697,17 +726,6 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getContainerResult();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.javaqueryoutput.ContainerResult#getCorrespondsTo <em>Corresponds To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Corresponds To</em>'.
-	 * @see qualitypatternmodel.javaqueryoutput.ContainerResult#getCorrespondsTo()
-	 * @see #getContainerResult()
-	 * @generated
-	 */
-	EReference getContainerResult_CorrespondsTo();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.javaqueryoutput.ContainerResult#getSubresult <em>Subresult</em>}'.
@@ -750,17 +768,6 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getValueResult();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.javaqueryoutput.ValueResult#getCorrespondsTo <em>Corresponds To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Corresponds To</em>'.
-	 * @see qualitypatternmodel.javaqueryoutput.ValueResult#getCorrespondsTo()
-	 * @see #getValueResult()
-	 * @generated
-	 */
-	EReference getValueResult_CorrespondsTo();
 
 	/**
 	 * Returns the meta object for the attribute '{@link qualitypatternmodel.javaqueryoutput.ValueResult#getValue <em>Value</em>}'.
@@ -825,6 +832,16 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getInterimResultContainer__IsValidToStructure();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaqueryoutput.InterimResultContainer#stream(java.lang.String) <em>Stream</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Stream</em>' operation.
+	 * @see qualitypatternmodel.javaqueryoutput.InterimResultContainer#stream(java.lang.String)
+	 * @generated
+	 */
+	EOperation getInterimResultContainer__Stream__String();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -960,6 +977,14 @@ public interface JavaqueryoutputPackage extends EPackage {
 		EClass INTERIM_RESULT = eINSTANCE.getInterimResult();
 
 		/**
+		 * The meta object literal for the '<em><b>Corresponds To</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERIM_RESULT__CORRESPONDS_TO = eINSTANCE.getInterimResult_CorrespondsTo();
+
+		/**
 		 * The meta object literal for the '<em><b>Set Corresponding</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -984,14 +1009,6 @@ public interface JavaqueryoutputPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CONTAINER_RESULT = eINSTANCE.getContainerResult();
-
-		/**
-		 * The meta object literal for the '<em><b>Corresponds To</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONTAINER_RESULT__CORRESPONDS_TO = eINSTANCE.getContainerResult_CorrespondsTo();
 
 		/**
 		 * The meta object literal for the '<em><b>Subresult</b></em>' containment reference list feature.
@@ -1026,14 +1043,6 @@ public interface JavaqueryoutputPackage extends EPackage {
 		 * @generated
 		 */
 		EClass VALUE_RESULT = eINSTANCE.getValueResult();
-
-		/**
-		 * The meta object literal for the '<em><b>Corresponds To</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VALUE_RESULT__CORRESPONDS_TO = eINSTANCE.getValueResult_CorrespondsTo();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -1084,6 +1093,14 @@ public interface JavaqueryoutputPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation INTERIM_RESULT_CONTAINER___IS_VALID_TO_STRUCTURE = eINSTANCE.getInterimResultContainer__IsValidToStructure();
+
+		/**
+		 * The meta object literal for the '<em><b>Stream</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INTERIM_RESULT_CONTAINER___STREAM__STRING = eINSTANCE.getInterimResultContainer__Stream__String();
 
 	}
 

@@ -47,32 +47,9 @@ public class ContainerResultItemProvider extends InterimResultItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCorrespondsToPropertyDescriptor(object);
 			addTagnamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Corresponds To feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCorrespondsToPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ContainerResult_correspondsTo_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ContainerResult_correspondsTo_feature", "_UI_ContainerResult_type"),
-				 JavaqueryoutputPackage.Literals.CONTAINER_RESULT__CORRESPONDS_TO,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**

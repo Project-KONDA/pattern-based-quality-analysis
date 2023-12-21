@@ -37,6 +37,7 @@ import qualitypatternmodel.javaqueryoutput.impl.FixedContainerInterimImpl;
 import qualitypatternmodel.javaqueryoutput.impl.InterimResultContainerImpl;
 import qualitypatternmodel.javaqueryoutput.impl.InterimResultStructureImpl;
 import qualitypatternmodel.patternstructure.Language;
+import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
 /**
  * <!-- begin-user-doc -->
@@ -202,9 +203,29 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 */
 	@Override
 	public void createInterimResultContainerXQuery(List<String> objectList) throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		int depth = 0;
+		int depthbefore = 0;
+		InterimResultContainer current = null;
+		
+		for (String value: objectList) {
+			depthbefore = depth;
+			if (JavaQueryTranslationUtility.isStartTag(value))
+				depth +=1;
+			else if (JavaQueryTranslationUtility.isEndTag(value))
+				depth -=1;
+			
+			if (depthbefore == 0 && depth == 1) {
+				if (!value.equals("<interim>"))
+					throw new InvalidityException();
+				current = new InterimResultContainerImpl(getStructure());
+			}
+			else if (depthbefore == 1 && depth == 0) {
+				assert(value.equals("</interim>"));
+				getInterimResults().add(current);
+				current = null;
+			}
+			else current.stream(value);
+		}
 	}
 
 	/**
@@ -550,7 +571,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 
 	@Override
 	public String toString() {
-		return getFilter().toString() + "\n\n" + getStructure().toString();
+		return getQuery() + "\n\n" + getFilter().toString() + "\n\n" + getStructure().toString();
 	}
 
 } //JavaFilterImpl

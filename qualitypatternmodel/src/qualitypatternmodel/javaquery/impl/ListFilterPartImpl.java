@@ -97,6 +97,8 @@ public class ListFilterPartImpl extends BooleanFilterPartImpl implements ListFil
 	
 	@Override
 	public Boolean apply(InterimResult parameter) throws InvalidityException {
+		if (parameter == null)
+			throw new InvalidityException("Parameter null");
 		ContainerResult container = (ContainerResult) parameter;
 		for(InterimResult argument: container.getSubresult()) {
 			Boolean arg = getSubfilter().apply(argument);

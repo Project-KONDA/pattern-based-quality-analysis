@@ -1297,14 +1297,14 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/FixedContainerInterim/contained"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/InterimResult">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/InterimResult/correspondsTo"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaqueryoutput/InterimResult/setCorresponding">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaqueryoutput/InterimResult/setCorresponding/corresponding"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaqueryoutput/InterimResult/isValidToCorresponding"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/ContainerResult">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/ContainerResult/correspondsTo"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/ContainerResult/subresult"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaqueryoutput/ContainerResult/tagname"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaqueryoutput/ContainerResult/stream">
@@ -1312,8 +1312,6 @@
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/ValueResult">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/ValueResult/correspondsTo"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaqueryoutput/ValueResult/value"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultContainer">
@@ -1322,6 +1320,9 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/InterimResultContainer/parameter"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/InterimResultContainer/return"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultContainer/isValidToStructure"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultContainer/stream">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultContainer/stream/value"/>
+        </genOperations>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

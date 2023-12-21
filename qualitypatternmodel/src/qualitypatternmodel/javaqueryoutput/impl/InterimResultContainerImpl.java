@@ -15,8 +15,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultContainer;
+import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
+import qualitypatternmodel.javaqueryoutput.ContainerResult;
+import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,10 +70,15 @@ public class InterimResultContainerImpl extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected InterimResultContainerImpl() {
+	public InterimResultContainerImpl() {
 		super();
+	}
+
+	public InterimResultContainerImpl(InterimResultStructure structure) throws InvalidityException {
+		super();
+		setCorrespondsTo(structure);
 	}
 
 	public InterimResultContainerImpl(InterimResultStructure structure, Object record, Object parameter) throws InvalidityException {
@@ -91,13 +99,120 @@ public class InterimResultContainerImpl extends MinimalEObjectImpl.Container imp
 	 */
 	@Override
 	public Boolean isValidToStructure() {
-		return getReturn().isValidToCorresponding() && getParameter().isValidToCorresponding();
+		Boolean returnvalid = false;
+		Boolean parametervalid = false;
+
+		try {
+			if (getReturn().getCorrespondsTo() == null)
+				getReturn().setCorresponding(getCorrespondsTo().getRecord());
+			returnvalid = getReturn().isValidToCorresponding();
+			if (returnvalid)
+				System.out.println("IRC109!");
+		} catch(InvalidityException e) {
+			return false;
+		}
+
+		try {
+			System.out.println("IRC xxx");
+			if (getParameter().getCorrespondsTo() == null) {
+				InterimResultPart parameter = getCorrespondsTo().getSubstructure();
+				getParameter().setCorresponding(parameter);
+			}
+			System.out.println("IRC yyy");
+			System.out.println("IRC121 Nope");
+			parametervalid = getParameter().isValidToCorresponding();
+			if (parametervalid)
+				System.out.println("IRC121!");
+			else 
+				System.out.println("IRC121 Nope");
+		} catch(InvalidityException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return returnvalid && parametervalid;
 	}
 	
 	
 	
 	
 	
+	private int depth0 = 0;
+	private int depth = 0;
+	private boolean param = false;
+	private boolean done = false;
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Boolean stream(String value) throws InvalidityException{
+		depth0 = depth;
+		if (JavaQueryTranslationUtility.isStartTag(value))
+			depth +=1;
+		else if (JavaQueryTranslationUtility.isEndTag(value))
+			depth -=1;
+		
+		if (depth < 0) {
+			done = true;
+		}
+		else if (depth == 0) {
+			if (depth0 == 0)
+				throw new InvalidityException("unexpected value on depth 1: " + value.replace("\r\n", " "));
+			if (depth0 == 1 && !param ) {
+				if (!value.equals("</return>"))
+					throw new InvalidityException("expected </return>, recieved: " + value);
+				param = true;
+			}
+		}
+		else if (depth == 1) {
+			if (depth0 == 0) {
+				if (param && !value.equals("<condition>") || !param && !value.equals("<return>"))
+					throw new InvalidityException("invalid input for return");
+			}
+			else if (depth0 == depth) {
+				ValueResultImpl valueresult = new ValueResultImpl(value);
+				if(!param) {
+					if (getReturn() != null)
+						throw new InvalidityException("invalid input for return");
+					setReturn(valueresult);
+				} else {
+					if (getParameter() != null)
+						throw new InvalidityException("invalid input for condition");
+					setParameter(valueresult);
+				}
+			}
+		}
+		else if (depth > 1)
+			if (depth0 == 1) {
+				ContainerResult container = new ContainerResultImpl();
+				container.stream(value);
+				if (!param) {
+					if (getReturn() != null)
+						throw new InvalidityException("Return value is already configured");
+					setReturn(container);
+				} else {
+					if (getReturn() == null)
+						throw new InvalidityException("Return value is not yet configured");
+					if (getParameter() != null) 
+						throw new InvalidityException("Return value is already configured");
+					setParameter(container);
+				}
+			}
+			else if (!param) {
+				if (!(getReturn() instanceof ContainerResult))
+					throw new InvalidityException("invalid input for return: " + value);
+				((ContainerResult) getReturn()).stream(value);
+			}
+			else {
+				if (!(getParameter() instanceof ContainerResult))
+					throw new InvalidityException("invalid input for condition: " + value + "\n" + depth0 + "->"+ depth + " "  + param );
+				((ContainerResult) getParameter()).stream(value);
+			}
+		return !done;
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -343,12 +458,20 @@ public class InterimResultContainerImpl extends MinimalEObjectImpl.Container imp
 		switch (operationID) {
 			case JavaqueryoutputPackage.INTERIM_RESULT_CONTAINER___IS_VALID_TO_STRUCTURE:
 				return isValidToStructure();
+			case JavaqueryoutputPackage.INTERIM_RESULT_CONTAINER___STREAM__STRING:
+				try {
+					return stream((String)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}
 	
 	@Override
 	public String toString() {
-		return "InterimResult " + getReturn().toString() + " (" + getParameter() + ")";
+		String sub = getReturn().toString() + "\n  " + getParameter();
+		return "InterimResult [\n  " + sub.indent(2) + "]";
 	}
 } //InterimResultContainerImpl

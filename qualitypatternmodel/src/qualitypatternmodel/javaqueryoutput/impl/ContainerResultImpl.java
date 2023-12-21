@@ -3,7 +3,6 @@
 package qualitypatternmodel.javaqueryoutput.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -27,6 +26,7 @@ import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 import qualitypatternmodel.javaqueryoutput.VariableContainerInterim;
+import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,7 +36,6 @@ import qualitypatternmodel.javaqueryoutput.VariableContainerInterim;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.javaqueryoutput.impl.ContainerResultImpl#getCorrespondsTo <em>Corresponds To</em>}</li>
  *   <li>{@link qualitypatternmodel.javaqueryoutput.impl.ContainerResultImpl#getSubresult <em>Subresult</em>}</li>
  *   <li>{@link qualitypatternmodel.javaqueryoutput.impl.ContainerResultImpl#getTagname <em>Tagname</em>}</li>
  * </ul>
@@ -44,16 +43,6 @@ import qualitypatternmodel.javaqueryoutput.VariableContainerInterim;
  * @generated
  */
 public class ContainerResultImpl extends InterimResultImpl implements ContainerResult {
-	/**
-	 * The cached value of the '{@link #getCorrespondsTo() <em>Corresponds To</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCorrespondsTo()
-	 * @generated
-	 * @ordered
-	 */
-	protected ContainerInterim correspondsTo;
-
 	/**
 	 * The cached value of the '{@link #getSubresult() <em>Subresult</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -124,16 +113,38 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 				}
 			}
 			return;
-		}
-		throw new InvalidityException(corresponding.getClass().toString() + " is not of type ContainerInterim!");
+		} 
+		else throw new InvalidityException(corresponding.getClass().toString() + " is not of type ContainerInterim!");
 	}
 	
 	@Override
 	public Boolean isValidToCorresponding() {
-		if (getCorrespondsTo() == null)
+		if (getCorrespondsTo() == null || !(getCorrespondsTo() instanceof ContainerInterim )) {
 			return false;
-		Integer size = getCorrespondsTo().getSize();
-		return (size == -1 || size == getSubresult().size()); 
+		}
+		ContainerInterim container = (ContainerInterim) getCorrespondsTo();
+		Integer size = container.getSize();
+		
+		if (size == -1) {
+			return getSubresult().stream().allMatch(x-> x.isValidToCorresponding());
+		} else {
+			if (size != getSubresult().size())
+				return false;
+
+			FixedContainerInterim fixed = ((FixedContainerInterim) container);
+			for (int i = 0; i < size; i++) {
+				InterimResult interim = getSubresult().get(i);
+				try {
+					interim.setCorresponding(fixed.getContained().get(i));
+				} catch (InvalidityException e) {
+					e.printStackTrace();
+					return false;
+				}
+				if (!interim.isValidToCorresponding())
+					return false;
+			}
+			return true;
+		}
 	}
 	
 	
@@ -148,46 +159,6 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 	@Override
 	protected EClass eStaticClass() {
 		return JavaqueryoutputPackage.Literals.CONTAINER_RESULT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ContainerInterim getCorrespondsTo() {
-		if (correspondsTo != null && correspondsTo.eIsProxy()) {
-			InternalEObject oldCorrespondsTo = (InternalEObject)correspondsTo;
-			correspondsTo = (ContainerInterim)eResolveProxy(oldCorrespondsTo);
-			if (correspondsTo != oldCorrespondsTo) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaqueryoutputPackage.CONTAINER_RESULT__CORRESPONDS_TO, oldCorrespondsTo, correspondsTo));
-			}
-		}
-		return correspondsTo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ContainerInterim basicGetCorrespondsTo() {
-		return correspondsTo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setCorrespondsTo(ContainerInterim newCorrespondsTo) {
-		ContainerInterim oldCorrespondsTo = correspondsTo;
-		correspondsTo = newCorrespondsTo;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryoutputPackage.CONTAINER_RESULT__CORRESPONDS_TO, oldCorrespondsTo, correspondsTo));
 	}
 
 	/**
@@ -227,66 +198,89 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 	}
 
 
-	private Boolean hasStarted = false;
-	private Boolean hasEnded = false;
 	private ContainerResult currentCreationResult = null;
 	private int depth = 0;
+	private int depth0 = 0;
+	private Boolean done = false;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
 	 * @generated NOT
 	 */
 	@Override
-	public Boolean stream(String value) {
-		if (hasEnded)
+	public Boolean stream(String value) throws InvalidityException {
+		if (done)
 			return false;
-		if(!hasStarted) {
-			if(isStartTag(value)) {
-				hasStarted = true;
-				tagname = value.substring(1, value.length()-2);
-			}	
-		}
-
-		if (isStartTag(value))
+	
+		depth0 = depth;
+		if (JavaQueryTranslationUtility.isStartTag(value))
 			depth +=1;
-		else if (isEndTag(value))
+		else if (JavaQueryTranslationUtility.isEndTag(value))
 			depth-=1;
-			
-		if(isStartTag(value))
 		
-		if(depth == 0) {
-			hasEnded = true;
-		} else if (depth == 1) {
-			if(isEndTag(value)) {
-				currentCreationResult.stream(value);
-				getSubresult().add(currentCreationResult);
-				currentCreationResult = null;
-			}
-			else if(isStartTag(value)){
-				assert(currentCreationResult == null);
-				currentCreationResult = new ContainerResultImpl();
-				currentCreationResult.stream(value);
-			}
-			else {
-				assert(isValue(value));
-				getSubresult().add(new ValueResultImpl(value));
-			}
-		} else if (depth > 1) {
+		if (depth0 <= 0 && depth <= 0)
+			throw new InvalidityException();
+		else if (depth0 == 1 && depth == 0)
+			done = true;
+		else if (depth0 == 0 && depth == 1) {
+			if (getTagname() != null)
+				throw new InvalidityException("Tagname already set: '" + getTagname() + "' and shell be: " + value);
+			setTagname(value);
+		}
+		else if (depth0 == 1 && depth == 1) {
+			getSubresult().add(new ValueResultImpl(value));
+		}
+		else if (depth0 == 1 && depth == 2) {
+			if (currentCreationResult != null)
+				throw new InvalidityException();
+			currentCreationResult = new ContainerResultImpl();
 			currentCreationResult.stream(value);
 		}
-		return true;
-	}
-	
-	private Boolean isStartTag(String value) {
-		return value.startsWith("<") && !value.startsWith("</") && !value.contains(" ");
-	}
-	private Boolean isValue(String value) {
-		return !isStartTag(value) && !isEndTag(value);
-	}
-	private Boolean isEndTag(String value) {
-		return value.startsWith("</") && !value.contains(" ");
+		else if (depth0 == 2 && depth == 1) {
+			currentCreationResult.stream(value);
+			getSubresult().add(currentCreationResult);
+			currentCreationResult = null;
+		}
+		else if (depth0 >= 2 && depth >= 2) {
+			if (!(currentCreationResult instanceof ContainerResult))
+				throw new InvalidityException("ContainerResult expected, recieved: " + currentCreationResult);
+			((ContainerResult) currentCreationResult).stream(value);
+		}
+			
+		
+			
+			
+		
+//		if(depth == 0) {
+//			hasEnded = true;
+//		} else if (depth0 == 0 && depth == 1) {
+//			if(JavaQueryTranslationUtility.isEndTag(value)) {
+//				currentCreationResult.stream(value);
+//				getSubresult().add(currentCreationResult);
+//				currentCreationResult = null;
+//			}
+//			else if(JavaQueryTranslationUtility.isStartTag(value)){
+//				if (currentCreationResult == null)
+//					throw new InvalidityException("no currentCreationResult " + value);
+//				currentCreationResult = new ContainerResultImpl();
+//				i +=1;
+//				if (i <10)
+//				currentCreationResult.stream(value);
+//			}
+//			else {
+//				assert(JavaQueryTranslationUtility.isValue(value));
+//				getSubresult().add(new ValueResultImpl(value));
+//			}
+//		} else if (depth > 1) {
+//			if (currentCreationResult == null)
+//				throw new InvalidityException("no currentCreationResult " + value);
+//			currentCreationResult.stream(value);
+//		}
+		return !done;
 	}
 
+	static int i = 0;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -309,9 +303,6 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JavaqueryoutputPackage.CONTAINER_RESULT__CORRESPONDS_TO:
-				if (resolve) return getCorrespondsTo();
-				return basicGetCorrespondsTo();
 			case JavaqueryoutputPackage.CONTAINER_RESULT__SUBRESULT:
 				return getSubresult();
 			case JavaqueryoutputPackage.CONTAINER_RESULT__TAGNAME:
@@ -329,9 +320,6 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JavaqueryoutputPackage.CONTAINER_RESULT__CORRESPONDS_TO:
-				setCorrespondsTo((ContainerInterim)newValue);
-				return;
 			case JavaqueryoutputPackage.CONTAINER_RESULT__SUBRESULT:
 				getSubresult().clear();
 				getSubresult().addAll((Collection<? extends InterimResult>)newValue);
@@ -351,9 +339,6 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JavaqueryoutputPackage.CONTAINER_RESULT__CORRESPONDS_TO:
-				setCorrespondsTo((ContainerInterim)null);
-				return;
 			case JavaqueryoutputPackage.CONTAINER_RESULT__SUBRESULT:
 				getSubresult().clear();
 				return;
@@ -372,8 +357,6 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JavaqueryoutputPackage.CONTAINER_RESULT__CORRESPONDS_TO:
-				return correspondsTo != null;
 			case JavaqueryoutputPackage.CONTAINER_RESULT__SUBRESULT:
 				return subresult != null && !subresult.isEmpty();
 			case JavaqueryoutputPackage.CONTAINER_RESULT__TAGNAME:
@@ -391,7 +374,12 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case JavaqueryoutputPackage.CONTAINER_RESULT___STREAM__STRING:
-				return stream((String)arguments.get(0));
+				try {
+					return stream((String)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -403,7 +391,11 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 	 */
 	@Override
 	public String toString() {
-		return "Container[" + getSubresult().toString() + "]";
+		String sub = "";
+		for (InterimResult interim : getSubresult()) {
+			sub += interim + "\n";
+		}
+		return "Container (" + getTagname() + ") [\n  " + sub.indent(2) + "]";
 	}
 
 } //ContainerResultImpl

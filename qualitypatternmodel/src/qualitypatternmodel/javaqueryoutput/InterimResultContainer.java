@@ -3,6 +3,7 @@
 package qualitypatternmodel.javaqueryoutput;
 
 import org.eclipse.emf.ecore.EObject;
+import qualitypatternmodel.exceptions.InvalidityException;
 
 /**
  * <!-- begin-user-doc -->
@@ -96,5 +97,13 @@ public interface InterimResultContainer extends EObject {
 	 * @generated
 	 */
 	Boolean isValidToStructure();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	Boolean stream(String value) throws InvalidityException;
 
 } // InterimResultContainer

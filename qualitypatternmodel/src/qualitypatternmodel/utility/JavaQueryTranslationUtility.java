@@ -89,4 +89,16 @@ public class JavaQueryTranslationUtility {
 		return result;
 	}
 	
+	public static Boolean isStartTag(String value) {
+		return value.startsWith("<") && !value.startsWith("</") && !value.contains(" ");
+	}
+	
+	public static Boolean isValue(String value) {
+		return !isStartTag(value) && !isEndTag(value);
+	}
+	
+	public static Boolean isEndTag(String value) {
+		return value.startsWith("</") && !value.contains(" ");
+	}
+	
 }
