@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.COUNT;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
@@ -147,7 +148,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			else arg2String = null;
 
 		return (arg2String == null)? arg1String : 
-			JavaQueryTranslationUtility.getXQueryReturnList(List.of(arg1String, arg2String), "count", false, true, false);
+			JavaQueryTranslationUtility.getXQueryReturnList(List.of(arg1String, arg2String), COUNT, false, true, false);
 	}
 	
 	@Override

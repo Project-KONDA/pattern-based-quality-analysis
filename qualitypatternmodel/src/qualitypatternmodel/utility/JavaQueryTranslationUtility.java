@@ -28,6 +28,7 @@ public class JavaQueryTranslationUtility {
 //	public static String VALUEEND = "\"</value>\"";
 	public static String BOOLEAN = "boolean";
 	public static String RETURNSTATEMENT = "return\n  ";
+	public static String COUNT = "count";
 	
 	public static String getXQueryReturnList(List<String> elements, String tagname, boolean ret, boolean outerbrackets, boolean innerbrackets) {
 		String returnstring = "\"<" + tagname + ">\",\n  ";

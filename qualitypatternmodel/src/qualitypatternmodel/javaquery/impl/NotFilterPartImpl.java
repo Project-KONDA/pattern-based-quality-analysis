@@ -50,6 +50,11 @@ public class NotFilterPartImpl extends BooleanFilterPartImpl implements NotFilte
 		super();
 	}
 	
+	public NotFilterPartImpl(BooleanFilterPart subfilter) {
+		super();
+		setSubfilter(subfilter);
+	}
+
 	@Override
 	public Boolean apply(InterimResult parameter) throws InvalidityException {
 		return !getSubfilter().apply(parameter);

@@ -56,6 +56,7 @@ import qualitypatternmodel.parameters.impl.ParameterListImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Language;
+import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.textrepresentation.PatternText;
@@ -364,9 +365,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		Boolean condition = getCondition().containsJavaOperator();
 		
 		if (graph && condition) {
-			FormulaFilterPart container = new FormulaFilterPartImpl();
-			container.setSubfilter1((BooleanFilterPart) getGraph().generateQueryFilterPart());
-			container.setSubfilter2((BooleanFilterPart) getCondition().generateQueryFilterPart());
+			BooleanFilterPart sub1 = (BooleanFilterPart) getGraph().generateQueryFilterPart();
+			BooleanFilterPart sub2 = (BooleanFilterPart) getCondition().generateQueryFilterPart();
+			FormulaFilterPart container = new FormulaFilterPartImpl(LogicalOperator.AND, sub1, sub2);
 			return container;
 		}
 		else if (graph)
