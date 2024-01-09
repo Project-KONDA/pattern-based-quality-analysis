@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.javaquery;
 
-import qualitypatternmodel.javaqueryoutput.ValueInterim;
+import qualitypatternmodel.javaqueryoutput.VariableContainerInterim;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,12 +28,12 @@ public interface TwoArgFunctionFilterPart extends BooleanFilterPart {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Argument1</em>' reference.
-	 * @see #setArgument1(ValueInterim)
+	 * @see #setArgument1(VariableContainerInterim)
 	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getTwoArgFunctionFilterPart_Argument1()
 	 * @model required="true"
 	 * @generated
 	 */
-	ValueInterim getArgument1();
+	VariableContainerInterim getArgument1();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getArgument1 <em>Argument1</em>}' reference.
@@ -43,19 +43,19 @@ public interface TwoArgFunctionFilterPart extends BooleanFilterPart {
 	 * @see #getArgument1()
 	 * @generated
 	 */
-	void setArgument1(ValueInterim value);
+	void setArgument1(VariableContainerInterim value);
 
 	/**
 	 * Returns the value of the '<em><b>Argument2</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Argument2</em>' reference.
-	 * @see #setArgument2(ValueInterim)
+	 * @see #setArgument2(VariableContainerInterim)
 	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getTwoArgFunctionFilterPart_Argument2()
 	 * @model required="true"
 	 * @generated
 	 */
-	ValueInterim getArgument2();
+	VariableContainerInterim getArgument2();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.javaquery.TwoArgFunctionFilterPart#getArgument2 <em>Argument2</em>}' reference.
@@ -65,8 +65,8 @@ public interface TwoArgFunctionFilterPart extends BooleanFilterPart {
 	 * @see #getArgument2()
 	 * @generated
 	 */
-	void setArgument2(ValueInterim value);
-	
+	void setArgument2(VariableContainerInterim value);
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

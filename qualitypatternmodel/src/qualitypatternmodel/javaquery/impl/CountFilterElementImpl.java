@@ -79,7 +79,7 @@ public class CountFilterElementImpl extends NumberFilterPartImpl implements Coun
 		EList<InterimResult> arguments = param.getSubresult();
 		int i = 0;
 		for (InterimResult argument: arguments)
-			if (getSubfilter().apply(argument))
+			if (getSubfilter().apply(argument).stream().allMatch(Boolean::booleanValue))
 				i++;
 		return (double) i;
 		

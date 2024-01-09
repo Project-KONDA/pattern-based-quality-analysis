@@ -3,6 +3,7 @@
 package qualitypatternmodel.javaquery;
 
 import java.util.List;
+import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
@@ -25,7 +26,7 @@ public interface BooleanFilterPart extends JavaFilterPart {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	Boolean apply(InterimResult parameter) throws InvalidityException;
+	EList<Boolean> apply(InterimResult parameter) throws InvalidityException;
 
 	static BooleanFilterPart combine(List<BooleanFilterPart> filterparts) {
 		if (filterparts == null || filterparts.isEmpty())

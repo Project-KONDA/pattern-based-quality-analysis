@@ -108,13 +108,15 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 	}
 
 	@Override
-	public Boolean apply(InterimResult parameter) throws InvalidityException {
+	public EList<Boolean> apply(InterimResult parameter) throws InvalidityException {
 		assert(parameter instanceof ContainerResult);
 		InterimResult argument1 = ((ContainerResult)parameter).getSubresult().get(0);
 		InterimResult argument2 = ((ContainerResult)parameter).getSubresult().get(1);
 		Double result1 = getSubfilter1().apply(argument1);
 		Double result2 = getSubfilter2().apply(argument2);
-		return ComparisonOperator.evaluate(getOperator(), result1, result2);
+		EList<Boolean> res = new BasicEList<Boolean>();
+		res.add(ComparisonOperator.evaluate(getOperator(), result1, result2));
+		return res;
 	}
 
 	@Override

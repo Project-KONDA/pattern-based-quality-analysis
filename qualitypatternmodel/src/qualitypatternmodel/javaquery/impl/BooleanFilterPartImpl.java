@@ -44,7 +44,7 @@ public abstract class BooleanFilterPartImpl extends JavaFilterPartImpl implement
 	 * @generated NOT
 	 */
 	@Override
-	abstract public Boolean apply(InterimResult parameter) throws InvalidityException;
+	abstract public EList<Boolean> apply(InterimResult parameter) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

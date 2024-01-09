@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.javaquery;
 
-import qualitypatternmodel.javaqueryoutput.ValueInterim;
+import qualitypatternmodel.javaqueryoutput.VariableContainerInterim;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,12 +27,12 @@ public interface OneArgFunctionFilterPart extends BooleanFilterPart {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Argument</em>' reference.
-	 * @see #setArgument(ValueInterim)
+	 * @see #setArgument(VariableContainerInterim)
 	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getOneArgFunctionFilterPart_Argument()
 	 * @model required="true"
 	 * @generated
 	 */
-	ValueInterim getArgument();
+	VariableContainerInterim getArgument();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.javaquery.OneArgFunctionFilterPart#getArgument <em>Argument</em>}' reference.
@@ -42,7 +42,7 @@ public interface OneArgFunctionFilterPart extends BooleanFilterPart {
 	 * @see #getArgument()
 	 * @generated
 	 */
-	void setArgument(ValueInterim value);
+	void setArgument(VariableContainerInterim value);
 
 	/**
 	 * Returns the value of the '<em><b>Negate</b></em>' attribute.

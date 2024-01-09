@@ -110,7 +110,7 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 	}
 	
 	@Override
-	public Boolean apply(InterimResult parameter) throws InvalidityException {
+	public EList<Boolean> apply(InterimResult parameter) throws InvalidityException {
 		assert(parameter instanceof ContainerResult);
 		assert(((ContainerResult) parameter).getCorrespondsTo() instanceof FixedContainerInterim);
 		assert(((FixedContainerInterim) ((ContainerResult) parameter).getCorrespondsTo()).getSize() == 2);
@@ -119,9 +119,11 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 			throw new InvalidityException(parameter + " is not of size 2");
 		InterimResult argument1 = param.getSubresult().get(0);
 		InterimResult argument2 = param.getSubresult().get(1);
-		Boolean result1 = getSubfilter1().apply(argument1);
-		Boolean result2 = getSubfilter2().apply(argument2);
-		return LogicalOperator.evaluate(getOperator(), result1, result2);
+		Boolean result1 = getSubfilter1().apply(argument1).stream().allMatch(Boolean::booleanValue);
+		Boolean result2 = getSubfilter2().apply(argument2).stream().allMatch(Boolean::booleanValue);
+		EList<Boolean> res = new BasicEList<Boolean>();
+		res.add(LogicalOperator.evaluate(getOperator(), result1, result2));
+		return res;
 	};
 
 	@Override

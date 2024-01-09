@@ -120,16 +120,21 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 	@Override
 	public Boolean isValidToCorresponding() {
 		if (getCorrespondsTo() == null || !(getCorrespondsTo() instanceof ContainerInterim )) {
+//			System.out.println("CR 123 size not correct: " + this.getClass().getSimpleName() + " " + getCorrespondsTo());
 			return false;
 		}
 		ContainerInterim container = (ContainerInterim) getCorrespondsTo();
 		Integer size = container.getSize();
 		
 		if (size == -1) {
-			return getSubresult().stream().allMatch(x-> x.isValidToCorresponding());
+			Boolean res = getSubresult().stream().allMatch(x-> x.isValidToCorresponding());
+//			System.out.println("CR 131 res: " + res + " " + getSubresult());
+			return res;
 		} else {
-			if (size != getSubresult().size())
+			if (size != getSubresult().size()) {
+//				System.out.println("CR 135 size not correct: " + size + " <> " + getSubresult().size());
 				return false;
+			}
 
 			FixedContainerInterim fixed = ((FixedContainerInterim) container);
 			for (int i = 0; i < size; i++) {
@@ -140,8 +145,10 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 					e.printStackTrace();
 					return false;
 				}
-				if (!interim.isValidToCorresponding())
+				if (!interim.isValidToCorresponding()) {
+//					System.out.println("CR 144 interim not valid to corresponding");
 					return false;
+				}	
 			}
 			return true;
 		}

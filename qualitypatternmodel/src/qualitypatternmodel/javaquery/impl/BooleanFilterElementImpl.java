@@ -53,10 +53,12 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 	}
 	
 	@Override
-	public Boolean apply(InterimResult parameter) {
+	public EList<Boolean> apply(InterimResult parameter) {
 		assert(parameter instanceof ValueResult);
 		String value = ((ValueResult) parameter).getValue();
-		return value.contains("true");
+		EList<Boolean> res = new BasicEList<Boolean>();
+		res.add(value.contains("true"));
+		return res;
 	};
 
 	@Override

@@ -4,6 +4,7 @@ package qualitypatternmodel.javaquery.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -56,8 +57,12 @@ public class NotFilterPartImpl extends BooleanFilterPartImpl implements NotFilte
 	}
 
 	@Override
-	public Boolean apply(InterimResult parameter) throws InvalidityException {
-		return !getSubfilter().apply(parameter);
+	public EList<Boolean> apply(InterimResult parameter) throws InvalidityException {
+		EList<Boolean> invertedList = new BasicEList<>();
+        for (boolean value : getSubfilter().apply(parameter)) {
+            invertedList.add(!value);
+        }
+		return invertedList;
 	};
 
 	@Override
