@@ -407,8 +407,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 		EList<InterimResultContainer> interims = getInterimResults();
 		EList<String> results = new BasicEList<String>();
 		for (InterimResultContainer ir: interims) {
-			List<Boolean> res = getFilter().apply(ir.getParameter());
-			if (res.stream().allMatch(Boolean::booleanValue)) {
+			if (getFilter().apply(ir.getParameter())) {
 				InterimResult ret = ir.getReturn();
 				if (ret instanceof ValueResult)
 					results.add(((ValueResult) ret).getValue());

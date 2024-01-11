@@ -11,16 +11,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.OneArgFunctionFilterPart;
-import qualitypatternmodel.javaqueryoutput.VariableContainerInterim;
-import qualitypatternmodel.javaqueryoutput.ContainerResult;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
+import qualitypatternmodel.javaqueryoutput.ValueInterim;
 import qualitypatternmodel.javaqueryoutput.ValueResult;
-import qualitypatternmodel.javaqueryoutput.impl.VariableContainerInterimImpl;
 import qualitypatternmodel.javaqueryoutput.impl.ValueInterimImpl;
 
 /**
@@ -54,7 +50,7 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected VariableContainerInterim argument;
+	protected ValueInterim argument;
 
 	/**
 	 * The default value of the '{@link #isNegate() <em>Negate</em>}' attribute.
@@ -82,30 +78,21 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	 */
 	public OneArgFunctionFilterPartImpl() {
 		super();
-		VariableContainerInterim container = new VariableContainerInterimImpl();
-		container.setContained(new ValueInterimImpl());
-		setArgument(container);
+		setArgument(new ValueInterimImpl());
 	}
 	
 	public OneArgFunctionFilterPartImpl(Function f) {
 		super();
 		function = f;
-		VariableContainerInterim container = new VariableContainerInterimImpl();
-		container.setContained(new ValueInterimImpl());
-		setArgument(container);
+		setArgument(new ValueInterimImpl());
 	}
 	
 	@Override
-	public EList<Boolean> apply(InterimResult parameter) throws InvalidityException {
-		if (!(parameter instanceof ContainerResult)) 
-			throw new InvalidityException();
-		if (! ((ContainerResult) parameter).getSubresult().stream().allMatch(x -> x instanceof ValueResult))
-			throw new InvalidityException();
+	public Boolean apply(InterimResult parameter) {
+		assert(parameter instanceof ValueResult);
+		String value = ((ValueResult) parameter).getValue();
+		return function.evaluate(value);
 		
-		EList<Boolean> res = new BasicEList<Boolean>();
-		for (InterimResult value: ((ContainerResult) parameter).getSubresult())
-			res.add(apply(((ValueResult) value).getValue()));
-		return res;
 	};
 
 	@Override
@@ -140,10 +127,10 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	 * @generated
 	 */
 	@Override
-	public VariableContainerInterim getArgument() {
+	public ValueInterim getArgument() {
 		if (argument != null && argument.eIsProxy()) {
 			InternalEObject oldArgument = (InternalEObject)argument;
-			argument = (VariableContainerInterim)eResolveProxy(oldArgument);
+			argument = (ValueInterim)eResolveProxy(oldArgument);
 			if (argument != oldArgument) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT, oldArgument, argument));
@@ -157,7 +144,7 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VariableContainerInterim basicGetArgument() {
+	public ValueInterim basicGetArgument() {
 		return argument;
 	}
 
@@ -167,8 +154,8 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	 * @generated
 	 */
 	@Override
-	public void setArgument(VariableContainerInterim newArgument) {
-		VariableContainerInterim oldArgument = argument;
+	public void setArgument(ValueInterim newArgument) {
+		ValueInterim oldArgument = argument;
 		argument = newArgument;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT, oldArgument, argument));
@@ -204,7 +191,9 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	 */
 	@Override
 	public Boolean apply(String param1) {
-		return function.evaluate(param1);
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -233,7 +222,7 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT:
-				setArgument((VariableContainerInterim)newValue);
+				setArgument((ValueInterim)newValue);
 				return;
 			case JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__NEGATE:
 				setNegate((Boolean)newValue);
@@ -251,7 +240,7 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT:
-				setArgument((VariableContainerInterim)null);
+				setArgument((ValueInterim)null);
 				return;
 			case JavaqueryPackage.ONE_ARG_FUNCTION_FILTER_PART__NEGATE:
 				setNegate(NEGATE_EDEFAULT);

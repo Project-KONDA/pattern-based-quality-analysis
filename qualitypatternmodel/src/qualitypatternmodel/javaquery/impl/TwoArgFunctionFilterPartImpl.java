@@ -14,8 +14,7 @@ import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.TwoArgFunctionFilterPart;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
-import qualitypatternmodel.javaqueryoutput.VariableContainerInterim;
-import qualitypatternmodel.javaqueryoutput.impl.VariableContainerInterimImpl;
+import qualitypatternmodel.javaqueryoutput.ValueInterim;
 import qualitypatternmodel.javaqueryoutput.impl.ValueInterimImpl;
 
 /**
@@ -48,7 +47,7 @@ public abstract class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl
 	 * @generated
 	 * @ordered
 	 */
-	protected VariableContainerInterim argument1;
+	protected ValueInterim argument1;
 
 	/**
 	 * The cached value of the '{@link #getArgument2() <em>Argument2</em>}' reference.
@@ -58,7 +57,7 @@ public abstract class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl
 	 * @generated
 	 * @ordered
 	 */
-	protected VariableContainerInterim argument2;
+	protected ValueInterim argument2;
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -67,27 +66,19 @@ public abstract class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl
 	 */
 	protected TwoArgFunctionFilterPartImpl() {
 		super();
-		VariableContainerInterim container1 = new VariableContainerInterimImpl();
-		container1.setContained(new ValueInterimImpl());
-		setArgument1(container1);
-		VariableContainerInterim container2 = new VariableContainerInterimImpl();
-		container2.setContained(new ValueInterimImpl());
-		setArgument2(container1);
+		setArgument1(new ValueInterimImpl());
+		setArgument2(new ValueInterimImpl());
 	}
 	
 	protected TwoArgFunctionFilterPartImpl(Function f) {
 		super();
 		setFunction(f);
-		VariableContainerInterim container1 = new VariableContainerInterimImpl();
-		container1.setContained(new ValueInterimImpl());
-		setArgument1(container1);
-		VariableContainerInterim container2 = new VariableContainerInterimImpl();
-		container2.setContained(new ValueInterimImpl());
-		setArgument2(container1);
+		setArgument1(new ValueInterimImpl());
+		setArgument2(new ValueInterimImpl());
 	}
 	
 	@Override
-	abstract public EList<Boolean> apply(InterimResult parameter);
+	abstract public Boolean apply(InterimResult parameter);
 
 	@Override
 	public EList<InterimResultPart> getArguments() {
@@ -122,10 +113,10 @@ public abstract class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl
 	 * @generated
 	 */
 	@Override
-	public VariableContainerInterim getArgument1() {
+	public ValueInterim getArgument1() {
 		if (argument1 != null && argument1.eIsProxy()) {
 			InternalEObject oldArgument1 = (InternalEObject)argument1;
-			argument1 = (VariableContainerInterim)eResolveProxy(oldArgument1);
+			argument1 = (ValueInterim)eResolveProxy(oldArgument1);
 			if (argument1 != oldArgument1) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT1, oldArgument1, argument1));
@@ -139,7 +130,7 @@ public abstract class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VariableContainerInterim basicGetArgument1() {
+	public ValueInterim basicGetArgument1() {
 		return argument1;
 	}
 
@@ -149,8 +140,8 @@ public abstract class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl
 	 * @generated
 	 */
 	@Override
-	public void setArgument1(VariableContainerInterim newArgument1) {
-		VariableContainerInterim oldArgument1 = argument1;
+	public void setArgument1(ValueInterim newArgument1) {
+		ValueInterim oldArgument1 = argument1;
 		argument1 = newArgument1;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT1, oldArgument1, argument1));
@@ -162,10 +153,10 @@ public abstract class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl
 	 * @generated
 	 */
 	@Override
-	public VariableContainerInterim getArgument2() {
+	public ValueInterim getArgument2() {
 		if (argument2 != null && argument2.eIsProxy()) {
 			InternalEObject oldArgument2 = (InternalEObject)argument2;
-			argument2 = (VariableContainerInterim)eResolveProxy(oldArgument2);
+			argument2 = (ValueInterim)eResolveProxy(oldArgument2);
 			if (argument2 != oldArgument2) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT2, oldArgument2, argument2));
@@ -179,7 +170,7 @@ public abstract class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VariableContainerInterim basicGetArgument2() {
+	public ValueInterim basicGetArgument2() {
 		return argument2;
 	}
 
@@ -189,8 +180,8 @@ public abstract class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl
 	 * @generated
 	 */
 	@Override
-	public void setArgument2(VariableContainerInterim newArgument2) {
-		VariableContainerInterim oldArgument2 = argument2;
+	public void setArgument2(ValueInterim newArgument2) {
+		ValueInterim oldArgument2 = argument2;
 		argument2 = newArgument2;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT2, oldArgument2, argument2));
@@ -235,10 +226,10 @@ public abstract class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT1:
-				setArgument1((VariableContainerInterim)newValue);
+				setArgument1((ValueInterim)newValue);
 				return;
 			case JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT2:
-				setArgument2((VariableContainerInterim)newValue);
+				setArgument2((ValueInterim)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -253,10 +244,10 @@ public abstract class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT1:
-				setArgument1((VariableContainerInterim)null);
+				setArgument1((ValueInterim)null);
 				return;
 			case JavaqueryPackage.TWO_ARG_FUNCTION_FILTER_PART__ARGUMENT2:
-				setArgument2((VariableContainerInterim)null);
+				setArgument2((ValueInterim)null);
 				return;
 		}
 		super.eUnset(featureID);

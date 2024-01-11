@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.javaquery;
 
-import qualitypatternmodel.javaqueryoutput.FixedContainerInterim;
+import qualitypatternmodel.javaqueryoutput.VariableContainerInterim;
 import qualitypatternmodel.patternstructure.Quantifier;
 
 /**
@@ -51,12 +51,12 @@ public interface ListFilterPart extends BooleanFilterPart {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Argument</em>' reference.
-	 * @see #setArgument(FixedContainerInterim)
+	 * @see #setArgument(VariableContainerInterim)
 	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getListFilterPart_Argument()
 	 * @model required="true"
 	 * @generated
 	 */
-	FixedContainerInterim getArgument();
+	VariableContainerInterim getArgument();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.javaquery.ListFilterPart#getArgument <em>Argument</em>}' reference.
@@ -66,7 +66,7 @@ public interface ListFilterPart extends BooleanFilterPart {
 	 * @see #getArgument()
 	 * @generated
 	 */
-	void setArgument(FixedContainerInterim value);
+	void setArgument(VariableContainerInterim value);
 
 	/**
 	 * Returns the value of the '<em><b>Quantifier</b></em>' attribute.

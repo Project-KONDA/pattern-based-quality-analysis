@@ -71,8 +71,7 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 	
 	@Override
 	public Boolean isValidToCorresponding() {
-		return true;
-//		return getCorrespondsTo() != null && value != null;
+		return getCorrespondsTo() != null && value != null;
 	}
 	
 	
