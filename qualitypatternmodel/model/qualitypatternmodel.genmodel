@@ -1278,6 +1278,12 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaquery/NumberValueFilterElement">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaquery/NumberValueFilterElement/number"/>
       </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//javaquery/QuantifierFilterPart">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaquery/QuantifierFilterPart/subfilter"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaquery/QuantifierFilterPart/argument"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaquery/QuantifierFilterPart/quantifier"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Javaqueryoutput" disposableProviderFactory="true" ecorePackage="qualitypatternmodel.ecore#//javaqueryoutput">
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultStructure">

@@ -958,6 +958,79 @@ public interface JavaqueryPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.QuantifierFilterPartImpl <em>Quantifier Filter Part</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaquery.impl.QuantifierFilterPartImpl
+	 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getQuantifierFilterPart()
+	 * @generated
+	 */
+	int QUANTIFIER_FILTER_PART = 14;
+
+	/**
+	 * The feature id for the '<em><b>Subfilter</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIER_FILTER_PART__SUBFILTER = BOOLEAN_FILTER_PART_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Argument</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIER_FILTER_PART__ARGUMENT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Quantifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIER_FILTER_PART__QUANTIFIER = BOOLEAN_FILTER_PART_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Quantifier Filter Part</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIER_FILTER_PART_FEATURE_COUNT = BOOLEAN_FILTER_PART_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get Arguments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIER_FILTER_PART___GET_ARGUMENTS = BOOLEAN_FILTER_PART___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIER_FILTER_PART___APPLY__INTERIMRESULT = BOOLEAN_FILTER_PART___APPLY__INTERIMRESULT;
+
+	/**
+	 * The number of operations of the '<em>Quantifier Filter Part</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIER_FILTER_PART_OPERATION_COUNT = BOOLEAN_FILTER_PART_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '<em>String List Wrapper</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -965,7 +1038,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getStringListWrapper()
 	 * @generated
 	 */
-	int STRING_LIST_WRAPPER = 14;
+	int STRING_LIST_WRAPPER = 15;
 
 
 	/**
@@ -976,7 +1049,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getObjectListWrapper()
 	 * @generated
 	 */
-	int OBJECT_LIST_WRAPPER = 15;
+	int OBJECT_LIST_WRAPPER = 16;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.JavaFilter <em>Java Filter</em>}'.
@@ -1113,6 +1186,49 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getNumberValueFilterElement_Number();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.QuantifierFilterPart <em>Quantifier Filter Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Quantifier Filter Part</em>'.
+	 * @see qualitypatternmodel.javaquery.QuantifierFilterPart
+	 * @generated
+	 */
+	EClass getQuantifierFilterPart();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.javaquery.QuantifierFilterPart#getSubfilter <em>Subfilter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Subfilter</em>'.
+	 * @see qualitypatternmodel.javaquery.QuantifierFilterPart#getSubfilter()
+	 * @see #getQuantifierFilterPart()
+	 * @generated
+	 */
+	EReference getQuantifierFilterPart_Subfilter();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.javaquery.QuantifierFilterPart#getArgument <em>Argument</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Argument</em>'.
+	 * @see qualitypatternmodel.javaquery.QuantifierFilterPart#getArgument()
+	 * @see #getQuantifierFilterPart()
+	 * @generated
+	 */
+	EReference getQuantifierFilterPart_Argument();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.javaquery.QuantifierFilterPart#getQuantifier <em>Quantifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Quantifier</em>'.
+	 * @see qualitypatternmodel.javaquery.QuantifierFilterPart#getQuantifier()
+	 * @see #getQuantifierFilterPart()
+	 * @generated
+	 */
+	EAttribute getQuantifierFilterPart_Quantifier();
 
 	/**
 	 * Returns the meta object for data type '{@link java.util.List <em>String List Wrapper</em>}'.
@@ -1638,6 +1754,40 @@ public interface JavaqueryPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute NUMBER_VALUE_FILTER_ELEMENT__NUMBER = eINSTANCE.getNumberValueFilterElement_Number();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.QuantifierFilterPartImpl <em>Quantifier Filter Part</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.javaquery.impl.QuantifierFilterPartImpl
+		 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getQuantifierFilterPart()
+		 * @generated
+		 */
+		EClass QUANTIFIER_FILTER_PART = eINSTANCE.getQuantifierFilterPart();
+
+		/**
+		 * The meta object literal for the '<em><b>Subfilter</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUANTIFIER_FILTER_PART__SUBFILTER = eINSTANCE.getQuantifierFilterPart_Subfilter();
+
+		/**
+		 * The meta object literal for the '<em><b>Argument</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUANTIFIER_FILTER_PART__ARGUMENT = eINSTANCE.getQuantifierFilterPart_Argument();
+
+		/**
+		 * The meta object literal for the '<em><b>Quantifier</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUANTIFIER_FILTER_PART__QUANTIFIER = eINSTANCE.getQuantifierFilterPart_Quantifier();
 
 		/**
 		 * The meta object literal for the '<em>String List Wrapper</em>' data type.

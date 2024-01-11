@@ -223,6 +223,11 @@ public class FormulaFilterPartItemProvider extends BooleanFilterPartItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER1,
+				 JavaqueryFactory.eINSTANCE.createQuantifierFilterPart()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER2,
 				 JavaqueryFactory.eINSTANCE.createFormulaFilterPart()));
 
@@ -250,6 +255,11 @@ public class FormulaFilterPartItemProvider extends BooleanFilterPartItemProvider
 			(createChildParameter
 				(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER2,
 				 JavaqueryFactory.eINSTANCE.createCountFilterPart()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaqueryPackage.Literals.FORMULA_FILTER_PART__SUBFILTER2,
+				 JavaqueryFactory.eINSTANCE.createQuantifierFilterPart()));
 	}
 
 	/**

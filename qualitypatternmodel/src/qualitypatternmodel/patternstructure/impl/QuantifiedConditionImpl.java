@@ -5,6 +5,9 @@ package qualitypatternmodel.patternstructure.impl;
 import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIED;
 import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIEDSTART;
 import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIEDEND;
+//import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIER;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIERSTART;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIEREND;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
@@ -36,6 +39,7 @@ import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.javaquery.impl.BooleanFilterElementImpl;
 import qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl;
 import qualitypatternmodel.javaquery.impl.ListFilterPartImpl;
+import qualitypatternmodel.javaquery.impl.QuantifierFilterPartImpl;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.Condition;
@@ -143,24 +147,39 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
 		if (containsJavaOperator()) {
-			BooleanFilterPart subfilter;
+			EList<BooleanFilterPart> subfilter = new BasicEList<BooleanFilterPart>();
 			Boolean graph = getGraph().containsJavaOperator();
 			Boolean condition = getCondition().containsJavaOperator();
-			if (graph && condition) {
-				subfilter = new FormulaFilterPartImpl(
-					LogicalOperator.AND,
-					(BooleanFilterPart) getGraph().generateQueryFilterPart(),
-					(BooleanFilterPart) getCondition().generateQueryFilterPart());
-			} else if (graph) {
-				subfilter = (BooleanFilterPart) getGraph().generateQueryFilterPart();
-				if (subfilter instanceof FormulaFilterPartImpl) {
-					FormulaFilterPartImpl formula = (FormulaFilterPartImpl) subfilter;
-					formula.addQuantifiersToArguments(getQuantifier());
-					return formula;
-				}
-			} else 
-				subfilter = (BooleanFilterPart) getCondition().generateQueryFilterPart();
-			return new ListFilterPartImpl(getQuantifier(), subfilter);
+			
+			if (graph) {
+				BooleanFilterPart graphFilter = (BooleanFilterPart) getGraph().generateQueryFilterPart();
+				subfilter.add(new ListFilterPartImpl(getQuantifier(), graphFilter));
+				
+			}
+
+			if (condition) {
+				BooleanFilterPart conditionFilter = (BooleanFilterPart) getCondition().generateQueryFilterPart();
+				subfilter.add(new ListFilterPartImpl(getQuantifier(), conditionFilter));
+				
+			}
+//			if (graph && condition) {
+//				subfilter = new FormulaFilterPartImpl(
+//					LogicalOperator.AND,
+//					(BooleanFilterPart) getGraph().generateQueryFilterPart(),
+//					(BooleanFilterPart) getCondition().generateQueryFilterPart());
+//			} else if (graph) {
+//				subfilter = (BooleanFilterPart) getGraph().generateQueryFilterPart();
+//				if (subfilter instanceof FormulaFilterPartImpl) {
+//					FormulaFilterPartImpl formula = (FormulaFilterPartImpl) subfilter;
+//					formula.addQuantifiersToArguments(getQuantifier());
+//					return formula;
+//				}
+//			} else 
+//				subfilter = (BooleanFilterPart) getCondition().generateQueryFilterPart();
+//			return new ListFilterPartImpl(getQuantifier(), subfilter);
+			
+
+			return new QuantifierFilterPartImpl(subfilter);
 		}
 		return new BooleanFilterElementImpl();
 	}
@@ -193,7 +212,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		Boolean graphJava = getGraph().containsJavaOperator();
 		Boolean conditionJava = getCondition().containsJavaOperator();
 		String graphString = getGraph().generateXQueryJavaReturn();
-		String conditionString = getCondition().generateXQueryJavaReturn();
+		String conditionString = QUANTIFIEDSTART + ",\n  " + getCondition().generateXQueryJavaReturn() + ",\n  " + QUANTIFIEDEND;
 		
 		String result = "";
 		if (!graphJava && !conditionJava)
@@ -204,10 +223,10 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			result = JavaQueryTranslationUtility.getXQueryReturnList(List.of(graphString), QUANTIFIED, false, false, false);
 		else {
 //			result = JavaQueryTranslationUtility.getXQueryReturnList(List.of(graphString + conditionString), QUANTIFIED, false, true, false);
-			result = QUANTIFIEDSTART + ",\n  ";
+			result = QUANTIFIERSTART + ",\n  ";
 			result += "(\n  " + graphString;
 			result += conditionString + "),\n  ";
-			result += QUANTIFIEDEND;
+			result += QUANTIFIEREND;
 			result = Constants.addMissingBrackets(result);
 		}
 		return result;

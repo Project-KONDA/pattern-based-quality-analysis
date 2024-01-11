@@ -50,6 +50,7 @@ import qualitypatternmodel.javaquery.NumberFilterElement;
 import qualitypatternmodel.javaquery.NumberFilterPart;
 import qualitypatternmodel.javaquery.NumberValueFilterElement;
 import qualitypatternmodel.javaquery.OneArgFunctionFilterPart;
+import qualitypatternmodel.javaquery.QuantifierFilterPart;
 import qualitypatternmodel.javaquery.TwoArgFunctionFilterPart;
 
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
@@ -96,6 +97,13 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	private EClass numberValueFilterElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass quantifierFilterPartEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -422,6 +430,46 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	@Override
 	public EAttribute getNumberValueFilterElement_Number() {
 		return (EAttribute)numberValueFilterElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getQuantifierFilterPart() {
+		return quantifierFilterPartEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getQuantifierFilterPart_Subfilter() {
+		return (EReference)quantifierFilterPartEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getQuantifierFilterPart_Argument() {
+		return (EReference)quantifierFilterPartEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getQuantifierFilterPart_Quantifier() {
+		return (EAttribute)quantifierFilterPartEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -885,6 +933,11 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		numberValueFilterElementEClass = createEClass(NUMBER_VALUE_FILTER_ELEMENT);
 		createEAttribute(numberValueFilterElementEClass, NUMBER_VALUE_FILTER_ELEMENT__NUMBER);
 
+		quantifierFilterPartEClass = createEClass(QUANTIFIER_FILTER_PART);
+		createEReference(quantifierFilterPartEClass, QUANTIFIER_FILTER_PART__SUBFILTER);
+		createEReference(quantifierFilterPartEClass, QUANTIFIER_FILTER_PART__ARGUMENT);
+		createEAttribute(quantifierFilterPartEClass, QUANTIFIER_FILTER_PART__QUANTIFIER);
+
 		// Create data types
 		stringListWrapperEDataType = createEDataType(STRING_LIST_WRAPPER);
 		objectListWrapperEDataType = createEDataType(OBJECT_LIST_WRAPPER);
@@ -935,6 +988,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		countFilterElementEClass.getESuperTypes().add(this.getNumberFilterPart());
 		numberFilterElementEClass.getESuperTypes().add(this.getNumberFilterPart());
 		numberValueFilterElementEClass.getESuperTypes().add(this.getNumberFilterPart());
+		quantifierFilterPartEClass.getESuperTypes().add(this.getBooleanFilterPart());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(javaFilterEClass, JavaFilter.class, "JavaFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1019,6 +1073,11 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 
 		initEClass(numberValueFilterElementEClass, NumberValueFilterElement.class, "NumberValueFilterElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNumberValueFilterElement_Number(), ecorePackage.getEDoubleObject(), "number", null, 0, 1, NumberValueFilterElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(quantifierFilterPartEClass, QuantifierFilterPart.class, "QuantifierFilterPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getQuantifierFilterPart_Subfilter(), this.getBooleanFilterPart(), null, "subfilter", null, 1, -1, QuantifierFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQuantifierFilterPart_Argument(), theJavaqueryoutputPackage.getFixedContainerInterim(), null, "argument", null, 1, 1, QuantifierFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getQuantifierFilterPart_Quantifier(), thePatternstructurePackage.getQuantifier(), "quantifier", null, 0, 1, QuantifierFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(stringListWrapperEDataType, List.class, "StringListWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS, "java.util.List<String>");

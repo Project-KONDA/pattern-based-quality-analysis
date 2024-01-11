@@ -218,6 +218,11 @@ public class ListFilterPartItemProvider extends BooleanFilterPartItemProvider {
 			(createChildParameter
 				(JavaqueryPackage.Literals.LIST_FILTER_PART__SUBFILTER,
 				 JavaqueryFactory.eINSTANCE.createCountFilterPart()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaqueryPackage.Literals.LIST_FILTER_PART__SUBFILTER,
+				 JavaqueryFactory.eINSTANCE.createQuantifierFilterPart()));
 	}
 
 }

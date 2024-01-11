@@ -1557,6 +1557,13 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="StringListWrapper" instanceClassName="java.util.List&lt;String>"/>
     <eClassifiers xsi:type="ecore:EDataType" name="ObjectListWrapper" instanceClassName="java.util.List&lt;Object>"/>
+    <eClassifiers xsi:type="ecore:EClass" name="QuantifierFilterPart" eSuperTypes="#//javaquery/BooleanFilterPart">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subfilter" lowerBound="1"
+          upperBound="-1" eType="#//javaquery/BooleanFilterPart" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
+          eType="#//javaqueryoutput/FixedContainerInterim"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier" eType="#//patternstructure/Quantifier"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="javaqueryoutput" nsURI="javaqueryoutput" nsPrefix="javaqueryoutput">
     <eClassifiers xsi:type="ecore:EClass" name="InterimResultStructure">

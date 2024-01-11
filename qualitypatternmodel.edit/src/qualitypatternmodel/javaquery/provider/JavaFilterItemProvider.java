@@ -263,6 +263,11 @@ public class JavaFilterItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(JavaqueryPackage.Literals.JAVA_FILTER__FILTER,
+				 JavaqueryFactory.eINSTANCE.createQuantifierFilterPart()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(JavaqueryPackage.Literals.JAVA_FILTER__STRUCTURE,
 				 JavaqueryoutputFactory.eINSTANCE.createInterimResultStructure()));
 	}

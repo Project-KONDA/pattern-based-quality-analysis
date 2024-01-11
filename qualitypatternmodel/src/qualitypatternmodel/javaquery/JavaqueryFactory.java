@@ -112,6 +112,15 @@ public interface JavaqueryFactory extends EFactory {
 	NumberValueFilterElement createNumberValueFilterElement();
 
 	/**
+	 * Returns a new object of class '<em>Quantifier Filter Part</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Quantifier Filter Part</em>'.
+	 * @generated
+	 */
+	QuantifierFilterPart createQuantifierFilterPart();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

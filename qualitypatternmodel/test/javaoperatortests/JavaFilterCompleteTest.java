@@ -20,7 +20,7 @@ public class JavaFilterCompleteTest {
 		List<JavaFilter> filters = new ArrayList<JavaFilter>();
 		
 		int from = 1;
-		int to = 1;
+		int to = 10;
 		for (int i = from-1; i<patterns.size() && i < to; i++) {
 			System.out.println("Example " + (i+1) + ":");
 			// generate Filter and structure

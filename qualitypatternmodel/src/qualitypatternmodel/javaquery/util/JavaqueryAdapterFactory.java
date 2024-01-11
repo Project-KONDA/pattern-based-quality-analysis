@@ -124,6 +124,10 @@ public class JavaqueryAdapterFactory extends AdapterFactoryImpl {
 				return createNumberValueFilterElementAdapter();
 			}
 			@Override
+			public Adapter caseQuantifierFilterPart(QuantifierFilterPart object) {
+				return createQuantifierFilterPartAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -182,6 +186,20 @@ public class JavaqueryAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNumberValueFilterElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaquery.QuantifierFilterPart <em>Quantifier Filter Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.javaquery.QuantifierFilterPart
+	 * @generated
+	 */
+	public Adapter createQuantifierFilterPartAdapter() {
 		return null;
 	}
 

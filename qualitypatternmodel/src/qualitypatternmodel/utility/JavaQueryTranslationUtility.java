@@ -20,6 +20,9 @@ public class JavaQueryTranslationUtility {
 	public static String QUANTIFIED = "quantified";
 	public static String QUANTIFIEDSTART = "\"<quantified>\"";
 	public static String QUANTIFIEDEND = "\"</quantified>\"";
+	public static String QUANTIFIER = "quantifier";
+	public static String QUANTIFIERSTART = "\"<quantifier>\"";
+	public static String QUANTIFIEREND = "\"</quantifier>\"";
 	public static String FORMULA = "formula";
 //	public static String FORMULASTART = "\"<formula>\"";
 //	public static String FORMULAEND = "\"</formula>\"";

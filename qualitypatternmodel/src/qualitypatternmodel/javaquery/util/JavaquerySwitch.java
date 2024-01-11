@@ -172,6 +172,14 @@ public class JavaquerySwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case JavaqueryPackage.QUANTIFIER_FILTER_PART: {
+				QuantifierFilterPart quantifierFilterPart = (QuantifierFilterPart)theEObject;
+				T result = caseQuantifierFilterPart(quantifierFilterPart);
+				if (result == null) result = caseBooleanFilterPart(quantifierFilterPart);
+				if (result == null) result = caseJavaFilterPart(quantifierFilterPart);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -218,6 +226,21 @@ public class JavaquerySwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNumberValueFilterElement(NumberValueFilterElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Quantifier Filter Part</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Quantifier Filter Part</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseQuantifierFilterPart(QuantifierFilterPart object) {
 		return null;
 	}
 

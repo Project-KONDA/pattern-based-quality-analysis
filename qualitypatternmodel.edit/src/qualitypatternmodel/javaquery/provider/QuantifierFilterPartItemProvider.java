@@ -13,26 +13,29 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import qualitypatternmodel.javaquery.CountFilterElement;
 import qualitypatternmodel.javaquery.JavaqueryFactory;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
+import qualitypatternmodel.javaquery.QuantifierFilterPart;
+
+import qualitypatternmodel.patternstructure.Quantifier;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.javaquery.CountFilterElement} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.javaquery.QuantifierFilterPart} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class CountFilterElementItemProvider extends NumberFilterPartItemProvider {
+public class QuantifierFilterPartItemProvider extends BooleanFilterPartItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CountFilterElementItemProvider(AdapterFactory adapterFactory) {
+	public QuantifierFilterPartItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -48,6 +51,7 @@ public class CountFilterElementItemProvider extends NumberFilterPartItemProvider
 			super.getPropertyDescriptors(object);
 
 			addArgumentPropertyDescriptor(object);
+			addQuantifierPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -63,13 +67,35 @@ public class CountFilterElementItemProvider extends NumberFilterPartItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CountFilterElement_argument_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CountFilterElement_argument_feature", "_UI_CountFilterElement_type"),
-				 JavaqueryPackage.Literals.COUNT_FILTER_ELEMENT__ARGUMENT,
+				 getString("_UI_QuantifierFilterPart_argument_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_QuantifierFilterPart_argument_feature", "_UI_QuantifierFilterPart_type"),
+				 JavaqueryPackage.Literals.QUANTIFIER_FILTER_PART__ARGUMENT,
 				 true,
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Quantifier feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addQuantifierPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_QuantifierFilterPart_quantifier_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_QuantifierFilterPart_quantifier_feature", "_UI_QuantifierFilterPart_type"),
+				 JavaqueryPackage.Literals.QUANTIFIER_FILTER_PART__QUANTIFIER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -86,7 +112,7 @@ public class CountFilterElementItemProvider extends NumberFilterPartItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(JavaqueryPackage.Literals.COUNT_FILTER_ELEMENT__SUBFILTER);
+			childrenFeatures.add(JavaqueryPackage.Literals.QUANTIFIER_FILTER_PART__SUBFILTER);
 		}
 		return childrenFeatures;
 	}
@@ -105,14 +131,14 @@ public class CountFilterElementItemProvider extends NumberFilterPartItemProvider
 	}
 
 	/**
-	 * This returns CountFilterElement.gif.
+	 * This returns QuantifierFilterPart.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CountFilterElement"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/QuantifierFilterPart"));
 	}
 
 	/**
@@ -123,7 +149,11 @@ public class CountFilterElementItemProvider extends NumberFilterPartItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_CountFilterElement_type");
+		Quantifier labelValue = ((QuantifierFilterPart)object).getQuantifier();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_QuantifierFilterPart_type") :
+			getString("_UI_QuantifierFilterPart_type") + " " + label;
 	}
 
 
@@ -138,8 +168,11 @@ public class CountFilterElementItemProvider extends NumberFilterPartItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(CountFilterElement.class)) {
-			case JavaqueryPackage.COUNT_FILTER_ELEMENT__SUBFILTER:
+		switch (notification.getFeatureID(QuantifierFilterPart.class)) {
+			case JavaqueryPackage.QUANTIFIER_FILTER_PART__QUANTIFIER:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case JavaqueryPackage.QUANTIFIER_FILTER_PART__SUBFILTER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -159,37 +192,37 @@ public class CountFilterElementItemProvider extends NumberFilterPartItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaqueryPackage.Literals.COUNT_FILTER_ELEMENT__SUBFILTER,
+				(JavaqueryPackage.Literals.QUANTIFIER_FILTER_PART__SUBFILTER,
 				 JavaqueryFactory.eINSTANCE.createFormulaFilterPart()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaqueryPackage.Literals.COUNT_FILTER_ELEMENT__SUBFILTER,
+				(JavaqueryPackage.Literals.QUANTIFIER_FILTER_PART__SUBFILTER,
 				 JavaqueryFactory.eINSTANCE.createBooleanFilterElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaqueryPackage.Literals.COUNT_FILTER_ELEMENT__SUBFILTER,
+				(JavaqueryPackage.Literals.QUANTIFIER_FILTER_PART__SUBFILTER,
 				 JavaqueryFactory.eINSTANCE.createOneArgFunctionFilterPart()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaqueryPackage.Literals.COUNT_FILTER_ELEMENT__SUBFILTER,
+				(JavaqueryPackage.Literals.QUANTIFIER_FILTER_PART__SUBFILTER,
 				 JavaqueryFactory.eINSTANCE.createListFilterPart()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaqueryPackage.Literals.COUNT_FILTER_ELEMENT__SUBFILTER,
+				(JavaqueryPackage.Literals.QUANTIFIER_FILTER_PART__SUBFILTER,
 				 JavaqueryFactory.eINSTANCE.createNotFilterPart()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaqueryPackage.Literals.COUNT_FILTER_ELEMENT__SUBFILTER,
+				(JavaqueryPackage.Literals.QUANTIFIER_FILTER_PART__SUBFILTER,
 				 JavaqueryFactory.eINSTANCE.createCountFilterPart()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JavaqueryPackage.Literals.COUNT_FILTER_ELEMENT__SUBFILTER,
+				(JavaqueryPackage.Literals.QUANTIFIER_FILTER_PART__SUBFILTER,
 				 JavaqueryFactory.eINSTANCE.createQuantifierFilterPart()));
 	}
 

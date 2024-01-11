@@ -302,6 +302,29 @@ public class JavaqueryItemProviderAdapterFactory extends JavaqueryAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaquery.QuantifierFilterPart} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected QuantifierFilterPartItemProvider quantifierFilterPartItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.javaquery.QuantifierFilterPart}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createQuantifierFilterPartAdapter() {
+		if (quantifierFilterPartItemProvider == null) {
+			quantifierFilterPartItemProvider = new QuantifierFilterPartItemProvider(this);
+		}
+
+		return quantifierFilterPartItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -416,6 +439,7 @@ public class JavaqueryItemProviderAdapterFactory extends JavaqueryAdapterFactory
 		if (countFilterElementItemProvider != null) countFilterElementItemProvider.dispose();
 		if (numberFilterElementItemProvider != null) numberFilterElementItemProvider.dispose();
 		if (numberValueFilterElementItemProvider != null) numberValueFilterElementItemProvider.dispose();
+		if (quantifierFilterPartItemProvider != null) quantifierFilterPartItemProvider.dispose();
 	}
 
 }

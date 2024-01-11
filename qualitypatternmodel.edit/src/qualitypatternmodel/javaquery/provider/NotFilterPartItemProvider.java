@@ -162,6 +162,11 @@ public class NotFilterPartItemProvider extends BooleanFilterPartItemProvider {
 			(createChildParameter
 				(JavaqueryPackage.Literals.NOT_FILTER_PART__SUBFILTER,
 				 JavaqueryFactory.eINSTANCE.createCountFilterPart()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaqueryPackage.Literals.NOT_FILTER_PART__SUBFILTER,
+				 JavaqueryFactory.eINSTANCE.createQuantifierFilterPart()));
 	}
 
 }
