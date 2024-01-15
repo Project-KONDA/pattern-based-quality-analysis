@@ -187,6 +187,18 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		return BooleanFilterPart.combine(filters);
 	}
 
+	public List<BooleanFilterPart> generateQueryFilterParts() throws InvalidityException {
+		EList<BooleanFilterPart> filters = new BasicEList<BooleanFilterPart>();
+		for (Node node: getNodes()) {
+			if (node instanceof PrimitiveNode) {
+				BooleanFilterPart filter = (BooleanFilterPart) node.generateQueryFilterPart();
+				if (filter != null)
+					filters.add(filter);
+			}
+		}
+		return filters;
+	}
+
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		String result = "";
@@ -261,6 +273,10 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			result += relationtranslation + "";
 		}
 		return result;
+	}
+
+	public String generateXQueryJavaReturnCondition() {
+		return "(";
 	}
 	
 	@Override

@@ -10,12 +10,15 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.BooleanFilterElement;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
+import qualitypatternmodel.javaqueryoutput.ContainerResult;
+import qualitypatternmodel.javaqueryoutput.FixedContainerInterim;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
-import qualitypatternmodel.javaqueryoutput.ValueInterim;
 import qualitypatternmodel.javaqueryoutput.ValueResult;
+import qualitypatternmodel.javaqueryoutput.impl.FixedContainerInterimImpl;
 import qualitypatternmodel.javaqueryoutput.impl.ValueInterimImpl;
 
 /**
@@ -40,7 +43,7 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 	 * @generated
 	 * @ordered
 	 */
-	protected ValueInterim argument;
+	protected FixedContainerInterim argument;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -49,13 +52,21 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 	 */
 	public BooleanFilterElementImpl() {
 		super();
-		setArgument(new ValueInterimImpl());
+		FixedContainerInterim container = new FixedContainerInterimImpl();
+		container.getContained().add(new ValueInterimImpl());
+		setArgument(container);
 	}
 	
 	@Override
-	public Boolean apply(InterimResult parameter) {
-		assert(parameter instanceof ValueResult);
-		String value = ((ValueResult) parameter).getValue();
+	public Boolean apply(InterimResult parameter) throws InvalidityException{
+		if (!(parameter instanceof ContainerResult))
+			throw new InvalidityException();
+		ContainerResult container = (ContainerResult) parameter;
+		if (container.getSubresult() == null || container.getSubresult().isEmpty())
+			return false;
+		else if (!(container.getSubresult().get(0) instanceof ValueResult))
+			throw new InvalidityException();
+		String value = ((ValueResult) container.getSubresult().get(0)).getValue();
 		return value.contains("true");
 	};
 
@@ -91,10 +102,10 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 	 * @generated
 	 */
 	@Override
-	public ValueInterim getArgument() {
+	public FixedContainerInterim getArgument() {
 		if (argument != null && argument.eIsProxy()) {
 			InternalEObject oldArgument = (InternalEObject)argument;
-			argument = (ValueInterim)eResolveProxy(oldArgument);
+			argument = (FixedContainerInterim)eResolveProxy(oldArgument);
 			if (argument != oldArgument) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaqueryPackage.BOOLEAN_FILTER_ELEMENT__ARGUMENT, oldArgument, argument));
@@ -108,7 +119,7 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ValueInterim basicGetArgument() {
+	public FixedContainerInterim basicGetArgument() {
 		return argument;
 	}
 
@@ -118,8 +129,8 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 	 * @generated
 	 */
 	@Override
-	public void setArgument(ValueInterim newArgument) {
-		ValueInterim oldArgument = argument;
+	public void setArgument(FixedContainerInterim newArgument) {
+		FixedContainerInterim oldArgument = argument;
 		argument = newArgument;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.BOOLEAN_FILTER_ELEMENT__ARGUMENT, oldArgument, argument));
@@ -149,7 +160,7 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case JavaqueryPackage.BOOLEAN_FILTER_ELEMENT__ARGUMENT:
-				setArgument((ValueInterim)newValue);
+				setArgument((FixedContainerInterim)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -164,7 +175,7 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case JavaqueryPackage.BOOLEAN_FILTER_ELEMENT__ARGUMENT:
-				setArgument((ValueInterim)null);
+				setArgument((FixedContainerInterim)null);
 				return;
 		}
 		super.eUnset(featureID);

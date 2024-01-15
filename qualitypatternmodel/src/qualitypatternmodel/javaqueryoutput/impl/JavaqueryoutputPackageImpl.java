@@ -364,6 +364,16 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 	 * @generated
 	 */
 	@Override
+	public EAttribute getFixedContainerInterim_CanBeEmpty() {
+		return (EAttribute)fixedContainerInterimEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getInterimResult() {
 		return interimResultEClass;
 	}
@@ -563,6 +573,7 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 
 		fixedContainerInterimEClass = createEClass(FIXED_CONTAINER_INTERIM);
 		createEReference(fixedContainerInterimEClass, FIXED_CONTAINER_INTERIM__CONTAINED);
+		createEAttribute(fixedContainerInterimEClass, FIXED_CONTAINER_INTERIM__CAN_BE_EMPTY);
 
 		interimResultEClass = createEClass(INTERIM_RESULT);
 		createEReference(interimResultEClass, INTERIM_RESULT__CORRESPONDS_TO);
@@ -641,6 +652,7 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 
 		initEClass(fixedContainerInterimEClass, FixedContainerInterim.class, "FixedContainerInterim", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFixedContainerInterim_Contained(), this.getInterimResultPart(), null, "contained", null, 1, -1, FixedContainerInterim.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFixedContainerInterim_CanBeEmpty(), ecorePackage.getEBooleanObject(), "canBeEmpty", "false", 0, 1, FixedContainerInterim.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(interimResultEClass, InterimResult.class, "InterimResult", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInterimResult_CorrespondsTo(), this.getInterimResultPart(), null, "correspondsTo", null, 0, 1, InterimResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

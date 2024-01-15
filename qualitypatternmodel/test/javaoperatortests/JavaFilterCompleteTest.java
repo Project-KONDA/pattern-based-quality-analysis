@@ -13,7 +13,6 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.javaquery.JavaFilter;
-import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultContainer;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
@@ -29,7 +28,7 @@ public class JavaFilterCompleteTest {
 		boolean interimResults = true;
 		
 		int from = 1;
-		int to = 1;
+		int to = 9;
 		for (int i = from-1; i<patterns.size() && i < to; i++) {
 			System.out.println("Example " + (i+1) + ":");
 			// generate Filter and structure
@@ -54,9 +53,20 @@ public class JavaFilterCompleteTest {
 				for (InterimResultContainer interim: filter.getInterimResults())
 					allfits.add(interim.isValidToStructure());
 				System.out.println("allfits : " + allfits);
+				System.out.println("everyfits : " + !allfits.contains(false));
+				System.out.println("anyfits : " + allfits.contains(true));
+				
 				Boolean fits = !allfits.isEmpty() && !allfits.contains(false);
 //				.getInterimResults().stream().allMatch(x-> x.isValidToStructure());
 				valid.add(fits);
+				
+				
+//				System.out.println("\nONE EXAMPLE");
+//				InterimResultContainer first = filter.getInterimResults().get(30);
+//				System.out.println(first);
+//				System.out.println(first.getCorrespondsTo());
+//				System.out.println(first.isValidToStructure());
+//				System.out.println("\n");
 				
 				if (fits) {
 					List<String> result = filter.filterQueryResults();

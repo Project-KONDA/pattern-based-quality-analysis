@@ -262,13 +262,22 @@ public interface JavaqueryoutputPackage extends EPackage {
 	int FIXED_CONTAINER_INTERIM__CONTAINED = CONTAINER_INTERIM_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Can Be Empty</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIXED_CONTAINER_INTERIM__CAN_BE_EMPTY = CONTAINER_INTERIM_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Fixed Container Interim</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIXED_CONTAINER_INTERIM_FEATURE_COUNT = CONTAINER_INTERIM_FEATURE_COUNT + 1;
+	int FIXED_CONTAINER_INTERIM_FEATURE_COUNT = CONTAINER_INTERIM_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Size</em>' operation.
@@ -677,6 +686,17 @@ public interface JavaqueryoutputPackage extends EPackage {
 	EReference getFixedContainerInterim_Contained();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.javaqueryoutput.FixedContainerInterim#getCanBeEmpty <em>Can Be Empty</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Can Be Empty</em>'.
+	 * @see qualitypatternmodel.javaqueryoutput.FixedContainerInterim#getCanBeEmpty()
+	 * @see #getFixedContainerInterim()
+	 * @generated
+	 */
+	EAttribute getFixedContainerInterim_CanBeEmpty();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaqueryoutput.InterimResult <em>Interim Result</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -965,6 +985,14 @@ public interface JavaqueryoutputPackage extends EPackage {
 		 * @generated
 		 */
 		EReference FIXED_CONTAINER_INTERIM__CONTAINED = eINSTANCE.getFixedContainerInterim_Contained();
+
+		/**
+		 * The meta object literal for the '<em><b>Can Be Empty</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FIXED_CONTAINER_INTERIM__CAN_BE_EMPTY = eINSTANCE.getFixedContainerInterim_CanBeEmpty();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaqueryoutput.impl.InterimResultImpl <em>Interim Result</em>}' class.

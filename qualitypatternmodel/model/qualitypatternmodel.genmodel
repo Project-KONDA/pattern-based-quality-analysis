@@ -1301,6 +1301,7 @@
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/FixedContainerInterim">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/FixedContainerInterim/contained"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaqueryoutput/FixedContainerInterim/canBeEmpty"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/InterimResult">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

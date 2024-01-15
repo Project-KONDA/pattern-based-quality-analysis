@@ -1491,7 +1491,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BooleanFilterElement" eSuperTypes="#//javaquery/BooleanFilterPart">
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
-          eType="#//javaqueryoutput/ValueInterim"/>
+          eType="#//javaqueryoutput/FixedContainerInterim"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OneArgFunctionFilterPart" eSuperTypes="#//javaquery/BooleanFilterPart">
       <eOperations name="apply" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
@@ -1585,6 +1585,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="FixedContainerInterim" eSuperTypes="#//javaqueryoutput/ContainerInterim">
       <eStructuralFeatures xsi:type="ecore:EReference" name="contained" lowerBound="1"
           upperBound="-1" eType="#//javaqueryoutput/InterimResultPart" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="canBeEmpty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+          defaultValueLiteral="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InterimResult" abstract="true">
       <eOperations name="setCorresponding" eExceptions="#//patternstructure/InvalidityExceptionWrapper">

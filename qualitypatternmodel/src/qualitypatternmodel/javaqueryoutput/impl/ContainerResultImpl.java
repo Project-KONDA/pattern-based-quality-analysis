@@ -105,16 +105,17 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 				for(InterimResult a: getSubresult())
 					a.setCorresponding(((VariableContainerInterim)container).getContained());
 			}	
-			else if (size == getSubresult().size()) {
+			else if (size == getSubresult().size() || getSubresult().size() == 0){
 				FixedContainerInterim container = (FixedContainerInterim) corresponding;
 				setCorrespondsTo(container);
-				for(int i= 0; i<size;i++) {
-					getSubresult().get(i).setCorresponding(container.getContained().get(i));
-				}
-			}
+				if (size == getSubresult().size())
+					for(int i= 0; i<size;i++) {
+						getSubresult().get(i).setCorresponding(container.getContained().get(i));
+					}
+			} 
 			return;
-		} 
-		else throw new InvalidityException(corresponding.getClass().toString() + " is not of type ContainerInterim!");
+		}
+		else throw new InvalidityException(corresponding + " " + corresponding.getClass().toString() + " is not of type ContainerInterim! (" + this + ")");
 	}
 	
 	@Override

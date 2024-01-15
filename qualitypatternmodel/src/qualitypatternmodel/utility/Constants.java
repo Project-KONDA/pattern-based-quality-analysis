@@ -72,6 +72,8 @@ public class Constants {
 		for (int i = 0; i < res; i++) {
 			str += ")";
 		}
+		for (int i = res; i<0; i++)
+			str = "(" + str;
 		return str;
 	}
 	

@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.javaqueryoutput.FixedContainerInterim#getContained <em>Contained</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaqueryoutput.FixedContainerInterim#getCanBeEmpty <em>Can Be Empty</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage#getFixedContainerInterim()
@@ -34,4 +35,27 @@ public interface FixedContainerInterim extends ContainerInterim {
 	 * @generated
 	 */
 	EList<InterimResultPart> getContained();
+
+	/**
+	 * Returns the value of the '<em><b>Can Be Empty</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Can Be Empty</em>' attribute.
+	 * @see #setCanBeEmpty(Boolean)
+	 * @see qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage#getFixedContainerInterim_CanBeEmpty()
+	 * @model default="false"
+	 * @generated
+	 */
+	Boolean getCanBeEmpty();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.javaqueryoutput.FixedContainerInterim#getCanBeEmpty <em>Can Be Empty</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Can Be Empty</em>' attribute.
+	 * @see #getCanBeEmpty()
+	 * @generated
+	 */
+	void setCanBeEmpty(Boolean value);
 } // FixedContainerInterim

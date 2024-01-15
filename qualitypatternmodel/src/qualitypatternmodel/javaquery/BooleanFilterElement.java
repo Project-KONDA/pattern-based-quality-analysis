@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.javaquery;
 
-import qualitypatternmodel.javaqueryoutput.ValueInterim;
+import qualitypatternmodel.javaqueryoutput.FixedContainerInterim;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,12 +26,12 @@ public interface BooleanFilterElement extends BooleanFilterPart {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Argument</em>' reference.
-	 * @see #setArgument(ValueInterim)
+	 * @see #setArgument(FixedContainerInterim)
 	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getBooleanFilterElement_Argument()
 	 * @model required="true"
 	 * @generated
 	 */
-	ValueInterim getArgument();
+	FixedContainerInterim getArgument();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.javaquery.BooleanFilterElement#getArgument <em>Argument</em>}' reference.
@@ -41,6 +41,6 @@ public interface BooleanFilterElement extends BooleanFilterPart {
 	 * @see #getArgument()
 	 * @generated
 	 */
-	void setArgument(ValueInterim value);
+	void setArgument(FixedContainerInterim value);
 
 } // BooleanFilterElement

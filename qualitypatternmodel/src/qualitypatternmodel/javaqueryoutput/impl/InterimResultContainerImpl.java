@@ -106,29 +106,16 @@ public class InterimResultContainerImpl extends MinimalEObjectImpl.Container imp
 			if (getReturn().getCorrespondsTo() == null)
 				getReturn().setCorresponding(getCorrespondsTo().getRecord());
 			returnvalid = getReturn().isValidToCorresponding();
-//			if (returnvalid)
-//				System.out.println("IRC109!");
-		} catch(InvalidityException e) {
-			return false;
-		}
-
-		try {
-//			System.out.println("IRC xxx");
 			if (getParameter().getCorrespondsTo() == null) {
 				InterimResultPart parameter = getCorrespondsTo().getSubstructure();
 				getParameter().setCorresponding(parameter);
 			}
-//			System.out.println("IRC yyy");
-//			System.out.println("IRC121 Nope");
-//			parametervalid = getParameter().isValidToCorresponding();
-//			if (parametervalid)
-//				System.out.println("IRC121!");
-//			else 
-//				System.out.println("IRC121 Nope");
+			parametervalid = getParameter().isValidToCorresponding();
 		} catch(InvalidityException e) {
 			e.printStackTrace();
 			return false;
 		}
+//		System.out.println("IRC119 r " + returnvalid + ", p " + parametervalid);
 		return returnvalid && parametervalid;
 	}
 	
