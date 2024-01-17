@@ -122,6 +122,14 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		return "\ncount (" + super.generateXQuery().replace("\n", "\n  ") + "\n)";
 	}
 	
+	@Override
+	public String generateXQueryJava() throws InvalidityException {
+		if (graph.getNodes().size() != 1) {
+			throw new InvalidityException("too much nodes in " + getClass().getSimpleName() + " [" + getInternalId() + "]");
+		}
+		return "\ncount (" + super.generateXQueryJava().replace("\n", "\n  ") + "\n)";
+	}
+	
 	public String generateXQueryJavaReturn() throws InvalidityException {
 		Boolean graphJava = getGraph().containsJavaOperator();
 		Boolean conditionJava = getCondition().containsJavaOperator();

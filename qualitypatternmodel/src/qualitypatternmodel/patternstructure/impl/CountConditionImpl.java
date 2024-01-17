@@ -126,6 +126,17 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		}
 	}
 	
+	@Override
+	public String generateXQueryJava() throws InvalidityException {
+		String argument1 = getCountPattern().generateXQueryJava();
+		String argument2 = getArgument2().generateXQueryJava();
+		if(getOption() != null && getOption().getValue() != null) {
+			return argument1 + " " + getOption().getValue() + " " + argument2;
+		} else {
+			throw new InvalidityException("invalid option");
+		}
+	}
+	
 	public String generateXQueryJavaReturn() throws InvalidityException {
 		if (!containsJavaOperator())
 			return generateXQuery();
