@@ -24,12 +24,13 @@ public class JavaFilterCompleteTest {
 		List<CompletePattern> patterns = OneArgTestPatterns.getXmlTestPatterns();
 		List<JavaFilter> filters = new ArrayList<JavaFilter>();
 
-		boolean filterResult = true;
+		boolean filterResult = false;
 		boolean queryResult = false;
 		boolean interimResults = false;
+		boolean partialResults = false;
 		
-		int from = 9;
-		int to = 9;
+		int from = 1;
+		int to = 10;
 		for (int i = from-1; i<patterns.size() && i < to; i++) {
 			System.out.println("Example " + (i+1) + ":");
 			// generate Filter and structure
@@ -54,9 +55,13 @@ public class JavaFilterCompleteTest {
 				EList<Boolean> allfits = new BasicEList<Boolean>();
 				for (InterimResultContainer interim: filter.getInterimResults())
 					allfits.add(interim.isValidToStructure());
-				System.out.println("allfits : " + allfits);
-				System.out.println("everyfits : " + !allfits.contains(false));
-				System.out.println("anyfits : " + allfits.contains(true));
+				
+				if (partialResults) {
+					System.out.println("allfits : " + allfits);
+					System.out.println("everyfits : " + !allfits.contains(false));
+					System.out.println("anyfits : " + allfits.contains(true));
+				}
+				else System.out.println("  done: " + (!allfits.contains(false) && allfits.contains(true)));
 				
 				Boolean fits = !allfits.isEmpty() && !allfits.contains(false);
 //				.getInterimResults().stream().allMatch(x-> x.isValidToStructure());
@@ -84,7 +89,7 @@ public class JavaFilterCompleteTest {
 			}
 		}
 
-		System.out.println("__RESULTS:__");
+		System.out.println("\n__RESULTS:__");
 		System.out.println(valid);
 		System.out.println(results);
 		System.out.print("total: " + (!valid.contains(false)));
