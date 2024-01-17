@@ -475,7 +475,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 */
 	@Override
-	public Boolean inJavaQueryWhereClause() throws InvalidityException {
+	public String generateXQueryJavaWhere() throws InvalidityException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -729,9 +729,9 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case PatternstructurePackage.PATTERN_ELEMENT___IN_JAVA_QUERY_WHERE_CLAUSE:
+			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_WHERE:
 				try {
-					return inJavaQueryWhereClause();
+					return generateXQueryJavaWhere();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

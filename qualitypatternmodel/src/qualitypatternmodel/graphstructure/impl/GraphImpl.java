@@ -232,7 +232,12 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public String generateXQueryJava() throws InvalidityException {
 		String result = "";
-		for(Relation relation : getRelations()) {
+		EList<Relation> relations = new BasicEList<Relation>();
+		for(Relation relation : getRelations()) 
+			if (relation.getTarget() != null && relation.getTarget().inJavaWhere())
+				relations.add(relation);
+		
+		for(Relation relation : relations) {
 			if (relation instanceof XmlPropertyNavigation && relation.isCrossGraph()) {
 				XmlPropertyNavigationImpl nav = (XmlPropertyNavigationImpl) relation;
 				if( relation.inJavaReturnRequired())
@@ -241,7 +246,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 					result += nav.generateXQuery2();
 			}
 		}
-		for(Relation relation : getRelations()) {
+		for(Relation relation : relations) {
 			if (relation instanceof XmlElementNavigation && relation.isCrossGraph())
 				result += relation.generateXQuery();
 		}
@@ -256,7 +261,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		
 		List<Relation> relations = new BasicEList<Relation>();
 		for(Relation relation : getRelations()) {
-			if (relation.isCrossGraph() && !relation.isTranslated())
+			if (relation.isCrossGraph() && !relation.isTranslated() && !relation.getTarget().inJavaWhere())
 				relations.add(relation);
 		}
 		relations = JavaQueryTranslationUtility.orderRelationsJavaQuery(relations);

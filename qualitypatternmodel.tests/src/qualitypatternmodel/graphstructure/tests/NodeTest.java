@@ -52,6 +52,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Node#adaptAsNeoPropertyNode() <em>Adapt As Neo Property Node</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#inJavaReturnRequired() <em>In Java Return Required</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#inJavaGraphReturnRequired() <em>In Java Graph Return Required</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#inJavaWhere() <em>In Java Where</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getReturnType() <em>Get Return Type</em>}</li>
@@ -579,6 +580,19 @@ public class NodeTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testInJavaGraphReturnRequired() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#inJavaWhere() <em>In Java Where</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Node#inJavaWhere()
+	 * @generated
+	 */
+	public void testInJavaWhere() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

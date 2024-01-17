@@ -249,10 +249,14 @@ public class OneArgTestPatterns {
 		PrimitiveNode conditionNode1 = retnode.addOutgoing(qcongraph).getTarget().makePrimitive();
 		PrimitiveNode conditionNode2 = retnode.addOutgoing(qcongraph).getTarget().makePrimitive();
 
-		if (firstJavaOperator) conditionNode1.addPrimitiveValidateLink();
-			else conditionNode1.addPrimitiveMatch();
-		if (secondJavaOperator) conditionNode2.addPrimitiveValidateLink();
-			else conditionNode2.addPrimitiveMatch();
+		if (firstJavaOperator) 
+			conditionNode1.addPrimitiveValidateLink();
+		else 
+			conditionNode1.addPrimitiveMatch(".*a.*");
+		if (secondJavaOperator) 
+			conditionNode2.addPrimitiveValidateLink();
+		else 
+			conditionNode2.addPrimitiveMatch(".*a.*");
 		
 		return completePattern;
 	}

@@ -243,7 +243,7 @@ public interface PatternElement extends EObject {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	Boolean inJavaQueryWhereClause() throws InvalidityException;
+	String generateXQueryJavaWhere() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

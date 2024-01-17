@@ -386,6 +386,7 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/adaptAsNeoPropertyNode"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/inJavaReturnRequired"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/inJavaGraphReturnRequired"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/inJavaWhere"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Graph">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Graph/nodes"/>
@@ -575,7 +576,7 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/generateQueryFilterPart"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/generateXQueryJava"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/generateXQueryJavaReturn"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/inJavaQueryWhereClause"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/generateXQueryJavaWhere"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/NotCondition">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/NotCondition/condition"/>

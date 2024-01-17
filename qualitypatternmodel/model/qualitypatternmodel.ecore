@@ -442,6 +442,7 @@
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="inJavaReturnRequired" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
       <eOperations name="inJavaGraphReturnRequired" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eOperations name="inJavaWhere" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1"
           eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/nodes"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -699,7 +700,7 @@
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="generateXQueryJavaReturn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="inJavaQueryWhereClause" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+      <eOperations name="generateXQueryJavaWhere" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>

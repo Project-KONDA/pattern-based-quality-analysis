@@ -328,6 +328,28 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		return false;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated Not
+	 */
+	@Override
+	public Boolean inJavaWhere() {
+		if (getIncoming().isEmpty())
+			return false;
+		
+		EList<Boolean> res = new BasicEList<Boolean>();
+		for (Relation rel : getIncoming()) {
+			Node source = rel.getSource();
+			
+			if (source.isReturnNode())
+				res.add(!inJavaReturnRequired());
+			else
+				res.add(source.inJavaWhere());
+		}
+		return !res.isEmpty() && !res.contains(false);
+	}
+
 	@Override
 	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return adaptAsXmlElement();
@@ -1830,6 +1852,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return inJavaReturnRequired();
 			case GraphstructurePackage.NODE___IN_JAVA_GRAPH_RETURN_REQUIRED:
 				return inJavaGraphReturnRequired();
+			case GraphstructurePackage.NODE___IN_JAVA_WHERE:
+				return inJavaWhere();
 			case GraphstructurePackage.NODE___CREATE_PARAMETERS:
 				createParameters();
 				return null;

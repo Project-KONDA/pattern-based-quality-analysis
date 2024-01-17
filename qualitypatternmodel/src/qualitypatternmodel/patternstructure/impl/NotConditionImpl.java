@@ -81,6 +81,19 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 			throw new InvalidityException("invalid condition");
 		}
 	}
+
+	@Override
+	public String generateXQueryJava() throws InvalidityException {
+		if (condition instanceof NotCondition) {
+			return ((NotCondition) condition).getCondition().generateXQuery();
+		}
+		if (condition != null) {
+			String conQuery = condition.generateXQueryJava().replace("\n", "\n  "); 
+			return "not(" + conQuery + ")";
+		} else {
+			throw new InvalidityException("invalid condition");
+		}
+	}
 	
 	public String generateXQueryJavaReturn() throws InvalidityException {
 		String conditionString = getCondition().generateXQueryJavaReturn();

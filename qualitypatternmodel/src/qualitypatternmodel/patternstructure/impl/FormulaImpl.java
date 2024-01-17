@@ -190,6 +190,11 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 	
 	@Override
+	public String generateXQueryJava() throws InvalidityException {
+		return "";
+	}
+	
+	@Override
 	public String generateXQueryJavaReturn() throws InvalidityException {
 		Boolean cond1Java = getCondition1().containsJavaOperator();
 		Boolean cond2Java = getCondition2().containsJavaOperator();

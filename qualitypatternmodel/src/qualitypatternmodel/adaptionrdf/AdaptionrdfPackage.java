@@ -416,13 +416,13 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PREDICATE___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.RELATION___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PREDICATE___IN_JAVA_QUERY_WHERE_CLAUSE = GraphstructurePackage.RELATION___IN_JAVA_QUERY_WHERE_CLAUSE;
+	int RDF_PREDICATE___GENERATE_XQUERY_JAVA_WHERE = GraphstructurePackage.RELATION___GENERATE_XQUERY_JAVA_WHERE;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -921,13 +921,13 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_IRI_NODE___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.COMPLEX_NODE___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRI_NODE___IN_JAVA_QUERY_WHERE_CLAUSE = GraphstructurePackage.COMPLEX_NODE___IN_JAVA_QUERY_WHERE_CLAUSE;
+	int RDF_IRI_NODE___GENERATE_XQUERY_JAVA_WHERE = GraphstructurePackage.COMPLEX_NODE___GENERATE_XQUERY_JAVA_WHERE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1317,6 +1317,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_IRI_NODE___IN_JAVA_GRAPH_RETURN_REQUIRED = GraphstructurePackage.COMPLEX_NODE___IN_JAVA_GRAPH_RETURN_REQUIRED;
 
 	/**
+	 * The operation id for the '<em>In Java Where</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_IRI_NODE___IN_JAVA_WHERE = GraphstructurePackage.COMPLEX_NODE___IN_JAVA_WHERE;
+
+	/**
 	 * The operation id for the '<em>Generate Rdf Types</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1642,13 +1651,13 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PATH_COMPONENT___GENERATE_XQUERY_JAVA_RETURN = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_COMPONENT___IN_JAVA_QUERY_WHERE_CLAUSE = PatternstructurePackage.PATTERN_ELEMENT___IN_JAVA_QUERY_WHERE_CLAUSE;
+	int RDF_PATH_COMPONENT___GENERATE_XQUERY_JAVA_WHERE = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_WHERE;
 
 	/**
 	 * The operation id for the '<em>Get Rdf Single Predicates</em>' operation.
@@ -1995,13 +2004,13 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_SINGLE_PREDICATE___GENERATE_XQUERY_JAVA_RETURN = RDF_PATH_COMPONENT___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SINGLE_PREDICATE___IN_JAVA_QUERY_WHERE_CLAUSE = RDF_PATH_COMPONENT___IN_JAVA_QUERY_WHERE_CLAUSE;
+	int RDF_SINGLE_PREDICATE___GENERATE_XQUERY_JAVA_WHERE = RDF_PATH_COMPONENT___GENERATE_XQUERY_JAVA_WHERE;
 
 	/**
 	 * The operation id for the '<em>Get Rdf Single Predicates</em>' operation.
@@ -2492,13 +2501,13 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_LITERAL_NODE___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_LITERAL_NODE___IN_JAVA_QUERY_WHERE_CLAUSE = GraphstructurePackage.PRIMITIVE_NODE___IN_JAVA_QUERY_WHERE_CLAUSE;
+	int RDF_LITERAL_NODE___GENERATE_XQUERY_JAVA_WHERE = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_XQUERY_JAVA_WHERE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2886,6 +2895,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @ordered
 	 */
 	int RDF_LITERAL_NODE___IN_JAVA_GRAPH_RETURN_REQUIRED = GraphstructurePackage.PRIMITIVE_NODE___IN_JAVA_GRAPH_RETURN_REQUIRED;
+
+	/**
+	 * The operation id for the '<em>In Java Where</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_LITERAL_NODE___IN_JAVA_WHERE = GraphstructurePackage.PRIMITIVE_NODE___IN_JAVA_WHERE;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -3303,13 +3321,13 @@ public interface AdaptionrdfPackage extends EPackage {
 	int IRI_PARAM___GENERATE_XQUERY_JAVA_RETURN = ParametersPackage.PARAMETER_VALUE___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___IN_JAVA_QUERY_WHERE_CLAUSE = ParametersPackage.PARAMETER_VALUE___IN_JAVA_QUERY_WHERE_CLAUSE;
+	int IRI_PARAM___GENERATE_XQUERY_JAVA_WHERE = ParametersPackage.PARAMETER_VALUE___GENERATE_XQUERY_JAVA_WHERE;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -3871,13 +3889,13 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_XOR___GENERATE_XQUERY_JAVA_RETURN = RDF_PATH_COMPONENT___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_XOR___IN_JAVA_QUERY_WHERE_CLAUSE = RDF_PATH_COMPONENT___IN_JAVA_QUERY_WHERE_CLAUSE;
+	int RDF_XOR___GENERATE_XQUERY_JAVA_WHERE = RDF_PATH_COMPONENT___GENERATE_XQUERY_JAVA_WHERE;
 
 	/**
 	 * The operation id for the '<em>Get Rdf Single Predicates</em>' operation.
@@ -4214,13 +4232,13 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_SEQUENCE___GENERATE_XQUERY_JAVA_RETURN = RDF_PATH_COMPONENT___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_SEQUENCE___IN_JAVA_QUERY_WHERE_CLAUSE = RDF_PATH_COMPONENT___IN_JAVA_QUERY_WHERE_CLAUSE;
+	int RDF_SEQUENCE___GENERATE_XQUERY_JAVA_WHERE = RDF_PATH_COMPONENT___GENERATE_XQUERY_JAVA_WHERE;
 
 	/**
 	 * The operation id for the '<em>Get Rdf Single Predicates</em>' operation.
@@ -4611,13 +4629,13 @@ public interface AdaptionrdfPackage extends EPackage {
 	int IRI_LIST_PARAM___GENERATE_XQUERY_JAVA_RETURN = ParametersPackage.PARAMETER_VALUE___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_LIST_PARAM___IN_JAVA_QUERY_WHERE_CLAUSE = ParametersPackage.PARAMETER_VALUE___IN_JAVA_QUERY_WHERE_CLAUSE;
+	int IRI_LIST_PARAM___GENERATE_XQUERY_JAVA_WHERE = ParametersPackage.PARAMETER_VALUE___GENERATE_XQUERY_JAVA_WHERE;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -5178,13 +5196,13 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PATH_PARAM___GENERATE_XQUERY_JAVA_RETURN = ParametersPackage.PARAMETER___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PARAM___IN_JAVA_QUERY_WHERE_CLAUSE = ParametersPackage.PARAMETER___IN_JAVA_QUERY_WHERE_CLAUSE;
+	int RDF_PATH_PARAM___GENERATE_XQUERY_JAVA_WHERE = ParametersPackage.PARAMETER___GENERATE_XQUERY_JAVA_WHERE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -5638,13 +5656,13 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PATH_PART___GENERATE_XQUERY_JAVA_RETURN = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>In Java Query Where Clause</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART___IN_JAVA_QUERY_WHERE_CLAUSE = PatternstructurePackage.PATTERN_ELEMENT___IN_JAVA_QUERY_WHERE_CLAUSE;
+	int RDF_PATH_PART___GENERATE_XQUERY_JAVA_WHERE = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_WHERE;
 
 	/**
 	 * The operation id for the '<em>Generate Rdf Part Types</em>' operation.

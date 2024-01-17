@@ -861,6 +861,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
+	public EOperation getNode__InJavaWhere() {
+		return nodeEClass.getEOperations().get(36);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getNode__AddPrimitiveNullCheck() {
 		return nodeEClass.getEOperations().get(17);
 	}
@@ -1356,6 +1366,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(nodeEClass, NODE___ADAPT_AS_NEO_PROPERTY_NODE);
 		createEOperation(nodeEClass, NODE___IN_JAVA_RETURN_REQUIRED);
 		createEOperation(nodeEClass, NODE___IN_JAVA_GRAPH_RETURN_REQUIRED);
+		createEOperation(nodeEClass, NODE___IN_JAVA_WHERE);
 
 		graphEClass = createEClass(GRAPH);
 		createEReference(graphEClass, GRAPH__NODES);
@@ -1614,6 +1625,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		initEOperation(getNode__InJavaReturnRequired(), ecorePackage.getEBooleanObject(), "inJavaReturnRequired", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getNode__InJavaGraphReturnRequired(), ecorePackage.getEBooleanObject(), "inJavaGraphReturnRequired", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getNode__InJavaWhere(), ecorePackage.getEBooleanObject(), "inJavaWhere", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(graphEClass, Graph.class, "Graph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGraph_Nodes(), this.getNode(), this.getNode_Graph(), "nodes", null, 1, -1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -486,6 +486,14 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @model
 	 * @generated
 	 */
+	Boolean inJavaWhere();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	NullCheck addPrimitiveNullCheck();
 
 	/**
