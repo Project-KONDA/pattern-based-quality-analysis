@@ -10,12 +10,17 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
+import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.parameters.NumberParam;
+import qualitypatternmodel.parameters.impl.NumberParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
+import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
 
 
 public class OneArgTestPatterns {
@@ -46,7 +51,9 @@ public class OneArgTestPatterns {
 				pattern.createXmlAdaption();
 				pattern = Test00.replace(pattern);
 				result.add(pattern);
-			} catch (Exception e) {}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		return result;
 	}
@@ -79,6 +86,7 @@ public class OneArgTestPatterns {
 		result.add(getTestPattern8());
 		result.add(getTestPattern9());
 		result.add(getTestPattern10());
+		result.add(getTestPattern11());
 		return result;
 	}
 	
@@ -260,6 +268,33 @@ public class OneArgTestPatterns {
 		
 		return completePattern;
 	}
+
 	
+	public static CompletePattern getTestPattern11() throws InvalidityException {
+		// return graph
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		Graph pgraph = completePattern.getGraph();
+		ComplexNode retnode = pgraph.getNodes().get(0).makeComplex();
+		
+		// count condition
+
+		CountCondition countCondition = PatternstructureFactory.eINSTANCE.createCountCondition();
+		completePattern.setCondition(countCondition);
+		countCondition.createCountPattern();
+		NumberElementImpl ne = new NumberElementImpl();
+		countCondition.setArgument2(ne);
+		ne.createParameters();
+		ne.getNumberParam().setValue(1.);
+		countCondition.getOption().setValue(ComparisonOperator.GREATER);
+		
+		Graph qcongraph = countCondition.getCountPattern().getGraph();
+		
+		// node
+		PrimitiveNode conditionNode = retnode.addOutgoing(qcongraph).getTarget().makePrimitive();
+		conditionNode.setReturnNode(true);
+		conditionNode.addPrimitiveValidateLink();
+		System.out.println(completePattern.myToString());
+		return completePattern;
+	}
 
 }
