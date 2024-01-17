@@ -60,7 +60,17 @@ public class InterimResultStructureImpl extends MinimalEObjectImpl.Container imp
 
 	@Override
 	public String toString(){
-		return "[" + getRecord().toString() + " | " + getSubstructure().toString() + "]";
+		String res = "";
+		if (getRecord() != null)
+			res += getRecord().toString();
+		else 
+			res += "no record";
+		res += " | ";
+		if (getSubstructure() != null)
+			res += getSubstructure().toString();
+		else 
+			res += "no substructure";
+		return "[" + res + "]";
 	}
 	
 	

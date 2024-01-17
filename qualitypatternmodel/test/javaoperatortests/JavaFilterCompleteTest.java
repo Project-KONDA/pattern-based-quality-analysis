@@ -24,13 +24,13 @@ public class JavaFilterCompleteTest {
 		List<CompletePattern> patterns = OneArgTestPatterns.getXmlTestPatterns();
 		List<JavaFilter> filters = new ArrayList<JavaFilter>();
 
-		boolean filterResult = false;
+		boolean filterResult = true;
 		boolean queryResult = false;
 		boolean interimResults = false;
-		boolean partialResults = false;
+		boolean partialResults = true;
 		
 		int from = 1;
-		int to = 10;
+		int to = 11;
 		for (int i = from-1; i<patterns.size() && i < to; i++) {
 			System.out.println("Example " + (i+1) + ":");
 			// generate Filter and structure
@@ -89,10 +89,12 @@ public class JavaFilterCompleteTest {
 			}
 		}
 
-		System.out.println("\n__RESULTS:__");
-		System.out.println(valid);
-		System.out.println(results);
-		System.out.print("total: " + (!valid.contains(false)));
+		if (from != to) {
+			System.out.println("\n__RESULTS:__");
+			System.out.println(valid);
+			System.out.println(results);
+			System.out.print("total: " + (!valid.contains(false)));
+		}
 	}
 	
 	public List<String> executeJavaPattern(CompletePattern pattern, String database_name, String database_path) throws InvalidityException {
