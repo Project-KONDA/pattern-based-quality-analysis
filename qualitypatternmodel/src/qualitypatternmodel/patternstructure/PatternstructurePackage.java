@@ -349,22 +349,13 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN = 27;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_WHERE = 28;
-
-	/**
 	 * The number of operations of the '<em>Pattern Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT_OPERATION_COUNT = 29;
+	int PATTERN_ELEMENT_OPERATION_COUNT = 28;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.ConditionImpl <em>Condition</em>}' class.
@@ -699,15 +690,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int CONDITION___GENERATE_XQUERY_JAVA_RETURN = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITION___GENERATE_XQUERY_JAVA_WHERE = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_WHERE;
 
 	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
@@ -1107,15 +1089,6 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION___GENERATE_XQUERY_JAVA_RETURN = CONDITION___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUANTIFIED_CONDITION___GENERATE_XQUERY_JAVA_WHERE = CONDITION___GENERATE_XQUERY_JAVA_WHERE;
-
-	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1484,15 +1457,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MORPHISM___GENERATE_XQUERY_JAVA_RETURN = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM___GENERATE_XQUERY_JAVA_WHERE = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_WHERE;
 
 	/**
 	 * The number of operations of the '<em>Morphism</em>' class.
@@ -1874,15 +1838,6 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA___GENERATE_XQUERY_JAVA_RETURN = CONDITION___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FORMULA___GENERATE_XQUERY_JAVA_WHERE = CONDITION___GENERATE_XQUERY_JAVA_WHERE;
-
-	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2244,15 +2199,6 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE_ELEMENT___GENERATE_XQUERY_JAVA_RETURN = CONDITION___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___GENERATE_XQUERY_JAVA_WHERE = CONDITION___GENERATE_XQUERY_JAVA_WHERE;
-
-	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2603,15 +2549,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PATTERN___GENERATE_XQUERY_JAVA_RETURN = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN___GENERATE_XQUERY_JAVA_WHERE = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_WHERE;
 
 	/**
 	 * The operation id for the '<em>Check Morphism Of Next Graph</em>' operation.
@@ -3065,15 +3002,6 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___GENERATE_XQUERY_JAVA_RETURN = PATTERN___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETE_PATTERN___GENERATE_XQUERY_JAVA_WHERE = PATTERN___GENERATE_XQUERY_JAVA_WHERE;
-
-	/**
 	 * The operation id for the '<em>Check Morphism Of Next Graph</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3525,15 +3453,6 @@ public interface PatternstructurePackage extends EPackage {
 	int NOT_CONDITION___GENERATE_XQUERY_JAVA_RETURN = CONDITION___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOT_CONDITION___GENERATE_XQUERY_JAVA_WHERE = CONDITION___GENERATE_XQUERY_JAVA_WHERE;
-
-	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3931,15 +3850,6 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION___GENERATE_XQUERY_JAVA_RETURN = CONDITION___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_CONDITION___GENERATE_XQUERY_JAVA_WHERE = CONDITION___GENERATE_XQUERY_JAVA_WHERE;
-
-	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4283,15 +4193,6 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION_ARGUMENT___GENERATE_XQUERY_JAVA_RETURN = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_CONDITION_ARGUMENT___GENERATE_XQUERY_JAVA_WHERE = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_WHERE;
-
-	/**
 	 * The number of operations of the '<em>Count Condition Argument</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4597,15 +4498,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MORPHISM_CONTAINER___GENERATE_XQUERY_JAVA_RETURN = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM_CONTAINER___GENERATE_XQUERY_JAVA_WHERE = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_WHERE;
 
 	/**
 	 * The operation id for the '<em>Get Graph</em>' operation.
@@ -4987,15 +4879,6 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_PATTERN___GENERATE_XQUERY_JAVA_RETURN = PATTERN___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_PATTERN___GENERATE_XQUERY_JAVA_WHERE = PATTERN___GENERATE_XQUERY_JAVA_WHERE;
-
-	/**
 	 * The operation id for the '<em>Check Morphism Of Next Graph</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5337,15 +5220,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_ELEMENT___GENERATE_XQUERY_JAVA_RETURN = COUNT_CONDITION_ARGUMENT___GENERATE_XQUERY_JAVA_RETURN;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_ELEMENT___GENERATE_XQUERY_JAVA_WHERE = COUNT_CONDITION_ARGUMENT___GENERATE_XQUERY_JAVA_WHERE;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -6133,16 +6007,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPatternElement__GenerateXQueryJavaReturn();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#generateXQueryJavaWhere() <em>Generate XQuery Java Where</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Generate XQuery Java Where</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.PatternElement#generateXQueryJavaWhere()
-	 * @generated
-	 */
-	EOperation getPatternElement__GenerateXQueryJavaWhere();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#generateXQueryJava() <em>Generate XQuery Java</em>}' operation.
@@ -7182,14 +7046,6 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN = eINSTANCE.getPatternElement__GenerateXQueryJavaReturn();
-
-		/**
-		 * The meta object literal for the '<em><b>Generate XQuery Java Where</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_WHERE = eINSTANCE.getPatternElement__GenerateXQueryJavaWhere();
 
 		/**
 		 * The meta object literal for the '<em><b>Generate XQuery Java</b></em>' operation.

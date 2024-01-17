@@ -554,15 +554,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_NODE___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.COMPLEX_NODE___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ELEMENT_NODE___GENERATE_XQUERY_JAVA_WHERE = GraphstructurePackage.COMPLEX_NODE___GENERATE_XQUERY_JAVA_WHERE;
-
-	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1347,15 +1338,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_EDGE___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.RELATION___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_EDGE___GENERATE_XQUERY_JAVA_WHERE = GraphstructurePackage.RELATION___GENERATE_XQUERY_JAVA_WHERE;
-
-	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1852,15 +1834,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_EDGE___GENERATE_XQUERY_JAVA_RETURN = NEO_EDGE___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ELEMENT_EDGE___GENERATE_XQUERY_JAVA_WHERE = NEO_EDGE___GENERATE_XQUERY_JAVA_WHERE;
-
-	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2303,15 +2276,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PATH_PART___GENERATE_XQUERY_JAVA_RETURN = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PATH_PART___GENERATE_XQUERY_JAVA_WHERE = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_WHERE;
-
-	/**
 	 * The operation id for the '<em>Get Neo Path Part Edge Leafs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2671,15 +2635,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_COMPLEX_EDGE___GENERATE_XQUERY_JAVA_RETURN = NEO_PATH_PART___GENERATE_XQUERY_JAVA_RETURN;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_COMPLEX_EDGE___GENERATE_XQUERY_JAVA_WHERE = NEO_PATH_PART___GENERATE_XQUERY_JAVA_WHERE;
 
 	/**
 	 * The operation id for the '<em>Get Neo Path Part Edge Leafs</em>' operation.
@@ -3095,15 +3050,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_SIMPLE_EDGE___GENERATE_XQUERY_JAVA_RETURN = NEO_PATH_PART___GENERATE_XQUERY_JAVA_RETURN;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_SIMPLE_EDGE___GENERATE_XQUERY_JAVA_WHERE = NEO_PATH_PART___GENERATE_XQUERY_JAVA_WHERE;
 
 	/**
 	 * The operation id for the '<em>Get Neo Path Part Edge Leafs</em>' operation.
@@ -3609,15 +3555,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_NODE___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_XQUERY_JAVA_RETURN;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NODE___GENERATE_XQUERY_JAVA_WHERE = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_XQUERY_JAVA_WHERE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -4386,15 +4323,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PATH_PARAM___GENERATE_XQUERY_JAVA_RETURN = ParametersPackage.PARAMETER___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PATH_PARAM___GENERATE_XQUERY_JAVA_WHERE = ParametersPackage.PARAMETER___GENERATE_XQUERY_JAVA_WHERE;
-
-	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4862,15 +4790,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_ELEMENT_PATH_PARAM___GENERATE_XQUERY_JAVA_RETURN = NEO_PATH_PARAM___GENERATE_XQUERY_JAVA_RETURN;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ELEMENT_PATH_PARAM___GENERATE_XQUERY_JAVA_WHERE = NEO_PATH_PARAM___GENERATE_XQUERY_JAVA_WHERE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -5349,15 +5268,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_PATH_PARAM___GENERATE_XQUERY_JAVA_RETURN = NEO_PATH_PARAM___GENERATE_XQUERY_JAVA_RETURN;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_PATH_PARAM___GENERATE_XQUERY_JAVA_WHERE = NEO_PATH_PARAM___GENERATE_XQUERY_JAVA_WHERE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -5865,15 +5775,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_EDGE___GENERATE_XQUERY_JAVA_RETURN = NEO_EDGE___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_EDGE___GENERATE_XQUERY_JAVA_WHERE = NEO_EDGE___GENERATE_XQUERY_JAVA_WHERE;
-
-	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6377,15 +6278,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_NODE_LABELS_PARAM___GENERATE_XQUERY_JAVA_RETURN = ParametersPackage.TEXT_LIST_PARAM___GENERATE_XQUERY_JAVA_RETURN;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_NODE_LABELS_PARAM___GENERATE_XQUERY_JAVA_WHERE = ParametersPackage.TEXT_LIST_PARAM___GENERATE_XQUERY_JAVA_WHERE;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -7046,15 +6938,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_EDGE_LABEL_PARAM___GENERATE_XQUERY_JAVA_RETURN = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_EDGE_LABEL_PARAM___GENERATE_XQUERY_JAVA_WHERE = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_XQUERY_JAVA_WHERE;
-
-	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7712,15 +7595,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_NAME_PARAM___GENERATE_XQUERY_JAVA_RETURN = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_XQUERY_JAVA_RETURN;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NAME_PARAM___GENERATE_XQUERY_JAVA_WHERE = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_XQUERY_JAVA_WHERE;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.

@@ -1005,16 +1005,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__GenerateXQueryJavaWhere() {
-		return patternElementEClass.getEOperations().get(28);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getPatternElement__GenerateXQueryJava() {
 		return patternElementEClass.getEOperations().get(26);
 	}
@@ -1571,7 +1561,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___GENERATE_XQUERY_JAVA);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN);
-		createEOperation(patternElementEClass, PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_WHERE);
 
 		notConditionEClass = createEClass(NOT_CONDITION);
 		createEReference(notConditionEClass, NOT_CONDITION__CONDITION);
@@ -1849,9 +1838,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		addEException(op, this.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getPatternElement__GenerateXQueryJavaReturn(), ecorePackage.getEString(), "generateXQueryJavaReturn", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getInvalidityExceptionWrapper());
-
-		op = initEOperation(getPatternElement__GenerateXQueryJavaWhere(), ecorePackage.getEString(), "generateXQueryJavaWhere", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
 
 		initEClass(notConditionEClass, NotCondition.class, "NotCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

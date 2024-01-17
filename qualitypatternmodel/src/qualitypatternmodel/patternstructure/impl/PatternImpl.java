@@ -222,19 +222,19 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		if (graph.containsJavaOperator())
 			throw new UnsupportedOperationException("Java Operator in Return Graph");
 		
-//		String whereClause = "\n";
-//		if (!(condition instanceof TrueElement)) {
-//			String condQuery = condition.generateXQueryJava();
-//			if (!condQuery.equals("(true())") && !condQuery.equals("")) {
-//				condQuery = condQuery.replace("\n", "\n  ");
-//				whereClause = WHERE + condQuery;
-//			}
-//		}
+		String whereClause = "\n";
+		if (!(condition instanceof TrueElement)) {
+			String condQuery = condition.generateXQueryJava();
+			if (!condQuery.equals("(true())") && !condQuery.equals("")) {
+				condQuery = condQuery.replace("\n", "\n  ");
+				whereClause = WHERE + condQuery;
+			}
+		}
 		
 		String returnClause = generateXQueryJavaReturn();
-		
-//		String query = forClauses + whereClause + returnClause;
-		String query = forClauses + "\n" + returnClause;
+
+		String query = forClauses + whereClause + returnClause;
+//		String query = forClauses + "\n" + returnClause;
 		setXmlQuery(query);
 		setPartialXmlQuery(forClauses + "\n" + generateXQueryReturnClause());		
 		return query;	

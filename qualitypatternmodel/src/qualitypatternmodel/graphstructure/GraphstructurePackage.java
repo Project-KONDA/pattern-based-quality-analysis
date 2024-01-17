@@ -403,15 +403,6 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___GENERATE_XQUERY_JAVA_RETURN = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION___GENERATE_XQUERY_JAVA_WHERE = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_WHERE;
-
-	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -816,15 +807,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARABLE___GENERATE_XQUERY_JAVA_RETURN = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARABLE___GENERATE_XQUERY_JAVA_WHERE = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_WHERE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1249,15 +1231,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int NODE___GENERATE_XQUERY_JAVA_RETURN = COMPARABLE___GENERATE_XQUERY_JAVA_RETURN;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE___GENERATE_XQUERY_JAVA_WHERE = COMPARABLE___GENERATE_XQUERY_JAVA_WHERE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2098,15 +2071,6 @@ public interface GraphstructurePackage extends EPackage {
 	int PRIMITIVE_NODE___GENERATE_XQUERY_JAVA_RETURN = NODE___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMITIVE_NODE___GENERATE_XQUERY_JAVA_WHERE = NODE___GENERATE_XQUERY_JAVA_WHERE;
-
-	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2873,15 +2837,6 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH___GENERATE_XQUERY_JAVA_RETURN = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GRAPH___GENERATE_XQUERY_JAVA_WHERE = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_WHERE;
-
-	/**
 	 * The operation id for the '<em>Is Return Graph</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3277,15 +3232,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int ADAPTABLE___GENERATE_XQUERY_JAVA_RETURN = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ADAPTABLE___GENERATE_XQUERY_JAVA_WHERE = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_WHERE;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -3692,15 +3638,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPLEX_NODE___GENERATE_XQUERY_JAVA_RETURN = NODE___GENERATE_XQUERY_JAVA_RETURN;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Where</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLEX_NODE___GENERATE_XQUERY_JAVA_WHERE = NODE___GENERATE_XQUERY_JAVA_WHERE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
