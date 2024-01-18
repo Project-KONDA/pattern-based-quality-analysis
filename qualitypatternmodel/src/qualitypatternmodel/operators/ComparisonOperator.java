@@ -325,7 +325,7 @@ public enum ComparisonOperator implements Enumerator {
 
 	public static Boolean evaluate(ComparisonOperator operator, Double result1, Double result2) {
 		switch(operator) {
-		case EQUAL: return result1 == result2;
+		case EQUAL: return result1.equals(result2);
 		case GREATER: return result1 > result2;
 		case LESS: return result1 < result2;
 		case GREATEROREQUAL: return result1 <= result2;

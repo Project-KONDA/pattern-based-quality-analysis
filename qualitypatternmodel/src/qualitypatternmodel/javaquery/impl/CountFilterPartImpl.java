@@ -15,6 +15,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.CountFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.NumberFilterPart;
+import qualitypatternmodel.javaquery.NumberValueFilterElement;
 import qualitypatternmodel.javaqueryoutput.ContainerResult;
 import qualitypatternmodel.javaqueryoutput.FixedContainerInterim;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
@@ -107,14 +108,31 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 		setSubfilter2(arg2filter);
 	}
 
+	public CountFilterPartImpl(ComparisonOperator value, NumberFilterPart arg1filter, Double number) {
+		super();
+		setOperator(value);
+		setArgument(new FixedContainerInterimImpl());
+		setSubfilter1(arg1filter);
+		setSubfilter2(new NumberValueFilterElementImpl(number));
+	}
+
 	@Override
 	public Boolean apply(InterimResult parameter) throws InvalidityException {
 		assert(parameter instanceof ContainerResult);
 		InterimResult argument1 = ((ContainerResult)parameter).getSubresult().get(0);
-		InterimResult argument2 = ((ContainerResult)parameter).getSubresult().get(1);
 		Double result1 = getSubfilter1().apply(argument1);
-		Double result2 = getSubfilter2().apply(argument2);
-		return ComparisonOperator.evaluate(getOperator(), result1, result2);
+		Double result2;
+		if (getSubfilter2() instanceof NumberValueFilterElement) {
+			result2 = getSubfilter2().apply(null);
+		}
+		else {
+			InterimResult argument2 = ((ContainerResult)parameter).getSubresult().get(1);
+			result2 = getSubfilter2().apply(argument2);
+		}
+		Boolean res = ComparisonOperator.evaluate(getOperator(), result1, result2);
+		if (!res)
+			System.out.println("RES FAILED: \n" + parameter + " " + getOperator() + " " + result1 + "!=" + result2);
+		return res;
 	}
 
 	@Override
@@ -128,8 +146,10 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 		FixedContainerInterim arg = getArgument();
 		EList<InterimResultPart> contained = arg.getContained();
 		contained.clear();
-		contained.addAll(getSubfilter1().getArguments());
-		contained.addAll(getSubfilter2().getArguments());
+		if (getSubfilter1() != null && getSubfilter1().getArguments() != null)
+			contained.addAll(getSubfilter1().getArguments());
+		if (getSubfilter2() != null && getSubfilter2().getArguments() != null)
+			contained.addAll(getSubfilter2().getArguments());
 	}
 	
 	@Override

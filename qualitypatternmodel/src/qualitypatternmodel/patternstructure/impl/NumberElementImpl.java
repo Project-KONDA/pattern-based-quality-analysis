@@ -77,6 +77,16 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	}
 	
 	@Override
+	public String generateXQueryJava() throws InvalidityException {
+		return generateXQuery();
+	}
+	
+	@Override
+	public String generateXQueryJavaReturn() throws InvalidityException {
+		return generateXQuery();
+	}
+	
+	@Override
 	public String generateSparql() throws InvalidityException {
 		return getNumberParam().generateSparql();
 	}

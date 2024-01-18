@@ -128,6 +128,8 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	
 	@Override
 	public String generateXQueryJava() throws InvalidityException {
+		if (containsJavaOperator())
+			return "";
 		String argument1 = getCountPattern().generateXQueryJava();
 		String argument2 = getArgument2().generateXQueryJava();
 		if(getOption() != null && getOption().getValue() != null) {
@@ -136,6 +138,9 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			throw new InvalidityException("invalid option");
 		}
 	}
+	
+	@Override
+	
 	
 	public String generateXQueryJavaReturn() throws InvalidityException {
 		if (!containsJavaOperator())
@@ -158,8 +163,10 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 				arg2String = getCountPattern().generateXQuery();
 			else arg2String = null;
 
-		return (arg2String == null)? arg1String : 
-			JavaQueryTranslationUtility.getXQueryReturnList(List.of(arg1String, arg2String), COUNT, false, true, false);
+		if (arg2String == null)
+			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(arg1String), COUNT, false, true, false);
+		else 
+			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(arg1String, arg2String), COUNT, false, true, false);
 	}
 	
 	@Override

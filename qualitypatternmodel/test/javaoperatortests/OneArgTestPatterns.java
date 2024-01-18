@@ -285,7 +285,7 @@ public class OneArgTestPatterns {
 		countCondition.setArgument2(ne);
 		ne.createParameters();
 		ne.getNumberParam().setValue(1.);
-		countCondition.getOption().setValue(ComparisonOperator.GREATER);
+		countCondition.getOption().setValue(ComparisonOperator.EQUAL);
 		
 		Graph qcongraph = countCondition.getCountPattern().getGraph();
 		
