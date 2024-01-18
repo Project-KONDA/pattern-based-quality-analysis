@@ -111,8 +111,6 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
 		NumberFilterPart arg1filter = (NumberFilterPart) getCountPattern().generateQueryFilterPart();
 		NumberFilterPart arg2filter = (NumberFilterPart) getArgument2().generateQueryFilterPart();
-		System.out.println("arg1filter: " + arg1filter);
-		System.out.println("arg2filter: " + arg2filter);
 		return new CountFilterPartImpl(getOption().getValue(), arg1filter, arg2filter); 
 	}
 	
@@ -161,13 +159,10 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			arg2String = getCountPattern().generateXQueryJavaReturn();
 		else 
 			if (getArgument2() instanceof CountPattern)
-				arg2String = ((CountPattern) getArgument2()).generateXQuery();
-			else arg2String = null;
-
-		if (arg2String == null)
-			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(arg1String), COUNT, false, true, false);
-		else 
-			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(arg1String, arg2String), COUNT, false, true, false);
+				arg2String = ((CountPattern) getArgument2()).generateXQuery().substring(1).replace("\n", "\n  ");
+			else 
+				return JavaQueryTranslationUtility.getXQueryReturnList(List.of(arg1String), COUNT, false, true, false);
+		return JavaQueryTranslationUtility.getXQueryReturnList(List.of(arg1String, arg2String), COUNT, false, true, false);
 	}
 	
 	@Override

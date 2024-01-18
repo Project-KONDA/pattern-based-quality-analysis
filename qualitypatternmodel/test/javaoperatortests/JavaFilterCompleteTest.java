@@ -26,7 +26,7 @@ public class JavaFilterCompleteTest {
 
 		boolean filterResult = true;
 		boolean queryResult = false;
-		boolean interimResults = true;
+		boolean interimResults = false;
 		boolean partialResults = true;
 		
 		int from = 13;
