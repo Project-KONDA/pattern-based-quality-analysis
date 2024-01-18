@@ -11,10 +11,9 @@ import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.operators.ComparisonOperator;
-import qualitypatternmodel.parameters.NumberParam;
-import qualitypatternmodel.parameters.impl.NumberParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
+import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
@@ -87,6 +86,8 @@ public class OneArgTestPatterns {
 		result.add(getTestPattern9());
 		result.add(getTestPattern10());
 		result.add(getTestPattern11());
+		result.add(getTestPattern12());
+		result.add(getTestPattern13());
 		return result;
 	}
 	
@@ -294,6 +295,51 @@ public class OneArgTestPatterns {
 		conditionNode.setReturnNode(true);
 		conditionNode.addPrimitiveValidateLink();
 		System.out.println(completePattern.myToString());
+		return completePattern;
+	}
+
+
+	public static CompletePattern getTestPattern12() throws InvalidityException {
+		return getTestPatternCountCondition(true);
+	}
+	public static CompletePattern getTestPattern13() throws InvalidityException {
+		return getTestPatternCountCondition(false);
+	}
+	
+	
+	public static CompletePattern getTestPatternCountCondition(Boolean java2) throws InvalidityException {
+		// return graph
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		Graph pgraph = completePattern.getGraph();
+		ComplexNode retnode = pgraph.getNodes().get(0).makeComplex();
+		
+		// count condition
+
+		CountCondition countCondition = PatternstructureFactory.eINSTANCE.createCountCondition();
+		completePattern.setCondition(countCondition);
+		countCondition.createCountPattern();
+		
+		CountPattern ne = PatternstructureFactory.eINSTANCE.createCountPattern();
+		countCondition.setArgument2(ne);
+		
+		
+		countCondition.getOption().setValue(ComparisonOperator.EQUAL);
+
+		Graph qcongraph1 = countCondition.getCountPattern().getGraph();
+		Graph qcongraph2 = ((CountPattern) countCondition.getArgument2()).getGraph();
+		
+		// node
+		PrimitiveNode conditionNode = retnode.addOutgoing(qcongraph1).getTarget().makePrimitive();
+		conditionNode.setReturnNode(true);
+		conditionNode.addPrimitiveValidateLink();
+		
+		PrimitiveNode conditionNode2 = retnode.addOutgoing(qcongraph2).getTarget().makePrimitive();
+		conditionNode2.setReturnNode(true);
+		if (java2)
+			conditionNode2.addPrimitiveValidateLink();
+		else 
+			conditionNode2.addPrimitiveMatch(".*a.*");
+		
 		return completePattern;
 	}
 

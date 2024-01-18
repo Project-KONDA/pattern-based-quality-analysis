@@ -24,13 +24,13 @@ public class JavaFilterCompleteTest {
 		List<CompletePattern> patterns = OneArgTestPatterns.getXmlTestPatterns();
 		List<JavaFilter> filters = new ArrayList<JavaFilter>();
 
-		boolean filterResult = false;
+		boolean filterResult = true;
 		boolean queryResult = false;
-		boolean interimResults = false;
+		boolean interimResults = true;
 		boolean partialResults = true;
 		
-		int from = 11;
-		int to = 11;
+		int from = 13;
+		int to = 13;
 		for (int i = from-1; i<patterns.size() && i < to; i++) {
 			System.out.println("Example " + (i+1) + ":");
 			// generate Filter and structure
@@ -78,6 +78,7 @@ public class JavaFilterCompleteTest {
 				if (fits) {
 					List<String> result = filter.filterQueryResults();
 					results.add(result);
+					System.out.println("results : " + !result.isEmpty());
 				}
 				else
 					results.add(null);
@@ -93,7 +94,7 @@ public class JavaFilterCompleteTest {
 		{
 			System.out.println("\n__RESULTS:__");
 			System.out.println(valid);
-			System.out.println(results);
+			System.out.println(results.toString().replace("\r\n", " "));
 			System.out.print("total: " + (!valid.contains(false)));
 		}
 	}

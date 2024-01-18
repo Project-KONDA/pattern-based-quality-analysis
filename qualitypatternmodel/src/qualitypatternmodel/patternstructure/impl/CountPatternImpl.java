@@ -32,6 +32,8 @@ import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.FormulaFilterPart;
 import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl;
+import qualitypatternmodel.javaquery.impl.NumberFilterElementImpl;
+import qualitypatternmodel.javaquery.impl.NumberValueFilterElementImpl;
 import qualitypatternmodel.javaquery.impl.CountFilterElementImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -81,7 +83,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	protected CountPatternImpl() {
+	public CountPatternImpl() {
 		super();
 		setMorphism(new MorphismImpl());
 		setGraph(new GraphImpl());
@@ -96,7 +98,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		Boolean condition = getCondition().containsJavaOperator();
 		
 		if (!graph && !condition)
-			return null;
+			return new NumberFilterElementImpl();
 		else {
 			BooleanFilterPart subfilter = null;
 			if (graph && condition) {

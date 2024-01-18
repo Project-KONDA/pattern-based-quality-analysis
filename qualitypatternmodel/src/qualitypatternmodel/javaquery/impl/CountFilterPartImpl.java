@@ -126,13 +126,10 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 			result2 = getSubfilter2().apply(null);
 		}
 		else {
-			InterimResult argument2 = ((ContainerResult)parameter).getSubresult().get(1);
+			InterimResult argument2 = ((ContainerResult) parameter).getSubresult().get(1);
 			result2 = getSubfilter2().apply(argument2);
 		}
-		Boolean res = ComparisonOperator.evaluate(getOperator(), result1, result2);
-		if (!res)
-			System.out.println("RES FAILED: \n" + parameter + " " + getOperator() + " " + result1 + "!=" + result2);
-		return res;
+		return ComparisonOperator.evaluate(getOperator(), result1, result2);
 	}
 
 	@Override
@@ -154,8 +151,17 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 	
 	@Override
 	public String toString() {
-		return "[count " + getJavaFilterPartId() + " <" + getArgument().getInterimPartId() + "> " + " "
-				+ getSubfilter1().toString() + " " + getOperator().toString() + " " + getSubfilter2().toString() + "]";
+		String res = "[count ";
+		res += getJavaFilterPartId();
+		res += " <" + getArgument().getInterimPartId() + "> ";
+		res += " " + getSubfilter1().toString() + " "; 
+		res += getOperator().toString() + " ";
+		if (getSubfilter2() == null)
+			res += "no second Subfilter in CountFilterPart";
+		else 
+			res += getSubfilter2().toString();
+		res += "]";
+		return res;
 	}
 	
 	
