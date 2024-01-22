@@ -88,6 +88,8 @@ public class OneArgTestPatterns {
 		result.add(getTestPattern11());
 		result.add(getTestPattern12());
 		result.add(getTestPattern13());
+		result.add(getTestPattern14());
+		result.add(getTestPattern15());
 		return result;
 	}
 	
@@ -339,6 +341,58 @@ public class OneArgTestPatterns {
 			conditionNode2.addPrimitiveValidateLink();
 		else 
 			conditionNode2.addPrimitiveMatch(".*a.*");
+		
+		return completePattern;
+	}
+	
+	public static CompletePattern getTestPattern14() throws InvalidityException {
+		// nested in one quantified condition
+		
+		// return graph
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		Graph pgraph = completePattern.getGraph();
+		ComplexNode retnode = pgraph.getNodes().get(0).makeComplex();
+		
+		// condition
+		QuantifiedCondition qcon = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		completePattern.setCondition(qcon);
+		Graph qcongraph = qcon.getGraph();
+		
+		// node
+		ComplexNode node1 = retnode.addOutgoing(qcongraph).getTarget().makeComplex();
+
+		PrimitiveNode node2 = node1.addOutgoing().getTarget().makePrimitive();
+		node2.addPrimitiveValidateLink();
+		
+		ComplexNode node3 = node1.addOutgoing().getTarget().makeComplex();
+		PrimitiveNode node4 = node3.addOutgoing().getTarget().makePrimitive();
+		node4.addPrimitiveValidateLink();
+		
+		return completePattern;
+	}
+	
+	public static CompletePattern getTestPattern15() throws InvalidityException {
+		// nested via two quantified conditions,
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		Graph pgraph = completePattern.getGraph();
+		ComplexNode retnode = pgraph.getNodes().get(0).makeComplex();
+
+		// Condition Structure
+		QuantifiedCondition qcon1 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		completePattern.setCondition(qcon1);
+		qcon1.setQuantifier(Quantifier.FORALL);
+		Graph qcon1graph = qcon1.getGraph();
+		
+		QuantifiedCondition qcon2 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		qcon1.setCondition(qcon2);
+		Graph qcon2graph = qcon2.getGraph();
+
+		// Nodes
+		ComplexNode midNode = retnode.addOutgoing(qcon1graph).getTarget().makeComplex();
+		PrimitiveNode node1 = midNode.addOutgoing(qcon1graph).getTarget().makePrimitive();
+		node1.addPrimitiveValidateLink();
+		PrimitiveNode node2 = midNode.addOutgoing(qcon2graph).getTarget().makePrimitive();
+		node2.addPrimitiveValidateLink();
 		
 		return completePattern;
 	}

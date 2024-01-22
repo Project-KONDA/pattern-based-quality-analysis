@@ -29,8 +29,8 @@ public class JavaFilterCompleteTest {
 		boolean interimResults = false;
 		boolean partialResults = true;
 		
-		int from = 13;
-		int to = 13;
+		int from = 14;
+		int to = 15;
 		for (int i = from-1; i<patterns.size() && i < to; i++) {
 			System.out.println("Example " + (i+1) + ":");
 			// generate Filter and structure

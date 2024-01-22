@@ -33,7 +33,6 @@ import qualitypatternmodel.javaquery.FormulaFilterPart;
 import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl;
 import qualitypatternmodel.javaquery.impl.NumberFilterElementImpl;
-import qualitypatternmodel.javaquery.impl.NumberValueFilterElementImpl;
 import qualitypatternmodel.javaquery.impl.CountFilterElementImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
