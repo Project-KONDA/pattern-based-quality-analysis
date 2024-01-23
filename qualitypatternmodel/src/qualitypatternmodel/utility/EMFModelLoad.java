@@ -1,10 +1,17 @@
 package qualitypatternmodel.utility;
 
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -19,10 +26,14 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 public class EMFModelLoad {
 	public static CompletePattern loadCompletePattern(String path) {
+		return loadCompletePattern(path, "patternstructure");
+	}
+	
+	public static CompletePattern loadCompletePattern(String path, String extension) {
 		// Initialize the model
         PatternstructurePackage.eINSTANCE.eClass();
 
-		Resource resource = load(path, "patternstructure");
+		Resource resource = load(path, extension);
 		if(resource.getContents().get(0) instanceof CompletePattern) {
 			return (CompletePattern) resource.getContents().get(0);	         
 		} else {
@@ -58,13 +69,11 @@ public class EMFModelLoad {
         Resource resource = resSet.getResource(URI
                 .createURI(dbPath), true);
 		if(resource.getContents().get(0) instanceof Databases) {
-//			Databases db = (Databases) resource.getContents().get(0);	         
+//			Databases db = (Databases) resource.getContents().get(0);
+			return resSet;
 		} else {
 			return null;
 		}
-		
-		return resSet;
-		
 	}
 	
 	public static CompletePattern loadCompletePatternInResourceSet(String patternPath, ResourceSet resSet) {
@@ -167,9 +176,78 @@ public class EMFModelLoad {
         ResourceSet resSet = new ResourceSetImpl();
 
         // Get the resource
-        Resource resource = resSet.getResource(URI
-                .createURI(path), true);
+        Resource resource = resSet.getResource(URI.createURI(path), true);
 		return resource;
+	}
+	
+	public static EObject loadFromFile(String filePath) {
+        // Create a ResourceSet
+        ResourceSet resourceSet = new ResourceSetImpl();
+
+        // Register the appropriate resource factory for XMI files
+        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(
+                Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
+
+        // Create a URI for the resource to load
+        URI fileURI = URI.createFileURI(filePath);
+
+        // Use the ResourceSet to create a Resource from the URI
+        Resource resource = resourceSet.getResource(fileURI, true);
+
+        // Check if the resource was loaded successfully
+        if (resource == null) {
+            System.err.println("Error loading EMF resource. Resource is null.");
+            return null;
+        }
+
+        try {
+            // Load the resource
+            resource.load(null);
+            System.out.println("EMF model loaded successfully from: " + filePath);
+
+            // Assuming your model has a single root element, return it
+            return resource.getContents().get(0);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("Error loading EMF model from file: " + filePath);
+            return null;
+        }
+    }
+
+	public static List<CompletePattern> loadCompletePatternFromFolder(String path, String extension) {
+		List<String> files = getFilesInDirectory(path);
+		
+		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
+		for (String file: files) {
+			try {
+				patterns.add(loadCompletePattern(file, extension));
+			} catch (Exception e) {}
+		}
+		return patterns;
+	}
+
+    private static List<String> getFilesInDirectory(String directory) {
+        try {
+            Path directoryPath = Paths.get(directory);
+            return Files.list(directoryPath)
+                        .map(Path::getFileName)
+                        .map(Path::toString)
+                        .collect(Collectors.toList());
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null; // or handle the exception according to your needs
+        }
+    }
+	
+	public static CompletePattern loadAbstractPattern(String format, String abstractPattern) {
+		
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static CompletePattern loadConcretePattern(String format, String concretePattern) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -22,4 +22,35 @@ public class EMFModelSave {
 	  resource.getContents().add(data);
 	  resource.save(Collections.EMPTY_MAP);
 	}
+	
+    public static void exportToFile2(EObject data, String filePath, String fileName, String fileExtension) throws IOException {
+    	
+    	String path = filePath + "/" + fileName + "." + fileExtension;
+    	
+        // Create a ResourceSet
+        ResourceSet resourceSet = new ResourceSetImpl();
+
+        // Register the appropriate resource factory
+        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(
+                Resource.Factory.Registry.DEFAULT_EXTENSION, new org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl());
+        
+        // Print the absolute path for debugging
+        System.out.println("Absolute Path: " + new java.io.File(path).getAbsolutePath());
+        
+        // Create a Resource with an appropriate URI
+        URI fileURI = URI.createFileURI(path);
+        Resource resource = resourceSet.createResource(fileURI);
+        
+        // Add the model instance to the resource's contents
+        resource.getContents().add(data);
+
+        // Save the resource
+        try {
+            resource.save(null);
+            resource.unload();
+        } catch (IOException e) {
+            resource.unload();
+            throw e;
+        }
+    }
 }
