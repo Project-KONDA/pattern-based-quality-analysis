@@ -7,6 +7,7 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.utility.EMFModelLoad;
 import qualitypatternmodel.utility.EMFModelSave;
 
@@ -16,22 +17,22 @@ public abstract class ServeletUtilities {
 
 	// Pattern request
 	
-	public List<CompletePattern> getAllPattern(String format){
+	public static List<CompletePattern> getAllPattern(String format){
 		EList<CompletePattern> patterns = new BasicEList<CompletePattern>();
 		patterns.addAll(getAllAbstractPattern(format));
 		patterns.addAll(getAllConcretePattern(format));
 		return patterns;
 	}
 	
-	public List<CompletePattern> getAllAbstractPattern(String format) {
+	public static List<CompletePattern> getAllAbstractPattern(String format) {
 		return loadAbstractPattern(format);
 	}
 
-	public List<CompletePattern> getAllSemiConcretePattern(String format) {
+	public static List<CompletePattern> getAllSemiConcretePattern(String format) {
 		return loadAllPatternInstances(format);
 	}
 	
-	public List<CompletePattern> getAllConcretePattern(String format) {
+	public static List<CompletePattern> getAllConcretePattern(String format) {
 		List<CompletePattern> concrete = new BasicEList<CompletePattern>();
 		List<CompletePattern> semiconcrete = loadAllPatternInstances(format);
 		for (CompletePattern semi: semiconcrete) {
@@ -45,14 +46,14 @@ public abstract class ServeletUtilities {
 	
 	// Pattern instantiation
 	
-	public CompletePattern instantiateAbstractPattern(String format, String abstractPattern, String concretePattern) throws IOException {
+	public static CompletePattern instantiateAbstractPattern(String format, String abstractPattern, String concretePattern) throws IOException {
 		CompletePattern pattern = EMFModelLoad.loadAbstractPattern(format, abstractPattern);
 		pattern.setName(concretePattern);
 		EMFModelSave.exportToFile2(pattern, format, concretePattern, EXTENSION);
 		return pattern;
 	}
 	
-	public CompletePattern copyConcretePattern(String format, String concretePattern, String concretePatternName) throws IOException {
+	public static CompletePattern copyConcretePattern(String format, String concretePattern, String concretePatternName) throws IOException {
 		CompletePattern pattern = EMFModelLoad.loadConcretePattern(format, concretePattern);
 		pattern.setName(concretePatternName);
 		EMFModelSave.exportToFile2(pattern, format, concretePatternName, EXTENSION);
@@ -60,8 +61,11 @@ public abstract class ServeletUtilities {
 	}
 	
 	// database
-	abstract public void saveDatabase(String URL, String user, String password, String name);
-	abstract public void loadDatabase(String name);
+	public static void saveDatabase(String URL, String user, String password, String name) {
+	};
+	
+	public static void loadDatabase(String name) {
+	};
 	
 	// pattern modification
 	
@@ -73,15 +77,14 @@ public abstract class ServeletUtilities {
 	abstract public void executePattern(String pattern);
 	
 	
-	
 	// ---------------
 	
 	
-	List<CompletePattern> abstractPatternXml = null;
-	List<CompletePattern> abstractPatternRdf = null;
-	List<CompletePattern> abstractPatternNeo = null;
+	private static List<CompletePattern> abstractPatternXml = null;
+	private static List<CompletePattern> abstractPatternRdf = null;
+	private static List<CompletePattern> abstractPatternNeo = null;
 	
-	private List<CompletePattern> loadAbstractPattern(String format) {
+	private static List<CompletePattern> loadAbstractPattern(String format) {
 		switch(format) {
 		case "xml":
 			if (abstractPatternXml != null)
@@ -100,7 +103,7 @@ public abstract class ServeletUtilities {
 		}
 	}
 	
-	private List<CompletePattern> loadAllPatternInstances(String format) {
+	private static List<CompletePattern> loadAllPatternInstances(String format) {
 		switch(format) {
 		case "xml":
 			return EMFModelLoad.loadCompletePatternFromFolder("serverpatterns/xml/concrete-patterns", EXTENSION);
@@ -114,6 +117,29 @@ public abstract class ServeletUtilities {
 	}
 
 	abstract public void initializeServerPattern();
+	public static String getPatternJSON(List<CompletePattern> patterns) {
+		String result = "{\"Templates\": [ ";
+		for (CompletePattern pattern: patterns) {
+			String json = "{";
+			json += "\"patternID\": \""+ pattern.getName() + "\", ";
+//			json += "\"patternDescShort\": \"" + pattern.getShortDescription() + "\", ";
+			json += "\"patternDesc\": \""+ pattern.getDescription() +"\",";
+			json += "\"variants\": [";
+			
+			for (PatternText text: pattern.getText()) {
+				json += text.generateJSON();
+			}
+			result += "},";
+		}
+		return result += "]";
+	}
 	
+	public static String getPatternJSONHeads(List<CompletePattern> patterns) {
+		String result = "[";
+		for (CompletePattern pattern: patterns) {
+			result += "{\"name\":\""+pattern.getName() + "\", \"description\":\"" + pattern.getDescription() + "\"}, ";
+		}
+		return result += "]";
+	}
 	
 }
