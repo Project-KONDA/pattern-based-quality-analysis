@@ -5,6 +5,23 @@
 		http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	version="4.0">	
 	
+	<!-- Request Patterns
+		/templates/<format>/<level>
+		- format: xml, rdf, neo4j
+		- level: all, abstract, semi-concrete, concrete
+	 -->
+	 
+	<servlet>
+		<servlet-name>PatternRequestServelet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.PatternRequestServelet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>PatternRequestServelet</servlet-name>
+		<url-pattern>/templates/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 
 	<servlet>
 		<servlet-name>AbstractPatternListServlet</servlet-name>
 		<servlet-class>qualitypatternmodel.servlets.AbstractPatternListServlet</servlet-class>
@@ -237,6 +254,7 @@
 		<servlet-name>PatternApplicationServlet</servlet-name>
 		<url-pattern>/xml/finalized-patterns/application</url-pattern>
 	</servlet-mapping>
+	-->
 	
 	<filter>
 	  <filter-name>CorsFilter</filter-name>
