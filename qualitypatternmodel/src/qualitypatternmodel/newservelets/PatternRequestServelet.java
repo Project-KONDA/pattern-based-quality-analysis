@@ -1,6 +1,7 @@
 package qualitypatternmodel.newservelets;
 
 import java.io.IOException;
+import java.nio.file.NoSuchFileException;
 import java.util.List;
 
 import jakarta.servlet.http.HttpServlet;
@@ -9,9 +10,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 @SuppressWarnings("serial")
-abstract public class PatternRequestServelet extends HttpServlet {
+public class PatternRequestServelet extends HttpServlet {
 
-	protected static List<CompletePattern> getSpecificPattern(HttpServletRequest request){
+	protected static List<CompletePattern> getSpecificPattern(HttpServletRequest request) throws NoSuchFileException {
 		String format = "xml";
 		String level = "concrete";
 		
@@ -22,7 +23,7 @@ abstract public class PatternRequestServelet extends HttpServlet {
 		return getPatterns(format, level);
 	}
 	
-	protected static List<CompletePattern> getPatterns(String format, String level){
+	protected static List<CompletePattern> getPatterns(String format, String level) throws NoSuchFileException {
 		switch(level) {
 			case "abstract":
 				return ServeletUtilities.getAllAbstractPattern(format);

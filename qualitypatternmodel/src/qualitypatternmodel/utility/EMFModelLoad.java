@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -214,7 +215,7 @@ public class EMFModelLoad {
         }
     }
 
-	public static List<CompletePattern> loadCompletePatternFromFolder(String path, String extension) {
+	public static List<CompletePattern> loadCompletePatternFromFolder(String path, String extension) throws NoSuchFileException {
 		List<String> files = getFilesInDirectory(path);
 		
 		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
@@ -226,7 +227,7 @@ public class EMFModelLoad {
 		return patterns;
 	}
 
-    private static List<String> getFilesInDirectory(String directory) {
+    private static List<String> getFilesInDirectory(String directory) throws NoSuchFileException {
         try {
             Path directoryPath = Paths.get(directory);
             return Files.list(directoryPath)
