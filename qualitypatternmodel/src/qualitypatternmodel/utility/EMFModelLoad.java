@@ -227,6 +227,18 @@ public class EMFModelLoad {
 		return patterns;
 	}
 
+	public static List<EObject> loadObjectsFromFolder(String path, String extension) throws NoSuchFileException {
+		List<String> files = getFilesInDirectory(path);
+		
+		List<EObject> patterns = new BasicEList<EObject>();
+		for (String file: files) {
+			try {
+				patterns.add(loadCompletePattern(file, extension));
+			} catch (Exception e) {}
+		}
+		return patterns;
+	}
+
     private static List<String> getFilesInDirectory(String directory) throws NoSuchFileException {
         try {
             Path directoryPath = Paths.get(directory);

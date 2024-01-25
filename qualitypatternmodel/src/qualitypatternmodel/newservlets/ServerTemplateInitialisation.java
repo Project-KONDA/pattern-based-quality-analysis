@@ -1,4 +1,4 @@
-package qualitypatternmodel.newservelets;
+package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
 import java.util.List;
@@ -8,7 +8,7 @@ import org.eclipse.emf.common.util.BasicEList;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.EMFModelSave;
 
-public class PatternInstantiation {
+public class ServerTemplateInitialisation {
 
 	public static void main(String[] args) throws IOException {
 		for (CompletePattern pattern: getPatternsXml())

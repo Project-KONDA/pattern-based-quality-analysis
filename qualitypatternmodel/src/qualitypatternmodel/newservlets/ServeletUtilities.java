@@ -1,4 +1,4 @@
-package qualitypatternmodel.newservelets;
+package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
 import java.nio.file.NoSuchFileException;

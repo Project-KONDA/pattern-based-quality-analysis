@@ -1,4 +1,4 @@
-package qualitypatternmodel.newservelets;
+package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
 import java.nio.file.NoSuchFileException;
@@ -10,16 +10,14 @@ import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 @SuppressWarnings("serial")
-public class PatternRequestServelet extends HttpServlet {
+public class TemplateGetListServlet extends HttpServlet {
 
 	protected static List<CompletePattern> getSpecificPattern(HttpServletRequest request) throws NoSuchFileException {
+		
+//        String pathInfo = request.getPathInfo();
 		String format = "xml";
 		String level = "concrete";
-		
-
-//        String pathInfo = request.getPathInfo();
         
-		
 		return getPatterns(format, level);
 	}
 	
@@ -37,6 +35,8 @@ public class PatternRequestServelet extends HttpServlet {
 		return null;
 	}
 	
+	// .. /template/getlist   /<technology>/<level>
+	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		try {
@@ -48,6 +48,8 @@ public class PatternRequestServelet extends HttpServlet {
 			response.getOutputStream().println("{ \"error\": \"Loading abstract pattern folder failed.\"}");
 		}
 	}
+	
+	// .. /template/getlist   /<technology>/<level>
 
 	@Override
 	public void doHead(HttpServletRequest request, HttpServletResponse response) throws IOException {
