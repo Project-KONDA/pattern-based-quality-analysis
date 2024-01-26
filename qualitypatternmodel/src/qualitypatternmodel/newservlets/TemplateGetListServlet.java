@@ -1,7 +1,6 @@
 package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
-import java.nio.file.NoSuchFileException;
 import java.util.List;
 
 import jakarta.servlet.http.HttpServlet;
@@ -12,7 +11,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 @SuppressWarnings("serial")
 public class TemplateGetListServlet extends HttpServlet {
 
-	protected static List<CompletePattern> getSpecificPattern(HttpServletRequest request) throws NoSuchFileException {
+	protected static List<CompletePattern> getSpecificPattern(HttpServletRequest request) throws IOException {
 		
 //        String pathInfo = request.getPathInfo();
 		String format = "xml";
@@ -21,7 +20,7 @@ public class TemplateGetListServlet extends HttpServlet {
 		return getPatterns(format, level);
 	}
 	
-	protected static List<CompletePattern> getPatterns(String format, String level) throws NoSuchFileException {
+	protected static List<CompletePattern> getPatterns(String format, String level) throws IOException {
 		switch(level) {
 			case "abstract":
 				return ServeletUtilities.getAllAbstractPattern(format);
@@ -39,27 +38,20 @@ public class TemplateGetListServlet extends HttpServlet {
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		try {
-			List<CompletePattern> patterns = getSpecificPattern(request);
-			String json = ServeletUtilities.getPatternJSON(patterns);
-			response.getOutputStream().println(json);
-		} catch (Exception e) {
-			response.sendError(404);
-			response.getOutputStream().println("{ \"error\": \"Loading abstract pattern folder failed.\"}");
-		}
+		System.out.println("TemplateGetListServlet.doGet()");
+		response.getOutputStream().println("{ \"call\": \"TemplateGetListServlet.doGet()\"}");
+//		try {
+//			List<CompletePattern> patterns = getSpecificPattern(request);
+//			String json = ServeletUtilities.getPatternJSON(patterns);
+//			response.getOutputStream().println(json);
+//		} catch (NoSuchFileException e) {
+//			response.sendError(404);
+//			response.getOutputStream().println("{ \"error\": \"" + e.getMessage() + "\"}");
+//		} catch (IOException e) {
+//			response.sendError(404);
+//			response.getOutputStream().println("{ \"error\": \"" + e.getMessage() + "\"}");
+//	    }
 	}
 	
 	// .. /template/getlist   /<technology>/<level>
-
-	@Override
-	public void doHead(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		try {
-			List<CompletePattern> patterns = getSpecificPattern(request);
-			String json = ServeletUtilities.getPatternJSONHeads(patterns);
-			response.getOutputStream().println(json);
-		} catch (Exception e) {
-			response.sendError(404);
-			response.getOutputStream().println("{ \"error\": \"Loading abstract pattern folder failed.\"}");
-		}
-	}
 }

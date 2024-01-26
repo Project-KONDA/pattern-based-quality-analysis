@@ -12,5 +12,7 @@ public class TemplateInstantiateServlet extends HttpServlet {
 	
 	@Override
 	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		System.out.println("TemplateInstantiateServlet.doPut()");
+		response.getOutputStream().println("{ \"call\": \"TemplateInstantiateServlet.doPut()\"}");
 	}
 }

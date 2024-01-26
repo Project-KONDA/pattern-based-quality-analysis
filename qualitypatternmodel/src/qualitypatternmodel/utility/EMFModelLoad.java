@@ -3,6 +3,7 @@ package qualitypatternmodel.utility;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
@@ -215,10 +216,12 @@ public class EMFModelLoad {
         }
     }
 
-	public static List<CompletePattern> loadCompletePatternFromFolder(String path, String extension) throws NoSuchFileException {
+	public static List<CompletePattern> loadCompletePatternFromFolder(String path, String extension) throws IOException {
 		List<String> files = getFilesInDirectory(path);
 		
 		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
+		if (files == null)
+			throw new NoSuchFileException(path);
 		for (String file: files) {
 			try {
 				patterns.add(loadCompletePattern(file, extension));
@@ -227,7 +230,7 @@ public class EMFModelLoad {
 		return patterns;
 	}
 
-	public static List<EObject> loadObjectsFromFolder(String path, String extension) throws NoSuchFileException {
+	public static List<EObject> loadObjectsFromFolder(String path, String extension) throws IOException {
 		List<String> files = getFilesInDirectory(path);
 		
 		List<EObject> patterns = new BasicEList<EObject>();
@@ -239,17 +242,12 @@ public class EMFModelLoad {
 		return patterns;
 	}
 
-    private static List<String> getFilesInDirectory(String directory) throws NoSuchFileException {
-        try {
-            Path directoryPath = Paths.get(directory);
-            return Files.list(directoryPath)
-                        .map(Path::getFileName)
-                        .map(Path::toString)
-                        .collect(Collectors.toList());
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null; // or handle the exception according to your needs
-        }
+    private static List<String> getFilesInDirectory(String directory) throws IOException {
+        Path directoryPath = Paths.get(directory);
+        Stream<Path> pathstream = Files.list(directoryPath).map(Path::getFileName);
+        Stream <String> filestream = pathstream.map(Path::toString);
+        List<String> results = filestream.collect(Collectors.toList());
+        return results;       
     }
 	
 	public static CompletePattern loadAbstractPattern(String format, String abstractPattern) {

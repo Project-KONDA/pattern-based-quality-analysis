@@ -12,5 +12,7 @@ public class TemplateDeleteServlet extends HttpServlet {
 	
 	@Override
 	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		System.out.println("TemplateDeleteServlet.doDelete()");
+		response.getOutputStream().println("{ \"call\": \"TemplateDeleteServlet.doDelete()\"}");
 	}
 }

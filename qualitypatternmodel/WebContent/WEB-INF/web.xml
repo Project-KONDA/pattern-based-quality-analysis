@@ -3,23 +3,163 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
 		http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-	version="4.0">	
+	version="4.0">
 	
-	<!-- Request Patterns
-		/templates/<format>/<level>
-		- format: xml, rdf, neo4j
-		- level: all, abstract, semi-concrete, concrete
+	<!--
+		format: xml, rdf, neo4j
+		level: all, abstract, semi-concrete, concrete 
+	-->
+	
+	
+	<!-- Add a new database
+		/database/add/<technology>
 	 -->
-	 
 	<servlet>
-		<servlet-name>PatternRequestServelet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.PatternRequestServelet</servlet-class>
+		<servlet-name>DatabaseAddServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.DatabaseAddServlet</servlet-class>
 	</servlet>
-
 	<servlet-mapping>
-		<servlet-name>PatternRequestServelet</servlet-name>
-		<url-pattern>/templates/*</url-pattern>
+		<servlet-name>DatabaseAddServlet</servlet-name>
+		<url-pattern>/database/add/*</url-pattern>
 	</servlet-mapping>
+	
+	<!-- Delete database
+		/database/delete/<technology>
+	 -->
+	<servlet>
+		<servlet-name>DatabaseDeleteServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.DatabaseDeleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DatabaseDeleteServlet</servlet-name>
+		<url-pattern>/database/delete/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Add a new database
+		/database/getlist/<technology> {database data}
+	 -->
+	<servlet>
+		<servlet-name>DatabaseGetListServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.DatabaseGetListServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DatabaseGetListServlet</servlet-name>
+		<url-pattern>/database/getlist/*</url-pattern>
+	</servlet-mapping>
+	
+	
+	<!-- Copy existing semi-concrete template
+		/template/copy/<technology>/<name>
+	 -->
+	<servlet>
+		<servlet-name>TemplateCopyServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.TemplateCopyServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TemplateCopyServlet</servlet-name>
+		<url-pattern>/template/copy/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Delete existing semi-concrete template
+		/template/delete/<technology>/<name>
+	 -->
+	<servlet>
+		<servlet-name>TemplateDeleteServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.TemplateDeleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TemplateDeleteServlet</servlet-name>
+		<url-pattern>/template/delete/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Execute existing concrete template
+		/database/execute/<technology>/<name>
+	 -->
+	<servlet>
+		<servlet-name>TemplateExecuteServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.TemplateExecuteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TemplateExecuteServlet</servlet-name>
+		<url-pattern>/template/execute/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Get database of semi-concrete template
+		/database/execute/<technology>/<name>
+	 -->
+	<servlet>
+		<servlet-name>TemplateGetDatabaseServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.TemplateGetDatabaseServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TemplateGetDatabaseServlet</servlet-name>
+		<url-pattern>/template/getdatabase/*</url-pattern>
+	</servlet-mapping>
+		
+	<!-- Request list of templates
+		/templates/getlist/<format>/<level>
+	 -->
+	<servlet>
+		<servlet-name>TemplateGetListServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.TemplateGetListServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TemplateGetListServlet</servlet-name>
+		<url-pattern>/template/getlist/*</url-pattern>
+	</servlet-mapping>
+		
+	<!-- Request parameters and values of a template
+		/templates/getlist/<format>/<level>
+	 -->
+	<servlet>
+		<servlet-name>TemplateGetParameterServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.TemplateGetParameterServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TemplateGetParameterServlet</servlet-name>
+		<url-pattern>/template/getparameter/*</url-pattern>
+	</servlet-mapping>
+		
+	<!-- Post new instance of an abstract template
+		/templates/instantiate/<technology>/<abstracttemplate>
+	 -->
+	<servlet>
+		<servlet-name>TemplateInstantiateServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.TemplateInstantiateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TemplateInstantiateServlet</servlet-name>
+		<url-pattern>/template/instantiate/*</url-pattern>
+	</servlet-mapping>
+		
+	<!-- Post new instance of an abstract template
+		/template/setdatabase/<technology>/<name>
+	 -->
+	<servlet>
+		<servlet-name>TemplateSetDatabaseServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.TemplateSetDatabaseServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TemplateSetDatabaseServlet</servlet-name>
+		<url-pattern>/template/setdatabase/*</url-pattern>
+	</servlet-mapping>
+		
+	<!-- Change one or more parameters
+		/template/setparameter/<technology>/<name>/
+	-->
+	<servlet>
+		<servlet-name>TemplateSetParameterServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.TemplateSetParameterServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TemplateSetParameterServlet</servlet-name>
+		<url-pattern>/template/setparameter/*</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	
+	
 	
 	<!-- 
 	<servlet>

@@ -11,6 +11,8 @@ public class TemplateExecuteServlet extends HttpServlet {
 	// .. /template/execute   /<technology>
 
 	@Override
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		System.out.println("TemplateExecuteServlet.doGet()");
+		response.getOutputStream().println("{ \"call\": \"TemplateExecuteServlet.doGet()\"}");
 	}
 }

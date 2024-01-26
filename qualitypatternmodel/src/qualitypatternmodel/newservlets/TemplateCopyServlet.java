@@ -11,6 +11,8 @@ public class TemplateCopyServlet extends HttpServlet {
 	// .. /template/copy   /<technology>/<concretetemplate>
 	
 	@Override
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		System.out.println("TemplateCopyServlet.doPost()");
+		response.getOutputStream().println("{ \"call\": \"TemplateCopyServlet.doPost()\"}");
 	}
 }

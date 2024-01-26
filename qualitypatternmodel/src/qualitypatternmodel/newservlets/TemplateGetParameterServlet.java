@@ -12,5 +12,7 @@ public class TemplateGetParameterServlet extends HttpServlet {
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		System.out.println("TemplateGetParameterServlet.doGet()");
+		response.getOutputStream().println("{ \"call\": \"TemplateGetParameterServlet.doGet()\"}");
 	}
 }

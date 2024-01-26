@@ -1,7 +1,6 @@
 package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
-import java.nio.file.NoSuchFileException;
 import java.util.List;
 
 import org.eclipse.emf.common.util.BasicEList;
@@ -18,22 +17,22 @@ public abstract class ServeletUtilities {
 
 	// Pattern request
 	
-	public static List<CompletePattern> getAllPattern(String format) throws NoSuchFileException {
+	public static List<CompletePattern> getAllPattern(String format) throws IOException {
 		EList<CompletePattern> patterns = new BasicEList<CompletePattern>();
 		patterns.addAll(getAllAbstractPattern(format));
 		patterns.addAll(getAllConcretePattern(format));
 		return patterns;
 	}
 	
-	public static List<CompletePattern> getAllAbstractPattern(String format) throws NoSuchFileException {
+	public static List<CompletePattern> getAllAbstractPattern(String format) throws IOException {
 		return loadAbstractPattern(format);
 	}
 
-	public static List<CompletePattern> getAllSemiConcretePattern(String format) throws NoSuchFileException {
+	public static List<CompletePattern> getAllSemiConcretePattern(String format) throws IOException {
 		return loadAllPatternInstances(format);
 	}
 	
-	public static List<CompletePattern> getAllConcretePattern(String format) throws NoSuchFileException {
+	public static List<CompletePattern> getAllConcretePattern(String format) throws IOException {
 		List<CompletePattern> concrete = new BasicEList<CompletePattern>();
 		List<CompletePattern> semiconcrete = loadAllPatternInstances(format);
 		for (CompletePattern semi: semiconcrete) {
@@ -85,7 +84,7 @@ public abstract class ServeletUtilities {
 	private static List<CompletePattern> abstractPatternRdf = null;
 	private static List<CompletePattern> abstractPatternNeo = null;
 	
-	private static List<CompletePattern> loadAbstractPattern(String format) throws NoSuchFileException {
+	private static List<CompletePattern> loadAbstractPattern(String format) throws IOException {
 		switch(format) {
 		case "xml":
 			if (abstractPatternXml != null)
@@ -104,7 +103,7 @@ public abstract class ServeletUtilities {
 		}
 	}
 	
-	private static List<CompletePattern> loadAllPatternInstances(String format) throws NoSuchFileException {
+	private static List<CompletePattern> loadAllPatternInstances(String format) throws IOException {
 		switch(format) {
 		case "xml":
 			return EMFModelLoad.loadCompletePatternFromFolder("serverpatterns/xml/concrete-patterns", EXTENSION);

@@ -1,12 +1,9 @@
 package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
-import java.util.List;
-
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import qualitypatternmodel.execution.Database;
 
 @SuppressWarnings("serial")
 public class DatabaseGetListServlet extends HttpServlet {
@@ -16,25 +13,28 @@ public class DatabaseGetListServlet extends HttpServlet {
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String format = "xml";
+		System.out.println("DatabaseGetListServlet.doGet()");
+		response.getOutputStream().println("{ \"call\": \"DatabaseGetListServlet.doGet()\"}");
 		
-		List<Database> databases = null; // EMFModelLoad.loadDatabasesOfFormat(format);
-		
-		String output = "{\"databases\":[";
-		
-		for (Database database: databases) {
-			String json = "{";
-//			json += "\"name\":\"" + database.getName() + "\",";
-//			json += "\"url\":\"" + database.getUrl() + "\"";
-			json += "},";
-			output += json;
-		}
-		output += "]}";
-
-		response.getOutputStream().println(output);
-		
-		// if not found:
-		response.sendError(404);
-		response.getOutputStream().println("{ \"error\": \"Database not found.\"}");
+//		String format = "xml";
+//		
+//		List<Database> databases = null; // EMFModelLoad.loadDatabasesOfFormat(format);
+//		
+//		String output = "{\"databases\":[";
+//		
+//		for (Database database: databases) {
+//			String json = "{";
+////			json += "\"name\":\"" + database.getName() + "\",";
+////			json += "\"url\":\"" + database.getUrl() + "\"";
+//			json += "},";
+//			output += json;
+//		}
+//		output += "]}";
+//
+//		response.getOutputStream().println(output);
+//		
+//		// if not found:
+//		response.sendError(404);
+//		response.getOutputStream().println("{ \"error\": \"Database not found.\"}");
 	}
 }
