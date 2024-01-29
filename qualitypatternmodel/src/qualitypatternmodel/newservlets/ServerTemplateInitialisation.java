@@ -1,36 +1,27 @@
 package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
-import java.util.List;
 
-import org.eclipse.emf.common.util.BasicEList;
-
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.newservlets.initialisation.GenericPatterns;
+import qualitypatternmodel.newservlets.initialisation.Neo4jPatterns;
+import qualitypatternmodel.newservlets.initialisation.RdfPatterns;
+import qualitypatternmodel.newservlets.initialisation.XmlPatterns;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.EMFModelSave;
 
 public class ServerTemplateInitialisation {
 
-	public static void main(String[] args) throws IOException {
-		for (CompletePattern pattern: getPatternsXml())
+	public static void main(String[] args) throws IOException, InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		for (CompletePattern pattern: GenericPatterns.getAllGenericPattern())
+			EMFModelSave.exportToFile2(pattern, "serverpatterns/generic-patterns", pattern.getName(), "pattern");
+		for (CompletePattern pattern: XmlPatterns.getAllXmlPattern())
 			EMFModelSave.exportToFile2(pattern, "serverpatterns/xml/abstract-patterns", pattern.getName(), "pattern");
-		for (CompletePattern pattern: getPatternsRdf())
+		for (CompletePattern pattern: RdfPatterns.getAllRdfPattern())
 			EMFModelSave.exportToFile2(pattern, "serverpatterns/rdf/abstract-patterns", pattern.getName(), "pattern");
-		for (CompletePattern pattern: getPatternsNeo())
+		for (CompletePattern pattern: Neo4jPatterns.getAllNeoPattern())
 			EMFModelSave.exportToFile2(pattern, "serverpatterns/neo/abstract-patterns", pattern.getName(), "pattern");
 	}
-	
-	public static List<CompletePattern> getPatternsXml(){
-		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
-		return patterns;
-	}
-	public static List<CompletePattern> getPatternsRdf(){
-		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
-		return patterns;
-	}
-
-	public static List<CompletePattern> getPatternsNeo(){
-		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
-		return patterns;
-	}
-	
 }
