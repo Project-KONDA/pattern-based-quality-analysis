@@ -13,9 +13,21 @@ public class DatabaseGetListServlet extends HttpServlet {
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		System.out.println("DatabaseGetListServlet.doGet()");
-		response.getOutputStream().println("{ \"call\": \"DatabaseGetListServlet.doGet()\"}");
-		
+		String path = request.getContextPath();
+		System.out.println("DatabaseGetListServlet.doGet(" + path + ")");
+		String result;
+		try {
+			result = applyGet(path);
+			response.getOutputStream().println(result);
+		}
+		catch (Exception e) {
+			response.sendError(404);
+			response.getOutputStream().println("{ \"error\": \"Databases not found.\"}");
+		}
+//		response.getOutputStream().println("{ \"call\": \"DatabaseGetListServlet.doGet(" + path + ")\"}");
+	}
+	
+	private String applyGet(String path) {
 //		String format = "xml";
 //		
 //		List<Database> databases = null; // EMFModelLoad.loadDatabasesOfFormat(format);
@@ -36,5 +48,6 @@ public class DatabaseGetListServlet extends HttpServlet {
 //		// if not found:
 //		response.sendError(404);
 //		response.getOutputStream().println("{ \"error\": \"Database not found.\"}");
+		return "";
 	}
 }

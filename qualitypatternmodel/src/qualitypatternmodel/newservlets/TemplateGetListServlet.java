@@ -1,6 +1,7 @@
 package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
+import java.nio.file.NoSuchFileException;
 import java.util.List;
 
 import jakarta.servlet.http.HttpServlet;
@@ -10,9 +11,36 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 
 @SuppressWarnings("serial")
 public class TemplateGetListServlet extends HttpServlet {
+	
+	// .. /template/getlist   /<technology>/<level>
+	
+	@Override
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String path = request.getContextPath();
+		System.out.println("TemplateGetListServlet.doGet(" + path + ")");
+		String result;
+		try {
+			result = applyGet(path);
+			response.getOutputStream().println(result);
+		}
+		catch (NoSuchFileException e) {
+			response.sendError(404);
+			response.getOutputStream().println("{ \"error\": \"Template not found.\"}");
+		}
+		catch (IOException e) {
+			response.sendError(404);
+			response.getOutputStream().println("{ \"error\": \"Template not found.\"}");
+		}
+//		response.getOutputStream().println("{ \"call\": \"TemplateGetListServlet.doGet(" + path + ")\"}");
+	}
+	
+	private String applyGet(String path) throws NoSuchFileException,  IOException {
+		List<CompletePattern> patterns = getSpecificPattern(null);
+		String json = ServeletUtilities.getPatternJSON(patterns);
+		return json;
+	}
 
-	protected static List<CompletePattern> getSpecificPattern(HttpServletRequest request) throws IOException {
-		
+	private static List<CompletePattern> getSpecificPattern(HttpServletRequest request) throws IOException {
 //        String pathInfo = request.getPathInfo();
 		String format = "xml";
 		String level = "concrete";
@@ -20,7 +48,7 @@ public class TemplateGetListServlet extends HttpServlet {
 		return getPatterns(format, level);
 	}
 	
-	protected static List<CompletePattern> getPatterns(String format, String level) throws IOException {
+	private static List<CompletePattern> getPatterns(String format, String level) throws IOException {
 		switch(level) {
 			case "abstract":
 				return ServeletUtilities.getAllAbstractPattern(format);
@@ -33,25 +61,4 @@ public class TemplateGetListServlet extends HttpServlet {
 		}
 		return null;
 	}
-	
-	// .. /template/getlist   /<technology>/<level>
-	
-	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		System.out.println("TemplateGetListServlet.doGet()");
-		response.getOutputStream().println("{ \"call\": \"TemplateGetListServlet.doGet()\"}");
-//		try {
-//			List<CompletePattern> patterns = getSpecificPattern(request);
-//			String json = ServeletUtilities.getPatternJSON(patterns);
-//			response.getOutputStream().println(json);
-//		} catch (NoSuchFileException e) {
-//			response.sendError(404);
-//			response.getOutputStream().println("{ \"error\": \"" + e.getMessage() + "\"}");
-//		} catch (IOException e) {
-//			response.sendError(404);
-//			response.getOutputStream().println("{ \"error\": \"" + e.getMessage() + "\"}");
-//	    }
-	}
-	
-	// .. /template/getlist   /<technology>/<level>
 }

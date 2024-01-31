@@ -12,7 +12,21 @@ public class TemplateCopyServlet extends HttpServlet {
 	
 	@Override
 	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		System.out.println("TemplateCopyServlet.doPost()");
-		response.getOutputStream().println("{ \"call\": \"TemplateCopyServlet.doPost()\"}");
+		String path = request.getContextPath();
+		System.out.println("TemplateCopyServlet.doPut()");
+		String result;
+		try{
+			result = applyPut(path);
+			response.getOutputStream().println(result);
+		}
+		catch (Exception e) {
+			response.sendError(404);
+			response.getOutputStream().println("{ \"error\": \"Copying template failed.\"}");
+		}
+//		response.getOutputStream().println("{ \"call\": \"TemplateCopyServlet.doPut()\"}");
+	}
+	
+	private String applyPut (String path) {
+		return "";
 	}
 }

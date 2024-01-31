@@ -13,8 +13,22 @@ public class DatabaseDeleteServlet extends HttpServlet {
 	
 	@Override
 	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		System.out.println("DatabaseDeleteServlet.doDelete()");
-		response.getOutputStream().println("{ \"call\": \"DatabaseDeleteServlet.doDelete()\"}");
+		String path = request.getContextPath();
+		System.out.println("DatabaseDeleteServlet.doDelete(" + path + ")");
+		String result;
+		try{
+			result = applyDelete(path);
+			response.getOutputStream().println(result);
+		}
+		catch (Exception e) {
+			response.sendError(404);
+			response.getOutputStream().println("{ \"error\": \"Deleting Database failed.\"}");
+		}
+//		response.getOutputStream().println("{ \"call\": \"DatabaseDeleteServlet.doDelete(" + path + ")\"}");
+	}
+	
+	private String applyDelete(String path) {
+		return "";
 	}
 
 }

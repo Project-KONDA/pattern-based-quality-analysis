@@ -12,7 +12,21 @@ public class TemplateInstantiateServlet extends HttpServlet {
 	
 	@Override
 	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		System.out.println("TemplateInstantiateServlet.doPut()");
-		response.getOutputStream().println("{ \"call\": \"TemplateInstantiateServlet.doPut()\"}");
+		String path = request.getContextPath();
+		System.out.println("TemplateInstantiateServlet.doPost()");
+		String result;
+		try{
+			result = applyPut(path);
+			response.getOutputStream().println(result);
+		}
+		catch (Exception e) {
+			response.sendError(404);
+			response.getOutputStream().println("{ \"error\": \"Creating template failed.\"}");
+		}
+//		response.getOutputStream().println("{ \"call\": \"TemplateInstantiateServlet.doPost()\"}");
+	}
+	
+	private String applyPut (String path) {
+		return "";
 	}
 }

@@ -7,28 +7,26 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @SuppressWarnings("serial")
 public class TemplateSetParameterServlet extends HttpServlet {
-
-//	private String identifyConcretePatternPath(HttpServletRequest request) {
-//		// TODO
-//		return "";
-//	}
-//	
-//	private Map<String, String> identifyParameter(HttpServletRequest request) {
-//		// TODO
-//		return null;
-//	}
-//	
-//	private void setParameter(CompletePattern pattern, String key, String string) {
-//		// TODO
-//	}
 	
 	// .. /template/setparameter   /<technology>/<name>/
 	
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		System.out.println("TemplateSetParameterServlet.doPost()");
-		response.getOutputStream().println("{ \"call\": \"TemplateSetParameterServlet.doPost()\"}");
-		
+		String path = request.getContextPath();
+		System.out.println("TemplateSetParameterServlet.doPost(" + path + ")");
+		String result;
+		try{
+			result = applyPost(path);
+			response.getOutputStream().println(result);
+		}
+		catch (Exception e) {
+			response.sendError(404);
+			response.getOutputStream().println("{ \"error\": \"Creating template failed.\"}");
+		}
+//		response.getOutputStream().println("{ \"call\": \"TemplateSetParameterServlet.doPost(" + path + ")\"}");
+	}
+	
+	private String applyPost (String path) {
 //		String path; 
 //		String extension = "pattern";
 //		Map<String, String> parameter;
@@ -70,5 +68,20 @@ public class TemplateSetParameterServlet extends HttpServlet {
 //		}
 //		
 //		response.getOutputStream().println("Successfully set parameter");
+		return "";
 	}
+	
+//	private String identifyConcretePatternPath(HttpServletRequest request) {
+//		// TODO
+//		return "";
+//	}
+//	
+//	private Map<String, String> identifyParameter(HttpServletRequest request) {
+//		// TODO
+//		return null;
+//	}
+//	
+//	private void setParameter(CompletePattern pattern, String key, String string) {
+//		// TODO
+//	}
 }

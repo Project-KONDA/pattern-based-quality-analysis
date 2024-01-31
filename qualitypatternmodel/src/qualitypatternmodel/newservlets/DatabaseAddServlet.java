@@ -12,8 +12,22 @@ public class DatabaseAddServlet extends HttpServlet {
 
 	@Override
 	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		System.out.println("DatabaseAddServlet.doPut()");
-		response.getOutputStream().println("{ \"call\": \"DatabaseAddServlet.doPut()\"}");
+		String path = request.getContextPath();
+		System.out.println("DatabaseAddServlet.doPut(" + path + ")");
+		String result;
+		try{
+			result = applyPut(path);
+			response.getOutputStream().println(result);
+		}
+		catch (Exception e) {
+			response.sendError(404);
+			response.getOutputStream().println("{ \"error\": \"Adding Database failed.\"}");
+		}
+//		response.getOutputStream().println("{ \"call\": \"DatabaseAddServlet.doPut(" + path + ")\"}");
+	}
+	
+	private String applyPut (String path) {
+		return "";
 	}
 
 }
