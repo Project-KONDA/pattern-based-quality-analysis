@@ -1,6 +1,8 @@
 package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
+import java.util.Map;
+
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -13,10 +15,11 @@ public class TemplateExecuteServlet extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getContextPath();
+		Map<String, String[]> params = request.getParameterMap();
 		System.out.println("TemplateExecuteServlet.doGet(" + path + ")");
 		String result;
 		try {
-			result = applyGet(path);
+			result = applyGet(path, params);
 			response.getOutputStream().println(result);
 		}
 		catch (Exception e) {
@@ -26,7 +29,8 @@ public class TemplateExecuteServlet extends HttpServlet {
 //		response.getOutputStream().println("{ \"call\": \"TemplateExecuteServlet.doGet(" + path + ")\"}");
 	}
 	
-	private String applyGet(String path) {
+	public String applyGet(String path, Map<String, String[]> parameterMap) {
+		
 		return "";
 	}
 }

@@ -1,6 +1,8 @@
 package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
+import java.util.Map;
+
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -13,10 +15,11 @@ public class TemplateInstantiateServlet extends HttpServlet {
 	@Override
 	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getContextPath();
+		Map<String, String[]> params = request.getParameterMap();
 		System.out.println("TemplateInstantiateServlet.doPost()");
 		String result;
 		try{
-			result = applyPut(path);
+			result = applyPut(path, params);
 			response.getOutputStream().println(result);
 		}
 		catch (Exception e) {
@@ -26,7 +29,7 @@ public class TemplateInstantiateServlet extends HttpServlet {
 //		response.getOutputStream().println("{ \"call\": \"TemplateInstantiateServlet.doPost()\"}");
 	}
 	
-	private String applyPut (String path) {
+	public String applyPut (String path, Map<String, String[]> parameterMap) {
 		return "";
 	}
 }

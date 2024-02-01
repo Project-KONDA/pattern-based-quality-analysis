@@ -1,9 +1,12 @@
 package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
+import java.util.Map;
+
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import qualitypatternmodel.exceptions.InvalidServletCallException;
 
 @SuppressWarnings("serial")
 public class TemplateSetParameterServlet extends HttpServlet {
@@ -13,10 +16,11 @@ public class TemplateSetParameterServlet extends HttpServlet {
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getContextPath();
+		Map<String, String[]> params = request.getParameterMap();
 		System.out.println("TemplateSetParameterServlet.doPost(" + path + ")");
 		String result;
 		try{
-			result = applyPost(path);
+			result = applyPost(path, params);
 			response.getOutputStream().println(result);
 		}
 		catch (Exception e) {
@@ -26,7 +30,25 @@ public class TemplateSetParameterServlet extends HttpServlet {
 //		response.getOutputStream().println("{ \"call\": \"TemplateSetParameterServlet.doPost(" + path + ")\"}");
 	}
 	
-	private String applyPost (String path) {
+	public String applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException {
+		String[] pathparts = path.split("/");
+		if (path.length() != 2)
+			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/setparameter/<technology>/<name>/'");
+
+		String technology = pathparts[0];
+		String templatename = pathparts[1];
+		
+		
+		// TODO:
+		// 1 check validity parameter
+		//   -> InvalidServletCallException
+		// 2 load constraint
+		// 3 map values to constraintparameter
+		//   -> InvalidServletCallException
+		// 4 set constraint parameter values
+		// 5 save constraint
+		
+		
 //		String path; 
 //		String extension = "pattern";
 //		Map<String, String> parameter;

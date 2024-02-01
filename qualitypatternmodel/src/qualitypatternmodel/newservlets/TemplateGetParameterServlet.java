@@ -2,6 +2,8 @@ package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
 import java.nio.file.NoSuchFileException;
+import java.util.Map;
+
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -14,10 +16,11 @@ public class TemplateGetParameterServlet extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getContextPath();
+		Map<String, String[]> params = request.getParameterMap();
 		System.out.println("TemplateGetParameterServlet.doGet(" + path + ")");
 		String result;
 		try {
-			result = applyGet(path);
+			result = applyGet(path, params);
 			response.getOutputStream().println(result);
 		}
 		catch (NoSuchFileException e) {
@@ -27,7 +30,7 @@ public class TemplateGetParameterServlet extends HttpServlet {
 	//	response.getOutputStream().println("{ \"call\": \"TemplateGetParameterServlet.doGet(" + path + ")\"}");
 	}
 	
-	private String applyGet(String path) throws NoSuchFileException {
+	public String applyGet(String path, Map<String, String[]> parameterMap) throws NoSuchFileException {
 		return "";
 	}
 }
