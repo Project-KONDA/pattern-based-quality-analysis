@@ -51,6 +51,7 @@ public class GenericPatterns {
 	public static CompletePattern getGenericCard() throws InvalidityException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.setName("Card_generic");
+		pattern.setAbstractName("Card_generic");
 		
 		// Context graph of pattern:
 		Node returnNode = pattern.getGraph().getNodes().get(0).makeComplex();
@@ -74,6 +75,7 @@ public class GenericPatterns {
 	public static CompletePattern getGenericComp() throws InvalidityException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.setName("Comp_generic");
+		pattern.setAbstractName("Comp_generic");
 		
 		Graph graph1 = pattern.getGraph();
 		Node returnNode = graph1.getReturnNodes().get(0).makeComplex();
@@ -96,6 +98,7 @@ public class GenericPatterns {
 	public static CompletePattern getGenericFunc() throws InvalidityException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.setName("Func_generic");
+		pattern.setAbstractName("Func_generic");
 		
 		QuantifiedCondition qc = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		
@@ -129,6 +132,7 @@ public class GenericPatterns {
 	public static CompletePattern getGenericUnique() throws InvalidityException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.setName("Unique_generic");
+		pattern.setAbstractName("Unique_generic");
 		
 		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		pattern.setCondition(quantifiedCondition);
@@ -169,6 +173,7 @@ public class GenericPatterns {
 	public static CompletePattern getGenericMatch() throws InvalidityException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.setName("Match_generic");
+		pattern.setAbstractName("Match_generic");
 		
 		pattern.getGraph().getReturnNodes().get(0).makeComplex();
 		
@@ -185,6 +190,7 @@ public class GenericPatterns {
 	public static CompletePattern getGenericContains() throws InvalidityException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.setName("Contains_generic");
+		pattern.setAbstractName("Contains_generic");
 		
 		// Context graph of pattern:
 		pattern.getGraph().getReturnNodes().get(0).makeComplex();
@@ -205,6 +211,7 @@ public class GenericPatterns {
 	public static CompletePattern getGenericAppdup2() throws InvalidityException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.setName("Appdup2_generic");
+		pattern.setAbstractName("Appdup2_generic");
 		
 		pattern.getGraph().getReturnNodes().get(0).makeComplex();
 		pattern.getGraph().getReturnNodes().get(0).setName("main");
@@ -236,6 +243,7 @@ public class GenericPatterns {
 	public static CompletePattern getGenericAppdup3() throws InvalidityException {
 		CompletePattern pattern = getGenericAppdup2();
 		pattern.setName("Appdup3_generic");
+		pattern.setAbstractName("Appdup3_generic");
 		Graph g0 = pattern.getGraph();
 		QuantifiedCondition qc1 = (QuantifiedCondition) pattern.getCondition();
 		Graph g1 = qc1.getGraph();
@@ -252,6 +260,7 @@ public class GenericPatterns {
 	public static CompletePattern getGenericDupVal() throws InvalidityException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.setName("DupVal_generic");
+		pattern.setAbstractName("DupVal_generic");
 		
 		ComplexNode main = (ComplexNode) pattern.getGraph().getReturnNodes().get(0).makeComplex();
 		main.setName("main");
