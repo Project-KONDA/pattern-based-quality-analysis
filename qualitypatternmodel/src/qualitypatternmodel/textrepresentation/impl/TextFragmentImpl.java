@@ -164,7 +164,8 @@ public class TextFragmentImpl extends FragmentImpl implements TextFragment {
 	
 	@Override
 	public String generateJSON() {
-		return '"' + getText() + '"';
+		return "{\"text\": \"" + getText() + "\"},";
+//		return '"' + getText() + '"';
 	}
 
 	/**

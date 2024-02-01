@@ -240,19 +240,22 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 */
 	@Override
 	public String generateJSON() {
-		String name = getPattern().getName();
-		String json = "{\"PatternName\": \"" + name + "\", ";
-		String abstractName = getPattern().getAbstractName();
-		if (abstractName != null & abstractName != "") {
-			json += "\"AbstractPatternName\": \"" + getPattern().getAbstractName() + "\", ";
-		}
-		String description = getPattern().getDescription();
-		if(description == null) {
-			description = "";
-		}
-		json += "\"PatternDescription\": \"" + description + "\",";
-		json += "\"PatternTextName\": \"" + getName() + "\","; 
-		json += "\"Fragments\" : [";
+		String json = "{";
+//		String name = getPattern().getName();
+//		json += "\"PatternName\": \"" + name + "\", ";
+//		String abstractName = getPattern().getAbstractName();
+//		if (abstractName != null & abstractName != "") {
+//			json += "\"AbstractPatternName\": \"" + getPattern().getAbstractName() + "\", ";
+//		}
+//		String description = getPattern().getDescription();
+//		if(description == null) {
+//			description = "";
+//		}
+//		json += "\"PatternDescription\": \"" + description + "\",";
+//		json += "\"PatternTextName\": \"" + getName() + "\",";
+
+		json += "\"name\": \"" + getName() + "\", ";
+		json += "\"fragments\" : [";
 		for(Fragment f : getFragmentsOrdered()) {
 			json += "  " + f.generateJSON() + ", ";
 		}
