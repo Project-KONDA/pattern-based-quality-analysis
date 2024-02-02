@@ -21,30 +21,35 @@ public abstract class ServletUtilities {
 	
 	// Pattern request
 	
-	public static List<CompletePattern> getAllPattern(String technology) throws IOException {
+	public static List<CompletePattern> getAllPattern(String technology) {
 		EList<CompletePattern> patterns = new BasicEList<CompletePattern>();
-		patterns.addAll(getAllAbstractPattern(technology));
-		patterns.addAll(getAllConcretePattern(technology));
+		List<CompletePattern> astr = getAllAbstractPattern(technology);
+		List<CompletePattern> conc = getAllConcretePattern(technology);
+		if (astr!=null)
+			patterns.addAll(astr);
+		if (conc!=null)
+			patterns.addAll(conc);
 		return patterns;
 	}
 	
-	public static List<CompletePattern> getAllAbstractPattern(String technology) throws IOException {
+	public static List<CompletePattern> getAllAbstractPattern(String technology) {
 		return loadAbstractPattern(technology);
 	}
 
-	public static List<CompletePattern> getAllSemiConcretePattern(String technology) throws IOException {
+	public static List<CompletePattern> getAllSemiConcretePattern(String technology) {
 		return loadAllPatternInstances(technology);
 	}
 	
-	public static List<CompletePattern> getAllConcretePattern(String technology) throws IOException {
+	public static List<CompletePattern> getAllConcretePattern(String technology) {
 		List<CompletePattern> concrete = new BasicEList<CompletePattern>();
 		List<CompletePattern> semiconcrete = loadAllPatternInstances(technology);
-		for (CompletePattern semi: semiconcrete) {
-			try {
-				semi.isValid(AbstractionLevel.CONCRETE);
-				concrete.add(semi);
-			} catch (Exception e) {}
-		}
+		if (semiconcrete != null)
+			for (CompletePattern semi: semiconcrete) {
+				try {
+					semi.isValid(AbstractionLevel.CONCRETE);
+					concrete.add(semi);
+				} catch (Exception e) {}
+			}
 		return concrete;
 	}
 	
@@ -64,7 +69,8 @@ public abstract class ServletUtilities {
 		return pattern;
 	}
 	
-	public static void deleteConcretePattern(String technology, String concretePattern) {
+	public static void deleteConstraint(String technology, String concretePattern) {
+		// TODO
 	}
 	
 	// database
@@ -91,6 +97,10 @@ public abstract class ServletUtilities {
 	// pattern execution
 	
 	abstract public String executePattern(String pattern);
+	protected static String[] executePattern(CompletePattern pattern) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 	// ---------------
@@ -100,34 +110,45 @@ public abstract class ServletUtilities {
 	private static List<CompletePattern> abstractPatternRdf = null;
 	private static List<CompletePattern> abstractPatternNeo = null;
 	
-	private static List<CompletePattern> loadAbstractPattern(String technology) throws IOException {
-		switch(technology) {
-		case "xml":
-			if (abstractPatternXml != null)
-				abstractPatternXml = EMFModelLoad.loadCompletePatternFromFolder("serverpatterns/xml/abstract-patterns", EXTENSION);
-			return abstractPatternXml;
-		case "rdf":
-			if (abstractPatternRdf == null)
-				abstractPatternRdf = EMFModelLoad.loadCompletePatternFromFolder("serverpatterns/rdf/abstract-patterns", EXTENSION);
-			return abstractPatternRdf;
-		case "neo4j":
-			if (abstractPatternNeo != null)
-				abstractPatternNeo = EMFModelLoad.loadCompletePatternFromFolder("serverpatterns/neo4j/abstract-patterns", EXTENSION);
-			return abstractPatternNeo;
-		default:
+	private static List<CompletePattern> loadAbstractPattern(String technology) {
+		try {
+			switch(technology) {
+			case "xml":
+				if (abstractPatternXml != null)
+					abstractPatternXml = EMFModelLoad.loadCompletePatternFromFolder("serverpatterns/xml/abstract-patterns", EXTENSION);
+				return abstractPatternXml;
+			case "rdf":
+				if (abstractPatternRdf == null)
+					abstractPatternRdf = EMFModelLoad.loadCompletePatternFromFolder("serverpatterns/rdf/abstract-patterns", EXTENSION);
+				return abstractPatternRdf;
+			case "neo4j":
+				if (abstractPatternNeo != null)
+					abstractPatternNeo = EMFModelLoad.loadCompletePatternFromFolder("serverpatterns/neo4j/abstract-patterns", EXTENSION);
+				return abstractPatternNeo;
+			default:
+				return null;
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
 			return null;
 		}
 	}
 	
-	private static List<CompletePattern> loadAllPatternInstances(String technology) throws IOException {
-		switch(technology) {
-		case "xml":
-			return EMFModelLoad.loadCompletePatternFromFolder("serverpatterns/xml/concrete-patterns", EXTENSION);
-		case "rdf":
-			return EMFModelLoad.loadCompletePatternFromFolder("serverpatterns/rdf/concrete-patterns", EXTENSION);
-		case "neo4j":
-			return EMFModelLoad.loadCompletePatternFromFolder("serverpatterns/neo4j/concrete-patterns", EXTENSION);
-		default:
+	private static List<CompletePattern> loadAllPatternInstances(String technology) {
+		try {
+			switch(technology) {
+			case "xml":
+				return EMFModelLoad.loadCompletePatternFromFolder("serverpatterns/xml/concrete-patterns", EXTENSION);
+			case "rdf":
+				return EMFModelLoad.loadCompletePatternFromFolder("serverpatterns/rdf/concrete-patterns", EXTENSION);
+			case "neo4j":
+				return EMFModelLoad.loadCompletePatternFromFolder("serverpatterns/neo4j/concrete-patterns", EXTENSION);
+			default:
+				return null;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 			return null;
 		}
 	}
@@ -149,14 +170,18 @@ public abstract class ServletUtilities {
 			json += "},";
 			result += json;
 		}
-		return result += "]";
+		return result += "]}";
 	}
 	
 	public static String getPatternJSONHeads(List<CompletePattern> patterns) {
 		String result = "[";
 		for (CompletePattern pattern: patterns) {
-			result += "{\"name\":\""+pattern.getName() + "\", \"description\":\"" + pattern.getDescription() + "\"}, ";
+			result += "{\"name\":\"" + pattern.getName() + "\", \"description\":\"" + pattern.getDescription() + "\"}, ";
 		}
 		return result += "]";
 	}
+
+	protected static CompletePattern loadCompletePattern(String patternpath) {
+		return null;
+	};
 }

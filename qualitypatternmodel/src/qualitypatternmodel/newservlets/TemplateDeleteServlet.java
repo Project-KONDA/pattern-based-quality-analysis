@@ -48,11 +48,24 @@ public class TemplateDeleteServlet extends HttpServlet {
 			throw new InvalidServletCallException("Wrong url for deleting a constraint: '.. /template/delete/<technology>/<name>' (not " + path + ")");
 
 		String technology = pathparts[1];
-		String templatename = pathparts[2];
+		String patternname = pathparts[2];
+
+		if (!ServletUtilities.TECHS.contains(technology))
+			throw new InvalidServletCallException("invalid technology");
+
+		String patternpath = "serverpatterns/" + technology + "/concrete-patterns/" + patternname + ".pattern";
 		
 		// 1 check if constraint exists
+		if (ServletUtilities.loadCompletePattern(patternpath) == null)
+			throw new FailedServletCallException("Requested pattern '" + patternname + "' does not exist.");
+
 		// 2 delete constraint
+		ServletUtilities.deleteConstraint(technology, patternname);
 		
-		return "";
+		// 3 check if constraint is deleted
+		if (ServletUtilities.loadCompletePattern(patternpath) != null)
+			throw new FailedServletCallException("Deleting constraint '" + patternname + "' failed.");
+		
+		return "Constraint deleted successfully.";
 	}
 }
