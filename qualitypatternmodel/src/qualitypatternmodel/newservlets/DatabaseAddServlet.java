@@ -68,12 +68,12 @@ public class DatabaseAddServlet extends HttpServlet {
 		
 		// database exists
 		if (ServletUtilities.loadDatabase(technology, dbname) != null)
-			throw new InvalidServletCallException("database already exists");
+			throw new FailedServletCallException("Database with the same name already exists");
 		
 		ServletUtilities.saveDatabase(technology, dbname, URL, user, password);
 		
 		if (ServletUtilities.loadDatabase(technology, dbname) == null)
-			throw new FailedServletCallException("Adding database failed.");
+			throw new FailedServletCallException("Failed saving the new database.");
 		return "Database added successfully.";
 	}
 

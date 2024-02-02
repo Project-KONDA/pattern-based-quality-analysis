@@ -60,16 +60,18 @@ public class DatabaseGetListServlet extends HttpServlet {
 			throw new FailedServletCallException("No databases found for " + technology + ".");
 		
 		String output = "{\"databases\":[";
-		
-		for (Database database: databases) {
-			String json = "{";
-			
-			// add all database details
+
+//		TODO: requestdatabase details
+//		for (Database database: databases) {
+//			output += database.toJSON();
+//			String json = "{";
+//			json += "\"url\":\"" + database.toString() + "\"";
+//			add all database details
 //			json += "\"name\":\"" + database.getName() + "\",";
 //			json += "\"url\":\"" + database.getUrl() + "\"";
-			json += "},";
-			output += json;
-		}
+//			json += "},";
+//			output += json;
+//		}
 		output += "]}";
 		
 		return output;
