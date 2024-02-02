@@ -12,7 +12,7 @@ import qualitypatternmodel.exceptions.InvalidServletCallException;
 @SuppressWarnings("serial")
 public class TemplateCopyServlet extends HttpServlet {
 	
-	// .. /template/copy   /<technology>/<concretetemplate>
+	// .. /template/copy   /<technology>/<oldname>/<newname>
 	
 	@Override
 	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -20,7 +20,7 @@ public class TemplateCopyServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		System.out.println("TemplateCopyServlet.doPut()");
 		String result;
-		try{
+		try {
 			result = applyPut(path, params);
 			response.getOutputStream().println(result);
 		}
@@ -31,10 +31,21 @@ public class TemplateCopyServlet extends HttpServlet {
 		}
 		catch (FailedServletCallException e) {
 	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_NOT_MODIFIED);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+	        if (e.getMessage().startsWith("404")) {
+				response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+				response.getWriter().write("{ \"error\": \"" + e.getMessage().substring(4) + "\"}");
+	        }
+	        else if (e.getMessage().startsWith("409")) {
+				response.setStatus(HttpServletResponse.SC_CONFLICT);
+				response.getWriter().write("{ \"error\": \"" + e.getMessage().substring(4) + "\"}");
+	        	
+	        } else {
+				response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+				response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+	        }
 		}
 		catch (Exception e) {
+			e.printStackTrace();
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");

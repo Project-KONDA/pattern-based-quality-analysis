@@ -25,7 +25,9 @@ public class DatabaseGetListServlet extends HttpServlet {
 		String result;
 		try {
 			result = applyGet(path, params);
-			response.getOutputStream().println(result);
+//			response.getOutputStream().println(result);
+			response.setStatus(HttpServletResponse.SC_NOT_IMPLEMENTED);
+			response.getWriter().write("{ \"error\": \"databases not implemented \"}");
 		}
 		catch (InvalidServletCallException e) {
 	        response.setContentType("application/json");

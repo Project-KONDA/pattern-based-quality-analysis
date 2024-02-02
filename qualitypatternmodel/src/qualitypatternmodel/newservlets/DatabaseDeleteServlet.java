@@ -20,10 +20,12 @@ public class DatabaseDeleteServlet extends HttpServlet {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
 		System.out.println("DatabaseDeleteServlet.doDelete(" + path + ")");
-		String result;
 		try {
-			result = applyDelete(path, params);
-			response.getOutputStream().println(result);
+			String result = applyDelete(path, params);
+			System.out.println("Result: " + result);
+//			response.getOutputStream().println(result);
+			response.setStatus(HttpServletResponse.SC_NOT_IMPLEMENTED);
+			response.getWriter().write("{ \"error\": \"databases not implemented \"}");
 		}
 		catch (InvalidServletCallException e) {
 	        response.setContentType("application/json");
@@ -32,7 +34,7 @@ public class DatabaseDeleteServlet extends HttpServlet {
 		}
 		catch (FailedServletCallException e) {
 	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_NOT_MODIFIED);
+			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
 		catch (Exception e) {

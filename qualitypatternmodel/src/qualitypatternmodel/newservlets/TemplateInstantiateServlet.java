@@ -31,8 +31,18 @@ public class TemplateInstantiateServlet extends HttpServlet {
 		}
 		catch (FailedServletCallException e) {
 	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_NOT_MODIFIED);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+	        if (e.getMessage().startsWith("404")) {
+				response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+				response.getWriter().write("{ \"error\": \"" + e.getMessage().substring(4) + "\"}");
+	        }
+	        else if (e.getMessage().startsWith("409")) {
+				response.setStatus(HttpServletResponse.SC_CONFLICT);
+				response.getWriter().write("{ \"error\": \"" + e.getMessage().substring(4) + "\"}");
+	        	
+	        } else {
+				response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+				response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+	        }
 		}
 		catch (Exception e) {
 	        response.setContentType("application/json");

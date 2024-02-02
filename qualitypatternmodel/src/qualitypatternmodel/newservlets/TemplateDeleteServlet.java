@@ -31,7 +31,7 @@ public class TemplateDeleteServlet extends HttpServlet {
 		}
 		catch (FailedServletCallException e) {
 	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_NOT_MODIFIED);
+			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
 		catch (Exception e) {

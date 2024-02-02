@@ -15,16 +15,11 @@ public class DatabaseAddServlet extends HttpServlet {
 	// .. /database/add   /<technology>/<database-name>
 	// {"name":"?", "url":"?", "user":"?", "password":"?"}
 
+	
+	
 	@Override
 	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
-//		System.out.println("path-info: " + request.getPathInfo());
-//		System.out.println("query-str: " + request.getQueryString());
-//		System.out.println("requesturl:" + request.getRequestURI());
-//		System.out.println("s-path:    " + request.getServletPath());
-//		for (String key: request.getParameterMap().keySet()) 
-//			System.out.println("par-map:   " + key + "/ " + request.getParameterMap().get(key)[0]);
-		
 		Map<String, String[]> json = request.getParameterMap();
 		System.out.println("DatabaseAddServlet.doPut(" + path + ")");
 		try {
@@ -33,7 +28,7 @@ public class DatabaseAddServlet extends HttpServlet {
 		}
 		catch (FailedServletCallException e) {
 	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_NOT_MODIFIED);
+			response.setStatus(HttpServletResponse.SC_CONFLICT);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
 		catch (InvalidServletCallException e) {
