@@ -8,6 +8,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
+import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.utility.EMFModelLoad;
+import qualitypatternmodel.utility.EMFModelSave;
 
 @SuppressWarnings("serial")
 public class TemplateCopyServlet extends HttpServlet {
@@ -53,21 +56,40 @@ public class TemplateCopyServlet extends HttpServlet {
 //		response.getOutputStream().println("{ \"call\": \"TemplateCopyServlet.doPut()\"}");
 	}
 	
-	public String applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public String applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
 		String[] pathparts = path.split("/");
-		if (pathparts.length != 3 || !pathparts[0].equals(""))
+		if (pathparts.length != 4 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/copy/<technology>/<concretetemplate>' (not " + path + ")");
 
 		String technology = pathparts[1];
-		String templatename = pathparts[2];
+		String oldname = pathparts[2];
+		String newname = pathparts[2];
 		
-		// TODO:
-		// 1 check if constraint with new name exists already
-		// 2 load constraint with old name
-		// -> Failed
+		String oldpatternpath = "serverpatterns/" + technology + "/concrete-patterns/" + oldname + ".pattern";
+		String newpatternpath = "serverpatterns/" + technology + "/concrete-patterns/" + newname + ".pattern";
+
+		// 1 load constraint with old name
+		CompletePattern pattern;
+		try {
+			pattern = EMFModelLoad.loadCompletePattern(oldpatternpath);
+		}
+		catch (Exception e) {
+			throw new FailedServletCallException("404 Requested pattern '" + oldname + "' does not exist - " + e.getMessage());
+		}
+		
+		// 2 check if constraint with new name exists already
+		try {
+			EMFModelLoad.loadCompletePattern(newpatternpath);
+			throw new FailedServletCallException("409 Pattern with name '" + newname + "'does already exist.");
+		}
+		catch (Exception e) {}
+		
 		// 3 change constraint name
-		// 4 save constraint
+		pattern.setName(newname);
 		
-		return "";
+		// 4 save constraint
+		EMFModelSave.exportToFile(pattern, newpatternpath, ServletUtilities.EXTENSION);
+		
+		return "Constraint '" + oldname + "' copied successfully to '" + newname + "'.";
 	}
 }
