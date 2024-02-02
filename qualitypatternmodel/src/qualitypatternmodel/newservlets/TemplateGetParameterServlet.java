@@ -1,7 +1,6 @@
 package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
-import java.nio.file.NoSuchFileException;
 import java.util.Map;
 
 import jakarta.servlet.http.HttpServlet;
@@ -9,6 +8,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
+import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.textrepresentation.PatternText;
 
 @SuppressWarnings("serial")
 public class TemplateGetParameterServlet extends HttpServlet {
@@ -44,6 +45,21 @@ public class TemplateGetParameterServlet extends HttpServlet {
 	}
 	
 	public String applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
-		return "";
+		String[] pathparts = path.split("/");
+		if (pathparts.length != 3 || !pathparts[0].equals(""))
+			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getdatabase/<technology>/<name>' (not " + path + ")");
+	
+		String technology = pathparts[1];
+		String patternname = pathparts[2];
+		String patternpath = "serverpatterns/" + technology + "/concrete-patterns/" + patternname + ".pattern";
+	
+		// 1 load constraint
+		CompletePattern pattern = ServletUtilities.loadCompletePattern(patternpath);
+		if (pattern == null)
+			throw new FailedServletCallException("constraint '" + patternname + "' not found.");
+		
+		PatternText text = pattern.getText().get(0);
+		// 2 return parameter
+		return text.generateJSON();
 	}
 }

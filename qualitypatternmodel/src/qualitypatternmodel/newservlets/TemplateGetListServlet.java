@@ -52,9 +52,9 @@ public class TemplateGetListServlet extends HttpServlet {
 		String technology = pathparts[1];
 		String level = pathparts[2];
 		
-		if (ServletUtilities.TECHS.contains(technology))
+		if (!ServletUtilities.TECHS.contains(technology))
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
-		if (ServletUtilities.LEVELS.contains(level))
+		if (!ServletUtilities.LEVELS.contains(level))
 			throw new InvalidServletCallException("'" + level + "' is an invalid abstraction level. The levels are: " + ServletUtilities.LEVELS);
 		
 
@@ -69,24 +69,20 @@ public class TemplateGetListServlet extends HttpServlet {
 	private static List<CompletePattern> getPatterns(String technology, String level)
 			throws InvalidServletCallException, FailedServletCallException {
 		List<CompletePattern> patterns = null;
-		try {
-			switch (level) {
-			case "all":
-				patterns = ServletUtilities.getAllPattern(technology);
-				break;
-			case "template":
-				patterns = ServletUtilities.getAllAbstractPattern(technology);
-				break;
-			case "constraint":
-				patterns = ServletUtilities.getAllSemiConcretePattern(technology);
-				break;
-			case "ready":
-				patterns = ServletUtilities.getAllConcretePattern(technology);
-				break;
-			}
-			return patterns;
-		} catch (IOException e) {
-			throw new FailedServletCallException(e.getMessage());
+		switch (level) {
+		case "all":
+			patterns = ServletUtilities.getAllPattern(technology);
+			break;
+		case "template":
+			patterns = ServletUtilities.getAllAbstractPattern(technology);
+			break;
+		case "constraint":
+			patterns = ServletUtilities.getAllSemiConcretePattern(technology);
+			break;
+		case "ready":
+			patterns = ServletUtilities.getAllConcretePattern(technology);
+			break;
 		}
+		return patterns;
 	}
 }

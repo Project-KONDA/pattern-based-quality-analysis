@@ -8,6 +8,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
+import qualitypatternmodel.execution.Database;
+import qualitypatternmodel.patternstructure.CompletePattern;
 
 @SuppressWarnings("serial")
 public class TemplateGetDatabaseServlet extends HttpServlet {
@@ -49,15 +51,25 @@ public class TemplateGetDatabaseServlet extends HttpServlet {
 			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getdatabase/<technology>/<name>' (not " + path + ")");
 
 		String technology = pathparts[1];
-		String templatename = pathparts[2];
-		
+		String patternname = pathparts[2];
+		String patternpath = "serverpatterns/" + technology + "/concrete-patterns/" + patternname + ".pattern";
+
 		// 1 load constraint
+		CompletePattern pattern = ServletUtilities.loadCompletePattern(patternpath);
+
 		// 2 constraint.database
-		// 3 database exists?
-		// -> Failed
-		// 4 return database details
-		
-		return "";
+//		String dbname = pattern.getDatabaseName();
+//		if (dbname == null || dbname.equals(""))
+//			  throw new FailedServletCallException("Template '" + patternname + "' does not have an accociated database");
+//		Database database = loadDatabase(technology, dbname);
+//		
+//		// 3 database exists?
+//		if (database == null)
+//		  throw new FailedServletCallException("Database '" + database + "' of template '" + patternname + "' could not be found");
+//		
+//		// 4 return database details
+//		return database.toJson();
+		return "database JSON not implemented";
 	}
 	
 }
