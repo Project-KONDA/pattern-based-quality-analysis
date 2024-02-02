@@ -6,6 +6,7 @@ import java.util.Map;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 
 @SuppressWarnings("serial")
@@ -15,7 +16,7 @@ public class TemplateCopyServlet extends HttpServlet {
 	
 	@Override
 	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String path = request.getContextPath();
+		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
 		System.out.println("TemplateCopyServlet.doPut()");
 		String result;
@@ -23,20 +24,31 @@ public class TemplateCopyServlet extends HttpServlet {
 			result = applyPut(path, params);
 			response.getOutputStream().println(result);
 		}
+		catch (InvalidServletCallException e) {
+	        response.setContentType("application/json");
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+		}
+		catch (FailedServletCallException e) {
+	        response.setContentType("application/json");
+			response.setStatus(HttpServletResponse.SC_NOT_MODIFIED);
+			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+		}
 		catch (Exception e) {
-			response.sendError(404);
-			response.getOutputStream().println("{ \"error\": \"Copying template failed.\"}");
+	        response.setContentType("application/json");
+			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
 //		response.getOutputStream().println("{ \"call\": \"TemplateCopyServlet.doPut()\"}");
 	}
 	
-	public String applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException {
+	public String applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
-		if (path.length() != 2)
-			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/copy/<technology>/<concretetemplate>'");
+		if (pathparts.length != 3 || !pathparts[0].equals(""))
+			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/copy/<technology>/<concretetemplate>' (not " + path + ")");
 
-		String technology = pathparts[0];
-		String templatename = pathparts[1];
+		String technology = pathparts[1];
+		String templatename = pathparts[2];
 		
 		// TODO:
 		// 1 check if constraint with new name exists already

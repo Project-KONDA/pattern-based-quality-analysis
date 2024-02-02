@@ -1,12 +1,12 @@
 package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
-import java.nio.file.NoSuchFileException;
 import java.util.Map;
 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 
 @SuppressWarnings("serial")
@@ -16,7 +16,7 @@ public class TemplateGetDatabaseServlet extends HttpServlet {
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String path = request.getContextPath();
+		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
 		System.out.println("TemplateGetDatabaseServlet.doGet(" + path + ")");
 		String result;
@@ -25,23 +25,30 @@ public class TemplateGetDatabaseServlet extends HttpServlet {
 			response.getOutputStream().println(result);
 		}
 		catch (InvalidServletCallException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	        response.setContentType("application/json");
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
-		catch (NoSuchFileException e) {
-			response.sendError(404);
-			response.getOutputStream().println("{ \"error\": \"Template not found.\"}");
+		catch (FailedServletCallException e) {
+	        response.setContentType("application/json");
+			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+		}
+		catch (Exception e) {
+	        response.setContentType("application/json");
+			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
 //		response.getOutputStream().println("{ \"call\": \"TemplateGetDatabaseServlet.doGet(" + path + ")\"}");
 	}
 	
-	public String applyGet(String path, Map<String, String[]> parameterMap) throws NoSuchFileException, InvalidServletCallException {
+	public String applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
-		if (path.length() != 2)
-			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getdatabase/<technology>/<name>'");
+		if (pathparts.length != 3 || !pathparts[0].equals(""))
+			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getdatabase/<technology>/<name>' (not " + path + ")");
 
-		String technology = pathparts[0];
-		String templatename = pathparts[1];
+		String technology = pathparts[1];
+		String templatename = pathparts[2];
 		
 		// 1 load constraint
 		// 2 constraint.database

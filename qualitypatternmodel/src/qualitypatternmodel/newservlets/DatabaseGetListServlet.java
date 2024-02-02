@@ -19,7 +19,7 @@ public class DatabaseGetListServlet extends HttpServlet {
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String path = request.getContextPath();
+		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
 		System.out.println("DatabaseGetListServlet.doGet(" + path + ")");
 		String result;
@@ -28,22 +28,29 @@ public class DatabaseGetListServlet extends HttpServlet {
 			response.getOutputStream().println(result);
 		}
 		catch (InvalidServletCallException e) {
-			response.sendError(404);
-			response.getOutputStream().println("{ \"error\": \"" + e.getMessage() + "\"}");
+	        response.setContentType("application/json");
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
 		catch (FailedServletCallException e) {
-			response.sendError(404);
-			response.getOutputStream().println("{ \"error\": \"" + e.getMessage() + "\"}");
+	        response.setContentType("application/json");
+			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+		}
+		catch (Exception e) {
+	        response.setContentType("application/json");
+			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
 //		response.getOutputStream().println("{ \"call\": \"DatabaseGetListServlet.doGet(" + path + ")\"}");
 	}
 	
 	public String applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
-		if (path.length() != 1)
-			throw new InvalidServletCallException("Wrong parameters for requesting database list: '.. /databases/getlist/<technology>'");
+		if (pathparts.length != 2 || !pathparts[0].equals(""))
+			throw new InvalidServletCallException("Wrong parameters for requesting database list: '.. /databases/getlist/<technology>' (not " + path + ")");
 		
-		String technology = pathparts[0];
+		String technology = pathparts[1];
 		
 		List<Database> databases = ServletUtilities.loadDatabases(technology);
 		

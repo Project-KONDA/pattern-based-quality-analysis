@@ -3,6 +3,7 @@ package newservelettest;
 import java.io.IOException;
 import java.nio.file.NoSuchFileException;
 
+import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.newservlets.TemplateCopyServlet;
 import qualitypatternmodel.newservlets.TemplateDeleteServlet;
@@ -17,7 +18,7 @@ import qualitypatternmodel.newservlets.TemplateGetParameterServlet;
 
 public class TemplateCreationServletTest {
 
-	public static void main(String[] args) throws NoSuchFileException, IOException, InvalidServletCallException {
+	public static void main(String[] args) throws NoSuchFileException, IOException, InvalidServletCallException, FailedServletCallException {
 		System.out.println(new TemplateCopyServlet().applyPut("", null));
 		System.out.println(new TemplateDeleteServlet().applyDelete("", null));
 		System.out.println(new TemplateExecuteServlet().applyGet("", null));

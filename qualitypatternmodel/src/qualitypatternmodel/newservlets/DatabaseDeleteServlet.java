@@ -6,6 +6,7 @@ import java.util.Map;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 
 @SuppressWarnings("serial")
@@ -16,44 +17,53 @@ public class DatabaseDeleteServlet extends HttpServlet {
 	
 	@Override
 	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String path = request.getContextPath();
+		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
 		System.out.println("DatabaseDeleteServlet.doDelete(" + path + ")");
 		String result;
-		try{
+		try {
 			result = applyDelete(path, params);
 			response.getOutputStream().println(result);
 		}
 		catch (InvalidServletCallException e) {
-			response.sendError(404);
-			response.getOutputStream().println("{ \"error\": \"" + e.getMessage() + ".\"}");
+	        response.setContentType("application/json");
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+		}
+		catch (FailedServletCallException e) {
+	        response.setContentType("application/json");
+			response.setStatus(HttpServletResponse.SC_NOT_MODIFIED);
+			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
 		catch (Exception e) {
-			response.sendError(404);
-			response.getOutputStream().println("{ \"error\": \"Deleting Database failed.\"}");
+	        response.setContentType("application/json");
+			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
 //		response.getOutputStream().println("{ \"call\": \"DatabaseDeleteServlet.doDelete(" + path + ")\"}");
 	}
 	
-	public String applyDelete(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException {
+	public String applyDelete(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
-		if (path.length() != 2)
-			throw new InvalidServletCallException("wrong parameters for deleting a database: '.. /database/delete/<technology>/<database-name>'");
+		if (pathparts.length != 3 || !pathparts[0].equals(""))
+			throw new InvalidServletCallException("Wrong parameters for deleting a database: '.. /database/delete/<technology>/<database-name>' (not " + path + ")");
 
-		String technology = pathparts[0];
-		String dbname = pathparts[1];
+		String technology = pathparts[1];
+		String dbname = pathparts[2];
 
 		if (!ServletUtilities.TECHS.contains(technology))
 			throw new InvalidServletCallException("invalid technology");
-		if (path.length() != 2)
-			throw new InvalidServletCallException("wrong parameters for database deletion");
 		
+		// TODO
 		// check if any constraint uses that database
 		// -> Failed 'Database in Use by x constrains: [..]
 		
-		
 		ServletUtilities.deleteDatabase(technology, dbname);
-		return "";
+
+		if (ServletUtilities.loadDatabase(technology, dbname) != null)
+			throw new FailedServletCallException("Deleting database failed.");
+		
+		return "Database '" + dbname + "' deleted successfully";
 	}
 
 }
