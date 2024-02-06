@@ -14,38 +14,38 @@
 	<!-- Add a new database
 		/database/add/<technology>
 	 -->
-	<servlet>
-		<servlet-name>DatabaseAddServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.DatabaseAddServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>DatabaseAddServlet</servlet-name>
-		<url-pattern>/database/add/*</url-pattern>
-	</servlet-mapping>
+<!--	<servlet>-->
+<!--		<servlet-name>DatabaseAddServlet</servlet-name>-->
+<!--		<servlet-class>qualitypatternmodel.newservlets.DatabaseAddServlet</servlet-class>-->
+<!--	</servlet>-->
+<!--	<servlet-mapping>-->
+<!--		<servlet-name>DatabaseAddServlet</servlet-name>-->
+<!--		<url-pattern>/database/add/*</url-pattern>-->
+<!--	</servlet-mapping>-->
 	
 	<!-- Delete database
 		/database/delete/<technology>
 	 -->
-	<servlet>
-		<servlet-name>DatabaseDeleteServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.DatabaseDeleteServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>DatabaseDeleteServlet</servlet-name>
-		<url-pattern>/database/delete/*</url-pattern>
-	</servlet-mapping>
+<!--	<servlet>-->
+<!--		<servlet-name>DatabaseDeleteServlet</servlet-name>-->
+<!--		<servlet-class>qualitypatternmodel.newservlets.DatabaseDeleteServlet</servlet-class>-->
+<!--	</servlet>-->
+<!--	<servlet-mapping>-->
+<!--		<servlet-name>DatabaseDeleteServlet</servlet-name>-->
+<!--		<url-pattern>/database/delete/*</url-pattern>-->
+<!--	</servlet-mapping>-->
 	
 	<!-- Add a new database
 		/database/getlist/<technology> {database data}
 	 -->
-	<servlet>
-		<servlet-name>DatabaseGetListServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.DatabaseGetListServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>DatabaseGetListServlet</servlet-name>
-		<url-pattern>/database/getlist/*</url-pattern>
-	</servlet-mapping>
+<!--	<servlet>-->
+<!--		<servlet-name>DatabaseGetListServlet</servlet-name>-->
+<!--		<servlet-class>qualitypatternmodel.newservlets.DatabaseGetListServlet</servlet-class>-->
+<!--	</servlet>-->
+<!--	<servlet-mapping>-->
+<!--		<servlet-name>DatabaseGetListServlet</servlet-name>-->
+<!--		<url-pattern>/database/getlist/*</url-pattern>-->
+<!--	</servlet-mapping>-->
 	
 	
 	<!-- Copy existing semi-concrete template
@@ -87,14 +87,14 @@
 	<!-- Get database of semi-concrete template
 		/database/execute/<technology>/<name>
 	 -->
-	<servlet>
-		<servlet-name>TemplateGetDatabaseServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateGetDatabaseServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>TemplateGetDatabaseServlet</servlet-name>
-		<url-pattern>/template/getdatabase/*</url-pattern>
-	</servlet-mapping>
+<!--	<servlet>-->
+<!--		<servlet-name>TemplateGetDatabaseServlet</servlet-name>-->
+<!--		<servlet-class>qualitypatternmodel.newservlets.TemplateGetDatabaseServlet</servlet-class>-->
+<!--	</servlet>-->
+<!--	<servlet-mapping>-->
+<!--		<servlet-name>TemplateGetDatabaseServlet</servlet-name>-->
+<!--		<url-pattern>/template/getdatabase/*</url-pattern>-->
+<!--	</servlet-mapping>-->
 		
 	<!-- Request list of templates
 		/templates/getlist/<format>/<level>
