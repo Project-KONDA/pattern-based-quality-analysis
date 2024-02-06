@@ -22,10 +22,10 @@ public class TemplateCopyServlet extends HttpServlet {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
 		System.out.println("TemplateCopyServlet.doPut()");
-		String result;
 		try {
-			result = applyPut(path, params);
+			String result = applyPut(path, params);
 			response.getOutputStream().println(result);
+			response.setStatus(HttpServletResponse.SC_OK);
 		}
 		catch (InvalidServletCallException e) {
 	        response.setContentType("application/json");

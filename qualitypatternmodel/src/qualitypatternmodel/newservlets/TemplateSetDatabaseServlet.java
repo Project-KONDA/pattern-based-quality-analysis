@@ -23,12 +23,12 @@ public class TemplateSetDatabaseServlet extends HttpServlet {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
 		System.out.println("TemplateSetDatabaseServlet.doPost()");
-		String result;
 		try{
-			result = applyPost(path, params);
-//			response.getOutputStream().println(result);
-			response.setStatus(HttpServletResponse.SC_NOT_IMPLEMENTED);
-			response.getWriter().write("{ \"error\": \"databases not implemented \"}");
+			String result = applyPost(path, params);
+			response.getOutputStream().println(result);
+			response.setStatus(HttpServletResponse.SC_OK);
+//			response.setStatus(HttpServletResponse.SC_NOT_IMPLEMENTED);
+//			response.getWriter().write("{ \"error\": \"databases not implemented \"}");
 		}
 		catch (InvalidServletCallException e) {
 	        response.setContentType("application/json");

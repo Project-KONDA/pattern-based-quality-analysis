@@ -23,12 +23,12 @@ public class TemplateExecuteServlet extends HttpServlet {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
 		System.out.println("TemplateExecuteServlet.doGet(" + path + ")");
-		String result;
 		try {
-			result = applyGet(path, params);
-//			response.getOutputStream().println(result);
-			response.setStatus(HttpServletResponse.SC_NOT_IMPLEMENTED);
-			response.getWriter().write("{ \"error\": \"execution not implemented \"}");
+			String result = applyGet(path, params);
+			response.getOutputStream().println(result);
+			response.setStatus(HttpServletResponse.SC_OK);
+//			response.setStatus(HttpServletResponse.SC_NOT_IMPLEMENTED);
+//			response.getWriter().write("{ \"error\": \"execution not implemented \"}");
 		}
 		catch (InvalidServletCallException e) {
 	        response.setContentType("application/json");

@@ -19,10 +19,10 @@ public class TemplateSetParameterServlet extends HttpServlet {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
 		System.out.println("TemplateSetParameterServlet.doPost(" + path + ")");
-		String result;
 		try{
-			result = applyPost(path, params);
+			String result = applyPost(path, params);
 			response.getOutputStream().println(result);
+			response.setStatus(HttpServletResponse.SC_OK);
 		}
 		catch (InvalidServletCallException e) {
 	        response.setContentType("application/json");

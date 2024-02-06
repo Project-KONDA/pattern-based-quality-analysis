@@ -23,9 +23,9 @@ public class TemplateGetDatabaseServlet extends HttpServlet {
 		System.out.println("TemplateGetDatabaseServlet.doGet(" + path + ")");
 		try {
 			String result = applyGet(path, params);
-//			response.getOutputStream().println(result);
-			response.setStatus(HttpServletResponse.SC_NOT_IMPLEMENTED);
-			response.getWriter().write("{ \"error\": \"databases not implemented \"}");
+			response.getOutputStream().println(result);
+			response.setStatus(HttpServletResponse.SC_OK);
+//			response.getWriter().write("{ \"error\": \"databases not implemented \"}");
 		}
 		catch (InvalidServletCallException e) {
 	        response.setContentType("application/json");

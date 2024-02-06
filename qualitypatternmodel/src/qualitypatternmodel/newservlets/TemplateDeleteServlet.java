@@ -19,10 +19,10 @@ public class TemplateDeleteServlet extends HttpServlet {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
 		System.out.println("TemplateDeleteServlet.doDelete(" + path + ")");
-		String result;
 		try {
-			result = applyDelete(path, params);
+			String result = applyDelete(path, params);
 			response.getOutputStream().println(result);
+			response.setStatus(HttpServletResponse.SC_OK);
 		}
 		catch (InvalidServletCallException e) {
 	        response.setContentType("application/json");

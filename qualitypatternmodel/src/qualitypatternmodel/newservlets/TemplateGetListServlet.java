@@ -21,10 +21,10 @@ public class TemplateGetListServlet extends HttpServlet {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
 		System.out.println("TemplateGetListServlet.doGet(" + path + ")");
-		String result;
 		try {
-			result = applyGet(path, params);
+			String result = applyGet(path, params);
 			response.getOutputStream().println(result);
+			response.setStatus(HttpServletResponse.SC_OK);
 		}
 		catch (InvalidServletCallException e) {
 	        response.setContentType("application/json");
@@ -61,7 +61,7 @@ public class TemplateGetListServlet extends HttpServlet {
 		List<CompletePattern> patterns = getPatterns(technology, level);
 		
 		if (patterns == null)
-			throw new FailedServletCallException("No " + ((level == "abstract")? "template":"constraint") + "found for the technology " + technology + " on level " + level + ".");
+			throw new FailedServletCallException("No " + ((level == "abstract")? "template":"constraint") + " found for the technology " + technology + " on level " + level + ".");
 		
 		return ServletUtilities.getPatternJSON(patterns);
 	}

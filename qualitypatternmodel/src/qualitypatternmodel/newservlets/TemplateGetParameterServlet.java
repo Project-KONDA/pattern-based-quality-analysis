@@ -21,10 +21,10 @@ public class TemplateGetParameterServlet extends HttpServlet {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
 		System.out.println("TemplateGetParameterServlet.doGet(" + path + ")");
-		String result;
 		try {
-			result = applyGet(path, params);
+			String result = applyGet(path, params);
 			response.getOutputStream().println(result);
+			response.setStatus(HttpServletResponse.SC_OK);
 		}
 		catch (InvalidServletCallException e) {
 	        response.setContentType("application/json");
