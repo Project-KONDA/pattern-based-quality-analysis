@@ -2,12 +2,16 @@ package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.Set;
 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
+import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.utility.EMFModelLoad;
+import qualitypatternmodel.utility.EMFModelSave;
 
 @SuppressWarnings("serial")
 public class TemplateSetParameterServlet extends HttpServlet {
@@ -48,61 +52,55 @@ public class TemplateSetParameterServlet extends HttpServlet {
 			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/setparameter/<technology>/<name>/' (not " + path + ")");
 
 		String technology = pathparts[1];
-		String templatename = pathparts[2];
+		String constraintname = pathparts[2];
+		
+		String constraintpath = "serverpatterns/" + technology + "/concrete-patterns/" + constraintname + ".pattern";
+		
+		// 1. load Pattern
+		CompletePattern pattern;
+		try {
+			pattern = EMFModelLoad.loadCompletePattern(constraintpath);
+		}
+		catch (Exception e) {
+			throw new FailedServletCallException("404 Requested pattern '" + constraintname + "' does not exist - " + e.getMessage());
+		}
+		// 2. change patterns
+
+		
+		// name?
+		String[] nameArray = parameterMap.get("name");
+		if (nameArray == null || nameArray.length != 1 || nameArray[0].equals("")) {
+			String newName = nameArray[0];
+			pattern.setName(newName);
+		}
+		// database?
+		String[] databaseArray = parameterMap.get("database");
+		if (databaseArray == null || databaseArray.length != 1 || databaseArray[0].equals("")) {
+			String database = databaseArray[0];
+			pattern.setName(database);
+		}
+		
+		Set<String> keys = parameterMap.keySet();
+		keys.remove("name");
+		keys.remove("database");
+		
+		for (String key: keys) {
+			String[] value = parameterMap.get(key);
+			if (value.length > 0) {
+				
+			}
+		}
 		
 		
-		// TODO:
-		// 1 check validity parameter
-		//   -> InvalidServletCallException
-		// 2 load constraint
-		// 3 map values to constraintparameter
-		//   -> InvalidServletCallException
-		// 4 set constraint parameter values
-		// 5 save constraint
 		
+		// 3. save constraint
+		try {
+			EMFModelSave.exportToFile(pattern, constraintpath, ServletUtilities.EXTENSION);
+		} catch (IOException e) {
+			throw new FailedServletCallException("Unable to update constraint.");
+		}
 		
-//		String path; 
-//		String extension = "pattern";
-//		Map<String, String> parameter;
-//		
-//		try {
-//			path = identifyConcretePatternPath(request);
-//			parameter = identifyParameter(request);
-//		} catch (Exception e) {
-//			response.sendError(404);
-//			response.getOutputStream().println("{ \"error\": \"Path not well formed\"}");
-//			return;
-//		}
-//		
-//		CompletePattern pattern;
-//		try {
-//			pattern = EMFModelLoad.loadCompletePattern(path);
-//		} catch (Exception e) {
-//			response.sendError(404);
-//			response.getOutputStream().println("{ \"error\": \"Concrete pattern not found\"}");
-//			return;
-//		}
-//		
-//		try {
-//			for (String key : parameter.keySet()) {
-//				setParameter(pattern, key, parameter.get(key));
-//			}
-//		} catch (Exception e) {
-//			response.sendError(404);
-//			response.getOutputStream().println("{ \"error\": \"Concrete pattern not found\"}");
-//			return;
-//		}
-//		
-//		try {
-//			EMFModelSave.exportToFile(pattern, path, extension);
-//		} catch (Exception e) {
-//			response.sendError(404);
-//			response.getOutputStream().println("{ \"error\": \"Changes could not be saved\"}");
-//			return;
-//		}
-//		
-//		response.getOutputStream().println("Successfully set parameter");
-		return "";
+		return "Parametes of constraint '" + pattern.getName() + "' successfully updated.";
 	}
 	
 //	private String identifyConcretePatternPath(HttpServletRequest request) {

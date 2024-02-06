@@ -8,13 +8,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
-import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.EMFModelLoad;
 import qualitypatternmodel.utility.EMFModelSave;
 
 @SuppressWarnings("serial")
-public class TemplateSetDatabaseServlet extends HttpServlet {
+public class TemplateSetNameServlet extends HttpServlet {
 	
 	// .. /template/setdatabase   /<technology>/<name>/<database-name>
 	
@@ -56,13 +55,13 @@ public class TemplateSetDatabaseServlet extends HttpServlet {
 		String technology = pathparts[1];
 		String constraintname = pathparts[2];
 		
-		String[] databaseNameArray = parameterMap.get("database");
-		if (databaseNameArray == null || databaseNameArray.length != 1 || databaseNameArray[0].equals(""))
+		String[] newNameArray = parameterMap.get("name");
+		if (newNameArray == null || newNameArray.length != 1 || newNameArray[0].equals(""))
 			throw new InvalidServletCallException("Invalid parameter for setting name.");
-		String newDatabaseName = databaseNameArray[0];
+		String newName = newNameArray[0];
 		
 		String constraintpath = "serverpatterns/" + technology + "/concrete-patterns/" + constraintname + ".pattern";
-
+		
 		// 1. load Pattern
 		CompletePattern pattern;
 		try {
@@ -72,8 +71,7 @@ public class TemplateSetDatabaseServlet extends HttpServlet {
 			throw new FailedServletCallException("404 Requested pattern '" + constraintname + "' does not exist - " + e.getMessage());
 		}
 		// 2. change name
-		String oldDatabaseName = pattern.getDatabaseName();
-		pattern.setDatabaseName(newDatabaseName);
+		pattern.setName(newName);
 		// 3. save constraint
 		try {
 			EMFModelSave.exportToFile(pattern, constraintpath, ServletUtilities.EXTENSION);
@@ -81,6 +79,6 @@ public class TemplateSetDatabaseServlet extends HttpServlet {
 			throw new FailedServletCallException("Unable to update constraint.");
 		}
 		
-		return "Database of constraint of constraint '" + pattern.getName() + "' updated successfully from '" + oldDatabaseName + "' to '" + newDatabaseName + "'.";
+		return "Name of constraint updated successfully from '" + constraintname + "' to '" + newName + "'.";
 	}
 }

@@ -87,14 +87,14 @@
 	<!-- Get database of semi-concrete template
 		/database/execute/<technology>/<name>
 	 -->
-<!--	<servlet>-->
-<!--		<servlet-name>TemplateGetDatabaseServlet</servlet-name>-->
-<!--		<servlet-class>qualitypatternmodel.newservlets.TemplateGetDatabaseServlet</servlet-class>-->
-<!--	</servlet>-->
-<!--	<servlet-mapping>-->
-<!--		<servlet-name>TemplateGetDatabaseServlet</servlet-name>-->
-<!--		<url-pattern>/template/getdatabase/*</url-pattern>-->
-<!--	</servlet-mapping>-->
+	<servlet>
+		<servlet-name>TemplateGetDatabaseServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.TemplateGetDatabaseServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TemplateGetDatabaseServlet</servlet-name>
+		<url-pattern>/template/getdatabase/*</url-pattern>
+	</servlet-mapping>
 		
 	<!-- Request list of templates
 		/templates/getlist/<format>/<level>
@@ -142,6 +142,30 @@
 	<servlet-mapping>
 		<servlet-name>TemplateSetDatabaseServlet</servlet-name>
 		<url-pattern>/template/setdatabase/*</url-pattern>
+	</servlet-mapping>
+		
+	<!-- Post new instance of an abstract template
+		/template/setname/<technology>/<name>
+	 -->
+	<servlet>
+		<servlet-name>TemplateSetNameServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.TemplateSetNameServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TemplateSetNameServlet</servlet-name>
+		<url-pattern>/template/setname/*</url-pattern>
+	</servlet-mapping>
+		
+	<!-- Post new instance of an abstract template
+		/template/setmodel/<technology>/<name>
+	 -->
+	<servlet>
+		<servlet-name>TemplateSetDataModelServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.TemplateSetDataModelServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TemplateSetDataModelServlet</servlet-name>
+		<url-pattern>/template/setdatamodel/*</url-pattern>
 	</servlet-mapping>
 		
 	<!-- Change one or more parameters

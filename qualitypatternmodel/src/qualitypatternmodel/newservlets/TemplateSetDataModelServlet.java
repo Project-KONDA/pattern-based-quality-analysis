@@ -14,7 +14,7 @@ import qualitypatternmodel.utility.EMFModelLoad;
 import qualitypatternmodel.utility.EMFModelSave;
 
 @SuppressWarnings("serial")
-public class TemplateSetDatabaseServlet extends HttpServlet {
+public class TemplateSetDataModelServlet extends HttpServlet {
 	
 	// .. /template/setdatabase   /<technology>/<name>/<database-name>
 	
@@ -56,10 +56,10 @@ public class TemplateSetDatabaseServlet extends HttpServlet {
 		String technology = pathparts[1];
 		String constraintname = pathparts[2];
 		
-		String[] databaseNameArray = parameterMap.get("database");
-		if (databaseNameArray == null || databaseNameArray.length != 1 || databaseNameArray[0].equals(""))
+		String[] dataModelNameArray = parameterMap.get("datamodel");
+		if (dataModelNameArray == null || dataModelNameArray.length != 1 || dataModelNameArray[0].equals(""))
 			throw new InvalidServletCallException("Invalid parameter for setting name.");
-		String newDatabaseName = databaseNameArray[0];
+		String newDataModelName = dataModelNameArray[0];
 		
 		String constraintpath = "serverpatterns/" + technology + "/concrete-patterns/" + constraintname + ".pattern";
 
@@ -72,8 +72,8 @@ public class TemplateSetDatabaseServlet extends HttpServlet {
 			throw new FailedServletCallException("404 Requested pattern '" + constraintname + "' does not exist - " + e.getMessage());
 		}
 		// 2. change name
-		String oldDatabaseName = pattern.getDatabaseName();
-		pattern.setDatabaseName(newDatabaseName);
+		String oldDataModelName = pattern.getDataModelName();
+		pattern.setDatabaseName(newDataModelName);
 		// 3. save constraint
 		try {
 			EMFModelSave.exportToFile(pattern, constraintpath, ServletUtilities.EXTENSION);
@@ -81,6 +81,6 @@ public class TemplateSetDatabaseServlet extends HttpServlet {
 			throw new FailedServletCallException("Unable to update constraint.");
 		}
 		
-		return "Database of constraint of constraint '" + pattern.getName() + "' updated successfully from '" + oldDatabaseName + "' to '" + newDatabaseName + "'.";
+		return "Datamodel of constraint of constraint '" + pattern.getName() + "' updated successfully from '" + oldDataModelName + "' to '" + newDataModelName + "'.";
 	}
 }
