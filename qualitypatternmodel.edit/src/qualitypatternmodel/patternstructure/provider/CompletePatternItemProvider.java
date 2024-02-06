@@ -51,16 +51,21 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
 			addDatabasePropertyDescriptor(object);
-			addDescriptionPropertyDescriptor(object);
+			addPatternIdPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 			addAbstractNamePropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
+			addShortDescriptionPropertyDescriptor(object);
+			addLanguagePropertyDescriptor(object);
+			addDataModelNamePropertyDescriptor(object);
+			addDatabaseNamePropertyDescriptor(object);
+			addKeywordsPropertyDescriptor(object);
+			addParameterCounterPropertyDescriptor(object);
 			addCounterPropertyDescriptor(object);
 			addElementCounterPropertyDescriptor(object);
 			addRelationCounterPropertyDescriptor(object);
 			addOperatorCounterPropertyDescriptor(object);
-			addParameterCounterPropertyDescriptor(object);
-			addLanguagePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -110,6 +115,28 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Pattern Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPatternIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CompletePattern_patternId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_patternId_feature", "_UI_CompletePattern_type"),
+				 PatternstructurePackage.Literals.COMPLETE_PATTERN__PATTERN_ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Description feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -123,6 +150,28 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 				 getString("_UI_CompletePattern_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_description_feature", "_UI_CompletePattern_type"),
 				 PatternstructurePackage.Literals.COMPLETE_PATTERN__DESCRIPTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Short Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addShortDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CompletePattern_shortDescription_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_shortDescription_feature", "_UI_CompletePattern_type"),
+				 PatternstructurePackage.Literals.COMPLETE_PATTERN__SHORT_DESCRIPTION,
 				 true,
 				 false,
 				 false,
@@ -286,6 +335,72 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Data Model Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDataModelNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CompletePattern_dataModelName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_dataModelName_feature", "_UI_CompletePattern_type"),
+				 PatternstructurePackage.Literals.COMPLETE_PATTERN__DATA_MODEL_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Database Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDatabaseNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CompletePattern_databaseName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_databaseName_feature", "_UI_CompletePattern_type"),
+				 PatternstructurePackage.Literals.COMPLETE_PATTERN__DATABASE_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Keywords feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addKeywordsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CompletePattern_keywords_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_keywords_feature", "_UI_CompletePattern_type"),
+				 PatternstructurePackage.Literals.COMPLETE_PATTERN__KEYWORDS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -354,15 +469,20 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CompletePattern.class)) {
+			case PatternstructurePackage.COMPLETE_PATTERN__PATTERN_ID:
 			case PatternstructurePackage.COMPLETE_PATTERN__NAME:
-			case PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION:
 			case PatternstructurePackage.COMPLETE_PATTERN__ABSTRACT_NAME:
+			case PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION:
+			case PatternstructurePackage.COMPLETE_PATTERN__SHORT_DESCRIPTION:
+			case PatternstructurePackage.COMPLETE_PATTERN__LANGUAGE:
+			case PatternstructurePackage.COMPLETE_PATTERN__DATA_MODEL_NAME:
+			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE_NAME:
+			case PatternstructurePackage.COMPLETE_PATTERN__KEYWORDS:
+			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_COUNTER:
 			case PatternstructurePackage.COMPLETE_PATTERN__COUNTER:
 			case PatternstructurePackage.COMPLETE_PATTERN__ELEMENT_COUNTER:
 			case PatternstructurePackage.COMPLETE_PATTERN__RELATION_COUNTER:
 			case PatternstructurePackage.COMPLETE_PATTERN__OPERATOR_COUNTER:
-			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_COUNTER:
-			case PatternstructurePackage.COMPLETE_PATTERN__LANGUAGE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_LIST:

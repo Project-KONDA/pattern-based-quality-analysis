@@ -2642,22 +2642,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN__PARAMETER_LIST = PATTERN_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETE_PATTERN__NAME = PATTERN_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Database</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__DATABASE = PATTERN_FEATURE_COUNT + 2;
+	int COMPLETE_PATTERN__DATABASE = PATTERN_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' containment reference list.
@@ -2666,16 +2657,25 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__TEXT = PATTERN_FEATURE_COUNT + 3;
+	int COMPLETE_PATTERN__TEXT = PATTERN_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * The feature id for the '<em><b>Pattern Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__DESCRIPTION = PATTERN_FEATURE_COUNT + 4;
+	int COMPLETE_PATTERN__PATTERN_ID = PATTERN_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__NAME = PATTERN_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Name</b></em>' attribute.
@@ -2687,49 +2687,22 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN__ABSTRACT_NAME = PATTERN_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Counter</b></em>' attribute.
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__COUNTER = PATTERN_FEATURE_COUNT + 6;
+	int COMPLETE_PATTERN__DESCRIPTION = PATTERN_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Element Counter</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__ELEMENT_COUNTER = PATTERN_FEATURE_COUNT + 7;
-
-	/**
-	 * The feature id for the '<em><b>Relation Counter</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETE_PATTERN__RELATION_COUNTER = PATTERN_FEATURE_COUNT + 8;
-
-	/**
-	 * The feature id for the '<em><b>Operator Counter</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETE_PATTERN__OPERATOR_COUNTER = PATTERN_FEATURE_COUNT + 9;
-
-	/**
-	 * The feature id for the '<em><b>Parameter Counter</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETE_PATTERN__PARAMETER_COUNTER = PATTERN_FEATURE_COUNT + 10;
+	int COMPLETE_PATTERN__SHORT_DESCRIPTION = PATTERN_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Language</b></em>' attribute.
@@ -2738,7 +2711,79 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__LANGUAGE = PATTERN_FEATURE_COUNT + 11;
+	int COMPLETE_PATTERN__LANGUAGE = PATTERN_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Data Model Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__DATA_MODEL_NAME = PATTERN_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Database Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__DATABASE_NAME = PATTERN_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__KEYWORDS = PATTERN_FEATURE_COUNT + 11;
+
+	/**
+	 * The feature id for the '<em><b>Parameter Counter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__PARAMETER_COUNTER = PATTERN_FEATURE_COUNT + 12;
+
+	/**
+	 * The feature id for the '<em><b>Counter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__COUNTER = PATTERN_FEATURE_COUNT + 13;
+
+	/**
+	 * The feature id for the '<em><b>Element Counter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__ELEMENT_COUNTER = PATTERN_FEATURE_COUNT + 14;
+
+	/**
+	 * The feature id for the '<em><b>Relation Counter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__RELATION_COUNTER = PATTERN_FEATURE_COUNT + 15;
+
+	/**
+	 * The feature id for the '<em><b>Operator Counter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__OPERATOR_COUNTER = PATTERN_FEATURE_COUNT + 16;
 
 	/**
 	 * The number of structural features of the '<em>Complete Pattern</em>' class.
@@ -2747,7 +2792,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 12;
+	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 17;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -5652,6 +5697,39 @@ public interface PatternstructurePackage extends EPackage {
 	EAttribute getCompletePattern_Language();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getDataModelName <em>Data Model Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Data Model Name</em>'.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getDataModelName()
+	 * @see #getCompletePattern()
+	 * @generated
+	 */
+	EAttribute getCompletePattern_DataModelName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getDatabaseName <em>Database Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Database Name</em>'.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getDatabaseName()
+	 * @see #getCompletePattern()
+	 * @generated
+	 */
+	EAttribute getCompletePattern_DatabaseName();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.patternstructure.CompletePattern#getKeywords <em>Keywords</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Keywords</em>'.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getKeywords()
+	 * @see #getCompletePattern()
+	 * @generated
+	 */
+	EAttribute getCompletePattern_Keywords();
+
+	/**
 	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getOperatorCounter <em>Operator Counter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5685,6 +5763,17 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getCompletePattern_Text();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getPatternId <em>Pattern Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Pattern Id</em>'.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getPatternId()
+	 * @see #getCompletePattern()
+	 * @generated
+	 */
+	EAttribute getCompletePattern_PatternId();
+
+	/**
 	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5694,6 +5783,17 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCompletePattern_Description();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getShortDescription <em>Short Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Short Description</em>'.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getShortDescription()
+	 * @see #getCompletePattern()
+	 * @generated
+	 */
+	EAttribute getCompletePattern_ShortDescription();
 
 	/**
 	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getAbstractName <em>Abstract Name</em>}'.
@@ -6758,6 +6858,30 @@ public interface PatternstructurePackage extends EPackage {
 		EAttribute COMPLETE_PATTERN__LANGUAGE = eINSTANCE.getCompletePattern_Language();
 
 		/**
+		 * The meta object literal for the '<em><b>Data Model Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPLETE_PATTERN__DATA_MODEL_NAME = eINSTANCE.getCompletePattern_DataModelName();
+
+		/**
+		 * The meta object literal for the '<em><b>Database Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPLETE_PATTERN__DATABASE_NAME = eINSTANCE.getCompletePattern_DatabaseName();
+
+		/**
+		 * The meta object literal for the '<em><b>Keywords</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPLETE_PATTERN__KEYWORDS = eINSTANCE.getCompletePattern_Keywords();
+
+		/**
 		 * The meta object literal for the '<em><b>Operator Counter</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6782,12 +6906,28 @@ public interface PatternstructurePackage extends EPackage {
 		EReference COMPLETE_PATTERN__TEXT = eINSTANCE.getCompletePattern_Text();
 
 		/**
+		 * The meta object literal for the '<em><b>Pattern Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPLETE_PATTERN__PATTERN_ID = eINSTANCE.getCompletePattern_PatternId();
+
+		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute COMPLETE_PATTERN__DESCRIPTION = eINSTANCE.getCompletePattern_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Short Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPLETE_PATTERN__SHORT_DESCRIPTION = eINSTANCE.getCompletePattern_ShortDescription();
 
 		/**
 		 * The meta object literal for the '<em><b>Abstract Name</b></em>' attribute feature.

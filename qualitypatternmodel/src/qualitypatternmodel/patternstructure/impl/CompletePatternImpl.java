@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -71,17 +72,22 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getParameterList <em>Parameter List</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getDatabase <em>Database</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getText <em>Text</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getPatternId <em>Pattern Id</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getAbstractName <em>Abstract Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getShortDescription <em>Short Description</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getLanguage <em>Language</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getDataModelName <em>Data Model Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getDatabaseName <em>Database Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getKeywords <em>Keywords</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getParameterCounter <em>Parameter Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getCounter <em>Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getElementCounter <em>Element Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getRelationCounter <em>Relation Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getOperatorCounter <em>Operator Counter</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getParameterCounter <em>Parameter Counter</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getLanguage <em>Language</em>}</li>
  * </ul>
  *
  * @generated
@@ -101,28 +107,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 */
 	protected ParameterList parameterList;
 
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getName()
-	 * @generated NOT
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = "Pattern";
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!--
-	 * begin-user-doc -->
-	 * The user defined name of this pattern. It should describe roughly the pattern's purpose.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-	
 	/**
 	 * The cached value of the '{@link #getDatabase() <em>Database</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -145,24 +129,46 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	protected EList<PatternText> text;
 
 	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * The default value of the '{@link #getPatternId() <em>Pattern Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDescription()
+	 * @see #getPatternId()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String DESCRIPTION_EDEFAULT = null;
+	protected static final String PATTERN_ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * The cached value of the '{@link #getPatternId() <em>Pattern Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDescription()
+	 * @see #getPatternId()
 	 * @generated
 	 * @ordered
 	 */
-	protected String description = DESCRIPTION_EDEFAULT;
+	protected String patternId = PATTERN_ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getName()
+	 * @generated NOT
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = "Pattern";
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!--
+	 * begin-user-doc -->
+	 * The user defined name of this pattern. It should describe roughly the pattern's purpose.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getAbstractName() <em>Abstract Name</em>}' attribute.
@@ -183,6 +189,137 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @ordered
 	 */
 	protected String abstractName = ABSTRACT_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getShortDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SHORT_DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getShortDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String shortDescription = SHORT_DESCRIPTION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLanguage() <em>Language</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLanguage()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Language LANGUAGE_EDEFAULT = Language.GENERIC;
+
+	/**
+	 * The cached value of the '{@link #getLanguage() <em>Language</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLanguage()
+	 * @generated
+	 * @ordered
+	 */
+	protected Language language = LANGUAGE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDataModelName() <em>Data Model Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDataModelName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DATA_MODEL_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDataModelName() <em>Data Model Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDataModelName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String dataModelName = DATA_MODEL_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDatabaseName() <em>Database Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDatabaseName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DATABASE_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDatabaseName() <em>Database Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDatabaseName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String databaseName = DATABASE_NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getKeywords() <em>Keywords</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeywords()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> keywords;
+
+	/**
+	 * The default value of the '{@link #getParameterCounter() <em>Parameter Counter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+	 * @see #getParameterCounter()
+	 * @generated NOT
+	 * @ordered
+	 */
+	protected static final Integer PARAMETER_COUNTER_EDEFAULT = Integer.valueOf(1);
+
+	/**
+	 * The cached value of the '{@link #getParameterCounter() <em>Parameter Counter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+		 * Counter for {@link qualitypatternmodel.patternstructure.PatternElement#getInternalId internalId} of <code>Parameters</code>.
+		 * <!-- end-user-doc -->
+	 * @see #getParameterCounter()
+	 * @generated
+	 * @ordered
+	 */
+	protected Integer parameterCounter = PARAMETER_COUNTER_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getCounter() <em>Counter</em>}' attribute.
@@ -268,47 +405,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @ordered
 	 */
 	protected Integer operatorCounter = OPERATOR_COUNTER_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getParameterCounter() <em>Parameter Counter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-	 * @see #getParameterCounter()
-	 * @generated NOT
-	 * @ordered
-	 */
-	protected static final Integer PARAMETER_COUNTER_EDEFAULT = Integer.valueOf(1);
-
-	/**
-	 * The cached value of the '{@link #getParameterCounter() <em>Parameter Counter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-		 * Counter for {@link qualitypatternmodel.patternstructure.PatternElement#getInternalId internalId} of <code>Parameters</code>.
-		 * <!-- end-user-doc -->
-	 * @see #getParameterCounter()
-	 * @generated
-	 * @ordered
-	 */
-	protected Integer parameterCounter = PARAMETER_COUNTER_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getLanguage() <em>Language</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLanguage()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Language LANGUAGE_EDEFAULT = Language.GENERIC;
-
-	/**
-	 * The cached value of the '{@link #getLanguage() <em>Language</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLanguage()
-	 * @generated
-	 * @ordered
-	 */
-	protected Language language = LANGUAGE_EDEFAULT;
 
 	//	protected int[] elementCounter = {1,1,1,1,1,1};
 
@@ -1081,6 +1177,70 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @generated
 	 */
 	@Override
+	public String getDataModelName() {
+		return dataModelName;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDataModelName(String newDataModelName) {
+		String oldDataModelName = dataModelName;
+		dataModelName = newDataModelName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__DATA_MODEL_NAME, oldDataModelName, dataModelName));
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getDatabaseName() {
+		return databaseName;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDatabaseName(String newDatabaseName) {
+		String oldDatabaseName = databaseName;
+		databaseName = newDatabaseName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__DATABASE_NAME, oldDatabaseName, databaseName));
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<String> getKeywords() {
+		if (keywords == null) {
+			keywords = new EDataTypeUniqueEList<String>(String.class, this, PatternstructurePackage.COMPLETE_PATTERN__KEYWORDS);
+		}
+		return keywords;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Integer getOperatorCounter() {
 		return operatorCounter;
 	}
@@ -1145,6 +1305,31 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @generated
 	 */
 	@Override
+	public String getPatternId() {
+		return patternId;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPatternId(String newPatternId) {
+		String oldPatternId = patternId;
+		patternId = newPatternId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__PATTERN_ID, oldPatternId, patternId));
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String getDescription() {
 		return description;
 	}
@@ -1161,6 +1346,31 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		description = newDescription;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION, oldDescription, description));
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getShortDescription() {
+		return shortDescription;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setShortDescription(String newShortDescription) {
+		String oldShortDescription = shortDescription;
+		shortDescription = newShortDescription;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__SHORT_DESCRIPTION, oldShortDescription, shortDescription));
 	}
 
 
@@ -1237,17 +1447,31 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		switch (featureID) {
 			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_LIST:
 				return getParameterList();
-			case PatternstructurePackage.COMPLETE_PATTERN__NAME:
-				return getName();
 			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
 				if (resolve) return getDatabase();
 				return basicGetDatabase();
 			case PatternstructurePackage.COMPLETE_PATTERN__TEXT:
 				return getText();
-			case PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION:
-				return getDescription();
+			case PatternstructurePackage.COMPLETE_PATTERN__PATTERN_ID:
+				return getPatternId();
+			case PatternstructurePackage.COMPLETE_PATTERN__NAME:
+				return getName();
 			case PatternstructurePackage.COMPLETE_PATTERN__ABSTRACT_NAME:
 				return getAbstractName();
+			case PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION:
+				return getDescription();
+			case PatternstructurePackage.COMPLETE_PATTERN__SHORT_DESCRIPTION:
+				return getShortDescription();
+			case PatternstructurePackage.COMPLETE_PATTERN__LANGUAGE:
+				return getLanguage();
+			case PatternstructurePackage.COMPLETE_PATTERN__DATA_MODEL_NAME:
+				return getDataModelName();
+			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE_NAME:
+				return getDatabaseName();
+			case PatternstructurePackage.COMPLETE_PATTERN__KEYWORDS:
+				return getKeywords();
+			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_COUNTER:
+				return getParameterCounter();
 			case PatternstructurePackage.COMPLETE_PATTERN__COUNTER:
 				return getCounter();
 			case PatternstructurePackage.COMPLETE_PATTERN__ELEMENT_COUNTER:
@@ -1256,10 +1480,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return getRelationCounter();
 			case PatternstructurePackage.COMPLETE_PATTERN__OPERATOR_COUNTER:
 				return getOperatorCounter();
-			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_COUNTER:
-				return getParameterCounter();
-			case PatternstructurePackage.COMPLETE_PATTERN__LANGUAGE:
-				return getLanguage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1275,9 +1495,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_LIST:
 				setParameterList((ParameterList)newValue);
 				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__NAME:
-				setName((String)newValue);
-				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
 				setDatabase((Database)newValue);
 				return;
@@ -1285,11 +1502,36 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				getText().clear();
 				getText().addAll((Collection<? extends PatternText>)newValue);
 				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION:
-				setDescription((String)newValue);
+			case PatternstructurePackage.COMPLETE_PATTERN__PATTERN_ID:
+				setPatternId((String)newValue);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__NAME:
+				setName((String)newValue);
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__ABSTRACT_NAME:
 				setAbstractName((String)newValue);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION:
+				setDescription((String)newValue);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__SHORT_DESCRIPTION:
+				setShortDescription((String)newValue);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__LANGUAGE:
+				setLanguage((Language)newValue);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__DATA_MODEL_NAME:
+				setDataModelName((String)newValue);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE_NAME:
+				setDatabaseName((String)newValue);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__KEYWORDS:
+				getKeywords().clear();
+				getKeywords().addAll((Collection<? extends String>)newValue);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_COUNTER:
+				setParameterCounter((Integer)newValue);
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__COUNTER:
 				setCounter((Integer)newValue);
@@ -1302,12 +1544,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__OPERATOR_COUNTER:
 				setOperatorCounter((Integer)newValue);
-				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_COUNTER:
-				setParameterCounter((Integer)newValue);
-				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__LANGUAGE:
-				setLanguage((Language)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1323,20 +1559,41 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_LIST:
 				setParameterList((ParameterList)null);
 				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__NAME:
-				setName(NAME_EDEFAULT);
-				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
 				setDatabase((Database)null);
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__TEXT:
 				getText().clear();
 				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION:
-				setDescription(DESCRIPTION_EDEFAULT);
+			case PatternstructurePackage.COMPLETE_PATTERN__PATTERN_ID:
+				setPatternId(PATTERN_ID_EDEFAULT);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__NAME:
+				setName(NAME_EDEFAULT);
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__ABSTRACT_NAME:
 				setAbstractName(ABSTRACT_NAME_EDEFAULT);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__SHORT_DESCRIPTION:
+				setShortDescription(SHORT_DESCRIPTION_EDEFAULT);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__LANGUAGE:
+				setLanguage(LANGUAGE_EDEFAULT);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__DATA_MODEL_NAME:
+				setDataModelName(DATA_MODEL_NAME_EDEFAULT);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE_NAME:
+				setDatabaseName(DATABASE_NAME_EDEFAULT);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__KEYWORDS:
+				getKeywords().clear();
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_COUNTER:
+				setParameterCounter(PARAMETER_COUNTER_EDEFAULT);
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__COUNTER:
 				setCounter(COUNTER_EDEFAULT);
@@ -1349,12 +1606,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__OPERATOR_COUNTER:
 				setOperatorCounter(OPERATOR_COUNTER_EDEFAULT);
-				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_COUNTER:
-				setParameterCounter(PARAMETER_COUNTER_EDEFAULT);
-				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__LANGUAGE:
-				setLanguage(LANGUAGE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -1369,16 +1620,30 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		switch (featureID) {
 			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_LIST:
 				return parameterList != null;
-			case PatternstructurePackage.COMPLETE_PATTERN__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
 				return database != null;
 			case PatternstructurePackage.COMPLETE_PATTERN__TEXT:
 				return text != null && !text.isEmpty();
-			case PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case PatternstructurePackage.COMPLETE_PATTERN__PATTERN_ID:
+				return PATTERN_ID_EDEFAULT == null ? patternId != null : !PATTERN_ID_EDEFAULT.equals(patternId);
+			case PatternstructurePackage.COMPLETE_PATTERN__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case PatternstructurePackage.COMPLETE_PATTERN__ABSTRACT_NAME:
 				return ABSTRACT_NAME_EDEFAULT == null ? abstractName != null : !ABSTRACT_NAME_EDEFAULT.equals(abstractName);
+			case PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case PatternstructurePackage.COMPLETE_PATTERN__SHORT_DESCRIPTION:
+				return SHORT_DESCRIPTION_EDEFAULT == null ? shortDescription != null : !SHORT_DESCRIPTION_EDEFAULT.equals(shortDescription);
+			case PatternstructurePackage.COMPLETE_PATTERN__LANGUAGE:
+				return language != LANGUAGE_EDEFAULT;
+			case PatternstructurePackage.COMPLETE_PATTERN__DATA_MODEL_NAME:
+				return DATA_MODEL_NAME_EDEFAULT == null ? dataModelName != null : !DATA_MODEL_NAME_EDEFAULT.equals(dataModelName);
+			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE_NAME:
+				return DATABASE_NAME_EDEFAULT == null ? databaseName != null : !DATABASE_NAME_EDEFAULT.equals(databaseName);
+			case PatternstructurePackage.COMPLETE_PATTERN__KEYWORDS:
+				return keywords != null && !keywords.isEmpty();
+			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_COUNTER:
+				return PARAMETER_COUNTER_EDEFAULT == null ? parameterCounter != null : !PARAMETER_COUNTER_EDEFAULT.equals(parameterCounter);
 			case PatternstructurePackage.COMPLETE_PATTERN__COUNTER:
 				return COUNTER_EDEFAULT == null ? counter != null : !COUNTER_EDEFAULT.equals(counter);
 			case PatternstructurePackage.COMPLETE_PATTERN__ELEMENT_COUNTER:
@@ -1387,10 +1652,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return RELATION_COUNTER_EDEFAULT == null ? relationCounter != null : !RELATION_COUNTER_EDEFAULT.equals(relationCounter);
 			case PatternstructurePackage.COMPLETE_PATTERN__OPERATOR_COUNTER:
 				return OPERATOR_COUNTER_EDEFAULT == null ? operatorCounter != null : !OPERATOR_COUNTER_EDEFAULT.equals(operatorCounter);
-			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_COUNTER:
-				return PARAMETER_COUNTER_EDEFAULT == null ? parameterCounter != null : !PARAMETER_COUNTER_EDEFAULT.equals(parameterCounter);
-			case PatternstructurePackage.COMPLETE_PATTERN__LANGUAGE:
-				return language != LANGUAGE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1474,12 +1735,26 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (name: ");
+		result.append(" (patternId: ");
+		result.append(patternId);
+		result.append(", name: ");
 		result.append(name);
-		result.append(", description: ");
-		result.append(description);
 		result.append(", abstractName: ");
 		result.append(abstractName);
+		result.append(", description: ");
+		result.append(description);
+		result.append(", shortDescription: ");
+		result.append(shortDescription);
+		result.append(", language: ");
+		result.append(language);
+		result.append(", dataModelName: ");
+		result.append(dataModelName);
+		result.append(", databaseName: ");
+		result.append(databaseName);
+		result.append(", keywords: ");
+		result.append(keywords);
+		result.append(", parameterCounter: ");
+		result.append(parameterCounter);
 		result.append(", counter: ");
 		result.append(counter);
 		result.append(", elementCounter: ");
@@ -1488,10 +1763,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		result.append(relationCounter);
 		result.append(", operatorCounter: ");
 		result.append(operatorCounter);
-		result.append(", parameterCounter: ");
-		result.append(parameterCounter);
-		result.append(", language: ");
-		result.append(language);
 		result.append(')');
 		return result.toString();
 	}
