@@ -47,7 +47,12 @@
 <!--		<url-pattern>/database/getlist/*</url-pattern>-->
 <!--	</servlet-mapping>-->
 	
-	
+	 <servlet>
+	     <servlet-name>TemplateInitialisationServlet</servlet-name>
+	     <servlet-class>qualitypatternmodel.newservlets.TemplateInitialisationServlet</servlet-class>
+	     <load-on-startup>1</load-on-startup>
+ 	</servlet>
+ 
 	<!-- Copy existing semi-concrete template
 		/template/copy/<technology>/<name>
 	 -->
