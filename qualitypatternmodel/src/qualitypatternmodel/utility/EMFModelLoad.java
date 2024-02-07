@@ -217,14 +217,18 @@ public class EMFModelLoad {
     }
 
 	public static List<CompletePattern> loadCompletePatternFromFolder(String path, String extension) throws IOException {
-		List<String> files = getFilesInDirectory(path);
+		List<String> files = null;
+		try{
+			files = getFilesInDirectory(path);
+		} catch (Exception e) {
+			throw new NoSuchFileException(Paths.get(path).toAbsolutePath().toString());
+		}
+		System.out.println("emfmodelload 221 " + files);
 		
 		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
-		if (files == null)
-			throw new NoSuchFileException(path);
 		for (String file: files) {
 			try {
-				patterns.add(loadCompletePattern(file, extension));
+				patterns.add(loadCompletePattern(path + "/" + file, extension));
 			} catch (Exception e) {}
 		}
 		return patterns;

@@ -256,12 +256,12 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 
 		json += "\"name\": \"" + getName() + "\", ";
 		json += "\"fragments\" : [";
-		for(Fragment f : getFragmentsOrdered()) {
-			json += "  " + f.generateJSON() + ", ";
+		for(int i = 0; i< getFragmentsOrdered().size(); i++) {
+			if (i>0)
+				json += ", ";
+			json += getFragmentsOrdered().get(i).generateJSON();
 		}
 		json += "]}";
-		json = json.replace(", ]", "]");
-		json = json.replace(", }", "}");
 		return json;
 	}
 

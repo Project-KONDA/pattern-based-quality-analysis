@@ -11,7 +11,6 @@ import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.textrepresentation.Fragment;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
@@ -62,24 +61,23 @@ public class XmlPatterns {
 			variant1.setName("simple");
 			pattern.getText().add(variant1);
 			
-			List<Fragment> fragments = variant1.getFragments();
-			fragments.add(new TextFragmentImpl("Is there a"));
+			variant1.addFragment(new TextFragmentImpl("Is there a"));
 			{
 				ParameterFragment v1path1fragment = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 				v1path1fragment.setName("xmlpath_rootToReturn");
 				v1path1fragment.setExampleValue("architect");
 				v1path1fragment.getParameter().add(path1);
-				fragments.add(v1path1fragment);
+				variant1.addFragment(v1path1fragment);
 			}
-			fragments.add(new TextFragmentImpl("with more than one"));
+			variant1.addFragment(new TextFragmentImpl("with more than one"));
 			{
 				ParameterFragment v1path2fragment = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 				v1path2fragment.setName("xmlpath_returnToCondition");
 				v1path2fragment.getParameter().add(path2);
 				v1path2fragment.setExampleValue("year of birth");
-				fragments.add(v1path2fragment);
+				variant1.addFragment(v1path2fragment);
 			}
-			fragments.add(new TextFragmentImpl("element?"));
+			variant1.addFragment(new TextFragmentImpl("element?"));
 		}
 		{
 			// Is there a <xmlpath_rootToReturn (xpath, “building”, "//*[name() = 'demo:building']”> that has <comparison_operator (select, ["equal", "not equal", "less than", "more than", "less or equal to", "more or equal to"], "more than")> <number (integer, "one", "1")> <xmlpath_returnToCondition (xpath, "current place", "?"> ?

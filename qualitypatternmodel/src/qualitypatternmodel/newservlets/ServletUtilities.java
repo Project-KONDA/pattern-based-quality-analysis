@@ -23,7 +23,7 @@ public abstract class ServletUtilities {
 	
 	public static List<CompletePattern> getAllPattern(String technology) {
 		EList<CompletePattern> patterns = new BasicEList<CompletePattern>();
-		List<CompletePattern> astr = getAllAbstractPattern(technology);
+		List<CompletePattern> astr = loadAbstractPattern(technology);
 		List<CompletePattern> conc = getAllConcretePattern(technology);
 		if (astr!=null)
 			patterns.addAll(astr);
@@ -112,19 +112,24 @@ public abstract class ServletUtilities {
 	
 	private static List<CompletePattern> loadAbstractPattern(String technology) {
 		try {
+			abstractPatternXml = EMFModelLoad.loadCompletePatternFromFolder("./serverpatterns/xml/abstract-patterns", EXTENSION);
 			switch(technology) {
-			case "xml":
-				if (abstractPatternXml != null)
-					abstractPatternXml = EMFModelLoad.loadCompletePatternFromFolder("serverpatterns/xml/abstract-patterns", EXTENSION);
+			case "xml": {
+				if (abstractPatternXml == null)
+					abstractPatternXml = EMFModelLoad.loadCompletePatternFromFolder("./serverpatterns/xml/abstract-patterns", EXTENSION);
 				return abstractPatternXml;
-			case "rdf":
+			}				
+			case "rdf":{
 				if (abstractPatternRdf == null)
-					abstractPatternRdf = EMFModelLoad.loadCompletePatternFromFolder("serverpatterns/rdf/abstract-patterns", EXTENSION);
+					abstractPatternRdf = EMFModelLoad.loadCompletePatternFromFolder("./serverpatterns/rdf/abstract-patterns", EXTENSION);
 				return abstractPatternRdf;
-			case "neo4j":
-				if (abstractPatternNeo != null)
+			}
+				
+			case "neo4j": {
+				if (abstractPatternNeo == null)
 					abstractPatternNeo = EMFModelLoad.loadCompletePatternFromFolder("serverpatterns/neo4j/abstract-patterns", EXTENSION);
 				return abstractPatternNeo;
+			}	
 			default:
 				return null;
 			}
@@ -137,16 +142,18 @@ public abstract class ServletUtilities {
 	
 	private static List<CompletePattern> loadAllPatternInstances(String technology) {
 		try {
-			switch(technology) {
-			case "xml":
-				return EMFModelLoad.loadCompletePatternFromFolder("serverpatterns/xml/concrete-patterns", EXTENSION);
-			case "rdf":
-				return EMFModelLoad.loadCompletePatternFromFolder("serverpatterns/rdf/concrete-patterns", EXTENSION);
-			case "neo4j":
-				return EMFModelLoad.loadCompletePatternFromFolder("serverpatterns/neo4j/concrete-patterns", EXTENSION);
-			default:
-				return null;
-			}
+			if (TECHS.contains(technology))
+				return EMFModelLoad.loadCompletePatternFromFolder("./serverpatterns/" + technology + "/concrete-patterns", EXTENSION);
+			else return null;
+//			switch(technology) {
+//			case "xml":
+//			case "rdf":
+//				return EMFModelLoad.loadCompletePatternFromFolder("serverpatterns/rdf/concrete-patterns", EXTENSION);
+//			case "neo4j":
+//				return EMFModelLoad.loadCompletePatternFromFolder("serverpatterns/neo4j/concrete-patterns", EXTENSION);
+//			default:
+//				return null;
+//			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -158,19 +165,35 @@ public abstract class ServletUtilities {
 		String result = "{\"Templates\": [ ";
 		for (CompletePattern pattern: patterns) {
 			String json = "{";
-			json += "\"patternID\": \""+ pattern.getName() + "\", ";
-//			json += "\"patternDescShort\": \"" + pattern.getShortDescription() + "\", ";
-			json += "\"patternDescShort\": \"" + "not implemnted" + "\", ";
+			json += "\"patternID\": \""+ pattern.getPatternId() + "\", ";
+			json += "\"name\": \""+ pattern.getName() + "\", ";
+			json += "\"patternDescShort\": \"" + pattern.getShortDescription() + "\", ";
 			json += "\"patternDesc\": \""+ pattern.getDescription() +"\",";
+			json += "\"database\": \""+ pattern.getDatabaseName() +"\",";
+			json += "\"datamodel\": \""+ pattern.getDataModelName() +"\",";
+			pattern.getKeywords().add("hahahahah");
+			List<String> keywords = pattern.getKeywords();
+			String keywordsString = "\"keywords\": [";
+	        for (int i = 0; i < keywords.size(); i++) {
+	        	keywordsString += "\"" + keywords.get(i) + "\"";
+	            if (i < keywords.size() - 1) {
+	            	keywordsString += ",";
+	            }
+	        }
+	        keywordsString += "], ";
+			json += keywordsString;
 			json += "\"variants\": [";
 			
-			for (PatternText text: pattern.getText()) {
-				json += text.generateJSON();
+			List<PatternText> texts = pattern.getText();
+			for (int i = 0; i<texts.size(); i++) {
+				if (i>0)
+					json += ", ";
+				json += texts.get(i).generateJSON();
 			}
-			json += "},";
+			json += "]}"; // variant end and template end
 			result += json;
 		}
-		return result += "]}";
+		return result += "]}"; // templatelist end
 	}
 	
 	public static String getPatternJSONHeads(List<CompletePattern> patterns) {
