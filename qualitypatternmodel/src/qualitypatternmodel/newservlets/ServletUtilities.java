@@ -55,16 +55,16 @@ public abstract class ServletUtilities {
 	
 	// Pattern instantiation
 	
-	public static CompletePattern instantiateAbstractPattern(String technology, String abstractPattern, String concretePattern) throws IOException {
-		CompletePattern pattern = EMFModelLoad.loadAbstractPattern(technology, abstractPattern);
-		pattern.setName(concretePattern);
-		EMFModelSave.exportToFile2(pattern, technology, concretePattern, EXTENSION);
+	public static CompletePattern instantiateAbstractPattern(String technology, String abstractId, String concreteId) throws IOException {
+		CompletePattern pattern = EMFModelLoad.loadAbstractPattern(technology, abstractId);
+		pattern.setPatternId(concreteId);
+		EMFModelSave.exportToFile2(pattern, technology, concreteId, EXTENSION);
 		return pattern;
 	}
 	
 	public static CompletePattern copyConcretePattern(String technology, String concretePattern, String concretePatternName) throws IOException {
 		CompletePattern pattern = EMFModelLoad.loadConcretePattern(technology, concretePattern);
-		pattern.setName(concretePatternName);
+		pattern.setPatternId(concretePatternName);
 		EMFModelSave.exportToFile2(pattern, technology, concretePatternName, EXTENSION);
 		return pattern;
 	}
@@ -197,7 +197,7 @@ public abstract class ServletUtilities {
 	public static String getPatternJSONHeads(List<CompletePattern> patterns) {
 		String result = "[";
 		for (CompletePattern pattern: patterns) {
-			result += "{\"name\":\"" + pattern.getName() + "\", \"description\":\"" + pattern.getDescription() + "\"}, ";
+			result += "{\"patternID\":\"" + pattern.getPatternId() + "\", \"name\":\"" + pattern.getPatternId() + "\", \"description\":\"" + pattern.getDescription() + "\"}, ";
 		}
 		return result += "]";
 	}

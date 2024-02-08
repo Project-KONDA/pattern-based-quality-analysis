@@ -58,12 +58,11 @@ public class TemplateInstantiateServlet extends HttpServlet {
 	
 	public String applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
 		String[] pathparts = path.split("/");
-		if (pathparts.length != 4 || !pathparts[0].equals(""))
+		if (pathparts.length != 3 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/copy/<technology>/<concretetemplate>' (not " + path + ")");
 
 		String technology = pathparts[1];
-		String templatename = pathparts[2];
-		String constraintname = pathparts[2];
+		String templateId = pathparts[2];
 		Integer textid;
 		try {
 			textid = Integer.parseInt(pathparts[3]);
@@ -71,8 +70,8 @@ public class TemplateInstantiateServlet extends HttpServlet {
 			throw new InvalidServletCallException("Variant ID is not an integer value: " + pathparts[3]);
 		}
 		
-		String templatepath = "serverpatterns/" + technology + "/abstract-patterns/" + templatename + ".pattern";
-		String constraintpath = "serverpatterns/" + technology + "/concrete-patterns/" + constraintname + ".pattern";
+		String templatepath = "serverpatterns/" + technology + "/abstract-patterns/" + templateId + ".pattern";
+		String constraintpath = "serverpatterns/" + technology + "/concrete-patterns/" + constraintId + ".pattern";
 
 		// 1 load constraint with old name
 		CompletePattern pattern;
@@ -80,18 +79,19 @@ public class TemplateInstantiateServlet extends HttpServlet {
 			pattern = EMFModelLoad.loadCompletePattern(templatepath);
 		}
 		catch (Exception e) {
-			throw new FailedServletCallException("404 Requested template '" + templatename + "' does not exist - " + e.getMessage());
+			throw new FailedServletCallException("404 Requested template '" + templateId + "' does not exist - " + e.getMessage());
 		}
 		
-		// 2 check if constraint with new name exists already
-		try {
-			EMFModelLoad.loadCompletePattern(constraintpath);
-			throw new FailedServletCallException("409 Constraint with name '" + constraintname + "'does already exist.");
-		}
-		catch (Exception e) {}
+		// not necessary: ID generation shall guarantee it
+//		// 2 check if constraint with new name already exists
+//		try {
+//			EMFModelLoad.loadCompletePattern(constraintpath);
+//			throw new FailedServletCallException("409 Constraint with name '" + constraintId + "'does already exist.");
+//		}
+//		catch (Exception e) {}
 		
 		// 3 change constraint name
-		pattern.setName(constraintname);
+		pattern.setPatternId(constraintId);
 		
 		if (pattern.getText().size() <= textid) {
 			throw new InvalidServletCallException("Variant ID invalid: " + pattern.getText().size() + " variants exist, but you selected " + textid);
@@ -104,6 +104,6 @@ public class TemplateInstantiateServlet extends HttpServlet {
 		// 4 save constraint
 		EMFModelSave.exportToFile(pattern, constraintpath, ServletUtilities.EXTENSION);
 		
-		return "Template '" + templatename + "' instantiated successfully to '" + constraintname + "'.";
+		return "Template '" + templateId + "' instantiated successfully to '" + constraintId + "'.";
 	}
 }

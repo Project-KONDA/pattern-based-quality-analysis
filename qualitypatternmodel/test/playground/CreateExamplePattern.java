@@ -44,7 +44,7 @@ public class CreateExamplePattern {
 
 		// Create Pattern
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setName("COMPVAL2");
+		pattern.setPatternId("COMPVAL2");
 		pattern.setDescription("Compare a attribute value with a constant");
 		
 		// Record Node

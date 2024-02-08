@@ -91,7 +91,7 @@ public class Test00 {
 		
 		// PATTERN
 		CompletePattern completePattern = factory.createCompletePattern();
-		completePattern.setName("MyPattern");
+		completePattern.setPatternId("MyPattern");
 				
 //		// FIRST CONDITION
 //		Condition truecondition = factory.createTrueElement();

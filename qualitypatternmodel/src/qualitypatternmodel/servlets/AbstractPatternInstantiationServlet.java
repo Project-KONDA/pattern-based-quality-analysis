@@ -34,7 +34,7 @@ public class AbstractPatternInstantiationServlet extends HttpServlet {
 			CompletePattern pattern = EMFModelLoad.loadCompletePattern(abstractPatternUrl.toString());		
 			if(pattern != null) {
 				try {
-					pattern.setName(concretePatternName);
+					pattern.setPatternId(concretePatternName);
 					
 					PatternText chosenPatternText = null;
 					for(PatternText patternText : pattern.getText()) {

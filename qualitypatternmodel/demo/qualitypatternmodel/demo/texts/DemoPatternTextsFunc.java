@@ -49,7 +49,7 @@ public class DemoPatternTextsFunc {
 	
 	public static CompletePattern getConcreteFuncPatternFromAbstract(Database db, CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
-		completePattern.setName("functional_dependency_concrete");
+		completePattern.setPatternId("functional_dependency_concrete");
 		completePattern.setDescription("Detects buildings with the same city but different countries");
 		completePattern.setDatabase(db);
 		

@@ -73,7 +73,7 @@ public class RdfTest00 {
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
 		CompletePattern completePattern = factory.createCompletePattern();
-		completePattern.setName("MyPattern");
+		completePattern.setPatternId("MyPattern");
 		
 		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
 		Node node2 = completePattern.getGraph().addNode();

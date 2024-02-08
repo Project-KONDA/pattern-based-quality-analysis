@@ -104,7 +104,7 @@ public class CypherTest01NeoPropertyEdge extends CypherTranslation {
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
 		CompletePattern completePattern = factory.createCompletePattern();
-		completePattern.setName("MyPattern");
+		completePattern.setPatternId("MyPattern");
 		
 		completePattern.getGraph().getNodes().get(0).makeComplex();
 		

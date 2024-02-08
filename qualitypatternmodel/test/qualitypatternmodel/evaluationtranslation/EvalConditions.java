@@ -92,7 +92,7 @@ public class EvalConditions {
 			
 			CompletePattern completePattern = factory.createCompletePattern();
 			ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
-			completePattern.setName("MyNbCount");
+			completePattern.setPatternId("MyNbCount");
 			ComplexNode complexNode2 = completePattern.getGraph().addComplexNode();
 			completePattern.getGraph().addRelation(complexNode1, complexNode2);			
 			

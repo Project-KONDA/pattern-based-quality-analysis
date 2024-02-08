@@ -27,7 +27,7 @@ public class EvalCompval {
 	
 	public static CompletePattern getCompval2Generic() throws InvalidityException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		completePattern.setName("comparison_generic");
+		completePattern.setPatternId("comparison_generic");
 		completePattern.setAbstractName("comparison_generic");
 		completePattern.setDescription("Allows detecting illegal values, i.e. allows detecting elements with a specific property which are related to other elements with two specific properties");
 		

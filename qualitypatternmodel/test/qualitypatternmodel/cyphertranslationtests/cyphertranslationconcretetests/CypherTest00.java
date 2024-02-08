@@ -99,7 +99,7 @@ public class CypherTest00 extends CypherTranslation {
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;;
 		
 		CompletePattern completePattern = factory.createCompletePattern();
-		completePattern.setName("MyPattern");
+		completePattern.setPatternId("MyPattern");
 		
 		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
 		ComplexNode pn1 = completePattern.getGraph().addComplexNode();

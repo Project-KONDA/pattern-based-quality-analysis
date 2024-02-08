@@ -46,7 +46,7 @@ public class XmlPatterns {
 	public static CompletePattern getXmlCard() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = GenericPatterns.getGenericCard();
 		pattern.createXmlAdaption();
-		pattern.setName("Card_xml");
+		pattern.setPatternId("Card_xml");
 		pattern.setAbstractName("Card_xml");
 		
 		List<Parameter> params = pattern.getParameterList().getParameters();
@@ -126,7 +126,7 @@ public class XmlPatterns {
 	public static CompletePattern getXmlComp() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = GenericPatterns.getGenericComp();
 		pattern.createXmlAdaption();
-		pattern.setName("Comp_xml");
+		pattern.setPatternId("Comp_xml");
 		pattern.setAbstractName("Comp_xml");
 		// TODO
 		return pattern;
@@ -135,7 +135,7 @@ public class XmlPatterns {
 	public static CompletePattern getXmlFunc() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = GenericPatterns.getGenericFunc();
 		pattern.createXmlAdaption();
-		pattern.setName("Func_xml");
+		pattern.setPatternId("Func_xml");
 		pattern.setAbstractName("Func_xml");
 		// TODO
 		return pattern;
@@ -144,7 +144,7 @@ public class XmlPatterns {
 	public static CompletePattern getXmlUnique() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = GenericPatterns.getGenericUnique();
 		pattern.createXmlAdaption();
-		pattern.setName("Unique_xml");
+		pattern.setPatternId("Unique_xml");
 		pattern.setAbstractName("Unique_xml");
 		// TODO
 		return pattern;
@@ -153,7 +153,7 @@ public class XmlPatterns {
 	public static CompletePattern getXmlMatch() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = GenericPatterns.getGenericMatch();
 		pattern.createXmlAdaption();
-		pattern.setName("Match_xml");
+		pattern.setPatternId("Match_xml");
 		pattern.setAbstractName("Match_xml");
 		// TODO
 		return pattern;
@@ -162,7 +162,7 @@ public class XmlPatterns {
 	public static CompletePattern getXmlContains() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = GenericPatterns.getGenericContains();
 		pattern.createXmlAdaption();
-		pattern.setName("Contains_xml");
+		pattern.setPatternId("Contains_xml");
 		pattern.setAbstractName("Contains_xml");
 		// TODO
 		return pattern;
@@ -171,7 +171,7 @@ public class XmlPatterns {
 	public static CompletePattern getXmlAppdup2() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = GenericPatterns.getGenericAppdup2();
 		pattern.createXmlAdaption();
-		pattern.setName("Appdup2_xml");
+		pattern.setPatternId("Appdup2_xml");
 		pattern.setAbstractName("Appdup2_xml");
 		// TODO
 		return pattern;
@@ -180,7 +180,7 @@ public class XmlPatterns {
 	public static CompletePattern getXmlAppdup3() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = GenericPatterns.getGenericAppdup3();
 		pattern.createXmlAdaption();
-		pattern.setName("Appdup3_xml");
+		pattern.setPatternId("Appdup3_xml");
 		pattern.setAbstractName("Appdup3_xml");
 		// TODO
 		return pattern;
@@ -189,7 +189,7 @@ public class XmlPatterns {
 	public static CompletePattern getXmlDupVal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = GenericPatterns.getGenericDupVal();
 		pattern.createXmlAdaption();
-		pattern.setName("DuoVal_xml");
+		pattern.setPatternId("DuoVal_xml");
 		pattern.setAbstractName("DuoVal_xml");
 		// TODO
 		return pattern;

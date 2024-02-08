@@ -80,6 +80,6 @@ public class TemplateSetDatabaseServlet extends HttpServlet {
 			throw new FailedServletCallException("Unable to update constraint.");
 		}
 		
-		return "Database of constraint of constraint '" + pattern.getName() + "' updated successfully from '" + oldDatabaseName + "' to '" + newDatabaseName + "'.";
+		return "Database of constraint of constraint '" + pattern.getPatternId() + "' updated successfully from '" + oldDatabaseName + "' to '" + newDatabaseName + "'.";
 	}
 }

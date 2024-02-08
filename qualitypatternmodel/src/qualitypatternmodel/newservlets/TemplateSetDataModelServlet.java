@@ -80,6 +80,6 @@ public class TemplateSetDataModelServlet extends HttpServlet {
 			throw new FailedServletCallException("Unable to update constraint.");
 		}
 		
-		return "Datamodel of constraint of constraint '" + pattern.getName() + "' updated successfully from '" + oldDataModelName + "' to '" + newDataModelName + "'.";
+		return "Datamodel of constraint of constraint '" + pattern.getPatternId() + "' updated successfully from '" + oldDataModelName + "' to '" + newDataModelName + "'.";
 	}
 }

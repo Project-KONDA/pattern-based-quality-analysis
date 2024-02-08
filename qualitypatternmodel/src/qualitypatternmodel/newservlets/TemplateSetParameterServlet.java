@@ -71,13 +71,13 @@ public class TemplateSetParameterServlet extends HttpServlet {
 		String[] nameArray = parameterMap.get("name");
 		if (nameArray == null || nameArray.length != 1 || nameArray[0].equals("")) {
 			String newName = nameArray[0];
-			pattern.setName(newName);
+			pattern.setPatternId(newName);
 		}
 		// database?
 		String[] databaseArray = parameterMap.get("database");
 		if (databaseArray == null || databaseArray.length != 1 || databaseArray[0].equals("")) {
 			String database = databaseArray[0];
-			pattern.setName(database);
+			pattern.setPatternId(database);
 		}
 		
 		Set<String> keys = parameterMap.keySet();
@@ -100,7 +100,7 @@ public class TemplateSetParameterServlet extends HttpServlet {
 			throw new FailedServletCallException("Unable to update constraint.");
 		}
 		
-		return "Parametes of constraint '" + pattern.getName() + "' successfully updated.";
+		return "Parametes of constraint '" + pattern.getPatternId() + "' successfully updated.";
 	}
 	
 //	private String identifyConcretePatternPath(HttpServletRequest request) {

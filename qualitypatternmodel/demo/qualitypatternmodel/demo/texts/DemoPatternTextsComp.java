@@ -130,7 +130,7 @@ public class DemoPatternTextsComp {
 	}
 	
 	public static CompletePattern getConcreteCompPatternFromAbstract(Database db, CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		completePattern.setName("comparison_concrete");
+		completePattern.setPatternId("comparison_concrete");
 		completePattern.setDescription("Detect architects born after 2020");
 		completePattern.setDatabase(db);
 		

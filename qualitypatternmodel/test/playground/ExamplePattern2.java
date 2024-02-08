@@ -40,7 +40,7 @@ public class ExamplePattern2 {
 
 		// Create Pattern
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setName("/");
+		pattern.setPatternId("/");
 		pattern.setDescription("/");
 		
 		// Record Node

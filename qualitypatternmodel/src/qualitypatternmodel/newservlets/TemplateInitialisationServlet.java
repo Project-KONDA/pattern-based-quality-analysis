@@ -22,13 +22,13 @@ public class TemplateInitialisationServlet extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		try {
 			for (CompletePattern pattern: GenericPatterns.getAllGenericPattern())
-				EMFModelSave.exportToFile2(pattern, "serverpatterns/generic-patterns", pattern.getName(), "pattern");
+				EMFModelSave.exportToFile2(pattern, "serverpatterns/generic-patterns", pattern.getPatternId(), "pattern");
 			for (CompletePattern pattern: XmlPatterns.getAllXmlPattern())
-				EMFModelSave.exportToFile2(pattern, "serverpatterns/xml/abstract-patterns", pattern.getName(), "pattern");
+				EMFModelSave.exportToFile2(pattern, "serverpatterns/xml/abstract-patterns", pattern.getPatternId(), "pattern");
 			for (CompletePattern pattern: RdfPatterns.getAllRdfPattern())
-				EMFModelSave.exportToFile2(pattern, "serverpatterns/rdf/abstract-patterns", pattern.getName(), "pattern");
+				EMFModelSave.exportToFile2(pattern, "serverpatterns/rdf/abstract-patterns", pattern.getPatternId(), "pattern");
 			for (CompletePattern pattern: Neo4jPatterns.getAllNeoPattern())
-				EMFModelSave.exportToFile2(pattern, "serverpatterns/neo/abstract-patterns", pattern.getName(), "pattern");
+				EMFModelSave.exportToFile2(pattern, "serverpatterns/neo/abstract-patterns", pattern.getPatternId(), "pattern");
 		} catch (IOException e) {
 			new ServletException("Unable to save files.");
 		} catch (InvalidityException e) {

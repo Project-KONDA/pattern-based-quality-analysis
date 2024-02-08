@@ -450,7 +450,7 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CompletePattern)object).getName();
+		String label = ((CompletePattern)object).getPatternId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_CompletePattern_type") :
 			getString("_UI_CompletePattern_type") + " " + label;

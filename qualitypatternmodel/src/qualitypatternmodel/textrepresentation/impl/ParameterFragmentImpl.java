@@ -201,7 +201,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 
 	@Override
 	public String generateJSON() {
-		String patternName = getPatternText().getPattern().getName();
+		String patternName = getPatternText().getPattern().getPatternId();
 		List<String> urls = new ArrayList<String>();
 		for(Parameter p : getParameter()) {
 			int parameterID = getPatternText().getPattern().getParameterList().getParameters().indexOf(p);
