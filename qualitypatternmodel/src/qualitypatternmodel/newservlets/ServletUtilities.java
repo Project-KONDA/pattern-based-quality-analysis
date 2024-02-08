@@ -5,12 +5,14 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.textrepresentation.Fragment;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.utility.EMFModelLoad;
 import qualitypatternmodel.utility.EMFModelSave;
@@ -165,9 +167,11 @@ public abstract class ServletUtilities {
 	public static JSONObject getPatternJSON(List<CompletePattern> patterns) {
 		JSONObject json = new JSONObject();
 		try {
+			JSONArray templates = new JSONArray();
 			for (CompletePattern pattern: patterns) {
-				json.put("templates", getPatternJSON(pattern));
+				templates.put(getPatternJSON(pattern));
 			}
+			json.put("templates", templates);
 		} catch (JSONException e) {}
 		return json;
 		
@@ -191,8 +195,11 @@ public abstract class ServletUtilities {
 				json.put("datamodel", pattern.getDataModelName());
 			if (pattern.getKeywords() != null && !pattern.getKeywords().isEmpty())
 				json.put("keywords", pattern.getKeywords());
-			for (PatternText text: pattern.getText())
-				json.put("variants", text.generateJSONObject());
+			JSONArray variants = new JSONArray();
+			for (PatternText text: pattern.getText()) {
+				variants.put(text.generateJSONObject());
+			}
+			json.put("variants", variants);
 		} catch (JSONException e) {}
 //		String json = "{";
 //		json += "\"patternID\": \""+ pattern.getPatternId() + "\", ";

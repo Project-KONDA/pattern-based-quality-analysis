@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -273,9 +274,11 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		JSONObject json = new JSONObject();
 		try {
 			json.put("name", getName());
+			JSONArray fragments = new JSONArray();
 			for (Fragment fragment: getFragmentsOrdered()) {
-				json.put("fragments", fragment.generateJSONObject());
+				fragments.put(fragment.generateJSONObject());
 			}
+			json.put("fragments", fragments);
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
