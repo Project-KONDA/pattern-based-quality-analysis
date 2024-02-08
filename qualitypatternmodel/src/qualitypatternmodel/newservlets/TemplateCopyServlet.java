@@ -76,7 +76,7 @@ public class TemplateCopyServlet extends HttpServlet {
 		}
 		
 		// 2 create new patternID
-		String newID = ServeletUtility.generateNewName(technology, pattern.getAbstractName(), pattern.getText().get(0).getName()); 
+		String newID = ServletUtilities.generateNewId(technology, pattern.getAbstractName(), pattern.getText().get(0).getName()); 
 		String newpatternpath = "serverpatterns/" + technology + "/concrete-patterns/" + newID + ".pattern";
 		
 		// 3 change constraint name
@@ -90,6 +90,7 @@ public class TemplateCopyServlet extends HttpServlet {
 		}
 		catch (Exception e) {}
 		
-		return "Constraint '" + oldID + "' copied successfully to '" + newID + "'.";
+		return ServletUtilities.getPatternJSON(pattern); 
+//		return "Constraint '" + oldID + "' copied successfully to '" + newID + "'.";
 	}
 }

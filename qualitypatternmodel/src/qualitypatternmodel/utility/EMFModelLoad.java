@@ -246,7 +246,7 @@ public class EMFModelLoad {
 		return patterns;
 	}
 
-    private static List<String> getFilesInDirectory(String directory) throws IOException {
+    public static List<String> getFilesInDirectory(String directory) throws IOException {
         Path directoryPath = Paths.get(directory);
         Stream<Path> pathstream = Files.list(directoryPath).map(Path::getFileName);
         Stream <String> filestream = pathstream.map(Path::toString);

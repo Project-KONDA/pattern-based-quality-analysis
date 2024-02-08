@@ -47,9 +47,4 @@ public class ServeletUtility {
 			return null;
 		}
 	}
-	
-	public static String generateNewName(String technology, String template, String variant) {
-		// TODO
-		return "newname";
-	}
 }

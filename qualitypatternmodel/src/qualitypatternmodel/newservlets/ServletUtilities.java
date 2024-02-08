@@ -163,35 +163,39 @@ public abstract class ServletUtilities {
 	public static String getPatternJSON(List<CompletePattern> patterns) {
 		String result = "{\"Templates\": [ ";
 		for (CompletePattern pattern: patterns) {
-			String json = "{";
-			json += "\"patternID\": \""+ pattern.getPatternId() + "\", ";
-			json += "\"name\": \""+ pattern.getName() + "\", ";
-			json += "\"patternDescShort\": \"" + pattern.getShortDescription() + "\", ";
-			json += "\"patternDesc\": \""+ pattern.getDescription() +"\",";
-			json += "\"database\": \""+ pattern.getDatabaseName() +"\",";
-			json += "\"datamodel\": \""+ pattern.getDataModelName() +"\",";
-			List<String> keywords = pattern.getKeywords();
-			String keywordsString = "\"keywords\": [";
-	        for (int i = 0; i < keywords.size(); i++) {
-	        	keywordsString += "\"" + keywords.get(i) + "\"";
-	            if (i < keywords.size() - 1) {
-	            	keywordsString += ",";
-	            }
-	        }
-	        keywordsString += "], ";
-			json += keywordsString;
-			json += "\"variants\": [";
-			
-			List<PatternText> texts = pattern.getText();
-			for (int i = 0; i<texts.size(); i++) {
-				if (i>0)
-					json += ", ";
-				json += texts.get(i).generateJSON();
-			}
-			json += "]}"; // variant end and template end
-			result += json;
+			result += getPatternJSON(pattern);
 		}
 		return result += "]}"; // templatelist end
+	}
+	public static String getPatternJSON(CompletePattern pattern) {
+		String json = "{";
+		json += "\"patternID\": \""+ pattern.getPatternId() + "\", ";
+		json += "\"name\": \""+ pattern.getName() + "\", ";
+		json += "\"patternDescShort\": \"" + pattern.getShortDescription() + "\", ";
+		json += "\"patternDesc\": \""+ pattern.getDescription() +"\",";
+		json += "\"database\": \""+ pattern.getDatabaseName() +"\",";
+		json += "\"datamodel\": \""+ pattern.getDataModelName() +"\",";
+		List<String> keywords = pattern.getKeywords();
+		String keywordsString = "\"keywords\": [";
+        for (int i = 0; i < keywords.size(); i++) {
+        	keywordsString += "\"" + keywords.get(i) + "\"";
+            if (i < keywords.size() - 1) {
+            	keywordsString += ",";
+            }
+        }
+        keywordsString += "], ";
+		json += keywordsString;
+		json += "\"variants\": [";
+		
+		List<PatternText> texts = pattern.getText();
+		for (int i = 0; i<texts.size(); i++) {
+			if (i>0)
+				json += ", ";
+			json += texts.get(i).generateJSON();
+		}
+		json += "]}"; // variant end and template end
+		return json;
+		
 	}
 	
 	public static String getPatternJSONHeads(List<CompletePattern> patterns) {
@@ -205,4 +209,18 @@ public abstract class ServletUtilities {
 	protected static CompletePattern loadCompletePattern(String patternpath) {
 		return EMFModelLoad.loadCompletePattern(patternpath, EXTENSION);
 	};
+	
+	public static String generateNewId(String technology, String templateId, String variantname) throws IOException {
+		// TODO
+		// 1 check instance names
+		String constraintPath = "serverpatterns/" + technology + "/concrete-patterns";
+		List<String> filenames = EMFModelLoad.getFilesInDirectory(constraintPath);
+		filenames = filenames.stream().filter(x-> x.contains(templateId + "_" + variantname)).toList();
+		
+		
+		//loadsavefile
+		//getnextid
+		
+		return "newname";
+	}
 }

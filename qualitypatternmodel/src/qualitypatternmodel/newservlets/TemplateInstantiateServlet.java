@@ -61,19 +61,20 @@ public class TemplateInstantiateServlet extends HttpServlet {
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/copy/<technology>/<concretetemplate>' (not " + path + ")");
 
+		
+		// 1 get parameters
 		String technology = pathparts[1];
 		String templateId = pathparts[2];
+		
 		Integer textid;
 		try {
 			textid = Integer.parseInt(pathparts[3]);
 		} catch (Exception e) {
 			throw new InvalidServletCallException("Variant ID is not an integer value: " + pathparts[3]);
 		}
-		
-		String templatepath = "serverpatterns/" + technology + "/abstract-patterns/" + templateId + ".pattern";
-		String constraintpath = "serverpatterns/" + technology + "/concrete-patterns/" + constraintId + ".pattern";
 
-		// 1 load constraint with old name
+		// 2 load constraint with old name
+		String templatepath = "serverpatterns/" + technology + "/abstract-patterns/" + templateId + ".pattern";
 		CompletePattern pattern;
 		try {
 			pattern = EMFModelLoad.loadCompletePattern(templatepath);
@@ -82,17 +83,7 @@ public class TemplateInstantiateServlet extends HttpServlet {
 			throw new FailedServletCallException("404 Requested template '" + templateId + "' does not exist - " + e.getMessage());
 		}
 		
-		// not necessary: ID generation shall guarantee it
-//		// 2 check if constraint with new name already exists
-//		try {
-//			EMFModelLoad.loadCompletePattern(constraintpath);
-//			throw new FailedServletCallException("409 Constraint with name '" + constraintId + "'does already exist.");
-//		}
-//		catch (Exception e) {}
-		
-		// 3 change constraint name
-		pattern.setPatternId(constraintId);
-		
+		// 3 remove unused variants
 		if (pattern.getText().size() <= textid) {
 			throw new InvalidServletCallException("Variant ID invalid: " + pattern.getText().size() + " variants exist, but you selected " + textid);
 		}
@@ -100,10 +91,28 @@ public class TemplateInstantiateServlet extends HttpServlet {
 		PatternText choice = pattern.getText().get(textid);
 		pattern.getText().clear();
 		pattern.getText().add(choice);
+
+
+		// 4 create new constraint id
+		String constraintId = ServletUtilities.generateNewId(technology, templateId, pattern.getText().get(0).getName());
+		String constraintpath = "serverpatterns/" + technology + "/concrete-patterns/" + constraintId + ".pattern";
+		pattern.setPatternId(constraintId);
+		// not necessary: ID generation shall guarantee uniqueness
+//		try {
+//			EMFModelLoad.loadCompletePattern(constraintpath);
+//			throw new FailedServletCallException("409 Constraint with name '" + constraintId + "'does already exist.");
+//		}
+//		catch (Exception e) {}
 		
-		// 4 save constraint
-		EMFModelSave.exportToFile(pattern, constraintpath, ServletUtilities.EXTENSION);
 		
-		return "Template '" + templateId + "' instantiated successfully to '" + constraintId + "'.";
+		// 5 save constraint
+		try {
+			EMFModelSave.exportToFile(pattern, constraintpath, ServletUtilities.EXTENSION);
+		} catch (Exception e) {
+			throw new FailedServletCallException("Failed to create new constraint");
+		}
+		
+		return ServletUtilities.getPatternJSON(pattern);
+//		return "Template '" + templateId + "' instantiated successfully to '" + constraintId + "'.";
 	}
 }
