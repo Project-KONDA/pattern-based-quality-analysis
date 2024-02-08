@@ -498,7 +498,8 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/Formula/clamped"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/TrueElement"/>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/CompletePattern">
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/CompletePattern"
+          labelFeature="#//qualitypatternmodel/patternstructure/PatternElement/id">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CompletePattern/parameterList"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CompletePattern/database"/>
