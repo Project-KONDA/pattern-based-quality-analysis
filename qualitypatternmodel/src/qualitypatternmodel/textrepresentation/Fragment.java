@@ -3,6 +3,7 @@
 package qualitypatternmodel.textrepresentation;
 
 import org.eclipse.emf.ecore.EObject;
+import org.json.JSONObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 
 /**
@@ -74,4 +75,12 @@ public interface Fragment extends EObject {
 	 * @generated
 	 */
 	String generateSparqlTemplate() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
+	 * @generated
+	 */
+	JSONObject generateJSONObject();
 } // Fragment

@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.json.JSONObject;
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jPackageImpl;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
@@ -107,6 +108,13 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	private EDataType objectWrapperEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType jsonObjectWrapperEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -321,6 +329,16 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
+	public EOperation getPatternText__GenerateJSONObject() {
+		return patternTextEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getPatternText__Delete() {
 		return patternTextEClass.getEOperations().get(4);
 	}
@@ -451,6 +469,16 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
+	public EOperation getFragment__GenerateJSONObject() {
+		return fragmentEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getTextFragment() {
 		return textFragmentEClass;
 	}
@@ -531,6 +559,16 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
+	public EDataType getJSONObjectWrapper() {
+		return jsonObjectWrapperEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public TextrepresentationFactory getTextrepresentationFactory() {
 		return (TextrepresentationFactory)getEFactoryInstance();
 	}
@@ -567,6 +605,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		createEOperation(patternTextEClass, PATTERN_TEXT___DELETE);
 		createEOperation(patternTextEClass, PATTERN_TEXT___INSTANTIATE);
 		createEOperation(patternTextEClass, PATTERN_TEXT___GENERATE_SPARQL_TEMPLATE);
+		createEOperation(patternTextEClass, PATTERN_TEXT___GENERATE_JSON_OBJECT);
 
 		parameterFragmentEClass = createEClass(PARAMETER_FRAGMENT);
 		createEAttribute(parameterFragmentEClass, PARAMETER_FRAGMENT__EXAMPLE_VALUE);
@@ -579,6 +618,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		createEOperation(fragmentEClass, FRAGMENT___GENERATE_JSON);
 		createEOperation(fragmentEClass, FRAGMENT___GET_PREVIEW);
 		createEOperation(fragmentEClass, FRAGMENT___GENERATE_SPARQL_TEMPLATE);
+		createEOperation(fragmentEClass, FRAGMENT___GENERATE_JSON_OBJECT);
 
 		textFragmentEClass = createEClass(TEXT_FRAGMENT);
 		createEAttribute(textFragmentEClass, TEXT_FRAGMENT__TEXT);
@@ -592,6 +632,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 
 		// Create data types
 		objectWrapperEDataType = createEDataType(OBJECT_WRAPPER);
+		jsonObjectWrapperEDataType = createEDataType(JSON_OBJECT_WRAPPER);
 	}
 
 	/**
@@ -661,6 +702,8 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		addEException(op, theOperatorsPackage.getOperatorCycleExceptionWrapper());
 		addEException(op, thePatternstructurePackage.getMissingPatternContainerException());
 
+		initEOperation(getPatternText__GenerateJSONObject(), this.getJSONObjectWrapper(), "generateJSONObject", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(parameterFragmentEClass, ParameterFragment.class, "ParameterFragment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getParameterFragment_ExampleValue(), ecorePackage.getEString(), "exampleValue", null, 0, 1, ParameterFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getParameterFragment_Name(), ecorePackage.getEString(), "name", null, 0, 1, ParameterFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -679,6 +722,8 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		op = initEOperation(getFragment__GenerateSparqlTemplate(), ecorePackage.getEString(), "generateSparqlTemplate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
+		initEOperation(getFragment__GenerateJSONObject(), this.getJSONObjectWrapper(), "generateJSONObject", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(textFragmentEClass, TextFragment.class, "TextFragment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTextFragment_Text(), ecorePackage.getEString(), "text", null, 0, 1, TextFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -694,6 +739,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 
 		// Initialize data types
 		initEDataType(objectWrapperEDataType, Object.class, "ObjectWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(jsonObjectWrapperEDataType, JSONObject.class, "JSONObjectWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

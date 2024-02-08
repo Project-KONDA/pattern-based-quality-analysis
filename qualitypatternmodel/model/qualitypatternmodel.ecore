@@ -1179,6 +1179,7 @@
       <eOperations name="instantiate" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="generateSparqlTemplate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException"/>
+      <eOperations name="generateJSONObject" eType="#//textrepresentation/JSONObjectWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" lowerBound="1"
           eType="#//patternstructure/CompletePattern" eOpposite="#//patternstructure/CompletePattern/text"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="fragments" lowerBound="1"
@@ -1201,6 +1202,7 @@
       <eOperations name="getPreview" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="generateSparqlTemplate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="generateJSONObject" eType="#//textrepresentation/JSONObjectWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="patternText" lowerBound="1"
           eType="#//textrepresentation/PatternText" eOpposite="#//textrepresentation/PatternText/fragments"/>
     </eClassifiers>
@@ -1219,6 +1221,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
           upperBound="-1" eType="#//parameters/Parameter" eOpposite="#//parameters/Parameter/parameterReferences"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="JSONObjectWrapper" instanceClassName="org.json.JSONObject"/>
   </eSubpackages>
   <eSubpackages name="adaptionrdf" nsURI="adaptionrdf" nsPrefix="adaptionrdf">
     <eClassifiers xsi:type="ecore:EClass" name="RdfPredicate" eSuperTypes="#//graphstructure/Relation">

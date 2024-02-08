@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -160,42 +162,65 @@ public abstract class ServletUtilities {
 		}
 	}
 
-	public static String getPatternJSON(List<CompletePattern> patterns) {
-		String result = "{\"Templates\": [ ";
-		for (CompletePattern pattern: patterns) {
-			result += getPatternJSON(pattern);
-		}
-		return result += "]}"; // templatelist end
-	}
-	public static String getPatternJSON(CompletePattern pattern) {
-		String json = "{";
-		json += "\"patternID\": \""+ pattern.getPatternId() + "\", ";
-		json += "\"name\": \""+ pattern.getName() + "\", ";
-		json += "\"patternDescShort\": \"" + pattern.getShortDescription() + "\", ";
-		json += "\"patternDesc\": \""+ pattern.getDescription() +"\",";
-		json += "\"database\": \""+ pattern.getDatabaseName() +"\",";
-		json += "\"datamodel\": \""+ pattern.getDataModelName() +"\",";
-		List<String> keywords = pattern.getKeywords();
-		String keywordsString = "\"keywords\": [";
-        for (int i = 0; i < keywords.size(); i++) {
-        	keywordsString += "\"" + keywords.get(i) + "\"";
-            if (i < keywords.size() - 1) {
-            	keywordsString += ",";
-            }
-        }
-        keywordsString += "], ";
-		json += keywordsString;
-		json += "\"variants\": [";
-		
-		List<PatternText> texts = pattern.getText();
-		for (int i = 0; i<texts.size(); i++) {
-			if (i>0)
-				json += ", ";
-			json += texts.get(i).generateJSON();
-		}
-		json += "]}"; // variant end and template end
+	public static JSONObject getPatternJSON(List<CompletePattern> patterns) {
+		JSONObject json = new JSONObject();
+		try {
+			for (CompletePattern pattern: patterns) {
+				json.put("templates", getPatternJSON(pattern));
+			}
+		} catch (JSONException e) {}
 		return json;
 		
+//		String result = "{\"Templates\": [ ";
+//		for (CompletePattern pattern: patterns) {
+//			result += getPatternJSON(pattern);
+//		}
+//		return result += "]}"; // templatelist end
+	}
+	
+	public static JSONObject getPatternJSON(CompletePattern pattern) {
+		JSONObject json = new JSONObject();
+		try {
+			json.put("patternID", pattern.getPatternId());
+			json.put("name", pattern.getName());
+			json.put("shortDescription", pattern.getShortDescription());
+			json.put("description", pattern.getDescription());
+			if (pattern.getDatabaseName() != null)
+				json.put("database", pattern.getDatabaseName());
+			if (pattern.getDataModelName() != null)
+				json.put("datamodel", pattern.getDataModelName());
+			if (pattern.getKeywords() != null && !pattern.getKeywords().isEmpty())
+				json.put("keywords", pattern.getKeywords());
+			for (PatternText text: pattern.getText())
+				json.put("variants", text.generateJSONObject());
+		} catch (JSONException e) {}
+//		String json = "{";
+//		json += "\"patternID\": \""+ pattern.getPatternId() + "\", ";
+//		json += "\"name\": \""+ pattern.getName() + "\", ";
+//		json += "\"patternDescShort\": \"" + pattern.getShortDescription() + "\", ";
+//		json += "\"patternDesc\": \""+ pattern.getDescription() +"\",";
+//		json += "\"database\": \""+ pattern.getDatabaseName() +"\",";
+//		json += "\"datamodel\": \""+ pattern.getDataModelName() +"\",";
+//		List<String> keywords = pattern.getKeywords();
+//		String keywordsString = "\"keywords\": [";
+//        for (int i = 0; i < keywords.size(); i++) {
+//        	keywordsString += "\"" + keywords.get(i) + "\"";
+//            if (i < keywords.size() - 1) {
+//            	keywordsString += ",";
+//            }
+//        }
+//        keywordsString += "], ";
+//		json += keywordsString;
+//		json += "\"variants\": [";
+//		
+//		List<PatternText> texts = pattern.getText();
+//		for (int i = 0; i<texts.size(); i++) {
+//			if (i>0)
+//				json += ", ";
+//			json += texts.get(i).generateJSON();
+//		}
+//		json += "]}"; // variant end and template end
+		return json;
 	}
 	
 	public static String getPatternJSONHeads(List<CompletePattern> patterns) {

@@ -186,13 +186,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int PATTERN_TEXT___GENERATE_SPARQL_TEMPLATE = 6;
 
 	/**
+	 * The operation id for the '<em>Generate JSON Object</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_TEXT___GENERATE_JSON_OBJECT = 7;
+
+	/**
 	 * The number of operations of the '<em>Pattern Text</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_TEXT_OPERATION_COUNT = 7;
+	int PATTERN_TEXT_OPERATION_COUNT = 8;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.textrepresentation.impl.FragmentImpl <em>Fragment</em>}' class.
@@ -250,13 +259,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int FRAGMENT___GENERATE_SPARQL_TEMPLATE = 2;
 
 	/**
+	 * The operation id for the '<em>Generate JSON Object</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENT___GENERATE_JSON_OBJECT = 3;
+
+	/**
 	 * The number of operations of the '<em>Fragment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FRAGMENT_OPERATION_COUNT = 3;
+	int FRAGMENT_OPERATION_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl <em>Parameter Fragment</em>}' class.
@@ -339,6 +357,15 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER_FRAGMENT___GENERATE_SPARQL_TEMPLATE = FRAGMENT___GENERATE_SPARQL_TEMPLATE;
+
+	/**
+	 * The operation id for the '<em>Generate JSON Object</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FRAGMENT___GENERATE_JSON_OBJECT = FRAGMENT___GENERATE_JSON_OBJECT;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -439,6 +466,15 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_FRAGMENT___GENERATE_SPARQL_TEMPLATE = FRAGMENT___GENERATE_SPARQL_TEMPLATE;
+
+	/**
+	 * The operation id for the '<em>Generate JSON Object</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FRAGMENT___GENERATE_JSON_OBJECT = FRAGMENT___GENERATE_JSON_OBJECT;
 
 	/**
 	 * The number of operations of the '<em>Text Fragment</em>' class.
@@ -563,6 +599,17 @@ public interface TextrepresentationPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '<em>JSON Object Wrapper</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.json.JSONObject
+	 * @see qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl#getJSONObjectWrapper()
+	 * @generated
+	 */
+	int JSON_OBJECT_WRAPPER = 7;
+
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.textrepresentation.PatternText <em>Pattern Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -666,6 +713,16 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPatternText__GenerateSparqlTemplate();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#generateJSONObject() <em>Generate JSON Object</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate JSON Object</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.PatternText#generateJSONObject()
+	 * @generated
+	 */
+	EOperation getPatternText__GenerateJSONObject();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#delete() <em>Delete</em>}' operation.
@@ -801,6 +858,16 @@ public interface TextrepresentationPackage extends EPackage {
 	EOperation getFragment__GenerateSparqlTemplate();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.Fragment#generateJSONObject() <em>Generate JSON Object</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate JSON Object</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.Fragment#generateJSONObject()
+	 * @generated
+	 */
+	EOperation getFragment__GenerateJSONObject();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.textrepresentation.TextFragment <em>Text Fragment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -883,6 +950,17 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getObjectWrapper();
+
+	/**
+	 * Returns the meta object for data type '{@link org.json.JSONObject <em>JSON Object Wrapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>JSON Object Wrapper</em>'.
+	 * @see org.json.JSONObject
+	 * @model instanceClass="org.json.JSONObject"
+	 * @generated
+	 */
+	EDataType getJSONObjectWrapper();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -988,6 +1066,14 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PATTERN_TEXT___GENERATE_SPARQL_TEMPLATE = eINSTANCE.getPatternText__GenerateSparqlTemplate();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate JSON Object</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_TEXT___GENERATE_JSON_OBJECT = eINSTANCE.getPatternText__GenerateJSONObject();
 
 		/**
 		 * The meta object literal for the '<em><b>Delete</b></em>' operation.
@@ -1098,6 +1184,14 @@ public interface TextrepresentationPackage extends EPackage {
 		EOperation FRAGMENT___GENERATE_SPARQL_TEMPLATE = eINSTANCE.getFragment__GenerateSparqlTemplate();
 
 		/**
+		 * The meta object literal for the '<em><b>Generate JSON Object</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation FRAGMENT___GENERATE_JSON_OBJECT = eINSTANCE.getFragment__GenerateJSONObject();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.textrepresentation.impl.TextFragmentImpl <em>Text Fragment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1168,6 +1262,16 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType OBJECT_WRAPPER = eINSTANCE.getObjectWrapper();
+
+		/**
+		 * The meta object literal for the '<em>JSON Object Wrapper</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.json.JSONObject
+		 * @see qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl#getJSONObjectWrapper()
+		 * @generated
+		 */
+		EDataType JSON_OBJECT_WRAPPER = eINSTANCE.getJSONObjectWrapper();
 
 	}
 

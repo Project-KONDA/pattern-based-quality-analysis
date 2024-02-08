@@ -90,7 +90,7 @@ public class TemplateCopyServlet extends HttpServlet {
 		}
 		catch (Exception e) {}
 		
-		return ServletUtilities.getPatternJSON(pattern); 
+		return ServletUtilities.getPatternJSON(pattern).toString(); 
 //		return "Constraint '" + oldID + "' copied successfully to '" + newID + "'.";
 	}
 }

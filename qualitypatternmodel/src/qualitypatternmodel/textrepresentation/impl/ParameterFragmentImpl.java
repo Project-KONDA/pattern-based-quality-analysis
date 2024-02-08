@@ -15,6 +15,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 //import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
@@ -268,6 +270,61 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		
 		
 		json += "}";
+		return json;
+	}
+	
+	@Override
+	public JSONObject generateJSONObject() {
+		String patternName = getPatternText().getPattern().getPatternId();
+		List<String> urls = new ArrayList<String>();
+		for(Parameter p : getParameter()) {
+			int parameterID = getPatternText().getPattern().getParameterList().getParameters().indexOf(p);
+			String url = "/concrete-patterns/parameter/" + patternName + "/" + Integer.toString(parameterID);
+			urls.add(url);
+		}
+		Parameter parameter = getParameter().get(0);
+//		String urlsJSON = generateJSONList(urls);
+		JSONObject json = new JSONObject();
+		try {
+			json.put("name", getName());
+			json.put("type", getType());
+			json.put("role", getRole());
+			if (parameter.getValueAsString() != null)
+				json.put("value", parameter.getValueAsString());
+			json.put("exampleValue", getExampleValue());
+			
+			if(getType().equals("Enumeration")) {
+				json.put("options", parameter.getOptionsAsStringList());
+			}
+			if(parameter instanceof ParameterValue) {
+				ParameterValue parameterValue = (ParameterValue) parameter;
+				if(parameterValue.isTypeModifiable()) {
+					json.put("typeModifiable", true);
+				}
+			}
+			if(parameter instanceof TextLiteralParamImpl) {
+				TextLiteralParamImpl textLiteral = (TextLiteralParamImpl) parameter;
+				if(textLiteral.getXmlPropertyOptionParam() != null && textLiteral.getMatches().isEmpty() && textLiteral.getComparison1().isEmpty() && textLiteral.getComparison2().isEmpty()) {
+					json.put("dependant", true);
+				}
+			}
+			if(parameter instanceof XmlPropertyOptionParamImpl) {
+				XmlPropertyOptionParamImpl propertyOption = (XmlPropertyOptionParamImpl) parameter;
+//				Node node = propertyOption.getXmlPathParam().getXmlNavigation().getTarget();
+//				XmlProperty xmlProperty = (XmlProperty) node;
+				TextLiteralParam textLiteral = propertyOption.getAttributeName();
+				if(textLiteral.getMatches().isEmpty() && textLiteral.getComparison1().isEmpty() && textLiteral.getComparison2().isEmpty()) {
+					int dependentParameterID = getPatternText().getPattern().getParameterList().getParameters().indexOf(textLiteral);
+					String id = "/concrete-patterns/parameter/" + patternName + "/" + Integer.toString(dependentParameterID);
+					String cond = XmlPropertyKind.ATTRIBUTE.getLiteral();
+					
+					JSONObject enable = new JSONObject();
+					enable.put("parameter", id);
+					enable.put("if", cond);
+					json.put("enable", enable);
+				}	
+			}
+		} catch (JSONException e) {}
 		return json;
 	}
 

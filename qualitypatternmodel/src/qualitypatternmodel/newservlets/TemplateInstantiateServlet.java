@@ -112,7 +112,7 @@ public class TemplateInstantiateServlet extends HttpServlet {
 			throw new FailedServletCallException("Failed to create new constraint");
 		}
 		
-		return ServletUtilities.getPatternJSON(pattern);
+		return ServletUtilities.getPatternJSON(pattern).toString();
 //		return "Template '" + templateId + "' instantiated successfully to '" + constraintId + "'.";
 	}
 }

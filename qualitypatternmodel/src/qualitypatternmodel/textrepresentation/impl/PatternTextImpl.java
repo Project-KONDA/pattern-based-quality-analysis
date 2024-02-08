@@ -23,6 +23,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.json.JSONException;
+import org.json.JSONObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -265,6 +267,21 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		return json;
 	}
 
+	
+	@Override
+	public JSONObject generateJSONObject() {
+		JSONObject json = new JSONObject();
+		try {
+			json.put("name", getName());
+			for (Fragment fragment: getFragmentsOrdered()) {
+				json.put("fragments", fragment.generateJSONObject());
+			}
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return json;
+	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -763,6 +780,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case TextrepresentationPackage.PATTERN_TEXT___GENERATE_JSON_OBJECT:
+				return generateJSONObject();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
