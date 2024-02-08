@@ -160,7 +160,6 @@ public abstract class ServletUtilities {
 		}
 	}
 
-	abstract public void initializeServerPattern();
 	public static String getPatternJSON(List<CompletePattern> patterns) {
 		String result = "{\"Templates\": [ ";
 		for (CompletePattern pattern: patterns) {
@@ -171,7 +170,6 @@ public abstract class ServletUtilities {
 			json += "\"patternDesc\": \""+ pattern.getDescription() +"\",";
 			json += "\"database\": \""+ pattern.getDatabaseName() +"\",";
 			json += "\"datamodel\": \""+ pattern.getDataModelName() +"\",";
-			pattern.getKeywords().add("hahahahah");
 			List<String> keywords = pattern.getKeywords();
 			String keywordsString = "\"keywords\": [";
 	        for (int i = 0; i < keywords.size(); i++) {
@@ -205,6 +203,6 @@ public abstract class ServletUtilities {
 	}
 
 	protected static CompletePattern loadCompletePattern(String patternpath) {
-		return null;
+		return EMFModelLoad.loadCompletePattern(patternpath, EXTENSION);
 	};
 }

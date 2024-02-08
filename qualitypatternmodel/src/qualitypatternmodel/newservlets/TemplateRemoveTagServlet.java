@@ -17,7 +17,7 @@ import qualitypatternmodel.utility.EMFModelSave;
 @SuppressWarnings("serial")
 public class TemplateRemoveTagServlet extends HttpServlet {
 	
-	// .. /template/setparameter   /<technology>/<name>/
+	// .. /template/removetag   /<technology>/<name>/ {"tag": <value>}
 	
 	@Override
 	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {

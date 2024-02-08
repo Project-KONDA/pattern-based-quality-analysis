@@ -16,7 +16,7 @@ import qualitypatternmodel.utility.EMFModelSave;
 @SuppressWarnings("serial")
 public class TemplateAddTagServlet extends HttpServlet {
 	
-	// .. /template/setparameter   /<technology>/<name>/
+	// .. /template/addtag   /<technology>/<name>/ {"tag": <value>}
 	
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
