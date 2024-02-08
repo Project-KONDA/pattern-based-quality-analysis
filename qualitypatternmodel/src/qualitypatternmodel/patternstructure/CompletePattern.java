@@ -29,7 +29,7 @@ import qualitypatternmodel.textrepresentation.PatternText;
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getText <em>Text</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getPatternId <em>Pattern Id</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getName <em>Name</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getAbstractName <em>Abstract Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getAbstractId <em>Abstract Id</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getDescription <em>Description</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getShortDescription <em>Short Description</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getLanguage <em>Language</em>}</li>
@@ -94,6 +94,28 @@ public interface CompletePattern extends Pattern {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Abstract Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Abstract Id</em>' attribute.
+	 * @see #setAbstractId(String)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_AbstractId()
+	 * @model
+	 * @generated
+	 */
+	String getAbstractId();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#getAbstractId <em>Abstract Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Abstract Id</em>' attribute.
+	 * @see #getAbstractId()
+	 * @generated
+	 */
+	void setAbstractId(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Database</b></em>' reference.
@@ -394,28 +416,6 @@ public interface CompletePattern extends Pattern {
 	 * @generated
 	 */
 	void setShortDescription(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Abstract Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abstract Name</em>' attribute.
-	 * @see #setAbstractName(String)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_AbstractName()
-	 * @model
-	 * @generated
-	 */
-	String getAbstractName();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#getAbstractName <em>Abstract Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Abstract Name</em>' attribute.
-	 * @see #getAbstractName()
-	 * @generated
-	 */
-	void setAbstractName(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

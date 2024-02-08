@@ -207,7 +207,7 @@ public class DemoPatterns {
 	public static CompletePattern getAbstractCompBoolPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getGenericCompPattern();
 		completePattern.setPatternId("comparison_bool_abstract");
-		completePattern.setAbstractName("comparison_bool_abstract");
+		completePattern.setAbstractId("comparison_bool_abstract");
 		completePattern.setDescription("Allows detecting elements with a specific property which are related to other elements with a specific property and a specific boolean property");
 		
 //		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();	
@@ -229,7 +229,7 @@ public class DemoPatterns {
 	public static CompletePattern getAbstractCompDatePattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getGenericCompPattern();
 		completePattern.setPatternId("comparison_date_abstract");
-		completePattern.setAbstractName("comparison_date_abstract");
+		completePattern.setAbstractId("comparison_date_abstract");
 		completePattern.setDescription("Allows detecting elements with a specific date property which are related to other elements with specific time and dateTime properties");
 		
 		// <value date>
@@ -250,7 +250,7 @@ public class DemoPatterns {
 		
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setPatternId("comparison_generic");
-		completePattern.setAbstractName("comparison_generic");
+		completePattern.setAbstractId("comparison_generic");
 		completePattern.setDescription("Allows detecting illegal values, i.e. allows detecting elements with a specific property which are related to other elements with two specific properties");
 		
 		// Context graph of pattern:
@@ -284,7 +284,7 @@ public class DemoPatterns {
 	public static CompletePattern getAbstractCompPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getGenericCompPattern();
 		completePattern.setPatternId("comparison_abstract");
-		completePattern.setAbstractName("comparison_abstract");
+		completePattern.setAbstractId("comparison_abstract");
 		
 		completePattern.createXmlAdaption();
 		
@@ -351,7 +351,7 @@ public class DemoPatterns {
 	public static CompletePattern getAbstractCompRdfPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getGenericCompPattern();
 		completePattern.setPatternId("comparison_abstract_rdf");
-		completePattern.setAbstractName("comparison_abstract_rdf");
+		completePattern.setAbstractId("comparison_abstract_rdf");
 		
 		completePattern.createRdfAdaption();
 		
@@ -395,7 +395,7 @@ public class DemoPatterns {
 		
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setPatternId("cardinality_generic");
-		completePattern.setAbstractName("cardinality_generic");
+		completePattern.setAbstractId("cardinality_generic");
 		completePattern.setDescription("Allows detecting violated cardinality constraints, i.e. allows detecting elements with a specific property which are related to a specific number of elements with a specific property");
 		
 		// Context graph of pattern:
@@ -439,7 +439,7 @@ public class DemoPatterns {
 	public static CompletePattern getAbstractCardPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getGenericCardPattern();
 		completePattern.setPatternId("cardinality_abstract");
-		completePattern.setAbstractName("cardinality_abstract");
+		completePattern.setAbstractId("cardinality_abstract");
 		
 		completePattern.createXmlAdaption();
 		
@@ -519,7 +519,7 @@ public class DemoPatterns {
 		
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setPatternId("functional_dependency_generic");
-		completePattern.setAbstractName("functional_dependency_generic");
+		completePattern.setAbstractId("functional_dependency_generic");
 		completePattern.setDescription("Allows detecting a violated functional dependency, i.e. allows detecting two elements that are each related to two further elements where two of these have an equal property but the other two have a different property");
 		
 		// Context graph of pattern:
@@ -565,7 +565,7 @@ public class DemoPatterns {
 	public static CompletePattern getAbstractFuncPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getGenericFuncPattern();
 		completePattern.setPatternId("functional_dependency_abstract");
-		completePattern.setAbstractName("functional_dependency_abstract");
+		completePattern.setAbstractId("functional_dependency_abstract");
 		
 		completePattern.createXmlAdaption();
 	

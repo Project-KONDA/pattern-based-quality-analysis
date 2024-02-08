@@ -54,7 +54,7 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 			addDatabasePropertyDescriptor(object);
 			addPatternIdPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
-			addAbstractNamePropertyDescriptor(object);
+			addAbstractIdPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addShortDescriptionPropertyDescriptor(object);
 			addLanguagePropertyDescriptor(object);
@@ -84,6 +84,28 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 				 getString("_UI_CompletePattern_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_name_feature", "_UI_CompletePattern_type"),
 				 PatternstructurePackage.Literals.COMPLETE_PATTERN__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Abstract Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAbstractIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CompletePattern_abstractId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_abstractId_feature", "_UI_CompletePattern_type"),
+				 PatternstructurePackage.Literals.COMPLETE_PATTERN__ABSTRACT_ID,
 				 true,
 				 false,
 				 false,
@@ -172,28 +194,6 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 				 getString("_UI_CompletePattern_shortDescription_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_shortDescription_feature", "_UI_CompletePattern_type"),
 				 PatternstructurePackage.Literals.COMPLETE_PATTERN__SHORT_DESCRIPTION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Abstract Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAbstractNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CompletePattern_abstractName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_abstractName_feature", "_UI_CompletePattern_type"),
-				 PatternstructurePackage.Literals.COMPLETE_PATTERN__ABSTRACT_NAME,
 				 true,
 				 false,
 				 false,
@@ -471,7 +471,7 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 		switch (notification.getFeatureID(CompletePattern.class)) {
 			case PatternstructurePackage.COMPLETE_PATTERN__PATTERN_ID:
 			case PatternstructurePackage.COMPLETE_PATTERN__NAME:
-			case PatternstructurePackage.COMPLETE_PATTERN__ABSTRACT_NAME:
+			case PatternstructurePackage.COMPLETE_PATTERN__ABSTRACT_ID:
 			case PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION:
 			case PatternstructurePackage.COMPLETE_PATTERN__SHORT_DESCRIPTION:
 			case PatternstructurePackage.COMPLETE_PATTERN__LANGUAGE:

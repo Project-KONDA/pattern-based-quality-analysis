@@ -47,7 +47,7 @@ public class XmlPatterns {
 		CompletePattern pattern = GenericPatterns.getGenericCard();
 		pattern.createXmlAdaption();
 		pattern.setPatternId("Card_xml");
-		pattern.setAbstractName("Card_xml");
+		pattern.setAbstractId("Card_xml");
 		
 		List<Parameter> params = pattern.getParameterList().getParameters();
 		ComparisonOptionParam comp = (ComparisonOptionParam) params.get(0);
@@ -127,7 +127,7 @@ public class XmlPatterns {
 		CompletePattern pattern = GenericPatterns.getGenericComp();
 		pattern.createXmlAdaption();
 		pattern.setPatternId("Comp_xml");
-		pattern.setAbstractName("Comp_xml");
+		pattern.setAbstractId("Comp_xml");
 		// TODO
 		return pattern;
 	}
@@ -136,7 +136,7 @@ public class XmlPatterns {
 		CompletePattern pattern = GenericPatterns.getGenericFunc();
 		pattern.createXmlAdaption();
 		pattern.setPatternId("Func_xml");
-		pattern.setAbstractName("Func_xml");
+		pattern.setAbstractId("Func_xml");
 		// TODO
 		return pattern;
 	}
@@ -145,7 +145,7 @@ public class XmlPatterns {
 		CompletePattern pattern = GenericPatterns.getGenericUnique();
 		pattern.createXmlAdaption();
 		pattern.setPatternId("Unique_xml");
-		pattern.setAbstractName("Unique_xml");
+		pattern.setAbstractId("Unique_xml");
 		// TODO
 		return pattern;
 	}
@@ -154,7 +154,7 @@ public class XmlPatterns {
 		CompletePattern pattern = GenericPatterns.getGenericMatch();
 		pattern.createXmlAdaption();
 		pattern.setPatternId("Match_xml");
-		pattern.setAbstractName("Match_xml");
+		pattern.setAbstractId("Match_xml");
 		// TODO
 		return pattern;
 	}
@@ -163,7 +163,7 @@ public class XmlPatterns {
 		CompletePattern pattern = GenericPatterns.getGenericContains();
 		pattern.createXmlAdaption();
 		pattern.setPatternId("Contains_xml");
-		pattern.setAbstractName("Contains_xml");
+		pattern.setAbstractId("Contains_xml");
 		// TODO
 		return pattern;
 	}
@@ -172,7 +172,7 @@ public class XmlPatterns {
 		CompletePattern pattern = GenericPatterns.getGenericAppdup2();
 		pattern.createXmlAdaption();
 		pattern.setPatternId("Appdup2_xml");
-		pattern.setAbstractName("Appdup2_xml");
+		pattern.setAbstractId("Appdup2_xml");
 		// TODO
 		return pattern;
 	}
@@ -181,7 +181,7 @@ public class XmlPatterns {
 		CompletePattern pattern = GenericPatterns.getGenericAppdup3();
 		pattern.createXmlAdaption();
 		pattern.setPatternId("Appdup3_xml");
-		pattern.setAbstractName("Appdup3_xml");
+		pattern.setAbstractId("Appdup3_xml");
 		// TODO
 		return pattern;
 	}
@@ -189,8 +189,8 @@ public class XmlPatterns {
 	public static CompletePattern getXmlDupVal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = GenericPatterns.getGenericDupVal();
 		pattern.createXmlAdaption();
-		pattern.setPatternId("DuoVal_xml");
-		pattern.setAbstractName("DuoVal_xml");
+		pattern.setPatternId("DupVal_xml");
+		pattern.setAbstractId("DupVal_xml");
 		// TODO
 		return pattern;
 	}

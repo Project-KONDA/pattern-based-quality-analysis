@@ -506,7 +506,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CompletePattern/text"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/patternId"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/name"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/abstractName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/abstractId"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/description"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/shortDescription"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/language"/>

@@ -4,7 +4,7 @@
     <semanticResources>qualitypatternmodel.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_A2WtQB2REeqrGqxc7qjo8A">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name="class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="1707397149540">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name="class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="1707406543874">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="qualitypatternmodel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -9961,9 +9961,9 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_LyXt58UEEe6ocNWXIh9G6Q" name="abstractName : EString" tooltipText="">
-          <target xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//patternstructure/CompletePattern/abstractName"/>
-          <semanticElements xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//patternstructure/CompletePattern/abstractName"/>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_LyXt58UEEe6ocNWXIh9G6Q" name="abstractId : EString" tooltipText="">
+          <target xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//patternstructure/CompletePattern/abstractId"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//patternstructure/CompletePattern/abstractId"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_LyXt6MUEEe6ocNWXIh9G6Q" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
           </ownedStyle>

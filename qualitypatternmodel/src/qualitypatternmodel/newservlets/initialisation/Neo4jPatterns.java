@@ -37,7 +37,7 @@ public class Neo4jPatterns {
 		CompletePattern pattern = GenericPatterns.getGenericCard();
 		pattern.createNeo4jAdaption();
 		pattern.setPatternId("Card_neo4j");
-		pattern.setAbstractName("Card_neo4j");
+		pattern.setAbstractId("Card_neo4j");
 		// TODO
 		return pattern;
 	}
@@ -46,7 +46,7 @@ public class Neo4jPatterns {
 		CompletePattern pattern = GenericPatterns.getGenericComp();
 		pattern.createNeo4jAdaption();
 		pattern.setPatternId("Comp_neo4j");
-		pattern.setAbstractName("Comp_neo4j");
+		pattern.setAbstractId("Comp_neo4j");
 		// TODO
 		return pattern;
 	}
@@ -55,7 +55,7 @@ public class Neo4jPatterns {
 		CompletePattern pattern = GenericPatterns.getGenericFunc();
 		pattern.createNeo4jAdaption();
 		pattern.setPatternId("Func_neo4j");
-		pattern.setAbstractName("Func_neo4j");
+		pattern.setAbstractId("Func_neo4j");
 		// TODO
 		return pattern;
 	}
@@ -64,7 +64,7 @@ public class Neo4jPatterns {
 		CompletePattern pattern = GenericPatterns.getGenericUnique();
 		pattern.createNeo4jAdaption();
 		pattern.setPatternId("Unique_neo4j");
-		pattern.setAbstractName("Unique_neo4j");
+		pattern.setAbstractId("Unique_neo4j");
 		// TODO
 		return pattern;
 	}
@@ -73,7 +73,7 @@ public class Neo4jPatterns {
 		CompletePattern pattern = GenericPatterns.getGenericMatch();
 		pattern.createNeo4jAdaption();
 		pattern.setPatternId("Match_neo4j");
-		pattern.setAbstractName("Match_neo4j");
+		pattern.setAbstractId("Match_neo4j");
 		// TODO
 		return pattern;
 	}
@@ -82,7 +82,7 @@ public class Neo4jPatterns {
 		CompletePattern pattern = GenericPatterns.getGenericContains();
 		pattern.createNeo4jAdaption();
 		pattern.setPatternId("Contains_neo4j");
-		pattern.setAbstractName("Contains_neo4j");
+		pattern.setAbstractId("Contains_neo4j");
 		// TODO
 		return pattern;
 	}
@@ -91,7 +91,7 @@ public class Neo4jPatterns {
 		CompletePattern pattern = GenericPatterns.getGenericAppdup2();
 		pattern.createNeo4jAdaption();
 		pattern.setPatternId("Appdup2_neo4j");
-		pattern.setAbstractName("Appdup2_neo4j");
+		pattern.setAbstractId("Appdup2_neo4j");
 		// TODO
 		return pattern;
 	}
@@ -100,7 +100,7 @@ public class Neo4jPatterns {
 		CompletePattern pattern = GenericPatterns.getGenericAppdup3();
 		pattern.createNeo4jAdaption();
 		pattern.setPatternId("Appdup3_neo4j");
-		pattern.setAbstractName("Appdup3_neo4j");
+		pattern.setAbstractId("Appdup3_neo4j");
 		// TODO
 		return pattern;
 	}
@@ -109,7 +109,7 @@ public class Neo4jPatterns {
 		CompletePattern pattern = GenericPatterns.getGenericDupVal();
 		pattern.createNeo4jAdaption();
 		pattern.setPatternId("DupVal_neo4j");
-		pattern.setAbstractName("DupVal_neo4j");
+		pattern.setAbstractId("DupVal_neo4j");
 		// TODO
 		return pattern;
 	}

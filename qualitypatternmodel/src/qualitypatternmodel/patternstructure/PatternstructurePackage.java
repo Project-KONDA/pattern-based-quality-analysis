@@ -2678,13 +2678,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN__NAME = PATTERN_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Abstract Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Abstract Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__ABSTRACT_NAME = PATTERN_FEATURE_COUNT + 5;
+	int COMPLETE_PATTERN__ABSTRACT_ID = PATTERN_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -5642,6 +5642,17 @@ public interface PatternstructurePackage extends EPackage {
 	EAttribute getCompletePattern_Name();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getAbstractId <em>Abstract Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Abstract Id</em>'.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getAbstractId()
+	 * @see #getCompletePattern()
+	 * @generated
+	 */
+	EAttribute getCompletePattern_AbstractId();
+
+	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.CompletePattern#getDatabase <em>Database</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5794,17 +5805,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCompletePattern_ShortDescription();
-
-	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getAbstractName <em>Abstract Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Abstract Name</em>'.
-	 * @see qualitypatternmodel.patternstructure.CompletePattern#getAbstractName()
-	 * @see #getCompletePattern()
-	 * @generated
-	 */
-	EAttribute getCompletePattern_AbstractName();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#getNewRefNo(java.lang.Class) <em>Get New Ref No</em>}' operation.
@@ -6818,6 +6818,14 @@ public interface PatternstructurePackage extends EPackage {
 		EAttribute COMPLETE_PATTERN__NAME = eINSTANCE.getCompletePattern_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>Abstract Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPLETE_PATTERN__ABSTRACT_ID = eINSTANCE.getCompletePattern_AbstractId();
+
+		/**
 		 * The meta object literal for the '<em><b>Database</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6928,14 +6936,6 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COMPLETE_PATTERN__SHORT_DESCRIPTION = eINSTANCE.getCompletePattern_ShortDescription();
-
-		/**
-		 * The meta object literal for the '<em><b>Abstract Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COMPLETE_PATTERN__ABSTRACT_NAME = eINSTANCE.getCompletePattern_AbstractName();
 
 		/**
 		 * The meta object literal for the '<em><b>Get New Ref No</b></em>' operation.

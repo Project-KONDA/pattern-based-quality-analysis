@@ -37,7 +37,7 @@ public class RdfPatterns {
 		CompletePattern pattern = GenericPatterns.getGenericCard();
 		pattern.createRdfAdaption();
 		pattern.setPatternId("Card_rdf");
-		pattern.setAbstractName("Card_rdf");
+		pattern.setAbstractId("Card_rdf");
 		// TODO
 		return pattern;
 	}
@@ -46,7 +46,7 @@ public class RdfPatterns {
 		CompletePattern pattern = GenericPatterns.getGenericComp();
 		pattern.createRdfAdaption();
 		pattern.setPatternId("Comp_rdf");
-		pattern.setAbstractName("Comp_rdf");
+		pattern.setAbstractId("Comp_rdf");
 		// TODO
 		return pattern;
 	}
@@ -55,7 +55,7 @@ public class RdfPatterns {
 		CompletePattern pattern = GenericPatterns.getGenericFunc();
 		pattern.createRdfAdaption();
 		pattern.setPatternId("Func_rdf");
-		pattern.setAbstractName("Func_rdf");
+		pattern.setAbstractId("Func_rdf");
 		// TODO
 		return pattern;
 	}
@@ -64,7 +64,7 @@ public class RdfPatterns {
 		CompletePattern pattern = GenericPatterns.getGenericUnique();
 		pattern.createRdfAdaption();
 		pattern.setPatternId("Unique_rdf");
-		pattern.setAbstractName("Unique_rdf");
+		pattern.setAbstractId("Unique_rdf");
 		// TODO
 		return pattern;
 	}
@@ -73,7 +73,7 @@ public class RdfPatterns {
 		CompletePattern pattern = GenericPatterns.getGenericMatch();
 		pattern.createRdfAdaption();
 		pattern.setPatternId("Match_rdf");
-		pattern.setAbstractName("Match_rdf");
+		pattern.setAbstractId("Match_rdf");
 		// TODO
 		return pattern;
 	}
@@ -82,7 +82,7 @@ public class RdfPatterns {
 		CompletePattern pattern = GenericPatterns.getGenericContains();
 		pattern.createRdfAdaption();
 		pattern.setPatternId("Contains_rdf");
-		pattern.setAbstractName("Contains_rdf");
+		pattern.setAbstractId("Contains_rdf");
 		// TODO
 		return pattern;
 	}
@@ -91,7 +91,7 @@ public class RdfPatterns {
 		CompletePattern pattern = GenericPatterns.getGenericAppdup2();
 		pattern.createRdfAdaption();
 		pattern.setPatternId("Appdup2_rdf");
-		pattern.setAbstractName("Appdup2_rdf");
+		pattern.setAbstractId("Appdup2_rdf");
 		// TODO
 		return pattern;
 	}
@@ -100,7 +100,7 @@ public class RdfPatterns {
 		CompletePattern pattern = GenericPatterns.getGenericAppdup3();
 		pattern.createRdfAdaption();
 		pattern.setPatternId("Appdup3_rdf");
-		pattern.setAbstractName("Appdup3_rdf");
+		pattern.setAbstractId("Appdup3_rdf");
 		// TODO
 		return pattern;
 	}
@@ -109,7 +109,7 @@ public class RdfPatterns {
 		CompletePattern pattern = GenericPatterns.getGenericDupVal();
 		pattern.createRdfAdaption();
 		pattern.setPatternId("DupVal_rdf");
-		pattern.setAbstractName("DupVal_rdf");
+		pattern.setAbstractId("DupVal_rdf");
 		// TODO
 		return pattern;
 	}

@@ -76,7 +76,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getText <em>Text</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getPatternId <em>Pattern Id</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getName <em>Name</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getAbstractName <em>Abstract Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getAbstractId <em>Abstract Id</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getShortDescription <em>Short Description</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getLanguage <em>Language</em>}</li>
@@ -171,24 +171,24 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getAbstractName() <em>Abstract Name</em>}' attribute.
+	 * The default value of the '{@link #getAbstractId() <em>Abstract Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAbstractName()
+	 * @see #getAbstractId()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ABSTRACT_NAME_EDEFAULT = null;
+	protected static final String ABSTRACT_ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getAbstractName() <em>Abstract Name</em>}' attribute.
+	 * The cached value of the '{@link #getAbstractId() <em>Abstract Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAbstractName()
+	 * @see #getAbstractId()
 	 * @generated
 	 * @ordered
 	 */
-	protected String abstractName = ABSTRACT_NAME_EDEFAULT;
+	protected String abstractId = ABSTRACT_ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -948,10 +948,12 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	@Override
 	public String getName() {
+		if (name == null)
+			return patternId;
 		return name;
 	}
 
@@ -969,6 +971,31 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__NAME, oldName, name));
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getAbstractId() {
+		return abstractId;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setAbstractId(String newAbstractId) {
+		String oldAbstractId = abstractId;
+		abstractId = newAbstractId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__ABSTRACT_ID, oldAbstractId, abstractId));
+	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1375,31 +1402,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getAbstractName() {
-		return abstractName;
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setAbstractName(String newAbstractName) {
-		String oldAbstractName = abstractName;
-		abstractName = newAbstractName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__ABSTRACT_NAME, oldAbstractName, abstractName));
-	}
-
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -1456,8 +1458,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return getPatternId();
 			case PatternstructurePackage.COMPLETE_PATTERN__NAME:
 				return getName();
-			case PatternstructurePackage.COMPLETE_PATTERN__ABSTRACT_NAME:
-				return getAbstractName();
+			case PatternstructurePackage.COMPLETE_PATTERN__ABSTRACT_ID:
+				return getAbstractId();
 			case PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION:
 				return getDescription();
 			case PatternstructurePackage.COMPLETE_PATTERN__SHORT_DESCRIPTION:
@@ -1508,8 +1510,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__NAME:
 				setName((String)newValue);
 				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__ABSTRACT_NAME:
-				setAbstractName((String)newValue);
+			case PatternstructurePackage.COMPLETE_PATTERN__ABSTRACT_ID:
+				setAbstractId((String)newValue);
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION:
 				setDescription((String)newValue);
@@ -1571,8 +1573,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__ABSTRACT_NAME:
-				setAbstractName(ABSTRACT_NAME_EDEFAULT);
+			case PatternstructurePackage.COMPLETE_PATTERN__ABSTRACT_ID:
+				setAbstractId(ABSTRACT_ID_EDEFAULT);
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
@@ -1628,8 +1630,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return PATTERN_ID_EDEFAULT == null ? patternId != null : !PATTERN_ID_EDEFAULT.equals(patternId);
 			case PatternstructurePackage.COMPLETE_PATTERN__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case PatternstructurePackage.COMPLETE_PATTERN__ABSTRACT_NAME:
-				return ABSTRACT_NAME_EDEFAULT == null ? abstractName != null : !ABSTRACT_NAME_EDEFAULT.equals(abstractName);
+			case PatternstructurePackage.COMPLETE_PATTERN__ABSTRACT_ID:
+				return ABSTRACT_ID_EDEFAULT == null ? abstractId != null : !ABSTRACT_ID_EDEFAULT.equals(abstractId);
 			case PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case PatternstructurePackage.COMPLETE_PATTERN__SHORT_DESCRIPTION:
@@ -1739,8 +1741,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		result.append(patternId);
 		result.append(", name: ");
 		result.append(name);
-		result.append(", abstractName: ");
-		result.append(abstractName);
+		result.append(", abstractId: ");
+		result.append(abstractId);
 		result.append(", description: ");
 		result.append(description);
 		result.append(", shortDescription: ");
