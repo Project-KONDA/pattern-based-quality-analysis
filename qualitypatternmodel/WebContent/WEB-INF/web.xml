@@ -184,6 +184,30 @@
 		<servlet-name>TemplateSetParameterServlet</servlet-name>
 		<url-pattern>/template/setparameter/*</url-pattern>
 	</servlet-mapping>
+		
+	<!-- add a tag
+		/template/addtag/<technology>/<name>/ {"tag": ?}
+	-->
+	<servlet>
+		<servlet-name>TemplateAddTagServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.TemplateAddTagServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TemplateAddTagServlet</servlet-name>
+		<url-pattern>/template/addtag/*</url-pattern>
+	</servlet-mapping>
+		
+	<!-- remove a tag
+		/template/removetag/<technology>/<name>/ {"tag": ?}
+	-->
+	<servlet>
+		<servlet-name>TemplateRemoveTagServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.TemplateRemoveTagServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TemplateRemoveTagServlet</servlet-name>
+		<url-pattern>/template/removetag/*</url-pattern>
+	</servlet-mapping>
 	
 	
 	
