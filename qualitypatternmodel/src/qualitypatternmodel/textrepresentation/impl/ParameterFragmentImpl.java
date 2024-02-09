@@ -404,6 +404,18 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setValue(String value) throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated Not
 	 */
 	@Override
@@ -616,6 +628,14 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				return getType();
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___GET_ROLE:
 				return getRole();
+			case TextrepresentationPackage.PARAMETER_FRAGMENT___SET_VALUE__STRING:
+				try {
+					setValue((String)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___IS_VALID__ABSTRACTIONLEVEL:
 				try {
 					isValid((AbstractionLevel)arguments.get(0));
