@@ -15,19 +15,19 @@ import qualitypatternmodel.utility.EMFModelSave;
 @SuppressWarnings("serial")
 public class TemplateSetDataModelServlet extends HttpServlet {
 	
-	// .. /template/setdatabase   /<technology>/<name>/<database-name>
+	// .. /template/setdatamodel   /<technology>/<name>  {"datamodel": <datamode-name>}
 	
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		System.out.println("TemplateSetDatabaseServlet.doPost()");
+		System.out.println("TemplateSetDataModelServlet.doPost()");
 		try{
 			String result = applyPost(path, params);
 			response.getOutputStream().println(result);
 			response.setStatus(HttpServletResponse.SC_OK);
 //			response.setStatus(HttpServletResponse.SC_NOT_IMPLEMENTED);
-//			response.getWriter().write("{ \"error\": \"databases not implemented \"}");
+//			response.getWriter().write("{ \"error\": \"datamodels not implemented \"}");
 		}
 		catch (InvalidServletCallException e) {
 	        response.setContentType("application/json");
@@ -44,13 +44,13 @@ public class TemplateSetDataModelServlet extends HttpServlet {
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
-//		response.getOutputStream().println("{ \"call\": \"TemplateSetDatabaseServlet.doPost()\"}");
+//		response.getOutputStream().println("{ \"call\": \"TemplateSetDataModelServlet.doPost()\"}");
 	}
 	
 	public String applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
-			throw new InvalidServletCallException("Wrong parameters for setting a database in a constraint: '.. /template/setdatabase   /<technology>/<constraint-name>/<database-name>' (not " + path + ")");
+			throw new InvalidServletCallException("Wrong parameters for setting a datamodel in a constraint: '.. /template/setdatamodel   /<technology>/<constraint-name> {\"datamodel\":<datamodel-name>}' (not " + path + " " + parameterMap + ")");
 
 		String technology = pathparts[1];
 		String constraintname = pathparts[2];
@@ -72,7 +72,7 @@ public class TemplateSetDataModelServlet extends HttpServlet {
 		}
 		// 2. change name
 		String oldDataModelName = pattern.getDataModelName();
-		pattern.setDatabaseName(newDataModelName);
+		pattern.setDataModelName(newDataModelName);
 		// 3. save constraint
 		try {
 			EMFModelSave.exportToFile(pattern, constraintpath, ServletUtilities.EXTENSION);

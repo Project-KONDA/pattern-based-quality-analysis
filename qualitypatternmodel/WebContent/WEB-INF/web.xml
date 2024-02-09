@@ -5,6 +5,13 @@
 		http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	version="4.0">
 	
+	
+	<servlet>
+	     <servlet-name>TemplateInitialisationServlet</servlet-name>
+	     <servlet-class>qualitypatternmodel.newservlets.TemplateInitialisationServlet</servlet-class>
+	     <load-on-startup>1</load-on-startup>
+ 	</servlet>
+	
 	<!--
 		format: xml, rdf, neo4j
 		level: all, abstract, semi-concrete, concrete 
@@ -35,8 +42,8 @@
 <!--		<url-pattern>/database/delete/*</url-pattern>-->
 <!--	</servlet-mapping>-->
 	
-	<!-- Add a new database
-		/database/getlist/<technology> {database data}
+	<!-- Request database list
+		/database/getlist/<technology>
 	 -->
 <!--	<servlet>-->
 <!--		<servlet-name>DatabaseGetListServlet</servlet-name>-->
@@ -46,15 +53,9 @@
 <!--		<servlet-name>DatabaseGetListServlet</servlet-name>-->
 <!--		<url-pattern>/database/getlist/*</url-pattern>-->
 <!--	</servlet-mapping>-->
-	
-	 <servlet>
-	     <servlet-name>TemplateInitialisationServlet</servlet-name>
-	     <servlet-class>qualitypatternmodel.newservlets.TemplateInitialisationServlet</servlet-class>
-	     <load-on-startup>1</load-on-startup>
- 	</servlet>
  
-	<!-- Copy existing semi-concrete template
-		/template/copy/<technology>/<name>
+	<!-- Copy existing constraint
+		/template/copy/<technology>/<constraintId>
 	 -->
 	<servlet>
 		<servlet-name>TemplateCopyServlet</servlet-name>
@@ -65,8 +66,8 @@
 		<url-pattern>/template/copy/*</url-pattern>
 	</servlet-mapping>
 	
-	<!-- Delete existing semi-concrete template
-		/template/delete/<technology>/<name>
+	<!-- Delete existing constraint
+		/template/delete/<technology>/<constraintId>
 	 -->
 	<servlet>
 		<servlet-name>TemplateDeleteServlet</servlet-name>
@@ -77,20 +78,8 @@
 		<url-pattern>/template/delete/*</url-pattern>
 	</servlet-mapping>
 	
-	<!-- Execute existing concrete template
-		/database/execute/<technology>/<name>
-	 -->
-	<servlet>
-		<servlet-name>TemplateExecuteServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateExecuteServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>TemplateExecuteServlet</servlet-name>
-		<url-pattern>/template/execute/*</url-pattern>
-	</servlet-mapping>
-	
-	<!-- Get database of semi-concrete template
-		/database/execute/<technology>/<name>
+	<!-- Get database of constraint
+		/template/getdatabase/<technology>/<constraintId>
 	 -->
 	<servlet>
 		<servlet-name>TemplateGetDatabaseServlet</servlet-name>
@@ -100,9 +89,21 @@
 		<servlet-name>TemplateGetDatabaseServlet</servlet-name>
 		<url-pattern>/template/getdatabase/*</url-pattern>
 	</servlet-mapping>
+	
+	<!-- Get datamodel of constraint
+		/template/getdatamodel/<technology>/<constraintId>
+	 -->
+	<servlet>
+		<servlet-name>TemplateGetDataModelServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.TemplateGetDataModelServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TemplateGetDataModelServlet</servlet-name>
+		<url-pattern>/template/getdatamodel/*</url-pattern>
+	</servlet-mapping>
 		
-	<!-- Request list of templates
-		/templates/getlist/<format>/<level>
+	<!-- Request list of templates and/or constraints
+		/templates/getlist/<technology>/<level>
 	 -->
 	<servlet>
 		<servlet-name>TemplateGetListServlet</servlet-name>
@@ -113,20 +114,8 @@
 		<url-pattern>/template/getlist/*</url-pattern>
 	</servlet-mapping>
 		
-	<!-- Request parameters and values of a template
-		/templates/getlist/<format>/<level>
-	 -->
-	<servlet>
-		<servlet-name>TemplateGetParameterServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateGetParameterServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>TemplateGetParameterServlet</servlet-name>
-		<url-pattern>/template/getparameter/*</url-pattern>
-	</servlet-mapping>
-		
-	<!-- Post new instance of an abstract template
-		/templates/instantiate/<technology>/<abstracttemplate>
+	<!-- instantiate new instance of a template
+		/templates/instantiate/<technology>/<templateId>
 	 -->
 	<servlet>
 		<servlet-name>TemplateInstantiateServlet</servlet-name>
@@ -137,8 +126,8 @@
 		<url-pattern>/template/instantiate/*</url-pattern>
 	</servlet-mapping>
 		
-	<!-- Post new instance of an abstract template
-		/template/setdatabase/<technology>/<name>
+	<!-- specify database of a constraint
+		/template/setdatabase/<technology>/<constraintId>
 	 -->
 	<servlet>
 		<servlet-name>TemplateSetDatabaseServlet</servlet-name>
@@ -149,8 +138,8 @@
 		<url-pattern>/template/setdatabase/*</url-pattern>
 	</servlet-mapping>
 		
-	<!-- Post new instance of an abstract template
-		/template/setname/<technology>/<name>
+	<!-- specify name of a constraint
+		/template/setname/<technology>/<constraintId>
 	 -->
 	<servlet>
 		<servlet-name>TemplateSetNameServlet</servlet-name>
@@ -161,8 +150,8 @@
 		<url-pattern>/template/setname/*</url-pattern>
 	</servlet-mapping>
 		
-	<!-- Post new instance of an abstract template
-		/template/setmodel/<technology>/<name>
+	<!-- specify data model of a constraint
+		/template/setmodel/<technology>/<constraintId>
 	 -->
 	<servlet>
 		<servlet-name>TemplateSetDataModelServlet</servlet-name>
@@ -174,7 +163,7 @@
 	</servlet-mapping>
 		
 	<!-- Change one or more parameters
-		/template/setparameter/<technology>/<name>/
+		/template/setparameter/<technology>/<constraintId>/
 	-->
 	<servlet>
 		<servlet-name>TemplateSetParameterServlet</servlet-name>
@@ -185,8 +174,8 @@
 		<url-pattern>/template/setparameter/*</url-pattern>
 	</servlet-mapping>
 		
-	<!-- add a tag
-		/template/addtag/<technology>/<name>/ {"tag": ?}
+	<!-- add one or more tags to a constraint
+		/template/addtag/<technology>/<constraintId> {"tag": ?}
 	-->
 	<servlet>
 		<servlet-name>TemplateAddTagServlet</servlet-name>
@@ -197,8 +186,8 @@
 		<url-pattern>/template/addtag/*</url-pattern>
 	</servlet-mapping>
 		
-	<!-- remove a tag
-		/template/removetag/<technology>/<name>/ {"tag": ?}
+	<!-- remove one or more tags of a constraint
+		/template/removetag/<technology>/<constraintId> {"tag": ?}
 	-->
 	<servlet>
 		<servlet-name>TemplateRemoveTagServlet</servlet-name>
@@ -210,9 +199,42 @@
 	</servlet-mapping>
 	
 	
+	<!-- request information about a certain constraint
+		/template/get/<technology>/<constraintId>
+	-->
+	<servlet>
+		<servlet-name>TemplateGetServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.TemplateGetServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TemplateGetServlet</servlet-name>
+		<url-pattern>/template/get/*</url-pattern>
+	</servlet-mapping>
 	
 	
+	<!-- request MQAF constraint of a certain ready constraint
+		/template/get/<technology>/<constraintId>
+	-->
+	<servlet>
+		<servlet-name>TemplateMqafJsonServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.TemplateMqafJsonServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TemplateMqafJsonServlet</servlet-name>
+		<url-pattern>/template/mqafconstraint/*</url-pattern>
+	</servlet-mapping>
 	
+	<!-- request generated query of a certain ready constraint
+		/template/get/<technology>/<constraintId>
+	-->
+	<servlet>
+		<servlet-name>TemplateQueryServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.TemplateQueryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TemplateQueryServlet</servlet-name>
+		<url-pattern>/template/query/*</url-pattern>
+	</servlet-mapping>
 	
 	<!-- 
 	<servlet>
