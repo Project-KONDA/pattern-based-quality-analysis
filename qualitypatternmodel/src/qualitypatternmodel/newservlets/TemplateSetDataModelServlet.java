@@ -9,8 +9,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.utility.EMFModelLoad;
-import qualitypatternmodel.utility.EMFModelSave;
 
 @SuppressWarnings("serial")
 public class TemplateSetDataModelServlet extends HttpServlet {
@@ -50,35 +48,30 @@ public class TemplateSetDataModelServlet extends HttpServlet {
 	public String applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
-			throw new InvalidServletCallException("Wrong parameters for setting a datamodel in a constraint: '.. /template/setdatamodel   /<technology>/<constraint-name> {\"datamodel\":<datamodel-name>}' (not " + path + " " + parameterMap + ")");
+			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/setparameter/<technology>/<name>/' (not " + path + ")");
 
 		String technology = pathparts[1];
-		String constraintname = pathparts[2];
-		
+		String constraintId = pathparts[2];
+
+		if (!ServletUtilities.TECHS.contains(technology))
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+
 		String[] dataModelNameArray = parameterMap.get("datamodel");
 		if (dataModelNameArray == null || dataModelNameArray.length != 1 || dataModelNameArray[0].equals(""))
 			throw new InvalidServletCallException("Invalid parameter for setting name.");
 		String newDataModelName = dataModelNameArray[0];
 		
-		String constraintpath = "serverpatterns/" + technology + "/concrete-patterns/" + constraintname + ".pattern";
-
 		// 1. load Pattern
-		CompletePattern pattern;
-		try {
-			pattern = EMFModelLoad.loadCompletePattern(constraintpath);
-		}
-		catch (Exception e) {
-			throw new FailedServletCallException("404 Requested pattern '" + constraintname + "' does not exist - " + e.getMessage());
-		}
+		CompletePattern pattern = ServletUtilities.loadConstraint(technology, constraintId);
+		if (pattern == null)
+			throw new FailedServletCallException("404 Requested pattern '" + constraintId + "' does not exist");
+		
 		// 2. change name
 		String oldDataModelName = pattern.getDataModelName();
 		pattern.setDataModelName(newDataModelName);
+		
 		// 3. save constraint
-		try {
-			EMFModelSave.exportToFile(pattern, constraintpath, ServletUtilities.EXTENSION);
-		} catch (IOException e) {
-			throw new FailedServletCallException("Unable to update constraint.");
-		}
+		ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		
 		return "Datamodel of constraint of constraint '" + pattern.getPatternId() + "' updated successfully from '" + oldDataModelName + "' to '" + newDataModelName + "'.";
 	}

@@ -53,16 +53,13 @@ public class TemplateGetDatabaseServlet extends HttpServlet {
 			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getdatabase/<technology>/<name>' (not " + path + ")");
 
 		String technology = pathparts[1];
-		String patternname = pathparts[2];
-		String patternpath = "serverpatterns/" + technology + "/concrete-patterns/" + patternname + ".pattern";
+		String constraintId = pathparts[2];
+
+		if (!ServletUtilities.TECHS.contains(technology))
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
 
 		// 1 load constraint
-		CompletePattern pattern;
-		try {
-			pattern = ServletUtilities.loadCompletePattern(patternpath);
-		} catch (Exception e) {
-			throw new FailedServletCallException("constraint not found: " + e.getMessage());
-		}
+		CompletePattern pattern = ServletUtilities.loadConstraint(technology, constraintId);
 		if (pattern == null) {
 			throw new FailedServletCallException("constraint not found");
 		}

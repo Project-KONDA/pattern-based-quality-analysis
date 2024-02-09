@@ -51,19 +51,21 @@ public class TemplateDeleteServlet extends HttpServlet {
 		String patternname = pathparts[2];
 
 		if (!ServletUtilities.TECHS.contains(technology))
-			throw new InvalidServletCallException("invalid technology");
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
 
-		String patternpath = "serverpatterns/" + technology + "/concrete-patterns/" + patternname + ".pattern";
-		
 		// 1 check if constraint exists
-		if (ServletUtilities.loadCompletePattern(patternpath) == null)
+		try {
+			if (ServletUtilities.loadConstraint(technology, patternname) == null)
+				throw new FailedServletCallException("Requested pattern '" + patternname + "' does not exist.");
+		} catch (Exception e) {
 			throw new FailedServletCallException("Requested pattern '" + patternname + "' does not exist.");
-
+		}
+		
 		// 2 delete constraint
 		ServletUtilities.deleteConstraint(technology, patternname);
 		
 		// 3 check if constraint is deleted
-		if (ServletUtilities.loadCompletePattern(patternpath) != null)
+		if (ServletUtilities.loadConstraint(technology, patternname) != null)
 			throw new FailedServletCallException("Deleting constraint '" + patternname + "' failed.");
 		
 		return "Constraint deleted successfully.";

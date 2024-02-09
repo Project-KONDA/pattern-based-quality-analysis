@@ -11,8 +11,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.utility.EMFModelLoad;
-import qualitypatternmodel.utility.EMFModelSave;
 
 @SuppressWarnings("serial")
 public class TemplateRemoveTagServlet extends HttpServlet {
@@ -53,21 +51,18 @@ public class TemplateRemoveTagServlet extends HttpServlet {
 			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/setparameter/<technology>/<name>/' (not " + path + ")");
 
 		String technology = pathparts[1];
-		String constraintname = pathparts[2];
-		
-		String constraintpath = "serverpatterns/" + technology + "/concrete-patterns/" + constraintname + ".pattern";
-		
+		String constraintId = pathparts[2];
+
+		if (!ServletUtilities.TECHS.contains(technology))
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+
 		String[] deleteTags = parameterMap.get("tag");
 		
 		// 1. load Pattern
-		CompletePattern pattern;
-		try {
-			pattern = EMFModelLoad.loadCompletePattern(constraintpath);
-		}
-		catch (Exception e) {
-			throw new FailedServletCallException("404 Requested pattern '" + constraintname + "' does not exist - " + e.getMessage());
-		}
-		
+		CompletePattern pattern = ServletUtilities.loadConstraint(technology, constraintId);
+		if (pattern == null)
+			throw new FailedServletCallException("404 Requested pattern '" + constraintId + "' does not exist");
+				
 		// 2. remove tags from pattern
 		JSONObject json = new JSONObject();
 		for (String tag: deleteTags) {
@@ -78,11 +73,10 @@ public class TemplateRemoveTagServlet extends HttpServlet {
 		}
 		
 		// 3. save constraint
-		try {
-			EMFModelSave.exportToFile(pattern, constraintpath, ServletUtilities.EXTENSION);
-		} catch (IOException e) {
-			throw new FailedServletCallException("Unable to update constraint.");
-		}
+		ServletUtilities.saveConstraint(technology, constraintId, pattern);
+
+		if (ServletUtilities.loadConstraint(technology, constraintId) == null)
+			throw new FailedServletCallException("Failed to save new constraint");
 		
 		return json.toString();
 	}

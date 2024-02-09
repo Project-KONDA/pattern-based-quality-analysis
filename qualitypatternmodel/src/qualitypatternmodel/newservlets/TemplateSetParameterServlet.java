@@ -1,17 +1,23 @@
 package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.utility.EMFModelLoad;
-import qualitypatternmodel.utility.EMFModelSave;
+import qualitypatternmodel.textrepresentation.Fragment;
+import qualitypatternmodel.textrepresentation.ParameterFragment;
 
 @SuppressWarnings("serial")
 public class TemplateSetParameterServlet extends HttpServlet {
@@ -52,68 +58,75 @@ public class TemplateSetParameterServlet extends HttpServlet {
 			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/setparameter/<technology>/<name>/' (not " + path + ")");
 
 		String technology = pathparts[1];
-		String constraintname = pathparts[2];
-		
-		String constraintpath = "serverpatterns/" + technology + "/concrete-patterns/" + constraintname + ".pattern";
+		String constraintId = pathparts[2];
+
+		if (!ServletUtilities.TECHS.contains(technology))
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
 		
 		// 1. load Pattern
-		CompletePattern pattern;
-		try {
-			pattern = EMFModelLoad.loadCompletePattern(constraintpath);
-		}
-		catch (Exception e) {
-			throw new FailedServletCallException("404 Requested pattern '" + constraintname + "' does not exist - " + e.getMessage());
-		}
-		// 2. change patterns
-
+		CompletePattern pattern = ServletUtilities.loadConstraint(technology, constraintId);
+		if (pattern == null)
+			throw new FailedServletCallException("404 Requested pattern '" + constraintId + "' does not exist");
 		
+		// 2. change patterns
 		// name?
 		String[] nameArray = parameterMap.get("name");
 		if (nameArray == null || nameArray.length != 1 || nameArray[0].equals("")) {
 			String newName = nameArray[0];
 			pattern.setPatternId(newName);
 		}
+		parameterMap.remove("name");
 		// database?
 		String[] databaseArray = parameterMap.get("database");
 		if (databaseArray == null || databaseArray.length != 1 || databaseArray[0].equals("")) {
 			String database = databaseArray[0];
 			pattern.setPatternId(database);
 		}
-		
-		Set<String> keys = parameterMap.keySet();
-		keys.remove("name");
-		keys.remove("database");
-		
-		for (String key: keys) {
-			String[] value = parameterMap.get(key);
-			if (value.length > 0) {
-				
-			}
+		parameterMap.remove("database");
+		// datamodel?
+		String[] datamodelArray = parameterMap.get("datamodel");
+		if (datamodelArray == null || datamodelArray.length != 1 || datamodelArray[0].equals("")) {
+			String datamodel = datamodelArray[0];
+			pattern.setPatternId(datamodel);
 		}
-		
-		
+		parameterMap.remove("datamodel");
+				
+		JSONObject output = changeParameters(pattern, parameterMap);
 		
 		// 3. save constraint
-		try {
-			EMFModelSave.exportToFile(pattern, constraintpath, ServletUtilities.EXTENSION);
-		} catch (IOException e) {
-			throw new FailedServletCallException("Unable to update constraint.");
-		}
-		
-		return "Parametes of constraint '" + pattern.getPatternId() + "' successfully updated.";
+		ServletUtilities.saveConstraint(technology, constraintId, pattern);
+//		return "Parametes of constraint '" + constraintId + "' successfully updated.";
+		return output.toString();
 	}
 	
-//	private String identifyConcretePatternPath(HttpServletRequest request) {
-//		// TODO
-//		return "";
-//	}
-//	
-//	private Map<String, String> identifyParameter(HttpServletRequest request) {
-//		// TODO
-//		return null;
-//	}
-//	
-//	private void setParameter(CompletePattern pattern, String key, String string) {
-//		// TODO
-//	}
+	private JSONObject changeParameters(CompletePattern pattern, Map<String, String[]> parameterMap) {
+		Set<String> keys = parameterMap.keySet();
+		List<Fragment> fragments = pattern.getText().get(0).getFragmentsOrdered();
+
+		JSONArray success = new JSONArray();
+		JSONArray failed = new JSONArray();
+		for (String key: keys)
+			for (Fragment fragment: fragments)
+				if (fragment instanceof ParameterFragment) {
+					ParameterFragment frag = (ParameterFragment) fragment;
+					if (frag.getName().equals(key)) {
+						try {
+							String value = parameterMap.get(key)[0];
+							frag.setValue(value);
+							success.put(key);
+						}
+						catch (IndexOutOfBoundsException e) {} 
+						catch (InvalidityException e) {
+							failed.put(key);
+						}
+					}
+				}
+		JSONObject json = new JSONObject();
+		try {
+			json.put("success", success);
+			json.put("failed", failed);
+		} catch (JSONException e) {
+		}
+		return json;
+	}
 }

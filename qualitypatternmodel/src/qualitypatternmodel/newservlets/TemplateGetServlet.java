@@ -44,21 +44,20 @@ public class TemplateGetServlet extends HttpServlet {
 	public String applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
-			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/get/<technology>/<patternId>' (not " + path + ")");
+			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getdatabase/<technology>/<name>' (not " + path + ")");
 
 		String technology = pathparts[1];
-		String patternId = pathparts[2];
+		String constraintId = pathparts[2];
 		
 		if (!ServletUtilities.TECHS.contains(technology))
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
-		
 
-		String patternPath = "./serverpatterns/" + technology + "/concrete-patterns" + patternId + "." + ServletUtilities.EXTENSION;
-		CompletePattern pattern = ServletUtilities.loadCompletePattern(patternPath);
-		
-		if (pattern == null)
-			throw new FailedServletCallException("No constraint found for the technology '" + technology + "' with patternId '" + patternId + "'.");
-		
+		// 1 load constraint
+		CompletePattern pattern = ServletUtilities.loadConstraint(technology, constraintId);
+		if (pattern == null) {
+			throw new FailedServletCallException("constraint not found");
+		}
+		// 2 return json
 		return ServletUtilities.getPatternJSON(pattern).toString();
 	}
 }

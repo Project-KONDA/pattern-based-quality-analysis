@@ -9,8 +9,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.utility.EMFModelLoad;
-import qualitypatternmodel.utility.EMFModelSave;
 
 @SuppressWarnings("serial")
 public class TemplateCopyServlet extends HttpServlet {
@@ -63,13 +61,14 @@ public class TemplateCopyServlet extends HttpServlet {
 
 		String technology = pathparts[1];
 		String oldID = pathparts[2];
-		
-		String oldpatternpath = "serverpatterns/" + technology + "/concrete-patterns/" + oldID + ".pattern";
 
+		if (!ServletUtilities.TECHS.contains(technology))
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		
 		// 1 load constraint with old name
 		CompletePattern pattern;
 		try {
-			pattern = EMFModelLoad.loadCompletePattern(oldpatternpath);
+			pattern = ServletUtilities.loadConstraint(technology, oldID);
 		}
 		catch (Exception e) {
 			throw new FailedServletCallException("404 Requested pattern '" + oldID + "' does not exist - " + e.getMessage());
@@ -77,20 +76,16 @@ public class TemplateCopyServlet extends HttpServlet {
 		
 		// 2 create new patternID
 		String newID = ServletUtilities.generateNewId(technology, pattern.getAbstractId(), pattern.getText().get(0).getName()); 
-		String newpatternpath = "serverpatterns/" + technology + "/concrete-patterns/" + newID + ".pattern";
 		
 		// 3 change constraint name
 		pattern.setId(newID);
 		
 		// 4 save constraint
-		EMFModelSave.exportToFile(pattern, newpatternpath, ServletUtilities.EXTENSION);
+		ServletUtilities.saveConstraint(technology, newID, pattern);
 		
-		try {
-			EMFModelLoad.loadCompletePattern(newpatternpath);
-		}
-		catch (Exception e) {}
+		if (ServletUtilities.loadConstraint(technology, newID) == null)
+			throw new FailedServletCallException("saving new constraint failed");
 		
 		return ServletUtilities.getPatternJSON(pattern).toString(); 
-//		return "Constraint '" + oldID + "' copied successfully to '" + newID + "'.";
 	}
 }

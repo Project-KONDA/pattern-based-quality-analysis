@@ -1,6 +1,7 @@
 package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Map;
 
 import jakarta.servlet.http.HttpServlet;
@@ -10,8 +11,6 @@ import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.PatternText;
-import qualitypatternmodel.utility.EMFModelLoad;
-import qualitypatternmodel.utility.EMFModelSave;
 
 @SuppressWarnings("serial")
 public class TemplateInstantiateServlet extends HttpServlet {
@@ -31,86 +30,78 @@ public class TemplateInstantiateServlet extends HttpServlet {
 		catch (InvalidServletCallException e) {
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			response.getWriter().write("{ \"error\": \"1 " + e.getMessage() + "\"}");
 		}
 		catch (FailedServletCallException e) {
 	        response.setContentType("application/json");
 	        if (e.getMessage().startsWith("404")) {
 				response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-				response.getWriter().write("{ \"error\": \"" + e.getMessage().substring(4) + "\"}");
+				response.getWriter().write("{ \"error\": \"2 " + e.getMessage().substring(4) + "\"}");
 	        }
 	        else if (e.getMessage().startsWith("409")) {
 				response.setStatus(HttpServletResponse.SC_CONFLICT);
-				response.getWriter().write("{ \"error\": \"" + e.getMessage().substring(4) + "\"}");
+				response.getWriter().write("{ \"error\": \"3 " + e.getMessage().substring(4) + "\"}");
 	        	
 	        } else {
 				response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-				response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+				response.getWriter().write("{ \"error\": \"internal" + e.getMessage() + "\"}");
 	        }
 		}
 		catch (Exception e) {
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			response.getWriter().write("{ \"error\": \"4 " + e.getClass().getSimpleName() + " " + e.getMessage() + "\"}");
+			e.printStackTrace();
 		}
 //		response.getOutputStream().println("{ \"call\": \"TemplateInstantiateServlet.doPost()\"}");
 	}
 	
 	public String applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
 		String[] pathparts = path.split("/");
-		if (pathparts.length != 3 || !pathparts[0].equals(""))
-			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/copy/<technology>/<concretetemplate>' (not " + path + ")");
+		if (pathparts.length != 4 || !pathparts[0].equals(""))
+			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/copy/<technology>/<constraintId>/<variantId>' (not " + path + ")");
 
-		
 		// 1 get parameters
 		String technology = pathparts[1];
 		String templateId = pathparts[2];
+		String textid = pathparts[3];
 		
-		Integer textid;
-		try {
-			textid = Integer.parseInt(pathparts[3]);
-		} catch (Exception e) {
-			throw new InvalidServletCallException("Variant ID is not an integer value: " + pathparts[3]);
-		}
+		if (!ServletUtilities.TECHS.contains(technology))
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
 
 		// 2 load constraint with old name
-		String templatepath = "serverpatterns/" + technology + "/abstract-patterns/" + templateId + ".pattern";
-		CompletePattern pattern;
-		try {
-			pattern = EMFModelLoad.loadCompletePattern(templatepath);
-		}
-		catch (Exception e) {
-			throw new FailedServletCallException("404 Requested template '" + templateId + "' does not exist - " + e.getMessage());
-		}
+		CompletePattern pattern = ServletUtilities.loadConstraint(technology, templateId);
+		if (pattern == null)
+			throw new FailedServletCallException("404 Requested template '" + templateId + "' does not exist");
 		
 		// 3 remove unused variants
-		if (pattern.getText().size() <= textid) {
-			throw new InvalidServletCallException("Variant ID invalid: " + pattern.getText().size() + " variants exist, but you selected " + textid);
+		PatternText choice = null;
+		ArrayList<String> textNames = new ArrayList<String>();
+		for (PatternText text : pattern.getText()) {
+			String name = text.getName();
+			textNames.add(name);
+			if (name.equals(textid)) {
+				choice = text;
+				break;
+			}
 		}
 		
-		PatternText choice = pattern.getText().get(textid);
+		if (choice == null) {
+			throw new InvalidServletCallException("Variant ID invalid: '" + textid + "' does not exist. Available are: " + textNames);
+		}
 		pattern.getText().clear();
 		pattern.getText().add(choice);
 
 
 		// 4 create new constraint id
 		String constraintId = ServletUtilities.generateNewId(technology, templateId, pattern.getText().get(0).getName());
-		String constraintpath = "serverpatterns/" + technology + "/concrete-patterns/" + constraintId + ".pattern";
 		pattern.setPatternId(constraintId);
-		// not necessary: ID generation shall guarantee uniqueness
-//		try {
-//			EMFModelLoad.loadCompletePattern(constraintpath);
-//			throw new FailedServletCallException("409 Constraint with name '" + constraintId + "'does already exist.");
-//		}
-//		catch (Exception e) {}
 		
 		
 		// 5 save constraint
-		try {
-			EMFModelSave.exportToFile(pattern, constraintpath, ServletUtilities.EXTENSION);
-		} catch (Exception e) {
-			throw new FailedServletCallException("Failed to create new constraint");
-		}
+		ServletUtilities.saveConstraint(technology, constraintId, pattern);
+		if (ServletUtilities.loadConstraint(technology, constraintId) == null)
+			throw new FailedServletCallException("Failed to save new constraint");
 		
 		return ServletUtilities.getPatternJSON(pattern).toString();
 //		return "Template '" + templateId + "' instantiated successfully to '" + constraintId + "'.";

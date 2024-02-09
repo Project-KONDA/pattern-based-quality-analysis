@@ -49,19 +49,16 @@ public class TemplateGetDataModelServlet extends HttpServlet {
 	public String applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
-			throw new InvalidServletCallException("Wrong url for requesting the datamodel of a constraint: '.. /template/getdatamodel/<technology>/<name>' (not " + path + ")");
+			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getdatabase/<technology>/<name>' (not " + path + ")");
 
 		String technology = pathparts[1];
-		String patternname = pathparts[2];
-		String patternpath = "serverpatterns/" + technology + "/concrete-patterns/" + patternname + ".pattern";
+		String constraintId = pathparts[2];
+
+		if (!ServletUtilities.TECHS.contains(technology))
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
 
 		// 1 load constraint
-		CompletePattern pattern;
-		try {
-			pattern = ServletUtilities.loadCompletePattern(patternpath);
-		} catch (Exception e) {
-			throw new FailedServletCallException("constraint not found: " + e.getMessage());
-		}
+		CompletePattern pattern = ServletUtilities.loadConstraint(technology, constraintId);
 		if (pattern == null) {
 			throw new FailedServletCallException("constraint not found");
 		}

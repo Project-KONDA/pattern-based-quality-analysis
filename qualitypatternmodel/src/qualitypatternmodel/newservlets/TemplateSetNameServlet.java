@@ -9,8 +9,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.utility.EMFModelLoad;
-import qualitypatternmodel.utility.EMFModelSave;
 
 @SuppressWarnings("serial")
 public class TemplateSetNameServlet extends HttpServlet {
@@ -50,35 +48,31 @@ public class TemplateSetNameServlet extends HttpServlet {
 	public String applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
-			throw new InvalidServletCallException("Wrong parameters for setting a database in a constraint: '.. /template/setdatabase   /<technology>/<constraint-name>/<database-name>' (not " + path + ")");
+			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/setparameter/<technology>/<name>/' (not " + path + ")");
 
 		String technology = pathparts[1];
-		String constraintname = pathparts[2];
-		
+		String constraintId = pathparts[2];
+
+		if (!ServletUtilities.TECHS.contains(technology))
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+
 		String[] newNameArray = parameterMap.get("name");
 		if (newNameArray == null || newNameArray.length != 1 || newNameArray[0].equals(""))
 			throw new InvalidServletCallException("Invalid parameter for setting name.");
 		String newName = newNameArray[0];
 		
-		String constraintpath = "serverpatterns/" + technology + "/concrete-patterns/" + constraintname + ".pattern";
-		
 		// 1. load Pattern
-		CompletePattern pattern;
-		try {
-			pattern = EMFModelLoad.loadCompletePattern(constraintpath);
-		}
-		catch (Exception e) {
-			throw new FailedServletCallException("404 Requested pattern '" + constraintname + "' does not exist - " + e.getMessage());
-		}
-		// 2. change name
-		pattern.setName(newName);
-		// 3. save constraint
-		try {
-			EMFModelSave.exportToFile(pattern, constraintpath, ServletUtilities.EXTENSION);
-		} catch (IOException e) {
-			throw new FailedServletCallException("Unable to update constraint.");
-		}
+		CompletePattern pattern = ServletUtilities.loadConstraint(technology, constraintId);
+		if (pattern == null)
+			throw new FailedServletCallException("404 Requested pattern '" + constraintId + "' does not exist");
 		
-		return "Name of constraint updated successfully from '" + constraintname + "' to '" + newName + "'.";
+		// 2. change name
+		String oldName = pattern.getName();
+		pattern.setName(newName);
+		
+		// 3. save constraint
+		ServletUtilities.saveConstraint(technology, constraintId, pattern);
+		
+		return "Name of constraint updated successfully from '" + oldName + "' to '" + newName + "'.";
 	}
 }
