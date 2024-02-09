@@ -74,13 +74,13 @@ public class TemplateGetListServlet extends HttpServlet {
 			patterns = ServletUtilities.getAllPattern(technology);
 			break;
 		case "template":
-			patterns = ServletUtilities.getAllAbstractPattern(technology);
+			patterns = ServletUtilities.getTemplates(technology);
 			break;
 		case "constraint":
-			patterns = ServletUtilities.getAllSemiConcretePattern(technology);
+			patterns = ServletUtilities.getConstraints(technology);
 			break;
 		case "ready":
-			patterns = ServletUtilities.getAllConcretePattern(technology);
+			patterns = ServletUtilities.getReadyConstraints(technology);
 			break;
 		}
 		return patterns;

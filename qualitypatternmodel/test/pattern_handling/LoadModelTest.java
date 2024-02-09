@@ -19,9 +19,9 @@ public class LoadModelTest {
 //		CompletePattern pattern = EMFModelLoad.loadCompletePattern(myURL, "pattern");
 //		System.out.println(pattern);
 		
-		List<CompletePattern> patternsA = ServletUtilities.getAllAbstractPattern("xml");
+		List<CompletePattern> patternsA = ServletUtilities.getTemplates("xml");
 		System.out.println("abstract:" + patternsA);
-		List<CompletePattern> patternsC = ServletUtilities.getAllConcretePattern("xml");
+		List<CompletePattern> patternsC = ServletUtilities.getReadyConstraints("xml");
 		System.out.println("concrete:" + patternsC);
 	}
 

@@ -9,18 +9,17 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import qualitypatternmodel.execution.Database;
+//import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.textrepresentation.Fragment;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.utility.EMFModelLoad;
-import qualitypatternmodel.utility.EMFModelSave;
+//import qualitypatternmodel.utility.EMFModelSave;
 
 public abstract class ServletUtilities {
 	
 	static public String EXTENSION = "pattern";
-	static public List<String> TECHS = List.of("xml", "rdf", "neo");
+	static public List<String> TECHS = List.of("xml", "rdf", "neo4j");
 	static public List<String> LEVELS = List.of("all", "template", "concrete", "ready");
 	
 	// Pattern request
@@ -28,7 +27,7 @@ public abstract class ServletUtilities {
 	public static List<CompletePattern> getAllPattern(String technology) {
 		EList<CompletePattern> patterns = new BasicEList<CompletePattern>();
 		List<CompletePattern> astr = loadAbstractPattern(technology);
-		List<CompletePattern> conc = getAllConcretePattern(technology);
+		List<CompletePattern> conc = getReadyConstraints(technology);
 		if (astr!=null)
 			patterns.addAll(astr);
 		if (conc!=null)
@@ -36,15 +35,15 @@ public abstract class ServletUtilities {
 		return patterns;
 	}
 	
-	public static List<CompletePattern> getAllAbstractPattern(String technology) {
+	public static List<CompletePattern> getTemplates(String technology) {
 		return loadAbstractPattern(technology);
 	}
 
-	public static List<CompletePattern> getAllSemiConcretePattern(String technology) {
+	public static List<CompletePattern> getConstraints(String technology) {
 		return loadAllPatternInstances(technology);
 	}
 	
-	public static List<CompletePattern> getAllConcretePattern(String technology) {
+	public static List<CompletePattern> getReadyConstraints(String technology) {
 		List<CompletePattern> concrete = new BasicEList<CompletePattern>();
 		List<CompletePattern> semiconcrete = loadAllPatternInstances(technology);
 		if (semiconcrete != null)
@@ -59,48 +58,48 @@ public abstract class ServletUtilities {
 	
 	// Pattern instantiation
 	
-	public static CompletePattern instantiateAbstractPattern(String technology, String abstractId, String concreteId) throws IOException {
-		CompletePattern pattern = EMFModelLoad.loadAbstractPattern(technology, abstractId);
-		pattern.setPatternId(concreteId);
-		EMFModelSave.exportToFile2(pattern, technology, concreteId, EXTENSION);
-		return pattern;
-	}
+//	public static CompletePattern instantiateAbstractPattern(String technology, String abstractId, String concreteId) throws IOException {
+//		CompletePattern pattern = EMFModelLoad.loadAbstractPattern(technology, abstractId);
+//		pattern.setPatternId(concreteId);
+//		EMFModelSave.exportToFile2(pattern, technology, concreteId, EXTENSION);
+//		return pattern;
+//	}
 	
-	public static CompletePattern copyConcretePattern(String technology, String concretePattern, String concretePatternName) throws IOException {
-		CompletePattern pattern = EMFModelLoad.loadConcretePattern(technology, concretePattern);
-		pattern.setPatternId(concretePatternName);
-		EMFModelSave.exportToFile2(pattern, technology, concretePatternName, EXTENSION);
-		return pattern;
-	}
+//	public static CompletePattern copyConcretePattern(String technology, String concretePattern, String concretePatternName) throws IOException {
+//		CompletePattern pattern = EMFModelLoad.loadConcretePattern(technology, concretePattern);
+//		pattern.setPatternId(concretePatternName);
+//		EMFModelSave.exportToFile2(pattern, technology, concretePatternName, EXTENSION);
+//		return pattern;
+//	}
 	
 	public static void deleteConstraint(String technology, String concretePattern) {
 		// TODO
 	}
 	
-	// database
-	public static void saveDatabase(String technology, String dbname, String URL, String user, String password) {
-		// TODO
-	};
-	public static Database loadDatabase(String technology, String name) {
-		// TODO
-		return null;
-	};
-	public static List<Database> loadDatabases(String technology) {
-		// TODO
-		return null;
-	};
-	public static void deleteDatabase(String technology, String name) {
-		// TODO
-	};
+	// database (not needed anymore!)
+//	public static void saveDatabase(String technology, String dbname, String URL, String user, String password) {
+//		// TODO
+//	};
+//	public static Database loadDatabase(String technology, String name) {
+//		// TODO
+//		return null;
+//	};
+//	public static List<Database> loadDatabases(String technology) {
+//		// TODO
+//		return null;
+//	};
+//	public static void deleteDatabase(String technology, String name) {
+//		// TODO
+//	};
 	
 	// pattern modification
 	
-	abstract public void setDatabase(String patternName, String databaseName);
-	abstract public void setParameter(String patternName, int parameterIndex, String value);
+//	abstract public void setDatabase(String patternName, String databaseName);
+//	abstract public void setParameter(String patternName, int parameterIndex, String value);
 	
 	// pattern execution
 	
-	abstract public String executePattern(String pattern);
+//	abstract public String executePattern(String pattern);
 	protected static String[] executePattern(CompletePattern pattern) {
 		// TODO Auto-generated method stub
 		return null;
@@ -231,14 +230,63 @@ public abstract class ServletUtilities {
 	}
 	
 	public static String getPatternJSONHeads(List<CompletePattern> patterns) {
-		String result = "[";
+		JSONArray jsonarray = new JSONArray();
 		for (CompletePattern pattern: patterns) {
-			result += "{\"patternID\":\"" + pattern.getPatternId() + "\", \"name\":\"" + pattern.getPatternId() + "\", \"description\":\"" + pattern.getDescription() + "\"}, ";
+			jsonarray.put(getPatternJSONHead(pattern));
 		}
-		return result += "]";
+		return jsonarray.toString();
+//		String json = "{";
+//		json += "\"patternID\": \""+ pattern.getPatternId() + "\", ";
+//		json += "\"name\": \""+ pattern.getName() + "\", ";
+//		json += "\"patternDescShort\": \"" + pattern.getShortDescription() + "\", ";
+//		json += "\"patternDesc\": \""+ pattern.getDescription() +"\",";
+//		json += "\"database\": \""+ pattern.getDatabaseName() +"\",";
+//		json += "\"datamodel\": \""+ pattern.getDataModelName() +"\",";
+//		List<String> keywords = pattern.getKeywords();
+//		String keywordsString = "\"keywords\": [";
+//        for (int i = 0; i < keywords.size(); i++) {
+//        	keywordsString += "\"" + keywords.get(i) + "\"";
+//            if (i < keywords.size() - 1) {
+//            	keywordsString += ",";
+//            }
+//        }
+//        keywordsString += "], ";
+//		json += keywordsString;
+//		json += "\"variants\": [";
+//		
+//		List<PatternText> texts = pattern.getText();
+//		for (int i = 0; i<texts.size(); i++) {
+//			if (i>0)
+//				json += ", ";
+//			json += texts.get(i).generateJSON();
+//		}
+//		json += "]}"; // variant end and template end
+//		return json;
+//		String result = "[";
+//		for (CompletePattern pattern: patterns) {
+//			result += "{\"patternID\":\"" + pattern.getPatternId() + "\", \"name\":\"" + pattern.getName() + "\", \"description\":\"" + pattern.getDescription() + "\"}, ";
+//		}
+//		return result += "]";
+	}
+	
+	public static JSONObject getPatternJSONHead(CompletePattern pattern) {
+		JSONObject json = new JSONObject();
+		try {
+			json.put("patternID", pattern.getPatternId());
+			json.put("name", pattern.getName());
+			json.put("shortDescription", pattern.getShortDescription());
+			json.put("description", pattern.getDescription());
+		} catch (JSONException e) {}
+		return json;
+		
 	}
 
 	protected static CompletePattern loadCompletePattern(String patternpath) {
+		return EMFModelLoad.loadCompletePattern(patternpath, EXTENSION);
+	};
+
+	protected static CompletePattern loadConstraint(String technology, String name) {
+		String patternpath = "./serverpatterns/" + technology + "/concrete-patterns/" + name + "." + EXTENSION;
 		return EMFModelLoad.loadCompletePattern(patternpath, EXTENSION);
 	};
 	
@@ -250,6 +298,7 @@ public abstract class ServletUtilities {
 		filenames = filenames.stream().filter(x-> x.contains(templateId + "_" + variantname)).toList();
 		
 		
+		//load(serverpatterns/logfile .toJSON / get
 		//loadsavefile
 		//getnextid
 		
