@@ -3,6 +3,9 @@ package qualitypatternmodel.newservlets;
 import java.io.IOException;
 import java.util.Map;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -65,7 +68,11 @@ public class TemplateGetDatabaseServlet extends HttpServlet {
 		}
 
 		// 2 return database name
-		return "{\"database\":\"" + pattern.getDatabaseName() + "\"";
+		try {
+			return new JSONObject().put("database", pattern.getDatabaseName() ).toString();
+		} catch (JSONException e) {
+			return "{\"database\":\"" + pattern.getDatabaseName() + "\"}"; 
+		}
 	}
 	
 }
