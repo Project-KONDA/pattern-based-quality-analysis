@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
+import jakarta.servlet.ServletContext;
 import qualitypatternmodel.execution.Databases;
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.XmlDatabase;
@@ -216,8 +217,9 @@ public class EMFModelLoad {
         }
     }
 
-	public static List<CompletePattern> loadCompletePatternFromFolder(String path, String extension) throws IOException {
+	public static List<CompletePattern> loadCompletePatternFromFolder(ServletContext context, String path, String extension) throws IOException {
 		List<String> files = null;
+		path = context.getRealPath(path);
 		try{
 			files = getFilesInDirectory(path);
 		} catch (Exception e) {

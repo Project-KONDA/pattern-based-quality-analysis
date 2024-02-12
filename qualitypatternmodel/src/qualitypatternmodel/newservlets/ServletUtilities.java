@@ -9,6 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import jakarta.servlet.ServletContext;
 //import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -18,19 +19,26 @@ import qualitypatternmodel.utility.EMFModelLoad;
 
 public abstract class ServletUtilities {
 
-	static public String PATTERNFOLDER = "serverpatters";
+	static public String PATTERNFOLDER = "serverpatterns";
 	static public String CONSTRAINTFOLDER = "concrete-patterns";
-	static public String TEMPLATEFOLDER = "concrete-patterns";
+	static public String TEMPLATEFOLDER = "abstract-patterns";
 	static public String EXTENSION = "pattern";
-	static public List<String> TECHS = List.of("xml", "rdf", "neo4j");
-	static public List<String> LEVELS = List.of("all", "template", "concrete", "ready");
+	static public String XML = "xml";
+	static public String RDF = "rdf";
+	static public String NEO4J = "neo4j";
+	static public List<String> TECHS = List.of(XML, RDF, NEO4J);
+	static public String LVLALL = "all";
+	static public String LVLTEMPLATE = "template";
+	static public String LVLCONSTRAINT = "concrete";
+	static public String LVLREADY = "ready";
+	static public List<String> LEVELS = List.of(LVLALL, LVLTEMPLATE, LVLCONSTRAINT, LVLREADY);
 	
 	// Pattern request
 	
-	public static List<CompletePattern> getAllPattern(String technology) {
+	public static List<CompletePattern> getAllPattern(ServletContext context, String technology) {
 		EList<CompletePattern> patterns = new BasicEList<CompletePattern>();
-		List<CompletePattern> astr = loadAbstractPattern(technology);
-		List<CompletePattern> conc = getReadyConstraints(technology);
+		List<CompletePattern> astr = loadAbstractPattern(context, technology);
+		List<CompletePattern> conc = getReadyConstraints(context, technology);
 		if (astr!=null)
 			patterns.addAll(astr);
 		if (conc!=null)
@@ -38,17 +46,17 @@ public abstract class ServletUtilities {
 		return patterns;
 	}
 	
-	public static List<CompletePattern> getTemplates(String technology) {
-		return loadAbstractPattern(technology);
+	public static List<CompletePattern> getTemplates(ServletContext context, String technology) {
+		return loadAbstractPattern(context, technology);
 	}
 
-	public static List<CompletePattern> getConstraints(String technology) {
-		return loadAllPatternInstances(technology);
+	public static List<CompletePattern> getConstraints(ServletContext context, String technology) {
+		return loadAllPatternInstances(context, technology);
 	}
 	
-	public static List<CompletePattern> getReadyConstraints(String technology) {
+	public static List<CompletePattern> getReadyConstraints(ServletContext context, String technology) {
 		List<CompletePattern> concrete = new BasicEList<CompletePattern>();
-		List<CompletePattern> semiconcrete = loadAllPatternInstances(technology);
+		List<CompletePattern> semiconcrete = loadAllPatternInstances(context, technology);
 		if (semiconcrete != null)
 			for (CompletePattern semi: semiconcrete) {
 				try {
@@ -116,25 +124,25 @@ public abstract class ServletUtilities {
 	private static List<CompletePattern> abstractPatternRdf = null;
 	private static List<CompletePattern> abstractPatternNeo = null;
 	
-	private static List<CompletePattern> loadAbstractPattern(String technology) {
-		String path = "./" + PATTERNFOLDER+"/" + technology + "/" + TEMPLATEFOLDER;
+	private static List<CompletePattern> loadAbstractPattern(ServletContext context, String technology) {
+		String path = PATTERNFOLDER + "/" + technology + "/" + TEMPLATEFOLDER;
 		try {
-			abstractPatternXml = EMFModelLoad.loadCompletePatternFromFolder(path, EXTENSION);
+			abstractPatternXml = EMFModelLoad.loadCompletePatternFromFolder(context, path, EXTENSION);
 			switch(technology) {
 			case "xml": {
 				if (abstractPatternXml == null)
-					abstractPatternXml = EMFModelLoad.loadCompletePatternFromFolder(path, EXTENSION);
+					abstractPatternXml = EMFModelLoad.loadCompletePatternFromFolder(context, path, EXTENSION);
 				return abstractPatternXml;
 			}				
 			case "rdf":{
 				if (abstractPatternRdf == null)
-					abstractPatternRdf = EMFModelLoad.loadCompletePatternFromFolder(path, EXTENSION);
+					abstractPatternRdf = EMFModelLoad.loadCompletePatternFromFolder(context, path, EXTENSION);
 				return abstractPatternRdf;
 			}
 				
 			case "neo4j": {
 				if (abstractPatternNeo == null)
-					abstractPatternNeo = EMFModelLoad.loadCompletePatternFromFolder(path, EXTENSION);
+					abstractPatternNeo = EMFModelLoad.loadCompletePatternFromFolder(context, path, EXTENSION);
 				return abstractPatternNeo;
 			}	
 			default:
@@ -147,10 +155,10 @@ public abstract class ServletUtilities {
 		}
 	}
 	
-	private static List<CompletePattern> loadAllPatternInstances(String technology) {
+	private static List<CompletePattern> loadAllPatternInstances(ServletContext context, String technology) {
 		try {
 			if (TECHS.contains(technology))
-				return EMFModelLoad.loadCompletePatternFromFolder("./" + PATTERNFOLDER + "/" + technology + "/" + CONSTRAINTFOLDER, EXTENSION);
+				return EMFModelLoad.loadCompletePatternFromFolder(context, PATTERNFOLDER + "/" + technology + "/" + CONSTRAINTFOLDER, EXTENSION);
 			else return null;
 //			switch(technology) {
 //			case "xml":
@@ -304,12 +312,12 @@ public abstract class ServletUtilities {
 	};
 
 	protected static CompletePattern loadConstraint(String technology, String name) {
-		String patternpath = "./" + PATTERNFOLDER + "/" + technology + "/" + CONSTRAINTFOLDER + "/" + name + "." + EXTENSION;
+		String patternpath = PATTERNFOLDER + "/" + technology + "/" + CONSTRAINTFOLDER + "/" + name + "." + EXTENSION;
 		return EMFModelLoad.loadCompletePattern(patternpath, EXTENSION);
 	};
 
 	protected static CompletePattern loadTemplate(String technology, String name) {
-		String patternpath = "./" + PATTERNFOLDER + "/" + technology + "/" + TEMPLATEFOLDER + "/" + name + "." + EXTENSION;
+		String patternpath = PATTERNFOLDER + "/" + technology + "/" + TEMPLATEFOLDER + "/" + name + "." + EXTENSION;
 		return EMFModelLoad.loadCompletePattern(patternpath, EXTENSION);
 	};
 
@@ -320,7 +328,7 @@ public abstract class ServletUtilities {
 	public static String generateNewId(String technology, String templateId, String variantname) throws IOException {
 		// TODO
 		// 1 check instance names
-		String constraintPath = "./" + PATTERNFOLDER + "/" + technology + "/" + CONSTRAINTFOLDER;
+		String constraintPath = PATTERNFOLDER + "/" + technology + "/" + CONSTRAINTFOLDER;
 		List<String> filenames = EMFModelLoad.getFilesInDirectory(constraintPath);
 		filenames = filenames.stream().filter(x-> x.contains(templateId + "_" + variantname)).toList();
 		

@@ -1,14 +1,11 @@
 package pattern_handling;
 
 import java.io.IOException;
-import java.util.List;
 
 
 
 //import org.eclipse.emf.common.util.URI;
 
-import qualitypatternmodel.newservlets.ServletUtilities;
-import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class LoadModelTest {
 
@@ -19,10 +16,10 @@ public class LoadModelTest {
 //		CompletePattern pattern = EMFModelLoad.loadCompletePattern(myURL, "pattern");
 //		System.out.println(pattern);
 		
-		List<CompletePattern> patternsA = ServletUtilities.getTemplates("xml");
-		System.out.println("abstract:" + patternsA);
-		List<CompletePattern> patternsC = ServletUtilities.getReadyConstraints("xml");
-		System.out.println("concrete:" + patternsC);
+//		List<CompletePattern> patternsA = ServletUtilities.getTemplates("xml");
+//		System.out.println("abstract:" + patternsA);
+//		List<CompletePattern> patternsC = ServletUtilities.getReadyConstraints("xml");
+//		System.out.println("concrete:" + patternsC);
 	}
 
 }
