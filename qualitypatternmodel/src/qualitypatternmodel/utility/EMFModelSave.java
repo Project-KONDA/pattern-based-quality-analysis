@@ -11,6 +11,8 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
+import jakarta.servlet.ServletContext;
+
 public class EMFModelSave {
 	
 	public static void exportToFile(EObject data, String filePath, String packageName) throws IOException {		
@@ -22,10 +24,14 @@ public class EMFModelSave {
 	  resource.getContents().add(data);
 	  resource.save(Collections.EMPTY_MAP);
 	}
-	
-    public static void exportToFile2(EObject data, String filePath, String fileName, String fileExtension) throws IOException {
+
+    public static void exportToFile2(EObject data, ServletContext servletContext, String relativePath, String fileName, String fileExtension) throws IOException {
+    	exportToFile2(data, servletContext.getRealPath(relativePath), fileName, fileExtension);
+    }
+    
+    public static void exportToFile2(EObject data, String absolutePath, String fileName, String fileExtension) throws IOException {
     	
-    	String path = filePath + "/" + fileName + "." + fileExtension;
+    	String path = absolutePath + "/" + fileName + "." + fileExtension;
     	
         // Create a ResourceSet
         ResourceSet resourceSet = new ResourceSetImpl();
@@ -36,7 +42,8 @@ public class EMFModelSave {
         
         // Print the absolute path for debugging
         System.out.println("Absolute Path: " + new java.io.File(path).getAbsolutePath());
-        
+        System.out.println("Absolute Path: " + new java.io.File(path).getAbsolutePath());
+
         // Create a Resource with an appropriate URI
         URI fileURI = URI.createFileURI(path);
         Resource resource = resourceSet.createResource(fileURI);

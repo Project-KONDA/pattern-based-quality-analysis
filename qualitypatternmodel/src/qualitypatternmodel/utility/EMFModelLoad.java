@@ -19,16 +19,19 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
+import jakarta.servlet.ServletContext;
 import qualitypatternmodel.execution.Databases;
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.execution.impl.DatabasesImpl;
+import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.patternstructure.impl.PatternstructureFactoryImpl;
 
 public class EMFModelLoad {
 	public static CompletePattern loadCompletePattern(String path) {
-		return loadCompletePattern(path, "patternstructure");
+		return loadCompletePattern(path, ServletUtilities.EXTENSION);
 	}
 	
 	public static CompletePattern loadCompletePattern(String path, String extension) {
@@ -85,7 +88,7 @@ public class EMFModelLoad {
 				
 		PatternstructurePackage.eINSTANCE.eClass();
 		String path = patternPath;
-		String fileEnding = "patternstructure";
+		String fileEnding = ServletUtilities.EXTENSION;
 		// Register the XMI resource factory for the .patternstructure extension
         Resource.Factory.Registry reg2 = Resource.Factory.Registry.INSTANCE;
         Map<String, Object> m2 = reg2.getExtensionToFactoryMap();
@@ -139,7 +142,7 @@ public class EMFModelLoad {
 				
 		PatternstructurePackage.eINSTANCE.eClass();
 		path = patternPath;
-		fileEnding = "patternstructure";
+		fileEnding = ServletUtilities.EXTENSION;
 		// Register the XMI resource factory for the .patternstructure extension
         Resource.Factory.Registry reg2 = Resource.Factory.Registry.INSTANCE;
         Map<String, Object> m2 = reg2.getExtensionToFactoryMap();
@@ -166,6 +169,25 @@ public class EMFModelLoad {
 			return null;
 		}
 	}
+	
+    public static CompletePattern loadCompletePatternResource(String path) {
+        // Obtain a resource set
+        ResourceSetImpl resourceSet = new ResourceSetImpl();
+
+        // Register the factory for Patternstructure
+        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(ServletUtilities.EXTENSION, new PatternstructureFactoryImpl());
+
+        // Load the resource
+        Resource resource = resourceSet.getResource(URI.createFileURI(path), true);
+
+        // Cast the resource to CompletePattern
+        if (resource instanceof CompletePattern) {
+            return (CompletePattern) resource;
+        } else {
+            // Handle the case when the resource is not a MyResource instance
+            throw new IllegalArgumentException("The loaded resource is not an instance of MyResource.");
+        }
+    }
 	
 	private static Resource load(String path, String fileEnding) {
 		
@@ -216,8 +238,9 @@ public class EMFModelLoad {
         }
     }
 
-	public static List<CompletePattern> loadCompletePatternFromFolder(String path, String extension) throws IOException {
+	public static List<CompletePattern> loadCompletePatternFromFolder(ServletContext context, String path, String extension) throws IOException {
 		List<String> files = null;
+		path = context.getRealPath(path);
 		try{
 			files = getFilesInDirectory(path);
 		} catch (Exception e) {
@@ -229,7 +252,10 @@ public class EMFModelLoad {
 		for (String file: files) {
 			try {
 				patterns.add(loadCompletePattern(path + "/" + file, extension));
-			} catch (Exception e) {}
+			} catch (Exception e) {
+				System.out.println("Failed to load pattern: " + path + "/" + file +"." + extension);
+				e.printStackTrace();
+			}
 		}
 		return patterns;
 	}

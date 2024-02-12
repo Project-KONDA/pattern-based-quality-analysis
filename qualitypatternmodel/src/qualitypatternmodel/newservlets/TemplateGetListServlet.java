@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -58,7 +59,7 @@ public class TemplateGetListServlet extends HttpServlet {
 			throw new InvalidServletCallException("'" + level + "' is an invalid abstraction level. The levels are: " + ServletUtilities.LEVELS);
 		
 
-		List<CompletePattern> patterns = getPatterns(technology, level);
+		List<CompletePattern> patterns = getPatterns(getServletContext(), technology, level);
 		
 		if (patterns == null)
 			throw new FailedServletCallException("No " + ((level == "abstract")? "template":"constraint") + " found for the technology " + technology + " on level " + level + ".");
@@ -66,21 +67,21 @@ public class TemplateGetListServlet extends HttpServlet {
 		return ServletUtilities.getPatternJSON(patterns).toString();
 	}
 
-	private static List<CompletePattern> getPatterns(String technology, String level)
+	private static List<CompletePattern> getPatterns(ServletContext context, String technology, String level)
 			throws InvalidServletCallException, FailedServletCallException {
 		List<CompletePattern> patterns = null;
 		switch (level) {
 		case "all":
-			patterns = ServletUtilities.getAllPattern(technology);
+			patterns = ServletUtilities.getAllPattern(context, technology);
 			break;
 		case "template":
-			patterns = ServletUtilities.getTemplates(technology);
+			patterns = ServletUtilities.getTemplates(context, technology);
 			break;
 		case "constraint":
-			patterns = ServletUtilities.getConstraints(technology);
+			patterns = ServletUtilities.getConstraints(context, technology);
 			break;
 		case "ready":
-			patterns = ServletUtilities.getReadyConstraints(technology);
+			patterns = ServletUtilities.getReadyConstraints(context, technology);
 			break;
 		}
 		return patterns;
