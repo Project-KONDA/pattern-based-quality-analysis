@@ -1,6 +1,7 @@
 package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -48,11 +49,13 @@ public class TemplateSetParameterServlet extends HttpServlet {
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			e.printStackTrace();
 		}
 //		response.getOutputStream().println("{ \"call\": \"TemplateSetParameterServlet.doPost(" + path + ")\"}");
 	}
 	
-	public String applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public String applyPost (String path, Map<String, String[]> parameter) throws InvalidServletCallException, FailedServletCallException {
+		Map<String, String[]> parameterMap = new HashMap<>(parameter);
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/setparameter/<technology>/<name>/' (not " + path + ")");
@@ -72,29 +75,43 @@ public class TemplateSetParameterServlet extends HttpServlet {
 		}
 		
 		// 2. change patterns
+		Boolean name = false, database = false, datamodel = false;
+		
 		// name?
 		String[] nameArray = parameterMap.get("name");
-		if (nameArray == null || nameArray.length != 1 || nameArray[0].equals("")) {
+		if (nameArray != null && nameArray.length == 1 && !nameArray[0].equals("")) {
 			String newName = nameArray[0];
-			pattern.setPatternId(newName);
+			pattern.setName(newName);
+			name = true;
+			parameterMap.remove("name");
 		}
-		parameterMap.remove("name");
 		// database?
 		String[] databaseArray = parameterMap.get("database");
-		if (databaseArray == null || databaseArray.length != 1 || databaseArray[0].equals("")) {
-			String database = databaseArray[0];
-			pattern.setPatternId(database);
+		if (databaseArray != null && databaseArray.length == 1 && !databaseArray[0].equals("")) {
+			String newDatabase = databaseArray[0];
+			pattern.setDatabaseName(newDatabase);
+			database = true;
+			parameterMap.remove("database");
 		}
-		parameterMap.remove("database");
 		// datamodel?
 		String[] datamodelArray = parameterMap.get("datamodel");
-		if (datamodelArray == null || datamodelArray.length != 1 || datamodelArray[0].equals("")) {
-			String datamodel = datamodelArray[0];
-			pattern.setPatternId(datamodel);
+		if (datamodelArray != null && datamodelArray.length == 1 && !datamodelArray[0].equals("")) {
+			String newDatamodel = datamodelArray[0];
+			pattern.setDataModelName(newDatamodel);
+			datamodel = true;
+			parameterMap.remove("datamodel");
 		}
-		parameterMap.remove("datamodel");
 				
 		JSONObject output = changeParameters(pattern, parameterMap);
+		try {
+			if (name)
+				output.getJSONArray("success").put("name");
+			if (database)
+				output.getJSONArray("success").put("database");
+			if (datamodel)
+				output.getJSONArray("success").put("datamodel");
+		} catch (JSONException e) {
+		}
 		
 		// 3. save constraint
 		try {

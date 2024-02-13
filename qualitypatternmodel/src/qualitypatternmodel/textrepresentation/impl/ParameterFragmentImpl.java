@@ -404,13 +404,12 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void setValue(String value) throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		for (Parameter p: getParameter())
+			p.setValueFromString(value);
 	}
 
 	/**
