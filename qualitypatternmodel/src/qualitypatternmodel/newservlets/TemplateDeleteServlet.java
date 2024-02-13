@@ -55,7 +55,7 @@ public class TemplateDeleteServlet extends HttpServlet {
 
 		// 1 check if constraint exists
 		try {
-			if (ServletUtilities.loadConstraint(technology, patternname) == null)
+			if (ServletUtilities.loadConstraint(getServletContext(), technology, patternname) == null)
 				throw new FailedServletCallException("Requested pattern '" + patternname + "' does not exist.");
 		} catch (Exception e) {
 			throw new FailedServletCallException("Requested pattern '" + patternname + "' does not exist.");
