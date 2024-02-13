@@ -75,10 +75,10 @@ public class TemplateCopyServlet extends HttpServlet {
 		}
 		
 		// 2 create new patternID
-		String newID = ServletUtilities.generateNewId(technology, pattern.getAbstractId(), pattern.getText().get(0).getName()); 
+		String newID = ServletUtilities.generateNewId(getServletContext(), technology, pattern.getAbstractId(), pattern.getText().get(0).getName()); 
 		
 		// 3 change constraint name
-		pattern.setId(newID);
+		pattern.setPatternId(newID);
 		
 		// 4 save constraint
 		ServletUtilities.saveConstraint(getServletContext(), technology, newID, pattern);

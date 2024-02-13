@@ -334,18 +334,51 @@ public abstract class ServletUtilities {
 		EMFModelSave.exportToFile2(pattern, absoluteFolderPath, constraintId, EXTENSION);
 	}
 	
-	public static String generateNewId(String technology, String templateId, String variantname) throws IOException {
-		// TODO
-		// 1 check instance names
-		String constraintPath = PATTERNFOLDER + "/" + technology + "/" + CONSTRAINTFOLDER;
-		List<String> filenames = EMFModelLoad.getFilesInDirectory(constraintPath);
-		filenames = filenames.stream().filter(x-> x.contains(templateId + "_" + variantname)).toList();
-		
-		
-		//load(serverpatterns/logfile .toJSON / get
-		//loadsavefile
-		//getnextid
-		
-		return "newname";
+	public static String generateNewId(ServletContext servletContext, String technology, String templateId, String variantname) throws IOException {
+		String name = technology + "_" + templateId + "_" + variantname;
+		String filepath = servletContext.getRealPath(SAVEFILE);
+		Integer number;
+		try {
+			number = getNextNumber(filepath, name);
+		} catch (JSONException | IOException e) {
+			number = 0;
+		}
+		return name + "_" + number;
+	}
+	
+	public static Integer getNextNumber(String filepath, String variableName) throws JSONException, IOException {
+        File file = new File(filepath);
+        if (!file.exists()) {
+            // If the file doesn't exist, create it and initialize with an empty JSON object
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put(variableName, 0);
+            Files.write(Paths.get(filepath), jsonObject.toString().getBytes());
+            System.out.println("File created successfully: " + filepath);
+            return 0; // Return 0 as the initial value
+        }
+
+        // Read JSON file
+        String jsonString = new String(Files.readAllBytes(Paths.get(filepath)));
+        JSONObject jsonObject = new JSONObject(jsonString);
+
+        // Retrieve the value associated with the provided variable name
+        int currentValue;
+        if (!jsonObject.has(variableName) || !(jsonObject.get(variableName) instanceof Integer)) {
+            // If variable doesn't exist or is not an integer, initialize it with a default value
+            currentValue = 0;
+            jsonObject.put(variableName, currentValue);
+            Files.write(Paths.get(filepath), jsonObject.toString().getBytes());
+        } else {
+            currentValue = jsonObject.getInt(variableName);
+        }
+
+        // Increment the value
+        int newValue = currentValue + 1;
+
+        // Update the JSON with the new value
+        jsonObject.put(variableName, newValue);
+        Files.write(Paths.get(filepath), jsonObject.toString().getBytes());
+
+        return newValue;
 	}
 }
