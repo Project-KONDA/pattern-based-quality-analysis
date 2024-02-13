@@ -2,6 +2,8 @@ package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
 import java.util.Map;
+
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import jakarta.servlet.http.HttpServlet;
@@ -58,17 +60,32 @@ public class TemplateAddTagServlet extends HttpServlet {
 		String[] newTags = parameterMap.get("tag");
 		
 		// 1. load Pattern
-		CompletePattern pattern = ServletUtilities.loadConstraint(technology, constraintId);
-		if (pattern == null)
+		CompletePattern pattern;
+		try {
+			pattern = ServletUtilities.loadConstraint(getServletContext(), technology, constraintId);
+		} catch (IOException e) {
 			throw new FailedServletCallException("404 Requested pattern '" + constraintId + "' does not exist");
+		}
 		
 		// 2. add tags to pattern
 		JSONObject json = new JSONObject();
-		for (String tag: newTags)
-			pattern.getKeywords().add(tag);
+		try {
+			for (String tag: newTags) {
+				if (pattern.getKeywords().add(tag))
+					json.append("success", tag);
+				else 
+					json.append("failed", tag);
+			
+			}
+		} catch (JSONException e) {
+		}
 		
 		// 3. save constraint
-		ServletUtilities.saveConstraint(technology, constraintId, pattern);
+		try {
+			ServletUtilities.saveConstraint(getServletContext(), technology, constraintId, pattern);
+		} catch (IOException e) {
+			throw new FailedServletCallException("Failed to modify Constraint");
+		}
 		
 		return json.toString();
 	}
