@@ -2,6 +2,7 @@ package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Map;
 
 import jakarta.servlet.http.HttpServlet;
@@ -75,23 +76,31 @@ public class TemplateInstantiateServlet extends HttpServlet {
 			throw new FailedServletCallException("404 Requested template '" + templateId + "' does not exist");
 		
 		// 3 remove unused variants
-		PatternText choice = null;
 		ArrayList<String> textNames = new ArrayList<String>();
-		for (PatternText text : pattern.getText()) {
-			String name = text.getName();
-			textNames.add(name);
-			if (name.equals(textid)) {
-				choice = text;
-				break;
-			}
-		}
 		
-		if (choice == null) {
+		Iterator<PatternText> iterator = pattern.getText().iterator();
+        while (iterator.hasNext()) {
+        	PatternText text = iterator.next();
+        	String name = text.getName(); 
+        	textNames.add(name);
+        	if(!name.equals(textid)) {
+//        		for (Fragment frag: text.getFragments()) {
+//        			
+//        		}
+//
+//        		text.getFragments().clear();
+        		pattern.getText().remove(text);
+        		text.delete();
+        	}
+        }
+        
+		if (pattern.getText().size() < 1) {
 			throw new InvalidServletCallException("Variant ID invalid: '" + textid + "' does not exist. Available are: " + textNames);
 		}
-		pattern.getText().clear();
-		pattern.getText().add(choice);
-
+        
+		if (pattern.getText().size() > 1) {
+			throw new InvalidServletCallException("Variant ID '" + textid + "' exists " + pattern.getText().size() + " times. Fix setup. " + textNames);
+		}
 
 		// 4 create new constraint id
 		String constraintId = ServletUtilities.generateNewId(getServletContext(), technology, templateId, pattern.getText().get(0).getName());
