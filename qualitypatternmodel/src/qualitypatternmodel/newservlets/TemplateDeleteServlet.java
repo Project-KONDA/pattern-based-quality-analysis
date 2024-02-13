@@ -62,11 +62,11 @@ public class TemplateDeleteServlet extends HttpServlet {
 		}
 		
 		// 2 delete constraint
-		ServletUtilities.deleteConstraint(technology, patternname);
-		
-		// 3 check if constraint is deleted
-		if (ServletUtilities.loadConstraint(technology, patternname) != null)
+		try {
+			ServletUtilities.deleteConstraint(getServletContext(), technology, patternname);
+		} catch (IOException e) {
 			throw new FailedServletCallException("Deleting constraint '" + patternname + "' failed.");
+		}
 		
 		return "Constraint deleted successfully.";
 	}

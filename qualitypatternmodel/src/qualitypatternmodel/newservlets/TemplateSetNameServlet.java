@@ -62,16 +62,23 @@ public class TemplateSetNameServlet extends HttpServlet {
 		String newName = newNameArray[0];
 		
 		// 1. load Pattern
-		CompletePattern pattern = ServletUtilities.loadConstraint(technology, constraintId);
-		if (pattern == null)
+		CompletePattern pattern;
+		try {
+			pattern = ServletUtilities.loadConstraint(getServletContext(), technology, constraintId);
+		} catch (IOException e) {
 			throw new FailedServletCallException("404 Requested pattern '" + constraintId + "' does not exist");
+		}
 		
 		// 2. change name
 		String oldName = pattern.getName();
 		pattern.setName(newName);
 		
 		// 3. save constraint
-		ServletUtilities.saveConstraint(technology, constraintId, pattern);
+		try {
+			ServletUtilities.saveConstraint(getServletContext(), technology, constraintId, pattern);
+		} catch (IOException e) {
+			throw new FailedServletCallException("Failed to save new constraint");
+		}
 		
 		return "Name of constraint updated successfully from '" + oldName + "' to '" + newName + "'.";
 	}

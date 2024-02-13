@@ -59,9 +59,12 @@ public class TemplateRemoveTagServlet extends HttpServlet {
 		String[] deleteTags = parameterMap.get("tag");
 		
 		// 1. load Pattern
-		CompletePattern pattern = ServletUtilities.loadConstraint(technology, constraintId);
-		if (pattern == null)
+		CompletePattern pattern;
+		try {
+			pattern = ServletUtilities.loadConstraint(getServletContext(), technology, constraintId);
+		} catch (IOException e) {
 			throw new FailedServletCallException("404 Requested pattern '" + constraintId + "' does not exist");
+		}
 				
 		// 2. remove tags from pattern
 		JSONObject json = new JSONObject();
@@ -73,10 +76,11 @@ public class TemplateRemoveTagServlet extends HttpServlet {
 		}
 		
 		// 3. save constraint
-		ServletUtilities.saveConstraint(technology, constraintId, pattern);
-
-		if (ServletUtilities.loadConstraint(technology, constraintId) == null)
+		try {
+			ServletUtilities.saveConstraint(getServletContext(), technology, constraintId, pattern);
+		} catch (IOException e) {
 			throw new FailedServletCallException("Failed to save new constraint");
+		}
 		
 		return json.toString();
 	}

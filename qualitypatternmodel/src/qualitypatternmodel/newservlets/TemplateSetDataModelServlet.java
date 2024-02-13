@@ -62,16 +62,23 @@ public class TemplateSetDataModelServlet extends HttpServlet {
 		String newDataModelName = dataModelNameArray[0];
 		
 		// 1. load Pattern
-		CompletePattern pattern = ServletUtilities.loadConstraint(technology, constraintId);
-		if (pattern == null)
+		CompletePattern pattern;
+		try {
+			pattern = ServletUtilities.loadConstraint(getServletContext(), technology, constraintId);
+		} catch (IOException e) {
 			throw new FailedServletCallException("404 Requested pattern '" + constraintId + "' does not exist");
+		}
 		
 		// 2. change name
 		String oldDataModelName = pattern.getDataModelName();
 		pattern.setDataModelName(newDataModelName);
 		
 		// 3. save constraint
-		ServletUtilities.saveConstraint(technology, constraintId, pattern);
+		try {
+			ServletUtilities.saveConstraint(getServletContext(), technology, constraintId, pattern);
+		} catch (IOException e) {
+			throw new FailedServletCallException("Failed to save new constraint");
+		}
 		
 		return "Datamodel of constraint of constraint '" + pattern.getPatternId() + "' updated successfully from '" + oldDataModelName + "' to '" + newDataModelName + "'.";
 	}

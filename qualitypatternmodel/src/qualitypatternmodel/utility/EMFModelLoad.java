@@ -30,31 +30,32 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.impl.PatternstructureFactoryImpl;
 
 public class EMFModelLoad {
-	public static CompletePattern loadCompletePattern(String path) {
-		return loadCompletePattern(path, ServletUtilities.EXTENSION);
+	
+	public static CompletePattern loadCompletePattern(String absoluteFolderPath, String patternId, String extension) throws IOException {
+		return loadCompletePattern(absoluteFolderPath + "/" + patternId + "." + extension);
 	}
 	
-	public static CompletePattern loadCompletePattern(String path, String extension) {
+	public static CompletePattern loadCompletePattern(String fullPath) throws IOException {
 		// Initialize the model
         PatternstructurePackage.eINSTANCE.eClass();
 
-		Resource resource = load(path, extension);
-		if(resource.getContents().get(0) instanceof CompletePattern) {
-			return (CompletePattern) resource.getContents().get(0);	         
+		EObject object = loadFromFile(fullPath);
+		if(object instanceof CompletePattern) {
+			return (CompletePattern) object;	         
 		} else {
-			return null;
+			throw new IOException("Wrong file format");
 		}
 	}
 	
-	public static Databases loadDatabases(String path) {
+	public static Databases loadDatabases(String path) throws IOException {
 		// Initialize the model
         ExecutionPackage.eINSTANCE.eClass();
 
-		Resource resource = load(path, "execution");
-		if(resource.getContents().get(0) instanceof Databases) {
-			return (Databases) resource.getContents().get(0);	         
+		EObject object = loadFromFile(path);
+		if(object instanceof Databases) {
+			return (Databases) object;	         
 		} else {
-			return null;
+			throw new IOException("Wrong file format");
 		}
 	}
 	
@@ -189,22 +190,7 @@ public class EMFModelLoad {
         }
     }
 	
-	private static Resource load(String path, String fileEnding) {
-		
-        // Register the XMI resource factory for the .patternstructure extension
-        Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
-        Map<String, Object> m = reg.getExtensionToFactoryMap();
-        m.put(fileEnding, new XMIResourceFactoryImpl());
-
-        // Obtain a new resource set
-        ResourceSet resSet = new ResourceSetImpl();
-
-        // Get the resource
-        Resource resource = resSet.getResource(URI.createURI(path), true);
-		return resource;
-	}
-	
-	public static EObject loadFromFile(String filePath) {
+	public static EObject loadFromFile(String filePath) throws IOException {
         // Create a ResourceSet
         ResourceSet resourceSet = new ResourceSetImpl();
 
@@ -224,18 +210,12 @@ public class EMFModelLoad {
             return null;
         }
 
-        try {
-            // Load the resource
-            resource.load(null);
-            System.out.println("EMF model loaded successfully from: " + filePath);
+        // Load the resource
+        resource.load(null);
+//        System.out.println("EMF model loaded successfully from: " + filePath);
 
-            // Assuming your model has a single root element, return it
-            return resource.getContents().get(0);
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("Error loading EMF model from file: " + filePath);
-            return null;
-        }
+        // Assuming your model has a single root element, return it
+        return resource.getContents().get(0);
     }
 
 	public static List<CompletePattern> loadCompletePatternFromFolder(ServletContext context, String path, String extension) throws IOException {
@@ -251,7 +231,7 @@ public class EMFModelLoad {
 		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
 		for (String file: files) {
 			try {
-				patterns.add(loadCompletePattern(path + "/" + file, extension));
+				patterns.add(loadCompletePattern(path + "/" + file));
 			} catch (Exception e) {
 				System.out.println("Failed to load pattern: " + path + "/" + file +"." + extension);
 				e.printStackTrace();
@@ -266,7 +246,7 @@ public class EMFModelLoad {
 		List<EObject> patterns = new BasicEList<EObject>();
 		for (String file: files) {
 			try {
-				patterns.add(loadCompletePattern(file, extension));
+				patterns.add(loadCompletePattern(file));
 			} catch (Exception e) {}
 		}
 		return patterns;
@@ -279,16 +259,4 @@ public class EMFModelLoad {
         List<String> results = filestream.collect(Collectors.toList());
         return results;       
     }
-	
-	public static CompletePattern loadAbstractPattern(String format, String abstractPattern) {
-		
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public static CompletePattern loadConcretePattern(String format, String concretePattern) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

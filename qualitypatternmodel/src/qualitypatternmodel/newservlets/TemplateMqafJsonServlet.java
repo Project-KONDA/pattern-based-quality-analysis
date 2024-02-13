@@ -57,8 +57,10 @@ public class TemplateMqafJsonServlet extends HttpServlet {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
 
 		// 1 load constraint
-		CompletePattern pattern = ServletUtilities.loadConstraint(technology, constraintId);
-		if (pattern == null) {
+		CompletePattern pattern;
+		try {
+			pattern = ServletUtilities.loadConstraint(getServletContext(), technology, constraintId);
+		} catch (IOException e) {
 			throw new FailedServletCallException("constraint not found");
 		}
 		

@@ -64,9 +64,12 @@ public class TemplateSetParameterServlet extends HttpServlet {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
 		
 		// 1. load Pattern
-		CompletePattern pattern = ServletUtilities.loadConstraint(technology, constraintId);
-		if (pattern == null)
+		CompletePattern pattern;
+		try {
+			pattern = ServletUtilities.loadConstraint(getServletContext(), technology, constraintId);
+		} catch (IOException e) {
 			throw new FailedServletCallException("404 Requested pattern '" + constraintId + "' does not exist");
+		}
 		
 		// 2. change patterns
 		// name?
@@ -94,7 +97,12 @@ public class TemplateSetParameterServlet extends HttpServlet {
 		JSONObject output = changeParameters(pattern, parameterMap);
 		
 		// 3. save constraint
-		ServletUtilities.saveConstraint(technology, constraintId, pattern);
+		try {
+			ServletUtilities.saveConstraint(getServletContext(), technology, constraintId, pattern);
+		} catch (IOException e) {
+			throw new FailedServletCallException("Failed to save new constraint");
+		}
+		
 //		return "Parametes of constraint '" + constraintId + "' successfully updated.";
 		return output.toString();
 	}

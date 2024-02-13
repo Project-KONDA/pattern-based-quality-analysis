@@ -27,13 +27,13 @@ public class TemplateInitialisationServlet extends HttpServlet {
 
 		try {
 			for (CompletePattern pattern: GenericPatterns.getAllGenericPattern())
-				EMFModelSave.exportToFile2(pattern, getServletContext(), ServletUtilities.PATTERNFOLDER + "/generic-patterns", pattern.getPatternId(), "pattern");
+				EMFModelSave.exportToFile2(pattern, getServletContext(), ServletUtilities.PATTERNFOLDER + "/generic-patterns", pattern.getPatternId(), ServletUtilities.EXTENSION);
 			for (CompletePattern pattern: XmlPatterns.getAllXmlPattern())
-				EMFModelSave.exportToFile2(pattern, getServletContext(), ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.XML + "/" + ServletUtilities.TEMPLATEFOLDER, pattern.getPatternId(), "pattern");
+				EMFModelSave.exportToFile2(pattern, getServletContext(), ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.XML + "/" + ServletUtilities.TEMPLATEFOLDER, pattern.getPatternId(), ServletUtilities.EXTENSION);
 			for (CompletePattern pattern: RdfPatterns.getAllRdfPattern())
-				EMFModelSave.exportToFile2(pattern, getServletContext(), ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.RDF + "/" + ServletUtilities.TEMPLATEFOLDER, pattern.getPatternId(), "pattern");
+				EMFModelSave.exportToFile2(pattern, getServletContext(), ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.RDF + "/" + ServletUtilities.TEMPLATEFOLDER, pattern.getPatternId(), ServletUtilities.EXTENSION);
 			for (CompletePattern pattern: Neo4jPatterns.getAllNeoPattern())
-				EMFModelSave.exportToFile2(pattern, getServletContext(), ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.NEO4J + "/" + ServletUtilities.TEMPLATEFOLDER, pattern.getPatternId(), "pattern");
+				EMFModelSave.exportToFile2(pattern, getServletContext(), ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.NEO4J + "/" + ServletUtilities.TEMPLATEFOLDER, pattern.getPatternId(), ServletUtilities.EXTENSION);
 		} catch (IOException e) {
 			new ServletException("Unable to save files.");
 		} catch (InvalidityException e) {

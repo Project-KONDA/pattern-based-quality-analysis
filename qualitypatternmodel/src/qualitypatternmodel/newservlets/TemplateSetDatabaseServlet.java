@@ -62,19 +62,23 @@ public class TemplateSetDatabaseServlet extends HttpServlet {
 		String newDatabaseName = databaseNameArray[0];
 		
 		// 1. load Pattern
-		CompletePattern pattern = ServletUtilities.loadConstraint(technology, constraintId);
-		if (pattern == null)
+		CompletePattern pattern;
+		try {
+			pattern = ServletUtilities.loadConstraint(getServletContext(), technology, constraintId);
+		} catch (IOException e) {
 			throw new FailedServletCallException("404 Requested pattern '" + constraintId + "' does not exist");
+		}
 		
 		// 2. change name
 		String oldDatabaseName = pattern.getDatabaseName();
 		pattern.setDatabaseName(newDatabaseName);
-		// 3. save constraint
 		
-		ServletUtilities.saveConstraint(technology, constraintId, pattern);
-		if (!ServletUtilities.loadConstraint(technology, constraintId).getDatabaseName().equals(newDatabaseName))
-			throw new FailedServletCallException("Updating constraint failed");
-			
+		// 3. save constraint
+		try {
+			ServletUtilities.saveConstraint(getServletContext(), technology, constraintId, pattern);
+		} catch (IOException e) {
+			throw new FailedServletCallException("Failed to save new constraint");
+		}
 		
 		return "Database of constraint of constraint '" + pattern.getPatternId() + "' updated successfully from '" + oldDatabaseName + "' to '" + newDatabaseName + "'.";
 	}

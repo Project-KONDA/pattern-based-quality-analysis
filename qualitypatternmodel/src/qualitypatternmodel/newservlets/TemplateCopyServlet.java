@@ -68,7 +68,7 @@ public class TemplateCopyServlet extends HttpServlet {
 		// 1 load constraint with old name
 		CompletePattern pattern;
 		try {
-			pattern = ServletUtilities.loadConstraint(technology, oldID);
+			pattern = ServletUtilities.loadConstraint(getServletContext(), technology, oldID);
 		}
 		catch (Exception e) {
 			throw new FailedServletCallException("404 Requested pattern '" + oldID + "' does not exist - " + e.getMessage());
@@ -81,9 +81,9 @@ public class TemplateCopyServlet extends HttpServlet {
 		pattern.setId(newID);
 		
 		// 4 save constraint
-		ServletUtilities.saveConstraint(technology, newID, pattern);
+		ServletUtilities.saveConstraint(getServletContext(), technology, newID, pattern);
 		
-		if (ServletUtilities.loadConstraint(technology, newID) == null)
+		if (ServletUtilities.loadConstraint(getServletContext(), technology, newID) == null)
 			throw new FailedServletCallException("saving new constraint failed");
 		
 		return ServletUtilities.getPatternJSON(pattern).toString(); 

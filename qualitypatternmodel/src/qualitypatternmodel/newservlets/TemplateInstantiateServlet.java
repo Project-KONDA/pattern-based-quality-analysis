@@ -70,7 +70,7 @@ public class TemplateInstantiateServlet extends HttpServlet {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
 
 		// 2 load constraint with old name
-		CompletePattern pattern = ServletUtilities.loadConstraint(technology, templateId);
+		CompletePattern pattern = ServletUtilities.loadTemplate(getServletContext(), technology, templateId);
 		if (pattern == null)
 			throw new FailedServletCallException("404 Requested template '" + templateId + "' does not exist");
 		
@@ -99,9 +99,12 @@ public class TemplateInstantiateServlet extends HttpServlet {
 		
 		
 		// 5 save constraint
-		ServletUtilities.saveConstraint(technology, constraintId, pattern);
-		if (ServletUtilities.loadConstraint(technology, constraintId) == null)
-			throw new FailedServletCallException("Failed to save new constraint");
+		try {
+			ServletUtilities.saveConstraint(getServletContext(), technology, constraintId, pattern);
+		} catch (IOException e) {
+			throw new FailedServletCallException("Failed to create new constraint.");
+		}
+		
 		
 		return ServletUtilities.getPatternJSON(pattern).toString();
 //		return "Template '" + templateId + "' instantiated successfully to '" + constraintId + "'.";
