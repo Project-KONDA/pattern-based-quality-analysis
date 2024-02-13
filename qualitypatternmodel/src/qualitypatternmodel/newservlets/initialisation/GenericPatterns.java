@@ -52,6 +52,9 @@ public class GenericPatterns {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.setPatternId("Card_generic");
 		pattern.setAbstractId("Card_generic");
+		pattern.setName("Card");
+		pattern.setShortDescription("Cardinality Constraint");
+		pattern.setDescription("Check, wether the occurence count of specific elements apply.");
 		
 		// Context graph of pattern:
 		Node returnNode = pattern.getGraph().getNodes().get(0).makeComplex();
@@ -76,6 +79,9 @@ public class GenericPatterns {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.setPatternId("Comp_generic");
 		pattern.setAbstractId("Comp_generic");
+		pattern.setName("Comp");
+		pattern.setShortDescription("Comparison Pattern");
+		pattern.setDescription("Check, wether the occurence count of specific elements apply.");
 		
 		Graph graph1 = pattern.getGraph();
 		Node returnNode = graph1.getReturnNodes().get(0).makeComplex();
@@ -99,6 +105,9 @@ public class GenericPatterns {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.setPatternId("Func_generic");
 		pattern.setAbstractId("Func_generic");
+		pattern.setName("Func");
+		pattern.setShortDescription("Functional Dependency Constraint");
+		pattern.setDescription("Validate a dependency between two subordinate fields is valid in comparison to data records next to it.");
 		
 		QuantifiedCondition qc = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		
@@ -133,6 +142,9 @@ public class GenericPatterns {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.setPatternId("Unique_generic");
 		pattern.setAbstractId("Unique_generic");
+		pattern.setName("Unique");
+		pattern.setShortDescription("Uniqueness Constraint");
+		pattern.setDescription("Check, whether a value is unique within the dataset.");
 		
 		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		pattern.setCondition(quantifiedCondition);
@@ -174,6 +186,9 @@ public class GenericPatterns {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.setPatternId("Match_generic");
 		pattern.setAbstractId("Match_generic");
+		pattern.setName("Match");
+		pattern.setShortDescription("Regular Expression Check");
+		pattern.setDescription("Check, whether a value matches a specific regular expression.");
 		
 		pattern.getGraph().getReturnNodes().get(0).makeComplex();
 		
@@ -191,6 +206,9 @@ public class GenericPatterns {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.setPatternId("Contains_generic");
 		pattern.setAbstractId("Contains_generic");
+		pattern.setName("Contains");
+		pattern.setShortDescription("Contains Check");
+		pattern.setDescription("Check, whether a value contains a specific substring.");
 		
 		// Context graph of pattern:
 		pattern.getGraph().getReturnNodes().get(0).makeComplex();
@@ -212,6 +230,9 @@ public class GenericPatterns {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.setPatternId("Appdup2_generic");
 		pattern.setAbstractId("Appdup2_generic");
+		pattern.setName("Appdup2");
+		pattern.setShortDescription("Approximate Duplicate based on two attributes");
+		pattern.setDescription("Check whether there are records that have the same value in two important attributes, suggesting that they describe the same real-world object.");
 		
 		pattern.getGraph().getReturnNodes().get(0).makeComplex();
 		pattern.getGraph().getReturnNodes().get(0).setName("main");
@@ -244,6 +265,10 @@ public class GenericPatterns {
 		CompletePattern pattern = getGenericAppdup2();
 		pattern.setPatternId("Appdup3_generic");
 		pattern.setAbstractId("Appdup3_generic");
+		pattern.setName("Appdup3");
+		pattern.setShortDescription("Approximate Duplicate based on three attributes");
+		pattern.setDescription("Check whether there are records that have the same value in three important attributes, suggesting that they describe the same real-world object.");
+		
 		Graph g0 = pattern.getGraph();
 		QuantifiedCondition qc1 = (QuantifiedCondition) pattern.getCondition();
 		Graph g1 = qc1.getGraph();
@@ -261,6 +286,9 @@ public class GenericPatterns {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.setPatternId("DupVal_generic");
 		pattern.setAbstractId("DupVal_generic");
+		pattern.setName("DupVal");
+		pattern.setShortDescription("Duplicate value");
+		pattern.setDescription("Check whether a record has the same value in two distinct fields.");
 		
 		ComplexNode main = (ComplexNode) pattern.getGraph().getReturnNodes().get(0).makeComplex();
 		main.setName("main");

@@ -78,19 +78,21 @@ public class XmlPatterns {
 				variant1.addFragment(v1path2fragment);
 			}
 			variant1.addFragment(new TextFragmentImpl("element?"));
+//			System.out.println(variant1.getFragments().size());
+//			System.out.println(variant1.generateJSON());
 		}
 		{
 			// Is there a <xmlpath_rootToReturn (xpath, “building”, "//*[name() = 'demo:building']”> that has <comparison_operator (select, ["equal", "not equal", "less than", "more than", "less or equal to", "more or equal to"], "more than")> <number (integer, "one", "1")> <xmlpath_returnToCondition (xpath, "current place", "?"> ?
 			PatternText variant2 = TextrepresentationFactory.eINSTANCE.createPatternText();
-			variant2.setName("flexible01");
+			variant2.setName("flexible");
 			pattern.getText().add(variant2);
 			
 			variant2.addFragment(new TextFragmentImpl("Is there a"));
 			{
 				ParameterFragment v2path1fragment = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				v2path1fragment.setName("");
+				v2path1fragment.setName("xmlpath_rootToReturn");
 				v2path1fragment.getParameter().add(path1);
-				v2path1fragment.setExampleValue("");
+				v2path1fragment.setExampleValue("building");
 				variant2.addFragment(v2path1fragment);
 			}
 			variant2.addFragment(new TextFragmentImpl("that has"));
@@ -116,8 +118,8 @@ public class XmlPatterns {
 				variant2.addFragment(v2path2fragment);
 			}
 			variant2.addFragment(new TextFragmentImpl("?"));
-			System.out.println(variant2.getFragments().size());
-			System.out.println(variant2.generateJSON());
+//			System.out.println(variant2.getFragments().size());
+//			System.out.println(variant2.generateJSON());
 		}
 		
 		return pattern;
