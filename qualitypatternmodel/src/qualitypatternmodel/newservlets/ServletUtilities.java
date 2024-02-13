@@ -23,20 +23,20 @@ import qualitypatternmodel.utility.EMFModelSave;
 
 public abstract class ServletUtilities {
 
-	static public String PATTERNFOLDER = "serverpatterns";
-	static public String CONSTRAINTFOLDER = "concrete-patterns";
-	static public String TEMPLATEFOLDER = "abstract-patterns";
-	static public String EXTENSION = "patternstructure";
-	static public String XML = "xml";
-	static public String RDF = "rdf";
-	static public String NEO4J = "neo4j";
-	static public List<String> TECHS = List.of(XML, RDF, NEO4J);
-	static public String LVLALL = "all";
-	static public String LVLTEMPLATE = "template";
-	static public String LVLCONSTRAINT = "concrete";
-	static public String LVLREADY = "ready";
-	static public List<String> LEVELS = List.of(LVLALL, LVLTEMPLATE, LVLCONSTRAINT, LVLREADY);
-	static public String SAVEFILE = PATTERNFOLDER + "/savefile";
+	public static final String PATTERNFOLDER = "serverpatterns";
+	public static final String CONSTRAINTFOLDER = "concrete-patterns";
+	public static final String TEMPLATEFOLDER = "abstract-patterns";
+	public static final String EXTENSION = "patternstructure";
+	public static final String XML = "xml";
+	public static final String RDF = "rdf";
+	public static final String NEO4J = "neo4j";
+	public static final List<String> TECHS = List.of(XML, RDF, NEO4J);
+	public static final String LVLALL = "all";
+	public static final String LVLTEMPLATE = "template";
+	public static final String LVLCONSTRAINT = "concrete";
+	public static final String LVLREADY = "ready";
+	public static final List<String> LEVELS = List.of(LVLALL, LVLTEMPLATE, LVLCONSTRAINT, LVLREADY);
+	public static final String SAVEFILE = PATTERNFOLDER + "/savefile";
 	
 	// Pattern request
 	
@@ -142,18 +142,18 @@ public abstract class ServletUtilities {
 		try {
 			abstractPatternXml = EMFModelLoad.loadCompletePatternFromFolder(context, path, EXTENSION);
 			switch(technology) {
-			case "xml": {
+			case XML: {
 				if (abstractPatternXml == null)
 					abstractPatternXml = EMFModelLoad.loadCompletePatternFromFolder(context, path, EXTENSION);
 				return abstractPatternXml;
 			}				
-			case "rdf":{
+			case RDF:{
 				if (abstractPatternRdf == null)
 					abstractPatternRdf = EMFModelLoad.loadCompletePatternFromFolder(context, path, EXTENSION);
 				return abstractPatternRdf;
 			}
 				
-			case "neo4j": {
+			case NEO4J: {
 				if (abstractPatternNeo == null)
 					abstractPatternNeo = EMFModelLoad.loadCompletePatternFromFolder(context, path, EXTENSION);
 				return abstractPatternNeo;

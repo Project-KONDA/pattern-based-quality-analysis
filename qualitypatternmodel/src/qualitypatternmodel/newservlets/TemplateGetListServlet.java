@@ -62,7 +62,7 @@ public class TemplateGetListServlet extends HttpServlet {
 		List<CompletePattern> patterns = getPatterns(getServletContext(), technology, level);
 		
 		if (patterns == null)
-			throw new FailedServletCallException("No " + ((level == "abstract")? "template":"constraint") + " found for the technology " + technology + " on level " + level + ".");
+			throw new FailedServletCallException("No " + ((level == ServletUtilities.LVLTEMPLATE)? "template":"constraint") + " found for the technology " + technology + " on level " + level + ".");
 		
 		return ServletUtilities.getPatternJSON(patterns).toString();
 	}
@@ -71,16 +71,16 @@ public class TemplateGetListServlet extends HttpServlet {
 			throws InvalidServletCallException, FailedServletCallException {
 		List<CompletePattern> patterns = null;
 		switch (level) {
-		case "all":
+		case ServletUtilities.LVLALL:
 			patterns = ServletUtilities.getAllPattern(context, technology);
 			break;
-		case "template":
+		case ServletUtilities.LVLTEMPLATE:
 			patterns = ServletUtilities.getTemplates(context, technology);
 			break;
-		case "constraint":
+		case ServletUtilities.LVLCONSTRAINT:
 			patterns = ServletUtilities.getConstraints(context, technology);
 			break;
-		case "ready":
+		case ServletUtilities.LVLREADY:
 			patterns = ServletUtilities.getReadyConstraints(context, technology);
 			break;
 		}
