@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -218,15 +217,9 @@ public class EMFModelLoad {
         return resource.getContents().get(0);
     }
 
-	public static List<CompletePattern> loadCompletePatternFromFolder(ServletContext context, String path, String extension) throws IOException {
-		List<String> files = null;
-		path = context.getRealPath(path);
-		try{
-			files = getFilesInDirectory(path);
-		} catch (Exception e) {
-			throw new NoSuchFileException(Paths.get(path).toAbsolutePath().toString());
-		}
-		System.out.println("emfmodelload 221 " + files);
+	public static List<CompletePattern> loadCompletePatternFromFolder(ServletContext context, String relativepath, String extension) throws IOException {
+		String path = context.getRealPath(relativepath);
+		List<String> files = getFilesInDirectory(path);
 		
 		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
 		for (String file: files) {
@@ -240,21 +233,14 @@ public class EMFModelLoad {
 		return patterns;
 	}
 
-	public static List<EObject> loadObjectsFromFolder(String path, String extension) throws IOException {
-		List<String> files = getFilesInDirectory(path);
-		
-		List<EObject> patterns = new BasicEList<EObject>();
-		for (String file: files) {
-			try {
-				patterns.add(loadCompletePattern(file));
-			} catch (Exception e) {}
-		}
-		return patterns;
-	}
-
-    public static List<String> getFilesInDirectory(String directory) throws IOException {
+    public static List<String> getFilesInDirectory(String directory) {
         Path directoryPath = Paths.get(directory);
-        Stream<Path> pathstream = Files.list(directoryPath).map(Path::getFileName);
+        Stream<Path> pathstream;
+		try {
+			pathstream = Files.list(directoryPath).map(Path::getFileName);
+		} catch (IOException e) {
+			return new BasicEList<String>();
+		}
         Stream <String> filestream = pathstream.map(Path::toString);
         List<String> results = filestream.collect(Collectors.toList());
         return results;       

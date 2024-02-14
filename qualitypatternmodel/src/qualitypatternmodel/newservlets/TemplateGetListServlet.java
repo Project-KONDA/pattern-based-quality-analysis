@@ -58,7 +58,6 @@ public class TemplateGetListServlet extends HttpServlet {
 		if (!ServletUtilities.LEVELS.contains(level))
 			throw new InvalidServletCallException("'" + level + "' is an invalid abstraction level. The levels are: " + ServletUtilities.LEVELS);
 		
-
 		List<CompletePattern> patterns = getPatterns(getServletContext(), technology, level);
 		
 		if (patterns == null)
@@ -68,7 +67,7 @@ public class TemplateGetListServlet extends HttpServlet {
 	}
 
 	private static List<CompletePattern> getPatterns(ServletContext context, String technology, String level)
-			throws InvalidServletCallException, FailedServletCallException {
+			throws InvalidServletCallException {
 		List<CompletePattern> patterns = null;
 		switch (level) {
 		case ServletUtilities.LVLALL:

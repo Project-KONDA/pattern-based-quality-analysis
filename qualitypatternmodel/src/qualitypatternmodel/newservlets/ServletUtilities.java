@@ -169,10 +169,14 @@ public abstract class ServletUtilities {
 	}
 	
 	private static List<CompletePattern> loadAllPatternInstances(ServletContext context, String technology) {
-		try {
-			if (TECHS.contains(technology))
+
+		if (TECHS.contains(technology))
+			try {
 				return EMFModelLoad.loadCompletePatternFromFolder(context, PATTERNFOLDER + "/" + technology + "/" + CONSTRAINTFOLDER, EXTENSION);
-			else return null;
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		return new BasicEList<CompletePattern>();
 //			switch(technology) {
 //			case "xml":
 //			case "rdf":
@@ -182,10 +186,6 @@ public abstract class ServletUtilities {
 //			default:
 //				return null;
 //			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
 	}
 
 	public static JSONObject getPatternJSON(List<CompletePattern> patterns) {
