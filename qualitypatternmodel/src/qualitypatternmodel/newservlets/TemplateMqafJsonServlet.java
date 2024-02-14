@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
@@ -21,11 +22,11 @@ public class TemplateMqafJsonServlet extends HttpServlet {
 		String path = request.getPathInfo();
 		System.out.println("TemplateMqafJsonServlet.doGet(" + path + ")");
 		try {
-//			String result = applyGet(path, request.getParameterMap());
-//			response.getOutputStream().println(result);
-//			response.setStatus(HttpServletResponse.SC_OK);
-			response.setStatus(HttpServletResponse.SC_NOT_IMPLEMENTED);
-			response.getWriter().write("{ \"error\": \"not implemented\"}");
+			String result = applyGet(path, request.getParameterMap());
+			response.getOutputStream().println(result);
+			response.setStatus(HttpServletResponse.SC_OK);
+//			response.setStatus(HttpServletResponse.SC_NOT_IMPLEMENTED);
+//			response.getWriter().write("{ \"error\": \"not implemented\"}");
 		}
 //		catch (InvalidServletCallException e) {
 //	        response.setContentType("application/json");
@@ -72,10 +73,16 @@ public class TemplateMqafJsonServlet extends HttpServlet {
 
 		// TODO
 		// 2 generate mqaf constraint
-//		String constraint;
+		String constraint;
+		try {
+			constraint = pattern.generateXmlConstraintYAMLFileContent();
+		} catch (InvalidityException e) {
+			e.printStackTrace();
+			throw new FailedServletCallException(e.getClass().getName() + ": " + e.getMessage());
+		}
 		
-		// return constraint
-//		return constraint;
-		throw new FailedServletCallException("not implemented");
+		// 3 return constraint
+		return constraint;
+//		throw new FailedServletCallException("not implemented");
 	}
 }

@@ -214,7 +214,9 @@ public class EMFModelLoad {
 //        System.out.println("EMF model loaded successfully from: " + filePath);
 
         // Assuming your model has a single root element, return it
-        return resource.getContents().get(0);
+        EObject object = resource.getContents().get(0);
+        resource.unload();
+        return object;
     }
 
 	public static List<CompletePattern> loadCompletePatternFromFolder(ServletContext context, String relativepath, String extension) throws IOException {
