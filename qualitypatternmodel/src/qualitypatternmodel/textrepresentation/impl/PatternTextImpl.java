@@ -379,7 +379,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 					remaining += "\n  - " + p.myToString() + ", ";
 				}
 			}
-			throw new InvalidityException("pattern text does not reference all parameters: " + remaining);
+			throw new InvalidityException("pattern text '" + getName() + "'does not reference all parameters: " + remaining);
 		}
 		if(!patternParametersNonPredefined.containsAll(referencedParameters)) {
 			String remaining = "";

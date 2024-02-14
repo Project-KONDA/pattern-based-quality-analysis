@@ -185,7 +185,7 @@ public class ConstraintObject {
 			throw new InvalidityException("Count Condition invalidly specified: multiple nodes");
 		Node node = graph.getNodes().get(0);
 		if (!(node instanceof XmlProperty))
-			throw new InvalidityException("Count Condition invalidly specified: node has wrong type");
+			throw new InvalidityException("Count Condition invalidly specified: Node " + (node != null? node.getName(): "") + " is of type " + node.getClass().getSimpleName() + " instead of XmlProperty");
 
 		ComparisonOperator operator = condition.getOption().getValue();
 		
@@ -193,7 +193,6 @@ public class ConstraintObject {
 			throw new InvalidityException("Count Condition invalidly specified: argument 2 invalid");
 		
 		Double number = ((NumberElement) condition.getArgument2()).getNumberParam().getValue();
-		
 		
 		ConstraintRuleObject rule = new CardinalityConstraintRuleObject(operator, number);
 		

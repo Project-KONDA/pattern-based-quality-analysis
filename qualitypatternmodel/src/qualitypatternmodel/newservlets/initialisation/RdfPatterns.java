@@ -7,6 +7,7 @@ import org.eclipse.emf.common.util.BasicEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class RdfPatterns {
@@ -39,6 +40,7 @@ public class RdfPatterns {
 		pattern.setPatternId("Card_rdf");
 		pattern.setAbstractId("Card_rdf");
 		// TODO
+		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}
 	
@@ -48,6 +50,7 @@ public class RdfPatterns {
 		pattern.setPatternId("Comp_rdf");
 		pattern.setAbstractId("Comp_rdf");
 		// TODO
+		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}
 	
@@ -57,6 +60,7 @@ public class RdfPatterns {
 		pattern.setPatternId("Func_rdf");
 		pattern.setAbstractId("Func_rdf");
 		// TODO
+		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}
 	
@@ -66,6 +70,7 @@ public class RdfPatterns {
 		pattern.setPatternId("Unique_rdf");
 		pattern.setAbstractId("Unique_rdf");
 		// TODO
+		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}
 	
@@ -75,6 +80,7 @@ public class RdfPatterns {
 		pattern.setPatternId("Match_rdf");
 		pattern.setAbstractId("Match_rdf");
 		// TODO
+		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}
 	
@@ -84,6 +90,7 @@ public class RdfPatterns {
 		pattern.setPatternId("Contains_rdf");
 		pattern.setAbstractId("Contains_rdf");
 		// TODO
+		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}
 	
@@ -93,6 +100,7 @@ public class RdfPatterns {
 		pattern.setPatternId("Appdup2_rdf");
 		pattern.setAbstractId("Appdup2_rdf");
 		// TODO
+		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}
 	
@@ -102,6 +110,7 @@ public class RdfPatterns {
 		pattern.setPatternId("Appdup3_rdf");
 		pattern.setAbstractId("Appdup3_rdf");
 		// TODO
+		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}
 	
@@ -111,6 +120,7 @@ public class RdfPatterns {
 		pattern.setPatternId("DupVal_rdf");
 		pattern.setAbstractId("DupVal_rdf");
 		// TODO
+		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}
 }

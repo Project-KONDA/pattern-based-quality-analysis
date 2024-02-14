@@ -5,6 +5,8 @@ import java.util.List;
 import org.eclipse.emf.common.util.BasicEList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
@@ -16,6 +18,7 @@ import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.NumberParam;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountPattern;
@@ -25,7 +28,7 @@ import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
 
 public class GenericPatterns {
 	
-	public static void main(String[] args) throws InvalidityException {
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		int i = 0;
 		for (CompletePattern pattern: getAllGenericPattern()) {
 			i+=1;
@@ -35,7 +38,7 @@ public class GenericPatterns {
 		}
 	}
 	
-	public static List<CompletePattern> getAllGenericPattern() throws InvalidityException{
+	public static List<CompletePattern> getAllGenericPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
 		patterns.add(getGenericCard());
 		patterns.add(getGenericComp());
@@ -48,7 +51,7 @@ public class GenericPatterns {
 		return patterns;
 	}
 
-	public static CompletePattern getGenericCard() throws InvalidityException {
+	public static CompletePattern getGenericCard() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.setPatternId("Card_generic");
 		pattern.setAbstractId("Card_generic");
@@ -58,6 +61,7 @@ public class GenericPatterns {
 		
 		// Context graph of pattern:
 		Node returnNode = pattern.getGraph().getNodes().get(0).makeComplex();
+		returnNode.setName("RecordElement");
 		
 		// First-order logic condition of pattern:
 		CountCondition countCondition = PatternstructureFactory.eINSTANCE.createCountCondition();
@@ -70,12 +74,14 @@ public class GenericPatterns {
 		countCondition.getOption().setValue(ComparisonOperator.GREATER);
 		
 		Node countReturn = returnNode.addOutgoing(countCondition.getCountPattern().getGraph()).getTarget();
+		countReturn.setName("PropertyToCount");
 		countReturn.setReturnNode(true);
 		
+		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;	
 	}
 	
-	public static CompletePattern getGenericComp() throws InvalidityException {
+	public static CompletePattern getGenericComp() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.setPatternId("Comp_generic");
 		pattern.setAbstractId("Comp_generic");
@@ -98,10 +104,12 @@ public class GenericPatterns {
 		comp2.getOption().getOptions().add(ComparisonOperator.LESS);
 		comp2.getOption().getOptions().add(ComparisonOperator.GREATEROREQUAL);
 		comp2.getOption().getOptions().add(ComparisonOperator.LESSOREQUAL);
+		
+		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;
 	}
 	
-	public static CompletePattern getGenericFunc() throws InvalidityException {
+	public static CompletePattern getGenericFunc() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.setPatternId("Func_generic");
 		pattern.setAbstractId("Func_generic");
@@ -135,10 +143,12 @@ public class GenericPatterns {
 		c2.getTypeOption().setPredefined(true);
 		c2.getOption().setValue(ComparisonOperator.NOTEQUAL);
 		c2.getOption().setPredefined(true);
+		
+		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;
 	}
 	
-	public static CompletePattern getGenericUnique() throws InvalidityException {
+	public static CompletePattern getGenericUnique() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.setPatternId("Unique_generic");
 		pattern.setAbstractId("Unique_generic");
@@ -178,11 +188,12 @@ public class GenericPatterns {
 		
 		Comparison c = g2return.addComparison(e1);
 		c.getTypeOption().setValue(ReturnType.STRING);
-		
+
+		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;
 	}
 	
-	public static CompletePattern getGenericMatch() throws InvalidityException {
+	public static CompletePattern getGenericMatch() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.setPatternId("Match_generic");
 		pattern.setAbstractId("Match_generic");
@@ -198,11 +209,12 @@ public class GenericPatterns {
 		Node ret  = pattern.getGraph().getReturnNodes().get(0);
 		Node element1 = ret.addOutgoing(quantifiedCondition.getGraph()).getTarget().makePrimitive();
 		element1.addPrimitiveMatch();
-		
+
+		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;	
 	}
 	
-	public static CompletePattern getGenericContains() throws InvalidityException {
+	public static CompletePattern getGenericContains() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.setPatternId("Contains_generic");
 		pattern.setAbstractId("Contains_generic");
@@ -222,11 +234,12 @@ public class GenericPatterns {
 		
 		Node element1 = ret.addOutgoing(g2).getTarget().makePrimitive();
 		element1.addPrimitiveContains();
-		
+
+		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;	
 	}
 
-	public static CompletePattern getGenericAppdup2() throws InvalidityException {
+	public static CompletePattern getGenericAppdup2() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.setPatternId("Appdup2_generic");
 		pattern.setAbstractId("Appdup2_generic");
@@ -257,11 +270,12 @@ public class GenericPatterns {
 		
 		Node n2 = main.addOutgoing(g1).getTarget().makePrimitive();
 		other.addOutgoing(n2);
-		
+
+		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;
 	}
 
-	public static CompletePattern getGenericAppdup3() throws InvalidityException {
+	public static CompletePattern getGenericAppdup3() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = getGenericAppdup2();
 		pattern.setPatternId("Appdup3_generic");
 		pattern.setAbstractId("Appdup3_generic");
@@ -278,11 +292,12 @@ public class GenericPatterns {
 		
 		Node n2 = main.addOutgoing(g1).getTarget().makePrimitive();
 		other.addOutgoing(n2);
-		
+
+		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;
 	}
 	
-	public static CompletePattern getGenericDupVal() throws InvalidityException {
+	public static CompletePattern getGenericDupVal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.setPatternId("DupVal_generic");
 		pattern.setAbstractId("DupVal_generic");
@@ -316,7 +331,8 @@ public class GenericPatterns {
 		ComparisonOptionParam comparisonOption = c.getOption();
 		comparisonOption.setValue(ComparisonOperator.EQUAL);
 		comparisonOption.setPredefined(true);
-		
+
+		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;
 	}
 }

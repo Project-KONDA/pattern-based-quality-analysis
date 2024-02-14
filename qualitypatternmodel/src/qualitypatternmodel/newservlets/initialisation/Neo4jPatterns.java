@@ -7,6 +7,7 @@ import org.eclipse.emf.common.util.BasicEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class Neo4jPatterns {
@@ -39,6 +40,7 @@ public class Neo4jPatterns {
 		pattern.setPatternId("Card_neo4j");
 		pattern.setAbstractId("Card_neo4j");
 		// TODO
+		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}
 	
@@ -48,6 +50,7 @@ public class Neo4jPatterns {
 		pattern.setPatternId("Comp_neo4j");
 		pattern.setAbstractId("Comp_neo4j");
 		// TODO
+		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}
 	
@@ -57,6 +60,7 @@ public class Neo4jPatterns {
 		pattern.setPatternId("Func_neo4j");
 		pattern.setAbstractId("Func_neo4j");
 		// TODO
+		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}
 	
@@ -66,6 +70,7 @@ public class Neo4jPatterns {
 		pattern.setPatternId("Unique_neo4j");
 		pattern.setAbstractId("Unique_neo4j");
 		// TODO
+		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}
 	
@@ -75,6 +80,7 @@ public class Neo4jPatterns {
 		pattern.setPatternId("Match_neo4j");
 		pattern.setAbstractId("Match_neo4j");
 		// TODO
+		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}
 	
@@ -84,6 +90,7 @@ public class Neo4jPatterns {
 		pattern.setPatternId("Contains_neo4j");
 		pattern.setAbstractId("Contains_neo4j");
 		// TODO
+		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}
 	
@@ -93,6 +100,7 @@ public class Neo4jPatterns {
 		pattern.setPatternId("Appdup2_neo4j");
 		pattern.setAbstractId("Appdup2_neo4j");
 		// TODO
+		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}
 	
@@ -102,6 +110,7 @@ public class Neo4jPatterns {
 		pattern.setPatternId("Appdup3_neo4j");
 		pattern.setAbstractId("Appdup3_neo4j");
 		// TODO
+		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}
 	
@@ -111,6 +120,7 @@ public class Neo4jPatterns {
 		pattern.setPatternId("DupVal_neo4j");
 		pattern.setAbstractId("DupVal_neo4j");
 		// TODO
+		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}
 }

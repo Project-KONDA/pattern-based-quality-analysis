@@ -7,11 +7,14 @@ import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
+import qualitypatternmodel.textrepresentation.ParameterPredefinition;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
 import qualitypatternmodel.textrepresentation.impl.TextFragmentImpl;
@@ -78,6 +81,19 @@ public class XmlPatterns {
 				variant1.addFragment(v1path2fragment);
 			}
 			variant1.addFragment(new TextFragmentImpl("element?"));
+			
+			ParameterPredefinition predef1 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();
+			predef1.getParameter().add(comp);
+			predef1.setValue(ComparisonOperator.GREATER.getLiteral());
+			
+			
+			ParameterPredefinition predef2 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();
+			predef2.getParameter().add(numb);
+			predef2.setValue("1.");
+			
+			variant1.getParameterPredefinitions().add(predef1);
+			variant1.getParameterPredefinitions().add(predef2);
+			
 //			System.out.println(variant1.getFragments().size());
 //			System.out.println(variant1.generateJSON());
 		}
@@ -121,7 +137,8 @@ public class XmlPatterns {
 //			System.out.println(variant2.getFragments().size());
 //			System.out.println(variant2.generateJSON());
 		}
-		
+
+		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}
 	
@@ -131,6 +148,7 @@ public class XmlPatterns {
 		pattern.setPatternId("Comp_xml");
 		pattern.setAbstractId("Comp_xml");
 		// TODO
+		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}
 	
@@ -140,6 +158,7 @@ public class XmlPatterns {
 		pattern.setPatternId("Func_xml");
 		pattern.setAbstractId("Func_xml");
 		// TODO
+		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}
 	
@@ -149,6 +168,7 @@ public class XmlPatterns {
 		pattern.setPatternId("Unique_xml");
 		pattern.setAbstractId("Unique_xml");
 		// TODO
+		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}
 	
@@ -158,6 +178,7 @@ public class XmlPatterns {
 		pattern.setPatternId("Match_xml");
 		pattern.setAbstractId("Match_xml");
 		// TODO
+		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}
 	
@@ -167,6 +188,7 @@ public class XmlPatterns {
 		pattern.setPatternId("Contains_xml");
 		pattern.setAbstractId("Contains_xml");
 		// TODO
+		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}
 	
@@ -176,6 +198,7 @@ public class XmlPatterns {
 		pattern.setPatternId("Appdup2_xml");
 		pattern.setAbstractId("Appdup2_xml");
 		// TODO
+		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}
 	
@@ -185,6 +208,7 @@ public class XmlPatterns {
 		pattern.setPatternId("Appdup3_xml");
 		pattern.setAbstractId("Appdup3_xml");
 		// TODO
+		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}
 	
@@ -194,6 +218,7 @@ public class XmlPatterns {
 		pattern.setPatternId("DupVal_xml");
 		pattern.setAbstractId("DupVal_xml");
 		// TODO
+		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}
 }

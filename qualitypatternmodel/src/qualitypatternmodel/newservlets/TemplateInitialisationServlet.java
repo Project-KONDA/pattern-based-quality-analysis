@@ -37,10 +37,13 @@ public class TemplateInitialisationServlet extends HttpServlet {
 		} catch (IOException e) {
 			new ServletException("Unable to save files.");
 		} catch (InvalidityException e) {
+			e.printStackTrace();
 			throw new ServletException("Invalid pattern: " + e.getMessage());
 		} catch (OperatorCycleException e) {
+			e.printStackTrace();
 			throw new ServletException("Invalid pattern (operator cycle): " + e.getMessage());
 		} catch (MissingPatternContainerException e) {
+			e.printStackTrace();
 			throw new ServletException("Invalid pattern (missing container): " + e.getMessage());
 		}
 	}
