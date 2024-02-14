@@ -15,7 +15,7 @@ public class InvalidServletCallException extends Exception {
 		super(message);
 	}
 
-	public InvalidServletCallException(String message, InvalidServletCallException e) {
+	public InvalidServletCallException(String message, Exception e) {
 		super(message, e);
 	}
 }

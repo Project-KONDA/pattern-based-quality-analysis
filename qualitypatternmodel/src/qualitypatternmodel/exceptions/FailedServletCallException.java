@@ -15,7 +15,7 @@ public class FailedServletCallException extends Exception {
 		super(message);
 	}
 
-	public FailedServletCallException(String message, FailedServletCallException e) {
+	public FailedServletCallException(String message, Exception e) {
 		super(message, e);
 	}
 }

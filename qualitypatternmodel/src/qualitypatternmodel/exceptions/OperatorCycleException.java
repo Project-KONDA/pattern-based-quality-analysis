@@ -14,4 +14,8 @@ public class OperatorCycleException extends Exception {
 	public OperatorCycleException(String message) {
 		super(message);
 	}
+
+	public OperatorCycleException(String message, Exception e) {
+		super(message, e);
+	}
 }

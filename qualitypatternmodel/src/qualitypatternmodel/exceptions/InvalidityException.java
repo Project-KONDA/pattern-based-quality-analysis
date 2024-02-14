@@ -15,7 +15,7 @@ public class InvalidityException extends Exception {
 		super(message);
 	}
 
-	public InvalidityException(String message, InvalidityException e) {
+	public InvalidityException(String message, Exception e) {
 		super(message, e);
 	}
 }
