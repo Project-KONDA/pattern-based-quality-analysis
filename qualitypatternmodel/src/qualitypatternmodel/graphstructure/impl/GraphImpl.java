@@ -804,6 +804,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, MissingPatternContainerException {
+
+		if ((getNodes().isEmpty()))
+			throw new InvalidityException("No Element in Graph (" + getInternalId() + ")");
 		
 		if ((getReturnNodes().isEmpty() && getIncomingMorphism() == null))
 			throw new InvalidityException("no ReturnElement in Graph (" + getInternalId() + ")");

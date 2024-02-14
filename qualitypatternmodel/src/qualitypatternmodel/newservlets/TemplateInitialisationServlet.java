@@ -12,6 +12,7 @@ import qualitypatternmodel.newservlets.initialisation.GenericPatterns;
 import qualitypatternmodel.newservlets.initialisation.Neo4jPatterns;
 import qualitypatternmodel.newservlets.initialisation.RdfPatterns;
 import qualitypatternmodel.newservlets.initialisation.XmlPatterns;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.EMFModelSave;
 
@@ -21,19 +22,28 @@ public class TemplateInitialisationServlet extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
-        
-		System.out.println(this.getServletContext().getRealPath("/" + ServletUtilities.PATTERNFOLDER + "/generic-patterns"));
-//        ServletContext.getRealPath("/");
-
 		try {
-			for (CompletePattern pattern: GenericPatterns.getAllGenericPattern())
+			for (CompletePattern pattern: GenericPatterns.getAllGenericPattern()) {
+				pattern.isValid(AbstractionLevel.GENERIC);
 				EMFModelSave.exportToFile2(pattern, getServletContext(), ServletUtilities.PATTERNFOLDER + "/generic-patterns", pattern.getPatternId(), ServletUtilities.EXTENSION);
-			for (CompletePattern pattern: XmlPatterns.getAllXmlPattern())
+			}
+				
+			System.out.println("generic Patterns created successfully in: " + this.getServletContext().getRealPath("/" + ServletUtilities.PATTERNFOLDER + "/generic-patterns"));
+			for (CompletePattern pattern: XmlPatterns.getAllXmlPattern()) {
+				pattern.isValid(AbstractionLevel.ABSTRACT);				
 				EMFModelSave.exportToFile2(pattern, getServletContext(), ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.XML + "/" + ServletUtilities.TEMPLATEFOLDER, pattern.getPatternId(), ServletUtilities.EXTENSION);
-			for (CompletePattern pattern: RdfPatterns.getAllRdfPattern())
+			}
+			System.out.println("XML-specific Patterns created successfully in: " + this.getServletContext().getRealPath("/" + ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.XML + "/" + ServletUtilities.TEMPLATEFOLDER));
+			for (CompletePattern pattern: RdfPatterns.getAllRdfPattern()) {
+				pattern.isValid(AbstractionLevel.ABSTRACT);
 				EMFModelSave.exportToFile2(pattern, getServletContext(), ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.RDF + "/" + ServletUtilities.TEMPLATEFOLDER, pattern.getPatternId(), ServletUtilities.EXTENSION);
-			for (CompletePattern pattern: Neo4jPatterns.getAllNeoPattern())
+			}
+			System.out.println("RDF-specific Patterns created successfully in: " + this.getServletContext().getRealPath("/" + ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.RDF + "/" + ServletUtilities.TEMPLATEFOLDER));
+			for (CompletePattern pattern: Neo4jPatterns.getAllNeoPattern()) {
+				pattern.isValid(AbstractionLevel.ABSTRACT);
 				EMFModelSave.exportToFile2(pattern, getServletContext(), ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.NEO4J + "/" + ServletUtilities.TEMPLATEFOLDER, pattern.getPatternId(), ServletUtilities.EXTENSION);
+			}
+			System.out.println("NEO4J-specific Patterns created successfully in: " + this.getServletContext().getRealPath("/" + ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.NEO4J + "/" + ServletUtilities.TEMPLATEFOLDER));
 		} catch (IOException e) {
 			new ServletException("Unable to save files.");
 		} catch (InvalidityException e) {

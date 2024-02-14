@@ -8,6 +8,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 @SuppressWarnings("serial")
@@ -27,16 +31,19 @@ public class TemplateGetServlet extends HttpServlet {
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			e.printStackTrace();
 		}
 		catch (FailedServletCallException e) {
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			e.printStackTrace();
 		}
 		catch (Exception e) {
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			e.printStackTrace();
 		}
 //		response.getOutputStream().println("{ \"call\": \"TemplateGetListServlet.doGet(" + path + ")\"}");
 	}
@@ -56,8 +63,13 @@ public class TemplateGetServlet extends HttpServlet {
 		CompletePattern pattern;
 		try {
 			pattern = ServletUtilities.loadConstraint(getServletContext(), technology, constraintId);
+			System.out.println(pattern.myToString());
+			pattern.isValid(AbstractionLevel.ABSTRACT);
 		} catch (IOException e) {
-			throw new FailedServletCallException("constraint not found");
+			throw new FailedServletCallException("constraint not found", e);
+		}
+		catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
+			throw new FailedServletCallException("constraint faulty", e);
 		}
 		
 		// 2 return json

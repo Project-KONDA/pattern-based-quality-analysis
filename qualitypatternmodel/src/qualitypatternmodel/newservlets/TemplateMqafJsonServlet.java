@@ -1,5 +1,6 @@
 package qualitypatternmodel.newservlets;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Map;
 
@@ -34,14 +35,21 @@ public class TemplateMqafJsonServlet extends HttpServlet {
 //			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 //		}
 //		catch (FailedServletCallException e) {
-//	        response.setContentType("application/json");
-//			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-//			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
-//		}
+//        response.setContentType("application/json");
+//		response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+//		response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+//	}
+			catch (FileNotFoundException e) {
+	        response.setContentType("application/json");
+			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+			response.getWriter().write("{ \"error\": \"unable to find specified constraint\"}");
+			e.printStackTrace();
+		}
 		catch (Exception e) {
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			e.printStackTrace();
 		}
 //		response.getOutputStream().println("{ \"call\": \"TemplateMqafJsonServlet.doGet(" + path + ")\"}");
 	}
@@ -62,27 +70,25 @@ public class TemplateMqafJsonServlet extends HttpServlet {
 		try {
 			pattern = ServletUtilities.loadConstraint(getServletContext(), technology, constraintId);
 		} catch (IOException e) {
-			throw new FailedServletCallException("constraint not found");
+			throw new FailedServletCallException("specified constraint not found", e);
 		}
 		
 		try {
 			pattern.isValid(AbstractionLevel.CONCRETE);
 		} catch (Exception e) {
-			throw new FailedServletCallException(e.getClass().getName() + ": " + e.getMessage());
+			System.out.println(pattern.myToString());
+			throw new FailedServletCallException(e.getClass().getName(), e);
 		}
 
-		// TODO
 		// 2 generate mqaf constraint
 		String constraint;
 		try {
 			constraint = pattern.generateXmlConstraintYAMLFileContent();
 		} catch (InvalidityException e) {
-			e.printStackTrace();
-			throw new FailedServletCallException(e.getClass().getName() + ": " + e.getMessage());
+			throw new FailedServletCallException(e.getClass().getName() + ": " + e.getMessage(), e);
 		}
 		
 		// 3 return constraint
 		return constraint;
-//		throw new FailedServletCallException("not implemented");
 	}
 }
