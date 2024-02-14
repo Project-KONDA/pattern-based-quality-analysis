@@ -215,7 +215,7 @@ public class EMFModelLoad {
 
         // Assuming your model has a single root element, return it
         EObject object = resource.getContents().get(0);
-        resource.unload();
+//        resource.unload();
         return object;
     }
 
