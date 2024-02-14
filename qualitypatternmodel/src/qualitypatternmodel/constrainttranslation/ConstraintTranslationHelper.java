@@ -2,6 +2,10 @@ package qualitypatternmodel.constrainttranslation;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.adaptionxml.XmlAxisPart;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
@@ -122,66 +126,22 @@ public class ConstraintTranslationHelper {
 		return null;
 	}
 	
-	
-	
-	
-	
-	
-	
-
-//	static Boolean isValidConstraint (Graph graph, Node node) {
-//		throw new UnsupportedOperationException();
-//	}
-//
-//	static Boolean checkIsCardinality (Graph graph) {
-//		throw new UnsupportedOperationException();
-//	}
-//
-//	static Boolean checkIsValueRange (Graph graph) {
-//		throw new UnsupportedOperationException();
-//	}
-//
-//	static Boolean checkIsValueComparison (Graph graph) {
-//		throw new UnsupportedOperationException();
-//	}
-//
-//	static Boolean checkIsListComparison (Graph graph) {
-//		throw new UnsupportedOperationException();
-//	}
-//
-//	static Boolean checkIsRegularExpressionMatching (Graph graph) {
-//		throw new UnsupportedOperationException();
-//	}
-//	
-//	static Boolean checkIsStringLength (Graph graph) {
-//		throw new UnsupportedOperationException();
-//	}
-//
-//	static Boolean checkIsPropertyComparison (Graph graph) {
-//		throw new UnsupportedOperationException();
-//	}
-//	
-//	static Boolean checkIsUnique (CompletePattern completePattern) {
-//		throw new UnsupportedOperationException();
-//	}
-	
-	
-
-	/*
-	 * Basic Schema  
-	 */
-//	static BaseSchema getBaseSchema() {
-//		BaseSchema schema = new BaseSchema();
-//		schema.setFormat(Format.XML);
-//		DataElement field1 = new DataElement("label", "path");
-//		schema.addField(field1);
-//		Rule rule = new Rule();
-//		field1.addRule(rule);
-//		
-//		// ADD RULES HERE
-////		rule.withMinCount(4);
-//		
-//		return schema;
-//	}
-	
+	public static String PATH_PRAEFIX = "/child::*";
+	public static String getRelationPathTo(Node node) throws InvalidityException {
+		if (node.getIncoming().isEmpty())
+			throw new InvalidityException("no incomming relation");
+		if (! (node.getIncoming().get(0) instanceof XmlNavigation))
+			throw new InvalidityException("no valid relation");
+		XmlNavigation relation = (XmlNavigation) node.getIncoming().get(0);
+		String path = "";
+		XmlPathParam pathparam = relation.getXmlPathParam();
+		if (!pathparam.getXmlPropertyOptionParam().generateXQuery().equals("/text()"))
+			throw new InvalidityException("fieldnode cannot be translated to constraint due to limitations to only support values between xml-tags.");
+		if (pathparam.getXmlAxisParts() != null) {
+			for (XmlAxisPart xmlAxisPart : pathparam.getXmlAxisParts()) {
+				path += xmlAxisPart.generateXQuery();
+			}
+		}
+		return PATH_PRAEFIX + path;
+	}
 }
