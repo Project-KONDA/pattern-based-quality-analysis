@@ -1,5 +1,6 @@
 package qualitypatternmodel.utility;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Map;
@@ -56,6 +57,28 @@ public class EMFModelSave {
         } catch (IOException e) {
 //            resource.unload();
             throw e;
+        }
+    }
+
+	public static String exportToString(EObject eObject) {
+        // Create a resource set and register XMI resource factory
+        ResourceSet resourceSet = new ResourceSetImpl();
+        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
+
+        // Create a resource
+        Resource resource = resourceSet.createResource(URI.createURI("temp.xmi"));
+        
+        // Add the EObject to the resource
+        resource.getContents().add(eObject);
+
+        try {
+            // Write the resource to a StringWriter
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            resource.save(outputStream, null);
+            return outputStream.toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }

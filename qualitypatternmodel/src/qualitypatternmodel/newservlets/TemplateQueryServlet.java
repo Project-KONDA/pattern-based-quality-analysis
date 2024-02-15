@@ -12,8 +12,10 @@ import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.utility.EMFModelSave;
 
 @SuppressWarnings("serial")
 public class TemplateQueryServlet extends HttpServlet {
@@ -34,16 +36,19 @@ public class TemplateQueryServlet extends HttpServlet {
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			e.printStackTrace();
 		}
 		catch (FailedServletCallException e) {
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			e.printStackTrace();
 		}
 		catch (Exception e) {
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			e.printStackTrace();
 		}
 //		response.getOutputStream().println("{ \"call\": \"TemplateQueryServlet.doGet(" + path + ")\"}");
 	}
@@ -76,8 +81,13 @@ public class TemplateQueryServlet extends HttpServlet {
 		// 2 generate query
 		JSONObject json = null;
 		try {
-			json = generateQueryJson(pattern, technology);
+			if (pattern.containsJavaOperator())
+				json = generateQueryJsonJava(pattern, technology);
+			else 
+				json = generateQueryJson(pattern, technology);
 		} catch (JSONException e) {
+			e.printStackTrace();
+		} catch (InvalidityException e) {
 			e.printStackTrace();
 		}
 		// 3 return result
@@ -93,31 +103,82 @@ public class TemplateQueryServlet extends HttpServlet {
 //		pattern.getLanguage().getLiteral();
 		
 		// 2 query
-		String query;
 		try {
-			switch(technology) {
-			case "xml":
-				query = pattern.generateXQuery();
-				break;
-			case "sql":
-				query = pattern.generateSparql();
-				break;
-			case "neo4j":
-				query = pattern.generateCypher();
-				break;
-			default:
+			if (technology.equals(ServletUtilities.XML)) {
+				json.put("language", "XQuery");
+				String xquery = pattern.generateXQuery();
+				json.put("query", xquery);
+				json.put("query_line", makeQueryOneLine(xquery));
+				
+			} else if (technology.equals(ServletUtilities.RDF)) {
+				json.put("language", "Sparql");
+				String sparql = pattern.generateSparql();
+				json.put("query", sparql);
+				json.put("query_line", makeQueryOneLine(sparql));
+				
+			} else if (technology.equals(ServletUtilities.NEO4J)) {
+				json.put("language", "Cypher");
+				String cypher = pattern.generateCypher();
+				json.put("query", cypher);
+				json.put("query_line", makeQueryOneLine(cypher));
+
+			} else {
+				throw new InvalidServletCallException();
+			}
+		
+		} catch (InvalidityException e) {
+			throw new FailedServletCallException();
+		}
+		
+		// 3 return json
+		return json;
+	}
+	
+	private String makeQueryOneLine(String query) {
+		String shortQuery = query.replace("\r\n", " ");
+		shortQuery = shortQuery.replace("\n", " ");
+		int len = shortQuery.length() + 1;
+		while (shortQuery.length()< len) {
+			len = shortQuery.length();
+			shortQuery = shortQuery.replace("  ", " ");
+		}
+		return shortQuery;
+	}
+
+	private JSONObject generateQueryJsonJava(CompletePattern pattern, String technology) throws JSONException, InvalidServletCallException, FailedServletCallException {
+		JSONObject json = new JSONObject();
+		
+		// 1 technology
+		if (!technology.equals(pattern.getLanguage().getLiteral()))
+			throw new InvalidServletCallException();
+		json.put("technology", technology);
+//		pattern.getLanguage().getLiteral();
+		
+		// 2 query and filter
+		try {
+			if (technology.equals(ServletUtilities.XML)) {
+				json.put("language", "XQuery");
+				String query = pattern.generateXQuery();
+				json.put("query", query);
+				json.put("query_line", makeQueryOneLine(query));
+				JavaFilter filter = pattern.generateQueryFilter();
+				String serializedFilter = EMFModelSave.exportToString(filter);
+				json.put("filter", serializedFilter);
+				
+			} else if (technology.equals(ServletUtilities.RDF)) {
+				throw new InvalidServletCallException("Not implemented for RDF.");
+				
+			} else if (technology.equals(ServletUtilities.NEO4J)) {
+				throw new InvalidServletCallException("Not implemented for Neo4j.");
+
+			} else {
 				throw new InvalidServletCallException();
 			}
 		} catch (InvalidityException e) {
 			throw new FailedServletCallException();
 		}
-		json.put("query", query);
-		// 3 filter?
-		
-		
 		
 		// 4 return json
 		return json;
-		
 	}
 }
