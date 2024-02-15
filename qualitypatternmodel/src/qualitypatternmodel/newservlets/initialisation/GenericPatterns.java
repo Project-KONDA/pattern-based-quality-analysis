@@ -73,7 +73,7 @@ public class GenericPatterns {
 		ne.getNumberParam().setValue(1.);
 		countCondition.getOption().setValue(ComparisonOperator.GREATER);
 		
-		Node countReturn = returnNode.addOutgoing(countCondition.getCountPattern().getGraph()).getTarget();
+		Node countReturn = returnNode.addOutgoing(countCondition.getCountPattern().getGraph()).getTarget().makePrimitive();
 		countReturn.setName("PropertyToCount");
 		countReturn.setReturnNode(true);
 		

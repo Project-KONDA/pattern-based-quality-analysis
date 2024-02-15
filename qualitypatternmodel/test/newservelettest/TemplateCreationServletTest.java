@@ -11,7 +11,7 @@ import qualitypatternmodel.newservlets.TemplateDeleteServlet;
 import qualitypatternmodel.newservlets.TemplateGetDataModelServlet;
 import qualitypatternmodel.newservlets.TemplateGetDatabaseServlet;
 import qualitypatternmodel.newservlets.TemplateInstantiateServlet;
-import qualitypatternmodel.newservlets.TemplateMqafJsonServlet;
+import qualitypatternmodel.newservlets.TemplateMqafConstraintServlet;
 import qualitypatternmodel.newservlets.TemplateQueryServlet;
 import qualitypatternmodel.newservlets.TemplateRemoveTagServlet;
 import qualitypatternmodel.newservlets.TemplateSetDataModelServlet;
@@ -37,7 +37,7 @@ public class TemplateCreationServletTest {
 		System.out.println(new TemplateGetDataModelServlet().applyGet("", null));
 		System.out.println(new TemplateSetDataModelServlet().applyPost("", null));
 		System.out.println(new TemplateSetNameServlet().applyPost("", null));
-		System.out.println(new TemplateMqafJsonServlet().applyGet("", null));
+		System.out.println(new TemplateMqafConstraintServlet().applyGet("", null));
 		System.out.println(new TemplateQueryServlet().applyGet("", null));
 
 		System.out.println(new TemplateAddTagServlet().applyPost("", null));

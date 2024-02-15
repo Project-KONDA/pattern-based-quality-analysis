@@ -216,11 +216,11 @@
 		/template/get/<technology>/<constraintId>
 	-->
 	<servlet>
-		<servlet-name>TemplateMqafJsonServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateMqafJsonServlet</servlet-class>
+		<servlet-name>TemplateMqafConstraintServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.TemplateMqafConstraintServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>TemplateMqafJsonServlet</servlet-name>
+		<servlet-name>TemplateMqafConstraintServlet</servlet-name>
 		<url-pattern>/template/mqafconstraint/*</url-pattern>
 	</servlet-mapping>
 	

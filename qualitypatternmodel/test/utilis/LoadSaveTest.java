@@ -2,6 +2,8 @@ package utilis;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
@@ -52,6 +54,7 @@ public class LoadSaveTest {
 		pattern0.setCondition(qcon);
 		pattern0.getGraph().getNodes().get(0).addOutgoing(qcon.getGraph()).getTarget().makePrimitive().addPrimitiveStringLength();
 		pattern0.getGraph().getNodes().add(GraphstructureFactory.eINSTANCE.createNode());
+		String p0 = pattern0.myToString();
 
 		
 //		System.out.println("Graph: " + isContainedIn(pattern0.getGraph(), pattern0));
@@ -63,8 +66,11 @@ public class LoadSaveTest {
 //		String pattern0s = pattern0.myToString();
 //		System.out.println(pattern0s);
 
-		EMFModelSave.exportToFile2(pattern0, "D:/", "testpattern", "patternstructure");
-		CompletePattern pattern1 = EMFModelLoad.loadCompletePattern("D:/testpattern.patternstructure");
+		EMFModelSave.exportToFile2(pattern0, "D:/", "testpattern0", "patternstructure");
+		CompletePattern pattern1 = EMFModelLoad.loadCompletePattern("D:/testpattern0.patternstructure");
+		String p1 = pattern1.myToString();
+		if (!p0.equals(p1))
+			System.out.println("p1:" + p1);
 //		System.out.println("\n loaded:");
 //		String pattern1s = pattern1.myToString();
 ////		if (!pattern1s.equals(pattern0s))
@@ -99,13 +105,34 @@ public class LoadSaveTest {
 //			System.out.println(pattern3s);
 		
 
-		EMFModelSave.exportToFile2(pattern1, "D:/", "testpattern", "patternstructure");
-		CompletePattern pattern2 = EMFModelLoad.loadCompletePattern("D:/testpattern.patternstructure");
+		EMFModelSave.exportToFile2(pattern1, "D:/", "testpattern1", "patternstructure");
+		CompletePattern pattern2 = EMFModelLoad.loadCompletePattern("D:/testpattern1.patternstructure");
+		String p2 = pattern2.myToString();
+		if (!p1.equals(p2))
+			System.out.println("p2:" + p2);
 		
-		EMFModelSave.exportToFile2(pattern2, "D:/", "testpattern", "patternstructure");
-		CompletePattern pattern3 = EMFModelLoad.loadCompletePattern("D:/testpattern.patternstructure");
-		System.out.println(pattern2.myToString());
+		EMFModelSave.exportToFile2(pattern2, "D:/", "testpattern2", "patternstructure");
+		CompletePattern pattern3 = EMFModelLoad.loadCompletePattern("D:/testpattern2.patternstructure");
+		String p3 = pattern3.myToString();
+		if (!p2.equals(p3))
+			System.out.println("p3:" + p3);
 		
+		try {
+			Files.delete(Paths.get("D:/testpattern.patternstructure"));
+		} catch (Exception e) {}
+
+		try {
+			Files.delete(Paths.get("D:/testpattern0.patternstructure"));
+		} catch (Exception e) {}
+		try {
+			Files.delete(Paths.get("D:/testpattern1.patternstructure"));
+		} catch (Exception e) {}
+		try {
+			Files.delete(Paths.get("D:/testpattern2.patternstructure"));
+		} catch (Exception e) {}
+		try {
+			Files.delete(Paths.get("D:/testpattern_xml.patternstructure"));
+		} catch (Exception e) {}
 		
 	}
 

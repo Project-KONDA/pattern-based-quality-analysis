@@ -4,6 +4,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Map;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -14,7 +17,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 @SuppressWarnings("serial")
-public class TemplateMqafJsonServlet extends HttpServlet {
+public class TemplateMqafConstraintServlet extends HttpServlet {
 	
 	// .. /template/mqafjson   /<technology>/<constraintId>
 	
@@ -89,6 +92,10 @@ public class TemplateMqafJsonServlet extends HttpServlet {
 		}
 		
 		// 3 return constraint
-		return constraint;
+		try {
+			return new JSONObject().put("constraint", constraint).toString();
+		} catch (JSONException e) {
+			return "{\"constraint\": \"" + constraint + "\"}";
+		}
 	}
 }
