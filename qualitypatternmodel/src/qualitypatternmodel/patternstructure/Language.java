@@ -36,7 +36,7 @@ public enum Language implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	XML(1, "XML", "XML"),
+	XML(1, "XML", "xml"),
 
 	/**
 	 * The '<em><b>RDF</b></em>' literal object.
@@ -46,7 +46,7 @@ public enum Language implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RDF(2, "RDF", "RDF"),
+	RDF(2, "RDF", "rdf"),
 
 	/**
 	 * The '<em><b>NEO4J</b></em>' literal object.
@@ -56,7 +56,7 @@ public enum Language implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NEO4J(3, "NEO4J", "NEO4J");
+	NEO4J(3, "NEO4J", "neo4j");
 
 	/**
 	 * The '<em><b>GENERIC</b></em>' literal value.
@@ -74,7 +74,7 @@ public enum Language implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #XML
-	 * @model
+	 * @model literal="xml"
 	 * @generated
 	 * @ordered
 	 */
@@ -85,7 +85,7 @@ public enum Language implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #RDF
-	 * @model
+	 * @model literal="rdf"
 	 * @generated
 	 * @ordered
 	 */
@@ -96,7 +96,7 @@ public enum Language implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #NEO4J
-	 * @model
+	 * @model literal="neo4j"
 	 * @generated
 	 * @ordered
 	 */

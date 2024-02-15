@@ -74,6 +74,25 @@ public class TemplateQueryServlet extends HttpServlet {
 		}
 
 		// 2 generate query
+		JSONObject json = null;
+		try {
+			json = generateQueryJson(pattern, technology);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		// 3 return result
+		return json.toString();
+	}
+
+	private JSONObject generateQueryJson(CompletePattern pattern, String technology) throws JSONException, InvalidServletCallException, FailedServletCallException {
+		JSONObject json = new JSONObject();
+		
+		// 1 technology
+		json.put("technology", pattern.getLanguage().getLiteral());
+		json.put("technology", technology);
+//		pattern.getLanguage().getLiteral();
+		
+		// 2 query
 		String query;
 		try {
 			switch(technology) {
@@ -92,12 +111,13 @@ public class TemplateQueryServlet extends HttpServlet {
 		} catch (InvalidityException e) {
 			throw new FailedServletCallException();
 		}
+		json.put("query", query);
+		// 3 filter?
 		
-		// 3 return query
-		try {
-			return new JSONObject().put("query", query ).toString();
-		} catch (JSONException e) {
-			return "{\"query\":\"" + query + "\"}"; 
-		}
+		
+		
+		// 4 return json
+		return json;
+		
 	}
 }

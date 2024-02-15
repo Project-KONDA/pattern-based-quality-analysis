@@ -459,7 +459,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * @generated NOT
 	 */
 	public String generateXQuery() throws InvalidityException {
-		throw new UnsupportedOperationException();
+		throw new UnsupportedOperationException(this.getClass().getSimpleName());
 	}
 	
 	public String generateXQueryJavaReturn() throws InvalidityException {
@@ -472,12 +472,10 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String generateXQueryJava() throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException(this.getClass().getSimpleName());
 	}
 
@@ -488,7 +486,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 */
 	@Override
 	public String generateSparql() throws InvalidityException {
-		throw new UnsupportedOperationException();
+		throw new UnsupportedOperationException(this.getClass().getSimpleName());
 	}
 
 	/**
@@ -498,7 +496,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 */
 	@Override
 	public String generateCypher() throws InvalidityException {
-		throw new UnsupportedOperationException();
+		throw new UnsupportedOperationException(this.getClass().getSimpleName());
 	}
 
 	/**

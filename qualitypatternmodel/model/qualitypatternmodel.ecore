@@ -770,9 +770,9 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="Language">
       <eLiterals name="GENERIC"/>
-      <eLiterals name="XML" value="1"/>
-      <eLiterals name="RDF" value="2"/>
-      <eLiterals name="NEO4J" value="3"/>
+      <eLiterals name="XML" value="1" literal="xml"/>
+      <eLiterals name="RDF" value="2" literal="rdf"/>
+      <eLiterals name="NEO4J" value="3" literal="neo4j"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="BaseSchemaWrapper" instanceClassName="de.gwdg.metadataqa.api.schema.BaseSchema"/>
   </eSubpackages>

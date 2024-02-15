@@ -16,6 +16,7 @@ import jakarta.servlet.ServletContext;
 //import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.utility.EMFModelLoad;
 import qualitypatternmodel.utility.EMFModelSave;
@@ -27,9 +28,9 @@ public abstract class ServletUtilities {
 	public static final String CONSTRAINTFOLDER = "concrete-patterns";
 	public static final String TEMPLATEFOLDER = "abstract-patterns";
 	public static final String EXTENSION = "patternstructure";
-	public static final String XML = "xml";
-	public static final String RDF = "rdf";
-	public static final String NEO4J = "neo4j";
+	public static final String XML = Language.XML.getLiteral();
+	public static final String RDF = Language.RDF.getLiteral();
+	public static final String NEO4J = Language.NEO4J.getLiteral();
 	public static final List<String> TECHS = List.of(XML, RDF, NEO4J);
 	public static final String LVLALL = "all";
 	public static final String LVLTEMPLATE = "template";
@@ -133,6 +134,7 @@ public abstract class ServletUtilities {
 	// ---------------
 	
 	
+	// for efficiency when requested once, the templates do not need to be reloaded that often
 	private static List<CompletePattern> abstractPatternXml = null;
 	private static List<CompletePattern> abstractPatternRdf = null;
 	private static List<CompletePattern> abstractPatternNeo = null;
@@ -141,24 +143,20 @@ public abstract class ServletUtilities {
 		String path = PATTERNFOLDER + "/" + technology + "/" + TEMPLATEFOLDER;
 		try {
 			abstractPatternXml = EMFModelLoad.loadCompletePatternFromFolder(context, path, EXTENSION);
-			switch(technology) {
-			case XML: {
+			if (technology.equals(XML)) {
 				if (abstractPatternXml == null)
 					abstractPatternXml = EMFModelLoad.loadCompletePatternFromFolder(context, path, EXTENSION);
 				return abstractPatternXml;
-			}				
-			case RDF:{
+			} else if (technology.equals(RDF)) {
 				if (abstractPatternRdf == null)
 					abstractPatternRdf = EMFModelLoad.loadCompletePatternFromFolder(context, path, EXTENSION);
 				return abstractPatternRdf;
-			}
 				
-			case NEO4J: {
+			} else if (technology.equals(NEO4J)) {
 				if (abstractPatternNeo == null)
 					abstractPatternNeo = EMFModelLoad.loadCompletePatternFromFolder(context, path, EXTENSION);
 				return abstractPatternNeo;
-			}	
-			default:
+			} else {
 				return null;
 			}
 		}
