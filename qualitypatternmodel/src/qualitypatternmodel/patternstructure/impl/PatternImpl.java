@@ -228,7 +228,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			String condQuery = condition.generateXQueryJava();
 			if (!condQuery.equals("(true())") && !condQuery.equals("")) {
 				condQuery = condQuery.replace("\n", "\n  ");
-				whereClause = WHERE + condQuery;
+				whereClause = WHERE + condQuery + "\n";
 			}
 		}
 		
