@@ -168,7 +168,6 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			throw new InvalidityException("condition null" + " (" + getInternalId() + ")");
 		
 		checkMorphismOfNextGraph();
-		
 	}
 	
 	
@@ -226,7 +225,8 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		String whereClause = "\n";
 		if (!(condition instanceof TrueElement)) {
 			String condQuery = condition.generateXQueryJava();
-			if (!condQuery.equals("(true())") && !condQuery.equals("")) {
+//			!condQuery.equals("(true())") && !condQuery.equals("(((true())))") && !condQuery.equals("")
+			if (!condQuery.matches("^([(]*true[(][)][)]*)?$")) {
 				condQuery = condQuery.replace("\n", "\n  ");
 				whereClause = WHERE + condQuery + "\n";
 			}

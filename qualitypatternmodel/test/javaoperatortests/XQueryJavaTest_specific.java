@@ -1,6 +1,5 @@
 package javaoperatortests;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -9,45 +8,41 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
-public class XQueryJavaTests {
+public class XQueryJavaTest_specific {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		List<Boolean> results = new ArrayList<Boolean>();
 //		List<String> expectations = List.of(expectedReturn1, expectedReturn2, expectedReturn3, expectedReturn4,
-//				expectedReturn5, expectedReturn6, expectedReturn7, expectedReturn8where, expectedReturn9where, expectedReturn10);
-//		List<CompletePattern> patterns = OneArgTestPatterns.getXmlTestPatterns();
-//		
-////		for (int i = 1; i<10; i++) {
-//		int i = 7;
-//		{
-//			System.out.println("result:\n");
-//			System.out.println(patterns.get(i).generateXQueryJava());
-//			System.out.println("expected:\n");
-//			System.out.println(expectations.get(i));
-//		}
-//	}
-//
-//	public static void main2(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		List<Boolean> results = new ArrayList<Boolean>();
-		List<String> expectations = List.of(expectedReturn1, expectedReturn2, expectedReturn3, expectedReturn4,
-				expectedReturn5, expectedReturn6, expectedReturn7where, expectedReturn8where, expectedReturn9where, expectedReturn10);
-		
+//				expectedReturn5, expectedReturn6, expectedReturn7where, expectedReturn8where, expectedReturn9where, expectedReturn10);
 		List<CompletePattern> patterns = OneArgTestPatterns.getXmlTestPatterns();
 		
-		int from = 1;
-		int to = 10;
-		for (int i = from-1; i<patterns.size() && i < expectations.size() && i < to; i++) {
-			System.out.println("Example " + (i+1) + ":");
-			try {
-				results.add(testTestPattern(patterns.get(i), expectations.get(i)));
-			}
-			catch (InvalidityException e) {
-				e.printStackTrace();
-				results.add(false);
-			}
-		}
+//		System.out.println(expectedReturn7where);
+		String result = " ";
+		try {
+			CompletePattern pattern7 = patterns.get(2); 
+			result = pattern7.generateXQueryJava();
 			
-		System.out.println(results);
-		System.out.print("total: " + (!results.contains(false)));
+			System.out.println(result);
+		} catch (InvalidityException e) {
+			e.printStackTrace();
+		}
+		
+		
+//		int from = 1;
+//		int to = 10;
+//		for (int i = from-1; i<patterns.size() && i < expectations.size() && i < to; i++) {
+//			System.out.println("Example " + (i+1) + ":");
+//			try {
+//				results.add(testTestPattern(patterns.get(i), expectations.get(i)));
+//			}
+//			catch (InvalidityException e) {
+//				e.printStackTrace();
+//				results.add(false);
+//			}
+//		}
+//			
+//		System.out.println(results);
+//		System.out.print("total: " + (!results.contains(false)));
 	}
 
 	static Boolean testTestPattern(CompletePattern testpattern, String expected) throws InvalidityException {

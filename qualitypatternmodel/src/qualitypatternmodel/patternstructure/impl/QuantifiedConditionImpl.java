@@ -219,8 +219,11 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		String conditionString = conditionJava? QUANTIFIEDSTART + ",\n  " + getCondition().generateXQueryJavaReturn() + ",\n  " + QUANTIFIEDEND : "";
 		
 		String result = "";
-		if (graphJava)
+		if (graphJava) {
 			result += graphString;
+			System.err.println("QCon224:\n" + graphString + "\n");
+		}
+			
 		if (graphJava && conditionJava)
 			result += ",\n";
 		if (conditionJava)

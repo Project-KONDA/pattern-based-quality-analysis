@@ -296,7 +296,6 @@ public class OneArgTestPatterns {
 		PrimitiveNode conditionNode = retnode.addOutgoing(qcongraph).getTarget().makePrimitive();
 		conditionNode.setReturnNode(true);
 		conditionNode.addPrimitiveValidateLink();
-		System.out.println(completePattern.myToString());
 		return completePattern;
 	}
 
