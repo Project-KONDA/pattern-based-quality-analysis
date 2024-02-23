@@ -6,6 +6,8 @@ import java.util.Map;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -93,9 +95,38 @@ public class TemplateMqafConstraintServlet extends HttpServlet {
 		
 		// 3 return constraint
 		try {
-			return new JSONObject().put("constraint", constraint).toString();
-		} catch (JSONException e) {
+//			return new JSONObject().put("constraint", constraint).toString();
+			return convertYamlToJson(constraint).toString();
+		} catch (IOException | JSONException e) {
+			e.printStackTrace();
 			return "{\"constraint\": \"" + constraint + "\"}";
-		}
+		} 
 	}
+
+    public static JSONObject convertYamlToJson(String yamlString) throws IOException, JSONException {
+    	System.err.println(yamlString);
+    	// Create ObjectMapper for YAML
+        ObjectMapper yamlMapper = new ObjectMapper(new YAMLFactory());
+
+        // Read YAML string and convert to JSON object
+        Object yamlObject = yamlMapper.readValue(yamlString, Object.class);
+
+        // Create ObjectMapper for JSON
+        ObjectMapper jsonMapper = new ObjectMapper();
+
+        // Convert YAML object to JSON string
+        String jsonString =  jsonMapper.writeValueAsString(yamlObject);
+        return new JSONObject(jsonString);
+//    	// Parse YAML string
+//    	System.out.println(yamlString);
+//        Yaml yaml = new Yaml();
+//        Object yamlObject = yaml.load(yamlString);
+//        System.err.println("[" + yamlObject.toString() + "]");
+//
+//        // Convert YAML object to JSON
+//        JSONObject jsonObject = new JSONObject(yamlObject);
+//        System.err.println("[" + jsonObject.toString() + "]");
+//        return jsonObject;
+
+    }
 }

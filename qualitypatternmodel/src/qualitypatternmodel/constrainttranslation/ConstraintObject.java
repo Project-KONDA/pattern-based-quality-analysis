@@ -81,17 +81,18 @@ public class ConstraintObject {
 	public String getStringRepresentation() throws InvalidityException {
 		if (rule == null)
 			return "ERROR";
-		String result = "format XML\nfields:\n";
+		String result = "format: XML\nfields:\n";
 		
 		EList<Pair<String, String>> fields = rule.getAllFields();
 		
 		for (Pair<String, String> fieldpair: fields) {
-			result += "- field: " + fieldpair.name() +
+			result += "- name: " + fieldpair.name() +
 					"\n  path: " + fieldpair.value() + "\n";
 		}
 		
-		result += "- field: " + fieldNodes[0].getName().replace(" ", "_") + "\n";
+		result += "- name: " + fieldNodes[0].getName().replace(" ", "_") + "\n";
 		result += "  path: " + fieldPath + "\n";
+		result += "  extractable: true\n";
 		result += "  rules:\n" + rule.getStringRepresentation();
 		
 		return result;
