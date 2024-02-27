@@ -1,11 +1,16 @@
 package qualitypatternmodel.utility;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.common.util.BasicEList;
 
+import qualitypatternmodel.graphstructure.ComplexNode;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.javaoperators.JavaOperator;
+import qualitypatternmodel.operators.BooleanOperator;
 
 public class JavaQueryTranslationUtility {
 
@@ -65,8 +70,8 @@ public class JavaQueryTranslationUtility {
 			relationgroups[i] = new BasicEList<Relation>();
 		
 		for (Relation r: relations) {
-			Boolean java = true;
-			Boolean condition = true;
+			Boolean java = hasJavaTargetSomewhere(r);
+			Boolean condition = hasConditionNode(r);
 			Boolean property = (r.getTarget() instanceof PrimitiveNode);
 			
 			if (!condition) {
@@ -91,6 +96,45 @@ public class JavaQueryTranslationUtility {
 		for (List<Relation> rellist: relationgroups)
 			result.addAll(rellist);
 		return result;
+	}
+	
+	private static List<Relation> currentRelations = new ArrayList<Relation>();
+	
+	public static Boolean hasJavaTargetSomewhere(Relation rel) {
+		if (currentRelations.contains(rel))
+			return false;
+		currentRelations.add(rel);
+		Node n = rel.getTarget();
+		if (n instanceof PrimitiveNode) {
+			for (BooleanOperator op: n.getPredicates()) {
+				if (op instanceof JavaOperator)
+					return true;
+			}
+		}
+		if (n instanceof ComplexNode) {
+			for (Relation rel2 : ((ComplexNode) n).getOutgoing())
+				if (hasJavaTargetSomewhere(rel2))
+					return true;
+		}
+		currentRelations.remove(rel);
+		return false;
+	}
+	
+	public static Boolean hasConditionNode(Relation rel) {
+		if (currentRelations.contains(rel))
+			return false;
+		currentRelations.add(rel);
+		
+		if (rel.isCrossGraph())
+			return true;
+		Node n = rel.getTarget();
+		if (n instanceof ComplexNode) {
+			for (Relation rel2 : ((ComplexNode) n).getOutgoing())
+				if (hasConditionNode(rel2))
+					return true;
+		}
+		currentRelations.remove(rel);
+		return false;
 	}
 	
 	public static Boolean isStartTag(String value) {
