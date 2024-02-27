@@ -74,6 +74,12 @@ public class TemplateInstantiateServlet extends HttpServlet {
 		CompletePattern pattern = ServletUtilities.loadTemplate(getServletContext(), technology, templateId);
 		if (pattern == null)
 			throw new FailedServletCallException("404 Requested template '" + templateId + "' does not exist");
+
+		// Optional: set name
+		String[] names = parameterMap.get("name");
+		if (names != null && names[0] != null) {
+			pattern.setName(names[0]);
+		}
 		
 		// 3 remove unused variants
 		ArrayList<String> textNames = new ArrayList<String>();

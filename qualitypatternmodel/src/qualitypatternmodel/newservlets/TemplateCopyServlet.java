@@ -73,6 +73,12 @@ public class TemplateCopyServlet extends HttpServlet {
 		catch (Exception e) {
 			throw new FailedServletCallException("404 Requested pattern '" + oldID + "' does not exist - " + e.getMessage());
 		}
+
+		// Optional: set name
+		String[] names = parameterMap.get("name");
+		if (names != null && names[0] != null) {
+			pattern.setName(names[0]);
+		}
 		
 		// 2 create new patternID
 		String newID = ServletUtilities.generateNewId(getServletContext(), technology, pattern.getAbstractId(), pattern.getText().get(0).getName()); 
