@@ -2,6 +2,7 @@ package qualitypatternmodel.newservlets;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.json.JSONException;
@@ -9,9 +10,11 @@ import org.json.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
+import de.gwdg.metadataqa.api.schema.BaseSchema;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import qualitypatternmodel.constrainttranslation.ConstraintTranslation;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -28,7 +31,13 @@ public class TemplateMqafConstraintServlet extends HttpServlet {
 		String path = request.getPathInfo();
 		System.out.println("TemplateMqafJsonServlet.doGet(" + path + ")");
 		try {
-			String result = applyGet(path, request.getParameterMap());
+			int i = path.split("/").length;
+			String result = "";
+			if (i == 2)
+				result = applyGet2(path, request.getParameterMap());
+			else 
+				result = applyGet2(path, request.getParameterMap());
+//			String result = applyGet(path, request.getParameterMap());
 			response.getOutputStream().println(result);
 			response.setStatus(HttpServletResponse.SC_OK);
 //			response.setStatus(HttpServletResponse.SC_NOT_IMPLEMENTED);
@@ -101,6 +110,63 @@ public class TemplateMqafConstraintServlet extends HttpServlet {
 			e.printStackTrace();
 			return "{\"constraint\": \"" + constraint + "\"}";
 		} 
+	}
+	
+
+	public String applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+		String[] pathparts = path.split("/");
+		if (pathparts.length != 2 || !pathparts[0].equals(""))
+			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getdatabase/<technology>/<name>' (not " + path + ")");
+
+		String technology = pathparts[1];
+		if (!ServletUtilities.TECHS.contains(technology))
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+
+		String[] constraintIds = parameterMap.get("constraints");
+		
+		ArrayList<BaseSchema> schemas = new ArrayList<BaseSchema>();
+		
+		for (String constraintId: constraintIds) {
+			// 1 load constraint
+			CompletePattern pattern;
+			try {
+				pattern = ServletUtilities.loadConstraint(getServletContext(), technology, constraintId);
+			} catch (IOException e) {
+				throw new FailedServletCallException("specified constraint not found", e);
+			}
+			
+			try {
+				pattern.isValid(AbstractionLevel.CONCRETE);
+			} catch (Exception e) {
+				System.out.println(pattern.myToString());
+				throw new FailedServletCallException(e.getClass().getName(), e);
+			}
+			
+			// 2 generate mqaf constraint
+			try {
+				BaseSchema schema = ConstraintTranslation.translateToConstraintSchema(pattern);
+				schemas.add(schema);
+			} catch (InvalidityException e) {
+				throw new FailedServletCallException(e.getClass().getName() + ": " + e.getMessage(), e);
+			}
+			
+		}
+
+		// 3  merge schemas
+		if (schemas.isEmpty())
+			return null;
+		
+		BaseSchema mergedSchema = schemas.get(0);
+		
+		for (int i = 1; i< schemas.size(); i++) {
+			mergedSchema.merge(schemas.get(i);
+			
+		}
+				
+		
+		
+		// 4 return merged schema
+		return mergedSchema.;
 	}
 
     public static JSONObject convertYamlToJson(String yamlString) throws IOException, JSONException {

@@ -9,7 +9,7 @@ public class ConstraintTranslation {
 	
 	public static String translateToConstraintString(CompletePattern completePattern) throws InvalidityException {
 		
-		if(!ConstraintTranslationValidation.checkPatternTranslatable(completePattern))
+		if (!ConstraintTranslationValidation.checkPatternTranslatable(completePattern))
 			throw new InvalidityException("Pattern incompatible");
 
 		ConstraintObject constraint = new ConstraintObject(completePattern);
@@ -19,11 +19,11 @@ public class ConstraintTranslation {
 	
 	public static BaseSchema translateToConstraintSchema(CompletePattern completePattern) throws InvalidityException {
 		
-		if(!ConstraintTranslationValidation.checkPatternTranslatable(completePattern))
+		if (!ConstraintTranslationValidation.checkPatternTranslatable(completePattern))
 			throw new InvalidityException("Pattern incompatible");
 
 		ConstraintObject constraint = new ConstraintObject(completePattern);
 		
 		return constraint.getConstraintSchema();
-	}	
+	}
 }
