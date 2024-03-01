@@ -212,6 +212,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		Boolean graphJava = getGraph().containsJavaOperator();
 		Boolean conditionJava = getCondition().containsJavaOperator();
 		if (!graphJava && !conditionJava)
+			// should not occur
 			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(generateXQuery()), QUANTIFIER, false, false, false);
 		
 		String graphString = graphJava? getGraph().generateXQueryJavaReturn(): "";
@@ -221,7 +222,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		String result = "";
 		if (graphJava) {
 			result += graphString;
-			System.err.println("QCon224:\n" + graphString + "\n");
+//			System.err.println("QCon224:\n" + graphString + "\n");
 		}
 			
 		if (graphJava && conditionJava)

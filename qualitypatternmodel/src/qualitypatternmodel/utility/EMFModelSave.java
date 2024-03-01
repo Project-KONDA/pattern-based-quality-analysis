@@ -53,9 +53,9 @@ public class EMFModelSave {
         // Save the resource
         try {
             resource.save(null);
-//            resource.unload();
+            resource.unload();
         } catch (IOException e) {
-//            resource.unload();
+            resource.unload();
             throw e;
         }
     }

@@ -37,8 +37,10 @@ public class TemplateCreationServletTest {
 		System.out.println(new TemplateGetDataModelServlet().applyGet("", null));
 		System.out.println(new TemplateSetDataModelServlet().applyPost("", null));
 		System.out.println(new TemplateSetNameServlet().applyPost("", null));
-		System.out.println(new TemplateMqafConstraintServlet().applyGet("", null));
-		System.out.println(new TemplateQueryServlet().applyGet("", null));
+		System.out.println(new TemplateMqafConstraintServlet().applyGet2("", null));
+		System.out.println(new TemplateMqafConstraintServlet().applyGet3("", null));
+		System.out.println(new TemplateQueryServlet().applyGet2("", null));
+		System.out.println(new TemplateQueryServlet().applyGet3("", null));
 
 		System.out.println(new TemplateAddTagServlet().applyPost("", null));
 		System.out.println(new TemplateRemoveTagServlet().applyDelete("", null));

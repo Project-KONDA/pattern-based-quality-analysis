@@ -39,6 +39,5 @@ public class XQueryJavaGraphTests {
 		
 		pattern.createXmlAdaption();
 		return pattern;
-		
 	}
 }
