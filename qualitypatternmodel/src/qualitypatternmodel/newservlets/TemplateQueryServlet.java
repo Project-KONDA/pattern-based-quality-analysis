@@ -1,8 +1,12 @@
 package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Set;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -12,6 +16,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -25,10 +31,17 @@ public class TemplateQueryServlet extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
-		Map<String, String[]> params = request.getParameterMap();
 		System.out.println("TemplateQueryServlet.doGet(" + path + ")");
 		try {
-			String result = applyGet(path, params);
+			int i = path.split("/").length;
+			String result = ""; // = applyGet(path, params);
+			if (i == 2)
+				result = applyGet2(path, request.getParameterMap());
+			else if (i == 3)
+				result = applyGet3(path, request.getParameterMap());
+			else 
+				throw new InvalidServletCallException("Wrong url for requesting the mqaf constraint: '.. /template/getdatabase/<technology>/<name>' or '.. /template/getdatabase/<technology>' + {parameter = [..]} (not " + path + ")");
+
 			response.getOutputStream().println(result);
 			response.setStatus(HttpServletResponse.SC_OK);
 		}
@@ -53,7 +66,7 @@ public class TemplateQueryServlet extends HttpServlet {
 //		response.getOutputStream().println("{ \"call\": \"TemplateQueryServlet.doGet(" + path + ")\"}");
 	}
 
-	public String applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public String applyGet3(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getdatabase/<technology>/<name>' (not " + path + ")");
@@ -93,6 +106,46 @@ public class TemplateQueryServlet extends HttpServlet {
 		// 3 return result
 		return json.toString();
 	}
+
+	public String applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+		String[] pathparts = path.split("/");
+		if (pathparts.length != 2 || !pathparts[0].equals(""))
+			throw new InvalidServletCallException("Wrong api call for requesting the database of a constraint: '.. /template/getdatabase/<technology>' + {\"constraints\" = [..]} (not " + path + ")");
+
+		String technology = pathparts[1];
+		if (!ServletUtilities.TECHS.contains(technology))
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+
+		String[] constraintIds = parameterMap.get("constraints");
+		Set<String> constraintIdSet = new LinkedHashSet<>(Arrays.asList(constraintIds));
+		constraintIds = constraintIdSet.toArray(new String[0]);
+
+		JSONObject result = new JSONObject();
+		JSONArray failed = new JSONArray();
+		
+		for (String constraintId: constraintIds) {
+			// 1 load constraint
+			CompletePattern pattern;
+			try {
+				pattern = ServletUtilities.loadConstraint(getServletContext(), technology, constraintId);
+				pattern.isValid(AbstractionLevel.CONCRETE);
+			// 2 generate query
+				JSONObject queryJson = generateQueryJson(pattern, technology);
+				result.put(constraintId, queryJson);
+			} catch (Exception e) {
+				try {
+					result.put(constraintId, "failed");
+				} catch (JSONException e1) {}
+				failed.put(constraintId);
+			}
+		}
+		try {
+			result.put("failed", failed);
+		} catch (JSONException e) {
+		}
+		return result.toString();
+	}
+
 
 	private JSONObject generateQueryJson(CompletePattern pattern, String technology) throws JSONException, InvalidServletCallException, FailedServletCallException {
 		JSONObject json = new JSONObject();

@@ -35,8 +35,10 @@ public class TemplateMqafConstraintServlet extends HttpServlet {
 			String result = "";
 			if (i == 2)
 				result = applyGet2(path, request.getParameterMap());
+			else if (i == 3)
+				result = applyGet3(path, request.getParameterMap());
 			else 
-				result = applyGet2(path, request.getParameterMap());
+				throw new InvalidServletCallException("Wrong url for requesting the mqaf constraint: '.. /template/getdatabase/<technology>/<name>' or '.. /template/getdatabase/<technology>' + {parameter = [..]} (not " + path + ")");
 //			String result = applyGet(path, request.getParameterMap());
 			response.getOutputStream().println(result);
 			response.setStatus(HttpServletResponse.SC_OK);
@@ -68,10 +70,10 @@ public class TemplateMqafConstraintServlet extends HttpServlet {
 //		response.getOutputStream().println("{ \"call\": \"TemplateMqafJsonServlet.doGet(" + path + ")\"}");
 	}
 
-	public String applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public String applyGet3(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
-			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getdatabase/<technology>/<name>' (not " + path + ")");
+			throw new InvalidServletCallException("Wrong url for requesting the mqaf constraint: '.. /template/getdatabase/<technology>/<name>' (not " + path + ")");
 
 		String technology = pathparts[1];
 		String constraintId = pathparts[2];
@@ -116,7 +118,7 @@ public class TemplateMqafConstraintServlet extends HttpServlet {
 	public String applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 2 || !pathparts[0].equals(""))
-			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getdatabase/<technology>/<name>' (not " + path + ")");
+			throw new InvalidServletCallException("Wrong api call for requesting the database of a constraint: '.. /template/getdatabase/<technology>' + {\"constraints\" = [..]} (not " + path + ")");
 
 		String technology = pathparts[1];
 		if (!ServletUtilities.TECHS.contains(technology))
@@ -156,17 +158,14 @@ public class TemplateMqafConstraintServlet extends HttpServlet {
 		if (schemas.isEmpty())
 			return null;
 		
-		BaseSchema mergedSchema = schemas.get(0);
-		
-		for (int i = 1; i< schemas.size(); i++) {
-			mergedSchema.merge(schemas.get(i);
-			
-		}
-				
-		
+//		BaseSchema mergedSchema = schemas.get(0);		
+//		for (int i = 1; i< schemas.size(); i++) {
+//			mergedSchema.merge(schemas.get(i));
+//		}
 		
 		// 4 return merged schema
-		return mergedSchema.;
+//		return mergedSchema.toJSON;
+		return null;
 	}
 
     public static JSONObject convertYamlToJson(String yamlString) throws IOException, JSONException {
