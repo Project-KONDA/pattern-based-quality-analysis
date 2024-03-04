@@ -154,7 +154,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				List<BooleanFilterPart> graphFilter = ((GraphImpl) getGraph()).generateQueryFilterParts();
 				for (BooleanFilterPart filter: graphFilter)
 					subfilter.add(new ListFilterPartImpl(getQuantifier(), filter));
-				
 			}
 
 			if (condition) {

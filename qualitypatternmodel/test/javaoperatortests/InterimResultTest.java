@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Objects;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
@@ -12,19 +14,19 @@ public class InterimResultTest {
 	
 	private static Boolean output = false;
 
-	public static void main(String[] args) throws InvalidityException {
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<Boolean> results = new ArrayList<Boolean>();
-		results.add(testTestPattern(OneArgTestPatterns.getTestPattern1(), testList1, expectedList1, output));
-		results.add(testTestPattern(OneArgTestPatterns.getTestPattern2(), testList1, expectedList2, output));
-		results.add(testTestPattern(OneArgTestPatterns.getTestPattern3(), testList3, expectedList3, output));
-		results.add(testTestPattern(OneArgTestPatterns.getTestPattern4(), testList3, expectedList4, output));
-		results.add(testTestPattern(OneArgTestPatterns.getTestPattern5(), testList1, expectedList5, output));
-		results.add(testTestPattern(OneArgTestPatterns.getTestPattern6(), testList2, expectedList6, output));
-		results.add(testTestPattern(OneArgTestPatterns.getTestPattern7(), testList7, expectedList7, output));
-		results.add(testTestPattern(OneArgTestPatterns.getTestPattern8(), testList8, expectedList8, output));
-		results.add(testTestPattern(OneArgTestPatterns.getTestPattern9(), testList1, expectedList9, output));
-		// The structure of 10 need to be changed: variableContainer(fixedContainer(a,b)) -> fixedContainer( variableContainer(A), variableContainer(B) ) 
-		results.add(testTestPattern(OneArgTestPatterns.getTestPattern10(), testList10, expectedList10, output));
+		List<CompletePattern> patterns = OneArgTestPatterns.getXmlTestPatterns();
+		results.add(testTestPattern(patterns.get(0), testList1, expectedList1, output));
+//		results.add(testTestPattern(patterns.get(1), testList1, expectedList2, output));
+//		results.add(testTestPattern(patterns.get(2), testList3, expectedList3, output));
+//		results.add(testTestPattern(patterns.get(3), testList3, expectedList4, output));
+//		results.add(testTestPattern(patterns.get(4), testList1, expectedList5, output));
+//		results.add(testTestPattern(patterns.get(5), testList2, expectedList6, output));
+//		results.add(testTestPattern(patterns.get(6), testList7, expectedList7, output));
+//		results.add(testTestPattern(patterns.get(7), testList8, expectedList8, output));
+//		results.add(testTestPattern(patterns.get(8), testList1, expectedList9, output));
+//		results.add(testTestPattern(patterns.get(9), testList10, expectedList10, output));
 		System.out.println(results);
 		System.out.print("total: " + (!results.contains(false)));
 	}

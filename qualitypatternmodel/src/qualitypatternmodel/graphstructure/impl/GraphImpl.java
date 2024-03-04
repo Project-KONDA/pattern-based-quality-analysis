@@ -158,33 +158,34 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		return parameterNodes;
 	}
 
-	public EList<Node> javaLocalRequiredNodes(){
-		EList<Node> parameterNodes = new BasicEList<Node>();
-		for (Node node: getNodes())
-			if (node.inJavaGraphReturnRequired())
-				parameterNodes.add(node);
-		return parameterNodes;
-	}
+//	public EList<Node> javaLocalRequiredNodes(){
+//		EList<Node> parameterNodes = new BasicEList<Node>();
+//		for (Node node: getNodes())
+//			if (node.inJavaGraphReturnRequired())
+//				parameterNodes.add(node);
+//		return parameterNodes;
+//	}
 
-	public EList<Node> javaLaterRequiredNodes(){
-		EList<Node> parameterNodes = new BasicEList<Node>();
-		for (Node node: getNodes())
-			if (node.inJavaReturnRequired()&& node.inJavaGraphReturnRequired())
-				parameterNodes.add(node);
-		return parameterNodes;
-	}
+//	public EList<Node> javaLaterRequiredNodes(){
+//		EList<Node> parameterNodes = new BasicEList<Node>();
+//		for (Node node: getNodes())
+//			if (node.inJavaReturnRequired()&& node.inJavaGraphReturnRequired())
+//				parameterNodes.add(node);
+//		return parameterNodes;
+//	}
 
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
-		EList<BooleanFilterPart> filters = new BasicEList<BooleanFilterPart>();
-		for (Node node: getNodes()) {
-			if (node instanceof PrimitiveNode) {
-				BooleanFilterPart filter = (BooleanFilterPart) node.generateQueryFilterPart();
-				if (filter != null)
-					filters.add(filter);
-			}
-		}
-		return BooleanFilterPart.combine(filters);
+//		EList<BooleanFilterPart> filters = new BasicEList<BooleanFilterPart>();
+//		for (Node node: getNodes()) {
+//			if (node instanceof PrimitiveNode) {
+//				BooleanFilterPart filter = (BooleanFilterPart) node.generateQueryFilterPart();
+//				if (filter != null)
+//					filters.add(filter);
+//			}
+//		}
+//		return BooleanFilterPart.combine(filters);
+		return BooleanFilterPart.combine(generateQueryFilterParts());
 	}
 
 	public List<BooleanFilterPart> generateQueryFilterParts() throws InvalidityException {

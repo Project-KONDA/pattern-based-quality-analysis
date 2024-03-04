@@ -365,17 +365,17 @@ public class XQueryJavaTests {
 			+ "  \"</quantifier>\",\n"
 			+ expectedEnd;
 	
-	private static String restAfterDif(String a, String b) {
-		while(!a.isBlank() && !b.isBlank() && a.charAt(0) == b.charAt(0)) {
-			a = a.substring(1);
-			b = b.substring(1);
-		}
-		while(!a.isBlank() && !b.isBlank() &&  ( a.charAt(a.length()-1) == b.charAt(b.length()-1))) {
-			a = a.substring(0, a.length()-1);
-			b = b.substring(0, b.length()-1);
-		}
-		
-		
-		return "'" + a + "' \n '" + b + "'";
-	}
+//	private static String restAfterDif(String a, String b) {
+//		while(!a.isBlank() && !b.isBlank() && a.charAt(0) == b.charAt(0)) {
+//			a = a.substring(1);
+//			b = b.substring(1);
+//		}
+//		while(!a.isBlank() && !b.isBlank() &&  ( a.charAt(a.length()-1) == b.charAt(b.length()-1))) {
+//			a = a.substring(0, a.length()-1);
+//			b = b.substring(0, b.length()-1);
+//		}
+//		
+//		
+//		return "'" + a + "' \n '" + b + "'";
+//	}
 }
