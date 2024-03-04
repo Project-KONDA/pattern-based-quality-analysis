@@ -29,7 +29,7 @@ public class XQueryJavaTests {
 //	public static void main2(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<Boolean> results = new ArrayList<Boolean>();
 		List<String> expectations = List.of(expectedReturn1, expectedReturn2, expectedReturn3, expectedReturn4,
-				expectedReturn5, expectedReturn6, expectedReturn7where, expectedReturn8where, expectedReturn9where, expectedReturn10);
+				expectedReturn5, expectedReturn6, expectedReturn7, expectedReturn8, expectedReturn9where, expectedReturn10);
 		
 		List<CompletePattern> patterns = OneArgTestPatterns.getXmlTestPatterns();
 		
@@ -58,7 +58,7 @@ public class XQueryJavaTests {
 			e.printStackTrace();
 		}
 		boolean equal = Objects.equals(result, expected);
-		System.err.println(equal? "equal": ( "not equal" + restAfterDif(result, expected)));
+		System.err.println(equal? "equal": ( "not equal" )); // + restAfterDif(result, expected)));
 		if(!equal) {
 //			System.out.println("\n\nquery:\n\n" + testpattern.generateXQuery());
 //			System.out.println("\n\nstructure:\n\n" + testpattern.myToString());
@@ -254,31 +254,15 @@ public class XQueryJavaTests {
 			+ "  \"</quantifier>\",\n"
 			+ "  \"</formula>\",\n"
 			+ expectedEnd;
-	static String expectedReturn7Old = 
-			"for $var3_0 in /descendant::*\n" 
-			+ expectedStart
-			+ "  $var3_0,\n"
-			+ expectedMid
-			+ "  \"<quantifier>\",\n"
-			+ "  (for $var4_0 in $var3_0/child::*\n"
-			+ "  return \n"
-			+ "  (\n"
-			+ "  \"<quantifier>\",\n"
-			+ "  (for $var5_0 in $var4_0/text()\n"
-			+ "  return $var5_0)\n"
-			+ "  \"</quantifier>\")\n"
-			+ "  )\n"
-			+ "  \"</quantifier>\",\n"
-			+ expectedEnd;
 	static String expectedReturn7 = 
 			"for $var3_0 in /descendant::*\n"
 			+ expectedStart
 			+ "  $var3_0,\n"
 			+ expectedMid
 			+ "  \"<quantifier>\",\n"
-			+ "  (\n"
 			+ "  for $var4_0 in $var3_0/child::*\n"
-			+ "  return (\n"
+			+ "  return\n"
+			+ "  (\"<quantified>\",\n"
 			+ "  \"<quantifier>\",\n"
 			+ "  (\"<value>\",\n"
 			+ "  (  \n"
@@ -287,28 +271,9 @@ public class XQueryJavaTests {
 			+ "  ),\n"
 			+ "  \"</value>\"\n"
 			+ "  ),\n"
-			+ "  \"</quantifier>\"),\n"
-			+ "  \"</quantifier>\"),\n"
-			+ expectedEnd;
-	static String expectedReturn7where = 
-			"for $var3_0 in /descendant::*\n"
-			+ expectedStart
-			+ "  $var3_0,\n"
-			+ expectedMid
-			+ "  \"<quantified>\",\n"
-			+ "  (\n"
-			+ "  for $var4_0 in $var3_0/child::*\n"
-			+ "  return (\n"
-			+ "  \"<quantified>\",\n"
-			+ "  (\"<value>\",\n"
-			+ "  (  \n"
-			+ "  for $var5_0 in $var4_0/text()\n"
-			+ "  return $var5_0\n"
-			+ "  ),\n"
-			+ "  \"</value>\"\n"
-			+ "  ),\n"
+			+ "  \"</quantifier>\",\n"
 			+ "  \"</quantified>\"),\n"
-			+ "  \"</quantified>\"),\n"
+			+ "  \"</quantifier>\",\n"
 			+ expectedEnd;
 	static String expectedReturn8 = 
 			"for $var4_0 in /descendant::*\n"
@@ -316,13 +281,13 @@ public class XQueryJavaTests {
 			+ "  $var4_0,\n"
 			+ expectedMid
 			+ "  \"<quantifier>\",\n"
-			+ "  (\n"
 			+ "  for $var5_0 in $var4_0/child::*\n"
-			+ "  return (\n"
+			+ "  return\n"
+			+ "  (\"<quantified>\",\n"
 			+ "  \"<quantifier>\",\n"
-			+ "  (\n"
 			+ "  for $var6_0 in $var5_0/child::*\n"
-			+ "  return (\n"
+			+ "  return\n"
+			+ "  (\"<quantified>\",\n"
 			+ "  \"<quantifier>\",\n"
 			+ "  (\"<value>\",\n"
 			+ "  (  \n"
@@ -331,34 +296,11 @@ public class XQueryJavaTests {
 			+ "  ),\n"
 			+ "  \"</value>\"\n"
 			+ "  ),\n"
-			+ "  \"</quantifier>\"),\n"
-			+ "  \"</quantifier>\")),\n"
-			+ "  \"</quantifier>\"),\n"
-			+ expectedEnd;
-	static String expectedReturn8where = 
-			"for $var4_0 in /descendant::*\n"
-			+ expectedStart
-			+ "  $var4_0,\n"
-			+ expectedMid
-			+ "  \"<quantifier>\",\n"
-			+ "  (\n"
-			+ "  for $var5_0 in $var4_0/child::*\n"
-			+ "  return (\n"
-			+ "  \"<quantifier>\",\n"
-			+ "  (\n"
-			+ "  for $var6_0 in $var5_0/child::*\n"
-			+ "  return (\n"
-			+ "  \"<quantifier>\",\n"
-			+ "  (\"<value>\",\n"
-			+ "  (  \n"
-			+ "  for $var7_0 in $var6_0/text()\n"
-			+ "  return $var7_0\n"
-			+ "  ),\n"
-			+ "  \"</value>\"\n"
-			+ "  ),\n"
-			+ "  \"</quantifier>\"),\n"
-			+ "  \"</quantifier>\")),\n"
-			+ "  \"</quantifier>\"),\n"
+			+ "  \"</quantifier>\",\n"
+			+ "  \"</quantified>\"),\n"
+			+ "  \"</quantifier>\",\n"
+			+ "  \"</quantified>\"),\n"
+			+ "  \"</quantifier>\",\n"
 			+ expectedEnd;
 	static String expectedReturn9where = 
 			"for $var3_0 in /descendant::*\n"
@@ -429,8 +371,8 @@ public class XQueryJavaTests {
 			b = b.substring(1);
 		}
 		while(!a.isBlank() && !b.isBlank() &&  ( a.charAt(a.length()-1) == b.charAt(b.length()-1))) {
-			a = a.substring(0, a.length()-2);
-			b = b.substring(0, b.length()-2);
+			a = a.substring(0, a.length()-1);
+			b = b.substring(0, b.length()-1);
 		}
 		
 		

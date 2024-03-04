@@ -274,7 +274,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 					relationtranslation += ",\n  ";
 			}	
 			else if (relation instanceof XmlElementNavigation)
-				relationtranslation = relationtranslation + "\n  return (\n  ";
+				relationtranslation = relationtranslation + "\n  return\n  ";
 			result += relationtranslation + "";
 		}
 		return result;
@@ -333,7 +333,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			//Finding ComplexNode which represent the beginning
 			//Since we have independent graphs we can have multiple beginnings
 			//How to integrate Maybe a OPTIONAL MATCH? - OPTIONAL - How to consider (r:A)--(B:B), (r)--(C:C)?
-			//TODO: Consider that it also can start with a PrimitiveNode which has a more defined strucutre --> Not relevant any more since the model just starts with a complex edge
+			//TODO: Consider that it also can start with a PrimitiveNode which has a more defined structure --> Not relevant any more since the model just starts with a complex edge
 			//Maybe change this in the future to generate OPTIONAL MATCH
 			for (Node n : allNodesList) {
 				if (n instanceof NeoElementNode && ((NeoElementNode) n).getNeoPlace() == NeoPlace.BEGINNING) {

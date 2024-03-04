@@ -214,19 +214,20 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		if (!graphJava && !conditionJava)
 			// should not occur
 			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(generateXQuery()), QUANTIFIER, false, false, false);
-		
-		String graphString = graphJava? getGraph().generateXQueryJavaReturn(): "";
+
+//		String graphString = graphJava? getGraph().generateXQueryJavaReturn(): "";
+		String graphString = getGraph().generateXQueryJavaReturn();
 		String conditionPath = conditionJava? ((GraphImpl) getGraph()).generateXQueryJavaReturnCondition(): "";
 		String conditionString = conditionJava? QUANTIFIEDSTART + ",\n  " + getCondition().generateXQueryJavaReturn() + ",\n  " + QUANTIFIEDEND : "";
 		
 		String result = "";
-		if (graphJava) {
+//		if (graphJava) {
 			result += graphString;
 //			System.err.println("QCon224:\n" + graphString + "\n");
-		}
-			
-		if (graphJava && conditionJava)
-			result += ",\n";
+//		}
+
+//		if (graphJava && conditionJava)
+//			result += ",\n";
 		if (conditionJava)
 			result += Constants.addMissingBrackets(conditionPath + conditionString);
 
