@@ -7,6 +7,8 @@ import java.util.Map;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
@@ -158,14 +160,21 @@ public class TemplateMqafConstraintServlet extends HttpServlet {
 		if (schemas.isEmpty())
 			return null;
 		
-//		BaseSchema mergedSchema = schemas.get(0);		
-//		for (int i = 1; i< schemas.size(); i++) {
-//			mergedSchema.merge(schemas.get(i));
-//		}
+		BaseSchema mergedSchema = schemas.get(0);		
+		for (int i = 1; i< schemas.size(); i++) {
+			mergedSchema.merge(schemas.get(i), true);
+		}
 		
 		// 4 return merged schema
-//		return mergedSchema.toJSON;
-		return null;
+
+		try {
+			ObjectMapper jsonMapper = new ObjectMapper();
+			String json = jsonMapper.writeValueAsString(mergedSchema);
+			return json;
+		} catch (JsonProcessingException e) {
+//			e.printStackTrace();
+			return null;
+		}
 	}
 
     public static JSONObject convertYamlToJson(String yamlString) throws IOException, JSONException {
