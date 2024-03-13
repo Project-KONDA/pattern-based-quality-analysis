@@ -1,0 +1,3 @@
+[submodule "metadata-qa-api"]
+	path = metadata-qa-api
+	url = https:/github.com/pkiraly/metadata-qa-api
