@@ -24,6 +24,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaFilter;
@@ -52,6 +54,8 @@ import qualitypatternmodel.utility.JavaQueryTranslationUtility;
  *   <li>{@link qualitypatternmodel.javaquery.impl.JavaFilterImpl#getInterimResults <em>Interim Results</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.impl.JavaFilterImpl#getQuery <em>Query</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.impl.JavaFilterImpl#getLanguage <em>Language</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.impl.JavaFilterImpl#getPatternName <em>Pattern Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.impl.JavaFilterImpl#getPatternId <em>Pattern Id</em>}</li>
  * </ul>
  *
  * @generated
@@ -128,6 +132,46 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	protected Language language = LANGUAGE_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getPatternName() <em>Pattern Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPatternName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PATTERN_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPatternName() <em>Pattern Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPatternName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String patternName = PATTERN_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPatternId() <em>Pattern Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPatternId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PATTERN_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPatternId() <em>Pattern Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPatternId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String patternId = PATTERN_ID_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
@@ -195,6 +239,74 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 		
 		return outcome;
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public List<String> execute(String databasename, String datapath) throws InvalidityException {
+		String query = getQuery();
+		if (query == null || query == "")
+			throw new InvalidityException();
+		List<String> outcome = new ArrayList<String>();
+		Context context = new Context();
+		try {
+			new CreateDB(databasename, datapath).execute(context);
+			try (QueryProcessor proc = new QueryProcessor(query, context)) {
+				Iter iter = proc.iter();
+				for (Item item; (item = iter.next()) != null;) {
+					outcome.add(item.serialize().toString());
+				}
+			} 
+		} catch(Exception e) {}
+		context.closeDB();
+		context.close();
+		
+		createInterimResultContainerXQuery(outcome);
+		
+		List<String> result = filterQueryResults();
+		
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String toJson() {
+        try {
+            // Create ObjectMapper instance
+            ObjectMapper mapper = new ObjectMapper();
+            
+            // Serialize EMF object to JSON string
+            String json = mapper.writeValueAsString(this);
+            
+            return json;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+	
+	
+	public static JavaFilter fromJson(String json) {
+        try {
+            // Create ObjectMapper instance
+            ObjectMapper mapper = new ObjectMapper();
+            
+            // Deserialize JSON string to EMF object
+            JavaFilter filter = mapper.readValue(json, JavaFilter.class);
+            
+            return filter;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -400,6 +512,52 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getPatternName() {
+		return patternName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPatternName(String newPatternName) {
+		String oldPatternName = patternName;
+		patternName = newPatternName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.JAVA_FILTER__PATTERN_NAME, oldPatternName, patternName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getPatternId() {
+		return patternId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPatternId(String newPatternId) {
+		String oldPatternId = patternId;
+		patternId = newPatternId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryPackage.JAVA_FILTER__PATTERN_ID, oldPatternId, patternId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -452,6 +610,10 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 				return getQuery();
 			case JavaqueryPackage.JAVA_FILTER__LANGUAGE:
 				return getLanguage();
+			case JavaqueryPackage.JAVA_FILTER__PATTERN_NAME:
+				return getPatternName();
+			case JavaqueryPackage.JAVA_FILTER__PATTERN_ID:
+				return getPatternId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -481,6 +643,12 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 			case JavaqueryPackage.JAVA_FILTER__LANGUAGE:
 				setLanguage((Language)newValue);
 				return;
+			case JavaqueryPackage.JAVA_FILTER__PATTERN_NAME:
+				setPatternName((String)newValue);
+				return;
+			case JavaqueryPackage.JAVA_FILTER__PATTERN_ID:
+				setPatternId((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -508,6 +676,12 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 			case JavaqueryPackage.JAVA_FILTER__LANGUAGE:
 				setLanguage(LANGUAGE_EDEFAULT);
 				return;
+			case JavaqueryPackage.JAVA_FILTER__PATTERN_NAME:
+				setPatternName(PATTERN_NAME_EDEFAULT);
+				return;
+			case JavaqueryPackage.JAVA_FILTER__PATTERN_ID:
+				setPatternId(PATTERN_ID_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -530,6 +704,10 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 				return QUERY_EDEFAULT == null ? query != null : !QUERY_EDEFAULT.equals(query);
 			case JavaqueryPackage.JAVA_FILTER__LANGUAGE:
 				return language != LANGUAGE_EDEFAULT;
+			case JavaqueryPackage.JAVA_FILTER__PATTERN_NAME:
+				return PATTERN_NAME_EDEFAULT == null ? patternName != null : !PATTERN_NAME_EDEFAULT.equals(patternName);
+			case JavaqueryPackage.JAVA_FILTER__PATTERN_ID:
+				return PATTERN_ID_EDEFAULT == null ? patternId != null : !PATTERN_ID_EDEFAULT.equals(patternId);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -565,6 +743,15 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case JavaqueryPackage.JAVA_FILTER___EXECUTE__STRING_STRING:
+				try {
+					return execute((String)arguments.get(0), (String)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case JavaqueryPackage.JAVA_FILTER___TO_JSON:
+				return toJson();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

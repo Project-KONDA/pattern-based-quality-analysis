@@ -109,7 +109,7 @@ public class QuantifierFilterPartImpl extends BooleanFilterPartImpl implements Q
 			throw new InvalidityException();
 		ContainerResult param = (ContainerResult) parameter;
 		if (!(param.getCorrespondsTo() instanceof FixedContainerInterim))
-			throw new InvalidityException();
+			throw new InvalidityException( (param == null? "Class of param is " + param.getCorrespondsTo().getClass().getSimpleName() : "Param is null") + ", but a fixed container was expected.");
 		FixedContainerInterim fixedContainer = (FixedContainerInterim) param.getCorrespondsTo();
 		int sizeResult = fixedContainer.getContained().size();
 		int sizeFilter = getSubfilter().size();

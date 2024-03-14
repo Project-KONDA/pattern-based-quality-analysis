@@ -91,7 +91,8 @@ public class XmlElementNavigationImpl extends XmlNavigationImpl implements XmlEl
 //		if (query.startsWith("\n"))
 //			query = query.substring(1);
 //		return "  " + query + "\n  return (";
-		query += getTarget().generateXQueryJavaReturn();
+		String targetquery = getTarget().generateXQueryJavaReturn();
+		query += targetquery;
 		return query;
 	}
 	

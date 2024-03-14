@@ -103,7 +103,8 @@ public class JavaFilterCompleteTest {
 		JavaFilter filter = pattern.generateQueryFilter();
 		List<String> list = filter.executeXQueryJava(database_name, database_path);
 		filter.createInterimResultContainerXQuery(list);
-		return filter.filterQueryResults();
+		List<String> results = filter.filterQueryResults();
+		return results;
 	}
 
 }

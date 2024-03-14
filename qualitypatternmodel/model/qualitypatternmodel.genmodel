@@ -1211,6 +1211,8 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaquery/JavaFilter/interimResults"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaquery/JavaFilter/query"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaquery/JavaFilter/language"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaquery/JavaFilter/patternName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaquery/JavaFilter/patternId"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaquery/JavaFilter/filterQueryResults"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaquery/JavaFilter/createInterimResultContainer">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaquery/JavaFilter/createInterimResultContainer/objectList"/>
@@ -1219,6 +1221,11 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaquery/JavaFilter/executeXQueryJava/databasename"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaquery/JavaFilter/executeXQueryJava/datapath"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaquery/JavaFilter/execute">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaquery/JavaFilter/execute/databasename"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaquery/JavaFilter/execute/datapath"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaquery/JavaFilter/toJson"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaquery/BooleanFilterPart">
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaquery/BooleanFilterPart/apply">

@@ -221,7 +221,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		
 		String result = "";
 //		if (graphJava) {
-			result += graphString;
+		result += graphString;
 //			System.err.println("QCon224:\n" + graphString + "\n");
 //		}
 
