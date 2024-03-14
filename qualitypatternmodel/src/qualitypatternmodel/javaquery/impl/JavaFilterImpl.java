@@ -247,27 +247,17 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 */
 	@Override
 	public List<String> execute(String databasename, String datapath) throws InvalidityException {
-		String query = getQuery();
-		if (query == null || query == "")
-			throw new InvalidityException();
-		List<String> outcome = new ArrayList<String>();
-		Context context = new Context();
-		try {
-			new CreateDB(databasename, datapath).execute(context);
-			try (QueryProcessor proc = new QueryProcessor(query, context)) {
-				Iter iter = proc.iter();
-				for (Item item; (item = iter.next()) != null;) {
-					outcome.add(item.serialize().toString());
-				}
-			} 
-		} catch(Exception e) {}
-		context.closeDB();
-		context.close();
-		
-		createInterimResultContainerXQuery(outcome);
+		// Query Results
+		List<String> list = executeXQueryJava(databasename, datapath);
+
+		// import Query Results
+		createInterimResultContainerXQuery(list);
+
+		for (InterimResultContainer interim: getInterimResults())
+			if (!interim.isValidToStructure())
+				throw new InvalidityException("InterimResult is invalid to structure:\n" + interim + "\n" + getStructure());
 		
 		List<String> result = filterQueryResults();
-		
 		return result;
 	}
 
@@ -558,6 +548,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
 	 * @generated NOT
 	 */
 	@Override
@@ -565,12 +556,16 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 		EList<InterimResultContainer> interims = getInterimResults();
 		EList<String> results = new BasicEList<String>();
 		for (InterimResultContainer ir: interims) {
-			if (getFilter().apply(ir.getParameter())) {
-				InterimResult ret = ir.getReturn();
-				if (ret instanceof ValueResult)
-					results.add(((ValueResult) ret).getValue());
-				else 
-					results.add(ret.toString());
+			try {
+				if (getFilter().apply(ir.getParameter())) {
+					InterimResult ret = ir.getReturn();
+					if (ret instanceof ValueResult)
+						results.add(((ValueResult) ret).getValue());
+					else 
+						results.add(ret.toString());
+				}	
+			} catch (InvalidityException e) {
+				throw new InvalidityException(ir.toString() + "\n*\n" + ir.getParameter(), e);
 			}
 		}
 		return results;
