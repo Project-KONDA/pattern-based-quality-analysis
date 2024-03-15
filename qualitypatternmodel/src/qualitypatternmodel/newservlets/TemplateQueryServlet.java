@@ -161,7 +161,12 @@ public class TemplateQueryServlet extends HttpServlet {
 				pattern = ServletUtilities.loadConstraint(getServletContext(), technology, constraintId);
 				pattern.isValid(AbstractionLevel.CONCRETE);
 			// 2 generate query
-				JSONObject queryJson = generateQueryJson(pattern, technology);
+				JSONObject queryJson; 
+				// = generateQueryJson(pattern, technology);
+				if (pattern.containsJavaOperator())
+					queryJson = generateQueryJsonJava(pattern, technology);
+				else 
+					queryJson = generateQueryJson(pattern, technology);
 				result.put(constraintId, queryJson);
 			} catch (Exception e) {
 				try {
@@ -246,7 +251,7 @@ public class TemplateQueryServlet extends HttpServlet {
 				json.put("query", query);
 				json.put("query_line", makeQueryOneLine(query));
 				JavaFilter filter = pattern.generateQueryFilter();
-				String serializedFilter = EMFModelSave.exportToString(filter);
+				String serializedFilter = filter.toJson().toString();
 				json.put("filter", serializedFilter);
 				
 			} else if (technology.equals(ServletUtilities.RDF)) {
