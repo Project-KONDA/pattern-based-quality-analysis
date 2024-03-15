@@ -75,34 +75,37 @@ public class TemplateQueryServlet extends HttpServlet {
 		if (!ServletUtilities.TECHS.contains(technology))
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
 
-		// 1 load constraint
-		CompletePattern pattern;
-		try {
-			pattern = ServletUtilities.loadConstraint(getServletContext(), technology, constraintId);
-		} catch (IOException e) {
-			throw new FailedServletCallException("constraint not found");
-		}
-		
-		try {
-			pattern.isValid(AbstractionLevel.CONCRETE);
-		} catch (Exception e) {
-			throw new FailedServletCallException(e.getClass().getName() + ": " + e.getMessage());
-		}
+		String[] constraintIds = new String[] {constraintId};
+		return applyGet(technology, constraintIds);
 
-		// 2 generate query
-		JSONObject json = null;
-		try {
-			if (pattern.containsJavaOperator())
-				json = generateQueryJsonJava(pattern, technology);
-			else 
-				json = generateQueryJson(pattern, technology);
-		} catch (JSONException e) {
-			e.printStackTrace();
-		} catch (InvalidityException e) {
-			e.printStackTrace();
-		}
-		// 3 return result
-		return json.toString();
+//		// 1 load constraint
+//		CompletePattern pattern;
+//		try {
+//			pattern = ServletUtilities.loadConstraint(getServletContext(), technology, constraintId);
+//		} catch (IOException e) {
+//			throw new FailedServletCallException("constraint not found");
+//		}
+//		
+//		try {
+//			pattern.isValid(AbstractionLevel.CONCRETE);
+//		} catch (Exception e) {
+//			throw new FailedServletCallException(e.getClass().getName() + ": " + e.getMessage());
+//		}
+//
+//		// 2 generate query
+//		JSONObject json = null;
+//		try {
+//			if (pattern.containsJavaOperator())
+//				json = generateQueryJsonJava(pattern, technology);
+//			else 
+//				json = generateQueryJson(pattern, technology);
+//		} catch (JSONException e) {
+//			e.printStackTrace();
+//		} catch (InvalidityException e) {
+//			e.printStackTrace();
+//		}
+//		// 3 return result
+//		return json.toString();
 	}
 
 	public String applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
@@ -118,6 +121,36 @@ public class TemplateQueryServlet extends HttpServlet {
 		Set<String> constraintIdSet = new LinkedHashSet<>(Arrays.asList(constraintIds));
 		constraintIds = constraintIdSet.toArray(new String[0]);
 
+//		JSONObject result = new JSONObject();
+//		JSONArray failed = new JSONArray();
+//		
+//		for (String constraintId: constraintIds) {
+//			// 1 load constraint
+//			CompletePattern pattern;
+//			try {
+//				pattern = ServletUtilities.loadConstraint(getServletContext(), technology, constraintId);
+//				pattern.isValid(AbstractionLevel.CONCRETE);
+//			// 2 generate query
+//				JSONObject queryJson = generateQueryJson(pattern, technology);
+//				result.put(constraintId, queryJson);
+//			} catch (Exception e) {
+//				try {
+//					result.put(constraintId, "failed");
+//				} catch (JSONException e1) {}
+//				failed.put(constraintId);
+//			}
+//		}
+//		try {
+//			result.put("failed", failed);
+//		} catch (JSONException e) {
+//		}
+//		return result.toString();
+		
+		return applyGet(technology, constraintIds);
+	}
+	
+	public String applyGet(String technology, String[] constraintIds) throws InvalidServletCallException, FailedServletCallException {
+		
 		JSONObject result = new JSONObject();
 		JSONArray failed = new JSONArray();
 		
