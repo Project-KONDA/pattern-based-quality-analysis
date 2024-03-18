@@ -223,13 +223,22 @@ public interface JavaqueryPackage extends EPackage {
 	int JAVA_FILTER_PART___GET_ARGUMENTS = 0;
 
 	/**
+	 * The operation id for the '<em>To Json</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_FILTER_PART___TO_JSON = 1;
+
+	/**
 	 * The number of operations of the '<em>Java Filter Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_FILTER_PART_OPERATION_COUNT = 1;
+	int JAVA_FILTER_PART_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl <em>Formula Filter Part</em>}' class.
@@ -278,6 +287,15 @@ public interface JavaqueryPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_FILTER_PART___GET_ARGUMENTS = JAVA_FILTER_PART___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>To Json</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_FILTER_PART___TO_JSON = JAVA_FILTER_PART___TO_JSON;
 
 	/**
 	 * The operation id for the '<em>Apply</em>' operation.
@@ -352,6 +370,15 @@ public interface JavaqueryPackage extends EPackage {
 	int FORMULA_FILTER_PART___GET_ARGUMENTS = BOOLEAN_FILTER_PART___GET_ARGUMENTS;
 
 	/**
+	 * The operation id for the '<em>To Json</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA_FILTER_PART___TO_JSON = BOOLEAN_FILTER_PART___TO_JSON;
+
+	/**
 	 * The operation id for the '<em>Apply</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -395,6 +422,15 @@ public interface JavaqueryPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_FILTER_ELEMENT___GET_ARGUMENTS = BOOLEAN_FILTER_PART___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>To Json</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_FILTER_ELEMENT___TO_JSON = BOOLEAN_FILTER_PART___TO_JSON;
 
 	/**
 	 * The operation id for the '<em>Apply</em>' operation.
@@ -459,6 +495,15 @@ public interface JavaqueryPackage extends EPackage {
 	 * @ordered
 	 */
 	int ONE_ARG_FUNCTION_FILTER_PART___GET_ARGUMENTS = BOOLEAN_FILTER_PART___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>To Json</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_FUNCTION_FILTER_PART___TO_JSON = BOOLEAN_FILTER_PART___TO_JSON;
 
 	/**
 	 * The operation id for the '<em>Apply</em>' operation.
@@ -543,6 +588,15 @@ public interface JavaqueryPackage extends EPackage {
 	int LIST_FILTER_PART___GET_ARGUMENTS = BOOLEAN_FILTER_PART___GET_ARGUMENTS;
 
 	/**
+	 * The operation id for the '<em>To Json</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_FILTER_PART___TO_JSON = BOOLEAN_FILTER_PART___TO_JSON;
+
+	/**
 	 * The operation id for the '<em>Apply</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -607,6 +661,15 @@ public interface JavaqueryPackage extends EPackage {
 	int TWO_ARG_FUNCTION_FILTER_PART___GET_ARGUMENTS = BOOLEAN_FILTER_PART___GET_ARGUMENTS;
 
 	/**
+	 * The operation id for the '<em>To Json</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TWO_ARG_FUNCTION_FILTER_PART___TO_JSON = BOOLEAN_FILTER_PART___TO_JSON;
+
+	/**
 	 * The operation id for the '<em>Apply</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -669,6 +732,15 @@ public interface JavaqueryPackage extends EPackage {
 	 * @ordered
 	 */
 	int NOT_FILTER_PART___GET_ARGUMENTS = BOOLEAN_FILTER_PART___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>To Json</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_FILTER_PART___TO_JSON = BOOLEAN_FILTER_PART___TO_JSON;
 
 	/**
 	 * The operation id for the '<em>Apply</em>' operation.
@@ -754,6 +826,15 @@ public interface JavaqueryPackage extends EPackage {
 	int COUNT_FILTER_PART___GET_ARGUMENTS = BOOLEAN_FILTER_PART___GET_ARGUMENTS;
 
 	/**
+	 * The operation id for the '<em>To Json</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_FILTER_PART___TO_JSON = BOOLEAN_FILTER_PART___TO_JSON;
+
+	/**
 	 * The operation id for the '<em>Apply</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -798,6 +879,15 @@ public interface JavaqueryPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_FILTER_PART___GET_ARGUMENTS = JAVA_FILTER_PART___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>To Json</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_FILTER_PART___TO_JSON = JAVA_FILTER_PART___TO_JSON;
 
 	/**
 	 * The operation id for the '<em>Apply</em>' operation.
@@ -864,6 +954,15 @@ public interface JavaqueryPackage extends EPackage {
 	int COUNT_FILTER_ELEMENT___GET_ARGUMENTS = NUMBER_FILTER_PART___GET_ARGUMENTS;
 
 	/**
+	 * The operation id for the '<em>To Json</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_FILTER_ELEMENT___TO_JSON = NUMBER_FILTER_PART___TO_JSON;
+
+	/**
 	 * The operation id for the '<em>Apply</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -917,6 +1016,15 @@ public interface JavaqueryPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_FILTER_ELEMENT___GET_ARGUMENTS = NUMBER_FILTER_PART___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>To Json</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_FILTER_ELEMENT___TO_JSON = NUMBER_FILTER_PART___TO_JSON;
 
 	/**
 	 * The operation id for the '<em>Apply</em>' operation.
@@ -973,6 +1081,15 @@ public interface JavaqueryPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_VALUE_FILTER_ELEMENT___GET_ARGUMENTS = NUMBER_FILTER_PART___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>To Json</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_VALUE_FILTER_ELEMENT___TO_JSON = NUMBER_FILTER_PART___TO_JSON;
 
 	/**
 	 * The operation id for the '<em>Apply</em>' operation.
@@ -1047,6 +1164,15 @@ public interface JavaqueryPackage extends EPackage {
 	 * @ordered
 	 */
 	int QUANTIFIER_FILTER_PART___GET_ARGUMENTS = BOOLEAN_FILTER_PART___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>To Json</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIER_FILTER_PART___TO_JSON = BOOLEAN_FILTER_PART___TO_JSON;
 
 	/**
 	 * The operation id for the '<em>Apply</em>' operation.
@@ -1243,6 +1369,16 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getJavaFilterPart__GetArguments();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilterPart#toJson() <em>To Json</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>To Json</em>' operation.
+	 * @see qualitypatternmodel.javaquery.JavaFilterPart#toJson()
+	 * @generated
+	 */
+	EOperation getJavaFilterPart__ToJson();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.NumberValueFilterElement <em>Number Value Filter Element</em>}'.
@@ -1846,6 +1982,14 @@ public interface JavaqueryPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation JAVA_FILTER_PART___GET_ARGUMENTS = eINSTANCE.getJavaFilterPart__GetArguments();
+
+		/**
+		 * The meta object literal for the '<em><b>To Json</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JAVA_FILTER_PART___TO_JSON = eINSTANCE.getJavaFilterPart__ToJson();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.NumberValueFilterElementImpl <em>Number Value Filter Element</em>}' class.

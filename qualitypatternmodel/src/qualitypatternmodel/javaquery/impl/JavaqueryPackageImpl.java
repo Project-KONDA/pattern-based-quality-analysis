@@ -458,6 +458,16 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getJavaFilterPart__ToJson() {
+		return javaFilterPartEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getNumberValueFilterElement() {
 		return numberValueFilterElementEClass;
 	}
@@ -973,6 +983,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 
 		javaFilterPartEClass = createEClass(JAVA_FILTER_PART);
 		createEOperation(javaFilterPartEClass, JAVA_FILTER_PART___GET_ARGUMENTS);
+		createEOperation(javaFilterPartEClass, JAVA_FILTER_PART___TO_JSON);
 
 		numberValueFilterElementEClass = createEClass(NUMBER_VALUE_FILTER_ELEMENT);
 		createEAttribute(numberValueFilterElementEClass, NUMBER_VALUE_FILTER_ELEMENT__NUMBER);
@@ -1013,6 +1024,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		// Obtain other dependent packages
 		JavaqueryoutputPackage theJavaqueryoutputPackage = (JavaqueryoutputPackage)EPackage.Registry.INSTANCE.getEPackage(JavaqueryoutputPackage.eNS_URI);
 		PatternstructurePackage thePatternstructurePackage = (PatternstructurePackage)EPackage.Registry.INSTANCE.getEPackage(PatternstructurePackage.eNS_URI);
+		TextrepresentationPackage theTextrepresentationPackage = (TextrepresentationPackage)EPackage.Registry.INSTANCE.getEPackage(TextrepresentationPackage.eNS_URI);
 		OperatorsPackage theOperatorsPackage = (OperatorsPackage)EPackage.Registry.INSTANCE.getEPackage(OperatorsPackage.eNS_URI);
 
 		// Create type parameters
@@ -1061,7 +1073,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		addEParameter(op, ecorePackage.getEString(), "datapath", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		initEOperation(getJavaFilter__ToJson(), ecorePackage.getEString(), "toJson", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getJavaFilter__ToJson(), theTextrepresentationPackage.getJSONObjectWrapper(), "toJson", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(booleanFilterPartEClass, BooleanFilterPart.class, "BooleanFilterPart", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1123,6 +1135,8 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		initEClass(javaFilterPartEClass, JavaFilterPart.class, "JavaFilterPart", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEOperation(getJavaFilterPart__GetArguments(), theJavaqueryoutputPackage.getInterimResultPart(), "getArguments", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getJavaFilterPart__ToJson(), theTextrepresentationPackage.getJSONObjectWrapper(), "toJson", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(numberValueFilterElementEClass, NumberValueFilterElement.class, "NumberValueFilterElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNumberValueFilterElement_Number(), ecorePackage.getEDoubleObject(), "number", null, 0, 1, NumberValueFilterElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

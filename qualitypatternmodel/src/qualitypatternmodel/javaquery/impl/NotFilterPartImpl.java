@@ -9,6 +9,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
@@ -63,6 +65,17 @@ public class NotFilterPartImpl extends BooleanFilterPartImpl implements NotFilte
 	@Override
 	public EList<InterimResultPart> getArguments() {
 		return getSubfilter().getArguments();
+	}
+	
+	@Override
+	public JSONObject toJson() {
+		JSONObject result = new JSONObject();
+		try {
+			result.put("class", getClass().getSimpleName());
+			result.put("subfilter", getSubfilter().toJson());
+		} catch (JSONException e) {
+		}
+		return result;
 	}
 	
 	@Override

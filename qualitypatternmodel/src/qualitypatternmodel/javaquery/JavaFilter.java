@@ -6,6 +6,7 @@ import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
+import org.json.JSONObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.InterimResultContainer;
 import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
@@ -216,10 +217,10 @@ public interface JavaFilter extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
 	 * @generated
 	 */
-	String toJson();
+	JSONObject toJson();
 	
 	/**
 	 * <!-- begin-user-doc -->

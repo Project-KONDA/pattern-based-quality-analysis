@@ -1293,6 +1293,7 @@
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//javaquery/JavaFilterPart">
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaquery/JavaFilterPart/getArguments"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaquery/JavaFilterPart/toJson"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaquery/NumberValueFilterElement">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaquery/NumberValueFilterElement/number"/>
@@ -1308,8 +1309,11 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultStructure">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/InterimResultStructure/substructure"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/InterimResultStructure/record"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultStructure/toJson"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultPart"/>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultPart">
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultPart/toJson"/>
+      </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/ContainerInterim">
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaqueryoutput/ContainerInterim/getSize"/>
       </genClasses>

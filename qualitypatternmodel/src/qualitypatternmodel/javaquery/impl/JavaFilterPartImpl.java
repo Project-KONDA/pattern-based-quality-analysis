@@ -7,6 +7,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
@@ -27,6 +30,9 @@ public abstract class JavaFilterPartImpl extends MinimalEObjectImpl.Container im
 	protected JavaFilterPartImpl() {
 		super();
 	}
+	
+	@Override
+	abstract public JSONObject toJson();
 	
 	@Override
 	abstract public String toString();
@@ -73,6 +79,8 @@ public abstract class JavaFilterPartImpl extends MinimalEObjectImpl.Container im
 		switch (operationID) {
 			case JavaqueryPackage.JAVA_FILTER_PART___GET_ARGUMENTS:
 				return getArguments();
+			case JavaqueryPackage.JAVA_FILTER_PART___TO_JSON:
+				return toJson();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

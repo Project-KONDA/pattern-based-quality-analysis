@@ -95,13 +95,22 @@ public interface JavaqueryoutputPackage extends EPackage {
 	int INTERIM_RESULT_STRUCTURE_FEATURE_COUNT = 2;
 
 	/**
+	 * The operation id for the '<em>To Json</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERIM_RESULT_STRUCTURE___TO_JSON = 0;
+
+	/**
 	 * The number of operations of the '<em>Interim Result Structure</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERIM_RESULT_STRUCTURE_OPERATION_COUNT = 0;
+	int INTERIM_RESULT_STRUCTURE_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.javaqueryoutput.impl.InterimResultPartImpl <em>Interim Result Part</em>}' class.
@@ -123,13 +132,22 @@ public interface JavaqueryoutputPackage extends EPackage {
 	int INTERIM_RESULT_PART_FEATURE_COUNT = 0;
 
 	/**
+	 * The operation id for the '<em>To Json</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERIM_RESULT_PART___TO_JSON = 0;
+
+	/**
 	 * The number of operations of the '<em>Interim Result Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERIM_RESULT_PART_OPERATION_COUNT = 0;
+	int INTERIM_RESULT_PART_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.javaqueryoutput.impl.ContainerInterimImpl <em>Container Interim</em>}' class.
@@ -149,6 +167,15 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONTAINER_INTERIM_FEATURE_COUNT = INTERIM_RESULT_PART_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>To Json</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER_INTERIM___TO_JSON = INTERIM_RESULT_PART___TO_JSON;
 
 	/**
 	 * The operation id for the '<em>Get Size</em>' operation.
@@ -188,6 +215,15 @@ public interface JavaqueryoutputPackage extends EPackage {
 	int VALUE_INTERIM_FEATURE_COUNT = INTERIM_RESULT_PART_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>To Json</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_INTERIM___TO_JSON = INTERIM_RESULT_PART___TO_JSON;
+
+	/**
 	 * The number of operations of the '<em>Value Interim</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -223,6 +259,15 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @ordered
 	 */
 	int VARIABLE_CONTAINER_INTERIM_FEATURE_COUNT = CONTAINER_INTERIM_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>To Json</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_CONTAINER_INTERIM___TO_JSON = CONTAINER_INTERIM___TO_JSON;
 
 	/**
 	 * The operation id for the '<em>Get Size</em>' operation.
@@ -278,6 +323,15 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @ordered
 	 */
 	int FIXED_CONTAINER_INTERIM_FEATURE_COUNT = CONTAINER_INTERIM_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>To Json</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIXED_CONTAINER_INTERIM___TO_JSON = CONTAINER_INTERIM___TO_JSON;
 
 	/**
 	 * The operation id for the '<em>Get Size</em>' operation.
@@ -604,6 +658,16 @@ public interface JavaqueryoutputPackage extends EPackage {
 	EReference getInterimResultStructure_Record();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaqueryoutput.InterimResultStructure#toJson() <em>To Json</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>To Json</em>' operation.
+	 * @see qualitypatternmodel.javaqueryoutput.InterimResultStructure#toJson()
+	 * @generated
+	 */
+	EOperation getInterimResultStructure__ToJson();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaqueryoutput.InterimResultPart <em>Interim Result Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -612,6 +676,16 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getInterimResultPart();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaqueryoutput.InterimResultPart#toJson() <em>To Json</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>To Json</em>' operation.
+	 * @see qualitypatternmodel.javaqueryoutput.InterimResultPart#toJson()
+	 * @generated
+	 */
+	EOperation getInterimResultPart__ToJson();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaqueryoutput.ContainerInterim <em>Container Interim</em>}'.
@@ -913,6 +987,14 @@ public interface JavaqueryoutputPackage extends EPackage {
 		EReference INTERIM_RESULT_STRUCTURE__RECORD = eINSTANCE.getInterimResultStructure_Record();
 
 		/**
+		 * The meta object literal for the '<em><b>To Json</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INTERIM_RESULT_STRUCTURE___TO_JSON = eINSTANCE.getInterimResultStructure__ToJson();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaqueryoutput.impl.InterimResultPartImpl <em>Interim Result Part</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -921,6 +1003,14 @@ public interface JavaqueryoutputPackage extends EPackage {
 		 * @generated
 		 */
 		EClass INTERIM_RESULT_PART = eINSTANCE.getInterimResultPart();
+
+		/**
+		 * The meta object literal for the '<em><b>To Json</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INTERIM_RESULT_PART___TO_JSON = eINSTANCE.getInterimResultPart__ToJson();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaqueryoutput.impl.ContainerInterimImpl <em>Container Interim</em>}' class.

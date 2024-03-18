@@ -11,6 +11,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.OneArgFunctionFilterPart;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
@@ -103,12 +106,22 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	}
 	
 	@Override
+	public JSONObject toJson() {
+		JSONObject result = new JSONObject();
+		try {
+			result.put("class", getClass().getSimpleName());
+			result.put("negate", negate);
+			result.put("functionclass", functionclassname);
+			result.put("argument", getArgument().getInterimPartId());
+		} catch (JSONException e) {
+		}
+		return result;
+	}
+	
+	@Override
 	public String toString() {
 		return "(oneArg " + getJavaFilterPartId() + " <" + getArgument().getInterimPartId() + ">)";
 	}
-	
-	
-	
 	
 	
 	/**

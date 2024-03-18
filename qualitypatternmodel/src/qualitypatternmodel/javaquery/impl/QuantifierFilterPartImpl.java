@@ -14,6 +14,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
@@ -98,7 +102,7 @@ public class QuantifierFilterPartImpl extends BooleanFilterPartImpl implements Q
 		for (BooleanFilterPart sub: subfilter) {
 			getSubfilter().add(sub);
 			container.getContained().addAll(sub.getArguments());
-		}	
+		}
 		setArgument(container);
 		
 	}
@@ -130,6 +134,22 @@ public class QuantifierFilterPartImpl extends BooleanFilterPartImpl implements Q
 	public EList<InterimResultPart> getArguments() {
 		EList<InterimResultPart> result = new BasicEList<InterimResultPart>();
 		result.add(getArgument());
+		return result;
+	}
+	
+	@Override
+	public JSONObject toJson() {
+		JSONObject result = new JSONObject();
+		try {
+			result.put("class", getClass().getSimpleName());
+			result.put("quantifier", getQuantifier());
+			result.put("argument", getArgument().getInterimPartId());
+			JSONArray subfilters = new JSONArray();
+			for (BooleanFilterPart subfilter: getSubfilter())
+				subfilters.put(subfilter.toJson());
+			result.put("subfilters", subfilters);
+		} catch (JSONException e) {
+		}
 		return result;
 	}
 	

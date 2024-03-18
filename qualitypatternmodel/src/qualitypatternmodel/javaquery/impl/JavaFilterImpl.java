@@ -18,13 +18,12 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
@@ -267,19 +266,38 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated NOT
 	 */
 	@Override
-	public String toJson() {
-        try {
-            // Create ObjectMapper instance
-            ObjectMapper mapper = new ObjectMapper();
-            
-            // Serialize EMF object to JSON string
-            String json = mapper.writeValueAsString(this);
-            
-            return json;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+	public JSONObject toJson() {
+		
+		JSONObject result = new JSONObject();
+		try {
+			result.append("patternId", getPatternId());
+			result.append("patternName", getPatternName());
+			result.append("query", getQuery());
+			result.append("language", getLanguage());
+			
+			try {
+				result.append("filter", getFilter().toJson());
+				result.append("structure", getStructure().toJson());
+			} catch(Exception e) {
+				
+			}
+			
+		} catch (Exception e) {
+			
+		}
+		return result;
+//        try {
+//            // Create ObjectMapper instance
+//            ObjectMapper mapper = new ObjectMapper();
+//            
+//            // Serialize EMF object to JSON string
+//            String json = mapper.writeValueAsString(this);
+//            
+//            return json;
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return null;
+//        }
     }
 	
 	

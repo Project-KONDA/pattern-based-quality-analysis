@@ -284,8 +284,28 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 	 * @generated
 	 */
 	@Override
+	public EOperation getInterimResultStructure__ToJson() {
+		return interimResultStructureEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getInterimResultPart() {
 		return interimResultPartEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getInterimResultPart__ToJson() {
+		return interimResultPartEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -560,8 +580,10 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		interimResultStructureEClass = createEClass(INTERIM_RESULT_STRUCTURE);
 		createEReference(interimResultStructureEClass, INTERIM_RESULT_STRUCTURE__SUBSTRUCTURE);
 		createEReference(interimResultStructureEClass, INTERIM_RESULT_STRUCTURE__RECORD);
+		createEOperation(interimResultStructureEClass, INTERIM_RESULT_STRUCTURE___TO_JSON);
 
 		interimResultPartEClass = createEClass(INTERIM_RESULT_PART);
+		createEOperation(interimResultPartEClass, INTERIM_RESULT_PART___TO_JSON);
 
 		containerInterimEClass = createEClass(CONTAINER_INTERIM);
 		createEOperation(containerInterimEClass, CONTAINER_INTERIM___GET_SIZE);
@@ -620,6 +642,7 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		TextrepresentationPackage theTextrepresentationPackage = (TextrepresentationPackage)EPackage.Registry.INSTANCE.getEPackage(TextrepresentationPackage.eNS_URI);
 		PatternstructurePackage thePatternstructurePackage = (PatternstructurePackage)EPackage.Registry.INSTANCE.getEPackage(PatternstructurePackage.eNS_URI);
 
 		// Create type parameters
@@ -639,7 +662,11 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		initEReference(getInterimResultStructure_Substructure(), this.getInterimResultPart(), null, "substructure", null, 0, 1, InterimResultStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getInterimResultStructure_Record(), this.getInterimResultPart(), null, "record", null, 1, 1, InterimResultStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getInterimResultStructure__ToJson(), theTextrepresentationPackage.getJSONObjectWrapper(), "toJson", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(interimResultPartEClass, InterimResultPart.class, "InterimResultPart", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getInterimResultPart__ToJson(), theTextrepresentationPackage.getJSONObjectWrapper(), "toJson", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(containerInterimEClass, ContainerInterim.class, "ContainerInterim", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

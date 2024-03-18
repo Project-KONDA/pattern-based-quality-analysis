@@ -1479,7 +1479,7 @@
         <eParameters name="databasename" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eParameters name="datapath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
-      <eOperations name="toJson" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="toJson" eType="#//textrepresentation/JSONObjectWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="filter" eType="#//javaquery/BooleanFilterPart"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="structure" lowerBound="1"
@@ -1569,6 +1569,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="JavaFilterPart" abstract="true">
       <eOperations name="getArguments" upperBound="-1" eType="#//javaqueryoutput/InterimResultPart"/>
+      <eOperations name="toJson" eType="#//textrepresentation/JSONObjectWrapper"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NumberValueFilterElement" eSuperTypes="#//javaquery/NumberFilterPart">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
@@ -1585,12 +1586,15 @@
   </eSubpackages>
   <eSubpackages name="javaqueryoutput" nsURI="javaqueryoutput" nsPrefix="javaqueryoutput">
     <eClassifiers xsi:type="ecore:EClass" name="InterimResultStructure">
+      <eOperations name="toJson" eType="#//textrepresentation/JSONObjectWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="substructure" eType="#//javaqueryoutput/InterimResultPart"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="record" lowerBound="1"
           eType="#//javaqueryoutput/InterimResultPart" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="InterimResultPart" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="InterimResultPart" abstract="true">
+      <eOperations name="toJson" eType="#//textrepresentation/JSONObjectWrapper"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ContainerInterim" abstract="true"
         eSuperTypes="#//javaqueryoutput/InterimResultPart">
       <eOperations name="getSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>

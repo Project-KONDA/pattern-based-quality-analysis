@@ -50,4 +50,19 @@ public abstract class InterimResultPartImpl extends MinimalEObjectImpl.Container
 		return JavaqueryoutputPackage.Literals.INTERIM_RESULT_PART;
 	}
 
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case JavaqueryoutputPackage.INTERIM_RESULT_PART___TO_JSON:
+				return toJson();
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
 } //InterimResultPartImpl

@@ -3,6 +3,8 @@
 package qualitypatternmodel.javaqueryoutput.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 import qualitypatternmodel.javaqueryoutput.ValueInterim;
@@ -22,6 +24,17 @@ public class ValueInterimImpl extends InterimResultPartImpl implements ValueInte
 	 */
 	public ValueInterimImpl() {
 		super();
+	}
+	
+	@Override
+	public JSONObject toJson() {
+		JSONObject result = new JSONObject();
+		try {
+			result.put("class", getClass().getSimpleName());
+			result.put("id", getInterimPartId());
+		} catch (JSONException e) {
+		}
+		return result;
 	}
 
 	@Override

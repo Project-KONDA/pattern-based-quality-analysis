@@ -7,6 +7,9 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 import qualitypatternmodel.javaqueryoutput.VariableContainerInterim;
@@ -47,6 +50,26 @@ public class VariableContainerInterimImpl extends ContainerInterimImpl implement
 	@Override
 	public Integer getSize() {
 		return -1;
+	}
+	
+	@Override
+	public JSONObject toJson() {
+		JSONObject result = new JSONObject();
+		try {
+			result.put("class", getClass().getSimpleName());
+			result.put("id", getInterimPartId());
+			result.put("contained", getContained().toJson());
+		} catch (JSONException e) {
+		}
+		return result;
+	}
+
+	@Override
+	public Map<Integer, InterimResultPart> getInterimResultParts() {
+		Map<Integer, InterimResultPart> map = new HashMap<Integer, InterimResultPart>();
+		map.put(getInterimPartId(), this);
+		map.putAll(((InterimResultPartImpl) getContained()).getInterimResultParts());
+		return map;
 	}
 	
 	@Override

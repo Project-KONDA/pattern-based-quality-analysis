@@ -9,6 +9,8 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
@@ -70,6 +72,17 @@ public class NumberFilterElementImpl extends NumberFilterPartImpl implements Num
 	public EList<InterimResultPart> getArguments() {
 		EList<InterimResultPart> result = new BasicEList<InterimResultPart>();
 		result.add(getArgument());
+		return result;
+	}
+	
+	@Override
+	public JSONObject toJson() {
+		JSONObject result = new JSONObject();
+		try {
+			result.put("class", getClass().getSimpleName());
+			result.put("argument", getArgument().getInterimPartId());
+		} catch (JSONException e) {
+		}
 		return result;
 	}
 	

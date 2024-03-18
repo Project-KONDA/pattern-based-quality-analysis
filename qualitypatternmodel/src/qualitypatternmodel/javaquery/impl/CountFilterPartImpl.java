@@ -10,6 +10,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.CountFilterPart;
@@ -147,6 +149,22 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 			contained.addAll(getSubfilter1().getArguments());
 		if (getSubfilter2() != null && getSubfilter2().getArguments() != null)
 			contained.addAll(getSubfilter2().getArguments());
+	}
+	
+	@Override
+	public JSONObject toJson() {
+		JSONObject result = new JSONObject();
+		try {
+			result.put("class", getClass().getSimpleName());
+			result.put("operator", getOperator().getLiteral());
+			result.put("argument", getArgument().getInterimPartId());
+			
+			result.put("subfilter1", getSubfilter1().toJson());
+			result.put("subfilter2", getSubfilter2().toJson());
+				
+		} catch (JSONException e) {
+		}
+		return result;
 	}
 	
 	@Override

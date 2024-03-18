@@ -10,6 +10,12 @@ import qualitypatternmodel.javaqueryoutput.InterimResultPart;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Interim Result Part</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.javaqueryoutput.InterimResultPart#toJson() <em>To Json</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public abstract class InterimResultPartTest extends TestCase {
@@ -50,6 +56,19 @@ public abstract class InterimResultPartTest extends TestCase {
 	 */
 	protected InterimResultPart getFixture() {
 		return fixture;
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.javaqueryoutput.InterimResultPart#toJson() <em>To Json</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaqueryoutput.InterimResultPart#toJson()
+	 * @generated
+	 */
+	public void testToJson() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //InterimResultPartTest

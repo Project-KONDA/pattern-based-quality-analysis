@@ -12,6 +12,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import qualitypatternmodel.javaqueryoutput.FixedContainerInterim;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
@@ -79,6 +82,30 @@ public class FixedContainerInterimImpl extends ContainerInterimImpl implements F
 	@Override
 	public Integer getSize() {
 		return getContained().size();
+	}
+	
+	@Override
+	public JSONObject toJson() {
+		JSONObject result = new JSONObject();
+		try {
+			result.put("class", getClass().getSimpleName());
+			result.put("id", getInterimPartId());
+			JSONArray contained = new JSONArray();
+			for (InterimResultPart container: getContained())
+				contained.put(container.toJson());
+			result.put("contained", contained);
+		} catch (JSONException e) {
+		}
+		return result;
+	}
+
+	@Override
+	public Map<Integer, InterimResultPart> getInterimResultParts() {
+		Map<Integer, InterimResultPart> map = new HashMap<Integer, InterimResultPart>();
+		map.put(getInterimPartId(), this);
+		for (InterimResultPart contained: getContained())
+			map.putAll(((InterimResultPartImpl) contained).getInterimResultParts());
+		return map;
 	}
 
 	@Override

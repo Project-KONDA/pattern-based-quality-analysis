@@ -9,6 +9,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
@@ -58,6 +61,19 @@ public class InterimResultStructureImpl extends MinimalEObjectImpl.Container imp
 		setRecord(new ValueInterimImpl());
 	}
 
+	@Override
+	public JSONObject toJson() {
+		JSONObject result = new JSONObject();
+		try {
+			result.put("class", getClass().getSimpleName());
+			result.put("record", getRecord().toJson());
+			if (getSubstructure() != null)
+				result.put("substructure", getSubstructure().toJson());
+		} catch (JSONException e) {
+		}
+		return result;
+	}
+	
 	@Override
 	public String toString(){
 		String res = "";
