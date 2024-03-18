@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.javaquery.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -59,6 +61,18 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 		setArgument(container);
 	}
 	
+	public BooleanFilterElementImpl(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+		super();
+		try {
+			JSONObject jsono = new JSONObject(json);
+			FixedContainerInterimImpl argument = (FixedContainerInterimImpl) map.get(jsono.getInt("argument")); 
+			setArgument(argument);
+		}
+		catch (Exception e) {
+			throw new InvalidityException();
+		}
+	}
+
 	@Override
 	public Boolean apply(InterimResult parameter) throws InvalidityException{
 		if (!(parameter instanceof ContainerResult))

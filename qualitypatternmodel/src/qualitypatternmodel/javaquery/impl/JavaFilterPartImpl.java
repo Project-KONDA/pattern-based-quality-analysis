@@ -3,6 +3,8 @@
 package qualitypatternmodel.javaquery.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Map;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
@@ -10,6 +12,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
@@ -83,6 +86,45 @@ public abstract class JavaFilterPartImpl extends MinimalEObjectImpl.Container im
 				return toJson();
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	public static JavaFilterPartImpl fromJson(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+		try {
+			JSONObject jsono = new JSONObject(json);
+			String clazz = jsono.getString("class");
+			
+			//BooleanFilterParts
+			if (clazz.equals(FormulaFilterPartImpl.class.getSimpleName())) {
+				return new FormulaFilterPartImpl(json, map);
+			}
+			if (clazz.equals(BooleanFilterElementImpl.class.getSimpleName())) {
+				return new BooleanFilterElementImpl(json, map);
+			}
+			if (clazz.equals(NotFilterPartImpl.class.getSimpleName())) {
+				return new NotFilterPartImpl(json, map);
+			}
+			if (clazz.equals(QuantifierFilterPartImpl.class.getSimpleName())) {
+				return new QuantifierFilterPartImpl(json, map);
+			}
+			if (clazz.equals(OneArgFunctionFilterPartImpl.class.getSimpleName())) {
+				return new OneArgFunctionFilterPartImpl(json, map);
+			}
+			if (clazz.equals(CountFilterPartImpl.class.getSimpleName())) {
+				return new CountFilterPartImpl(json, map);
+			}
+
+			//NumberFilterParts
+			if (clazz.equals(CountFilterElementImpl.class.getSimpleName())) {
+				return new CountFilterElementImpl(json, map);
+			}
+			if (clazz.equals(NumberFilterElementImpl.class.getSimpleName())) {
+				return new NumberFilterElementImpl(json, map);
+			}
+			if (clazz.equals(NumberValueFilterElementImpl.class.getSimpleName())) {
+				return new NumberValueFilterElementImpl(json, map);
+			}
+		} catch (JSONException e) {}
+		return null;
 	}
 
 } //JavaFilterPartImpl

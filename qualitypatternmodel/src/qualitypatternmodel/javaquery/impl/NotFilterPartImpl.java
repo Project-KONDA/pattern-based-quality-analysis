@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.javaquery.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -55,6 +57,17 @@ public class NotFilterPartImpl extends BooleanFilterPartImpl implements NotFilte
 	public NotFilterPartImpl(BooleanFilterPart subfilter) {
 		super();
 		setSubfilter(subfilter);
+	}
+
+	public NotFilterPartImpl(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+		super();
+		try {
+			JSONObject jsono = new JSONObject(json);
+			setSubfilter((BooleanFilterPart) JavaFilterPartImpl.fromJson(jsono.getString("subfilter"), map));
+		}
+		catch (Exception e) {
+			throw new InvalidityException();
+		}
 	}
 
 	@Override

@@ -3,6 +3,9 @@
 package qualitypatternmodel.javaqueryoutput.impl;
 
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -16,6 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.FixedContainerInterim;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
@@ -77,6 +81,22 @@ public class FixedContainerInterimImpl extends ContainerInterimImpl implements F
 		super();
 		getContained().clear();
 		getContained().addAll(interims);
+	}
+	
+	public FixedContainerInterimImpl(String json) throws InvalidityException {
+		super();
+		try {
+			JSONObject jsono = new JSONObject(json);
+			if (!jsono.get("class").equals(getClass().getSimpleName()))
+				throw new InvalidityException("Wrong class");
+			setInterimPartId(jsono.getInt("id"));
+			JSONArray containedarray = new JSONArray(jsono.getString("contained"));
+			for (int i = 0; i < containedarray.length(); i++) {
+				getContained().add(InterimResultPartImpl.fromJson(containedarray.getString(i)));
+			}
+		} catch (JSONException e) {
+			throw new InvalidityException("Wrong class");
+		}
 	}
 	
 	@Override

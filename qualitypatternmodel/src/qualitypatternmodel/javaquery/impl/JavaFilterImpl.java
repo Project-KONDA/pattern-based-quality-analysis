@@ -6,6 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import org.basex.core.Context;
 import org.basex.core.cmd.CreateDB;
@@ -21,7 +22,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -301,19 +301,36 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
     }
 	
 	
-	public static JavaFilter fromJson(String json) {
-        try {
-            // Create ObjectMapper instance
-            ObjectMapper mapper = new ObjectMapper();
-            
-            // Deserialize JSON string to EMF object
-            JavaFilter filter = mapper.readValue(json, JavaFilter.class);
-            
-            return filter;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+	public static JavaFilter fromJson(String json) throws InvalidityException, JSONException {
+		JSONObject jsonObject = new JSONObject(json);
+		
+		JavaFilter filter = new JavaFilterImpl();
+		filter.setPatternId((String) jsonObject.get("patternId"));
+		filter.setPatternId((String) jsonObject.get("patternName"));
+		filter.setQuery((String) jsonObject.get("query"));
+		filter.setLanguage(Language.valueOf((String) jsonObject.get("language")));
+		
+		InterimResultStructureImpl structure = InterimResultStructureImpl.fromJson((String) jsonObject.get("structure"));
+		filter.setStructure(structure);
+		
+		Map<Integer, InterimResultPart> map = structure.getInterimResultParts();
+		BooleanFilterPart subfilter = (BooleanFilterPart) JavaFilterPartImpl.fromJson((String) jsonObject.get("filter"), map);
+		filter.setFilter(subfilter);
+		
+		return filter;
+		
+//        try {
+//            // Create ObjectMapper instance
+//            ObjectMapper mapper = new ObjectMapper();
+//            
+//            // Deserialize JSON string to EMF object
+//            JavaFilter filter = mapper.readValue(json, JavaFilter.class);
+//            
+//            return filter;
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return null;
+//        }
     }
 
 	/**

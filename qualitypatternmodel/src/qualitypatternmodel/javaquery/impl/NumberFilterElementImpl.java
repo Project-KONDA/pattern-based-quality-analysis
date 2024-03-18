@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.javaquery.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -55,6 +57,18 @@ public class NumberFilterElementImpl extends NumberFilterPartImpl implements Num
 		setArgument(new ValueInterimImpl());
 	}
 	
+	public NumberFilterElementImpl(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+		super();
+		try {
+			JSONObject jsono = new JSONObject(json);
+			ValueInterim argument = (ValueInterim) map.get(jsono.getInt("argument")); 
+			setArgument(argument);
+		}
+		catch (Exception e) {
+			throw new InvalidityException();
+		}
+	}
+
 	@Override
 	public Double apply(InterimResult parameter) throws InvalidityException{
 		assert(parameter instanceof ValueResult);

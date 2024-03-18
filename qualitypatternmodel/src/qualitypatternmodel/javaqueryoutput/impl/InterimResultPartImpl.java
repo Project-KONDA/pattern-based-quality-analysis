@@ -2,10 +2,17 @@
  */
 package qualitypatternmodel.javaqueryoutput.impl;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.Map;
+
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 
@@ -36,6 +43,14 @@ public abstract class InterimResultPartImpl extends MinimalEObjectImpl.Container
 		return interimPartId;
 	}
 	
+	protected void setInterimPartId(Integer id) {
+		interimPartId = id;
+		if (idCounter < id)
+			idCounter = id;
+	}
+	
+	abstract public Map<Integer, InterimResultPart> getInterimResultParts();
+	
 	
 	
 	
@@ -63,6 +78,23 @@ public abstract class InterimResultPartImpl extends MinimalEObjectImpl.Container
 				return toJson();
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	public static InterimResultPartImpl fromJson(String json) throws InvalidityException {
+		try {
+			JSONObject jsono = new JSONObject(json);
+			String clazz = jsono.getString("class");
+			if (clazz.equals(ValueInterimImpl.class.getSimpleName())) {
+				return new ValueInterimImpl(json);
+			}
+			if (clazz.equals(VariableContainerInterimImpl.class.getSimpleName())) {
+				return new VariableContainerInterimImpl(json);
+			}
+			if (clazz.equals(FixedContainerInterimImpl.class.getSimpleName())) {
+				return new FixedContainerInterimImpl(json);
+			}
+		} catch (JSONException e) {}
+		return null;
 	}
 
 } //InterimResultPartImpl

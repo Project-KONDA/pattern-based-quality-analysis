@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.javaquery.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -116,6 +118,21 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 		setArgument(new FixedContainerInterimImpl());
 		setSubfilter1(arg1filter);
 		setSubfilter2(new NumberValueFilterElementImpl(number));
+	}
+
+	public CountFilterPartImpl(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+		super();
+		try {
+			JSONObject jsono = new JSONObject(json);
+			setOperator(ComparisonOperator.get(jsono.getString("operator")));
+			FixedContainerInterimImpl argument = (FixedContainerInterimImpl) map.get(jsono.getInt("argument")); 
+			setArgument(argument);
+			setSubfilter1((NumberFilterPart) JavaFilterPartImpl.fromJson(jsono.getString("subfilter1"), map));
+			setSubfilter2((NumberFilterPart) JavaFilterPartImpl.fromJson(jsono.getString("subfilter2"), map));	
+		}
+		catch (Exception e) {
+			throw new InvalidityException();
+		}
 	}
 
 	@Override

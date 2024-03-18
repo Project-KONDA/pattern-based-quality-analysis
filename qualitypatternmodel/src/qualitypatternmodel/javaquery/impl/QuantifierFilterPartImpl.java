@@ -3,6 +3,8 @@
 package qualitypatternmodel.javaquery.impl;
 
 import java.util.Collection;
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -107,6 +109,26 @@ public class QuantifierFilterPartImpl extends BooleanFilterPartImpl implements Q
 		
 	}
 	
+	public QuantifierFilterPartImpl(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+		super();
+		try {
+
+			JSONObject jsono = new JSONObject(json);
+			setQuantifier(Quantifier.get(jsono.getString("quantifier")));
+			FixedContainerInterimImpl argument = (FixedContainerInterimImpl) map.get(jsono.getInt("argument")); 
+			setArgument(argument);
+			
+			JSONArray subfilters = new JSONArray(jsono.getString("subfilters"));
+			for (int i = 0; i < subfilters.length(); i++) {
+				BooleanFilterPart bfp = (BooleanFilterPart) JavaFilterPartImpl.fromJson(subfilters.get(i).toString(), map);
+				getSubfilter().add(bfp);
+			}
+		}
+		catch (Exception e) {
+			throw new InvalidityException();
+		}
+	}
+
 	@Override
 	public Boolean apply(InterimResult parameter) throws InvalidityException {
 		if (parameter == null)
