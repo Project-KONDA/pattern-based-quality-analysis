@@ -3,6 +3,7 @@
 	<name>qualitypatternmodel</name>
 	<comment></comment>
 	<projects>
+		<project>metadata-qa-api</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
