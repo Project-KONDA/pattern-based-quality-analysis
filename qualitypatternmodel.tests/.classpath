@@ -4,7 +4,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="lib" path="/qualitypatternmodel/lib/BaseX931.jar"/>
-	<classpathentry kind="lib" path="/qualitypatternmodel/lib/metadata-qa-api-0.9.3.jar"/>
 	<classpathentry kind="lib" path="/qualitypatternmodel/WebContent/WEB-INF/lib/java-json.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/metadata-qa-api"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
