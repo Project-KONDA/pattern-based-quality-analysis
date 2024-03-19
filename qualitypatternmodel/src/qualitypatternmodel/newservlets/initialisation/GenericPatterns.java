@@ -48,6 +48,7 @@ public class GenericPatterns {
 		patterns.add(getGenericContains());
 		patterns.add(getGenericAppdup3());
 		patterns.add(getGenericDupVal());
+		patterns.add(getGenericInvalidLink());
 		return patterns;
 	}
 
@@ -331,6 +332,29 @@ public class GenericPatterns {
 		ComparisonOptionParam comparisonOption = c.getOption();
 		comparisonOption.setValue(ComparisonOperator.EQUAL);
 		comparisonOption.setPredefined(true);
+
+		pattern.isValid(AbstractionLevel.GENERIC);
+		return pattern;
+	}
+
+	public static CompletePattern getGenericInvalidLink() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		pattern.setPatternId("InvalidLink_generic");
+		pattern.setAbstractId("InvalidLink_generic");
+		pattern.setName("InvalidLink");
+		pattern.setShortDescription("Invalid Link");
+		pattern.setDescription("Check whether a record an invalid link in a field.");
+
+		ComplexNode main = (ComplexNode) pattern.getGraph().getReturnNodes().get(0).makeComplex();
+		main.setName("main");
+		
+		QuantifiedCondition qc = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		pattern.setCondition(qc);
+
+		PrimitiveNode field = main.addOutgoing(qc.getGraph()).getTarget().makePrimitive();
+		field.setName("field");
+		
+		field.addPrimitiveValidateLink();
 
 		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;

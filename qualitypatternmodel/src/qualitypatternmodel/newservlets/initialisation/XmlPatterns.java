@@ -8,6 +8,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
@@ -24,6 +25,7 @@ public class XmlPatterns {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
 		for (Parameter p: getXmlCard().getParameterList().getParameters())
+//		for (Parameter p: getXmlInvalidLink().getParameterList().getParameters())
 			System.out.println(p.myToString());
 //		int i = 0;
 //		for (CompletePattern pattern: getAllXmlPattern()) {
@@ -43,6 +45,7 @@ public class XmlPatterns {
 //		patterns.add(getXmlContains());
 //		patterns.add(getXmlAppdup3());
 //		patterns.add(getXmlDupVal());
+		patterns.add(getXmlInvalidLink());
 		return patterns;
 	}
 
@@ -218,6 +221,55 @@ public class XmlPatterns {
 		pattern.setPatternId("DupVal_xml");
 		pattern.setAbstractId("DupVal_xml");
 		// TODO
+		pattern.isValid(AbstractionLevel.ABSTRACT);
+		return pattern;
+	}
+	
+	public static CompletePattern getXmlInvalidLink() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern pattern = GenericPatterns.getGenericInvalidLink();
+		pattern.createXmlAdaption();
+		pattern.setPatternId("InvalidLink_xml");
+		pattern.setAbstractId("InvalidLink_xml");
+		
+		List<Parameter> params = pattern.getParameterList().getParameters();
+		
+		BooleanParam bool = ((BooleanParam) params.get(0)); // negate
+		XmlPathParam path1 = ((XmlPathParam) params.get(1)); // path to record
+		XmlPathParam path2 = ((XmlPathParam) params.get(2)); // path to link value
+		
+		{
+			// Is there a <xmlpath_rootToReturn> where the link in the <xmlpath_returnToCondition> element is <not> valid?
+			PatternText variant1 = TextrepresentationFactory.eINSTANCE.createPatternText();
+			variant1.setName("simple");
+			pattern.getText().add(variant1);
+			
+			variant1.addFragment(new TextFragmentImpl("Is there a"));
+			{
+				ParameterFragment v1path1fragment = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+				v1path1fragment.setName("xmlpath_rootToReturn");
+				v1path1fragment.setExampleValue("record");
+				v1path1fragment.getParameter().add(path1);
+				variant1.addFragment(v1path1fragment);
+			}
+			variant1.addFragment(new TextFragmentImpl("where the link in the"));
+			{
+				ParameterFragment v1path2fragment = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+				v1path2fragment.setName("xmlpath_returnToCondition");
+				v1path2fragment.getParameter().add(path2);
+				v1path2fragment.setExampleValue("sourcefield");
+				variant1.addFragment(v1path2fragment);
+			}
+			variant1.addFragment(new TextFragmentImpl("element is"));
+			{
+				ParameterFragment v1path3fragment = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+				v1path3fragment.setName("negation");
+				v1path3fragment.getParameter().add(bool);
+				v1path3fragment.setExampleValue("true");
+				variant1.addFragment(v1path3fragment);
+			}
+			variant1.addFragment(new TextFragmentImpl("valid?"));
+		}
+		
 		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}

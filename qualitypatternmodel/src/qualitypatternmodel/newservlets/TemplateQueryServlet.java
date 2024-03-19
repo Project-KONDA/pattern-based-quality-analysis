@@ -230,6 +230,7 @@ public class TemplateQueryServlet extends HttpServlet {
 			len = shortQuery.length();
 			shortQuery = shortQuery.replace("  ", " ");
 		}
+		shortQuery = shortQuery.trim();
 		return shortQuery;
 	}
 
