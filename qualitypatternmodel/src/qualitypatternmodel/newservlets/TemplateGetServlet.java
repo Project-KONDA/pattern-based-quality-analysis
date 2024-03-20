@@ -63,7 +63,7 @@ public class TemplateGetServlet extends HttpServlet {
 		CompletePattern pattern;
 		try {
 			pattern = ServletUtilities.loadConstraint(getServletContext(), technology, constraintId);
-			System.out.println(pattern.myToString());
+//			System.out.println(pattern.myToString());
 			pattern.isValid(AbstractionLevel.ABSTRACT);
 		} catch (IOException e) {
 			throw new FailedServletCallException("constraint not found", e);
