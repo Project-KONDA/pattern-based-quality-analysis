@@ -48,6 +48,7 @@ public class ParameterFragmentItemProvider extends FragmentItemProvider {
 			addParameterPropertyDescriptor(object);
 			addExampleValuePropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
+			addValueMapPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -119,6 +120,28 @@ public class ParameterFragmentItemProvider extends FragmentItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Value Map feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValueMapPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ParameterFragment_valueMap_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ParameterFragment_valueMap_feature", "_UI_ParameterFragment_type"),
+				 TextrepresentationPackage.Literals.PARAMETER_FRAGMENT__VALUE_MAP,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns ParameterFragment.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -157,6 +180,7 @@ public class ParameterFragmentItemProvider extends FragmentItemProvider {
 
 		switch (notification.getFeatureID(ParameterFragment.class)) {
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__NAME:
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__VALUE_MAP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

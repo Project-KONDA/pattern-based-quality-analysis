@@ -72,6 +72,18 @@ public abstract class InterimResultPartImpl extends MinimalEObjectImpl.Container
 	 * @generated
 	 */
 	@Override
+	public JSONObject toJson() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case JavaqueryoutputPackage.INTERIM_RESULT_PART___TO_JSON:

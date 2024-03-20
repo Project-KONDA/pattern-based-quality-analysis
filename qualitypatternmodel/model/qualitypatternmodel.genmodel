@@ -977,11 +977,13 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/exampleValue"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/valueMap"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/getType"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/getRole"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/setValue">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/setValue/value"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/getValue"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//textrepresentation/Fragment">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/Fragment/patternText"/>

@@ -5,7 +5,9 @@ package qualitypatternmodel.textrepresentation.impl;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -57,11 +59,15 @@ import qualitypatternmodel.utility.Constants;
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getParameter <em>Parameter</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getExampleValue <em>Example Value</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getName <em>Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getValueMap <em>Value Map</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ParameterFragmentImpl extends FragmentImpl implements ParameterFragment {
+	
+	
+	
 	/**
 	 * The cached value of the '{@link #getParameter() <em>Parameter</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -112,6 +118,16 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getValueMap() <em>Value Map</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueMap()
+	 * @generated
+	 * @ordered
+	 */
+	protected Map<String, String> valueMap;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -199,6 +215,29 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Map<String, String> getValueMap() {
+		return valueMap;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setValueMap(Map<String, String> newValueMap) {
+		Map<String, String> oldValueMap = valueMap;
+		valueMap = newValueMap;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__VALUE_MAP, oldValueMap, valueMap));
 	}
 
 	@Override
@@ -367,6 +406,21 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
+	 * @generated NOT
+	 */
+	@Override
+	public String getValue() {
+		String value = getParameter().get(0).getValueAsString();
+		Map<String, String> valueMap = new HashMap<String, String>();
+		if (valueMap != null && valueMap.containsKey(value))
+			return valueMap.get(value);
+		return value;
+	}	
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -408,8 +462,18 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 */
 	@Override
 	public void setValue(String value) throws InvalidityException {
+		String myValue = value;
+		Map<String, String> valueMap = new HashMap<String, String>();
+		if (valueMap != null && valueMap.containsValue(value)) {
+			for (String key: valueMap.keySet()) {
+				if (valueMap.get(key).equals(value)) {
+					myValue = key;
+					break;
+				}
+			}
+		}
 		for (Parameter p: getParameter())
-			p.setValueFromString(value);
+			p.setValueFromString(myValue);
 	}
 
 	/**
@@ -501,6 +565,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				return getExampleValue();
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__NAME:
 				return getName();
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__VALUE_MAP:
+				return getValueMap();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -524,6 +590,9 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__NAME:
 				setName((String)newValue);
 				return;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__VALUE_MAP:
+				setValueMap((Map<String, String>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -545,6 +614,9 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__VALUE_MAP:
+				setValueMap((Map<String, String>)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -563,6 +635,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				return EXAMPLE_VALUE_EDEFAULT == null ? exampleValue != null : !EXAMPLE_VALUE_EDEFAULT.equals(exampleValue);
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__VALUE_MAP:
+				return valueMap != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -635,6 +709,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case TextrepresentationPackage.PARAMETER_FRAGMENT___GET_VALUE:
+				return getValue();
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___IS_VALID__ABSTRACTIONLEVEL:
 				try {
 					isValid((AbstractionLevel)arguments.get(0));
@@ -661,6 +737,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		result.append(exampleValue);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", valueMap: ");
+		result.append(valueMap);
 		result.append(')');
 		return result.toString();
 	}
