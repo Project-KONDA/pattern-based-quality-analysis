@@ -1,6 +1,6 @@
 package playground;
 
-import static qualitypatternmodel.xmltestutility.DatabaseConstants.*;
+import static qualitypatternmodel.utility.XmlTestDatabaseConstants.*;
 
 import org.basex.core.BaseXException;
 import org.basex.core.Context;

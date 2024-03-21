@@ -1,6 +1,6 @@
-package qualitypatternmodel.xmltestutility;
+package qualitypatternmodel.utility;
 
-public class DatabaseConstants {
+public class XmlTestDatabaseConstants {
 	
 	public static final String DEMO_DATA_PATH = "demo.data/demo_database.xml";
 	public static final String DEMO_SCHEMA_PATH = "demo.data/demo_database_schema.xsd";

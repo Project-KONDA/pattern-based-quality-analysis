@@ -14,6 +14,7 @@ import org.junit.Before;
 import org.junit.Test;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.servlets.Util;
+import qualitypatternmodel.utility.XmlServletUtility;
 
 public class PatternApplicationServletTest {
 	
@@ -22,13 +23,13 @@ public class PatternApplicationServletTest {
 	
 	@Before
 	public void before() throws IOException, InvalidityException, JSONException {
-		ServletTestsUtil.registerDatabase(localName, "demo_database", "localhost", "1984", "admin", "admin");		
-		ServletTestsUtil.setDatabase(localName, patternName);
+		XmlServletUtility.registerDatabase(localName, "demo_database", "localhost", "1984", "admin", "admin");		
+		XmlServletUtility.setDatabase(localName, patternName);
 	}	
 	
 	@Test
 	public void doGetTest() throws IOException, JSONException {
-		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.APPLICATION_ENDPOINT).openConnection();
+		HttpURLConnection connection = (HttpURLConnection) new URL(XmlServletUtility.PATH_PREFIX + Util.APPLICATION_ENDPOINT).openConnection();
 		connection.setRequestMethod("POST");
 		
 		String patternNameEncoded = URLEncoder.encode(patternName, "UTF-8");
@@ -42,8 +43,8 @@ public class PatternApplicationServletTest {
 		int responseCode = connection.getResponseCode();	
 		assertTrue(responseCode >= 200 && responseCode < 300);
 
-		String result = ServletTestsUtil.getResult(connection);		
-		ServletTestsUtil.printResult(connection, responseCode, result);
+		String result = XmlServletUtility.getResult(connection);		
+		XmlServletUtility.printResult(connection, responseCode, result);
 		
 		JSONArray array = new JSONArray(result);
 		assertTrue(array.length() == 1);
@@ -61,7 +62,7 @@ public class PatternApplicationServletTest {
 	
 	@After
 	public void after() throws IOException, JSONException {		
-		ServletTestsUtil.deleteDatabase(localName);	
+		XmlServletUtility.deleteDatabase(localName);	
 	}
 	
 	

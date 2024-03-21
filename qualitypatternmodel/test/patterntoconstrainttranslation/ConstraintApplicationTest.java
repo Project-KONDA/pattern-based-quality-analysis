@@ -1,5 +1,10 @@
 package patterntoconstrainttranslation;
 
+import static qualitypatternmodel.utility.XmlTestDatabaseConstants.DEMO_DATABASE_NAME;
+import static qualitypatternmodel.utility.XmlTestDatabaseConstants.DEMO_DATA_PATH;
+import static qualitypatternmodel.utility.XmlTestDatabaseConstants.DEMO_XQUERY_RECORD_PATH;
+import static qualitypatternmodel.utility.XmlTestDatabaseConstants.DEMO_XQUERY_RECORD_SOURCE_PATH;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -36,11 +41,6 @@ import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
-
-import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_DATABASE_NAME;
-import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_DATA_PATH;
-import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_XQUERY_RECORD_PATH;
-import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_XQUERY_RECORD_SOURCE_PATH;
 
 public class ConstraintApplicationTest {
 

@@ -9,6 +9,7 @@ import java.net.URLEncoder;
 import org.junit.Test;
 
 import qualitypatternmodel.servlets.Util;
+import qualitypatternmodel.utility.XmlServletUtility;
 
 public class ConcretePatternDescriptionServletTest {
 	
@@ -16,7 +17,7 @@ public class ConcretePatternDescriptionServletTest {
 	@Test
 	public void doPostTest() throws IOException {
 		String pattern = "card_concrete";
-		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.DESCRIPTION_ENDPOINT + pattern).openConnection();
+		HttpURLConnection connection = (HttpURLConnection) new URL(XmlServletUtility.PATH_PREFIX + Util.DESCRIPTION_ENDPOINT + pattern).openConnection();
 		connection.setRequestMethod("POST");
 		String valueEncoded = URLEncoder.encode("This is a test description", "UTF-8");
 		String parameters = "description=" + valueEncoded;

@@ -12,15 +12,16 @@ import org.json.JSONException;
 import org.junit.Test;
 
 import qualitypatternmodel.servlets.Util;
+import qualitypatternmodel.utility.XmlServletUtility;
 
 public class ConcretePatternDeletionServletTest {
 
 	@Test
 	public void doDeleteTest() throws IOException, JSONException {		
 		String concretePatternName = "deletion_test";
-		ServletTestsUtil.createConcretePattern("card_abstract", "flexible", concretePatternName);
+		XmlServletUtility.createConcretePattern("card_abstract", "flexible", concretePatternName);
 		
-		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.CONCRETE_PATTERN_DELETION_ENDPOINT + concretePatternName).openConnection();
+		HttpURLConnection connection = (HttpURLConnection) new URL(XmlServletUtility.PATH_PREFIX + Util.CONCRETE_PATTERN_DELETION_ENDPOINT + concretePatternName).openConnection();
 		connection.setRequestMethod("DELETE");
 		
 		int responseCode = connection.getResponseCode();
@@ -29,16 +30,16 @@ public class ConcretePatternDeletionServletTest {
 //		String result = ServletTestsUtil.getResult(connection);		
 //		ServletTestsUtil.printResult(connection, responseCode, result);
 		
-		HttpURLConnection connection2 = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.CONCRETE_PATTERN_LIST_ENDPOINT).openConnection();
+		HttpURLConnection connection2 = (HttpURLConnection) new URL(XmlServletUtility.PATH_PREFIX + Util.CONCRETE_PATTERN_LIST_ENDPOINT).openConnection();
 		connection2.setRequestMethod("GET");
 		
 		int responseCode2 = connection2.getResponseCode();
 		assertTrue(responseCode2 >= 200 && responseCode < 300);
 		
-		String result2 = ServletTestsUtil.getResult(connection2);		
+		String result2 = XmlServletUtility.getResult(connection2);		
 
 		JSONArray array = new JSONArray(result2);
-		List<String> list = ServletTestsUtil.JSONArrayToList(array);
+		List<String> list = XmlServletUtility.JSONArrayToList(array);
 		
 		assertFalse(list.contains(concretePatternName));
 		

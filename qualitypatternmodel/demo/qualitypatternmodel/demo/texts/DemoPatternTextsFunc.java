@@ -1,6 +1,6 @@
 package qualitypatternmodel.demo.texts;
 
-import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_NAMESPACE;
+import static qualitypatternmodel.utility.XmlTestDatabaseConstants.DEMO_NAMESPACE;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import qualitypatternmodel.demo.DemoPatternTexts;
 import qualitypatternmodel.servlets.Util;
+import qualitypatternmodel.utility.XmlServletUtility;
 
 public class AbstractPatternInstantiationServletTest {
 	
@@ -17,7 +18,7 @@ public class AbstractPatternInstantiationServletTest {
 	
 	@After
 	public void deletePattern() throws IOException {			
-		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.CONCRETE_PATTERN_DELETION_ENDPOINT + PATTERN_NAME).openConnection();
+		HttpURLConnection connection = (HttpURLConnection) new URL(XmlServletUtility.PATH_PREFIX + Util.CONCRETE_PATTERN_DELETION_ENDPOINT + PATTERN_NAME).openConnection();
 		connection.setRequestMethod("DELETE");		
 		int responseCode = connection.getResponseCode();
 		assertTrue(responseCode >= 200 && responseCode < 300);
@@ -25,7 +26,7 @@ public class AbstractPatternInstantiationServletTest {
 
 	@Test
 	public void doPostTest() throws IOException, JSONException {		
-		ServletTestsUtil.createConcretePattern("card_abstract", DemoPatternTexts.CARD_NAME, PATTERN_NAME);
+		XmlServletUtility.createConcretePattern("card_abstract", DemoPatternTexts.CARD_NAME, PATTERN_NAME);
 	}
 	
 }

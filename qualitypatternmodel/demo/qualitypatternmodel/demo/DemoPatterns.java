@@ -1,6 +1,6 @@
 package qualitypatternmodel.demo;
 
-import static qualitypatternmodel.xmltestutility.DatabaseConstants.*;
+import static qualitypatternmodel.utility.XmlTestDatabaseConstants.*;
 
 import java.io.IOException;
 import java.util.List;

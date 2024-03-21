@@ -7,6 +7,7 @@ import java.net.URL;
 import org.json.JSONException;
 import org.junit.Test;
 import qualitypatternmodel.servlets.Util;
+import qualitypatternmodel.utility.XmlServletUtility;
 
 public class ConcretisationFinalizationServletTest {
 	
@@ -16,7 +17,7 @@ public class ConcretisationFinalizationServletTest {
 	@Test
 	public void doPostTest() throws IOException {
 		String patternName = "card_concrete";
-		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.CONCRETISATION_FINALIZATION_ENDPOINT + patternName).openConnection();
+		HttpURLConnection connection = (HttpURLConnection) new URL(XmlServletUtility.PATH_PREFIX + Util.CONCRETISATION_FINALIZATION_ENDPOINT + patternName).openConnection();
 		connection.setRequestMethod("POST");
 		
 		int responseCode = connection.getResponseCode();		
@@ -25,7 +26,7 @@ public class ConcretisationFinalizationServletTest {
 //		String result = ServletTestsUtil.getResult(connection);		
 //		ServletTestsUtil.printResult(connection, responseCode, result);
 		
-		HttpURLConnection connection2 = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.QUERY_ENDPOINT + patternName).openConnection();
+		HttpURLConnection connection2 = (HttpURLConnection) new URL(XmlServletUtility.PATH_PREFIX + Util.QUERY_ENDPOINT + patternName).openConnection();
 		connection2.setRequestMethod("GET");
 		
 		int responseCode2 = connection2.getResponseCode();
@@ -35,14 +36,14 @@ public class ConcretisationFinalizationServletTest {
 	
 	@Test
 	public void doPostTestWithPreviousInstantiationAndConcretisation() throws IOException, JSONException {
-		ServletTestsUtil.createConcretePattern("card_abstract", "flexible", CONCRETE_PATTERN_NAME);			
-		ServletTestsUtil.setParameter(CONCRETE_PATTERN_NAME, "0", "demo:test", "Text", "Text");  
-		ServletTestsUtil.setParameter(CONCRETE_PATTERN_NAME, "5", "demo:totest", "Text", "Text");
-		ServletTestsUtil.setParameter(CONCRETE_PATTERN_NAME, "8", "DATA", null, "PropertyOption");
+		XmlServletUtility.createConcretePattern("card_abstract", "flexible", CONCRETE_PATTERN_NAME);			
+		XmlServletUtility.setParameter(CONCRETE_PATTERN_NAME, "0", "demo:test", "Text", "Text");  
+		XmlServletUtility.setParameter(CONCRETE_PATTERN_NAME, "5", "demo:totest", "Text", "Text");
+		XmlServletUtility.setParameter(CONCRETE_PATTERN_NAME, "8", "DATA", null, "PropertyOption");
 
 	    
 		
-		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.CONCRETISATION_FINALIZATION_ENDPOINT + CONCRETE_PATTERN_NAME).openConnection();
+		HttpURLConnection connection = (HttpURLConnection) new URL(XmlServletUtility.PATH_PREFIX + Util.CONCRETISATION_FINALIZATION_ENDPOINT + CONCRETE_PATTERN_NAME).openConnection();
 		connection.setRequestMethod("POST");
 		
 		int responseCode = connection.getResponseCode();		
@@ -50,14 +51,14 @@ public class ConcretisationFinalizationServletTest {
 		assertTrue(responseCode >= 200 && responseCode < 300);
 
 		
-		HttpURLConnection connection2 = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.QUERY_ENDPOINT + CONCRETE_PATTERN_NAME).openConnection();
+		HttpURLConnection connection2 = (HttpURLConnection) new URL(XmlServletUtility.PATH_PREFIX + Util.QUERY_ENDPOINT + CONCRETE_PATTERN_NAME).openConnection();
 		connection2.setRequestMethod("GET");
 		
 		int responseCode2 = connection2.getResponseCode();
 		assertTrue(responseCode2 >= 200 && responseCode2 < 300);
 		
 		// delete pattern:
-		HttpURLConnection connection3 = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.CONCRETE_PATTERN_DELETION_ENDPOINT + CONCRETE_PATTERN_NAME).openConnection();
+		HttpURLConnection connection3 = (HttpURLConnection) new URL(XmlServletUtility.PATH_PREFIX + Util.CONCRETE_PATTERN_DELETION_ENDPOINT + CONCRETE_PATTERN_NAME).openConnection();
 		connection3.setRequestMethod("DELETE");		
 		int responseCode3 = connection3.getResponseCode();
 		assertTrue(responseCode3 >= 200 && responseCode3 < 300);

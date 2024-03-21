@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.servlets.Util;
+import qualitypatternmodel.utility.XmlServletUtility;
 
 public class SchemaValidationServletTest {
 	
@@ -21,16 +22,16 @@ public class SchemaValidationServletTest {
 	
 	@Before
 	public void before() throws IOException, InvalidityException, JSONException {
-		ServletTestsUtil.registerDatabase(localName, "demo_database", "localhost", "1984", "admin", "admin");
-		ServletTestsUtil.registerDatabase(localName2, "ddb_20190606", "localhost", "1984", "admin", "admin");
+		XmlServletUtility.registerDatabase(localName, "demo_database", "localhost", "1984", "admin", "admin");
+		XmlServletUtility.registerDatabase(localName2, "ddb_20190606", "localhost", "1984", "admin", "admin");
 		
 	}
 	
 	
 	@Test
 	public void doGetTestPositive() throws IOException {	
-		ServletTestsUtil.setDatabase(localName, patternName);
-		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.SCHEMA_VALIDATION_ENDPOINT + patternName).openConnection();
+		XmlServletUtility.setDatabase(localName, patternName);
+		HttpURLConnection connection = (HttpURLConnection) new URL(XmlServletUtility.PATH_PREFIX + Util.SCHEMA_VALIDATION_ENDPOINT + patternName).openConnection();
 		connection.setRequestMethod("GET");
 		
 		int responseCode = connection.getResponseCode();	
@@ -40,14 +41,14 @@ public class SchemaValidationServletTest {
 	
 	@Test
 	public void doGetTestNegative() throws IOException, JSONException {	
-		ServletTestsUtil.setDatabase(localName2, patternName);
-		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.SCHEMA_VALIDATION_ENDPOINT + patternName).openConnection();
+		XmlServletUtility.setDatabase(localName2, patternName);
+		HttpURLConnection connection = (HttpURLConnection) new URL(XmlServletUtility.PATH_PREFIX + Util.SCHEMA_VALIDATION_ENDPOINT + patternName).openConnection();
 		connection.setRequestMethod("GET");
 		
 		int responseCode = connection.getResponseCode();		
 		assertTrue(responseCode >= 200 && responseCode < 300);
 		
-		String result = ServletTestsUtil.getResult(connection);		
+		String result = XmlServletUtility.getResult(connection);		
 		JSONArray array = new JSONArray(result);
 		assertTrue(array.length() == 2);
 		assertTrue(array.getJSONObject(0).get("URL").equals("/concrete-patterns/parameter/card_concrete_finalized/0")); 
@@ -57,8 +58,8 @@ public class SchemaValidationServletTest {
 	
 	@After
 	public void after() throws IOException, JSONException {		
-		ServletTestsUtil.deleteDatabase(localName);	
-		ServletTestsUtil.deleteDatabase(localName2);		
+		XmlServletUtility.deleteDatabase(localName);	
+		XmlServletUtility.deleteDatabase(localName2);		
 	}
 	
 }

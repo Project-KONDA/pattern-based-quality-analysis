@@ -10,19 +10,20 @@ import org.junit.Test;
 
 import qualitypatternmodel.servlets.Util;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.XmlServletUtility;
 
 public class ParameterExplanationServletTest {
 
 
 	@Test
 	public void doGetTest() throws IOException, JSONException {
-		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.PARAMETER_EXPLANATIONS_ENDPOINT).openConnection();
+		HttpURLConnection connection = (HttpURLConnection) new URL(XmlServletUtility.PATH_PREFIX + Util.PARAMETER_EXPLANATIONS_ENDPOINT).openConnection();
 		connection.setRequestMethod("GET");
 		
 		int responseCode = connection.getResponseCode();
 		assertTrue(responseCode >= 200 && responseCode < 300);
 		
-		String result = ServletTestsUtil.getResult(connection);		
+		String result = XmlServletUtility.getResult(connection);		
 //		ServletTestsUtil.printResult(connection, responseCode, result);		
 		
 		JSONArray array = new JSONArray(result);

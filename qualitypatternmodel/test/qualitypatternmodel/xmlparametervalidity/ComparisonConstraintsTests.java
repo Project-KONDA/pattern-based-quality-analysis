@@ -1,7 +1,7 @@
 package qualitypatternmodel.xmlparametervalidity;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_NAMESPACE;
+import static qualitypatternmodel.utility.XmlTestDatabaseConstants.DEMO_NAMESPACE;
 
 import org.junit.Test;
 
