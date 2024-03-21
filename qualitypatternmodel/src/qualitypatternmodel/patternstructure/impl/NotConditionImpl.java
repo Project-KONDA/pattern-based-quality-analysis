@@ -30,6 +30,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.utility.ConstantsNeo;
+import qualitypatternmodel.utility.ConstantsRdf;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -132,10 +133,10 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 			if (query.startsWith("\n"))
 				query = query.substring(1);
 			if(not) {
-				query = "NOT " + query; 
+				query = ConstantsRdf.NOT + query; 
 			}
 			if(!isInRdfFilter()) {
-				query = "FILTER " + query;
+				query = ConstantsRdf.FILTER + query;
 			}
 			return "\n" + query;
 		} else {

@@ -56,6 +56,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsNeo;
+import qualitypatternmodel.utility.ConstantsRdf;
 import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
 /**
@@ -282,7 +283,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		String query = "\n";
 		if (quantifier == Quantifier.EXISTS) {
 			if(isInRdfFilter()) {
-				query += "EXISTS {";
+				query += ConstantsRdf.EXISTS;
 				query += graph.generateSparql().replace("\n", "\n  ");
 				query += condition.generateSparql().replace("\n", "\n    ");
 				query += "}";
@@ -297,18 +298,18 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 //				throw new InvalidityException("invalid condition in FORALL quantifier " + getInternalId());
 				if(isInRdfFilter()) {
 					if(getNotCondition() == null) {
-						query += "NOT ";
+						query += ConstantsRdf.NOT;
 					}
-					query += "EXISTS {";
+					query += ConstantsRdf.EXISTS;
 					query += graph.generateSparql().replace("\n", "\n  ");
-					query += "\n  FILTER NOT EXISTS {";
+					query += "\n  " + ConstantsRdf.FILTER_NOT_EXISTS;
 					query += condtranslation;
 					query += "\n  }";
 					query += "\n}";
 				} else {
-					query += "FILTER NOT EXISTS {";
+					query += ConstantsRdf.FILTER_NOT_EXISTS;
 					query += graph.generateSparql().replace("\n", "\n  ");
-					query += "\n  FILTER NOT EXISTS {";
+					query += "\n  " + ConstantsRdf.FILTER_NOT_EXISTS;
 					query += condtranslation;
 					query += "\n  }";
 					query += "\n}";

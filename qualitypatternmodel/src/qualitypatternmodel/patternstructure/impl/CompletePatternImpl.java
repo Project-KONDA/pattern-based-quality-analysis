@@ -63,6 +63,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.utility.ConstantsNeo;
+import qualitypatternmodel.utility.ConstantsRdf;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -93,8 +94,6 @@ import qualitypatternmodel.utility.ConstantsNeo;
  * @generated
  */
 public class CompletePatternImpl extends PatternImpl implements CompletePattern {
-	private static final String RETURN_ELEMENT_S_MISSING = "return element(s) missing";
-
 	/**
 	 * The cached value of the '{@link #getParameterList() <em>Parameter List</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -517,7 +516,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 							if(standardIri == null) {
 								throw new InvalidityException("Invalid prefix");
 							}
-							String prefixDeclaration = "PREFIX " + iriParam.getPrefix() + ": <" + standardIri + ">";
+							String prefixDeclaration = ConstantsRdf.PREFIX + iriParam.getPrefix() + ": <" + standardIri + ">";
 							boolean found = false;
 							for(String s : prefixes) {
 								if(s.equals(prefixDeclaration)) {
@@ -539,11 +538,11 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		for (String p: prefixes) {
 			query += "\n" + p;
 		}
-		query += "\nSELECT";
+		query += ConstantsRdf.SELECT;
 		for (Node s: selects) {
 			query += "\n  ?var" + s.getInternalId();
 		}
-		query += "\nWHERE {";
+		query += ConstantsRdf.WHERE +"{";
 		query += super.generateSparql().replace("\n", "\n  ");
 		query += "\n}";
 		
@@ -563,7 +562,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		initializeTranslation();
 		
 		if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
-			throw new InvalidityException(RETURN_ELEMENT_S_MISSING);
+			throw new InvalidityException(ConstantsRdf.RETURN_ELEMENT_S_MISSING);
 		}
 		
 		String completeCyString = super.generateCypher(); 
@@ -839,10 +838,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 */
 	@Override
 	public String generateWikidataSparql() throws InvalidityException {
-		String oldVariable = RdfIriNodeImpl.RDF_TYPE_PREDICATE;
-		RdfIriNodeImpl.RDF_TYPE_PREDICATE = "wdt:P31";
+		String oldVariable = RdfIriNodeImpl.RDF_PREDICATE;
+		RdfIriNodeImpl.RDF_PREDICATE = ConstantsRdf.PREDICATE_WIKIDATA;
 		String result = generateSparql();
-		RdfIriNodeImpl.RDF_TYPE_PREDICATE = oldVariable;
+		RdfIriNodeImpl.RDF_PREDICATE = oldVariable;
 		return result;
 	}
 

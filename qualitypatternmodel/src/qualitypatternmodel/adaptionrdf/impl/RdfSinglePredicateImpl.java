@@ -17,6 +17,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.utility.ConstantsRdf;
 
 /**
  * <!-- begin-user-doc -->
@@ -54,7 +55,7 @@ public class RdfSinglePredicateImpl extends RdfPathComponentImpl implements RdfS
 	@Override
 	public String generateSparql() throws InvalidityException {
 		if(getIriParam() == null) {
-			return "(<>|!<>)";
+			return ConstantsRdf.WILDCARD;
 		}
 		String iri = getIriParam().generateSparql();
 		if(iri == null) {

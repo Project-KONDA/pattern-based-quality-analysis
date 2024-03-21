@@ -44,6 +44,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsNeo;
+import qualitypatternmodel.utility.ConstantsRdf;
 import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
 /**
@@ -178,13 +179,13 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			}
 			String query = "\n{SELECT";;
 			query += selects;
-			query += " (COUNT(*) as ?count)";
-			query += "\nWHERE {";
+			query += ConstantsRdf.COUNT_BY;
+			query += ConstantsRdf.WHERE +"{";
 			query += argument1.replace("\n", "\n  ");
 			query += "\n}";
-			query += "\nGROUP BY ";
+			query += ConstantsRdf.GROUP_BY;
 			query += selects;
-			query += "\nHAVING (?count " + comp + " " + argument2;
+			query += ConstantsRdf.HAVING_COUNT + comp + " " + argument2;
 			query += ")\n}";
 			return query;
 		} else {

@@ -17,6 +17,7 @@ import qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.utility.ConstantsRdf;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,7 +47,7 @@ public class RdfLiteralNodeImpl extends PrimitiveNodeImpl implements RdfLiteralN
 				}
 			}
 		}
-		return "?var" + getInternalId();
+		return ConstantsRdf.VARIABLE + getInternalId();
 	}
 
 	/**

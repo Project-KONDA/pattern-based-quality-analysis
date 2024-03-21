@@ -35,6 +35,7 @@ import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsNeo;
+import qualitypatternmodel.utility.ConstantsRdf;
 import qualitypatternmodel.utility.ConstantsXml;
 import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
@@ -229,7 +230,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 				String condition2Query = condition2.generateSparql();
 				
 				if(operator != LogicalOperator.AND && !isInRdfFilter()) {
-					result += "\nFILTER ";
+					result += ConstantsRdf.FILTER;
 				}
 				
 				switch (operator) {
