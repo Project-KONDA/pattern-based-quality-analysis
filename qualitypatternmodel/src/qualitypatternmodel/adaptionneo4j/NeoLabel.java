@@ -5,7 +5,7 @@ package qualitypatternmodel.adaptionneo4j;
 import org.eclipse.emf.ecore.EObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,7 +18,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public interface NeoLabel extends EObject {
-	public static final String LABEL_REGEX = "[A-Za-zäöüß_0-9]+";
+	public static final String LABEL_REGEX = "[A-Za-zï¿½ï¿½ï¿½ï¿½_0-9]+";
 	public static final String A_LABEL_CAN_NOT_BE_EMPTY = "A Label can not be empty";
 	static final String A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S = "A Label can not contain Whitespace(s)";
 	
@@ -30,11 +30,11 @@ public interface NeoLabel extends EObject {
 	 */
 	default void checkLabel(String value) throws InvalidityException {
 		if (value != null && !(value.isEmpty())) {
-			if (value.contains(CypherSpecificConstants.ONE_WHITESPACE)) {
+			if (value.contains(ConstantsNeo.ONE_WHITESPACE)) {
 				throw new InvalidityException(A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S);
 			}
 			if (!value.matches(LABEL_REGEX)) {
-				throw new InvalidityException(CypherSpecificConstants.ONLY_ALPHANUMERICAL_VALUES_AND_UNDERSCORE);
+				throw new InvalidityException(ConstantsNeo.ONLY_ALPHANUMERICAL_VALUES_AND_UNDERSCORE);
 			}			
 		}
 	}

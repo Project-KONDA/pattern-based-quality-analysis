@@ -2,9 +2,6 @@
  */
 package qualitypatternmodel.parameters.impl;
 
-import static qualitypatternmodel.utility.Constants.LET;
-import static qualitypatternmodel.utility.Constants.LISTVARIABLE;
-
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -20,6 +17,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 
 import qualitypatternmodel.parameters.ListParam;
 import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.utility.ConstantsXml;
 
 /**
  * <!-- begin-user-doc -->
@@ -111,7 +109,7 @@ public abstract class ListParamImpl extends ParameterValueImpl implements ListPa
 	 */
 	@Override
 	public String getListVar() {
-		return LISTVARIABLE + getInternalId();
+		return ConstantsXml.LISTVARIABLE + getInternalId();
 	}
 
 	/**
@@ -121,7 +119,7 @@ public abstract class ListParamImpl extends ParameterValueImpl implements ListPa
 	 */
 	@Override
 	public String getListDeclaration() {
-		String res = LET + getListVar() + " := (";
+		String res = ConstantsXml.LET + getListVar() + " := (";
 		for (int i = 0; i<getValues().size(); i++) {
 			if (i!=0) res += ", ";
 			res += "'" + getValues().get(i) + "'";

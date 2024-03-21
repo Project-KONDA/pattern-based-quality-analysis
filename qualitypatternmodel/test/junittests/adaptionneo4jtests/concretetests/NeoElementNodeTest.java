@@ -29,7 +29,7 @@ import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.impl.NeoElementNodeImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.impl.ParameterListImpl;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 
 @DisplayName("NeoElementNode Tests")
 public class NeoElementNodeTest extends NeoNodeTest {
@@ -119,7 +119,7 @@ public class NeoElementNodeTest extends NeoNodeTest {
 			initGetCypherVariableTest(node, id);
 			String variable;
 			variable = assertDoesNotThrow(() -> {return node.getCypherVariable();});
-		    assertTrue(variable.matches(CypherSpecificConstants.VARIABLE_ELEMENT_NODE + "[1-9][0-9]*")); //--> Checks if the first is the normal prefix + the last digitis are numbers 
+		    assertTrue(variable.matches(ConstantsNeo.VARIABLE_ELEMENT_NODE + "[1-9][0-9]*")); //--> Checks if the first is the normal prefix + the last digitis are numbers 
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
@@ -135,7 +135,7 @@ public class NeoElementNodeTest extends NeoNodeTest {
 			initGetCypherVariableTest(node, id);
 			String variable;
 			variable = assertDoesNotThrow(() -> {return node.getCypherVariable();});
-		    assertFalse(variable.matches(CypherSpecificConstants.VARIABLE_ELEMENT_NODE + "[1-9][0-9]*")); 
+		    assertFalse(variable.matches(ConstantsNeo.VARIABLE_ELEMENT_NODE + "[1-9][0-9]*")); 
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
@@ -167,9 +167,9 @@ public class NeoElementNodeTest extends NeoNodeTest {
 			assumeTrue(variableMap.containsKey(0));
 			String variable = variableMap.get(0).getValue();
 			if (!isDistinct) {
-				assertTrue(variable.matches(CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_DISTINCT + " \\(" +CypherSpecificConstants.VARIABLE_ELEMENT_NODE + "[1-9][0-9]*[)]+"));
+				assertTrue(variable.matches(ConstantsNeo.CYPHER_SPECIAL_FUNCTION_DISTINCT + " \\(" +ConstantsNeo.VARIABLE_ELEMENT_NODE + "[1-9][0-9]*[)]+"));
 			} else {
-				assertTrue(variable.matches(CypherSpecificConstants.VARIABLE_ELEMENT_NODE + "[1-9][0-9]*"));
+				assertTrue(variable.matches(ConstantsNeo.VARIABLE_ELEMENT_NODE + "[1-9][0-9]*"));
 			}
 		} catch (Exception e) {
 			System.out.println(e);

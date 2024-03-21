@@ -35,7 +35,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.NodeImpl;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 
 @DisplayName("NeoPropertyNode Tests")
 public class NeoPropertyNodeTest extends NeoNodeTest {
@@ -68,7 +68,7 @@ public class NeoPropertyNodeTest extends NeoNodeTest {
 	public void generateCypherPropertyAddressing() {
 		try {
 			String placeOfIssue = "placeOfIssue";
-			String propertyAddress = CypherSpecificConstants.VARIABLE_PROPERTY_NODE + GENERIC_NODE_ID + placeOfIssue;
+			String propertyAddress = ConstantsNeo.VARIABLE_PROPERTY_NODE + GENERIC_NODE_ID + placeOfIssue;
 			Field field = getIncomingField();
 			EList<Relation> relations = new BasicEList<Relation>();
 			NeoPropertyEdge mockNeoPropertyEdge = Mockito.mock(NeoPropertyEdge.class);
@@ -107,15 +107,15 @@ public class NeoPropertyNodeTest extends NeoNodeTest {
 			Field field = getIncomingField();
 			EList<Relation> relations = new BasicEList<Relation>();
 			NeoPropertyEdgeImpl mockNeoPropertyEdge = Mockito.mock(NeoPropertyEdgeImpl.class);
-			Mockito.when(mockNeoPropertyEdge.getCypherNodeVariable()).thenReturn(CypherSpecificConstants.VARIABLE_PROPERTY_NODE + id);
+			Mockito.when(mockNeoPropertyEdge.getCypherNodeVariable()).thenReturn(ConstantsNeo.VARIABLE_PROPERTY_NODE + id);
 			NeoPropertyPathParam mockParam = Mockito.mock(NeoPropertyPathParam.class);
 			Mockito.when(mockNeoPropertyEdge.getNeoPropertyPathParam()).thenReturn(mockParam);
 			Mockito.when(mockParam.getNeoPathPart()).thenReturn(Mockito.mock(NeoPathPart.class));
 			relations.add(mockNeoPropertyEdge);
 			field.set(neoPropertyNode, relations);
 			
-			String[] variable = neoPropertyNode.getCypherVariable().split(CypherSpecificConstants.SEPERATOR);
-		    assertTrue(variable[0].compareTo(CypherSpecificConstants.VARIABLE_PROPERTY_NODE + id) == 0);
+			String[] variable = neoPropertyNode.getCypherVariable().split(ConstantsNeo.SEPERATOR);
+		    assertTrue(variable[0].compareTo(ConstantsNeo.VARIABLE_PROPERTY_NODE + id) == 0);
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
@@ -138,8 +138,8 @@ public class NeoPropertyNodeTest extends NeoNodeTest {
 			rList.add(neoPropertyEdge);
 			field.set(neoPropertyNode, rList);
 			
-			String[] variable = neoPropertyNode.getCypherVariable().split(CypherSpecificConstants.SEPERATOR);
-		    assertTrue(variable[0].compareTo(CypherSpecificConstants.VARIABLE_PROPERTY_NODE + id + "_1") == 0);
+			String[] variable = neoPropertyNode.getCypherVariable().split(ConstantsNeo.SEPERATOR);
+		    assertTrue(variable[0].compareTo(ConstantsNeo.VARIABLE_PROPERTY_NODE + id + "_1") == 0);
 		    
 		    //With multiple incomings
 		    neoPropertyNode = FACTORY.createNeoPropertyNode();
@@ -153,10 +153,10 @@ public class NeoPropertyNodeTest extends NeoNodeTest {
 		    rList.add(neoPropertyEdge2);
 		    field.set(neoPropertyNode, rList);
 		    
-		    variable = neoPropertyNode.getCypherVariable().split(CypherSpecificConstants.SEPERATOR);
-		    assertTrue(variable[0].compareTo(CypherSpecificConstants.VARIABLE_PROPERTY_NODE + id + "_1") == 0);
+		    variable = neoPropertyNode.getCypherVariable().split(ConstantsNeo.SEPERATOR);
+		    assertTrue(variable[0].compareTo(ConstantsNeo.VARIABLE_PROPERTY_NODE + id + "_1") == 0);
 		    int suffix = (id + 1);
-		    assertTrue(variable[1].compareTo(CypherSpecificConstants.VARIABLE_PROPERTY_NODE + id + "_" + suffix) == 0);
+		    assertTrue(variable[1].compareTo(ConstantsNeo.VARIABLE_PROPERTY_NODE + id + "_" + suffix) == 0);
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
@@ -226,7 +226,7 @@ public class NeoPropertyNodeTest extends NeoNodeTest {
 			assumeTrue(variableMap.keySet().stream().count() == 1);
 			assumeTrue(variableMap.containsKey(1));
 			String variable = variableMap.get(0).getValue();
-			assertTrue(variable.matches(CypherSpecificConstants.VARIABLE_PROPERTY_NODE + "[1-9][0-9]*" + "_" + "[1-9][0-9]*" + "." + propertyName));
+			assertTrue(variable.matches(ConstantsNeo.VARIABLE_PROPERTY_NODE + "[1-9][0-9]*" + "_" + "[1-9][0-9]*" + "." + propertyName));
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);

@@ -20,7 +20,7 @@ import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.PatternElement;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
  * <!-- begin-user-doc -->
@@ -86,7 +86,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		for (Relation r : getIncoming()) {
 			neoPropertyEdge = (NeoPropertyEdgeImpl) r;
 			if (cypher.length() != 0) {
-				cypher.append(CypherSpecificConstants.SEPERATOR);
+				cypher.append(ConstantsNeo.SEPERATOR);
 			}
 			cypher.append(neoPropertyEdge.getCypherNodeVariable());
 		}
@@ -106,7 +106,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		final String[] temp = (String[]) generateCypherPropertyAddressing().toArray(String[]::new);
 		final StringBuilder cypher = new StringBuilder();
 		for (String s : temp) {
-			cypher.append(s + CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE);
+			cypher.append(s + ConstantsNeo.CYPHER_SEPERATOR + ConstantsNeo.ONE_WHITESPACE);
 		}
 		//Removes the last CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.CYPHER_SEPERATOR
 		//Otherwise redundancy in separators can be produced

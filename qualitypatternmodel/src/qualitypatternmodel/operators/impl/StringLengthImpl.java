@@ -32,7 +32,7 @@ import qualitypatternmodel.parameters.impl.NumberParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.utility.Constants;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
  * <!-- begin-user-doc -->
@@ -110,7 +110,7 @@ public class StringLengthImpl extends BooleanOperatorImpl implements StringLengt
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		if(number != null && number.getValue() != null && option != null && option.getValue() != null && primitiveNode != null) {
-			String tempCypherPropertyAddressing = (String) ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
+			String tempCypherPropertyAddressing = (String) ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing().get(ConstantsNeo.FIRST_CYPHER_PROPERTY_ADDRESSING);
 			String res = "size (" + tempCypherPropertyAddressing + ") " + option.generateCypher() + " " + number.generateCypher();
 			return res;
 		}

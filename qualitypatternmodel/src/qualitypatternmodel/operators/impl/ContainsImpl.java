@@ -33,7 +33,7 @@ import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.utility.Constants;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
  * <!-- begin-user-doc -->
@@ -139,18 +139,18 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		if(option != null && content != null && content.getValue() != null && primitiveNode != null) {
-			String tempCypherPropertyAddressing = (String) ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
+			String tempCypherPropertyAddressing = (String) ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing().get(ConstantsNeo.FIRST_CYPHER_PROPERTY_ADDRESSING);
 			if (!tempCypherPropertyAddressing.isEmpty()) {
 				if (option.getValue()) {
-					return tempCypherPropertyAddressing + CypherSpecificConstants.ONE_WHITESPACE +
-							  CypherSpecificConstants.OPERATOR_CONTAINS + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + CypherSpecificConstants.CYPHER_QUOTATION_MARK + content.getValue() +
-							  CypherSpecificConstants.CYPHER_QUOTATION_MARK + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
+					return tempCypherPropertyAddressing + ConstantsNeo.ONE_WHITESPACE +
+							  ConstantsNeo.OPERATOR_CONTAINS + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + ConstantsNeo.CYPHER_QUOTATION_MARK + content.getValue() +
+							  ConstantsNeo.CYPHER_QUOTATION_MARK + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET;
 				} 
-				return  CypherSpecificConstants.BOOLEAN_OPERATOR_NOT+ CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + tempCypherPropertyAddressing + CypherSpecificConstants.ONE_WHITESPACE +
-						  CypherSpecificConstants.OPERATOR_CONTAINS + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET +  CypherSpecificConstants.CYPHER_QUOTATION_MARK + content.getValue() + 
-						  CypherSpecificConstants.CYPHER_QUOTATION_MARK + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
+				return  ConstantsNeo.BOOLEAN_OPERATOR_NOT+ ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + tempCypherPropertyAddressing + ConstantsNeo.ONE_WHITESPACE +
+						  ConstantsNeo.OPERATOR_CONTAINS + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET +  ConstantsNeo.CYPHER_QUOTATION_MARK + content.getValue() + 
+						  ConstantsNeo.CYPHER_QUOTATION_MARK + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET;
 			}
-			throw new InvalidityException(CypherSpecificConstants.NO_VALID_PROPERTY_IS_ACCESSABLE);
+			throw new InvalidityException(ConstantsNeo.NO_VALID_PROPERTY_IS_ACCESSABLE);
 		}
 		throw new InvalidityException(Constants.INVALID_OPTION);
 	}

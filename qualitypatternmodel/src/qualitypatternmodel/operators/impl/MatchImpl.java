@@ -32,7 +32,7 @@ import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.utility.Constants;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,8 +50,8 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class MatchImpl extends BooleanOperatorImpl implements Match {
-	private final static String CYPHER_REGEX = "%1$s" + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SPECIAL_CYPHER_REGEX_EXPRESSION + CypherSpecificConstants.ONE_WHITESPACE + "%2$s";
-	private final static String CYPHER_NOT_REGEX = CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + "%1$s" + CypherSpecificConstants.ONE_WHITESPACE +	CypherSpecificConstants.SPECIAL_CYPHER_REGEX_EXPRESSION + CypherSpecificConstants.ONE_WHITESPACE + "%2$s" + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
+	private final static String CYPHER_REGEX = "%1$s" + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SPECIAL_CYPHER_REGEX_EXPRESSION + ConstantsNeo.ONE_WHITESPACE + "%2$s";
+	private final static String CYPHER_NOT_REGEX = ConstantsNeo.BOOLEAN_OPERATOR_NOT + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + "%1$s" + ConstantsNeo.ONE_WHITESPACE +	ConstantsNeo.SPECIAL_CYPHER_REGEX_EXPRESSION + ConstantsNeo.ONE_WHITESPACE + "%2$s" + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET;
 	
 	/**
 	 * The cached value of the '{@link #getPrimitiveNode() <em>Primitive Node</em>}' reference.
@@ -130,14 +130,14 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		if (option != null && regularExpression != null && regularExpression.getValue() != null && primitiveNode != null) {
-			String tempCypherPropertyAddressing = (String) ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
+			String tempCypherPropertyAddressing = (String) ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing().get(ConstantsNeo.FIRST_CYPHER_PROPERTY_ADDRESSING);
 			if (!tempCypherPropertyAddressing.isEmpty()) {				
 				if (option.getValue()) {
 					return String.format(CYPHER_REGEX, tempCypherPropertyAddressing, regularExpression.generateCypher());
 				} 
 				return  String.format(CYPHER_NOT_REGEX, tempCypherPropertyAddressing, regularExpression.generateCypher());
 			}
-			throw new InvalidityException(CypherSpecificConstants.NO_VALID_PROPERTY_IS_ACCESSABLE);
+			throw new InvalidityException(ConstantsNeo.NO_VALID_PROPERTY_IS_ACCESSABLE);
 		}
 		throw new InvalidityException(Constants.INVALID_OPTION);
 	}

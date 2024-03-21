@@ -6,7 +6,7 @@ package qualitypatternmodel.utility;
  * Generally it can be said that also this extracting of constants maintenance is easier to manage if one of this is changing not everywhere in the code changes have to be done. 
  */
 
-public class CypherSpecificConstants {
+public class ConstantsNeo {
 	public static final String VARIABLE_ELEMENT_NODE = "varENode";
 	public static final String VARIABLE_PROPERTY_NODE = "varPNode";
 	public static final String VARIABLE_ELEMENT_EGDE = "varEEdge";

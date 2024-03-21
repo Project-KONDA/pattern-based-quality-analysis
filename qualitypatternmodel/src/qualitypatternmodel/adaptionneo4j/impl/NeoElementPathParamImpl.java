@@ -16,7 +16,7 @@ import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
  * <!-- begin-user-doc -->
@@ -81,7 +81,7 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 			}
 			return cypher.toString();
 		}
-		return CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES;	
+		return ConstantsNeo.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES;	
 	}
 
 	/**
@@ -101,7 +101,7 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 		cypher.append(neoPathParts.get(0).generateCypher());
 		NeoSimpleEdge neoSimpleEdge = (NeoSimpleEdge) neoPathParts.get(0);
 		if (existsTargetNode(neoSimpleEdge)) { 
-			cypher.append(CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES); 
+			cypher.append(ConstantsNeo.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES); 
 		}
 	}
 
@@ -121,7 +121,7 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 		lastEdge = neoPathPart.getNeoLastEdge();
 		NeoSimpleEdge neoSimpleEdge = (NeoSimpleEdge) lastEdge;
 		if (existsTargetNode(neoSimpleEdge)) {
-			cypher.append(CypherSpecificConstants.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES);
+			cypher.append(ConstantsNeo.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES);
 		}
 	}
 	
@@ -172,7 +172,7 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 	public String myToString() {
 		String result = String.format(NEO_PATH_PARAM, getInternalId());
 		try {
-			result += CypherSpecificConstants.ONE_WHITESPACE + generateCypher();
+			result += ConstantsNeo.ONE_WHITESPACE + generateCypher();
 		} catch (InvalidityException e) {}
 		return result;
 	}
@@ -359,6 +359,6 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 	 */
 	@Override
 	protected String getEdgeNaming() {
-		return CypherSpecificConstants.VARIABLE_ELEMENT_EGDE;
+		return ConstantsNeo.VARIABLE_ELEMENT_EGDE;
 	}
 } //Neo4JPathParamImpl

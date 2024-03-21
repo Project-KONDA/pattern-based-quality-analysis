@@ -39,7 +39,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountConditionArgument;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.LogicalOperator;
@@ -234,7 +234,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		final StringBuilder cypher = new StringBuilder();
 		final String temp = g.generateCypher();
 		if (!temp.isBlank()) {
-			cypher.append(CypherSpecificConstants.CLAUSE_MATCH + CypherSpecificConstants.ONE_WHITESPACE);
+			cypher.append(ConstantsNeo.CLAUSE_MATCH + ConstantsNeo.ONE_WHITESPACE);
 			cypher.append(temp);
 		}
 		//Just works with a SimpleCount 
@@ -245,30 +245,30 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		final boolean cpWhere = cpHasWhere();
 		if (!tempWhere.isBlank()) {
 			if (!cypher.isEmpty() || !cpWhere) {
-				cypher.append(CypherSpecificConstants.CLAUSE_WHERE + CypherSpecificConstants.ONE_WHITESPACE);				
+				cypher.append(ConstantsNeo.CLAUSE_WHERE + ConstantsNeo.ONE_WHITESPACE);				
 			} else {
-				cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX);
-				cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
+				cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX);
+				cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE);
 			}
 			cypher.append(tempWhere);
 		}
 		if (!(getCondition() instanceof CountCondition)) {
 			String tempConString = getCondition().generateCypher();
 			if (!tempConString.isEmpty()) {
-				tempConString = tempConString.replaceAll("\n", "\n" + CypherSpecificConstants.THREE_WHITESPACES);
+				tempConString = tempConString.replaceAll("\n", "\n" + ConstantsNeo.THREE_WHITESPACES);
 				if (!tempWhere.isEmpty()) {
 					if (!hasBeginning && !cpWhere) {
-						cypher.append("\n" + CypherSpecificConstants.THREE_WHITESPACES);
-						cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
+						cypher.append("\n" + ConstantsNeo.THREE_WHITESPACES);
+						cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE);
 						cypher.append(tempConString);
 					} 
 				} else {
-					cypher.append(CypherSpecificConstants.CLAUSE_WHERE + CypherSpecificConstants.ONE_WHITESPACE);
+					cypher.append(ConstantsNeo.CLAUSE_WHERE + ConstantsNeo.ONE_WHITESPACE);
 					cypher.append(tempConString);
 				}
 			}			
 		} else {
-			throw new InvalidityException(CypherSpecificConstants.THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY + " (Nested Counting)");
+			throw new InvalidityException(ConstantsNeo.THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY + " (Nested Counting)");
 		}
 		return cypher.toString();		
 	}
@@ -333,7 +333,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 			}
 			return myCounters;
 		}
-		throw new InvalidityException(CypherSpecificConstants.NO_COUNT_ELEMENTS_EXISTS);
+		throw new InvalidityException(ConstantsNeo.NO_COUNT_ELEMENTS_EXISTS);
 	}
 
 	/**
@@ -362,27 +362,27 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		String cypherVariable = null;
 		if (checkForProperty(countElement)) {
 				NeoPropertyNode neoPropertyNode = (NeoPropertyNode) countElement;
-				cypherVariable = (String) neoPropertyNode.generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
+				cypherVariable = (String) neoPropertyNode.generateCypherPropertyAddressing().get(ConstantsNeo.FIRST_CYPHER_PROPERTY_ADDRESSING);
 		} else {
 			cypherVariable = countElement.getCypherVariable();
 		}
 		if (cypherVariable != null) {
 			String temp;
-			temp = CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT;
+			temp = ConstantsNeo.CYPHER_AGGREGATION_FUNCTION_COUNT;
 			if (checkForProperty(countElement)) {
 				temp = String.format(temp, cypherVariable);
 			} else {
-				final String[] elements = countElement.getCypherVariable().split(CypherSpecificConstants.SEPERATOR);
+				final String[] elements = countElement.getCypherVariable().split(ConstantsNeo.SEPERATOR);
 				final StringBuilder localSb = new StringBuilder();
 				for (String element : elements) {
 					if (!localSb.isEmpty()) {
-						localSb.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE);
+						localSb.append(ConstantsNeo.CYPHER_SEPERATOR + ConstantsNeo.ONE_WHITESPACE);
 					}
 					localSb.append(String.format(temp, element));
 				}
 				temp = localSb.toString();  
 			}
-			temp += CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.CYPHER_ALIAS_CALL + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT_NAMING + countCounter;
+			temp += ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.CYPHER_ALIAS_CALL + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.CYPHER_AGGREGATION_FUNCTION_COUNT_NAMING + countCounter;
 			return temp;
 		}
 		throw new InvalidityException(SOMETHING_WENT_WRONG_IN_ACCESSING_THE_CYPHER_VARIABLE);
@@ -508,13 +508,13 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	private String joiningReturnValues(String cypher, final Map<Integer, String> cypherReturn, final StringBuilder cypherSb) {
 		for (Map.Entry<Integer, String> mapElement : cypherReturn.entrySet()) {	  
 			if (cypherSb.length() != 0) {
-				cypherSb.append(CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE);
+				cypherSb.append(ConstantsNeo.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE);
 			}
 			cypherSb.append(mapElement.getValue());
 		}
 		if (cypherSb.length() != 0) {
 			if (cypher.length() != 0) {
-				cypher += CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE;
+				cypher += ConstantsNeo.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE;
 			}
 			cypher += cypherSb.toString();
 		}

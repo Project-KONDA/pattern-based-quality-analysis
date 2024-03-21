@@ -8,7 +8,7 @@ import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNameParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,7 +18,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * @generated
  */
 public class NeoPropertyNameParamImpl extends TextLiteralParamImpl implements NeoPropertyNameParam {
-	private static final String REGEX = "[A-Za-zäöüß_0-9]+";
+	private static final String REGEX = "[A-Za-zï¿½ï¿½ï¿½ï¿½_0-9]+";
 	private static final String A_PROPERTY_NAME_CAN_NOT_BE_EMPTY = "A Property Name can not be empty";
 	private static final String NULL_IS_NOT_A_VALID_PROPERTY_NAME = "Null is not a valid Property Name";
 
@@ -70,7 +70,7 @@ public class NeoPropertyNameParamImpl extends TextLiteralParamImpl implements Ne
 		}
 		value = value.trim();
 		if (!value.matches(REGEX)) {
-			throw new InvalidityException(CypherSpecificConstants.ONLY_ALPHANUMERICAL_VALUES_AND_UNDERSCORE);
+			throw new InvalidityException(ConstantsNeo.ONLY_ALPHANUMERICAL_VALUES_AND_UNDERSCORE);
 		}			
 	}
 	

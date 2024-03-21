@@ -32,12 +32,12 @@ import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.impl.ParametersFactoryImpl;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 
 
 @DisplayName("NeoPropertyEdge Test")
 public class NeoPropertyEdgeTest extends NeoEdgeTest {
-	private static final String NEO_PROPERTY_NODE = CypherSpecificConstants.VARIABLE_PROPERTY_NODE + 2;
+	private static final String NEO_PROPERTY_NODE = ConstantsNeo.VARIABLE_PROPERTY_NODE + 2;
 	private static final String PLACE_OF_ISSUE = "placeOfIssue";
 	private static final String NEO_PROPERTY_EDGE_1 = "NeoPropertyEdgeImpl [1]";
 	private static final String NODE_PROPERTY_PLACE_OF_ISSUE = NEO_PROPERTY_NODE + "." + PLACE_OF_ISSUE;
@@ -281,7 +281,7 @@ public class NeoPropertyEdgeTest extends NeoEdgeTest {
 			
 			initGetCypherReturnVariableTest(neoAbstractEdge, number);
 			String variable = neoPropertyEdge.getCypherReturn().get(0).getValue();
-			assertTrue(variable.matches(CypherSpecificConstants.VARIABLE_ELEMENT_EGDE + "[1-9][0-9]*"));
+			assertTrue(variable.matches(ConstantsNeo.VARIABLE_ELEMENT_EGDE + "[1-9][0-9]*"));
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(false);

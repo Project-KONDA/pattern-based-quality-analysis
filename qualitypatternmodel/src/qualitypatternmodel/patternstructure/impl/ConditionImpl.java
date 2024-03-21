@@ -29,7 +29,7 @@ import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
  * <!-- begin-user-doc -->
@@ -669,7 +669,7 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	 */
 	protected final void checkNextConditon(Condition condition) throws UnsupportedOperationException {
 		if (condition instanceof CountCondition) {
-			throw new UnsupportedOperationException(CypherSpecificConstants.THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY);
+			throw new UnsupportedOperationException(ConstantsNeo.THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY);
 		}
 	}	
 	

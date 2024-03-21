@@ -55,7 +55,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.utility.Constants;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
 /**
@@ -1081,7 +1081,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 */
 	private final String generateExistsMatch() throws InvalidityException {
 		final StringBuilder cypher = new StringBuilder();
-		String exists = CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_MATCH;
+		String exists = ConstantsNeo.PREDICATE_FUNCTION_EXISTS_MATCH;
 		//INCLUDE THE GRAPH-PATTERN - Is needed for both cases
 		buildMatchClauseForExistsMatch(cypher);
 		
@@ -1091,11 +1091,11 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			buildExistsMatchWhere(cypher, cypherWhere);			
 			if (!(getCondition() instanceof TrueElementImpl)) {
 				StringBuilder conditionWhere = new StringBuilder(condition.generateCypher());
-				addWhiteSpacesForPreviewsCondition(conditionWhere, CypherSpecificConstants.THREE_WHITESPACES);
+				addWhiteSpacesForPreviewsCondition(conditionWhere, ConstantsNeo.THREE_WHITESPACES);
 				if (!cypherWhere.isEmpty()) {
-					conditionWhere.insert(0, CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);					
+					conditionWhere.insert(0, ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE);					
 				} else {
-					conditionWhere.insert(0, String.format(CypherSpecificConstants.CLAUSE_WHERE_INLUCE_W, CypherSpecificConstants.THREE_WHITESPACES) + CypherSpecificConstants.ONE_WHITESPACE);
+					conditionWhere.insert(0, String.format(ConstantsNeo.CLAUSE_WHERE_INLUCE_W, ConstantsNeo.THREE_WHITESPACES) + ConstantsNeo.ONE_WHITESPACE);
 				}
 				checkAndAppendCypherPart(cypher, conditionWhere);
 			}
@@ -1110,7 +1110,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				//A condition "all x for which: true" ( forall(x).true)) will always be true. Therefore, it be can safely omitted.
 				exists = new String();
 			} else {
-				exists = CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + exists;
+				exists = ConstantsNeo.BOOLEAN_OPERATOR_NOT + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + exists;
 				
 				buildExistsMatchWhere(cypher, cypherWhere);
 				//Since Cypher interprets the where-clause first outside-in the inside-out. All EXISTS have to be seperated.
@@ -1122,14 +1122,14 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				
 				//INCLUDE INNER EXPRESSION FOR FORALL	
 				StringBuilder localCypher = new StringBuilder();
-				localCypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_NOT);
-				localCypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
+				localCypher.append(ConstantsNeo.BOOLEAN_OPERATOR_NOT);
+				localCypher.append(ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET);
 				localCypher.append(tempCond);
-				localCypher.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
-				addWhiteSpacesForPreviewsCondition(localCypher, CypherSpecificConstants.THREE_WHITESPACES);
+				localCypher.append(ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
+				addWhiteSpacesForPreviewsCondition(localCypher, ConstantsNeo.THREE_WHITESPACES);
 				if (!cypherWhere.isEmpty()) {
-					addWhiteSpacesForPreviewsCondition(localCypher, CypherSpecificConstants.THREE_WHITESPACES);
-					localCypher.insert(0, "\n" + CypherSpecificConstants.SIX_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
+					addWhiteSpacesForPreviewsCondition(localCypher, ConstantsNeo.THREE_WHITESPACES);
+					localCypher.insert(0, "\n" + ConstantsNeo.SIX_WHITESPACES + ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE);
 					checkAndAppendCypherPart(cypher, localCypher);
 				} else {
 					appendCypherWherePrefix(localCypher);
@@ -1137,7 +1137,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				}
 				
 				exists = String.format(exists, cypher.toString());
-				exists = exists + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
+				exists = exists + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET;
 			}
 		} else {
 			throw new InvalidityException(INVALID_QUANTIFIER);
@@ -1176,7 +1176,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		String result = new String();
 		final boolean isAPreviewsConditionNot = isAPreviewsConditionNot(null);
 		final StringBuilder cond = new StringBuilder(getCondition().generateCypher());
-		super.addWhiteSpacesForPreviewsCondition(cond, CypherSpecificConstants.THREE_WHITESPACES);
+		super.addWhiteSpacesForPreviewsCondition(cond, ConstantsNeo.THREE_WHITESPACES);
 		if (quantifier == Quantifier.EXISTS) {
 			if (!isAPreviewsConditionNot) {
 				for (NeoPropertyEdge edge : neoPropertyEdges) {
@@ -1186,7 +1186,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 					addNeoPropertyToExists(cypher, edge);
 				}
 				if (!cypher.isEmpty()) {
-					result = String.format(CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_PROPERTY, cypher.toString());
+					result = String.format(ConstantsNeo.PREDICATE_FUNCTION_EXISTS_PROPERTY, cypher.toString());
 				}
 			} else {
 				for (NeoPropertyNode node : uniqueNeoPropertyNodes) {
@@ -1201,7 +1201,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			addGraphWhereToExistsProperty(cypher, result);	
 			if (!cond.toString().isBlank()) {
 				if (cypher.length() > 0) {
-					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE + cond);
+					cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE + cond);
 				} else {
 					cypher.append(cond);
 				}
@@ -1230,15 +1230,15 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		if (cypherPart == null || cypherPart.isEmpty()) {
 			throw new InvalidityException(NO_MATCH_IS_GIVEN);
 		} else {
-			cypherPart = CypherSpecificConstants.CLAUSE_MATCH + cypherPart;
-			final String[] temp = Arrays.stream(cypherPart.split(CypherSpecificConstants.CLAUSE_MATCH)).filter(x -> !x.isBlank()).toArray(String[]::new); 
+			cypherPart = ConstantsNeo.CLAUSE_MATCH + cypherPart;
+			final String[] temp = Arrays.stream(cypherPart.split(ConstantsNeo.CLAUSE_MATCH)).filter(x -> !x.isBlank()).toArray(String[]::new); 
 			cypherPart = null;
 			//No multiple MATCHE-CLAUSES in EXISTS-MATCH can be build. Reduce it to one MATCH-CLAUSE.
 			for (int i = 0; i < temp.length; i++) {
 				if (i == 0) {
-					cypherPart = String.format(CypherSpecificConstants.CLAUSE_MATCH_INLUCE_W, CypherSpecificConstants.THREE_WHITESPACES) + CypherSpecificConstants.ONE_WHITESPACE + temp[i].trim();					
+					cypherPart = String.format(ConstantsNeo.CLAUSE_MATCH_INLUCE_W, ConstantsNeo.THREE_WHITESPACES) + ConstantsNeo.ONE_WHITESPACE + temp[i].trim();					
 				} else {
-					cypherPart = CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE + temp[i].trim();					
+					cypherPart = ConstantsNeo.CYPHER_SEPERATOR + ConstantsNeo.ONE_WHITESPACE + temp[i].trim();					
 				}
 				cypher.append(cypherPart);
 			}
@@ -1287,7 +1287,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		String cypherPropertyExists = cypherTemp.toString();
 		
 		if (!cypherPropertyExists.isEmpty()) {
-			cypher.append(CypherSpecificConstants.THREE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
+			cypher.append(ConstantsNeo.THREE_WHITESPACES + ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE);
 			cypher.append(cypherPropertyExists);
 		}
 	} 	
@@ -1313,7 +1313,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				}
 			}
 			if (!localCBuilder.isEmpty()) {
-				cypher.append(String.format(CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_PROPERTY, localCBuilder));
+				cypher.append(String.format(ConstantsNeo.PREDICATE_FUNCTION_EXISTS_PROPERTY, localCBuilder));
 			}
 		}
 	}
@@ -1339,8 +1339,8 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 */
 	private final void appendCypherWherePrefix(final StringBuilder cypherWhere) {
 		if (cypherWhere.length() != 0) {
-			String where = String.format(CypherSpecificConstants.CLAUSE_WHERE_INLUCE_W, CypherSpecificConstants.THREE_WHITESPACES);
-			where += CypherSpecificConstants.ONE_WHITESPACE + cypherWhere.toString();
+			String where = String.format(ConstantsNeo.CLAUSE_WHERE_INLUCE_W, ConstantsNeo.THREE_WHITESPACES);
+			where += ConstantsNeo.ONE_WHITESPACE + cypherWhere.toString();
 			
 			cypherWhere.setLength(0);
 			cypherWhere.append(where);
@@ -1358,11 +1358,11 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	private final void addGraphWhereToExistsProperty(final StringBuilder cypher, String result) throws InvalidityException {
 		String where = graph.generateCypherWhere();
 		if (!cypher.isEmpty()) {
-			where = where.replaceAll("\n", "\n" + CypherSpecificConstants.THREE_WHITESPACES); //That it has a deeper level as the previews OPERATORS. --> adds three whitespaces
+			where = where.replaceAll("\n", "\n" + ConstantsNeo.THREE_WHITESPACES); //That it has a deeper level as the previews OPERATORS. --> adds three whitespaces
 		}
 		if (cypher.length() != 0) {
 			if (!where.isEmpty()) {
-				result += "\n" + CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE;
+				result += "\n" + ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE;
 				result += where;
 				cypher.append(result);
 			}
@@ -1380,11 +1380,11 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	private final void appendCypherWhere(final StringBuilder query) throws InvalidityException {
 		String tempCypher = graph.generateCypherWhere();
 		
-		tempCypher = tempCypher.replaceAll("\n", "\n" + CypherSpecificConstants.THREE_WHITESPACES); //That it has a deeper level as the previews OPERATORS. --> adds three whitespaces
+		tempCypher = tempCypher.replaceAll("\n", "\n" + ConstantsNeo.THREE_WHITESPACES); //That it has a deeper level as the previews OPERATORS. --> adds three whitespaces
 		if (tempCypher != null && !tempCypher.isEmpty()) {
 			if (query.length() != 0) {
-				query.append("\n" + CypherSpecificConstants.THREE_WHITESPACES
-						+ LOGICAL_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
+				query.append("\n" + ConstantsNeo.THREE_WHITESPACES
+						+ LOGICAL_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE);
 			}
 			query.append(tempCypher);
 		}
@@ -1401,7 +1401,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			}
 		}
 		if(!cypher.isEmpty()) {
-			query.insert(0, query.isEmpty() ? cypher.toString() : cypher.toString() + "\n" + CypherSpecificConstants.SIX_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE); 			
+			query.insert(0, query.isEmpty() ? cypher.toString() : cypher.toString() + "\n" + ConstantsNeo.SIX_WHITESPACES + ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE); 			
 		}
 	}
 	
@@ -1430,7 +1430,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	private final void addNeoPropertyToExists(final StringBuilder cypher, final NeoPropertyEdge edge) throws InvalidityException {
 		String property = new String();
 		if (cypher.length() != 0) {
-			cypher.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE);
+			cypher.append(ConstantsNeo.CYPHER_SEPERATOR + ConstantsNeo.ONE_WHITESPACE);
 		}
 		property = edge.generateCypherPropertyAddressing();
 		cypher.append(property);
@@ -1450,15 +1450,15 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		StringBuilder localCypher = new StringBuilder();
 		for (Relation r : node.getIncoming()) {
 			if (!isOnly) {
-				localCypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
+				localCypher.append(ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE);
 			}
 			isOnly = false;
 			edge = (NeoPropertyEdge) r;
 			property = edge.generateCypherPropertyAddressing();
-			localCypher.append(String.format(CypherSpecificConstants.PREDICATE_FUNCTION_EXISTS_PROPERTY, property));
+			localCypher.append(String.format(ConstantsNeo.PREDICATE_FUNCTION_EXISTS_PROPERTY, property));
 		}
 		if (localCypher.length() != 0 && cypher.length() != 0) {
-			cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
+			cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE);
 		} 
 		cypher.append(localCypher.toString());
 	}

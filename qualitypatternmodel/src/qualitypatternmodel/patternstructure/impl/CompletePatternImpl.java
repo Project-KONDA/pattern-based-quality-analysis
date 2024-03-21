@@ -62,7 +62,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -569,7 +569,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		String completeCyString = super.generateCypher(); 
 		 
 		String returnClause = this.generateCypherReturn();
-		returnClause = CypherSpecificConstants.CLAUSE_RETURN + returnClause;
+		returnClause = ConstantsNeo.CLAUSE_RETURN + returnClause;
 		completeCyString += returnClause;
 		
 		return completeCyString;
@@ -634,9 +634,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		final StringBuilder cypherInnerEdgeNodes = new StringBuilder(super.generateCypherSpecialInnerEdgeNodesString(""));
 		if (cypherInnerEdgeNodes.length() != 0) {
 			if (cypher.length() != 0) {
-				cypher += CypherSpecificConstants.CYPHER_SEPERATOR + "\n" + CypherSpecificConstants.THREE_WHITESPACES + cypherInnerEdgeNodes.toString();
+				cypher += ConstantsNeo.CYPHER_SEPERATOR + "\n" + ConstantsNeo.THREE_WHITESPACES + cypherInnerEdgeNodes.toString();
 			} else {
-				cypher = CypherSpecificConstants.ONE_WHITESPACE + cypherInnerEdgeNodes.toString();
+				cypher = ConstantsNeo.ONE_WHITESPACE + cypherInnerEdgeNodes.toString();
 			}
 		}
 		return cypher;
@@ -653,10 +653,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	private final String formattingCypherReturnTypes(String cypher, final Map<Integer, String> cypherReturn) {
 		for (Map.Entry<Integer, String> mapElement : cypherReturn.entrySet()) {	  
 		    if (cypher.length() != 0) {
-		    	cypher += CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE + "\n";
-		    	cypher += CypherSpecificConstants.THREE_WHITESPACES;
+		    	cypher += ConstantsNeo.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE + "\n";
+		    	cypher += ConstantsNeo.THREE_WHITESPACES;
 		    } else {
-		    	cypher = CypherSpecificConstants.ONE_WHITESPACE;
+		    	cypher = ConstantsNeo.ONE_WHITESPACE;
 		    }
 			cypher += mapElement.getValue();
 		}
