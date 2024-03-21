@@ -4,11 +4,7 @@
   <artifactId>qualitypatternmodel</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>qualitypatternmodel</name>
-  <description>
-	  Quality Pattern Model 
-	  A proof-of-concept implementation of a top-down approach to analyzing data quality via anti-patterns. 
-	  Can be found on https://github.com/Project-KONDA/pattern-based-quality-analysis .
-	  </description>
+  <description>Quality Pattern Model - A proof-of-concept implementation of a top-down approach to analyzing data quality via anti-patterns.</description>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <testSourceDirectory>test</testSourceDirectory>
@@ -26,6 +22,7 @@
         <version>3.8.1</version>
         <configuration>
           <release>17</release>
+          <encoding>UTF-8</encoding>
         </configuration>
       </plugin>
     </plugins>
