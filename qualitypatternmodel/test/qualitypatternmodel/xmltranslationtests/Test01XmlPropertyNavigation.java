@@ -2,6 +2,7 @@ package qualitypatternmodel.xmltranslationtests;
 
 import java.util.ArrayList;
 import qualitypatternmodel.patternstructure.*;
+import qualitypatternmodel.utility.XmlPatternUtility;
 import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.exceptions.*;
 
@@ -23,7 +24,7 @@ public class Test01XmlPropertyNavigation {
 	
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 //		Test00.test(getPatterns());
-    	Test00.getQueries(getPatterns());
+    	XmlPatternUtility.getQueries(getPatterns());
 	}
 
 	public static CompletePattern getProperty() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
