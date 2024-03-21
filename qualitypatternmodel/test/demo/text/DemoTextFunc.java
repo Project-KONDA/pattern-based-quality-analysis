@@ -1,10 +1,10 @@
-package qualitypatternmodel.demo.texts;
+package demo.text;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import demo.DemoPatternTexts;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
-import qualitypatternmodel.demo.DemoPatternTexts;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -14,33 +14,34 @@ import qualitypatternmodel.textrepresentation.ParameterFragment;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
 import qualitypatternmodel.textrepresentation.impl.TextFragmentImpl;
-import qualitypatternmodel.xmlevaluation.XmlEvalAppDup;
+import qualitypatternmodel.xmlevaluation.XmlEvalFunc;
 
-public class DemoTextAppDup {
+public class DemoTextFunc {
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		getAppDupWithText();
+		getFuncWithText();
 	}
 
 	public static List<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getAppDupWithText());
+		completePatterns.add(getFuncWithText());
 		return completePatterns;
 	}
 
-	public static CompletePattern getAppDupWithText() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = XmlEvalAppDup.getAppdup3Abstract();
+	public static CompletePattern getFuncWithText() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = XmlEvalFunc.getFuncAbstract();
 		addComplexText(completePattern);
 		return completePattern;
 	}
 	
-//	Are there two distinct elements, each reached by <path1> that have equal values in the properties that are reached by <path2>, <path3> and <path4>?
+//	Are there two elements reached by <path1> that have equal values at property reached by <path2> but differ at the property reached by <path3>?
 	private static void addComplexText(CompletePattern completePattern) {
 		List<Parameter> params = completePattern.getParameterList().getParameters();
+		
 //		ComparisonOptionParam p0 = ((ComparisonOptionParam) params.get(0));
 //		TypeOptionParam p1 = ((TypeOptionParam) params.get(1));
-		XmlPathParam p2 = ((XmlPathParam) params.get(2));
-		XmlPathParam p3 = ((XmlPathParam) params.get(3));
+//		ComparisonOptionParam p2 = ((ComparisonOptionParam) params.get(2));
+//		TypeOptionParam p3 = ((TypeOptionParam) params.get(3));
 		XmlPathParam p4 = ((XmlPathParam) params.get(4));
 		XmlPathParam p5 = ((XmlPathParam) params.get(5));
 		XmlPathParam p6 = ((XmlPathParam) params.get(6));
@@ -49,37 +50,31 @@ public class DemoTextAppDup {
 		XmlPathParam p9 = ((XmlPathParam) params.get(9));
 		
 		PatternText patternText = TextrepresentationFactory.eINSTANCE.createPatternText();
-		patternText.setName(DemoPatternTexts.APPDUP_NAME);
+		patternText.setName(DemoPatternTexts.FUNC_NAME);
 		completePattern.getText().add(patternText);
 
 		ParameterFragment path1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-		path1.getParameter().add(p2);
-		path1.getParameter().add(p3);
+		path1.getParameter().add(p4);
+		path1.getParameter().add(p9);
 		path1.setName("path1");
 		
 		ParameterFragment path2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-		path2.getParameter().add(p4);
 		path2.getParameter().add(p5);
+		path2.getParameter().add(p7);
 		path2.setName("path2");
 		
 		ParameterFragment path3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		path3.getParameter().add(p6);
-		path3.getParameter().add(p7);
+		path3.getParameter().add(p8);
 		path3.setName("path3");
 		
-		ParameterFragment path4 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-		path4.getParameter().add(p8);
-		path4.getParameter().add(p9);
-		path4.setName("path4");
-		
-		patternText.addFragment(new TextFragmentImpl("Are there two distinct elements, each reached by "));
+//		Are there two elements reached by <path1> that have equal values at property reached by <path2> but differ at the property reached by <path3>?
+		patternText.addFragment(new TextFragmentImpl("Are there two elements reached by "));
 		patternText.addFragment(path1);
-		patternText.addFragment(new TextFragmentImpl(" that have equal values in the properties that are reached by "));
+		patternText.addFragment(new TextFragmentImpl(" that have equal values at property reached by "));
 		patternText.addFragment(path2);
-		patternText.addFragment(new TextFragmentImpl(", "));
+		patternText.addFragment(new TextFragmentImpl(" but differ at the property reached by "));
 		patternText.addFragment(path3);
-		patternText.addFragment(new TextFragmentImpl(" and "));
-		patternText.addFragment(path4);
 		patternText.addFragment(new TextFragmentImpl("?"));
 		
 		try {

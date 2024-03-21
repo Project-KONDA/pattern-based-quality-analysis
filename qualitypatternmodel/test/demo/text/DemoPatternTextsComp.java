@@ -1,4 +1,4 @@
-package qualitypatternmodel.demo.texts;
+package demo.text;
 
 import static qualitypatternmodel.utility.XmlTestDatabaseConstants.DEMO_NAMESPACE;
 
@@ -6,10 +6,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import demo.DemoPatterns;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
-import qualitypatternmodel.demo.DemoPatterns;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;

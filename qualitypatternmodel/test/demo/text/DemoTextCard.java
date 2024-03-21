@@ -1,10 +1,10 @@
-package qualitypatternmodel.demo.texts;
+package demo.text;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import demo.DemoPatternTexts;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
-import qualitypatternmodel.demo.DemoPatternTexts;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;

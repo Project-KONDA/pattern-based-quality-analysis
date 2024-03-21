@@ -6,7 +6,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.JSONException;
 import org.junit.Test;
-import qualitypatternmodel.demo.DemoPatternTexts;
+
+import demo.DemoPatternTexts;
 import qualitypatternmodel.servlets.Util;
 import qualitypatternmodel.utility.XmlServletUtility;
 

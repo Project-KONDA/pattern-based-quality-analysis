@@ -1,13 +1,13 @@
-package qualitypatternmodel.demo;
+package demo;
 
 import java.io.IOException;
 import java.util.ArrayList;
 //import java.util.List;
 
-import qualitypatternmodel.demo.texts.DemoTextAppDup;
-import qualitypatternmodel.demo.texts.DemoTextCard;
-import qualitypatternmodel.demo.texts.DemoTextCompval;
-import qualitypatternmodel.demo.texts.DemoTextFunc;
+import demo.text.DemoTextAppDup;
+import demo.text.DemoTextCard;
+import demo.text.DemoTextCompval;
+import demo.text.DemoTextFunc;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;

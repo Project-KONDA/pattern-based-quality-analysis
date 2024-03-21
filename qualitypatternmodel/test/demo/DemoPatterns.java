@@ -1,4 +1,4 @@
-package qualitypatternmodel.demo;
+package demo;
 
 import static qualitypatternmodel.utility.XmlTestDatabaseConstants.*;
 
