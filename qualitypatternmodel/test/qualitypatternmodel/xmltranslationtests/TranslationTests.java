@@ -15,7 +15,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.xmltestutility.EMFValidationPreparation;
+//import qualitypatternmodel.xmltestutility.EMFValidationPreparation;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class TranslationTests {
@@ -25,7 +25,7 @@ public class TranslationTests {
 
 	@BeforeAll
 	public static void setup() {
-		EMFValidationPreparation.registerDelegates();
+//		EMFValidationPreparation.registerDelegates();
 		createContext();
 		openDatabase(TEST_DATABASE_NAME, TEST_DATA_PATH);
 	}
