@@ -36,7 +36,7 @@ public class NeoNodeLabelsParamTest extends NeoLabelTest {
 	
 	@Override
 	@ParameterizedTest
-	@ValueSource(strings = {"Regesta1", "Regesta_2,IndexPlaceäüö", "Index_Entry,Index_Entry", "null"})
+	@ValueSource(strings = {"Regesta1", "Regesta_2,IndexPlace", "Index_Entry,Index_Entry", "null"})
 	public void setValueIfValid(String label) {
 		if (label.compareTo("null") == 0) {
 			assertDoesNotThrow(() -> nodeLabel.setValueIfValid(null));
@@ -48,7 +48,7 @@ public class NeoNodeLabelsParamTest extends NeoLabelTest {
 	}
 	
 	@ParameterizedTest
-	@ValueSource(strings = {"Regesta1", "Regesta_2,IndexPlaceäüö", "Index_Entry,Index_Entry", "null"})
+	@ValueSource(strings = {"Regesta1", "Regesta_2,IndexPlace", "Index_Entry,Index_Entry", "null"})
 	public void addStringValue(String label) {
 		if (label.compareTo("null") == 0) {
 			assertDoesNotThrow(() -> nodeLabel.addStringValue(null));

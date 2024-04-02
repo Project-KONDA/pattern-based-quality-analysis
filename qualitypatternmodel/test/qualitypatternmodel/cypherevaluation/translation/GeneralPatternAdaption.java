@@ -59,7 +59,7 @@ public class GeneralPatternAdaption {
 		textListParam.addStringValue("Regesta");
 		
 		TextLiteralParam textLiteralParam = (TextLiteralParam) paramters.getParameters().get(2);
-		textLiteralParam.setValue("\\\\d{4}\\s[A-Z]{1}[a-zהצü]*\\s\\\\d{1,2}");
+		textLiteralParam.setValue("\\\\d{4}\\s[A-Z]{1}[a-z]*\\s\\\\d{1,2}");
 		
 		BooleanParam booleanParam = (BooleanParam) paramters.getParameters().get(0);
 		booleanParam.setValue(false);
