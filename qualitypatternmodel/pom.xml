@@ -18,6 +18,10 @@
     </testResources>
     <plugins>
       <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.4.0</version>
+      </plugin>
+      <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.1</version>
         <configuration>
@@ -38,11 +42,11 @@
       <artifactId>org.eclipse.emf.ecore</artifactId>
       <version>2.22.0</version>
     </dependency>
-	<dependency>
-	  <groupId>org.eclipse.emf</groupId>
-	  <artifactId>org.eclipse.emf.ecore.xmi</artifactId>
-	  <version>2.37.0</version>
-	</dependency>
+    <dependency>
+      <groupId>org.eclipse.emf</groupId>
+      <artifactId>org.eclipse.emf.ecore.xmi</artifactId>
+      <version>2.37.0</version>
+    </dependency>
     <dependency>
       <groupId>org.json</groupId>
       <artifactId>json</artifactId>
@@ -53,12 +57,12 @@
       <artifactId>metadata-qa-api</artifactId>
       <version>0.9.3</version>
     </dependency>
-	<dependency>
-	  <groupId>org.basex</groupId>
-	  <artifactId>basex</artifactId>
-	  <version>9.0</version>
-	</dependency>
-	<dependency>
+    <dependency>
+      <groupId>org.basex</groupId>
+      <artifactId>basex</artifactId>
+      <version>9.0</version>
+    </dependency>
+    <dependency>
       <groupId>jakarta.servlet</groupId>
       <artifactId>jakarta.servlet-api</artifactId>
       <version>6.1.0-M2</version>
@@ -158,5 +162,12 @@
       <artifactId>snakeyaml</artifactId>
       <version>2.2</version>
     </dependency>
+    <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-suite-api</artifactId>
+      <version>1.10.2</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
+  <packaging>war</packaging>
 </project>
