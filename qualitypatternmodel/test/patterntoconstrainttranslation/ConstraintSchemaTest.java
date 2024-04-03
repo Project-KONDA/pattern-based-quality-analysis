@@ -58,9 +58,12 @@ public class ConstraintSchemaTest {
 		DataElement sourceElement = new DataElement("source", fieldpath);
 		
 		// Create Rules with Success, NA and FailureScore
-		Rule min1OccursRule = new Rule().withMinCount(1).withSuccessScore(SUCCESS).withNaScore(NA).withFailureScore(FAILIURE);
-		Rule max1OccursRule = new Rule().withMaxCount(1).withSuccessScore(SUCCESS).withNaScore(NA).withFailureScore(FAILIURE);
-		Rule patternRule = new Rule().withPattern("https:.*").withSuccessScore(SUCCESS).withNaScore(NA).withFailureScore(FAILIURE);
+		Rule min1OccursRule = new Rule().withMinCount(1).withSuccessScore(SUCCESS).withFailureScore(FAILIURE);
+		Rule max1OccursRule = new Rule().withMaxCount(1).withSuccessScore(SUCCESS).withFailureScore(FAILIURE);
+		Rule patternRule = new Rule().withPattern("https:.*").withSuccessScore(SUCCESS).withFailureScore(FAILIURE);
+//		Rule min1OccursRule = new Rule().withMinCount(1).withSuccessScore(SUCCESS).withNaScore(NA).withFailureScore(FAILIURE);
+//		Rule max1OccursRule = new Rule().withMaxCount(1).withSuccessScore(SUCCESS).withNaScore(NA).withFailureScore(FAILIURE);
+//		Rule patternRule = new Rule().withPattern("https:.*").withSuccessScore(SUCCESS).withNaScore(NA).withFailureScore(FAILIURE);
 		
 		sourceElement.setExtractable();
 		sourceElement.addRule(min1OccursRule);

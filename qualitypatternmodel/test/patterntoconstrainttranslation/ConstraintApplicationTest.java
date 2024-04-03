@@ -92,7 +92,8 @@ public class ConstraintApplicationTest {
 	private static void setSchemaScores(BaseSchema schema) {
 		for (DataElement de: schema.getPaths()) {
 			for (Rule rule: de.getRules()) {
-				rule.withSuccessScore(SUCCESS).withNaScore(NA).withFailureScore(FAILIURE);
+				rule.withSuccessScore(SUCCESS).withFailureScore(FAILIURE);
+//				rule.withSuccessScore(SUCCESS).withNaScore(NA).withFailureScore(FAILIURE);
 			}
 		}
 	}
