@@ -18,8 +18,19 @@
     </testResources>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <version>3.4.0</version>
+        <configuration>
+          <webResources>
+            <resource>
+              <directory>WebContent/WEB-INF</directory>
+              <includes>
+                <include>web.xml</include>
+              </includes>
+            </resource>
+          </webResources>
+        </configuration>
       </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
