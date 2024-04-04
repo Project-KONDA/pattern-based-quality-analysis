@@ -13,7 +13,6 @@ import de.gwdg.metadataqa.api.configuration.schema.Rule;
 import de.gwdg.metadataqa.api.json.DataElement;
 import de.gwdg.metadataqa.api.schema.BaseSchema;
 import de.gwdg.metadataqa.api.schema.Format;
-import qualitypatternmodel.constrainttranslation.MQAFHelper;
 
 public class ConstraintSchemaTest {
 	
@@ -59,15 +58,9 @@ public class ConstraintSchemaTest {
 		DataElement sourceElement = new DataElement("source", fieldpath);
 		
 		// Create Rules with Success, NA and FailureScore
-//		Rule min1OccursRule = new Rule().withMinCount(1).withSuccessScore(SUCCESS).withNaScore(NA).withFailureScore(FAILIURE);
-		Rule min1OccursRule = new Rule().withMinCount(1).withSuccessScore(SUCCESS).withFailureScore(FAILIURE);
-		min1OccursRule = MQAFHelper.ruleSetNaScore(min1OccursRule, NA);
-//		Rule max1OccursRule = new Rule().withMaxCount(1).withSuccessScore(SUCCESS).withNaScore(NA).withFailureScore(FAILIURE);
-		Rule max1OccursRule = new Rule().withMaxCount(1).withSuccessScore(SUCCESS).withFailureScore(FAILIURE);
-		max1OccursRule = MQAFHelper.ruleSetNaScore(max1OccursRule, NA);
-//		Rule patternRule = new Rule().withPattern("https:.*").withSuccessScore(SUCCESS).withNaScore(NA).withFailureScore(FAILIURE);
-		Rule patternRule = new Rule().withPattern("https:.*").withSuccessScore(SUCCESS).withFailureScore(FAILIURE);
-		patternRule = MQAFHelper.ruleSetNaScore(patternRule, NA);
+		Rule min1OccursRule = new Rule().withMinCount(1).withSuccessScore(SUCCESS).withNaScore(NA).withFailureScore(FAILIURE);
+		Rule max1OccursRule = new Rule().withMaxCount(1).withSuccessScore(SUCCESS).withNaScore(NA).withFailureScore(FAILIURE);
+		Rule patternRule = new Rule().withPattern("https:.*").withSuccessScore(SUCCESS).withNaScore(NA).withFailureScore(FAILIURE);
 		
 		sourceElement.setExtractable();
 		sourceElement.addRule(min1OccursRule);

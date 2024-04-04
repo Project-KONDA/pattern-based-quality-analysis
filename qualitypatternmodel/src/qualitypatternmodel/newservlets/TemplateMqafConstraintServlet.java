@@ -5,12 +5,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 
+import de.gwdg.metadataqa.api.configuration.ConfigurationReader;
 import de.gwdg.metadataqa.api.schema.BaseSchema;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.constrainttranslation.ConstraintTranslation;
-import qualitypatternmodel.constrainttranslation.MQAFHelper;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -201,12 +201,11 @@ public class TemplateMqafConstraintServlet extends HttpServlet {
 		
 		BaseSchema mergedSchema = schemas.get(0);
 		for (int i = 1; i< schemas.size(); i++) {
-			mergedSchema = MQAFHelper.baseSchemaMerge(mergedSchema, schemas.get(i), false);
 			mergedSchema.merge(schemas.get(i), false);
 		}
 		
 		// 4 return merged schema as JSON
-		return MQAFHelper.baseSchemaToJson(mergedSchema);
+		return ConfigurationReader.toJson(mergedSchema);
 	}
 
 //    public static JSONObject convertYamlToJson(String yamlString) throws IOException, JSONException {

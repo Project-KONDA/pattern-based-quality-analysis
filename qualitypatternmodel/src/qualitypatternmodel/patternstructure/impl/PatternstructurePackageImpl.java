@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
+import de.gwdg.metadataqa.api.schema.BaseSchema;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -13,8 +14,6 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
-import de.gwdg.metadataqa.api.schema.BaseSchema;
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jPackageImpl;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
