@@ -5,19 +5,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-//import de.gwdg.metadataqa.api.configuration.ConfigurationReader;
 import de.gwdg.metadataqa.api.schema.BaseSchema;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.constrainttranslation.ConstraintTranslation;
+import qualitypatternmodel.constrainttranslation.MQAFHelper;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -201,42 +194,19 @@ public class TemplateMqafConstraintServlet extends HttpServlet {
 			}
 			
 		}
-		
-		JSONArray allschemas = new JSONArray();
 
+		// 3  merge schemas
+		if (schemas.isEmpty())
+			return null;
+		
+		BaseSchema mergedSchema = schemas.get(0);
 		for (int i = 1; i< schemas.size(); i++) {
-			allschemas.put(toJson(schemas.get(i)));
+			mergedSchema = MQAFHelper.baseSchemaMerge(mergedSchema, schemas.get(i), false);
+			mergedSchema.merge(schemas.get(i), false);
 		}
-		JSONObject json = new JSONObject();
 		
-		try {
-			json.put("schemas", allschemas);
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return json.toString();
-
-//		// 3  merge schemas
-//		if (schemas.isEmpty())
-//			return null;
-//		
-//		BaseSchema mergedSchema = schemas.get(0);
-//		for (int i = 1; i< schemas.size(); i++) {
-//			mergedSchema.merge(schemas.get(i), false);
-//		}
-//		
-//		// 4 return merged schema as JSON
-//		return ConfigurationReader.toJson(mergedSchema);
-	}
-	
-    public static <T> String toJson(T object) {
-	  var objectMapper = new ObjectMapper();
-	  try {
-	    return objectMapper.writeValueAsString(object);
-	  } catch (JsonProcessingException e) {
-	    throw new RuntimeException(e);
-	  }
+		// 4 return merged schema as JSON
+		return MQAFHelper.baseSchemaToJson(mergedSchema);
 	}
 
 //    public static JSONObject convertYamlToJson(String yamlString) throws IOException, JSONException {

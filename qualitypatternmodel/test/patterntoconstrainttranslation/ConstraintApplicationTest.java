@@ -24,6 +24,7 @@ import de.gwdg.metadataqa.api.json.DataElement;
 import de.gwdg.metadataqa.api.schema.BaseSchema;
 import de.gwdg.metadataqa.api.xml.XPathWrapper;
 import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
+import qualitypatternmodel.constrainttranslation.MQAFHelper;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -94,6 +95,7 @@ public class ConstraintApplicationTest {
 			for (Rule rule: de.getRules()) {
 				rule.withSuccessScore(SUCCESS).withFailureScore(FAILIURE);
 //				rule.withSuccessScore(SUCCESS).withNaScore(NA).withFailureScore(FAILIURE);
+				rule = MQAFHelper.ruleSetNaScore(rule, NA);
 			}
 		}
 	}
