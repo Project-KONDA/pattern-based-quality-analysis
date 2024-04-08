@@ -1,4 +1,6 @@
-FROM tomcat:latest
+#FROM tomcat
+#FROM tomcat:latest
+FROM tomcat:10.0.11-jdk17-openjdk-slim
 
 ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_VERSION 3.8.4

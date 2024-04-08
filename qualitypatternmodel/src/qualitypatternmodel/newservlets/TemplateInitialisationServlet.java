@@ -5,6 +5,8 @@ import java.io.IOException;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -18,10 +20,71 @@ import qualitypatternmodel.utility.EMFModelSave;
 
 @SuppressWarnings("serial")
 public class TemplateInitialisationServlet extends HttpServlet {
+
+	@Override
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		response.getOutputStream().println(getWebsite());
+		response.setStatus(HttpServletResponse.SC_OK);
+	}
 	
+	private String getWebsite() {
+		return "<!doctype html>\r\n"
+				+ "<html lang=\"en\">\r\n"
+				+ "\r\n"
+				+ "<head>\r\n"
+				+ "    <title>QualityPatternModel API</title>\r\n"
+				+ "    <style type=\"text/css\">\r\n"
+				+ "        body {\r\n"
+				+ "            font-family: Tahoma, Arial, sans-serif;\r\n"
+				+ "        }\r\n"
+				+ "\r\n"
+				+ "        h1,\r\n"
+				+ "        h2,\r\n"
+				+ "        h3,\r\n"
+				+ "        b {\r\n"
+				+ "            color: white;\r\n"
+				+ "            background-color: #525D76;\r\n"
+				+ "        }\r\n"
+				+ "\r\n"
+				+ "        h1 {\r\n"
+				+ "            font-size: 22px;\r\n"
+				+ "        }\r\n"
+				+ "\r\n"
+				+ "        h2 {\r\n"
+				+ "            font-size: 16px;\r\n"
+				+ "        }\r\n"
+				+ "\r\n"
+				+ "        h3 {\r\n"
+				+ "            font-size: 14px;\r\n"
+				+ "        }\r\n"
+				+ "\r\n"
+				+ "        p {\r\n"
+				+ "            font-size: 12px;\r\n"
+				+ "        }\r\n"
+				+ "\r\n"
+				+ "        a {\r\n"
+				+ "            color: black;\r\n"
+				+ "        }\r\n"
+				+ "\r\n"
+				+ "        .line {\r\n"
+				+ "            height: 1px;\r\n"
+				+ "            background-color: #525D76;\r\n"
+				+ "            border: none;\r\n"
+				+ "        }\r\n"
+				+ "    </style>"
+				+ "</head>\r\n"
+				+ "\r\n"
+				+ "<body>\r\n"
+				+ "    <h1>QualityPatternModel API</h1>\r\n"
+				+ "</body>\r\n"
+				+ "\r\n"
+				+ "</html>";
+	}
+
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
+		System.out.println("Initializing ...");
 		try {
 			for (CompletePattern pattern: GenericPatterns.getAllGenericPattern()) {
 				pattern.isValid(AbstractionLevel.GENERIC);
