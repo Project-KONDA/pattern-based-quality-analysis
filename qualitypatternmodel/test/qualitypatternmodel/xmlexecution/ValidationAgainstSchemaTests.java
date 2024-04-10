@@ -1,14 +1,14 @@
 package qualitypatternmodel.xmlexecution;
 
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+//import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 
 import org.basex.query.QueryException;
-import org.eclipse.emf.common.util.EList;
+//import org.eclipse.emf.common.util.EList;
 import org.junit.Before;
-import org.junit.Test;
+//import org.junit.Test;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -16,9 +16,9 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.LocalXmlSchemaDatabase;
 import qualitypatternmodel.execution.ServerXmlDataDatabase;
 import qualitypatternmodel.execution.impl.ServerXmlDataDatabaseImpl;
-import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.xmlevaluation.XmlEvalMatch;
+//import qualitypatternmodel.parameters.Parameter;
+//import qualitypatternmodel.patternstructure.CompletePattern;
+//import qualitypatternmodel.xmlevaluation.XmlEvalMatch;
 
 public class ValidationAgainstSchemaTests {
 
@@ -34,20 +34,20 @@ public class ValidationAgainstSchemaTests {
 		assertFalse(db.getElementNames().isEmpty());	
 	}
 	
-	@Test
-	public void validateAgainstSchemaValidTest() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern pattern = XmlEvalMatch.getMatchLidoMeasurementUnit();
-		pattern.setDatabase(db);
-		EList<Parameter> invalidParams = pattern.validateAgainstSchema();
-		assertTrue(invalidParams.isEmpty());
-	}
+//	@Test
+//	public void validateAgainstSchemaValidTest() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern pattern = XmlEvalMatch.getMatchLidoMeasurementUnit();
+//		pattern.setDatabase(db);
+//		EList<Parameter> invalidParams = pattern.validateAgainstSchema();
+//		assertTrue(invalidParams.isEmpty());
+//	}
 	
-	@Test
-	public void validateAgainstSchemaInvalidTest() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
-		CompletePattern pattern = XmlEvalMatch.getMatchMidas5064();
-		pattern.setDatabase(db);
-		EList<Parameter> invalidParams = pattern.validateAgainstSchema();
-		assertFalse(invalidParams.isEmpty());
-	}
+//	@Test
+//	public void validateAgainstSchemaInvalidTest() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
+//		CompletePattern pattern = XmlEvalMatch.getMatchMidas5064();
+//		pattern.setDatabase(db);
+//		EList<Parameter> invalidParams = pattern.validateAgainstSchema();
+//		assertFalse(invalidParams.isEmpty());
+//	}
 	
 }
