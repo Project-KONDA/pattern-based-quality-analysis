@@ -1,6 +1,7 @@
 package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -47,11 +48,12 @@ public class TemplateGetListServlet extends HttpServlet {
 	
 	public String applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
-		if (pathparts.length != 3 || !pathparts[0].equals(""))
+		if (pathparts.length < 3  || pathparts.length > 4  || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getlist/<technology>/<level>' (not " + path + ")");
 
 		String technology = pathparts[1];
 		String level = pathparts[2];
+		
 		
 		if (!ServletUtilities.TECHS.contains(technology))
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
@@ -60,6 +62,14 @@ public class TemplateGetListServlet extends HttpServlet {
 		
 		List<CompletePattern> patterns = getPatterns(getServletContext(), technology, level);
 		
+		if (pathparts.length == 4) {
+			String database = pathparts[3];
+			List<CompletePattern> clone = new ArrayList<CompletePattern>(patterns);
+			for (CompletePattern pattern: clone) {
+				if (pattern.getDatabaseName() == null || !pattern.getDatabaseName().toString().equals(database))
+					patterns.remove(pattern);	
+			}
+		}
 		if (patterns == null)
 			throw new FailedServletCallException("No " + ((level == ServletUtilities.LVLTEMPLATE)? "template":"constraint") + " found for the technology " + technology + " on level " + level + ".");
 		
