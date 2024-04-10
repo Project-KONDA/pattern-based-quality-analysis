@@ -49,6 +49,16 @@ public class GenericPatterns {
 		patterns.add(getGenericAppdup3());
 		patterns.add(getGenericDupVal());
 		patterns.add(getGenericInvalidLink());
+
+//		patterns.add(getGenericMandAtt());
+//		patterns.add(getGenericLocalUnique());
+//		patterns.add(getGenericStringLength());
+//		patterns.add(getGenericCompVal());
+//		patterns.add(getGenericCardImpliesMandAtt());
+//		patterns.add(getGenericCheckFormat());
+//		patterns.add(getGenericCompDatabase());
+//		patterns.add(getGenericCompValAny());
+		
 		return patterns;
 	}
 
@@ -359,4 +369,62 @@ public class GenericPatterns {
 		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;
 	}
+
+	
+//	public static CompletePattern getGenericMandAtt() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+//		// TODO
+//		pattern.isValid(AbstractionLevel.GENERIC);
+//		return pattern;
+//	}
+//	
+//	public static CompletePattern getGenericLocalUnique() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+//		// TODO
+//		pattern.isValid(AbstractionLevel.GENERIC);
+//		return pattern;
+//	}
+//	
+//	public static CompletePattern getGenericStringLength() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+//		// TODO
+//		pattern.isValid(AbstractionLevel.GENERIC);
+//		return pattern;
+//	}
+//	
+//	public static CompletePattern getGenericCompVal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+//		// TODO
+//		pattern.isValid(AbstractionLevel.GENERIC);
+//		return pattern;
+//	}
+//	
+//	public static CompletePattern getGenericCardImpliesMandAtt() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+//		// TODO
+//		pattern.isValid(AbstractionLevel.GENERIC);
+//		return pattern;
+//	}
+//	
+//	public static CompletePattern getGenericCheckFormat() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+//		// TODO
+//		pattern.isValid(AbstractionLevel.GENERIC);
+//		return pattern;
+//	}
+//	
+//	public static CompletePattern getGenericCompDatabase() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+//		// TODO
+//		pattern.isValid(AbstractionLevel.GENERIC);
+//		return pattern;
+//	}
+//	
+//	public static CompletePattern getGenericCompValAny() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+//		// TODO
+//		pattern.isValid(AbstractionLevel.GENERIC);
+//		return pattern;
+//	}
+
 }

@@ -46,6 +46,17 @@ public class XmlPatterns {
 //		patterns.add(getXmlAppdup3());
 //		patterns.add(getXmlDupVal());
 		patterns.add(getXmlInvalidLink());
+		
+
+//		patterns.add(getXmlMandAtt());
+//		patterns.add(getXmlLocalUnique());
+//		patterns.add(getXmlStringLength());
+//		patterns.add(getXmlCompVal());
+//		patterns.add(getXmlCardImpliesMandAtt());
+//		patterns.add(getXmlCheckFormat());
+//		patterns.add(getXmlCompDatabase());
+//		patterns.add(getXmlCompValAny());
+		
 		return patterns;
 	}
 
@@ -273,4 +284,85 @@ public class XmlPatterns {
 		pattern.isValid(AbstractionLevel.ABSTRACT);
 		return pattern;
 	}
+	
+//	public static CompletePattern getXmlMandAtt() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern pattern = GenericPatterns.getGenericMandAtt();
+//		pattern.createXmlAdaption();
+//		pattern.setPatternId("MandAtt_xml");
+//		pattern.setAbstractId("MandAtt_xml");
+//		// TODO
+//		pattern.isValid(AbstractionLevel.ABSTRACT);
+//		return pattern;
+//	}
+	
+//	public static CompletePattern getXmlLocalUnique() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern pattern = GenericPatterns.getGenericLocalUnique();
+//		pattern.createXmlAdaption();
+//		pattern.setPatternId("LocalUnique_xml");
+//		pattern.setAbstractId("LocalUnique_xml");
+//		// TODO
+//		pattern.isValid(AbstractionLevel.ABSTRACT);
+//		return pattern;
+//	}
+	
+//	public static CompletePattern getXmlStringLength() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern pattern = GenericPatterns.getGenericStringLength();
+//		pattern.createXmlAdaption();
+//		pattern.setPatternId("StringLength_xml");
+//		pattern.setAbstractId("StringLength_xml");
+//		// TODO
+//		pattern.isValid(AbstractionLevel.ABSTRACT);
+//		return pattern;
+//	}
+	
+//	public static CompletePattern getXmlCompVal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern pattern = GenericPatterns.getGenericCompVal();
+//		pattern.createXmlAdaption();
+//		pattern.setPatternId("CompVal_xml");
+//		pattern.setAbstractId("CompVal_xml");
+//		// TODO
+//		pattern.isValid(AbstractionLevel.ABSTRACT);
+//		return pattern;
+//	}
+	
+//	public static CompletePattern getXmlCardImpliesMandAtt() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern pattern = GenericPatterns.getGenericCardImpliesMandAtt();
+//		pattern.createXmlAdaption();
+//		pattern.setPatternId("CardImpliesMandAtt_xml");
+//		pattern.setAbstractId("CardImpliesMandAtt_xml");
+//		// TODO
+//		pattern.isValid(AbstractionLevel.ABSTRACT);
+//		return pattern;
+//	}
+	
+//	public static CompletePattern getXmlCheckFormat() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern pattern = GenericPatterns.getGenericCheckFormat();
+//		pattern.createXmlAdaption();
+//		pattern.setPatternId("CheckFormat_xml");
+//		pattern.setAbstractId("CheckFormat_xml");
+//		// TODO
+//		pattern.isValid(AbstractionLevel.ABSTRACT);
+//		return pattern;
+//	}
+	
+//	public static CompletePattern getXmlCompDatabase() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern pattern = GenericPatterns.getGenericCompDatabase();
+//		pattern.createXmlAdaption();
+//		pattern.setPatternId("CompDatabase_xml");
+//		pattern.setAbstractId("CompDatabase_xml");
+//		// TODO
+//		pattern.isValid(AbstractionLevel.ABSTRACT);
+//		return pattern;
+//	}
+	
+//	public static CompletePattern getXmlCompValAny() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern pattern = GenericPatterns.getGenericCompValAny();
+//		pattern.createXmlAdaption();
+//		pattern.setPatternId("CompValAny_xml");
+//		pattern.setAbstractId("CompValAny_xml");
+//		// TODO
+//		pattern.isValid(AbstractionLevel.ABSTRACT);
+//		return pattern;
+//	}
+	
 }
