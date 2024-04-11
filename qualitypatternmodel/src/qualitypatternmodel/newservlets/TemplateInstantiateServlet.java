@@ -80,6 +80,14 @@ public class TemplateInstantiateServlet extends HttpServlet {
 		if (names != null && names[0] != null) {
 			pattern.setName(names[0]);
 		}
+		String[] database = parameterMap.get("database");
+		if (database != null && database[0] != null) {
+			pattern.setDatabaseName(database[0]);
+		}
+		String[] datamodel = parameterMap.get("datamodel");
+		if (datamodel != null && datamodel[0] != null) {
+			pattern.setDataModelName(database[0]);
+		}
 		
 		// 3 remove unused variants
 		ArrayList<String> textNames = new ArrayList<String>();

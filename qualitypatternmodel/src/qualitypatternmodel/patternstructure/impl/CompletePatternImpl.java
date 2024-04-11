@@ -430,6 +430,15 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		if(abstractionLevel == AbstractionLevel.CONCRETE && getText().size() > 1) {
 			throw new InvalidityException("concrete pattern has too many fragments");
 		}
+		
+//		Boolean db = getDatabaseName() == null || getDatabaseName().equals("");
+		Boolean dm = getDataModelName() == null || getDataModelName().equals("");
+		if(abstractionLevel == AbstractionLevel.CONCRETE && dm) {
+			throw new InvalidityException("pattern has no datamodel specified.");
+		}
+//		if(abstractionLevel == AbstractionLevel.CONCRETE && ( db || dm)) {
+//			throw new InvalidityException("pattern has " + (db? "no database ":"") + (db&&dm? "and ":"") + (dm? "no datamodel": "") + "specified.");
+//		}
 		for(PatternText p : getText()) {
 			p.isValid(abstractionLevel);
 		}
