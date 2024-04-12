@@ -263,7 +263,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			}
 			json += ", \"Value\": " + value + "";
 		}
-		if(exampleValue != null) {
+		if (exampleValue != null) {
 			try {
 				Double.parseDouble(exampleValue);
 				Integer.parseInt(exampleValue);				
@@ -274,23 +274,23 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			}			
 			json += ", \"ExampleValue\": " + exampleValue + "";
 		}
-		if(type.equals("Enumeration")) {
+		if (type.equals("Enumeration")) {
 			String options = parameter.getOptionsAsStringList();
 			json += ", \"Options\": " + options + "";
 		}
-		if(parameter instanceof ParameterValue) {
+		if (parameter instanceof ParameterValue) {
 			ParameterValue parameterValue = (ParameterValue) parameter;
 			if(parameterValue.isTypeModifiable()) {
 				json += ", \"TypeModifiable\": true";				
 			}
 		}
-		if(parameter instanceof TextLiteralParamImpl) {
+		if (parameter instanceof TextLiteralParamImpl) {
 			TextLiteralParamImpl textLiteral = (TextLiteralParamImpl) parameter;
 			if(textLiteral.getXmlPropertyOptionParam() != null && textLiteral.getMatches().isEmpty() && textLiteral.getComparison1().isEmpty() && textLiteral.getComparison2().isEmpty()) {
 				json += ", \"Dependent\": true";
 			}
 		}
-		if(parameter instanceof XmlPropertyOptionParamImpl) {
+		if (parameter instanceof XmlPropertyOptionParamImpl) {
 			XmlPropertyOptionParamImpl propertyOption = (XmlPropertyOptionParamImpl) parameter;
 //			Node node = propertyOption.getXmlPathParam().getXmlNavigation().getTarget();
 //			XmlProperty xmlProperty = (XmlProperty) node;
@@ -306,8 +306,6 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				
 			}			
 		}
-		
-		
 		json += "}";
 		return json;
 	}
@@ -332,22 +330,22 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				json.put("value", parameter.getValueAsString());
 			json.put("exampleValue", getExampleValue());
 			
-			if(getType().equals("Enumeration")) {
+			if (getType().equals("Enumeration")) {
 				json.put("options", parameter.getOptionsAsStringList());
 			}
-			if(parameter instanceof ParameterValue) {
+			if (parameter instanceof ParameterValue) {
 				ParameterValue parameterValue = (ParameterValue) parameter;
 				if(parameterValue.isTypeModifiable()) {
 					json.put("typeModifiable", true);
 				}
 			}
-			if(parameter instanceof TextLiteralParamImpl) {
+			if (parameter instanceof TextLiteralParamImpl) {
 				TextLiteralParamImpl textLiteral = (TextLiteralParamImpl) parameter;
 				if(textLiteral.getXmlPropertyOptionParam() != null && textLiteral.getMatches().isEmpty() && textLiteral.getComparison1().isEmpty() && textLiteral.getComparison2().isEmpty()) {
 					json.put("dependant", true);
 				}
 			}
-			if(parameter instanceof XmlPropertyOptionParamImpl) {
+			if (parameter instanceof XmlPropertyOptionParamImpl) {
 				XmlPropertyOptionParamImpl propertyOption = (XmlPropertyOptionParamImpl) parameter;
 //				Node node = propertyOption.getXmlPathParam().getXmlNavigation().getTarget();
 //				XmlProperty xmlProperty = (XmlProperty) node;

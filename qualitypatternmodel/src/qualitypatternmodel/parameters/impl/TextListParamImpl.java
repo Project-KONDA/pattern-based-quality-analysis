@@ -30,7 +30,7 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 	@Override
 	public String getValueAsString() {
 		String s = "[";
-		for(String value : values) {
+		for(String value : getValues()) {
 			s += "\"" + value + "\", ";
 		}
 		s = s.substring(0, s.length()-1);
@@ -40,7 +40,14 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 	
 	@Override
 	public void setValueFromString(String value) {
-		throw new UnsupportedOperationException();
+		value = value.trim();
+		String trimmed = value.substring(1, value.length() - 1);
+        String[] values = trimmed.split(",");
+        getValues().clear();
+        for (String val: values) {
+        	String v = val.trim().replaceAll("\"",  "").trim();
+        	getValues().add(v);
+        }
 	}
 	
 	@Override
