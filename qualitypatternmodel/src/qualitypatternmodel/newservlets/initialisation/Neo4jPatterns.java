@@ -22,7 +22,8 @@ public class Neo4jPatterns {
 	}
 	
 	public static List<CompletePattern> getAllNeoPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		List<CompletePattern> patterns = new BasicEList<CompletePattern>();//		patterns.add(getNeoCard());
+		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
+//		patterns.add(getNeoCard());
 //		patterns.add(getNeoComp());
 //		patterns.add(getNeoFunc());
 //		patterns.add(getNeoUnique());

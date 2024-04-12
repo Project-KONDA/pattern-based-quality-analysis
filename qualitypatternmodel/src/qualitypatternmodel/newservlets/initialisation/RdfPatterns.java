@@ -22,7 +22,8 @@ public class RdfPatterns {
 	}
 	
 	public static List<CompletePattern> getAllRdfPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		List<CompletePattern> patterns = new BasicEList<CompletePattern>();//		patterns.add(getRdfCard());
+		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
+//		patterns.add(getRdfCard());
 //		patterns.add(getRdfComp());
 //		patterns.add(getRdfFunc());
 //		patterns.add(getRdfUnique());
