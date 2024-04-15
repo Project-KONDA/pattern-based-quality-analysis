@@ -114,7 +114,8 @@ public class TypeOptionParamImpl extends ParameterImpl implements TypeOptionPara
 	@Override
 	public JSONArray getOptionsAsJsonArray() {
 		JSONArray jarray = new JSONArray();
-		jarray.put(getOptions());
+		for (ReturnType type: getOptions())
+			jarray.put(type.getName());
 		return jarray;
 	}
 	

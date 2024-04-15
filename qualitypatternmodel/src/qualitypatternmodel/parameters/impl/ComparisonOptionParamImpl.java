@@ -4,8 +4,6 @@ package qualitypatternmodel.parameters.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-import java.util.stream.Collectors;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -152,10 +150,9 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	@Override
 	public JSONArray getOptionsAsJsonArray() {
 		JSONArray jarray = new JSONArray();
-		jarray.put(getOptions().stream().map(a -> a.getName()).collect(Collectors.toList()));
+		for (ComparisonOperator comp: getOptions())
+			jarray.put(comp.getName());
 		return jarray;
-//		List<String> list = getOptions().stream().map(a -> a.getName()).collect(Collectors.toList());
-//		return ParameterFragmentImpl.generateJSONList(list);
 	}
 	
 	@Override

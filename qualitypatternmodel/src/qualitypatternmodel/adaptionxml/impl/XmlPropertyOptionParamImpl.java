@@ -161,7 +161,8 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 	@Override
 	public JSONArray getOptionsAsJsonArray() {
 		JSONArray jarray = new JSONArray();
-		jarray.put(getOptions());
+		for (XmlPropertyKind axis: getOptions())
+			jarray.put(axis);
 		return jarray;
 	}
 	

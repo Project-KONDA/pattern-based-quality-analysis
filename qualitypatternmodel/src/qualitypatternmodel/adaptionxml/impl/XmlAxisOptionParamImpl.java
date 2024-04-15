@@ -121,7 +121,8 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	@Override
 	public JSONArray getOptionsAsJsonArray() {
 		JSONArray jarray = new JSONArray();
-		jarray.put(getOptions());
+		for (XmlAxisKind axis: getOptions())
+			jarray.put(axis);
 		return jarray;
 	}
 
