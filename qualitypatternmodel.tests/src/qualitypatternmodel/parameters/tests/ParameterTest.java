@@ -20,7 +20,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.parameters.Parameter#setValueFromString(java.lang.String) <em>Set Value From String</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#getValueAsString() <em>Get Value As String</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#checkComparisonConsistency() <em>Check Comparison Consistency</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.Parameter#getOptionsAsStringList() <em>Get Options As String List</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.Parameter#getOptionsAsJsonArray() <em>Get Options As String List</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#generateDescription() <em>Generate Description</em>}</li>
  * </ul>
  * </p>
@@ -141,10 +141,10 @@ public abstract class ParameterTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.Parameter#getOptionsAsStringList() <em>Get Options As String List</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.parameters.Parameter#getOptionsAsJsonArray() <em>Get Options As String List</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.Parameter#getOptionsAsStringList()
+	 * @see qualitypatternmodel.parameters.Parameter#getOptionsAsJsonArray()
 	 * @generated
 	 */
 	public void testGetOptionsAsStringList() {

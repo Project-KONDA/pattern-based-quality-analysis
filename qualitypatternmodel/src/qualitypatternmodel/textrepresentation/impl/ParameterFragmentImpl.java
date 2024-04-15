@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -275,7 +276,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			json += ", \"ExampleValue\": " + exampleValue + "";
 		}
 		if (type.equals("Enumeration")) {
-			String options = parameter.getOptionsAsStringList();
+			JSONArray options = parameter.getOptionsAsJsonArray();
 			json += ", \"Options\": " + options + "";
 		}
 		if (parameter instanceof ParameterValue) {
@@ -331,7 +332,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			json.put("exampleValue", getExampleValue());
 			
 			if (getType().equals("Enumeration")) {
-				json.put("options", parameter.getOptionsAsStringList());
+				json.put("options", parameter.getOptionsAsJsonArray());
 			}
 			if (parameter instanceof ParameterValue) {
 				ParameterValue parameterValue = (ParameterValue) parameter;

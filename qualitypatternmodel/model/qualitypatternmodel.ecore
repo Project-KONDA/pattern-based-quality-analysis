@@ -26,7 +26,7 @@
       </eOperations>
       <eOperations name="getValueAsString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="getOptionsAsStringList" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="getOptionsAsJsonArray" eType="#//textrepresentation/JSONArrayWrapper"/>
       <eOperations name="generateDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameterList" eType="#//parameters/ParameterList"
           eOpposite="#//parameters/ParameterList/parameters"/>
@@ -1232,6 +1232,7 @@
           upperBound="-1" eType="#//parameters/Parameter" eOpposite="#//parameters/Parameter/parameterReferences"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="JSONObjectWrapper" instanceClassName="org.json.JSONObject"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="JSONArrayWrapper" instanceClassName="org.json.JSONArray"/>
   </eSubpackages>
   <eSubpackages name="adaptionrdf" nsURI="adaptionrdf" nsPrefix="adaptionrdf">
     <eClassifiers xsi:type="ecore:EClass" name="RdfPredicate" eSuperTypes="#//graphstructure/Relation">

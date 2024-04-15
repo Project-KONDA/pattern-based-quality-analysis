@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.json.JSONArray;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -329,7 +331,7 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	 * @generated NOT
 	 */
 	@Override
-	public String getOptionsAsStringList() {
+	public JSONArray getOptionsAsJsonArray() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -540,7 +542,7 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 					throw new InvocationTargetException(throwable);
 				}
 			case ParametersPackage.PARAMETER___GET_OPTIONS_AS_STRING_LIST:
-				return getOptionsAsStringList();
+				return getOptionsAsJsonArray();
 			case ParametersPackage.PARAMETER___GENERATE_DESCRIPTION:
 				return generateDescription();
 		}

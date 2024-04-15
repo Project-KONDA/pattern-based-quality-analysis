@@ -5,6 +5,8 @@ package qualitypatternmodel.parameters;
 import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
+import org.json.JSONArray;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.textrepresentation.ParameterReference;
@@ -168,7 +170,7 @@ public interface Parameter extends PatternElement {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	String getOptionsAsStringList();
+	JSONArray getOptionsAsJsonArray();
 
 	/**
 	 * <!-- begin-user-doc -->

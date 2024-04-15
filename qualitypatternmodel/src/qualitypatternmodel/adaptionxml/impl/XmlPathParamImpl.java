@@ -921,7 +921,7 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 				throw new InvocationTargetException(throwable);
 			}
 		case AdaptionxmlPackage.XML_PATH_PARAM___GET_OPTIONS_AS_STRING_LIST:
-			return getOptionsAsStringList();
+			return getOptionsAsJsonArray();
 		case AdaptionxmlPackage.XML_PATH_PARAM___VALIDATE_AGAINST_SCHEMA:
 			return validateAgainstSchema();
 		case AdaptionxmlPackage.XML_PATH_PARAM___CHECK_COMPARISON_CONSISTENCY:

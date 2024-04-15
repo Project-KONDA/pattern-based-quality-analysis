@@ -8984,11 +8984,11 @@ public interface ParametersPackage extends EPackage {
 	EOperation getParameter__SetValueFromString__String();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.Parameter#getOptionsAsStringList() <em>Get Options As String List</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.Parameter#getOptionsAsJsonArray() <em>Get Options As String List</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Options As String List</em>' operation.
-	 * @see qualitypatternmodel.parameters.Parameter#getOptionsAsStringList()
+	 * @see qualitypatternmodel.parameters.Parameter#getOptionsAsJsonArray()
 	 * @generated
 	 */
 	EOperation getParameter__GetOptionsAsStringList();

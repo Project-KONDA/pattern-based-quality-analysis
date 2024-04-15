@@ -18,6 +18,8 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.json.JSONArray;
+
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlAxisOptionParam;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
@@ -785,7 +787,7 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	 * @generated
 	 */
 	@Override
-	public String getOptionsAsStringList() {
+	public JSONArray getOptionsAsJsonArray() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -1273,7 +1275,7 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 					throw new InvocationTargetException(throwable);
 				}
 			case AdaptionxmlPackage.XML_AXIS_PART___GET_OPTIONS_AS_STRING_LIST:
-				return getOptionsAsStringList();
+				return getOptionsAsJsonArray();
 			case AdaptionxmlPackage.XML_AXIS_PART___GENERATE_DESCRIPTION:
 				return generateDescription();
 			case AdaptionxmlPackage.XML_AXIS_PART___CREATE_PARAMETERS:
