@@ -637,6 +637,17 @@ public interface TextrepresentationPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '<em>JSON Array Wrapper</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.json.JSONArray
+	 * @see qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl#getJSONArrayWrapper()
+	 * @generated
+	 */
+	int JSON_ARRAY_WRAPPER = 8;
+
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.textrepresentation.PatternText <em>Pattern Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1021,6 +1032,17 @@ public interface TextrepresentationPackage extends EPackage {
 	EDataType getJSONObjectWrapper();
 
 	/**
+	 * Returns the meta object for data type '{@link org.json.JSONArray <em>JSON Array Wrapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>JSON Array Wrapper</em>'.
+	 * @see org.json.JSONArray
+	 * @model instanceClass="org.json.JSONArray"
+	 * @generated
+	 */
+	EDataType getJSONArrayWrapper();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1354,6 +1376,16 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType JSON_OBJECT_WRAPPER = eINSTANCE.getJSONObjectWrapper();
+
+		/**
+		 * The meta object literal for the '<em>JSON Array Wrapper</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.json.JSONArray
+		 * @see qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl#getJSONArrayWrapper()
+		 * @generated
+		 */
+		EDataType JSON_ARRAY_WRAPPER = eINSTANCE.getJSONArrayWrapper();
 
 	}
 

@@ -876,8 +876,8 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 				return AdaptionxmlPackage.XML_PATH_PARAM___GET_VALUE_AS_STRING;
 			case ParametersPackage.PARAMETER___SET_VALUE_FROM_STRING__STRING:
 				return AdaptionxmlPackage.XML_PATH_PARAM___SET_VALUE_FROM_STRING__STRING;
-			case ParametersPackage.PARAMETER___GET_OPTIONS_AS_STRING_LIST:
-				return AdaptionxmlPackage.XML_PATH_PARAM___GET_OPTIONS_AS_STRING_LIST;
+			case ParametersPackage.PARAMETER___GET_OPTIONS_AS_JSON_ARRAY:
+				return AdaptionxmlPackage.XML_PATH_PARAM___GET_OPTIONS_AS_JSON_ARRAY;
 			case ParametersPackage.PARAMETER___VALIDATE_AGAINST_SCHEMA:
 				return AdaptionxmlPackage.XML_PATH_PARAM___VALIDATE_AGAINST_SCHEMA;
 			case ParametersPackage.PARAMETER___CHECK_COMPARISON_CONSISTENCY:
@@ -920,7 +920,7 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 			} catch (Throwable throwable) {
 				throw new InvocationTargetException(throwable);
 			}
-		case AdaptionxmlPackage.XML_PATH_PARAM___GET_OPTIONS_AS_STRING_LIST:
+		case AdaptionxmlPackage.XML_PATH_PARAM___GET_OPTIONS_AS_JSON_ARRAY:
 			return getOptionsAsJsonArray();
 		case AdaptionxmlPackage.XML_PATH_PARAM___VALIDATE_AGAINST_SCHEMA:
 			return validateAgainstSchema();

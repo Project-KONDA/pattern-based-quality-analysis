@@ -167,7 +167,7 @@ public interface Parameter extends PatternElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
+	 * @model kind="operation" dataType="qualitypatternmodel.textrepresentation.JSONArrayWrapper"
 	 * @generated
 	 */
 	JSONArray getOptionsAsJsonArray();

@@ -3339,13 +3339,13 @@ public interface AdaptionrdfPackage extends EPackage {
 	int IRI_PARAM___CHECK_COMPARISON_CONSISTENCY = ParametersPackage.PARAMETER_VALUE___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___GET_OPTIONS_AS_STRING_LIST = ParametersPackage.PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
+	int IRI_PARAM___GET_OPTIONS_AS_JSON_ARRAY = ParametersPackage.PARAMETER_VALUE___GET_OPTIONS_AS_JSON_ARRAY;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -4620,13 +4620,13 @@ public interface AdaptionrdfPackage extends EPackage {
 	int IRI_LIST_PARAM___CHECK_COMPARISON_CONSISTENCY = ParametersPackage.PARAMETER_VALUE___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_LIST_PARAM___GET_OPTIONS_AS_STRING_LIST = ParametersPackage.PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
+	int IRI_LIST_PARAM___GET_OPTIONS_AS_JSON_ARRAY = ParametersPackage.PARAMETER_VALUE___GET_OPTIONS_AS_JSON_ARRAY;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -5187,13 +5187,13 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PATH_PARAM___CHECK_COMPARISON_CONSISTENCY = ParametersPackage.PARAMETER___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PARAM___GET_OPTIONS_AS_STRING_LIST = ParametersPackage.PARAMETER___GET_OPTIONS_AS_STRING_LIST;
+	int RDF_PATH_PARAM___GET_OPTIONS_AS_JSON_ARRAY = ParametersPackage.PARAMETER___GET_OPTIONS_AS_JSON_ARRAY;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.

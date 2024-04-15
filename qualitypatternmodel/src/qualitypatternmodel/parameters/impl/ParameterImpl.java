@@ -541,7 +541,7 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case ParametersPackage.PARAMETER___GET_OPTIONS_AS_STRING_LIST:
+			case ParametersPackage.PARAMETER___GET_OPTIONS_AS_JSON_ARRAY:
 				return getOptionsAsJsonArray();
 			case ParametersPackage.PARAMETER___GENERATE_DESCRIPTION:
 				return generateDescription();

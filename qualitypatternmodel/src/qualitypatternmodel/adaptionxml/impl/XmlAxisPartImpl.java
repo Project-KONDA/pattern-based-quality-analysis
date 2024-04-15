@@ -1214,7 +1214,7 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 				case ParametersPackage.PARAMETER___SET_VALUE_FROM_STRING__STRING: return AdaptionxmlPackage.XML_AXIS_PART___SET_VALUE_FROM_STRING__STRING;
 				case ParametersPackage.PARAMETER___GET_VALUE_AS_STRING: return AdaptionxmlPackage.XML_AXIS_PART___GET_VALUE_AS_STRING;
 				case ParametersPackage.PARAMETER___CHECK_COMPARISON_CONSISTENCY: return AdaptionxmlPackage.XML_AXIS_PART___CHECK_COMPARISON_CONSISTENCY;
-				case ParametersPackage.PARAMETER___GET_OPTIONS_AS_STRING_LIST: return AdaptionxmlPackage.XML_AXIS_PART___GET_OPTIONS_AS_STRING_LIST;
+				case ParametersPackage.PARAMETER___GET_OPTIONS_AS_JSON_ARRAY: return AdaptionxmlPackage.XML_AXIS_PART___GET_OPTIONS_AS_JSON_ARRAY;
 				case ParametersPackage.PARAMETER___GENERATE_DESCRIPTION: return AdaptionxmlPackage.XML_AXIS_PART___GENERATE_DESCRIPTION;
 				default: return -1;
 			}
@@ -1274,7 +1274,7 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case AdaptionxmlPackage.XML_AXIS_PART___GET_OPTIONS_AS_STRING_LIST:
+			case AdaptionxmlPackage.XML_AXIS_PART___GET_OPTIONS_AS_JSON_ARRAY:
 				return getOptionsAsJsonArray();
 			case AdaptionxmlPackage.XML_AXIS_PART___GENERATE_DESCRIPTION:
 				return generateDescription();

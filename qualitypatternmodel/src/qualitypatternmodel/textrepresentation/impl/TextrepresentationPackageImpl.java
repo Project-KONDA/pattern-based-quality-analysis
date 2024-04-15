@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jPackageImpl;
@@ -116,6 +117,13 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	private EDataType jsonObjectWrapperEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType jsonArrayWrapperEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -600,6 +608,16 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
+	public EDataType getJSONArrayWrapper() {
+		return jsonArrayWrapperEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public TextrepresentationFactory getTextrepresentationFactory() {
 		return (TextrepresentationFactory)getEFactoryInstance();
 	}
@@ -667,6 +685,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		// Create data types
 		objectWrapperEDataType = createEDataType(OBJECT_WRAPPER);
 		jsonObjectWrapperEDataType = createEDataType(JSON_OBJECT_WRAPPER);
+		jsonArrayWrapperEDataType = createEDataType(JSON_ARRAY_WRAPPER);
 	}
 
 	/**
@@ -786,6 +805,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		// Initialize data types
 		initEDataType(objectWrapperEDataType, Object.class, "ObjectWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(jsonObjectWrapperEDataType, JSONObject.class, "JSONObjectWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(jsonArrayWrapperEDataType, JSONArray.class, "JSONArrayWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

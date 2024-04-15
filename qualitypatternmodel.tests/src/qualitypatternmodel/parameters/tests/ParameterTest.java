@@ -20,7 +20,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.parameters.Parameter#setValueFromString(java.lang.String) <em>Set Value From String</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#getValueAsString() <em>Get Value As String</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#checkComparisonConsistency() <em>Check Comparison Consistency</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.Parameter#getOptionsAsJsonArray() <em>Get Options As String List</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.Parameter#getOptionsAsJsonArray() <em>Get Options As Json Array</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#generateDescription() <em>Generate Description</em>}</li>
  * </ul>
  * </p>
@@ -141,13 +141,13 @@ public abstract class ParameterTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.Parameter#getOptionsAsJsonArray() <em>Get Options As String List</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.parameters.Parameter#getOptionsAsJsonArray() <em>Get Options As Json Array</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see qualitypatternmodel.parameters.Parameter#getOptionsAsJsonArray()
 	 * @generated
 	 */
-	public void testGetOptionsAsStringList() {
+	public void testGetOptionsAsJsonArray() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

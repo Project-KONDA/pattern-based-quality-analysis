@@ -4942,13 +4942,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_AXIS_OPTION_PARAM___CHECK_COMPARISON_CONSISTENCY = ParametersPackage.PARAMETER___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_OPTION_PARAM___GET_OPTIONS_AS_STRING_LIST = ParametersPackage.PARAMETER___GET_OPTIONS_AS_STRING_LIST;
+	int XML_AXIS_OPTION_PARAM___GET_OPTIONS_AS_JSON_ARRAY = ParametersPackage.PARAMETER___GET_OPTIONS_AS_JSON_ARRAY;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -5420,13 +5420,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_OPTION_PARAM___CHECK_COMPARISON_CONSISTENCY = ParametersPackage.PARAMETER___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_OPTION_PARAM___GET_OPTIONS_AS_STRING_LIST = ParametersPackage.PARAMETER___GET_OPTIONS_AS_STRING_LIST;
+	int XML_PROPERTY_OPTION_PARAM___GET_OPTIONS_AS_JSON_ARRAY = ParametersPackage.PARAMETER___GET_OPTIONS_AS_JSON_ARRAY;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -5897,13 +5897,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PATH_PARAM___CHECK_COMPARISON_CONSISTENCY = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 7;
 
 	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PATH_PARAM___GET_OPTIONS_AS_STRING_LIST = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 8;
+	int XML_PATH_PARAM___GET_OPTIONS_AS_JSON_ARRAY = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -6411,13 +6411,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_AXIS_PART___CHECK_COMPARISON_CONSISTENCY = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 7;
 
 	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART___GET_OPTIONS_AS_STRING_LIST = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 8;
+	int XML_AXIS_PART___GET_OPTIONS_AS_JSON_ARRAY = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
