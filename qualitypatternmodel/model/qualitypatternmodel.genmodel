@@ -34,7 +34,7 @@
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/Parameter/getValueAsString"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/Parameter/checkComparisonConsistency"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/Parameter/getOptionsAsStringList"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/Parameter/getOptionsAsJsonArray"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/Parameter/generateDescription"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/ComparisonOptionParam">
@@ -953,6 +953,7 @@
         ecorePackage="qualitypatternmodel.ecore#//textrepresentation">
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//textrepresentation/ObjectWrapper"/>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//textrepresentation/JSONObjectWrapper"/>
+      <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//textrepresentation/JSONArrayWrapper"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//textrepresentation/PatternText">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/PatternText/pattern"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/PatternText/fragments"/>
