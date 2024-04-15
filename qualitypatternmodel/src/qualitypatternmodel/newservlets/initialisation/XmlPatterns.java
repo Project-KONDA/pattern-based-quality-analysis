@@ -235,12 +235,11 @@ public class XmlPatterns {
 				ParameterFragment frag3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 				frag3.setName("negation");
 				frag3.getParameter().add(p0);
-				Map<String, String> map = Map.ofEntries(
-					    Map.entry("true", "does"),
-					    Map.entry("false", "does not")
-					);
+				ValueMap map = new ValueMapImpl();
+				map.put("true", "does");
+				map.put("false", "does not");
 				frag3.setValueMap(map);
-				frag3.setExampleValue("does");
+				frag3.setExampleValue(map.get("true"));
 				variant1.addFragment(frag3);
 			}
 			variant1.addFragment(new TextFragmentImpl("match"));
@@ -268,8 +267,6 @@ public class XmlPatterns {
 		TextLiteralParam p1 = ((TextLiteralParam) params.get(1));
 		XmlPathParam p2 = ((XmlPathParam) params.get(2));
 		XmlPathParam p3 = ((XmlPathParam) params.get(3));
-
-
 		{
 			PatternText variant1 = TextrepresentationFactory.eINSTANCE.createPatternText();
 			variant1.setName("simple");
@@ -293,20 +290,19 @@ public class XmlPatterns {
 			}
 			{
 				ParameterFragment frag3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag3.setName("RegEx");
+				frag3.setName("negation");
 				frag3.getParameter().add(p0);
-				Map<String, String> map = Map.ofEntries(
-					    Map.entry("true", "does"),
-					    Map.entry("false", "does not")
-					);
+				ValueMap map = new ValueMapImpl();
+				map.put("true", "does");
+				map.put("false", "does not");
 				frag3.setValueMap(map);
-				frag3.setExampleValue("true");
+				frag3.setExampleValue(map.get("true"));
 				variant1.addFragment(frag3);
 			}
 			variant1.addFragment(new TextFragmentImpl("contain"));
 			{
 				ParameterFragment frag4 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag4.setName("Substring");
+				frag4.setName("substring");
 				frag4.getParameter().add(p1);
 				frag4.setExampleValue("a");
 				variant1.addFragment(frag4);
@@ -356,12 +352,11 @@ public class XmlPatterns {
 				ParameterFragment frag3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 				frag3.setName("negation");
 				frag3.getParameter().add(bool);
-				Map<String, String> map = Map.ofEntries(
-					    Map.entry("true", "does"),
-					    Map.entry("false", "does not")
-					);
+				ValueMap map = new ValueMapImpl();
+				map.put("true", "does");
+				map.put("false", "does not");
 				frag3.setValueMap(map);
-				frag3.setExampleValue("does");
+				frag3.setExampleValue(map.get("true"));
 				variant1.addFragment(frag3);
 			}
 			variant1.addFragment(new TextFragmentImpl("contain a valid link."));
@@ -393,12 +388,11 @@ public class XmlPatterns {
 				ParameterFragment frag3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 				frag3.setName("negation");
 				frag3.getParameter().add(bool);
-				Map<String, String> map = Map.ofEntries(
-					    Map.entry("true", "valid"),
-					    Map.entry("false", "invalid")
-					);
+				ValueMap map = new ValueMapImpl();
+				map.put("true", "does");
+				map.put("false", "does not");
 				frag3.setValueMap(map);
-				frag3.setExampleValue("valid");
+				frag3.setExampleValue(map.get("true"));
 				variant1.addFragment(frag3);
 			}
 			variant1.addFragment(new TextFragmentImpl("?"));
@@ -562,12 +556,11 @@ public class XmlPatterns {
 				ParameterFragment frag3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 				frag3.setName("comparison_operator");
 				frag3.getParameter().add(p1);
-				Map<String, String> map = Map.ofEntries(
-					    Map.entry(ComparisonOperator.EQUAL.getLiteral(), "is"),
-					    Map.entry(ComparisonOperator.NOTEQUAL.getLiteral(), "is not")
-					);
+				ValueMap map = new ValueMapImpl();
+				map.put(ComparisonOperator.EQUAL.getLiteral() + "[" + ComparisonOperator.EQUAL + "]", "is");
+				map.put(ComparisonOperator.NOTEQUAL.getLiteral(), "is not");
 				frag3.setValueMap(map);
-				frag3.setExampleValue("is");
+				frag3.setExampleValue(map.get(ComparisonOperator.EQUAL.getLiteral()));
 				variant.addFragment(frag3);
 			}
 			variant.addFragment(new TextFragmentImpl("in the list:"));

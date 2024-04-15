@@ -92,6 +92,10 @@ public class TextrepresentationAdapterFactory extends AdapterFactoryImpl {
 				return createParameterReferenceAdapter();
 			}
 			@Override
+			public Adapter caseValueMap(ValueMap object) {
+				return createValueMapAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -192,6 +196,20 @@ public class TextrepresentationAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createParameterReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.textrepresentation.ValueMap <em>Value Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.textrepresentation.ValueMap
+	 * @generated
+	 */
+	public Adapter createValueMapAdapter() {
 		return null;
 	}
 

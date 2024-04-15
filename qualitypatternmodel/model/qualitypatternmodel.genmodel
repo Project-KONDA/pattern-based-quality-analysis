@@ -978,7 +978,7 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/exampleValue"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/name"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/valueMap"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/valueMap"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/getType"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/getRole"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/setValue">
@@ -1004,6 +1004,21 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/ParameterReference/parameter"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ParameterReference/isValid">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//textrepresentation/ParameterReference/isValid/abstractionLevel"/>
+        </genOperations>
+      </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//textrepresentation/ValueMap">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/ValueMap/keys"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/ValueMap/values"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ValueMap/put">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//textrepresentation/ValueMap/put/key"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//textrepresentation/ValueMap/put/value"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ValueMap/getValuesAsJsonArray"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ValueMap/get">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//textrepresentation/ValueMap/get/key"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ValueMap/getKey">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//textrepresentation/ValueMap/getKey/value"/>
         </genOperations>
       </genClasses>
     </nestedGenPackages>
