@@ -134,7 +134,7 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 			}
 		}
 		if (result == null) {
-			if (value.equals("/data()") || value.equals("data()"))
+			if (value.equals("/data()") || value.equals("data()") || value.equals("/text()") || value.equals("text()"))
 				result = XmlPropertyKind.DATA;	
 			else if (value.equals("/name()") || value.equals("name()"))
 				result = XmlPropertyKind.TAG;

@@ -1003,7 +1003,6 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	 */
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
-		String PROPERTY_PART_REGEX = "(/)?((data\\(\\))|(name\\(\\))|(@[A-Za-z0-9]+))";
 		if (value == "")
 			return;
 		ArrayList<String> parts = new ArrayList<String>();
@@ -1017,8 +1016,12 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 		}
 
 		value = value.trim();
-		if (!value.equals("") && !value.matches(PROPERTY_PART_REGEX))
+		
+		String PROPERTY_PART_REGEX = "(/)?((data\\(\\))|(text\\(\\))|(name\\(\\))|(@[A-Za-z0-9]+))";
+		if (!value.equals("") && !value.matches(PROPERTY_PART_REGEX)) {
 			throw new InvalidityException("value invalid property specification: \"" + value + "\" - match :" +  value.matches(PROPERTY_PART_REGEX));
+		}
+			
 //		assertTrue((getXmlNavigation() instanceof XmlElementNavigation) == ( value == "" || value.matches(PROPERTY_PART_REGEX)));
 //		assertTrue((getXmlNavigation() instanceof XmlPropertyNavigation) == ( value == "" || value.matches(PROPERTY_PART_REGEX)));
 		
