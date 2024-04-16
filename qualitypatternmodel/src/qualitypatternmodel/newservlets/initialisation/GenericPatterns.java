@@ -17,7 +17,6 @@ import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
-import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;

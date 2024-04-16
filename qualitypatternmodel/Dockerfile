@@ -1,33 +1,24 @@
-#FROM tomcat
-#FROM tomcat:latest
+
 FROM tomcat:10
-#FROM tomcat:10.0.11-jdk17-openjdk-slim
-
-#ENV MAVEN_HOME /usr/share/maven
-#ENV MAVEN_VERSION 3.8.4
-#ENV PATH ${MAVEN_HOME}/bin:${PATH}
-
-#RUN apt-get update
-#RUN apt-get install -y apt-utils
-#RUN apt-get install -y maven
-#RUN rm -rf /var/lib/apt/lists/*
     
-RUN apt-get update && \
-    apt-get install -y maven && \
-    apt-get install -y apt-utils && \
-    rm -rf /var/lib/apt/lists/*
+RUN apt-get -y update \
+    && apt-get -y autoremove \
+    && apt-get clean \
+    && apt-get install -y maven \
+    apt-utils \
+    unzip \
+    && rm -rf /var/lib/apt/lists/*
 
-COPY . /usr/src/app
+COPY project_docker.zip /usr/src/app/
+RUN unzip /usr/src/app/project_docker.zip -d /usr/src/app
+RUN rm /usr/src/app/project_docker.zip
+COPY ./src /usr/src/app/src/main/java
 
 WORKDIR /usr/src/app
 
 RUN mvn clean compile install package -DskipTests
-#RUN mvn clean package
 
 RUN cp target/*.war /usr/local/tomcat/webapps/qualitypatternmodel.war
-#RUN cp target/*.war /usr/local/tomcat/webapps/
-# COPY target/*.war /usr/local/tomcat/webapps/
-
 WORKDIR /usr
 RUN rm -rf src
 
