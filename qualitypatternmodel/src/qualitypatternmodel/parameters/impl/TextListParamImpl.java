@@ -3,6 +3,9 @@
 package qualitypatternmodel.parameters.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -29,25 +32,30 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 	
 	@Override
 	public String getValueAsString() {
-		String s = "[";
-		for(String value : getValues()) {
-			s += "\"" + value + "\", ";
-		}
-		s = s.substring(0, s.length()-1);
-		s += "]";
-		return s;
+		JSONArray jarray = new JSONArray(getValues());
+		return jarray.toString();
 	}
 	
 	@Override
 	public void setValueFromString(String value) {
-		value = value.trim();
-		String trimmed = value.substring(1, value.length() - 1);
-        String[] values = trimmed.split(",");
-        getValues().clear();
-        for (String val: values) {
-        	String v = val.trim().replaceAll("\"",  "").trim();
-        	getValues().add(v);
-        }
+		try {
+			JSONArray jarray = new JSONArray(value);
+	        getValues().clear();   
+	        for (int i = 0; i<jarray.length();i++) {
+	        	String v = jarray.getString(i);
+	        	getValues().add(v);
+	        }
+		}
+		catch (JSONException e){
+			value = value.trim();
+			String trimmed = value.substring(1, value.length() - 1);
+	        String[] values = trimmed.split(",");
+	        getValues().clear();
+	        for (String val: values) {
+	        	String v = val.trim().replaceAll("\"",  "").trim();
+	        	getValues().add(v);
+	        }
+		}
 	}
 	
 	@Override

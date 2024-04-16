@@ -566,7 +566,7 @@ public class XmlPatterns {
 			variant.addFragment(new TextFragmentImpl("in the list:"));
 			{
 				ParameterFragment frag4 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag4.setName("value list");
+				frag4.setName("valuelist");
 				frag4.getParameter().add(p0);
 				frag4.setExampleValue("");
 				variant.addFragment(frag4);
