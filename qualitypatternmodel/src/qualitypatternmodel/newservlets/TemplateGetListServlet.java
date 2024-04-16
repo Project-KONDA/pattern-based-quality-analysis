@@ -63,10 +63,10 @@ public class TemplateGetListServlet extends HttpServlet {
 		List<CompletePattern> patterns = getPatterns(getServletContext(), technology, level);
 		
 		if (pathparts.length == 4) {
-			String database = pathparts[3];
+			String datamodel = pathparts[3];
 			List<CompletePattern> clone = new ArrayList<CompletePattern>(patterns);
 			for (CompletePattern pattern: clone) {
-				if (pattern.getDatabaseName() == null || !pattern.getDatabaseName().toString().equals(database))
+				if (pattern.getDataModelName() == null || !pattern.getDataModelName().equals(datamodel))
 					patterns.remove(pattern);	
 			}
 		}
