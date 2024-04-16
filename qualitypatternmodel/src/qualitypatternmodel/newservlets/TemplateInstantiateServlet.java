@@ -2,7 +2,6 @@ package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Map;
 
 import jakarta.servlet.http.HttpServlet;
@@ -92,21 +91,35 @@ public class TemplateInstantiateServlet extends HttpServlet {
 		// 3 remove unused variants
 		ArrayList<String> textNames = new ArrayList<String>();
 		
-		Iterator<PatternText> iterator = pattern.getText().iterator();
-        while (iterator.hasNext()) {
-        	PatternText text = iterator.next();
-        	String name = text.getName(); 
+		
+		ArrayList<PatternText> texts = new ArrayList<PatternText>();
+		
+		for (PatternText t: pattern.getText()) {
+			texts.add(t);
+		}
+		for (PatternText t2: texts) {
+        	String name = t2.getName(); 
         	textNames.add(name);
         	if(!name.equals(textid)) {
+        		pattern.getText().remove(t2);
+        	}
+			
+		}
+		
+//        while (iterator.hasNext()) {
+//        	PatternText text = iterator.next();
+//        	String name = text.getName(); 
+//        	textNames.add(name);
+//        	if(!name.equals(textid)) {
 //        		for (Fragment frag: text.getFragments()) {
 //        			
 //        		}
 //
 //        		text.getFragments().clear();
-        		pattern.getText().remove(text);
-        		text.delete();
-        	}
-        }
+//        		pattern.getText().remove(text);
+//        		text.delete();
+//        	}
+//        }
         
 		if (pattern.getText().size() < 1) {
 			throw new InvalidServletCallException("Variant ID invalid: '" + textid + "' does not exist. Available are: " + textNames);
