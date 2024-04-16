@@ -403,8 +403,10 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	@Override
 	public String getType() {
 //		return getParameter().getClass().toString();
-		
-		Class<?> type = getParameter().get(0).getClass();
+		Parameter param = getParameter().get(0);
+		Class<?> type = param.getClass();
+		if (getValueMap() != null)
+			return Constants.PARAMETER_TYPE_ENUMERATION;
 		if (type.equals(DateParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_DATE;			
 		} else if(type.equals(TimeParamImpl.class)) {
@@ -412,7 +414,10 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		} else if (type.equals(DateTimeParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_DATE_TIME;
 		} else if (type.equals(TextLiteralParamImpl.class)) {
-			return Constants.PARAMETER_TYPE_TEXT;
+			if (!((TextLiteralParamImpl) param).getMatches().isEmpty())
+				return Constants.PARAMETER_TYPE_REGEX;
+			else 
+				return Constants.PARAMETER_TYPE_TEXT;
 		} else if (type.equals(BooleanParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_BOOLEAN;
 		} else if (type.equals(NumberParamImpl.class)) {
