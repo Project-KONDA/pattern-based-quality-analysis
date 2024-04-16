@@ -120,6 +120,9 @@ public class TemplateInitialisationServlet extends HttpServlet {
 		} catch (MissingPatternContainerException e) {
 			e.printStackTrace();
 			throw new ServletException("Invalid pattern (missing container): " + e.getMessage());
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new ServletException("Unexpected Error: " + e.getMessage());
 		}
 	}
 }

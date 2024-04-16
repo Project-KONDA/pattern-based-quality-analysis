@@ -488,6 +488,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 
 	@Override
 	public String generateXQuery() throws InvalidityException {
+		if (containsJavaOperator()) 
+			throw new InvalidityException("This pattern cannot be executed via default XQuery. A custom Java Filter build is required.");
 		initializeTranslation();
 		String res = getParameterList().generateXQuery();
 		res += super.generateXQuery();

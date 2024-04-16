@@ -332,9 +332,7 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	 */
 	@Override
 	public JSONArray getOptionsAsJsonArray() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		throw new UnsupportedOperationException(this.getClass().getSimpleName());
 	}
 
 	/**
