@@ -1,8 +1,7 @@
 package qualitypatternmodel.newservlets.initialisation;
 
+import java.io.IOException;
 import java.util.List;
-import java.util.Map;
-
 import org.eclipse.emf.common.util.BasicEList;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -21,15 +20,40 @@ import qualitypatternmodel.textrepresentation.ParameterFragment;
 import qualitypatternmodel.textrepresentation.ParameterPredefinition;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
+import qualitypatternmodel.textrepresentation.ValueMap;
 import qualitypatternmodel.textrepresentation.impl.TextFragmentImpl;
+import qualitypatternmodel.textrepresentation.impl.ValueMapImpl;
+import qualitypatternmodel.utility.XmlPatternUtility;
 
 public class XmlPatterns {
-	
-	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IOException {
 		
-		for (Parameter p: getXmlCard().getParameterList().getParameters())
+		for (CompletePattern pattern: getAllXmlPattern()) {
+			pattern.isValid(AbstractionLevel.ABSTRACT);
+			XmlPatternUtility.fillParameterXml(pattern);
+			System.out.println();
+			System.out.println(pattern.getName());
+			System.out.println(pattern.generateXQuery());
+//			System.out.println(pattern);
+		}
+			
+		
+//		CompletePattern completePattern = getXmlContains();
+//		XmlPatternUtility.fillParameterXml(completePattern);
+//		completePattern.getParameterList().getParameters().get(0).setValueFromString("false");
+//		System.out.println(completePattern.getName());
+//		System.out.println(completePattern.generateXQuery());
+		
+//	
+//		int i=0;
+//		for (Parameter p: completePattern.getParameterList().getParameters()){
+//			System.out.println(p.getClass().getSimpleName().replace("Impl", "") + " p" + i + " = ((" + p.getClass().getSimpleName().replace("Impl", "") + ") params.get(" + i + "));");
+//			i++;
+//		}
+		
+//		for (Parameter p: getXmlMatch().getParameterList().getParameters())
 //		for (Parameter p: getXmlInvalidLink().getParameterList().getParameters())
-			System.out.println(p.myToString());
+//			System.out.println(p.myToString());
 //		int i = 0;
 //		for (CompletePattern pattern: getAllXmlPattern()) {
 //			System.out.println("Example " + i);
@@ -93,7 +117,7 @@ public class XmlPatterns {
 				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 				frag2.setName("comparison_operator");
 				frag2.getParameter().add(comp);
-				frag2.setExampleValue(">");
+				frag2.setExampleValue(ComparisonOperator.GREATER.getName());
 				variant.addFragment(frag2);			
 			}
 			{
@@ -138,7 +162,7 @@ public class XmlPatterns {
 			
 			ParameterPredefinition predef1 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();
 			predef1.getParameter().add(comp);
-			predef1.setValue(ComparisonOperator.GREATER.getLiteral());
+			predef1.setValue(ComparisonOperator.GREATER.getName());
 			
 			
 			ParameterPredefinition predef2 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();
@@ -170,7 +194,7 @@ public class XmlPatterns {
 				ParameterFragment v2compfragment = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 				v2compfragment.setName("comparison_operator");
 				v2compfragment.getParameter().add(comp);
-				v2compfragment.setExampleValue(">");
+				v2compfragment.setExampleValue(ComparisonOperator.GREATER.getName());
 				variant2.addFragment(v2compfragment);			
 			}
 			{
@@ -479,7 +503,7 @@ public class XmlPatterns {
 				ParameterFragment frag3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 				frag3.setName("comparison_operator");
 				frag3.getParameter().add(p0);
-				frag3.setExampleValue(">");
+				frag3.setExampleValue(ComparisonOperator.GREATER.getName());
 				variant.addFragment(frag3);			
 			}
 			{
@@ -489,7 +513,6 @@ public class XmlPatterns {
 				frag4.setExampleValue("1");
 				variant.addFragment(frag4);
 			}
-			variant.addFragment(new TextFragmentImpl("."));
 			variant.addFragment(new TextFragmentImpl("."));
 		}
 		pattern.isValid(AbstractionLevel.ABSTRACT);
@@ -557,10 +580,10 @@ public class XmlPatterns {
 				frag3.setName("comparison_operator");
 				frag3.getParameter().add(p1);
 				ValueMap map = new ValueMapImpl();
-				map.put(ComparisonOperator.EQUAL.getLiteral() + "[" + ComparisonOperator.EQUAL + "]", "is");
-				map.put(ComparisonOperator.NOTEQUAL.getLiteral(), "is not");
+				map.put(ComparisonOperator.EQUAL.getName(), "is");
+				map.put(ComparisonOperator.NOTEQUAL.getName(), "is not");
 				frag3.setValueMap(map);
-				frag3.setExampleValue(map.get(ComparisonOperator.EQUAL.getLiteral()));
+				frag3.setExampleValue(map.get(ComparisonOperator.EQUAL.getName()));
 				variant.addFragment(frag3);
 			}
 			variant.addFragment(new TextFragmentImpl("in the list:"));
@@ -568,14 +591,14 @@ public class XmlPatterns {
 				ParameterFragment frag4 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 				frag4.setName("valuelist");
 				frag4.getParameter().add(p0);
-				frag4.setExampleValue("");
+//				frag4.setExampleValue("");
 				variant.addFragment(frag4);
 			}
 			variant.addFragment(new TextFragmentImpl("."));
 			
 //			ParameterPredefinition predef1 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();
 //			predef1.getParameter().add(p2);
-//			predef1.setValue(ReturnType.LIST.getLiteral());
+//			predef1.setValue(ReturnType.LIST.getName());
 //			variant.getParameterPredefinitions().add(predef1);
 		}
 		pattern.isValid(AbstractionLevel.ABSTRACT);

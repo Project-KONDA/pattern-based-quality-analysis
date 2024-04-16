@@ -82,8 +82,8 @@ public class GenericPatterns {
 		NumberElementImpl ne = new NumberElementImpl();
 		countCondition.setArgument2(ne);
 		ne.createParameters();
-		ne.getNumberParam().setValue(1.);
-		countCondition.getOption().setValue(ComparisonOperator.GREATER);
+//		ne.getNumberParam().setValue(1.);
+//		countCondition.getOption().setValue(ComparisonOperator.GREATER);
 		
 		Node countReturn = returnNode.addOutgoing(countCondition.getCountPattern().getGraph()).getTarget().makePrimitive();
 		countReturn.setName("PropertyToCount");
@@ -201,14 +201,14 @@ public class GenericPatterns {
 		NumberElementImpl numberElement = new NumberElementImpl();
 		countCondition.setArgument2(numberElement);
 		numberElement.createParameters();
-		numberElement.getNumberParam().setValue(1.);
-		countCondition.getOption().setValue(ComparisonOperator.GREATER);
+//		numberElement.getNumberParam().setValue(1.);
+//		countCondition.getOption().setValue(ComparisonOperator.GREATER);
 		
-		NumberParam numberParam = numberElement.getNumberParam();
+//		NumberParam numberParam = numberElement.getNumberParam();
 		
-		numberParam.setValue(1.0);
-		countCondition.getOption().getOptions().add(ComparisonOperator.GREATER);
-		countCondition.getOption().setValue(ComparisonOperator.GREATER);	
+//		numberParam.setValue(1.0);
+//		countCondition.getOption().getOptions().add(ComparisonOperator.GREATER);
+//		countCondition.getOption().setValue(ComparisonOperator.GREATER);	
 				
 		Graph g0 = pattern.getGraph();
 		Graph g1 = quantifiedCondition.getGraph();
@@ -355,8 +355,8 @@ public class GenericPatterns {
 		NumberElementImpl ne = new NumberElementImpl();
 		countCondition.setArgument2(ne);
 		ne.createParameters();
-		ne.getNumberParam().setValue(1.);
-		countCondition.getOption().setValue(ComparisonOperator.GREATER);
+//		ne.getNumberParam().setValue(1.);
+//		countCondition.getOption().setValue(ComparisonOperator.GREATER);
 		
 		Relation rel = main.addOutgoing(countCondition.getCountPattern().getGraph());
 		PrimitiveNode field2 = rel.getTarget().makePrimitive();
