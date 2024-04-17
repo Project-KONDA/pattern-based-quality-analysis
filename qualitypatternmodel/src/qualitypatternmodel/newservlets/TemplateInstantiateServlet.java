@@ -101,25 +101,10 @@ public class TemplateInstantiateServlet extends HttpServlet {
         	String name = t2.getName(); 
         	textNames.add(name);
         	if(!name.equals(textid)) {
-        		pattern.getText().remove(t2);
+//        		pattern.getText().remove(t2);
+        		t2.delete();
         	}
-			
 		}
-		
-//        while (iterator.hasNext()) {
-//        	PatternText text = iterator.next();
-//        	String name = text.getName(); 
-//        	textNames.add(name);
-//        	if(!name.equals(textid)) {
-//        		for (Fragment frag: text.getFragments()) {
-//        			
-//        		}
-//
-//        		text.getFragments().clear();
-//        		pattern.getText().remove(text);
-//        		text.delete();
-//        	}
-//        }
         
 		if (pattern.getText().size() < 1) {
 			throw new InvalidServletCallException("Variant ID invalid: '" + textid + "' does not exist. Available are: " + textNames);
