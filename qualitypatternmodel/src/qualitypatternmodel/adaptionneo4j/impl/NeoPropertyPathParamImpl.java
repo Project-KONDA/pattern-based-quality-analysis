@@ -21,7 +21,7 @@ import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
  * <!-- begin-user-doc -->
@@ -453,9 +453,9 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 		try {
 			String temp = generateCypher();
 			if (!temp.isEmpty()) {
-				result += CypherSpecificConstants.ONE_WHITESPACE + generateCypher();
+				result += ConstantsNeo.ONE_WHITESPACE + generateCypher();
 			} else if (neoPropertyName != null) {
-				result += CypherSpecificConstants.ONE_WHITESPACE + getNeoPropertyEdge().generateCypherPropertyAddressing();
+				result += ConstantsNeo.ONE_WHITESPACE + getNeoPropertyEdge().generateCypherPropertyAddressing();
 			}
 		} catch (InvalidityException e) {} 
 		return result;
@@ -472,7 +472,7 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 
 	@Override
 	protected String getEdgeNaming() {
-		return CypherSpecificConstants.VARIABLE_PROPERTY_EGDE;
+		return ConstantsNeo.VARIABLE_PROPERTY_EGDE;
 	}
 	
 	@Override

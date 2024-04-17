@@ -15,7 +15,7 @@ import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
 //import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.xmltranslationtests.Test00;
+import qualitypatternmodel.utility.XmlPatternUtility;
 
 public class XmlEvalCard {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -25,7 +25,7 @@ public class XmlEvalCard {
 		completePatterns.add(getCardLidoActorName());
 
 //		Test00.test(completePatterns);
-		Test00.getQueries(completePatterns);
+		XmlPatternUtility.getQueries(completePatterns);
 	}
 	
 	public static CompletePattern getCardAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

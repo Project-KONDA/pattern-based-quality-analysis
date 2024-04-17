@@ -9,6 +9,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
+import qualitypatternmodel.utility.XmlPatternUtility;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test11Match {
@@ -25,7 +26,7 @@ public class Test11Match {
 	}
 	
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		Test00.test(getPatterns());
+		XmlPatternUtility.testPatterns(getPatterns());
 	}
 	
 	public static CompletePattern getPatternMatch(Boolean invert, String str) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

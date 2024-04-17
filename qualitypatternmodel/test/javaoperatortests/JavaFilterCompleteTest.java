@@ -1,13 +1,13 @@
 package javaoperatortests;
 
+import static qualitypatternmodel.utility.XmlTestDatabaseConstants.DEMO_DATABASE_NAME;
+import static qualitypatternmodel.utility.XmlTestDatabaseConstants.DEMO_DATA_PATH;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
-import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_DATABASE_NAME;
-import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_DATA_PATH;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;

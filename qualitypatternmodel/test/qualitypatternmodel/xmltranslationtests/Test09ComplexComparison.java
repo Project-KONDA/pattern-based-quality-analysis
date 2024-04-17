@@ -26,6 +26,7 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
+import qualitypatternmodel.utility.XmlPatternUtility;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test09ComplexComparison {
@@ -40,7 +41,7 @@ public class Test09ComplexComparison {
 	}
 	
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		Test00.test(getPatterns());
+		XmlPatternUtility.testPatterns(getPatterns());
 	}
 	
 	public static CompletePattern getPatternSelfTwoProperties() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

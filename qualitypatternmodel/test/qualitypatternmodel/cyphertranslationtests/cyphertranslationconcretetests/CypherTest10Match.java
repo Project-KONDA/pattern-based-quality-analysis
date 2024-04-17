@@ -36,16 +36,16 @@ public class CypherTest10Match extends CypherTranslation {
 	@Override
 	public void buildPatterns(ArrayList<CompletePattern> completePatterns)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		completePatterns.add(getPatternMatch(true, "Churfürsten"));
-		completePatterns.add(getPatternMatch(false, "Churfürsten"));
-        completePatterns.add(getPatternMatch(true, ".*Churfürsten.*"));
-		completePatterns.add(getPatternMatch(false, ".*Churfürsten.*"));
-        completePatterns.add(getPatternMatch(true, ".*(?i)Churfürsten.*"));
-		completePatterns.add(getPatternMatch(false, ".*(?i)Churfürsten.*"));
-		completePatterns.add(getPatternMatch(true, ".*(?m)Churfürsten.*"));
-		completePatterns.add(getPatternMatch(false, ".*(?m)Churfürsten.*"));
-		completePatterns.add(getPatternMatch(true, ".*(?s)Churfürsten.*"));
-		completePatterns.add(getPatternMatch(false, ".*(?s)Churfürsten.*"));
+		completePatterns.add(getPatternMatch(true, "ChurfÃ¼rsten"));
+		completePatterns.add(getPatternMatch(false, "ChurfÃ¼rsten"));
+        completePatterns.add(getPatternMatch(true, ".*ChurfÃ¼rsten.*"));
+		completePatterns.add(getPatternMatch(false, ".*ChurfÃ¼rsten.*"));
+        completePatterns.add(getPatternMatch(true, ".*(?i)ChurfÃ¼rsten.*"));
+		completePatterns.add(getPatternMatch(false, ".*(?i)ChurfÃ¼rsten.*"));
+		completePatterns.add(getPatternMatch(true, ".*(?m)ChurfÃ¼rsten.*"));
+		completePatterns.add(getPatternMatch(false, ".*(?m)ChurfÃ¼rsten.*"));
+		completePatterns.add(getPatternMatch(true, ".*(?s)ChurfÃ¼rsten.*"));
+		completePatterns.add(getPatternMatch(false, ".*(?s)ChurfÃ¼rsten.*"));
 	}
 	
 	@Override

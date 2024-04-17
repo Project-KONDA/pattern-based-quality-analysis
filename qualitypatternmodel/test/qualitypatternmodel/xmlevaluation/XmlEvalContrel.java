@@ -14,7 +14,7 @@ import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.xmltranslationtests.Test00;
+import qualitypatternmodel.utility.XmlPatternUtility;
 
 public class XmlEvalContrel {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -23,7 +23,7 @@ public class XmlEvalContrel {
 		completePatterns.add(getContrelMidas());
 		completePatterns.add(getContrelMidasAps());
 		
-		Test00.getQueries(completePatterns);
+		XmlPatternUtility.getQueries(completePatterns);
 //		Test00.test(completePatterns);	
 	}
 	

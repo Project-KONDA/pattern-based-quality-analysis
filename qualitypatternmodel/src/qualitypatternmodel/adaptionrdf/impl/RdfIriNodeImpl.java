@@ -24,6 +24,7 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.impl.ComplexNodeImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.utility.ConstantsRdf;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,7 +41,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  */
 public class RdfIriNodeImpl extends ComplexNodeImpl implements RdfIriNode {
 	
-	public static String RDF_TYPE_PREDICATE = "rdf:type";
+	public static String RDF_PREDICATE = ConstantsRdf.PREDICATE;
 	
 	/**
 	 * The cached value of the '{@link #getRdfIriNodeTypes() <em>Rdf Iri Node Types</em>}' reference.
@@ -64,7 +65,7 @@ public class RdfIriNodeImpl extends ComplexNodeImpl implements RdfIriNode {
 	
 	@Override
 	public String generateSparql() {
-		return "?var" + getInternalId();
+		return ConstantsRdf.VARIABLE + getInternalId();
 	}
 
 	/**
@@ -77,7 +78,7 @@ public class RdfIriNodeImpl extends ComplexNodeImpl implements RdfIriNode {
 		String result = "";
 		if (getRdfIriNodeTypes() != null) {
 			for (IriParam iri: getRdfIriNodeTypes().getIriParams()) {
-				result += "\n" + this.generateSparql() + " " + RDF_TYPE_PREDICATE + " " + iri.generateSparql() + ".";
+				result += "\n" + this.generateSparql() + " " + RDF_PREDICATE + " " + iri.generateSparql() + ".";
 			}
 		}
 		return result;

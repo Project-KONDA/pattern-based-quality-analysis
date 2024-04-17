@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.MultiListParam;
 import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
  * <!-- begin-user-doc -->
@@ -72,7 +72,7 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 		cypher.append("[");
 		for(String s : getValues()) {
 			if (i > 0) {
-				cypher.append(CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE);
+				cypher.append(ConstantsNeo.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE);
 			}
 			if (isValueInt(s)) {
 				cypher.append(s); 	

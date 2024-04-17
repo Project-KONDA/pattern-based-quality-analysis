@@ -1209,7 +1209,7 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 	
 			//getMultipleContains (true)
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varENode7)\n"
-					+ "WHERE (varENode7.summary CONTAINS (\"Churfürsten (Dietrich von Mainz, Dietrich\")\n"
+					+ "WHERE (varENode7.summary CONTAINS (\"ChurfÃ¼rsten (Dietrich von Mainz, Dietrich\")\n"
 					+ "   AND varENode7.identifier CONTAINS (\"hmel n. \")\n"
 					+ "   AND varENode7.exchangeIdentifier CONTAINS (\"20_000001_000001_013_0\")\n"
 					+ "   AND varENode7.bandpk CONTAINS (\"13000000\")\n"
@@ -1219,7 +1219,7 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 			
 			//getMultipleContains (false)
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varENode7)\n"
-					+ "WHERE (NOT (varENode7.summary CONTAINS (\"Churfürsten (Dietrich von Mainz, Dietrich\"))\n"
+					+ "WHERE (NOT (varENode7.summary CONTAINS (\"ChurfÃ¼rsten (Dietrich von Mainz, Dietrich\"))\n"
 					+ "   AND NOT (varENode7.identifier CONTAINS (\"hmel n. \"))\n"
 					+ "   AND NOT (varENode7.exchangeIdentifier CONTAINS (\"20_000001_000001_013_0\"))\n"
 					+ "   AND NOT (varENode7.bandpk CONTAINS (\"13000000\"))\n"
@@ -1242,61 +1242,61 @@ public abstract class CypherTestSuiteTranslation implements ExecutionCondition {
 			
 			//getPatternMatch
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varENode3:Regesta)\n"
-					+ "WHERE (varENode3.summary =~ \"Churfürsten\")\n"
+					+ "WHERE (varENode3.summary =~ \"ChurfÃ¼rsten\")\n"
 					+ "RETURN varENode3");
 			i++;
 			
 			//
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varENode3:Regesta)\n"
-					+ "WHERE (NOT (varENode3.summary =~ \"Churfürsten\"))\n"
+					+ "WHERE (NOT (varENode3.summary =~ \"ChurfÃ¼rsten\"))\n"
 					+ "RETURN varENode3");
 			i++;
 			
 			//
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varENode3:Regesta)\n"
-					+ "WHERE (varENode3.summary =~ \".*Churfürsten.*\")\n"
+					+ "WHERE (varENode3.summary =~ \".*ChurfÃ¼rsten.*\")\n"
 					+ "RETURN varENode3");
 			i++;
 			
 			//
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varENode3:Regesta)\n"
-					+ "WHERE (NOT (varENode3.summary =~ \".*Churfürsten.*\"))\n"
+					+ "WHERE (NOT (varENode3.summary =~ \".*ChurfÃ¼rsten.*\"))\n"
 					+ "RETURN varENode3");
 			i++;
 			
 			//
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varENode3:Regesta)\n"
-					+ "WHERE (varENode3.summary =~ \".*(?i)Churfürsten.*\")\n"
+					+ "WHERE (varENode3.summary =~ \".*(?i)ChurfÃ¼rsten.*\")\n"
 					+ "RETURN varENode3");
 			i++;
 			
 			//
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varENode3:Regesta)\n"
-					+ "WHERE (NOT (varENode3.summary =~ \".*(?i)Churfürsten.*\"))\n"
+					+ "WHERE (NOT (varENode3.summary =~ \".*(?i)ChurfÃ¼rsten.*\"))\n"
 					+ "RETURN varENode3");
 			i++;
 			
 			//
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varENode3:Regesta)\n"
-					+ "WHERE (varENode3.summary =~ \".*(?m)Churfürsten.*\")\n"
+					+ "WHERE (varENode3.summary =~ \".*(?m)ChurfÃ¼rsten.*\")\n"
 					+ "RETURN varENode3");
 			i++;
 			
 			//
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varENode3:Regesta)\n"
-					+ "WHERE (NOT (varENode3.summary =~ \".*(?m)Churfürsten.*\"))\n"
+					+ "WHERE (NOT (varENode3.summary =~ \".*(?m)ChurfÃ¼rsten.*\"))\n"
 					+ "RETURN varENode3");
 			i++;
 			
 			//
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varENode3:Regesta)\n"
-					+ "WHERE (varENode3.summary =~ \".*(?s)Churfürsten.*\")\n"
+					+ "WHERE (varENode3.summary =~ \".*(?s)ChurfÃ¼rsten.*\")\n"
 					+ "RETURN varENode3");
 			i++;
 			
 			//
 			assertEquals(completePatterns.get(i).generateCypher(), "\nMATCH (varENode3:Regesta)\n"
-					+ "WHERE (NOT (varENode3.summary =~ \".*(?s)Churfürsten.*\"))\n"
+					+ "WHERE (NOT (varENode3.summary =~ \".*(?s)ChurfÃ¼rsten.*\"))\n"
 					+ "RETURN varENode3");
 			i++;
 			

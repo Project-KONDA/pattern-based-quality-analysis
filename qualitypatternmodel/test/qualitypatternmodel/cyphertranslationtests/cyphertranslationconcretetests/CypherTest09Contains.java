@@ -117,7 +117,7 @@ public class CypherTest09Contains extends CypherTranslation {
     	map.put("bandpk", "13000000");
     	map.put("exchangeIdentifier", "20_000001_000001_013_0");
     	map.put("identifier", "hmel n. ");
-    	map.put("summary", "Churfürsten (Dietrich von Mainz, Dietrich");
+    	map.put("summary", "ChurfÃ¼rsten (Dietrich von Mainz, Dietrich");
     	map.put("title", "Friedrich");
     	
     	map = Collections.unmodifiableMap(map);

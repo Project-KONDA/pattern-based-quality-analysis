@@ -38,18 +38,18 @@ import qualitypatternmodel.adaptionneo4j.impl.NeoComplexEdgeImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 
 @TestInstance(Lifecycle.PER_CLASS)
 @DisplayName("NeoComplexEdge Test")
 public class NeoComplexEdgeTest extends NeoPathPartTest {
-	private static final String VARIABLE_ELEMENT_EDGE_3 = CypherSpecificConstants.VARIABLE_ELEMENT_EGDE + "3";
-	private static final String VARIABLE_ELEMENT_EDGE_2 = CypherSpecificConstants.VARIABLE_ELEMENT_EGDE + "2";
-	private static final String VARIABLE_ELEMENT_EDGE_1 = CypherSpecificConstants.VARIABLE_ELEMENT_EGDE + "1";
+	private static final String VARIABLE_ELEMENT_EDGE_3 = ConstantsNeo.VARIABLE_ELEMENT_EGDE + "3";
+	private static final String VARIABLE_ELEMENT_EDGE_2 = ConstantsNeo.VARIABLE_ELEMENT_EGDE + "2";
+	private static final String VARIABLE_ELEMENT_EDGE_1 = ConstantsNeo.VARIABLE_ELEMENT_EGDE + "1";
 	NeoComplexEdge neoComplexEdge;
-	private static final String INTERNAL_ELEMENT_EDGE_NODE_ID_1 = "-" + CypherSpecificConstants.INTERNAL_EDGE_NODE + 1 + "-";
-	private static final String INTERNAL_ELEMENT_EDGE_NODE_ID_2 = CypherSpecificConstants.INTERNAL_EDGE_NODE + 2 + "-";
-	private static final String VARIABLE_PROPERTY_NODE_ID_3 = CypherSpecificConstants.VARIABLE_PROPERTY_NODE + 3 + "-";
+	private static final String INTERNAL_ELEMENT_EDGE_NODE_ID_1 = "-" + ConstantsNeo.INTERNAL_EDGE_NODE + 1 + "-";
+	private static final String INTERNAL_ELEMENT_EDGE_NODE_ID_2 = ConstantsNeo.INTERNAL_EDGE_NODE + 2 + "-";
+	private static final String VARIABLE_PROPERTY_NODE_ID_3 = ConstantsNeo.VARIABLE_PROPERTY_NODE + 3 + "-";
 	private static final Class<NeoComplexEdgeImpl> neoComplexEdgeImplclass = NeoComplexEdgeImpl.class;
 	private static Method validateComplexEdge;
 	
@@ -373,21 +373,21 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 			EList<NeoPathPart> sEdgeList = new BasicEList<NeoPathPart>();
 			sEdgeList.add(mockSimple1);
 			Mockito.when(mockSimple1.getNeoPathPartEdgeLeafs()).thenReturn(sEdgeList);
-			Mockito.when(mockSimple1.getCypherInnerEdgeNodes(Mockito.anyBoolean())).thenReturn(CypherSpecificConstants.INTERNAL_EDGE_NODE + 1)
-																		.thenReturn(CypherSpecificConstants.VARIABLE_PROPERTY_NODE + 1)
+			Mockito.when(mockSimple1.getCypherInnerEdgeNodes(Mockito.anyBoolean())).thenReturn(ConstantsNeo.INTERNAL_EDGE_NODE + 1)
+																		.thenReturn(ConstantsNeo.VARIABLE_PROPERTY_NODE + 1)
 																		.thenReturn(null);
 			sEdgeList = new BasicEList<NeoPathPart>();
 			sEdgeList.add(mockSimple2);
 			Mockito.when(mockSimple2.getNeoPathPartEdgeLeafs()).thenReturn(sEdgeList);
-			Mockito.when(mockSimple2.getCypherInnerEdgeNodes(Mockito.anyBoolean())).thenReturn(CypherSpecificConstants.INTERNAL_EDGE_NODE + 2)
-																		.thenReturn(CypherSpecificConstants.VARIABLE_PROPERTY_NODE + 2)
+			Mockito.when(mockSimple2.getCypherInnerEdgeNodes(Mockito.anyBoolean())).thenReturn(ConstantsNeo.INTERNAL_EDGE_NODE + 2)
+																		.thenReturn(ConstantsNeo.VARIABLE_PROPERTY_NODE + 2)
 																		.thenReturn(null);
 			neoComplexEdge.addNeoPathPart(mockSimple1);
 			neoComplexEdge.addNeoPathPart(mockSimple2);
 			assertDoesNotThrow(() -> validateComplexEdge.invoke(neoComplexEdge));
 			
 			String temp = neoComplexEdge.getCypherInnerEdgeNodes(isReturn);
-			assertTrue(temp.compareTo(CypherSpecificConstants.INTERNAL_EDGE_NODE + 1 + ", " + CypherSpecificConstants.INTERNAL_EDGE_NODE + 2) == 0);
+			assertTrue(temp.compareTo(ConstantsNeo.INTERNAL_EDGE_NODE + 1 + ", " + ConstantsNeo.INTERNAL_EDGE_NODE + 2) == 0);
 			
 			temp = neoComplexEdge.getCypherInnerEdgeNodes(isReturn);
 			assertTrue(temp.isEmpty());

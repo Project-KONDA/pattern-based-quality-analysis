@@ -12,7 +12,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.xmltranslationtests.Test00;
+import qualitypatternmodel.utility.XmlPatternUtility;
 
 public class XmlEvalRefInt {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -24,7 +24,7 @@ public class XmlEvalRefInt {
 		completePatterns.add(getRefintRunningExampleAbstract());
 		completePatterns.add(getRefintRunningExample());
 		
-		Test00.getQueries(completePatterns);
+		XmlPatternUtility.getQueries(completePatterns);
 //		Test00.test(completePatterns);	
 	}
 	

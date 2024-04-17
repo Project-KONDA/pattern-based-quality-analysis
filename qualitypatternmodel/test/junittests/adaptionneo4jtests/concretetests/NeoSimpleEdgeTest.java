@@ -39,7 +39,7 @@ import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.TextListParam;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 
 @DisplayName("NeoSimpleEdge Test")
 public class NeoSimpleEdgeTest extends NeoPathPartTest {
@@ -539,7 +539,7 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 		MyClassMockNeoElementPathParamImpl mockNeoElementPathParam = 
 				Mockito.mock(MyClassMockNeoElementPathParamImpl.class);
 		Mockito.when(mockNeoElementPathParam.getRelationNumber()).thenReturn(1); 
-		Mockito.when(mockNeoElementPathParam.getEdgeNaming()).thenReturn(CypherSpecificConstants.VARIABLE_ELEMENT_EGDE); 
+		Mockito.when(mockNeoElementPathParam.getEdgeNaming()).thenReturn(ConstantsNeo.VARIABLE_ELEMENT_EGDE); 
 		neoSimpleEdge.setNeoPathParam(mockNeoElementPathParam);
 		return neoSimpleEdge;
 	}
@@ -548,7 +548,7 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 		MyClassMockNeoPropertyPathParamImpl mockNeoPropertyPathParam = 
 				Mockito.mock(MyClassMockNeoPropertyPathParamImpl.class);
 		Mockito.when(mockNeoPropertyPathParam.getRelationNumber()).thenReturn(1); 
-		Mockito.when(mockNeoPropertyPathParam.getEdgeNaming()).thenReturn(CypherSpecificConstants.VARIABLE_PROPERTY_EGDE);
+		Mockito.when(mockNeoPropertyPathParam.getEdgeNaming()).thenReturn(ConstantsNeo.VARIABLE_PROPERTY_EGDE);
 		neoSimpleEdge.setNeoPathParam(mockNeoPropertyPathParam);
 		return neoSimpleEdge;
 	}
@@ -561,7 +561,7 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 		}
 		@Override
 		protected String getEdgeNaming() {
-			return CypherSpecificConstants.VARIABLE_ELEMENT_EGDE;
+			return ConstantsNeo.VARIABLE_ELEMENT_EGDE;
 		}
 	}
 	
@@ -573,7 +573,7 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 		
 		@Override
 		protected String getEdgeNaming() {
-			return CypherSpecificConstants.VARIABLE_PROPERTY_EGDE;
+			return ConstantsNeo.VARIABLE_PROPERTY_EGDE;
 		}
 	}
 }

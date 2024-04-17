@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.patternstructure.*;
+import qualitypatternmodel.utility.XmlPatternUtility;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.parameters.ParametersFactory;
@@ -26,7 +27,7 @@ public class Test04QuantorCombinations {
 	}
 	
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		Test00.test(getPatterns());
+		XmlPatternUtility.testPatterns(getPatterns());
 	}
 	
 	public static CompletePattern getPatternExistsInExistsFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

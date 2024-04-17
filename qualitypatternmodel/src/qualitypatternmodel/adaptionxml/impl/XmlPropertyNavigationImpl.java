@@ -2,10 +2,6 @@
  */
 package qualitypatternmodel.adaptionxml.impl;
 
-//import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static qualitypatternmodel.utility.Constants.FOR;
-import static qualitypatternmodel.utility.Constants.IN;
-import static qualitypatternmodel.utility.Constants.RETURN;
 import static qualitypatternmodel.utility.JavaQueryTranslationUtility.VALUE;
 import static qualitypatternmodel.utility.JavaQueryTranslationUtility.BOOLEAN;
 import java.util.List;
@@ -23,6 +19,7 @@ import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.utility.ConstantsXml;
 import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
 /**
@@ -115,8 +112,8 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 			throw new InvalidityException("target of relation not XmlNode");
 		}
 		
-		String query1 = FOR + variable + IN + path + predicates;
-		String query2 = RETURN + variable;
+		String query1 = ConstantsXml.FOR + variable + ConstantsXml.IN + path + predicates;
+		String query2 = ConstantsXml.RETURN + variable;
 		String query = query1 + query2;
 		query = query.indent(2);
 		query = JavaQueryTranslationUtility.getXQueryReturnList(List.of(query), VALUE, false, false, true);

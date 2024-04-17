@@ -1,16 +1,16 @@
 package qualitypatternmodel.xmlparametervalidity;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_NAMESPACE;
+import static qualitypatternmodel.utility.XmlTestDatabaseConstants.DEMO_NAMESPACE;
 
 import org.junit.Test;
 
+import demo.DemoPatterns;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
-import qualitypatternmodel.demo.DemoPatterns;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;

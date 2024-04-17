@@ -14,14 +14,14 @@ import qualitypatternmodel.adaptionneo4j.NeoEdge;
 import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 
 public abstract class NeoEdgeTest implements INeoEdgeTest {
 	private static final int INTERNAL_ID_ONE = 1;
 	protected static final String VAR_ELEMENT_EDGE_X = "varEEdge%s";
 	protected static final String VAR_EDGE1 = "varEdge1";
 	protected static final String VAR_EDGE1_CLAMPED = "-[varEdge1]-";
-	protected static final String INTERNAL_EDGE_NODE_1 = CypherSpecificConstants.INTERNAL_EDGE_NODE + 1;
+	protected static final String INTERNAL_EDGE_NODE_1 = ConstantsNeo.INTERNAL_EDGE_NODE + 1;
 	protected NeoEdge neoAbstractEdge;
 	protected Field internalId;
 	

@@ -12,7 +12,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.xmltranslationtests.Test00;
+import qualitypatternmodel.utility.XmlPatternUtility;
 
 public class XmlEvalUnique {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -25,7 +25,7 @@ public class XmlEvalUnique {
 		completePatterns.add(getUniqueLidoObjectPublishedId());
 		completePatterns.add(getUniqueComplexLidoNameActorSet());
 		
-		Test00.getQueries(completePatterns);
+		XmlPatternUtility.getQueries(completePatterns);
 //		Test00.test(completePatterns);
 	}
 

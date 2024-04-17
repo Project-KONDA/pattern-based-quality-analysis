@@ -31,7 +31,7 @@ import qualitypatternmodel.adaptionneo4j.impl.NeoComplexEdgeImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoElementPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 
 @DisplayName("NeoElementPathParamTest")
 public class NeoElementPathParamTest extends NeoPathParamTest {
@@ -71,7 +71,7 @@ public class NeoElementPathParamTest extends NeoPathParamTest {
 			
 			//NeoPathPart is set
 			NeoSimpleEdgeImpl mockPathPart = Mockito.mock(NeoSimpleEdgeImpl.class);
-			String internalEdgeString = CypherSpecificConstants.INTERNAL_EDGE_NODE + 1;
+			String internalEdgeString = ConstantsNeo.INTERNAL_EDGE_NODE + 1;
 			Mockito.when(mockPathPart.getCypherInnerEdgeNodes(Mockito.anyBoolean())).thenReturn(internalEdgeString);
 			neoPathParam.setNeoPathPart(mockPathPart);
 			assertEquals(internalEdgeString, neoAbstractPathParam.getReturnInnerEdgeNodes());

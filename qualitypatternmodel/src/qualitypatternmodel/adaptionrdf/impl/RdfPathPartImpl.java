@@ -95,7 +95,7 @@ public class RdfPathPartImpl extends PatternElementImpl implements RdfPathPart {
 		String result = "";
 		if (getTargetNodeTypes() != null)
 			for (IriParam iri: getTargetNodeTypes().getIriParams()) {
-				result += "\n" + variable + " " + RdfIriNodeImpl.RDF_TYPE_PREDICATE + " " + iri.generateSparql() + "."; 
+				result += "\n" + variable + " " + RdfIriNodeImpl.RDF_PREDICATE + " " + iri.generateSparql() + "."; 
 			}
 		return result;
 	}

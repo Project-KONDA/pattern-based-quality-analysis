@@ -18,7 +18,7 @@ import qualitypatternmodel.adaptionneo4j.NeoElementEdge;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.PatternElement;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
  * <!-- begin-user-doc -->
@@ -336,7 +336,7 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 	public String myToString() {
 		String result = super.myToString();
 		if (getNeoElementPathParam() != null) 
-			result += CypherSpecificConstants.ONE_WHITESPACE + getNeoElementPathParam().myToString(); 
+			result += ConstantsNeo.ONE_WHITESPACE + getNeoElementPathParam().myToString(); 
 		return result;
 	}
 } //NeoEdgeImpl

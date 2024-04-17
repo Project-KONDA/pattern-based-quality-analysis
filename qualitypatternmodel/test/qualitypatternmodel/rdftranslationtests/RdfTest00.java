@@ -16,12 +16,12 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import static qualitypatternmodel.xmltranslationtests.Test00.*;
+import qualitypatternmodel.utility.XmlPatternUtility;
 
 public class RdfTest00 {
 	public static void test(ArrayList<CompletePattern> completePatterns) throws InvalidityException {
 		for (CompletePattern completePattern : completePatterns) {
-			replace(completePattern);
+			XmlPatternUtility.fillParameterXml(completePattern);
 			try {
 //				completePattern.isValid(AbstractionLevel.CONCRETE); // TODO: allow technology-dependent validation
 				System.out.println("\n\n___PATTERN_(VALID)___");
@@ -41,7 +41,7 @@ public class RdfTest00 {
 	
 	public static void getQueries(ArrayList<CompletePattern> completePatterns) {
 		for (CompletePattern completePattern : completePatterns) {
-			replace(completePattern);
+			XmlPatternUtility.fillParameterXml(completePattern);
 			try {
 				completePattern.isValid(AbstractionLevel.CONCRETE);
 				System.out.println(completePattern.generateSparql());
