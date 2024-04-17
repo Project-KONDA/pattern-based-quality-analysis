@@ -5,10 +5,7 @@ package qualitypatternmodel.textrepresentation.impl;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -444,9 +441,11 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	@Override
 	public String getValue() {
 		String value = getParameter().get(0).getValueAsString();
-		Map<String, String> valueMap = new HashMap<String, String>();
-		if (valueMap != null && valueMap.containsKey(value))
-			return valueMap.get(value);
+		if (getValueMap() != null)
+			value = getValueMap().get(value);
+//		Map<String, String> valueMap = new HashMap<String, String>();
+//		if (valueMap != null && valueMap.containsKey(value))
+//			return valueMap.get(value);
 		return value;
 	}	
 
@@ -495,15 +494,20 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	@Override
 	public void setValue(String value) throws InvalidityException {
 		String myValue = value;
-		Map<String, String> valueMap = new HashMap<String, String>();
-		if (valueMap != null && valueMap.containsValue(value)) {
-			for (String key: valueMap.keySet()) {
-				if (valueMap.get(key).equals(value)) {
-					myValue = key;
-					break;
-				}
-			}
-		}
+
+		if (getValueMap() != null)
+			myValue = getValueMap().getKey(value);
+		
+		
+//		Map<String, String> valueMap = new HashMap<String, String>();
+//		if (valueMap != null && valueMap.containsValue(value)) {
+//			for (String key: valueMap.keySet()) {
+//				if (valueMap.get(key).equals(value)) {
+//					myValue = key;
+//					break;
+//				}
+//			}
+//		}
 		for (Parameter p: getParameter())
 			p.setValueFromString(myValue);
 	}
