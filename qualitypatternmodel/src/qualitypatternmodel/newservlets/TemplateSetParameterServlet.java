@@ -142,6 +142,7 @@ public class TemplateSetParameterServlet extends HttpServlet {
 						}
 						catch (IndexOutOfBoundsException e) {} 
 						catch (InvalidityException e) {
+							e.printStackTrace();
 							failed.put(key);
 						}
 					}

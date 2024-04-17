@@ -4,8 +4,6 @@ package qualitypatternmodel.adaptionxml.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -18,6 +16,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.json.JSONArray;
+
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlAxisOptionParam;
@@ -30,7 +30,6 @@ import qualitypatternmodel.parameters.impl.ParameterImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Axis
@@ -120,9 +119,11 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	}
 	
 	@Override
-	public String getOptionsAsStringList() {
-		List<String> list = getOptions().stream().map(a -> a.getName()).collect(Collectors.toList());
-		return ParameterFragmentImpl.generateJSONList(list);
+	public JSONArray getOptionsAsJsonArray() {
+		JSONArray jarray = new JSONArray();
+		for (XmlAxisKind axis: getOptions())
+			jarray.put(axis);
+		return jarray;
 	}
 
 	@Override

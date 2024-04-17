@@ -2,7 +2,6 @@
  */
 package qualitypatternmodel.textrepresentation;
 
-import java.util.Map;
 import qualitypatternmodel.exceptions.InvalidityException;
 
 /**
@@ -70,26 +69,26 @@ public interface ParameterFragment extends Fragment, ParameterReference {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Value Map</b></em>' attribute.
+	 * Returns the value of the '<em><b>Value Map</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value Map</em>' attribute.
-	 * @see #setValueMap(Map)
+	 * @return the value of the '<em>Value Map</em>' containment reference.
+	 * @see #setValueMap(ValueMap)
 	 * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getParameterFragment_ValueMap()
-	 * @model transient="true"
+	 * @model containment="true"
 	 * @generated
 	 */
-	Map<String, String> getValueMap();
+	ValueMap getValueMap();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getValueMap <em>Value Map</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getValueMap <em>Value Map</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value Map</em>' attribute.
+	 * @param value the new value of the '<em>Value Map</em>' containment reference.
 	 * @see #getValueMap()
 	 * @generated
 	 */
-	void setValueMap(Map<String, String> value);
+	void setValueMap(ValueMap value);
 
 	/**
 	 * <!-- begin-user-doc -->

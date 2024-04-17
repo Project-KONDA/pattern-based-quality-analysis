@@ -3,35 +3,21 @@
   <groupId>qualitypatternmodel</groupId>
   <artifactId>qualitypatternmodel</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>qualitypatternmodel</name>
-  <description>Quality Pattern Model - A proof-of-concept implementation of a top-down approach to analyzing data quality via anti-patterns.</description>
-  <build>
-    <sourceDirectory>src</sourceDirectory>
-    <testSourceDirectory>test</testSourceDirectory>
-    <testResources>
-      <testResource>
-        <directory>test</directory>
-        <excludes>
-          <exclude>**/*.java</exclude>
-        </excludes>
-      </testResource>
-    </testResources>
-    <plugins>
-      <plugin>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>3.4.0</version>
-      </plugin>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
-        <configuration>
-          <release>17</release>
-          <encoding>UTF-8</encoding>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+  <packaging>war</packaging>
+<!--  <name>qualitypatternmodel</name>-->
+<!--  <description>Quality Pattern Model - A proof-of-concept implementation of a top-down approach to analyzing data quality via anti-patterns.</description>-->
   <dependencies>
+    <dependency>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+      <version>6.0.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>de.gwdg.metadataqa</groupId>
+      <artifactId>metadata-qa-api</artifactId>
+      <version>0.9.4</version>
+    </dependency>
     <dependency>
       <groupId>org.eclipse.emf</groupId>
       <artifactId>org.eclipse.emf.common</artifactId>
@@ -53,20 +39,9 @@
       <version>20210307</version>
     </dependency>
     <dependency>
-      <groupId>de.gwdg.metadataqa</groupId>
-      <artifactId>metadata-qa-api</artifactId>
-      <version>0.9.3</version>
-    </dependency>
-    <dependency>
       <groupId>org.basex</groupId>
       <artifactId>basex</artifactId>
       <version>9.0</version>
-    </dependency>
-    <dependency>
-      <groupId>jakarta.servlet</groupId>
-      <artifactId>jakarta.servlet-api</artifactId>
-      <version>6.1.0-M2</version>
-      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
@@ -82,7 +57,6 @@
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>
       <version>2.5</version>
-      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.reactivestreams</groupId>
@@ -103,7 +77,6 @@
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
       <version>4.8.0</version>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>net.bytebuddy</groupId>
@@ -114,7 +87,6 @@
       <groupId>net.bytebuddy</groupId>
       <artifactId>byte-buddy-agent</artifactId>
       <version>1.12.14</version>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.objenesis</groupId>
@@ -135,7 +107,6 @@
       <groupId>org.apache.ws.commons</groupId>
       <artifactId>ws-commons-util</artifactId>
       <version>1.0.1</version>
-      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.commons</groupId>
@@ -166,8 +137,38 @@
       <groupId>org.junit.platform</groupId>
       <artifactId>junit-platform-suite-api</artifactId>
       <version>1.10.2</version>
-      <scope>test</scope>
     </dependency>
   </dependencies>
-  <packaging>war</packaging>
+  <build>
+    <plugins>
+      <!-- Maven Compiler Plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+<!--      <release>17</release>-->
+<!--      <encoding>UTF-8</encoding>-->
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      <!-- Maven War Plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.4.0</version>
+        <configuration>
+          <webResources>
+            <resource>
+              <directory>WebContent/WEB-INF</directory>
+              <includes>
+                <include>web.xml</include>
+              </includes>
+            </resource>
+          </webResources>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
