@@ -1,21 +1,38 @@
-FROM tomcat:latest
+# base image
+FROM tomcat:10
 
-ENV MAVEN_HOME /usr/share/maven
-ENV MAVEN_VERSION 3.8.4
-ENV PATH ${MAVEN_HOME}/bin:${PATH}
+# install packages
+RUN apt-get -y update \
+    && apt-get -y autoremove \
+    && apt-get clean \
+    && apt-get install -y maven \
+    apt-utils \
+    unzip \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update && \
-    apt-get install -y maven && \
-    rm -rf /var/lib/apt/lists/*
+# create directories
+RUN mkdir -p /usr/src/app/src/main/java
+RUN mkdir -p /usr/src/app/src/main/webapp
 
-COPY . /usr/src/app
+# copy files
+COPY pom.xml /usr/src/app/pom.xml
+COPY ./src /usr/src/app/src/main/java
+COPY ./WebContent /usr/src/app/src/main/webapp
 
+# change path to web.xml
+RUN sed -i 's#WebContent/WEB-INF#src/main/webapp/WEB-INF#g' /usr/src/app/pom.xml
+
+# compile maven to war file
 WORKDIR /usr/src/app
+RUN mvn clean compile install package -DskipTests
 
-RUN mvn clean package
+# deploy war
+RUN cp target/*.war /usr/local/tomcat/webapps/qualitypatternmodel.war
+WORKDIR /usr
 
-RUN cp target/*.war /usr/local/tomcat/webapps/
+# clean src
+RUN rm -rf src
 
+# start application
 EXPOSE 8080
-
 CMD ["catalina.sh", "run"]

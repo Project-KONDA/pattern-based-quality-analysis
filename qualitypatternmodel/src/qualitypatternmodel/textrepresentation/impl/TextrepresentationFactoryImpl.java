@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 import qualitypatternmodel.textrepresentation.*;
 
@@ -62,6 +63,7 @@ public class TextrepresentationFactoryImpl extends EFactoryImpl implements Textr
 			case TextrepresentationPackage.PARAMETER_FRAGMENT: return createParameterFragment();
 			case TextrepresentationPackage.TEXT_FRAGMENT: return createTextFragment();
 			case TextrepresentationPackage.PARAMETER_PREDEFINITION: return createParameterPredefinition();
+			case TextrepresentationPackage.VALUE_MAP: return createValueMap();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -79,6 +81,8 @@ public class TextrepresentationFactoryImpl extends EFactoryImpl implements Textr
 				return createObjectWrapperFromString(eDataType, initialValue);
 			case TextrepresentationPackage.JSON_OBJECT_WRAPPER:
 				return createJSONObjectWrapperFromString(eDataType, initialValue);
+			case TextrepresentationPackage.JSON_ARRAY_WRAPPER:
+				return createJSONArrayWrapperFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -96,6 +100,8 @@ public class TextrepresentationFactoryImpl extends EFactoryImpl implements Textr
 				return convertObjectWrapperToString(eDataType, instanceValue);
 			case TextrepresentationPackage.JSON_OBJECT_WRAPPER:
 				return convertJSONObjectWrapperToString(eDataType, instanceValue);
+			case TextrepresentationPackage.JSON_ARRAY_WRAPPER:
+				return convertJSONArrayWrapperToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -150,6 +156,17 @@ public class TextrepresentationFactoryImpl extends EFactoryImpl implements Textr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public ValueMap createValueMap() {
+		ValueMapImpl valueMap = new ValueMapImpl();
+		return valueMap;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Object createObjectWrapperFromString(EDataType eDataType, String initialValue) {
 		return super.createFromString(eDataType, initialValue);
 	}
@@ -178,6 +195,24 @@ public class TextrepresentationFactoryImpl extends EFactoryImpl implements Textr
 	 * @generated
 	 */
 	public String convertJSONObjectWrapperToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JSONArray createJSONArrayWrapperFromString(EDataType eDataType, String initialValue) {
+		return (JSONArray)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertJSONArrayWrapperToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -46,6 +47,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
 import qualitypatternmodel.textrepresentation.ParameterReference;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
+import qualitypatternmodel.textrepresentation.ValueMap;
 import qualitypatternmodel.utility.Constants;
 
 /**
@@ -65,8 +67,6 @@ import qualitypatternmodel.utility.Constants;
  * @generated
  */
 public class ParameterFragmentImpl extends FragmentImpl implements ParameterFragment {
-	
-	
 	
 	/**
 	 * The cached value of the '{@link #getParameter() <em>Parameter</em>}' reference list.
@@ -120,14 +120,14 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getValueMap() <em>Value Map</em>}' attribute.
+	 * The cached value of the '{@link #getValueMap() <em>Value Map</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getValueMap()
 	 * @generated
 	 * @ordered
 	 */
-	protected Map<String, String> valueMap;
+	protected ValueMap valueMap;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -223,7 +223,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 * @generated
 	 */
 	@Override
-	public Map<String, String> getValueMap() {
+	public ValueMap getValueMap() {
 		return valueMap;
 	}
 
@@ -232,12 +232,34 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setValueMap(Map<String, String> newValueMap) {
-		Map<String, String> oldValueMap = valueMap;
+	public NotificationChain basicSetValueMap(ValueMap newValueMap, NotificationChain msgs) {
+		ValueMap oldValueMap = valueMap;
 		valueMap = newValueMap;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__VALUE_MAP, oldValueMap, valueMap));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__VALUE_MAP, oldValueMap, newValueMap);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setValueMap(ValueMap newValueMap) {
+		if (newValueMap != valueMap) {
+			NotificationChain msgs = null;
+			if (valueMap != null)
+				msgs = ((InternalEObject)valueMap).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TextrepresentationPackage.PARAMETER_FRAGMENT__VALUE_MAP, null, msgs);
+			if (newValueMap != null)
+				msgs = ((InternalEObject)newValueMap).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TextrepresentationPackage.PARAMETER_FRAGMENT__VALUE_MAP, null, msgs);
+			msgs = basicSetValueMap(newValueMap, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__VALUE_MAP, newValueMap, newValueMap));
 	}
 
 	@Override
@@ -263,7 +285,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			}
 			json += ", \"Value\": " + value + "";
 		}
-		if(exampleValue != null) {
+		if (exampleValue != null) {
 			try {
 				Double.parseDouble(exampleValue);
 				Integer.parseInt(exampleValue);				
@@ -274,23 +296,23 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			}			
 			json += ", \"ExampleValue\": " + exampleValue + "";
 		}
-		if(type.equals("Enumeration")) {
-			String options = parameter.getOptionsAsStringList();
+		if (type.equals("Enumeration")) {
+			JSONArray options = parameter.getOptionsAsJsonArray();
 			json += ", \"Options\": " + options + "";
 		}
-		if(parameter instanceof ParameterValue) {
+		if (parameter instanceof ParameterValue) {
 			ParameterValue parameterValue = (ParameterValue) parameter;
 			if(parameterValue.isTypeModifiable()) {
 				json += ", \"TypeModifiable\": true";				
 			}
 		}
-		if(parameter instanceof TextLiteralParamImpl) {
+		if (parameter instanceof TextLiteralParamImpl) {
 			TextLiteralParamImpl textLiteral = (TextLiteralParamImpl) parameter;
 			if(textLiteral.getXmlPropertyOptionParam() != null && textLiteral.getMatches().isEmpty() && textLiteral.getComparison1().isEmpty() && textLiteral.getComparison2().isEmpty()) {
 				json += ", \"Dependent\": true";
 			}
 		}
-		if(parameter instanceof XmlPropertyOptionParamImpl) {
+		if (parameter instanceof XmlPropertyOptionParamImpl) {
 			XmlPropertyOptionParamImpl propertyOption = (XmlPropertyOptionParamImpl) parameter;
 //			Node node = propertyOption.getXmlPathParam().getXmlNavigation().getTarget();
 //			XmlProperty xmlProperty = (XmlProperty) node;
@@ -306,8 +328,6 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				
 			}			
 		}
-		
-		
 		json += "}";
 		return json;
 	}
@@ -328,26 +348,33 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			json.put("name", getName());
 			json.put("type", getType());
 			json.put("role", getRole());
-			if (parameter.getValueAsString() != null)
+			if (parameter.getValueAsString() != null) {
+				if (getValueMap() != null)
+					json.put("value", getValueMap().get(parameter.getValueAsString()));
 				json.put("value", parameter.getValueAsString());
+			}
+				
 			json.put("exampleValue", getExampleValue());
 			
-			if(getType().equals("Enumeration")) {
-				json.put("options", parameter.getOptionsAsStringList());
+			if (getValueMap() != null) {
+				json.put("options", getValueMap().getValuesAsJsonArray());
+			}	
+			else if (getType().equals("Enumeration")) {
+				json.put("options", parameter.getOptionsAsJsonArray());
 			}
-			if(parameter instanceof ParameterValue) {
+			if (parameter instanceof ParameterValue) {
 				ParameterValue parameterValue = (ParameterValue) parameter;
 				if(parameterValue.isTypeModifiable()) {
 					json.put("typeModifiable", true);
 				}
 			}
-			if(parameter instanceof TextLiteralParamImpl) {
+			if (parameter instanceof TextLiteralParamImpl) {
 				TextLiteralParamImpl textLiteral = (TextLiteralParamImpl) parameter;
 				if(textLiteral.getXmlPropertyOptionParam() != null && textLiteral.getMatches().isEmpty() && textLiteral.getComparison1().isEmpty() && textLiteral.getComparison2().isEmpty()) {
 					json.put("dependant", true);
 				}
 			}
-			if(parameter instanceof XmlPropertyOptionParamImpl) {
+			if (parameter instanceof XmlPropertyOptionParamImpl) {
 				XmlPropertyOptionParamImpl propertyOption = (XmlPropertyOptionParamImpl) parameter;
 //				Node node = propertyOption.getXmlPathParam().getXmlNavigation().getTarget();
 //				XmlProperty xmlProperty = (XmlProperty) node;
@@ -376,8 +403,10 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	@Override
 	public String getType() {
 //		return getParameter().getClass().toString();
-		
-		Class<?> type = getParameter().get(0).getClass();
+		Parameter param = getParameter().get(0);
+		Class<?> type = param.getClass();
+		if (getValueMap() != null)
+			return Constants.PARAMETER_TYPE_ENUMERATION;
 		if (type.equals(DateParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_DATE;			
 		} else if(type.equals(TimeParamImpl.class)) {
@@ -385,7 +414,10 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		} else if (type.equals(DateTimeParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_DATE_TIME;
 		} else if (type.equals(TextLiteralParamImpl.class)) {
-			return Constants.PARAMETER_TYPE_TEXT;
+			if (!((TextLiteralParamImpl) param).getMatches().isEmpty())
+				return Constants.PARAMETER_TYPE_REGEX;
+			else 
+				return Constants.PARAMETER_TYPE_TEXT;
 		} else if (type.equals(BooleanParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_BOOLEAN;
 		} else if (type.equals(NumberParamImpl.class)) {
@@ -537,6 +569,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		switch (featureID) {
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__PARAMETER:
 				return ((InternalEList<?>)getParameter()).basicRemove(otherEnd, msgs);
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__VALUE_MAP:
+				return basicSetValueMap(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -591,7 +625,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				setName((String)newValue);
 				return;
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__VALUE_MAP:
-				setValueMap((Map<String, String>)newValue);
+				setValueMap((ValueMap)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -615,7 +649,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				setName(NAME_EDEFAULT);
 				return;
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__VALUE_MAP:
-				setValueMap((Map<String, String>)null);
+				setValueMap((ValueMap)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -737,8 +771,6 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		result.append(exampleValue);
 		result.append(", name: ");
 		result.append(name);
-		result.append(", valueMap: ");
-		result.append(valueMap);
 		result.append(')');
 		return result.toString();
 	}

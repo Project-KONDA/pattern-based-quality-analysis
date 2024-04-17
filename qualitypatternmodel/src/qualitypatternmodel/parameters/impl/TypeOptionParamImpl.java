@@ -3,9 +3,6 @@
 package qualitypatternmodel.parameters.impl;
 
 import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -18,6 +15,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.json.JSONArray;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
 
@@ -27,7 +26,6 @@ import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -114,9 +112,11 @@ public class TypeOptionParamImpl extends ParameterImpl implements TypeOptionPara
 	}
 	
 	@Override
-	public String getOptionsAsStringList() {
-		List<String> list = getOptions().stream().map(a -> a.getName()).collect(Collectors.toList());
-		return ParameterFragmentImpl.generateJSONList(list);
+	public JSONArray getOptionsAsJsonArray() {
+		JSONArray jarray = new JSONArray();
+		for (ReturnType type: getOptions())
+			jarray.put(type.getName());
+		return jarray;
 	}
 	
 	
