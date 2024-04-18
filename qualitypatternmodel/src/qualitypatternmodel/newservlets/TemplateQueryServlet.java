@@ -168,9 +168,11 @@ public class TemplateQueryServlet extends HttpServlet {
 					queryJson = generateQueryJson(pattern, technology);
 				result.put(constraintId, queryJson);
 			} catch (Exception e) {
-				try {
-					result.put(constraintId, "failed");
-				} catch (JSONException e1) {}
+				System.err.println(constraintId);
+				e.printStackTrace();
+//				try {
+//					result.put(constraintId, Arrays.toString(e.getStackTrace()));
+//				} catch (JSONException e1) {}
 				failed.put(constraintId);
 			}
 		}

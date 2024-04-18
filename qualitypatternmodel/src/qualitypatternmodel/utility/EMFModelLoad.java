@@ -39,10 +39,13 @@ public class EMFModelLoad {
         PatternstructurePackage.eINSTANCE.eClass();
 
 		EObject object = loadFromFile(fullPath);
-		if(object instanceof CompletePattern) {
+		if (object == null) {
+			throw new IOException("Wrong file : resource in " + fullPath + " is null");
+		}
+		else if(object instanceof CompletePattern) {
 			return (CompletePattern) object;	         
 		} else {
-			throw new IOException("Wrong file format");
+			throw new IOException("Wrong file format: " + object.getClass().getSimpleName() + " in " + fullPath);
 		}
 	}
 	
