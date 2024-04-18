@@ -345,13 +345,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			json.put("name", getName());
 			json.put("type", getType());
 			json.put("role", getRole());
-			if (parameter.getValueAsString() != null) {
-				if (getValueMap() != null)
-					json.put("value", getValueMap().get(parameter.getValueAsString()));
-				else 
-					json.put("value", parameter.getValueAsString());
-			}
-				
+			if (getValue() != null)
+				json.put("value", getValue());
 			json.put("exampleValue", getExampleValue());
 			
 			if (getValueMap() != null) {

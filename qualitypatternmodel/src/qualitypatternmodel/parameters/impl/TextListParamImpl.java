@@ -32,6 +32,8 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 	
 	@Override
 	public String getValueAsString() {
+		if (getValues() == null)
+			return null;
 		JSONArray jarray = new JSONArray(getValues());
 		return jarray.toString();
 	}
