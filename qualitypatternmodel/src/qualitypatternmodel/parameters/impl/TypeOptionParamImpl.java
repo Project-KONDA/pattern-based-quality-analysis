@@ -99,6 +99,8 @@ public class TypeOptionParamImpl extends ParameterImpl implements TypeOptionPara
 	
 	@Override
 	public String getValueAsString() {
+		if (getValue() == null)
+			return null;
 		return getValue().getName();
 	}
 	
