@@ -3,7 +3,11 @@ package qualitypatternmodel.newservlets.initialisation;
 import java.io.IOException;
 import java.util.List;
 import org.eclipse.emf.common.util.BasicEList;
+
+import de.gwdg.metadataqa.api.configuration.ConfigurationReader;
+import de.gwdg.metadataqa.api.schema.BaseSchema;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
+import qualitypatternmodel.constrainttranslation.ConstraintTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -29,12 +33,32 @@ public class XmlPatterns {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IOException {
 		
 		for (CompletePattern pattern: getAllXmlPattern()) {
-			pattern.isValid(AbstractionLevel.ABSTRACT);
-			XmlPatternUtility.fillParameterXml(pattern);
-			System.out.println();
-			System.out.println(pattern.getName());
-			System.out.println(pattern.generateXQuery());
-//			System.out.println(pattern);
+			try {
+				pattern.isValid(AbstractionLevel.ABSTRACT);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			try {
+				XmlPatternUtility.fillParameterXml(pattern);
+//				System.out.println();
+				System.out.println(pattern.getName());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			try {
+				pattern.generateXQuery();
+//				System.out.println(pattern.generateXQuery());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			try {
+				BaseSchema schema = ConstraintTranslation.translateToConstraintSchema(pattern);
+				ConfigurationReader.toJson(schema);
+//				System.out.println(ConfigurationReader.toJson(schema));
+//				System.out.println(pattern);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 			
 		
