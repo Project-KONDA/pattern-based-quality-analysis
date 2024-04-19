@@ -16,7 +16,10 @@ import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
+import qualitypatternmodel.parameters.NumberParam;
+import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -27,6 +30,8 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
 
 public class GenericPatterns {
+	
+	private static boolean VALUES = true;
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		int i = 0;
@@ -81,8 +86,10 @@ public class GenericPatterns {
 		NumberElementImpl ne = new NumberElementImpl();
 		countCondition.setArgument2(ne);
 		ne.createParameters();
-//		ne.getNumberParam().setValue(1.);
-//		countCondition.getOption().setValue(ComparisonOperator.GREATER);
+		if (VALUES) {
+			ne.getNumberParam().setValue(1.);
+			countCondition.getOption().setValue(ComparisonOperator.GREATER);
+		}
 		
 		Node countReturn = returnNode.addOutgoing(countCondition.getCountPattern().getGraph()).getTarget().makePrimitive();
 		countReturn.setName("PropertyToCount");
@@ -137,7 +144,13 @@ public class GenericPatterns {
 		
 		Node element1 = returnNode.addOutgoing(graph2).getTarget().makePrimitive();
 		
-		element1.addPrimitiveComparison(new TextListParamImpl());
+		TextListParamImpl tlp = new TextListParamImpl();
+		element1.addPrimitiveComparison(tlp);
+		if (VALUES) {
+			tlp.addStringValue("abc");
+			tlp.addStringValue("def");
+			tlp.addStringValue("ghi");
+		}
 		
 		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;
@@ -200,15 +213,21 @@ public class GenericPatterns {
 		NumberElementImpl numberElement = new NumberElementImpl();
 		countCondition.setArgument2(numberElement);
 		numberElement.createParameters();
-//		numberElement.getNumberParam().setValue(1.);
-//		countCondition.getOption().setValue(ComparisonOperator.GREATER);
+
+		if (VALUES) {
+			numberElement.getNumberParam().setValue(1.);
+			countCondition.getOption().setValue(ComparisonOperator.GREATER);
+		}
 		
-//		NumberParam numberParam = numberElement.getNumberParam();
+		NumberParam numberParam = numberElement.getNumberParam();
 		
-//		numberParam.setValue(1.0);
-//		countCondition.getOption().getOptions().add(ComparisonOperator.GREATER);
-//		countCondition.getOption().setValue(ComparisonOperator.GREATER);	
-				
+
+		if (VALUES) {
+			numberParam.setValue(1.0);
+			countCondition.getOption().getOptions().add(ComparisonOperator.GREATER);
+			countCondition.getOption().setValue(ComparisonOperator.GREATER);	
+		}
+		
 		Graph g0 = pattern.getGraph();
 		Graph g1 = quantifiedCondition.getGraph();
 		Graph g2 = countPattern.getGraph();
@@ -242,7 +261,10 @@ public class GenericPatterns {
 		
 		Node ret  = pattern.getGraph().getReturnNodes().get(0);
 		Node element1 = ret.addOutgoing(quantifiedCondition.getGraph()).getTarget().makePrimitive();
-		element1.addPrimitiveMatch();
+		
+		TextLiteralParam tlp = element1.addPrimitiveMatch();
+		if (VALUES)
+			tlp.setValue("[a-zA-Z]*");
 
 		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;	
@@ -267,7 +289,9 @@ public class GenericPatterns {
 		Graph g2 = quantifiedCondition.getGraph();
 		
 		Node element1 = ret.addOutgoing(g2).getTarget().makePrimitive();
-		element1.addPrimitiveContains();
+		TextLiteralParam tlp = element1.addPrimitiveContains();
+		if (VALUES)
+			tlp.setValue("abc");
 
 		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;	
@@ -354,8 +378,11 @@ public class GenericPatterns {
 		NumberElementImpl ne = new NumberElementImpl();
 		countCondition.setArgument2(ne);
 		ne.createParameters();
-//		ne.getNumberParam().setValue(1.);
-//		countCondition.getOption().setValue(ComparisonOperator.GREATER);
+
+		if (VALUES) {
+			ne.getNumberParam().setValue(1.);
+			countCondition.getOption().setValue(ComparisonOperator.GREATER);
+		}
 		
 		Relation rel = main.addOutgoing(countCondition.getCountPattern().getGraph());
 		PrimitiveNode field2 = rel.getTarget().makePrimitive();
@@ -444,7 +471,10 @@ public class GenericPatterns {
 		PrimitiveNode field = main.addOutgoing(qc.getGraph()).getTarget().makePrimitive();
 		field.setName("field");
 		
-		field.addPrimitiveStringLength();
+		StringLength sl = field.addPrimitiveStringLength();
+
+		if (VALUES)
+			sl.getNumber().setValue(1.);
 		
 		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;
