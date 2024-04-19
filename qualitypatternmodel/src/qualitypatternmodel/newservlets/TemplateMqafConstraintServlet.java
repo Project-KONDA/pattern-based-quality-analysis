@@ -5,6 +5,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import de.gwdg.metadataqa.api.configuration.ConfigurationReader;
 import de.gwdg.metadataqa.api.schema.BaseSchema;
 import jakarta.servlet.http.HttpServlet;
@@ -13,7 +17,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.constrainttranslation.ConstraintTranslation;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
-import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
@@ -168,31 +171,21 @@ public class TemplateMqafConstraintServlet extends HttpServlet {
 	
 	private String getJsonStringSchemaFromConstraintIds(String[] constraintIds, String technology) throws FailedServletCallException {
 		ArrayList<BaseSchema> schemas = new ArrayList<BaseSchema>();
+		JSONArray failed = new JSONArray();
 		
 		for (String constraintId: constraintIds) {
 			// 1 load constraint
 			CompletePattern pattern;
 			try {
 				pattern = ServletUtilities.loadConstraint(getServletContext(), technology, constraintId);
-			} catch (IOException e) {
-				throw new FailedServletCallException("specified constraint not found", e);
-			}
-			
-			try {
 				pattern.isValid(AbstractionLevel.CONCRETE);
-			} catch (Exception e) {
-				System.out.println(pattern.myToString());
-				throw new FailedServletCallException(e.getClass().getName(), e);
-			}
-			
-			// 2 generate mqaf constraint
-			try {
+				
+				// 2 generate mqaf constraint
 				BaseSchema schema = ConstraintTranslation.translateToConstraintSchema(pattern);
 				schemas.add(schema);
-			} catch (InvalidityException e) {
-				throw new FailedServletCallException(e.getClass().getName() + ": " + e.getMessage(), e);
+			} catch (Exception e) {
+				failed.put(constraintId);
 			}
-			
 		}
 
 		// 3  merge schemas
@@ -205,7 +198,12 @@ public class TemplateMqafConstraintServlet extends HttpServlet {
 		}
 		
 		// 4 return merged schema as JSON
-		return ConfigurationReader.toJson(mergedSchema);
+		JSONObject jobj = new JSONObject();
+		try {
+			jobj.put("failed", failed);
+			jobj.put("constraint", ConfigurationReader.toJson(mergedSchema));
+		} catch (JSONException e) {}
+		return jobj.toString();
 	}
 
 //    public static JSONObject convertYamlToJson(String yamlString) throws IOException, JSONException {
