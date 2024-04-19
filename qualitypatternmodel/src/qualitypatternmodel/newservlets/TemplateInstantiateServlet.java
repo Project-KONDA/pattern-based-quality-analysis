@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.PatternText;
 
@@ -91,21 +92,17 @@ public class TemplateInstantiateServlet extends HttpServlet {
 		// 3 remove unused variants
 		ArrayList<String> textNames = new ArrayList<String>();
 		
-		
-		ArrayList<PatternText> texts = new ArrayList<PatternText>();
-		
 		for (PatternText t: pattern.getText()) {
-			texts.add(t);
+			if (t.getName().equals(textid)) {
+				try {
+					t.instantiate();
+					break;
+				} catch (InvalidityException e) {
+					throw new FailedServletCallException("Could not initialize Variant " + textid, e);
+				}
+			}
 		}
-		for (PatternText t2: texts) {
-        	String name = t2.getName(); 
-        	textNames.add(name);
-        	if(!name.equals(textid)) {
-//        		pattern.getText().remove(t2);
-        		t2.delete();
-        	}
-		}
-        
+		
 		if (pattern.getText().size() < 1) {
 			throw new InvalidServletCallException("Variant ID invalid: '" + textid + "' does not exist. Available are: " + textNames);
 		}
@@ -117,7 +114,6 @@ public class TemplateInstantiateServlet extends HttpServlet {
 		// 4 create new constraint id
 		String constraintId = ServletUtilities.generateNewId(getServletContext(), technology, templateId, pattern.getText().get(0).getName());
 		pattern.setPatternId(constraintId);
-		
 		
 		// 5 save constraint
 		try {
