@@ -422,13 +422,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int PARAMETER_FRAGMENT___GET_VALUE = FRAGMENT_OPERATION_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Set Comparison Operator Value Map</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FRAGMENT___SET_COMPARISON_OPERATOR_VALUE_MAP = FRAGMENT_OPERATION_COUNT + 5;
+
+	/**
 	 * The number of operations of the '<em>Parameter Fragment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FRAGMENT_OPERATION_COUNT = FRAGMENT_OPERATION_COUNT + 5;
+	int PARAMETER_FRAGMENT_OPERATION_COUNT = FRAGMENT_OPERATION_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.textrepresentation.impl.TextFragmentImpl <em>Text Fragment</em>}' class.
@@ -958,6 +967,16 @@ public interface TextrepresentationPackage extends EPackage {
 	EOperation getParameterFragment__GetValue();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#setComparisonOperatorValueMap() <em>Set Comparison Operator Value Map</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Comparison Operator Value Map</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#setComparisonOperatorValueMap()
+	 * @generated
+	 */
+	EOperation getParameterFragment__SetComparisonOperatorValueMap();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.textrepresentation.Fragment <em>Fragment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1398,6 +1417,14 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PARAMETER_FRAGMENT___GET_VALUE = eINSTANCE.getParameterFragment__GetValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Comparison Operator Value Map</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER_FRAGMENT___SET_COMPARISON_OPERATOR_VALUE_MAP = eINSTANCE.getParameterFragment__SetComparisonOperatorValueMap();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.textrepresentation.impl.FragmentImpl <em>Fragment</em>}' class.

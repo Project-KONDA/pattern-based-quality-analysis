@@ -25,6 +25,7 @@ import qualitypatternmodel.adaptionxml.impl.XmlPropertyOptionParamImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlAxisOptionParamImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.operators.ComparisonOperator;
 //import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterValue;
@@ -257,6 +258,18 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__VALUE_MAP, newValueMap, newValueMap));
+	}
+	
+	@Override
+	public void setComparisonOperatorValueMap() {
+		ValueMap map = new ValueMapImpl();
+		map.put(ComparisonOperator.EQUAL.getName(), "equal to");
+		map.put(ComparisonOperator.NOTEQUAL.getName(), "not equal to");
+		map.put(ComparisonOperator.LESS.getName(), "less than");
+		map.put(ComparisonOperator.GREATER.getName(), "greater than");
+		map.put(ComparisonOperator.GREATEROREQUAL.getName(), "greater than or equal to");
+		map.put(ComparisonOperator.LESSOREQUAL.getName(), "less than or equal to");
+		setValueMap(map);
 	}
 
 	@Override
@@ -745,6 +758,9 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				}
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___GET_VALUE:
 				return getValue();
+			case TextrepresentationPackage.PARAMETER_FRAGMENT___SET_COMPARISON_OPERATOR_VALUE_MAP:
+				setComparisonOperatorValueMap();
+				return null;
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___IS_VALID__ABSTRACTIONLEVEL:
 				try {
 					isValid((AbstractionLevel)arguments.get(0));

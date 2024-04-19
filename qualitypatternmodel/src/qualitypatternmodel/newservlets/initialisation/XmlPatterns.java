@@ -141,6 +141,7 @@ public class XmlPatterns {
 				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 				frag2.setName("comparison_operator");
 				frag2.getParameter().add(comp);
+				frag2.setComparisonOperatorValueMap();
 				frag2.setExampleValue(ComparisonOperator.GREATER.getName());
 				variant.addFragment(frag2);			
 			}
@@ -218,6 +219,7 @@ public class XmlPatterns {
 				ParameterFragment v2compfragment = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 				v2compfragment.setName("comparison_operator");
 				v2compfragment.getParameter().add(comp);
+				v2compfragment.setComparisonOperatorValueMap();
 				v2compfragment.setExampleValue(ComparisonOperator.GREATER.getName());
 				variant2.addFragment(v2compfragment);			
 			}
@@ -528,6 +530,7 @@ public class XmlPatterns {
 				frag3.setName("comparison_operator");
 				frag3.getParameter().add(p0);
 				frag3.setExampleValue(ComparisonOperator.GREATER.getName());
+				frag3.setComparisonOperatorValueMap();
 				variant.addFragment(frag3);			
 			}
 			{
