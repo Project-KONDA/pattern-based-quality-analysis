@@ -6,6 +6,7 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -24,7 +25,7 @@ public class TemplateGetDatabaseServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		System.out.println("TemplateGetDatabaseServlet.doGet(" + path + ")");
 		try {
-			String result = applyGet(path, params);
+			String result = applyGet(getServletContext(), path, params);
 			response.getOutputStream().println(result);
 			response.setStatus(HttpServletResponse.SC_OK);
 //			response.getWriter().write("{ \"error\": \"databases not implemented \"}");
@@ -47,7 +48,7 @@ public class TemplateGetDatabaseServlet extends HttpServlet {
 //		response.getOutputStream().println("{ \"call\": \"TemplateGetDatabaseServlet.doGet(" + path + ")\"}");
 	}
 	
-	public String applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static String applyGet(ServletContext servletContext, String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getdatabase/<technology>/<name>' (not " + path + ")");
@@ -61,7 +62,7 @@ public class TemplateGetDatabaseServlet extends HttpServlet {
 		// 1 load constraint
 		CompletePattern pattern;
 		try {
-			pattern = ServletUtilities.loadConstraint(getServletContext(), technology, constraintId);
+			pattern = ServletUtilities.loadConstraint(servletContext, technology, constraintId);
 		} catch (IOException e) {
 			throw new FailedServletCallException("constraint not found");
 		}

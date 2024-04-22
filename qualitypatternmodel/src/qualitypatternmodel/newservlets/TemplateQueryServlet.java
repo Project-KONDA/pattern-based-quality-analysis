@@ -10,6 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -33,9 +34,9 @@ public class TemplateQueryServlet extends HttpServlet {
 			int i = path.split("/").length;
 			String result = ""; // = applyGet(path, params);
 			if (i == 2)
-				result = applyGet2(path, request.getParameterMap());
+				result = applyGet2(getServletContext(), path, request.getParameterMap());
 			else if (i == 3)
-				result = applyGet3(path, request.getParameterMap());
+				result = applyGet3(getServletContext(), path, request.getParameterMap());
 			else 
 				throw new InvalidServletCallException("Wrong url for requesting the mqaf constraint: '.. /template/getdatabase/<technology>/<name>' or '.. /template/getdatabase/<technology>' + {parameter = [..]} (not " + path + ")");
 
@@ -63,7 +64,7 @@ public class TemplateQueryServlet extends HttpServlet {
 //		response.getOutputStream().println("{ \"call\": \"TemplateQueryServlet.doGet(" + path + ")\"}");
 	}
 
-	public String applyGet3(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static String applyGet3(ServletContext servletContext, String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getdatabase/<technology>/<name>' (not " + path + ")");
@@ -75,7 +76,7 @@ public class TemplateQueryServlet extends HttpServlet {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
 
 		String[] constraintIds = new String[] {constraintId};
-		return applyGet(technology, constraintIds);
+		return applyGet(servletContext, technology, constraintIds);
 
 //		// 1 load constraint
 //		CompletePattern pattern;
@@ -107,7 +108,7 @@ public class TemplateQueryServlet extends HttpServlet {
 //		return json.toString();
 	}
 
-	public String applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static String applyGet2(ServletContext servletContext, String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 2 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong api call for requesting the database of a constraint: '.. /template/getdatabase/<technology>' + {\"constraints\" = [..]} (not " + path + ")");
@@ -145,10 +146,10 @@ public class TemplateQueryServlet extends HttpServlet {
 //		}
 //		return result.toString();
 		
-		return applyGet(technology, constraintIds);
+		return applyGet(servletContext, technology, constraintIds);
 	}
 	
-	public String applyGet(String technology, String[] constraintIds) throws InvalidServletCallException, FailedServletCallException {
+	public static String applyGet(ServletContext servletContext, String technology, String[] constraintIds) throws InvalidServletCallException, FailedServletCallException {
 		
 		JSONObject result = new JSONObject();
 		JSONArray failed = new JSONArray();
@@ -157,15 +158,15 @@ public class TemplateQueryServlet extends HttpServlet {
 			// 1 load constraint
 			CompletePattern pattern;
 			try {
-				pattern = ServletUtilities.loadConstraint(getServletContext(), technology, constraintId);
+				pattern = ServletUtilities.loadConstraint(servletContext, technology, constraintId);
 				pattern.isValid(AbstractionLevel.CONCRETE);
 			// 2 generate query
 				JSONObject queryJson; 
 				// = generateQueryJson(pattern, technology);
 				if (pattern.containsJavaOperator())
-					queryJson = generateQueryJsonJava(pattern, technology);
+					queryJson = generateQueryJsonJava(servletContext, pattern, technology);
 				else 
-					queryJson = generateQueryJson(pattern, technology);
+					queryJson = generateQueryJson(servletContext, pattern, technology);
 				result.put(constraintId, queryJson);
 			} catch (Exception e) {
 				System.err.println(constraintId);
@@ -184,7 +185,7 @@ public class TemplateQueryServlet extends HttpServlet {
 	}
 
 
-	private JSONObject generateQueryJson(CompletePattern pattern, String technology) throws JSONException, InvalidServletCallException, FailedServletCallException {
+	private static JSONObject generateQueryJson(ServletContext servletContext, CompletePattern pattern, String technology) throws JSONException, InvalidServletCallException, FailedServletCallException {
 		JSONObject json = new JSONObject();
 		
 		// 1 technology
@@ -224,7 +225,7 @@ public class TemplateQueryServlet extends HttpServlet {
 		return json;
 	}
 	
-	private String makeQueryOneLine(String query) {
+	private static String makeQueryOneLine(String query) {
 		String shortQuery = query.replace("\r\n", " ");
 		shortQuery = shortQuery.replace("\n", " ");
 		int len = shortQuery.length() + 1;
@@ -236,7 +237,7 @@ public class TemplateQueryServlet extends HttpServlet {
 		return shortQuery;
 	}
 
-	private JSONObject generateQueryJsonJava(CompletePattern pattern, String technology) throws JSONException, InvalidServletCallException, FailedServletCallException {
+	private static JSONObject generateQueryJsonJava(ServletContext servletContext, CompletePattern pattern, String technology) throws JSONException, InvalidServletCallException, FailedServletCallException {
 		JSONObject json = new JSONObject();
 		
 		// 1 technology

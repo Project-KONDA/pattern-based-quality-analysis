@@ -10,6 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -31,7 +32,7 @@ public class TemplateSetParameterServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		System.out.println("TemplateSetParameterServlet.doPost(" + path + ")");
 		try{
-			String result = applyPost(path, params);
+			String result = applyPost(getServletContext(), path, params);
 			response.getOutputStream().println(result);
 			response.setStatus(HttpServletResponse.SC_OK);
 		}
@@ -54,7 +55,7 @@ public class TemplateSetParameterServlet extends HttpServlet {
 //		response.getOutputStream().println("{ \"call\": \"TemplateSetParameterServlet.doPost(" + path + ")\"}");
 	}
 	
-	public String applyPost (String path, Map<String, String[]> parameter) throws InvalidServletCallException, FailedServletCallException {
+	public static String applyPost (ServletContext servletContext, String path, Map<String, String[]> parameter) throws InvalidServletCallException, FailedServletCallException {
 		Map<String, String[]> parameterMap = new HashMap<>(parameter);
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
@@ -69,7 +70,7 @@ public class TemplateSetParameterServlet extends HttpServlet {
 		// 1. load Pattern
 		CompletePattern pattern;
 		try {
-			pattern = ServletUtilities.loadConstraint(getServletContext(), technology, constraintId);
+			pattern = ServletUtilities.loadConstraint(servletContext, technology, constraintId);
 		} catch (IOException e) {
 			throw new FailedServletCallException("404 Requested pattern '" + constraintId + "' does not exist");
 		}
@@ -102,7 +103,7 @@ public class TemplateSetParameterServlet extends HttpServlet {
 			parameterMap.remove("datamodel");
 		}
 				
-		JSONObject output = changeParameters(pattern, parameterMap);
+		JSONObject output = changeParameters(servletContext, pattern, parameterMap);
 		try {
 			if (name)
 				output.getJSONArray("success").put("name");
@@ -115,7 +116,7 @@ public class TemplateSetParameterServlet extends HttpServlet {
 		
 		// 3. save constraint
 		try {
-			ServletUtilities.saveConstraint(getServletContext(), technology, constraintId, pattern);
+			ServletUtilities.saveConstraint(servletContext, technology, constraintId, pattern);
 		} catch (IOException e) {
 			throw new FailedServletCallException("Failed to save new constraint");
 		}
@@ -124,7 +125,7 @@ public class TemplateSetParameterServlet extends HttpServlet {
 		return output.toString();
 	}
 	
-	private JSONObject changeParameters(CompletePattern pattern, Map<String, String[]> parameterMap) {
+	private static JSONObject changeParameters(ServletContext servletContext, CompletePattern pattern, Map<String, String[]> parameterMap) {
 		Set<String> keys = parameterMap.keySet();
 		List<Fragment> fragments = pattern.getText().get(0).getFragmentsOrdered();
 

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -24,7 +25,7 @@ public class TemplateInstantiateServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		System.out.println("TemplateInstantiateServlet.doPost()");
 		try{
-			String result = applyPut(path, params);
+			String result = applyPut(getServletContext(), path, params);
 			response.getOutputStream().println(result);
 			response.setStatus(HttpServletResponse.SC_OK);
 		}
@@ -57,7 +58,7 @@ public class TemplateInstantiateServlet extends HttpServlet {
 //		response.getOutputStream().println("{ \"call\": \"TemplateInstantiateServlet.doPost()\"}");
 	}
 	
-	public String applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
+	public static String applyPut (ServletContext servletContext, String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 4 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/copy/<technology>/<constraintId>/<variantId>' (not " + path + ")");
@@ -71,7 +72,7 @@ public class TemplateInstantiateServlet extends HttpServlet {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
 
 		// 2 load constraint with old name
-		CompletePattern pattern = ServletUtilities.loadTemplate(getServletContext(), technology, templateId);
+		CompletePattern pattern = ServletUtilities.loadTemplate(servletContext, technology, templateId);
 		if (pattern == null)
 			throw new FailedServletCallException("404 Requested template '" + templateId + "' does not exist");
 
@@ -112,12 +113,12 @@ public class TemplateInstantiateServlet extends HttpServlet {
 		}
 
 		// 4 create new constraint id
-		String constraintId = ServletUtilities.generateNewId(getServletContext(), technology, templateId, pattern.getText().get(0).getName());
+		String constraintId = ServletUtilities.generateNewId(servletContext, technology, templateId, pattern.getText().get(0).getName());
 		pattern.setPatternId(constraintId);
 		
 		// 5 save constraint
 		try {
-			ServletUtilities.saveConstraint(getServletContext(), technology, constraintId, pattern);
+			ServletUtilities.saveConstraint(servletContext, technology, constraintId, pattern);
 		} catch (IOException e) {
 			throw new FailedServletCallException("Failed to create new constraint.");
 		}

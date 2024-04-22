@@ -3,6 +3,7 @@ package qualitypatternmodel.newservlets;
 import java.io.IOException;
 import java.util.Map;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -23,7 +24,7 @@ public class TemplateGetServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		System.out.println("TemplateGetListServlet.doGet(" + path + ")");
 		try {
-			String result = applyGet(path, params);
+			String result = applyGet(getServletContext(), path, params);
 			response.getOutputStream().println(result);
 			response.setStatus(HttpServletResponse.SC_OK);
 		}
@@ -48,7 +49,7 @@ public class TemplateGetServlet extends HttpServlet {
 //		response.getOutputStream().println("{ \"call\": \"TemplateGetListServlet.doGet(" + path + ")\"}");
 	}
 	
-	public String applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static String applyGet(ServletContext servletContext, String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getdatabase/<technology>/<name>' (not " + path + ")");
@@ -62,7 +63,7 @@ public class TemplateGetServlet extends HttpServlet {
 		// 1 load constraint
 		CompletePattern pattern;
 		try {
-			pattern = ServletUtilities.loadConstraint(getServletContext(), technology, constraintId);
+			pattern = ServletUtilities.loadConstraint(servletContext, technology, constraintId);
 //			System.out.println(pattern.myToString());
 			pattern.isValid(AbstractionLevel.ABSTRACT);
 		} catch (IOException e) {

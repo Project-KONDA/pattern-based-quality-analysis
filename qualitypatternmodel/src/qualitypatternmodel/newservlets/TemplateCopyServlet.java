@@ -3,6 +3,7 @@ package qualitypatternmodel.newservlets;
 import java.io.IOException;
 import java.util.Map;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -21,7 +22,7 @@ public class TemplateCopyServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		System.out.println("TemplateCopyServlet.doPut()");
 		try {
-			String result = applyPut(path, params);
+			String result = applyPut(getServletContext(), path, params);
 			response.getOutputStream().println(result);
 			response.setStatus(HttpServletResponse.SC_OK);
 		}
@@ -54,7 +55,7 @@ public class TemplateCopyServlet extends HttpServlet {
 //		response.getOutputStream().println("{ \"call\": \"TemplateCopyServlet.doPut()\"}");
 	}
 	
-	public String applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
+	public static String applyPut (ServletContext servletContext, String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/copy/<technology>/<concretetemplate>' (not " + path + ")");
@@ -68,7 +69,7 @@ public class TemplateCopyServlet extends HttpServlet {
 		// 1 load constraint with old name
 		CompletePattern pattern;
 		try {
-			pattern = ServletUtilities.loadConstraint(getServletContext(), technology, oldID);
+			pattern = ServletUtilities.loadConstraint(servletContext, technology, oldID);
 		}
 		catch (Exception e) {
 			throw new FailedServletCallException("404 Requested pattern '" + oldID + "' does not exist - " + e.getMessage());
@@ -81,15 +82,15 @@ public class TemplateCopyServlet extends HttpServlet {
 		}
 		
 		// 2 create new patternID
-		String newID = ServletUtilities.generateNewId(getServletContext(), technology, pattern.getAbstractId(), pattern.getText().get(0).getName()); 
+		String newID = ServletUtilities.generateNewId(servletContext, technology, pattern.getAbstractId(), pattern.getText().get(0).getName()); 
 		
 		// 3 change constraint name
 		pattern.setPatternId(newID);
 		
 		// 4 save constraint
-		ServletUtilities.saveConstraint(getServletContext(), technology, newID, pattern);
+		ServletUtilities.saveConstraint(servletContext, technology, newID, pattern);
 		
-		if (ServletUtilities.loadConstraint(getServletContext(), technology, newID) == null)
+		if (ServletUtilities.loadConstraint(servletContext, technology, newID) == null)
 			throw new FailedServletCallException("saving new constraint failed");
 		
 		return ServletUtilities.getPatternJSON(pattern).toString(); 

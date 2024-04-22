@@ -24,7 +24,7 @@ public class TemplateGetListServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		System.out.println("TemplateGetListServlet.doGet(" + path + ")");
 		try {
-			String result = applyGet(path, params);
+			String result = applyGet(getServletContext(), path, params);
 			response.getOutputStream().println(result);
 			response.setStatus(HttpServletResponse.SC_OK);
 		}
@@ -46,7 +46,7 @@ public class TemplateGetListServlet extends HttpServlet {
 //		response.getOutputStream().println("{ \"call\": \"TemplateGetListServlet.doGet(" + path + ")\"}");
 	}
 	
-	public String applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static String applyGet(ServletContext servletContext, String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length < 3  || pathparts.length > 4  || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getlist/<technology>/<level>' (not " + path + ")");
@@ -60,7 +60,7 @@ public class TemplateGetListServlet extends HttpServlet {
 		if (!ServletUtilities.LEVELS.contains(level))
 			throw new InvalidServletCallException("'" + level + "' is an invalid abstraction level. The levels are: " + ServletUtilities.LEVELS);
 		
-		List<CompletePattern> patterns = getPatterns(getServletContext(), technology, level);
+		List<CompletePattern> patterns = getPatterns(servletContext, technology, level);
 		
 		if (pathparts.length == 4) {
 			String datamodel = pathparts[3];

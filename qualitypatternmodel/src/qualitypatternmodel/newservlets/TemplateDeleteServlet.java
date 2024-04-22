@@ -3,6 +3,7 @@ package qualitypatternmodel.newservlets;
 import java.io.IOException;
 import java.util.Map;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -20,7 +21,7 @@ public class TemplateDeleteServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		System.out.println("TemplateDeleteServlet.doDelete(" + path + ")");
 		try {
-			String result = applyDelete(path, params);
+			String result = applyDelete(getServletContext(), path, params);
 			response.getOutputStream().println(result);
 			response.setStatus(HttpServletResponse.SC_OK);
 		}
@@ -42,7 +43,7 @@ public class TemplateDeleteServlet extends HttpServlet {
 //		response.getOutputStream().println("{ \"call\": \"TemplateDeleteServlet.doDelete(" + path + ")\"}");
 	}
 
-	public String applyDelete(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static String applyDelete(ServletContext servletContext, String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for deleting a constraint: '.. /template/delete/<technology>/<name>' (not " + path + ")");
@@ -55,7 +56,7 @@ public class TemplateDeleteServlet extends HttpServlet {
 
 		// 1 check if constraint exists
 		try {
-			if (ServletUtilities.loadConstraint(getServletContext(), technology, patternname) == null)
+			if (ServletUtilities.loadConstraint(servletContext, technology, patternname) == null)
 				throw new FailedServletCallException("Requested pattern '" + patternname + "' does not exist.");
 		} catch (Exception e) {
 			throw new FailedServletCallException("Requested pattern '" + patternname + "' does not exist.");
@@ -63,7 +64,7 @@ public class TemplateDeleteServlet extends HttpServlet {
 		
 		// 2 delete constraint
 		try {
-			ServletUtilities.deleteConstraint(getServletContext(), technology, patternname);
+			ServletUtilities.deleteConstraint(servletContext, technology, patternname);
 		} catch (IOException e) {
 			throw new FailedServletCallException("Deleting constraint '" + patternname + "' failed.");
 		}

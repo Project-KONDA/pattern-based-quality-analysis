@@ -11,6 +11,7 @@ import org.json.JSONObject;
 
 import de.gwdg.metadataqa.api.configuration.ConfigurationReader;
 import de.gwdg.metadataqa.api.schema.BaseSchema;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -33,9 +34,9 @@ public class TemplateMqafConstraintServlet extends HttpServlet {
 			int i = path.split("/").length;
 			String result = "";
 			if (i == 2)
-				result = applyGet2(path, request.getParameterMap());
+				result = applyGet2(getServletContext(), path, request.getParameterMap());
 			else if (i == 3)
-				result = applyGet3(path, request.getParameterMap());
+				result = applyGet3(getServletContext(), path, request.getParameterMap());
 			else 
 				throw new InvalidServletCallException("Wrong url for requesting the mqaf constraint: '.. /template/getdatabase/<technology>/<name>' or '.. /template/getdatabase/<technology>' + {parameter = [..]} (not " + path + ")");
 //			String result = applyGet(path, request.getParameterMap());
@@ -69,7 +70,7 @@ public class TemplateMqafConstraintServlet extends HttpServlet {
 //		response.getOutputStream().println("{ \"call\": \"TemplateMqafJsonServlet.doGet(" + path + ")\"}");
 	}
 
-	public String applyGet3(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static String applyGet3(ServletContext servletContext, String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for requesting the mqaf constraint: '.. /template/getdatabase/<technology>/<name>' (not " + path + ")");
@@ -80,7 +81,7 @@ public class TemplateMqafConstraintServlet extends HttpServlet {
 		if (!ServletUtilities.TECHS.contains(technology))
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
 
-		return getJsonStringSchemaFromConstraintIds(new String[] { constraintId }, technology);
+		return getJsonStringSchemaFromConstraintIds(servletContext, new String[] { constraintId }, technology);
 
 //		// 1 load constraint
 //		CompletePattern pattern;
@@ -112,7 +113,7 @@ public class TemplateMqafConstraintServlet extends HttpServlet {
 	}
 	
 
-	public String applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public String applyGet2(ServletContext servletContext, String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 2 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong api call for requesting the database of a constraint: '.. /template/getdatabase/<technology>' + {\"constraints\" = [..]} (not " + path + ")");
@@ -124,7 +125,7 @@ public class TemplateMqafConstraintServlet extends HttpServlet {
 		String[] constraintIds = parameterMap.get("constraints");
 		
 		
-		return getJsonStringSchemaFromConstraintIds(constraintIds, technology);
+		return getJsonStringSchemaFromConstraintIds(servletContext, constraintIds, technology);
 		
 //		ArrayList<BaseSchema> schemas = new ArrayList<BaseSchema>();
 		
@@ -169,7 +170,7 @@ public class TemplateMqafConstraintServlet extends HttpServlet {
 //		return ConfigurationReader.toJson(schema);
 	}
 	
-	private String getJsonStringSchemaFromConstraintIds(String[] constraintIds, String technology) throws FailedServletCallException {
+	private static String getJsonStringSchemaFromConstraintIds(ServletContext servletContext, String[] constraintIds, String technology) throws FailedServletCallException {
 		ArrayList<BaseSchema> schemas = new ArrayList<BaseSchema>();
 		JSONArray failed = new JSONArray();
 		
@@ -177,7 +178,7 @@ public class TemplateMqafConstraintServlet extends HttpServlet {
 			// 1 load constraint
 			CompletePattern pattern;
 			try {
-				pattern = ServletUtilities.loadConstraint(getServletContext(), technology, constraintId);
+				pattern = ServletUtilities.loadConstraint(servletContext, technology, constraintId);
 				pattern.isValid(AbstractionLevel.CONCRETE);
 				
 				// 2 generate mqaf constraint

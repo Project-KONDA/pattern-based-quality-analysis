@@ -3,6 +3,7 @@ package qualitypatternmodel.newservlets;
 import java.io.IOException;
 
 import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -84,31 +85,35 @@ public class TemplateInitialisationServlet extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
+		initialisation(getServletContext());
+	}
+	
+	public static void initialisation(ServletContext servletContext) throws ServletException {
 		System.out.println("Initializing ...");
 		try {
 			for (CompletePattern pattern: GenericPatterns.getAllGenericPattern()) {
 				pattern.isValid(AbstractionLevel.GENERIC);
-				EMFModelSave.exportToFile2(pattern, getServletContext(), ServletUtilities.PATTERNFOLDER + "/generic-patterns", pattern.getPatternId(), ServletUtilities.EXTENSION);
+				EMFModelSave.exportToFile2(pattern, servletContext, ServletUtilities.PATTERNFOLDER + "/generic-patterns", pattern.getPatternId(), ServletUtilities.EXTENSION);
 			}
-			System.out.println("generic Patterns created successfully in: " + this.getServletContext().getRealPath("/" + ServletUtilities.PATTERNFOLDER + "/generic-patterns"));
+			System.out.println("generic Patterns created successfully in: " + servletContext.getRealPath("/" + ServletUtilities.PATTERNFOLDER + "/generic-patterns"));
 			
 			for (CompletePattern pattern: XmlPatterns.getAllXmlPattern()) {
 				pattern.isValid(AbstractionLevel.ABSTRACT);				
-				EMFModelSave.exportToFile2(pattern, getServletContext(), ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.XML + "/" + ServletUtilities.TEMPLATEFOLDER, pattern.getPatternId(), ServletUtilities.EXTENSION);
+				EMFModelSave.exportToFile2(pattern, servletContext, ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.XML + "/" + ServletUtilities.TEMPLATEFOLDER, pattern.getPatternId(), ServletUtilities.EXTENSION);
 			}
-			System.out.println("XML-specific Patterns created successfully in: " + this.getServletContext().getRealPath("/" + ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.XML + "/" + ServletUtilities.TEMPLATEFOLDER));
+			System.out.println("XML-specific Patterns created successfully in: " + servletContext.getRealPath("/" + ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.XML + "/" + ServletUtilities.TEMPLATEFOLDER));
 			
 			for (CompletePattern pattern: RdfPatterns.getAllRdfPattern()) {
 				pattern.isValid(AbstractionLevel.ABSTRACT);
-				EMFModelSave.exportToFile2(pattern, getServletContext(), ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.RDF + "/" + ServletUtilities.TEMPLATEFOLDER, pattern.getPatternId(), ServletUtilities.EXTENSION);
+				EMFModelSave.exportToFile2(pattern, servletContext, ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.RDF + "/" + ServletUtilities.TEMPLATEFOLDER, pattern.getPatternId(), ServletUtilities.EXTENSION);
 			}
-			System.out.println("RDF-specific Patterns created successfully in: " + this.getServletContext().getRealPath("/" + ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.RDF + "/" + ServletUtilities.TEMPLATEFOLDER));
+			System.out.println("RDF-specific Patterns created successfully in: " + servletContext.getRealPath("/" + ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.RDF + "/" + ServletUtilities.TEMPLATEFOLDER));
 			
 			for (CompletePattern pattern: Neo4jPatterns.getAllNeoPattern()) {
 				pattern.isValid(AbstractionLevel.ABSTRACT);
-				EMFModelSave.exportToFile2(pattern, getServletContext(), ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.NEO4J + "/" + ServletUtilities.TEMPLATEFOLDER, pattern.getPatternId(), ServletUtilities.EXTENSION);
+				EMFModelSave.exportToFile2(pattern, servletContext, ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.NEO4J + "/" + ServletUtilities.TEMPLATEFOLDER, pattern.getPatternId(), ServletUtilities.EXTENSION);
 			}
-			System.out.println("NEO4J-specific Patterns created successfully in: " + this.getServletContext().getRealPath("/" + ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.NEO4J + "/" + ServletUtilities.TEMPLATEFOLDER));
+			System.out.println("NEO4J-specific Patterns created successfully in: " + servletContext.getRealPath("/" + ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.NEO4J + "/" + ServletUtilities.TEMPLATEFOLDER));
 		} catch (IOException e) {
 			new ServletException("Unable to save files.");
 		} catch (InvalidityException e) {
