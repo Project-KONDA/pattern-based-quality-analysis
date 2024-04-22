@@ -61,7 +61,7 @@ public class TemplateInstantiateServlet extends HttpServlet {
 	public static String applyPut (ServletContext servletContext, String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 4 || !pathparts[0].equals(""))
-			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/copy/<technology>/<constraintId>/<variantId>' (not " + path + ")");
+			throw new InvalidServletCallException("Wrong url for instantiate in a constraint: '.. /template/instantiate/<technology>/<constraintId>/<variantId>' (not " + path + ")");
 
 		// 1 get parameters
 		String technology = pathparts[1];
