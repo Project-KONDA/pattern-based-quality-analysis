@@ -18,13 +18,11 @@ import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
-import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
-import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
@@ -203,44 +201,25 @@ public class GenericPatterns {
 		pattern.setShortDescription("Uniqueness Constraint");
 		pattern.setDescription("Check, whether a value is unique within the dataset.");
 		
-		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
-		pattern.setCondition(quantifiedCondition);
-		
-		CountCondition countCondition = PatternstructureFactory.eINSTANCE.createCountCondition();
-		quantifiedCondition.setCondition(countCondition);
-		countCondition.createCountPattern();
-		CountPattern countPattern = countCondition.getCountPattern(); 
-		NumberElementImpl numberElement = new NumberElementImpl();
-		countCondition.setArgument2(numberElement);
-		numberElement.createParameters();
+//		NotCondition notCon = PatternstructureFactory.eINSTANCE.createNotCondition();
+//		pattern.setCondition(notCon);
 
-		if (VALUES) {
-			numberElement.getNumberParam().setValue(1.);
-			countCondition.getOption().setValue(ComparisonOperator.GREATER);
-		}
+		QuantifiedCondition quaCon = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+//		notCon.setCondition(quaCon);
+		pattern.setCondition(quaCon);
 		
-		NumberParam numberParam = numberElement.getNumberParam();
+		ComplexNode r1 = (ComplexNode) pattern.getGraph().getNodes().get(0).makeComplex();
+		r1.setName("Original");
+		ComplexNode r2 = quaCon.getGraph().addComplexNode();
+		r2.setName("Copy");
 		
-
-		if (VALUES) {
-			numberParam.setValue(1.0);
-			countCondition.getOption().getOptions().add(ComparisonOperator.GREATER);
-			countCondition.getOption().setValue(ComparisonOperator.GREATER);	
-		}
+		Comparison c = r1.addComparison(r2);
+		c.getOption().setValue(ComparisonOperator.NOTEQUAL);
+		c.getOption().setPredefined(true);
 		
-		Graph g0 = pattern.getGraph();
-		Graph g1 = quantifiedCondition.getGraph();
-		Graph g2 = countPattern.getGraph();
-		
-		Node ret = g0.getReturnNodes().get(0).makeComplex();
-		Node e1 = ret.addOutgoing(g1).getTarget().makePrimitive();
-		
-		Node g2base = g2.addComplexNode();
-		Node g2return = g2base.addOutgoing().getTarget().makePrimitive();
-		g2return.setReturnNode(true);
-		
-		Comparison c = g2return.addComparison(e1);
-		c.getTypeOption().setValue(ReturnType.STRING);
+		PrimitiveNode n = r1.addOutgoing(quaCon.getGraph()).getTarget().makePrimitive();
+		n.setName("Value");
+		r2.addOutgoing(n);
 
 		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;

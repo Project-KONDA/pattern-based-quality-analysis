@@ -34,14 +34,14 @@ public class XmlPatterns {
 		
 		for (CompletePattern pattern: getAllXmlPattern()) {
 			try {
+				System.out.println("___" + pattern.getName() + "___");
 				pattern.isValid(AbstractionLevel.ABSTRACT);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			try {
 				XmlPatternUtility.fillParameterXml(pattern);
-//				System.out.println();
-				System.out.println(pattern.getName());
+				pattern.getText().get(0).instantiate();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -97,7 +97,7 @@ public class XmlPatterns {
 		patterns.add(getXmlInvalidLink());
 //		patterns.add(getXmlComp());
 //		patterns.add(getXmlFunc());
-//		patterns.add(getXmlUnique());
+		patterns.add(getXmlUnique());
 //		patterns.add(getXmlAppdup3());
 //		patterns.add(getXmlDupVal());
 //		patterns.add(getXmlLocalUnique());
@@ -547,26 +547,48 @@ public class XmlPatterns {
 		return pattern;
 	}
 	
-//	public static CompletePattern getXmlUnique() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		CompletePattern pattern = GenericPatterns.getGenericUnique();
-//		pattern.createXmlAdaption();
-//		pattern.setPatternId("Unique_xml");
-//		pattern.setAbstractId("Unique_xml");
-//		
-//		List<Parameter> params = pattern.getParameterList().getParameters();
+	public static CompletePattern getXmlUnique() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern pattern = GenericPatterns.getGenericUnique();
+		pattern.createXmlAdaption();
+		pattern.setPatternId("Unique_xml");
+		pattern.setAbstractId("Unique_xml");
+		
+		List<Parameter> params = pattern.getParameterList().getParameters();
 //		ComparisonOptionParam p0 = ((ComparisonOptionParam) params.get(0));
-//		NumberParam p1 = ((NumberParam) params.get(1));
-//		ComparisonOptionParam p2 = ((ComparisonOptionParam) params.get(2));
-//		TypeOptionParam p3 = ((TypeOptionParam) params.get(3));
-//		XmlPathParam p4 = ((XmlPathParam) params.get(4));
-//		XmlPathParam p5 = ((XmlPathParam) params.get(5));
-//		XmlPathParam p6 = ((XmlPathParam) params.get(6));
-//		XmlPathParam p7 = ((XmlPathParam) params.get(7));
-//		
-//		// TODO
-//		pattern.isValid(AbstractionLevel.ABSTRACT);
-//		return pattern;
-//	}
+//		TypeOptionParam p1 = ((TypeOptionParam) params.get(1));
+		XmlPathParam p2 = ((XmlPathParam) params.get(2));
+		XmlPathParam p3 = ((XmlPathParam) params.get(3));
+		XmlPathParam p4 = ((XmlPathParam) params.get(4));
+		XmlPathParam p5 = ((XmlPathParam) params.get(5));
+		{
+			// Search for <records> where a value of <field> is not unique within the data set.
+			PatternText variant = TextrepresentationFactory.eINSTANCE.createPatternText();
+			variant.setName("default");
+			pattern.getText().add(variant);
+
+			variant.addFragment(new TextFragmentImpl("Search for"));
+			{ // records
+				ParameterFragment frag1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+				frag1.setName("xmlpath_rootToReturn");
+				frag1.setExampleValue("records");
+				frag1.getParameter().add(p2);
+				frag1.getParameter().add(p5);
+				variant.addFragment(frag1);
+			}
+			variant.addFragment(new TextFragmentImpl("where a value of"));
+			{ // field
+				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+				frag2.setName("xmlpath_returnToCondition");
+				frag2.getParameter().add(p3);
+				frag2.getParameter().add(p4);
+				frag2.setExampleValue("sourcefield");
+				variant.addFragment(frag2);
+			}
+			variant.addFragment(new TextFragmentImpl("is not unique within the data set."));
+		}
+		pattern.isValid(AbstractionLevel.ABSTRACT);
+		return pattern;
+	}
 	
 	public static CompletePattern getXmlCompSet() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = GenericPatterns.getGenericCompSet();
