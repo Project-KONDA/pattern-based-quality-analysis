@@ -20,25 +20,29 @@ public class TemplateSetDatabaseServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		System.out.println("TemplateSetDatabaseServlet.doPost()");
+		ServletUtilities.log(getServletContext(), this.getClass().getName(), path, params);
 		try{
 			String result = applyPost(getServletContext(), path, params);
+			ServletUtilities.logOutput(getServletContext(), result);
 			response.getOutputStream().println(result);
 			response.setStatus(HttpServletResponse.SC_OK);
 //			response.setStatus(HttpServletResponse.SC_NOT_IMPLEMENTED);
 //			response.getWriter().write("{ \"error\": \"databases not implemented \"}");
 		}
 		catch (InvalidServletCallException e) {
+			ServletUtilities.log(getServletContext(), e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
 		catch (FailedServletCallException e) {
+			ServletUtilities.log(getServletContext(), e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_NOT_MODIFIED);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
 		catch (Exception e) {
+			ServletUtilities.log(getServletContext(), e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");

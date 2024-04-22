@@ -1,10 +1,17 @@
 package qualitypatternmodel.newservlets;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -38,6 +45,7 @@ public abstract class ServletUtilities {
 	public static final String LVLREADY = "ready";
 	public static final List<String> LEVELS = List.of(LVLALL, LVLTEMPLATE, LVLCONSTRAINT, LVLREADY);
 	public static final String SAVEFILE = PATTERNFOLDER + "/savefile";
+	public static final String LOGFILE = PATTERNFOLDER + "/logfile.log";
 	
 	// Pattern request
 	
@@ -343,6 +351,58 @@ public abstract class ServletUtilities {
 		}
 		return name + "_" + number;
 	}
+	
+	public static void log(ServletContext servletContext, String text) {
+		String filepath = servletContext.getRealPath(LOGFILE);
+		File file = new File(filepath);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
+        String timestamp = LocalDateTime.now().format(formatter);
+		
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
+            writer.newLine();
+            writer.write("[" + timestamp + "] " + text);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+	public static void logOutput(ServletContext servletContext, String text) {
+		log(servletContext, "OUTPUT: " + text);
+	}
+	
+	public static void log(ServletContext servletContext, StackTraceElement[] stackTrace) {
+        StringWriter stringWriter = new StringWriter();
+        PrintWriter printWriter = new PrintWriter(stringWriter);
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
+        String timestamp = LocalDateTime.now().format(formatter);
+
+        printWriter.println("[" + timestamp + "] ");
+        for (StackTraceElement element : stackTrace) {
+            printWriter.println(element.toString());
+        }
+        log(servletContext, "ERROR: " + stringWriter.toString());
+	}
+
+	public static void log(ServletContext servletContext, String clazz, String path, Map<String, String[]> params) {
+		log(servletContext, "CALL: " + clazz + "(" + path + ")" + mapToString(params));
+	}
+	
+	private static String mapToString(Map<String, String[]> map) {
+		JSONObject job = new JSONObject();
+		for (String key: map.keySet()) {
+			try {
+				String[] vals = map.get(key);
+				if (vals.length > 1)
+					job.put(key, vals[0]);
+				else {
+					JSONArray jarr = new JSONArray(vals);
+					job.put(key, jarr);
+				}
+			} catch (JSONException e) {}
+		}
+		return job.toString();
+	}
+	
 	
 	public static Integer getNextNumber(String filepath, String variableName) throws JSONException, IOException {
         File file = new File(filepath);

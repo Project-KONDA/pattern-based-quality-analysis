@@ -29,37 +29,39 @@ public class TemplateQueryServlet extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
-		System.out.println("TemplateQueryServlet.doGet(" + path + ")");
+		Map<String, String[]> params = request.getParameterMap();
+		ServletUtilities.log(getServletContext(), this.getClass().getName(), path, params);
 		try {
 			int i = path.split("/").length;
 			String result = ""; // = applyGet(path, params);
 			if (i == 2)
-				result = applyGet2(getServletContext(), path, request.getParameterMap());
+				result = applyGet2(getServletContext(), path, params);
 			else if (i == 3)
-				result = applyGet3(getServletContext(), path, request.getParameterMap());
+				result = applyGet3(getServletContext(), path, params);
 			else 
 				throw new InvalidServletCallException("Wrong url for requesting the mqaf constraint: '.. /template/getdatabase/<technology>/<name>' or '.. /template/getdatabase/<technology>' + {parameter = [..]} (not " + path + ")");
 
+			ServletUtilities.logOutput(getServletContext(), result);
 			response.getOutputStream().println(result);
 			response.setStatus(HttpServletResponse.SC_OK);
 		}
 		catch (InvalidServletCallException e) {
+			ServletUtilities.log(getServletContext(), e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
-			e.printStackTrace();
 		}
 		catch (FailedServletCallException e) {
+			ServletUtilities.log(getServletContext(), e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
-			e.printStackTrace();
 		}
 		catch (Exception e) {
+			ServletUtilities.log(getServletContext(), e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
-			e.printStackTrace();
 		}
 //		response.getOutputStream().println("{ \"call\": \"TemplateQueryServlet.doGet(" + path + ")\"}");
 	}
@@ -111,7 +113,7 @@ public class TemplateQueryServlet extends HttpServlet {
 	public static String applyGet2(ServletContext servletContext, String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 2 || !pathparts[0].equals(""))
-			throw new InvalidServletCallException("Wrong api call for requesting the database of a constraint: '.. /template/getdatabase/<technology>' + {\"constraints\" = [..]} (not " + path + ")");
+			throw new InvalidServletCallException("Wrong api call for requesting the database of a constraint: '.. /template/query/<technology>' + {\"constraints\" = [..]} (not " + path + ")");
 
 		String technology = pathparts[1];
 		if (!ServletUtilities.TECHS.contains(technology))
