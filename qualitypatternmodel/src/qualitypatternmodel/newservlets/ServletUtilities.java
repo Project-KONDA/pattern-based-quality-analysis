@@ -20,6 +20,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import jakarta.servlet.ServletContext;
+import qualitypatternmodel.constrainttranslation.ConstraintTranslationValidation;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 //import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -228,12 +232,29 @@ public abstract class ServletUtilities {
 				json.put("tag", tags);
 			}
 			
+			Boolean concrete = false;
+			Boolean mqaf = false;
+			Boolean query = false;
+			Boolean filter = false;
 			try {
 				pattern.isValid(AbstractionLevel.CONCRETE);
-				json.put("executable", true);	
-			} catch (Exception e) {
-				json.put("executable", false);
+				concrete = true;
+				filter = true;
 			}
+			catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {}
+			try {
+				mqaf = ConstraintTranslationValidation.checkPatternTranslatable(pattern);
+			}
+			catch (InvalidityException e) {}
+			try {
+				query = !pattern.containsJavaOperator();
+			}
+			catch (InvalidityException e) {}
+			
+			json.put("executable", concrete);
+			json.put("mqafexecutable", mqaf);
+			json.put("queryexecutable", query);
+			json.put("filterexecutable", filter);
 			
 			JSONArray variants = new JSONArray();
 			for (PatternText text: pattern.getText()) {

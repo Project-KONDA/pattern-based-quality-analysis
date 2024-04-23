@@ -24,7 +24,7 @@ import qualitypatternmodel.patternstructure.TrueElement;
 
 public class ConstraintTranslationValidation {
 	
-	static Boolean checkPatternTranslatable (CompletePattern completePattern) throws InvalidityException {
+	public static Boolean checkPatternTranslatable (CompletePattern completePattern) throws InvalidityException {
 		// check is valid and is XML
 		Boolean xmlvalid = validatePatternXmlAdapted(completePattern);
 		// check has valid Node configuration
