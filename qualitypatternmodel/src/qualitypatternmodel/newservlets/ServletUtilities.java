@@ -374,14 +374,20 @@ public abstract class ServletUtilities {
 	}
 	
 	public static void log(ServletContext servletContext, String text) {
-		String filepath = servletContext.getRealPath(LOGFILE);
-		File file = new File(filepath);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
-        String timestamp = LocalDateTime.now().format(formatter);
-		
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
-            writer.newLine();
-            writer.write("[" + timestamp + "] " + text);
+		try {
+			String filepath = servletContext.getRealPath(LOGFILE);
+			File file = new File(filepath);
+	        if (!file.exists()) {
+	            Files.write(Paths.get(filepath), new byte[0]);
+	            System.out.println("File created successfully: " + filepath);
+	        }
+	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
+	        String timestamp = LocalDateTime.now().format(formatter);
+			
+	        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
+				writer.newLine();
+				writer.write("[" + timestamp + "] " + text);
+			}
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -451,13 +457,10 @@ public abstract class ServletUtilities {
             currentValue = jsonObject.getInt(variableName);
         }
 
-        // Increment the value
-        int newValue = currentValue + 1;
-
         // Update the JSON with the new value
-        jsonObject.put(variableName, newValue);
+        jsonObject.put(variableName, currentValue + 1);
         Files.write(Paths.get(filepath), jsonObject.toString().getBytes());
 
-        return newValue;
+        return currentValue;
 	}
 }
