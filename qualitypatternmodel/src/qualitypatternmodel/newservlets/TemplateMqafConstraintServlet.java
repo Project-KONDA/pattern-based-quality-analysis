@@ -30,7 +30,7 @@ public class TemplateMqafConstraintServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		ServletUtilities.log(getServletContext(), this.getClass().getName(), path, params);
+		ServletUtilities.logCall(getServletContext(), this.getClass().getName(), path, params);
 		try {
 			int i = path.split("/").length;
 			String result = "";
@@ -58,13 +58,13 @@ public class TemplateMqafConstraintServlet extends HttpServlet {
 //		response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 //	}
 		catch (FileNotFoundException e) {
-			ServletUtilities.log(getServletContext(), e.getStackTrace());
+			ServletUtilities.logError(getServletContext(), e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 			response.getWriter().write("{ \"error\": \"unable to find specified constraint\"}");
 		}
 		catch (Exception e) {
-			ServletUtilities.log(getServletContext(), e.getStackTrace());
+			ServletUtilities.logError(getServletContext(), e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");

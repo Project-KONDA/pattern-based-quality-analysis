@@ -22,7 +22,7 @@ public class TemplateGetListServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		ServletUtilities.log(getServletContext(), this.getClass().getName(), path, params);
+		ServletUtilities.logCall(getServletContext(), this.getClass().getName(), path, params);
 		try {
 			String result = applyGet(getServletContext(), path, params);
 			ServletUtilities.logOutput(getServletContext(), result);
@@ -30,19 +30,19 @@ public class TemplateGetListServlet extends HttpServlet {
 			response.setStatus(HttpServletResponse.SC_OK);
 		}
 		catch (InvalidServletCallException e) {
-			ServletUtilities.log(getServletContext(), e.getStackTrace());
+			ServletUtilities.logError(getServletContext(), e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
 		catch (FailedServletCallException e) {
-			ServletUtilities.log(getServletContext(), e.getStackTrace());
+			ServletUtilities.logError(getServletContext(), e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
 		catch (Exception e) {
-			ServletUtilities.log(getServletContext(), e.getStackTrace());
+			ServletUtilities.logError(getServletContext(), e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");

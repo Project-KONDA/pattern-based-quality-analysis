@@ -369,7 +369,7 @@ public abstract class ServletUtilities {
 		log(servletContext, "OUTPUT: " + text);
 	}
 	
-	public static void log(ServletContext servletContext, StackTraceElement[] stackTrace) {
+	public static void logError(ServletContext servletContext, StackTraceElement[] stackTrace) {
         StringWriter stringWriter = new StringWriter();
         PrintWriter printWriter = new PrintWriter(stringWriter);
 
@@ -383,7 +383,7 @@ public abstract class ServletUtilities {
         log(servletContext, "ERROR: " + stringWriter.toString());
 	}
 
-	public static void log(ServletContext servletContext, String clazz, String path, Map<String, String[]> params) {
+	public static void logCall(ServletContext servletContext, String clazz, String path, Map<String, String[]> params) {
 		log(servletContext, "CALL: " + clazz + "(" + path + ")" + mapToString(params));
 	}
 	

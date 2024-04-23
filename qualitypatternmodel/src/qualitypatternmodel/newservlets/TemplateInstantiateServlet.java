@@ -23,7 +23,7 @@ public class TemplateInstantiateServlet extends HttpServlet {
 	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		ServletUtilities.log(getServletContext(), this.getClass().getName(), path, params);
+		ServletUtilities.logCall(getServletContext(), this.getClass().getName(), path, params);
 		try{
 			String result = applyPut(getServletContext(), path, params);
 			ServletUtilities.logOutput(getServletContext(), result);
@@ -31,13 +31,13 @@ public class TemplateInstantiateServlet extends HttpServlet {
 			response.setStatus(HttpServletResponse.SC_OK);
 		}
 		catch (InvalidServletCallException e) {
-			ServletUtilities.log(getServletContext(), e.getStackTrace());
+			ServletUtilities.logError(getServletContext(), e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			response.getWriter().write("{ \"error\": \"1 " + e.getMessage() + "\"}");
 		}
 		catch (FailedServletCallException e) {
-			ServletUtilities.log(getServletContext(), e.getStackTrace());
+			ServletUtilities.logError(getServletContext(), e.getStackTrace());
 	        response.setContentType("application/json");
 	        if (e.getMessage().startsWith("404")) {
 				response.setStatus(HttpServletResponse.SC_NOT_FOUND);
@@ -53,7 +53,7 @@ public class TemplateInstantiateServlet extends HttpServlet {
 	        }
 		}
 		catch (Exception e) {
-			ServletUtilities.log(getServletContext(), e.getStackTrace());
+			ServletUtilities.logError(getServletContext(), e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"4 " + e.getClass().getSimpleName() + " " + e.getMessage() + "\"}");

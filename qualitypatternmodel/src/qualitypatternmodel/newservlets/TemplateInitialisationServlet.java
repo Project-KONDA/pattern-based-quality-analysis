@@ -27,7 +27,7 @@ public class TemplateInitialisationServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		ServletUtilities.log(getServletContext(), this.getClass().getName(), path, params);
+		ServletUtilities.logCall(getServletContext(), this.getClass().getName(), path, params);
 		response.getOutputStream().println(getWebsite());
 		response.setStatus(HttpServletResponse.SC_OK);
 	}
@@ -120,19 +120,19 @@ public class TemplateInitialisationServlet extends HttpServlet {
 			}
 			ServletUtilities.log(servletContext, "NEO4J-specific Patterns created successfully in: " + servletContext.getRealPath("/" + ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.NEO4J + "/" + ServletUtilities.TEMPLATEFOLDER));
 		} catch (IOException e) {
-			ServletUtilities.log(servletContext, e.getStackTrace());
+			ServletUtilities.logError(servletContext, e.getStackTrace());
 			new ServletException("Unable to save files.");
 		} catch (InvalidityException e) {
-			ServletUtilities.log(servletContext, e.getStackTrace());
+			ServletUtilities.logError(servletContext, e.getStackTrace());
 			throw new ServletException("Invalid pattern: " + e.getMessage());
 		} catch (OperatorCycleException e) {
-			ServletUtilities.log(servletContext, e.getStackTrace());
+			ServletUtilities.logError(servletContext, e.getStackTrace());
 			throw new ServletException("Invalid pattern (operator cycle): " + e.getMessage());
 		} catch (MissingPatternContainerException e) {
-			ServletUtilities.log(servletContext, e.getStackTrace());
+			ServletUtilities.logError(servletContext, e.getStackTrace());
 			throw new ServletException("Invalid pattern (missing container): " + e.getMessage());
 		} catch (Exception e) {
-			ServletUtilities.log(servletContext, e.getStackTrace());
+			ServletUtilities.logError(servletContext, e.getStackTrace());
 			throw new ServletException("Unexpected Error: " + e.getMessage());
 		}
 	}
