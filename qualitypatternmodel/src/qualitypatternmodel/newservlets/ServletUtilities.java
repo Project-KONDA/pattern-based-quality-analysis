@@ -8,6 +8,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -378,7 +379,7 @@ public abstract class ServletUtilities {
 			String filepath = servletContext.getRealPath(LOGFILE);
 			File file = new File(filepath);
 	        if (!file.exists()) {
-	            Files.write(Paths.get(filepath), new byte[0]);
+	            Files.write(Paths.get(filepath), new byte[0], StandardOpenOption.CREATE);
 	            System.out.println("File created successfully: " + filepath);
 	        }
 	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
@@ -437,7 +438,7 @@ public abstract class ServletUtilities {
             // If the file doesn't exist, create it and initialize with an empty JSON object
             JSONObject jsonObject = new JSONObject();
             jsonObject.put(variableName, 0);
-            Files.write(Paths.get(filepath), jsonObject.toString().getBytes());
+            Files.write(Paths.get(filepath), jsonObject.toString().getBytes(), StandardOpenOption.CREATE);
             System.out.println("File created successfully: " + filepath);
             return 0; // Return 0 as the initial value
         }
