@@ -40,6 +40,7 @@ import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.textrepresentation.ParameterReference;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
+import qualitypatternmodel.utility.Constants;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Path
@@ -1017,9 +1018,8 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 
 		value = value.trim();
 		
-		String PROPERTY_PART_REGEX = "(/)?((data\\(\\))|(text\\(\\))|(name\\(\\))|(@[A-Za-z0-9]+))";
-		if (!value.equals("") && !value.matches(PROPERTY_PART_REGEX)) {
-			throw new InvalidityException("value invalid property specification: \"" + value + "\" - match :" +  value.matches(PROPERTY_PART_REGEX));
+		if (!value.equals("") && !value.matches(Constants.REGEX_PROPERTY_PART)) {
+			throw new InvalidityException("value invalid property specification: \"" + value + "\" - match :" +  value.matches(Constants.REGEX_PROPERTY_PART));
 		}
 			
 //		assertTrue((getXmlNavigation() instanceof XmlElementNavigation) == ( value == "" || value.matches(PROPERTY_PART_REGEX)));
@@ -1032,7 +1032,7 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 			part.setValueFromString(v);
 		}
 		
-		if (value.matches(PROPERTY_PART_REGEX)) {
+		if (value.matches(Constants.REGEX_PROPERTY_PART)) {
 			if (getXmlPropertyOptionParam() == null)
 				setXmlPropertyOptionParam(new XmlPropertyOptionParamImpl());
 			getXmlPropertyOptionParam().setValueFromString(value);
