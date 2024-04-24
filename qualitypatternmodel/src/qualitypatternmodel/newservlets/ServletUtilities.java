@@ -378,6 +378,7 @@ public abstract class ServletUtilities {
 		try {
 			String filepath = servletContext.getRealPath(LOGFILE);
 			File file = new File(filepath);
+		    file.getParentFile().mkdirs();
 	        if (!file.exists()) {
 	            Files.write(Paths.get(filepath), new byte[0], StandardOpenOption.CREATE);
 	            System.out.println("File created successfully: " + filepath);
@@ -393,6 +394,7 @@ public abstract class ServletUtilities {
             e.printStackTrace();
         }
 	}
+	
 	public static void logOutput(ServletContext servletContext, String text) {
 		log(servletContext, "OUTPUT: " + text);
 	}
