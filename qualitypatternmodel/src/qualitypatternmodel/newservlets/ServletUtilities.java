@@ -35,11 +35,11 @@ import qualitypatternmodel.utility.EMFModelSave;
 
 public abstract class ServletUtilities {
 
-	public static final String PATTERNFOLDER =  (System.getenv("TEMPLATE_VOLUME") != null)? System.getenv("TEMPLATE_VOLUME"): System.getProperty("user.dir") + "\\" + "templates";
+	public static final String PATTERNFOLDER =  (System.getenv("TEMPLATE_VOLUME") != null)? System.getenv("TEMPLATE_VOLUME"): System.getProperty("user.dir") + "/" + "templates";
 	public static final String SAVE_FILENAME = ((System.getenv("SAVE_FILENAME") != null)? System.getenv("SAVE_FILENAME"): "savefile.txt");
 	public static final String LOG_FILENAME = ((System.getenv("LOG_FILENAME") != null)? System.getenv("LOG_FILENAME"): "logfile.log");
-	public static final String SAVE_FILEPATH = PATTERNFOLDER + "\\" + SAVE_FILENAME;
-	public static final String LOG_FILEPATH = PATTERNFOLDER + "\\" + LOG_FILENAME;
+	public static final String SAVE_FILEPATH = PATTERNFOLDER + "/" + SAVE_FILENAME;
+	public static final String LOG_FILEPATH = PATTERNFOLDER + "/" + LOG_FILENAME;
 	
 	public static final String CONSTRAINTFOLDER = "concrete-patterns";
 	public static final String TEMPLATEFOLDER = "abstract-patterns";
