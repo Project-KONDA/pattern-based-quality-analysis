@@ -93,12 +93,12 @@ public class TemplateInstantiateServlet extends HttpServlet {
 		}
 		
 		// 3 remove unused variants
-		ArrayList<String> textNames = new ArrayList<String>();
-		
+		Boolean instantiated = false;
 		for (PatternText t: pattern.getText()) {
 			if (t.getName().equals(textid)) {
 				try {
 					t.instantiate();
+					instantiated=true;
 					break;
 				} catch (InvalidityException e) {
 					throw new FailedServletCallException("Could not initialize Variant " + textid, e);
@@ -106,12 +106,12 @@ public class TemplateInstantiateServlet extends HttpServlet {
 			}
 		}
 		
-		if (pattern.getText().size() < 1) {
+		if (!instantiated) {
+			ArrayList<String> textNames = new ArrayList<String>();
+			for (PatternText t: pattern.getText()) {
+				textNames.add(t.getName());
+			}
 			throw new InvalidServletCallException("Variant ID invalid: '" + textid + "' does not exist. Available are: " + textNames);
-		}
-        
-		if (pattern.getText().size() > 1) {
-			throw new InvalidServletCallException("Variant ID '" + textid + "' exists " + pattern.getText().size() + " times. Fix setup. " + textNames);
 		}
 
 		// 4 create new constraint id
