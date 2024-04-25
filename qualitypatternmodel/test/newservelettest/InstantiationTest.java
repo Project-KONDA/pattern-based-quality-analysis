@@ -1,8 +1,5 @@
 package newservelettest;
 
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.doAnswer;
-import static org.mockito.Mockito.mock;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,7 +8,6 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
@@ -25,14 +21,7 @@ import qualitypatternmodel.newservlets.TemplateQueryServlet;
 public class InstantiationTest {
 
 	public static void main(String[] args) throws ServletException, InvalidServletCallException, FailedServletCallException, IOException, JSONException {
-		ServletContext context = mock(ServletContext.class);
-        doAnswer(invocation -> {
-            String argument = invocation.getArgument(0);
-            return new java.io.File(".").getCanonicalPath().replace('\\', '/') + "/temp/" + argument;
-//            return "F:/Arbeit/SourceTree/pattern-based-quality-analysis/qualitypatternmodel/servertests-temp/" + argument;
-        }).when(context).getRealPath(anyString());
-		
-        HashMap<String, String[]> parameterMap = new HashMap<String, String[]>();
+		HashMap<String, String[]> parameterMap = new HashMap<String, String[]>();
         
         List<String> listInstantiate = List.of(
         		"/xml/StringLength_xml/default",
@@ -46,10 +35,10 @@ public class InstantiationTest {
         		"/xml/InvalidLink_xml/default",
         		"/xml/InvalidLink_xml/default_question");
         ArrayList<String> patternIDs = new ArrayList<String>();
-		TemplateInitialisationServlet.initialisation(context);
+		TemplateInitialisationServlet.initialisation();
 
 		for (String inst: listInstantiate){
-			JSONObject json = new JSONObject(TemplateInstantiateServlet.applyPut(context, inst, parameterMap));
+			JSONObject json = new JSONObject(TemplateInstantiateServlet.applyPut(inst, parameterMap));
 			Object a = json.get("patternID");
 			String st = (String) a;
 			patternIDs.add(st);
@@ -57,27 +46,27 @@ public class InstantiationTest {
 		
 		System.out.println();
 		for (String get: patternIDs){
-			System.out.println(TemplateGetServlet.applyGet(context, "/xml/" + get, parameterMap));
+			System.out.println(TemplateGetServlet.applyGet("/xml/" + get, parameterMap));
 //			JSONObject json = new JSONObject(TemplateGetServlet.applyGet(context, get, parameterMap));
 		}
 		
 		System.out.println();
 		for (String get: patternIDs){
-			System.out.println(TemplateQueryServlet.applyGet3(context, "/xml/" + get, parameterMap));
+			System.out.println(TemplateQueryServlet.applyGet3("/xml/" + get, parameterMap));
 //			JSONObject json = new JSONObject(TemplateGetServlet.applyGet(context, get, parameterMap));
 		}
 		
 		System.out.println();
 		for (String get: patternIDs){
 			System.out.println(get);
-			System.out.println("  " + TemplateMqafConstraintServlet.applyGet3(context, "/xml/" + get, parameterMap));
+			System.out.println("  " + TemplateMqafConstraintServlet.applyGet3("/xml/" + get, parameterMap));
 //			JSONObject json = new JSONObject(TemplateGetServlet.applyGet(context, get, parameterMap));
 		}
 		
 		System.out.println();
 		List<String> delete = new ArrayList<String>(patternIDs);
 		for (String del: delete) {
-			TemplateDeleteServlet.applyDelete(context, "/xml/" + del, parameterMap);
+			TemplateDeleteServlet.applyDelete("/xml/" + del, parameterMap);
 			patternIDs.remove(del);
 		}
 		

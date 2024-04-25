@@ -3,7 +3,6 @@ package qualitypatternmodel.newservlets;
 import java.io.IOException;
 import java.util.Map;
 
-import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -19,27 +18,27 @@ public class TemplateDeleteServlet extends HttpServlet {
 	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		ServletUtilities.logCall(getServletContext(), this.getClass().getName(), path, params);
+		ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try {
-			String result = applyDelete(getServletContext(), path, params);
-			ServletUtilities.logOutput(getServletContext(), result);
+			String result = applyDelete(path, params);
+			ServletUtilities.logOutput(result);
 			response.getOutputStream().println(result);
 			response.setStatus(HttpServletResponse.SC_OK);
 		}
 		catch (InvalidServletCallException e) {
-			ServletUtilities.logError(getServletContext(), e.getStackTrace());
+			ServletUtilities.logError(e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
 		catch (FailedServletCallException e) {
-			ServletUtilities.logError(getServletContext(), e.getStackTrace());
+			ServletUtilities.logError(e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
 		catch (Exception e) {
-			ServletUtilities.logError(getServletContext(), e.getStackTrace());
+			ServletUtilities.logError(e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
@@ -47,7 +46,7 @@ public class TemplateDeleteServlet extends HttpServlet {
 //		response.getOutputStream().println("{ \"call\": \"TemplateDeleteServlet.doDelete(" + path + ")\"}");
 	}
 
-	public static String applyDelete(ServletContext servletContext, String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static String applyDelete(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for deleting a constraint: '.. /template/delete/<technology>/<name>' (not " + path + ")");
@@ -60,7 +59,7 @@ public class TemplateDeleteServlet extends HttpServlet {
 
 		// 1 check if constraint exists
 		try {
-			if (ServletUtilities.loadConstraint(servletContext, technology, patternname) == null)
+			if (ServletUtilities.loadConstraint(technology, patternname) == null)
 				throw new FailedServletCallException("Requested pattern '" + patternname + "' does not exist.");
 		} catch (Exception e) {
 			throw new FailedServletCallException("Requested pattern '" + patternname + "' does not exist.");
@@ -68,7 +67,7 @@ public class TemplateDeleteServlet extends HttpServlet {
 		
 		// 2 delete constraint
 		try {
-			ServletUtilities.deleteConstraint(servletContext, technology, patternname);
+			ServletUtilities.deleteConstraint(technology, patternname);
 		} catch (IOException e) {
 			throw new FailedServletCallException("Deleting constraint '" + patternname + "' failed.");
 		}

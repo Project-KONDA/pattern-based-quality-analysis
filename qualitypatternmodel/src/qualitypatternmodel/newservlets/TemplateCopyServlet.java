@@ -3,7 +3,6 @@ package qualitypatternmodel.newservlets;
 import java.io.IOException;
 import java.util.Map;
 
-import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -20,21 +19,21 @@ public class TemplateCopyServlet extends HttpServlet {
 	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		ServletUtilities.logCall(getServletContext(), this.getClass().getName(), path, params);
+		ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try {
-			String result = applyPut(getServletContext(), path, params);
-			ServletUtilities.logOutput(getServletContext(), result);
+			String result = applyPut(path, params);
+			ServletUtilities.logOutput(result);
 			response.getOutputStream().println(result);
 			response.setStatus(HttpServletResponse.SC_OK);
 		}
 		catch (InvalidServletCallException e) {
-			ServletUtilities.logError(getServletContext(), e.getStackTrace());
+			ServletUtilities.logError(e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
 		catch (FailedServletCallException e) {
-			ServletUtilities.logError(getServletContext(), e.getStackTrace());
+			ServletUtilities.logError(e.getStackTrace());
 	        response.setContentType("application/json");
 	        if (e.getMessage().startsWith("404")) {
 				response.setStatus(HttpServletResponse.SC_NOT_FOUND);
@@ -50,7 +49,7 @@ public class TemplateCopyServlet extends HttpServlet {
 	        }
 		}
 		catch (Exception e) {
-			ServletUtilities.logError(getServletContext(), e.getStackTrace());
+			ServletUtilities.logError(e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
@@ -58,7 +57,7 @@ public class TemplateCopyServlet extends HttpServlet {
 //		response.getOutputStream().println("{ \"call\": \"TemplateCopyServlet.doPut()\"}");
 	}
 	
-	public static String applyPut (ServletContext servletContext, String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
+	public static String applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/copy/<technology>/<concretetemplate>' (not " + path + ")");
@@ -72,7 +71,7 @@ public class TemplateCopyServlet extends HttpServlet {
 		// 1 load constraint with old name
 		CompletePattern pattern;
 		try {
-			pattern = ServletUtilities.loadConstraint(servletContext, technology, oldID);
+			pattern = ServletUtilities.loadConstraint(technology, oldID);
 		}
 		catch (Exception e) {
 			throw new FailedServletCallException("404 Requested pattern '" + oldID + "' does not exist - " + e.getMessage());
@@ -85,15 +84,15 @@ public class TemplateCopyServlet extends HttpServlet {
 		}
 		
 		// 2 create new patternID
-		String newID = ServletUtilities.generateNewId(servletContext, technology, pattern.getAbstractId(), pattern.getText().get(0).getName()); 
+		String newID = ServletUtilities.generateNewId(technology, pattern.getAbstractId(), pattern.getText().get(0).getName()); 
 		
 		// 3 change constraint name
 		pattern.setPatternId(newID);
 		
 		// 4 save constraint
-		ServletUtilities.saveConstraint(servletContext, technology, newID, pattern);
+		ServletUtilities.saveConstraint(technology, newID, pattern);
 		
-		if (ServletUtilities.loadConstraint(servletContext, technology, newID) == null)
+		if (ServletUtilities.loadConstraint(technology, newID) == null)
 			throw new FailedServletCallException("saving new constraint failed");
 		
 		return ServletUtilities.getPatternJSON(pattern).toString(); 

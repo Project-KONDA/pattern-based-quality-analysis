@@ -6,7 +6,6 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -23,28 +22,28 @@ public class TemplateGetDatabaseServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		ServletUtilities.logCall(getServletContext(), this.getClass().getName(), path, params);
+		ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try {
-			String result = applyGet(getServletContext(), path, params);
-			ServletUtilities.logOutput(getServletContext(), result);
+			String result = applyGet(path, params);
+			ServletUtilities.logOutput(result);
 			response.getOutputStream().println(result);
 			response.setStatus(HttpServletResponse.SC_OK);
 //			response.getWriter().write("{ \"error\": \"databases not implemented \"}");
 		}
 		catch (InvalidServletCallException e) {
-			ServletUtilities.logError(getServletContext(), e.getStackTrace());
+			ServletUtilities.logError(e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
 		catch (FailedServletCallException e) {
-			ServletUtilities.logError(getServletContext(), e.getStackTrace());
+			ServletUtilities.logError(e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
 		catch (Exception e) {
-			ServletUtilities.logError(getServletContext(), e.getStackTrace());
+			ServletUtilities.logError(e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
@@ -52,7 +51,7 @@ public class TemplateGetDatabaseServlet extends HttpServlet {
 //		response.getOutputStream().println("{ \"call\": \"TemplateGetDatabaseServlet.doGet(" + path + ")\"}");
 	}
 	
-	public static String applyGet(ServletContext servletContext, String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static String applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getdatabase/<technology>/<name>' (not " + path + ")");
@@ -66,7 +65,7 @@ public class TemplateGetDatabaseServlet extends HttpServlet {
 		// 1 load constraint
 		CompletePattern pattern;
 		try {
-			pattern = ServletUtilities.loadConstraint(servletContext, technology, constraintId);
+			pattern = ServletUtilities.loadConstraint(technology, constraintId);
 		} catch (IOException e) {
 			throw new FailedServletCallException("constraint not found");
 		}

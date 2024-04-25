@@ -6,7 +6,6 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -23,27 +22,27 @@ public class TemplateAddTagServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		ServletUtilities.logCall(getServletContext(), this.getClass().getName(), path, params);
+		ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try {
-			String result = applyPost(getServletContext(), path, params);
-			ServletUtilities.logOutput(getServletContext(), result);
+			String result = applyPost(path, params);
+			ServletUtilities.logOutput(result);
 			response.getOutputStream().println(result);
 			response.setStatus(HttpServletResponse.SC_OK);
 		}
 		catch (InvalidServletCallException e) {
-			ServletUtilities.logError(getServletContext(), e.getStackTrace());
+			ServletUtilities.logError(e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
 		catch (FailedServletCallException e) {
-			ServletUtilities.logError(getServletContext(), e.getStackTrace());
+			ServletUtilities.logError(e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_NOT_MODIFIED);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
 		catch (Exception e) {
-			ServletUtilities.logError(getServletContext(), e.getStackTrace());
+			ServletUtilities.logError(e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
@@ -51,7 +50,7 @@ public class TemplateAddTagServlet extends HttpServlet {
 //		response.getOutputStream().println("{ \"call\": \"TemplateSetParameterServlet.doPost(" + path + ")\"}");
 	}
 	
-	public static String applyPost (ServletContext servletContext,String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static String applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/setparameter/<technology>/<name>/' (not " + path + ")");
@@ -67,7 +66,7 @@ public class TemplateAddTagServlet extends HttpServlet {
 		// 1. load Pattern
 		CompletePattern pattern;
 		try {
-			pattern = ServletUtilities.loadConstraint(servletContext, technology, constraintId);
+			pattern = ServletUtilities.loadConstraint(technology, constraintId);
 		} catch (IOException e) {
 			throw new FailedServletCallException("404 Requested pattern '" + constraintId + "' does not exist");
 		}
@@ -87,7 +86,7 @@ public class TemplateAddTagServlet extends HttpServlet {
 		
 		// 3. save constraint
 		try {
-			ServletUtilities.saveConstraint(servletContext, technology, constraintId, pattern);
+			ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		} catch (IOException e) {
 			throw new FailedServletCallException("Failed to modify Constraint");
 		}
