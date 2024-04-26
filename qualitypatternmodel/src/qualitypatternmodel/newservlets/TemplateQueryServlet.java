@@ -188,6 +188,9 @@ public class TemplateQueryServlet extends HttpServlet {
 
 	private static JSONObject generateQueryJson(CompletePattern pattern, String technology) throws JSONException, InvalidServletCallException, FailedServletCallException {
 		JSONObject json = new JSONObject();
+
+		json.put("name", pattern.getName());
+		json.put("id", pattern.getPatternId());
 		
 		// 1 technology
 		json.put("technology", pattern.getLanguage().getLiteral());
