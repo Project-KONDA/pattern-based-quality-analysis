@@ -219,7 +219,10 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 */
 	@Override
 	public List<String> executeXQueryJava(String databasename, String datapath) throws InvalidityException {
-		String query = getQuery();
+		return executeXQueryJava(getQuery(), databasename, datapath);
+	}
+	
+	public static List<String> executeXQueryJava(String query, String databasename, String datapath) throws InvalidityException {
 		if (query == null || query == "")
 			throw new InvalidityException();
 		List<String> outcome = new ArrayList<String>();
