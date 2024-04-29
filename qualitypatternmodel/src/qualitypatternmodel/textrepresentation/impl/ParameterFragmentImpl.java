@@ -18,15 +18,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-//import qualitypatternmodel.adaptionxml.XmlPathParam;
+import qualitypatternmodel.adaptionxml.XmlElementNavigation;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
-//import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyOptionParamImpl;
-import qualitypatternmodel.adaptionxml.impl.XmlAxisOptionParamImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.operators.ComparisonOperator;
-//import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -482,17 +482,19 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			return Constants.PARAMETER_TYPE_TEXT_LIST;
 		} else if (type.equals(UntypedParameterValueImpl.class)) {
 			return Constants.PARAMETER_TYPE_UNTYPED;
-		} else if (type.equals(XmlAxisOptionParamImpl.class)) {
-			return Constants.PARAMETER_TYPE_RELATION;
-		} else if (type.equals(XmlPropertyOptionParamImpl.class)) {
-			return Constants.PARAMETER_TYPE_PROPERTY;
 		} else if (type.equals(ComparisonOptionParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_COMPARISON;
 		} else if (type.equals(TypeOptionParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_TYPE;
-		} else {
-			return "";
-		}
+		} else if (type.equals(XmlPathParamImpl.class)) {
+			XmlNavigation nav = ((XmlPathParamImpl) getParameter().get(0)).getXmlNavigation();
+			if (nav instanceof XmlPropertyNavigation)
+				return Constants.PARAMETER_TYPE_PROPERTY;
+			if (nav instanceof XmlElementNavigation)
+				return Constants.PARAMETER_TYPE_RELATION;
+		} 
+		ServletUtilities.log("No Role for class " + type.getSimpleName());
+		return "";
 	}
 	
 	/**

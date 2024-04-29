@@ -43,8 +43,8 @@ public class Constants {
 	public static final String PARAMETER_TYPE_DATE_TIME = "DateTime";
 	public static final String PARAMETER_TYPE_ENUMERATION = "Enumeration";
 	public static final String PARAMETER_TYPE_UNTYPED = "Untyped";
-	public static final String PARAMETER_TYPE_RELATION = "RelationOption";
-	public static final String PARAMETER_TYPE_PROPERTY = "PropertyOption";
+	public static final String PARAMETER_TYPE_RELATION = "XmlPath_Element";
+	public static final String PARAMETER_TYPE_PROPERTY = "XmlPath_Value";
 	public static final String PARAMETER_TYPE_COMPARISON = "ComparisonOption";
 	public static final String PARAMETER_TYPE_TYPE = "TypeOption";
 	public static final String PARAMETER_TYPE_XML_PATH = "XmlPath";

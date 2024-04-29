@@ -67,7 +67,7 @@ public class TemplateGetServlet extends HttpServlet {
 //			System.out.println(pattern.myToString());
 			pattern.isValid(AbstractionLevel.ABSTRACT);
 		} catch (IOException e) {
-			throw new FailedServletCallException("constraint not found", e);
+			throw new FailedServletCallException("constraint '" + constraintId + "'not found", e);
 		}
 		catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
 			throw new FailedServletCallException("constraint faulty", e);
