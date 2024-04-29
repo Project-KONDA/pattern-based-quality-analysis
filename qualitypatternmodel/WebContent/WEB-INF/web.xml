@@ -249,7 +249,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>TemplateExecuteServlet</servlet-name>
-		<url-pattern>/template/execute</url-pattern>
+		<url-pattern>/template/execute/*</url-pattern>
 	</servlet-mapping>
 	
 	<!-- 

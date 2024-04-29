@@ -57,15 +57,30 @@ public class TemplateExecuteServlet extends HttpServlet {
 	}
 
 	public static String applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+		String[] pathparts = path.split("/");
+		if (pathparts.length < 2  || pathparts.length > 2  || !pathparts[0].equals(""))
+			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getlist/<technology>/<level>' (not " + path + ")");
+
+		String technology = pathparts[1];
 		
+		if (technology.equals("xml"))
+			return applyGetXml(path, parameterMap);
+		else 
+			throw new FailedServletCallException("Technology '" + technology + "' currently not supported");
+	}
+
+	public static String applyGetXml(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		// get parameters
 		String[] filepaths = parameterMap.get("files");
 		String[] constraintstrings = parameterMap.get("constraints");
 		
+		ServletUtilities.log(filepaths[0]);		
+		ServletUtilities.log(constraintstrings[0]);
+		
 		// setup
 		ArrayList<JSONObject> constraints = new ArrayList<JSONObject>();
 		ArrayList<String> failedconstraints = new ArrayList<String>();
-		ArrayList<String> files = new ArrayList<String>();
+		ArrayList<File> files = new ArrayList<File>();
 		ArrayList<String> filesnotfound = new ArrayList<String>();
 		JSONArray results = new JSONArray();
 
@@ -73,10 +88,10 @@ public class TemplateExecuteServlet extends HttpServlet {
 		for (String constraint: constraintstrings) {
 			try {
 				JSONObject object = new JSONObject(constraint);
-				if (!object.has("query") || !object.has("technology") || !object.has("language") || !object.get("technology").equals("XQuery")) 
+				if (!object.has("query") || !object.has("technology") || !object.has("language") || !object.get("language").equals("XQuery") || !object.get("technology").equals("xml"))
 					failedconstraints.add(constraint);
-				else 
-					constraints.add(object);
+				else
+					constraints.add(object);					
 			} catch (JSONException e) {
 				failedconstraints.add(constraint);
 			}
@@ -84,18 +99,28 @@ public class TemplateExecuteServlet extends HttpServlet {
 
 		// verify file existence
 		for (String filepath: filepaths) {
-			File file = getFileFromFilename(filepath);
-			if (file.exists())
-				files.add(filepath);
-			else
+			File file = new File(ServletUtilities.FILEFOLDER + "/" + filepath);
+			if (file.exists()) {
+				files.add(file);
+				ServletUtilities.log(ServletUtilities.FILEFOLDER + "/" + filepath + " found");
+			}				
+			else {
 				filesnotfound.add(filepath);
+				ServletUtilities.log(ServletUtilities.FILEFOLDER + "/" + filepath + " not found");
+			}
 		}
+
+		ServletUtilities.log("files found: " + files.size());
+		ServletUtilities.log("constraint found: " + constraints.size());
 		
 		// query
-		for (String file: files) {
+		for (File file: files) {
 			for (JSONObject constraint: constraints) {
 				try {
-					results.put(queryFileToJSONArray(file, constraint));
+					ServletUtilities.log("querying: " + file + " " + constraint);
+					JSONObject res = queryFileToJSONObject(file, constraint);
+					results.put(res);
+					ServletUtilities.log("querying successfull: " + res.length());
 				} catch (JSONException e) {
 					throw new FailedServletCallException();
 				}
@@ -104,16 +129,11 @@ public class TemplateExecuteServlet extends HttpServlet {
 		return results.toString();
 	}
 	
-	private static File getFileFromFilename(String filename) {
-		String sharedVolume = System.getenv("SHARED_VOLUME");
-		File file = new File(sharedVolume + "/" + filename);
-		return file;
-	}
-	
-	private static JSONObject queryFileToJSONArray (String filepath, JSONObject constraint) throws JSONException, FailedServletCallException {
+	private static JSONObject queryFileToJSONObject (File file, JSONObject constraint) throws JSONException, FailedServletCallException {
+		ServletUtilities.log( "query file [" + file.getAbsolutePath()  + "] with constraint [" + constraint + "]");
 		JSONObject object = new JSONObject();
 		
-		object.put("file", filepath);
+		object.put("file", file.getName());
 		object.put("constraintID", constraint.getString("id"));
 		object.put("constraintName", constraint.getString("name"));
 		
@@ -121,9 +141,10 @@ public class TemplateExecuteServlet extends HttpServlet {
 		
 		List<String> rawResults;
 		try {
-			rawResults = query(filepath, query);
+			rawResults = executeXQuery(file, query);
 		} catch (InvalidityException e) {
-			throw new FailedServletCallException();
+			e.printStackTrace();
+			throw new FailedServletCallException("Querying failed", e);
 		}
 		List<String> result = null;
 		
@@ -151,11 +172,13 @@ public class TemplateExecuteServlet extends HttpServlet {
 			throw new FailedServletCallException();
 		
 		object.put("result", result);
+		object.put("amount", result.size());
 		return object;
 	}
 	
-	private static List<String> query(String filepath, String query) throws InvalidityException {
-		List<String> results = JavaFilterImpl.executeXQueryJava(query, "tempdb", filepath);
+	private static List<String> executeXQuery(File file, String query) throws InvalidityException {
+		ServletUtilities.log( "query file [" + file  + "] with query [" + query + "]");
+		List<String> results = JavaFilterImpl.executeXQueryJava(query, "tempdb", file.getAbsolutePath());
 		return results;
 	}
 }

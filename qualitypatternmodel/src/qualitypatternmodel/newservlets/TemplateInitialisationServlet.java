@@ -44,7 +44,7 @@ public class TemplateInitialisationServlet extends HttpServlet {
 		String templates = System.getenv().get("TEMPLATE_VOLUME");
 		String files = System.getenv().get("SHARED_VOLUME");
 		ServletUtilities.PATTERNFOLDER = templates == null? scon.getRealPath("/templates") : templates;
-		ServletUtilities.FILEFOLDER = files == null? scon.getRealPath("/templates") : files;
+		ServletUtilities.FILEFOLDER = files == null? scon.getRealPath("/files") : files;
 		
 		try {
 			for (CompletePattern pattern: GenericPatterns.getAllGenericPattern()) {
