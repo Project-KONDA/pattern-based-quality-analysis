@@ -75,19 +75,19 @@ public class TemplateInitialisationServlet extends HttpServlet {
 			ServletUtilities.log("NEO4J-specific Patterns created successfully in: " 
 					+ ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.NEO4J + "/" + ServletUtilities.TEMPLATEFOLDER);
 		} catch (IOException e) {
-			ServletUtilities.logError(e.getStackTrace());
+			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
 			new ServletException("Unable to save files.");
 		} catch (InvalidityException e) {
-			ServletUtilities.logError(e.getStackTrace());
+			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
 			throw new ServletException("Invalid pattern: " + e.getMessage());
 		} catch (OperatorCycleException e) {
-			ServletUtilities.logError(e.getStackTrace());
+			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
 			throw new ServletException("Invalid pattern (operator cycle): " + e.getMessage());
 		} catch (MissingPatternContainerException e) {
-			ServletUtilities.logError(e.getStackTrace());
+			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
 			throw new ServletException("Invalid pattern (missing container): " + e.getMessage());
 		} catch (Exception e) {
-			ServletUtilities.logError(e.getStackTrace());
+			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
 			throw new ServletException("Unexpected Error: " + e.getMessage());
 		}
 	}

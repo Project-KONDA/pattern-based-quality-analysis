@@ -58,13 +58,13 @@ public class TemplateMqafConstraintServlet extends HttpServlet {
 //		response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 //	}
 		catch (FileNotFoundException e) {
-			ServletUtilities.logError(e.getStackTrace());
+			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 			response.getWriter().write("{ \"error\": \"unable to find specified constraint\"}");
 		}
 		catch (Exception e) {
-			ServletUtilities.logError(e.getStackTrace());
+			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
