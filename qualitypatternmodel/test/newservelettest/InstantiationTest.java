@@ -1,5 +1,8 @@
 package newservelettest;
 
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.doAnswer;
+import static org.mockito.Mockito.mock;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,6 +11,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
@@ -21,6 +25,15 @@ import qualitypatternmodel.newservlets.TemplateQueryServlet;
 public class InstantiationTest {
 
 	public static void main(String[] args) throws ServletException, InvalidServletCallException, FailedServletCallException, IOException, JSONException {
+		ServletContext context = mock(ServletContext.class);
+        doAnswer(invocation -> {
+            String argument = invocation.getArgument(0);
+            if (argument.startsWith("/"))
+            	return new java.io.File(".").getCanonicalPath().replace('\\', '/') + "/temp" + argument;
+            else 
+            	return new java.io.File(".").getCanonicalPath().replace('\\', '/') + "/temp/" + argument;
+        }).when(context).getRealPath(anyString());
+        
 		HashMap<String, String[]> parameterMap = new HashMap<String, String[]>();
         
         List<String> listInstantiate = List.of(
@@ -35,7 +48,7 @@ public class InstantiationTest {
         		"/xml/InvalidLink_xml/default",
         		"/xml/InvalidLink_xml/default_question");
         ArrayList<String> patternIDs = new ArrayList<String>();
-		TemplateInitialisationServlet.initialisation();
+		TemplateInitialisationServlet.initialisation(context);
 
 		for (String inst: listInstantiate){
 			JSONObject json = new JSONObject(TemplateInstantiateServlet.applyPut(inst, parameterMap));

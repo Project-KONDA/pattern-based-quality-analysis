@@ -35,11 +35,12 @@ import qualitypatternmodel.utility.EMFModelSave;
 
 public abstract class ServletUtilities {
 
-	public static final String PATTERNFOLDER =  (System.getenv("TEMPLATE_VOLUME") != null)? System.getenv("TEMPLATE_VOLUME"): System.getProperty("user.dir") + "/" + "templates";
-	public static final String SAVE_FILENAME = ((System.getenv("SAVE_FILENAME") != null)? System.getenv("SAVE_FILENAME"): "savefile.txt");
-	public static final String LOG_FILENAME = ((System.getenv("LOG_FILENAME") != null)? System.getenv("LOG_FILENAME"): "logfile.log");
-	public static final String SAVE_FILEPATH = PATTERNFOLDER + "/" + SAVE_FILENAME;
-	public static final String LOG_FILEPATH = PATTERNFOLDER + "/" + LOG_FILENAME;
+	public static String PATTERNFOLDER =  "/templates";
+	public static String FILEFOLDER =  "/files";
+	public static String SAVE_FILENAME = ((System.getenv("SAVE_FILENAME") != null)? System.getenv("SAVE_FILENAME"): "savefile.txt");
+	public static String LOG_FILENAME = ((System.getenv("LOG_FILENAME") != null)? System.getenv("LOG_FILENAME"): "logfile.log");
+//	public static String SAVE_FILEPATH = PATTERNFOLDER + "/" + SAVE_FILENAME;
+//	public static String LOG_FILEPATH = PATTERNFOLDER + "/" + LOG_FILENAME;
 	
 	public static final String CONSTRAINTFOLDER = "concrete-patterns";
 	public static final String TEMPLATEFOLDER = "abstract-patterns";
@@ -241,7 +242,7 @@ public abstract class ServletUtilities {
 	
 	public static String generateNewId(String technology, String templateId, String variantname) throws IOException {
 		String name = technology + "_" + templateId + "_" + variantname;
-		String filepath = SAVE_FILEPATH;
+		String filepath = PATTERNFOLDER + "/" + SAVE_FILENAME;
 		Integer number;
 		try {
 			number = getNextNumber(filepath, name);
@@ -253,10 +254,14 @@ public abstract class ServletUtilities {
 	
 	public static void log(String text) {
 		try {
-			String filepath = LOG_FILEPATH;
+			String filepath = PATTERNFOLDER + "/" + LOG_FILENAME;
 			File file = new File(filepath);
 		    file.getParentFile().mkdirs();
 	        if (!file.exists()) {
+	        	String dirPath = filepath.substring(0, filepath.lastIndexOf('/'));
+	            File directory = new File(dirPath);
+	            if (!directory.exists())
+	            	directory.mkdirs();
 	            Files.write(Paths.get(filepath), new byte[0], StandardOpenOption.CREATE);
 	            System.out.println("File created successfully: " + filepath);
 	        }

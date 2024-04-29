@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Map;
 
 import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -21,6 +22,12 @@ import qualitypatternmodel.utility.EMFModelSave;
 
 @SuppressWarnings("serial")
 public class TemplateInitialisationServlet extends HttpServlet {
+	
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+		super.init(config);
+		initialisation(getServletContext());
+	}
 
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -31,68 +38,14 @@ public class TemplateInitialisationServlet extends HttpServlet {
 		response.setStatus(HttpServletResponse.SC_OK);
 	}
 	
-	private String getWebsite() {
-		return "<!doctype html>\r\n"
-				+ "<html lang=\"en\">\r\n"
-				+ "\r\n"
-				+ "<head>\r\n"
-				+ "    <title>QualityPatternModel API</title>\r\n"
-				+ "    <style type=\"text/css\">\r\n"
-				+ "        body {\r\n"
-				+ "            font-family: Tahoma, Arial, sans-serif;\r\n"
-				+ "        }\r\n"
-				+ "\r\n"
-				+ "        h1,\r\n"
-				+ "        h2,\r\n"
-				+ "        h3,\r\n"
-				+ "        b {\r\n"
-				+ "            color: white;\r\n"
-				+ "            background-color: #525D76;\r\n"
-				+ "        }\r\n"
-				+ "\r\n"
-				+ "        h1 {\r\n"
-				+ "            font-size: 22px;\r\n"
-				+ "        }\r\n"
-				+ "\r\n"
-				+ "        h2 {\r\n"
-				+ "            font-size: 16px;\r\n"
-				+ "        }\r\n"
-				+ "\r\n"
-				+ "        h3 {\r\n"
-				+ "            font-size: 14px;\r\n"
-				+ "        }\r\n"
-				+ "\r\n"
-				+ "        p {\r\n"
-				+ "            font-size: 12px;\r\n"
-				+ "        }\r\n"
-				+ "\r\n"
-				+ "        a {\r\n"
-				+ "            color: black;\r\n"
-				+ "        }\r\n"
-				+ "\r\n"
-				+ "        .line {\r\n"
-				+ "            height: 1px;\r\n"
-				+ "            background-color: #525D76;\r\n"
-				+ "            border: none;\r\n"
-				+ "        }\r\n"
-				+ "    </style>"
-				+ "</head>\r\n"
-				+ "\r\n"
-				+ "<body>\r\n"
-				+ "    <h1>QualityPatternModel API</h1>\r\n"
-				+ "</body>\r\n"
-				+ "\r\n"
-				+ "</html>";
-	}
-
-	@Override
-	public void init(ServletConfig config) throws ServletException {
-		super.init(config);
-		initialisation();
-	}
-	
-	public static void initialisation() throws ServletException {
+	public static void initialisation(ServletContext scon) throws ServletException {
 		ServletUtilities.log("Initializing ...");
+		
+		String templates = System.getenv().get("TEMPLATE_VOLUME");
+		String files = System.getenv().get("SHARED_VOLUME");
+		ServletUtilities.PATTERNFOLDER = templates == null? scon.getRealPath("/templates") : templates;
+		ServletUtilities.FILEFOLDER = files == null? scon.getRealPath("/templates") : files;
+		
 		try {
 			for (CompletePattern pattern: GenericPatterns.getAllGenericPattern()) {
 				pattern.isValid(AbstractionLevel.GENERIC);
@@ -137,5 +90,49 @@ public class TemplateInitialisationServlet extends HttpServlet {
 			ServletUtilities.logError(e.getStackTrace());
 			throw new ServletException("Unexpected Error: " + e.getMessage());
 		}
+	}
+	
+	private String getWebsite() {
+		return "<!doctype html>\r\n"
+				+ "<html lang=\"en\">\r\n"
+				+ "<head>\r\n"
+				+ "    <title>QualityPatternModel API</title>\r\n"
+				+ "    <style type=\"text/css\">\r\n"
+				+ "        body {\r\n"
+				+ "            font-family: Tahoma, Arial, sans-serif;\r\n"
+				+ "        }\r\n"
+				+ "        h1,\r\n"
+				+ "        h2,\r\n"
+				+ "        h3,\r\n"
+				+ "        b {\r\n"
+				+ "            color: white;\r\n"
+				+ "            background-color: #525D76;\r\n"
+				+ "        }\r\n"
+				+ "        h1 {\r\n"
+				+ "            font-size: 22px;\r\n"
+				+ "        }\r\n"
+				+ "        h2 {\r\n"
+				+ "            font-size: 16px;\r\n"
+				+ "        }\r\n"
+				+ "        h3 {\r\n"
+				+ "            font-size: 14px;\r\n"
+				+ "        }\r\n"
+				+ "        p {\r\n"
+				+ "            font-size: 12px;\r\n"
+				+ "        }\r\n"
+				+ "        a {\r\n"
+				+ "            color: black;\r\n"
+				+ "        }\r\n"
+				+ "        .line {\r\n"
+				+ "            height: 1px;\r\n"
+				+ "            background-color: #525D76;\r\n"
+				+ "            border: none;\r\n"
+				+ "        }\r\n"
+				+ "    </style>"
+				+ "</head>\r\n"
+				+ "<body>\r\n"
+				+ "    <h1>QualityPatternModel API</h1>\r\n"
+				+ "</body>\r\n"
+				+ "</html>";
 	}
 }

@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.javaquery.impl;
 
+import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -224,7 +225,11 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	
 	public static List<String> executeXQueryJava(String query, String databasename, String datapath) throws InvalidityException {
 		if (query == null || query == "")
-			throw new InvalidityException();
+			throw new InvalidityException("Empty Query");
+		if (databasename == null || databasename == "")
+			throw new InvalidityException("Invalid database name");
+		if (!new File(datapath).exists())
+			throw new InvalidityException("File not found");
 		List<String> outcome = new ArrayList<String>();
 		Context context = new Context();
 		try {
