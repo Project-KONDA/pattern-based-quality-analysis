@@ -72,7 +72,7 @@ import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
  */
 public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 
-	static String PROPERTY_PART_REGEX = "((data\\(\\))|(name\\(\\))|(@[A-Za-z0-9]+))";
+	static String PROPERTY_PART_REGEX = "(((data|text|name)\\(\\))|(@[A-Za-z0-9]+))";
 	
 	/**
 	 * The default value of the '{@link #isPredefined() <em>Predefined</em>}' attribute.
