@@ -132,12 +132,16 @@ public class TemplateExecuteServlet extends HttpServlet {
 	private static JSONObject queryFileToJSONObject (File file, JSONObject constraint) throws JSONException, FailedServletCallException {
 		ServletUtilities.log( "query file [" + file.getAbsolutePath()  + "] with constraint [" + constraint + "]");
 		JSONObject object = new JSONObject();
+		String query = constraint.getString("query");
+		String language = constraint.getString("language");
+		String technology = constraint.getString("technology");
 		
 		object.put("file", file.getName());
 		object.put("constraintID", constraint.getString("id"));
 		object.put("constraintName", constraint.getString("name"));
-		
-		String query = constraint.getString("query");
+		object.put("query", query);
+		object.put("language", language);
+		object.put("technology", technology);
 		
 		List<String> rawResults;
 		try {
@@ -150,6 +154,7 @@ public class TemplateExecuteServlet extends HttpServlet {
 		
 		if (constraint.has("filter")) {
 			String filterstring = constraint.getString("filter");
+			object.put("filter", filterstring);
 			JavaFilter filter;
 			try {
 				filter = JavaFilterImpl.fromJson(filterstring);
