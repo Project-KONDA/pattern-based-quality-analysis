@@ -162,13 +162,8 @@ public class TemplateQueryServlet extends HttpServlet {
 				pattern = ServletUtilities.loadConstraint(technology, constraintId);
 				pattern.isValid(AbstractionLevel.CONCRETE);
 			// 2 generate query
-				JSONObject queryJson; 
-				// = generateQueryJson(pattern, technology);
-				if (pattern.containsJavaOperator())
-					queryJson = generateQueryJsonJava(pattern, technology);
-				else 
-					queryJson = generateQueryJson(pattern, technology);
-				result.put(constraintId, queryJson);
+				JSONObject queryJson = generateQueryJson(pattern, technology);
+				result.append("constraints", queryJson);
 			} catch (Exception e) {
 				System.err.println(constraintId);
 				e.printStackTrace();
@@ -186,7 +181,7 @@ public class TemplateQueryServlet extends HttpServlet {
 	}
 
 
-	private static JSONObject generateQueryJson(CompletePattern pattern, String technology) throws JSONException, InvalidServletCallException, FailedServletCallException {
+	static JSONObject generateQueryJson(CompletePattern pattern, String technology) throws JSONException, InvalidServletCallException, FailedServletCallException {
 		JSONObject json = new JSONObject();
 
 		json.put("name", pattern.getName());
@@ -200,18 +195,27 @@ public class TemplateQueryServlet extends HttpServlet {
 		// 2 query
 		try {
 			if (technology.equals(ServletUtilities.XML)) {
+				if (pattern.containsJavaOperator()) {
+					JavaFilter filter = pattern.generateQueryFilter();
+					String serializedFilter = filter.toJson().toString();
+					json.put("filter", serializedFilter);
+				}
 				json.put("language", "XQuery");
 				String xquery = pattern.generateXQuery();
 				json.put("query", xquery);
 				json.put("query_line", makeQueryOneLine(xquery));
 				
 			} else if (technology.equals(ServletUtilities.RDF)) {
+				if (pattern.containsJavaOperator())
+					throw new InvalidServletCallException("Not implemented for RDF.");
 				json.put("language", "Sparql");
 				String sparql = pattern.generateSparql();
 				json.put("query", sparql);
 				json.put("query_line", makeQueryOneLine(sparql));
 				
 			} else if (technology.equals(ServletUtilities.NEO4J)) {
+				if (pattern.containsJavaOperator())
+					throw new InvalidServletCallException("Not implemented for Neo4j.");
 				json.put("language", "Cypher");
 				String cypher = pattern.generateCypher();
 				json.put("query", cypher);
@@ -239,42 +243,5 @@ public class TemplateQueryServlet extends HttpServlet {
 		}
 		shortQuery = shortQuery.trim();
 		return shortQuery;
-	}
-
-	private static JSONObject generateQueryJsonJava(CompletePattern pattern, String technology) throws JSONException, InvalidServletCallException, FailedServletCallException {
-		JSONObject json = new JSONObject();
-		
-		// 1 technology
-		if (!technology.equals(pattern.getLanguage().getLiteral()))
-			throw new InvalidServletCallException();
-		json.put("technology", technology);
-//		pattern.getLanguage().getLiteral();
-		
-		// 2 query and filter
-		try {
-			if (technology.equals(ServletUtilities.XML)) {
-				json.put("language", "XQuery");
-				String query = pattern.generateXQuery();
-				json.put("query", query);
-				json.put("query_line", makeQueryOneLine(query));
-				JavaFilter filter = pattern.generateQueryFilter();
-				String serializedFilter = filter.toJson().toString();
-				json.put("filter", serializedFilter);
-				
-			} else if (technology.equals(ServletUtilities.RDF)) {
-				throw new InvalidServletCallException("Not implemented for RDF.");
-				
-			} else if (technology.equals(ServletUtilities.NEO4J)) {
-				throw new InvalidServletCallException("Not implemented for Neo4j.");
-
-			} else {
-				throw new InvalidServletCallException();
-			}
-		} catch (InvalidityException e) {
-			throw new FailedServletCallException();
-		}
-		
-		// 4 return json
-		return json;
 	}
 }
