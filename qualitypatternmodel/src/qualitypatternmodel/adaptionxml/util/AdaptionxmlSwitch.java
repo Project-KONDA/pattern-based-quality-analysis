@@ -189,6 +189,14 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case AdaptionxmlPackage.XML_AXIS_PART_CONDITION: {
+				XmlAxisPartCondition xmlAxisPartCondition = (XmlAxisPartCondition)theEObject;
+				T result = caseXmlAxisPartCondition(xmlAxisPartCondition);
+				if (result == null) result = caseParameter(xmlAxisPartCondition);
+				if (result == null) result = casePatternElement(xmlAxisPartCondition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -370,6 +378,21 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseXmlNode(XmlNode object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Xml Axis Part Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Xml Axis Part Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseXmlAxisPartCondition(XmlAxisPartCondition object) {
 		return null;
 	}
 

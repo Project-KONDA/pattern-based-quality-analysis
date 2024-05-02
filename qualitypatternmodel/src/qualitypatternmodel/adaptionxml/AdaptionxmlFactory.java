@@ -112,6 +112,15 @@ public interface AdaptionxmlFactory extends EFactory {
 	XmlAxisPart createXmlAxisPart();
 
 	/**
+	 * Returns a new object of class '<em>Xml Axis Part Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Xml Axis Part Condition</em>'.
+	 * @generated
+	 */
+	XmlAxisPartCondition createXmlAxisPartCondition();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -22,6 +22,9 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPart#inferElementTagSuggestions() <em>Infer Element Tag Suggestions</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPart#inferElementTagSuggestionsFromIncomingRelations() <em>Infer Element Tag Suggestions From Incoming Relations</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPart#inferElementTagSuggestionsFromOutgoingRelations() <em>Infer Element Tag Suggestions From Outgoing Relations</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPart#setAxisOption(qualitypatternmodel.adaptionxml.XmlAxisKind) <em>Set Axis Option</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPart#addAxisCondition(qualitypatternmodel.adaptionxml.XmlPropertyKind) <em>Add Axis Condition</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPart#addAxisCondition(qualitypatternmodel.adaptionxml.XmlPropertyKind, java.lang.String) <em>Add Axis Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#validateAgainstSchema() <em>Validate Against Schema</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#validateExampleValue(java.lang.String) <em>Validate Example Value</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#inputIsValid() <em>Input Is Valid</em>}</li>
@@ -164,6 +167,45 @@ public class XmlAxisPartTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testInferElementTagSuggestionsFromOutgoingRelations() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#setAxisOption(qualitypatternmodel.adaptionxml.XmlAxisKind) <em>Set Axis Option</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#setAxisOption(qualitypatternmodel.adaptionxml.XmlAxisKind)
+	 * @generated
+	 */
+	public void testSetAxisOption__XmlAxisKind() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#addAxisCondition(qualitypatternmodel.adaptionxml.XmlPropertyKind, java.lang.String) <em>Add Axis Condition</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#addAxisCondition(qualitypatternmodel.adaptionxml.XmlPropertyKind, java.lang.String)
+	 * @generated
+	 */
+	public void testAddAxisCondition__XmlPropertyKind_String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#addAxisCondition(qualitypatternmodel.adaptionxml.XmlPropertyKind) <em>Add Axis Condition</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#addAxisCondition(qualitypatternmodel.adaptionxml.XmlPropertyKind)
+	 * @generated
+	 */
+	public void testAddAxisCondition__XmlPropertyKind() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

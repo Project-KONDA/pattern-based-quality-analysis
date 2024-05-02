@@ -41,6 +41,7 @@ public class AdaptionxmlTests extends TestSuite {
 		suite.addTestSuite(XmlPropertyOptionParamTest.class);
 		suite.addTestSuite(XmlPathParamTest.class);
 		suite.addTestSuite(XmlAxisPartTest.class);
+		suite.addTestSuite(XmlAxisPartConditionTest.class);
 		return suite;
 	}
 
