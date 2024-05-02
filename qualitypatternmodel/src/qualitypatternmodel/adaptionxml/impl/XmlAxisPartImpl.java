@@ -693,7 +693,9 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 		String current = "";
 		for (int i = 1; i < split.length; i++) {
 			current += split[i];
-			if (current.matches(ConstantsXml.REGEX_CONDITION)) {
+			if (current.equals("[]"))
+				current = "";
+			else if (current.matches(ConstantsXml.REGEX_CONDITION)) {
 				conditions.add(current);
 				current = "";
 			}			

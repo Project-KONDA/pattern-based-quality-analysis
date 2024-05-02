@@ -24,8 +24,8 @@ public class ConstantsXml {
 	public static final String REGEX_PROPERTY_PART = "((/)?" + REGEX_PROPERTY_SPEC + ")";
 	public static final String REGEX_NODENAME = "([a-zA-Z]+(:[a-zA-Z]+)?)";
 	public static final String REGEX_CONDITION = "(\\[" + REGEX_PROPERTY_SPEC + "(=\".*\")?\\])";
-	static final String REGEX_NODE = "(*|" + REGEX_NODENAME + ")" + REGEX_CONDITION;
-	static final String REGEX_NAVIGATION = "(" + REGEX_AXIS + REGEX_NODE + ")";
+	static final String REGEX_NODE = "(\\*|" + REGEX_NODENAME + ")" + "(" + REGEX_CONDITION + ")*";
+	public static final String REGEX_NAVIGATION = "(" + REGEX_AXIS + REGEX_NODE + ")";
 	
 	public static final String REGEX_XMLPATH_ELEMENT = REGEX_NAVIGATION + "+";
 	public static final String REGEX_XMLPATH_VALUE = REGEX_NAVIGATION + "*" + REGEX_PROPERTY;
