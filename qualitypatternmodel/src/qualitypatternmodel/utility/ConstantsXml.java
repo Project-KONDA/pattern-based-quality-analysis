@@ -16,4 +16,17 @@ public class ConstantsXml {
 	public static final String WHERE = "\nwhere ";
 	public static final String RETURN = "\nreturn ";
 	public static final String IN = " in ";
+	
+	static final String REGEX_AXIS_NAMES = "(child|descendant|parent|ancestor|following|following-sibling|preceding|preceding-sibling|ancestor-or-self|descendant-or-self|self)";
+	static final String REGEX_AXIS = "((/)|(//)|(/" + REGEX_AXIS_NAMES + "::))";
+	static final String REGEX_PROPERTY_SPEC = "(((data|text|name)\\(\\))|(@[A-Za-z0-9]+))";
+	static final String REGEX_PROPERTY = "(/" + REGEX_PROPERTY_SPEC + ")";
+	public static final String REGEX_PROPERTY_PART = "((/)?" + REGEX_PROPERTY_SPEC + ")";
+	static final String REGEX_NODENAME = "(([a-zA-Z]+:)?[a-zA-Z]+)";
+	static final String REGEX_CONDITION = "(\\[" + REGEX_PROPERTY_SPEC + "(=\".*\")?\\])";
+	static final String REGEX_NODE = "(*|" + REGEX_NODENAME + ")" + REGEX_CONDITION;
+	static final String REGEX_NAVIGATION = "(" + REGEX_AXIS + REGEX_NODE + ")";
+	
+	public static final String REGEX_XMLPATH_ELEMENT = REGEX_NAVIGATION + "+";
+	public static final String REGEX_XMLPATH_VALUE = REGEX_NAVIGATION + "*" + REGEX_PROPERTY;
 }

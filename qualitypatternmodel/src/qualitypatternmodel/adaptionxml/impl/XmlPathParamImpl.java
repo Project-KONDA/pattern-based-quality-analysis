@@ -39,7 +39,7 @@ import qualitypatternmodel.parameters.impl.ParameterImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.textrepresentation.ParameterReference;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
-import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsXml;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Path
@@ -1009,8 +1009,8 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 
 		value = value.trim();
 		
-		if (!value.equals("") && !value.matches(Constants.REGEX_PROPERTY_PART)) {
-			throw new InvalidityException("value invalid property specification: \"" + value + "\" - match :" +  value.matches(Constants.REGEX_PROPERTY_PART));
+		if (!value.equals("") && !value.matches(ConstantsXml.REGEX_PROPERTY_PART)) {
+			throw new InvalidityException("value invalid property specification: \"" + value + "\" - match :" +  value.matches(ConstantsXml.REGEX_PROPERTY_PART));
 		}
 			
 //		assertTrue((getXmlNavigation() instanceof XmlElementNavigation) == ( value == "" || value.matches(PROPERTY_PART_REGEX)));
@@ -1023,7 +1023,7 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 			part.setValueFromString(v);
 		}
 		
-		if (value.matches(Constants.REGEX_PROPERTY_PART)) {
+		if (value.matches(ConstantsXml.REGEX_PROPERTY_PART)) {
 			if (getXmlPropertyOptionParam() == null)
 				setXmlPropertyOptionParam(new XmlPropertyOptionParamImpl());
 			getXmlPropertyOptionParam().setValueFromString(value);
