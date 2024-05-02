@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlAxisPartCondition;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
@@ -121,7 +120,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 		String container = "";
 		if (eContainer() instanceof PatternElement)
 			container += " in " + eContainer().getClass().getSimpleName() + " [" + ((PatternElement) eContainer()).getInternalId() + "]";
-		if (getParameterList() == null && getXmlAxisPart() == null && getXmlPropertyOptionParam() == null)
+		if (getParameterList() == null && getXmlAxisPartCondition() == null && getXmlPropertyOptionParam() == null)
 			throw new InvalidityException("variableList and axisPart null" + " (" + getInternalId() + container + ")");
 		if ((abstractionLevel == AbstractionLevel.CONCRETE && !inputIsValid()))
 			throw new InvalidityException("input missing or invalid" + " (" + getInternalId() + container + ")");
@@ -204,14 +203,14 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	@Override
 	public EList<String> inferSuggestions() {
 		EList<String> suggestions = super.inferSuggestions();
-		XmlAxisPart part = getXmlAxisPart();
-		EList<String> suggestionsFromPath = part.inferElementTagSuggestions();
-
-		if(suggestions.isEmpty() || suggestionsFromPath.isEmpty()) {
-			suggestions.addAll(suggestionsFromPath);
-		} else {
-			suggestions.retainAll(suggestionsFromPath);
-		}
+//		XmlAxisPartCondition part = getXmlAxisPartCondition();
+//		EList<String> suggestionsFromPath = part.inferElementTagSuggestions();
+//
+//		if(suggestions.isEmpty() || suggestionsFromPath.isEmpty()) {
+//			suggestions.addAll(suggestionsFromPath);
+//		} else {
+//			suggestions.retainAll(suggestionsFromPath);
+//		}
 				
 		return suggestions;
 	}
@@ -221,7 +220,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 		EList<XmlPropertyKind> list = super.getPrimitiveComparisonPropertyKinds();
 		if(this instanceof TextLiteralParam) {
 			TextLiteralParam text = (TextLiteralParam) this;
-			if(text.getXmlAxisPart() != null) {
+			if(text.getXmlAxisPartCondition() != null) {
 				list.add(XmlPropertyKind.TAG);
 			}
 		}

@@ -1188,13 +1188,13 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 
 		initEOperation(getXmlAxisPart__InferElementTagSuggestionsFromOutgoingRelations(), ecorePackage.getEString(), "inferElementTagSuggestionsFromOutgoingRelations", 0, -1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getXmlAxisPart__SetAxisOption__XmlAxisKind(), null, "setAxisOption", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlAxisPart__SetAxisOption__XmlAxisKind(), this.getXmlAxisOptionParam(), "setAxisOption", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getXmlAxisKind(), "axis", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getXmlAxisPart__AddAxisCondition__XmlPropertyKind(), null, "addAxisCondition", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlAxisPart__AddAxisCondition__XmlPropertyKind(), this.getXmlAxisPartCondition(), "addAxisCondition", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getXmlPropertyKind(), "propertyKind", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getXmlAxisPart__AddAxisCondition__XmlPropertyKind_String(), null, "addAxisCondition", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlAxisPart__AddAxisCondition__XmlPropertyKind_String(), this.getXmlAxisPartCondition(), "addAxisCondition", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getXmlPropertyKind(), "propertyKind", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 

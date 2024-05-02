@@ -881,13 +881,13 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="inferElementTagSuggestionsFromOutgoingRelations" upperBound="-1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eOperations name="setAxisOption">
+      <eOperations name="setAxisOption" eType="#//adaptionxml/XmlAxisOptionParam">
         <eParameters name="axis" eType="#//adaptionxml/XmlAxisKind"/>
       </eOperations>
-      <eOperations name="addAxisCondition">
+      <eOperations name="addAxisCondition" eType="#//adaptionxml/XmlAxisPartCondition">
         <eParameters name="propertyKind" eType="#//adaptionxml/XmlPropertyKind"/>
       </eOperations>
-      <eOperations name="addAxisCondition">
+      <eOperations name="addAxisCondition" eType="#//adaptionxml/XmlAxisPartCondition">
         <eParameters name="propertyKind" eType="#//adaptionxml/XmlPropertyKind"/>
         <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>

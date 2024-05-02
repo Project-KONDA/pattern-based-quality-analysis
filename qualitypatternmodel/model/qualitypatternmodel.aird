@@ -4,7 +4,7 @@
     <semanticResources>qualitypatternmodel.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_A2WtQB2REeqrGqxc7qjo8A">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name="class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="1714642968354">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name="class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="1714647377154">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="qualitypatternmodel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -11926,7 +11926,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_PIU6wAhoEe-9d9wjHwPR-A" name="setAxisOption(axis XmlAxisKind)" tooltipText="setAxisOption(axis)">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_PIU6wAhoEe-9d9wjHwPR-A" name="setAxisOption(axis XmlAxisKind) : XmlAxisOptionParam" tooltipText="setAxisOption(axis) : XmlAxisOptionParam">
           <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart/setAxisOption"/>
           <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart/setAxisOption"/>
           <semanticElements xmi:type="ecore:EParameter" href="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart/setAxisOption/axis"/>
@@ -11935,7 +11935,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_VeqKvwhoEe-9d9wjHwPR-A" name="addAxisCondition(propertyKind XmlPropertyKind)" tooltipText="addAxisCondition(propertyKind)">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_VeqKvwhoEe-9d9wjHwPR-A" name="addAxisCondition(propertyKind XmlPropertyKind) : XmlAxisPartCondition" tooltipText="addAxisCondition(propertyKind) : XmlAxisPartCondition">
           <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart/addAxisCondition"/>
           <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart/addAxisCondition"/>
           <semanticElements xmi:type="ecore:EParameter" href="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart/addAxisCondition/propertyKind"/>
@@ -11944,7 +11944,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_VeqxwQhoEe-9d9wjHwPR-A" name="addAxisCondition(propertyKind XmlPropertyKind, value EString)" tooltipText="addAxisCondition(propertyKind, value)">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_VeqxwQhoEe-9d9wjHwPR-A" name="addAxisCondition(propertyKind XmlPropertyKind, value EString) : XmlAxisPartCondition" tooltipText="addAxisCondition(propertyKind, value) : XmlAxisPartCondition">
           <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart/addAxisCondition.1"/>
           <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart/addAxisCondition.1"/>
           <semanticElements xmi:type="ecore:EParameter" href="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart/addAxisCondition.1/propertyKind"/>

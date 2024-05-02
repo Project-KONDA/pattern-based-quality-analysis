@@ -22,6 +22,7 @@ import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlAxisOptionParam;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
+import qualitypatternmodel.adaptionxml.XmlAxisPartCondition;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
@@ -529,17 +530,12 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	@Override
 	public void addXmlAxis(XmlAxisKind axis, String tag) {
 		XmlAxisPart part = new XmlAxisPartImpl();
-		part.getXmlPropertyOption().setValue(XmlPropertyKind.TAG);
+		part.addAxisCondition(XmlPropertyKind.TAG, tag);
 
 		XmlAxisOptionParam axisOption = new XmlAxisOptionParamImpl();
 		part.setXmlAxisOptionParam(axisOption);
 		axisOption.setValue(axis);
 
-		if (tag != null) {
-			TextLiteralParam text = new TextLiteralParamImpl();
-			text.setValue(tag);
-			part.setTextLiteralParam(text);
-		}
 
 		getXmlAxisParts().add(part);
 	}
@@ -552,14 +548,10 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 		} else {
 			setXmlAxis(axes);
 			int index = axes.length - 1;
-			if (propertyKind == null)
-				getXmlAxisParts().get(index).getXmlPropertyOption().setValue(XmlPropertyKind.TAG);
-			else
-				getXmlAxisParts().get(index).getXmlPropertyOption().setValue(propertyKind);
-			if (attributeName != null && attributeName != "")
-				getXmlAxisParts().get(index).getXmlPropertyOption().getAttributeName().setValue(attributeName);
-			if (name != null && name != "")
-				getXmlAxisParts().get(index).getTextLiteralParam().setValue(name);
+			XmlAxisPart part = getXmlAxisParts().get(index);
+			XmlAxisPartCondition cond = part.addAxisCondition(propertyKind, name);
+			if(attributeName != null && attributeName != "")
+				cond.getXmlPropertyOption().getAttributeName().setValue(attributeName);;
 		}
 
 	}

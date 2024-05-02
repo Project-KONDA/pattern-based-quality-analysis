@@ -125,7 +125,7 @@ public interface XmlAxisPart extends Adaptable, Parameter {
 	 * @model
 	 * @generated
 	 */
-	void setAxisOption(XmlAxisKind axis);
+	XmlAxisOptionParam setAxisOption(XmlAxisKind axis);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,7 +133,7 @@ public interface XmlAxisPart extends Adaptable, Parameter {
 	 * @model
 	 * @generated
 	 */
-	void addAxisCondition(XmlPropertyKind propertyKind, String value);
+	XmlAxisPartCondition addAxisCondition(XmlPropertyKind propertyKind, String value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -141,7 +141,7 @@ public interface XmlAxisPart extends Adaptable, Parameter {
 	 * @model
 	 * @generated
 	 */
-	void addAxisCondition(XmlPropertyKind propertyKind);
+	XmlAxisPartCondition addAxisCondition(XmlPropertyKind propertyKind);
 
 	/**
 	 * <!-- begin-user-doc -->

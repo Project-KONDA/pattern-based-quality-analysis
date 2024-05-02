@@ -6,6 +6,7 @@ import java.util.List;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
+import qualitypatternmodel.adaptionxml.XmlAxisPartCondition;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
@@ -100,11 +101,10 @@ public class XmlPatternUtility {
 			}
 			if (param instanceof XmlPathParam) {
 				XmlPathParam xmlPathParam = (XmlPathParam) param;
-				for(XmlAxisPart pair : xmlPathParam.getXmlAxisParts()) {
-					if(pair.getTextLiteralParam().getValue() == null) {
-						pair.getTextLiteralParam().setValue("");
-					}
-				}
+				for(XmlAxisPart pair : xmlPathParam.getXmlAxisParts())
+					for (XmlAxisPartCondition cond : pair.getXmlAxisPartConditions())
+						if(cond.getTextLiteralParam().getValue() == null)
+							cond.getTextLiteralParam().setValue("");
 			}
 			if (param instanceof TypeOptionParam) {
 				TypeOptionParam typeOptionParam = (TypeOptionParam) param;
