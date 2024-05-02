@@ -18,6 +18,8 @@ import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.javaquery.impl.JavaFilterImpl;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.CompletePattern;
 
 @SuppressWarnings("serial")
 public class TemplateExecuteServlet extends HttpServlet {
@@ -64,18 +66,16 @@ public class TemplateExecuteServlet extends HttpServlet {
 		String technology = pathparts[1];
 		
 		if (technology.equals("xml"))
-			return applyGetXml(path, parameterMap);
+			return applyGetXml(path, technology, parameterMap);
 		else 
 			throw new FailedServletCallException("Technology '" + technology + "' currently not supported");
 	}
 
-	public static String applyGetXml(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static String applyGetXml(String path, String technology, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		// get parameters
 		String[] filepaths = parameterMap.get("files");
-		String[] constraintstrings = parameterMap.get("constraints");
-		
-		ServletUtilities.log(filepaths[0]);		
-		ServletUtilities.log(constraintstrings[0]);
+		String[] constraintsCompiled = parameterMap.get("constraints");
+		String[] constraintIDs = parameterMap.get("constraintIDs");
 		
 		// setup
 		ArrayList<JSONObject> constraints = new ArrayList<JSONObject>();
@@ -83,32 +83,60 @@ public class TemplateExecuteServlet extends HttpServlet {
 		ArrayList<File> files = new ArrayList<File>();
 		ArrayList<String> filesnotfound = new ArrayList<String>();
 		JSONArray results = new JSONArray();
-
-		// transform constraint parameters
-		for (String constraint: constraintstrings) {
-			try {
-				JSONObject object = new JSONObject(constraint);
-				if (!object.has("query") || !object.has("technology") || !object.has("language") || !object.get("language").equals("XQuery") || !object.get("technology").equals("xml"))
-					failedconstraints.add(constraint);
-				else
-					constraints.add(object);					
-			} catch (JSONException e) {
-				failedconstraints.add(constraint);
+		
+		// compile constraintIDs
+		if (constraintIDs != null) {
+			for (String constraintId: constraintIDs) {
+				CompletePattern pattern;
+				try {
+					pattern = ServletUtilities.loadConstraint(technology, constraintId);
+					pattern.isValid(AbstractionLevel.CONCRETE);
+				// 2 generate query
+					JSONObject queryJson = TemplateQueryServlet.generateQueryJson(pattern, technology);
+					constraints.add(queryJson);
+				} catch (Exception e) {
+					failedconstraints.add(constraintId);
+					System.err.println(constraintId);
+					e.printStackTrace();
+				}
 			}
 		}
+		
+		// transform constraint parameters
+		if (constraintsCompiled != null) {
+			for (String constraint: constraintsCompiled) {
+				try {
+					JSONObject object = new JSONObject(constraint);
+					if (!object.has("query") || !object.has("technology") || !object.has("language") || !object.get("language").equals("XQuery") || !object.get("technology").equals("xml"))
+						failedconstraints.add(constraint);
+					else
+						constraints.add(object);
+				} catch (JSONException e) {
+					failedconstraints.add(constraint);
+				}
+			}
+		}
+		
+		if (constraints.isEmpty())
+			throw new InvalidServletCallException("no valid constraints specified");
 
 		// verify file existence
-		for (String filepath: filepaths) {
-			File file = new File(ServletUtilities.FILEFOLDER + "/" + filepath);
-			if (file.exists()) {
-				files.add(file);
-				ServletUtilities.log(ServletUtilities.FILEFOLDER + "/" + filepath + " found");
-			}				
-			else {
-				filesnotfound.add(filepath);
-				ServletUtilities.log(ServletUtilities.FILEFOLDER + "/" + filepath + " not found");
+		if (filepaths != null) {
+			for (String filepath: filepaths) {
+				File file = new File(ServletUtilities.FILEFOLDER + "/" + filepath);
+				if (file.exists()) {
+					files.add(file);
+					ServletUtilities.log(ServletUtilities.FILEFOLDER + "/" + filepath + " found");
+				}				
+				else {
+					filesnotfound.add(filepath);
+					ServletUtilities.log(ServletUtilities.FILEFOLDER + "/" + filepath + " not found");
+				}
 			}
 		}
+
+		if (files.isEmpty())
+			throw new InvalidServletCallException("no valid files specified");
 
 		ServletUtilities.log("files found: " + files.size());
 		ServletUtilities.log("constraint found: " + constraints.size());
