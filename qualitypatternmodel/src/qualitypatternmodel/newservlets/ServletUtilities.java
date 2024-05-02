@@ -316,10 +316,10 @@ public abstract class ServletUtilities {
         if (!file.exists()) {
             // If the file doesn't exist, create it and initialize with an empty JSON object
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put(variableName, 0);
+//            jsonObject.put(variableName, 0);
             Files.write(Paths.get(filepath), jsonObject.toString().getBytes(), StandardOpenOption.CREATE);
             System.out.println("File created successfully: " + filepath);
-            return 0; // Return 0 as the initial value
+//            return 0; // Return 0 as the initial value
         }
 
         // Read JSON file

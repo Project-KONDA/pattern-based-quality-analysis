@@ -7,7 +7,7 @@ import java.util.List;
 import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 
-public class XmlPathParam_setValueFromStringTest {
+public class XmlPathParamStringTest {
 
 	public static void main(String[] args) throws InvalidityException {
 		
