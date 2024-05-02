@@ -13,7 +13,7 @@ import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlAxisPartCondition;
 import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
-
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
@@ -71,6 +71,14 @@ public class XmlAxisPartConditionImpl extends ParameterImpl implements XmlAxisPa
 	 */
 	protected XmlAxisPartConditionImpl() {
 		super();
+	}
+	
+	@Override
+	public String generateXQuery() throws InvalidityException {
+		String query = getXmlPropertyOption().generateXQuery().substring(1); // remove '/'
+		if (getTextLiteralParam() != null)
+			query += "=" + getTextLiteralParam().generateXQuery();
+		return "[" + query + "]";
 	}
 
 	/**
