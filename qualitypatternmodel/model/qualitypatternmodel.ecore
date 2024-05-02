@@ -91,8 +91,8 @@
           eType="#//operators/Match" eOpposite="#//operators/Match/regularExpression"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlPropertyOptionParam"
           eType="#//adaptionxml/XmlPropertyOptionParam" eOpposite="#//adaptionxml/XmlPropertyOptionParam/attributeName"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="xmlAxisPart" eType="#//adaptionxml/XmlAxisPart"
-          eOpposite="#//adaptionxml/XmlAxisPart/textLiteralParam"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="xmlAxisPartCondition"
+          eType="#//adaptionxml/XmlAxisPartCondition" eOpposite="#//adaptionxml/XmlAxisPartCondition/textLiteralParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="contains" upperBound="-1"
           eType="#//operators/Contains" eOpposite="#//operators/Contains/content"/>
     </eClassifiers>
@@ -840,8 +840,8 @@
           eType="#//adaptionxml/XmlPathParam" eOpposite="#//adaptionxml/XmlPathParam/xmlPropertyOptionParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="attributeName" eType="#//parameters/TextLiteralParam"
           containment="true" eOpposite="#//parameters/TextLiteralParam/xmlPropertyOptionParam"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="xmlAxisPart" eType="#//adaptionxml/XmlAxisPart"
-          eOpposite="#//adaptionxml/XmlAxisPart/xmlPropertyOption"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="xmlAxisPartCondition"
+          eType="#//adaptionxml/XmlAxisPartCondition" eOpposite="#//adaptionxml/XmlAxisPartCondition/xmlPropertyOption"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlPathParam" eSuperTypes="#//graphstructure/Adaptable #//parameters/Parameter">
       <eOperations name="setXmlAxis">
@@ -881,14 +881,22 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="inferElementTagSuggestionsFromOutgoingRelations" upperBound="-1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="textLiteralParam" lowerBound="1"
-          eType="#//parameters/TextLiteralParam" containment="true" eOpposite="#//parameters/TextLiteralParam/xmlAxisPart"/>
+      <eOperations name="setAxisOption">
+        <eParameters name="axis" eType="#//adaptionxml/XmlAxisKind"/>
+      </eOperations>
+      <eOperations name="addAxisCondition">
+        <eParameters name="propertyKind" eType="#//adaptionxml/XmlPropertyKind"/>
+      </eOperations>
+      <eOperations name="addAxisCondition">
+        <eParameters name="propertyKind" eType="#//adaptionxml/XmlPropertyKind"/>
+        <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlAxisOptionParam" lowerBound="1"
           eType="#//adaptionxml/XmlAxisOptionParam" containment="true" eOpposite="#//adaptionxml/XmlAxisOptionParam/xmlAxisPart"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlPathParam" lowerBound="1"
           eType="#//adaptionxml/XmlPathParam" eOpposite="#//adaptionxml/XmlPathParam/xmlAxisParts"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="xmlPropertyOption" eType="#//adaptionxml/XmlPropertyOptionParam"
-          eOpposite="#//adaptionxml/XmlPropertyOptionParam/xmlAxisPart"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="xmlAxisPartConditions"
+          upperBound="-1" eType="#//adaptionxml/XmlAxisPartCondition" eOpposite="#//adaptionxml/XmlAxisPartCondition/xmlAxisPart"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlNavigation" abstract="true" eSuperTypes="#//graphstructure/Relation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlPathParam" eType="#//adaptionxml/XmlPathParam"
@@ -908,6 +916,14 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="XmlAxisKindArray" instanceClassName="qualitypatternmodel.adaptionxml.XmlAxisKind[]"/>
+    <eClassifiers xsi:type="ecore:EClass" name="XmlAxisPartCondition" eSuperTypes="#//parameters/Parameter">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="xmlPropertyOption" lowerBound="1"
+          eType="#//adaptionxml/XmlPropertyOptionParam" eOpposite="#//adaptionxml/XmlPropertyOptionParam/xmlAxisPartCondition"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="textLiteralParam" eType="#//parameters/TextLiteralParam"
+          eOpposite="#//parameters/TextLiteralParam/xmlAxisPartCondition"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="xmlAxisPart" eType="#//adaptionxml/XmlAxisPart"
+          eOpposite="#//adaptionxml/XmlAxisPart/xmlAxisPartConditions"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="execution" nsURI="execution" nsPrefix="execution">
     <eClassifiers xsi:type="ecore:EClass" name="Result" abstract="true">
